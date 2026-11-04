@@ -614,5 +614,217 @@
       ],
       "modelAnswer": "I agree that old family objects are more interesting than new things from a store. The chest that Faisal and Noura excavated held a faded photograph, a compass, and a letter written by their own ancestor, which connected them directly to their great-grandfather's childhood. A new toy could never make Grandfather react the way he did, with such disbelief and joy, because a store-bought item carries no family history to decipher. Someone might argue that new things are more exciting because they work perfectly and have no damage, but the worn, faded condition of the chest's keepsakes is exactly what made them feel precious and irreplaceable."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "What is inside the small chest?",
+        "options": [
+          "A boat, a hat, and a key",
+          "A compass, a photo, a note",
+          "Gold coins and old maps",
+          "Food, water, and a lamp"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The text says the chest holds a compass, a photo, and a note.",
+        "wrong": {
+          "A": "No boat, hat, or key is in the chest.",
+          "C": "The text does not mention coins.",
+          "D": "Food and water are not in the chest."
+        }
+      },
+      {
+        "stem": "What do Faisal and Noura see right after the three rocks?",
+        "options": [
+          "A big house",
+          "A deep lake",
+          "A small shop",
+          "A tree"
+        ],
+        "answer": "D",
+        "skill": "sequence",
+        "why": "The text says they see three rocks and then they see a tree.",
+        "wrong": {
+          "A": "The house is where they started.",
+          "B": "No lake is in the story.",
+          "C": "No shop is in the story."
+        }
+      },
+      {
+        "stem": "Why is there a chest near the hill?",
+        "options": [
+          "Grandpa's dad hid it there",
+          "A storm washed it there",
+          "Noura left it there",
+          "A farmer lost it there"
+        ],
+        "answer": "A",
+        "skill": "cause-effect",
+        "why": "Grandpa says his dad hid something near the hill, and the note was written by his dad.",
+        "wrong": {
+          "B": "The text does not mention a storm.",
+          "C": "Noura finds the map and the chest; she did not leave it.",
+          "D": "The text does not mention a farmer."
+        }
+      },
+      {
+        "stem": "Why does Grandpa tell the children tales at the end?",
+        "options": [
+          "He is sleepy and wants a rest",
+          "He is angry about the dig",
+          "He is glad and thinks of his dad",
+          "He wants to hide the chest"
+        ],
+        "answer": "C",
+        "skill": "inference",
+        "why": "The chest came from his dad, so Grandpa is glad and shares tales.",
+        "wrong": {
+          "A": "The text says he is glad, not sleepy.",
+          "B": "The text says Grandpa is glad.",
+          "D": "The chest is in the open, not hidden."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "Where did Noura find the map?",
+        "options": [
+          "Under a loose floor board",
+          "In a box under old cloth",
+          "On a hill near the village",
+          "In a drawer in the kitchen"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The story says she found it in a wooden box, under some old cloth.",
+        "wrong": {
+          "A": "No floor board is mentioned.",
+          "C": "The hill is where the X points.",
+          "D": "The kitchen is not in the story."
+        }
+      },
+      {
+        "stem": "In the story, the word creaking describes stairs that —",
+        "options": [
+          "were brand new",
+          "made a squeaky sound",
+          "were very bright",
+          "were made of stone"
+        ],
+        "answer": "B",
+        "skill": "vocabulary",
+        "why": "The stairs are old, and creaking means they make a squeaky sound when stepped on.",
+        "wrong": {
+          "A": "They lead to an old, dusty attic.",
+          "C": "Creaking is a sound, not a light.",
+          "D": "The story does not say they are stone."
+        }
+      },
+      {
+        "stem": "How did the cousins know they had found the chest?",
+        "options": [
+          "Noura saw it on the ground",
+          "Grandfather called out to them",
+          "They heard a loud bell",
+          "Faisal's fingers struck metal"
+        ],
+        "answer": "D",
+        "skill": "cause-effect",
+        "why": "The story says Faisal's fingers struck something hard and metal in the dirt.",
+        "wrong": {
+          "A": "The chest was buried, so it was not on the ground.",
+          "B": "Grandfather stayed at home.",
+          "C": "No bell is in the story."
+        }
+      },
+      {
+        "stem": "The X on the map is called their \"first real clue.\" What does this suggest?",
+        "options": [
+          "It marks where to look",
+          "It is a mistake on the map",
+          "It shows the attic",
+          "It is the end of the trail"
+        ],
+        "answer": "A",
+        "skill": "inference",
+        "why": "The X is near the top of the hill, which tells them where to look.",
+        "wrong": {
+          "B": "The map leads to the chest, so it is no mistake.",
+          "C": "The map shows their house, not the attic.",
+          "D": "It is a clue at the start, not the end."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "When did the cousins set out on their adventure?",
+        "options": [
+          "At sunrise",
+          "At midnight",
+          "At noon",
+          "At sunset"
+        ],
+        "answer": "A",
+        "skill": "detail",
+        "why": "The story says they set out at sunrise while the village was still quiet.",
+        "wrong": {
+          "B": "They set out the next morning.",
+          "C": "They set out much earlier than noon.",
+          "D": "They set out when the day began."
+        }
+      },
+      {
+        "stem": "In the story, the word excavate most nearly means —",
+        "options": [
+          "to measure",
+          "to dig out",
+          "to cover up",
+          "to carry off"
+        ],
+        "answer": "B",
+        "skill": "vocabulary",
+        "why": "The cousins excavate dirt with a shovel to reach the chest, so it means to dig out.",
+        "wrong": {
+          "A": "They use a shovel, not a measuring tool.",
+          "C": "They uncover the chest.",
+          "D": "They carry the chest later."
+        }
+      },
+      {
+        "stem": "Why did the map crackle as Noura unfolded it?",
+        "options": [
+          "It was brittle with age",
+          "It was wet from rain",
+          "It was made of metal",
+          "It was a brand new map"
+        ],
+        "answer": "A",
+        "skill": "cause-effect",
+        "why": "The story says the map felt brittle yet soft, with edges soft with age.",
+        "wrong": {
+          "B": "Nothing in the story says it was wet.",
+          "C": "The map is like worn cloth, not metal.",
+          "D": "The story says the map is very old."
+        }
+      },
+      {
+        "stem": "What does the detail that the items were wrapped in old cloth suggest?",
+        "options": [
+          "The cousins had wrapped them",
+          "The chest was too large",
+          "They were kept safe with care",
+          "It shows that the chest was new"
+        ],
+        "answer": "C",
+        "skill": "inference",
+        "why": "The cloth suggests the great-grandfather took care to protect what he buried.",
+        "wrong": {
+          "A": "The cousins only just found them.",
+          "B": "The chest is described as small.",
+          "D": "The chest is rusty and decades old."
+        }
+      }
+    ]
   }
 }

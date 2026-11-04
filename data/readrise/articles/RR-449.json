@@ -614,5 +614,217 @@
       ],
       "modelAnswer": "I agree that compassion matters as much as medical skill when treating a frightened patient. In the story, Omar is too scared to let Aunt Huda examine him properly until Lina comforts him with a warm voice and a funny story. Without that compassion, the careful examination procedure might have taken much longer or upset Omar even more. Someone might argue that medical knowledge is what actually fixes an injury, but even perfect skill is hard to use well on a child who will not stay still, so comforting a patient is often what makes good treatment possible in the first place."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "What does Aunt Huda tell Omar to put on his foot?",
+        "options": [
+          "A warm blanket",
+          "Ice",
+          "A new shoe",
+          "Some hot water"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "Aunt Huda says, \"Rest now. Put ice on it.\"",
+        "wrong": {
+          "A": "A blanket is not mentioned.",
+          "C": "A shoe is not mentioned.",
+          "D": "She says ice, not hot water."
+        }
+      },
+      {
+        "stem": "In the story, the word rest means to —",
+        "options": [
+          "stop and let your body relax",
+          "run and jump on a bike",
+          "climb up a very tall tree",
+          "cry out loud for a long time"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "Aunt Huda tells Omar to rest now so that his hurt foot can heal.",
+        "wrong": {
+          "B": "Riding a bike hurt his foot.",
+          "C": "Climbing would hurt his foot more.",
+          "D": "Omar had already stopped crying."
+        }
+      },
+      {
+        "stem": "Why did Omar say thank you to Lina?",
+        "options": [
+          "She wrapped his sore foot",
+          "She gave him some cold ice",
+          "She fixed his broken bike",
+          "She helped him feel better"
+        ],
+        "answer": "D",
+        "skill": "cause-effect",
+        "why": "Lina sat with Omar and told him a joke, so he stopped crying and felt okay.",
+        "wrong": {
+          "A": "Aunt Huda wrapped his foot.",
+          "B": "Aunt Huda told him to use ice.",
+          "C": "His bike is not fixed in the story."
+        }
+      },
+      {
+        "stem": "Why does Lina want to be a doctor even more at the end?",
+        "options": [
+          "She wants to ride a bike every day",
+          "She learned kindness helps people heal",
+          "She wants to work at night with Aunt Huda",
+          "She wants to be like Omar when she grows"
+        ],
+        "answer": "B",
+        "skill": "inference",
+        "why": "Lina saw that her kind words helped Omar feel better, and her aunt said kindness is as good as being smart.",
+        "wrong": {
+          "A": "Riding bikes is not her goal.",
+          "C": "Night work is not mentioned.",
+          "D": "Omar is the patient, not who she wants to be."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "How often should Omar use ice on his ankle?",
+        "options": [
+          "Once a week",
+          "Every hour all day",
+          "Twice a day",
+          "Only when he cries"
+        ],
+        "answer": "C",
+        "skill": "detail",
+        "why": "Aunt Huda told his mother to let him rest and use ice twice a day.",
+        "wrong": {
+          "A": "Once a week is much less than the doctor said.",
+          "B": "The doctor said twice a day, not every hour.",
+          "D": "The ice is for his ankle, not for crying."
+        }
+      },
+      {
+        "stem": "In the article, the word examine means to —",
+        "options": [
+          "look at something closely",
+          "tell a funny story",
+          "wrap with a soft bandage",
+          "walk from room to room"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "Aunt Huda gently examined the ankle, checking for anything wrong, so it means to look closely.",
+        "wrong": {
+          "B": "Lina told the funny story.",
+          "C": "Wrapping came after the exam.",
+          "D": "Lina followed her from room to room."
+        }
+      },
+      {
+        "stem": "Why did Omar let Aunt Huda finish her exam without pulling away?",
+        "options": [
+          "His mother held his foot very still for her",
+          "The ankle did not hurt any more at all",
+          "He wanted to leave the clinic very soon",
+          "He felt less nervous after Lina's kind talk"
+        ],
+        "answer": "D",
+        "skill": "cause-effect",
+        "why": "The article says he felt less nervous now that someone was talking kindly to him.",
+        "wrong": {
+          "A": "His mother is not said to hold his foot.",
+          "B": "The ankle still needed ice and rest.",
+          "C": "Leaving is not mentioned."
+        }
+      },
+      {
+        "stem": "Why does the author say Lina promised to stay quiet and careful?",
+        "options": [
+          "She wanted to leave early",
+          "She did not like the clinic",
+          "She took the visit seriously",
+          "She was afraid of Omar"
+        ],
+        "answer": "C",
+        "skill": "inference",
+        "why": "Lina could hardly wait to shadow her aunt, so her promise shows she took the day seriously.",
+        "wrong": {
+          "A": "She was excited to be there all day.",
+          "B": "She dreamed of being a doctor.",
+          "D": "She sat beside Omar and comforted him."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "As a small child, what did Lina pretend to do with her toy stethoscope?",
+        "options": [
+          "Listen to music on the radio",
+          "Check her toys' heartbeats",
+          "Wake up her aunt late at night",
+          "Count the steps up to the clinic"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The article says she carried a toy stethoscope and pretended to check her stuffed animals' heartbeats.",
+        "wrong": {
+          "A": "A radio is not mentioned.",
+          "C": "Waking her aunt is not mentioned.",
+          "D": "Counting steps is not mentioned."
+        }
+      },
+      {
+        "stem": "In the article, the word empathy most nearly means —",
+        "options": [
+          "a loud voice used to give orders",
+          "a plan for a long school day",
+          "a tool for checking an ankle",
+          "understanding how someone else feels"
+        ],
+        "answer": "D",
+        "skill": "vocabulary",
+        "why": "Omar felt less afraid because he was treated with empathy, meaning care for his feelings.",
+        "wrong": {
+          "A": "The people spoke softly, not loudly.",
+          "B": "A school plan is not the meaning.",
+          "C": "Empathy is a feeling, not a tool."
+        }
+      },
+      {
+        "stem": "What helped Omar feel far less afraid during the exam?",
+        "options": [
+          "Being treated with understanding",
+          "Seeing a new type of bandage",
+          "Hearing his mother give orders",
+          "Being left alone in the room"
+        ],
+        "answer": "A",
+        "skill": "cause-effect",
+        "why": "The article says he felt far less afraid because someone was treating him with such empathy.",
+        "wrong": {
+          "B": "The bandage came after he calmed down.",
+          "C": "His mother only came with him.",
+          "D": "Lina sat beside him."
+        }
+      },
+      {
+        "stem": "Why does the author begin with Lina's toy stethoscope?",
+        "options": [
+          "To show the clinic was missing a tool",
+          "To explain how doctors use stethoscopes",
+          "To show that Lina's dream began in childhood",
+          "To show that Omar was afraid of doctors"
+        ],
+        "answer": "C",
+        "skill": "author-purpose",
+        "why": "The toy stethoscope shows her wish to be a doctor began when she was very small.",
+        "wrong": {
+          "A": "The clinic has all it needs.",
+          "B": "The article does not teach how doctors use stethoscopes.",
+          "D": "Omar is not part of the opening."
+        }
+      }
+    ]
   }
 }

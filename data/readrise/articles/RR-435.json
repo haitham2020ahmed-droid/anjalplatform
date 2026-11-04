@@ -614,5 +614,217 @@
       ],
       "modelAnswer": "I agree that imagining a fun game while practicing makes hard work feel easier. Yousef's habit of visualizing himself racing the wind turns his difficult coastal practice into something exhilarating rather than exhausting, and that same mental game gives him the perseverance he needs when he becomes utterly exhausted during the real race. Someone might argue that imagination cannot actually change how tired your body feels, but Yousef's steady pace and strong finish suggest that shifting your focus really can help you push through real physical exhaustion."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "How does Yousef feel when he races the wind?",
+        "options": [
+          "Happy",
+          "Sad",
+          "Scared",
+          "Sleepy"
+        ],
+        "answer": "A",
+        "skill": "detail",
+        "why": "The text says the wind blows past him and he feels happy.",
+        "wrong": {
+          "B": "He feels happy, not sad.",
+          "C": "Fear is not mentioned in the game.",
+          "D": "Sleepiness is not mentioned."
+        }
+      },
+      {
+        "stem": "What kind of race does Yousef's school have?",
+        "options": [
+          "A short race",
+          "A long race",
+          "A swimming race",
+          "A night race"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The text says it is a long race that all the kids will run.",
+        "wrong": {
+          "A": "The race is long, not short.",
+          "C": "Swimming is not mentioned.",
+          "D": "A night race is not mentioned."
+        }
+      },
+      {
+        "stem": "Why is Yousef's coach proud?",
+        "options": [
+          "Yousef came first.",
+          "Yousef was very fast.",
+          "Yousef tried his best.",
+          "Yousef did not run."
+        ],
+        "answer": "C",
+        "skill": "cause-effect",
+        "why": "Yousef does not come first, but he tries his best, so his coach is proud.",
+        "wrong": {
+          "A": "He does not come first.",
+          "B": "Speed is not the reason given.",
+          "D": "Yousef runs the whole race."
+        }
+      },
+      {
+        "stem": "What does Yousef do right after he feels tired?",
+        "options": [
+          "He sits by the sea.",
+          "He runs home.",
+          "He asks his coach to wait.",
+          "He thinks of his game."
+        ],
+        "answer": "D",
+        "skill": "sequence",
+        "why": "The text says he feels tired and wants to stop, then he thinks of his game.",
+        "wrong": {
+          "A": "He does not sit by the sea.",
+          "B": "He stays in the race.",
+          "C": "He does not ask the coach to wait."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "When does Yousef run along the coast?",
+        "options": [
+          "After school",
+          "At night",
+          "Every morning",
+          "Only on weekends"
+        ],
+        "answer": "C",
+        "skill": "detail",
+        "why": "The text says he jogs along the sandy coast every morning before school.",
+        "wrong": {
+          "A": "He runs before school, not after.",
+          "B": "Night is not mentioned.",
+          "D": "He runs every morning, not only on weekends."
+        }
+      },
+      {
+        "stem": "In the story, a rival is someone who —",
+        "options": [
+          "competes against you",
+          "cheers for you",
+          "teaches you to run",
+          "waits for you at home"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "Yousef imagines the wind as a rival he races against.",
+        "wrong": {
+          "B": "A rival does not cheer; Yousef races the wind.",
+          "C": "The coach teaches, not the rival.",
+          "D": "Waiting at home is not meant."
+        }
+      },
+      {
+        "stem": "How does Yousef's game change his hard runs?",
+        "options": [
+          "It makes the runs shorter.",
+          "It makes hard parts exciting.",
+          "It makes the wind stop.",
+          "It makes him run alone."
+        ],
+        "answer": "B",
+        "skill": "cause-effect",
+        "why": "The text says the game turns hard parts of his run into something exciting instead of tiring.",
+        "wrong": {
+          "A": "The length of the runs does not change.",
+          "C": "The wind does not stop.",
+          "D": "He already runs alone."
+        }
+      },
+      {
+        "stem": "Why does Yousef close his eyes when he remembers the game?",
+        "options": [
+          "He wants to sleep.",
+          "He is scared of the crowd.",
+          "He wants to hide from the coach.",
+          "He wants to picture the wind."
+        ],
+        "answer": "D",
+        "skill": "inference",
+        "why": "He closes his eyes to imagine racing the wind again, which gives him new determination.",
+        "wrong": {
+          "A": "He keeps running, so he is not sleeping.",
+          "B": "No crowd fear is mentioned.",
+          "C": "His coach is proud of him."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "How many times does the race loop around the school field?",
+        "options": [
+          "Twice",
+          "Three times",
+          "Once",
+          "Four times"
+        ],
+        "answer": "A",
+        "skill": "detail",
+        "why": "The text says the long race loops twice around the school field.",
+        "wrong": {
+          "B": "Three times is not mentioned.",
+          "C": "Once is not what the text says.",
+          "D": "Four times is not mentioned."
+        }
+      },
+      {
+        "stem": "In the story, the word exhilarating means —",
+        "options": [
+          "slow and boring",
+          "hard to remember",
+          "thrilling and lively",
+          "quiet and calm"
+        ],
+        "answer": "C",
+        "skill": "vocabulary",
+        "why": "The game turns hard stretches into something exhilarating rather than merely exhausting, so it feels thrilling.",
+        "wrong": {
+          "A": "The game makes the run less boring.",
+          "B": "Memory is not the meaning.",
+          "D": "The game is lively, not calm."
+        }
+      },
+      {
+        "stem": "Why does the story call Yousef's game a mental game?",
+        "options": [
+          "It happens only in his mind.",
+          "It needs a team of players.",
+          "It is played inside a room.",
+          "It is a game about numbers."
+        ],
+        "answer": "A",
+        "skill": "cause-effect",
+        "why": "He visualizes racing the wind in his mind while he runs, so the game is mental.",
+        "wrong": {
+          "B": "He plays alone.",
+          "C": "He plays while running outside.",
+          "D": "Numbers are not mentioned."
+        }
+      },
+      {
+        "stem": "What does the coach praise besides Yousef's effort?",
+        "options": [
+          "His new shoes",
+          "His loud cheers",
+          "His fast start",
+          "His steady pace"
+        ],
+        "answer": "D",
+        "skill": "detail",
+        "why": "The coach is proud of the remarkable endurance and steady pace Yousef kept to the end.",
+        "wrong": {
+          "A": "Shoes are not mentioned.",
+          "B": "The classmates cheered, not Yousef.",
+          "C": "A fast start is not mentioned."
+        }
+      }
+    ]
   }
 }

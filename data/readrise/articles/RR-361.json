@@ -614,5 +614,217 @@
       ],
       "modelAnswer": "I agree that a well-taught child can handle an adult's job in an emergency. Yusuf had spent many months learning how the lamp worked and memorizing the winding stairs, so when his father was hurt, he was not starting from nothing. His instinct to repeat his father's calm instructions, rather than panic, shows how deeply the training had sunk in. Someone might argue that a child's fear could still cause mistakes under real pressure, but the story shows Yusuf's legs shaking with fear even as he kept climbing and completed the job correctly, which suggests that solid preparation can carry a person through fear rather than being erased by it."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "What does Yusuf do to the lamp at the top of the stairs?",
+        "options": [
+          "He turns a switch.",
+          "He paints the glass.",
+          "He fills it with oil.",
+          "He carries it down."
+        ],
+        "answer": "A",
+        "skill": "detail",
+        "why": "The text says Yusuf checks the lamp and turns a switch, and then the beam spins.",
+        "wrong": {
+          "B": "The text does not say Yusuf paints anything.",
+          "C": "The text does not mention oil.",
+          "D": "The lamp stays at the top; Yusuf does not carry it."
+        }
+      },
+      {
+        "stem": "Why does Yusuf know what to do in the storm?",
+        "options": [
+          "A worker tells him the steps.",
+          "He reads a book about lamps.",
+          "His father taught him well.",
+          "The ships call for help."
+        ],
+        "answer": "C",
+        "skill": "inference",
+        "why": "The text says Yusuf knows what to do because his father taught him well.",
+        "wrong": {
+          "A": "No worker is in the story.",
+          "B": "The text does not mention a book.",
+          "D": "The ships do not call anyone in the story."
+        }
+      },
+      {
+        "stem": "In the story, the word keeper means —",
+        "options": [
+          "a ship that sails on the sea",
+          "a person who cares for the light",
+          "a very big wave in the sea",
+          "a set of long and tall stairs"
+        ],
+        "answer": "B",
+        "skill": "vocabulary",
+        "why": "Yusuf's father is the keeper, and he makes the light shine.",
+        "wrong": {
+          "A": "The keeper is a person, not a ship.",
+          "C": "A wave is water, not a job.",
+          "D": "The stairs are a place, not a person."
+        }
+      },
+      {
+        "stem": "What does Yusuf do right after he climbs the stairs?",
+        "options": [
+          "He helps his father stand.",
+          "He goes back to sleep.",
+          "He calls to the ships.",
+          "He checks the lamp."
+        ],
+        "answer": "D",
+        "skill": "sequence",
+        "why": "After Yusuf climbs the stairs alone, the text says he checks the lamp.",
+        "wrong": {
+          "A": "His father cannot stand, and Yusuf is at the top.",
+          "B": "Yusuf stays awake all night.",
+          "C": "The text does not say he calls to the ships."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "Where on the stairs does Yusuf's father fall?",
+        "options": [
+          "At the very top by the lamp",
+          "Halfway up the dark stairway",
+          "At the bottom by the door",
+          "Outside on the sharp rocks"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The text says he falls halfway up the dark stairway.",
+        "wrong": {
+          "A": "He never reaches the top.",
+          "C": "He has already climbed part of the stairs.",
+          "D": "He falls inside the lighthouse, not outside."
+        }
+      },
+      {
+        "stem": "What causes Yusuf's father to fall?",
+        "options": [
+          "His foot slips on a wet step.",
+          "The wind blows out his lantern.",
+          "A big wave hits the tower.",
+          "He feels dizzy from the height."
+        ],
+        "answer": "A",
+        "skill": "cause-effect",
+        "why": "The text says his foot slips on a wet step and he falls against the wall.",
+        "wrong": {
+          "B": "The text does not say the lantern goes out.",
+          "C": "Waves crash on the rocks far below, not on him.",
+          "D": "The text does not mention dizziness."
+        }
+      },
+      {
+        "stem": "In the story, the word howl best describes winds that —",
+        "options": [
+          "move very slowly",
+          "make a loud, long sound",
+          "shine very bright",
+          "make no sound at all"
+        ],
+        "answer": "B",
+        "skill": "vocabulary",
+        "why": "The winds howl around the walls and rattle the windows, so they are loud.",
+        "wrong": {
+          "A": "Strong winds in a storm are not slow.",
+          "C": "Wind makes sound; it does not shine.",
+          "D": "The windows rattle, so there is noise."
+        }
+      },
+      {
+        "stem": "Why does the author say Yusuf's legs feel shaky but he keeps going?",
+        "options": [
+          "To show the stairs are very short",
+          "To show Yusuf wants to quit",
+          "To show Yusuf is brave though scared",
+          "To show his father is not hurt"
+        ],
+        "answer": "C",
+        "skill": "author-purpose",
+        "why": "His legs shake, yet he keeps climbing, which shows courage while afraid.",
+        "wrong": {
+          "A": "The stairs wind up toward the light room and are long.",
+          "B": "He keeps going, so he does not quit.",
+          "D": "His father has a badly twisted ankle."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "Which job does Yusuf do for his father in the afternoons after school?",
+        "options": [
+          "He steers the ships into the harbor.",
+          "He repairs the rusted shutters.",
+          "He cleans the glass around the lamp.",
+          "He lights the emergency lantern."
+        ],
+        "answer": "C",
+        "skill": "detail",
+        "why": "The text says he meticulously cleans the thick glass that encases the rotating lamp.",
+        "wrong": {
+          "A": "Ships are not steered by Yusuf.",
+          "B": "The shutters rattle in the storm, but he does not repair them.",
+          "D": "His father grabs the lantern during the storm."
+        }
+      },
+      {
+        "stem": "What makes it impossible for Yusuf's father to stand upright after he falls?",
+        "options": [
+          "His arm is trapped under the rail.",
+          "He is too tired from climbing.",
+          "The wind pushes him down again.",
+          "His ankle twists with sharp pain."
+        ],
+        "answer": "D",
+        "skill": "cause-effect",
+        "why": "The text says his ankle twists and the pain is so sharp he cannot stand upright.",
+        "wrong": {
+          "A": "No trapped arm is mentioned.",
+          "B": "The text says pain stops him, not tiredness.",
+          "C": "The fall happens inside the stairwell, away from the wind."
+        }
+      },
+      {
+        "stem": "In the story, the word consequential most nearly means —",
+        "options": [
+          "important",
+          "dangerous",
+          "enjoyable",
+          "quick"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "The tasks are small, but they matter to keeping the lighthouse working, so they are important.",
+        "wrong": {
+          "B": "The tasks are chores like cleaning, not dangerous.",
+          "C": "The text does not say Yusuf enjoys them.",
+          "D": "Nothing says the tasks are quick."
+        }
+      },
+      {
+        "stem": "What can the reader infer from the father leaning on a borrowed cane at the end?",
+        "options": [
+          "He is still hurt from the fall.",
+          "He wants to leave the lighthouse.",
+          "He is angry at Yusuf.",
+          "He lost the cane in the storm."
+        ],
+        "answer": "A",
+        "skill": "inference",
+        "why": "His ankle was twisted badly, so he still needs a cane to walk the next morning.",
+        "wrong": {
+          "B": "He regards his son with pride, not a wish to leave.",
+          "C": "He looks at Yusuf with pride.",
+          "D": "The cane is borrowed, so he did not lose it."
+        }
+      }
+    ]
   }
 }

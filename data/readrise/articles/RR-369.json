@@ -614,5 +614,217 @@
       ],
       "modelAnswer": "I partly disagree that children should never snorkel near a reef without an adult right beside them. The story shows that Faisal and Yousef survived because Uncle Khalid had already taught them what to do before the swim, not because an adult was swimming between them at every moment. They used his advice about swimming diagonally across the current and watching for the landmark to get safely to shore. Someone might argue that an adult nearby could have prevented the danger entirely, which is true, but the story also shows that clear preparation and calm thinking can be just as important as constant supervision."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "What colors are the fish that the boys see at the reef?",
+        "options": [
+          "Red and green",
+          "Black and white",
+          "Yellow and blue",
+          "Pink and orange"
+        ],
+        "answer": "C",
+        "skill": "detail",
+        "why": "The text says the fish at the reef are yellow and blue.",
+        "wrong": {
+          "A": "The fish are not red and green.",
+          "B": "The fish are not black and white.",
+          "D": "The fish are not pink and orange."
+        }
+      },
+      {
+        "stem": "Why do the boys not notice how far the boat is?",
+        "options": [
+          "They fall asleep in the warm sun.",
+          "They take off their masks and fins.",
+          "The boat moves out to sea alone.",
+          "They chase fish, not looking back."
+        ],
+        "answer": "D",
+        "skill": "cause-effect",
+        "why": "The text says they swim after the fish and do not look back, so the boat is far away.",
+        "wrong": {
+          "A": "The boys are swimming, not sleeping.",
+          "B": "They keep their masks and fins on.",
+          "C": "The boat does not move on its own."
+        }
+      },
+      {
+        "stem": "In the story, the word shore means —",
+        "options": [
+          "land at the edge of the sea",
+          "a deep part of the ocean",
+          "a fish with a bright tail",
+          "a boat with a red sail"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "The flag is on the shore, and the boys swim to it to get out of the water.",
+        "wrong": {
+          "B": "The boys swim to the shore to leave the deep water.",
+          "C": "The boys reach the shore on their feet; it is not a fish.",
+          "D": "The boat is Uncle Khalid's; the shore is where the flag is."
+        }
+      },
+      {
+        "stem": "Why does Uncle Khalid run to the boys at the end?",
+        "options": [
+          "He wants to win a race.",
+          "He was worried about them.",
+          "He has lost his flag.",
+          "He is angry at the fish."
+        ],
+        "answer": "B",
+        "skill": "inference",
+        "why": "He is so glad the boys are safe, which shows he was worried about them.",
+        "wrong": {
+          "A": "The story has no race.",
+          "C": "The red flag is still on the shore.",
+          "D": "Nothing in the story says he is angry."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "How does the red flag look to the boys when they spot it from the water?",
+        "options": [
+          "A wide, flapping sail",
+          "A bright, shining star",
+          "A tall wooden pole",
+          "A tiny red speck far away"
+        ],
+        "answer": "D",
+        "skill": "detail",
+        "why": "The text says they spotted the flag as a tiny red speck far away.",
+        "wrong": {
+          "A": "The flag is far away and small, not wide.",
+          "B": "It is a flag on the beach, not a star.",
+          "C": "The text calls it a tiny speck, not a tall pole."
+        }
+      },
+      {
+        "stem": "What happens when the boys angle their strokes sideways?",
+        "options": [
+          "They stop swimming at all.",
+          "The current helps them.",
+          "The boat comes to find them.",
+          "They swim into deeper water."
+        ],
+        "answer": "B",
+        "skill": "cause-effect",
+        "why": "The text says the current began to help them instead of fight them.",
+        "wrong": {
+          "A": "They keep swimming, pausing now and then.",
+          "C": "Uncle Khalid is waiting on the beach, not on the boat.",
+          "D": "They swim across the current toward the shore."
+        }
+      },
+      {
+        "stem": "In the story, the word angled means —",
+        "options": [
+          "pointed in a slant",
+          "held very still",
+          "made much louder",
+          "tied to the boat"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "The boys swim sideways across the current, so they point their strokes in a slanted direction.",
+        "wrong": {
+          "B": "The boys are swimming, not staying still.",
+          "C": "Loudness has nothing to do with swimming strokes.",
+          "D": "They are far from the boat and not tied to it."
+        }
+      },
+      {
+        "stem": "Why does the author describe the colorful fish before the boys get lost?",
+        "options": [
+          "To show the sea is always safe",
+          "To explain how to catch fish",
+          "To show why the boys drift away",
+          "To tell about the boat's engine"
+        ],
+        "answer": "C",
+        "skill": "author-purpose",
+        "why": "The boys are so excited by the fish that they follow them and drift from the boat.",
+        "wrong": {
+          "A": "The boys end up in danger, so the sea is not always safe.",
+          "B": "The boys are looking at the fish, not catching them.",
+          "D": "The boat's engine is never described."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "What do the boys do when they pause while swimming toward the shore?",
+        "options": [
+          "They race each other to the flag.",
+          "They float and call out encouragement.",
+          "They dive down to look for fish.",
+          "They wait for Uncle Khalid's boat."
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The text says they float on their backs to recover and call out encouragement to one another.",
+        "wrong": {
+          "A": "They are tired and help each other, not race.",
+          "C": "They are trying to get home, not look at fish.",
+          "D": "The boat is out of sight and does not come."
+        }
+      },
+      {
+        "stem": "In the passage, the word composure most nearly means —",
+        "options": [
+          "a loud, bright sound",
+          "a heavy kind of weight",
+          "a quick type of race",
+          "calm control of feelings"
+        ],
+        "answer": "D",
+        "skill": "vocabulary",
+        "why": "Faisal struggles to stay calm, and Uncle Khalid thanks the boys for staying calm instead of panicking.",
+        "wrong": {
+          "A": "The word describes feelings, not sound.",
+          "B": "The word describes how Faisal feels, not weight.",
+          "C": "The word is about staying calm, not speed."
+        }
+      },
+      {
+        "stem": "Why is the flag hard for the boys to see from the water?",
+        "options": [
+          "It is hidden behind a boat.",
+          "It has no bright color.",
+          "Sunlight glare nearly hides it.",
+          "The waves are too tall."
+        ],
+        "answer": "C",
+        "skill": "cause-effect",
+        "why": "The text says the flag is a tiny red speck nearly swallowed by the glare of sunlight.",
+        "wrong": {
+          "A": "No boat hides the flag.",
+          "B": "The flag is red, so it has color.",
+          "D": "The text blames the sunlight glare, not tall waves."
+        }
+      },
+      {
+        "stem": "Why does Uncle Khalid give the boys a serious talk before they leave the dock?",
+        "options": [
+          "He knows the sea can be dangerous.",
+          "He wants to show off his boat.",
+          "He is worried they will eat too much.",
+          "He does not want them to swim."
+        ],
+        "answer": "A",
+        "skill": "inference",
+        "why": "He says the sea is beautiful but powerful and teaches them what to do in a current.",
+        "wrong": {
+          "B": "He talks about safety, not his boat.",
+          "C": "Food is not mentioned.",
+          "D": "He lets them snorkel, and he teaches them how to swim safely."
+        }
+      }
+    ]
   }
 }

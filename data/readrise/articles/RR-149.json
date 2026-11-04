@@ -614,5 +614,217 @@
       ],
       "modelAnswer": "Two scientific principles explained in the article are buoyancy and drag, often felt as resistance in the water. Buoyancy is the upward push of water on an object, so a swimmer who takes a deep breath fills their lungs with air and floats higher, which helps them stay safe and conserve energy. Drag, however, slows a swimmer down because water is much denser than air, so skilled swimmers keep their bodies flat and stretch into a streamlined position to propel themselves through the water more efficiently. Understanding both principles helps a swimmer move faster while staying safe in the pool."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "How many main strokes are there?",
+        "options": [
+          "Two",
+          "Four",
+          "Six",
+          "Ten"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The text says there are four main strokes.",
+        "wrong": {
+          "A": "There are four, not two.",
+          "C": "There are four, not six.",
+          "D": "There are four, not ten."
+        }
+      },
+      {
+        "stem": "In the article, a \"stroke\" is",
+        "options": [
+          "a kind of pool",
+          "a loud splash",
+          "a deep breath",
+          "one way to swim"
+        ],
+        "answer": "D",
+        "skill": "vocabulary",
+        "why": "The text says each way to swim is a stroke.",
+        "wrong": {
+          "A": "A stroke is a way to swim, not a place.",
+          "B": "A splash is not what the text calls a stroke.",
+          "C": "Breathing is a separate idea in the text."
+        }
+      },
+      {
+        "stem": "How should you place your hands to slide on in the water?",
+        "options": [
+          "Point them in front",
+          "Hold them at your back",
+          "Press them to your face",
+          "Wave them in the air"
+        ],
+        "answer": "A",
+        "skill": "detail",
+        "why": "The text says to point your hands in front and then you slide on.",
+        "wrong": {
+          "B": "The text says to point them in front.",
+          "C": "The text says to point them in front.",
+          "D": "Waving them in the air would not help you slide."
+        }
+      },
+      {
+        "stem": "Why would a racer pick the front crawl?",
+        "options": [
+          "It is the slowest stroke",
+          "It needs no kicking",
+          "It is the fastest stroke",
+          "It is the easiest to learn"
+        ],
+        "answer": "C",
+        "skill": "inference",
+        "why": "The text says the front crawl is the fastest stroke, which helps a racer win.",
+        "wrong": {
+          "A": "The front crawl is the fastest.",
+          "B": "The text says to kick with your feet.",
+          "D": "The text does not say it is the easiest."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "Which of these is one of the four main strokes?",
+        "options": [
+          "Butterfly",
+          "Dog paddle",
+          "Floating",
+          "Treading"
+        ],
+        "answer": "A",
+        "skill": "detail",
+        "why": "The text names front crawl, backstroke, breaststroke, and butterfly.",
+        "wrong": {
+          "B": "Dog paddle is not named.",
+          "C": "Floating is how a body rests on water, not a main stroke.",
+          "D": "Treading is not named."
+        }
+      },
+      {
+        "stem": "Why do most racers choose the front crawl?",
+        "options": [
+          "It is the easiest to learn",
+          "It uses only the legs",
+          "It is the fastest stroke",
+          "It costs the least money"
+        ],
+        "answer": "C",
+        "skill": "cause-effect",
+        "why": "The text says the front crawl is the fastest, which is why most racers choose it.",
+        "wrong": {
+          "A": "The text does not say it is easiest.",
+          "B": "Swimmers use hands and feet.",
+          "D": "Cost is not mentioned."
+        }
+      },
+      {
+        "stem": "In the article, buoyancy is",
+        "options": [
+          "a kind of swimming stroke",
+          "the upward push of water",
+          "the speed of a swimmer",
+          "a way to breathe out"
+        ],
+        "answer": "B",
+        "skill": "vocabulary",
+        "why": "The article says water pushes up on anything placed in it, and this upward push is called buoyancy.",
+        "wrong": {
+          "A": "The strokes have other names, like the crawl.",
+          "C": "Buoyancy is a push, not a speed.",
+          "D": "Breathing out is a different idea."
+        }
+      },
+      {
+        "stem": "Why do swimmers blow out bubbles under the water?",
+        "options": [
+          "To scare away the small fish",
+          "To help them sink to the floor",
+          "To clean the water around them",
+          "To make room for fresh air"
+        ],
+        "answer": "D",
+        "skill": "inference",
+        "why": "They blow out air under the water and then lift their heads to take in fresh air.",
+        "wrong": {
+          "A": "The text does not mention fish.",
+          "B": "Swimmers want to float and slide, not sink.",
+          "C": "The text does not say this."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "According to the article, swimming puts little stress on what part of the body?",
+        "options": [
+          "The ears",
+          "The eyes",
+          "The joints",
+          "The lungs"
+        ],
+        "answer": "C",
+        "skill": "detail",
+        "why": "The text says swimming places relatively little stress on the joints.",
+        "wrong": {
+          "A": "The ears are not mentioned.",
+          "B": "The eyes are not mentioned.",
+          "D": "The text says swimming strengthens the lungs."
+        }
+      },
+      {
+        "stem": "The article says you need to \"propel\" yourself forward. What does propel mean?",
+        "options": [
+          "move forward",
+          "hold still",
+          "stay afloat",
+          "slow down"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "You push water back so that the water pushes you forward, so propel means to move forward.",
+        "wrong": {
+          "B": "You need to move, not hold still.",
+          "C": "Floating is the first step, not propelling.",
+          "D": "Slowing is the job of drag."
+        }
+      },
+      {
+        "stem": "Why will a deep breath help you float higher?",
+        "options": [
+          "Air makes the body heavier",
+          "Air pushes the water backward",
+          "Air warms the water around you",
+          "Air makes the body less dense"
+        ],
+        "answer": "D",
+        "skill": "cause-effect",
+        "why": "The text says the air in your lungs makes your body less dense.",
+        "wrong": {
+          "A": "Air makes you lighter, not heavier.",
+          "B": "Pushing water back is how you move forward.",
+          "C": "The text does not mention warming."
+        }
+      },
+      {
+        "stem": "Why does the author end with advice about adults and lifeguards?",
+        "options": [
+          "To compare pools with beaches",
+          "To remind readers about safety",
+          "To prove the front crawl is best",
+          "To explain how drag works"
+        ],
+        "answer": "B",
+        "skill": "author-purpose",
+        "why": "The final advice tells readers to swim where an adult or lifeguard can watch them.",
+        "wrong": {
+          "A": "Pools and beaches are named only as places to be safe.",
+          "C": "The front crawl is discussed earlier.",
+          "D": "Drag is explained earlier."
+        }
+      }
+    ]
   }
 }

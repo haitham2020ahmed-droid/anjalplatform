@@ -614,5 +614,217 @@
       ],
       "modelAnswer": "A smell begins when floating molecules reach specialized receptors in the olfactory epithelium, and a matching molecule causes a receptor to fire an electrical signal once the smell crosses a certain threshold of strength. This signal travels along the olfactory nerve to the olfactory bulb, which sorts and strengthens signals from thousands of receptors before passing a combined pattern deeper into the brain. Because this pathway connects more directly to brain areas tied to memory and emotion than most other senses do, a single familiar smell can evoke a powerful memory almost instantly, as a result of this close biological connection."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "What is true about the tiny bits in the air?",
+        "options": [
+          "You can taste them",
+          "You can hear them",
+          "You can not see them",
+          "You can touch them"
+        ],
+        "answer": "C",
+        "skill": "detail",
+        "why": "The article says the tiny bits are in the air and you can not see them.",
+        "wrong": {
+          "A": "Tasting them is not mentioned.",
+          "B": "Hearing them is not mentioned.",
+          "D": "Touching them is not mentioned."
+        }
+      },
+      {
+        "stem": "In the article, the word blocked means —",
+        "options": [
+          "closed up",
+          "very big",
+          "very clean",
+          "made louder"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "A blocked nose cannot let air and smells in, so food tastes dull.",
+        "wrong": {
+          "B": "A blocked nose is not bigger.",
+          "C": "Clean is not related.",
+          "D": "Loudness is not related."
+        }
+      },
+      {
+        "stem": "What can a smell do for your memory?",
+        "options": [
+          "It can make you forget",
+          "It can make you sleepy",
+          "It can change your taste",
+          "It can wake up a memory"
+        ],
+        "answer": "D",
+        "skill": "cause-effect",
+        "why": "The article says a smell can wake up a memory and make you think of a happy day.",
+        "wrong": {
+          "A": "The article says smells bring memories back, not erase them.",
+          "B": "Sleepiness is not mentioned.",
+          "C": "The nose helps with taste, but this is not about memory."
+        }
+      },
+      {
+        "stem": "Why does the author start with a flower and bread?",
+        "options": [
+          "To give two smells you know",
+          "To say flowers taste good",
+          "To show bread is dull",
+          "To teach how to cook"
+        ],
+        "answer": "A",
+        "skill": "author-purpose",
+        "why": "They are easy examples of smells that start the question of how the nose knows.",
+        "wrong": {
+          "B": "Flowers are for smelling here.",
+          "C": "Bread is not called dull.",
+          "D": "The article is not about cooking."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "According to the article, what is a smell really?",
+        "options": [
+          "A kind of sound",
+          "A cloud of molecules",
+          "A tiny cell",
+          "A part of the tongue"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The article says every smell is a cloud of molecules drifting through the air.",
+        "wrong": {
+          "A": "Smell is not a sound.",
+          "C": "Cells are the receptors, not the smell itself.",
+          "D": "The tongue does not make smells."
+        }
+      },
+      {
+        "stem": "In the article, the word dull means —",
+        "options": [
+          "very sweet",
+          "very hot",
+          "too salty",
+          "plain and weak"
+        ],
+        "answer": "D",
+        "skill": "vocabulary",
+        "why": "When a cold blocks the nose, food tastes plain because the smell part is missing.",
+        "wrong": {
+          "A": "Sweet is one basic taste, not the meaning of dull.",
+          "B": "Heat is not related.",
+          "C": "Saltiness is a basic taste, but it is not the meaning here."
+        }
+      },
+      {
+        "stem": "What does a receptor do when a matching molecule fits?",
+        "options": [
+          "It sends a signal",
+          "It shuts the nose",
+          "It cleans the air",
+          "It changes the molecule"
+        ],
+        "answer": "A",
+        "skill": "cause-effect",
+        "why": "The article says the receptor fires off a signal when a matching molecule fits.",
+        "wrong": {
+          "B": "The nose is not shut by receptors.",
+          "C": "Receptors do not clean the air.",
+          "D": "The molecule is not changed in the article."
+        }
+      },
+      {
+        "stem": "Why can your nose tell a flower from bread so quickly?",
+        "options": [
+          "Bread is warmer than a flower",
+          "Flowers have no molecules",
+          "Each receptor catches one smell",
+          "The tongue does all of the work"
+        ],
+        "answer": "C",
+        "skill": "inference",
+        "why": "Each type of receptor catches one kind of smell, so different smells match different receptors.",
+        "wrong": {
+          "A": "Warmth is not the reason given.",
+          "B": "Every smell is made of molecules.",
+          "D": "The tongue alone detects only a few basic things."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "In the article, the word distinguish means to —",
+        "options": [
+          "forget about",
+          "make louder",
+          "hold tight",
+          "tell apart"
+        ],
+        "answer": "D",
+        "skill": "vocabulary",
+        "why": "You can tell a flower from bread even with your eyes shut, so distinguish means to tell apart.",
+        "wrong": {
+          "A": "Forgetting is the opposite of noticing.",
+          "B": "Sound is not the point.",
+          "C": "Holding is not related."
+        }
+      },
+      {
+        "stem": "How do molecules from chewed food reach the smell receptors?",
+        "options": [
+          "By rising up the throat",
+          "By flowing through the tongue",
+          "By crossing the eyes",
+          "By dripping from the ears"
+        ],
+        "answer": "A",
+        "skill": "detail",
+        "why": "The article says smell molecules rise up the back of the throat while food is chewed.",
+        "wrong": {
+          "B": "The tongue only detects basic tastes.",
+          "C": "The eyes are not part of smell.",
+          "D": "Ears are not mentioned."
+        }
+      },
+      {
+        "stem": "Why might a very faint smell go unnoticed?",
+        "options": [
+          "The tongue is too busy",
+          "The nose is facing away",
+          "The brain forgets old smells",
+          "It is below the strength needed"
+        ],
+        "answer": "D",
+        "skill": "inference",
+        "why": "A smell must reach a certain threshold of strength before a receptor will respond.",
+        "wrong": {
+          "A": "The tongue's work is separate from this.",
+          "B": "The article does not mention facing away.",
+          "C": "Forgetting is not the reason given."
+        }
+      },
+      {
+        "stem": "Compared with the tongue, how does smell help create flavor?",
+        "options": [
+          "It adds a few basic tastes",
+          "It supplies most of the flavor",
+          "It works only when you are cold",
+          "It has no role in flavor"
+        ],
+        "answer": "B",
+        "skill": "compare",
+        "why": "The tongue detects only a handful of tastes, and most of what people call flavor comes from smell.",
+        "wrong": {
+          "A": "The tongue detects the basic tastes.",
+          "C": "Smell works all the time, and a cold blocks it.",
+          "D": "Smell has a major role in flavor."
+        }
+      }
+    ]
   }
 }

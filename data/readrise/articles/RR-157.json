@@ -614,5 +614,217 @@
       ],
       "modelAnswer": "A hummingbird's flight is its greatest strength because its rapid wingbeats let it hover, fly backward, and even move sideways, skills almost no other bird has. However, this remarkable flight comes with a serious challenge, since such constant hovering demands an extremely fast metabolism that forces the bird to eat every few minutes during the day just to survive. To cope with this challenge, the hummingbird enters torpor at night to slow its racing heart and save energy, and some species even manage a nonstop migration of about 800 kilometers across the Gulf of Mexico despite their tiny size."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "How many eggs does the mother hummingbird lay?",
+        "options": [
+          "One",
+          "Two",
+          "Five",
+          "Fifty"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The text says she lays two eggs.",
+        "wrong": {
+          "A": "The text says two, not one.",
+          "C": "The text does not say five.",
+          "D": "Fifty is how many times the wings beat in a second."
+        }
+      },
+      {
+        "stem": "What does a slow heart help the hummingbird do at night?",
+        "options": [
+          "Fly far",
+          "Hum a song",
+          "Make a nest",
+          "Last the night"
+        ],
+        "answer": "D",
+        "skill": "cause-effect",
+        "why": "The text says at night its heart slows, which helps it last the night.",
+        "wrong": {
+          "A": "The bird rests at night.",
+          "B": "The hum comes from the wings.",
+          "C": "The mother makes the nest by day with spider silk."
+        }
+      },
+      {
+        "stem": "How big is the least hummingbird?",
+        "options": [
+          "As long as your thumb",
+          "As long as your arm",
+          "As big as a nut",
+          "As big as a cat"
+        ],
+        "answer": "A",
+        "skill": "detail",
+        "why": "The text says the least one is as long as your thumb.",
+        "wrong": {
+          "B": "It is far smaller than an arm.",
+          "C": "A nut is the size of the nest, about half a nut.",
+          "D": "It is a tiny bird, not a cat."
+        }
+      },
+      {
+        "stem": "Why does the hummingbird have a long tongue?",
+        "options": [
+          "To make a humming sound",
+          "To sip nectar from flowers",
+          "To carry spider silk",
+          "To keep warm at night"
+        ],
+        "answer": "B",
+        "skill": "inference",
+        "why": "The bird sips nectar from flowers and has a long tongue, so the tongue helps it reach the nectar.",
+        "wrong": {
+          "A": "The wings make the hum.",
+          "C": "The mom uses spider silk for the nest.",
+          "D": "Its heart slowing helps at night."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "About how big are a hummingbird's eggs?",
+        "options": [
+          "The size of walnuts",
+          "The size of coins",
+          "The size of beans",
+          "The size of thumbs"
+        ],
+        "answer": "C",
+        "skill": "detail",
+        "why": "The text says she lays two eggs about the size of beans.",
+        "wrong": {
+          "A": "The nest is about half a walnut, so the eggs are much smaller.",
+          "B": "Coins are used to show how little the bird weighs.",
+          "D": "A thumb is about how long the bird is."
+        }
+      },
+      {
+        "stem": "Why must a hummingbird eat every few minutes during the day?",
+        "options": [
+          "Flying burns a lot of energy.",
+          "Its nest is far from the flowers.",
+          "It has no beak to hold food.",
+          "It is afraid of the dark."
+        ],
+        "answer": "A",
+        "skill": "cause-effect",
+        "why": "The text says flying like this burns a lot of energy and its heart beats very fast.",
+        "wrong": {
+          "B": "The nest distance is not mentioned.",
+          "C": "It has a long beak.",
+          "D": "Fear is not mentioned."
+        }
+      },
+      {
+        "stem": "A girl in Saudi Arabia sees a small bird drinking nectar from a flower. Which bird is it most likely?",
+        "options": [
+          "A bee hummingbird",
+          "A ruby-throated hummingbird",
+          "A sunbird",
+          "Any kind of hummingbird"
+        ],
+        "answer": "C",
+        "skill": "inference",
+        "why": "Hummingbirds live only in the Americas, but Saudi Arabia has sunbirds that drink nectar.",
+        "wrong": {
+          "A": "Hummingbirds do not live in Saudi Arabia.",
+          "B": "This one lives in the Americas.",
+          "D": "None live in Saudi Arabia."
+        }
+      },
+      {
+        "stem": "The article says hummingbirds can hover. What does hover mean?",
+        "options": [
+          "Fly far across the sea",
+          "Sleep in a nest",
+          "Drink very fast",
+          "Stay in one spot in air"
+        ],
+        "answer": "D",
+        "skill": "vocabulary",
+        "why": "The article says hover means they stay in one place in the air.",
+        "wrong": {
+          "A": "Flying far is migrating.",
+          "B": "Sleeping in a nest is not hovering.",
+          "C": "Hovering is about flying, not drinking."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "About how many species of hummingbird are there?",
+        "options": [
+          "More than thirty",
+          "About five",
+          "Exactly two",
+          "Over three hundred"
+        ],
+        "answer": "D",
+        "skill": "detail",
+        "why": "The text says the bee hummingbird is the tiniest of more than three hundred species.",
+        "wrong": {
+          "A": "The text says three hundred, not thirty.",
+          "B": "Five centimeters is the bee hummingbird's length.",
+          "C": "Two is the number of eggs."
+        }
+      },
+      {
+        "stem": "In the article, the word astonishing most nearly means —",
+        "options": [
+          "very surprising",
+          "very quiet",
+          "very old",
+          "very small"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "A bird crossing 800 kilometers without stopping is a very surprising feat.",
+        "wrong": {
+          "B": "The trip is not about sound.",
+          "C": "Age is not mentioned.",
+          "D": "Small describes the bird, not the migration."
+        }
+      },
+      {
+        "stem": "Why must hummingbirds eat every few minutes in daylight?",
+        "options": [
+          "Their nests are very far away.",
+          "Flight and fast metabolism use much energy.",
+          "They must feed insects to their chicks.",
+          "They want to store fat for torpor."
+        ],
+        "answer": "B",
+        "skill": "cause-effect",
+        "why": "The text says this style of flight needs an enormous amount of energy and they have a very fast metabolism.",
+        "wrong": {
+          "A": "Nest distance is not mentioned.",
+          "C": "Feeding chicks is not given as the reason.",
+          "D": "Torpor is how they save energy at night."
+        }
+      },
+      {
+        "stem": "How does the hummingbird's nest stay big enough as the chicks grow?",
+        "options": [
+          "The mother adds a new nest each day.",
+          "The spider silk stretches.",
+          "The nest is the size of a walnut.",
+          "The chicks eat the nest."
+        ],
+        "answer": "B",
+        "skill": "cause-effect",
+        "why": "The mother binds the nest with spider silk that stretches as her chicks grow.",
+        "wrong": {
+          "A": "A new nest each day is not mentioned.",
+          "C": "Half a walnut is its starting size.",
+          "D": "The text never says this."
+        }
+      }
+    ]
   }
 }

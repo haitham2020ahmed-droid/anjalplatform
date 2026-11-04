@@ -614,5 +614,217 @@
       ],
       "modelAnswer": "I agree that glaciers far from Saudi Arabia still matter to people here. Glaciers act like a giant reservoir, since centuries of snow accumulate and then melt into streams and rivers that millions of people depend on for drinking water and irrigation, even if they live nowhere near the ice. As these glaciers shrink faster than fresh snow can replace them, the extra meltwater raises sea levels everywhere, including coastlines close to the Kingdom. Even though no glacier exists here today, thick ice once covered land that is now part of Saudi Arabia, and the erosion scars it left in ancient rocks show that what happens to distant glaciers has always been connected to us."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "Why does old snow turn into hard ice?",
+        "options": [
+          "The sun bakes it dry.",
+          "Rain freezes on top of it.",
+          "The wind blows it flat.",
+          "New snow weighs it down."
+        ],
+        "answer": "D",
+        "skill": "cause-effect",
+        "why": "The text says more snow falls each year and the old snow gets pressed down until it turns to hard ice.",
+        "wrong": {
+          "A": "The text says snow turns to ice in cold places, not because of the sun.",
+          "B": "The text does not mention rain.",
+          "C": "The text does not say wind makes ice."
+        }
+      },
+      {
+        "stem": "What does a moving glacier do to the land?",
+        "options": [
+          "It makes it hot.",
+          "It digs a wide valley.",
+          "It turns it into sand.",
+          "It moves it to the sea."
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The text says the glacier scrapes the land, drags big rocks, and digs a wide valley.",
+        "wrong": {
+          "A": "A glacier is cold, so it does not make the land hot.",
+          "C": "The text does not say the land turns into sand.",
+          "D": "The glacier only drags rocks; it does not move the land."
+        }
+      },
+      {
+        "stem": "A glacier is a \"huge mass of ice.\" What does mass mean here?",
+        "options": [
+          "a large amount",
+          "a tiny drop",
+          "a thin layer",
+          "a fast river"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "A glacier is very big, so a huge mass of ice means a large amount of ice.",
+        "wrong": {
+          "B": "A glacier is huge, not tiny.",
+          "C": "A glacier is thick and heavy, not thin.",
+          "D": "The glacier is like a slow river, not a fast one."
+        }
+      },
+      {
+        "stem": "Why are many glaciers getting small now?",
+        "options": [
+          "Too much snow falls.",
+          "They slide into the desert.",
+          "The world is warm.",
+          "People drink them all."
+        ],
+        "answer": "C",
+        "skill": "cause-effect",
+        "why": "The text says the world is warm, so lots of glaciers melt fast and get small.",
+        "wrong": {
+          "A": "More snow would make a glacier bigger.",
+          "B": "The text says ice was once on the land of Saudi Arabia, but glaciers do not slide there now.",
+          "D": "People drink the melted water, but that does not make glaciers small."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "How far do most glaciers move in a day?",
+        "options": [
+          "Many kilometers each day",
+          "Over a hundred meters",
+          "A few centimeters or meters",
+          "They never move at all"
+        ],
+        "answer": "C",
+        "skill": "detail",
+        "why": "The text says most glaciers creep forward only a few centimeters or meters each day.",
+        "wrong": {
+          "A": "That is much too fast for a slow glacier.",
+          "B": "The text says only a few meters at most.",
+          "D": "The text says a glacier is always on the move."
+        }
+      },
+      {
+        "stem": "What makes a thick glacier move downhill?",
+        "options": [
+          "Its own weight",
+          "A strong wind",
+          "Heat from the ground",
+          "Water in the sea"
+        ],
+        "answer": "A",
+        "skill": "cause-effect",
+        "why": "The text says that once the ice is thick enough, its own weight pulls it slowly downhill.",
+        "wrong": {
+          "B": "The text does not say wind moves a glacier.",
+          "C": "The text does not say heat from the ground moves it.",
+          "D": "The sea is where some glaciers end up, not what moves them."
+        }
+      },
+      {
+        "stem": "The article says a glacier carries rocks and other debris. What does debris mean?",
+        "options": [
+          "drinking water for towns",
+          "thick snow on a hill",
+          "clear ice at the edge",
+          "bits of rock and dirt"
+        ],
+        "answer": "D",
+        "skill": "vocabulary",
+        "why": "The glacier scrapes the ground and carries rocks and sand, so debris means broken bits left over.",
+        "wrong": {
+          "A": "Drinking water comes from melting ice, not from the debris.",
+          "B": "Snow is what forms the glacier.",
+          "C": "Ice is what the glacier is made of."
+        }
+      },
+      {
+        "stem": "What do the scratches on ancient rocks in Saudi Arabia show?",
+        "options": [
+          "Many camels once walked there.",
+          "A glacier once crossed the land.",
+          "Streams once filled a deep valley.",
+          "A cold wind blew across the sea."
+        ],
+        "answer": "B",
+        "skill": "inference",
+        "why": "The text says thick ice once covered land in Saudi Arabia and left scratches on the rocks.",
+        "wrong": {
+          "A": "The text does not link the scratches to camels.",
+          "C": "The scratches were left by ice, not streams.",
+          "D": "The text does not say wind made the scratches."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "About how much of Earth's fresh water is held in glaciers and ice sheets?",
+        "options": [
+          "About one-tenth",
+          "About two-thirds",
+          "About one-half",
+          "Nearly all of it"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The text says glaciers and ice sheets hold roughly two-thirds of the fresh water on Earth.",
+        "wrong": {
+          "A": "That is far less than the text says.",
+          "C": "The text says two-thirds, not one-half.",
+          "D": "Two-thirds is not nearly all."
+        }
+      },
+      {
+        "stem": "Why are many glaciers shrinking today?",
+        "options": [
+          "More new snow falls on them every winter",
+          "Icebergs break off and crush them",
+          "Moraines press down on the old ice",
+          "Ice melts faster than snow can replace it"
+        ],
+        "answer": "D",
+        "skill": "cause-effect",
+        "why": "The article says glacial ice is now melting faster than new snow can build up and replace it, so many glaciers shrink.",
+        "wrong": {
+          "A": "More snow would help a glacier grow, not shrink.",
+          "B": "Calving removes ice at the edge but is not the reason given.",
+          "C": "Moraines are ridges left behind after the ice melts."
+        }
+      },
+      {
+        "stem": "The article says that, over time, packed snow transforms into ice. What does transform mean?",
+        "options": [
+          "to stop for a short time",
+          "to break into small pieces",
+          "to change into something new",
+          "to crack with a loud sound"
+        ],
+        "answer": "C",
+        "skill": "vocabulary",
+        "why": "Snow becomes dense ice, a completely different form, so transform means to change into something new.",
+        "wrong": {
+          "A": "The snow does not pause; it changes.",
+          "B": "The snow is pressed together, not broken apart.",
+          "D": "The change is slow and quiet."
+        }
+      },
+      {
+        "stem": "What happens right after snow layers pile up year after year?",
+        "options": [
+          "Their weight presses older snow.",
+          "The glacier reaches the ocean.",
+          "The ice turns blue at once.",
+          "Moraines form along the valley."
+        ],
+        "answer": "A",
+        "skill": "sequence",
+        "why": "The text says that as layers accumulate, their weight compresses the older snow beneath them.",
+        "wrong": {
+          "B": "A glacier reaches the ocean much later, if at all.",
+          "C": "Dense glacial ice looks blue only after it has formed.",
+          "D": "Moraines are left when the ice melts, much later."
+        }
+      }
+    ]
   }
 }

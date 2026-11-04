@@ -614,5 +614,217 @@
       ],
       "modelAnswer": "I agree that falconry shows how a practical survival skill can become a treasured cultural heritage. In the past, falconers depended on their birds to catch small prey for food during difficult desert journeys, so the skill began out of necessity. Today, however, falconry is practiced mainly as a sport and tradition, and it is formally recognized as cultural heritage across Gulf countries such as Saudi Arabia, Qatar, and the United Arab Emirates. This change shows that a skill born from hardship can be preserved and celebrated long after it is no longer needed for survival."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "What is the man who trains the bird called?",
+        "options": [
+          "A farmer",
+          "A hunter",
+          "A falconer",
+          "A teacher"
+        ],
+        "answer": "C",
+        "skill": "detail",
+        "why": "The text says the man who trains the bird is a falconer.",
+        "wrong": {
+          "A": "A farmer is not mentioned in the text.",
+          "B": "A hunter is not mentioned in the text.",
+          "D": "A teacher is not mentioned in the text."
+        }
+      },
+      {
+        "stem": "In this article, what does the word falconry mean?",
+        "options": [
+          "Training falcons",
+          "Building a nest",
+          "Growing a garden",
+          "Making a glove"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "The text says men in the desert train falcons and this is called falconry.",
+        "wrong": {
+          "B": "Building nests is not mentioned.",
+          "C": "Gardens are not mentioned.",
+          "D": "The glove is only one tool the falconer wears."
+        }
+      },
+      {
+        "stem": "Why does the falconer wear a thick glove?",
+        "options": [
+          "To keep his hand warm",
+          "To hide from the bird",
+          "To call the bird back",
+          "So the bird sits on it"
+        ],
+        "answer": "D",
+        "skill": "cause-effect",
+        "why": "The text says the man wears a thick glove and the bird sits on the glove.",
+        "wrong": {
+          "A": "Warmth is not given as a reason.",
+          "B": "The bird sits on the glove, so he is not hiding.",
+          "C": "He calls the bird back with the lure."
+        }
+      },
+      {
+        "stem": "What does the article suggest about falconry?",
+        "options": [
+          "It is a very new game for kids.",
+          "It has lasted a long time.",
+          "It is only for young children.",
+          "It is no longer done at all."
+        ],
+        "answer": "B",
+        "skill": "inference",
+        "why": "The text calls falconry an old sport that men in the Gulf keep alive today.",
+        "wrong": {
+          "A": "The text says it is an old sport.",
+          "C": "The text talks about men training falcons.",
+          "D": "The text says it is loved today."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "Where does the falcon rest between flights?",
+        "options": [
+          "In a small metal cage",
+          "On the falconer's glove",
+          "In a tall desert tree",
+          "On a large desert rock"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The text says the falcon rests on the falconer's glove between flights.",
+        "wrong": {
+          "A": "A cage is not mentioned.",
+          "C": "A tree is not mentioned.",
+          "D": "A rock is not mentioned."
+        }
+      },
+      {
+        "stem": "In the article, the word generations means —",
+        "options": [
+          "distant faraway countries",
+          "long flights through the sky",
+          "wild animals in the desert",
+          "family members over time"
+        ],
+        "answer": "D",
+        "skill": "vocabulary",
+        "why": "The practice has been passed down through many generations, meaning from parents to children over a long time.",
+        "wrong": {
+          "A": "The sentence is about time, not places.",
+          "B": "Flights are about birds, not about passing down a practice.",
+          "C": "Wild animals are not what is passed down."
+        }
+      },
+      {
+        "stem": "What does the article show about a falcon's training?",
+        "options": [
+          "A wild bird can learn to trust.",
+          "A falcon cannot learn anything.",
+          "A falcon trains in only one day.",
+          "A falcon prefers to fly alone."
+        ],
+        "answer": "A",
+        "skill": "inference",
+        "why": "The text says the falconer feeds the wild bird by hand until it learns to trust him completely.",
+        "wrong": {
+          "B": "The bird learns to trust and to return to the glove.",
+          "C": "The text says training takes many weeks.",
+          "D": "The bird returns to the glove, so it works with the falconer."
+        }
+      },
+      {
+        "stem": "Why are festivals held for falconry?",
+        "options": [
+          "To sell falcons at a busy market",
+          "To teach cars how to go fast",
+          "To celebrate their cultural heritage",
+          "To train the birds to find food"
+        ],
+        "answer": "C",
+        "skill": "cause-effect",
+        "why": "The text says falconry is recognized as important cultural heritage and festivals celebrate the sport.",
+        "wrong": {
+          "A": "Selling falcons is not mentioned.",
+          "B": "Cars appear only in a speed comparison.",
+          "D": "Training birds to find food is part of the past, not festivals."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "Which countries does the article name as recognizing falconry as cultural heritage?",
+        "options": [
+          "Egypt, Jordan, and Lebanon",
+          "Kuwait, Iraq, and Morocco",
+          "Syria, Turkey, and Bahrain",
+          "Saudi Arabia, Qatar, and UAE"
+        ],
+        "answer": "D",
+        "skill": "detail",
+        "why": "The text names Saudi Arabia, Qatar, and the United Arab Emirates.",
+        "wrong": {
+          "A": "These countries are not named in the text.",
+          "B": "These countries are not named in the text.",
+          "C": "These countries are not named in the text."
+        }
+      },
+      {
+        "stem": "In the article, the word instinct most nearly means —",
+        "options": [
+          "a planned school lesson",
+          "a natural way of acting",
+          "a loud and sudden sound",
+          "a special kind of food"
+        ],
+        "answer": "B",
+        "skill": "vocabulary",
+        "why": "A falcon's wild instinct is to react strongly to movement and sounds, which is a natural way of acting it does not have to learn.",
+        "wrong": {
+          "A": "The text says the reaction is wild, not taught.",
+          "C": "The instinct is a reaction to sounds, not a sound.",
+          "D": "Food is not part of the meaning."
+        }
+      },
+      {
+        "stem": "What do the large festivals do for falconry?",
+        "options": [
+          "They preserve traditional skills.",
+          "They stop all falcons from flying.",
+          "They make falconry a daily need.",
+          "They teach falcons how to hunt."
+        ],
+        "answer": "A",
+        "skill": "cause-effect",
+        "why": "The text says festivals celebrate the sport, preserving traditional skills for future generations.",
+        "wrong": {
+          "B": "Nothing in the text says festivals stop flight.",
+          "C": "The text says falconry is no longer a daily necessity.",
+          "D": "The text says falcons are trained by falconers over many weeks."
+        }
+      },
+      {
+        "stem": "The article calls the trained falcon a once-wild animal. What does this suggest?",
+        "options": [
+          "It is still fully wild today.",
+          "It was born in a small cage.",
+          "It changes through training.",
+          "It cannot fly very well now."
+        ],
+        "answer": "C",
+        "skill": "inference",
+        "why": "The text says the once-wild animal gradually learns to trust the falconer, showing that training changes it.",
+        "wrong": {
+          "A": "Once-wild means it is not fully wild now.",
+          "B": "The text does not say it was born in a cage.",
+          "D": "The text says it dives at great speed."
+        }
+      }
+    ]
   }
 }

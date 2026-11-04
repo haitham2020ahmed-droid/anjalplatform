@@ -614,5 +614,217 @@
       ],
       "modelAnswer": "I disagree that the best strategy is to wait and spray locust swarms once they reach farms, because by that point the damage is already nearly impossible to stop. The article explains that a single swarm can contain more than a billion insects, and because each locust can consume roughly its own weight in vegetation every day, a swarm can strip an entire field within hours of arriving. Once locusts turn gregarious and begin forming bands of hoppers, it is far more effective to monitor the desert for the earliest signs of an outbreak and spray the young hoppers before they even grow wings. The 2018 outbreak that began in Saudi Arabia's Empty Quarter shows exactly why early action matters, because the area was too remote to check, locusts bred undisturbed for months, and the swarms eventually spread across many countries."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "What colors does a locust turn when it wants to be in a big group?",
+        "options": [
+          "Green and brown",
+          "Red and white",
+          "Yellow and black",
+          "Blue and gray"
+        ],
+        "answer": "C",
+        "skill": "detail",
+        "why": "The text says the locusts turn yellow and black when they want to be in a big group.",
+        "wrong": {
+          "A": "Green or brown is the color of a locust that lives alone.",
+          "B": "Red and white are not named in the text.",
+          "D": "Blue and gray are not named in the text."
+        }
+      },
+      {
+        "stem": "Why do the locusts crowd close together after the rain?",
+        "options": [
+          "The plants dry up and few are left.",
+          "The wind blows them all to one place.",
+          "The farmers move them to the fields.",
+          "The rain washes away all their eggs."
+        ],
+        "answer": "A",
+        "skill": "cause-effect",
+        "why": "The text says the plants dry up after the rain, so the bugs must crowd close.",
+        "wrong": {
+          "B": "The wind helps a swarm go far, but it is not the reason for the crowding.",
+          "C": "The text does not say that farmers move them.",
+          "D": "The text says lots of eggs hatch after the rain."
+        }
+      },
+      {
+        "stem": "What happens right after the hoppers shed their skin five times?",
+        "options": [
+          "They begin to march in bands.",
+          "They lose all of their legs.",
+          "They turn green and brown.",
+          "They have wings."
+        ],
+        "answer": "D",
+        "skill": "sequence",
+        "why": "The text says the hoppers shed their skin five times, and then they have wings.",
+        "wrong": {
+          "A": "Hoppers march before they have wings.",
+          "B": "The text does not say that they lose their legs.",
+          "C": "They turn yellow and black when they crowd, which is earlier."
+        }
+      },
+      {
+        "stem": "Read this: \"They shed their skin five times.\" What does shed mean?",
+        "options": [
+          "To eat a lot",
+          "To let it fall off",
+          "To dig in the sand",
+          "To fly very far"
+        ],
+        "answer": "B",
+        "skill": "vocabulary",
+        "why": "The hoppers have to lose their old skin to grow wings, so shed means to let it fall off.",
+        "wrong": {
+          "A": "Eating is not what happens to skin.",
+          "C": "Digging in sand is not mentioned.",
+          "D": "Flying only happens after they have wings."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "What do teams spray when they find hoppers?",
+        "options": [
+          "Water",
+          "Sand",
+          "Salt",
+          "A pesticide"
+        ],
+        "answer": "D",
+        "skill": "detail",
+        "why": "The text says teams spray a pesticide, a chemical that kills pests, when they find hoppers.",
+        "wrong": {
+          "A": "Water is not named as a spray.",
+          "B": "Sand is not named as a spray.",
+          "C": "Salt is not named as a spray."
+        }
+      },
+      {
+        "stem": "The article says farmers can lose their entire harvest to a swarm. What is a harvest?",
+        "options": [
+          "a large group of hungry insects",
+          "the crops gathered from a farm",
+          "a spray that kills insects",
+          "a long dry season"
+        ],
+        "answer": "B",
+        "skill": "vocabulary",
+        "why": "A swarm strips a field of crops, so farmers lose the crops they would have gathered, their harvest.",
+        "wrong": {
+          "A": "The group of insects is the swarm.",
+          "C": "The spray is pesticide.",
+          "D": "A dry season is not what harvest means."
+        }
+      },
+      {
+        "stem": "Why can a swarm strip a field of crops in hours?",
+        "options": [
+          "The locusts hide food in the sand.",
+          "Each locust eats a lot and there are billions.",
+          "The wind blows the crops from the field.",
+          "The farmers leave the fields too soon."
+        ],
+        "answer": "B",
+        "skill": "cause-effect",
+        "why": "The text says each locust eats about its own weight daily and a swarm has more than a billion insects.",
+        "wrong": {
+          "A": "Hiding food is not mentioned.",
+          "C": "The wind helps the swarm travel; it does not blow crops away.",
+          "D": "Farmers are not blamed in the text."
+        }
+      },
+      {
+        "stem": "Why does the author describe the solitary locust before the swarm?",
+        "options": [
+          "To show how much the locusts change",
+          "To show that the locusts cannot fly",
+          "To show why teams use a chemical",
+          "To show that locusts live in groups"
+        ],
+        "answer": "A",
+        "skill": "text-structure",
+        "why": "The solitary locust is a harmless green or brown insect, and the article then shows how it becomes a dangerous swarm.",
+        "wrong": {
+          "B": "The text says locusts have wings for flying.",
+          "C": "The chemical is explained at the end.",
+          "D": "Solitary means that the locust lives alone."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "Where did the locusts breed for months in 2018?",
+        "options": [
+          "In the mountains of Kenya",
+          "In the Empty Quarter",
+          "On farms in South Asia",
+          "Along the sea coast"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The text says locusts bred for months in the Empty Quarter, the vast desert in the south of Saudi Arabia.",
+        "wrong": {
+          "A": "Kenya was where swarms later caused an outbreak.",
+          "C": "Farms in South Asia are not named as a breeding place.",
+          "D": "The coast is not mentioned."
+        }
+      },
+      {
+        "stem": "In the text, what does the word destructive mean?",
+        "options": [
+          "Easy to see",
+          "Very slow",
+          "Quiet and calm",
+          "Causing great damage"
+        ],
+        "answer": "D",
+        "skill": "vocabulary",
+        "why": "The text says a swarm can make farmers lose their entire harvest, so destructive means causing great damage.",
+        "wrong": {
+          "A": "The locust blends in when it is alone, so this does not fit.",
+          "B": "The swarm moves up to 150 kilometers in one day.",
+          "C": "A harmless insect is calm, but the sentence is about danger."
+        }
+      },
+      {
+        "stem": "Why is it useful for a solitary locust to be green or brown?",
+        "options": [
+          "It can hide from other locusts at night.",
+          "It stays cool while it hops in the sun.",
+          "It blends in with the desert around it.",
+          "It tells the hoppers where to march."
+        ],
+        "answer": "C",
+        "skill": "inference",
+        "why": "The text says the green or brown color helps the solitary locust blend in with the desert.",
+        "wrong": {
+          "A": "Hiding from other locusts is not linked to its color.",
+          "B": "The text does not say the color keeps it cool.",
+          "D": "Hoppers are young locusts, and the color does not guide them."
+        }
+      },
+      {
+        "stem": "How does the author mostly explain how a swarm forms?",
+        "options": [
+          "By listing the steps in the order they happen",
+          "By comparing it to a farmer's field",
+          "By telling a story about one locust",
+          "By asking questions the reader must answer"
+        ],
+        "answer": "A",
+        "skill": "text-structure",
+        "why": "The article moves from rain, to crowding, to hoppers, to wings, and then to the swarm in order.",
+        "wrong": {
+          "B": "The text does not compare a swarm to a field.",
+          "C": "No story about a single locust is told.",
+          "D": "The article gives facts and does not ask the reader to answer questions."
+        }
+      }
+    ]
   }
 }

@@ -614,5 +614,217 @@
       ],
       "modelAnswer": "I agree that small, quiet acts of kindness matter as much as big, public ones. Saleh spent nearly ten years tending his garden simply to provide vegetables for elderly neighbors like Umm Fahd, without ever telling anyone or expecting thanks. His habit made a real difference to people who could not easily walk to the market, even though no one praised him for it. Someone might argue that a larger, public act of charity would help more people at once, but Saleh's story shows that consistent, unnoticed kindness, repeated night after night for years, can quietly support a whole community just as effectively."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "What does Saleh ask for when he gives away his vegetables?",
+        "options": [
+          "No thanks at all",
+          "A little money",
+          "A new garden",
+          "Some help each day"
+        ],
+        "answer": "A",
+        "skill": "detail",
+        "why": "The text says Saleh likes to help and asks for no thanks.",
+        "wrong": {
+          "B": "Saleh does not ask for money.",
+          "C": "He already has a garden.",
+          "D": "The children help later, but he does not ask for it."
+        }
+      },
+      {
+        "stem": "In the story, a secret is something that —",
+        "options": [
+          "is very big, bright, and loud",
+          "is grown in the back garden",
+          "people do not tell to others",
+          "is sold in a shop on the street"
+        ],
+        "answer": "C",
+        "skill": "vocabulary",
+        "why": "The children wonder if the garden is a secret, which means something not told to others.",
+        "wrong": {
+          "A": "A secret is not about size or sound.",
+          "B": "Plants are grown, but they are not a secret.",
+          "D": "Shops are not part of the meaning."
+        }
+      },
+      {
+        "stem": "Why do Yousef and Mira help the next night?",
+        "options": [
+          "Their mom tells them to",
+          "They see how kind Saleh is",
+          "They want to buy plants",
+          "Saleh pays them for work"
+        ],
+        "answer": "B",
+        "skill": "cause-effect",
+        "why": "They learn that Saleh gives vegetables to people who cannot walk to the shop, so they smile and help.",
+        "wrong": {
+          "A": "Their mom is not in the story.",
+          "C": "They are not buying plants.",
+          "D": "Pay is not mentioned."
+        }
+      },
+      {
+        "stem": "Why does Saleh give his vegetables to the elderly?",
+        "options": [
+          "They pay him a lot",
+          "They cannot walk to the shop",
+          "They grow the plants with him",
+          "They live far away"
+        ],
+        "answer": "B",
+        "skill": "cause-effect",
+        "why": "Saleh says the elderly cannot walk to the shop, so he gives them his vegetables.",
+        "wrong": {
+          "A": "He asks for nothing in return.",
+          "C": "Saleh grows the plants himself.",
+          "D": "They live in the same building."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "Which vegetable does Saleh grow besides tomatoes and mint?",
+        "options": [
+          "Carrots",
+          "Cucumbers",
+          "Onions",
+          "Potatoes"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "Saleh says he grows tomatoes, mint, and a few cucumbers.",
+        "wrong": {
+          "A": "Carrots are not mentioned.",
+          "C": "Onions are not mentioned.",
+          "D": "Potatoes are not mentioned."
+        }
+      },
+      {
+        "stem": "In the article, the word curious means —",
+        "options": [
+          "wanting to be very quiet",
+          "feeling very sleepy and tired",
+          "afraid of the dark night",
+          "wanting to find out more"
+        ],
+        "answer": "D",
+        "skill": "vocabulary",
+        "why": "The children wondered about the secret and decided they had to find out, so they were curious.",
+        "wrong": {
+          "A": "They walked over to ask him.",
+          "B": "They were awake and looking out.",
+          "C": "They were not afraid, they went to ask."
+        }
+      },
+      {
+        "stem": "Why do many elderly neighbors need Saleh's vegetables?",
+        "options": [
+          "They can no longer walk to the market easily",
+          "They do not have any money",
+          "They do not like shopping with children",
+          "They live far away from the city"
+        ],
+        "answer": "A",
+        "skill": "cause-effect",
+        "why": "Saleh says many of them can no longer walk to the market easily.",
+        "wrong": {
+          "B": "Money is not mentioned.",
+          "C": "Children are not part of their shopping.",
+          "D": "They live in the same building."
+        }
+      },
+      {
+        "stem": "What does the children's return to help the next evening show?",
+        "options": [
+          "They were told to do it",
+          "They wanted to leave the building",
+          "Saleh's kindness inspired them",
+          "They wanted to earn pay"
+        ],
+        "answer": "C",
+        "skill": "inference",
+        "why": "They were impressed by his quiet, generous habit, so they came back to join him.",
+        "wrong": {
+          "A": "No one told them to help.",
+          "B": "They stayed to help in the garden.",
+          "D": "Pay is not mentioned."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "According to Saleh, what do the vegetables he grows depend on?",
+        "options": [
+          "The size of the building",
+          "The age of the neighbors",
+          "The season",
+          "The watchman's shift"
+        ],
+        "answer": "C",
+        "skill": "detail",
+        "why": "Saleh says the vegetables are mostly tomatoes, mint, and cucumbers, depending entirely on the season.",
+        "wrong": {
+          "A": "The building size is not linked to the plants.",
+          "B": "The neighbors' ages are not linked to the plants.",
+          "D": "His shift is not linked to what grows."
+        }
+      },
+      {
+        "stem": "In the article, the word peculiar most nearly means —",
+        "options": [
+          "strange or unusual",
+          "pleasant and warm",
+          "quick and short",
+          "very loud"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "The children found the nightly habit strange and wondered if Saleh was hiding a secret.",
+        "wrong": {
+          "B": "They were curious, not warm about it.",
+          "C": "The habit lasted all night, every night.",
+          "D": "Saleh worked quietly."
+        }
+      },
+      {
+        "stem": "Why had most residents not noticed the garden?",
+        "options": [
+          "It was far too small to be seen",
+          "It belonged to Yousef and Mira",
+          "The watchman kept the gate locked",
+          "It was hidden and they were busy"
+        ],
+        "answer": "D",
+        "skill": "cause-effect",
+        "why": "The garden grew at the back, largely unnoticed by the building's other, preoccupied residents.",
+        "wrong": {
+          "A": "The size is not the reason given.",
+          "B": "The garden was Saleh's.",
+          "C": "No lock is mentioned."
+        }
+      },
+      {
+        "stem": "Saleh tended the garden every night, however tired he felt. What does this suggest about him?",
+        "options": [
+          "He wanted people to praise him",
+          "He was hardworking and caring",
+          "He did not like his real job",
+          "He was hiding something bad"
+        ],
+        "answer": "B",
+        "skill": "inference",
+        "why": "He kept caring for the plants night after night even when exhausted, and he gave the food to others.",
+        "wrong": {
+          "A": "He asked for no thanks.",
+          "C": "The story does not say he disliked his job.",
+          "D": "The garden was not a bad secret; it was a kind act."
+        }
+      }
+    ]
   }
 }

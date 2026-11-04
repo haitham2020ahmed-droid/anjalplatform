@@ -614,5 +614,217 @@
       ],
       "modelAnswer": "I agree that finding a small mistake can be harder than building the whole project in the first place. In the story, Sara and Omar had already spent weeks designing and building Spark, yet one missing line in the algorithm, impossible to see from the outside, caused the robot to spin endlessly. Omar had to read through the entire program line by line just to locate that single flaw. Someone might argue that building the robot required far more total effort than fixing one line, and that is true, but the search for the bug demanded a different kind of difficulty: patient, careful attention to detail that building alone did not require."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "What is the big robot match called?",
+        "options": [
+          "The School Cup",
+          "The Robot Race",
+          "The Spark Prize",
+          "The City Cup"
+        ],
+        "answer": "D",
+        "skill": "detail",
+        "why": "The text says, \"It is called the City Cup.\"",
+        "wrong": {
+          "A": "The School Cup is not mentioned.",
+          "B": "The Robot Race is not mentioned.",
+          "C": "The Spark Prize is not mentioned."
+        }
+      },
+      {
+        "stem": "In the story, what does \"code\" do?",
+        "options": [
+          "Tells a robot what to do",
+          "Gives a robot new wheels",
+          "Makes a robot very loud",
+          "Charges a robot's power"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "The text says, \"Code tells a robot what to do.\"",
+        "wrong": {
+          "B": "Code is not a part like wheels.",
+          "C": "Code does not make sound.",
+          "D": "Charging power is not mentioned."
+        }
+      },
+      {
+        "stem": "How does Omar read the code to find the bug?",
+        "options": [
+          "He reads it very fast",
+          "He asks Sara to read it",
+          "He reads it line by line",
+          "He reads it backwards"
+        ],
+        "answer": "C",
+        "skill": "detail",
+        "why": "The text says Omar reads the code line by line.",
+        "wrong": {
+          "A": "He reads it slowly and carefully.",
+          "B": "Omar reads it himself.",
+          "D": "The text does not say he reads it backwards."
+        }
+      },
+      {
+        "stem": "Why does the team test Spark one more time tonight?",
+        "options": [
+          "They want to make Spark ready for tomorrow's match",
+          "They want to give Spark a brand new name",
+          "They have nothing else to do tonight at all",
+          "They want to show Spark to their teacher at school"
+        ],
+        "answer": "A",
+        "skill": "inference",
+        "why": "The big match is tomorrow, so the team wants to check that Spark works well before it.",
+        "wrong": {
+          "B": "A new name is not mentioned.",
+          "C": "They are getting ready for a big match.",
+          "D": "The teacher is not mentioned."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "How long did Sara and Omar spend building Spark?",
+        "options": [
+          "One hour",
+          "One day",
+          "Weeks",
+          "Years"
+        ],
+        "answer": "C",
+        "skill": "detail",
+        "why": "The text says they spent weeks building Spark.",
+        "wrong": {
+          "A": "One hour is far too short.",
+          "B": "One day is too short.",
+          "D": "Years is too long."
+        }
+      },
+      {
+        "stem": "How did Omar know the problem was in the program and not in Spark's parts?",
+        "options": [
+          "The sensor and motor were working fine",
+          "The team had changed the wheels earlier",
+          "The ball was too heavy for Spark",
+          "The goalkeeper was blocking Spark"
+        ],
+        "answer": "A",
+        "skill": "inference",
+        "why": "The sensor and the motor both worked fine, so Omar knew the program was the problem.",
+        "wrong": {
+          "B": "Changing wheels is not mentioned.",
+          "C": "The weight of the ball is not mentioned.",
+          "D": "The goalkeeper is only mentioned after the fix."
+        }
+      },
+      {
+        "stem": "In the story, the word \"precisely\" means —",
+        "options": [
+          "slowly",
+          "sadly",
+          "softly",
+          "exactly"
+        ],
+        "answer": "D",
+        "skill": "vocabulary",
+        "why": "Code tells a robot precisely what to do, with no room for guessing, so precisely means exactly.",
+        "wrong": {
+          "A": "The sentence is about being exact, not speed.",
+          "B": "The sentence is not about feelings.",
+          "C": "The sentence is not about sound."
+        }
+      },
+      {
+        "stem": "Why does the author explain what code is?",
+        "options": [
+          "To teach readers how to build a goal",
+          "To help readers understand the bug",
+          "To tell readers how fast Spark runs",
+          "To say the robot was not safe"
+        ],
+        "answer": "B",
+        "skill": "author-purpose",
+        "why": "Knowing that code gives exact steps helps readers see why a missing line caused the spinning.",
+        "wrong": {
+          "A": "The goal is not built in the story.",
+          "C": "Speed is not discussed.",
+          "D": "Safety is not discussed."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "What does an autonomous robot like Spark have to do during the match?",
+        "options": [
+          "Wait for the team to push it along",
+          "Act on its own without someone controlling it",
+          "Run only when the whole crowd cheers loudly",
+          "Follow the goalkeeper around"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The text says Spark has to act on its own during the match, with no one controlling it directly.",
+        "wrong": {
+          "A": "No one pushes or controls it.",
+          "C": "The crowd is not part of how it runs.",
+          "D": "It must go to the ball, not follow the goalkeeper."
+        }
+      },
+      {
+        "stem": "A good engineer must calibrate every sensor. What does calibrate mean?",
+        "options": [
+          "to paint it a new color",
+          "to adjust it to work correctly",
+          "to take it apart for parts",
+          "to hide it deep inside the robot"
+        ],
+        "answer": "B",
+        "skill": "vocabulary",
+        "why": "The engineer checks and adjusts each sensor so the robot gets correct information, so calibrate means to adjust it to work correctly.",
+        "wrong": {
+          "A": "Painting is not calibrating.",
+          "C": "Taking it apart is not the goal.",
+          "D": "Hiding a sensor would not help it work."
+        }
+      },
+      {
+        "stem": "How is the last test of Spark different from the first test that night?",
+        "options": [
+          "It turns once, then kicks the ball",
+          "It spins around in one spot longer",
+          "It does not move at all",
+          "It runs away from the ball"
+        ],
+        "answer": "A",
+        "skill": "compare",
+        "why": "At first Spark spun in one spot, but after the fix it turned only once and then kicked the ball into the goal.",
+        "wrong": {
+          "B": "The first test was the one with endless spinning.",
+          "C": "It moves and kicks the ball in the last test.",
+          "D": "It rolls straight toward the ball."
+        }
+      },
+      {
+        "stem": "The robot keeps turning as though an invisible force has taken control. What does this suggest about the team?",
+        "options": [
+          "They thought the robot was too old",
+          "They believed the code was perfect",
+          "The cause of the problem was hidden",
+          "They knew a rival had hurt the robot"
+        ],
+        "answer": "C",
+        "skill": "inference",
+        "why": "The phrase shows the team could not tell why Spark kept turning, so the cause was hidden from them.",
+        "wrong": {
+          "A": "The robot is new for the match.",
+          "B": "They had not yet found the bug in the code.",
+          "D": "No rival hurting the robot is mentioned."
+        }
+      }
+    ]
   }
 }

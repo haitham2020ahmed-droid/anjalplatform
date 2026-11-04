@@ -614,5 +614,217 @@
       ],
       "modelAnswer": "I agree that ideas were the most valuable thing carried on the Silk Road. One piece of evidence is that papermaking traveled along this network from China and reached Baghdad around the year 800, spreading a technology that changed how people recorded and shared commerce and knowledge across continents. Another piece of evidence is that Arab merchants carried goods across the Arabian Peninsula and onto maritime routes, connecting cultures over both land and sea for more than a thousand years. While silk was valuable in its own time, the spread of ideas through this network kept shaping the world long after the Silk Road's caravans stopped traveling."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "About how long were the paths of the Silk Road?",
+        "options": [
+          "More than six thousand kilometers",
+          "About sixty kilometers in all",
+          "Fewer than six hundred kilometers",
+          "Only six hundred meters long"
+        ],
+        "answer": "A",
+        "skill": "detail",
+        "why": "The text says the paths were more than six thousand kilometers long.",
+        "wrong": {
+          "B": "Sixty kilometers is far too short.",
+          "C": "Six hundred kilometers is far too short.",
+          "D": "Six hundred meters is far too short."
+        }
+      },
+      {
+        "stem": "In the article, a web of paths means —",
+        "options": [
+          "paths with spiders on them",
+          "paths covered by silk cloth",
+          "one long road with no turns",
+          "many paths joined together"
+        ],
+        "answer": "D",
+        "skill": "vocabulary",
+        "why": "The text says the Silk Road was not one road but a web of many paths.",
+        "wrong": {
+          "A": "The word web does not mean spiders here.",
+          "B": "The paths are not covered with cloth.",
+          "C": "The text says it was not one road."
+        }
+      },
+      {
+        "stem": "Why did the big groups stop at inns?",
+        "options": [
+          "To sell all of their camels",
+          "To make silk from the worms",
+          "To rest from the long trip",
+          "To teach the camels to drink"
+        ],
+        "answer": "C",
+        "skill": "cause-effect",
+        "why": "The text says the big groups stopped at inns to rest.",
+        "wrong": {
+          "A": "The camels were needed for the trip.",
+          "B": "China made silk, not the inns.",
+          "D": "The text says camels do not need much to drink."
+        }
+      },
+      {
+        "stem": "What does it tell you that the Silk Road was used for a thousand years?",
+        "options": [
+          "It was too hard for anyone to use",
+          "People found it useful for a long time",
+          "Camels lived there for that long",
+          "China stopped making silk early on"
+        ],
+        "answer": "B",
+        "skill": "inference",
+        "why": "People would not use a road for a thousand years unless it helped them trade goods and ideas.",
+        "wrong": {
+          "A": "People kept using it, so it was not too hard.",
+          "C": "The text does not say how long camels lived.",
+          "D": "Silk was wanted in the west for many years."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "What is silk made from?",
+        "options": [
+          "Wool cut from camels' backs",
+          "Gold threads from far lands",
+          "Cotton grown in sandy fields",
+          "Threads spun by silkworms"
+        ],
+        "answer": "D",
+        "skill": "detail",
+        "why": "The text says silk is made from threads spun by silkworms.",
+        "wrong": {
+          "A": "Silk does not come from camel wool.",
+          "B": "Gold was a trade good, not silk's material.",
+          "C": "Silk does not come from cotton."
+        }
+      },
+      {
+        "stem": "Why were camels ideal for caravans?",
+        "options": [
+          "They can go for days without water",
+          "They can fly over high mountains",
+          "They can make silk from thread",
+          "They can swim across the sea"
+        ],
+        "answer": "A",
+        "skill": "cause-effect",
+        "why": "The text says camels were ideal because they can go for days without water.",
+        "wrong": {
+          "B": "Camels cannot fly.",
+          "C": "Silkworms make the threads for silk.",
+          "D": "The text does not say camels swim."
+        }
+      },
+      {
+        "stem": "In the article, the word harsh describes deserts that are —",
+        "options": [
+          "soft and cool",
+          "short and thin",
+          "hard and difficult",
+          "quiet and green"
+        ],
+        "answer": "C",
+        "skill": "vocabulary",
+        "why": "The routes crossed mountains and deserts that were hard to travel through, so harsh means hard and difficult.",
+        "wrong": {
+          "A": "The deserts are not described as soft or cool.",
+          "B": "Harsh does not describe size.",
+          "D": "The word suggests a hard place, not a green one."
+        }
+      },
+      {
+        "stem": "Why did people in faraway lands pay high prices for silk?",
+        "options": [
+          "Silkworms were easy to find in Europe",
+          "China kept the way to make it secret",
+          "Silk was made from cheap, plain paper",
+          "Camels carried the silk there for free"
+        ],
+        "answer": "B",
+        "skill": "cause-effect",
+        "why": "The text says China kept the way of making silk a secret, so people paid high prices.",
+        "wrong": {
+          "A": "The text says only China made silk.",
+          "C": "Silk is made from silkworm threads, not paper.",
+          "D": "The text does not say the silk was free."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "Whom did China's Han dynasty send west to make contact with distant kingdoms?",
+        "options": [
+          "Marco Polo",
+          "Ferdinand von Richthofen",
+          "Zhang Qian",
+          "An Arab merchant"
+        ],
+        "answer": "C",
+        "skill": "detail",
+        "why": "The text says the Han dynasty sent an official named Zhang Qian west.",
+        "wrong": {
+          "A": "Marco Polo traveled much later, in the late 1200s.",
+          "B": "Von Richthofen popularized the name in 1877.",
+          "D": "Arab merchants are named later in the article as traders."
+        }
+      },
+      {
+        "stem": "In the article, the word commerce most nearly means —",
+        "options": [
+          "buying and selling",
+          "building roads",
+          "growing silk",
+          "crossing deserts"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "The sentence says goods moved along the Silk Road, so commerce means buying and selling.",
+        "wrong": {
+          "B": "The sentence is about goods, not building.",
+          "C": "Growing silk is only one part of the trade.",
+          "D": "Crossing deserts is how the trade was done."
+        }
+      },
+      {
+        "stem": "According to the article, why did merchants travel in caravans?",
+        "options": [
+          "To sell their camels at inns",
+          "To keep prices from rising",
+          "To follow the Han dynasty",
+          "To journey together for safety"
+        ],
+        "answer": "D",
+        "skill": "cause-effect",
+        "why": "The text says a caravan is a large group journeying together for safety.",
+        "wrong": {
+          "A": "Camels were used for the trip, not sold at inns.",
+          "B": "Prices rose at every stop.",
+          "C": "The Han dynasty sent Zhang Qian, not caravans."
+        }
+      },
+      {
+        "stem": "Why was passing goods from trader to trader useful on such a long route?",
+        "options": [
+          "It made all the camels run faster",
+          "Each trader covered just a short part",
+          "It kept the prices from rising at all",
+          "It kept the way to make silk secret"
+        ],
+        "answer": "B",
+        "skill": "inference",
+        "why": "The text says few merchants traveled the entire route, so each trader could cover only a short part.",
+        "wrong": {
+          "A": "The text does not mention camel speed.",
+          "C": "The text says prices rose at every stop.",
+          "D": "China kept silk secret for other reasons."
+        }
+      }
+    ]
   }
 }

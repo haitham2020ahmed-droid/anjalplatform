@@ -614,5 +614,217 @@
       ],
       "modelAnswer": "I agree that staying calm and checking carefully is the best first step when something gets mixed up. When Yousef discovered the wrong name on the receipt, he took a slow breath instead of panicking, and that calm choice let him think clearly about what to do next. Because he and his mother checked the receipt carefully, they quickly realized Abu Salem could help them find Hind, which resolved the mix-up in an amicable way. Someone might argue that getting upset is a natural reaction to a mistake, but the story shows that staying calm actually solved the problem faster and left both families laughing instead of arguing."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "What does Abu Salem give Yousef after Yousef pays him?",
+        "options": [
+          "A small cloth bag",
+          "A new shopping list",
+          "A receipt",
+          "A bag of fresh dates"
+        ],
+        "answer": "C",
+        "skill": "detail",
+        "why": "The text says Yousef pays him and he gives Yousef a receipt.",
+        "wrong": {
+          "A": "Yousef already has his own bag.",
+          "B": "Yousef's mom gave him the list.",
+          "D": "Dates are one of the things on the list, not what Abu Salem hands over after paying."
+        }
+      },
+      {
+        "stem": "In the story, a receipt is —",
+        "options": [
+          "a paper that shows what you bought",
+          "a big bag for carrying the food home",
+          "a list of all the things to buy",
+          "a person who sells food at a stall"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "The receipt helped show the bag was not Yousef's, because it had a new name on it.",
+        "wrong": {
+          "B": "A receipt is paper, not a bag.",
+          "C": "The shopping list is a different paper.",
+          "D": "Abu Salem is the seller, not the receipt."
+        }
+      },
+      {
+        "stem": "Why did Yousef and his mom go back to the market?",
+        "options": [
+          "To buy more food for dinner",
+          "To get a new shopping bag",
+          "To say sorry to the cheese seller",
+          "To fix the mistake with the bags"
+        ],
+        "answer": "D",
+        "skill": "cause-effect",
+        "why": "They found out Yousef had the wrong bag, so they went back to the market to find the right bag.",
+        "wrong": {
+          "A": "They went back to fix the mix-up, not to shop.",
+          "B": "They needed the right bag, not a new one.",
+          "C": "They did not need to say sorry to the seller."
+        }
+      },
+      {
+        "stem": "What does it show that Yousef and Hind laugh about the mistake?",
+        "options": [
+          "They both feel it was a small mix-up",
+          "They want to buy some more food",
+          "They are very angry at Abu Salem",
+          "They are lost in the busy market"
+        ],
+        "answer": "A",
+        "skill": "inference",
+        "why": "They laugh and go home, which shows they see the mistake as small and are not upset.",
+        "wrong": {
+          "B": "Buying more food is not mentioned.",
+          "C": "Abu Salem helped them.",
+          "D": "They know where they are."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "What did Abu Salem do as he helped Yousef find each item?",
+        "options": [
+          "He checked them off as they went",
+          "He wrote the list again",
+          "He put them in a box",
+          "He asked Yousef to pay first"
+        ],
+        "answer": "A",
+        "skill": "detail",
+        "why": "The article says he helped Yousef find each item, checking them off as they went.",
+        "wrong": {
+          "B": "He did not rewrite the list.",
+          "C": "No box is mentioned.",
+          "D": "Yousef paid after he found the items."
+        }
+      },
+      {
+        "stem": "In the article, the word vendor means a person who —",
+        "options": [
+          "walks to the market to shop",
+          "reads a list in a loud voice",
+          "carries bags for other people",
+          "sells things at a stall"
+        ],
+        "answer": "D",
+        "skill": "vocabulary",
+        "why": "Hind was talking with another vendor, and Abu Salem is a seller at his stall.",
+        "wrong": {
+          "A": "That describes a shopper like Yousef.",
+          "B": "Reading lists is not what the word means.",
+          "C": "Carrying bags is not what the word means."
+        }
+      },
+      {
+        "stem": "How did Abu Salem know who had the other bag?",
+        "options": [
+          "He saw her pick up the wrong bag by mistake",
+          "He remembered who buys nearly identical items",
+          "He read her name on the wrapped cheese",
+          "He asked all of the people standing nearby"
+        ],
+        "answer": "B",
+        "skill": "cause-effect",
+        "why": "Abu Salem remembered right away who else buys nearly identical items, and that was Hind.",
+        "wrong": {
+          "A": "The article does not say he saw it.",
+          "C": "The name was on the receipt, not on the cheese.",
+          "D": "He knew right away and did not ask everyone."
+        }
+      },
+      {
+        "stem": "The article calls it an easy mistake to make in such a busy market. What does it mean?",
+        "options": [
+          "Yousef did not care about the food",
+          "Abu Salem should have helped more",
+          "Many people could have done the same",
+          "Yousef's mother gave him the wrong list"
+        ],
+        "answer": "C",
+        "skill": "inference",
+        "why": "The crowd and the similar bags made the mistake easy, so many people could have made it.",
+        "wrong": {
+          "A": "Yousef stayed calm and fixed the problem.",
+          "B": "Abu Salem did help with each item.",
+          "D": "The list had the right items."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "What did Yousef do as he walked toward town?",
+        "options": [
+          "Counted the coins in his hand",
+          "Waved goodbye to his mother",
+          "Looked around for Abu Salem",
+          "Hummed quietly to himself"
+        ],
+        "answer": "D",
+        "skill": "detail",
+        "why": "The article says he set off toward town, humming quietly as the morning sun warmed the street.",
+        "wrong": {
+          "A": "He paid with coins later, at the stall.",
+          "B": "Waving is not mentioned.",
+          "C": "He knew where the stall was."
+        }
+      },
+      {
+        "stem": "In the article, the word amicable most nearly means —",
+        "options": [
+          "loud and full of anger",
+          "friendly and peaceful",
+          "slow and a little boring",
+          "careful and very quiet"
+        ],
+        "answer": "B",
+        "skill": "vocabulary",
+        "why": "They solved the mix-up in a courteous and amicable way, without any blame, so it means friendly.",
+        "wrong": {
+          "A": "The mix-up was solved without blame or anger.",
+          "C": "Nothing about it was boring.",
+          "D": "The word is about being friendly, not quiet."
+        }
+      },
+      {
+        "stem": "What was the result of Yousef choosing to take one slow breath?",
+        "options": [
+          "Abu Salem gave him a free gift",
+          "He stayed calm and avoided blame",
+          "He forgot where the market was",
+          "He decided to shop somewhere else"
+        ],
+        "answer": "B",
+        "skill": "cause-effect",
+        "why": "The article says he chose to stay calm, and the mix-up was resolved in a courteous way without blame.",
+        "wrong": {
+          "A": "No free gift is mentioned.",
+          "C": "He knew the way and walked back.",
+          "D": "He returned to the same market."
+        }
+      },
+      {
+        "stem": "Every Thursday, Yousef's mother gave him a shopping list as part of a family routine. What does this suggest about his errand?",
+        "options": [
+          "It felt so familiar he did not check closely",
+          "It was the very first time he shopped alone",
+          "It was a task that he had always disliked",
+          "It was too hard for such a young boy"
+        ],
+        "answer": "A",
+        "skill": "inference",
+        "why": "A familiar routine can lead to less careful checking, as when Yousef grabbed a bag without looking twice.",
+        "wrong": {
+          "B": "He did this every week.",
+          "C": "The article does not say he disliked it.",
+          "D": "He did it every week without trouble."
+        }
+      }
+    ]
   }
 }

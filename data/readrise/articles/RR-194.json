@@ -614,5 +614,217 @@
       ],
       "modelAnswer": "Several adaptations help desert plants survive drought. A cactus stores water in its thick stem like a tank and has sharp spines instead of large leaves, since spines lose far less water through evaporation than broad leaves would. Some plants, like the acacia tree, grow roots deep enough to reach groundwater, while others spread shallow roots wide to soak up rain before the sun dries the sand, and some seeds simply stay dormant in the sand for years until rain finally arrives. People can use these ideas to conserve water by choosing native, drought-adapted plants like the acacia for landscaping instead of thirsty plants that need constant watering."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "How long do the seeds take to grow and bloom after rain?",
+        "options": [
+          "A few years",
+          "One night",
+          "A whole life",
+          "A few weeks"
+        ],
+        "answer": "D",
+        "skill": "detail",
+        "why": "The text says the seeds grow and bloom in a few weeks.",
+        "wrong": {
+          "A": "The seeds sleep for a long time, but they bloom within weeks.",
+          "B": "The text says weeks, not one night.",
+          "C": "They bloom in a few weeks, not a whole life."
+        }
+      },
+      {
+        "stem": "In this article, what does bloom mean?",
+        "options": [
+          "make flowers",
+          "dry up",
+          "hide in sand",
+          "lose water"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "The seeds wake up, grow, and bloom, then make new seeds, so bloom means to make flowers.",
+        "wrong": {
+          "B": "Drying up is what the plants avoid.",
+          "C": "The seeds hide in the sand while they sleep, before they bloom.",
+          "D": "The plants try to save water."
+        }
+      },
+      {
+        "stem": "Why do some plants have long roots?",
+        "options": [
+          "To keep animals away",
+          "To make wax",
+          "To reach water deep down",
+          "To make the stem thick"
+        ],
+        "answer": "C",
+        "skill": "cause-effect",
+        "why": "The text says the roots go deep down, where there is water.",
+        "wrong": {
+          "A": "Spines keep animals away.",
+          "B": "The wax is on the leaves.",
+          "D": "The stem holds water; the roots do not make it thick."
+        }
+      },
+      {
+        "stem": "What does the author mean by saying each plant has its own trick?",
+        "options": [
+          "Plants like to play games",
+          "Each saves water in its own way",
+          "Plants like to hide in sand",
+          "Only the cactus saves water"
+        ],
+        "answer": "B",
+        "skill": "inference",
+        "why": "The article goes on to show many different ways that plants save water.",
+        "wrong": {
+          "A": "Trick means a clever way, not a game.",
+          "C": "Hiding in sand is only about seeds.",
+          "D": "Many plants save water, not only the cactus."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "What do a cactus's spines protect it from?",
+        "options": [
+          "Strong wind",
+          "Hungry animals",
+          "Cold nights",
+          "Heavy rain"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The text says the spines protect the cactus from hungry animals that want the water inside.",
+        "wrong": {
+          "A": "Wind is not mentioned.",
+          "C": "Cold nights are not mentioned.",
+          "D": "Rain is welcome in the desert."
+        }
+      },
+      {
+        "stem": "In the article, what is groundwater?",
+        "options": [
+          "water that falls in a storm",
+          "water in a cactus stem",
+          "water on shiny leaves",
+          "water hidden under the earth"
+        ],
+        "answer": "D",
+        "skill": "vocabulary",
+        "why": "The text says groundwater is water hidden under the earth.",
+        "wrong": {
+          "A": "That describes rain.",
+          "B": "That water is stored in the cactus.",
+          "C": "The leaves have wax, not water, on them."
+        }
+      },
+      {
+        "stem": "Why do some plants have shallow roots that spread wide?",
+        "options": [
+          "To soak up rain before it dries",
+          "To keep animals from the roots",
+          "To reach the groundwater below",
+          "To make the leaves waxy"
+        ],
+        "answer": "A",
+        "skill": "cause-effect",
+        "why": "The wide roots soak up rain before the sun dries it.",
+        "wrong": {
+          "B": "Spines, not roots, protect against animals.",
+          "C": "Deep roots reach groundwater.",
+          "D": "The wax is a feature of the leaves."
+        }
+      },
+      {
+        "stem": "Why does the author compare the cactus stem to a tank?",
+        "options": [
+          "To say a cactus is made of metal",
+          "To show that cacti are dangerous",
+          "To help readers picture the water",
+          "To explain how the spines grow"
+        ],
+        "answer": "C",
+        "skill": "author-purpose",
+        "why": "A tank holds water, so the comparison helps readers picture the stem holding water.",
+        "wrong": {
+          "A": "The comparison is about holding water, not metal.",
+          "B": "The spines are discussed in a different part.",
+          "D": "The tank comparison is about water storage."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "What happens in some desert valleys after a good rainy season?",
+        "options": [
+          "Wildflowers cover them in color",
+          "Cactus spines grow tall there",
+          "Deep lakes fill them for years",
+          "All their sand blows away"
+        ],
+        "answer": "A",
+        "skill": "detail",
+        "why": "The text says some desert valleys and meadows become covered with colorful wildflowers.",
+        "wrong": {
+          "B": "Spines are not linked to valleys.",
+          "C": "The text does not say lakes form.",
+          "D": "Blowing sand is not mentioned."
+        }
+      },
+      {
+        "stem": "In the article, the word arid most nearly means —",
+        "options": [
+          "full of tall trees",
+          "very cold",
+          "extremely dry",
+          "covered in water"
+        ],
+        "answer": "C",
+        "skill": "vocabulary",
+        "why": "An arid region receives very little rainfall, so arid means extremely dry.",
+        "wrong": {
+          "A": "A place with little rain has few trees.",
+          "B": "The article says the sun beats down.",
+          "D": "The region has very little rain."
+        }
+      },
+      {
+        "stem": "Why do shallow roots spread widely beneath the sand?",
+        "options": [
+          "To anchor a tall acacia tree",
+          "To keep the spines from growing",
+          "To reach water deep underground",
+          "To catch rain before sun dries it"
+        ],
+        "answer": "D",
+        "skill": "cause-effect",
+        "why": "The shallow roots absorb rainwater before the intense sun dries it.",
+        "wrong": {
+          "A": "The acacia has deep roots, not shallow ones.",
+          "B": "Spines are not connected to roots.",
+          "C": "Deep roots, not shallow ones, reach deep water."
+        }
+      },
+      {
+        "stem": "Why do wildflowers cover desert valleys only after a good rainy season?",
+        "options": [
+          "Wildflowers need cold weather",
+          "Dormant seeds sprout when rain arrives",
+          "Cacti drop their flowers on valleys",
+          "Animals plant the seeds in spring"
+        ],
+        "answer": "B",
+        "skill": "inference",
+        "why": "Seeds stay dormant in the sand until rain arrives, then sprout and bloom within weeks.",
+        "wrong": {
+          "A": "The article does not mention cold weather.",
+          "C": "Cacti are not described as dropping flowers.",
+          "D": "The text does not say animals plant the seeds."
+        }
+      }
+    ]
   }
 }

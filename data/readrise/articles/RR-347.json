@@ -614,5 +614,217 @@
       ],
       "modelAnswer": "Understanding fertility rates, mortality rates, and life expectancy together matters because each one on its own tells only part of a demographic story, and planning for a sustainable future requires the full picture. The article explains that a high fertility rate combined with a low mortality rate can produce growth that is nearly exponential, meaning a country may need to plan for schools, housing, and other resources for a rapidly expanding population. At the same time, a country moving through the later stages of the demographic transition, where fertility has fallen and life expectancy has risen, may instead need to plan for an older population that requires different kinds of healthcare and support. Because the article shows that birth rates, healthcare, and life expectancy interact rather than acting alone, leaders who ignore any one of these measures risk preparing for the wrong future entirely."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "About how long ago did the number of people begin to rise fast?",
+        "options": [
+          "One year ago",
+          "Two centuries ago",
+          "Ten years ago",
+          "Two days ago"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The text says growth got fast about two centuries back.",
+        "wrong": {
+          "A": "One year is far too short a time.",
+          "C": "Ten years is far too short a time.",
+          "D": "Two days is far too short a time."
+        }
+      },
+      {
+        "stem": "In the text, the word lands means —",
+        "options": [
+          "farms for food",
+          "places with water",
+          "countries",
+          "small boats"
+        ],
+        "answer": "C",
+        "skill": "vocabulary",
+        "why": "The text says some lands get lots of new babies, which means some countries do.",
+        "wrong": {
+          "A": "The text talks about babies, not farms.",
+          "B": "Lands here are places where people live, not water.",
+          "D": "Boats are not mentioned in the text."
+        }
+      },
+      {
+        "stem": "What happens when more babies live and grow big?",
+        "options": [
+          "Fewer people live on Earth",
+          "Clean water goes away fast",
+          "More people live on Earth",
+          "War gets much worse now"
+        ],
+        "answer": "C",
+        "skill": "cause-effect",
+        "why": "When more babies live and grow big, the count of people on Earth goes up.",
+        "wrong": {
+          "A": "More babies growing up makes the number rise, not fall.",
+          "B": "Clean water is one thing that helps people, not a result.",
+          "D": "The text does not link babies to war."
+        }
+      },
+      {
+        "stem": "In the text, what does the word Then show when it says growth got much faster?",
+        "options": [
+          "Growth was slow first and fast later",
+          "Growth was fast first and slow later",
+          "Growth was always the same",
+          "Growth stopped for a long time"
+        ],
+        "answer": "A",
+        "skill": "sequence",
+        "why": "The text says growth was slow for a long time, and then it got fast.",
+        "wrong": {
+          "B": "The text says slow came first.",
+          "C": "The text says growth changed over time.",
+          "D": "Growth did not stop; it got fast."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "In the article, life expectancy means —",
+        "options": [
+          "how many babies are born each year",
+          "how long people tend to live",
+          "how many hospitals a land has",
+          "how much food a land grows"
+        ],
+        "answer": "B",
+        "skill": "vocabulary",
+        "why": "The text says life expectancy is how long people tend to live.",
+        "wrong": {
+          "A": "That describes the birth rate.",
+          "C": "Hospitals are not counted in this term.",
+          "D": "The term is about people, not food."
+        }
+      },
+      {
+        "stem": "About how long ago did the number of people begin to climb much faster?",
+        "options": [
+          "Two thousand years ago",
+          "Two centuries ago",
+          "Two months ago",
+          "Two decades ago"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The text says roughly two centuries ago the number of people began to climb much faster.",
+        "wrong": {
+          "A": "The text says growth was slow for thousands of years.",
+          "C": "Two months is far too short.",
+          "D": "Two decades is much too recent."
+        }
+      },
+      {
+        "stem": "The article says lands with a high birth rate \"stay young.\" What does this suggest?",
+        "options": [
+          "Many people there are young",
+          "People there never grow old",
+          "People there live the longest lives",
+          "Few babies are born there"
+        ],
+        "answer": "A",
+        "skill": "inference",
+        "why": "A high birth rate means many babies are born, so many people there are young.",
+        "wrong": {
+          "B": "People there still grow old.",
+          "C": "The text does not link a high birth rate to long lives.",
+          "D": "A high birth rate means many babies are born."
+        }
+      },
+      {
+        "stem": "What does the word \"However\" show at the start of the sixth paragraph?",
+        "options": [
+          "More proof that growth is the same",
+          "A change from the world to each land",
+          "A date from long ago",
+          "A list of doctors"
+        ],
+        "answer": "B",
+        "skill": "text-structure",
+        "why": "The text says growth is not the same everywhere, so the author moves from the whole world to differences between lands.",
+        "wrong": {
+          "A": "The next sentence says growth is not the same everywhere.",
+          "C": "The word does not give a date.",
+          "D": "The text does not list doctors."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "In the article, the term mortality rate refers to —",
+        "options": [
+          "how often people die",
+          "how often babies are born",
+          "how fast a country grows rich",
+          "how many homes are built"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "The article says the mortality rate means how often people die.",
+        "wrong": {
+          "B": "That is closer to the birth rate.",
+          "C": "Wealth is a separate idea in the article.",
+          "D": "Homes are not part of this term."
+        }
+      },
+      {
+        "stem": "Besides clean water and better food, what else helps people live longer?",
+        "options": [
+          "Larger cities",
+          "Safer homes",
+          "Faster ships",
+          "Bigger families"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The article lists clean water, better food, and safer homes.",
+        "wrong": {
+          "A": "Cities are not mentioned as a cause.",
+          "C": "Ships are not mentioned in the article.",
+          "D": "Family size is linked to fertility, not long life."
+        }
+      },
+      {
+        "stem": "Why did the population stay small and steady for centuries?",
+        "options": [
+          "Few babies were ever born",
+          "People left to live on other planets",
+          "War, famine, and disease kept lives short",
+          "Families chose to stay small"
+        ],
+        "answer": "C",
+        "skill": "cause-effect",
+        "why": "The article says war, famine, and disease kept most people from living long lives.",
+        "wrong": {
+          "A": "The article does not say few babies were born.",
+          "B": "The article says nothing about other planets.",
+          "D": "The article blames war, famine, and disease, not choice."
+        }
+      },
+      {
+        "stem": "Why does the author say demographers see this growth as one of the biggest changes of the modern age?",
+        "options": [
+          "To show the topic is important",
+          "To list every modern invention",
+          "To say growth has now stopped",
+          "To warn about a coming war"
+        ],
+        "answer": "A",
+        "skill": "author-purpose",
+        "why": "The author uses the phrase to show the reader that population growth is a very big topic.",
+        "wrong": {
+          "B": "The article does not list inventions.",
+          "C": "The article says growth continues in many places.",
+          "D": "War is mentioned only as a past cause of slow growth."
+        }
+      }
+    ]
   }
 }

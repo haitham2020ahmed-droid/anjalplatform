@@ -614,5 +614,217 @@
       ],
       "modelAnswer": "The Amazon River's enormous size affects far more than its own channel. On land, its seasonal flooding spreads across the surrounding floodplain forest, sometimes for many kilometers, temporarily turning dry forest floor into shallow water that small boats can cross. Beyond the river itself, its sheer discharge, more water than the next seven largest rivers in the world combined, pushes a sediment-rich plume out into the Atlantic Ocean that is visible from space and measurably changes the ocean's salinity for kilometers from the river's mouth. Both effects show that the Amazon's influence stretches far beyond the villages and tributaries that line its banks."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "Which way does the Amazon flow?",
+        "options": [
+          "West",
+          "North",
+          "East",
+          "South"
+        ],
+        "answer": "C",
+        "skill": "detail",
+        "why": "The text says the river flows east and ends at the sea.",
+        "wrong": {
+          "A": "The river flows east, not west.",
+          "B": "North is not the direction in the text.",
+          "D": "South is not the direction in the text."
+        }
+      },
+      {
+        "stem": "In the article, the word rise means —",
+        "options": [
+          "go up higher",
+          "fall down",
+          "stand still",
+          "dry up"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "When heavy rain falls, the river rises and spreads into the trees, so rise means go up higher.",
+        "wrong": {
+          "B": "Falling is the opposite of rising.",
+          "C": "The river moves up, not stands still.",
+          "D": "The river gets more water, not less."
+        }
+      },
+      {
+        "stem": "What happens after the river rises?",
+        "options": [
+          "It turns into a hill.",
+          "It builds a long bridge.",
+          "It stops at the hills.",
+          "It spreads into the trees."
+        ],
+        "answer": "D",
+        "skill": "sequence",
+        "why": "The text says the river rises and then spreads into the trees.",
+        "wrong": {
+          "A": "The river does not become a hill.",
+          "B": "The text says no bridge crosses the river.",
+          "C": "The river spreads into the forest instead."
+        }
+      },
+      {
+        "stem": "Why might many villages sit by the river?",
+        "options": [
+          "The river has no water in it.",
+          "The river gives food and travel.",
+          "The land is far from the water.",
+          "There are many bridges there."
+        ],
+        "answer": "B",
+        "skill": "inference",
+        "why": "The text says families fish in the river and travel on it, so it gives life to many people.",
+        "wrong": {
+          "A": "The river is very wide and full of water.",
+          "C": "The villages sit by the river, not far from it.",
+          "D": "The text says no bridge crosses the river."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "About how long is the Amazon?",
+        "options": [
+          "About 640 kilometers",
+          "About 2,000 kilometers",
+          "About 64,000 kilometers",
+          "About 6,400 kilometers"
+        ],
+        "answer": "D",
+        "skill": "detail",
+        "why": "The text says the Amazon is about 6,400 kilometers long.",
+        "wrong": {
+          "A": "640 is far too short.",
+          "B": "2,000 is not the number in the text.",
+          "C": "64,000 is far too long."
+        }
+      },
+      {
+        "stem": "In the article, the word converge most nearly means —",
+        "options": [
+          "split apart",
+          "come together",
+          "flow backward",
+          "dry out"
+        ],
+        "answer": "B",
+        "skill": "vocabulary",
+        "why": "The two rivers converge near Manaus and flow on as one, so converge means come together.",
+        "wrong": {
+          "A": "Splitting apart is the opposite.",
+          "C": "Flowing backward does not fit.",
+          "D": "The rivers do not dry out when they meet."
+        }
+      },
+      {
+        "stem": "Why does no bridge cross the main Amazon?",
+        "options": [
+          "The river is too wide and shifts.",
+          "There are too many big cities.",
+          "Boats are not allowed there.",
+          "The water there is too cold."
+        ],
+        "answer": "A",
+        "skill": "cause-effect",
+        "why": "The text says the river is too wide, too far away, and too likely to shift.",
+        "wrong": {
+          "B": "Big cities are not the reason given.",
+          "C": "Boats are used all along the river.",
+          "D": "Water temperature is not mentioned."
+        }
+      },
+      {
+        "stem": "What can you infer about the flooded forest for fish?",
+        "options": [
+          "It is a place with no food",
+          "It is too dry for them",
+          "It gives them fruit to eat",
+          "It keeps them from swimming"
+        ],
+        "answer": "C",
+        "skill": "inference",
+        "why": "Fish swim among the flooded trees and feed on the fruit that falls, so the forest gives them food.",
+        "wrong": {
+          "A": "The fish feed on fruit there.",
+          "B": "The forest is flooded, not dry.",
+          "D": "The fish swim among the trees."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "About how many smaller tributaries join the main Amazon?",
+        "options": [
+          "Fewer than ten",
+          "More than a thousand",
+          "About fifty",
+          "Exactly one hundred"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The text says more than a thousand smaller tributaries join the main river.",
+        "wrong": {
+          "A": "The number is far more than ten.",
+          "C": "Fifty is far too few.",
+          "D": "The text says more than a thousand."
+        }
+      },
+      {
+        "stem": "In the article, the word navigable describes water that is —",
+        "options": [
+          "too salty to drink",
+          "deep enough for boats to travel",
+          "frozen for most of the year",
+          "full of fish and plants"
+        ],
+        "answer": "B",
+        "skill": "vocabulary",
+        "why": "The flooded forest becomes water that small boats can travel through, so navigable means able to be traveled by boat.",
+        "wrong": {
+          "A": "Salt is not part of the meaning.",
+          "C": "The Amazon is warm, not frozen.",
+          "D": "Fish and plants are not what the word means."
+        }
+      },
+      {
+        "stem": "Why does the river's volume keep growing all the way to the coast?",
+        "options": [
+          "Sea ice melts into the river",
+          "The floodplain adds ocean water",
+          "Each tributary adds more water",
+          "The sea pushes water upstream"
+        ],
+        "answer": "C",
+        "skill": "cause-effect",
+        "why": "The text says each of the many tributaries adds a little more to the river's volume.",
+        "wrong": {
+          "A": "Sea ice is not mentioned.",
+          "B": "The floodplain does not add ocean water.",
+          "D": "The river flows toward the sea, not the other way."
+        }
+      },
+      {
+        "stem": "How do the two rivers that form the Amazon differ?",
+        "options": [
+          "One has pale water, the other dark",
+          "One flows east, the other west",
+          "One is frozen, the other is warm",
+          "One is a lake, the other a river"
+        ],
+        "answer": "A",
+        "skill": "compare",
+        "why": "The Solimões carries pale water heavy with sediment, while the Rio Negro carries much darker water.",
+        "wrong": {
+          "B": "Both flow together toward the Atlantic.",
+          "C": "Neither river is described as frozen.",
+          "D": "Both are rivers."
+        }
+      }
+    ]
   }
 }

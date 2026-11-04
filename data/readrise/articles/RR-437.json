@@ -614,5 +614,217 @@
       ],
       "modelAnswer": "I agree that learning something hard is easier when you practice in small steps. Lama did not start by trying to swim the whole pool; she began by floating with Coach Huda's support, then practiced kicking with a kickboard, and only gradually built the confidence to swim alone. Her persistence across many weeks, even when progress felt slow, eventually allowed her to overcome her fear completely. Someone might argue that a few brave attempts at the hard task directly would work just as well, but the article shows that Lama's earlier attempts at the deep end only made her more nervous, while patient, gradual technique is what finally led to her accomplishment."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "What did Lama look at when she learned to float?",
+        "options": [
+          "The pool steps",
+          "The sky",
+          "The big board",
+          "Her coach's face"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The text says Coach Huda held her up and Lama looked at the sky.",
+        "wrong": {
+          "A": "She sat on the steps in an earlier lesson, not when floating.",
+          "C": "The board was used later for kicking.",
+          "D": "The text does not say she looked at her coach."
+        }
+      },
+      {
+        "stem": "In the story, the word braver means —",
+        "options": [
+          "more tired than before",
+          "more happy to be at home",
+          "more sure of the pool floor",
+          "less afraid of scary things"
+        ],
+        "answer": "D",
+        "skill": "vocabulary",
+        "why": "Each time Lama came back she felt braver, and at the end she was not nervous now.",
+        "wrong": {
+          "A": "Lama did not get more tired.",
+          "B": "The story is about the pool, not home.",
+          "C": "The floor of the pool is not the topic."
+        }
+      },
+      {
+        "stem": "Why did Lama get better each week?",
+        "options": [
+          "She came back and practiced many times",
+          "She stayed on the steps all day long",
+          "She swam in the deep end right away",
+          "She asked her mom to teach her more"
+        ],
+        "answer": "A",
+        "skill": "cause-effect",
+        "why": "Lama came back many times, and each time she practiced and felt braver.",
+        "wrong": {
+          "B": "She moved from the steps to floating and kicking.",
+          "C": "She did not like the deep end at first.",
+          "D": "Her coach taught her, not her mom."
+        }
+      },
+      {
+        "stem": "Why did Coach Huda ask Lama to swim all the way to her at the end?",
+        "options": [
+          "She was too tired to help",
+          "She wanted to end the lesson",
+          "She thought Lama was ready",
+          "She wanted a game with Lama"
+        ],
+        "answer": "C",
+        "skill": "inference",
+        "why": "Lama had learned to float and kick, so the coach could see she was ready to swim alone.",
+        "wrong": {
+          "A": "The story does not say the coach was tired.",
+          "B": "The coach wanted Lama to swim, not stop.",
+          "D": "The words were part of the lesson, not a game."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "What did Lama do during her very first swimming lesson?",
+        "options": [
+          "She floated on her back with her coach",
+          "She swam across the pool by herself",
+          "She kicked her legs with a foam board",
+          "She sat on the steps and kicked gently"
+        ],
+        "answer": "D",
+        "skill": "detail",
+        "why": "The text says she only sat quietly on the pool steps and kicked her feet gently in the shallow water.",
+        "wrong": {
+          "A": "Floating came in the next few weeks.",
+          "B": "Swimming across came at the very end.",
+          "C": "The kickboard came after floating."
+        }
+      },
+      {
+        "stem": "In the article, the word determined means —",
+        "options": [
+          "not ready to give up",
+          "afraid of the water",
+          "bored with the lessons",
+          "sure she would win a race"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "Lama kept practicing even when her hands shook, so she did not give up.",
+        "wrong": {
+          "B": "Being afraid is how she felt, not what determined means.",
+          "C": "She kept working, so she was not bored.",
+          "D": "There is no race in the article."
+        }
+      },
+      {
+        "stem": "Why does the author begin by asking readers to picture standing at the edge of a deep pool?",
+        "options": [
+          "To teach readers how to swim in deep water",
+          "To show that the pool is not safe to use",
+          "To help readers feel how scared Lama was",
+          "To tell readers exactly where the pool is"
+        ],
+        "answer": "C",
+        "skill": "author-purpose",
+        "why": "The opening makes readers imagine the deep water so they understand Lama's nervous feeling.",
+        "wrong": {
+          "A": "The opening does not teach swimming steps.",
+          "B": "The pool is not described as dangerous.",
+          "D": "The location of the pool is not given."
+        }
+      },
+      {
+        "stem": "What helped Lama learn to glide instead of just splashing?",
+        "options": [
+          "A new and bigger swimming pool",
+          "Practicing a little at a time",
+          "Swimming with a group of kids",
+          "Swimming in the deep end first"
+        ],
+        "answer": "B",
+        "skill": "cause-effect",
+        "why": "The article says that little by little, as she kept practicing, she learned to glide.",
+        "wrong": {
+          "A": "The pool did not change.",
+          "C": "No other kids are mentioned.",
+          "D": "She stayed away from the deep end for months."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "What does Lama look forward to doing at the end of the article?",
+        "options": [
+          "Teaching other nervous beginners",
+          "Winning a race against her friends",
+          "Swimming a full lap by herself",
+          "Moving to a pool with deeper water"
+        ],
+        "answer": "C",
+        "skill": "detail",
+        "why": "The last paragraph says she already anticipated the day she would swim a complete lap on her own.",
+        "wrong": {
+          "A": "Teaching others is not mentioned.",
+          "B": "There is no race in the article.",
+          "D": "The article does not say she wants a deeper pool."
+        }
+      },
+      {
+        "stem": "In the article, the phrase \"venture any deeper\" means to —",
+        "options": [
+          "pull away from the edge",
+          "go somewhere new and risky",
+          "ask a coach for more help",
+          "float on top of the water"
+        ],
+        "answer": "B",
+        "skill": "vocabulary",
+        "why": "Lama felt too afraid to go into deeper water, so venture means to go into a risky place.",
+        "wrong": {
+          "A": "The phrase is about going deeper, not pulling away.",
+          "C": "Asking for help is not what venture means.",
+          "D": "Floating is a later lesson."
+        }
+      },
+      {
+        "stem": "What can readers infer about Coach Huda from the fact that she had guided many nervous beginners before?",
+        "options": [
+          "She understands how to help scared learners",
+          "She does not like teaching adult students",
+          "She wants her students to hurry up",
+          "She is also afraid of very deep water"
+        ],
+        "answer": "A",
+        "skill": "inference",
+        "why": "Having helped many nervous beginners suggests she knew how to be patient and calm with Lama.",
+        "wrong": {
+          "B": "The article does not mention adult students.",
+          "C": "She never rushed Lama.",
+          "D": "Nothing suggests she was afraid."
+        }
+      },
+      {
+        "stem": "Why does the author begin by saying few experiences test courage like deep water?",
+        "options": [
+          "To warn readers not to swim alone in pools",
+          "To explain how deep pools are built safely",
+          "To show that Lama's coach is very brave",
+          "To show that Lama's fear is easy to understand"
+        ],
+        "answer": "D",
+        "skill": "author-purpose",
+        "why": "The opening suggests many people would feel uneasy, so readers can sympathize with Lama.",
+        "wrong": {
+          "A": "The article is not a safety warning.",
+          "B": "The article does not explain how pools are built.",
+          "C": "The opening is about Lama's fear, not the coach."
+        }
+      }
+    ]
   }
 }

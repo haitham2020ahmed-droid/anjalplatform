@@ -614,5 +614,217 @@
       ],
       "modelAnswer": "Asteroids are considered rocky leftovers from the solar system's formation because they are fragments of rock and metal that never grew large enough to become full planets. According to the article, billions of years ago countless fragments tried to clump together under gravity, but Jupiter's gravitational influence likely scattered many of them before they could merge, leaving them as the smaller, irregularly shaped bodies we now call asteroids. This is quite different from comets, which are composed mainly of ice mixed with dust rather than solid rock and metal. Because comets contain so much ice, their surfaces vaporize when they travel close to the sun, producing the long, glowing tails comets are famous for, while asteroids almost never form a tail since they simply lack that ice. In conclusion, asteroids and comets may both be leftover material from the early solar system, but their different compositions make them behave in very different ways."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "What did the bits of rock try to do long ago?",
+        "options": [
+          "Join together",
+          "Fly to the moon",
+          "Melt into ice",
+          "Hide in the belt"
+        ],
+        "answer": "A",
+        "skill": "detail",
+        "why": "The text says long ago bits of rock tried to join.",
+        "wrong": {
+          "B": "The text never says the rocks tried to reach the moon.",
+          "C": "The rocks are not said to melt; a comet is the icy one.",
+          "D": "The belt is where most of them ended up, not something they tried to do."
+        }
+      },
+      {
+        "stem": "Why does the author say so many rocks sit in the belt?",
+        "options": [
+          "They show the belt is empty",
+          "They show the rocks are very big",
+          "They show the belt is crowded",
+          "They show the rocks are very new"
+        ],
+        "answer": "C",
+        "skill": "inference",
+        "why": "Saying so many rocks sit in the belt tells us the belt is full of rocks.",
+        "wrong": {
+          "A": "The sentence says the opposite of empty.",
+          "B": "The text says the rocks may look small.",
+          "D": "The text says they are old bits left from long ago."
+        }
+      },
+      {
+        "stem": "The text says a few rocks drift away from the belt. What does drift mean here?",
+        "options": [
+          "Crash very hard",
+          "Move away slowly",
+          "Turn into comets",
+          "Grow a tail"
+        ],
+        "answer": "B",
+        "skill": "vocabulary",
+        "why": "Drift means to move slowly away, which fits rocks leaving the belt.",
+        "wrong": {
+          "A": "Nothing in the sentence says the rocks crash.",
+          "C": "The text says a rock is not the same as a comet.",
+          "D": "The text says a plain rock does not grow a tail."
+        }
+      },
+      {
+        "stem": "Why do these small rocks teach us a lot?",
+        "options": [
+          "They are very bright in the night sky",
+          "They are bits left from the first solar system",
+          "They are the biggest things in all of space",
+          "They were thrown off from Earth long ago"
+        ],
+        "answer": "B",
+        "skill": "cause-effect",
+        "why": "The last paragraph says they teach us a lot because they are bits left from when the solar system first formed.",
+        "wrong": {
+          "A": "Brightness is not given as the reason.",
+          "C": "The text says the rocks may look small.",
+          "D": "The rocks are left from the solar system forming, not from Earth."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "How is an asteroid different from a planet?",
+        "options": [
+          "It is far smaller and not round",
+          "It is much bigger and rounder",
+          "It orbits Earth instead of the sun",
+          "It is made only of ice"
+        ],
+        "answer": "A",
+        "skill": "compare",
+        "why": "The text says an asteroid orbits the sun like a planet but is far smaller and has no rounded shape.",
+        "wrong": {
+          "B": "The text says an asteroid is smaller, not bigger.",
+          "C": "Asteroids orbit the sun.",
+          "D": "Asteroids are mostly rock and metal, not ice."
+        }
+      },
+      {
+        "stem": "What pulled the small fragments together when the solar system was forming?",
+        "options": [
+          "The heat of the sun",
+          "The wind in space",
+          "The tails of comets",
+          "The pull of gravity"
+        ],
+        "answer": "D",
+        "skill": "detail",
+        "why": "The text says the fragments tried to clump together under the pull of gravity.",
+        "wrong": {
+          "A": "The text does not say heat pulled them together.",
+          "B": "The text does not mention wind in space.",
+          "C": "Comet tails have nothing to do with how the fragments clumped."
+        }
+      },
+      {
+        "stem": "Why do astronomers calculate the paths of wandering asteroids?",
+        "options": [
+          "To learn how to give them tails",
+          "To find out if one might hit Earth",
+          "To count how many are in the belt",
+          "To move them back to the belt"
+        ],
+        "answer": "B",
+        "skill": "inference",
+        "why": "Scientists worry one might collide with Earth, so tracking their paths helps them watch for that.",
+        "wrong": {
+          "A": "Asteroids lack ice, and no one tries to give them tails.",
+          "C": "Counting is not the reason the text gives for calculating paths.",
+          "D": "The text does not say people move asteroids."
+        }
+      },
+      {
+        "stem": "In the text, what does the word preserve mean?",
+        "options": [
+          "Throw away",
+          "Make bigger",
+          "Hide from view",
+          "Keep safe unchanged"
+        ],
+        "answer": "D",
+        "skill": "vocabulary",
+        "why": "Asteroids keep old material safe and unchanged, so scientists can learn about the past.",
+        "wrong": {
+          "A": "Throwing away would not teach scientists anything.",
+          "B": "The text does not say the material grows.",
+          "C": "The point is that scientists can learn from it, so it is not hidden."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "According to the article, why do larger worlds have a rounded shape?",
+        "options": [
+          "Comets crash into them",
+          "Their own gravity shapes them",
+          "They spin faster than asteroids",
+          "They are made only of metal"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The text says larger worlds acquire their rounded shape from their own gravity.",
+        "wrong": {
+          "A": "Comets are not named as the cause of a round shape.",
+          "C": "Spin speed is not given as the reason.",
+          "D": "Asteroids are rock and metal too, so metal is not the reason."
+        }
+      },
+      {
+        "stem": "In the text, what does the word fundamentally mean?",
+        "options": [
+          "Only a little",
+          "Just in name",
+          "Quickly",
+          "In a basic way"
+        ],
+        "answer": "D",
+        "skill": "vocabulary",
+        "why": "The author says asteroids and comets differ in what they are made of, which is a basic difference.",
+        "wrong": {
+          "A": "The author says they differ a lot, not a little.",
+          "B": "The difference is real, in what they are made of.",
+          "C": "The word is about how deep the difference is, not speed."
+        }
+      },
+      {
+        "stem": "Why might millions of asteroids in the belt still be hard to see from Earth?",
+        "options": [
+          "Most are too small to see without a telescope",
+          "They are hidden behind Jupiter all the time",
+          "They give off no light and move too fast to see",
+          "The belt is too far away from the sun to see"
+        ],
+        "answer": "A",
+        "skill": "inference",
+        "why": "The text says most are far too small to observe without a powerful telescope.",
+        "wrong": {
+          "B": "The text does not say they hide behind Jupiter.",
+          "C": "The text does not say they move too fast to be seen.",
+          "D": "Distance from the sun is not given as the reason."
+        }
+      },
+      {
+        "stem": "Why can studying asteroids help scientists learn about the solar system's distant past?",
+        "options": [
+          "Asteroids are much newer than all the planets",
+          "Asteroids drift toward Earth every single year in big groups",
+          "Their material has stayed the same for billions of years",
+          "Asteroids have many bright glowing comet tails in the sky"
+        ],
+        "answer": "C",
+        "skill": "cause-effect",
+        "why": "The final paragraph says their material has remained largely unchanged for billions of years, so it shows what the past was like.",
+        "wrong": {
+          "A": "The text says they are leftovers from the early solar system, not newer.",
+          "B": "Only a few drift near Earth, and that is not why they teach us about the past.",
+          "D": "The text says asteroids almost never grow tails."
+        }
+      }
+    ]
   }
 }

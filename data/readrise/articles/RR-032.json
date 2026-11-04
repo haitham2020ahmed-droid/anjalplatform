@@ -614,5 +614,217 @@
       ],
       "modelAnswer": "I think echolocation is the most important adaptation for a dolphin's survival. The article explains that by listening to the echoes of its own clicks, a dolphin can tell where an object is, how large it is, and even what shape it has, which lets it find food and avoid obstacles even in dark or cloudy water where sight alone would fail. While half-brain sleep and breathing through a blowhole are also essential, neither one helps a dolphin locate food the way echolocation does, so without it a dolphin's hunting would be far less effective."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "How is a dolphin like you?",
+        "options": [
+          "It lives in the sea, too.",
+          "It swims with a big fin.",
+          "It is a mammal, too.",
+          "It has a pod, too."
+        ],
+        "answer": "C",
+        "skill": "compare",
+        "why": "The text says a dolphin is a mammal and \"So are you.\"",
+        "wrong": {
+          "A": "People do not live in the sea.",
+          "B": "People do not have a fin.",
+          "D": "A pod is a dolphin group, not something people share."
+        }
+      },
+      {
+        "stem": "How long does a calf stay with its mom?",
+        "options": [
+          "For years",
+          "For one day",
+          "For one week",
+          "For a few hours"
+        ],
+        "answer": "A",
+        "skill": "detail",
+        "why": "The text says the calf stays with its mom for years.",
+        "wrong": {
+          "B": "One day is much too short.",
+          "C": "One week is much too short.",
+          "D": "A few hours is much too short."
+        }
+      },
+      {
+        "stem": "In the article, an echo is —",
+        "options": [
+          "a loud whistle from a dolphin",
+          "a small fish in a pod",
+          "a hole on a dolphin's head",
+          "a sound that bounces back"
+        ],
+        "answer": "D",
+        "skill": "vocabulary",
+        "why": "The clicks hit a fish and bounce back, and the text calls that an echo.",
+        "wrong": {
+          "A": "A whistle is like a dolphin's name.",
+          "B": "An echo is a sound, not a fish.",
+          "C": "The hole on its head is the blowhole."
+        }
+      },
+      {
+        "stem": "Why does a dolphin swim up to the top of the sea?",
+        "options": [
+          "To find its pod",
+          "To get air",
+          "To drink milk",
+          "To hear echoes"
+        ],
+        "answer": "B",
+        "skill": "cause-effect",
+        "why": "The text says a dolphin needs air, so it swims up to the top.",
+        "wrong": {
+          "A": "The text does not say it goes up to find its pod.",
+          "C": "A calf drinks milk from its mom, not at the top.",
+          "D": "Echoes come from clicks, not from the top."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "What happens in one quick puff through a dolphin's blowhole?",
+        "options": [
+          "It pushes out water and pulls in small fish.",
+          "It sends out clicks that bounce off objects.",
+          "It pushes out old air and pulls in fresh air.",
+          "It makes a whistle that other dolphins learn."
+        ],
+        "answer": "C",
+        "skill": "detail",
+        "why": "In one quick puff the dolphin pushes out old air and pulls in fresh air.",
+        "wrong": {
+          "A": "The blowhole is for air, not for water or fish.",
+          "B": "Clicks are used for echolocation.",
+          "D": "The whistle is a separate sound like a name."
+        }
+      },
+      {
+        "stem": "What is the result of only half of a dolphin's brain resting at a time?",
+        "options": [
+          "It can dive deeper than other mammals can.",
+          "It can hunt in the dark without any clicks.",
+          "It can sleep for many hours each night.",
+          "It can keep breathing and watch for danger."
+        ],
+        "answer": "D",
+        "skill": "cause-effect",
+        "why": "The text says that as a result, the dolphin can keep breathing and watch for danger.",
+        "wrong": {
+          "A": "The text does not link half-brain rest to deep diving.",
+          "B": "Hunting in the dark uses echolocation, not sleep.",
+          "C": "The text says this is an unusual way to sleep, not a long one."
+        }
+      },
+      {
+        "stem": "Why are dolphins not fish, according to the article?",
+        "options": [
+          "They breathe air and feed babies milk",
+          "They live only in the warm Red Sea",
+          "They have no fins on their bodies",
+          "They never swim up to the surface"
+        ],
+        "answer": "A",
+        "skill": "detail",
+        "why": "The article says dolphins are mammals: they breathe air, are warm-blooded, and their babies drink milk.",
+        "wrong": {
+          "B": "The article does not say dolphins live only in the Red Sea.",
+          "C": "The article describes a dolphin fin.",
+          "D": "Dolphins must swim to the surface to breathe."
+        }
+      },
+      {
+        "stem": "Why does the author end the article with fishing nets and plastic trash?",
+        "options": [
+          "To explain how dolphins find food in dark water",
+          "To show that dolphins need people to protect the sea",
+          "To show that dolphins like to play in the waves",
+          "To describe how a mother takes care of her calf"
+        ],
+        "answer": "B",
+        "skill": "author-purpose",
+        "why": "The last paragraph says nets and trash hurt dolphins and that protecting the sea protects them.",
+        "wrong": {
+          "A": "Finding food was explained earlier with echolocation.",
+          "C": "The last paragraph is about dangers, not play.",
+          "D": "Calf care was explained in an earlier paragraph."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "In the article, the word murky describes water that is —",
+        "options": [
+          "very cold and deep enough for diving",
+          "full of fish moving in a tight ball",
+          "calm and easy to see all the way through",
+          "dark or cloudy and hard to see through"
+        ],
+        "answer": "D",
+        "skill": "vocabulary",
+        "why": "Dolphins use echolocation even in murky water because they cannot rely on seeing clearly.",
+        "wrong": {
+          "A": "The text says nothing about cold or depth.",
+          "B": "The tight ball of fish is how a pod herds prey.",
+          "C": "If the water were clear, echolocation would be less needed."
+        }
+      },
+      {
+        "stem": "How can a dolphin tell an object's distance, size, and shape?",
+        "options": [
+          "By feeling the water move past its flukes",
+          "By interpreting the echoes of its clicks",
+          "By listening to the whistles of its pod",
+          "By rising to the surface to look around"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The dolphin interprets the echoes that return after its clicks strike an object.",
+        "wrong": {
+          "A": "Flukes are used to move the dolphin, not to sense objects.",
+          "C": "Whistles work like names, not like a way to find objects.",
+          "D": "The text does not say dolphins look around at the surface."
+        }
+      },
+      {
+        "stem": "What can the reader infer from the fact that pod members recognize a dolphin's signature whistle?",
+        "options": [
+          "Dolphins can tell one another apart by sound",
+          "Dolphins cannot see well in murky water",
+          "Dolphins make the same sound as every other dolphin",
+          "Dolphins learn whistles only from their fathers"
+        ],
+        "answer": "A",
+        "skill": "inference",
+        "why": "The whistle works like a name, so pod members can tell who is calling.",
+        "wrong": {
+          "B": "The text explains echolocation, not poor eyesight.",
+          "C": "Each dolphin has its own distinctive whistle.",
+          "D": "The text says each dolphin develops its own whistle."
+        }
+      },
+      {
+        "stem": "How is the last paragraph organized?",
+        "options": [
+          "It lists steps for catching dolphins in nets",
+          "It tells a story about one dolphin's life",
+          "It names dangers and then gives a reason to help",
+          "It compares dolphins in the Red Sea with fish"
+        ],
+        "answer": "C",
+        "skill": "text-structure",
+        "why": "It first describes bycatch and pollution, then says protecting the ocean protects dolphins.",
+        "wrong": {
+          "A": "The paragraph warns about nets, not how to use them.",
+          "B": "It speaks about dolphins in general, not one dolphin.",
+          "D": "The comparison with fish is made earlier in the article."
+        }
+      }
+    ]
   }
 }

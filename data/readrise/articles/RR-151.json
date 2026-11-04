@@ -614,5 +614,217 @@
       ],
       "modelAnswer": "In both cases, charge builds up because electrons move from one object to another until the objects are no longer neutral. When I shuffle across a carpet, extra electrons collect on my body, and when I touch a metal door handle, those electrons rush across the air in a sudden discharge that we feel as a spark. Lightning works the same way, but on a massive scale: a storm cloud builds up a huge imbalance of charge until it discharges as a giant spark between the cloud and the ground. The article also notes that dry air, with low humidity, makes these sparks more common because there is no moisture to let the charge leak away slowly."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "What happens to charge in wet air?",
+        "options": [
+          "It leaks out.",
+          "It gets bigger.",
+          "It turns into dew.",
+          "It sticks to a wall."
+        ],
+        "answer": "A",
+        "skill": "detail",
+        "why": "The text says wet air lets the charge leak out.",
+        "wrong": {
+          "B": "The text never says charge gets bigger.",
+          "C": "Dew is not mentioned in the text.",
+          "D": "Only a rubbed balloon sticks to a wall."
+        }
+      },
+      {
+        "stem": "What happens right after some bits move from one thing to the other?",
+        "options": [
+          "Both things lose their charge.",
+          "Each thing has a charge.",
+          "A storm cloud forms.",
+          "The air turns dry."
+        ],
+        "answer": "B",
+        "skill": "sequence",
+        "why": "The text says that after the bits move, each thing has a charge.",
+        "wrong": {
+          "A": "The things gain a charge, not lose it.",
+          "C": "Storm clouds are about lightning, not this step.",
+          "D": "Dry air is not made by rubbing."
+        }
+      },
+      {
+        "stem": "The text says things with different charges attract. What does attract mean?",
+        "options": [
+          "push away",
+          "get very hot",
+          "pull toward",
+          "stay still"
+        ],
+        "answer": "C",
+        "skill": "vocabulary",
+        "why": "Things with different charges pull toward each other, like a balloon that sticks to a wall.",
+        "wrong": {
+          "A": "Pushing away is what the same charges do.",
+          "B": "Attract is not about heat.",
+          "D": "Attract means things move toward each other."
+        }
+      },
+      {
+        "stem": "Two things have charges that are not the same. What will they most likely do?",
+        "options": [
+          "Push apart",
+          "Turn into ice",
+          "Leak out",
+          "Pull close"
+        ],
+        "answer": "D",
+        "skill": "inference",
+        "why": "The text says charges that are not the same attract, which means they pull close.",
+        "wrong": {
+          "A": "Only charges that are the same push apart.",
+          "B": "Charges do not make ice.",
+          "C": "Leaking out is what charge does in wet air."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "What is a spark, according to the article?",
+        "options": [
+          "A tiny atom that is too small to see",
+          "A balloon that sticks to a wall",
+          "Electricity jumping across the air",
+          "Air that has lost its water"
+        ],
+        "answer": "C",
+        "skill": "detail",
+        "why": "The text says a spark is electricity jumping across the air.",
+        "wrong": {
+          "A": "Atoms are the tiny parts of matter, not sparks.",
+          "B": "A balloon sticking is an example of attraction.",
+          "D": "Dry air makes shocks more common but is not a spark."
+        }
+      },
+      {
+        "stem": "Dina walks across a rug in Riyadh in winter and then touches a metal handle. Why is she likely to feel a shock?",
+        "options": [
+          "The air is dry, so charges stay put until they jump.",
+          "The air is humid, so charges move away slowly.",
+          "The handle has too many protons.",
+          "The rug has no electrons at all."
+        ],
+        "answer": "A",
+        "skill": "inference",
+        "why": "Riyadh has very dry air, and dry air makes static shocks more common.",
+        "wrong": {
+          "B": "Humid air lets charges leak away, so fewer shocks.",
+          "C": "The text does not say handles have extra protons.",
+          "D": "All materials have electrons in them."
+        }
+      },
+      {
+        "stem": "The text says usually the charges in an object are balanced. What does balanced mean here?",
+        "options": [
+          "Heavy",
+          "Equal",
+          "Moving",
+          "Sticky"
+        ],
+        "answer": "B",
+        "skill": "vocabulary",
+        "why": "Balanced means the positive and negative charges are equal, so the object has no extra charge.",
+        "wrong": {
+          "A": "The sentence is about charge, not weight.",
+          "C": "Static charge stays still, so it is not moving.",
+          "D": "Sticky describes the balloon, not the charges."
+        }
+      },
+      {
+        "stem": "What happens to two materials when electrons move from one to the other?",
+        "options": [
+          "Both lose all of their electrons at once.",
+          "Both become balanced again.",
+          "One has extra electrons and one has too few.",
+          "One turns into a gas."
+        ],
+        "answer": "C",
+        "skill": "cause-effect",
+        "why": "The text says one object ends up with extra electrons and the other has too few.",
+        "wrong": {
+          "A": "Only some electrons move.",
+          "B": "Moving electrons make the objects charged, not balanced.",
+          "D": "Nothing turns into a gas when you rub."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "According to the article, where are protons found in an atom?",
+        "options": [
+          "Moving around the nucleus",
+          "Inside the nucleus at the center",
+          "On the surface of a balloon",
+          "Between the atoms in the air"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The text says protons are located in the nucleus at the center of the atom.",
+        "wrong": {
+          "A": "Electrons are the ones that move around the nucleus.",
+          "C": "Protons are in atoms, not just on balloons.",
+          "D": "The text places protons inside atoms."
+        }
+      },
+      {
+        "stem": "The article says lightning is a giant spark discharged from a storm cloud. What does discharged mean?",
+        "options": [
+          "stored up inside",
+          "let out or released",
+          "cooled down slowly",
+          "pulled in tightly"
+        ],
+        "answer": "B",
+        "skill": "vocabulary",
+        "why": "Lightning is the spark that jumps out of the cloud, so discharged means let out or released.",
+        "wrong": {
+          "A": "The charge builds up first, but the spark is let out.",
+          "C": "The word is not about cooling.",
+          "D": "The spark leaves the cloud; it is not pulled in."
+        }
+      },
+      {
+        "stem": "Why does a rubbed balloon stay on the wall instead of falling?",
+        "options": [
+          "The wall also rubs against the balloon.",
+          "Air pushes the balloon against the wall.",
+          "The balloon becomes too light to feel gravity.",
+          "Opposite charges pull harder than its weight."
+        ],
+        "answer": "D",
+        "skill": "cause-effect",
+        "why": "The force between opposite charges is strong enough to overcome the balloon's light weight.",
+        "wrong": {
+          "A": "The text does not mention the wall rubbing.",
+          "B": "The text gives attraction, not air, as the reason.",
+          "C": "The balloon still has weight; the force just overcomes it."
+        }
+      },
+      {
+        "stem": "What did observers in ancient Greece discover about amber?",
+        "options": [
+          "It could attract straw after being rubbed.",
+          "It could make lightning in a storm cloud.",
+          "It could keep the air from becoming dry.",
+          "It could turn into a spark without any rubbing."
+        ],
+        "answer": "A",
+        "skill": "detail",
+        "why": "The text says amber attracted bits of straw after being rubbed with fur.",
+        "wrong": {
+          "B": "Lightning is linked to storm clouds, not amber.",
+          "C": "The text does not link amber to dry air.",
+          "D": "The amber had to be rubbed first."
+        }
+      }
+    ]
   }
 }

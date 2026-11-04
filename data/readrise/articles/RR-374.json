@@ -614,5 +614,217 @@
       ],
       "modelAnswer": "I disagree that someone who refuses to prepare for the future does not deserve help later on. The grasshopper ignored every warning and mocked the ant's hard work all summer, yet the ant still chose generosity over resentment when winter came. Her kindness did not erase the real consequence he faced, since he still went hungry and cold until she helped him, but it gave him a genuine chance to reflect and change. Someone might argue that helping him removes any reason to prepare next time, but the story shows the opposite: the experience, combined with the ant's generosity, is exactly what finally teaches him the lasting value of preparation."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "What does the grasshopper do all day in the sun?",
+        "options": [
+          "He plays and sings.",
+          "He stores some food.",
+          "He digs a deep hole.",
+          "He builds a warm home."
+        ],
+        "answer": "A",
+        "skill": "detail",
+        "why": "The text says he played all day and sang in the sun.",
+        "wrong": {
+          "B": "The ant stores the food, not the grasshopper.",
+          "C": "Digging a hole is not mentioned.",
+          "D": "Building a home is not mentioned."
+        }
+      },
+      {
+        "stem": "In the story, the word store means —",
+        "options": [
+          "to throw it far away",
+          "to eat it very fast",
+          "to keep it for later",
+          "to sing it very loudly"
+        ],
+        "answer": "C",
+        "skill": "vocabulary",
+        "why": "The ant stores food all summer so she will have it for winter.",
+        "wrong": {
+          "A": "She keeps the food; she does not throw it away.",
+          "B": "She saves the food for winter and does not eat it at once.",
+          "D": "Storing food is not about singing."
+        }
+      },
+      {
+        "stem": "Why does the grasshopper go to the ant's home?",
+        "options": [
+          "He wants to play again.",
+          "He lost his song book.",
+          "He wants to see snow.",
+          "He is cold and hungry."
+        ],
+        "answer": "D",
+        "skill": "cause-effect",
+        "why": "Winter comes, he has no food, and he is cold and hungry, so he asks the ant for help.",
+        "wrong": {
+          "A": "He is asking for help, not for play.",
+          "B": "A song book is not mentioned.",
+          "C": "Snow is already falling."
+        }
+      },
+      {
+        "stem": "What does the ant's last sentence tell us about her?",
+        "options": [
+          "She is angry and very cruel.",
+          "She is kind but wants change.",
+          "She wants to be left alone.",
+          "She has forgotten the summer."
+        ],
+        "answer": "B",
+        "skill": "inference",
+        "why": "She shares her food but also says he must prepare next year, so she is kind but wants him to change.",
+        "wrong": {
+          "A": "She shares her food, so she is not cruel.",
+          "C": "She talks with him and helps him.",
+          "D": "She remembers, which is why she tells him to prepare."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "How does the ant sound when she tells the grasshopper to prepare next season?",
+        "options": [
+          "Loud and angry",
+          "Sad and tearful",
+          "Silly and playful",
+          "Gentle but firm"
+        ],
+        "answer": "D",
+        "skill": "detail",
+        "why": "The text says she spoke gently but firmly.",
+        "wrong": {
+          "A": "She does not shout.",
+          "B": "She is not described as crying.",
+          "C": "She is serious about the warning."
+        }
+      },
+      {
+        "stem": "In the story, the word bitterly in \"bitterly cold\" means —",
+        "options": [
+          "extremely",
+          "slightly",
+          "sometimes",
+          "never"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "Snow covers the field, so the cold is extreme.",
+        "wrong": {
+          "B": "Snow means the cold is more than slight.",
+          "C": "The cold is described as a present condition, not an occasional one.",
+          "D": "The weather is cold, so never does not fit."
+        }
+      },
+      {
+        "stem": "What does the ant's long pause before sharing suggest?",
+        "options": [
+          "She has forgotten his name.",
+          "She cannot hear him knock.",
+          "She is deciding what to do.",
+          "She is too sleepy to talk."
+        ],
+        "answer": "C",
+        "skill": "inference",
+        "why": "She looks at him for a long moment and thinks about her summer of hard work before she shares.",
+        "wrong": {
+          "A": "She knows who he is.",
+          "B": "She opens the door and looks at him.",
+          "D": "Sleepiness is not mentioned."
+        }
+      },
+      {
+        "stem": "What does the grasshopper learn because of his hungry winter?",
+        "options": [
+          "That songs bring free food.",
+          "That planning ahead matters.",
+          "That winter is a short time.",
+          "That the ant is not kind."
+        ],
+        "answer": "B",
+        "skill": "cause-effect",
+        "why": "The text says he learned the value of hard work and planning ahead.",
+        "wrong": {
+          "A": "His songs did not bring him food.",
+          "C": "He learns winter is hard, not short.",
+          "D": "The ant is kind and shares her food."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "How does winter arrive in the field?",
+        "options": [
+          "Slowly, with a warm breeze",
+          "Only after a long, mild fall",
+          "Almost overnight, and very cold",
+          "With a loud storm of rain"
+        ],
+        "answer": "C",
+        "skill": "detail",
+        "why": "The text says the weather turned bitterly cold almost overnight.",
+        "wrong": {
+          "A": "The weather turns bitterly cold, not warm.",
+          "B": "The change is sudden, not slow.",
+          "D": "Snow covers the field, not rain."
+        }
+      },
+      {
+        "stem": "In the story, the word diligently most nearly means —",
+        "options": [
+          "with a loud complaint",
+          "with a lazy, tired smile",
+          "with a sudden, silly joke",
+          "with steady, careful effort"
+        ],
+        "answer": "D",
+        "skill": "vocabulary",
+        "why": "The ant worked diligently all summer, storing food every single day without complaint.",
+        "wrong": {
+          "A": "The ant worked without complaint.",
+          "B": "The ant was hard-working, not lazy.",
+          "C": "The ant was serious about her work."
+        }
+      },
+      {
+        "stem": "Why does the author say the seasons changed \"quickly and predictably\"?",
+        "options": [
+          "To show winter is no surprise",
+          "To explain why ants are small",
+          "To say the farm is far away",
+          "To describe the grasshopper's song"
+        ],
+        "answer": "A",
+        "skill": "author-purpose",
+        "why": "If winter comes on time every year, the grasshopper should have been ready for it.",
+        "wrong": {
+          "B": "The size of ants is not the point.",
+          "C": "The detail is about seasons, not distance.",
+          "D": "The sentence is about seasons, not his song."
+        }
+      },
+      {
+        "stem": "Why might sharing her provision have been hard for the ant?",
+        "options": [
+          "She had nothing left to eat.",
+          "He had mocked her all summer.",
+          "He was not hungry enough.",
+          "Her home was too far away."
+        ],
+        "answer": "B",
+        "skill": "cause-effect",
+        "why": "The text says she shared even though he had mocked her all summer long.",
+        "wrong": {
+          "A": "She has enough food to share.",
+          "C": "He is hungry and cold.",
+          "D": "He goes to her home and knocks on her door."
+        }
+      }
+    ]
   }
 }

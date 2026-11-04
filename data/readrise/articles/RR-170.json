@@ -614,5 +614,217 @@
       ],
       "modelAnswer": "A hot spring forms through a geothermal process: rainwater sinks deep underground toward rock heated by magma, and because hot water is less dense than cold water, it rises back up through cracks until it reaches the surface, often carrying dissolved minerals along with it. In some places this rising water and steam builds up enough pressure to erupt as a geyser rather than flowing out gently. People can enjoy this geothermal heat safely by visiting natural hot springs, like those in the Jazan region of Saudi Arabia, as long as they stay on marked paths instead of touching the hottest water directly."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "In this article, what is a spring?",
+        "options": [
+          "A pool that stays cold all year long",
+          "Where water comes up from the ground",
+          "A kind of rock that is very, very hot",
+          "A deep crack that is full of steam"
+        ],
+        "answer": "B",
+        "skill": "vocabulary",
+        "why": "The text says a spring is a place where water comes up from the ground.",
+        "wrong": {
+          "A": "A hot spring is warm or hot, not cold.",
+          "C": "A spring is water coming up, not a kind of rock.",
+          "D": "Steam can rise from a geyser, but a spring is not a crack."
+        }
+      },
+      {
+        "stem": "Besides Saudi Arabia, which country has hot springs?",
+        "options": [
+          "Egypt",
+          "Japan",
+          "Kenya",
+          "Brazil"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The text says there are hot springs in Japan, too.",
+        "wrong": {
+          "A": "The text does not name Egypt.",
+          "C": "The text does not name Kenya.",
+          "D": "The text does not name Brazil."
+        }
+      },
+      {
+        "stem": "A pool smells bad. What can you tell about its water?",
+        "options": [
+          "It is full of rain from the sky",
+          "It has picked up minerals from rock",
+          "It is too cold to touch",
+          "It has just come from the sea"
+        ],
+        "answer": "B",
+        "skill": "inference",
+        "why": "The text says the water picks up minerals from rock, and some minerals smell bad.",
+        "wrong": {
+          "A": "The text says rain sinks down and picks up minerals along the way.",
+          "C": "The smell has nothing to do with being cold.",
+          "D": "The text does not say the water comes from the sea."
+        }
+      },
+      {
+        "stem": "Why does the author begin by asking you to put your hand in a pool?",
+        "options": [
+          "To warn you never to go near water",
+          "To say that a machine heats the water",
+          "To make you think about a hot pool",
+          "To show how to build a hot spring"
+        ],
+        "answer": "C",
+        "skill": "author-purpose",
+        "why": "The opening gets the reader to imagine a pool that is hot, which leads to the topic of hot springs.",
+        "wrong": {
+          "A": "The warning comes at the end and is about staying on the path.",
+          "B": "The text says no one made the water hot.",
+          "D": "People do not build hot springs; they form in nature."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "Where is the Jazan region of Saudi Arabia?",
+        "options": [
+          "In the north",
+          "In the southwest",
+          "In the east",
+          "In the center"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The text says the Jazan region is in the southwest.",
+        "wrong": {
+          "A": "The text says southwest, not north.",
+          "C": "The text says southwest, not east.",
+          "D": "The text says southwest, not the center."
+        }
+      },
+      {
+        "stem": "Read this: \"The water dissolves tiny amounts of rock called minerals.\" What does dissolves mean?",
+        "options": [
+          "Breaks up and mixes into the water",
+          "Freezes into hard ice in the pool",
+          "Floats on top of the pool water",
+          "Burns away in the heat of the rock"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "The minerals come from rock and end up in the water, so dissolves means mixes into the water.",
+        "wrong": {
+          "B": "The water is hot, so it is not freezing.",
+          "C": "The minerals are in the water, not floating on top.",
+          "D": "The text does not say the rock burns."
+        }
+      },
+      {
+        "stem": "Why must visitors stay on marked paths near hot springs?",
+        "options": [
+          "The rocks are covered with gray dust",
+          "Some springs are hot enough to burn skin",
+          "The water may fill with tiny animals",
+          "The paths lead to the best colors"
+        ],
+        "answer": "B",
+        "skill": "cause-effect",
+        "why": "The text says some springs are hot enough to burn skin, so visitors must stay on marked paths.",
+        "wrong": {
+          "A": "The text does not mention dust.",
+          "C": "The text mentions tiny living things only as a cause of color.",
+          "D": "The paths are for safety, not for colors."
+        }
+      },
+      {
+        "stem": "Why does the author begin by asking you to imagine dipping your fingers into a pool?",
+        "options": [
+          "To explain how geysers blast steam",
+          "To show that rocks are very hot",
+          "To warn visitors about burns",
+          "To get readers interested in the topic"
+        ],
+        "answer": "D",
+        "skill": "author-purpose",
+        "why": "The opening picture of a hot pool no one heated makes the reader curious about hot springs.",
+        "wrong": {
+          "A": "Geysers come later in the article.",
+          "B": "The hot rock is explained later in the journey of the water.",
+          "C": "The warning comes at the end."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "According to the article, which mineral gives water an unpleasant odor?",
+        "options": [
+          "Salt",
+          "Sulfur",
+          "Limestone",
+          "Iron"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The article says minerals such as sulfur give the water an odor like rotten eggs.",
+        "wrong": {
+          "A": "The article does not link salt to the odor.",
+          "C": "The article does not name limestone.",
+          "D": "The article does not name iron."
+        }
+      },
+      {
+        "stem": "The text says rainwater seeps into the ground. What does seeps mean?",
+        "options": [
+          "Flows slowly through small openings",
+          "Rushes down in a wide, fast river",
+          "Splashes up high into the cold air",
+          "Freezes into hard blocks of ice"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "Rainwater gradually trickles down through layers of soil and rock, so seeps means flows slowly in.",
+        "wrong": {
+          "B": "The text says it trickles, not rushes.",
+          "C": "The water moves down, not up into the air.",
+          "D": "The water is heated, not frozen."
+        }
+      },
+      {
+        "stem": "What gives some hot spring pools their orange, yellow, or blue colors?",
+        "options": [
+          "Sunlight shining on the rising steam",
+          "Magma floating near the top of the pool",
+          "Rock salt left behind by the rain",
+          "Minerals and microbes that thrive in heat"
+        ],
+        "answer": "D",
+        "skill": "cause-effect",
+        "why": "The article says minerals and microbes that thrive in extreme heat color the pools.",
+        "wrong": {
+          "A": "The text does not link color to sunlight on steam.",
+          "B": "Magma may lie below the surface; it does not color the pools.",
+          "C": "The text does not mention rock salt."
+        }
+      },
+      {
+        "stem": "Which list shows how a hot spring forms in the right order?",
+        "options": [
+          "Water rises, rain falls, rocks heat it, water emerges",
+          "Rocks heat it, rain falls, water rises, water emerges",
+          "Rain falls, water sinks, rocks heat it, water rises",
+          "Water emerges, rain falls, water sinks, rocks heat it"
+        ],
+        "answer": "C",
+        "skill": "sequence",
+        "why": "The article starts with rain seeping down, then the rocks heating the water, and then the hot water rising until it emerges.",
+        "wrong": {
+          "A": "Rain must fall before water can rise.",
+          "B": "Rock cannot heat the water before the rain falls.",
+          "D": "The water emerges at the end, not at the start."
+        }
+      }
+    ]
   }
 }

@@ -614,5 +614,217 @@
       ],
       "modelAnswer": "I agree that children can solve a family problem just as well as adults can, when they have the right preparation. Sara and Omar had spent years learning to read the arrivals board and understand the different platforms, so when the crisis hit, they were not starting from nothing. Omar's calm, clear question to the worker, rather than panic, is exactly what leads the family to the last train. Someone might argue that an adult's experience would always matter more in an emergency, but in this story the adults are the ones distracted by the missing phone and traffic, while the children's quieter, practiced knowledge is what actually saves the trip."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "Where do Sara and Omar's grandparents live?",
+        "options": [
+          "In the big city",
+          "By the coast",
+          "On a high hill",
+          "Near the station"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The text says their grandparents live by the coast.",
+        "wrong": {
+          "A": "The family leaves the city to visit them.",
+          "C": "The text does not say they live on a hill.",
+          "D": "The family goes to the station to travel to them."
+        }
+      },
+      {
+        "stem": "Why is the road slow on the way to the station?",
+        "options": [
+          "There are many cars.",
+          "Dad drives very slowly.",
+          "The road is closed.",
+          "It is raining hard."
+        ],
+        "answer": "A",
+        "skill": "cause-effect",
+        "why": "The text says the road is slow because there are many cars.",
+        "wrong": {
+          "B": "Dad drives fast, not slow.",
+          "C": "The text does not say the road is closed.",
+          "D": "The text does not mention rain."
+        }
+      },
+      {
+        "stem": "In the story, the word board means —",
+        "options": [
+          "a piece of wood",
+          "a seat on the train",
+          "a big sign with times",
+          "a ticket for the trip"
+        ],
+        "answer": "C",
+        "skill": "vocabulary",
+        "why": "The children learn to read the big board, and it shows every train.",
+        "wrong": {
+          "A": "A wood piece does not show train times.",
+          "B": "The board is read, not sat on.",
+          "D": "A ticket is small; the board is big and shows every train."
+        }
+      },
+      {
+        "stem": "What does Sara mean when she says they solved it together?",
+        "options": [
+          "Dad drove the train.",
+          "The train was very late.",
+          "They are sad about the trip.",
+          "The family worked as a team."
+        ],
+        "answer": "D",
+        "skill": "inference",
+        "why": "Sara, Omar, and the family all helped them reach the last train, so they did it as a team.",
+        "wrong": {
+          "A": "Dad drove the car, not the train.",
+          "B": "They catch the train just in time.",
+          "C": "They sit down and smile, so they are happy."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "Who hurries everyone out the door when Dad cannot find his phone?",
+        "options": [
+          "Sara",
+          "Omar",
+          "The worker",
+          "Mom"
+        ],
+        "answer": "D",
+        "skill": "detail",
+        "why": "The text says Mom hurries everyone out the door and into the car.",
+        "wrong": {
+          "A": "Sara does not hurry the family out.",
+          "B": "Omar is not the one who hurries them.",
+          "C": "The worker is at the station, not at home."
+        }
+      },
+      {
+        "stem": "Why does Sara gasp when she looks at the long list of times?",
+        "options": [
+          "The station is very crowded.",
+          "She sees their train has left.",
+          "She cannot read the board.",
+          "The next train is too far away."
+        ],
+        "answer": "B",
+        "skill": "cause-effect",
+        "why": "She scans the list and learns that their train has already left without them.",
+        "wrong": {
+          "A": "The crowd is not why she gasps.",
+          "C": "The children can read the board on their own.",
+          "D": "She has not yet learned about another train."
+        }
+      },
+      {
+        "stem": "In the story, the word dashes means —",
+        "options": [
+          "runs very fast",
+          "walks slowly",
+          "sits down",
+          "looks around"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "The family dashes toward the platform as fast as they can, so it means running quickly.",
+        "wrong": {
+          "B": "They are in a hurry, so they do not walk slowly.",
+          "C": "They climb aboard soon after, not sit.",
+          "D": "They are racing to the platform, not looking around."
+        }
+      },
+      {
+        "stem": "Why does the author write that everything seems to go wrong at the same time?",
+        "options": [
+          "To show the trip is easy",
+          "To say the family does not care",
+          "To tell about the grandparents",
+          "To show many problems pile up"
+        ],
+        "answer": "D",
+        "skill": "author-purpose",
+        "why": "The lost phone, the rush, and the traffic all happen close together and build the problem.",
+        "wrong": {
+          "A": "Many things going wrong means the trip is not easy.",
+          "B": "The family is worried, so they do care.",
+          "C": "The sentence is about the problems, not the grandparents."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "Where does the last train leave from?",
+        "options": [
+          "The same platform as before",
+          "A platform right near the doors",
+          "A platform across the station",
+          "The platform next to the cars"
+        ],
+        "answer": "C",
+        "skill": "detail",
+        "why": "The worker says the train departs from a different platform across the station.",
+        "wrong": {
+          "A": "The first train had already left, and this is a different platform.",
+          "B": "The text does not say it is near the doors.",
+          "D": "No platform by the cars is mentioned."
+        }
+      },
+      {
+        "stem": "Why does Dad glance repeatedly at the dashboard clock?",
+        "options": [
+          "He is worried about the time.",
+          "He wants to stop and rest.",
+          "He is checking the car speed.",
+          "He is waiting for Mom to speak."
+        ],
+        "answer": "A",
+        "skill": "cause-effect",
+        "why": "The family is late and traffic crawls, so Dad keeps checking how little time is left.",
+        "wrong": {
+          "B": "Nothing says he wants to rest; he grips the wheel tightly.",
+          "C": "The text says he looks at the clock, not a speed gauge.",
+          "D": "Mom is not waiting to talk in the text."
+        }
+      },
+      {
+        "stem": "In the story, the phrase \"everything seems to unravel\" most nearly means —",
+        "options": [
+          "things get easier",
+          "things begin to fall apart",
+          "things move more slowly",
+          "things become quiet"
+        ],
+        "answer": "B",
+        "skill": "vocabulary",
+        "why": "The lost phone, the delay, and the traffic show that the morning is going badly.",
+        "wrong": {
+          "A": "The problems make the day harder, not easier.",
+          "C": "The family is rushing, not slowing down.",
+          "D": "Traffic and worry make the scene stressful, not quiet."
+        }
+      },
+      {
+        "stem": "Why might Sara sense trouble even before she reaches the board?",
+        "options": [
+          "The board is broken.",
+          "Dad tells her bad news.",
+          "Few minutes are left.",
+          "The worker waves at her."
+        ],
+        "answer": "C",
+        "skill": "inference",
+        "why": "The text says only a few precious minutes remain before departure, so she guesses they may be too late.",
+        "wrong": {
+          "A": "Nothing says the board is broken.",
+          "B": "Dad does not tell her; she finds out herself.",
+          "D": "She meets the worker later, through Omar."
+        }
+      }
+    ]
   }
 }

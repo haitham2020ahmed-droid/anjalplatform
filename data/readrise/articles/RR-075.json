@@ -614,5 +614,217 @@
       ],
       "modelAnswer": "Two skills from coding, decomposing problems and persistence, can help in math class just as much as they help in programming. When I face a hard word problem, I decompose it into smaller steps the same way a coder breaks a big program into an algorithm, which makes the logic behind the problem much easier to follow. Persistence matters too, because just like debugging a program that has a bug, I have to keep checking my math work step by step until I find my mistake and fix it, rather than giving up after the first wrong answer."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "What can a cat on the screen do when you snap blocks in a line?",
+        "options": [
+          "Talk and sing",
+          "Draw a picture",
+          "Move and jump",
+          "Sleep and wake"
+        ],
+        "answer": "C",
+        "skill": "detail",
+        "why": "The text says the cat on the screen can move and jump.",
+        "wrong": {
+          "A": "Talking and singing are not mentioned.",
+          "B": "Drawing is not mentioned.",
+          "D": "Sleeping is not mentioned."
+        }
+      },
+      {
+        "stem": "The text says a computer can not think on its own, or for itself. What does this mean?",
+        "options": [
+          "By itself",
+          "With a friend",
+          "In a hurry",
+          "At night"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "Not thinking on its own means it cannot think by itself, so we must tell it what to do.",
+        "wrong": {
+          "B": "With a friend is the opposite idea.",
+          "C": "Hurry is not the meaning.",
+          "D": "Time of day is not the meaning."
+        }
+      },
+      {
+        "stem": "Why must we tell a computer what to do?",
+        "options": [
+          "It is much too loud",
+          "It is much too small",
+          "It has no screen at all",
+          "It can not think alone"
+        ],
+        "answer": "D",
+        "skill": "cause-effect",
+        "why": "The text says a computer can not think on its own, so we must tell it what to do.",
+        "wrong": {
+          "A": "Loudness is not mentioned.",
+          "B": "Size is not mentioned.",
+          "C": "Computers have screens."
+        }
+      },
+      {
+        "stem": "Why does the author end by telling what code is used for?",
+        "options": [
+          "To test what readers know",
+          "To show code is useful",
+          "To say coding is too hard",
+          "To end the tea story"
+        ],
+        "answer": "B",
+        "skill": "author-purpose",
+        "why": "The ending says code is used to make games, apps, and robots, which shows it is useful.",
+        "wrong": {
+          "A": "There is no test in the ending.",
+          "C": "The ending does not say coding is too hard.",
+          "D": "The tea steps come earlier, not at the end."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "What is debugging, according to the article?",
+        "options": [
+          "Writing a new program",
+          "Fixing mistakes in code",
+          "Typing very fast",
+          "Catching real insects"
+        ],
+        "answer": "B",
+        "skill": "vocabulary",
+        "why": "The article says mistakes in code are bugs and fixing them is called debugging.",
+        "wrong": {
+          "A": "Debugging is fixing, not first writing.",
+          "C": "Typing speed is not mentioned.",
+          "D": "The moth was only a story behind the word."
+        }
+      },
+      {
+        "stem": "What are the steps people write for a computer written in?",
+        "options": [
+          "A map language",
+          "A secret picture",
+          "A spoken song",
+          "A programming language"
+        ],
+        "answer": "D",
+        "skill": "detail",
+        "why": "The article says we write code in a programming language.",
+        "wrong": {
+          "A": "A map language is not mentioned.",
+          "B": "Pictures are not the code language.",
+          "C": "Songs are not mentioned."
+        }
+      },
+      {
+        "stem": "According to the article, what does learning to code teach you?",
+        "options": [
+          "To solve problems in small steps",
+          "To type faster than other people",
+          "To build a computer from parts",
+          "To guess what a computer means"
+        ],
+        "answer": "A",
+        "skill": "detail",
+        "why": "The last line says learning code teaches you to solve big problems one small step at a time.",
+        "wrong": {
+          "B": "Typing speed is not mentioned.",
+          "C": "Building computers is not mentioned.",
+          "D": "The article says a computer cannot guess what you mean."
+        }
+      },
+      {
+        "stem": "Making a cup of tea is an algorithm. What does this tell you?",
+        "options": [
+          "Computers can drink hot tea",
+          "Tea needs a bug to be fixed",
+          "Tasks can be shown as steps",
+          "Only coders can make tea now"
+        ],
+        "answer": "C",
+        "skill": "inference",
+        "why": "If tea is an algorithm, many everyday jobs can be shown as a list of steps.",
+        "wrong": {
+          "A": "Computers do not drink tea.",
+          "B": "Bugs are mistakes in code, not in tea.",
+          "D": "The article says people use algorithms every day."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "Where was Scratch developed, according to the article?",
+        "options": [
+          "At a United States university",
+          "At a school in Saudi Arabia",
+          "At a factory in Europe",
+          "At a hospital in Asia"
+        ],
+        "answer": "A",
+        "skill": "detail",
+        "why": "The article says Scratch was developed at a university in the United States.",
+        "wrong": {
+          "B": "The article names Saudi Arabia only for teaching coding.",
+          "C": "No factory is mentioned.",
+          "D": "No hospital is mentioned."
+        }
+      },
+      {
+        "stem": "The article says loops make a program more efficient. What does efficient mean?",
+        "options": [
+          "Much harder to read",
+          "Very bright and colorful",
+          "Working without waste",
+          "Full of many bugs"
+        ],
+        "answer": "C",
+        "skill": "vocabulary",
+        "why": "A loop repeats steps so the program is shorter, which means it does the job without extra effort.",
+        "wrong": {
+          "A": "A loop makes a program shorter, not harder.",
+          "B": "Color is not the meaning.",
+          "D": "Bugs are mistakes, not efficiency."
+        }
+      },
+      {
+        "stem": "Why do schools in many countries now teach coding?",
+        "options": [
+          "Computers are very cheap now",
+          "Teachers dislike math class",
+          "Students only want games",
+          "The skills help in many jobs"
+        ],
+        "answer": "D",
+        "skill": "cause-effect",
+        "why": "The article says coding skills are useful in mathematics, science, and many future careers.",
+        "wrong": {
+          "A": "Cost is not mentioned.",
+          "B": "The article does not say that.",
+          "C": "Games are not given as the reason."
+        }
+      },
+      {
+        "stem": "Why does the author use making tea as an example of an algorithm?",
+        "options": [
+          "To teach how to boil water well",
+          "To show an everyday procedure",
+          "To say tea is good for coders",
+          "To compare tea with Python"
+        ],
+        "answer": "B",
+        "skill": "author-purpose",
+        "why": "The example shows that people use algorithms every day without realizing it.",
+        "wrong": {
+          "A": "The goal is not to teach tea making.",
+          "C": "Health of coders is not mentioned.",
+          "D": "Tea is not compared with Python."
+        }
+      }
+    ]
   }
 }

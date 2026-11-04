@@ -614,5 +614,217 @@
       ],
       "modelAnswer": "A narrow strait like Hormuz can matter more to the global economy than its small size suggests because so much of the world's seaborne energy trade is forced to pass through that one chokepoint each day. The article explains that some of the world's largest oil fields sit close to the Persian Gulf's shoreline, and the crude oil extracted there has no practical way to reach the rest of the world except by vessel through this narrow passage, since alternative overland pipelines can carry only a small fraction of that total volume. Because the strait concentrates such an enormous share of global energy shipping into a passage only a few dozen kilometers wide, its narrow geography gives it an economic importance far out of proportion to its modest physical size."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "Why does the author begin by asking you to look at a map?",
+        "options": [
+          "To help the reader see where the strait is",
+          "To tell the reader how to sail a ship",
+          "To show the reader a map of the oil",
+          "To ask the reader to find a new sea"
+        ],
+        "answer": "A",
+        "skill": "author-purpose",
+        "why": "The text asks you to look at a map so you can see the thin strip of water.",
+        "wrong": {
+          "B": "The text does not teach how to sail a ship.",
+          "C": "The map shows water, not the oil.",
+          "D": "The text does not ask readers to find a new sea."
+        }
+      },
+      {
+        "stem": "What sits close on both sides of the strait?",
+        "options": [
+          "Big seas",
+          "Oil ships",
+          "Land",
+          "Maps"
+        ],
+        "answer": "C",
+        "skill": "detail",
+        "why": "The text says land sits close on both sides of the strait.",
+        "wrong": {
+          "A": "The big seas are joined by the strait, not beside it.",
+          "B": "Ships sail in the strait, not beside it.",
+          "D": "A map is only used to look at the strait."
+        }
+      },
+      {
+        "stem": "Why is the strait a busy sea path?",
+        "options": [
+          "It is a very long path of water",
+          "So much oil goes through it",
+          "It has many tall green islands",
+          "It is next to a large city"
+        ],
+        "answer": "B",
+        "skill": "cause-effect",
+        "why": "The text says so much oil goes through the strait that it is a busy sea path.",
+        "wrong": {
+          "A": "The text says the strait is narrow, not long.",
+          "C": "The text does not mention islands.",
+          "D": "The text does not mention a city."
+        }
+      },
+      {
+        "stem": "In the text, what is a strait?",
+        "options": [
+          "a tall, rocky mountain",
+          "a thin strip of water",
+          "a big desert",
+          "a wide road"
+        ],
+        "answer": "B",
+        "skill": "vocabulary",
+        "why": "The text says a strait is a thin strip of water that joins two seas between lands.",
+        "wrong": {
+          "A": "A strait is water, not a mountain.",
+          "C": "A strait is water, not a desert.",
+          "D": "Ships sail through a strait; it is not a road."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "How did the Strait of Hormuz get its name?",
+        "options": [
+          "From a small island with a trading port",
+          "From a captain who sailed it first",
+          "From the oil that ships carry",
+          "From the Gulf of Oman nearby"
+        ],
+        "answer": "A",
+        "skill": "detail",
+        "why": "The text says it is named after a small island that once held a trading port.",
+        "wrong": {
+          "B": "No captain is named in the text.",
+          "C": "The name does not come from oil.",
+          "D": "The Gulf of Oman is a different place beyond the strait."
+        }
+      },
+      {
+        "stem": "In the article, the word steer means to —",
+        "options": [
+          "load goods onto a ship",
+          "guide a ship's path",
+          "fill the ship with oil",
+          "tie the ship to a port"
+        ],
+        "answer": "B",
+        "skill": "vocabulary",
+        "why": "Captains must steer with care because land is close, so steer means guiding the ship.",
+        "wrong": {
+          "A": "Loading oil happens at ports, not while steering.",
+          "C": "Steering is not filling a ship.",
+          "D": "Captains steer while sailing, not while tied up."
+        }
+      },
+      {
+        "stem": "Why do so many ships load crude oil at ports inside the Gulf?",
+        "options": [
+          "The Gulf has very wide sea lanes",
+          "The Gulf has many large refineries",
+          "Big oil fields are found there",
+          "The Gulf is far from all factories"
+        ],
+        "answer": "C",
+        "skill": "cause-effect",
+        "why": "The text says the oil is loaded in the Gulf, where some of the world's biggest oil fields are found.",
+        "wrong": {
+          "A": "The strait is narrow, not wide.",
+          "B": "Refineries are in countries the oil travels to.",
+          "D": "The oil goes to factories, so distance is not the reason."
+        }
+      },
+      {
+        "stem": "What can you tell from the fact that many ships use the strait every day?",
+        "options": [
+          "Only small boats can pass through it",
+          "Ships can sail there without any rules",
+          "Few countries need the oil",
+          "Many countries need this sea route"
+        ],
+        "answer": "D",
+        "skill": "inference",
+        "why": "Because so much oil passes through, countries around the world depend on the route.",
+        "wrong": {
+          "A": "The text says many ships carry oil, so they are not only small boats.",
+          "B": "Ships must stay inside marked lanes, so there are rules.",
+          "C": "The oil goes to countries around the world."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "According to the article, what does a strait let ships avoid?",
+        "options": [
+          "Going around an entire landmass",
+          "Carrying crude oil to ports",
+          "Sailing in marked lanes",
+          "Passing the Indian Ocean"
+        ],
+        "answer": "A",
+        "skill": "detail",
+        "why": "The text says a strait lets ships travel between seas without going around an entire landmass.",
+        "wrong": {
+          "B": "Ships in the strait still carry oil.",
+          "C": "Large ships must still stay in marked lanes.",
+          "D": "The strait opens toward the Indian Ocean, so it does not avoid it."
+        }
+      },
+      {
+        "stem": "In the article, the phrase \"strategically vital\" suggests that the strait is —",
+        "options": [
+          "a pleasant place for visitors",
+          "a place with very few ships",
+          "very important to nations",
+          "a very old trading port town"
+        ],
+        "answer": "C",
+        "skill": "vocabulary",
+        "why": "Analysts use the phrase because of the huge volume of oil and gas shipped through the strait.",
+        "wrong": {
+          "A": "The text does not describe it as a place to visit.",
+          "B": "The text says it is one of the busiest waterways.",
+          "D": "The old port belonged to the island, not the phrase."
+        }
+      },
+      {
+        "stem": "Why must experienced captains steer with great care in the strait?",
+        "options": [
+          "The sea beyond it is very deep",
+          "Land lies close on both sides",
+          "Oil can spill if ships go fast",
+          "The lanes change every day"
+        ],
+        "answer": "B",
+        "skill": "cause-effect",
+        "why": "The text says land lies close on both sides, so captains must steer carefully.",
+        "wrong": {
+          "A": "The text does not talk about depth.",
+          "C": "The text does not mention spills.",
+          "D": "The lanes are described as marked, not changing."
+        }
+      },
+      {
+        "stem": "The article says the oil travels to countries far around the world. What does this suggest?",
+        "options": [
+          "The strait is very far from the Gulf itself",
+          "Problems there could reach faraway lands",
+          "Only nearby nations ever buy the oil",
+          "Ships hardly ever leave the Gulf at all"
+        ],
+        "answer": "B",
+        "skill": "inference",
+        "why": "If oil goes to far countries, a problem at the strait would be felt in those places too.",
+        "wrong": {
+          "A": "The strait links the Gulf to the Gulf of Oman, so it is near the Gulf.",
+          "C": "The text says the oil goes far away.",
+          "D": "Many ships leave the Gulf each day."
+        }
+      }
+    ]
   }
 }

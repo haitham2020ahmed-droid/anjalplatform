@@ -614,5 +614,217 @@
       ],
       "modelAnswer": "Melting butter in a hot pan is a physical change, since it is reversible: the butter turns solid again once it cools in the fridge, with no new substance formed. Cooking an egg, however, is an irreversible chemical change, because the heat changes the protein in the egg white so it turns from clear to firm and white, and it can never return to its raw form. The clue that tells them apart is reversibility: one change can undo itself, while the other permanently transforms the molecules involved."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "What can you tell about the sugar in the hot tea?",
+        "options": [
+          "It turned into a gas.",
+          "It is still there.",
+          "It made the tea cold.",
+          "It cooked like an egg."
+        ],
+        "answer": "B",
+        "skill": "inference",
+        "why": "The text says you cannot see it, but the tea is sweet, so the sugar is still there.",
+        "wrong": {
+          "A": "The text does not say it turned into gas.",
+          "C": "Hot tea stays hot in the text.",
+          "D": "Cooking an egg is a different change."
+        }
+      },
+      {
+        "stem": "What happens to an egg when you cook it?",
+        "options": [
+          "It turns back to raw.",
+          "It melts like butter.",
+          "It turns white and firm.",
+          "It becomes a gas."
+        ],
+        "answer": "C",
+        "skill": "detail",
+        "why": "The text says the clear part turns white and gets firm.",
+        "wrong": {
+          "A": "The egg cannot be raw once more.",
+          "B": "Butter is the thing that melts.",
+          "D": "Gas comes from baking soda and vinegar."
+        }
+      },
+      {
+        "stem": "What does the gas do to a cake?",
+        "options": [
+          "It helps it rise.",
+          "It turns it brown.",
+          "It makes it cold.",
+          "It keeps it small."
+        ],
+        "answer": "A",
+        "skill": "cause-effect",
+        "why": "The text says gas helps cake rise.",
+        "wrong": {
+          "B": "Toasting turns bread brown.",
+          "C": "Gas does not make cake cold.",
+          "D": "Gas makes it rise, not stay small."
+        }
+      },
+      {
+        "stem": "What is a sign that new stuff has been made?",
+        "options": [
+          "A cup",
+          "A grown-up",
+          "A spoon",
+          "Bubbles"
+        ],
+        "answer": "D",
+        "skill": "detail",
+        "why": "The text says to look for bubbles, a new hue, or a new smell.",
+        "wrong": {
+          "A": "A cup is not a sign of change.",
+          "B": "A grown-up is there for safety.",
+          "C": "A spoon is a tool, not a sign."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "What happens to butter in a hot pan and then in the fridge?",
+        "options": [
+          "It becomes a new substance.",
+          "It turns brown and cannot go back.",
+          "It melts and then gets solid again.",
+          "It makes bubbles of gas."
+        ],
+        "answer": "C",
+        "skill": "detail",
+        "why": "The text says butter melts in a hot pan and gets solid again in the fridge.",
+        "wrong": {
+          "A": "A physical change makes no new substance.",
+          "B": "Browning is what toast does.",
+          "D": "Bubbles come from baking soda and vinegar."
+        }
+      },
+      {
+        "stem": "Why can an egg never be raw again after it is cooked?",
+        "options": [
+          "A chemical change makes a new substance.",
+          "A physical change only changes the shape.",
+          "The sugar in the egg dissolves.",
+          "The egg dries up like water."
+        ],
+        "answer": "A",
+        "skill": "cause-effect",
+        "why": "The text says a chemical change forms a new substance that usually cannot be turned back.",
+        "wrong": {
+          "B": "A physical change can go back.",
+          "C": "Dissolving sugar is a different example.",
+          "D": "The text does not say the egg dries up."
+        }
+      },
+      {
+        "stem": "What do yeast do in bread dough?",
+        "options": [
+          "They melt the butter in the pan.",
+          "They make a gas that puffs up the dough.",
+          "They turn the dough brown on top.",
+          "They dissolve in the dough like sugar."
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "Yeast make the same gas as baking soda and vinegar, so the dough puffs up.",
+        "wrong": {
+          "A": "Yeast are not linked to butter.",
+          "C": "Heat turns the surface brown.",
+          "D": "Yeast are living things, not something that dissolves."
+        }
+      },
+      {
+        "stem": "A cook mixes two powders and sees bubbles form. What can the cook most likely conclude?",
+        "options": [
+          "The powders only melted.",
+          "A reaction made a gas.",
+          "The powders dissolved.",
+          "The powders were not changed."
+        ],
+        "answer": "B",
+        "skill": "inference",
+        "why": "Bubbles are a clue of a chemical change, so a reaction made a gas.",
+        "wrong": {
+          "A": "Melting does not make bubbles.",
+          "C": "Dissolving does not make bubbles in the text.",
+          "D": "Bubbles show something changed."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "According to the article, what is the difference between baking soda and vinegar?",
+        "options": [
+          "Baking soda is an acid and vinegar is a base.",
+          "Both of them are acids.",
+          "Baking soda is a base and vinegar is an acid.",
+          "Both of them are bases."
+        ],
+        "answer": "C",
+        "skill": "detail",
+        "why": "The text says baking soda is a base, and vinegar is an acid.",
+        "wrong": {
+          "A": "This swaps the two.",
+          "B": "Baking soda is a base, not an acid.",
+          "D": "Vinegar is an acid, not a base."
+        }
+      },
+      {
+        "stem": "In the article, the word irreversible most nearly means —",
+        "options": [
+          "easy to see",
+          "very hot",
+          "hard to smell",
+          "cannot be undone"
+        ],
+        "answer": "D",
+        "skill": "vocabulary",
+        "why": "The text says a chemical change is usually irreversible, like an egg that can never be raw again.",
+        "wrong": {
+          "A": "The word is about going back, not seeing.",
+          "B": "Heat is not the meaning.",
+          "C": "Smell is a different clue."
+        }
+      },
+      {
+        "stem": "Why does the dough in bread gradually expand?",
+        "options": [
+          "Yeast make gas as they use sugar.",
+          "Vinegar is mixed into the dough.",
+          "Hot pans change the ice to water.",
+          "The dough dissolves in water."
+        ],
+        "answer": "A",
+        "skill": "cause-effect",
+        "why": "Yeast produce gas as they consume sugar, so the dough expands.",
+        "wrong": {
+          "B": "The bread example uses yeast, not vinegar.",
+          "C": "Ice is a physical-change example.",
+          "D": "Dissolving is a physical change of sugar."
+        }
+      },
+      {
+        "stem": "How does the author organize the article's examples of changes?",
+        "options": [
+          "By telling about the steps of a single recipe",
+          "By going from the newest to the oldest",
+          "By putting kitchens in order of size",
+          "By explaining physical, then chemical changes"
+        ],
+        "answer": "D",
+        "skill": "text-structure",
+        "why": "The article first describes physical changes and then chemical changes, with kitchen examples for each.",
+        "wrong": {
+          "A": "It uses many examples, not one recipe.",
+          "B": "It does not use dates.",
+          "C": "Kitchen sizes are never mentioned."
+        }
+      }
+    ]
   }
 }

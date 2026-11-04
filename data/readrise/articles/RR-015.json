@@ -614,5 +614,217 @@
       ],
       "modelAnswer": "I agree with Pierre de Coubertin that sport can encourage peace between nations, because the modern Olympics were built on that very idea and the evidence supports it. The five interlocking rings symbolize continents joining together in friendship rather than conflict, and today athletes from more than two hundred countries compete side by side under shared rules of discipline and integrity. The Paralympic Games extend this spirit even further, since they celebrate rehabilitation and inclusion by giving athletes with disabilities the same stage as other competitors. Although the Olympics cannot end war on their own, much like the ancient Greek truce that paused conflict so athletes could travel safely to compete, the Games still demonstrate that nations can set aside rivalry for a shared celebration of fair competition."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "In which year did the Games come back?",
+        "options": [
+          "In 1896",
+          "In 1066",
+          "In 2000",
+          "In 1500"
+        ],
+        "answer": "A",
+        "skill": "detail",
+        "why": "The text says that in 1896 the Games came back.",
+        "wrong": {
+          "B": "This year is not in the text.",
+          "C": "This year is not in the text.",
+          "D": "This year is not in the text."
+        }
+      },
+      {
+        "stem": "How are the Games today different from the old Games?",
+        "options": [
+          "Today they use olive crowns.",
+          "Today they are held in Greece only.",
+          "Today they last for two thousand years.",
+          "Today men and women take part."
+        ],
+        "answer": "D",
+        "skill": "compare",
+        "why": "The old Games had men, while now men and women from more than 200 lands take part.",
+        "wrong": {
+          "A": "The crown of olive leaves was the old prize.",
+          "B": "The text says athletes come from all over the world.",
+          "C": "The Games are held every four years."
+        }
+      },
+      {
+        "stem": "In this article, what does the word compete mean?",
+        "options": [
+          "To try to win against others",
+          "To watch a race from far away",
+          "To make a flag with five rings",
+          "To sit with a coach"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "Men came to the old Games to run races and box, trying to win against each other.",
+        "wrong": {
+          "B": "Competing means taking part, not only watching.",
+          "C": "The flag is a symbol, not the meaning of the word.",
+          "D": "Coaches help athletes train, but this is not what compete means."
+        }
+      },
+      {
+        "stem": "What does the article say matters most for athletes in the Games?",
+        "options": [
+          "Winning is the only thing that counts.",
+          "Playing by the rules is what matters.",
+          "The games must be played in the sun.",
+          "A game must be very short."
+        ],
+        "answer": "B",
+        "skill": "inference",
+        "why": "The text says that most of all, athletes play fair, which means playing by the rules.",
+        "wrong": {
+          "A": "The text says fair play matters most, not only winning.",
+          "C": "Playing in the sun is not named as what matters.",
+          "D": "The length of a game is not discussed."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "Which god did the Greeks honor at Olympia?",
+        "options": [
+          "Apollo",
+          "Athena",
+          "Poseidon",
+          "Zeus"
+        ],
+        "answer": "D",
+        "skill": "detail",
+        "why": "The article says Olympia was a holy site where the Greeks honored Zeus.",
+        "wrong": {
+          "A": "Apollo is not named in the article.",
+          "B": "Athena is not named in the article.",
+          "C": "Poseidon is not named in the article."
+        }
+      },
+      {
+        "stem": "The article says Coubertin decided to revive the Games. What does revive mean?",
+        "options": [
+          "To bring back",
+          "To end for good",
+          "To make longer",
+          "To move away"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "The ancient Games had ended, and in 1896 the modern Games were held, so revive means to bring back.",
+        "wrong": {
+          "B": "The Games were started again, not ended.",
+          "C": "The length of the Games is not the point.",
+          "D": "The Games were not moved."
+        }
+      },
+      {
+        "stem": "In 1896, how many countries sent athletes to the first modern Games?",
+        "options": [
+          "More than 200",
+          "About 90",
+          "About 40",
+          "Fourteen"
+        ],
+        "answer": "D",
+        "skill": "detail",
+        "why": "The article says the Games in Athens had athletes from 14 countries.",
+        "wrong": {
+          "A": "More than 200 is the number of nations today.",
+          "B": "This number is not in the article.",
+          "C": "This number is not in the article."
+        }
+      },
+      {
+        "stem": "The ancient Games first had only one event. What can you infer?",
+        "options": [
+          "The Games stayed the same forever.",
+          "The Games grew over time.",
+          "The Games were never popular.",
+          "The Games ended after one race."
+        ],
+        "answer": "B",
+        "skill": "inference",
+        "why": "The article says wrestling, boxing and chariot racing were added over time, so the Games grew.",
+        "wrong": {
+          "A": "New events were added.",
+          "C": "They lasted nearly two thousand years, so they were popular.",
+          "D": "The Games kept going for a long time."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "The article says athletes pledge to obey the rules. What does pledge mean?",
+        "options": [
+          "To argue",
+          "To forget",
+          "To promise",
+          "To refuse"
+        ],
+        "answer": "C",
+        "skill": "vocabulary",
+        "why": "Athletes make a serious promise to obey the rules and respect every opponent.",
+        "wrong": {
+          "A": "Arguing would break the idea of respect.",
+          "B": "Forgetting does not fit a serious statement.",
+          "D": "Refusing does not fit the sentence."
+        }
+      },
+      {
+        "stem": "What did an olive wreath bring to the winner in the ancient Games?",
+        "options": [
+          "A crown made of gold coins",
+          "A new home in the city of Athens",
+          "Fame for him and his city",
+          "A free trip all the way to Rome"
+        ],
+        "answer": "C",
+        "skill": "detail",
+        "why": "The article says the olive wreath was an honor that brought fame to both the athlete and his city.",
+        "wrong": {
+          "A": "The prize was a wreath of olive leaves, not gold.",
+          "B": "Athens is not mentioned as a prize.",
+          "D": "A trip to Rome is not mentioned."
+        }
+      },
+      {
+        "stem": "Dr. Guttmann used sport to help injured soldiers recover. What can you infer?",
+        "options": [
+          "Sport can help people who are hurt.",
+          "Soldiers are not allowed to play.",
+          "Sport is only for healthy people.",
+          "Doctors do not like the Games."
+        ],
+        "answer": "A",
+        "skill": "inference",
+        "why": "His use of sport in rehabilitation led to the Paralympic Games, so sport can help people with injuries and disabilities.",
+        "wrong": {
+          "B": "The soldiers took part in sport.",
+          "C": "The Paralympic Games are for athletes with a disability.",
+          "D": "A doctor started the competition that grew into the Paralympics."
+        }
+      },
+      {
+        "stem": "How was the first modern Olympic Games different from the Games today?",
+        "options": [
+          "It had athletes from 14 countries.",
+          "It was held in the city of Rome.",
+          "It had no sprints or throws.",
+          "It was held every year."
+        ],
+        "answer": "A",
+        "skill": "compare",
+        "why": "The first modern Games in 1896 had athletes from 14 countries, while today more than 200 nations take part.",
+        "wrong": {
+          "B": "The 1896 Games were held in Athens.",
+          "C": "The article does not say that.",
+          "D": "The Games are held every four years."
+        }
+      }
+    ]
   }
 }

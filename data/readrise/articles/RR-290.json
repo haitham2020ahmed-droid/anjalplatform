@@ -614,5 +614,217 @@
       ],
       "modelAnswer": "Collaboration matters in esports because teammates must work closely together, coordinating their movements and decisions so that everyone works toward the same goal at the same moment; without this, a team's plan would fall apart during a fast-moving match. Precision matters because even a tiny delay or a slightly mistimed action, such as reacting a fraction of a second too late, can cost a hard-fought match. For example, players optimize their reaction time through repeated drills, and teams review recordings with their coach specifically to find and correct small, precise mistakes. Together, collaboration and precision are what let a team perform as one unit under pressure."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "How long can it take to get good at esports?",
+        "options": [
+          "A few hours",
+          "Many years",
+          "One day",
+          "Two weeks"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The text says it can take years to get good.",
+        "wrong": {
+          "A": "A few hours is much shorter than the text says.",
+          "C": "One day is much shorter than the text says.",
+          "D": "Two weeks is much shorter than the text says."
+        }
+      },
+      {
+        "stem": "What does the team do first?",
+        "options": [
+          "Plays in a tournament",
+          "Looks for a skill to fix",
+          "Practices a lot",
+          "Learns the game"
+        ],
+        "answer": "D",
+        "skill": "sequence",
+        "why": "The text says that first, the team learns the game.",
+        "wrong": {
+          "A": "The tournament comes at the end.",
+          "B": "Fixing skills comes after practice.",
+          "C": "Practice comes after learning the game."
+        }
+      },
+      {
+        "stem": "Why can a weak skill be a problem for the team?",
+        "options": [
+          "It can make the team lose",
+          "It makes the game new",
+          "It stops the tournament",
+          "It helps the team plan"
+        ],
+        "answer": "A",
+        "skill": "cause-effect",
+        "why": "The text says a weak skill can make the team lose.",
+        "wrong": {
+          "B": "The game is new at the start, but that is not caused by a weak skill.",
+          "C": "The text does not say a weak skill stops a tournament.",
+          "D": "A weak skill does not help the team plan."
+        }
+      },
+      {
+        "stem": "Why does the author use the words First, Next, and At last?",
+        "options": [
+          "To tell a funny story",
+          "To name the players",
+          "To show the order",
+          "To compare two games"
+        ],
+        "answer": "C",
+        "skill": "text-structure",
+        "why": "These words show the steps a team follows, one after the other.",
+        "wrong": {
+          "A": "The article is not a funny story.",
+          "B": "These words do not name players.",
+          "D": "The article does not compare two games."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "Who plans the strategy, the goals, and the moves for a team?",
+        "options": [
+          "Coaches",
+          "In-game callers",
+          "Team captains",
+          "The viewers"
+        ],
+        "answer": "C",
+        "skill": "detail",
+        "why": "The text says team captains plan the strategy, the goals, and the moves.",
+        "wrong": {
+          "A": "Coaches study replays and plan drills.",
+          "B": "In-game callers give instructions during the match.",
+          "D": "Viewers only watch the matches."
+        }
+      },
+      {
+        "stem": "What does the word coordination mean in the article?",
+        "options": [
+          "Playing alone just for practice",
+          "Acting together at the right time",
+          "Winning every round of a match",
+          "Watching clips of past matches"
+        ],
+        "answer": "B",
+        "skill": "vocabulary",
+        "why": "The article says coordination means every player moves and reacts at the right time, together.",
+        "wrong": {
+          "A": "Playing alone is the opposite of working as a team.",
+          "C": "The article does not define coordination as winning.",
+          "D": "Watching clips is something coaches do."
+        }
+      },
+      {
+        "stem": "Why does coordination help a team?",
+        "options": [
+          "It lets each player compete alone",
+          "It makes every match much shorter",
+          "It helps the team skip practice",
+          "It prevents costly mistakes"
+        ],
+        "answer": "D",
+        "skill": "cause-effect",
+        "why": "The article says coordination saves the team from making costly mistakes.",
+        "wrong": {
+          "A": "Top teams need cooperation, not playing alone.",
+          "B": "The article does not say coordination changes match length.",
+          "C": "Teams still practice, even more with coordination."
+        }
+      },
+      {
+        "stem": "What do players do right after they build endurance?",
+        "options": [
+          "Scrimmage and get feedback",
+          "Qualify for a tournament",
+          "Review clips to find errors",
+          "Add new strategies"
+        ],
+        "answer": "A",
+        "skill": "sequence",
+        "why": "The article says that after building endurance, players scrimmage and get feedback.",
+        "wrong": {
+          "B": "Qualifying comes next, after scrimmages.",
+          "C": "Reviewing clips comes when the team prepares to qualify.",
+          "D": "Adding new strategies happens after a team qualifies."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "How does a team usually reach a major tournament?",
+        "options": [
+          "By paying the arena for a spot",
+          "By playing casual games for fun",
+          "By hiring a new coach each year",
+          "By qualifying in smaller events"
+        ],
+        "answer": "D",
+        "skill": "detail",
+        "why": "The article says a team typically must qualify through a series of smaller regional events.",
+        "wrong": {
+          "A": "The text does not say teams pay the arena.",
+          "B": "Casual games are played for fun, not to qualify.",
+          "C": "Coaches help with practice but do not decide who qualifies."
+        }
+      },
+      {
+        "stem": "What does the word collaborate mean in \"must collaborate constantly\"?",
+        "options": [
+          "Play alone",
+          "Work together",
+          "Argue loudly",
+          "Watch from far away"
+        ],
+        "answer": "B",
+        "skill": "vocabulary",
+        "why": "The article says no single player can carry a match alone, so teammates must work together.",
+        "wrong": {
+          "A": "Playing alone is what teams cannot do.",
+          "C": "Arguing is not mentioned.",
+          "D": "The players are in the match, not watching."
+        }
+      },
+      {
+        "stem": "Why do top teams rehearse the same situations again and again?",
+        "options": [
+          "So their timing feels automatic",
+          "So the sponsor will pay more",
+          "So fans can cheer louder",
+          "So the arena looks full"
+        ],
+        "answer": "A",
+        "skill": "cause-effect",
+        "why": "The article says top teams rehearse until their timing feels automatic, since one mistimed move can cost a match.",
+        "wrong": {
+          "B": "Sponsors pay for prizes and equipment, not for rehearsals.",
+          "C": "Fan noise is not the reason for rehearsing.",
+          "D": "The size of the crowd is not linked to rehearsing."
+        }
+      },
+      {
+        "stem": "Why does the author compare the crowd's roar to a football field?",
+        "options": [
+          "To prove football is easier",
+          "To explain the rules of football",
+          "To show the feeling is real",
+          "To list the prizes players win"
+        ],
+        "answer": "C",
+        "skill": "author-purpose",
+        "why": "The author says the roar of the crowd feels every bit as real for esports players as for athletes on a football field.",
+        "wrong": {
+          "A": "The article does not say football is easier.",
+          "B": "No football rules are given.",
+          "D": "Prizes are not listed in that sentence."
+        }
+      }
+    ]
   }
 }

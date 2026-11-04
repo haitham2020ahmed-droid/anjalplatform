@@ -614,5 +614,217 @@
       ],
       "modelAnswer": "I think the honey badger's thick, loose skin is its most important adaptation, because it lets the animal twist inside its own hide and bite back even while a formidable predator like a leopard has it by the neck, turning a near-fatal attack into a chance to escape. This adaptation matters more than its partial resistance to snake venom, which only helps after a bite has already happened and can still leave the badger temporarily helpless for hours. The loose skin works proactively to prevent serious injury in the first place, which is especially valuable for such an opportunistic hunter that constantly tangles with dangerous prey and rivals. Its scent gland, which releases a powerful smell to deter enemies, is useful too, but it only scares attackers away rather than protecting the badger during an actual attack."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "How big is a honey badger?",
+        "options": [
+          "As big as a large lion",
+          "As big as a tiny mouse",
+          "As big as a big cat",
+          "As big as a small dog"
+        ],
+        "answer": "D",
+        "skill": "detail",
+        "why": "The text says the honey badger is as big as a small dog.",
+        "wrong": {
+          "A": "The text says it is not big, so it is not lion-sized.",
+          "B": "A mouse is food for the badger, not its size.",
+          "C": "The big cat is an animal that may bite the badger, not its size."
+        }
+      },
+      {
+        "stem": "Why can a honey badger dig so fast?",
+        "options": [
+          "It has long claws.",
+          "It has black fur.",
+          "It has a bad smell.",
+          "It has a loose skin."
+        ],
+        "answer": "A",
+        "skill": "cause-effect",
+        "why": "The text says it has long claws and digs fast.",
+        "wrong": {
+          "B": "Fur color does not help it dig.",
+          "C": "The smell is for scaring other animals.",
+          "D": "Loose skin helps it twist and bite back, not dig."
+        }
+      },
+      {
+        "stem": "The honey badger eats bugs, mice, and snakes. What does this show?",
+        "options": [
+          "It only eats food from bee hives.",
+          "It eats many kinds of food.",
+          "It is afraid of other animals.",
+          "It sleeps all day and all night."
+        ],
+        "answer": "B",
+        "skill": "inference",
+        "why": "The text lists bugs, mice, and snakes, so the badger eats lots of things.",
+        "wrong": {
+          "A": "Bee hive food is only one thing it eats.",
+          "C": "The text says the badger is brave.",
+          "D": "Sleeping is only mentioned after a snake bite."
+        }
+      },
+      {
+        "stem": "Read this: \"Some snakes have venom.\" What is venom?",
+        "options": [
+          "A kind of food from honey",
+          "A kind of hole in the ground",
+          "A bad smell that scares",
+          "A poison in a bite"
+        ],
+        "answer": "D",
+        "skill": "vocabulary",
+        "why": "The text says some snakes have venom and that their bite can kill, so venom is a poison.",
+        "wrong": {
+          "A": "Honey is made by bees, not snakes.",
+          "B": "A hole is called a burrow in the text.",
+          "C": "The bad smell is made by the badger when it is scared."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "How much do most adult honey badgers weigh?",
+        "options": [
+          "About six to fourteen kilograms",
+          "About one to three kilograms",
+          "About twenty to thirty kilograms",
+          "About fifty to sixty kilograms"
+        ],
+        "answer": "A",
+        "skill": "detail",
+        "why": "The text says most adults weigh between six and fourteen kilograms.",
+        "wrong": {
+          "B": "This is too light for most adults, according to the text.",
+          "C": "This is too heavy for most adults, according to the text.",
+          "D": "This is far too heavy for an animal as big as a medium dog."
+        }
+      },
+      {
+        "stem": "The article says the honey badger mostly wants the larvae in a beehive. What are larvae?",
+        "options": [
+          "Tall hives in the tops of trees",
+          "Sweet food made from ripe fruit",
+          "The soft young bees in the comb",
+          "The stings that bees use to fight"
+        ],
+        "answer": "C",
+        "skill": "vocabulary",
+        "why": "The text says larvae are the soft young bees inside the comb.",
+        "wrong": {
+          "A": "Hives are the bees' homes, not the larvae.",
+          "B": "Honey is the sweet food, and it comes from bees, not fruit.",
+          "D": "The text says the thick skin keeps out stings."
+        }
+      },
+      {
+        "stem": "Why do most enemies back away from a scared adult honey badger?",
+        "options": [
+          "It makes a terrible smell.",
+          "It runs away very quickly.",
+          "It calls other badgers for help.",
+          "It falls asleep in a burrow."
+        ],
+        "answer": "A",
+        "skill": "cause-effect",
+        "why": "The text says a scared adult can make a terrible smell that makes most enemies back away.",
+        "wrong": {
+          "B": "The text does not say the badger runs away.",
+          "C": "Honey badgers are solitary, so they do not call others.",
+          "D": "Sleep is only mentioned after a snake bite."
+        }
+      },
+      {
+        "stem": "Why does the author begin by saying the honey badger is only as big as a medium-sized dog?",
+        "options": [
+          "To show that dogs are fearless as well",
+          "To explain how badgers dig their burrows",
+          "To describe how mothers raise their cubs",
+          "To make its bravery seem more surprising"
+        ],
+        "answer": "D",
+        "skill": "author-purpose",
+        "why": "The word Yet shows the contrast: the badger is small, but it chases young lions away.",
+        "wrong": {
+          "A": "The text is about the badger, not dogs.",
+          "B": "Digging is explained later, in the third paragraph.",
+          "C": "Raising cubs comes at the end of the article."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "What does the stripe along a honey badger's back look like?",
+        "options": [
+          "Bright red and quite long",
+          "Black and thin like a rope",
+          "Gray or silvery and broad",
+          "White and short with spots"
+        ],
+        "answer": "C",
+        "skill": "detail",
+        "why": "The text says a broad gray or silvery stripe extends along the back.",
+        "wrong": {
+          "A": "The text does not mention a red stripe.",
+          "B": "The legs and underside are black, not the stripe.",
+          "D": "The stripe is described as broad and long, like a cape."
+        }
+      },
+      {
+        "stem": "In the text, what does the word excavate mean?",
+        "options": [
+          "To hide in",
+          "To cover up",
+          "To look at",
+          "To dig out"
+        ],
+        "answer": "D",
+        "skill": "vocabulary",
+        "why": "The claws are used to make a burrow in a few minutes, so excavate means to dig out.",
+        "wrong": {
+          "A": "Hiding in a burrow happens after it is dug.",
+          "B": "Covering up does not fit with making a shelter.",
+          "C": "Looking at a burrow does not need strong claws."
+        }
+      },
+      {
+        "stem": "The article says honey badgers live in deserts and in rocky mountains. What does this suggest?",
+        "options": [
+          "They can live in many kinds of places.",
+          "They need cold air to stay alive.",
+          "They cannot be found in any forests.",
+          "They only eat food from deserts."
+        ],
+        "answer": "A",
+        "skill": "inference",
+        "why": "Living in both deserts and rocky mountains suggests the animals can adapt to different places.",
+        "wrong": {
+          "B": "Deserts are hot, so cold air is not needed.",
+          "C": "The text never says anything about forests.",
+          "D": "The text says they eat many foods, including fruit and roots."
+        }
+      },
+      {
+        "stem": "Why can a honey badger raid a beehive without being badly hurt?",
+        "options": [
+          "The bees are too young to sting.",
+          "Its thick skin protects it from most stings.",
+          "It only visits when the bees are asleep.",
+          "It makes the bees leave with a smell."
+        ],
+        "answer": "B",
+        "skill": "cause-effect",
+        "why": "The text says its thick skin protects it from most of the stings.",
+        "wrong": {
+          "A": "The young bees are the food, but the adult bees still sting.",
+          "C": "The text does not say the bees sleep.",
+          "D": "The smell is mentioned only for scaring enemies."
+        }
+      }
+    ]
   }
 }

@@ -614,5 +614,217 @@
       ],
       "modelAnswer": "Ice skating began as a practical way to travel; people near the Netherlands once carved skates from animal bones so they could cross frozen rivers and canals quickly during harsh winters. Over time, craftsmen learned to forge thin metal blades instead, which let skaters glide with far more precision and control than bone ever allowed. Today, the sport has split into figure skating, judged on artistry and technique, and speed skating, which rewards covering a distance fastest, and elite skaters in both events train for years under strict discipline, repeating movements thousands of times until their balance and edge control become almost automatic."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "What do figure skaters do on the ice?",
+        "options": [
+          "Jump and spin",
+          "Race on a track",
+          "Carry heavy bags",
+          "Dig the ice up"
+        ],
+        "answer": "A",
+        "skill": "detail",
+        "why": "The text says figure skaters jump and spin.",
+        "wrong": {
+          "B": "Speed skaters race on a long track.",
+          "C": "Carrying bags is not mentioned.",
+          "D": "Digging the ice is not mentioned."
+        }
+      },
+      {
+        "stem": "In this article, what does the word glide mean?",
+        "options": [
+          "To fall down very fast",
+          "To lift a boot up high",
+          "To move along smoothly",
+          "To stand very still"
+        ],
+        "answer": "C",
+        "skill": "vocabulary",
+        "why": "The thin blade does not stick, so the girl moves along smoothly as if she can fly.",
+        "wrong": {
+          "A": "Falling is not the same as gliding.",
+          "B": "Lifting a boot is not what glide means.",
+          "D": "Standing still is the opposite of gliding."
+        }
+      },
+      {
+        "stem": "What did people use to make skates after they used bones?",
+        "options": [
+          "Thick strong rope",
+          "Thin metal blades",
+          "Soft thin cloth",
+          "Dry green grass"
+        ],
+        "answer": "B",
+        "skill": "sequence",
+        "why": "The text says people made skates from bones long ago and later used metal blades.",
+        "wrong": {
+          "A": "Rope is not mentioned.",
+          "C": "Cloth is not mentioned.",
+          "D": "Grass is not mentioned."
+        }
+      },
+      {
+        "stem": "Why does a rink have smooth, flat ice?",
+        "options": [
+          "So skaters can sit down",
+          "So the ice looks old",
+          "So skaters can wear boots",
+          "So blades can glide well"
+        ],
+        "answer": "D",
+        "skill": "inference",
+        "why": "The text says blades glide and do not stick, so smooth, flat ice lets the blades glide well.",
+        "wrong": {
+          "A": "Sitting is not the reason given.",
+          "B": "Looks are not the reason given.",
+          "C": "Boots are worn on any ice."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "Why did people near the Netherlands make skates from animal bones?",
+        "options": [
+          "To win a race on a hill",
+          "To dig holes in the snow",
+          "To cross frozen rivers fast",
+          "To carry food to the market"
+        ],
+        "answer": "C",
+        "skill": "cause-effect",
+        "why": "The text says they made skates from bones so they could cross frozen rivers and canals quickly.",
+        "wrong": {
+          "A": "Hill races are not mentioned.",
+          "B": "Digging holes is not mentioned.",
+          "D": "Carrying food is not mentioned."
+        }
+      },
+      {
+        "stem": "What do judges score in figure skating?",
+        "options": [
+          "The skater's boots",
+          "The skater's speed on a track",
+          "The skater's technique",
+          "The skater's warm clothes"
+        ],
+        "answer": "C",
+        "skill": "detail",
+        "why": "The text says figure skaters jump, spin, and dance while judges score their technique.",
+        "wrong": {
+          "A": "Boots are not scored in the text.",
+          "B": "Speed on a track belongs to speed skating.",
+          "D": "Clothes are not scored in the text."
+        }
+      },
+      {
+        "stem": "In the article, the word slippery describes a layer that is —",
+        "options": [
+          "very easy to slide on",
+          "thick and very sticky",
+          "hard, dry, and rough",
+          "dry and covered in dust"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "The thin layer of water lets the blade slide with very little friction, so it is easy to slide on.",
+        "wrong": {
+          "B": "Sticky would stop the blade from sliding.",
+          "C": "A rough layer would not let the blade slide well.",
+          "D": "The layer is made of water, so it is not dry."
+        }
+      },
+      {
+        "stem": "Why does the author end by saying you may fall a few times before you learn to glide?",
+        "options": [
+          "To warn people never to skate",
+          "To say skating is only for experts",
+          "To list the rules of the sport",
+          "To show that learning takes practice"
+        ],
+        "answer": "D",
+        "skill": "author-purpose",
+        "why": "The ending says all it takes is practice, patience, and a few falls, which shows learning takes time.",
+        "wrong": {
+          "A": "The author invites readers to try skating.",
+          "B": "The author says you can try skating, too.",
+          "C": "No rules are listed at the end."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "Why do speed skaters crouch low as they race?",
+        "options": [
+          "To reduce air resistance",
+          "To protect their boots",
+          "To hide from the judges",
+          "To grip the ice better"
+        ],
+        "answer": "A",
+        "skill": "detail",
+        "why": "The text says speed skaters crouch low to reduce air resistance.",
+        "wrong": {
+          "B": "Protecting boots is not mentioned.",
+          "C": "Hiding from judges is not mentioned.",
+          "D": "Gripping the ice is not the reason given."
+        }
+      },
+      {
+        "stem": "In the article, the word forge most nearly means —",
+        "options": [
+          "to shape heated metal",
+          "to copy a famous name",
+          "to walk across thin ice",
+          "to wash with warm water"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "Skilled craftsmen forged blades from strong metal, which means they shaped the metal into blades.",
+        "wrong": {
+          "B": "Copying a name does not fit blades made from metal.",
+          "C": "Walking on ice is what skaters do, not what craftsmen forge.",
+          "D": "Washing does not fit making blades."
+        }
+      },
+      {
+        "stem": "What did metal blades do for ice skating?",
+        "options": [
+          "They made the ice much thicker.",
+          "They made gliding much smoother.",
+          "They made speed skating end soon.",
+          "They made good balance not needed."
+        ],
+        "answer": "B",
+        "skill": "cause-effect",
+        "why": "The text says forged metal blades made gliding far smoother and more precise.",
+        "wrong": {
+          "A": "Blades do not change the ice's thickness.",
+          "C": "Speed skating still exists in the text.",
+          "D": "The text says skaters need exceptional balance."
+        }
+      },
+      {
+        "stem": "What can be inferred about the technique of elite skaters?",
+        "options": [
+          "It comes from plain luck alone.",
+          "It is never practiced very much.",
+          "It comes from years of practice.",
+          "It is the same as a beginner's."
+        ],
+        "answer": "C",
+        "skill": "inference",
+        "why": "The text says elite skaters repeat the same movements thousands of times until their technique is almost automatic.",
+        "wrong": {
+          "A": "The text stresses practice, not luck.",
+          "B": "The text says they train for years.",
+          "D": "The text says elite skaters train for years."
+        }
+      }
+    ]
   }
 }

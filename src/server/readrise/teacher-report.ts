@@ -5,7 +5,10 @@
  *   each student   the level line (the year's placements and every change), the three reading checks (start →
  *                  middle → end), the projected end-of-year level from the trend (an ESTIMATE, with its range)
  *   lists          "Stuck" (placed, no level change for STUCK_DAYS+ days) and "Rising fast" (up RISING_GAIN+ in the
- *                  last 4 weeks)
+ *                  last 4 weeks). "Stuck" is split for the teacher into 🔴 "Not reading" (no counted reading for
+ *                  NOT_READING_DAYS days) and 🟠 "Reading, below 75%" (4+ counted first tries in 28 days, none at
+ *                  75%+, level unchanged); plus 📉 "Missed the weekly goal 2 weeks in a row" (the engine's goal:
+ *                  goalDates). One rule for all three: dashboards.ts readingSignals.
  *   accuracy       class accuracy by question type (main idea, details, inference, vocabulary …) from reliable first
  *                  tries; rapid answers left out
  *   unreliable     the runs with 2+ rapid answers (never moved a level)
@@ -16,7 +19,7 @@ import type { Repo, Row } from "../seeding/repo";
 import { assertClassRead } from "../teacher/coordinators";
 import { RETAKE_REASON, readRisePlaced, riyadhDay, s, toDate, yearEndFor } from "./engine";
 import { articleRuns, keyRowsLookup, tallyAnswers, tallyBy, tallyRuns } from "./first-try";
-import { gradeBand } from "./dashboards";
+import { gradeBand, readingSignals, type ReadingSignals } from "./dashboards";
 import { levelJourney, type HistoryKind } from "./growth-report";
 import { projectionRange, type ProjectionRange } from "./growth";
 import { questionKeys } from "./question-key";
@@ -47,6 +50,8 @@ export interface ReportStudent {
   gain4w: number | null;
   readings4w: number;
   unreliableRuns: number;
+  /** 🔴 / 🟠 / 📉 (placed students; null when not placed) */
+  signals: ReadingSignals | null;
 }
 export interface TypeAccuracy { type: QuestionType; name: string; correct: number; total: number; pct: number | null }
 export interface UnreliableRun { runId: string; studentId: string; name: string; title: string; at: string; rapid: number; score: number | null }
@@ -57,9 +62,15 @@ export interface ReadRiseTeacherReport {
   students: ReportStudent[];
   stuck: { studentId: string; name: string; level: number; days: number; readings4w: number }[];
   rising: { studentId: string; name: string; level: number; gain: number }[];
+  /** 🔴 placed, no counted reading for NOT_READING_DAYS+ days (days: since the last one; null = never read) */
+  notReading: { studentId: string; name: string; level: number; days: number | null }[];
+  /** 🟠 reading, but below 75%: 4+ counted first tries in 28 days, none at 75%+, level unchanged */
+  belowGoal: { studentId: string; name: string; level: number; tries: number; best: number | null }[];
+  /** 📉 the weekly goal missed in each of the last two full weeks (weeks = articles at 75%+ in those weeks) */
+  missedGoal: { studentId: string; name: string; level: number; goal: number; weeks: [number, number] }[];
   byType: TypeAccuracy[];
   unreliable: UnreliableRun[];
-  summary: { students: number; placed: number; stuck: number; rising: number; unreliable: number; checksDue: { MOY: number; EOY: number } };
+  summary: { students: number; placed: number; stuck: number; rising: number; unreliable: number; notReading: number; belowGoal: number; missedGoal: number; checksDue: { MOY: number; EOY: number } };
 }
 
 /** The level at a moment from a student's points (oldest first), null before the first. Pure. */
@@ -103,12 +114,12 @@ export async function readRiseTeacherReport(repo: Repo, actor: Actor, classId: s
   const ids = [...new Set(members.map((m) => s(m.studentId)))];
   const g = Number(grade?.level ?? 0);
   const empty = { classId, className: s(klass.name), grade: g, band: gradeBand(g), yearEnd: yearEnd.toISOString(), windows, now: now.toISOString() };
-  if (!ids.length) return { ...empty, students: [], stuck: [], rising: [], byType: [], unreliable: [], summary: { students: 0, placed: 0, stuck: 0, rising: 0, unreliable: 0, checksDue: { MOY: 0, EOY: 0 } } };
+  if (!ids.length) return { ...empty, students: [], stuck: [], rising: [], notReading: [], belowGoal: [], missedGoal: [], byType: [], unreliable: [], summary: { students: 0, placed: 0, stuck: 0, rising: 0, unreliable: 0, notReading: 0, belowGoal: 0, missedGoal: 0, checksDue: { MOY: 0, EOY: 0 } } };
   const [students, rrs, changeRows, runs, placements] = await Promise.all([
     repo.findMany("Student", { id: { in: ids } }, { select: ["id", "userId"] }),
-    repo.findMany("RRStudent", { studentId: { in: ids } }, { select: ["studentId", "level", "startLevel", "placedAt", "source"] }),
+    repo.findMany("RRStudent", { studentId: { in: ids } }, { select: ["studentId", "level", "startLevel", "placedAt", "source", "weeklyGoal"] }),
     repo.findMany("RRLevelChange", { studentId: { in: ids } }, { select: ["studentId", "fromLevel", "toLevel", "reason", "createdAt"] }),
-    repo.findMany("RRRun", { studentId: { in: ids }, completedAt: { not: null } }, { select: ["id", "studentId", "articleId", "band", "answers", "score", "firstTry", "stretch", "completedAt", "answerMs", "rapidCount", "unreliable"] }),
+    repo.findMany("RRRun", { studentId: { in: ids }, completedAt: { not: null } }, { select: ["id", "studentId", "articleId", "band", "answers", "score", "firstTry", "stretch", "completedAt", "answerMs", "rapidCount", "unreliable", "readSeconds"] }),
     repo.findMany("RRPlacement", { studentId: { in: ids }, completedAt: { not: null }, result: { not: null } }, { select: ["studentId", "result", "period", "completedAt"] }),
   ]);
   const users = students.length ? await repo.findMany("User", { id: { in: students.map((x) => s(x.userId)) } }, { select: ["id", "displayName"] }) : [];
@@ -127,7 +138,7 @@ export async function readRiseTeacherReport(repo: Repo, actor: Actor, classId: s
     const unreliableRuns = mine.filter(isUnreliableRun).length;
     // round 4: the ONE article definition (first-try.ts articleRuns: reliable non-stretch first tries)
     const readings4w = articleRuns(mine).filter((r) => time(r.completedAt) >= nowT - RISING_DAYS * DAY).length;
-    if (!placed || !rr) return { studentId: id, name: names.get(id) ?? "Student", placed: false, level: null, startLevel: null, points: [], checks, projected: null, lastChangeAt: null, daysSinceChange: null, gain4w: null, readings4w, unreliableRuns };
+    if (!placed || !rr) return { studentId: id, name: names.get(id) ?? "Student", placed: false, level: null, startLevel: null, points: [], checks, projected: null, lastChangeAt: null, daysSinceChange: null, gain4w: null, readings4w, unreliableRuns, signals: null };
     const changes = (chBy.get(id) ?? []).filter((c) => !s(c.reason).startsWith(RETAKE_REASON))
       .map((c) => ({ at: time(c.createdAt), from: Number(c.fromLevel), to: Number(c.toLevel), reason: s(c.reason) })).sort((a, b) => a.at - b.at);
     const journey = levelJourney({ startLevel: Number(rr.startLevel), placedAt: time(rr.placedAt), source: s(rr.source) }, changes);
@@ -139,6 +150,7 @@ export async function readRiseTeacherReport(repo: Repo, actor: Actor, classId: s
       studentId: id, name: names.get(id) ?? "Student", placed: true, level: Number(rr.level), startLevel: Number(rr.startLevel), points, checks,
       projected: projectionRange(journey.points, main.map((r) => time(r.completedAt)), now, yearEnd),
       ...movement(points, now), readings4w, unreliableRuns,
+      signals: readingSignals(mine, { placedAt: time(rr.placedAt), weeklyGoal: Number(rr.weeklyGoal ?? 2) }, changes.map((c) => c.at), nowT),
     };
   }).sort((a, b) => a.name.localeCompare(b.name));
 
@@ -146,6 +158,14 @@ export async function readRiseTeacherReport(repo: Repo, actor: Actor, classId: s
     .map((r) => ({ studentId: r.studentId, name: r.name, level: r.level!, days: r.daysSinceChange!, readings4w: r.readings4w })).sort((a, b) => b.days - a.days || a.name.localeCompare(b.name));
   const rising = rows.filter((r) => r.placed && (r.gain4w ?? 0) >= RISING_GAIN)
     .map((r) => ({ studentId: r.studentId, name: r.name, level: r.level!, gain: r.gain4w! })).sort((a, b) => b.gain - a.gain || a.name.localeCompare(b.name));
+
+  const lv = (r: ReportStudent) => r.level ?? 0;
+  const notReading = rows.filter((r) => r.signals?.notReading)
+    .map((r) => ({ studentId: r.studentId, name: r.name, level: lv(r), days: r.signals!.daysSinceReading })).sort((a, b) => (b.days ?? 9999) - (a.days ?? 9999) || a.name.localeCompare(b.name));
+  const belowGoal = rows.filter((r) => r.signals?.belowGoal)
+    .map((r) => ({ studentId: r.studentId, name: r.name, level: lv(r), tries: r.signals!.tries28, best: r.signals!.best28 })).sort((a, b) => (a.best ?? 0) - (b.best ?? 0) || a.name.localeCompare(b.name));
+  const missedGoal = rows.filter((r) => r.signals?.missedGoal2w)
+    .map((r) => ({ studentId: r.studentId, name: r.name, level: lv(r), goal: Math.max(1, Number(rrBy.get(r.studentId)?.weeklyGoal ?? 2) || 2), weeks: r.signals!.lastWeeks })).sort((a, b) => a.name.localeCompare(b.name));
 
   // accuracy by question type: reliable first tries, rapid answers out
   const reliable = tallyRuns(runs); // round 4: the ONE accuracy set (counted first tries, reliable)
@@ -162,9 +182,10 @@ export async function readRiseTeacherReport(repo: Repo, actor: Actor, classId: s
   const today = riyadhDay(nowT); // round 4: the window dates are school (Riyadh) days
   const open = (p: "MOY" | "EOY") => today >= windows[p].opens && today <= windows[p].closes;
   return {
-    ...empty, students: rows, stuck, rising, byType, unreliable,
+    ...empty, students: rows, stuck, rising, notReading, belowGoal, missedGoal, byType, unreliable,
     summary: {
       students: rows.length, placed: rows.filter((r) => r.placed).length, stuck: stuck.length, rising: rising.length, unreliable: runs.filter(isUnreliableRun).length,
+      notReading: notReading.length, belowGoal: belowGoal.length, missedGoal: missedGoal.length,
       checksDue: { MOY: open("MOY") ? rows.filter((r) => r.placed && !r.checks.MOY).length : 0, EOY: open("EOY") ? rows.filter((r) => r.placed && !r.checks.EOY).length : 0 },
     },
   };

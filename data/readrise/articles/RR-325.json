@@ -614,5 +614,217 @@
       ],
       "modelAnswer": "I think the ocean's role in climate is more important than its role in trade, even though trade depends on it too. The article explains that ocean circulation moves heat from the warm equator toward the colder poles, keeping coastal climates milder, and that evaporation from the sea's surface is the main source of rain that falls far inland. Without this constant circulation and absorption of heat, weather everywhere, not just near coasts, would likely become far more extreme. Trade could, in theory, shift partly to other methods, but there is no replacement for the climate system that oceans maintain for the entire planet."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "Which ocean does the article call warm?",
+        "options": [
+          "Pacific",
+          "Atlantic",
+          "Arctic",
+          "Indian"
+        ],
+        "answer": "D",
+        "skill": "detail",
+        "why": "The text says Indian is warm.",
+        "wrong": {
+          "A": "The text says Pacific is the biggest.",
+          "B": "The text says Atlantic is next in size.",
+          "C": "The text says Arctic is icy."
+        }
+      },
+      {
+        "stem": "What happens right after the sun warms the sea?",
+        "options": [
+          "Water rises into the air",
+          "Clouds make rain at once",
+          "Ships carry goods to ports",
+          "Whales swim up to the land"
+        ],
+        "answer": "A",
+        "skill": "sequence",
+        "why": "The text says the sun warms the sea, and then some water goes up into the air.",
+        "wrong": {
+          "B": "The water must go up and make clouds first.",
+          "C": "Ships carrying goods is a different topic.",
+          "D": "The text does not say whales swim to land."
+        }
+      },
+      {
+        "stem": "Why do many things we buy come by ship?",
+        "options": [
+          "Ships are very small",
+          "Ships cost less than planes",
+          "Ships are faster than planes",
+          "Ships do not need the sea"
+        ],
+        "answer": "B",
+        "skill": "cause-effect",
+        "why": "The text says a ship costs less than a plane.",
+        "wrong": {
+          "A": "The text says big ships carry goods.",
+          "C": "The text says a ship costs less, not that it is faster.",
+          "D": "Ships sail on the sea."
+        }
+      },
+      {
+        "stem": "The text says oceans cover most of our planet. What does cover mean?",
+        "options": [
+          "to spread over",
+          "to dig under",
+          "to push away",
+          "to look at"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "Oceans spread over most of Earth's surface, so cover means to spread over.",
+        "wrong": {
+          "B": "Oceans do not dig.",
+          "C": "Oceans do not push the land away.",
+          "D": "Cover is not about looking."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "Which ocean is the smallest and coldest of the five?",
+        "options": [
+          "Arctic",
+          "Southern",
+          "Indian",
+          "Atlantic"
+        ],
+        "answer": "A",
+        "skill": "detail",
+        "why": "The article says the Arctic is the smallest and coldest of the five.",
+        "wrong": {
+          "B": "The Southern circles the icy continent near the south pole.",
+          "C": "The Indian stays warm most of the year.",
+          "D": "The Atlantic ranks second in size."
+        }
+      },
+      {
+        "stem": "Read: \"Some water begins to evaporate.\" What does evaporate mean?",
+        "options": [
+          "Freeze into ice",
+          "Fall as heavy rain",
+          "Turn to vapor",
+          "Sink to the bottom"
+        ],
+        "answer": "C",
+        "skill": "vocabulary",
+        "why": "The article says the water rises into the air as tiny drops of vapor.",
+        "wrong": {
+          "A": "The sun warms the sea, so the water does not freeze.",
+          "B": "Rain falls after clouds form.",
+          "D": "The water rises, so it does not sink."
+        }
+      },
+      {
+        "stem": "Why is Earth sometimes nicknamed the Blue Planet?",
+        "options": [
+          "Its land is mostly blue",
+          "Its sky has no clouds",
+          "Its ice is bright blue",
+          "Oceans cover most of it"
+        ],
+        "answer": "D",
+        "skill": "cause-effect",
+        "why": "The article says oceans cover about seventy-one percent of Earth, so it looks mostly blue.",
+        "wrong": {
+          "A": "The article says land covers less than a third.",
+          "B": "The article says oceans form clouds.",
+          "C": "The article does not say the ice is blue."
+        }
+      },
+      {
+        "stem": "What can you tell about the sea from the plankton, fish, sharks, coral, and whales in it?",
+        "options": [
+          "It is empty and quiet",
+          "It holds many kinds of life",
+          "It has only small animals",
+          "It is too cold for coral"
+        ],
+        "answer": "B",
+        "skill": "inference",
+        "why": "The article lists many kinds of life, from tiny plankton to giant whales, so the sea is full of life.",
+        "wrong": {
+          "A": "The article says oceans are full of life.",
+          "C": "Whales are giant animals.",
+          "D": "The article says coral lives in the sea."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "How does the article describe the Arctic Ocean?",
+        "options": [
+          "Largest and deepest",
+          "Smallest and shallowest",
+          "Warmest of the five",
+          "Second largest in size"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The article says the Arctic is the smallest and shallowest of the five.",
+        "wrong": {
+          "A": "The Pacific is the largest.",
+          "C": "The Indian remains warm for most of the year.",
+          "D": "The Atlantic ranks second in size."
+        }
+      },
+      {
+        "stem": "The article mentions \"maritime shipping.\" What does maritime mean?",
+        "options": [
+          "By air",
+          "Over land",
+          "Under ground",
+          "By sea"
+        ],
+        "answer": "D",
+        "skill": "vocabulary",
+        "why": "The article says cargo ships carry goods across the sea, which it calls maritime shipping.",
+        "wrong": {
+          "A": "Moving goods by air is the other way it names.",
+          "B": "The article names moving goods over land as another way.",
+          "C": "Nothing is said about moving goods under ground."
+        }
+      },
+      {
+        "stem": "Why did most products people buy travel a large share of the distance by sea?",
+        "options": [
+          "It costs less per ton",
+          "Ships carry fewer goods",
+          "Ships follow no routes",
+          "Ports are all inland"
+        ],
+        "answer": "A",
+        "skill": "cause-effect",
+        "why": "The article says maritime shipping usually costs far less per ton than air or land.",
+        "wrong": {
+          "B": "The article says enormous ships carry goods.",
+          "C": "The article says ships follow established routes.",
+          "D": "Ports are on the coast, not inland."
+        }
+      },
+      {
+        "stem": "What does the author suggest about how most people picture Earth?",
+        "options": [
+          "As a world of open ice",
+          "As a world of busy cities",
+          "As a world of only oceans",
+          "As a world of continents"
+        ],
+        "answer": "D",
+        "skill": "inference",
+        "why": "The article says most people picture a world of continents and countries rather than open water.",
+        "wrong": {
+          "A": "The article does not say people picture open ice.",
+          "B": "The article says continents and countries, not busy cities.",
+          "C": "The article says people picture land more than open water."
+        }
+      }
+    ]
   }
 }

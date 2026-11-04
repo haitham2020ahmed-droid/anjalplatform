@@ -614,5 +614,217 @@
       ],
       "modelAnswer": "I think towns should be built near the harrat of western Saudi Arabia only with great caution, because the region's history and ongoing monitoring show both risk and relative safety. In 1256, a volcano near Madinah produced viscous lava that flowed toward the city but fortunately stopped short of it, proving that these volcanoes in the Earth's crust are not entirely dormant and can still threaten nearby communities. However, geologists in the Kingdom now closely monitor the harrat using instruments that detect small earthquakes and swelling ground, so if warning signs appear, officials would have time to evacuate residents before real danger arrives. Because of this careful monitoring, I believe towns can exist near the harrat as long as safety plans and evacuation routes stay ready at all times."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "What happens to lava when it cools?",
+        "options": [
+          "It gets hard.",
+          "It turns to ash.",
+          "It sinks deep down.",
+          "It becomes magma."
+        ],
+        "answer": "A",
+        "skill": "detail",
+        "why": "The text says lava glows red, then it cools and gets hard.",
+        "wrong": {
+          "B": "The text says ash shoots up in some eruptions, not when lava cools.",
+          "C": "Cooled lava stays on the ground as rock.",
+          "D": "Magma is the hot rock deep down, before it comes out."
+        }
+      },
+      {
+        "stem": "In this article, what are plates?",
+        "options": [
+          "Dishes that we use for food",
+          "Deep holes in the sea floor",
+          "Big parts of the top of Earth",
+          "Hot clouds of ash and smoke"
+        ],
+        "answer": "C",
+        "skill": "vocabulary",
+        "why": "The text says the top of the Earth is cut in big parts called plates.",
+        "wrong": {
+          "A": "The plates in this text are not dishes.",
+          "B": "Plates are parts of the ground, not holes.",
+          "D": "Ash is thrown up in some eruptions; it is not a plate."
+        }
+      },
+      {
+        "stem": "Why do scientists watch the volcanoes?",
+        "options": [
+          "To make the lava glow",
+          "To warn folks in time",
+          "To stop the plates moving",
+          "To keep the ash small"
+        ],
+        "answer": "B",
+        "skill": "cause-effect",
+        "why": "The text says scientists watch for signs and then warn folks in time.",
+        "wrong": {
+          "A": "Scientists cannot make lava glow; it glows by itself.",
+          "C": "The plates move by themselves.",
+          "D": "Scientists only watch and warn."
+        }
+      },
+      {
+        "stem": "What is a hot spot?",
+        "options": [
+          "A hot place at the edge of a plate",
+          "A hot spring in the sea",
+          "A tiny hole in a town",
+          "A hot place in the middle of a plate"
+        ],
+        "answer": "D",
+        "skill": "detail",
+        "why": "The text says a hot spot is a hot place in the midst of a plate.",
+        "wrong": {
+          "A": "Most volcanoes sit at the edge of a plate, but a hot spot is in the middle.",
+          "B": "A hot spring is not mentioned.",
+          "C": "A hot spot is not a hole in a town."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "About how fast do tectonic plates drift?",
+        "options": [
+          "A few meters every hour",
+          "A few centimeters each year",
+          "A few kilometers each day",
+          "A few miles every minute"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The article says plates drift very slowly, only a few centimeters each year.",
+        "wrong": {
+          "A": "That is far too fast.",
+          "C": "That is far too fast.",
+          "D": "That is far too fast."
+        }
+      },
+      {
+        "stem": "In this article, what does the word boundaries mean?",
+        "options": [
+          "Large ocean waves",
+          "Deep holes in the ground",
+          "Warm winds in the sky",
+          "Edges where two things meet"
+        ],
+        "answer": "D",
+        "skill": "vocabulary",
+        "why": "The article says most volcanoes form along the boundaries between plates, where one plate meets another.",
+        "wrong": {
+          "A": "Waves are not mentioned in that sentence.",
+          "B": "The boundaries are between plates, not holes.",
+          "C": "Winds are not mentioned."
+        }
+      },
+      {
+        "stem": "What happens when the warning signs at a volcano change quickly?",
+        "options": [
+          "Experts can warn nearby towns.",
+          "Scientists turn the tools off.",
+          "The lava becomes thick and cold.",
+          "The plates stop moving."
+        ],
+        "answer": "A",
+        "skill": "cause-effect",
+        "why": "The article says that when the signs change quickly, experts can warn nearby towns, so people have time to leave.",
+        "wrong": {
+          "B": "Scientists keep watching.",
+          "C": "Warning signs do not change the lava.",
+          "D": "Plates keep drifting slowly."
+        }
+      },
+      {
+        "stem": "Tiny earthquakes happen as magma moves underground. What can you infer from this?",
+        "options": [
+          "Earthquakes make volcanoes sleep.",
+          "Earthquakes mean there is no magma.",
+          "Earthquakes only happen at sea.",
+          "Earthquakes can be a warning sign."
+        ],
+        "answer": "D",
+        "skill": "inference",
+        "why": "Scientists record these tiny earthquakes as warning signs that magma is moving.",
+        "wrong": {
+          "A": "The text does not say that.",
+          "B": "The earthquakes happen because magma is moving.",
+          "C": "The text does not limit them to the sea."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "The article says officials can evacuate nearby communities. What does evacuate mean?",
+        "options": [
+          "To build new houses in town",
+          "To leave a place to be safe",
+          "To count all of the people",
+          "To clean all of the streets"
+        ],
+        "answer": "B",
+        "skill": "vocabulary",
+        "why": "Officials move people away before an eruption begins, so they are safe.",
+        "wrong": {
+          "A": "No new houses are mentioned.",
+          "C": "Counting people does not keep them safe.",
+          "D": "Cleaning streets is not mentioned."
+        }
+      },
+      {
+        "stem": "How were the Hawaiian Islands built?",
+        "options": [
+          "By a single huge blast of ash",
+          "By two plates pulling far apart",
+          "By lava that came from the Red Sea",
+          "By a plate moving over a hot spot"
+        ],
+        "answer": "D",
+        "skill": "detail",
+        "why": "The article says the islands were built one after another as the Pacific Plate passed over a hot spot.",
+        "wrong": {
+          "A": "The islands were built one after another, not by a single blast.",
+          "B": "That is how the gap under Iceland is made.",
+          "C": "The Red Sea is linked to the harrat, not Hawaii."
+        }
+      },
+      {
+        "stem": "The article says cooled lava may shape the landscape for thousands of years. What does this suggest?",
+        "options": [
+          "Lava rock lasts a very long time.",
+          "Lava soon washes away in rain.",
+          "Lava rock turns back into magma.",
+          "Lava rock is easy to break."
+        ],
+        "answer": "A",
+        "skill": "inference",
+        "why": "If the dark rock shapes the land for thousands of years, it must last a long time.",
+        "wrong": {
+          "B": "This would not shape the land for thousands of years.",
+          "C": "The text says it solidifies into dark rock.",
+          "D": "Nothing says it is easy to break."
+        }
+      },
+      {
+        "stem": "Why does magma rise where one plate slides beneath another?",
+        "options": [
+          "The plates push it up with strong wind.",
+          "The sea water cools it down below.",
+          "The sun heats the rock from above.",
+          "The rock melts and the magma rises."
+        ],
+        "answer": "D",
+        "skill": "cause-effect",
+        "why": "The article says rock deep underground begins to melt, and the lighter magma forces its way toward the surface.",
+        "wrong": {
+          "A": "Wind is not mentioned.",
+          "B": "The rock is melting, not cooling.",
+          "C": "The sun is not the cause."
+        }
+      }
+    ]
   }
 }

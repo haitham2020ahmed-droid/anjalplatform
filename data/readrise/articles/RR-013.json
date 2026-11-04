@@ -614,5 +614,217 @@
       ],
       "modelAnswer": "Before conservationists can successfully reintroduce Arabian leopards into the wild, they must solve at least two serious problems described in the article. First, this nocturnal subspecies has lost much of its mountain habitat to roads, farms, and towns, so any released leopards would need enough connected, undisturbed territory to hunt safely at night. Second, the leopards' main prey, like ibex and gazelles, has been overhunted, and without solving this food shortage, reintroduced leopards might wander toward livestock and be killed by herders protecting their animals, just as has happened before. Conservation programs like the breeding center in Taif are a hopeful beginning, but only once habitat is protected and prey populations recover will reintroduction truly give the species a chance to survive in the wild."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "What does the coat of the Arabian leopard look like?",
+        "options": [
+          "White with thin black lines",
+          "Gold with dark ring spots",
+          "Brown with large red dots",
+          "Grey with a long white tail"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The text says the cat has a gold coat and its dark spots look like rings.",
+        "wrong": {
+          "A": "The coat is gold, not white.",
+          "C": "The text does not say the spots are red.",
+          "D": "The coat is gold, not grey."
+        }
+      },
+      {
+        "stem": "Which animal does the Arabian leopard hunt at night?",
+        "options": [
+          "Camels",
+          "Sheep",
+          "Foxes",
+          "Ibex"
+        ],
+        "answer": "D",
+        "skill": "detail",
+        "why": "The text says it hunts wild goats called ibex.",
+        "wrong": {
+          "A": "Camels are not on its list of prey.",
+          "B": "Sheep are not on its list of prey.",
+          "C": "Foxes are not on its list of prey."
+        }
+      },
+      {
+        "stem": "In this article, what is a habitat?",
+        "options": [
+          "The home of an animal",
+          "A kind of wild goat",
+          "A long dry road",
+          "A group of cubs"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "The text says roads and towns were built in the cat's home, so its habitat got small.",
+        "wrong": {
+          "B": "The wild goat is called an ibex.",
+          "C": "Roads were built in the habitat; they are not the habitat.",
+          "D": "Cubs are the babies of the leopard."
+        }
+      },
+      {
+        "stem": "Why can the leopard hunt ibex in the rocky mountains?",
+        "options": [
+          "It can fly over the rocks.",
+          "It can swim in the dry lakes.",
+          "It can hide in a town.",
+          "It can climb rocks and jump far."
+        ],
+        "answer": "D",
+        "skill": "inference",
+        "why": "The text says the cat can jump far and climb rocks, which helps it follow ibex in the mountains.",
+        "wrong": {
+          "A": "Leopards cannot fly.",
+          "B": "The mountains are dry and lakes are not mentioned.",
+          "C": "It lives in the mountains, not in a town."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "Where do Arabian leopards often rest during the hottest part of the day?",
+        "options": [
+          "In caves or in the shade of rocks",
+          "On the open farms near the towns",
+          "Far out in the water of the sea",
+          "High in the tops of tall trees"
+        ],
+        "answer": "A",
+        "skill": "detail",
+        "why": "The article says they often rest in caves or in the shade of rocks.",
+        "wrong": {
+          "B": "They live in the mountains, not on farms.",
+          "C": "The sea is not mentioned.",
+          "D": "Trees are not mentioned."
+        }
+      },
+      {
+        "stem": "In this article, what is a predator?",
+        "options": [
+          "An animal that is a baby",
+          "An animal that hunts others",
+          "An animal that lives in a cave",
+          "An animal that eats only grass"
+        ],
+        "answer": "B",
+        "skill": "vocabulary",
+        "why": "The article calls the leopard a skilled predator and then says it hunts ibex, gazelles, hares and birds.",
+        "wrong": {
+          "A": "A predator is not defined by age.",
+          "C": "Living in caves does not make a predator.",
+          "D": "Predators hunt animals."
+        }
+      },
+      {
+        "stem": "Why does the leopard's ring-shaped pattern help it?",
+        "options": [
+          "It makes the leopard look bigger.",
+          "It helps it blend in with the rocks.",
+          "It keeps the leopard warm.",
+          "It scares away other leopards."
+        ],
+        "answer": "B",
+        "skill": "cause-effect",
+        "why": "The article says the pattern helps the leopard blend in with the rocky ground.",
+        "wrong": {
+          "A": "Size is not mentioned in that sentence.",
+          "C": "Warmth is not mentioned.",
+          "D": "The pattern does not scare other leopards."
+        }
+      },
+      {
+        "stem": "A grown male weighs about as much as a ten-year-old child. What does this show?",
+        "options": [
+          "It is a huge cat.",
+          "It is not a very big cat.",
+          "It cannot climb a cliff.",
+          "It eats only small birds."
+        ],
+        "answer": "B",
+        "skill": "inference",
+        "why": "The article says it is the smallest kind of leopard, yet it is still a skilled predator.",
+        "wrong": {
+          "A": "A child's weight is not huge.",
+          "C": "The article says it climbs steep cliffs with ease.",
+          "D": "It also hunts ibex and gazelles."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "The article says the leopard is primarily nocturnal. What does nocturnal mean?",
+        "options": [
+          "Living in groups",
+          "Active at night",
+          "Able to swim",
+          "Eating only meat"
+        ],
+        "answer": "B",
+        "skill": "vocabulary",
+        "why": "The leopard shelters in the daytime and comes out after dark to hunt, so it is active at night.",
+        "wrong": {
+          "A": "The leopards are generally solitary.",
+          "C": "Swimming is not mentioned.",
+          "D": "Eating meat is not what nocturnal means."
+        }
+      },
+      {
+        "stem": "How do female Arabian leopards compare with adult males in weight?",
+        "options": [
+          "They are much heavier.",
+          "They weigh exactly the same.",
+          "They are a little heavier.",
+          "They are considerably lighter."
+        ],
+        "answer": "D",
+        "skill": "detail",
+        "why": "The article says an adult male weighs about 30 kilograms while females are considerably lighter.",
+        "wrong": {
+          "A": "Females are lighter, not heavier.",
+          "B": "The weights are not the same.",
+          "C": "Females are lighter, not heavier."
+        }
+      },
+      {
+        "stem": "Why might researchers hide the cameras along mountain trails?",
+        "options": [
+          "The leopards are secretive animals.",
+          "The cameras are too small to see.",
+          "The leopards like to hunt cameras.",
+          "The trails are very crowded."
+        ],
+        "answer": "A",
+        "skill": "inference",
+        "why": "The leopard is secretive and few people see one, so hidden cameras can record it without scaring it away.",
+        "wrong": {
+          "B": "Size of the cameras is not mentioned.",
+          "C": "Nothing says the leopards hunt cameras.",
+          "D": "The trails are in the remote mountains."
+        }
+      },
+      {
+        "stem": "How is the paragraph about why the leopard is in danger organized?",
+        "options": [
+          "It lists the leopards from oldest to youngest.",
+          "It names two causes one after the other.",
+          "It compares the leopard to a child.",
+          "It tells a story about a single cub."
+        ],
+        "answer": "B",
+        "skill": "text-structure",
+        "why": "The paragraph names the first major cause, habitat loss, and then a second cause, the decline of prey.",
+        "wrong": {
+          "A": "The paragraph does not list leopards by age.",
+          "C": "The comparison with a child is in an earlier paragraph.",
+          "D": "No story of a single cub is told."
+        }
+      }
+    ]
   }
 }

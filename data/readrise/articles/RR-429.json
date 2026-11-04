@@ -614,5 +614,217 @@
       ],
       "modelAnswer": "I agree that patient observation is more valuable than quick guessing. In the story, Master Hassan's hurried fixes, like tightening gears and adding oil, never solved the real problem because he never looked closely enough to find it. Yusuf, by contrast, observed the clock meticulously and noticed the one bent tooth that was causing the jam. Someone might argue that quick action matters more when a deadline is near, but the story shows that rushing without understanding the true cause can waste time, while careful observation, in the tradition of engineers like Al-Jazari, actually solves the problem faster in the end."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "What did Hassan do to try to fix the clock?",
+        "options": [
+          "He bought a new clock.",
+          "He made the gears tight.",
+          "He asked the leader to wait.",
+          "He painted the clock."
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The text says Hassan made the gears tight and added oil.",
+        "wrong": {
+          "A": "He kept working on the same clock.",
+          "C": "The text does not say he asked the leader.",
+          "D": "Painting is not mentioned."
+        }
+      },
+      {
+        "stem": "What was the bent tooth made of?",
+        "options": [
+          "Metal",
+          "Glass",
+          "Stone",
+          "Wood"
+        ],
+        "answer": "D",
+        "skill": "detail",
+        "why": "The text says the gear with the bent tooth was made of wood.",
+        "wrong": {
+          "A": "The text says the gear was wood.",
+          "B": "Glass is not mentioned.",
+          "C": "Stone is not mentioned."
+        }
+      },
+      {
+        "stem": "Why did the clock work after the fix?",
+        "options": [
+          "The tooth did not hit a gear.",
+          "The leader wound it harder.",
+          "Hassan added a bigger gear.",
+          "The room became cooler."
+        ],
+        "answer": "A",
+        "skill": "cause-effect",
+        "why": "They fixed the bent tooth, which had hit the next gear and stopped the clock.",
+        "wrong": {
+          "B": "The leader did not wind it.",
+          "C": "No bigger gear was added.",
+          "D": "The room's heat is not mentioned."
+        }
+      },
+      {
+        "stem": "What does the story show about Yusuf?",
+        "options": [
+          "He gives up fast.",
+          "He likes to guess.",
+          "He is patient and careful.",
+          "He wants to leave the shop."
+        ],
+        "answer": "C",
+        "skill": "inference",
+        "why": "Yusuf watched and listened again and again until he found the tiny bent tooth.",
+        "wrong": {
+          "A": "He kept watching until he found the problem.",
+          "B": "He watched carefully instead of guessing.",
+          "D": "He wants to learn in the shop."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "Which two kinds of gears touched at the bent tooth?",
+        "options": [
+          "Two big iron gears",
+          "A glass gear and a stone gear",
+          "A wooden gear and a metal gear",
+          "Two small wooden gears"
+        ],
+        "answer": "C",
+        "skill": "detail",
+        "why": "The text says a bent tooth on a wooden gear kept hitting the metal gear beside it.",
+        "wrong": {
+          "A": "Only one gear was metal, and it was not iron.",
+          "B": "Glass and stone are not mentioned.",
+          "D": "One gear was metal."
+        }
+      },
+      {
+        "stem": "In the story, the word mechanism means —",
+        "options": [
+          "the parts inside a machine",
+          "a prize for a clockmaker",
+          "a place to buy tools",
+          "a promise to the leader"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "The clock's mechanism began to fail because its gears jammed, so it means the moving parts.",
+        "wrong": {
+          "B": "No prize is mentioned.",
+          "C": "A tool shop is not mentioned.",
+          "D": "The promise was the commission, not the mechanism."
+        }
+      },
+      {
+        "stem": "What did Hassan and Yusuf do to stop the jam?",
+        "options": [
+          "They wound the clock slowly.",
+          "They made a new metal gear.",
+          "They moved the clock to a shelf.",
+          "They filed the bent tooth smooth."
+        ],
+        "answer": "D",
+        "skill": "cause-effect",
+        "why": "They filed the bent tooth until it was smooth and even, and then the clock did not jam.",
+        "wrong": {
+          "A": "Winding slowly did not fix it.",
+          "B": "They fixed the old gear, not a new one.",
+          "C": "Moving the clock is not mentioned."
+        }
+      },
+      {
+        "stem": "Why did Hassan tell Yusuf about Al-Jazari at the end?",
+        "options": [
+          "To say the clock was too late",
+          "To show patient watching works",
+          "To tell Yusuf to leave the shop",
+          "To ask Yusuf to buy water clocks"
+        ],
+        "answer": "B",
+        "skill": "inference",
+        "why": "Hassan said patient watching, not hurried guessing, was how Al-Jazari built his famous clocks, linking it to Yusuf's work.",
+        "wrong": {
+          "A": "The clock was delivered just in time.",
+          "C": "Hassan was proud of Yusuf.",
+          "D": "Buying water clocks is not mentioned."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "Why was there no room for careless mistakes?",
+        "options": [
+          "The workshop was very small and old.",
+          "The clock was made of fragile glass.",
+          "Yusuf was new to the workshop.",
+          "Short time and an impatient governor."
+        ],
+        "answer": "D",
+        "skill": "cause-effect",
+        "why": "The clock was due in three days and the governor was known for his impatience with delays.",
+        "wrong": {
+          "A": "Size is not the reason given.",
+          "B": "The clock was not made of glass.",
+          "C": "Yusuf's newness is not given as the reason."
+        }
+      },
+      {
+        "stem": "In which century did Al-Jazari live?",
+        "options": [
+          "The twelfth century",
+          "The first century",
+          "The tenth century",
+          "The twentieth century"
+        ],
+        "answer": "A",
+        "skill": "detail",
+        "why": "The text calls Al-Jazari a twelfth-century engineer.",
+        "wrong": {
+          "B": "The first century is not mentioned.",
+          "C": "The tenth century is not mentioned.",
+          "D": "The twentieth century is not mentioned."
+        }
+      },
+      {
+        "stem": "In the story, the word overlooked means —",
+        "options": [
+          "fixed with a tool",
+          "seen from a tall place",
+          "missed or not noticed",
+          "carried to the palace"
+        ],
+        "answer": "C",
+        "skill": "vocabulary",
+        "why": "Yusuf noticed the tiny bent tooth that everyone else had overlooked, meaning they had missed it.",
+        "wrong": {
+          "A": "Fixing happened after the discovery.",
+          "B": "The word is about noticing, not height.",
+          "D": "Carrying the clock is a different event."
+        }
+      },
+      {
+        "stem": "What does the author suggest about Yusuf noticing what the experts missed?",
+        "options": [
+          "Experts should never fix clocks.",
+          "Careful watching can reveal missed things.",
+          "Young workers should avoid hard jobs.",
+          "Bent teeth are easy to find."
+        ],
+        "answer": "B",
+        "skill": "inference",
+        "why": "Yusuf noticed the tiny tooth that everyone including his master had overlooked, by patient observation.",
+        "wrong": {
+          "A": "Master Hassan is respected, and he helped with the fix.",
+          "C": "Yusuf's success shows young workers can help.",
+          "D": "The tooth was tiny and everyone else missed it."
+        }
+      }
+    ]
   }
 }

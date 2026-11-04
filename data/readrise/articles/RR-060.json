@@ -614,5 +614,217 @@
       ],
       "modelAnswer": "Asir's high elevation affects nearly everything about the region. Because air cools as it rises, the elevation keeps summers mild even though much of Saudi Arabia is extremely hot, and it also forces moist sea winds to condense into rain and fog that feed a green juniper forest ecosystem on the slopes. People have adapted to that same elevation by carving stone terraces into the steep mountainsides to prevent erosion and farm crops like wheat and barley, and their heritage of painting homes with Al-Qatt Al-Asiri shows how deeply the mountain landscape has shaped local culture."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "What do the women do to the walls of the old stone homes?",
+        "options": [
+          "Cover them with thick fog",
+          "Build them out of wheat",
+          "Paint bright shapes on them",
+          "Grow juniper trees on them"
+        ],
+        "answer": "C",
+        "skill": "detail",
+        "why": "The text says women paint the walls in bright shapes.",
+        "wrong": {
+          "A": "Fog is a cloud near the ground and is not put on walls.",
+          "B": "The homes are made of stone.",
+          "D": "Juniper trees grow on the hills, not on walls."
+        }
+      },
+      {
+        "stem": "Why did farmers make steps of stone on the hills?",
+        "options": [
+          "The hills are very steep.",
+          "They wanted to see the sea.",
+          "They had too much soil.",
+          "They needed a place to rest."
+        ],
+        "answer": "A",
+        "skill": "cause-effect",
+        "why": "The text says the hills are steep, so farmers made terraces to hold the soil and rain.",
+        "wrong": {
+          "B": "The terraces hold soil and rain; the text does not say they were for seeing the sea.",
+          "C": "The steps keep the soil from washing away, so the soil is not too much.",
+          "D": "The text says farmers grow crops on the steps."
+        }
+      },
+      {
+        "stem": "The text says one peak is about 3,000 meters high. What is a peak?",
+        "options": [
+          "a deep, dry valley",
+          "a wide, flat plain",
+          "a step made of stone",
+          "a high mountain top"
+        ],
+        "answer": "D",
+        "skill": "vocabulary",
+        "why": "The peak is the top of the land, a high mountain top.",
+        "wrong": {
+          "A": "A valley is low, not high.",
+          "B": "A plain is flat, but a peak is high.",
+          "C": "That describes a terrace."
+        }
+      },
+      {
+        "stem": "The text says the black and white bird lives nowhere else. What does this mean?",
+        "options": [
+          "It lives in every country.",
+          "It lives only in this place.",
+          "It likes to fly to the sea.",
+          "It cannot be seen in summer."
+        ],
+        "answer": "B",
+        "skill": "inference",
+        "why": "If it lives no place else, it can be found only here in Asir.",
+        "wrong": {
+          "A": "Living no place else means it does not live elsewhere.",
+          "C": "The text does not say the bird flies to the sea.",
+          "D": "The text does not say when the bird can be seen."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "At about what height does the city of Abha sit?",
+        "options": [
+          "About 500 meters",
+          "More than 2,000 meters",
+          "Exactly 3,000 meters",
+          "Below sea level"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The text says Abha sits at an altitude of more than 2,000 meters.",
+        "wrong": {
+          "A": "That is much lower than the text says.",
+          "C": "About 3,000 meters is the height of Jabal Sawda, not Abha.",
+          "D": "Abha is high up in the mountains."
+        }
+      },
+      {
+        "stem": "Why are summers in Asir mild?",
+        "options": [
+          "The Red Sea is very cold.",
+          "There are no clouds at all.",
+          "Thick fog covers the desert.",
+          "Air gets cooler higher up."
+        ],
+        "answer": "D",
+        "skill": "cause-effect",
+        "why": "The text says the air gets cooler as you climb higher, so summers in Asir are mild.",
+        "wrong": {
+          "A": "The text does not say the sea cools Asir for this reason.",
+          "B": "Asir has clouds, rain, and fog.",
+          "C": "The fog wraps the peaks, and it is not in the desert."
+        }
+      },
+      {
+        "stem": "The article says Abha sits at an \"altitude\" of more than 2,000 meters. What is altitude?",
+        "options": [
+          "height above the sea",
+          "distance from the Red Sea",
+          "number of homes in a city",
+          "amount of rain each year"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "The text gives the height of the city in meters above the sea, so altitude means height above the sea.",
+        "wrong": {
+          "B": "The number is a height, not a distance from the sea.",
+          "C": "The meters do not count homes.",
+          "D": "Rain is not measured in this way in the text."
+        }
+      },
+      {
+        "stem": "What can you infer from the dark forests of juniper trees in Asir?",
+        "options": [
+          "The region gets almost no rain.",
+          "The trees were planted last year.",
+          "Water is plentiful in the region.",
+          "The slopes are too hot to farm."
+        ],
+        "answer": "C",
+        "skill": "inference",
+        "why": "The text says all this water helps juniper trees grow, so there must be plenty of water.",
+        "wrong": {
+          "A": "The text says Asir gets more rain than most of the country.",
+          "B": "The text calls them tall evergreen trees, which take time to grow.",
+          "D": "The text says farmers grow crops on the slopes."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "What does the abundant water in Asir allow to flourish?",
+        "options": [
+          "Juniper trees and their forests",
+          "Sand dunes across the slopes",
+          "Salt lakes near the peaks",
+          "Date palms along the coast"
+        ],
+        "answer": "A",
+        "skill": "detail",
+        "why": "The text says the abundant water allows juniper trees to flourish.",
+        "wrong": {
+          "B": "Sand dunes are not described in Asir.",
+          "C": "The text does not mention salt lakes.",
+          "D": "The text does not mention date palms."
+        }
+      },
+      {
+        "stem": "Why are summers in Asir pleasantly mild?",
+        "options": [
+          "The mountains face the cold north",
+          "Winds from the desert cool the air",
+          "Thick snow stays on every peak",
+          "Air grows cooler as height increases"
+        ],
+        "answer": "D",
+        "skill": "cause-effect",
+        "why": "The text says air becomes progressively cooler with increasing height, so summers in Asir are mild.",
+        "wrong": {
+          "A": "The text says nothing about the mountains facing north.",
+          "B": "Winds from the sea bring moist air, not cooling winds from the desert.",
+          "C": "The text does not mention snow."
+        }
+      },
+      {
+        "stem": "The article says Jabal Sawda reaches an elevation of about 3,000 meters. What does elevation mean?",
+        "options": [
+          "the width of a valley",
+          "height above the sea",
+          "the amount of rain",
+          "the age of a mountain"
+        ],
+        "answer": "B",
+        "skill": "vocabulary",
+        "why": "The peak reaches about 3,000 meters above sea level, so elevation means height above the sea.",
+        "wrong": {
+          "A": "The number tells how high the peak is, not how wide a valley is.",
+          "C": "Rain is measured differently; this number is a height.",
+          "D": "The article does not give the age of the mountain."
+        }
+      },
+      {
+        "stem": "How does the article mainly explain why Asir gets so much rain and fog?",
+        "options": [
+          "By listing the dates of past storms",
+          "By telling a story about one farmer",
+          "By showing how winds and mountains cause it",
+          "By comparing Asir with lands in Europe"
+        ],
+        "answer": "C",
+        "skill": "text-structure",
+        "why": "The article explains that sea winds carry humid air up the steep slopes, where it cools and forms clouds, rain, and fog, a cause-and-effect chain.",
+        "wrong": {
+          "A": "No dates of storms are listed.",
+          "B": "The article does not tell a story about a farmer here.",
+          "D": "Europe is not compared with Asir."
+        }
+      }
+    ]
   }
 }

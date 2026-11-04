@@ -614,5 +614,217 @@
       ],
       "modelAnswer": "Volleyball is about far more than jumping high. The angle and spin of a serve shape its trajectory, so a topspin serve dips sharply while a floater wobbles unpredictably, making both hard to read. A spike also depends on velocity, since a hitter who swings quickly at the right moment sends the ball downward at remarkably high speed. Finally, the sport depends on coordination and friction, because teammates must communicate to avoid collisions, and diving players rely on friction between their knee pads and the floor to save a low ball safely."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "What did the man first call the game?",
+        "options": [
+          "Mintonette",
+          "Volleyball",
+          "Bump ball",
+          "Net game"
+        ],
+        "answer": "A",
+        "skill": "detail",
+        "why": "The text says he first called it mintonette.",
+        "wrong": {
+          "B": "Volleyball is the name used now, not the first name.",
+          "C": "Bump is a move in the game, not its first name.",
+          "D": "The text does not give this name."
+        }
+      },
+      {
+        "stem": "Why do players jump high before they spike the ball?",
+        "options": [
+          "To see the other team well",
+          "To talk to their friend",
+          "To rest their tired legs",
+          "To hit the ball down hard"
+        ],
+        "answer": "D",
+        "skill": "cause-effect",
+        "why": "The text says players jump high to spike the ball hard.",
+        "wrong": {
+          "A": "The text does not say jumping is to see the other team.",
+          "B": "Talking is done by calling \"Mine!\".",
+          "C": "Jumping is part of a strong hit, not a rest."
+        }
+      },
+      {
+        "stem": "What happens first in each play?",
+        "options": [
+          "The players rotate one spot.",
+          "The server hits the ball.",
+          "A player spikes the ball down.",
+          "A teammate calls out \"Mine!\"."
+        ],
+        "answer": "B",
+        "skill": "sequence",
+        "why": "The text says a serve starts the play, and the server hits the ball over the net.",
+        "wrong": {
+          "A": "Players rotate only after their team wins the serve back.",
+          "C": "A spike comes later in the play.",
+          "D": "Players call \"Mine!\" during the play, not first."
+        }
+      },
+      {
+        "stem": "What does the last sentence of the article show?",
+        "options": [
+          "Volleyball is hard to learn.",
+          "Volleyball is played only on boats.",
+          "People in Saudi Arabia enjoy volleyball.",
+          "Volleyball has no rules."
+        ],
+        "answer": "C",
+        "skill": "inference",
+        "why": "The text says fans in Saudi Arabia love to watch volleyball games by the sea.",
+        "wrong": {
+          "A": "The text does not say it is hard to learn.",
+          "B": "Games are by the sea, not on boats.",
+          "D": "The text explains many rules of the game."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "Why did William Morgan invent volleyball?",
+        "options": [
+          "He wanted a game with a bigger ball.",
+          "He wanted a gentler game than basketball.",
+          "He wanted a game for one player.",
+          "He wanted a game without a net."
+        ],
+        "answer": "B",
+        "skill": "cause-effect",
+        "why": "The text says he wanted a sport gentler than basketball for his members.",
+        "wrong": {
+          "A": "The ball size is not mentioned.",
+          "C": "Two teams play volleyball.",
+          "D": "The game uses a net."
+        }
+      },
+      {
+        "stem": "What is the job of the three players in the back row?",
+        "options": [
+          "To serve every ball",
+          "To set the ball high",
+          "To keep the score",
+          "To play defense"
+        ],
+        "answer": "D",
+        "skill": "detail",
+        "why": "The text says three players stand in the back row for defense.",
+        "wrong": {
+          "A": "The text says every player takes a turn serving.",
+          "B": "The setter's job is not given to the whole back row.",
+          "C": "Keeping score is not mentioned."
+        }
+      },
+      {
+        "stem": "In the article, the word unpredictably describes a ball that moves in a way that is —",
+        "options": [
+          "very slow",
+          "always straight",
+          "hard to guess",
+          "easy to catch"
+        ],
+        "answer": "C",
+        "skill": "vocabulary",
+        "why": "A floating hit can make the ball curve or float in ways that are hard to guess.",
+        "wrong": {
+          "A": "The text does not say the ball is slow.",
+          "B": "A flat hit goes straight; a floating hit does not.",
+          "D": "An unpredictable ball is harder to catch, not easier."
+        }
+      },
+      {
+        "stem": "A hitter jumps too early. What will most likely happen?",
+        "options": [
+          "The hitter will miss the timing.",
+          "The ball will curve in the air.",
+          "The team will gain an extra touch.",
+          "The server will lose the serve."
+        ],
+        "answer": "A",
+        "skill": "inference",
+        "why": "The text says the hitter must jump at the exact moment the ball is set, so jumping too early would miss that moment.",
+        "wrong": {
+          "B": "A curve comes from spin on a serve, not from timing.",
+          "C": "A team is allowed only three touches.",
+          "D": "The text does not link a hitter's jump to losing the serve."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "In the article, the word volley means to —",
+        "options": [
+          "hide the ball from players",
+          "count the points on a board",
+          "throw the ball very high",
+          "hit the ball back and forth"
+        ],
+        "answer": "D",
+        "skill": "vocabulary",
+        "why": "The text says the game was named volleyball because players volley the ball back and forth across the net.",
+        "wrong": {
+          "A": "Players try to keep the ball in play, not hide it.",
+          "B": "Counting points is not what volley means here.",
+          "C": "Players hit the ball back and forth, not just throw it high."
+        }
+      },
+      {
+        "stem": "According to the article, what matters more than raw strength when hitting a spike?",
+        "options": [
+          "Good timing",
+          "A loud voice",
+          "A tall net",
+          "A long serve"
+        ],
+        "answer": "A",
+        "skill": "detail",
+        "why": "The text says good timing matters more than raw strength for a spike.",
+        "wrong": {
+          "B": "Calling \"Mine!\" helps avoid collisions, not spikes.",
+          "C": "The net is the same for all players.",
+          "D": "A serve starts play and is not part of a spike."
+        }
+      },
+      {
+        "stem": "Why do all six players rotate when a team wins back the serve?",
+        "options": [
+          "To let the tired players rest",
+          "So all players serve and defend",
+          "To change the name of the team",
+          "So the net can be moved higher"
+        ],
+        "answer": "B",
+        "skill": "cause-effect",
+        "why": "The text says rotation ensures every player regularly practices serving and defending from each position.",
+        "wrong": {
+          "A": "Resting is not mentioned as a reason.",
+          "C": "The team name does not change in the text.",
+          "D": "The text does not say the net moves."
+        }
+      },
+      {
+        "stem": "Why do volleyball teammates call out \"Mine!\" during a rally?",
+        "options": [
+          "To score an extra point",
+          "So two players do not crash",
+          "To make the ball spin",
+          "To confuse the referee on purpose"
+        ],
+        "answer": "B",
+        "skill": "cause-effect",
+        "why": "The article says teammates call out so that two players chasing the same ball do not collide.",
+        "wrong": {
+          "A": "Calling out does not score points.",
+          "C": "Calling out does not make the ball spin.",
+          "D": "The call is for teammates, not the referee."
+        }
+      }
+    ]
   }
 }

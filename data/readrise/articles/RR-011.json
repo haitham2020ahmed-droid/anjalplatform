@@ -614,5 +614,217 @@
       ],
       "modelAnswer": "Robots cannot fully replace people, because although they excel at certain tasks, they still depend entirely on human design and judgment. One clear strength is precision: a robot arm guided by a surgeon can make extremely precise cuts during an operation, and factory robots can repeat the same motion thousands of times without ever tiring. However, every robot's actuators only follow the algorithm written into its program, so when a situation falls outside those instructions, the robot struggles, which is why a Mars rover must sometimes make autonomous decisions simply because Earth's signal takes too long to arrive. Because engineers and technicians are still needed to design, build, and repair every robot, and because robots cannot handle truly unexpected problems, I believe people will always remain essential partners rather than being replaced."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "What is the brain of a robot?",
+        "options": [
+          "A small computer",
+          "A long motor",
+          "A big arm",
+          "A strong sensor"
+        ],
+        "answer": "A",
+        "skill": "detail",
+        "why": "The text says a small computer is the robot's brain and it thinks.",
+        "wrong": {
+          "B": "Motors help the robot move.",
+          "C": "Arms are parts that lift and paint.",
+          "D": "Sensors help it see and hear."
+        }
+      },
+      {
+        "stem": "Why can robot arms in a factory work all day?",
+        "options": [
+          "They sleep at night.",
+          "They get lots of food.",
+          "They do not get tired.",
+          "They like loud noise."
+        ],
+        "answer": "C",
+        "skill": "cause-effect",
+        "why": "The text says the robot arms do the same job all day and do not get tired.",
+        "wrong": {
+          "A": "Sleep is not mentioned.",
+          "B": "Robots are machines and do not eat.",
+          "D": "The text does not mention noise."
+        }
+      },
+      {
+        "stem": "The article says a robot does a job on its own. What does on its own mean?",
+        "options": [
+          "With a big crowd",
+          "By itself",
+          "Very slowly",
+          "In a car"
+        ],
+        "answer": "B",
+        "skill": "vocabulary",
+        "why": "A robot can do a job without a person doing every step, so on its own means by itself.",
+        "wrong": {
+          "A": "A crowd is not needed.",
+          "C": "Speed is not what the phrase means.",
+          "D": "The phrase is not about cars."
+        }
+      },
+      {
+        "stem": "Why do the sensors of a home robot stop it at the stairs?",
+        "options": [
+          "To make the stairs clean",
+          "To keep it from falling",
+          "To let the robot rest",
+          "To help it paint the wall"
+        ],
+        "answer": "B",
+        "skill": "inference",
+        "why": "If the robot kept going at the stairs it would fall, so the sensors stop it for safety.",
+        "wrong": {
+          "A": "Cleaning the stairs is not the reason.",
+          "C": "Robots do not need rest in the text.",
+          "D": "Painting is a factory job."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "Which three words do engineers use to sum up what a robot does?",
+        "options": [
+          "Look, speak, run",
+          "Sense, think, act",
+          "Lift, paint, drive",
+          "See, hear, touch"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The article says engineers sum it up as sense, think, act.",
+        "wrong": {
+          "A": "These words are not used by the engineers in the article.",
+          "C": "These are jobs a robot may do, not the three words.",
+          "D": "These are things sensors are compared to, not the three words."
+        }
+      },
+      {
+        "stem": "The article says a surgeon makes tiny, precise cuts. What does precise mean?",
+        "options": [
+          "Very loud",
+          "Very slow",
+          "Very exact",
+          "Very large"
+        ],
+        "answer": "C",
+        "skill": "vocabulary",
+        "why": "The cuts are tiny and done during an operation, so they must be exact and careful.",
+        "wrong": {
+          "A": "Sound is not the point.",
+          "B": "Speed is not mentioned.",
+          "D": "The cuts are tiny, not large."
+        }
+      },
+      {
+        "stem": "Why does a robot make a mistake if one instruction is wrong?",
+        "options": [
+          "The robot is too tired to work.",
+          "The robot follows the steps exactly.",
+          "The robot cannot see anything at all.",
+          "The robot has no motors to use."
+        ],
+        "answer": "B",
+        "skill": "cause-effect",
+        "why": "The article says the robot follows its instructions exactly, so a wrong instruction leads to a mistake.",
+        "wrong": {
+          "A": "Robots do not get tired in the article.",
+          "C": "Its sensors can sense things.",
+          "D": "Robots have motors that make them move."
+        }
+      },
+      {
+        "stem": "Why does the author compare sensors to eyes, ears and skin?",
+        "options": [
+          "To say robots can feel sad",
+          "To help readers understand sensors",
+          "To show robots look like people",
+          "To explain how a computer thinks"
+        ],
+        "answer": "B",
+        "skill": "author-purpose",
+        "why": "Comparing sensors to parts of the body we know helps readers see what sensors do.",
+        "wrong": {
+          "A": "Robots are not said to feel sad.",
+          "C": "The comparison is about function, not looks.",
+          "D": "The computer is called the brain."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "The article says a rover must be partly autonomous. What does autonomous mean?",
+        "options": [
+          "Made of strong metal parts",
+          "Able to act on its own",
+          "Very heavy to move around",
+          "Easy to repair and to fix"
+        ],
+        "answer": "B",
+        "skill": "vocabulary",
+        "why": "The rover makes certain decisions on its own, so autonomous means able to act by itself.",
+        "wrong": {
+          "A": "The material of a rover is not the point.",
+          "C": "Weight is not the point.",
+          "D": "Repairs are not the point."
+        }
+      },
+      {
+        "stem": "How long can a radio signal take to travel from Earth to Mars?",
+        "options": [
+          "Only a few short seconds",
+          "About one hour or more",
+          "Up to about twenty minutes",
+          "Several long days or more"
+        ],
+        "answer": "C",
+        "skill": "detail",
+        "why": "The article says a radio signal can take up to about twenty minutes to arrive.",
+        "wrong": {
+          "A": "The signal takes much longer.",
+          "B": "The article says about twenty minutes, not an hour.",
+          "D": "The article says minutes, not days."
+        }
+      },
+      {
+        "stem": "The surgeon controls every movement from a nearby console. What can you infer?",
+        "options": [
+          "It is a tool the surgeon uses.",
+          "The robot thinks like a doctor does.",
+          "The robot works alone all night.",
+          "The robot cannot make any cuts."
+        ],
+        "answer": "A",
+        "skill": "inference",
+        "why": "The robot does not make medical decisions, so it is a tool in the surgeon's control.",
+        "wrong": {
+          "B": "The article says the robot decides nothing by itself.",
+          "C": "The surgeon is near and in control.",
+          "D": "It makes tiny, precise cuts."
+        }
+      },
+      {
+        "stem": "How is a Mars rover different from a remote-control car?",
+        "options": [
+          "It can be steered in real time.",
+          "It makes some decisions on its own.",
+          "It has no sensors on it.",
+          "It needs no program at all."
+        ],
+        "answer": "B",
+        "skill": "compare",
+        "why": "Because of the delay in signals, engineers cannot steer a rover like a remote-control car, so it decides some things itself.",
+        "wrong": {
+          "A": "The signal delay makes real-time steering impossible.",
+          "C": "Rovers have cameras and other sensors.",
+          "D": "Every robot depends on a program."
+        }
+      }
+    ]
   }
 }

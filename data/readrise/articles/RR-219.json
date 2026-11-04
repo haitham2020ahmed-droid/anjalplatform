@@ -614,5 +614,217 @@
       ],
       "modelAnswer": "Papermaking began in China, where workers refined an existing technique using cloth, bark, and plant fiber to form pulp that could be pressed and dried into sheets. As the craft moved west along trade routes to Samarkand, and later into the Islamic world's great cities such as Baghdad and Damascus, local artisans had to adapt the process to their own materials, often using linen rags and flowing river water to refine the pulp into stronger, smoother paper. By the time this innovation reached Spain and then Italy, each region had added its own exchange of ideas and small improvements, leaving behind a shared legacy that no single country could claim entirely for itself."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "What did the man in China use to make the pulp?",
+        "options": [
+          "Gold, silver, and sand",
+          "Old cloth, bark, and plants",
+          "Animal skin and old bones",
+          "Straw, rock, and iron bits"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The text says he used old cloth, bark, and bits of plant mixed with water.",
+        "wrong": {
+          "A": "Gold, silver, and sand are not mentioned.",
+          "C": "Skin and bone were used to write on before paper, not to make pulp.",
+          "D": "Straw, rock, and iron are not used for pulp in this text."
+        }
+      },
+      {
+        "stem": "What did the man do after the water ran out of the pulp?",
+        "options": [
+          "He dried it in a bowl",
+          "He sent it to Spain",
+          "He mixed it again",
+          "He pressed it flat"
+        ],
+        "answer": "D",
+        "skill": "sequence",
+        "why": "The text says water ran out, and then he pressed it flat before it dried.",
+        "wrong": {
+          "A": "He dried it in the sun after it was pressed, not in a bowl.",
+          "B": "The craft reached Spain much later.",
+          "C": "The mixing was done before the pulp went on the screen."
+        }
+      },
+      {
+        "stem": "In the article, what does the word craft mean?",
+        "options": [
+          "A skill of making things",
+          "A boat that sails far",
+          "A road made of stone",
+          "A kind of thin screen"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "The text says a man made a new craft, which means a way of making paper.",
+        "wrong": {
+          "B": "The text does not say a craft is a boat.",
+          "C": "Trade roads are named separately in the text.",
+          "D": "The screen is a tool, not the craft."
+        }
+      },
+      {
+        "stem": "Why did the paper get strong in Baghdad?",
+        "options": [
+          "It was left in the sun",
+          "It was made in a small bowl",
+          "Workers made the pulp fine",
+          "Workers used leaves and bone"
+        ],
+        "answer": "C",
+        "skill": "cause-effect",
+        "why": "The text says workers in Baghdad built mills and made the pulp fine, so the paper got strong.",
+        "wrong": {
+          "A": "Drying in the sun was part of the first paper.",
+          "B": "The text says they built mills, not that they used small bowls.",
+          "D": "Leaves and bone were used to write on before paper."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "In papermaking, what is a mold?",
+        "options": [
+          "A flat screen",
+          "A kind of cloth",
+          "A wet mix",
+          "A trade road"
+        ],
+        "answer": "A",
+        "skill": "detail",
+        "why": "The text says workers used a flat screen called a mold.",
+        "wrong": {
+          "B": "Old cloth was a raw material for the pulp.",
+          "C": "The wet mix is called pulp.",
+          "D": "Trade roads carried the craft west."
+        }
+      },
+      {
+        "stem": "Why was paper cheaper to make than other things to write on?",
+        "options": [
+          "It was made from silver",
+          "It was brought by traders",
+          "It used common plants and cloth",
+          "It was dug out of the ground"
+        ],
+        "answer": "C",
+        "skill": "cause-effect",
+        "why": "The text says paper was cheap to make from common plants and old cloth.",
+        "wrong": {
+          "A": "Silver is not mentioned.",
+          "B": "Traders carried the skill, but that did not make paper cheap.",
+          "D": "The text does not say paper is dug from the ground."
+        }
+      },
+      {
+        "stem": "In the article, what does the word flourish mean?",
+        "options": [
+          "To end very quickly",
+          "To move far away",
+          "To become very quiet",
+          "To grow and do well"
+        ],
+        "answer": "D",
+        "skill": "vocabulary",
+        "why": "The text says the trade grew in busy cities and the paper grew much stronger.",
+        "wrong": {
+          "A": "The trade did not end.",
+          "B": "The trade stayed in the cities.",
+          "C": "The cities were busy, not quiet."
+        }
+      },
+      {
+        "stem": "Why does the author end by saying each new place refined the craft?",
+        "options": [
+          "To say that China lost the craft",
+          "To show many people helped improve it",
+          "To warn that paper is hard to make",
+          "To tell readers how to build a mill"
+        ],
+        "answer": "B",
+        "skill": "author-purpose",
+        "why": "Each place that learned the craft made it a little better, so many people helped improve it.",
+        "wrong": {
+          "A": "The text does not say China lost the craft.",
+          "C": "The text does not call paper hard to make.",
+          "D": "The text does not give steps for building a mill."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "What was left on the mold after water drained through its holes?",
+        "options": [
+          "A pile of wet clay",
+          "A dry sheet of paper",
+          "A hard block of bone",
+          "A damp mat of fiber"
+        ],
+        "answer": "D",
+        "skill": "detail",
+        "why": "The text says water drained through tiny holes, leaving behind a damp mat of tangled fiber.",
+        "wrong": {
+          "A": "Clay tablets are named only as a heavy older choice.",
+          "B": "The sheet dried later, after it was pressed.",
+          "C": "Bone was an old writing surface."
+        }
+      },
+      {
+        "stem": "What does the word artisans mean in the article?",
+        "options": [
+          "Skilled workers",
+          "Rich travelers",
+          "Young students",
+          "Palace guards"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "Local artisans in Samarkand adapted the technique, so they were skilled craft workers.",
+        "wrong": {
+          "B": "The text calls the travelers traders and travelers.",
+          "C": "Students are not mentioned.",
+          "D": "Guards are not mentioned."
+        }
+      },
+      {
+        "stem": "How does the author mostly organize the story of paper?",
+        "options": [
+          "By comparing paper to clay",
+          "By listing all the kinds of fiber",
+          "In time order, from China to Europe",
+          "By asking questions and answering"
+        ],
+        "answer": "C",
+        "skill": "text-structure",
+        "why": "The article follows paper from its start in China to Samarkand, Baghdad, Spain, and Europe over time.",
+        "wrong": {
+          "A": "Clay tablets are mentioned only once.",
+          "B": "Fiber is described near the beginning only.",
+          "D": "The article does not use questions in this way."
+        }
+      },
+      {
+        "stem": "Why was paper easier to move from place to place than clay tablets?",
+        "options": [
+          "It was sold in Samarkand",
+          "It was light",
+          "It was made of linen",
+          "It was thick and heavy"
+        ],
+        "answer": "B",
+        "skill": "inference",
+        "why": "The text says paper was light and easy to transport, unlike heavy clay tablets.",
+        "wrong": {
+          "A": "Where it was sold does not decide how easy it is to carry.",
+          "C": "Linen helped make the pulp finer and does not decide how easy it is to carry.",
+          "D": "The text says paper was light, not thick and heavy."
+        }
+      }
+    ]
   }
 }

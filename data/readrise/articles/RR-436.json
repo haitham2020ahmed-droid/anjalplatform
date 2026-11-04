@@ -614,5 +614,217 @@
       ],
       "modelAnswer": "I agree that a team that plays together can achieve more than a team of individual stars. For most of the season, the Hawks lost close games precisely because players tried to score independently instead of trusting one another, which left them without real cohesion. In the final game, however, once the players began to synchronize their movements and rely on genuine camaraderie and resilience, they overcame a determined opponent and won by a single point. Someone might argue that a truly exceptional individual player can win games alone, but the story shows that Khalid still needed an open, trusted teammate to score the decisive basket, suggesting that connected teamwork mattered more than any single player's talent."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "Which team do the Hawks play in their last game of the year?",
+        "options": [
+          "The Eagles",
+          "The Falcons",
+          "The Lions",
+          "The Tigers"
+        ],
+        "answer": "A",
+        "skill": "detail",
+        "why": "The text says the Hawks will play the Eagles in the last game.",
+        "wrong": {
+          "B": "The Falcons are not in this story.",
+          "C": "The Lions are not in this story.",
+          "D": "The Tigers are not in this story."
+        }
+      },
+      {
+        "stem": "What happens when the players pass the ball well late in the game?",
+        "options": [
+          "They stop going to practice",
+          "The coach gets very angry",
+          "They help each other score",
+          "They lose the game by one point"
+        ],
+        "answer": "C",
+        "skill": "cause-effect",
+        "why": "The text says the players pass the ball well and help each other score.",
+        "wrong": {
+          "A": "Nothing in the story says they stop practicing.",
+          "B": "The coach smiles at the end, he is not angry.",
+          "D": "They win the game, they do not lose."
+        }
+      },
+      {
+        "stem": "In the story, the word score means to —",
+        "options": [
+          "pass the ball to a friend",
+          "put the ball in to win points",
+          "run fast down the court",
+          "watch the game from far away"
+        ],
+        "answer": "B",
+        "skill": "vocabulary",
+        "why": "Helping each other score is how the team wins the game, so score means to get points.",
+        "wrong": {
+          "A": "Passing is a different action from scoring.",
+          "C": "Running is not what score means here.",
+          "D": "Players on the court do not just watch."
+        }
+      },
+      {
+        "stem": "Why does Coach Nasser smile at the end of the story?",
+        "options": [
+          "He wants to play in the next big game",
+          "He sees the team learned to play together",
+          "He thinks the Eagles played very badly",
+          "He is happy that the long season is over"
+        ],
+        "answer": "B",
+        "skill": "inference",
+        "why": "The coach smiles and says the team learned to play together, which is what he always asked for.",
+        "wrong": {
+          "A": "The story does not say the coach wants to play.",
+          "C": "The text does not say the Eagles played badly.",
+          "D": "The story does not talk about the length of the season."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "Who scores the winning basket in the last game?",
+        "options": [
+          "Khalid",
+          "Coach Nasser",
+          "A teammate Khalid passes to",
+          "A player from the Eagles"
+        ],
+        "answer": "C",
+        "skill": "detail",
+        "why": "Khalid passes to a wide-open teammate, who scores the winning basket.",
+        "wrong": {
+          "A": "Khalid makes the pass, he does not score.",
+          "B": "The coach is not a player.",
+          "D": "The Hawks win, so the Eagles do not score the last basket."
+        }
+      },
+      {
+        "stem": "In the story, the word rivals means —",
+        "options": [
+          "teams that compete hard against each other",
+          "players who sit on the bench all game",
+          "friends who help the coach at practice",
+          "fans who come to watch the game in the gym"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "The Eagles are the Hawks' biggest rivals and both teams want to win the final match.",
+        "wrong": {
+          "B": "Rivals are not players on the bench.",
+          "C": "Rivals do not help the coach.",
+          "D": "Fans are in the gym, but they are not rivals."
+        }
+      },
+      {
+        "stem": "Why do the players often forget Coach Nasser's lesson during real games?",
+        "options": [
+          "They do not practice every week",
+          "They try to score on their own",
+          "They cannot hear the coach in the gym",
+          "They think the lesson is too easy"
+        ],
+        "answer": "B",
+        "skill": "cause-effect",
+        "why": "The text says that in real games the players try to score on their own instead of following the team's strategy.",
+        "wrong": {
+          "A": "The team practices every week.",
+          "C": "The text never says they cannot hear him.",
+          "D": "The text does not say the lesson is easy."
+        }
+      },
+      {
+        "stem": "What does the coach mean when he says the team 'truly played as one'?",
+        "options": [
+          "They all wore the same shirts",
+          "They scored more points than the Eagles in every quarter",
+          "They worked together like one team, not five players",
+          "They played the whole game without the coach"
+        ],
+        "answer": "C",
+        "skill": "inference",
+        "why": "His earlier lesson was to play as one team instead of five players, and the Hawks finally did this.",
+        "wrong": {
+          "A": "Shirts are not mentioned.",
+          "B": "The Eagles were ahead in the fourth quarter.",
+          "D": "The coach is at the game with the team."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "According to the story, when does the Hawks' team practice?",
+        "options": [
+          "Every weekend morning",
+          "Only before big games",
+          "Every week after school",
+          "During school lunch time"
+        ],
+        "answer": "C",
+        "skill": "detail",
+        "why": "The text says that every week after school the team practices, rarely missing a session.",
+        "wrong": {
+          "A": "Weekend mornings are not mentioned.",
+          "B": "They practice every week, not only before big games.",
+          "D": "Lunch time is not mentioned."
+        }
+      },
+      {
+        "stem": "In the story, the word cohesion most nearly means —",
+        "options": [
+          "the speed and strength of a player",
+          "the feeling of being united as a group",
+          "the loud noise from the crowd inside",
+          "the plan for a single play in a game"
+        ],
+        "answer": "B",
+        "skill": "vocabulary",
+        "why": "Players doubted the group had any cohesion, and at the end they played with it, meaning they were united.",
+        "wrong": {
+          "A": "Speed is not what the group lacked.",
+          "C": "The crowd's noise is not the topic.",
+          "D": "A single plan is not what cohesion means here."
+        }
+      },
+      {
+        "stem": "Why do the players abandon Coach Nasser's advice during actual games?",
+        "options": [
+          "The pressure makes them try to score alone",
+          "The coach changes his lesson every week",
+          "They are bored by the practices",
+          "They want to lose to the Eagles"
+        ],
+        "answer": "A",
+        "skill": "cause-effect",
+        "why": "The text says that under real pressure the players abandon the advice and try to score independently.",
+        "wrong": {
+          "B": "He repeats the same lesson.",
+          "C": "The text does not say they are bored.",
+          "D": "Every player wants to win."
+        }
+      },
+      {
+        "stem": "Why does the author most likely mention that the gym is packed with spectators?",
+        "options": [
+          "To show that the school has a very large new gym",
+          "To explain why the coach is so patient with them",
+          "To show that the Eagles have many loud fans",
+          "To make the final game feel more important and tense"
+        ],
+        "answer": "D",
+        "skill": "author-purpose",
+        "why": "A packed gym raises the pressure, which makes the Hawks' calm comeback more meaningful.",
+        "wrong": {
+          "A": "The size of the gym is not the point.",
+          "B": "The coach's patience is shown in other ways.",
+          "C": "The text does not say the crowd supports the Eagles."
+        }
+      }
+    ]
   }
 }

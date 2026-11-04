@@ -614,5 +614,217 @@
       ],
       "modelAnswer": "The souq's narrow, shaded lanes supported commerce because sellers of the same craft clustered together, which let customers easily compare quality and bargain over price for spice, cloth, or metal goods. The same covered lanes also supported the souq's social role, since the shade encouraged people to linger, meet friends, and share news rather than hurry through, turning errands into lasting social occasions. Because apprentices learned crafts from their fathers within these same lanes, each generation renewed both the commerce and the heritage of the souq at once, something a modern mall's single climate-controlled building rarely replicates."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "What can people do at a small stall in the souq?",
+        "options": [
+          "Ride on a camel",
+          "Sit and drink tea",
+          "Dig a deep well",
+          "Learn to fly a plane"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The text says people sit and drink tea at a small stall.",
+        "wrong": {
+          "A": "Camels are not mentioned in this text.",
+          "C": "Digging wells is not part of the souq.",
+          "D": "Planes are not mentioned."
+        }
+      },
+      {
+        "stem": "Why do buyers talk with the seller at a souq?",
+        "options": [
+          "The seller is far away",
+          "The buyer forgot the price",
+          "They want to bargain",
+          "They cannot see each other"
+        ],
+        "answer": "C",
+        "skill": "cause-effect",
+        "why": "The text says you do not pay the first price; you talk with the seller, which is a bargain.",
+        "wrong": {
+          "A": "The buyer and seller are at the same stall.",
+          "B": "The text says the buyer does not pay the first price, not that they forgot.",
+          "D": "The lanes are shady, not dark."
+        }
+      },
+      {
+        "stem": "In the article, what is a stall?",
+        "options": [
+          "A very long lane",
+          "A roof made of cloth",
+          "A cup of hot tea",
+          "A place to sell goods"
+        ],
+        "answer": "D",
+        "skill": "vocabulary",
+        "why": "The text says one family may run the same stall for years, so a stall is where a family sells.",
+        "wrong": {
+          "A": "A lane is where many stalls sit.",
+          "B": "A roof gives shade and is not a stall.",
+          "C": "Tea is sold at a small stall, but it is not the stall."
+        }
+      },
+      {
+        "stem": "Why might people stay at a souq for a long time?",
+        "options": [
+          "The roof is very low",
+          "They can talk and share news",
+          "The lanes are very empty",
+          "They must wait for a bus there"
+        ],
+        "answer": "B",
+        "skill": "inference",
+        "why": "The text says friends meet there, share news, and sit to drink tea, so people may stay a long time.",
+        "wrong": {
+          "A": "The roof gives shade and is not said to be low.",
+          "C": "The text describes a place full of people.",
+          "D": "Buses are not mentioned."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "What sound can you hear in the lane that sells metal pots?",
+        "options": [
+          "Singing from a mosque",
+          "Hammers on metal",
+          "Water in a well",
+          "Camels walking"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The text says one lane rings with the sound of hammers on metal pots and tools.",
+        "wrong": {
+          "A": "The text does not say singing is heard in the lane.",
+          "C": "Wells are not mentioned in this text.",
+          "D": "Camels are not mentioned in this text."
+        }
+      },
+      {
+        "stem": "What does the word heritage mean in the article?",
+        "options": [
+          "A new kind of market",
+          "A type of cool air",
+          "A set of fixed prices",
+          "Old things worth keeping"
+        ],
+        "answer": "D",
+        "skill": "vocabulary",
+        "why": "The text says souqs are cared for as part of the city's heritage, like things from the past.",
+        "wrong": {
+          "A": "Souqs are described as old, not new.",
+          "B": "The cool air belongs to the modern mall.",
+          "C": "Fixed prices belong to the modern mall."
+        }
+      },
+      {
+        "stem": "Why do buyers and sellers talk back and forth about the price?",
+        "options": [
+          "To agree on a fair price",
+          "To find the way to the mosque",
+          "To learn the seller's trade",
+          "To hear the news of the town"
+        ],
+        "answer": "A",
+        "skill": "cause-effect",
+        "why": "The text says the two sides offer and refuse until they agree on a fair price.",
+        "wrong": {
+          "B": "The text does not link price talk to the mosque.",
+          "C": "A son learns a trade by watching and helping.",
+          "D": "Sharing news is a separate social activity."
+        }
+      },
+      {
+        "stem": "How are prices at a souq different from prices at a modern mall?",
+        "options": [
+          "Souq prices are never talked about",
+          "Mall prices are named by the seller",
+          "Souq prices are fixed on tags",
+          "Souq prices come from bargaining"
+        ],
+        "answer": "D",
+        "skill": "compare",
+        "why": "At a souq buyers bargain for a fair price, but a mall has fixed price tags.",
+        "wrong": {
+          "A": "Buyers and sellers talk about prices at a souq.",
+          "B": "Fixed tags are used in a mall, not named by sellers.",
+          "C": "The text says the mall has the fixed price tags."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "What is displayed behind glass cases in the souq?",
+        "options": [
+          "Gold and jewelry",
+          "Sacks of spice",
+          "Copper and brass trays",
+          "Cloth and textile"
+        ],
+        "answer": "A",
+        "skill": "detail",
+        "why": "The text says the gold and jewelry lane displays its goods behind glass cases for safekeeping.",
+        "wrong": {
+          "B": "Spices are sold in sacks.",
+          "C": "The copper and brass are hammered into trays and pots.",
+          "D": "Cloth is traded in a different lane."
+        }
+      },
+      {
+        "stem": "What does the word labyrinth mean in the article?",
+        "options": [
+          "A kind of cold drink",
+          "A very tall building",
+          "A maze of paths",
+          "A fixed price tag"
+        ],
+        "answer": "C",
+        "skill": "vocabulary",
+        "why": "The text calls the souq a labyrinth of old lanes, which are narrow paths branching like roots.",
+        "wrong": {
+          "A": "Tea and coffee are drinks, but they are not what the word means.",
+          "B": "The text says the souq is a network of lanes, not a tall building.",
+          "D": "Price tags belong to the mall."
+        }
+      },
+      {
+        "stem": "Why did shoppers linger in the shaded lanes?",
+        "options": [
+          "The lanes were shorter than the streets",
+          "The shops closed early each day",
+          "The sellers gave away free tea",
+          "The lanes stayed cooler than outside"
+        ],
+        "answer": "D",
+        "skill": "cause-effect",
+        "why": "The text says the shaded lanes stayed cooler, which drew people to linger.",
+        "wrong": {
+          "A": "The text does not compare lane length with the streets.",
+          "B": "The text does not say the shops closed early.",
+          "C": "The text says people paid for tea and coffee."
+        }
+      },
+      {
+        "stem": "The article calls a souq a living remnant of how trade once worked. What does this suggest?",
+        "options": [
+          "The souq is closed for ever now",
+          "The souq is just like a modern mall",
+          "The souq shows an old way of trade",
+          "The souq has no sellers there today"
+        ],
+        "answer": "C",
+        "skill": "inference",
+        "why": "The phrase shows that the souq is still open and still shows how trade was done long ago.",
+        "wrong": {
+          "A": "The text says many souqs remain open today.",
+          "B": "The text contrasts the souq with a modern mall.",
+          "D": "Visitors can still watch craftsmen at their trade."
+        }
+      }
+    ]
   }
 }

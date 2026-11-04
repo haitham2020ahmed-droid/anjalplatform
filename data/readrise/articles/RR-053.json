@@ -614,5 +614,217 @@
    ],
    "modelAnswer": "I disagree that farmers in oases should pump more groundwater to grow more crops. The article explains that oasis water comes from an ancient aquifer that nature cannot quickly replenish, since much of it formed thousands of years ago in a wetter climate. If farmers pump faster than the aquifer is restored, springs can dry up completely and the desert heat will evaporate what little water remains at the surface. A more sustainable choice is for farmers to keep using drip irrigation, so this heritage settlement's water supply lasts for future generations."
   }
+ },
+ "stretch": {
+  "LOW": [
+   {
+    "stem": "What is a spring?",
+    "options": [
+     "A hole that men dig in the sand",
+     "A pipe that drips on each plant",
+     "Water that comes up by itself",
+     "A tall tree that gives shade"
+    ],
+    "answer": "C",
+    "skill": "detail",
+    "why": "The text says that in some spots the water comes up by itself, and that is a spring.",
+    "wrong": {
+     "A": "A hole that people dig is a well.",
+     "B": "The small pipes drip water on plants, but they are not a spring.",
+     "D": "A date palm is the tall tree that gives shade."
+    }
+   },
+   {
+    "stem": "What grows in the shade of the date palms?",
+    "options": [
+     "Fruit trees",
+     "Camels",
+     "Tall rocks",
+     "Sand hills"
+    ],
+    "answer": "A",
+    "skill": "detail",
+    "why": "The text says fruit trees grow in the shade of the palms.",
+    "wrong": {
+     "B": "Camels were ridden by men, and the text does not say they grow.",
+     "C": "The text does not mention tall rocks.",
+     "D": "Sand hills are not planted in an oasis."
+    }
+   },
+   {
+    "stem": "The text says the water can \"run out.\" What does run out mean?",
+    "options": [
+     "move very fast",
+     "come from rain",
+     "turn into a spring",
+     "be all used up"
+    ],
+    "answer": "D",
+    "skill": "vocabulary",
+    "why": "If we take too much, the spring can dry up, so run out means be all used up.",
+    "wrong": {
+     "A": "The sentence is about the water ending, not its speed.",
+     "B": "The sentence says the water ends, not that it comes.",
+     "C": "A spring dries up when the water runs out."
+    }
+   },
+   {
+    "stem": "What can you tell from the tall trees in an oasis?",
+    "options": [
+     "There is no water near them.",
+     "There is water for them to use.",
+     "The desert has a lot of rain.",
+     "Nobody ever visits the place."
+    ],
+    "answer": "B",
+    "skill": "inference",
+    "why": "Trees can only grow tall where there is water, and an oasis has water from deep in the ground.",
+    "wrong": {
+     "A": "Without water, tall trees could not grow.",
+     "C": "The text says rain does not fall much.",
+     "D": "Men on camels stopped at oases and towns grew there."
+    }
+   }
+  ],
+  "MID": [
+   {
+    "stem": "Where is Al-Ahsa?",
+    "options": [
+     "In eastern Saudi Arabia",
+     "In the north of Oman",
+     "On the Red Sea coast",
+     "In the high mountains"
+    ],
+    "answer": "A",
+    "skill": "detail",
+    "why": "The text says Al-Ahsa is in eastern Saudi Arabia.",
+    "wrong": {
+     "B": "The text does not place Al-Ahsa in Oman.",
+     "C": "The text does not place Al-Ahsa on the Red Sea coast.",
+     "D": "Al-Ahsa is an oasis in the desert, not in the mountains."
+    }
+   },
+   {
+    "stem": "The article says a caravan of camels stopped at an oasis. What is a caravan?",
+    "options": [
+     "a kind of date palm",
+     "a deep well in the sand",
+     "a group traveling together",
+     "a layer of rock"
+    ],
+    "answer": "C",
+    "skill": "vocabulary",
+    "why": "The caravan stops so people can drink, rest, and trade, so it is a group traveling together with camels.",
+    "wrong": {
+     "A": "A date palm is a tree.",
+     "B": "A well is dug to reach water.",
+     "D": "An aquifer is a layer of rock."
+    }
+   },
+   {
+    "stem": "Why does the author say an oasis can decide whether people in the desert survive?",
+    "options": [
+     "Oases are full of dangerous animals.",
+     "Travelers can easily get lost in the shade.",
+     "Fruit trees grow only in cold places.",
+     "In the desert, an oasis may be the only water."
+    ],
+    "answer": "D",
+    "skill": "inference",
+    "why": "The desert is hot and dry, so an oasis may be the only place where travelers can find water to stay alive.",
+    "wrong": {
+     "A": "The text does not talk about dangerous animals.",
+     "B": "Shade helps travelers rest.",
+     "C": "The oasis is hot, and fruit trees grow there."
+    }
+   },
+   {
+    "stem": "Why do many farmers now use drip irrigation?",
+    "options": [
+     "It makes the trees grow taller.",
+     "Less water is wasted.",
+     "It brings more rain.",
+     "It makes the wells deeper."
+    ],
+    "answer": "B",
+    "skill": "cause-effect",
+    "why": "The thin pipes deliver water to each plant, so less is wasted.",
+    "wrong": {
+     "A": "The text does not say drip pipes make trees taller.",
+     "C": "Drip pipes do not make rain.",
+     "D": "The pipes do not change the depth of the wells."
+    }
+   }
+  ],
+  "HIGH": [
+   {
+    "stem": "Which crops grow closest to the ground in an oasis?",
+    "options": [
+     "Date palms",
+     "Vegetables",
+     "Fruit trees",
+     "Desert grass"
+    ],
+    "answer": "B",
+    "skill": "detail",
+    "why": "The text says farmers cultivate vegetables closer to the ground, below the date palms and fruit trees.",
+    "wrong": {
+     "A": "Date palms are the tallest layer.",
+     "C": "Fruit trees grow in the shade, under the palms.",
+     "D": "The text does not mention desert grass."
+    }
+   },
+   {
+    "stem": "Why do migrating birds and other wildlife depend on oases?",
+    "options": [
+     "Oases stay cold in the summer.",
+     "Oases have no people nearby.",
+     "Oases are far from any water.",
+     "Oases offer water and shelter."
+    ],
+    "answer": "D",
+    "skill": "cause-effect",
+    "why": "The text says oases offer water, food, and shelter that are rare in the surrounding desert.",
+    "wrong": {
+     "A": "The text does not say oases are cold.",
+     "B": "Settlements and farms grow around oases.",
+     "C": "Oases are places where water is available."
+    }
+   },
+   {
+    "stem": "Many farmers use drip irrigation. What is irrigation?",
+    "options": [
+     "giving water to crops",
+     "digging for old coins",
+     "building homes of mud",
+     "selling dates at market"
+    ],
+    "answer": "A",
+    "skill": "vocabulary",
+    "why": "Drip irrigation delivers water directly to each plant, so irrigation means supplying water to crops.",
+    "wrong": {
+     "B": "Digging for coins is not mentioned.",
+     "C": "Irrigation is about water for plants, not homes.",
+     "D": "Selling dates is not what irrigation means."
+    }
+   },
+   {
+    "stem": "Why does the author end with drip irrigation?",
+    "options": [
+     "To say oases will soon dry up",
+     "To explain how to build a well",
+     "To show people are finding ways to save water",
+     "To prove that the desert gets heavy rain"
+    ],
+    "answer": "C",
+    "skill": "author-purpose",
+    "why": "Drip irrigation delivers water directly to each plant, which is part of a more sustainable approach.",
+    "wrong": {
+     "A": "The ending is hopeful, not a warning of a certain end.",
+     "B": "The ending does not explain how to build a well.",
+     "D": "The article says very little rain falls."
+    }
+   }
+  ]
  }
 }

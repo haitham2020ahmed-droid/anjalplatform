@@ -614,5 +614,217 @@
       ],
       "modelAnswer": "I agree that going slow and steady is often a better strategy than sprinting as fast as possible. In the story, Noor trained gradually for months, slowly building her stamina until she could run the full five kilometers without stopping. During the race itself, she maintained one steady pace instead of sprinting like Yusuf and the other students, and this pacing strategy allowed her to sustain her effort to the very end. Meanwhile, the runners who sprinted early exhausted themselves and were reduced to walking before the finish line. Someone might argue that sprinting works for very short races, where there is no time to run out of energy, but for a demanding five-kilometer distance like the Fun Run, Noor's patient, steady approach clearly produced the better result."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "How long was the Fun Run?",
+        "options": [
+          "One kilometer",
+          "Ten kilometers",
+          "A real marathon",
+          "Five kilometers"
+        ],
+        "answer": "D",
+        "skill": "detail",
+        "why": "The text says the Fun Run was five kilometers long.",
+        "wrong": {
+          "A": "One kilometer was all Noor could run long ago.",
+          "B": "The race was shorter than ten kilometers.",
+          "C": "A marathon is what Noor may run one day, not the Fun Run."
+        }
+      },
+      {
+        "stem": "In the story, the phrase save your strength means to —",
+        "options": [
+          "not use all your power too early",
+          "stop and take a long rest at home",
+          "run as fast as you can go",
+          "give your power to a good friend"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "The coach says not to run fast at the start, so Noor keeps power for later in the race.",
+        "wrong": {
+          "B": "Noor did not stop during the race.",
+          "C": "The coach said not to run fast at the start.",
+          "D": "Strength cannot be given to a friend."
+        }
+      },
+      {
+        "stem": "Why could Noor run farther than one kilometer?",
+        "options": [
+          "She wore new running shoes",
+          "She ran a bit more each week",
+          "She started the race before the others",
+          "She ran only on the weekend"
+        ],
+        "answer": "B",
+        "skill": "cause-effect",
+        "why": "Coach Reem made a plan, and each week Noor ran a bit more.",
+        "wrong": {
+          "A": "Shoes are not mentioned.",
+          "C": "The text does not say she started early.",
+          "D": "She ran every day."
+        }
+      },
+      {
+        "stem": "What does Coach Reem think about Noor's future?",
+        "options": [
+          "Noor should stop running",
+          "Noor will win every race",
+          "Noor could run even longer races one day",
+          "Noor should run faster at the start"
+        ],
+        "answer": "C",
+        "skill": "inference",
+        "why": "The coach says Noor can run a real marathon one day, which shows she believes Noor can do more.",
+        "wrong": {
+          "A": "The coach is proud of her running.",
+          "B": "The coach does not say she will win every race.",
+          "D": "The coach told her not to run fast at the start."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "Around which kilometer did Noor's legs grow heavy?",
+        "options": [
+          "The first kilometer",
+          "The third kilometer",
+          "The fifth kilometer",
+          "The tenth kilometer"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The article says that around the third kilometer her legs grew heavy.",
+        "wrong": {
+          "A": "The first kilometer came before her legs grew tired.",
+          "C": "She felt heavy before the last kilometer.",
+          "D": "The race was only five kilometers long."
+        }
+      },
+      {
+        "stem": "In the article, the word stamina means —",
+        "options": [
+          "the top speed of a short sprint",
+          "the color of a team shirt and shorts",
+          "the energy to keep going for a long time",
+          "the sound of a loud starting whistle"
+        ],
+        "answer": "C",
+        "skill": "vocabulary",
+        "why": "Coach Reem's plan gave Noor more stamina for longer runs, so it means energy to keep going.",
+        "wrong": {
+          "A": "Stamina is about lasting, not speed.",
+          "B": "Colors are not the topic.",
+          "D": "A whistle is not mentioned."
+        }
+      },
+      {
+        "stem": "How was Noor different from Yusuf at the start of the race?",
+        "options": [
+          "Noor kept a steady pace, but Yusuf sprinted",
+          "Noor sprinted, but Yusuf kept a steady pace",
+          "Noor was late, but Yusuf was early",
+          "Noor was nervous, but Yusuf was calm"
+        ],
+        "answer": "A",
+        "skill": "compare",
+        "why": "Several classmates, including Yusuf, sprinted ahead, but Noor kept a slow and steady pace.",
+        "wrong": {
+          "B": "It was Yusuf who sprinted.",
+          "C": "Both started when the race began.",
+          "D": "The article says Lina was nervous, not Noor."
+        }
+      },
+      {
+        "stem": "Why did Coach Reem say that training wisely mattered more than training fast?",
+        "options": [
+          "Fast runners are not allowed to race",
+          "She did not want Noor to win",
+          "Slow practice is always more fun",
+          "Steady plans build strength that lasts"
+        ],
+        "answer": "D",
+        "skill": "inference",
+        "why": "Her plan built up Noor's distance gradually, which gave Noor the stamina to finish a long race.",
+        "wrong": {
+          "A": "Nothing says fast runners are not allowed.",
+          "B": "The coach was proud when Noor won.",
+          "C": "Fun is not the reason given."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "How did Coach Reem build up Noor's distance?",
+        "options": [
+          "By having her run ten kilometers at once",
+          "By adding more and more races",
+          "By having her sprint every day",
+          "By adding a little distance at a time"
+        ],
+        "answer": "D",
+        "skill": "detail",
+        "why": "The plan built Noor's distance gradually, kilometer by kilometer, without rushing.",
+        "wrong": {
+          "A": "The plan did not rush her.",
+          "B": "Races are not described as the plan.",
+          "C": "The coach warned against sprinting."
+        }
+      },
+      {
+        "stem": "In the article, the word fortitude most nearly means —",
+        "options": [
+          "quick feet on the track",
+          "strong will in hard times",
+          "loud cheering from the crowd",
+          "a lucky guess at the finish"
+        ],
+        "answer": "B",
+        "skill": "vocabulary",
+        "why": "It took fortitude to keep going while her legs ached and her mind wanted to quit, so it means strength of will.",
+        "wrong": {
+          "A": "The sentence is about her mind, not her feet.",
+          "C": "Cheering is not mentioned here.",
+          "D": "Her success came from effort, not luck."
+        }
+      },
+      {
+        "stem": "According to Coach Reem, why must Noor wait before she trains for a marathon?",
+        "options": [
+          "Her friend Lina will join her later",
+          "Her body needs years to grow",
+          "The school does not hold marathons",
+          "She needs a new coach"
+        ],
+        "answer": "B",
+        "skill": "cause-effect",
+        "why": "The coach says that when Noor's body has had years to develop, she could train for a marathon.",
+        "wrong": {
+          "A": "Lina is not part of this plan.",
+          "C": "The text does not say that.",
+          "D": "The coach offers to train her in the same way."
+        }
+      },
+      {
+        "stem": "How did Noor's choice at the start differ from that of the classmates who sprinted?",
+        "options": [
+          "She chose a pace that came from her excitement",
+          "She copied them and ran fast",
+          "She chose a steady rhythm based on a plan",
+          "She waited to hear the signal"
+        ],
+        "answer": "C",
+        "skill": "compare",
+        "why": "The sprinters were fueled by excitement, but Noor chose a slow, deliberate rhythm.",
+        "wrong": {
+          "A": "Excitement drove the sprinters, not Noor.",
+          "B": "The article says she refused to copy them.",
+          "D": "All the runners left when the signal sounded."
+        }
+      }
+    ]
   }
 }

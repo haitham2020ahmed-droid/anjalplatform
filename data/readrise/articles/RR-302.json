@@ -614,5 +614,217 @@
       ],
       "modelAnswer": "Two elements that express this heritage of hospitality are the serving order and the gesture used to decline a refill. The article explains that a host moves around the room serving the eldest or most honored guest first, a gesture rooted in longstanding cultural practice around respect and seniority; this quiet choice communicates who the host is honoring without anyone needing to say a word. Likewise, a guest can gently shake an empty cup to decline more coffee, a subtle gesture that lets the ritual continue smoothly without an awkward spoken refusal. Because this entire ritual existed long before any written etiquette guide, both elements show how oral tradition and shared, unspoken understanding were enough to carry a culture's values of respect and generosity across many generations."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "What does saffron give to the drink?",
+        "options": [
+          "A sour taste",
+          "A gold color",
+          "A loud sound",
+          "A cold feel"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The text says saffron gives the drink a gold hue.",
+        "wrong": {
+          "A": "The text does not say saffron makes it sour.",
+          "C": "A drink does not make a sound in the text.",
+          "D": "The drink is hot, and saffron does not change that."
+        }
+      },
+      {
+        "stem": "The text says a date can calm the bold taste. What does bold mean here?",
+        "options": [
+          "Very sweet and sticky",
+          "Very cold and weak",
+          "Very new and clean",
+          "Very strong and sharp"
+        ],
+        "answer": "D",
+        "skill": "vocabulary",
+        "why": "A sweet date is used to calm the coffee, so the coffee taste must be strong.",
+        "wrong": {
+          "A": "The date is the sweet part, not the coffee.",
+          "B": "The coffee is hot, and a weak taste would not need calming.",
+          "C": "Nothing in the text says the taste is new or clean."
+        }
+      },
+      {
+        "stem": "Why do you think a host who serves coffee well is seen as kind?",
+        "options": [
+          "The host shows care for each guest",
+          "The host drinks all the coffee",
+          "The host uses the best pot",
+          "The host talks the whole time"
+        ],
+        "answer": "A",
+        "skill": "inference",
+        "why": "The text says the custom shows guests they are welcome, so serving well shows care.",
+        "wrong": {
+          "B": "The host pours for guests and does not drink it all.",
+          "C": "The text does not say the pot makes a host kind.",
+          "D": "The text never says the host talks a lot."
+        }
+      },
+      {
+        "stem": "What is done right after the beans are ground into powder?",
+        "options": [
+          "The powder is poured in cups",
+          "The powder is set out with dates",
+          "The powder is boiled in water",
+          "The powder is roasted light brown"
+        ],
+        "answer": "C",
+        "skill": "sequence",
+        "why": "The text says the beans are ground, and then the powder is boiled in water in a tall pot.",
+        "wrong": {
+          "A": "Cups are filled with the finished coffee, not the dry powder.",
+          "B": "The dates are set out beside the coffee, not the powder.",
+          "D": "Roasting comes before grinding."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "How are the coffee beans roasted?",
+        "options": [
+          "Fast over very high heat",
+          "In a pot filled with water",
+          "Slowly over low heat",
+          "Over a fire made with dates"
+        ],
+        "answer": "C",
+        "skill": "detail",
+        "why": "The article says the beans are roasted slowly over low heat until light, golden brown.",
+        "wrong": {
+          "A": "The article says low heat, not high heat.",
+          "B": "Water is used later, to boil the powder.",
+          "D": "The article never mentions dates as fuel."
+        }
+      },
+      {
+        "stem": "The article says roasting fills the house with a \"rich aroma.\" What does aroma mean?",
+        "options": [
+          "A loud noise",
+          "A pleasant smell",
+          "A bright color",
+          "A hot drink"
+        ],
+        "answer": "B",
+        "skill": "vocabulary",
+        "why": "A house is filled by roasting beans with a smell, so aroma means a pleasant smell.",
+        "wrong": {
+          "A": "Roasting is described through smell, not noise.",
+          "C": "Color is described with the words golden brown, not aroma.",
+          "D": "The drink comes later, after the beans are boiled."
+        }
+      },
+      {
+        "stem": "Why might a host who performs the ritual well be seen as generous and polite?",
+        "options": [
+          "The host serves the guests very quickly",
+          "The host gives guests coffee for free",
+          "The host uses the oldest pot",
+          "The host shows careful respect for guests"
+        ],
+        "answer": "D",
+        "skill": "inference",
+        "why": "The ritual is done with care, starting with the eldest guest, so it shows respect for the guests.",
+        "wrong": {
+          "A": "The article stresses care, not speed.",
+          "B": "Price is never mentioned in the article.",
+          "C": "The article does not say an old pot makes a host polite."
+        }
+      },
+      {
+        "stem": "How are cardamom and saffron alike in qahwa?",
+        "options": [
+          "Both add a pleasant scent",
+          "Both turn the coffee dark brown",
+          "Both are ground with the beans",
+          "Both are served on a small plate"
+        ],
+        "answer": "A",
+        "skill": "compare",
+        "why": "Cardamom adds a strong, pleasant smell and saffron adds a sweet scent.",
+        "wrong": {
+          "B": "Saffron gives a golden color, not a dark brown one.",
+          "C": "Both are added to the pot, not ground with the beans.",
+          "D": "Dates are set out, but these spices are not."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "According to the article, why are dates set out beside the coffee?",
+        "options": [
+          "They give the host extra time to prepare more",
+          "They show which guest is the eldest present",
+          "They balance the coffee's strong, bitter taste",
+          "They keep the coffee warm inside the small cups"
+        ],
+        "answer": "C",
+        "skill": "cause-effect",
+        "why": "The article says a sweet, soft date gently balances the coffee's strong, bitter taste.",
+        "wrong": {
+          "A": "Dates are for the guests' taste, not the host's timing.",
+          "B": "The host serves the eldest first, and dates do not mark that.",
+          "D": "The article never says dates keep coffee warm."
+        }
+      },
+      {
+        "stem": "The article calls the dallah a vessel. What does vessel mean here?",
+        "options": [
+          "A container",
+          "A servant",
+          "A large boat",
+          "A kind of spice"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "The dallah is a pot that holds the boiling coffee, so vessel means a container.",
+        "wrong": {
+          "B": "A pot is an object, not a person who serves.",
+          "C": "A boat has nothing to do with brewing coffee.",
+          "D": "Cardamom and saffron are the spices, not the dallah."
+        }
+      },
+      {
+        "stem": "The article says coffee is offered to almost every visitor, no matter how long the visit will last. What does this suggest?",
+        "options": [
+          "Visits there usually last all day long",
+          "Only the closest friends are given coffee",
+          "The host tries to rush the guests to leave",
+          "Even a brief visitor is treated as welcome"
+        ],
+        "answer": "D",
+        "skill": "inference",
+        "why": "Offering coffee to almost every visitor, even short ones, suggests welcome is given to everyone.",
+        "wrong": {
+          "A": "The phrase says the length does not matter, not that visits are long.",
+          "B": "The article says almost every visitor is offered coffee.",
+          "C": "Nothing in the article suggests guests are rushed."
+        }
+      },
+      {
+        "stem": "Which step in making qahwa comes right after the beans are roasted?",
+        "options": [
+          "They are stirred with saffron",
+          "They are ground into a fine powder",
+          "They are poured into finjan cups",
+          "They are placed on a small tray"
+        ],
+        "answer": "B",
+        "skill": "sequence",
+        "why": "The article says that once properly roasted, the beans are ground into an extremely fine powder.",
+        "wrong": {
+          "A": "Saffron is added while the powder is boiling, which comes later.",
+          "C": "Cups are filled with the finished coffee at the end.",
+          "D": "A tray holds the dates, not the beans."
+        }
+      }
+    ]
   }
 }

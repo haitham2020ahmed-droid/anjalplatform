@@ -614,5 +614,217 @@
       ],
       "modelAnswer": "I would build my Moon base near the polar region, close to the deep, dark craters where scientists have discovered ice, since that ice could be melted into drinking water and split into oxygen for the settlers. To protect against the harmful radiation that streams unblocked across the airless Moon, I would cover the base with thick layers of regolith, the fine moon soil, to act as a natural shield. I would also seal the base tightly against the wild day-and-night temperature swings, using these local resources to keep the settlers safe without needing to bring everything from Earth."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "How long does a trip to the Moon take?",
+        "options": [
+          "One day",
+          "Two weeks",
+          "Three days",
+          "Twelve days"
+        ],
+        "answer": "C",
+        "skill": "detail",
+        "why": "The text says a trip to the Moon takes three days.",
+        "wrong": {
+          "A": "The trip takes three days, not one.",
+          "B": "Two weeks is how long one Moon day lasts, not the trip.",
+          "D": "Twelve is the number of men who have walked on the Moon."
+        }
+      },
+      {
+        "stem": "Why must a home on the Moon be shut tight?",
+        "options": [
+          "To keep the air inside",
+          "To keep the dust outside",
+          "To keep the Sun's heat out",
+          "To keep the ice frozen"
+        ],
+        "answer": "A",
+        "skill": "cause-effect",
+        "why": "The text says the Moon has no air, so a home must be shut tight to keep air in.",
+        "wrong": {
+          "B": "The dust is a problem, but the text says a home is shut tight to keep air in.",
+          "C": "The text does not say a shut home keeps heat out.",
+          "D": "The ice is in dark holes, not in the homes."
+        }
+      },
+      {
+        "stem": "In the article, what is a base?",
+        "options": [
+          "A big hole near the pole",
+          "A thick suit for walking",
+          "A place to live and work",
+          "A kind of gray Moon dust"
+        ],
+        "answer": "C",
+        "skill": "vocabulary",
+        "why": "The article says a base is a place to live and work.",
+        "wrong": {
+          "A": "The deep holes near the south pole hold ice, but they are not called a base.",
+          "B": "The thick suit is worn by an astronaut, not called a base.",
+          "D": "The gray dust is just dust, not a base."
+        }
+      },
+      {
+        "stem": "Why does the author end by talking about the two Saudis who went to space?",
+        "options": [
+          "To say the Moon is too far for people to go",
+          "To show that a Saudi may go to the Moon one day",
+          "To tell how the Moon dust can hurt your lungs",
+          "To explain how much ice is on the Moon's south pole"
+        ],
+        "answer": "B",
+        "skill": "author-purpose",
+        "why": "The author ends with hope that one day a Saudi may go to the Moon too.",
+        "wrong": {
+          "A": "The ending is hopeful and does not say the Moon is too far.",
+          "C": "The dust is explained earlier, not in the ending.",
+          "D": "The ice is explained earlier, not in the ending."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "About how far away is the Moon?",
+        "options": [
+          "120 kilometers",
+          "384,000 kilometers",
+          "2,000 kilometers",
+          "170,000 kilometers"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The text says the Moon is about 384,000 kilometers away.",
+        "wrong": {
+          "A": "120 is the sunlit temperature in degrees, not a distance.",
+          "C": "The text does not give this distance.",
+          "D": "The text does not give this distance; 170 is a cold temperature."
+        }
+      },
+      {
+        "stem": "The text says any home on the Moon must be sealed tightly to keep air inside. What does sealed mean?",
+        "options": [
+          "Painted in a bright color for safety",
+          "Built deep underground for protection",
+          "Filled up with moon soil and gray dust",
+          "Closed so nothing can get in or out"
+        ],
+        "answer": "D",
+        "skill": "vocabulary",
+        "why": "A home must be sealed so the air inside cannot leak out into the airless Moon.",
+        "wrong": {
+          "A": "Color has nothing to do with keeping air inside.",
+          "B": "The text does not say sealed means underground.",
+          "C": "Moon soil is mentioned for radiation, not for sealing."
+        }
+      },
+      {
+        "stem": "Each night on the Moon lasts about two weeks. What does this suggest people there must be ready for?",
+        "options": [
+          "A very long, very cold time without sunlight",
+          "Rain and strong wind for many days",
+          "A short night that ends in a few hours",
+          "Cool weather that stays the same all day"
+        ],
+        "answer": "A",
+        "skill": "inference",
+        "why": "Nights last two weeks and the ground can drop below minus 170 degrees, so people need to survive long, cold darkness.",
+        "wrong": {
+          "B": "The text says there is no thick air, so it does not describe rain or wind.",
+          "C": "The text says a night lasts about two weeks, not hours.",
+          "D": "The text says the temperature changes wildly."
+        }
+      },
+      {
+        "stem": "Why could a person jump about six times as high on the Moon?",
+        "options": [
+          "The Moon has no air to push back against a jumper",
+          "The Moon's gravity is only about one sixth as strong",
+          "The ground on the Moon is soft, loose, and gray",
+          "The spacesuit makes a person much lighter"
+        ],
+        "answer": "B",
+        "skill": "cause-effect",
+        "why": "Gravity on the Moon is about one sixth as strong as on Earth, so a jump goes much higher.",
+        "wrong": {
+          "A": "The text links jumping to gravity, not to air.",
+          "C": "The dust is described as sharp and clingy, not as a reason for jumping.",
+          "D": "The text says the suit protects the astronaut, not that it lowers weight."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "According to the article, when did the last of the twelve people leave the Moon's surface and return home?",
+        "options": [
+          "In 1972",
+          "In 2023",
+          "In 1969",
+          "In 1990"
+        ],
+        "answer": "A",
+        "skill": "detail",
+        "why": "The article says the last of them returned home in 1972.",
+        "wrong": {
+          "B": "2023 is when two Saudi astronauts went to the space station.",
+          "C": "The article does not give this year.",
+          "D": "The article does not give this year."
+        }
+      },
+      {
+        "stem": "Why is the Moon's surface not protected from radiation?",
+        "options": [
+          "It lacks thick air and a magnetic field",
+          "It is covered by a layer of fine gray dust",
+          "It is much too far away from the Sun",
+          "It has ice hidden in its polar craters"
+        ],
+        "answer": "A",
+        "skill": "cause-effect",
+        "why": "The article says that without a thick atmosphere or a strong magnetic field, nothing protects the surface from radiation.",
+        "wrong": {
+          "B": "Dust is a danger to lungs and machines, but it is not the reason for radiation.",
+          "C": "The article does not blame the distance from the Sun for the radiation.",
+          "D": "Ice gives water and fuel but has nothing to do with radiation."
+        }
+      },
+      {
+        "stem": "The text says at night it can plunge below minus 170 degrees. What does plunge mean?",
+        "options": [
+          "Climb slowly and slightly",
+          "Stay exactly the same",
+          "Warm up a little bit",
+          "Drop suddenly and far"
+        ],
+        "answer": "D",
+        "skill": "vocabulary",
+        "why": "The ground goes from about 120 degrees in sunlight to below minus 170 at night, a big and sudden drop.",
+        "wrong": {
+          "A": "The temperature falls at night; it does not rise.",
+          "B": "The article says temperatures change dramatically.",
+          "C": "Going below minus 170 is not warming."
+        }
+      },
+      {
+        "stem": "Why does the author describe the ice in the polar craters right after describing the Moon's dangers?",
+        "options": [
+          "Because the ice is very easy to find there",
+          "Because the Moon is the safest place to live",
+          "Because ice is good news after many problems",
+          "Because the ice melts in the sunlight"
+        ],
+        "answer": "C",
+        "skill": "text-structure",
+        "why": "The earlier paragraphs list dangers, and \"Fortunately\" signals that the ice is a helpful resource.",
+        "wrong": {
+          "A": "The article says the ice is in permanently shadowed craters, not that it is easy to find.",
+          "B": "The article describes the Moon as dangerous and hard.",
+          "D": "The ice is in permanently shadowed craters, so sunlight does not reach it."
+        }
+      }
+    ]
   }
 }

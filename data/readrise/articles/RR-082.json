@@ -614,5 +614,217 @@
       ],
       "modelAnswer": "I believe the Great Wall was worth the enormous effort, even though workers were conscripted and forced to do dangerous labor for centuries. This massive fortification stretched more than 21,000 kilometers along China's northern frontier, warning of danger through its network of signal towers and protecting countless villages from raids. It is a common misconception that the wall can be seen from the Moon, but its real achievement is more impressive: it stands today as a lasting piece of world heritage that still draws millions of visitors. Given how long it defended China and how much history it still teaches us, the effort that built it was worthwhile."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "What did men use to build the wall after dirt and stone?",
+        "options": [
+          "Wood from tall trees",
+          "Rock from the Moon",
+          "Bricks",
+          "Sand from the desert"
+        ],
+        "answer": "C",
+        "skill": "detail",
+        "why": "The text says that at first the walls were dirt and stone, then men made the wall with brick.",
+        "wrong": {
+          "A": "Wood is not mentioned for the later walls.",
+          "B": "The Moon is only mentioned for a false idea.",
+          "D": "Sand is not named as a building material."
+        }
+      },
+      {
+        "stem": "How long did work on the walls go on?",
+        "options": [
+          "A little over two hundred years",
+          "More than two thousand years",
+          "Just one year of hard work",
+          "About twenty days in a row"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The text says work on the walls went on for more than two thousand years.",
+        "wrong": {
+          "A": "Two hundred years is too short.",
+          "C": "One year is far too short.",
+          "D": "Twenty days is far too short."
+        }
+      },
+      {
+        "stem": "Why were the men on fast horses hard to stop?",
+        "options": [
+          "They hid under the wall at night",
+          "They sent smoke signals to guards",
+          "They were afraid of the guards",
+          "They could ride very fast"
+        ],
+        "answer": "D",
+        "skill": "inference",
+        "why": "They came on fast horses, so they could reach the land quickly and take food and goods.",
+        "wrong": {
+          "A": "The text does not say they hid under the wall.",
+          "B": "The guards, not the riders, sent signals.",
+          "C": "They took food and goods, so they were not afraid."
+        }
+      },
+      {
+        "stem": "In the article, the word signal means —",
+        "options": [
+          "a sign sent to tell others",
+          "a gift sent from the north",
+          "a kind of very tall tower",
+          "a food that men carried"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "When the guards saw danger, they sent a signal to the next tower, a sign to warn others.",
+        "wrong": {
+          "B": "A signal is not a gift.",
+          "C": "A tower is where the signal was sent from.",
+          "D": "A signal is not food."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "If you add up all the parts of the Great Wall, how long are they?",
+        "options": [
+          "Around 2,200 kilometers in all",
+          "Around 1,368 kilometers in all",
+          "More than 21,000 kilometers",
+          "Around 1,644 kilometers in all"
+        ],
+        "answer": "C",
+        "skill": "detail",
+        "why": "The text says all the parts together stretch over 21,000 kilometers.",
+        "wrong": {
+          "A": "2,200 is how many years ago the emperor joined the walls.",
+          "B": "1,368 is the year the Ming dynasty began.",
+          "D": "1,644 is the year the Ming dynasty ended."
+        }
+      },
+      {
+        "stem": "Why did Chinese rulers build walls along the northern border?",
+        "options": [
+          "To protect their land from invaders",
+          "To make a long road for the riders",
+          "To keep farmers inside the country",
+          "To mark where the grasslands ended"
+        ],
+        "answer": "A",
+        "skill": "cause-effect",
+        "why": "Nomadic groups invaded towns and took food, so rulers built walls to protect their land.",
+        "wrong": {
+          "B": "The walls were meant to stop riders, not help them.",
+          "C": "The walls were to keep invaders out.",
+          "D": "Marking land is not the reason given."
+        }
+      },
+      {
+        "stem": "The article says the wall was built, rebuilt, and joined over more than two thousand years. What does this suggest?",
+        "options": [
+          "It was finished by one ruler in one year",
+          "Many rulers kept working on it over time",
+          "Nobody was willing to fix any part of it",
+          "The Ming dynasty built every part of it"
+        ],
+        "answer": "B",
+        "skill": "inference",
+        "why": "Work over two thousand years and by each dynasty shows many rulers kept adding to it.",
+        "wrong": {
+          "A": "It took more than two thousand years.",
+          "C": "It was rebuilt, so people did fix it.",
+          "D": "The Ming built most of the wall seen today, not every part."
+        }
+      },
+      {
+        "stem": "In the article, the word nomadic describes groups that —",
+        "options": [
+          "built tall stone towers",
+          "ruled over the Ming dynasty",
+          "lived inside the wall",
+          "moved from place to place"
+        ],
+        "answer": "D",
+        "skill": "vocabulary",
+        "why": "The text says nomadic groups moved from place to place with their animals.",
+        "wrong": {
+          "A": "The soldiers watched from towers, not the nomads.",
+          "B": "The Ming dynasty was a Chinese ruling family.",
+          "C": "The nomads lived north, beyond the wall."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "What was the mortar used by the Ming builders made from?",
+        "options": [
+          "Crushed granite and river water",
+          "Lime mixed with sticky rice",
+          "Packed earth and wooden poles",
+          "Clay baked with desert sand"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The text says the bricks and stone blocks were bound with a mortar of lime mixed with sticky rice.",
+        "wrong": {
+          "A": "Granite and river water are not mentioned.",
+          "C": "Packed earth and wood were used in the earliest sections.",
+          "D": "Baked clay is not mentioned."
+        }
+      },
+      {
+        "stem": "Why could the nomadic groups travel rapidly?",
+        "options": [
+          "They used smoke signals to guide them",
+          "They followed paved roads built by emperors",
+          "They sailed across rivers by boat",
+          "They were expert riders"
+        ],
+        "answer": "D",
+        "skill": "cause-effect",
+        "why": "The text says that because they were expert riders, they could travel rapidly.",
+        "wrong": {
+          "A": "Smoke signals were used by the wall's soldiers.",
+          "B": "No paved roads are mentioned.",
+          "C": "Boats are not mentioned."
+        }
+      },
+      {
+        "stem": "In the article, the word inhabited most nearly means —",
+        "options": [
+          "lived in",
+          "guarded",
+          "destroyed",
+          "crossed over"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "Nomadic groups inhabited the grasslands, meaning they lived there with their herds.",
+        "wrong": {
+          "B": "Soldiers guarded the wall, not the grasslands.",
+          "C": "Nothing says the grasslands were destroyed.",
+          "D": "They migrated with herds but lived on the grasslands."
+        }
+      },
+      {
+        "stem": "Why does the author compare the wall to an enormous serpent?",
+        "options": [
+          "To show that the wall was dangerous to touch",
+          "To explain that snakes lived near the border",
+          "To picture how it winds over the land",
+          "To prove that the wall is visible from the Moon"
+        ],
+        "answer": "C",
+        "skill": "author-purpose",
+        "why": "The wall winds across mountains and deserts, so the comparison helps readers picture its curving shape.",
+        "wrong": {
+          "A": "The comparison is about shape, not danger.",
+          "B": "Snakes are not part of the facts.",
+          "D": "The article says the wall is not visible from the Moon."
+        }
+      }
+    ]
   }
 }

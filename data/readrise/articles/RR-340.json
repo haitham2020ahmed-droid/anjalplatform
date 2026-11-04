@@ -614,5 +614,217 @@
       ],
       "modelAnswer": "I disagree that protecting faraway forests like the Amazon is beyond the reach of ordinary people. The article explains that the Amazon helps regulate rainfall and temperature across much of the globe, which means its health affects everyone, not only the nine countries that contain it. The forest's extraordinary biodiversity, including species found nowhere else, depends on choices made far from the Amazon itself, such as what products people buy and support. Someone might argue that one person cannot influence a forest thousands of kilometers away, but widespread public attention and support for conservation efforts have measurably slowed clearing and fire in protected areas, showing that distant concern can still make a real difference."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "Where do frogs and snakes hide?",
+        "options": [
+          "In the tall trees",
+          "In the river",
+          "Above the trees",
+          "On the ground"
+        ],
+        "answer": "D",
+        "skill": "detail",
+        "why": "The text says frogs and snakes hide on the ground.",
+        "wrong": {
+          "A": "Monkeys, not frogs and snakes, jump in the trees.",
+          "B": "A river is not mentioned in this text.",
+          "C": "Birds fly above the trees."
+        }
+      },
+      {
+        "stem": "In the article, oxygen is —",
+        "options": [
+          "a kind of snake",
+          "air we breathe in",
+          "a part of a tree",
+          "a big warm river"
+        ],
+        "answer": "B",
+        "skill": "vocabulary",
+        "why": "The text says trees make fresh air called oxygen, which we need to breathe.",
+        "wrong": {
+          "A": "Snakes are animals, not oxygen.",
+          "C": "Oxygen is made by trees, but it is not a tree part.",
+          "D": "No river is described in the text."
+        }
+      },
+      {
+        "stem": "Why do we need the air that trees make?",
+        "options": [
+          "To help monkeys jump",
+          "To keep the ground soft",
+          "To breathe and live",
+          "To make bugs grow big"
+        ],
+        "answer": "C",
+        "skill": "cause-effect",
+        "why": "The text says we need oxygen to breathe and it keeps us alive.",
+        "wrong": {
+          "A": "Monkeys are not linked to oxygen in the text.",
+          "B": "Rain, not oxygen, is linked to the soft ground.",
+          "D": "Bugs are not linked to oxygen in the text."
+        }
+      },
+      {
+        "stem": "The ground is soft and dark, and rain falls each day. What can you tell?",
+        "options": [
+          "The ground is often wet.",
+          "The ground is made of sand.",
+          "The ground is very hot.",
+          "The ground is full of ice."
+        ],
+        "answer": "A",
+        "skill": "inference",
+        "why": "Rain falls almost every day, so the soft ground is often wet.",
+        "wrong": {
+          "B": "Sand is not described in the text.",
+          "C": "The text says it is warm and wet, not very hot ground.",
+          "D": "The forest is warm, so there is no ice."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "How many countries does the Amazon stretch across?",
+        "options": [
+          "Three",
+          "Five",
+          "Nine",
+          "Twelve"
+        ],
+        "answer": "C",
+        "skill": "detail",
+        "why": "The text says the Amazon stretches across nine countries.",
+        "wrong": {
+          "A": "Three is too few; the text says nine.",
+          "B": "Five is too few; the text says nine.",
+          "D": "Twelve is too many; the text says nine."
+        }
+      },
+      {
+        "stem": "In the article, the word mighty most nearly means —",
+        "options": [
+          "very powerful",
+          "very shallow",
+          "very still",
+          "very new"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "The river carries more water than any river on Earth, so mighty means very powerful.",
+        "wrong": {
+          "B": "A river with so much water is not shallow.",
+          "C": "The river is flowing, not still.",
+          "D": "Newness is not the idea in the sentence."
+        }
+      },
+      {
+        "stem": "Why do people work hard to protect the Amazon?",
+        "options": [
+          "It is the smallest forest in the world.",
+          "It has no animals left to protect.",
+          "It is found inside only one country.",
+          "It helps control rain and heat far away."
+        ],
+        "answer": "D",
+        "skill": "cause-effect",
+        "why": "The text says the Amazon helps regulate rainfall and heat far beyond South America, so people protect it.",
+        "wrong": {
+          "A": "The text says it is the largest rainforest.",
+          "B": "The text says it holds about ten percent of known species.",
+          "C": "The text says it stretches across nine countries."
+        }
+      },
+      {
+        "stem": "What does it suggest that new kinds of life are still found each year?",
+        "options": [
+          "All species there are known",
+          "Many species are still unknown",
+          "The forest is getting smaller",
+          "Animals leave the forest every year"
+        ],
+        "answer": "B",
+        "skill": "inference",
+        "why": "If new kinds are still found, there are likely more species that nobody has found yet.",
+        "wrong": {
+          "A": "New finds show not all species are known.",
+          "C": "Finding new species says nothing about forest size.",
+          "D": "The text does not say animals leave."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "Roughly what share of the tropical rainforest left on Earth does the Amazon hold?",
+        "options": [
+          "A tenth",
+          "A third",
+          "Three quarters",
+          "All of it"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The text says the Amazon holds about a third of the tropical rainforest left on the planet.",
+        "wrong": {
+          "A": "A tenth is the share of species, not of rainforest.",
+          "C": "Three quarters is more than the text says.",
+          "D": "Other rainforests exist, so it is not all of it."
+        }
+      },
+      {
+        "stem": "In the article, the word dense most nearly means —",
+        "options": [
+          "thin and spread out",
+          "dull and gray",
+          "very tall",
+          "thick and packed"
+        ],
+        "answer": "D",
+        "skill": "vocabulary",
+        "why": "A dense canopy blocks most light, so it is thick and packed closely together.",
+        "wrong": {
+          "A": "A thin canopy would let in more light.",
+          "B": "The forest is described as green.",
+          "C": "Tall describes trees, not the word dense."
+        }
+      },
+      {
+        "stem": "Why do smaller plants in the understory compete for sunlight?",
+        "options": [
+          "Little light gets past the canopy.",
+          "The river water blocks all light.",
+          "Heavy rain washes the light away.",
+          "People cover the plants each day."
+        ],
+        "answer": "A",
+        "skill": "cause-effect",
+        "why": "The dense canopy lets only scraps of sunlight filter down to the plants below.",
+        "wrong": {
+          "B": "The river is not said to block light.",
+          "C": "Rain is not said to wash light away.",
+          "D": "People covering plants is not mentioned."
+        }
+      },
+      {
+        "stem": "Why does the author say protecting the Amazon concerns scientists everywhere?",
+        "options": [
+          "Scientists live in all nine countries",
+          "Nobody lives near it to protect it",
+          "Its effects reach well beyond the forest",
+          "It is easy to study from far away"
+        ],
+        "answer": "C",
+        "skill": "inference",
+        "why": "The Amazon regulates rainfall and temperature far beyond South America, so its health matters worldwide.",
+        "wrong": {
+          "A": "The text does not say scientists live in all nine countries.",
+          "B": "Indigenous communities live in the Amazon.",
+          "D": "The text does not say it is easy to study."
+        }
+      }
+    ]
   }
 }

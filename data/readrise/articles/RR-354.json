@@ -614,5 +614,217 @@
       ],
       "modelAnswer": "I partly agree that staying calm matters most, but the story shows that calm alone was not enough without rehearsed precautions to act on. Omar's composure let him think clearly, but it was his memory of the safety drill, covering faces and holding hands, that actually protected the class from the blowing sand. Ms. Huda's own composure also mattered because her firm, practiced tone helped frightened students trust her and stop running. Someone might argue that quick action matters more than calm itself, but without composure the class could not have coordinated their actions at all, so both qualities worked together to keep everyone safe."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "Why does Omar's class go on the trip?",
+        "options": [
+          "To see old desert plants",
+          "To swim in a lake",
+          "To meet a rescue crew",
+          "To sing a song"
+        ],
+        "answer": "A",
+        "skill": "detail",
+        "why": "The text says the class goes to see old desert plants.",
+        "wrong": {
+          "B": "No lake is in the story.",
+          "C": "The rescue truck comes later.",
+          "D": "They sing during the storm, not for the trip."
+        }
+      },
+      {
+        "stem": "Why can the class not see far in the storm?",
+        "options": [
+          "The sun is very bright",
+          "Sand blows hard and fast",
+          "They wear heavy scarves",
+          "The hills are too high"
+        ],
+        "answer": "B",
+        "skill": "cause-effect",
+        "why": "The text says sand blows hard and fast, so the class cannot see far.",
+        "wrong": {
+          "A": "The sky turns brown, not bright.",
+          "C": "Scarves come later, to cover their mouths.",
+          "D": "The hills are not the reason."
+        }
+      },
+      {
+        "stem": "Why does the class hold hands?",
+        "options": [
+          "To keep warm",
+          "To play a game",
+          "To stay together",
+          "To dance"
+        ],
+        "answer": "C",
+        "skill": "inference",
+        "why": "In a strong storm they cannot see far, so holding hands keeps everyone together.",
+        "wrong": {
+          "A": "The text does not say they are cold.",
+          "B": "This is an emergency, not a game.",
+          "D": "They sing, but they do not dance."
+        }
+      },
+      {
+        "stem": "The text says Omar used his scarf. What is a scarf?",
+        "options": [
+          "a cloth to cover your face or neck",
+          "a tool used to dig in the sand",
+          "a truck that comes to help people",
+          "a song to sing when scared"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "Omar used his scarf to cover his face in the sandstorm, so a scarf is a cloth for the face or neck.",
+        "wrong": {
+          "B": "A scarf is not a tool for digging.",
+          "C": "The rescue truck is different.",
+          "D": "The class sang a song, but that is not a scarf."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "What are Omar and Lina doing before the storm?",
+        "options": [
+          "Pointing out small lizards",
+          "Running back to the bus",
+          "Singing a quiet slow song",
+          "Covering their faces up"
+        ],
+        "answer": "A",
+        "skill": "detail",
+        "why": "The story says they walked near the front, pointing out small lizards.",
+        "wrong": {
+          "B": "They only run after the storm starts.",
+          "C": "The class sings during the storm.",
+          "D": "They cover their faces after the storm hits."
+        }
+      },
+      {
+        "stem": "Why does the class hold hands tightly?",
+        "options": [
+          "To keep warm in the wind",
+          "So nobody wanders off alone",
+          "To walk faster to the bus",
+          "To show they are brave"
+        ],
+        "answer": "B",
+        "skill": "cause-effect",
+        "why": "The story says they held hands tightly so nobody wandered off alone.",
+        "wrong": {
+          "A": "Warmth is not mentioned.",
+          "C": "They stay together and do not hurry to the bus.",
+          "D": "Bravery is not given as the reason."
+        }
+      },
+      {
+        "stem": "In the story, the word crouched means the class —",
+        "options": [
+          "ran far away",
+          "stood up tall",
+          "bent down low",
+          "looked at plants"
+        ],
+        "answer": "C",
+        "skill": "vocabulary",
+        "why": "They crouched down low beside the wall to stay out of the wind.",
+        "wrong": {
+          "A": "They stayed beside the wall.",
+          "B": "Crouched is the opposite of standing tall.",
+          "D": "They were waiting out the storm."
+        }
+      },
+      {
+        "stem": "Why does the author describe the sky as bright, clear blue at the start?",
+        "options": [
+          "To show the storm is coming from far",
+          "To list the plants on the hill",
+          "To contrast with the sudden storm",
+          "To tell what time it is"
+        ],
+        "answer": "C",
+        "skill": "author-purpose",
+        "why": "The clear blue sky makes the sudden brown storm feel like a big surprise.",
+        "wrong": {
+          "A": "The storm comes without warning.",
+          "B": "The sky is not about plants.",
+          "D": "The sky is not used to tell time."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "What was Ms. Huda doing as she guided the group?",
+        "options": [
+          "Teaching the names and uses of plants",
+          "Watching for a rescue crew",
+          "Counting the lizards on the stones",
+          "Planning a long bus ride"
+        ],
+        "answer": "A",
+        "skill": "detail",
+        "why": "The story says she explained the names and traditional uses of each plant.",
+        "wrong": {
+          "B": "The rescue crew comes at the end.",
+          "C": "The students point out lizards, not Ms. Huda.",
+          "D": "The bus stopped near the hills."
+        }
+      },
+      {
+        "stem": "In the story, the word bolted most nearly means —",
+        "options": [
+          "ran off suddenly",
+          "sat down slowly",
+          "stopped to listen",
+          "held hands"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "Several children bolted in different directions in panic, so it means ran off suddenly.",
+        "wrong": {
+          "B": "The children panicked and did not sit.",
+          "C": "They ran instead of listening.",
+          "D": "They held hands later, after Omar's call."
+        }
+      },
+      {
+        "stem": "Why did singing a quiet song help the class?",
+        "options": [
+          "It scared the sand away",
+          "It called the rescue truck",
+          "It showed them where to go",
+          "It distracted them from fear"
+        ],
+        "answer": "D",
+        "skill": "cause-effect",
+        "why": "The story says the song helped distract everyone from mounting fear.",
+        "wrong": {
+          "A": "A song cannot move the sand.",
+          "B": "The crew came because of reports of the storm.",
+          "C": "They were already at the rock wall."
+        }
+      },
+      {
+        "stem": "Why does the author describe the sky as clear and cloudless just before the storm?",
+        "options": [
+          "To show the storm was unexpected",
+          "To say the day was too hot",
+          "To explain why the bus stopped",
+          "To warn that rain was near"
+        ],
+        "answer": "A",
+        "skill": "author-purpose",
+        "why": "The phrase shows the sandstorm struck with no warning signs.",
+        "wrong": {
+          "B": "The heat is not the point of the phrase.",
+          "C": "The bus stops near the hills for the trip.",
+          "D": "The storm brings sand, not rain."
+        }
+      }
+    ]
   }
 }

@@ -614,5 +614,217 @@
       ],
       "modelAnswer": "I agree that scoring a great free kick depends on both science and talent, though the article makes clear that the science explains why the phenomenon happens at all. The rotation a player gives the ball changes the air pressure around it, bending its trajectory in a predictable direction, a principle physicists can measure and explain precisely. However, understanding this science does not automatically make someone able to perform it; the article notes that kicks like this require many hours of practice, since striking the ball at exactly the right spot takes real skill. Without that practiced skill, a ball with very little spin instead becomes unpredictable and simply wobbles, so I believe both science and talent, sharpened through practice, are equally necessary for a truly great free kick."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "What does a spinning ball drag along with it?",
+        "options": [
+          "Some water",
+          "Some air",
+          "Some dust",
+          "Some grass"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The text says a spin ball drags air with it.",
+        "wrong": {
+          "A": "Water is not mentioned.",
+          "C": "Dust is not mentioned in the ball's flight.",
+          "D": "Grass is not mentioned."
+        }
+      },
+      {
+        "stem": "Why does the goal look shut at the start of the story?",
+        "options": [
+          "A tall fence is around the goal",
+          "The goal is much too small to hit",
+          "The keeper holds the ball up high",
+          "A wall of players is in the way"
+        ],
+        "answer": "D",
+        "skill": "inference",
+        "why": "The text says a wall of players stands in the way of the goal.",
+        "wrong": {
+          "A": "A fence is not mentioned.",
+          "B": "The size of the goal is not mentioned.",
+          "C": "The keeper does not hold the ball here."
+        }
+      },
+      {
+        "stem": "In the text, the word curve means —",
+        "options": [
+          "to bend as it moves",
+          "to stop in one spot",
+          "to make a loud noise",
+          "to break into parts"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "The ball spins and curves to one side, so curve means to bend as it moves.",
+        "wrong": {
+          "B": "The ball keeps moving; it does not stop.",
+          "C": "Curve is about the path of the ball, not a sound.",
+          "D": "The ball does not break."
+        }
+      },
+      {
+        "stem": "Why does the author end by telling readers to watch for kicks that curve?",
+        "options": [
+          "To tell all the kickers to stop practice",
+          "To say that the World Cup is now over",
+          "To say that curved kicks are not hard",
+          "To make readers watch for them in 2034"
+        ],
+        "answer": "D",
+        "skill": "author-purpose",
+        "why": "The author says Saudi Arabia will host the World Cup in 2034 and asks readers to watch for curved kicks.",
+        "wrong": {
+          "A": "The text says good kicks take lots of practice.",
+          "B": "The World Cup is in the future.",
+          "C": "The text says good kicks take practice, so they are hard."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "Where does the ball drop into the net?",
+        "options": [
+          "Into the bottom corner",
+          "Into the top corner",
+          "Into the keeper's hands",
+          "Into the middle of the goal"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The text says it drops into the top corner of the net.",
+        "wrong": {
+          "A": "The text says top corner, not bottom.",
+          "C": "The ball goes into the net, not the keeper's hands.",
+          "D": "The ball does not go into the middle."
+        }
+      },
+      {
+        "stem": "In the article, the word strikes means —",
+        "options": [
+          "hits",
+          "misses",
+          "holds",
+          "stops"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "The kicker runs up and strikes the ball, so she hits it.",
+        "wrong": {
+          "B": "The ball flies past the wall, so she did not miss it.",
+          "C": "She kicks the ball, so she does not hold it.",
+          "D": "The ball moves, so she did not stop it."
+        }
+      },
+      {
+        "stem": "What is the job of the first two paragraphs?",
+        "options": [
+          "To list all of the rules of the football game",
+          "To teach readers how to build a goal for a team",
+          "To show a curving kick before it is explained",
+          "To compare two teams that play in a final"
+        ],
+        "answer": "C",
+        "skill": "text-structure",
+        "why": "The opening shows a kick that curves, and the next paragraphs explain how it works.",
+        "wrong": {
+          "A": "No rules are listed.",
+          "B": "The article does not teach how to build a goal.",
+          "D": "No two teams are compared."
+        }
+      },
+      {
+        "stem": "What can you infer about why kicks like this take many hours of practice?",
+        "options": [
+          "The ball is much too big to kick far",
+          "The kicker must not hit the middle",
+          "The goal is very far from the kicker",
+          "The keeper is not allowed to move"
+        ],
+        "answer": "B",
+        "skill": "inference",
+        "why": "Hitting the ball on one side in just the right way to make it spin is hard to do well, so it needs practice.",
+        "wrong": {
+          "A": "The text does not say the ball is too big.",
+          "C": "The text says the free kick is near the goal.",
+          "D": "The keeper can move; the kick is hard to read."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "Which parts of a football do manufacturers design to change how air behaves?",
+        "options": [
+          "Panels, seams, and surface texture",
+          "Color, price, and total weight",
+          "Size, shape, and the sound it makes",
+          "Laces, valves, and company logos"
+        ],
+        "answer": "A",
+        "skill": "detail",
+        "why": "The text says manufacturers design the panels, seams, and surface texture of footballs.",
+        "wrong": {
+          "B": "Color and price are not named.",
+          "C": "Sound is not mentioned.",
+          "D": "Laces and logos are not mentioned."
+        }
+      },
+      {
+        "stem": "In the article, the word trajectory means —",
+        "options": [
+          "the speed of a goalkeeper",
+          "the sound of a kick",
+          "the path of a moving ball",
+          "the weight of a ball"
+        ],
+        "answer": "C",
+        "skill": "vocabulary",
+        "why": "The text says the air pushes back and bends the ball's trajectory, meaning the path it takes.",
+        "wrong": {
+          "A": "The sentence is about the ball, not the goalkeeper.",
+          "B": "Sound is not mentioned.",
+          "D": "Weight is not the idea."
+        }
+      },
+      {
+        "stem": "What causes a ball with minimal spin to wobble and dip?",
+        "options": [
+          "Small changes in the air flowing over its surface",
+          "A strong kick with the inside of the foot of a player",
+          "The ball turning very fast to the left side",
+          "A slower pace as it nears the end of its flight"
+        ],
+        "answer": "A",
+        "skill": "cause-effect",
+        "why": "The text says small changes in the air flowing over the surface make a ball with minimal spin wobble and dip.",
+        "wrong": {
+          "B": "That kick is used to make a ball spin quickly.",
+          "C": "A fast turning ball is a spinning ball.",
+          "D": "Slowing down is given as why a curve looks strongest later."
+        }
+      },
+      {
+        "stem": "How is a ball with strong spin different from one with minimal spin?",
+        "options": [
+          "The spinning ball always flies higher than the other",
+          "The spinning ball bends in a set path; the other wobbles",
+          "The spinning ball is easier for a goalkeeper to stop",
+          "The spinning ball is made from different panels"
+        ],
+        "answer": "B",
+        "skill": "compare",
+        "why": "A spinning ball curves in the same direction that its front rotates, while a ball with minimal spin wobbles unpredictably.",
+        "wrong": {
+          "A": "Height is not compared.",
+          "C": "The text says the wobbling ball is unpredictable for the keeper.",
+          "D": "The text does not say they are made differently."
+        }
+      }
+    ]
   }
 }

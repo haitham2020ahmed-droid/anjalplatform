@@ -614,5 +614,217 @@
       ],
       "modelAnswer": "I agree that living on a space station would be more exciting than hard, even though it is clearly difficult too. The astronaut describes amazing things, like watching the sun rise more than a dozen times a day and floating freely through the modules. The filter malfunction shows that problems do happen, and fixing it required real teamwork since no repair shop exists nearby. Someone might argue that missing her family and fresh food, along with her disrupted circadian rhythm, makes the hardship outweigh the excitement, but she still describes space as continuing to amaze her every single day, which suggests the wonder of the experience matters more to her than its challenges."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "How does the astronaut move around the station?",
+        "options": [
+          "She walks on the floor",
+          "She pulls with her hands",
+          "She rides in a small car",
+          "She jumps off the walls"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The diary says she does not walk and pulls herself with her hands.",
+        "wrong": {
+          "A": "She says she does not walk up there.",
+          "C": "No car is mentioned in the diary.",
+          "D": "The diary never says she jumps off walls."
+        }
+      },
+      {
+        "stem": "A warning light blinked on the air filter. What does a filter do?",
+        "options": [
+          "It makes the station spin",
+          "It cleans the air",
+          "It gives light at night",
+          "It holds the crew's food"
+        ],
+        "answer": "B",
+        "skill": "vocabulary",
+        "why": "An air filter cleans the air the crew breathes, so the warning light meant the filter needed fixing.",
+        "wrong": {
+          "A": "A filter does not make anything spin.",
+          "C": "The light is a warning, not the filter's job.",
+          "D": "Food is stored elsewhere."
+        }
+      },
+      {
+        "stem": "Why did the light on the filter turn green?",
+        "options": [
+          "The astronaut went to sleep",
+          "The crew turned off the light",
+          "Dust was added to the filter",
+          "They cleaned the dust away"
+        ],
+        "answer": "D",
+        "skill": "cause-effect",
+        "why": "The crew cleaned the dust that blocked the filter, and then the light turned green.",
+        "wrong": {
+          "A": "Sleep did not change the light.",
+          "B": "The crew fixed the filter; they did not just turn off the light.",
+          "C": "Dust caused the red light, so adding it would not help."
+        }
+      },
+      {
+        "stem": "How does the astronaut feel at the end of the diary?",
+        "options": [
+          "She loves the trip but misses home",
+          "She hates the trip and wants to leave",
+          "She is bored with space",
+          "She is angry at her crewmate"
+        ],
+        "answer": "A",
+        "skill": "inference",
+        "why": "She misses her mom and dad, yet says space is grand and she will not forget the trip.",
+        "wrong": {
+          "B": "She calls space grand and says she will remember it.",
+          "C": "She still enjoys watching the sun rise many times.",
+          "D": "Her crewmate helped her, so she is not angry."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "How does the astronaut get from one module to another?",
+        "options": [
+          "She flies with a jet pack",
+          "She walks along the floor",
+          "She pulls on wall handles",
+          "She rides a small cart"
+        ],
+        "answer": "C",
+        "skill": "detail",
+        "why": "The diary says she pulls herself from module to module using handles on the walls.",
+        "wrong": {
+          "A": "No jet pack is mentioned.",
+          "B": "She says she cannot simply walk through the station.",
+          "D": "A cart is never mentioned."
+        }
+      },
+      {
+        "stem": "In the diary, the word clogged means —",
+        "options": [
+          "blocked up",
+          "cleaned well",
+          "switched off",
+          "broken in half"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "Fine dust built up in the filter and blocked it, which is why the warning light came on.",
+        "wrong": {
+          "B": "The crew cleaned the filter after it was clogged.",
+          "C": "The filter was blocked, not switched off.",
+          "D": "The filter was not broken; it only needed cleaning."
+        }
+      },
+      {
+        "stem": "What does the Day 2 entry show about life on the station?",
+        "options": [
+          "Machines never have any problems",
+          "Crew members need to help each other",
+          "Dust is the only danger in space",
+          "Astronauts should work alone"
+        ],
+        "answer": "B",
+        "skill": "inference",
+        "why": "The astronaut says fixing the filter as a team showed how much every astronaut depends on one another.",
+        "wrong": {
+          "A": "The filter problem shows machines can have trouble.",
+          "C": "The diary never says dust is the only danger.",
+          "D": "The crewmate's help shows working alone is not the plan."
+        }
+      },
+      {
+        "stem": "How is the diary organized?",
+        "options": [
+          "By topic, from smallest to biggest",
+          "By place, from Earth to the sun",
+          "As a list of rules for astronauts",
+          "By day, with new events in each entry"
+        ],
+        "answer": "D",
+        "skill": "text-structure",
+        "why": "The diary has entries for Day 1, Day 2, and Day 3, and each one tells about new events.",
+        "wrong": {
+          "A": "The entries are not sorted by size.",
+          "B": "The entries follow days, not places.",
+          "C": "The diary tells what happened; it gives no rules."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "How often does the station circle Earth?",
+        "options": [
+          "Roughly once every ninety minutes",
+          "About once every day",
+          "Close to once every week",
+          "Close to once every five minutes"
+        ],
+        "answer": "A",
+        "skill": "detail",
+        "why": "The diary says the station circles the planet roughly once every ninety minutes.",
+        "wrong": {
+          "B": "Once a day is far slower than the diary says.",
+          "C": "Once a week is far slower than the diary says.",
+          "D": "Every five minutes is much faster than the diary says."
+        }
+      },
+      {
+        "stem": "What caused the air filter to malfunction?",
+        "options": [
+          "Dust slowly filled its screen over weeks",
+          "A crewmate pressed the wrong switch",
+          "The solar panels lost their power",
+          "Water leaked into the filter"
+        ],
+        "answer": "A",
+        "skill": "cause-effect",
+        "why": "The crew found that fine dust had clogged the filter's screen over several weeks.",
+        "wrong": {
+          "B": "No wrong switch is mentioned.",
+          "C": "The solar panels are not tied to the filter problem.",
+          "D": "The diary never mentions a leak."
+        }
+      },
+      {
+        "stem": "In the diary, the word replenishes most nearly means —",
+        "options": [
+          "throws away",
+          "fills up again",
+          "measures",
+          "hides"
+        ],
+        "answer": "B",
+        "skill": "vocabulary",
+        "why": "The life-support system supplies the oxygen that the crew uses up, so it fills it up again.",
+        "wrong": {
+          "A": "The system adds oxygen; it does not throw it away.",
+          "C": "Measuring oxygen would not supply more of it.",
+          "D": "The system makes oxygen, not hides it."
+        }
+      },
+      {
+        "stem": "Why does the astronaut mention that no repair shop exists for thousands of kilometers?",
+        "options": [
+          "To say the station is a nice place",
+          "To show the crew must fix things alone",
+          "To explain why a filter costs a lot",
+          "To tell students not to visit"
+        ],
+        "answer": "B",
+        "skill": "inference",
+        "why": "With no repair shop nearby, the crew has to rely on one another to fix problems.",
+        "wrong": {
+          "A": "The sentence is about how far help is, not about being happy.",
+          "C": "The diary says nothing about the cost of the filter.",
+          "D": "The astronaut writes to share the trip, not to warn students away."
+        }
+      }
+    ]
   }
 }

@@ -614,5 +614,217 @@
       ],
       "modelAnswer": "I believe hand-carved woodworking is still a valuable heritage craft today. First, its intricate floral and geometric ornament shows genuine artistic skill, since a craftsman spends many days patiently carving a single door by hand. Second, the rawasheen shutters show thoughtful, practical design, letting in light and a breeze while still protecting a family's privacy. Third, the fact that this skillful technique is passed from craftsman to apprentice through years of watching and practice, rather than through books, shows a living tradition worth preserving, not an outdated relic."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "What does the text say wood comes from?",
+        "options": [
+          "Rocks in the hills",
+          "Trees",
+          "Sand in the desert",
+          "Water in the wells"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The text says wood comes from trees.",
+        "wrong": {
+          "A": "The text does not say wood comes from rocks.",
+          "C": "The text does not say wood comes from sand.",
+          "D": "The text does not say wood comes from water."
+        }
+      },
+      {
+        "stem": "Why did some window covers have small carved holes?",
+        "options": [
+          "So that rain could come inside",
+          "So that birds could fly through",
+          "So that the wood could dry faster",
+          "So that light could come in"
+        ],
+        "answer": "D",
+        "skill": "cause-effect",
+        "why": "The text says some window covers had small carved holes and light came in.",
+        "wrong": {
+          "A": "Rain is not mentioned in the text.",
+          "B": "Birds are not mentioned in the text.",
+          "C": "Drying wood is not mentioned in the text."
+        }
+      },
+      {
+        "stem": "The text says a worker carved it with care. What does carved mean?",
+        "options": [
+          "Cut shapes into it",
+          "Painted it bright red",
+          "Carried it far away",
+          "Sold it at a market"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "The text says workers cut small shapes into the wood, which is what carved means.",
+        "wrong": {
+          "B": "The text does not say the wood was painted.",
+          "C": "The worker shaped the wood, and did not carry it.",
+          "D": "The text does not mention selling the wood."
+        }
+      },
+      {
+        "stem": "Why do you think a big door took many days to make?",
+        "options": [
+          "The worker did not like to work with wood",
+          "The worker slept for most of each day",
+          "It was cut and carved by hand with care",
+          "It was made out of very soft thin paper"
+        ],
+        "answer": "C",
+        "skill": "inference",
+        "why": "The text says no machine was used and the work was slow and careful, so a big door took many days.",
+        "wrong": {
+          "A": "The text says the worker liked to carve the wood.",
+          "B": "The text does not say anything about sleeping.",
+          "D": "The text says doors were made of wood."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "Which tools does a craftsman use to carve a door?",
+        "options": [
+          "A saw and a long rope",
+          "A hammer and a nail",
+          "A chisel and a small mallet",
+          "A brush and a pot of paint"
+        ],
+        "answer": "C",
+        "skill": "detail",
+        "why": "The article says a craftsman carves the plank with a chisel and a small mallet.",
+        "wrong": {
+          "A": "A rope is not named as a carving tool.",
+          "B": "A nail is not named as a carving tool.",
+          "D": "Paint is not named in the article."
+        }
+      },
+      {
+        "stem": "The article says carving turns a \"plain\" door into fine art. What does plain mean here?",
+        "options": [
+          "Simple, with no decoration",
+          "Large, with many locks",
+          "Old, with a broken frame",
+          "Dark, with a smooth finish"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "Carving adds beauty and decoration, so a plain door is one that has none.",
+        "wrong": {
+          "B": "Locks are not mentioned in the article.",
+          "C": "The article does not say a plain door is broken.",
+          "D": "Color and finish are not the point of the word plain here."
+        }
+      },
+      {
+        "stem": "What happens after the craftsman shapes deep lines into the door?",
+        "options": [
+          "The door becomes too thin to use",
+          "The door must be taken apart again",
+          "The door is moved to a new town",
+          "The lines give the door its real beauty"
+        ],
+        "answer": "D",
+        "skill": "cause-effect",
+        "why": "The article says those carved lines give the door its real beauty and turn it into fine art.",
+        "wrong": {
+          "A": "The article says the door is built thick and heavy.",
+          "B": "The article does not say the door is taken apart.",
+          "C": "The article does not say the door is moved."
+        }
+      },
+      {
+        "stem": "The article says the same technique also shapes furniture. What can you infer from this?",
+        "options": [
+          "Doors are made faster than chests",
+          "The craft can be used for more than doors",
+          "Furniture was made without any tools",
+          "Only doors have flower patterns"
+        ],
+        "answer": "B",
+        "skill": "inference",
+        "why": "The same technique makes chests and low tables too, so the craft is not limited to doors.",
+        "wrong": {
+          "A": "The article does not compare how fast items are made.",
+          "C": "Tools such as chisels are used for the craft.",
+          "D": "The article does not limit flower patterns to doors."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "Besides adding beauty, what useful purpose does a thick, heavy door serve?",
+        "options": [
+          "It keeps out the desert rain",
+          "It blocks the desert heat",
+          "It makes the house look larger",
+          "It keeps visitors from knocking"
+        ],
+        "answer": "B",
+        "skill": "cause-effect",
+        "why": "The article says a heavy door also blocks the desert heat.",
+        "wrong": {
+          "A": "The article describes dry towns and does not mention rain.",
+          "C": "The article does not say a door makes a house look larger.",
+          "D": "The article does not mention knocking."
+        }
+      },
+      {
+        "stem": "The article says flower \"motifs\" recur in rows. What are motifs?",
+        "options": [
+          "Tools that are used to cut deep lines",
+          "Planks that are cut for window covers",
+          "Repeated designs used as decoration",
+          "Apprentices who are learning to carve"
+        ],
+        "answer": "C",
+        "skill": "vocabulary",
+        "why": "Flower motifs recur in neat, repeating rows as decoration, so motifs are repeated designs.",
+        "wrong": {
+          "A": "Tools are named as chisels and mallets, not motifs.",
+          "B": "Planks are the wood, and motifs are carved into them.",
+          "D": "Apprentices are the learners and not the designs."
+        }
+      },
+      {
+        "stem": "How long does an apprentice usually work side by side with a craftsman before working alone?",
+        "options": [
+          "Several years",
+          "A single afternoon",
+          "One short week",
+          "About a month"
+        ],
+        "answer": "A",
+        "skill": "detail",
+        "why": "The article says the apprentice works closely side by side for several years before working alone.",
+        "wrong": {
+          "B": "An afternoon is far shorter than several years.",
+          "C": "A week is far shorter than several years.",
+          "D": "A month is far shorter than several years."
+        }
+      },
+      {
+        "stem": "What does the article suggest about workers who restore aging carved doors?",
+        "options": [
+          "They want to build new homes with concrete only",
+          "They plan to sell all the old doors to tourists",
+          "They think that the old craft has no real value",
+          "They want to preserve the craft for study"
+        ],
+        "answer": "D",
+        "skill": "inference",
+        "why": "The article says workers restore the doors so local people and tourists can study the original craft.",
+        "wrong": {
+          "A": "The article says concrete is why few new doors are carved.",
+          "B": "The article says tourists study the doors, not buy them.",
+          "C": "The article says the craft is carefully restored, so it has value."
+        }
+      }
+    ]
   }
 }

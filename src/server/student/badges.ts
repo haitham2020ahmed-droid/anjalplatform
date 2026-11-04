@@ -9,6 +9,7 @@ import { isUniqueError } from "../db/prisma-repo";
 import { starBook } from "../skills/star-read";
 import { testAssignments } from "../motivation/sync";
 import { activeDays, streakAndPoints } from "./streak";
+import { articleRuns } from "../readrise/first-try";
 
 /** "Steady Practice": distinct days of activity in the last N days (consistency, not streak — gaps are fine). */
 const CONSISTENT_WINDOW_DAYS = 21;
@@ -49,7 +50,9 @@ async function metrics(repo: Repo, studentId: string, schoolId: string | null, n
   const correct = Math.max(0, correctAll - correctInTests);
   // Games Part 3: ReadRise articles finished, Questions of the Day, Live Challenges, plans, coins (one more round trip)
   const [rrArticles, qotdCorrect, qotdAnswered, ledger, wallet, consistentDaysRaw] = await Promise.all([
-    repo.count("RRRun", { studentId, step: "DONE" }),
+    // round 5: "articles finished" = COUNTED articles only (first-try.ts articleRuns: a reliable, careful, non-stretch
+    // first try) — re-reads, stretches, Unreliable and too-fast runs are not articles read
+    repo.findMany("RRRun", { studentId, firstTry: true, stretch: false, score: { not: null } }, { select: ["studentId", "articleId", "firstTry", "stretch", "score", "completedAt", "unreliable", "readSeconds"] }).then((r) => articleRuns(r).length),
     repo.count("QotdAnswer", { studentId, correct: true }),
     repo.count("QotdAnswer", { studentId }),
     repo.findMany("CoinLedger", { studentId, reason: { in: ["live", "live.win", "plan"] } }, { select: ["reason"], take: 2000 }),

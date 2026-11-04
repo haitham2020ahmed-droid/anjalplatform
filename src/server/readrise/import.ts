@@ -43,7 +43,14 @@ export interface KeyWordJson { word: string; partOfSpeech?: string; definition: 
 export interface QuestionJson { stem: string; options: string[]; answer: string; skill: string; why?: string; wrong?: Record<string, string> }
 export interface BandJson { keyWords: KeyWordJson[]; questions: QuestionJson[]; prompt: string; checklist?: string[]; /** ✍️ owner r##: a curated strong answer, shown to the student only after they submit their own */ modelAnswer?: string }
 export interface VersionJson { level: number; title: string; text: string; officialLexile?: number | null }
-export interface ArticleJson { code: string; title: string; topic: string; summary?: string; poll: string; versions: VersionJson[]; bands: Record<RRBand, BandJson> }
+export interface ArticleJson {
+  code: string; title: string; topic: string; summary?: string; poll: string; versions: VersionJson[]; bands: Record<RRBand, BandJson>;
+  /** ⬆ round 5: optional STRETCH question sets — 4 NEW questions per band (stored as RRQuestion band "S-L" / "S-M" / "S-H") */
+  stretch?: Partial<Record<RRBand, QuestionJson[]>>;
+}
+/** ⬆ round 5: questions in each band's stretch set, and the RRQuestion band they are stored under. */
+export const STRETCH_QUESTIONS = 4;
+export const STRETCH_BAND: Record<RRBand, string> = { LOW: "S-L", MID: "S-M", HIGH: "S-H" };
 
 /** A problem and where it is (a JSON place, or "Questions row 7" for the Excel template). */
 export interface Issue { where: string; message: string }
@@ -82,6 +89,54 @@ export function checkVersion(level: number, title: string, text: string): Versio
   if (wordCount < Math.round(target.min * 0.85)) hints.push(`Too short: aim for ${target.min}–${target.max} words.`);
   if (wordCount > Math.round(target.max * 1.2)) hints.push(`Too long: aim for ${target.min}–${target.max} words.`);
   return { level, title, wordCount, estLevel, target, levelOk, wordsOk, hint: hints.length ? hints.join(" ") : null };
+}
+
+/**
+ * One question of a band (or of a stretch set) in the FORMAT.md shape → the clean question; problems go to err/warn
+ * under `key` (e.g. "q:LOW:3", "q:S-H:2").
+ */
+function parseQuestion(rq: unknown, key: string, err: (key: string, message: string) => void, warn: (key: string, message: string) => void): QuestionJson {
+  const q = (rq && typeof rq === "object" ? rq : {}) as Record<string, unknown>;
+  const stem = str(q.stem), options = Array.isArray(q.options) ? (q.options as unknown[]).map(str) : [];
+  const answer = str(q.answer).toUpperCase(), why = str(q.why);
+  // owner r69: the question type — a known spelling ("main idea" → central-idea), else, when empty, from the stem (deterministic)
+  let skill = normalizeQuestionType(q.skill) ?? str(q.skill).toLowerCase().replace(/[\s_]+/g, "-");
+  if (!stem) err(key, "Question text is required.");
+  if (options.length !== 4 || options.some((o) => !o)) err(key, "Needs exactly 4 answer choices (A, B, C, D), none empty.");
+  if (!/^[ABCD]$/.test(answer)) err(key, `Answer must be A, B, C or D (found “${str(q.answer) || "(empty)"}”).`);
+  if (!skill && stem) { skill = inferQuestionType(stem); warn(key, `No skill given: set to “${skill}” from the question.`); }
+  if (!skill) err(key, `Skill is required (${RR_SKILLS.join(", ")}).`);
+  else if (!(RR_SKILLS as readonly string[]).includes(skill)) err(key, `Skill “${str(q.skill)}” is not known. Use one of: ${RR_SKILLS.join(", ")}.`);
+  if (!why) warn(key, "No explanation (Why): students see why the answer is right after the quiz.");
+  const wrong: Record<string, string> = {};
+  if (q.wrong && typeof q.wrong === "object") for (const [L, t] of Object.entries(q.wrong as Record<string, unknown>)) if (/^[ABCD]$/.test(L) && str(t)) wrong[L] = str(t);
+  return { stem, options, answer, skill, ...(why ? { why } : {}), ...(Object.keys(wrong).length ? { wrong } : {}) };
+}
+
+/**
+ * ⬆ round 5: the optional stretch sets (`stretch: { LOW: [4 questions], MID: […], HIGH: […] }`). A band may be left
+ * out; a band that is given needs exactly STRETCH_QUESTIONS valid questions. null = no stretch key at all.
+ */
+export function parseStretchSets(raw: unknown, err: (key: string, message: string) => void, warn: (key: string, message: string) => void): Partial<Record<RRBand, QuestionJson[]>> | null {
+  if (raw === undefined || raw === null) return null;
+  if (typeof raw !== "object" || Array.isArray(raw)) { err("stretch", "Stretch: expected { LOW: [4 questions], MID: [...], HIGH: [...] }."); return null; }
+  const out: Partial<Record<RRBand, QuestionJson[]>> = {};
+  for (const b of BANDS) {
+    const list = (raw as Record<string, unknown>)[b];
+    if (list === undefined || list === null) continue;
+    const sb = STRETCH_BAND[b];
+    if (!Array.isArray(list) || list.length !== STRETCH_QUESTIONS) { err(`band:${sb}`, `The ${b} stretch set needs exactly ${STRETCH_QUESTIONS} questions.`); continue; }
+    out[b] = list.map((rq, i) => parseQuestion(rq, `q:${sb}:${i + 1}`, err, warn));
+  }
+  return out;
+}
+
+/** An RRQuestion row from a question (the "why" and the wrong-option notes become the rationale). */
+export function questionRow(articleId: string, band: string, number: number, q: QuestionJson): Row {
+  const rationale: Record<string, string> = { ...(q.wrong ?? {}) };
+  if (q.why) rationale[q.answer] = q.why;
+  // an empty rationale is left out (stored as NULL, as before)
+  return { articleId, band, number, stem: q.stem, options: q.options, answer: q.answer, skill: q.skill, ...(Object.keys(rationale).length ? { rationale } : {}) };
 }
 
 /** Strict validation of an article in the FORMAT.md shape. Never throws. */
@@ -172,24 +227,7 @@ export function validateArticle(input: unknown, locate: Locate = () => undefined
     const rawQs = Array.isArray(band.questions) ? (band.questions as unknown[]) : [];
     if (rawQs.length !== 8) err(`band:${b}`, `${b} has ${rawQs.length} question${rawQs.length === 1 ? "" : "s"}; it needs exactly 8.`);
     const questions: QuestionJson[] = [];
-    for (const [i, rq] of rawQs.entries()) {
-      const q = (rq && typeof rq === "object" ? rq : {}) as Record<string, unknown>;
-      const key = `q:${b}:${i + 1}`;
-      const stem = str(q.stem), options = Array.isArray(q.options) ? (q.options as unknown[]).map(str) : [];
-      const answer = str(q.answer).toUpperCase(), why = str(q.why);
-      // owner r69: the question type — a known spelling ("main idea" → central-idea), else, when empty, from the stem (deterministic)
-      let skill = normalizeQuestionType(q.skill) ?? str(q.skill).toLowerCase().replace(/[\s_]+/g, "-");
-      if (!stem) err(key, "Question text is required.");
-      if (options.length !== 4 || options.some((o) => !o)) err(key, "Needs exactly 4 answer choices (A, B, C, D), none empty.");
-      if (!/^[ABCD]$/.test(answer)) err(key, `Answer must be A, B, C or D (found “${str(q.answer) || "(empty)"}”).`);
-      if (!skill && stem) { skill = inferQuestionType(stem); warn(key, `No skill given: set to “${skill}” from the question.`); }
-      if (!skill) err(key, `Skill is required (${RR_SKILLS.join(", ")}).`);
-      else if (!(RR_SKILLS as readonly string[]).includes(skill)) err(key, `Skill “${str(q.skill)}” is not known. Use one of: ${RR_SKILLS.join(", ")}.`);
-      if (!why) warn(key, "No explanation (Why): students see why the answer is right after the quiz.");
-      const wrong: Record<string, string> = {};
-      if (q.wrong && typeof q.wrong === "object") for (const [L, t] of Object.entries(q.wrong as Record<string, unknown>)) if (/^[ABCD]$/.test(L) && str(t)) wrong[L] = str(t);
-      questions.push({ stem, options, answer, skill, ...(why ? { why } : {}), ...(Object.keys(wrong).length ? { wrong } : {}) });
-    }
+    for (const [i, rq] of rawQs.entries()) questions.push(parseQuestion(rq, `q:${b}:${i + 1}`, err, warn));
     if (questions.length === 8 && new Set(questions.map((q) => q.answer)).size < 3) warn(`band:${b}`, "The answers use fewer than 3 different letters: spread them over A–D.");
     const prompt = str(band.prompt);
     if (!prompt) err(`prompt:${b}`, "The written-answer prompt is required.");
@@ -201,8 +239,11 @@ export function validateArticle(input: unknown, locate: Locate = () => undefined
     bands[b] = { keyWords, questions, prompt, checklist, ...(modelAnswer ? { modelAnswer } : {}) };
   }
 
+  // ⬆ round 5: the optional stretch question sets
+  const stretch = parseStretchSets(a.stretch, err, warn);
+
   if (errors.length) return { article: null, errors, warnings, checks };
-  return { article: { code, title, topic, summary, poll, versions, bands }, errors, warnings, checks };
+  return { article: { code, title, topic, summary, poll, versions, bands, ...(stretch && Object.keys(stretch).length ? { stretch } : {}) }, errors, warnings, checks };
 }
 
 // ------------------------------------------------------------------ write
@@ -249,12 +290,11 @@ export async function importArticleJson(repo: Repo, actor: Actor | null, json: u
         const c = v.checks.find((x) => x.level === ver.level)!;
         return { articleId: id, level: ver.level, title: ver.title, body: ver.text, wordCount: c.wordCount, estLevel: c.estLevel, ...(ver.officialLexile !== undefined ? { officialLexile: ver.officialLexile } : {}) };
       }));
-      await tx.createMany("RRQuestion", BANDS.flatMap((b) => art.bands[b].questions.map((q, i) => {
-        const rationale: Record<string, string> = { ...(q.wrong ?? {}) };
-        if (q.why) rationale[q.answer] = q.why;
-        // an empty rationale is left out (stored as NULL, as before)
-        return { articleId: id, band: b, number: i + 1, stem: q.stem, options: q.options, answer: q.answer, skill: q.skill, ...(Object.keys(rationale).length ? { rationale } : {}) };
-      })));
+      await tx.createMany("RRQuestion", [
+        ...BANDS.flatMap((b) => art.bands[b].questions.map((q, i) => questionRow(id, b, i + 1, q))),
+        // ⬆ round 5: the stretch sets (when the file has them)
+        ...BANDS.flatMap((b) => (art.stretch?.[b] ?? []).map((q, i) => questionRow(id, STRETCH_BAND[b], i + 1, q))),
+      ]);
       await tx.createMany("RRPrompt", BANDS.map((b) => ({ articleId: id, band: b, prompt: art.bands[b].prompt, checklist: art.bands[b].checklist ?? [], keyWords: art.bands[b].keyWords, modelAnswer: art.bands[b].modelAnswer ?? null })));
       return id;
     }
@@ -274,6 +314,12 @@ export async function importArticleJson(repo: Repo, actor: Actor | null, json: u
       }
       const p: Row = { prompt: band.prompt, checklist: band.checklist ?? [], keyWords: band.keyWords, modelAnswer: band.modelAnswer ?? null };
       await tx.upsert("RRPrompt", { articleId: id, band: b }, p, p);
+      // ⬆ round 5: the band's stretch set (when the file has one)
+      for (const [i, q] of (art.stretch?.[b] ?? []).entries()) {
+        const { articleId: _a, band: _b, number: _n, ...data } = questionRow(id, STRETCH_BAND[b], i + 1, q);
+        if (!("rationale" in data)) data.rationale = null;
+        await tx.upsert("RRQuestion", { articleId: id, band: STRETCH_BAND[b], number: i + 1 }, data, data);
+      }
     }
     return id;
   });

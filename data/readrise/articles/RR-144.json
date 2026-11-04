@@ -614,5 +614,217 @@
       ],
       "modelAnswer": "For my school's water-saving campaign, I would promote three habits from the article. First, turning off the tap while brushing teeth saves water because a running tap wastes several liters every minute. Second, watering plants in the early morning or evening reduces evaporation in the hot sun, so less water is lost before it reaches the roots. Third, using efficient water-saving devices on taps and showers reduces the amount of water that flows out without anyone changing their habits. These three habits matter because Saudi Arabia relies on expensive desalinated water and slow-renewing groundwater, so using water more sustainably protects a limited resource."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "What should you do if a tap drips?",
+        "options": [
+          "Fix it with tape",
+          "Tell an adult",
+          "Turn on the shower",
+          "Wait a year"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The text says that if a tap drips, you should tell an adult.",
+        "wrong": {
+          "A": "The text does not say to fix it with tape.",
+          "C": "Using more water would waste water.",
+          "D": "A leak can waste a lot in a year, so waiting is bad."
+        }
+      },
+      {
+        "stem": "Why is clean water hard to get in Saudi Arabia?",
+        "options": [
+          "There is no sea nearby",
+          "The plants are too small",
+          "The taps are too big",
+          "It does not rain much"
+        ],
+        "answer": "D",
+        "skill": "cause-effect",
+        "why": "The text says the land has no big rivers or lakes and it does not rain much.",
+        "wrong": {
+          "A": "A lot of water comes from the sea.",
+          "B": "The plants that take out salt are big.",
+          "C": "The taps are not the problem."
+        }
+      },
+      {
+        "stem": "The text says a small leak can waste a lot of water. What does waste mean?",
+        "options": [
+          "to use up for nothing",
+          "to clean it very well",
+          "to save it for later",
+          "to make it very salty"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "Water that drips out of a leak is lost and not used for anything good, so waste means to use it up for no reason.",
+        "wrong": {
+          "B": "A leak does not clean anything.",
+          "C": "Saving is the opposite of wasting.",
+          "D": "A leak does not make water salty."
+        }
+      },
+      {
+        "stem": "Why is it good to run the wash only when it is full?",
+        "options": [
+          "The clothes get dry fast",
+          "The soap lasts longer",
+          "It uses less water",
+          "The tap will not drip"
+        ],
+        "answer": "C",
+        "skill": "inference",
+        "why": "The article is about saving water, so one full wash uses less water than many small ones.",
+        "wrong": {
+          "A": "The text does not talk about drying.",
+          "B": "The text does not talk about soap.",
+          "D": "A full wash does not stop a tap from dripping."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "How much water can a running tap waste every minute?",
+        "options": [
+          "A few drops",
+          "One small cup",
+          "Several liters",
+          "Nothing at all"
+        ],
+        "answer": "C",
+        "skill": "detail",
+        "why": "The text says a running tap can waste several liters every minute.",
+        "wrong": {
+          "A": "The text says several liters.",
+          "B": "The text says several liters.",
+          "D": "A running tap does waste water."
+        }
+      },
+      {
+        "stem": "Why is making fresh water from the sea a problem?",
+        "options": [
+          "It costs money and uses energy",
+          "It makes more salt in the sea",
+          "It only works when it rains",
+          "It gives water that is salty"
+        ],
+        "answer": "A",
+        "skill": "cause-effect",
+        "why": "The text says the process costs a lot of money and uses a great deal of energy.",
+        "wrong": {
+          "B": "The plants remove the salt.",
+          "C": "Desalination does not depend on rain.",
+          "D": "The plants take out the salt so the water is fresh."
+        }
+      },
+      {
+        "stem": "The article says it is important to conserve water. What does conserve mean?",
+        "options": [
+          "sell to other lands",
+          "pour out on the road",
+          "wash again and again",
+          "save and not waste"
+        ],
+        "answer": "D",
+        "skill": "vocabulary",
+        "why": "The tips that follow are all about saving water and wasting less.",
+        "wrong": {
+          "A": "The tips are about home use, not selling.",
+          "B": "Pouring water out would waste it.",
+          "C": "Washing again and again would use more water."
+        }
+      },
+      {
+        "stem": "Why does the author say small actions by millions of people add up?",
+        "options": [
+          "To say only adults can help",
+          "To show small acts matter",
+          "To tell how to make a tank",
+          "To say the sea is empty"
+        ],
+        "answer": "B",
+        "skill": "author-purpose",
+        "why": "The author wants readers to see that small acts matter when many people do them.",
+        "wrong": {
+          "A": "The article says each family, including kids, can help.",
+          "C": "Tanks are not discussed.",
+          "D": "The sea is not empty; it is a source of water."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "According to the article, what is an aquifer?",
+        "options": [
+          "A plant that cleans the sea",
+          "A pipe that carries rain",
+          "A tank for desalination",
+          "A rock layer that holds water"
+        ],
+        "answer": "D",
+        "skill": "detail",
+        "why": "The text says an aquifer is an underground layer of rock that holds water like a sponge.",
+        "wrong": {
+          "A": "Desalination plants remove salt; an aquifer is underground.",
+          "B": "The text does not describe a pipe.",
+          "C": "An aquifer is natural rock, not a tank."
+        }
+      },
+      {
+        "stem": "In the article, desalination means",
+        "options": [
+          "finding water deep underground",
+          "taking the salt out of seawater",
+          "watering plants in the evening",
+          "saving rain in a tank"
+        ],
+        "answer": "B",
+        "skill": "vocabulary",
+        "why": "The article explains that Saudi Arabia removes salt from seawater to make fresh water, a process called desalination.",
+        "wrong": {
+          "A": "Underground water is groundwater from aquifers.",
+          "C": "Evening watering is a way to save water, not desalination.",
+          "D": "Saving rain is not what desalination means."
+        }
+      },
+      {
+        "stem": "Why must Saudi Arabia get so much water from the sea?",
+        "options": [
+          "It has no permanent rivers",
+          "Its lakes are too far north",
+          "Its rain is stored in tanks",
+          "Its aquifer is too wet"
+        ],
+        "answer": "A",
+        "skill": "cause-effect",
+        "why": "The country has no permanent rivers or large lakes, so its water must come from other sources such as the sea.",
+        "wrong": {
+          "B": "The text says there are no large lakes.",
+          "C": "Rain is infrequent, so it cannot supply much.",
+          "D": "The aquifer is refilled very slowly."
+        }
+      },
+      {
+        "stem": "Why does washing a car with a bucket save water?",
+        "options": [
+          "A bucket makes less soap",
+          "A hose is not allowed",
+          "A bucket holds a set amount",
+          "A bucket dries faster"
+        ],
+        "answer": "C",
+        "skill": "inference",
+        "why": "A bucket holds only a set amount, while a running hose keeps using water.",
+        "wrong": {
+          "A": "The text does not talk about soap.",
+          "B": "The text does not say hoses are banned.",
+          "D": "Drying is not the reason."
+        }
+      }
+    ]
   }
 }

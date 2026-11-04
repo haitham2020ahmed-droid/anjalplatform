@@ -614,5 +614,217 @@
       ],
       "modelAnswer": "I think relocating a capital to a new, planned city can be a good decision for a large, diverse country. The article explains that Brazil relocated its capital from Rio de Janeiro to Brasilia, and Nigeria relocated its capital from Lagos to Abuja, both moving toward more centrally positioned locations. A central, newly designated capital can feel fairer to different regions and can also carry symbolic weight, representing a fresh start for the whole nation, even though building the necessary infrastructure takes enormous effort."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "What do men and women in Riyadh do there each day?",
+        "options": [
+          "They fish in the sea",
+          "They sail big ships",
+          "They work in the city",
+          "They rest at home"
+        ],
+        "answer": "C",
+        "skill": "detail",
+        "why": "The text says many men and women live in Riyadh and work there each day.",
+        "wrong": {
+          "A": "The text does not say they fish.",
+          "B": "The text does not say they sail ships.",
+          "D": "The text says they work there each day."
+        }
+      },
+      {
+        "stem": "In the article, the word key means —",
+        "options": [
+          "very important",
+          "a tool for doors",
+          "easy to open",
+          "small and old"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "The text says the capital is key because it sits at the heart of a land, so key means very important.",
+        "wrong": {
+          "B": "The article is not about a door tool.",
+          "C": "Easy to open does not fit a city.",
+          "D": "The text does not call the capital small."
+        }
+      },
+      {
+        "stem": "The text says a few capitals were made just for this. What does that tell you?",
+        "options": [
+          "Capitals are always old cities.",
+          "Capitals sit only near the sea.",
+          "Every capital is a small town.",
+          "A land can build a new city."
+        ],
+        "answer": "D",
+        "skill": "inference",
+        "why": "If a capital was made just to be a capital, a land can build a brand-new city for that job.",
+        "wrong": {
+          "A": "The text says some capitals are new.",
+          "B": "The text says only some capitals sit near the sea.",
+          "C": "The text says Riyadh is big, so not every capital is small."
+        }
+      },
+      {
+        "stem": "Where do some capitals sit?",
+        "options": [
+          "Next to a wall",
+          "Near the sea",
+          "On a small boat",
+          "Inside a mountain"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The text says some capitals sit near the sea.",
+        "wrong": {
+          "A": "A wall is not mentioned.",
+          "C": "Capitals are cities, not boats.",
+          "D": "The text does not put capitals inside mountains."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "Riyadh is the official home of what?",
+        "options": [
+          "The Saudi army base",
+          "The biggest harbor",
+          "The region's schools",
+          "The Saudi government"
+        ],
+        "answer": "D",
+        "skill": "detail",
+        "why": "The text says Riyadh is the official home of the Saudi government.",
+        "wrong": {
+          "A": "An army base is not mentioned.",
+          "B": "A harbor is not mentioned.",
+          "C": "The text does not say it is the home of the schools."
+        }
+      },
+      {
+        "stem": "In the article, the word practical most nearly means —",
+        "options": [
+          "very old",
+          "useful",
+          "secret",
+          "expensive"
+        ],
+        "answer": "B",
+        "skill": "vocabulary",
+        "why": "Plain, practical reasons are useful, everyday reasons for picking a spot.",
+        "wrong": {
+          "A": "The sentence is about new spots, not old ones.",
+          "C": "Plain reasons are not secret.",
+          "D": "Cost is not the idea of the sentence."
+        }
+      },
+      {
+        "stem": "The article says a historic capital ties a land's rule to its past. What does this mean?",
+        "options": [
+          "It links today's leaders to history",
+          "It stops leaders from making laws",
+          "It means the capital must be small",
+          "It shows the city is the biggest"
+        ],
+        "answer": "A",
+        "skill": "inference",
+        "why": "A capital that has held its role for years connects the government of today with the land's history.",
+        "wrong": {
+          "B": "Nothing in the text says leaders are stopped from making laws.",
+          "C": "The text does not say historic capitals are small.",
+          "D": "The text says a capital is not always the biggest city."
+        }
+      },
+      {
+        "stem": "Why does the author begin with a question about how a capital is picked?",
+        "options": [
+          "To say capitals are never picked",
+          "To list every capital in the world",
+          "To make readers curious about the topic",
+          "To argue that cities should be bigger"
+        ],
+        "answer": "C",
+        "skill": "author-purpose",
+        "why": "The opening question makes readers want to learn what makes a city a capital.",
+        "wrong": {
+          "A": "The article explains how capitals are picked.",
+          "B": "The article does not list every capital.",
+          "D": "The article does not argue about city size."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "Along with the Saudi government, what is Riyadh the official home of?",
+        "options": [
+          "The country's navy",
+          "The royal family",
+          "The oldest school",
+          "The national team"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The text says Riyadh is the home of both the Saudi government and the royal family.",
+        "wrong": {
+          "A": "A navy is not mentioned.",
+          "C": "A school is not mentioned.",
+          "D": "A national team is not mentioned."
+        }
+      },
+      {
+        "stem": "In the article, the word sprawling most nearly means —",
+        "options": [
+          "small and crowded",
+          "poor and far away",
+          "quiet and peaceful",
+          "huge and spread out"
+        ],
+        "answer": "D",
+        "skill": "vocabulary",
+        "why": "A central capital can feel fair to every region of a sprawling country, which suggests a huge country with many regions.",
+        "wrong": {
+          "A": "A small country would not have many regions.",
+          "B": "The text does not describe the country as poor.",
+          "C": "Quiet and peaceful is not the idea of the sentence."
+        }
+      },
+      {
+        "stem": "What can the reader infer from the last paragraph?",
+        "options": [
+          "Every capital sits on a busy coast",
+          "Every capital is built in cool hills",
+          "Countries pick sites for different reasons",
+          "Every capital has the same kind of site"
+        ],
+        "answer": "C",
+        "skill": "inference",
+        "why": "The text says capitals sit on coasts, inland, or in hills, chosen for reasons as different as the countries.",
+        "wrong": {
+          "A": "Only some capitals sit on a coast.",
+          "B": "Only some capitals sit in hills.",
+          "D": "The text says the sites are very different."
+        }
+      },
+      {
+        "stem": "Why has Riyadh been able to grow fast?",
+        "options": [
+          "It has infrastructure built to match its role",
+          "It was moved from another city in 1960",
+          "It is the largest port in the country",
+          "It was built overnight as a planned city"
+        ],
+        "answer": "A",
+        "skill": "cause-effect",
+        "why": "The text says Riyadh has grown fast, backed by infrastructure built to match its growing role.",
+        "wrong": {
+          "B": "The 1960 move was Brazil's capital, not Riyadh.",
+          "C": "The text does not call Riyadh a port.",
+          "D": "The text does not say Riyadh was built overnight."
+        }
+      }
+    ]
   }
 }

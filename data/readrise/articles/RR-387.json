@@ -614,5 +614,217 @@
       ],
       "modelAnswer": "I agree that failing a rehearsal can help someone succeed later. In the story, Layla's rehearsal revealed that her baking soda to vinegar ratio was wrong, and that early failure gave her time to analyze the problem and recalculate the mixture before the real fair. Someone might argue that failing is simply discouraging, but Layla's persistence shows that a timely failure can actually prevent a much bigger one in front of the judges."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "What did Layla do after the second test worked?",
+        "options": [
+          "She wrote down the right mixture.",
+          "She cleaned the kitchen alone.",
+          "She threw away her card.",
+          "She made a new volcano."
+        ],
+        "answer": "A",
+        "skill": "sequence",
+        "why": "The text says Layla wrote down the right mixture after the test worked.",
+        "wrong": {
+          "B": "Omar helped her clean up.",
+          "C": "She kept the card and her notes.",
+          "D": "She used the same volcano the next day."
+        }
+      },
+      {
+        "stem": "In the story, what does the word \"problem\" mean?",
+        "options": [
+          "A prize given at a school fair",
+          "Something that is not right",
+          "A kind of soda in the kitchen",
+          "A funny story that Omar told"
+        ],
+        "answer": "B",
+        "skill": "vocabulary",
+        "why": "Layla saw the problem, which was that she put in too little soda, so a problem is something not right.",
+        "wrong": {
+          "A": "A prize is not mentioned.",
+          "C": "Soda was part of the problem but is not the meaning of the word.",
+          "D": "Omar did not tell a funny story."
+        }
+      },
+      {
+        "stem": "What happened when Layla used more soda?",
+        "options": [
+          "The volcano broke in two.",
+          "Only a few bubbles came up.",
+          "The mix turned bright blue.",
+          "Red bubbles shot over the top."
+        ],
+        "answer": "D",
+        "skill": "cause-effect",
+        "why": "With more soda, red bubbles shot up and over the top.",
+        "wrong": {
+          "A": "The volcano did not break.",
+          "B": "That happened the first time, with too little soda.",
+          "C": "The bubbles were red."
+        }
+      },
+      {
+        "stem": "What can you tell about Layla from the story?",
+        "options": [
+          "She gives up quickly when she is sad",
+          "She does not like to read her notes",
+          "She keeps trying when something fails",
+          "She always wins every science fair"
+        ],
+        "answer": "C",
+        "skill": "inference",
+        "why": "Layla felt sad, but she checked her notes and tried again until it worked.",
+        "wrong": {
+          "A": "Layla tried again after being sad.",
+          "B": "She read her notes with Omar.",
+          "D": "The story does not say she always wins."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "Why did Layla add red food coloring to her volcano?",
+        "options": [
+          "To make the bubbles taste sweet",
+          "To keep the soda from spilling",
+          "To make it look like real lava",
+          "To show where the problem was"
+        ],
+        "answer": "C",
+        "skill": "detail",
+        "why": "She had mixed in red food coloring because she wanted it to look like real lava.",
+        "wrong": {
+          "A": "The bubbles are not for tasting.",
+          "B": "Coloring does not stop spills.",
+          "D": "The coloring did not show the problem; the recipe card did."
+        }
+      },
+      {
+        "stem": "In the story, what does the word \"ratio\" mean?",
+        "options": [
+          "An amount compared with another",
+          "The color printed on a recipe card",
+          "The time left before the fair",
+          "The name of a science tool"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "The ratio of soda to vinegar compares how much soda there is with how much vinegar.",
+        "wrong": {
+          "B": "Color has nothing to do with ratio.",
+          "C": "The time left is a different worry.",
+          "D": "Ratio is not a tool."
+        }
+      },
+      {
+        "stem": "What did Layla's teacher praise her for?",
+        "options": [
+          "Making the largest volcano in school",
+          "Finishing her project before everyone",
+          "Using more colors than other students",
+          "Finding a problem and trying again"
+        ],
+        "answer": "D",
+        "skill": "detail",
+        "why": "The teacher praised her for finding a problem, testing a fix, and trying again.",
+        "wrong": {
+          "A": "The size of her volcano is not mentioned.",
+          "B": "Her speed is not mentioned.",
+          "C": "The number of colors is not mentioned."
+        }
+      },
+      {
+        "stem": "Why does the author begin by asking you to imagine spending weeks on a project?",
+        "options": [
+          "To prove that science projects are easy",
+          "To help readers understand Layla's worry",
+          "To tell readers how to make a volcano",
+          "To explain why Omar was a judge"
+        ],
+        "answer": "B",
+        "skill": "author-purpose",
+        "why": "The opening asks readers to picture a project failing, so they can feel Layla's worry.",
+        "wrong": {
+          "A": "The project is hard, not easy.",
+          "C": "The opening is not a set of instructions.",
+          "D": "Omar is Layla's brother, not a judge."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "Omar suggests they analyze her notes. What does analyze mean?",
+        "options": [
+          "to throw away",
+          "to study closely",
+          "to write quickly",
+          "to hide from others"
+        ],
+        "answer": "B",
+        "skill": "vocabulary",
+        "why": "Omar wants them to look carefully at the notes to find the mistake, so analyze means to study closely.",
+        "wrong": {
+          "A": "They use the notes; they do not throw them away.",
+          "C": "Writing quickly is not analyzing.",
+          "D": "They look at the notes together; they do not hide them."
+        }
+      },
+      {
+        "stem": "What did Layla make the model volcano from?",
+        "options": [
+          "Wood and metal",
+          "Plastic and glass",
+          "Stone and sand",
+          "Cardboard and clay"
+        ],
+        "answer": "D",
+        "skill": "detail",
+        "why": "The text says she built the volcano from cardboard and clay.",
+        "wrong": {
+          "A": "Wood and metal are not mentioned.",
+          "B": "Plastic and glass are not mentioned.",
+          "C": "Stone and sand are not mentioned."
+        }
+      },
+      {
+        "stem": "Why did Layla feel anxious after the first rehearsal failed?",
+        "options": [
+          "Almost no time was left before the fair",
+          "Omar had refused to help her any more",
+          "Her teacher had already seen the failure",
+          "The judges were waiting in the kitchen"
+        ],
+        "answer": "A",
+        "skill": "cause-effect",
+        "why": "The text says she was increasingly anxious since almost no time remained before the fair.",
+        "wrong": {
+          "B": "Omar stayed and helped.",
+          "C": "Her teacher was not there at the rehearsal.",
+          "D": "The rehearsal was only Layla and Omar."
+        }
+      },
+      {
+        "stem": "The story says Layla's persistence was finally rewarded. What does this show?",
+        "options": [
+          "Her volcano was larger than the others",
+          "The judges had already chosen her",
+          "Her continued effort led to success",
+          "Omar did all the work for her"
+        ],
+        "answer": "C",
+        "skill": "inference",
+        "why": "She kept trying, repeated the process, and finally got the eruption she wanted.",
+        "wrong": {
+          "A": "The size of the others' volcanoes is not mentioned.",
+          "B": "The judges had not yet seen it.",
+          "D": "Layla measured and poured herself."
+        }
+      }
+    ]
   }
 }

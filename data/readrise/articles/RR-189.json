@@ -614,5 +614,217 @@
       ],
       "modelAnswer": "I do not think one person's effort alone is enough to solve big environmental problems, but Wangari Maathai's story shows that one person's effort can start a movement big enough to matter. She founded the Green Belt Movement by teaching women to plant seedlings, and over the years that single idea grew into tens of millions of trees planted across Kenya, showing real change at a huge scale. Still, this result depended on an entire community of women working together for decades, which is really the lesson of the hummingbird story, that each small effort matters most when many people add theirs together."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "What did Wangari drink from as a girl?",
+        "options": [
+          "A clear stream",
+          "A deep well",
+          "A big river",
+          "A city tap"
+        ],
+        "answer": "A",
+        "skill": "detail",
+        "why": "The text says she drank from a clear stream.",
+        "wrong": {
+          "B": "A well is not mentioned.",
+          "C": "A big river is not mentioned.",
+          "D": "The text says she lived on a farm and drank from a stream."
+        }
+      },
+      {
+        "stem": "Why were trees good for the land?",
+        "options": [
+          "They made the rain stop.",
+          "They kept the farm small.",
+          "They made streams hot.",
+          "Their roots held the soil."
+        ],
+        "answer": "D",
+        "skill": "cause-effect",
+        "why": "The text says the roots of the trees held the soil.",
+        "wrong": {
+          "A": "Nothing says trees stop the rain.",
+          "B": "The size of the farm is not mentioned.",
+          "C": "Streams drying up was a problem, not an effect of trees."
+        }
+      },
+      {
+        "stem": "In this article, what is a movement?",
+        "options": [
+          "A kind of young tree",
+          "A group with one goal",
+          "A trip to find wood",
+          "A big money prize"
+        ],
+        "answer": "B",
+        "skill": "vocabulary",
+        "why": "The Green Belt Movement was a group of people who worked together to plant trees.",
+        "wrong": {
+          "A": "Young trees are called seedlings.",
+          "C": "The trip to find wood was a problem for moms.",
+          "D": "The prize she won was the Nobel Peace Prize."
+        }
+      },
+      {
+        "stem": "What does \"the first woman\" to get the top degree tell you?",
+        "options": [
+          "Many women had done it before",
+          "The degree was easy to get",
+          "It was hard for women to do then",
+          "She did not like school"
+        ],
+        "answer": "C",
+        "skill": "inference",
+        "why": "If she was the first woman in her part of the world, it was rare and hard for women to do at that time.",
+        "wrong": {
+          "A": "First means no woman had done it before.",
+          "B": "The text calls it the top degree, so it was not easy.",
+          "D": "The text says she loved to learn."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "What did Wangari study at a college in the United States?",
+        "options": [
+          "Farming",
+          "History",
+          "Medicine",
+          "Biology"
+        ],
+        "answer": "D",
+        "skill": "detail",
+        "why": "The text says she won a scholarship to study biology.",
+        "wrong": {
+          "A": "Farming is not named as her subject.",
+          "B": "History is not named as her subject.",
+          "C": "Medicine is not named as her subject."
+        }
+      },
+      {
+        "stem": "In the article, the word survived means —",
+        "options": [
+          "stayed alive",
+          "grew very tall",
+          "was moved away",
+          "was sold for money"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "The women were paid for each tree that survived, meaning the tree stayed alive.",
+        "wrong": {
+          "B": "A tree can survive without growing very tall.",
+          "C": "Moving trees is not what the word means.",
+          "D": "The women were paid; the trees were not sold."
+        }
+      },
+      {
+        "stem": "Why did women have to walk for hours to collect firewood?",
+        "options": [
+          "Their farms were too small.",
+          "The roads were closed.",
+          "Forests near them had been cleared.",
+          "Firewood was sold only in cities."
+        ],
+        "answer": "C",
+        "skill": "inference",
+        "why": "Many forests had been cleared for farms, so wood was no longer close by.",
+        "wrong": {
+          "A": "Farm size is not given as the reason.",
+          "B": "Closed roads are not mentioned.",
+          "D": "The text does not say wood was sold only in cities."
+        }
+      },
+      {
+        "stem": "Why does the author mention Saudi Arabia's plans to plant billions of trees?",
+        "options": [
+          "To say Kenya stopped planting",
+          "To show her idea still matters",
+          "To describe a forest fire",
+          "To explain how seedlings grow"
+        ],
+        "answer": "B",
+        "skill": "author-purpose",
+        "why": "The plans show that planting trees, Wangari's idea, is still important in many countries today.",
+        "wrong": {
+          "A": "The movement still continues in Kenya.",
+          "C": "The forest fire story is told in the sentences before.",
+          "D": "Seedlings were explained earlier."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "Besides holding the soil, what did the trees provide?",
+        "options": [
+          "Wells, bridges, and roads",
+          "Shade, firewood, fruit",
+          "Farmland, fish, and stones",
+          "Rainwater, salt, and sand"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The text says the branches provided shade, firewood, and fruit.",
+        "wrong": {
+          "A": "Wells, bridges, and roads are not mentioned.",
+          "C": "Fish and stones are not mentioned.",
+          "D": "The roots helped rainwater soak into the ground; they did not provide salt or sand."
+        }
+      },
+      {
+        "stem": "In the article, the word modest means —",
+        "options": [
+          "very large",
+          "full of danger",
+          "quick to arrive",
+          "fairly small"
+        ],
+        "answer": "D",
+        "skill": "vocabulary",
+        "why": "The payment gave a small income, so a modest payment is a fairly small one.",
+        "wrong": {
+          "A": "The text calls it a small income.",
+          "B": "Danger is not mentioned.",
+          "C": "The payment was for trees that survived, not about speed."
+        }
+      },
+      {
+        "stem": "How did paying for each surviving tree help the women?",
+        "options": [
+          "It gave them a small income.",
+          "It paid for their college.",
+          "It let them leave the farms.",
+          "It made the trees grow faster."
+        ],
+        "answer": "A",
+        "skill": "cause-effect",
+        "why": "The text says the payment meant the work also provided a small income.",
+        "wrong": {
+          "B": "College is not mentioned for the women.",
+          "C": "Leaving the farms is not mentioned.",
+          "D": "The payment did not affect the speed of growth."
+        }
+      },
+      {
+        "stem": "Why does the author open with the clean stream and tall trees of Wangari's childhood?",
+        "options": [
+          "To teach readers how to build a farm",
+          "To explain why the Nobel Prize exists",
+          "To contrast with the damage she later saw",
+          "To list the cities of East Africa"
+        ],
+        "answer": "C",
+        "skill": "author-purpose",
+        "why": "Her childhood land was green with clean water, which contrasts with the cleared forests and drying streams she later saw.",
+        "wrong": {
+          "A": "The article does not teach farming.",
+          "B": "The Nobel Prize is described near the end.",
+          "D": "The article does not list cities."
+        }
+      }
+    ]
   }
 }

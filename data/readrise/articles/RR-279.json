@@ -614,5 +614,217 @@
       ],
       "modelAnswer": "I agree that rowing success depends on physics and teamwork just as much as raw strength. The article explains that the oar works like a lever, converting a rower's short handle movement into a powerful sweep of the blade, which shows that technique matters as much as muscle. It also explains that when a crew moves in perfect coordination, the boat's own momentum carries it smoothly forward between strokes, while poor coordination wastes energy and slows the crew down. Together, these facts show that strength alone is not enough without good physics and teamwork."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "What is an oar?",
+        "options": [
+          "A short rope with a knot",
+          "A long pole with a flat end",
+          "A small boat with a sail",
+          "A wide sail on the boat"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The text says an oar is a long pole with a flat end.",
+        "wrong": {
+          "A": "A rope is not mentioned.",
+          "C": "The boat is called a shell.",
+          "D": "A sail is not mentioned."
+        }
+      },
+      {
+        "stem": "In this article, what does the word glides mean?",
+        "options": [
+          "Stops quickly",
+          "Sinks down",
+          "Turns over",
+          "Moves smoothly"
+        ],
+        "answer": "D",
+        "skill": "vocabulary",
+        "why": "The text says the boat glides fast and smooth, so glides means moves smoothly.",
+        "wrong": {
+          "A": "The boat is moving, not stopping.",
+          "B": "The boat stays on the water.",
+          "C": "Turning over is not mentioned."
+        }
+      },
+      {
+        "stem": "What makes the boat move ahead?",
+        "options": [
+          "The oar pushing the water",
+          "The wind in the trees",
+          "The shell getting lighter",
+          "The coxswain sitting still"
+        ],
+        "answer": "A",
+        "skill": "cause-effect",
+        "why": "The text says that when an oar pushes water, the boat moves ahead.",
+        "wrong": {
+          "B": "Wind is not mentioned.",
+          "C": "The weight of the shell is not mentioned.",
+          "D": "The coxswain calls out; she does not push the boat."
+        }
+      },
+      {
+        "stem": "What would likely happen if a rower did not push the water hard?",
+        "options": [
+          "The boat would go faster.",
+          "The boat would lose an oar.",
+          "The boat would go slower.",
+          "The boat would turn white."
+        ],
+        "answer": "C",
+        "skill": "inference",
+        "why": "The text says pushing hard makes the boat go fast, so pushing weakly would make it slower.",
+        "wrong": {
+          "A": "Pushing hard makes it faster, not pushing weakly.",
+          "B": "Losing an oar is not mentioned.",
+          "D": "Color is not mentioned."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "Which way do the rowers face in the boat?",
+        "options": [
+          "Toward the side of the boat",
+          "Toward the front of the boat",
+          "Toward the back of the boat",
+          "Toward the cold water ahead"
+        ],
+        "answer": "C",
+        "skill": "detail",
+        "why": "The text says each rower faces the back of the boat.",
+        "wrong": {
+          "A": "The text says they face the back, not the side.",
+          "B": "They face the back, not the front.",
+          "D": "The text says they face the back of the boat."
+        }
+      },
+      {
+        "stem": "In the article, the word synchronized means —",
+        "options": [
+          "moving together in time",
+          "pulling in different ways",
+          "working one after another",
+          "resting in the shell"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "The coxswain calls the rhythm so the crew stays synchronized, moving together in time.",
+        "wrong": {
+          "B": "Pulling in different ways is the opposite.",
+          "C": "Working one after another is not together.",
+          "D": "Resting is not what the crew is told to do."
+        }
+      },
+      {
+        "stem": "What does the oar working like a lever let the blade end do?",
+        "options": [
+          "Slide through the water with no force",
+          "Rest on top of the water",
+          "Spin around in the air",
+          "Sweep through the water with great force"
+        ],
+        "answer": "D",
+        "skill": "cause-effect",
+        "why": "The text says the handle moves a short distance but the blade end sweeps through the water with great force.",
+        "wrong": {
+          "A": "The blade moves with great force, not none.",
+          "B": "The blade sweeps through the water.",
+          "C": "Spinning in the air is not mentioned."
+        }
+      },
+      {
+        "stem": "Why does the author begin with a question about a crew gliding across calm water?",
+        "options": [
+          "To list the rowing rules",
+          "To show how smooth rowing looks",
+          "To explain the Olympic Games",
+          "To tell how to build a boat"
+        ],
+        "answer": "B",
+        "skill": "author-purpose",
+        "why": "The opening question helps the reader picture smooth rowing before the article explains how strength and teamwork make it happen.",
+        "wrong": {
+          "A": "The rules are not listed in the opening.",
+          "C": "The Olympics come near the end.",
+          "D": "The article does not tell how to build a boat."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "Which way do rowers face as they work?",
+        "options": [
+          "Toward the stern",
+          "Toward the bow",
+          "Toward the shore",
+          "Toward the coach"
+        ],
+        "answer": "A",
+        "skill": "detail",
+        "why": "The text says each rower faces the stern, or back, of the boat.",
+        "wrong": {
+          "B": "The bow is the front, and they face the back.",
+          "C": "The shore is not mentioned.",
+          "D": "The coach is not mentioned as the direction they face."
+        }
+      },
+      {
+        "stem": "In the article, the word propelled most nearly means —",
+        "options": [
+          "held back",
+          "made heavier",
+          "pushed forward",
+          "slowly stopped"
+        ],
+        "answer": "C",
+        "skill": "vocabulary",
+        "why": "The crew glides across the water moved only by oars, so propelled means pushed forward.",
+        "wrong": {
+          "A": "The boat is gliding, not held back.",
+          "B": "Weight is not mentioned.",
+          "D": "The boat keeps moving."
+        }
+      },
+      {
+        "stem": "What can small timing mistakes cost a crew in a close race?",
+        "options": [
+          "Their oars",
+          "Valuable seconds",
+          "Their coach",
+          "Extra rowers"
+        ],
+        "answer": "B",
+        "skill": "cause-effect",
+        "why": "The text says even small timing mistakes can cost a crew valuable seconds in a close race.",
+        "wrong": {
+          "A": "Losing oars is not mentioned.",
+          "C": "Losing a coach is not mentioned.",
+          "D": "Extra rowers are not mentioned."
+        }
+      },
+      {
+        "stem": "What does the author suggest by saying strength and teamwork matter equally?",
+        "options": [
+          "Strong rowers can win alone.",
+          "Only teamwork is needed to win.",
+          "Coaches pick the strongest rowers.",
+          "A crew needs both to succeed."
+        ],
+        "answer": "D",
+        "skill": "inference",
+        "why": "The text says rowing combines raw strength with teamwork and that both matter equally for success.",
+        "wrong": {
+          "A": "The text says both matter, not strength alone.",
+          "B": "Strength matters as well as teamwork.",
+          "C": "Picking rowers is not mentioned."
+        }
+      }
+    ]
   }
 }

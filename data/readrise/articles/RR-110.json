@@ -614,5 +614,217 @@
       ],
       "modelAnswer": "I believe people should work much harder to protect sharks, because they are apex predators whose health is tied to the health of the whole ecosystem, since removing sick or weak fish helps keep ocean populations in balance. Despite their fearsome reputation, sharks are actually more vulnerable to humans than humans are to them, as people kill millions of sharks every year, often only for their fins, while shark bites on people remain extremely rare. Sharks also rely on remarkable senses, like detecting the faint vibrations of nearby fish, to survive as hunters, but none of these abilities protect them from large-scale fishing. Because losing apex predators can throw an entire ecosystem out of balance, protecting sharks is really about protecting the health of the whole ocean."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "How long is the whale shark?",
+        "options": [
+          "As long as a bus",
+          "As long as a hand",
+          "As long as a small boat",
+          "As long as a school desk"
+        ],
+        "answer": "A",
+        "skill": "detail",
+        "why": "The text says the whale shark is as long as a bus.",
+        "wrong": {
+          "B": "A hand is the size of the smallest sharks, not the whale shark.",
+          "C": "The text says a bus, not a small boat.",
+          "D": "A school desk is much too short for the biggest fish."
+        }
+      },
+      {
+        "stem": "Why does a shark need rows and rows of teeth?",
+        "options": [
+          "It uses them to smell blood.",
+          "It chews food for a long time.",
+          "It can lose lots of its teeth.",
+          "It has to find tiny bits of food."
+        ],
+        "answer": "C",
+        "skill": "inference",
+        "why": "The text says a new tooth moves up when one falls out, and a shark can lose lots of teeth, so it needs extra ones.",
+        "wrong": {
+          "A": "The shark smells with its nose, not its teeth.",
+          "B": "The text does not say that a shark chews for a long time.",
+          "D": "Only the whale shark eats tiny bits of food."
+        }
+      },
+      {
+        "stem": "Why does the author end by saying sharks need to be kept safe?",
+        "options": [
+          "Because sharks bite people often",
+          "Because sharks are not very big",
+          "Because sharks eat all the fish",
+          "Because people hurt sharks each year"
+        ],
+        "answer": "D",
+        "skill": "author-purpose",
+        "why": "The text says people catch huge numbers of sharks each year, so the author asks us to keep them safe.",
+        "wrong": {
+          "A": "The text says shark bites are rare.",
+          "B": "Size is not the reason given.",
+          "C": "The text says sharks help keep the sea in good shape."
+        }
+      },
+      {
+        "stem": "The text says shark bites are rare. What does rare mean?",
+        "options": [
+          "Painful and loud",
+          "Not common at all",
+          "Seen every single day",
+          "Made by small fish"
+        ],
+        "answer": "B",
+        "skill": "vocabulary",
+        "why": "The next sentence says most sharks swim away from us, so bites do not happen often.",
+        "wrong": {
+          "A": "The text does not say bites are loud.",
+          "C": "If bites were seen every day, they would not be rare.",
+          "D": "The text does not say that small fish make bites."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "Which sea near Saudi Arabia do whale sharks visit?",
+        "options": [
+          "The Dead Sea",
+          "The Red Sea",
+          "The Black Sea",
+          "The Arabian Sea"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The text says whale sharks even visit the Red Sea along Saudi Arabia's coast.",
+        "wrong": {
+          "A": "The Dead Sea is not named in this text.",
+          "C": "The Black Sea is not named in this text.",
+          "D": "The Arabian Sea is not named in this text."
+        }
+      },
+      {
+        "stem": "The article says the whale shark feeds on plankton. What is plankton?",
+        "options": [
+          "A very large kind of fish",
+          "A kind of tooth in a shark",
+          "A bendy kind of body part",
+          "Tiny living things in water"
+        ],
+        "answer": "D",
+        "skill": "vocabulary",
+        "why": "The text explains that plankton is made of tiny plants and animals that drift in the water.",
+        "wrong": {
+          "A": "The text says plankton is tiny, so it is not a large fish.",
+          "B": "Teeth are not called plankton.",
+          "C": "The bendy material is cartilage, not plankton."
+        }
+      },
+      {
+        "stem": "Why are people a greater threat to sharks than sharks are to people?",
+        "options": [
+          "People catch millions of sharks every year.",
+          "People have much sharper teeth than sharks.",
+          "People swim faster than any shark can swim.",
+          "People live in the sea along with the sharks."
+        ],
+        "answer": "A",
+        "skill": "cause-effect",
+        "why": "The text says shark bites are very rare, while humans catch millions of sharks every year.",
+        "wrong": {
+          "B": "The text says sharks, not people, have sharp teeth.",
+          "C": "The text does not compare swimming speeds.",
+          "D": "People do not live in the sea; swimmers only visit it."
+        }
+      },
+      {
+        "stem": "Why does the author start with swimmers hurrying to the beach?",
+        "options": [
+          "To teach swimmers how to find a shark",
+          "To show how fast a shark can swim",
+          "To show how afraid people are of sharks",
+          "To describe the beaches in Saudi Arabia"
+        ],
+        "answer": "C",
+        "skill": "author-purpose",
+        "why": "The text says many people fear sharks, and then the author says much of what people believe is wrong.",
+        "wrong": {
+          "A": "The article does not teach swimmers how to find sharks.",
+          "B": "The speed of a shark is not given in the text.",
+          "D": "The beaches are not described."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "What does cartilage do for a shark's body?",
+        "options": [
+          "It makes the body strong and heavy.",
+          "It keeps the body light and easy to bend.",
+          "It helps the shark find food from afar.",
+          "It lets the shark grow new teeth fast."
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The text says the cartilage skeleton keeps their bodies light and easy to bend.",
+        "wrong": {
+          "A": "The text says light, not heavy.",
+          "C": "Smell and other senses help find food, not cartilage.",
+          "D": "Teeth are replaced from rows in the mouth, not by cartilage."
+        }
+      },
+      {
+        "stem": "Why do fishing fleets catch millions of sharks every year?",
+        "options": [
+          "To clean the sick fish from the ocean",
+          "To keep the whale sharks from visiting",
+          "To study the ancient sharks in a lab",
+          "Often to sell the sharks' valuable fins"
+        ],
+        "answer": "D",
+        "skill": "cause-effect",
+        "why": "The text says fleets catch millions of sharks, often only for their valuable fins.",
+        "wrong": {
+          "A": "The text says sharks, not fleets, catch sick fish.",
+          "B": "The text does not say that fleets want to stop whale sharks.",
+          "C": "No study in a lab is mentioned."
+        }
+      },
+      {
+        "stem": "The author calls the whale shark a \"gentle giant.\" Which detail best supports this?",
+        "options": [
+          "It can grow longer than a big school bus.",
+          "It visits the Red Sea along Saudi Arabia's coast.",
+          "It feeds on plankton, tiny plants and animals.",
+          "It has no bones in its large body at all."
+        ],
+        "answer": "C",
+        "skill": "inference",
+        "why": "A gentle animal does not attack big prey, and the text says the whale shark eats only tiny plankton.",
+        "wrong": {
+          "A": "Being large does not show it is gentle.",
+          "B": "Visiting the coast does not show gentleness.",
+          "D": "Having no bones does not show gentleness."
+        }
+      },
+      {
+        "stem": "In the text, what does the word remarkable mean?",
+        "options": [
+          "Very unusual and amazing",
+          "Rather weak and quite slow",
+          "Common to nearly all fish",
+          "Hard to see in the water"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "The text then lists how sharks detect blood, vibrations, and electrical signals, so remarkable means amazing.",
+        "wrong": {
+          "B": "The senses described are strong, not weak.",
+          "C": "The article shows these senses are special to sharks.",
+          "D": "The senses are not about being seen."
+        }
+      }
+    ]
   }
 }

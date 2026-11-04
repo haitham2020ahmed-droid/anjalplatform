@@ -614,5 +614,217 @@
       ],
       "modelAnswer": "Scientists discovered Neptune before anyone had actually seen it by noticing that Uranus was being pulled slightly away from its expected orbit, as if some unseen planet's gravity were tugging on it. Using mathematics, astronomers predicted almost exactly where this hidden planet should be, and in 1846 Neptune was found right in that location. This was an important achievement because it showed that the invisible atmosphere of a distant world, made largely of methane, could be detected purely through calculation rather than direct observation. It would take well over a century before the Voyager 2 spacecraft finally flew past Neptune in 1989 and confirmed up close what mathematics alone had already predicted."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "Which planet is the seventh planet from the Sun?",
+        "options": [
+          "Mars",
+          "Uranus",
+          "Neptune",
+          "Earth"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The text says Uranus is the seventh from the Sun.",
+        "wrong": {
+          "A": "Mars is not named in the text.",
+          "C": "Neptune is the eighth planet, not the seventh.",
+          "D": "Earth is not named as the seventh planet."
+        }
+      },
+      {
+        "stem": "What makes Uranus and Neptune look blue?",
+        "options": [
+          "A gas in the air",
+          "A lot of ice on the ground",
+          "The light of a small star",
+          "The dark side of the planet"
+        ],
+        "answer": "A",
+        "skill": "cause-effect",
+        "why": "The text says a gas in the air makes the planets blue.",
+        "wrong": {
+          "B": "The text says there is no ground on these planets.",
+          "C": "The Sun looks like a small star, but that does not color the planets.",
+          "D": "The dark side is where there is no sun for years."
+        }
+      },
+      {
+        "stem": "Neptune has winds much faster than a jet. What does this show?",
+        "options": [
+          "Neptune is the closest world to the Sun.",
+          "Neptune is a calm and quiet planet.",
+          "Neptune has thin rings and many moons.",
+          "Neptune is a very stormy world."
+        ],
+        "answer": "D",
+        "skill": "inference",
+        "why": "The text says Neptune has the fastest winds of all, so it is a very stormy world.",
+        "wrong": {
+          "A": "The text says Neptune is the farthest planet, not the closest.",
+          "B": "Very fast winds are not calm.",
+          "C": "Rings and moons are not about the wind."
+        }
+      },
+      {
+        "stem": "The text says he used a telescope to find the planet. What can a telescope do?",
+        "options": [
+          "Make the planets move",
+          "Make a planet colder",
+          "Help us see things far away",
+          "Help us fly past planets"
+        ],
+        "answer": "C",
+        "skill": "vocabulary",
+        "why": "The text says a telescope is a tool to see far.",
+        "wrong": {
+          "A": "A telescope does not make planets move.",
+          "B": "A telescope does not change a planet.",
+          "D": "A telescope does not fly; the ship sent back photos."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "Which spacecraft has visited Uranus and Neptune?",
+        "options": [
+          "Triton",
+          "Herschel",
+          "Methane",
+          "Voyager 2"
+        ],
+        "answer": "D",
+        "skill": "detail",
+        "why": "The text says only one spacecraft, Voyager 2, has been to these worlds.",
+        "wrong": {
+          "A": "Triton is the biggest moon of Neptune.",
+          "B": "Herschel was the man who found Uranus.",
+          "C": "Methane is a gas in the air of the planets."
+        }
+      },
+      {
+        "stem": "Which event in the article happened most recently?",
+        "options": [
+          "Herschel found Uranus with a telescope.",
+          "Neptune was found using math.",
+          "Voyager 2 flew past Uranus.",
+          "Voyager 2 flew past Neptune."
+        ],
+        "answer": "D",
+        "skill": "sequence",
+        "why": "The text says Voyager 2 passed Neptune in 1989, which is later than the other events.",
+        "wrong": {
+          "A": "This was in 1781.",
+          "B": "This was in 1846.",
+          "C": "This was in 1986, a few years before 1989."
+        }
+      },
+      {
+        "stem": "Why does each end of Uranus get years of sunlight and then years of dark?",
+        "options": [
+          "The planet is tilted so far that it spins on its side.",
+          "The planet is so cold that the Sun cannot warm it.",
+          "The planet is far away so its day is very short.",
+          "The planet has a moon that blocks out the Sun."
+        ],
+        "answer": "A",
+        "skill": "cause-effect",
+        "why": "The text says Uranus is tilted so far that it spins on its side, and each end gets about 42 years of sunlight, then 42 years of dark.",
+        "wrong": {
+          "B": "Cold is not the reason given.",
+          "C": "The long years, not short days, are the reason.",
+          "D": "The text does not say that a moon blocks the Sun."
+        }
+      },
+      {
+        "stem": "Which fact is true about both Uranus and Neptune?",
+        "options": [
+          "Each one has solid ground to walk on.",
+          "Each one has thin rings and many moons.",
+          "Each one takes 84 Earth years to orbit.",
+          "Each one was found in the same year."
+        ],
+        "answer": "B",
+        "skill": "compare",
+        "why": "The text says both planets have thin rings and many moons.",
+        "wrong": {
+          "A": "The text says neither has solid ground.",
+          "C": "Only Uranus takes 84 years; Neptune takes about 165 years.",
+          "D": "Uranus was found in 1781 and Neptune in 1846."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "What is inside an ice giant, under its icy materials?",
+        "options": [
+          "A large core of solid gold",
+          "A relatively small rocky core",
+          "A thick layer of dark sand",
+          "A giant sea of liquid methane"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The text says the interior surrounds a relatively small rocky core.",
+        "wrong": {
+          "A": "Gold is not named in the text.",
+          "C": "Sand is not named in the text.",
+          "D": "Methane is in the atmosphere, not a sea inside the planet."
+        }
+      },
+      {
+        "stem": "The article says the sunlight reaching Neptune is extremely feeble. What does feeble mean?",
+        "options": [
+          "Very bright",
+          "Very hot",
+          "Very blue",
+          "Very weak"
+        ],
+        "answer": "D",
+        "skill": "vocabulary",
+        "why": "Neptune is thirty times farther from the Sun than Earth, so the sunlight that reaches it is weak.",
+        "wrong": {
+          "A": "Neptune is dimly lit, so it is not bright.",
+          "B": "Temperatures drop below minus 200 degrees there.",
+          "C": "Blue is the color of the planet, not the light."
+        }
+      },
+      {
+        "stem": "Why do Uranus and Neptune have extremely long years?",
+        "options": [
+          "They are so far from the Sun.",
+          "They spin faster than Earth does.",
+          "They are smaller than the Earth.",
+          "They are made mostly of rock."
+        ],
+        "answer": "A",
+        "skill": "cause-effect",
+        "why": "The text says that because they are so distant, both planets have extremely long years.",
+        "wrong": {
+          "B": "Spin speed is not the reason given.",
+          "C": "Both are about four times as wide as Earth.",
+          "D": "They are ice giants, not rocky planets."
+        }
+      },
+      {
+        "stem": "Only Voyager 2 has ever visited these planets. What can be inferred?",
+        "options": [
+          "Scientists have no way to study them.",
+          "These planets cannot be seen by telescopes.",
+          "Scientists have little close-up information.",
+          "The planets are too small to be visited."
+        ],
+        "answer": "C",
+        "skill": "inference",
+        "why": "With only one spacecraft visit, scientists have had only one close look at each planet.",
+        "wrong": {
+          "A": "Scientists can study them using telescopes and math.",
+          "B": "The text says telescopes found Uranus and Neptune.",
+          "D": "The planets are about four times as wide as Earth, so they are not small."
+        }
+      }
+    ]
   }
 }

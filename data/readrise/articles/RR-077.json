@@ -614,5 +614,217 @@
       ],
       "modelAnswer": "I agree that the Incense Road shaped the history of Arabia, because it built a lasting network of towns and cities across the region. Merchants carried aromatic resins like frankincense and myrrh along the route, and the tolls they paid let towns such as Najran, Dedan, and Hegra grow wealthy and powerful. The Nabataeans used that wealth to carve the extraordinary tombs of Hegra, a site now honored as a World Heritage location, which shows that the road's influence turned into a heritage still visible today. Even after the monsoon winds let sailors move goods by sea instead, the cities and monuments the road created prove how deeply it shaped Arabia's history."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "What happens right after men cut the bark of the tree?",
+        "options": [
+          "The tree falls down in the south",
+          "Men burn the bark to get smoke",
+          "Sap drips out of the tree",
+          "Camels carry the tree north"
+        ],
+        "answer": "C",
+        "skill": "sequence",
+        "why": "The text says men cut the bark and then sap drips out.",
+        "wrong": {
+          "A": "The tree does not fall; sap drips out of the bark.",
+          "B": "The sweet smoke comes later, from the hard drops of sap.",
+          "D": "The camels carry the dried sap, not the tree."
+        }
+      },
+      {
+        "stem": "In the article, the word valuable means —",
+        "options": [
+          "worth a lot of money",
+          "easy to find",
+          "found in every town",
+          "sweet to eat"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "People paid a lot for frankincense, so it was valuable, worth a lot.",
+        "wrong": {
+          "B": "Frankincense came from the south, so it was not easy to find.",
+          "C": "Only some lands wanted and paid for it; it was not in every town.",
+          "D": "The article says it makes a sweet smoke, not that people eat it."
+        }
+      },
+      {
+        "stem": "Why were camels good for the Incense Road?",
+        "options": [
+          "They could run faster than any ship at sea",
+          "They could dig new wells at each oasis stop",
+          "They could grow the sap trees in the south",
+          "They carry big loads and go days with no drink"
+        ],
+        "answer": "D",
+        "skill": "cause-effect",
+        "why": "The text says a camel can hold a big load and go for days with no drink.",
+        "wrong": {
+          "A": "Ships are mentioned later and camels do not run on the sea.",
+          "B": "The article says oases already had water.",
+          "C": "The trees grow in the south on their own."
+        }
+      },
+      {
+        "stem": "Which clue shows the trip on the Incense Road was hard?",
+        "options": [
+          "Men cut bark from the trees",
+          "It took weeks and it was hot",
+          "Camels went in a group",
+          "Towns grew at the stops"
+        ],
+        "answer": "B",
+        "skill": "inference",
+        "why": "The text says the trip took weeks and was hot, so it was hard.",
+        "wrong": {
+          "A": "Cutting bark is how sap was gotten, not part of the trip.",
+          "C": "Going in a group does not say the trip was hard.",
+          "D": "Towns growing is about trade, not about a hard trip."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "What did people in Egypt and Rome want the resins for?",
+        "options": [
+          "To make boats and ships",
+          "For perfume and medicine",
+          "To build tombs in rock",
+          "To feed their camels"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The text says people in Egypt and Rome wanted the resins for perfume and medicine.",
+        "wrong": {
+          "A": "The resins were not used to make boats.",
+          "C": "Tombs were carved in rock at Hegra, not built from resin.",
+          "D": "Resin was not camel food in the article."
+        }
+      },
+      {
+        "stem": "Why were camels so important to the merchants?",
+        "options": [
+          "They could swim across the sea to the north",
+          "They could dig deep wells at each oasis stop",
+          "They could shorten the trip to just a few days",
+          "They carried heavy loads for days without water"
+        ],
+        "answer": "D",
+        "skill": "cause-effect",
+        "why": "The text says a camel can carry a heavy load and walk for days without water.",
+        "wrong": {
+          "A": "The sea route came later with ships.",
+          "B": "Oases already had water for the caravans.",
+          "C": "The text says the trip still took many weeks."
+        }
+      },
+      {
+        "stem": "Why might the Nabataeans have wanted to control the northern part of the route?",
+        "options": [
+          "To stop traders from using camels",
+          "To grow frankincense trees nearby",
+          "To earn money by charging tolls",
+          "To move the sea ports to Jordan"
+        ],
+        "answer": "C",
+        "skill": "inference",
+        "why": "Towns grew rich by charging a toll, so controlling the route could bring money.",
+        "wrong": {
+          "A": "The caravans of camels were what made the trade work.",
+          "B": "The trees grow in southern Arabia, not the north.",
+          "D": "The text says nothing about moving ports."
+        }
+      },
+      {
+        "stem": "Which event came after sailors learned to use seasonal winds?",
+        "options": [
+          "The land route began to decline",
+          "Camels began to carry frankincense",
+          "Najran grew at an oasis stop",
+          "Merchants first used a caravan"
+        ],
+        "answer": "A",
+        "skill": "sequence",
+        "why": "The text says later sailors used the winds, and so the land route began to decline.",
+        "wrong": {
+          "B": "Camels carried frankincense long before ships crossed the sea.",
+          "C": "Towns grew at oases during the caravan days, earlier.",
+          "D": "Caravans were used from the start of the route."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "Why did people in Egypt and Rome want frankincense and myrrh?",
+        "options": [
+          "They used the resins to build large ships",
+          "They burned the resins to guide camels home",
+          "They wanted them for perfume and medicine",
+          "They traded the resins for camels and tents"
+        ],
+        "answer": "C",
+        "skill": "detail",
+        "why": "The text says people in distant lands wanted the resins for perfume and medicine.",
+        "wrong": {
+          "A": "The resins were not building material.",
+          "B": "The resins gave fragrant smoke, not a guide for camels.",
+          "D": "They paid high prices for the resins; they did not swap them for camels."
+        }
+      },
+      {
+        "stem": "Why did settlements such as Najran and Dedan become prosperous?",
+        "options": [
+          "They sold camels to Rome and Egypt",
+          "They charged traders a toll",
+          "They built tombs for rich merchants",
+          "They grew frankincense trees in town"
+        ],
+        "answer": "B",
+        "skill": "cause-effect",
+        "why": "The text says they became prosperous by charging a toll that traders paid.",
+        "wrong": {
+          "A": "Selling camels is not mentioned.",
+          "C": "Tombs were carved at Hegra by the Nabataeans, not for this reason.",
+          "D": "The trees grow in the south, and growing them is not given as the cause."
+        }
+      },
+      {
+        "stem": "The article says traders paid a toll at settlements along the route in exchange for safe passage. What does this suggest about the route?",
+        "options": [
+          "It was a short and easy trip",
+          "It was closed during the monsoon",
+          "It was free for all travelers",
+          "It could be dangerous for traders"
+        ],
+        "answer": "D",
+        "skill": "inference",
+        "why": "If traders paid for safe passage, the trip may have been unsafe without it.",
+        "wrong": {
+          "A": "The trip lasted many weeks and was exhausting.",
+          "B": "The article does not say it was closed by the monsoon.",
+          "C": "Traders paid a toll, so it was not free."
+        }
+      },
+      {
+        "stem": "In the article, the word prosperous most nearly means —",
+        "options": [
+          "rich and successful",
+          "quiet and empty",
+          "old and broken",
+          "hot and dry"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "Settlements that charged tolls became wealthy, so prosperous means rich and successful.",
+        "wrong": {
+          "B": "The towns were busy with caravans, not empty.",
+          "C": "Nothing says the settlements were broken.",
+          "D": "The desert was hot and dry, but that is not what prosperous means."
+        }
+      }
+    ]
   }
 }

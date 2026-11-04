@@ -614,5 +614,217 @@
       ],
       "modelAnswer": "The Arabian horse has been important to Saudi Arabia's past because for thousands of years the Bedouin depended on it for survival in the desert, even letting a prized mare sleep inside the family tent, which shows its deep place in the culture and lineage of the people. It remains important today because its distinctive bloodline lives on as an ancestor of many modern breeds, including the Thoroughbred, and Saudi Arabia now runs a special center near Riyadh to preserve this descendant breed for the future."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "Where did the Arabian horse come from?",
+        "options": [
+          "From a cold forest",
+          "From a farm near Riyadh",
+          "From Arabia",
+          "From the sea"
+        ],
+        "answer": "C",
+        "skill": "detail",
+        "why": "The text says this breed is very old and came from Arabia.",
+        "wrong": {
+          "A": "The horses grew up in a hot desert.",
+          "B": "The farm near Riyadh keeps them safe today.",
+          "D": "The text does not say they came from the sea."
+        }
+      },
+      {
+        "stem": "In the article, a breed is —",
+        "options": [
+          "one kind of horse",
+          "a girl horse",
+          "a tent in the desert",
+          "a long race"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "The text says a breed is one kind of horse.",
+        "wrong": {
+          "B": "A girl horse is called a mare.",
+          "C": "The tent is where some mares slept.",
+          "D": "Races are where these horses win."
+        }
+      },
+      {
+        "stem": "The text says many other horse breeds are part Arabian. What can you tell from this?",
+        "options": [
+          "Arabian horses are the newest breed.",
+          "Arabian horses cannot run far.",
+          "Arabian horses live only in tents.",
+          "Arabian horses helped make other breeds."
+        ],
+        "answer": "D",
+        "skill": "inference",
+        "why": "If other breeds have Arabian blood, the Arabian horse helped make them.",
+        "wrong": {
+          "A": "The text says this breed is very old.",
+          "B": "The text says these horses can run far.",
+          "C": "Only some mares slept in the tent."
+        }
+      },
+      {
+        "stem": "How does an Arabian horse hold its tail?",
+        "options": [
+          "Low, near the ground",
+          "Up high",
+          "Curled under its back legs",
+          "Tied with a rope"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The text says its tail is up high.",
+        "wrong": {
+          "A": "The tail is up high, not low.",
+          "C": "The text does not say the tail is curled under.",
+          "D": "The text does not mention a rope."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "The article explains that only the hardiest horses could survive in the harsh desert. What does hardy mean?",
+        "options": [
+          "the slowest and sleepiest",
+          "the smallest in size",
+          "the easiest to find",
+          "the toughest and strongest"
+        ],
+        "answer": "D",
+        "skill": "vocabulary",
+        "why": "Only the toughest horses survived, so the breed became strong and hardy.",
+        "wrong": {
+          "A": "Slow, sleepy horses would not survive the desert.",
+          "B": "Size is not what the word means.",
+          "C": "The word is about toughness, not being easy to find."
+        }
+      },
+      {
+        "stem": "Who were the Bedouin?",
+        "options": [
+          "Farmers who grew crops near a big city",
+          "People who traveled the desert with animals",
+          "Sailors who crossed the Red Sea by boat",
+          "Racers who won long races in Europe"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The text says the Bedouin are people who traveled across the desert with their animals.",
+        "wrong": {
+          "A": "The Bedouin lived in the desert.",
+          "C": "The text does not say they were sailors.",
+          "D": "The text does not say they raced in Europe."
+        }
+      },
+      {
+        "stem": "What can the reader infer from the fact that many breeds have an Arabian ancestor?",
+        "options": [
+          "The Arabian horse is valued by horse breeders",
+          "The Arabian horse is the largest horse breed",
+          "The Arabian horse cannot live with other breeds",
+          "The Arabian horse was born only in Europe"
+        ],
+        "answer": "A",
+        "skill": "inference",
+        "why": "If people used Arabians to make other breeds, they must have valued them.",
+        "wrong": {
+          "B": "The text does not say it is the largest.",
+          "C": "Other breeds come from Arabians, so they were bred together.",
+          "D": "The breed began in the Arabian Peninsula."
+        }
+      },
+      {
+        "stem": "Why does the author compare the horse's lifted tail to a flag?",
+        "options": [
+          "To show that the horse is afraid",
+          "To explain why the horse runs fast",
+          "To help readers picture the proud tail",
+          "To prove that horses can carry flags"
+        ],
+        "answer": "C",
+        "skill": "author-purpose",
+        "why": "A flag is held up high, so the comparison helps readers see the tail.",
+        "wrong": {
+          "A": "A raised tail is not described as fear.",
+          "B": "The comparison is about how the tail looks.",
+          "D": "The author is describing, not saying horses carry flags."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "In the article, the word endurance means —",
+        "options": [
+          "a long and narrow face",
+          "the power to keep going a long time",
+          "the color of the horse's coat",
+          "a kind of tent used by families"
+        ],
+        "answer": "B",
+        "skill": "vocabulary",
+        "why": "The article praises the horse's endurance, its ability to keep going for a very long time without getting exhausted.",
+        "wrong": {
+          "A": "The face shape is a different detail.",
+          "C": "Coat color is not what endurance means.",
+          "D": "Tents are part of family life, not endurance."
+        }
+      },
+      {
+        "stem": "What gives many Arabians a compact, powerful back?",
+        "options": [
+          "Wide nostrils that draw in more air",
+          "A thick coat covering the skin",
+          "A dished, curved profile",
+          "One fewer rib than most horses"
+        ],
+        "answer": "D",
+        "skill": "detail",
+        "why": "The text says one fewer rib produces a compact, powerful back.",
+        "wrong": {
+          "A": "Nostrils help the horse take in air.",
+          "B": "The text does not link the coat to the back.",
+          "C": "The profile is about the shape of the face."
+        }
+      },
+      {
+        "stem": "Why did the Arabian horses become gentle, intelligent, and loyal?",
+        "options": [
+          "They were trained for long races",
+          "They had to find food in the desert",
+          "They lived very close to the people",
+          "They were brought to Europe"
+        ],
+        "answer": "C",
+        "skill": "cause-effect",
+        "why": "The text says they lived so intimately with people that they became gentle and loyal.",
+        "wrong": {
+          "A": "Races are linked to endurance, not gentleness.",
+          "B": "The desert made the horses hardy, not gentle.",
+          "D": "Being brought to Europe happened later."
+        }
+      },
+      {
+        "stem": "Why does the author mention that Thoroughbreds descended from Arabian horses?",
+        "options": [
+          "To show the Arabian's effect on other breeds",
+          "To prove that Thoroughbreds are slower",
+          "To explain why Arabians have a dished face",
+          "To show that Arabians first came from Europe"
+        ],
+        "answer": "A",
+        "skill": "author-purpose",
+        "why": "The text says modern breeds, including the Thoroughbred, are descendants of Arabians.",
+        "wrong": {
+          "B": "The text calls the Thoroughbred speedy.",
+          "C": "The dished face is described in another paragraph.",
+          "D": "Arabians were brought to Europe from Arabia."
+        }
+      }
+    ]
   }
 }

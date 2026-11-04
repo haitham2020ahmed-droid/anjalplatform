@@ -614,5 +614,217 @@
       ],
       "modelAnswer": "I agree that the octopus is the most impressive invertebrate in the sea. The article notes that although most of its neurons are packed into its arms rather than its brain, octopuses have still solved puzzles and unscrewed jars in aquariums, which demonstrates a genuine cognition unusual for a creature without a backbone. Its body is equally remarkable, since it can squeeze through any gap larger than its beak and instantly change both the color and the texture of its skin, abilities that together show a combination of intelligence and physical adaptation that few other sea animals can match."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "What can an octopus do with its suckers?",
+        "options": [
+          "Squirt a dark cloud of ink",
+          "Grab things and taste them",
+          "See in the dark sea water",
+          "Hear fish from far away"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The text says the suckers grab things and can taste, too.",
+        "wrong": {
+          "A": "The octopus squirts ink, but not with its suckers.",
+          "C": "The text does not say the suckers help it see.",
+          "D": "The text does not say the suckers help it hear."
+        }
+      },
+      {
+        "stem": "What does the octopus do right after it squirts ink?",
+        "options": [
+          "It lays its eggs.",
+          "It opens a jar.",
+          "It looks like a rock.",
+          "It swims off."
+        ],
+        "answer": "D",
+        "skill": "sequence",
+        "why": "The text says it squirts ink, the ink makes a dark cloud, and then it swims off.",
+        "wrong": {
+          "A": "Egg laying is not part of this escape.",
+          "B": "Opening a jar is about being smart, not escaping.",
+          "C": "Looking like a rock happens before a fish sees it."
+        }
+      },
+      {
+        "stem": "In the article, hatch means —",
+        "options": [
+          "to come out of an egg",
+          "to grow a hard shell",
+          "to squirt dark ink",
+          "to dig a home in sand"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "The mom guards her eggs, and she dies when the babies come out of them.",
+        "wrong": {
+          "B": "An octopus has no shell.",
+          "C": "Ink is used to escape from a fish.",
+          "D": "The text does not say it digs a home."
+        }
+      },
+      {
+        "stem": "What can you tell about the mother octopus?",
+        "options": [
+          "She leaves her eggs alone in the sea.",
+          "She likes to eat more when she guards.",
+          "She works hard to keep her eggs safe.",
+          "She hides her eggs in an old jar."
+        ],
+        "answer": "C",
+        "skill": "inference",
+        "why": "She guards her eggs and does not eat, which shows she works hard to keep them safe.",
+        "wrong": {
+          "A": "The text says she guards them.",
+          "B": "The text says she does not eat.",
+          "D": "The text does not say she uses a jar for eggs."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "In the article, the word camouflage means —",
+        "options": [
+          "digging a deep hole under the sand",
+          "blending in with what is around it",
+          "swimming away from danger very fast",
+          "grabbing food with strong suckers"
+        ],
+        "answer": "B",
+        "skill": "vocabulary",
+        "why": "The octopus changes color and skin texture to look like a rock or seaweed.",
+        "wrong": {
+          "A": "The text does not say it digs holes.",
+          "C": "Swimming away is what it does after squirting ink.",
+          "D": "Suckers are used for gripping and tasting."
+        }
+      },
+      {
+        "stem": "How fast can an octopus change its color?",
+        "options": [
+          "In about one whole hour",
+          "In about one whole day",
+          "In less than a second",
+          "In more than a few minutes"
+        ],
+        "answer": "C",
+        "skill": "detail",
+        "why": "The text says special skin cells let it change color in less than a second.",
+        "wrong": {
+          "A": "One hour is far too slow.",
+          "B": "One day is far too slow.",
+          "D": "Several minutes is much slower than the text says."
+        }
+      },
+      {
+        "stem": "Why can an octopus squeeze through any gap larger than its beak?",
+        "options": [
+          "Its sharp beak cuts the rock.",
+          "Its three hearts push it forward.",
+          "Its suckers hold onto the sides.",
+          "The rest of its body is soft."
+        ],
+        "answer": "D",
+        "skill": "cause-effect",
+        "why": "The beak is the only hard part, and the rest of its body is soft.",
+        "wrong": {
+          "A": "The beak is used to crack open crabs, not to cut rock.",
+          "B": "The hearts pump blood and do not push it through gaps.",
+          "C": "Suckers grip and taste, but they do not make it fit."
+        }
+      },
+      {
+        "stem": "How is an octopus different from snails and clams?",
+        "options": [
+          "It has no shell.",
+          "It lives in fresh water.",
+          "It has hard bones inside.",
+          "It has a body that is hard and rough."
+        ],
+        "answer": "A",
+        "skill": "compare",
+        "why": "The text says unlike snails and clams, an octopus has no shell and no bones.",
+        "wrong": {
+          "B": "The text says octopuses live in seas.",
+          "C": "The octopus has no bones.",
+          "D": "Its body is soft except for the beak."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "In the fifth paragraph, the word retrieve means —",
+        "options": [
+          "to hide inside a safe place",
+          "to break into small pieces",
+          "to shake until it falls apart",
+          "to go and get something"
+        ],
+        "answer": "D",
+        "skill": "vocabulary",
+        "why": "Captive octopuses unscrew jars to get the food inside.",
+        "wrong": {
+          "A": "They open the jars rather than hide in them.",
+          "B": "The octopus unscrews the jars, it does not break them.",
+          "C": "Unscrewing is not shaking something apart."
+        }
+      },
+      {
+        "stem": "What does an octopus use its sharp beak for?",
+        "options": [
+          "To crack open crabs and other shellfish",
+          "To change the color and texture of its skin",
+          "To grip rocks and hold prey very firmly",
+          "To release a cloud of ink when in danger"
+        ],
+        "answer": "A",
+        "skill": "detail",
+        "why": "The text says the beak is used to crack open crabs and other shellfish.",
+        "wrong": {
+          "B": "Color and texture change in its skin.",
+          "C": "The suckers grip rocks and prey.",
+          "D": "The ink is released from the body, not the beak."
+        }
+      },
+      {
+        "stem": "How does the ink cloud help the octopus?",
+        "options": [
+          "It lets the octopus see well in dark water",
+          "It feeds the young octopuses that are nearby",
+          "It confuses the attacker as the octopus flees",
+          "It changes the octopus's blood from red to blue"
+        ],
+        "answer": "C",
+        "skill": "cause-effect",
+        "why": "The octopus jets away while the attacker is confused by the ink.",
+        "wrong": {
+          "A": "The ink is for hiding, not seeing.",
+          "B": "The text does not say the ink is food.",
+          "D": "Its blue blood comes from a substance containing copper."
+        }
+      },
+      {
+        "stem": "Why does the last paragraph mention the octopus's intelligence right before telling how long octopuses live?",
+        "options": [
+          "To show that octopuses are not really smart",
+          "To contrast their smarts with their short lives",
+          "To prove that mothers are smarter than babies",
+          "To explain how octopuses solve puzzles"
+        ],
+        "answer": "B",
+        "skill": "text-structure",
+        "why": "\"Despite\" sets up a contrast between being very intelligent and living only one or two years.",
+        "wrong": {
+          "A": "The article says they are exceptionally intelligent.",
+          "C": "The text does not compare mothers and babies.",
+          "D": "Puzzle solving was explained in an earlier paragraph."
+        }
+      }
+    ]
   }
 }

@@ -614,5 +614,217 @@
       ],
       "modelAnswer": "I agree that collaboration can solve problems that rivalry cannot. In the story, Saad and Faisal's rivalry over whose plan was better only wasted time while Lama and Zaid kept struggling to reach school safely. It was only once the brothers set their rivalry aside and reached a compromise, combining both of their ideas, that they actually finished a sturdy bridge. Someone might argue that competition can sometimes push people to work harder, but in this case the brothers' competing plans only delayed the solution; it was their decision to collaborate that solved the real problem their family faced."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "What did the brothers cut to build the bridge?",
+        "options": [
+          "Tall grass",
+          "Rope and string",
+          "Wood",
+          "Stones"
+        ],
+        "answer": "C",
+        "skill": "detail",
+        "why": "The text says they cut wood and made planks.",
+        "wrong": {
+          "A": "Grass is not used for the bridge.",
+          "B": "Rope is not mentioned.",
+          "D": "Stones are not used to make the bridge."
+        }
+      },
+      {
+        "stem": "In the story, the word planks means —",
+        "options": [
+          "long flat pieces of wood",
+          "small plants in a garden",
+          "rain falling from the sky",
+          "a path along the stream"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "The brothers cut wood and made planks for the bridge, so planks are flat pieces of wood.",
+        "wrong": {
+          "B": "Planks are not plants.",
+          "C": "The rain is a different part of the story.",
+          "D": "The planks are part of the bridge, not the path."
+        }
+      },
+      {
+        "stem": "What made the stream get wide and fast?",
+        "options": [
+          "The brothers dug a hole",
+          "A big wind came",
+          "The school closed",
+          "The hard rain"
+        ],
+        "answer": "D",
+        "skill": "cause-effect",
+        "why": "The text says it rained hard, so the stream got wide and fast.",
+        "wrong": {
+          "A": "The brothers did not dig the stream.",
+          "B": "Wind is not mentioned.",
+          "C": "The school did not change the stream."
+        }
+      },
+      {
+        "stem": "Why did Saad and Faisal feel proud at the end?",
+        "options": [
+          "They won the argument about chores",
+          "They built something that helped others",
+          "They did all of their chores early",
+          "They found a new place to play"
+        ],
+        "answer": "B",
+        "skill": "inference",
+        "why": "Their bridge let Lama and Zaid cross, and they learned to work as a team.",
+        "wrong": {
+          "A": "They stopped arguing about the plan.",
+          "C": "Chores are not why they felt proud.",
+          "D": "Playing is not mentioned."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "How did Lama and Zaid cross the stream before the heavy rain?",
+        "options": [
+          "On a wooden boat",
+          "On a line of flat stones",
+          "On a bridge made of rope",
+          "By walking through the water"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The article says they stepped across the stream on a line of flat stones.",
+        "wrong": {
+          "A": "No boat is mentioned.",
+          "C": "The bridge was built after the rain.",
+          "D": "The stream was calm and crossed by stones."
+        }
+      },
+      {
+        "stem": "In the article, the word swelled means the stream —",
+        "options": [
+          "became very quiet",
+          "dried up in the sun",
+          "moved to a new place",
+          "grew bigger and fuller"
+        ],
+        "answer": "D",
+        "skill": "vocabulary",
+        "why": "The stream swelled, growing wide and fast, so it grew bigger and fuller.",
+        "wrong": {
+          "A": "The stream became fast, not quiet.",
+          "B": "The rain made it grow, not dry up.",
+          "C": "The stream stayed in the same place."
+        }
+      },
+      {
+        "stem": "Why did Lama and Zaid often arrive tired and late?",
+        "options": [
+          "They had to walk a long way around through mud",
+          "They stopped along the way to talk to friends",
+          "They woke up late every single day of the week",
+          "They had to help the brothers with the chores"
+        ],
+        "answer": "A",
+        "skill": "cause-effect",
+        "why": "The stepping stones were covered, so they walked a long way around through muddy fields.",
+        "wrong": {
+          "B": "Friends are not mentioned.",
+          "C": "The cause was the flooded stream, not sleeping late.",
+          "D": "The brothers argued about chores, not the younger children."
+        }
+      },
+      {
+        "stem": "What does \"each one as stubborn as the other\" tell us about the brothers?",
+        "options": [
+          "They both liked to do chores",
+          "They were both tired of the farm",
+          "Neither one would easily give in",
+          "One brother always gave in first"
+        ],
+        "answer": "C",
+        "skill": "inference",
+        "why": "Being equally stubborn means neither of them wanted to give in during an argument.",
+        "wrong": {
+          "A": "They argued about chores.",
+          "B": "The farm is not the problem.",
+          "D": "The article says neither would give in."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "What did the brothers do before they cut the lengths of wood?",
+        "options": [
+          "They measured the width of the stream",
+          "They asked the neighbors for help",
+          "They tied a rope across the water",
+          "They waited for the rain to stop"
+        ],
+        "answer": "A",
+        "skill": "detail",
+        "why": "The article says they measured the stream's width and cut sturdy lengths of wood accordingly.",
+        "wrong": {
+          "B": "No neighbors are mentioned.",
+          "C": "A rope is not mentioned.",
+          "D": "The article does not say they waited for the rain to stop."
+        }
+      },
+      {
+        "stem": "In the article, the word rivalry most nearly means —",
+        "options": [
+          "a close, warm, and loving friendship",
+          "a long walk to school each day",
+          "competing and arguing with one another",
+          "a plan that nobody is able to follow"
+        ],
+        "answer": "C",
+        "skill": "vocabulary",
+        "why": "A rivalry simmered between the brothers as they argued each day over chores, so it means competing and arguing.",
+        "wrong": {
+          "A": "They rarely got along.",
+          "B": "The walk was the siblings' problem.",
+          "D": "The rivalry was between the brothers."
+        }
+      },
+      {
+        "stem": "Why did Faisal prefer thin, light planks?",
+        "options": [
+          "They were cheap to buy",
+          "They looked more colorful",
+          "They would be easier to carry",
+          "They were the father's idea"
+        ],
+        "answer": "C",
+        "skill": "cause-effect",
+        "why": "Faisal argued that thin planks would be easier to carry and equally strong once secured.",
+        "wrong": {
+          "A": "Cost is not mentioned.",
+          "B": "Color is not mentioned.",
+          "D": "The father did not choose a plan."
+        }
+      },
+      {
+        "stem": "Lama and Zaid crossed the new bridge without getting their shoes wet. What does this show about the bridge?",
+        "options": [
+          "It was not built yet",
+          "It was well made",
+          "It was very short",
+          "It was painted white"
+        ],
+        "answer": "B",
+        "skill": "inference",
+        "why": "The children's shoes stayed almost dry even with the stream's current, so the bridge was well made.",
+        "wrong": {
+          "A": "The children crossed it, so it was built.",
+          "C": "The length of the bridge is not given.",
+          "D": "Color is not mentioned."
+        }
+      }
+    ]
   }
 }

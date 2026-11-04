@@ -614,5 +614,217 @@
       ],
       "modelAnswer": "I agree that the change inside the chrysalis is an astonishing metamorphosis. According to the article, most of the caterpillar's old body actually seems to dissolve into a kind of soup before the parts of an entirely new body develop in its place, which is a far more dramatic change than simply growing bigger. It is also remarkable that this complete rebuilding happens in only about two weeks, turning a leaf-eating caterpillar into a winged adult that drinks nectar through a proboscis, a transformation almost nothing else in nature can match."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "How long can it take for a new body to form in the chrysalis?",
+        "options": [
+          "One day",
+          "Two years",
+          "Ten minutes",
+          "Two weeks"
+        ],
+        "answer": "D",
+        "skill": "detail",
+        "why": "The text says this can take two weeks.",
+        "wrong": {
+          "A": "One day is too short.",
+          "B": "Two years is far too long.",
+          "C": "Ten minutes is far too short."
+        }
+      },
+      {
+        "stem": "Why does a caterpillar shed its skin?",
+        "options": [
+          "It wants to look like a rock.",
+          "Its skin gets too tight.",
+          "It needs to sip nectar.",
+          "It wants to fly away."
+        ],
+        "answer": "B",
+        "skill": "cause-effect",
+        "why": "The caterpillar grows fast, so its skin gets too tight and it sheds it.",
+        "wrong": {
+          "A": "The text does not say it sheds skin to look like a rock.",
+          "C": "Only the butterfly sips nectar.",
+          "D": "A caterpillar cannot fly."
+        }
+      },
+      {
+        "stem": "In the article, nectar is —",
+        "options": [
+          "a sweet drink from flowers",
+          "a hard case on a stem",
+          "a bad juice from a plant",
+          "a tube like a straw"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "The butterfly sips nectar from flowers with its long tube.",
+        "wrong": {
+          "B": "The hard case is the chrysalis.",
+          "C": "The bad juice is the juice in ushar.",
+          "D": "The straw-like tube is used to drink nectar."
+        }
+      },
+      {
+        "stem": "Why is ushar a good plant for the plain tiger's eggs?",
+        "options": [
+          "Its leaves are soft and sweet.",
+          "It grows near the sea in Saudi Arabia.",
+          "Birds do not like the young that eat it.",
+          "Its flowers have lots of nectar."
+        ],
+        "answer": "C",
+        "skill": "inference",
+        "why": "The young eat the bad juice in ushar, so birds do not like them and leave them alone.",
+        "wrong": {
+          "A": "The text says the plant has a bad juice.",
+          "B": "The text does not say where ushar grows.",
+          "D": "The text talks about the leaves and juice, not nectar."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "In the article, the word emerge means —",
+        "options": [
+          "to dry in the sun",
+          "to come out",
+          "to eat leaves",
+          "to hang down"
+        ],
+        "answer": "B",
+        "skill": "vocabulary",
+        "why": "The chrysalis splits open and the adult butterfly starts to come out.",
+        "wrong": {
+          "A": "Drying comes after, when the wings are wet.",
+          "C": "A butterfly cannot chew leaves.",
+          "D": "The caterpillar hangs before it forms the chrysalis."
+        }
+      },
+      {
+        "stem": "Why does the female butterfly choose a plant with great care?",
+        "options": [
+          "Its leaves are the food her young will need.",
+          "Its flowers are the best place to sip nectar.",
+          "Its leaves are poisonous to birds.",
+          "It is the easiest plant to find."
+        ],
+        "answer": "A",
+        "skill": "cause-effect",
+        "why": "The text says she chooses it because its leaves are the food her young will need.",
+        "wrong": {
+          "B": "The reason given is about the young, not her own nectar.",
+          "C": "Only the ushar plant is described as poisonous.",
+          "D": "The text says she chooses with care, not for ease."
+        }
+      },
+      {
+        "stem": "What can the reader infer from the fact that a butterfly cannot chew?",
+        "options": [
+          "It can eat leaves quickly",
+          "It can crack open hard seeds",
+          "It can bite through the chrysalis",
+          "It can only take in liquid food"
+        ],
+        "answer": "D",
+        "skill": "inference",
+        "why": "The butterfly drinks nectar through a tube, so it takes in only liquid food.",
+        "wrong": {
+          "A": "Caterpillars eat leaves, not butterflies.",
+          "B": "A butterfly cannot chew seeds.",
+          "C": "The chrysalis splits open on its own."
+        }
+      },
+      {
+        "stem": "What do painted ladies do each year?",
+        "options": [
+          "They lay eggs on a bitter plant",
+          "They hang from stems for weeks",
+          "They fly between Africa and Europe",
+          "They change color in the chrysalis"
+        ],
+        "answer": "C",
+        "skill": "detail",
+        "why": "The text says painted ladies fly between Africa and Europe each year.",
+        "wrong": {
+          "A": "The plain tiger lays eggs on ushar.",
+          "B": "Hanging from a stem is part of the caterpillar stage in general.",
+          "D": "The text does not say painted ladies change color."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "Why does a female butterfly lay her egg on one particular kind of plant?",
+        "options": [
+          "She has no other plant nearby",
+          "The plant hides the egg from rain",
+          "Its leaves will feed her young",
+          "The plant is the tallest one"
+        ],
+        "answer": "C",
+        "skill": "cause-effect",
+        "why": "The article says the female chooses the plant because its leaves will give her offspring the food they need.",
+        "wrong": {
+          "A": "The article says she chooses the plant on purpose.",
+          "B": "Rain is not given as the reason.",
+          "D": "The height of the plant is not mentioned."
+        }
+      },
+      {
+        "stem": "What does the butterfly do before it tries to fly?",
+        "options": [
+          "It pumps fluid into its wings and waits.",
+          "It sips nectar until its wings grow.",
+          "It eats its egg shell to get strong.",
+          "It hangs from a stem to make a case."
+        ],
+        "answer": "A",
+        "skill": "detail",
+        "why": "The text says it pumps fluid into its wings and waits for them to dry and harden.",
+        "wrong": {
+          "B": "Nectar does not make wings grow in the text.",
+          "C": "Eating the egg shell happens when a caterpillar hatches.",
+          "D": "Making the case happens before the pupa stage."
+        }
+      },
+      {
+        "stem": "Why does a caterpillar molt?",
+        "options": [
+          "It needs to hide from predators",
+          "It wants to form a chrysalis",
+          "It must grow a proboscis to drink",
+          "Its skin cannot stretch as it grows"
+        ],
+        "answer": "D",
+        "skill": "cause-effect",
+        "why": "The caterpillar grows quickly but its skin cannot stretch much, so it sheds the tight skin.",
+        "wrong": {
+          "A": "Molting is not a way to hide.",
+          "B": "The chrysalis forms after the caterpillar is fully grown.",
+          "C": "The proboscis belongs to the adult butterfly."
+        }
+      },
+      {
+        "stem": "How is most of the article organized?",
+        "options": [
+          "By comparing butterflies to birds",
+          "In the order of a butterfly's life",
+          "From the least to the most dangerous insect",
+          "By listing butterflies from largest to smallest"
+        ],
+        "answer": "B",
+        "skill": "text-structure",
+        "why": "It follows the life from egg to larva to pupa to adult, then adds more facts.",
+        "wrong": {
+          "A": "Butterflies are not compared to birds.",
+          "C": "The text does not rank insects by danger.",
+          "D": "The text does not list butterflies by size."
+        }
+      }
+    ]
   }
 }

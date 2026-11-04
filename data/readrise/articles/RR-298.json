@@ -614,5 +614,217 @@
       ],
       "modelAnswer": "Arabic oral poetry worked as a spoken archive because meter and rhyme gave each verse a steady, memorable rhythm that reciters could preserve across generations without writing. Eloquence, the skill of expressing ideas gracefully and persuasively, mattered deeply because audiences judged and rewarded the most talented poets at gatherings like Souq Okaz. Today, this heritage lives on as poets continue composing new works and audiences still gather to hear verses recited at weddings and celebrations."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "What is rhythm?",
+        "options": [
+          "Words that end the same",
+          "A poem said aloud",
+          "A song with no words",
+          "A beat you feel"
+        ],
+        "answer": "D",
+        "skill": "detail",
+        "why": "The text says rhythm is a beat you feel.",
+        "wrong": {
+          "A": "Words that end the same are called rhyme.",
+          "B": "Saying a poem aloud is not what rhythm means.",
+          "C": "The text says a poem is like a song in words."
+        }
+      },
+      {
+        "stem": "What did a poet do after he made up a poem in his head?",
+        "options": [
+          "Wrote it on paper",
+          "Sold it at a shop",
+          "Said it out loud",
+          "Burned it in a fire"
+        ],
+        "answer": "C",
+        "skill": "sequence",
+        "why": "The text says the poet made up a poem in his head and then said it out loud.",
+        "wrong": {
+          "A": "Poets did not write poems down.",
+          "B": "The text does not say poems were sold.",
+          "D": "The text does not say poems were burned."
+        }
+      },
+      {
+        "stem": "How does the author start the article?",
+        "options": [
+          "With a question",
+          "With a fact about old poems",
+          "With a story about a poet",
+          "With a rule"
+        ],
+        "answer": "B",
+        "skill": "text-structure",
+        "why": "The article starts by saying Arab poems are old and people made poems long ago.",
+        "wrong": {
+          "A": "The first lines are not a question.",
+          "C": "The article does not begin with a story.",
+          "D": "The article does not begin with a rule."
+        }
+      },
+      {
+        "stem": "Why could a poem live on without paper?",
+        "options": [
+          "People learned it by heart",
+          "A king kept it in a box",
+          "It was carved on a rock",
+          "It was kept in a library"
+        ],
+        "answer": "A",
+        "skill": "cause-effect",
+        "why": "People heard the poem and learned it by heart, so it stayed alive in their minds.",
+        "wrong": {
+          "B": "The text does not mention a king or a box.",
+          "C": "The text does not mention carving on rocks.",
+          "D": "The text says few people could read, so a library is unlikely."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "What does the word meter mean in the article?",
+        "options": [
+          "A steady pattern of beats",
+          "Words ending the same way",
+          "A single line of a poem",
+          "A poem that tells a story"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "The article defines meter as a steady pattern of beats.",
+        "wrong": {
+          "B": "Words that end with the same sound are rhyme.",
+          "C": "A line of a poem is called a verse.",
+          "D": "A long poem built on one meter and rhyme is a qasida."
+        }
+      },
+      {
+        "stem": "How many verses could a skilled reciter hold in his mind?",
+        "options": [
+          "Only a few verses",
+          "Just one verse",
+          "About ten verses",
+          "Hundreds of verses"
+        ],
+        "answer": "D",
+        "skill": "detail",
+        "why": "The article says a skilled reciter could hold hundreds of verses in his mind.",
+        "wrong": {
+          "A": "A few is far fewer than the article says.",
+          "B": "One verse is far fewer than the article says.",
+          "C": "Ten is far fewer than the article says."
+        }
+      },
+      {
+        "stem": "What did the oral tradition let listeners do?",
+        "options": [
+          "Write poems on paper",
+          "Play music while listening",
+          "Read poems in books",
+          "Pass poems on by mouth"
+        ],
+        "answer": "D",
+        "skill": "cause-effect",
+        "why": "The article says the oral tradition let listeners learn favorite poems and pass them on by word of mouth.",
+        "wrong": {
+          "A": "The article says writing was not common yet.",
+          "B": "Playing music is not mentioned.",
+          "C": "The article says most people could not read."
+        }
+      },
+      {
+        "stem": "How did poetry carry a group's history forward?",
+        "options": [
+          "By being printed in newspapers",
+          "By being painted on tents",
+          "By being remembered and repeated",
+          "By being hidden in caves"
+        ],
+        "answer": "C",
+        "skill": "inference",
+        "why": "The article says poets recited poems and listeners learned them, so the history lived on in memory.",
+        "wrong": {
+          "A": "The article says this happened before most people could read.",
+          "B": "Painting on tents is not mentioned.",
+          "D": "Hidden poems could not be passed on."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "What does the word faltering mean in \"rarely faltering\"?",
+        "options": [
+          "Speaking too loudly",
+          "Leaving the stage",
+          "Stumbling or hesitating",
+          "Writing it down"
+        ],
+        "answer": "C",
+        "skill": "vocabulary",
+        "why": "A skilled reciter delivered hundreds of verses with the meter and rhyme intact, so he rarely stumbled.",
+        "wrong": {
+          "A": "Volume is not what the sentence is about.",
+          "B": "The reciter stays to perform the whole poem.",
+          "D": "Poems were not written down."
+        }
+      },
+      {
+        "stem": "Which qualities did poems praise, according to the article?",
+        "options": [
+          "Wealth, speed, and strength",
+          "Courage, generosity, loyalty",
+          "Silence, power, and fame",
+          "Honesty, travel, and wisdom"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The article says poems praised courage, generosity, and loyalty.",
+        "wrong": {
+          "A": "Wealth, speed, and strength are not the qualities named.",
+          "C": "Silence, power, and fame are not named.",
+          "D": "Honesty, travel, and wisdom are not named."
+        }
+      },
+      {
+        "stem": "Why did the oral tradition matter for keeping poems alive?",
+        "options": [
+          "Crowds disliked written poems",
+          "Poets refused to be recorded",
+          "Ink was too bright to read",
+          "Manuscripts did not exist yet"
+        ],
+        "answer": "D",
+        "skill": "cause-effect",
+        "why": "The article says listeners passed poems on across generations before manuscripts existed to do so.",
+        "wrong": {
+          "A": "The article does not say crowds disliked written poems.",
+          "B": "The article does not say poets refused.",
+          "C": "Ink is mentioned only as the opposite of memory."
+        }
+      },
+      {
+        "stem": "Why does the author say poetry was built on memory rather than ink?",
+        "options": [
+          "To show poems lived in memory",
+          "To say ink was too costly",
+          "To describe how pens are made",
+          "To praise written books"
+        ],
+        "answer": "A",
+        "skill": "author-purpose",
+        "why": "The author calls poetry a spoken archive built on memory, since poems were kept in minds, not on paper.",
+        "wrong": {
+          "B": "The article does not mention the cost of ink.",
+          "C": "The article does not explain how pens are made.",
+          "D": "The article does not praise written books."
+        }
+      }
+    ]
   }
 }

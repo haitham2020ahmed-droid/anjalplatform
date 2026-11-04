@@ -4,9 +4,13 @@
  *
  *  First try   ONLY the first try of an article counts. A re-read (firstTry = false) is practice: it never changes
  *              the level, the weekly goal, the level window or the stars.
- *  Stretch     the same article one version higher. It counts (as a first try of NEW questions) only when the
- *              stretch version's question band (LOW / MID / HIGH) differs from the band of the first read — the same
- *              band would reuse the questions (and the answers) the student has already been shown.
+ *  Stretch     the same article one version higher (round 5, owner). It counts FULLY (level window, weekly goal,
+ *              stars) when it uses NEW questions: the article's stretch set for that band (RRQuestion band "S-L" /
+ *              "S-M" / "S-H", stored on the run as its band) or — the old rule — a question band (LOW / MID / HIGH)
+ *              different from the first read's. A stretch in the SAME band without a stretch set reuses the questions
+ *              already shown: it is PRACTICE — it can earn the weekly goal (one credit per article: the first try OR
+ *              the stretch, never both) but never the level window or the stars.
+ *  Status      ONE article status (articleStatus): NEW / IN_PROGRESS / FINISH_STEPS / DONE, from the first try only.
  *  Reliable    an Unreliable run (2+ rapid answers, accuracy.ts) counts for nothing anywhere.
  *  Read time   a run read faster than RR_MIN_READ_SECONDS is a rapid run: no skill evidence and no level window.
  *  Article     ONE definition for every count and average: a reliable, scored, non-stretch first try. Stretch
@@ -48,46 +52,146 @@ export function storedMs(v: unknown): Record<string, number> {
 
 const pairKey = (r: R) => `${s(r.studentId)}|${s(r.articleId)}`;
 
-/** The band of each article's FIRST read (the non-stretch first try), by student + article. */
+/** A run's time for "earliest" (startedAt, else completedAt; unknown = last). */
+const runTime = (r: R): number => {
+  for (const v of [r.startedAt, r.completedAt]) {
+    if (v === null || v === undefined || v === "") continue;
+    const t = v instanceof Date ? v.getTime() : new Date(s(v)).getTime();
+    if (Number.isFinite(t)) return t;
+  }
+  return Infinity;
+};
+
+/**
+ * 🔒 Round 5: ONE first try and ONE stretch per student × article — when a race (double tap, two tabs) or old data left
+ * two runs marked firstTry, only the EARLIEST main first try and the EARLIEST stretch first try count. Other rows
+ * (re-reads, not first) pass through unchanged. Keeps the input order.
+ */
+export function earliestFirsts<T extends R>(runs: readonly T[]): T[] {
+  const keep = new Map<string, T>();
+  for (const r of runs) {
+    if (!isFirst(r)) continue;
+    const k = `${pairKey(r)}|${isStretch(r) ? "S" : "M"}`, have = keep.get(k);
+    if (!have || runTime(r) < runTime(have)) keep.set(k, r);
+  }
+  const kept = new Set<T>(keep.values());
+  return runs.filter((r) => !isFirst(r) || kept.has(r));
+}
+
+/** The band of each article's FIRST read (the earliest non-stretch first try), by student + article. */
 export function firstReadBands(runs: readonly R[]): Map<string, string> {
   const out = new Map<string, string>();
-  for (const r of runs) if (isFirst(r) && !isStretch(r) && s(r.band)) out.set(pairKey(r), s(r.band));
+  for (const r of earliestFirsts(runs)) if (isFirst(r) && !isStretch(r) && s(r.band)) out.set(pairKey(r), s(r.band));
   return out;
 }
 
+/** The stretch question sets: RRQuestion / RRRun band "S-L" | "S-M" | "S-H" (4 new questions per band). */
+export const STRETCH_SET_PREFIX = "S-";
+export const isStretchSetBand = (band: unknown): boolean => s(band).startsWith(STRETCH_SET_PREFIX);
+/** The stretch set band of a question band: LOW → S-L, MID → S-M, HIGH → S-H. */
+export const stretchSetBand = (band: string): string => `${STRETCH_SET_PREFIX}${s(band).replace(/^S-/, "").charAt(0)}`;
+/** The question band (LOW / MID / HIGH) a run's band belongs to — a stretch set band maps back to its band (prompts, key words). */
+export const baseBand = (band: unknown): string => {
+  const b = s(band);
+  if (!isStretchSetBand(b)) return b;
+  return ({ L: "LOW", M: "MID", H: "HIGH" } as Record<string, string>)[b.slice(2)] ?? b;
+};
+
 /**
- * A run that COUNTS as a first try: the non-stretch first try of the article, or the stretch first try when its
- * band differs from the first read's band (new questions). `firstBand` = the first read's band (firstReadBands).
+ * Does a stretch with this band count fully (new questions)? A stretch set band always does; otherwise only a band
+ * different from the first read's (`firstBand`).
+ */
+export const stretchCountsFully = (firstBand: string | null | undefined, stretchBand: string): boolean =>
+  isStretchSetBand(stretchBand) || (!!firstBand && !!s(stretchBand) && firstBand !== stretchBand);
+
+/**
+ * A run that COUNTS as a first try: the non-stretch first try of the article, or the stretch first try with NEW
+ * questions (a stretch set, or a band different from the first read's). `firstBand` = the first read's band.
  */
 export function isCountedTry(r: R, firstBand: string | null | undefined): boolean {
   if (!isFirst(r)) return false;
   if (!isStretch(r)) return true;
-  return !!firstBand && !!s(r.band) && s(r.band) !== firstBand;
+  return stretchCountsFully(firstBand, s(r.band));
+}
+
+/** A PRACTICE stretch: the stretch first try that reused the first read's questions (same band, no stretch set). */
+export function isPracticeStretch(r: R, firstBand: string | null | undefined): boolean {
+  return isFirst(r) && isStretch(r) && !isCountedTry(r, firstBand);
 }
 
 /** The runs (of any students) that count as first tries — the first-read bands are taken from the same rows. */
 export function countedTries<T extends R>(runs: readonly T[]): T[] {
   const bands = firstReadBands(runs);
-  return runs.filter((r) => isCountedTry(r, bands.get(pairKey(r))));
+  return earliestFirsts(runs).filter((r) => isCountedTry(r, bands.get(pairKey(r))));
 }
 
-/** The stretch is allowed (and fed to the stars) only when its band differs from the first read's band. */
-export const stretchInNewBand = (firstBand: string | null | undefined, stretchBand: string): boolean => !!firstBand && firstBand !== stretchBand;
+/** @deprecated round 4 name — a stretch counts fully with a stretch set or in a new band (stretchCountsFully). */
+export const stretchInNewBand = (firstBand: string | null | undefined, stretchBand: string): boolean => stretchCountsFully(firstBand, stretchBand);
+
+/**
+ * 🎯 The weekly-goal readings (round 5): ONE credit per article — the earliest reliable, careful (not read faster
+ * than RR_MIN_READ_SECONDS), scored 75%+ run among its first try and its stretch (counted or practice). A re-read
+ * never. Returns one run per student + article.
+ */
+export function goalRuns<T extends R>(runs: readonly T[], minScore = 75): T[] {
+  const best = new Map<string, T>();
+  const t = (r: R) => { const v = r.completedAt; const d = v instanceof Date ? v.getTime() : new Date(s(v)).getTime(); return Number.isFinite(d) ? d : Infinity; };
+  for (const r of earliestFirsts(runs)) {
+    if (!isFirst(r) || !scoredRun(r) || isUnreliableRun(r) || rapidRead(r) || Number(r.score) < minScore) continue;
+    const k = pairKey(r), have = best.get(k);
+    if (!have || t(r) < t(have)) best.set(k, r);
+  }
+  return [...best.values()];
+}
+
+// ------------------------------------------------------------------ the ONE article status
+
+export type ArticleStatus = "NEW" | "IN_PROGRESS" | "FINISH_STEPS" | "DONE";
+/** The words students see for each status (library, article page, My Work). */
+export const ARTICLE_STATUS_LABEL: Record<ArticleStatus, string> = { NEW: "New", IN_PROGRESS: "In progress", FINISH_STEPS: "Finish steps 4–5", DONE: "Done" };
+
+/** The article's first try (the first non-stretch reading), or null. */
+export function firstTryRun<T extends R>(runs: readonly T[]): T | null {
+  const main = runs.filter((r) => !isStretch(r));
+  const first = main.find(isFirst);
+  if (first) return first;
+  const t = (r: R) => new Date(s(r.startedAt)).getTime() || 0;
+  return main.length ? [...main].sort((a, b) => t(a) - t(b))[0] : null;
+}
+
+/**
+ * 🏷 ONE article status (round 5), from the FIRST TRY only — re-reads and stretch runs never change it:
+ *   NEW           no first try yet
+ *   IN_PROGRESS   the first try is started, its activity (step 3) is not submitted
+ *   FINISH_STEPS  the activity is scored, steps 4–5 are still open
+ *   DONE          the first try finished all 5 steps
+ * `runs` = one student's runs of ONE article (columns: step, score, completedAt, firstTry, stretch, startedAt).
+ */
+export function articleStatus(runs: readonly R[]): ArticleStatus {
+  const first = firstTryRun(runs);
+  if (!first) return "NEW";
+  if (s(first.step) === "DONE") return "DONE";
+  if (scoredRun(first) || s(first.step) === "WRITE" || s(first.step) === "POSTPOLL") return "FINISH_STEPS";
+  return "IN_PROGRESS";
+}
 
 // ------------------------------------------------------------------ the ONE article definition
 
-/** An article = a reliable, scored, non-stretch first try. */
-export const isArticleRun = (r: R): boolean => scoredRun(r) && isFirst(r) && !isStretch(r) && !isUnreliableRun(r);
+/**
+ * An article = a reliable, scored, non-stretch first try. Round 5: a run read faster than RR_MIN_READ_SECONDS is not
+ * an article read either (callers that never read RRRun.readSeconds treat every run as read carefully).
+ */
+export const isArticleRun = (r: R): boolean => scoredRun(r) && isFirst(r) && !isStretch(r) && !isUnreliableRun(r) && !rapidRead(r);
 /** The articles (reliable non-stretch first tries) of the rows. */
-export function articleRuns<T extends R>(runs: readonly T[]): T[] { return runs.filter(isArticleRun); }
-/** The stretch readings that count (their own line): reliable, scored, a first try in a new band. */
+export function articleRuns<T extends R>(runs: readonly T[]): T[] { return earliestFirsts(runs).filter(isArticleRun); }
+/** The stretch readings that count (their own line): reliable, scored, a first try with new questions. */
 export function stretchRuns<T extends R>(runs: readonly T[]): T[] {
   return countedTries(runs).filter((r) => isStretch(r) && scoredRun(r) && !isUnreliableRun(r));
 }
 
 // ------------------------------------------------------------------ the ONE accuracy tally
 
-/** The runs whose answers count for accuracy: scored, counted first tries (stretch only in a new band), reliable. */
+/** The runs whose answers count for accuracy: scored, counted first tries (stretch only with new questions), reliable. */
 export function tallyRuns<T extends R>(runs: readonly T[]): T[] {
   return countedTries(runs).filter((r) => scoredRun(r) && !isUnreliableRun(r));
 }

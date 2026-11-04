@@ -1,315 +1,831 @@
 {
-  "code": "RR-328",
-  "title": "Climate Zones Around the World",
-  "topic": "Geography",
-  "summary": "How Earth is divided into climate zones such as tropical, temperate, polar, and desert, based mainly on latitude but also on altitude and dry descending air, why Saudi Arabia sits in a desert zone, and how climate shapes where and how people live.",
-  "poll": "Where a place sits on Earth decides almost everything about how people live there.",
-  "versions": [
-    {
-      "level": 300,
-      "title": "Earth's Bands of Weather",
-      "text": "Earth has many kinds of weather. Some spots stay hot. Some stay cold. We sort them into zones.\n\nNear the equator, the sun is strong. It stays hot there. This is the tropical zone. Rain falls a lot.\n\nNear the poles, it stays cold. Snow and ice sit on the ground. This is the polar zone. The sun stays low in winter.\n\nIn between, there is a zone with four seasons. It gets hot, then cool, then cold, then warm.\n\nSome land gets little rain. It turns into a desert. Saudi Arabia has land like this. Few clouds bring rain.\n\nTall hills stay cold near the equator. The air up high is thin.\n\nClimate shapes how we live. In hot, dry spots, we save water. In cold spots, we wear warm coats."
-    },
-    {
-      "level": 400,
-      "title": "Earth's Bands of Weather",
-      "text": "Earth has many kinds of weather. Some spots stay hot all year. Some spots stay cold. We sort them into set climate zones.\n\nNear the equator, the sun hits hard. It stays hot there all year. This is the tropical zone. Rain falls a lot, feeding green woods.\n\nNear the poles, it stays cold most of the year. Snow and ice sit on the ground. This is the polar zone. The sun stays low in winter.\n\nIn between lies a zone with four seasons. It gets hot, then cool, then cold, then warm again. Big cities sit in this zone.\n\nSome land gets little rain and turns into a desert. Saudi Arabia sits in a dry desert zone. Few rain clouds form there.\n\nTall hills can stay cold near the equator. The air up high holds less heat.\n\nClimate shapes how we live in a place. In hot, dry spots, we save our water. In cold spots, we wear warm coats and build warm homes."
-    },
-    {
-      "level": 500,
-      "title": "Earth's Bands of Weather",
-      "text": "Earth has many kinds of weather, and we sort spots with like weather into climate zones. Some zones stay hot all year, and some stay cold.\n\nNear the equator, the sun hits hard all year. This keeps the tropical zone hot in every season. Rain falls a lot there, feeding green, thick woods.\n\nNear the poles, it stays cold most of the year. This is the polar zone. Snow and ice sit on the ground, and the sun stays low in deep winter.\n\nIn between lies a zone with four clear seasons: hot, cool, cold, and warm again. Big, busy cities sit in this one zone.\n\nSome spots get little rain all year and turn into deserts. Saudi Arabia sits in a dry desert zone, where rain clouds rarely form.\n\nTall hills can stay cold near the equator, since the air up high holds much less heat than air near the ground.\n\nClimate shapes how we live in a place. In hot, dry spots, we must save our water with care. In cold spots, we wear warm coats and build snug, warm homes."
-    },
-    {
-      "level": 600,
-      "title": "Earth's Bands of Weather",
-      "text": "Earth sees many kinds of weather, and we sort spots with like weather into set climate zones. Some zones stay hot all year, while some stay cold most of the year.\n\nNear the equator, the sun hits hard all year long. This is why the tropical zone stays hot in every season. Rain falls a lot there, feeding green, thick woods that need that steady rain.\n\nNear the poles, it stays cold most of the year. This is known as the polar zone. Snow and ice sit on the ground almost all the time, and the sun stays low in deep winter.\n\nIn between lies a zone with four clear seasons: a hot summer, a cool fall, a cold winter, and a warm spring. Big, busy cities tend to sit in this one zone.\n\nSome spots get little rain all year and slowly turn into deserts. Saudi Arabia sits mostly in a dry desert zone, where rain clouds rarely form up at all.\n\nTall hills can stay cold even near the equator, since the air up high holds far less heat than the air near the ground.\n\nClimate strongly shapes how we live in a place. In hot, dry spots, we must save our water with real care. In cold spots, we wear warm coats and build snug, warm homes to stay safe."
-    },
-    {
-      "level": 700,
-      "title": "Earth's Bands of Weather",
-      "text": "Earth sees many kinds of weather, and we sort spots with like weather into set climate zones, based a lot on latitude, how far a spot sits from the equator.\n\nNear the equator, at low latitude, the sun hits hard all year. This keeps the tropical zone warm in every season. Rain falls a lot there, feeding green, thick woods.\n\nNear the poles, at high latitude, it stays cold most of the year. This is the polar zone. Snow and ice sit on the ground, and the sun stays low in deep winter.\n\nIn between, at mid latitude, lies the temperate zone, with four clear seasons: hot, cool, cold, and warm again. Big cities tend to sit in this one zone.\n\nClimate zones depend on more than just latitude, though. Some spots get little rain and turn into arid deserts, no matter their latitude. Saudi Arabia sits in a hot, arid zone, since dry air sinks there and keeps rain clouds away.\n\nAltitude shapes climate too, since tall hills can stay cold near the equator; thin air up high holds less heat.\n\nClimate strongly shapes how we live. In hot, arid spots, we must save water with care, and, as in Saudi Arabia, turn sea water into fresh water. In cold spots, we wear warm coats and build warm homes."
-    },
-    {
-      "level": 800,
-      "title": "Earth's Bands of Weather",
-      "text": "Earth sees many kinds of weather, and we sort spots with like weather into set climate zones, based a lot on latitude, how far a spot sits from the equator.\n\nNear the equator, at low latitude, the sun hits the ground hard all year, which keeps the tropical zone warm in every season. Rain falls a lot there, feeding green, thick woods that need that rain.\n\nNear the poles, at high latitude, it stays cold for most of the year in the polar zone. Snow and ice sit on the ground, and the sun stays low in deep winter.\n\nIn between, at mid latitude, lies the temperate zone, which sees four clear seasons: hot, cool, cold, and warm again. Big, busy cities tend to sit in this one zone.\n\nClimate zones depend on more than just latitude, though. Some spots get little rain all year and turn into arid deserts, no matter their latitude. Saudi Arabia sits in a hot, arid zone, since dry air sinks there and keeps rain clouds from forming.\n\nAltitude shapes climate strongly too, since tall hills can stay cold near the equator; the thin air up high holds much less heat than the air below.\n\nClimate strongly shapes how we live in a place. In hot, arid spots, we must save water with care, and, as in Saudi Arabia, build plants that turn sea water into fresh water. In cold spots, we wear warm coats and build warm, snug homes."
-    },
-    {
-      "level": 900,
-      "title": "Earth's Bands of Weather",
-      "text": "Earth sees many kinds of weather, and we sort spots with like weather into set climate zones, based largely on latitude, how far a spot sits from the equator.\n\nNear the equator, at low latitude, the sun hits the ground hard all year long, which keeps the tropical zone warm in every season without much change. Rain falls a lot there, feeding green, thick woods that fully need that steady rain.\n\nNear the poles, at high latitude, it stays cold for most of the year in what we call the polar zone. Snow and ice sit on the ground, and the sun stays low in deep winter, barely rising at times.\n\nIn between, at mid latitude, lies the temperate zone, which sees four clear seasons: hot, cool, cold, and warm again. Big, busy cities tend to sit right in this one zone.\n\nClimate zones depend on more than just latitude, though. Some spots get very little rain all year and turn into arid deserts, no matter how far they sit from the equator. Saudi Arabia sits in a hot, arid zone, since dry air steadily sinks there and keeps rain clouds from forming at all.\n\nAltitude shapes climate strongly too, since tall hills can stay cold even near the equator; the thin air up high holds much less heat than the air below, all year long.\n\nClimate strongly shapes how we live in any given place. In hot, arid spots, we must save water with real care, and, as in Saudi Arabia, build plants that turn sea water into fresh, clean water. In cold spots, we wear warm coats and build warm, snug homes that hold in heat."
-    },
-    {
-      "level": 1000,
-      "title": "Earth's Bands of Weather",
-      "text": "Earth sees a huge range of long-term weather, and scientists sort places with like weather into set climate zones, based largely on latitude, which is simply the angle-based distance of a place from the equator.\n\nNear the equator, at low latitude, sunlight hits the ground almost straight down all year long, which keeps the tropical zone warm in every season without much real change. Heavy rain falls across many tropical spots, feeding thick, green forests that depend fully on that steady rain in order to survive.\n\nFarther from the equator, at high latitude near the poles, it stays very cold for most of the year within what is formally called the polar zone. Snow and ice cover the ground almost all the time, and the sun may barely rise during the darkest part of winter, assuming it rises at all.\n\nBetween the tropical and polar zones, at mid latitude, lies the temperate zone, which sees four clear seasons: a hot summer, a cool fall, a cold winter, and a mild spring. Many big, busy cities happen to sit right within this one zone, drawn partly by its mild, livable weather.\n\nClimate zones depend on more than just latitude, though. Some spots get very little rain all year and turn into arid deserts no matter how far they sit from the equator. Saudi Arabia lies mostly in a hot, arid zone, since it sits under a steady band of dry, sinking air that keeps rain clouds from ever forming overhead, no matter the season.\n\nAltitude also strongly shapes climate, since tall mountains can stay cold even quite near the equator; the thin air up high holds much less heat than the air near sea level, which explains why snow caps certain tropical peaks all year round.\n\nClimate strongly shapes how people live in any given place. In hot, arid spots, people must save water through care and, as in Saudi Arabia, large plants that turn seawater into fresh, usable water. In cold spots, people wear heavy coats and build well-sealed, warm homes meant to hold in heat. Climate even picks which crops farmers can grow, shaping whole economies, diets, and settling patterns around it."
-    },
-    {
-      "level": 1100,
-      "title": "Bands of Weather: How Earth's Climate Zones Work",
-      "text": "Earth shows a huge range of long-term weather, and scientists sort spots with like weather into set climate zones, based largely on latitude, which is simply how far a spot sits from the equator, measured in the northern or southern hemisphere.\n\nNear the equator, at low latitude, the sun hits the ground hard all year, keeping the tropical zone warm in every season. Heavy precipitation falls across many tropical spots, feeding dense forests that depend on that steady moisture.\n\nFarther from the equator, at high latitude near the poles, it stays very cold for most of the year in the polar zone, where snow and ice cover the ground and the sun may barely clear the horizon in deep winter.\n\nBetween the tropical and polar zones, at mid latitude, lies the temperate zone, with four clear seasons, drawing many of the world's biggest cities, which sit there partly for its mild, livable weather.\n\nClimate zones depend on more than latitude, though. Wide bands near the tropics, known as subtropical zones, get very little precipitation all year and turn into arid deserts no matter how far they sit from the equator. Saudi Arabia lies in such a hot, arid, subtropical zone, under a steady band of dry, sinking air that keeps rain clouds from forming.\n\nElevation also strongly shapes climate, since tall mountains stay cold even near the equator; thin air at high elevation holds far less heat than air near sea level, which is why snow caps some tropical peaks.\n\nClimate ultimately shapes how people live in any place. In hot, arid spots marked by real aridity, people must save water through care and, as in Saudi Arabia, build large plants that turn seawater into fresh water. In cold spots, people wear heavy coats and build warm homes, while climate more broadly shapes whole economies and diets."
-    },
-    {
-      "level": 1200,
-      "title": "Bands of Weather: How Earth's Climate Zones Work",
-      "text": "Earth shows an extraordinary range of long-term weather, and scientists sort places with like weather into set climate zones, based largely on latitude, the angle-based distance of a place from the equator, measured north or south within either hemisphere.\n\nNear the equator, at low latitude, sunlight hits the ground almost straight down all year, keeping the tropical zone warm in every season without much real change. Strong precipitation falls across many tropical spots, feeding dense, rich forests that depend fully on that steady moisture.\n\nFarther from the equator, at high latitude near the poles, it stays very cold for most of the year in the polar zone, where snow and ice cover the ground almost all the time and the sun may barely clear the horizon in deep winter.\n\nBetween the tropical and polar zones, at mid latitude, lies the temperate zone, which sees four clear seasons and has drawn many of the world's biggest cities, which have clustered there over time partly for its mild, livable weather.\n\nClimate zones depend on more than latitude, though. Many spots, in wide bands near the tropics known as subtropical zones, get strikingly little precipitation all year and turn into arid deserts no matter how far they sit from the equator. Saudi Arabia lies mostly in such a hot, arid, subtropical zone, sitting under a steady belt of dry, sinking air that keeps rain clouds from fully forming.\n\nElevation also strongly shapes climate, since tall mountains stay cold even near the equator; the notably thin air at high elevation holds far less heat than air near sea level, which explains why snow caps some tropical peaks all year.\n\nClimate ultimately shapes how people live in any place. In hot, arid spots marked by real aridity, people must carefully manage water and, as in Saudi Arabia, build large plants that turn seawater into fresh water. In cold spots, people wear heavy coats and build warm homes, while climate more broadly shapes whole economies, diets, and settling patterns."
-    },
-    {
-      "level": 1300,
-      "title": "Bands of Weather: How Earth's Climate Zones Work",
-      "text": "Earth shows an extraordinary range of long-term weather, and scientists sort places with like weather into set climate zones, based largely on latitude, the angle-based distance of a place from the equator, measured north or south within either the northern or southern hemisphere.\n\nNear the equator, at low latitude, sunlight hits the ground almost straight down all year, a geometry that keeps the tropical zone warm in every season without much real change. Strong precipitation falls across many tropical spots, feeding dense, rich forests that depend fully on that steady moisture to thrive.\n\nFarther from the equator, at high latitude near the poles, it stays very cold for most of the year in the polar zone, where snow and ice cover the ground almost all the time and the sun may barely clear the horizon in deep winter, at times failing to rise for weeks.\n\nBetween the tropical and polar zones, at mid latitude, lies the temperate zone, which sees four clear seasons and has drawn many of the world's biggest cities, which have clustered there over the centuries partly for its mild, livable weather.\n\nClimate zones depend on more than latitude, though. Many spots, in wide bands near the tropics known as subtropical zones, get strikingly little precipitation all year and turn into arid deserts no matter how far they sit from the equator. Saudi Arabia lies mostly in such a hot, arid, subtropical zone, sitting under a steady belt of dry, sinking air that keeps rain clouds from ever fully forming.\n\nElevation also strongly shapes climate, since tall mountains stay cold even near the equator; the notably thin air at high elevation holds far less heat than air near sea level, which explains why snow can permanently cap some tropical peaks.\n\nClimate ultimately shapes how people live in any place. In hot, arid spots marked by real aridity, communities must carefully manage water and, as in Saudi Arabia, build large plants that turn seawater into fresh water on a big scale. In cold spots, people wear heavy coats and build warm homes, while climate more broadly shapes whole economies, diets, and settling patterns."
-    },
-    {
-      "level": 1400,
-      "title": "Bands of Weather: How Earth's Climate Zones Work",
-      "text": "Earth shows an extraordinary range of long-term weather, and scientists sort places with like weather into set climate zones, based largely on latitude, the angle-based distance of a place from the equator, measured north or south within either the northern or southern hemisphere, and shaped further by other factors.\n\nNear the equator, at low latitude, sunlight hits the ground almost straight down all year, a geometry that keeps the tropical zone warm in every season without much real change, and strong precipitation falls across many tropical spots, feeding dense, rich forests that depend fully on that steady moisture to thrive.\n\nFarther from the equator, at high latitude near the poles, it stays very cold for most of the year in the polar zone, where snow and ice cover the ground almost all the time and the sun may barely clear the horizon in deep winter, at times failing to rise above it for weeks.\n\nBetween the tropical and polar zones, at mid latitude, lies the temperate zone, which sees four clear seasons and has drawn many of the world's biggest cities, which have clustered there over the centuries partly for its mild, livable weather and steady growing seasons.\n\nClimate zones depend on more than latitude, though. Many spots, in wide bands near the tropics known as subtropical zones, get strikingly little precipitation all year and turn into arid deserts no matter how far they sit from the equator. Saudi Arabia lies mostly in such a hot, arid, subtropical zone, sitting under a steady belt of dry, sinking air that keeps rain clouds from ever fully forming overhead.\n\nElevation also strongly shapes climate, since tall mountains stay cold even near the equator; the notably thin air at high elevation holds far less heat than air near sea level, which explains why snow can permanently cap some tropical peaks regardless of latitude.\n\nClimate ultimately shapes how people live in any place. In hot, arid spots marked by real aridity, communities must carefully manage water and, as in Saudi Arabia, build large plants that turn seawater into fresh water on a big, industrial scale. In cold spots, people wear heavy coats and build warm homes, while climate more broadly shapes whole economies, diets, building styles, and settling patterns."
-    },
-    {
-      "level": 1500,
-      "title": "Bands of Weather: How Earth's Climate Zones Work",
-      "text": "Earth exhibits an extraordinary range of long-term weather patterns, and scientists classify regions that share broadly similar weather into distinct climate zones, determined to a considerable degree by latitude—the angular distance of a given place from the equator, measured in degrees north or south within either the northern or southern hemisphere—and modified further by a range of additional factors such as elevation, ocean currents, and prevailing wind patterns.\n\nNear the equator, at low latitudes, sunlight strikes the ground almost directly overhead throughout the year, a geometric fact that keeps the tropical zone consistently warm in every season without meaningful exception; substantial precipitation occurs across many tropical regions as a result, sustaining dense, biologically rich rainforests that depend entirely on that constant, dependable moisture in order to survive and flourish across generations.\n\nFarther from the equator, at high latitudes near the poles, temperatures remain extremely cold for most of the year within what climatologists call the polar zone, where snow and ice cover the ground almost continuously and the sun may barely clear the horizon during the darkest stretch of winter in either hemisphere, sometimes failing to rise above it at all for weeks on end.\n\nBetween the tropical and polar zones, at middle latitudes, lies the temperate zone, which experiences four clearly distinct seasons and has drawn many of the world's largest and most populous cities over the centuries, cities that have clustered there largely because of its moderate, generally livable climate and its comparatively reliable agricultural growing seasons.\n\nClimate zones, however, depend on considerably more than latitude alone. Many regions, including large bands situated near the tropics and known as subtropical zones, receive strikingly little precipitation throughout the year and gradually become arid deserts regardless of their actual distance from the equator, because descending air in these bands tends to warm and dry out before it ever reaches the surface. Saudi Arabia lies mostly within exactly such a hot, arid, subtropical climate zone, sitting beneath a persistent belt of dry, descending air that actively suppresses the formation of rain clouds long before they are ever able to develop overhead.\n\nElevation, too, strongly influences climate, since high mountains remain surprisingly cold even quite near the equator; the markedly thin air found at great elevation holds considerably less heat than the denser air found near sea level, which explains why snow can permanently cap certain tropical mountains entirely regardless of their latitude.\n\nClimate ultimately shapes the way people live in any given region of the world in profound and lasting ways. In hot, arid places marked by extreme aridity, communities must carefully manage their severely limited water supply through irrigation and, as in Saudi Arabia, large-scale desalination plants that convert seawater into usable fresh water on an industrial scale. In cold places, people wear heavy, insulated clothing and construct well-insulated, heated homes designed to retain scarce warmth, while climate more broadly continues to shape entire national economies, diets, architectural styles, and long-term settlement patterns across the globe, often in ways people rarely stop to notice."
-    },
-    {
-      "level": 1600,
-      "title": "Bands of Weather: How Earth's Climate Zones Work",
-      "text": "Earth exhibits an extraordinary range of long-term weather patterns, and scientists classify regions that share broadly similar weather into distinct climate zones, determined to a considerable degree by latitude—the angular distance of a given place from the equator, measured in degrees north or south within either the northern or southern hemisphere—and modified further still by a wide range of additional factors, including elevation, ocean currents, and prevailing wind patterns that interact in complex and sometimes unpredictable ways.\n\nNear the equator, at low latitudes, sunlight strikes the ground almost directly overhead throughout the entire year, a geometric fact that keeps the tropical zone consistently and reliably warm in every season without meaningful exception; substantial precipitation occurs across many tropical regions as a direct result, sustaining dense, biologically rich rainforests that depend entirely and continuously on that constant, dependable moisture in order to survive and flourish across countless generations.\n\nFarther from the equator, at high latitudes near the poles, temperatures remain extremely cold for the overwhelming majority of the year within what climatologists formally call the polar zone, where snow and ice cover the ground almost continuously and the sun may barely clear the horizon during the darkest stretch of winter in either hemisphere, sometimes failing to rise above it at all for weeks upon weeks on end.\n\nBetween the tropical and polar zones, at middle latitudes, lies the temperate zone, which experiences four clearly distinct seasons and has drawn many of the world's largest and most populous cities over many centuries, cities that have clustered there largely because of its moderate, consistently livable climate and its comparatively reliable, predictable agricultural growing seasons.\n\nClimate zones, however, depend on considerably more than latitude alone, however important that single factor may be. Many regions, including vast bands situated near the tropics and widely known as subtropical zones, receive strikingly little precipitation throughout the year and gradually become arid deserts regardless of their actual distance from the equator, largely because descending air within these particular bands tends to warm and dry out thoroughly before it ever manages to reach the surface below. Saudi Arabia lies mostly within exactly such a hot, arid, subtropical climate zone, sitting beneath a persistent, near-permanent belt of dry, descending air that actively and continuously suppresses the formation of rain clouds long before they are ever able to develop fully overhead.\n\nElevation, too, strongly and measurably influences climate, since high mountains remain surprisingly cold even quite near the equator itself; the markedly thin air found at great elevation holds considerably less heat than the denser air found near sea level, which explains precisely why snow can permanently cap certain tropical mountains entirely, regardless of their relatively low latitude.\n\nClimate ultimately shapes the way people live in any given region of the world in profound, lasting, and often underappreciated ways. In hot, arid places marked by extreme and persistent aridity, communities must carefully and continuously manage their severely limited water supply through irrigation and, as in Saudi Arabia, large-scale desalination plants that convert seawater into genuinely usable fresh water on a vast, industrial scale. In cold places, people wear heavy, insulated clothing and construct well-insulated, heated homes specifically designed to retain scarce warmth, while climate more broadly continues to shape entire national economies, diets, architectural styles, and long-term settlement patterns across the globe, frequently in ways that people living within them rarely stop to notice or fully appreciate."
-    }
-  ],
-  "bands": {
-    "LOW": {
-      "keyWords": [
-        { "word": "climate", "partOfSpeech": "noun", "definition": "the usual weather a place has over many years", "example": "Desert climate is dry, while jungle climate is wet." },
-        { "word": "zone", "partOfSpeech": "noun", "definition": "an area or region that is different from the areas around it", "example": "The park has a quiet zone where visitors must not shout." },
-        { "word": "equator", "partOfSpeech": "noun", "definition": "an imaginary line around the middle of the Earth", "example": "Countries near the equator are usually warm all year." },
-        { "word": "desert", "partOfSpeech": "noun", "definition": "dry land that gets very little rain", "example": "Few plants can survive in a sandy desert." },
-        { "word": "pole", "partOfSpeech": "noun", "definition": "one of the two coldest points at the top and bottom of the Earth", "example": "Thick ice covers the land near the North Pole." }
-      ],
-      "questions": [
-        {
-          "stem": "What is this article mostly about?",
-          "options": ["How Earth is divided into climate zones and why they differ", "Why volcanoes form near the equator and nowhere else on the Earth", "How ships navigate across the ocean using stars and maps", "Why coral reefs grow near warm water in the sea"],
-          "answer": "A",
-          "skill": "central-idea",
-          "why": "The article explains tropical, temperate, polar, and desert zones and what causes them.",
-          "wrong": { "B": "Volcanoes are not discussed in this article.", "C": "Ship navigation is not discussed.", "D": "Coral reefs are not discussed." }
-        },
-        {
-          "stem": "According to the article, why is the tropical zone hot all year?",
-          "options": ["Because strong winds blow across the land constantly", "Because sunlight hits the ground near the equator very directly", "Because mountains near the equator trap heat in the air", "Because ocean currents bring warm water to the land each summer"],
-          "answer": "B",
-          "skill": "detail",
-          "why": "The article says sunlight is very strong near the equator, keeping the tropical zone hot.",
-          "wrong": { "A": "Wind is not given as the reason.", "C": "Mountains trapping heat is not stated.", "D": "Ocean currents warming land each summer is not stated." }
-        },
-        {
-          "stem": "What covers the ground for most of the year in the polar zone?",
-          "options": ["Thick green rainforest", "Dry, sandy desert", "Tall grass and crops", "Snow and ice"],
-          "answer": "D",
-          "skill": "detail",
-          "why": "The article says snow and ice cover the ground in the polar zone.",
-          "wrong": { "A": "Rainforest is found in the tropical zone, not the polar zone.", "B": "Deserts are a different zone.", "C": "Grass and crops are not described in the polar zone." }
-        },
-        {
-          "stem": "In the article, what does desert mean?",
-          "options": ["Land that gets very little rain", "A region with four seasons", "The coldest place on Earth, covered in ice", "A thick, green rainforest"],
-          "answer": "A",
-          "skill": "vocabulary",
-          "why": "The article describes a desert as land that receives very little rain.",
-          "wrong": { "B": "That describes the temperate zone.", "C": "That describes the polar zone.", "D": "That describes the tropical zone." }
-        },
-        {
-          "stem": "Why might Saudi Arabia have very few rain clouds?",
-          "options": ["Because it is located near the North Pole", "Because it sits in a dry, desert climate zone", "Because it has four cold seasons", "Because it is covered mostly by rainforest"],
-          "answer": "B",
-          "skill": "inference",
-          "why": "The article states Saudi Arabia sits in a dry, desert zone where few clouds bring rain.",
-          "wrong": { "A": "This contradicts the article.", "C": "This contradicts the article.", "D": "This contradicts the article." }
-        },
-        {
-          "stem": "Why can a tall mountain near the equator still have cold, snowy peaks?",
-          "options": ["Because mountains always sit in the polar zone", "Because the thin air high up holds less heat", "Because deserts always surround mountains", "Because the equator moves during winter"],
-          "answer": "B",
-          "skill": "inference",
-          "why": "The article explains the air high on a mountain is thin and cool.",
-          "wrong": { "A": "Mountains near the equator are not in the polar zone.", "C": "Deserts surrounding every mountain is not stated.", "D": "The equator does not move." }
-        },
-        {
-          "stem": "What happens in cold climate zones because of the cold weather?",
-          "options": ["Deserts quickly form across the land when it is cold", "Rain clouds never form overhead in cold places", "People wear warm coats to stay comfortable", "People stop growing any crops at all, even in summer"],
-          "answer": "C",
-          "skill": "cause-effect",
-          "why": "The article says people in cold places wear warm coats.",
-          "wrong": { "A": "Deserts are not described as forming from cold.", "B": "Rain clouds never forming is not stated for cold zones.", "D": "Stopping all crops is not stated." }
-        },
-        {
-          "stem": "Why does the author mention that climate shapes how people live?",
-          "options": ["To show that climate zones affect daily life, not just weather", "To prove that everyone should move to a warm climate", "To explain how mountains are formed in the hills and valleys", "To describe how ships are built for cold seas and ice"],
-          "answer": "A",
-          "skill": "author-purpose",
-          "why": "The ending connects climate zones to real choices people make, like clothing and water use.",
-          "wrong": { "B": "The article does not argue people should move.", "C": "Mountain formation is not explained.", "D": "Ship building is not described." }
-        }
-      ],
-      "prompt": "Explain two different climate zones on Earth and tell how they are different from each other. Use details from the article.",
-      "checklist": ["I described one climate zone.", "I described a second climate zone and how it differs.", "I used details from the article."],
-      "modelAnswer": "The tropical zone near the equator is hot all year and gets a lot of rain, which helps rainforests grow. The polar zone near the North and South Poles is very cold, and snow and ice cover the ground almost all year. These two zones are very different because one stays hot and wet while the other stays cold and icy."
-    },
-    "MID": {
-      "keyWords": [
-        { "word": "latitude", "partOfSpeech": "noun", "definition": "how far north or south a place is from the equator", "example": "Cities at a low latitude are usually hotter than cities far to the north." },
-        { "word": "temperate", "partOfSpeech": "adjective", "definition": "having mild weather with four different seasons", "example": "The temperate region had a cool winter and a warm summer." },
-        { "word": "tropical", "partOfSpeech": "adjective", "definition": "hot and often rainy, found near the equator", "example": "Thick tropical rainforests grow along the equator." },
-        { "word": "arid", "partOfSpeech": "adjective", "definition": "very dry, with little rainfall", "example": "Few crops can grow in such an arid region without irrigation." },
-        { "word": "altitude", "partOfSpeech": "noun", "definition": "the height of a place above sea level", "example": "The air felt thin at such a high altitude." }
-      ],
-      "questions": [
-        {
-          "stem": "Which sentence best states the central idea of the article?",
-          "options": ["Latitude mainly shapes Earth's climate zones, though other factors matter too.", "Every single region on Earth shares exactly the same climate, in every season.", "Deserts can only ever exist near the North and South Poles, and nowhere else.", "Temperate zones never experience more than just one season in the year."],
-          "answer": "A",
-          "skill": "central-idea",
-          "why": "The article explains how latitude generally sets climate zones, with altitude and arid conditions as added factors.",
-          "wrong": { "B": "This contradicts the article.", "C": "This contradicts the article's Saudi Arabia example.", "D": "The temperate zone is described as having four seasons." }
-        },
-        {
-          "stem": "According to the article, what is latitude?",
-          "options": ["The height of a place above sea level or the ground", "The amount of rain a desert receives each year", "How far north or south a place is from the equator", "The number of seasons a region experiences in a year"],
-          "answer": "C",
-          "skill": "detail",
-          "why": "The article defines latitude this way when explaining climate zones.",
-          "wrong": { "A": "That describes altitude.", "B": "That is not the definition given.", "D": "That is not the definition given." }
-        },
-        {
-          "stem": "Why does Saudi Arabia lie mostly within an arid climate zone, according to the article?",
-          "options": ["It sits beneath a steady band of dry, descending air.", "It sits directly on top of the equator line.", "It is covered mostly by very tall mountains and snow.", "It receives heavy rainfall during most months of the year."],
-          "answer": "A",
-          "skill": "detail",
-          "why": "The article explains that dry, descending air discourages rain clouds from forming over Saudi Arabia.",
-          "wrong": { "B": "This is not stated in the article.", "C": "This is not stated in the article.", "D": "This contradicts the article." }
-        },
-        {
-          "stem": "As used in the article, what does temperate mean?",
-          "options": ["Extremely hot with no real seasons", "Covered permanently in snow and ice", "Very dry with almost no rainfall", "Mild, with four distinct seasons"],
-          "answer": "D",
-          "skill": "vocabulary",
-          "why": "The temperate zone is described as having four clear seasons and milder weather than the tropics or poles.",
-          "wrong": { "A": "That describes the tropical zone.", "B": "That describes the polar zone.", "C": "That describes an arid zone." }
-        },
-        {
-          "stem": "Why might people in an arid climate zone build desalination plants?",
-          "options": ["To create more rain clouds overhead in the sky", "To cool down the hot desert air with big fans", "To turn seawater into fresh water they can use", "To grow crops without any water at all in the sand"],
-          "answer": "C",
-          "skill": "inference",
-          "why": "The article mentions desalination as a way dry places like Saudi Arabia manage limited water.",
-          "wrong": { "A": "Creating rain clouds is not stated.", "B": "Cooling the air is not stated.", "D": "Growing crops with no water at all is not stated." }
-        },
-        {
-          "stem": "Why do many of the world's largest cities sit in the temperate zone?",
-          "options": ["Because the temperate zone has the hottest weather on all of Earth", "Because the temperate zone's moderate climate suits large populations", "Because the temperate zone never experiences any rain at all", "Because the temperate zone sits closest to the frozen poles"],
-          "answer": "B",
-          "skill": "inference",
-          "why": "The article links the temperate zone's moderate climate to why many cities are located there.",
-          "wrong": { "A": "The tropical zone, not the temperate zone, is described as hottest.", "C": "This contradicts the article.", "D": "The temperate zone sits between the tropics and the poles." }
-        },
-        {
-          "stem": "How does the tropical zone differ from the polar zone, based on the article?",
-          "options": ["The tropical zone stays warm all year, while the polar zone stays extremely cold.", "The tropical zone has four seasons, while the polar zone has only one.", "The tropical zone is dry, while the polar zone is always rainy.", "The tropical zone sits at high altitude, while the polar zone sits at sea level."],
-          "answer": "A",
-          "skill": "compare",
-          "why": "The article contrasts the tropical zone's year-round heat with the polar zone's extreme cold.",
-          "wrong": { "B": "Four seasons describe the temperate zone, not the tropical zone.", "C": "The tropical zone is described as rainy, not dry.", "D": "Altitude is not used to distinguish these two zones." }
-        },
-        {
-          "stem": "How does the article organize its explanation of climate zones?",
-          "options": ["By telling a single story about one traveler's journey across several lands and seas, from one place to the next", "By describing each climate zone in turn, from the equator to the poles, then adding other factors", "By comparing two countries in great detail, one paragraph after another, without any other zones", "By listing problems with the climate and their solutions only, with no talk about any climate zone at all"],
-          "answer": "B",
-          "skill": "text-structure",
-          "why": "The article moves from the tropical zone, to the polar zone, to the temperate zone, then discusses arid zones, altitude, and human life.",
-          "wrong": { "A": "No single traveler's story is told.", "C": "No detailed comparison of two countries is made.", "D": "The structure is not only a problem-solution list." }
-        }
-      ],
-      "prompt": "Explain how latitude shapes Earth's climate zones, and explain why Saudi Arabia is in a desert, arid zone even though that depends on more than latitude alone. Use at least three details from the article.",
-      "checklist": ["I explained how latitude affects climate zones.", "I explained why Saudi Arabia has an arid climate.", "I used at least three details from the article."],
-      "modelAnswer": "Latitude, or how far a place is from the equator, mostly decides Earth's climate zones: places near the equator form the hot tropical zone, places near the poles form the cold polar zone, and places in between form the milder temperate zone. However, climate depends on more than latitude alone—Saudi Arabia sits in a hot, arid zone because it lies beneath a band of dry, descending air that stops rain clouds from forming, not simply because of its latitude. This arid climate shapes life there, pushing people to rely on irrigation and desalination plants for fresh water."
-    },
-    "HIGH": {
-      "keyWords": [
-        { "word": "hemisphere", "partOfSpeech": "noun", "definition": "one half of the Earth, usually divided by the equator", "example": "Winter happens at opposite times in the northern and southern hemispheres." },
-        { "word": "precipitation", "partOfSpeech": "noun", "definition": "water that falls from the sky as rain, snow, or hail", "example": "The desert city recorded almost no precipitation that entire year." },
-        { "word": "elevation", "partOfSpeech": "noun", "definition": "the height of land above sea level", "example": "Towns at high elevation often have cooler temperatures than towns in the valley." },
-        { "word": "aridity", "partOfSpeech": "noun", "definition": "the quality of being extremely dry, with little rainfall", "example": "Severe aridity made farming almost impossible without irrigation." },
-        { "word": "subtropical", "partOfSpeech": "adjective", "definition": "relating to regions just outside the tropics, often warm and sometimes dry", "example": "Many deserts form within subtropical bands around the world." }
-      ],
-      "questions": [
-        {
-          "stem": "Which statement best captures the central idea of the article?",
-          "options": ["Latitude largely determines climate zones, but other factors modify them.", "Every single climate zone on Earth gets the same precipitation.", "Subtropical deserts only occur at very high elevation always.", "The temperate zone experiences no meaningful seasonal change at all."],
-          "answer": "A",
-          "skill": "central-idea",
-          "why": "The article explains latitude as the primary driver of climate zones while noting elevation and descending air as modifying factors.",
-          "wrong": { "B": "Precipitation is described as varying greatly between zones.", "C": "Subtropical deserts are described as occurring regardless of elevation.", "D": "The temperate zone is described as having four distinct seasons." }
-        },
-        {
-          "stem": "According to the article, what happens to descending air within subtropical bands?",
-          "options": ["It cools rapidly and immediately forms storm clouds.", "It warms and dries out before reaching the surface.", "It freezes and falls as snow near the equator.", "It rises quickly, creating tropical rainforests."],
-          "answer": "B",
-          "skill": "detail",
-          "why": "The article explains that descending air in subtropical bands warms and dries before reaching the ground, suppressing rain.",
-          "wrong": { "A": "This contradicts the article.", "C": "This contradicts the article.", "D": "Rising air near the equator creates rainforests, not descending subtropical air." }
-        },
-        {
-          "stem": "What does the article say elevation does to climate, even near the equator?",
-          "options": ["It raises temperatures at every single altitude equally.", "It has no measurable effect on temperature at all.", "It always creates tropical rainforest on mountain slopes.", "It makes high mountains cold since thin air holds less heat."],
-          "answer": "D",
-          "skill": "detail",
-          "why": "The article explains that thin air at high elevation holds less heat, allowing snow-capped tropical mountains.",
-          "wrong": { "A": "This contradicts the article.", "B": "This contradicts the article.", "C": "This is not described in the article." }
-        },
-        {
-          "stem": "As used in the article, aridity most nearly means",
-          "options": ["the quality of being extremely dry", "the height of a place above sea level", "the angular distance from the equator", "the number of seasons a region has"],
-          "answer": "A",
-          "skill": "vocabulary",
-          "why": "Aridity describes extreme dryness, as applied to Saudi Arabia's climate.",
-          "wrong": { "B": "That describes elevation.", "C": "That describes latitude.", "D": "That describes the temperate zone's seasons." }
-        },
-        {
-          "stem": "Why does the article suggest climate shapes 'entire national economies'?",
-          "options": ["Because climate has no real effect on how countries develop, so every country grows in the same way", "Because water scarcity and growing conditions influence what a country can produce and how it must adapt", "Because every country shares the exact same climate zone, so all of them have the same crops and work", "Because elevation always determines a country's currency, and the money changes when the land gets higher"],
-          "answer": "B",
-          "skill": "inference",
-          "why": "The article connects arid conditions to irrigation, desalination, and economic adaptation.",
-          "wrong": { "A": "This contradicts the article.", "C": "This contradicts the article.", "D": "This is not supported by the article." }
-        },
-        {
-          "stem": "What can be inferred about why temperate-zone cities have historically attracted large populations?",
-          "options": ["Their moderate climate and seasons make them easy places to live.", "They are the only cities ever located near the equator.", "They never experience any kind of extreme weather at all.", "They are located only at very high mountain elevation."],
-          "answer": "A",
-          "skill": "inference",
-          "why": "The article links the temperate zone's moderate, livable climate and reliable seasons to population clustering.",
-          "wrong": { "B": "Temperate-zone cities sit between the tropics and the poles, not near the equator.", "C": "The article does not claim they never face extreme weather.", "D": "Elevation is a separate factor, not what defines the temperate zone." }
-        },
-        {
-          "stem": "How does a subtropical desert zone differ from a polar zone in terms of precipitation, according to the article?",
-          "options": ["A subtropical desert receives very little precipitation, while the polar zone is covered in snow and ice.", "A subtropical desert receives constant heavy rain, while the polar zone stays completely dry.", "Both zones receive exactly the same amount of precipitation each year.", "Neither zone experiences any form of precipitation whatsoever."],
-          "answer": "A",
-          "skill": "compare",
-          "why": "The article describes subtropical deserts as dry and the polar zone as covered in snow and ice, both limited forms of precipitation but for different reasons.",
-          "wrong": { "B": "This reverses the article's description.", "C": "This is not supported by the article.", "D": "Snow and ice are a form of precipitation." }
-        },
-        {
-          "stem": "Why does the author most likely include Saudi Arabia as a specific example of an arid, subtropical zone?",
-          "options": ["To argue that deserts are the most important climate zone on Earth, above all the rest, in every part of the world", "To ground the abstract idea of subtropical aridity in a real, specific place and its adaptations", "To prove that Saudi Arabia has no climate zone at all, since it is only sand", "To show that elevation has no effect anywhere in the world on the weather of any zone"],
-          "answer": "B",
-          "skill": "author-purpose",
-          "why": "Using Saudi Arabia as a concrete, real example helps explain how subtropical aridity and human adaptation actually play out.",
-          "wrong": { "A": "No such ranking is argued.", "C": "This contradicts the article.", "D": "This contradicts the article's discussion of elevation." }
-        }
-      ],
-      "prompt": "Explain how latitude, elevation, and descending air together explain Earth's major climate zones, including why Saudi Arabia's climate counts as both subtropical and arid. Use evidence from the article.",
-      "checklist": ["I explained how latitude generally sets the main climate zones.", "I explained how elevation and descending air modify climate independent of latitude.", "I explained why Saudi Arabia is subtropical and arid.", "I used evidence from the article."],
-      "modelAnswer": "Latitude is the main factor behind Earth's climate zones, producing the warm tropical zone near the equator, the cold polar zone near the poles, and the moderate temperate zone in between. However, elevation and atmospheric patterns can override latitude's usual effect: high mountains stay cold even near the equator because thin air holds less heat, and subtropical bands of descending air warm and dry out before reaching the ground, creating deserts regardless of distance from the equator. Saudi Arabia's climate is both subtropical and arid for exactly this reason, which is why the country depends heavily on irrigation and large-scale desalination to supply fresh water."
-    }
+ "code": "RR-328",
+ "title": "Climate Zones Around the World",
+ "topic": "Geography",
+ "summary": "How Earth is divided into climate zones such as tropical, temperate, polar, and desert, based mainly on latitude but also on altitude and dry descending air, why Saudi Arabia sits in a desert zone, and how climate shapes where and how people live.",
+ "poll": "Where a place sits on Earth decides almost everything about how people live there.",
+ "versions": [
+  {
+   "level": 300,
+   "title": "Earth's Bands of Weather",
+   "text": "Earth has many kinds of weather. Some spots stay hot. Some stay cold. We sort them into zones.\n\nNear the equator, the sun is strong. It stays hot there. This is the tropical zone. Rain falls a lot.\n\nNear the poles, it stays cold. Snow and ice sit on the ground. This is the polar zone. The sun stays low in winter.\n\nIn between, there is a zone with four seasons. It gets hot, then cool, then cold, then warm.\n\nSome land gets little rain. It turns into a desert. Saudi Arabia has land like this. Few clouds bring rain.\n\nTall hills stay cold near the equator. The air up high is thin.\n\nClimate shapes how we live. In hot, dry spots, we save water. In cold spots, we wear warm coats."
+  },
+  {
+   "level": 400,
+   "title": "Earth's Bands of Weather",
+   "text": "Earth has many kinds of weather. Some spots stay hot all year. Some spots stay cold. We sort them into set climate zones.\n\nNear the equator, the sun hits hard. It stays hot there all year. This is the tropical zone. Rain falls a lot, feeding green woods.\n\nNear the poles, it stays cold most of the year. Snow and ice sit on the ground. This is the polar zone. The sun stays low in winter.\n\nIn between lies a zone with four seasons. It gets hot, then cool, then cold, then warm again. Big cities sit in this zone.\n\nSome land gets little rain and turns into a desert. Saudi Arabia sits in a dry desert zone. Few rain clouds form there.\n\nTall hills can stay cold near the equator. The air up high holds less heat.\n\nClimate shapes how we live in a place. In hot, dry spots, we save our water. In cold spots, we wear warm coats and build warm homes."
+  },
+  {
+   "level": 500,
+   "title": "Earth's Bands of Weather",
+   "text": "Earth has many kinds of weather, and we sort spots with like weather into climate zones. Some zones stay hot all year, and some stay cold.\n\nNear the equator, the sun hits hard all year. This keeps the tropical zone hot in every season. Rain falls a lot there, feeding green, thick woods.\n\nNear the poles, it stays cold most of the year. This is the polar zone. Snow and ice sit on the ground, and the sun stays low in deep winter.\n\nIn between lies a zone with four clear seasons: hot, cool, cold, and warm again. Big, busy cities sit in this one zone.\n\nSome spots get little rain all year and turn into deserts. Saudi Arabia sits in a dry desert zone, where rain clouds rarely form.\n\nTall hills can stay cold near the equator, since the air up high holds much less heat than air near the ground.\n\nClimate shapes how we live in a place. In hot, dry spots, we must save our water with care. In cold spots, we wear warm coats and build snug, warm homes."
+  },
+  {
+   "level": 600,
+   "title": "Earth's Bands of Weather",
+   "text": "Earth sees many kinds of weather, and we sort spots with like weather into set climate zones. Some zones stay hot all year, while some stay cold most of the year.\n\nNear the equator, the sun hits hard all year long. This is why the tropical zone stays hot in every season. Rain falls a lot there, feeding green, thick woods that need that steady rain.\n\nNear the poles, it stays cold most of the year. This is known as the polar zone. Snow and ice sit on the ground almost all the time, and the sun stays low in deep winter.\n\nIn between lies a zone with four clear seasons: a hot summer, a cool fall, a cold winter, and a warm spring. Big, busy cities tend to sit in this one zone.\n\nSome spots get little rain all year and slowly turn into deserts. Saudi Arabia sits mostly in a dry desert zone, where rain clouds rarely form up at all.\n\nTall hills can stay cold even near the equator, since the air up high holds far less heat than the air near the ground.\n\nClimate strongly shapes how we live in a place. In hot, dry spots, we must save our water with real care. In cold spots, we wear warm coats and build snug, warm homes to stay safe."
+  },
+  {
+   "level": 700,
+   "title": "Earth's Bands of Weather",
+   "text": "Earth sees many kinds of weather, and we sort spots with like weather into set climate zones, based a lot on latitude, how far a spot sits from the equator.\n\nNear the equator, at low latitude, the sun hits hard all year. This keeps the tropical zone warm in every season. Rain falls a lot there, feeding green, thick woods.\n\nNear the poles, at high latitude, it stays cold most of the year. This is the polar zone. Snow and ice sit on the ground, and the sun stays low in deep winter.\n\nIn between, at mid latitude, lies the temperate zone, with four clear seasons: hot, cool, cold, and warm again. Big cities tend to sit in this one zone.\n\nClimate zones depend on more than just latitude, though. Some spots get little rain and turn into arid deserts, no matter their latitude. Saudi Arabia sits in a hot, arid zone, since dry air sinks there and keeps rain clouds away.\n\nAltitude shapes climate too, since tall hills can stay cold near the equator; thin air up high holds less heat.\n\nClimate strongly shapes how we live. In hot, arid spots, we must save water with care, and, as in Saudi Arabia, turn sea water into fresh water. In cold spots, we wear warm coats and build warm homes."
+  },
+  {
+   "level": 800,
+   "title": "Earth's Bands of Weather",
+   "text": "Earth sees many kinds of weather, and we sort spots with like weather into set climate zones, based a lot on latitude, how far a spot sits from the equator.\n\nNear the equator, at low latitude, the sun hits the ground hard all year, which keeps the tropical zone warm in every season. Rain falls a lot there, feeding green, thick woods that need that rain.\n\nNear the poles, at high latitude, it stays cold for most of the year in the polar zone. Snow and ice sit on the ground, and the sun stays low in deep winter.\n\nIn between, at mid latitude, lies the temperate zone, which sees four clear seasons: hot, cool, cold, and warm again. Big, busy cities tend to sit in this one zone.\n\nClimate zones depend on more than just latitude, though. Some spots get little rain all year and turn into arid deserts, no matter their latitude. Saudi Arabia sits in a hot, arid zone, since dry air sinks there and keeps rain clouds from forming.\n\nAltitude shapes climate strongly too, since tall hills can stay cold near the equator; the thin air up high holds much less heat than the air below.\n\nClimate strongly shapes how we live in a place. In hot, arid spots, we must save water with care, and, as in Saudi Arabia, build plants that turn sea water into fresh water. In cold spots, we wear warm coats and build warm, snug homes."
+  },
+  {
+   "level": 900,
+   "title": "Earth's Bands of Weather",
+   "text": "Earth sees many kinds of weather, and we sort spots with like weather into set climate zones, based largely on latitude, how far a spot sits from the equator.\n\nNear the equator, at low latitude, the sun hits the ground hard all year long, which keeps the tropical zone warm in every season without much change. Rain falls a lot there, feeding green, thick woods that fully need that steady rain.\n\nNear the poles, at high latitude, it stays cold for most of the year in what we call the polar zone. Snow and ice sit on the ground, and the sun stays low in deep winter, barely rising at times.\n\nIn between, at mid latitude, lies the temperate zone, which sees four clear seasons: hot, cool, cold, and warm again. Big, busy cities tend to sit right in this one zone.\n\nClimate zones depend on more than just latitude, though. Some spots get very little rain all year and turn into arid deserts, no matter how far they sit from the equator. Saudi Arabia sits in a hot, arid zone, since dry air steadily sinks there and keeps rain clouds from forming at all.\n\nAltitude shapes climate strongly too, since tall hills can stay cold even near the equator; the thin air up high holds much less heat than the air below, all year long.\n\nClimate strongly shapes how we live in any given place. In hot, arid spots, we must save water with real care, and, as in Saudi Arabia, build plants that turn sea water into fresh, clean water. In cold spots, we wear warm coats and build warm, snug homes that hold in heat."
+  },
+  {
+   "level": 1000,
+   "title": "Earth's Bands of Weather",
+   "text": "Earth sees a huge range of long-term weather, and scientists sort places with like weather into set climate zones, based largely on latitude, which is simply the angle-based distance of a place from the equator.\n\nNear the equator, at low latitude, sunlight hits the ground almost straight down all year long, which keeps the tropical zone warm in every season without much real change. Heavy rain falls across many tropical spots, feeding thick, green forests that depend fully on that steady rain in order to survive.\n\nFarther from the equator, at high latitude near the poles, it stays very cold for most of the year within what is formally called the polar zone. Snow and ice cover the ground almost all the time, and the sun may barely rise during the darkest part of winter, assuming it rises at all.\n\nBetween the tropical and polar zones, at mid latitude, lies the temperate zone, which sees four clear seasons: a hot summer, a cool fall, a cold winter, and a mild spring. Many big, busy cities happen to sit right within this one zone, drawn partly by its mild, livable weather.\n\nClimate zones depend on more than just latitude, though. Some spots get very little rain all year and turn into arid deserts no matter how far they sit from the equator. Saudi Arabia lies mostly in a hot, arid zone, since it sits under a steady band of dry, sinking air that keeps rain clouds from ever forming overhead, no matter the season.\n\nAltitude also strongly shapes climate, since tall mountains can stay cold even quite near the equator; the thin air up high holds much less heat than the air near sea level, which explains why snow caps certain tropical peaks all year round.\n\nClimate strongly shapes how people live in any given place. In hot, arid spots, people must save water through care and, as in Saudi Arabia, large plants that turn seawater into fresh, usable water. In cold spots, people wear heavy coats and build well-sealed, warm homes meant to hold in heat. Climate even picks which crops farmers can grow, shaping whole economies, diets, and settling patterns around it."
+  },
+  {
+   "level": 1100,
+   "title": "Bands of Weather: How Earth's Climate Zones Work",
+   "text": "Earth shows a huge range of long-term weather, and scientists sort spots with like weather into set climate zones, based largely on latitude, which is simply how far a spot sits from the equator, measured in the northern or southern hemisphere.\n\nNear the equator, at low latitude, the sun hits the ground hard all year, keeping the tropical zone warm in every season. Heavy precipitation falls across many tropical spots, feeding dense forests that depend on that steady moisture.\n\nFarther from the equator, at high latitude near the poles, it stays very cold for most of the year in the polar zone, where snow and ice cover the ground and the sun may barely clear the horizon in deep winter.\n\nBetween the tropical and polar zones, at mid latitude, lies the temperate zone, with four clear seasons, drawing many of the world's biggest cities, which sit there partly for its mild, livable weather.\n\nClimate zones depend on more than latitude, though. Wide bands near the tropics, known as subtropical zones, get very little precipitation all year and turn into arid deserts no matter how far they sit from the equator. Saudi Arabia lies in such a hot, arid, subtropical zone, under a steady band of dry, sinking air that keeps rain clouds from forming.\n\nElevation also strongly shapes climate, since tall mountains stay cold even near the equator; thin air at high elevation holds far less heat than air near sea level, which is why snow caps some tropical peaks.\n\nClimate ultimately shapes how people live in any place. In hot, arid spots marked by real aridity, people must save water through care and, as in Saudi Arabia, build large plants that turn seawater into fresh water. In cold spots, people wear heavy coats and build warm homes, while climate more broadly shapes whole economies and diets."
+  },
+  {
+   "level": 1200,
+   "title": "Bands of Weather: How Earth's Climate Zones Work",
+   "text": "Earth shows an extraordinary range of long-term weather, and scientists sort places with like weather into set climate zones, based largely on latitude, the angle-based distance of a place from the equator, measured north or south within either hemisphere.\n\nNear the equator, at low latitude, sunlight hits the ground almost straight down all year, keeping the tropical zone warm in every season without much real change. Strong precipitation falls across many tropical spots, feeding dense, rich forests that depend fully on that steady moisture.\n\nFarther from the equator, at high latitude near the poles, it stays very cold for most of the year in the polar zone, where snow and ice cover the ground almost all the time and the sun may barely clear the horizon in deep winter.\n\nBetween the tropical and polar zones, at mid latitude, lies the temperate zone, which sees four clear seasons and has drawn many of the world's biggest cities, which have clustered there over time partly for its mild, livable weather.\n\nClimate zones depend on more than latitude, though. Many spots, in wide bands near the tropics known as subtropical zones, get strikingly little precipitation all year and turn into arid deserts no matter how far they sit from the equator. Saudi Arabia lies mostly in such a hot, arid, subtropical zone, sitting under a steady belt of dry, sinking air that keeps rain clouds from fully forming.\n\nElevation also strongly shapes climate, since tall mountains stay cold even near the equator; the notably thin air at high elevation holds far less heat than air near sea level, which explains why snow caps some tropical peaks all year.\n\nClimate ultimately shapes how people live in any place. In hot, arid spots marked by real aridity, people must carefully manage water and, as in Saudi Arabia, build large plants that turn seawater into fresh water. In cold spots, people wear heavy coats and build warm homes, while climate more broadly shapes whole economies, diets, and settling patterns."
+  },
+  {
+   "level": 1300,
+   "title": "Bands of Weather: How Earth's Climate Zones Work",
+   "text": "Earth shows an extraordinary range of long-term weather, and scientists sort places with like weather into set climate zones, based largely on latitude, the angle-based distance of a place from the equator, measured north or south within either the northern or southern hemisphere.\n\nNear the equator, at low latitude, sunlight hits the ground almost straight down all year, a geometry that keeps the tropical zone warm in every season without much real change. Strong precipitation falls across many tropical spots, feeding dense, rich forests that depend fully on that steady moisture to thrive.\n\nFarther from the equator, at high latitude near the poles, it stays very cold for most of the year in the polar zone, where snow and ice cover the ground almost all the time and the sun may barely clear the horizon in deep winter, at times failing to rise for weeks.\n\nBetween the tropical and polar zones, at mid latitude, lies the temperate zone, which sees four clear seasons and has drawn many of the world's biggest cities, which have clustered there over the centuries partly for its mild, livable weather.\n\nClimate zones depend on more than latitude, though. Many spots, in wide bands near the tropics known as subtropical zones, get strikingly little precipitation all year and turn into arid deserts no matter how far they sit from the equator. Saudi Arabia lies mostly in such a hot, arid, subtropical zone, sitting under a steady belt of dry, sinking air that keeps rain clouds from ever fully forming.\n\nElevation also strongly shapes climate, since tall mountains stay cold even near the equator; the notably thin air at high elevation holds far less heat than air near sea level, which explains why snow can permanently cap some tropical peaks.\n\nClimate ultimately shapes how people live in any place. In hot, arid spots marked by real aridity, communities must carefully manage water and, as in Saudi Arabia, build large plants that turn seawater into fresh water on a big scale. In cold spots, people wear heavy coats and build warm homes, while climate more broadly shapes whole economies, diets, and settling patterns."
+  },
+  {
+   "level": 1400,
+   "title": "Bands of Weather: How Earth's Climate Zones Work",
+   "text": "Earth shows an extraordinary range of long-term weather, and scientists sort places with like weather into set climate zones, based largely on latitude, the angle-based distance of a place from the equator, measured north or south within either the northern or southern hemisphere, and shaped further by other factors.\n\nNear the equator, at low latitude, sunlight hits the ground almost straight down all year, a geometry that keeps the tropical zone warm in every season without much real change, and strong precipitation falls across many tropical spots, feeding dense, rich forests that depend fully on that steady moisture to thrive.\n\nFarther from the equator, at high latitude near the poles, it stays very cold for most of the year in the polar zone, where snow and ice cover the ground almost all the time and the sun may barely clear the horizon in deep winter, at times failing to rise above it for weeks.\n\nBetween the tropical and polar zones, at mid latitude, lies the temperate zone, which sees four clear seasons and has drawn many of the world's biggest cities, which have clustered there over the centuries partly for its mild, livable weather and steady growing seasons.\n\nClimate zones depend on more than latitude, though. Many spots, in wide bands near the tropics known as subtropical zones, get strikingly little precipitation all year and turn into arid deserts no matter how far they sit from the equator. Saudi Arabia lies mostly in such a hot, arid, subtropical zone, sitting under a steady belt of dry, sinking air that keeps rain clouds from ever fully forming overhead.\n\nElevation also strongly shapes climate, since tall mountains stay cold even near the equator; the notably thin air at high elevation holds far less heat than air near sea level, which explains why snow can permanently cap some tropical peaks regardless of latitude.\n\nClimate ultimately shapes how people live in any place. In hot, arid spots marked by real aridity, communities must carefully manage water and, as in Saudi Arabia, build large plants that turn seawater into fresh water on a big, industrial scale. In cold spots, people wear heavy coats and build warm homes, while climate more broadly shapes whole economies, diets, building styles, and settling patterns."
+  },
+  {
+   "level": 1500,
+   "title": "Bands of Weather: How Earth's Climate Zones Work",
+   "text": "Earth exhibits an extraordinary range of long-term weather patterns, and scientists classify regions that share broadly similar weather into distinct climate zones, determined to a considerable degree by latitude—the angular distance of a given place from the equator, measured in degrees north or south within either the northern or southern hemisphere—and modified further by a range of additional factors such as elevation, ocean currents, and prevailing wind patterns.\n\nNear the equator, at low latitudes, sunlight strikes the ground almost directly overhead throughout the year, a geometric fact that keeps the tropical zone consistently warm in every season without meaningful exception; substantial precipitation occurs across many tropical regions as a result, sustaining dense, biologically rich rainforests that depend entirely on that constant, dependable moisture in order to survive and flourish across generations.\n\nFarther from the equator, at high latitudes near the poles, temperatures remain extremely cold for most of the year within what climatologists call the polar zone, where snow and ice cover the ground almost continuously and the sun may barely clear the horizon during the darkest stretch of winter in either hemisphere, sometimes failing to rise above it at all for weeks on end.\n\nBetween the tropical and polar zones, at middle latitudes, lies the temperate zone, which experiences four clearly distinct seasons and has drawn many of the world's largest and most populous cities over the centuries, cities that have clustered there largely because of its moderate, generally livable climate and its comparatively reliable agricultural growing seasons.\n\nClimate zones, however, depend on considerably more than latitude alone. Many regions, including large bands situated near the tropics and known as subtropical zones, receive strikingly little precipitation throughout the year and gradually become arid deserts regardless of their actual distance from the equator, because descending air in these bands tends to warm and dry out before it ever reaches the surface. Saudi Arabia lies mostly within exactly such a hot, arid, subtropical climate zone, sitting beneath a persistent belt of dry, descending air that actively suppresses the formation of rain clouds long before they are ever able to develop overhead.\n\nElevation, too, strongly influences climate, since high mountains remain surprisingly cold even quite near the equator; the markedly thin air found at great elevation holds considerably less heat than the denser air found near sea level, which explains why snow can permanently cap certain tropical mountains entirely regardless of their latitude.\n\nClimate ultimately shapes the way people live in any given region of the world in profound and lasting ways. In hot, arid places marked by extreme aridity, communities must carefully manage their severely limited water supply through irrigation and, as in Saudi Arabia, large-scale desalination plants that convert seawater into usable fresh water on an industrial scale. In cold places, people wear heavy, insulated clothing and construct well-insulated, heated homes designed to retain scarce warmth, while climate more broadly continues to shape entire national economies, diets, architectural styles, and long-term settlement patterns across the globe, often in ways people rarely stop to notice."
+  },
+  {
+   "level": 1600,
+   "title": "Bands of Weather: How Earth's Climate Zones Work",
+   "text": "Earth exhibits an extraordinary range of long-term weather patterns, and scientists classify regions that share broadly similar weather into distinct climate zones, determined to a considerable degree by latitude—the angular distance of a given place from the equator, measured in degrees north or south within either the northern or southern hemisphere—and modified further still by a wide range of additional factors, including elevation, ocean currents, and prevailing wind patterns that interact in complex and sometimes unpredictable ways.\n\nNear the equator, at low latitudes, sunlight strikes the ground almost directly overhead throughout the entire year, a geometric fact that keeps the tropical zone consistently and reliably warm in every season without meaningful exception; substantial precipitation occurs across many tropical regions as a direct result, sustaining dense, biologically rich rainforests that depend entirely and continuously on that constant, dependable moisture in order to survive and flourish across countless generations.\n\nFarther from the equator, at high latitudes near the poles, temperatures remain extremely cold for the overwhelming majority of the year within what climatologists formally call the polar zone, where snow and ice cover the ground almost continuously and the sun may barely clear the horizon during the darkest stretch of winter in either hemisphere, sometimes failing to rise above it at all for weeks upon weeks on end.\n\nBetween the tropical and polar zones, at middle latitudes, lies the temperate zone, which experiences four clearly distinct seasons and has drawn many of the world's largest and most populous cities over many centuries, cities that have clustered there largely because of its moderate, consistently livable climate and its comparatively reliable, predictable agricultural growing seasons.\n\nClimate zones, however, depend on considerably more than latitude alone, however important that single factor may be. Many regions, including vast bands situated near the tropics and widely known as subtropical zones, receive strikingly little precipitation throughout the year and gradually become arid deserts regardless of their actual distance from the equator, largely because descending air within these particular bands tends to warm and dry out thoroughly before it ever manages to reach the surface below. Saudi Arabia lies mostly within exactly such a hot, arid, subtropical climate zone, sitting beneath a persistent, near-permanent belt of dry, descending air that actively and continuously suppresses the formation of rain clouds long before they are ever able to develop fully overhead.\n\nElevation, too, strongly and measurably influences climate, since high mountains remain surprisingly cold even quite near the equator itself; the markedly thin air found at great elevation holds considerably less heat than the denser air found near sea level, which explains precisely why snow can permanently cap certain tropical mountains entirely, regardless of their relatively low latitude.\n\nClimate ultimately shapes the way people live in any given region of the world in profound, lasting, and often underappreciated ways. In hot, arid places marked by extreme and persistent aridity, communities must carefully and continuously manage their severely limited water supply through irrigation and, as in Saudi Arabia, large-scale desalination plants that convert seawater into genuinely usable fresh water on a vast, industrial scale. In cold places, people wear heavy, insulated clothing and construct well-insulated, heated homes specifically designed to retain scarce warmth, while climate more broadly continues to shape entire national economies, diets, architectural styles, and long-term settlement patterns across the globe, frequently in ways that people living within them rarely stop to notice or fully appreciate."
   }
+ ],
+ "bands": {
+  "LOW": {
+   "keyWords": [
+    {
+     "word": "climate",
+     "partOfSpeech": "noun",
+     "definition": "the usual weather a place has over many years",
+     "example": "Desert climate is dry, while jungle climate is wet."
+    },
+    {
+     "word": "zone",
+     "partOfSpeech": "noun",
+     "definition": "an area or region that is different from the areas around it",
+     "example": "The park has a quiet zone where visitors must not shout."
+    },
+    {
+     "word": "equator",
+     "partOfSpeech": "noun",
+     "definition": "an imaginary line around the middle of the Earth",
+     "example": "Countries near the equator are usually warm all year."
+    },
+    {
+     "word": "desert",
+     "partOfSpeech": "noun",
+     "definition": "dry land that gets very little rain",
+     "example": "Few plants can survive in a sandy desert."
+    },
+    {
+     "word": "pole",
+     "partOfSpeech": "noun",
+     "definition": "one of the two coldest points at the top and bottom of the Earth",
+     "example": "Thick ice covers the land near the North Pole."
+    }
+   ],
+   "questions": [
+    {
+     "stem": "What is this article mostly about?",
+     "options": [
+      "How Earth is divided into climate zones and why they differ",
+      "Why volcanoes form near the equator and nowhere else on the Earth",
+      "How ships navigate across the ocean using stars and maps",
+      "Why coral reefs grow near warm water in the sea"
+     ],
+     "answer": "A",
+     "skill": "central-idea",
+     "why": "The article explains tropical, temperate, polar, and desert zones and what causes them.",
+     "wrong": {
+      "B": "Volcanoes are not discussed in this article.",
+      "C": "Ship navigation is not discussed.",
+      "D": "Coral reefs are not discussed."
+     }
+    },
+    {
+     "stem": "According to the article, why is the tropical zone hot all year?",
+     "options": [
+      "Because strong winds blow across the land constantly",
+      "Because sunlight hits the ground near the equator very directly",
+      "Because mountains near the equator trap heat in the air",
+      "Because ocean currents bring warm water to the land each summer"
+     ],
+     "answer": "B",
+     "skill": "detail",
+     "why": "The article says sunlight is very strong near the equator, keeping the tropical zone hot.",
+     "wrong": {
+      "A": "Wind is not given as the reason.",
+      "C": "Mountains trapping heat is not stated.",
+      "D": "Ocean currents warming land each summer is not stated."
+     }
+    },
+    {
+     "stem": "What covers the ground for most of the year in the polar zone?",
+     "options": [
+      "Thick green rainforest",
+      "Dry, sandy desert",
+      "Tall grass and crops",
+      "Snow and ice"
+     ],
+     "answer": "D",
+     "skill": "detail",
+     "why": "The article says snow and ice cover the ground in the polar zone.",
+     "wrong": {
+      "A": "Rainforest is found in the tropical zone, not the polar zone.",
+      "B": "Deserts are a different zone.",
+      "C": "Grass and crops are not described in the polar zone."
+     }
+    },
+    {
+     "stem": "In the article, what does desert mean?",
+     "options": [
+      "Land that gets very little rain",
+      "A region with four seasons",
+      "The coldest place on Earth, covered in ice",
+      "A thick, green rainforest"
+     ],
+     "answer": "A",
+     "skill": "vocabulary",
+     "why": "The article describes a desert as land that receives very little rain.",
+     "wrong": {
+      "B": "That describes the temperate zone.",
+      "C": "That describes the polar zone.",
+      "D": "That describes the tropical zone."
+     }
+    },
+    {
+     "stem": "Why might Saudi Arabia have very few rain clouds?",
+     "options": [
+      "Because it is located near the North Pole",
+      "Because it sits in a dry, desert climate zone",
+      "Because it has four cold seasons",
+      "Because it is covered mostly by rainforest"
+     ],
+     "answer": "B",
+     "skill": "inference",
+     "why": "The article states Saudi Arabia sits in a dry, desert zone where few clouds bring rain.",
+     "wrong": {
+      "A": "This contradicts the article.",
+      "C": "This contradicts the article.",
+      "D": "This contradicts the article."
+     }
+    },
+    {
+     "stem": "Why can a tall mountain near the equator still have cold, snowy peaks?",
+     "options": [
+      "Because mountains always sit in the polar zone",
+      "Because the thin air high up holds less heat",
+      "Because deserts always surround mountains",
+      "Because the equator moves during winter"
+     ],
+     "answer": "B",
+     "skill": "inference",
+     "why": "The article explains the air high on a mountain is thin and cool.",
+     "wrong": {
+      "A": "Mountains near the equator are not in the polar zone.",
+      "C": "Deserts surrounding every mountain is not stated.",
+      "D": "The equator does not move."
+     }
+    },
+    {
+     "stem": "What happens in cold climate zones because of the cold weather?",
+     "options": [
+      "Deserts quickly form across the land when it is cold",
+      "Rain clouds never form overhead in cold places",
+      "People wear warm coats to stay comfortable",
+      "People stop growing any crops at all, even in summer"
+     ],
+     "answer": "C",
+     "skill": "cause-effect",
+     "why": "The article says people in cold places wear warm coats.",
+     "wrong": {
+      "A": "Deserts are not described as forming from cold.",
+      "B": "Rain clouds never forming is not stated for cold zones.",
+      "D": "Stopping all crops is not stated."
+     }
+    },
+    {
+     "stem": "Why does the author mention that climate shapes how people live?",
+     "options": [
+      "To show that climate zones affect daily life, not just weather",
+      "To prove that everyone should move to a warm climate",
+      "To explain how mountains are formed in the hills and valleys",
+      "To describe how ships are built for cold seas and ice"
+     ],
+     "answer": "A",
+     "skill": "author-purpose",
+     "why": "The ending connects climate zones to real choices people make, like clothing and water use.",
+     "wrong": {
+      "B": "The article does not argue people should move.",
+      "C": "Mountain formation is not explained.",
+      "D": "Ship building is not described."
+     }
+    }
+   ],
+   "prompt": "Explain two different climate zones on Earth and tell how they are different from each other. Use details from the article.",
+   "checklist": [
+    "I described one climate zone.",
+    "I described a second climate zone and how it differs.",
+    "I used details from the article."
+   ],
+   "modelAnswer": "The tropical zone near the equator is hot all year and gets a lot of rain, which helps rainforests grow. The polar zone near the North and South Poles is very cold, and snow and ice cover the ground almost all year. These two zones are very different because one stays hot and wet while the other stays cold and icy."
+  },
+  "MID": {
+   "keyWords": [
+    {
+     "word": "latitude",
+     "partOfSpeech": "noun",
+     "definition": "how far north or south a place is from the equator",
+     "example": "Cities at a low latitude are usually hotter than cities far to the north."
+    },
+    {
+     "word": "temperate",
+     "partOfSpeech": "adjective",
+     "definition": "having mild weather with four different seasons",
+     "example": "The temperate region had a cool winter and a warm summer."
+    },
+    {
+     "word": "tropical",
+     "partOfSpeech": "adjective",
+     "definition": "hot and often rainy, found near the equator",
+     "example": "Thick tropical rainforests grow along the equator."
+    },
+    {
+     "word": "arid",
+     "partOfSpeech": "adjective",
+     "definition": "very dry, with little rainfall",
+     "example": "Few crops can grow in such an arid region without irrigation."
+    },
+    {
+     "word": "altitude",
+     "partOfSpeech": "noun",
+     "definition": "the height of a place above sea level",
+     "example": "The air felt thin at such a high altitude."
+    }
+   ],
+   "questions": [
+    {
+     "stem": "Which sentence best states the central idea of the article?",
+     "options": [
+      "Latitude mainly shapes Earth's climate zones, though other factors matter too.",
+      "Every single region on Earth shares exactly the same climate, in every season.",
+      "Deserts can only ever exist near the North and South Poles, and nowhere else.",
+      "Temperate zones never experience more than just one season in the year."
+     ],
+     "answer": "A",
+     "skill": "central-idea",
+     "why": "The article explains how latitude generally sets climate zones, with altitude and arid conditions as added factors.",
+     "wrong": {
+      "B": "This contradicts the article.",
+      "C": "This contradicts the article's Saudi Arabia example.",
+      "D": "The temperate zone is described as having four seasons."
+     }
+    },
+    {
+     "stem": "According to the article, what is latitude?",
+     "options": [
+      "The height of a place above sea level or the ground",
+      "The amount of rain a desert receives each year",
+      "How far north or south a place is from the equator",
+      "The number of seasons a region experiences in a year"
+     ],
+     "answer": "C",
+     "skill": "detail",
+     "why": "The article defines latitude this way when explaining climate zones.",
+     "wrong": {
+      "A": "That describes altitude.",
+      "B": "That is not the definition given.",
+      "D": "That is not the definition given."
+     }
+    },
+    {
+     "stem": "Why does Saudi Arabia lie mostly within an arid climate zone, according to the article?",
+     "options": [
+      "It sits beneath a steady band of dry, descending air.",
+      "It sits directly on top of the equator line.",
+      "It is covered mostly by very tall mountains and snow.",
+      "It receives heavy rainfall during most months of the year."
+     ],
+     "answer": "A",
+     "skill": "detail",
+     "why": "The article explains that dry, descending air discourages rain clouds from forming over Saudi Arabia.",
+     "wrong": {
+      "B": "This is not stated in the article.",
+      "C": "This is not stated in the article.",
+      "D": "This contradicts the article."
+     }
+    },
+    {
+     "stem": "As used in the article, what does temperate mean?",
+     "options": [
+      "Extremely hot with no real seasons",
+      "Covered permanently in snow and ice",
+      "Very dry with almost no rainfall",
+      "Mild, with four distinct seasons"
+     ],
+     "answer": "D",
+     "skill": "vocabulary",
+     "why": "The temperate zone is described as having four clear seasons and milder weather than the tropics or poles.",
+     "wrong": {
+      "A": "That describes the tropical zone.",
+      "B": "That describes the polar zone.",
+      "C": "That describes an arid zone."
+     }
+    },
+    {
+     "stem": "Why might people in an arid climate zone build desalination plants?",
+     "options": [
+      "To create more rain clouds overhead in the sky",
+      "To cool down the hot desert air with big fans",
+      "To turn seawater into fresh water they can use",
+      "To grow crops without any water at all in the sand"
+     ],
+     "answer": "C",
+     "skill": "inference",
+     "why": "The article mentions desalination as a way dry places like Saudi Arabia manage limited water.",
+     "wrong": {
+      "A": "Creating rain clouds is not stated.",
+      "B": "Cooling the air is not stated.",
+      "D": "Growing crops with no water at all is not stated."
+     }
+    },
+    {
+     "stem": "Why do many of the world's largest cities sit in the temperate zone?",
+     "options": [
+      "Because the temperate zone has the hottest weather on all of Earth",
+      "Because the temperate zone's moderate climate suits large populations",
+      "Because the temperate zone never experiences any rain at all",
+      "Because the temperate zone sits closest to the frozen poles"
+     ],
+     "answer": "B",
+     "skill": "inference",
+     "why": "The article links the temperate zone's moderate climate to why many cities are located there.",
+     "wrong": {
+      "A": "The tropical zone, not the temperate zone, is described as hottest.",
+      "C": "This contradicts the article.",
+      "D": "The temperate zone sits between the tropics and the poles."
+     }
+    },
+    {
+     "stem": "How does the tropical zone differ from the polar zone, based on the article?",
+     "options": [
+      "The tropical zone stays warm all year, while the polar zone stays extremely cold.",
+      "The tropical zone has four seasons, while the polar zone has only one.",
+      "The tropical zone is dry, while the polar zone is always rainy.",
+      "The tropical zone sits at high altitude, while the polar zone sits at sea level."
+     ],
+     "answer": "A",
+     "skill": "compare",
+     "why": "The article contrasts the tropical zone's year-round heat with the polar zone's extreme cold.",
+     "wrong": {
+      "B": "Four seasons describe the temperate zone, not the tropical zone.",
+      "C": "The tropical zone is described as rainy, not dry.",
+      "D": "Altitude is not used to distinguish these two zones."
+     }
+    },
+    {
+     "stem": "How does the article organize its explanation of climate zones?",
+     "options": [
+      "By telling a single story about one traveler's journey across several lands and seas, from one place to the next",
+      "By describing each climate zone in turn, from the equator to the poles, then adding other factors",
+      "By comparing two countries in great detail, one paragraph after another, without any other zones",
+      "By listing problems with the climate and their solutions only, with no talk about any climate zone at all"
+     ],
+     "answer": "B",
+     "skill": "text-structure",
+     "why": "The article moves from the tropical zone, to the polar zone, to the temperate zone, then discusses arid zones, altitude, and human life.",
+     "wrong": {
+      "A": "No single traveler's story is told.",
+      "C": "No detailed comparison of two countries is made.",
+      "D": "The structure is not only a problem-solution list."
+     }
+    }
+   ],
+   "prompt": "Explain how latitude shapes Earth's climate zones, and explain why Saudi Arabia is in a desert, arid zone even though that depends on more than latitude alone. Use at least three details from the article.",
+   "checklist": [
+    "I explained how latitude affects climate zones.",
+    "I explained why Saudi Arabia has an arid climate.",
+    "I used at least three details from the article."
+   ],
+   "modelAnswer": "Latitude, or how far a place is from the equator, mostly decides Earth's climate zones: places near the equator form the hot tropical zone, places near the poles form the cold polar zone, and places in between form the milder temperate zone. However, climate depends on more than latitude alone—Saudi Arabia sits in a hot, arid zone because it lies beneath a band of dry, descending air that stops rain clouds from forming, not simply because of its latitude. This arid climate shapes life there, pushing people to rely on irrigation and desalination plants for fresh water."
+  },
+  "HIGH": {
+   "keyWords": [
+    {
+     "word": "hemisphere",
+     "partOfSpeech": "noun",
+     "definition": "one half of the Earth, usually divided by the equator",
+     "example": "Winter happens at opposite times in the northern and southern hemispheres."
+    },
+    {
+     "word": "precipitation",
+     "partOfSpeech": "noun",
+     "definition": "water that falls from the sky as rain, snow, or hail",
+     "example": "The desert city recorded almost no precipitation that entire year."
+    },
+    {
+     "word": "elevation",
+     "partOfSpeech": "noun",
+     "definition": "the height of land above sea level",
+     "example": "Towns at high elevation often have cooler temperatures than towns in the valley."
+    },
+    {
+     "word": "aridity",
+     "partOfSpeech": "noun",
+     "definition": "the quality of being extremely dry, with little rainfall",
+     "example": "Severe aridity made farming almost impossible without irrigation."
+    },
+    {
+     "word": "subtropical",
+     "partOfSpeech": "adjective",
+     "definition": "relating to regions just outside the tropics, often warm and sometimes dry",
+     "example": "Many deserts form within subtropical bands around the world."
+    }
+   ],
+   "questions": [
+    {
+     "stem": "Which statement best captures the central idea of the article?",
+     "options": [
+      "Latitude largely determines climate zones, but other factors modify them.",
+      "Every single climate zone on Earth gets the same precipitation.",
+      "Subtropical deserts only occur at very high elevation always.",
+      "The temperate zone experiences no meaningful seasonal change at all."
+     ],
+     "answer": "A",
+     "skill": "central-idea",
+     "why": "The article explains latitude as the primary driver of climate zones while noting elevation and descending air as modifying factors.",
+     "wrong": {
+      "B": "Precipitation is described as varying greatly between zones.",
+      "C": "Subtropical deserts are described as occurring regardless of elevation.",
+      "D": "The temperate zone is described as having four distinct seasons."
+     }
+    },
+    {
+     "stem": "According to the article, what happens to descending air within subtropical bands?",
+     "options": [
+      "It cools rapidly and immediately forms storm clouds.",
+      "It warms and dries out before reaching the surface.",
+      "It freezes and falls as snow near the equator.",
+      "It rises quickly, creating tropical rainforests."
+     ],
+     "answer": "B",
+     "skill": "detail",
+     "why": "The article explains that descending air in subtropical bands warms and dries before reaching the ground, suppressing rain.",
+     "wrong": {
+      "A": "This contradicts the article.",
+      "C": "This contradicts the article.",
+      "D": "Rising air near the equator creates rainforests, not descending subtropical air."
+     }
+    },
+    {
+     "stem": "What does the article say elevation does to climate, even near the equator?",
+     "options": [
+      "It raises temperatures at every single altitude equally.",
+      "It has no measurable effect on temperature at all.",
+      "It always creates tropical rainforest on mountain slopes.",
+      "It makes high mountains cold since thin air holds less heat."
+     ],
+     "answer": "D",
+     "skill": "detail",
+     "why": "The article explains that thin air at high elevation holds less heat, allowing snow-capped tropical mountains.",
+     "wrong": {
+      "A": "This contradicts the article.",
+      "B": "This contradicts the article.",
+      "C": "This is not described in the article."
+     }
+    },
+    {
+     "stem": "As used in the article, aridity most nearly means",
+     "options": [
+      "the quality of being extremely dry",
+      "the height of a place above sea level",
+      "the angular distance from the equator",
+      "the number of seasons a region has"
+     ],
+     "answer": "A",
+     "skill": "vocabulary",
+     "why": "Aridity describes extreme dryness, as applied to Saudi Arabia's climate.",
+     "wrong": {
+      "B": "That describes elevation.",
+      "C": "That describes latitude.",
+      "D": "That describes the temperate zone's seasons."
+     }
+    },
+    {
+     "stem": "Why does the article suggest climate shapes 'entire national economies'?",
+     "options": [
+      "Because climate has no real effect on how countries develop, so every country grows in the same way",
+      "Because water scarcity and growing conditions influence what a country can produce and how it must adapt",
+      "Because every country shares the exact same climate zone, so all of them have the same crops and work",
+      "Because elevation always determines a country's currency, and the money changes when the land gets higher"
+     ],
+     "answer": "B",
+     "skill": "inference",
+     "why": "The article connects arid conditions to irrigation, desalination, and economic adaptation.",
+     "wrong": {
+      "A": "This contradicts the article.",
+      "C": "This contradicts the article.",
+      "D": "This is not supported by the article."
+     }
+    },
+    {
+     "stem": "What can be inferred about why temperate-zone cities have historically attracted large populations?",
+     "options": [
+      "Their moderate climate and seasons make them easy places to live.",
+      "They are the only cities ever located near the equator.",
+      "They never experience any kind of extreme weather at all.",
+      "They are located only at very high mountain elevation."
+     ],
+     "answer": "A",
+     "skill": "inference",
+     "why": "The article links the temperate zone's moderate, livable climate and reliable seasons to population clustering.",
+     "wrong": {
+      "B": "Temperate-zone cities sit between the tropics and the poles, not near the equator.",
+      "C": "The article does not claim they never face extreme weather.",
+      "D": "Elevation is a separate factor, not what defines the temperate zone."
+     }
+    },
+    {
+     "stem": "How does a subtropical desert zone differ from a polar zone in terms of precipitation, according to the article?",
+     "options": [
+      "A subtropical desert receives very little precipitation, while the polar zone is covered in snow and ice.",
+      "A subtropical desert receives constant heavy rain, while the polar zone stays completely dry.",
+      "Both zones receive exactly the same amount of precipitation each year.",
+      "Neither zone experiences any form of precipitation whatsoever."
+     ],
+     "answer": "A",
+     "skill": "compare",
+     "why": "The article describes subtropical deserts as dry and the polar zone as covered in snow and ice, both limited forms of precipitation but for different reasons.",
+     "wrong": {
+      "B": "This reverses the article's description.",
+      "C": "This is not supported by the article.",
+      "D": "Snow and ice are a form of precipitation."
+     }
+    },
+    {
+     "stem": "Why does the author most likely include Saudi Arabia as a specific example of an arid, subtropical zone?",
+     "options": [
+      "To argue that deserts are the most important climate zone on Earth, above all the rest, in every part of the world",
+      "To ground the abstract idea of subtropical aridity in a real, specific place and its adaptations",
+      "To prove that Saudi Arabia has no climate zone at all, since it is only sand",
+      "To show that elevation has no effect anywhere in the world on the weather of any zone"
+     ],
+     "answer": "B",
+     "skill": "author-purpose",
+     "why": "Using Saudi Arabia as a concrete, real example helps explain how subtropical aridity and human adaptation actually play out.",
+     "wrong": {
+      "A": "No such ranking is argued.",
+      "C": "This contradicts the article.",
+      "D": "This contradicts the article's discussion of elevation."
+     }
+    }
+   ],
+   "prompt": "Explain how latitude, elevation, and descending air together explain Earth's major climate zones, including why Saudi Arabia's climate counts as both subtropical and arid. Use evidence from the article.",
+   "checklist": [
+    "I explained how latitude generally sets the main climate zones.",
+    "I explained how elevation and descending air modify climate independent of latitude.",
+    "I explained why Saudi Arabia is subtropical and arid.",
+    "I used evidence from the article."
+   ],
+   "modelAnswer": "Latitude is the main factor behind Earth's climate zones, producing the warm tropical zone near the equator, the cold polar zone near the poles, and the moderate temperate zone in between. However, elevation and atmospheric patterns can override latitude's usual effect: high mountains stay cold even near the equator because thin air holds less heat, and subtropical bands of descending air warm and dry out before reaching the ground, creating deserts regardless of distance from the equator. Saudi Arabia's climate is both subtropical and arid for exactly this reason, which is why the country depends heavily on irrigation and large-scale desalination to supply fresh water."
+  }
+ },
+ "stretch": {
+  "LOW": [
+   {
+    "stem": "In the zone with four seasons, what comes right after hot?",
+    "options": [
+     "Warm",
+     "Cold",
+     "Cool",
+     "Rainy"
+    ],
+    "answer": "C",
+    "skill": "sequence",
+    "why": "The text says the order is hot, then cool, then cold, then warm.",
+    "wrong": {
+     "A": "Warm comes last, after cold.",
+     "B": "Cold comes after cool.",
+     "D": "Rainy is not one of the four seasons named."
+    }
+   },
+   {
+    "stem": "Why do people in hot, dry spots save water?",
+    "options": [
+     "The land gets little rain",
+     "The sun stays very low",
+     "Snow covers the ground",
+     "The air up high is thin"
+    ],
+    "answer": "A",
+    "skill": "inference",
+    "why": "The text says some land gets little rain and turns into a desert, so water must be saved.",
+    "wrong": {
+     "B": "The sun stays low in the polar zone.",
+     "C": "Snow and ice sit on the ground in the polar zone.",
+     "D": "Thin air is on tall hills, not in hot, dry spots."
+    }
+   },
+   {
+    "stem": "The text says we sort them into zones. What is a zone?",
+    "options": [
+     "A tall hill with some snow",
+     "A thick cloud that brings rain",
+     "A warm coat for winter days",
+     "A place with like weather"
+    ],
+    "answer": "D",
+    "skill": "vocabulary",
+    "why": "The text says we sort spots with hot or cold weather into zones, so a zone is an area with like weather.",
+    "wrong": {
+     "A": "Tall hills are only one kind of place.",
+     "B": "A cloud is not a place on the ground.",
+     "C": "Coats are what people wear in cold spots."
+    }
+   },
+   {
+    "stem": "What is the sun like in the polar zone in winter?",
+    "options": [
+     "It is very strong",
+     "It stays low",
+     "It is gone for good",
+     "It is higher than the clouds"
+    ],
+    "answer": "B",
+    "skill": "detail",
+    "why": "The text says the sun stays low in winter in the polar zone.",
+    "wrong": {
+     "A": "The sun is strong near the equator.",
+     "C": "The text does not say the sun is gone for good.",
+     "D": "The text does not compare the sun with the clouds."
+    }
+   }
+  ],
+  "MID": [
+   {
+    "stem": "Why do tall hills stay cold near the equator?",
+    "options": [
+     "They are far from the sea",
+     "The air up high is thin",
+     "They get a lot of rain",
+     "The sun is always low"
+    ],
+    "answer": "B",
+    "skill": "detail",
+    "why": "The article says thin air up high holds less heat.",
+    "wrong": {
+     "A": "The article does not link the cold to the sea.",
+     "C": "The article does not say hills get a lot of rain.",
+     "D": "The sun hits hard near the equator."
+    }
+   },
+   {
+    "stem": "In the text, what does the word altitude mean?",
+    "options": [
+     "How far from the pole",
+     "How warm the sea is",
+     "How much rain falls",
+     "How high a place is"
+    ],
+    "answer": "D",
+    "skill": "vocabulary",
+    "why": "The sentence says tall hills stay cold, so altitude means how high a place is.",
+    "wrong": {
+     "A": "How far from the pole is latitude.",
+     "B": "The sentence is about hills, not the sea.",
+     "C": "The sentence is about height."
+    }
+   },
+   {
+    "stem": "Why does the tropical zone stay warm in every season?",
+    "options": [
+     "Snow melts there each day",
+     "It sits close to the pole",
+     "The sun hits hard all year",
+     "It has no rain at all"
+    ],
+    "answer": "C",
+    "skill": "cause-effect",
+    "why": "The article says near the equator the sun hits hard all year, which keeps the tropical zone warm.",
+    "wrong": {
+     "A": "The article does not say snow melts there.",
+     "B": "The tropical zone is near the equator.",
+     "D": "The article says a lot of rain falls there."
+    }
+   },
+   {
+    "stem": "What does \"Climate zones depend on more than just latitude\" tell the reader?",
+    "options": [
+     "Other things also shape climate",
+     "Latitude does not matter",
+     "Every place has the same climate",
+     "Deserts have no climate"
+    ],
+    "answer": "A",
+    "skill": "inference",
+    "why": "The next lines name rainfall and altitude as other things that shape climate.",
+    "wrong": {
+     "B": "The article says latitude matters a lot.",
+     "C": "The article describes many different zones.",
+     "D": "The article says deserts are an arid climate."
+    }
+   }
+  ],
+  "HIGH": [
+   {
+    "stem": "What does heavy precipitation feed in many tropical spots?",
+    "options": [
+     "Wide sand dunes",
+     "Polar ice sheets",
+     "Dense forests",
+     "Large cities"
+    ],
+    "answer": "C",
+    "skill": "detail",
+    "why": "The article says heavy precipitation feeds dense forests that depend on steady moisture.",
+    "wrong": {
+     "A": "Sand dunes are found in dry deserts.",
+     "B": "Ice sheets are found in the polar zone.",
+     "D": "Big cities sit in the temperate zone."
+    }
+   },
+   {
+    "stem": "In the text, what does the word precipitation mean?",
+    "options": [
+     "Rain or snow that falls",
+     "Wind that blows steadily",
+     "Heat from the sun",
+     "Air that sinks down"
+    ],
+    "answer": "A",
+    "skill": "vocabulary",
+    "why": "The article links precipitation to moisture for dense forests, so it means rain or snow that falls.",
+    "wrong": {
+     "B": "The sentence is about moisture, not wind.",
+     "C": "Heat comes from the sun, not from precipitation.",
+     "D": "Sinking air keeps rain clouds from forming."
+    }
+   },
+   {
+    "stem": "Why do people in Saudi Arabia build plants that turn seawater into fresh water?",
+    "options": [
+     "They live in a polar zone",
+     "They have too much rain",
+     "They want to cool the air",
+     "The climate is hot, dry"
+    ],
+    "answer": "D",
+    "skill": "cause-effect",
+    "why": "The article says people in hot, arid spots must save water, and Saudi Arabia builds large plants for seawater.",
+    "wrong": {
+     "A": "Saudi Arabia lies in a hot, arid zone.",
+     "B": "The article says the climate there is arid, with little rain.",
+     "C": "The plants make fresh water, not cooler air."
+    }
+   },
+   {
+    "stem": "How is the tropical zone different from the temperate zone?",
+    "options": [
+     "It is warm in every season",
+     "It has four clear seasons",
+     "It sits near the poles",
+     "It has no precipitation"
+    ],
+    "answer": "A",
+    "skill": "compare",
+    "why": "The tropical zone stays warm in every season, but the temperate zone has four clear seasons.",
+    "wrong": {
+     "B": "The temperate zone is the one with four clear seasons.",
+     "C": "The polar zone sits near the poles.",
+     "D": "The tropical zone receives heavy precipitation."
+    }
+   }
+  ]
+ }
 }

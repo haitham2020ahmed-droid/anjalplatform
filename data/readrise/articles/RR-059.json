@@ -614,5 +614,217 @@
       ],
       "modelAnswer": "Energy from inside the Earth keeps the rock cycle going by melting rock into magma, which later cools into igneous rock like the lava fields near Madinah, and by producing the heat and pressure that transform buried rock into metamorphic rock such as marble. Energy from the sun drives weathering and erosion at the surface, since hot days and cold nights crack rocks apart and wind and rain then carry the resulting sediment away to form layered sedimentary rock, like the cliffs near Riyadh. Together, these two energy sources make sure no rock stays the same forever, since any rock can eventually melt back into magma and begin the cycle again."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "What breaks rock into small bits?",
+        "options": [
+          "Fossils and shells",
+          "Wind and rain",
+          "Lava and magma",
+          "Black fields"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The text says wind and rain hit rock and, bit by bit, break it.",
+        "wrong": {
+          "A": "Fossils are found in rock; they do not break it.",
+          "C": "Lava and magma make new rock.",
+          "D": "Black fields are made of rock that cooled from lava."
+        }
+      },
+      {
+        "stem": "What turns layers of sand and mud into rock?",
+        "options": [
+          "Cold wind blowing off the lake",
+          "Shells that have gone hard",
+          "Lava that flows over the sand",
+          "The weight that packs them down"
+        ],
+        "answer": "D",
+        "skill": "cause-effect",
+        "why": "The text says more layers form on top, the weight packs them down, and in time they turn to rock.",
+        "wrong": {
+          "A": "The text does not say wind turns layers into rock.",
+          "B": "Shells can be fossils, but they do not make the layers rock.",
+          "C": "Lava makes a different kind of rock."
+        }
+      },
+      {
+        "stem": "The text calls the rock changes a cycle. What is a cycle?",
+        "options": [
+          "a path that repeats",
+          "a very large black rock",
+          "a hot fire under ground",
+          "a kind of sea shell"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "The text says a rock goes round and round and the cycle goes on and on, so a cycle is a path that repeats.",
+        "wrong": {
+          "B": "The black rock comes from cooled lava.",
+          "C": "The text names magma for hot melted rock.",
+          "D": "Shells can be fossils in rock."
+        }
+      },
+      {
+        "stem": "How fast do rocks change, according to the text?",
+        "options": [
+          "Very fast, in one day",
+          "Fast only when it rains",
+          "Slowly, over a long time",
+          "All rocks stay the same"
+        ],
+        "answer": "C",
+        "skill": "inference",
+        "why": "The text says it just takes a long, long time for rocks to change.",
+        "wrong": {
+          "A": "The text says it takes a long, long time.",
+          "B": "The text does not say rain makes rocks change fast.",
+          "D": "The text says rocks change, even if they look the same."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "Why do the lower layers of sediment become solid rock?",
+        "options": [
+          "Wind blows them into a volcano.",
+          "Hot lava flows over them.",
+          "Top layers press down on them.",
+          "Fossils make them hard."
+        ],
+        "answer": "C",
+        "skill": "cause-effect",
+        "why": "The text says the weight of the top layers presses the lower ones together until they become solid rock.",
+        "wrong": {
+          "A": "The text does not say wind carries them into a volcano.",
+          "B": "Lava makes igneous rock, not sedimentary rock.",
+          "D": "Fossils are found in the rock; they do not make it hard."
+        }
+      },
+      {
+        "stem": "In the article, what is sediment?",
+        "options": [
+          "small bits of sand or mud",
+          "melted rock under ground",
+          "a layer of white marble",
+          "rock that holds a shell"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "The text says rocks break into bits such as sand and mud, which are called sediment.",
+        "wrong": {
+          "B": "Melted rock under ground is magma.",
+          "C": "Marble is a kind of metamorphic rock.",
+          "D": "That describes sedimentary rock with a fossil."
+        }
+      },
+      {
+        "stem": "What can you infer about marble?",
+        "options": [
+          "It melted into lava once.",
+          "It is always found on cliffs.",
+          "It forms only in deserts.",
+          "It started out as limestone."
+        ],
+        "answer": "D",
+        "skill": "inference",
+        "why": "The text says limestone can turn into marble when heat and pressure change it.",
+        "wrong": {
+          "A": "Metamorphic rock does not melt as it forms.",
+          "B": "The cliffs near Riyadh are made of layers formed under an old sea.",
+          "C": "The text says metamorphic rock forms deep underground."
+        }
+      },
+      {
+        "stem": "What covers the lava fields near Madinah?",
+        "options": [
+          "White limestone cliffs",
+          "Black igneous rock",
+          "Layers of sea shells",
+          "Pink marble"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The text says the huge lava fields near Madinah are covered with black igneous rock.",
+        "wrong": {
+          "A": "The limestone cliffs are not mentioned for Madinah.",
+          "C": "Shells are found in sedimentary rock.",
+          "D": "The text does not mention pink marble."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "Where does metamorphic rock usually form?",
+        "options": [
+          "On the sea floor in cool water",
+          "Inside a volcano as it erupts",
+          "On dry desert cliffs in the sun",
+          "Deep where crust sections collide"
+        ],
+        "answer": "D",
+        "skill": "detail",
+        "why": "The text says it forms deep underground, usually where huge sections of the Earth's crust collide.",
+        "wrong": {
+          "A": "Sedimentary rock settles in lakes and seas.",
+          "B": "Rock that cools from lava is igneous.",
+          "C": "Weathering happens at the surface, but metamorphic rock forms deep down."
+        }
+      },
+      {
+        "stem": "How do the lower layers of sediment become solid rock?",
+        "options": [
+          "The upper layers press them together.",
+          "Lava flows over them and melts them.",
+          "Wind blows them up into the cliffs.",
+          "Cold nights make them crack apart."
+        ],
+        "answer": "A",
+        "skill": "cause-effect",
+        "why": "The text says the heavy weight of the upper layers presses and cements the lower ones into solid rock.",
+        "wrong": {
+          "B": "Melting would make magma, not sedimentary rock.",
+          "C": "The text says the sediment settles in lakes and seas.",
+          "D": "Cracking breaks rock into sediment in the first place."
+        }
+      },
+      {
+        "stem": "The article says heat and pressure transform an existing rock. What does transform mean?",
+        "options": [
+          "break up completely",
+          "melt into magma",
+          "change in form",
+          "wash away in water"
+        ],
+        "answer": "C",
+        "skill": "vocabulary",
+        "why": "The rock does not melt, but heat and pressure turn it into a different kind of rock, so transform means change in form.",
+        "wrong": {
+          "A": "The rock turns into a new rock; it does not break up.",
+          "B": "The text says the rock does not melt.",
+          "D": "Erosion washes sediment away, but metamorphic rock is not washed away."
+        }
+      },
+      {
+        "stem": "Which statement correctly compares sedimentary and metamorphic rock?",
+        "options": [
+          "Both form when lava cools slowly underground",
+          "One is built from pieces; the other is changed rock",
+          "Both form from sand and mud on the sea floor",
+          "One forms from magma and the other from fossils"
+        ],
+        "answer": "B",
+        "skill": "compare",
+        "why": "Sedimentary rock forms from fragments of older rock pressed together, and metamorphic rock forms when heat and pressure change an existing rock.",
+        "wrong": {
+          "A": "Cooling lava makes igneous rock.",
+          "C": "Only sedimentary rock forms from sediment.",
+          "D": "Fossils are preserved in sedimentary rock; they do not make rock."
+        }
+      }
+    ]
   }
 }

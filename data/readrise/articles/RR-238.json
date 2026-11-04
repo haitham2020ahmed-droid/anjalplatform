@@ -1,315 +1,830 @@
 {
-  "code": "RR-238",
-  "title": "Muscles: How Your Body Moves",
-  "topic": "Health",
-  "summary": "How skeletal muscles pull on bones in opposing pairs to create movement, and how exercise and rest make muscles stronger.",
-  "poll": "Muscles can push bones as well as pull them.",
-  "versions": [
-    {
-      "level": 300,
-      "title": "Muscles: How Your Body Moves",
-      "text": "Move your arm up and down. What makes it move? Your muscles do!\n\nMuscles are parts in you that pull. You have over 600 of them. They help you walk and jump.\n\nA muscle joins to a bone by a tendon. A tendon is like a string.\n\nMuscles can only pull. They can not push. So they work in pairs. One muscle pulls to bend your arm. The other one pulls to make it straight.\n\nIf you use a muscle a lot, tiny tears can form. Rest and food can fix it. The muscle grows back a bit strong.\n\nIf you do not use a muscle, it can get weak. So keep moving each day!\n\nDrink water. Eat good food. Rest well. Move each day. This keeps you strong."
-    },
-    {
-      "level": 400,
-      "title": "Muscles: How Your Body Moves",
-      "text": "Move your arm up and down. What makes it move? Your muscles do it!\n\nMuscles are parts in your body that pull. You have more than 600 muscles. They help you walk, jump, run, and smile.\n\nMuscles join to bones by tendons. A tendon is like a tough string. It links a muscle to a bone.\n\nMuscles can only pull. They can not push. So muscles work in pairs. One muscle pulls to bend your arm. The other muscle pulls to make it straight.\n\nWhen you use a muscle a lot, tiny tears can happen inside it. Rest and good food help fix this. The muscle grows back a bit thicker and stronger.\n\nIf you do not use a muscle much, it can get weak. So keep moving every day.\n\nDrink water, eat good food, rest well, and move your body often. This keeps your muscles strong for life."
-    },
-    {
-      "level": 500,
-      "title": "Muscles: How Your Body Moves",
-      "text": "Move your arm up and down, or bend your knee. What makes this happen? Your muscles do the work.\n\nMuscles are stretchy parts in your body that pull. The body has more than 600 muscles. They help you walk, jump, run, chew, and smile.\n\nA muscle joins to a bone by a tendon. A tendon is like a tough string. It links a muscle to a bone, so the muscle can pull the bone.\n\nMuscles have one limit: they can only pull, not push. So muscles work in pairs. One muscle pulls to bend a part, like your elbow. The other muscle pulls to straighten it back.\n\nWhen you use a muscle a lot, tiny tears can form inside it. After rest and good food, your body fixes these tears. The muscle grows back a little thicker and stronger.\n\nIf a muscle is rarely used, it can slowly get weak over time. This is why it helps to keep moving every day.\n\nDrinking enough water, eating good food, getting rest, and staying active all help keep your muscles strong for life."
-    },
-    {
-      "level": 600,
-      "title": "Muscles: How Your Body Moves",
-      "text": "Move your arm up and down, or bend your knee. What makes these moves happen? Your muscles do the work.\n\nMuscles are stretchy tissue in your body that pull. The body has more than 600 muscles. Together they help you walk, jump, run, chew food, and smile.\n\nA muscle joins to a bone by a tendon. A tendon is like a tough cord. It links a muscle to a bone, so the muscle can pull that bone when it tightens.\n\nMuscles have one limit: they can only pull, and they never push. So muscles almost always work in pairs on opposite sides of a part of your body. One muscle in the pair pulls to bend that part, like your elbow or knee. The other muscle pulls to straighten it back out.\n\nWhen you use a muscle a lot, such as in sports, tiny tears can form in it. After rest and good food, your body fixes these tears. The muscle grows back a little thicker and stronger than before.\n\nIf a muscle is rarely used, it can slowly get weak over time. This is one reason it helps to keep moving every day.\n\nDrinking enough water, eating good food, getting rest, and staying active often all help keep your muscles strong for life."
-    },
-    {
-      "level": 700,
-      "title": "Muscles: How Your Body Moves",
-      "text": "Move your arm up and down, or bend your knee. What makes this happen? Muscles, bones, and joints work together to do it.\n\nMuscles are stretchy tissue that contract, or tighten, to pull. The body has more than 600 muscles. They help you walk, jump, run, chew food, and smile.\n\nEach muscle is made of many thin fibers bundled together. When your brain sends a signal, these fibers contract at once. The pull of thousands of fibers is strong enough to move a bone.\n\nA muscle joins to a bone by a tendon, a tough cord that links the muscle to the bone. When the muscle contracts, it pulls that bone.\n\nMuscles can only pull, never push. So they almost always work in pairs around a joint, the place where two bones meet and can move. One muscle contracts to bend the joint, like the elbow, while its partner relaxes. Then the partner contracts to straighten it back out.\n\nDuring exercise, muscles work hard, and tiny tears can form in the muscle tissue. With rest and good food, the body fixes these tears. The fibers grow back a little thicker and stronger.\n\nIf a muscle goes unused for a long time, it slowly gets weaker. Regular exercise, good food, water, and rest all help keep muscles strong for life."
-    },
-    {
-      "level": 800,
-      "title": "Muscles: How Your Body Moves",
-      "text": "Moving an arm up and down, or bending a knee, takes muscles, bones, and joints working together.\n\nMuscles are stretchy tissue in the body that contract, or tighten, to produce a pull. The body has more than 600 muscles. They let a person walk, jump, run, chew food, and smile.\n\nEach muscle is made of many thin fibers bundled together. When the brain sends a signal, these fibers contract at the same time. The combined pull of thousands of fibers is enough to move a bone.\n\nMuscles join to bones through tough cords called tendons. A tendon links one end of a muscle to a bone. So when the muscle contracts, it pulls that bone toward it.\n\nBecause muscles can only pull, never push, they almost always work in pairs around a joint, the spot where two bones meet and can move. One muscle in the pair contracts to bend the joint, like the elbow or knee, while its partner relaxes. The partner then contracts to straighten the joint back out.\n\nDuring exercise, muscles work hard, and tiny tears can form in the muscle tissue. With rest and good food, the body repairs these tears, and the fibers grow back a bit thicker and stronger.\n\nIf a muscle stays unused for a long time, it slowly weakens. Regular exercise, good food, enough water, and rest all work together to keep muscles strong for life."
-    },
-    {
-      "level": 900,
-      "title": "Muscles: How Your Body Moves",
-      "text": "Moving an arm up and down, or bending a knee, requires muscles, bones, and joints working together. These three body parts must act as one coordinated system.\n\nMuscles consist of elastic tissue in the body that contracts, or tightens, to produce a pull. The body has more than 600 muscles. They let a person walk, jump, run, chew food, kick a ball, and smile.\n\nEach muscle is made of many thin fibers bundled tightly together. When the brain sends a signal, these fibers contract at almost the same time. The combined pull of thousands of fibers is enough to move a whole bone, even a large one like the thigh bone.\n\nMuscles attach to bones through tough, fibrous cords called tendons. A tendon connects one end of a muscle to a bone, so whenever the muscle contracts, it pulls that bone toward it. Without tendons, a contracting muscle would not move anything at all.\n\nBecause muscles can only pull, never push, they almost always work in opposing pairs around a joint, the spot where two bones meet and can move. One muscle in the pair contracts to bend the joint, such as the elbow or knee, while its partner relaxes. The partner then contracts to straighten the joint back out, and the cycle repeats with every movement.\n\nDuring exercise, muscles work especially hard, and tiny tears often form in the muscle tissue. With enough rest and good food, the body repairs these tears, and the fibers grow back somewhat thicker and stronger. This is one reason athletes rest between hard workouts.\n\nIf a muscle stays unused for a long time, it gradually weakens. Regular exercise, good food, enough water, and rest all work together to keep muscles strong throughout a lifetime."
-    },
-    {
-      "level": 1000,
-      "title": "Muscles: How Your Body Moves",
-      "text": "Moving an arm up and down, or bending a knee, requires muscles, bones, and joints working together in a coordinated way. Every simple movement depends on this hidden teamwork.\n\nMuscles consist of elastic tissue in the body that contracts, or tightens, to produce a pull. The body has more than 600 muscles, which let a person walk, jump, run, chew food, throw a ball, and smile.\n\nEach muscle is made of many thin fibers bundled tightly together. When the brain sends an electrical signal, these fibers contract almost at the same time, and the combined pull of thousands of fibers is enough to move an entire bone, even a heavy one such as the hip bone.\n\nMuscles attach to bones through tough, fibrous cords called tendons. A tendon connects one end of a muscle to a bone, so whenever the muscle contracts, it reliably pulls that bone toward it. Without a tendon, the strongest muscle could not move a bone at all.\n\nBecause muscles can only pull and never push, they almost always work in opposing pairs around a joint, the exact spot where two bones meet and can move. One muscle in the pair contracts to bend the joint, such as the elbow or knee, while its partner relaxes; the partner then contracts in turn to straighten the joint back out, and this back-and-forth repeats with every movement a person makes.\n\nDuring vigorous exercise, muscles work especially hard, and tiny tears often form within the muscle tissue. With enough rest and protein-rich food, the body repairs these tears, and the fibers grow back somewhat thicker and stronger than before. This is why athletes plan rest days into their training schedules.\n\nIf a particular muscle remains unused for a long period, it gradually weakens. Regular exercise, good food, enough water, and enough rest all work together to keep muscles strong throughout a lifetime."
-    },
-    {
-      "level": 1100,
-      "title": "Muscles: How Your Body Moves",
-      "text": "Raising an arm or bending a knee requires skeletal muscles, bones, and joints working together in a coordinated way, a partnership that most people take entirely for granted.\n\nSkeletal muscles, the muscles used for voluntary movement, are elastic tissue that contracts, or shortens, to produce a pull. The body has more than 600 skeletal muscles, which let a person walk, run, chew food, throw a ball, and smile.\n\nEach muscle is made of many thin, flexible fibers bundled tightly together. When the brain sends a signal along a nerve, these fibers contract almost at the same time, and the pull of thousands of fibers is enough to move a bone, even a large one such as the thigh bone.\n\nMuscles attach to bones by tough cords called tendons, which connect one end of a muscle to a bone, so that when the muscle contracts, it pulls that bone toward it. A torn tendon can keep a muscle from moving a bone properly at all.\n\nBecause muscles can only pull, never push, they work in opposing pairs, often called antagonist muscles, around a joint, the spot where two bones meet and can move. When one muscle in an antagonist pair contracts to bend the joint, its partner relaxes and lengthens; the partner then contracts in turn to straighten the joint back out, and this pattern repeats with nearly every movement the body makes.\n\nDuring exercise, muscle fibers get tiny tears, and the body repairs this tissue during rest, often rebuilding the fibers a bit thicker than before, a process called hypertrophy. Enough protein and sleep support this repair well, which is why athletes build rest into their training plans.\n\nIf a muscle stays unused for a long time, it loses mass and strength, a process called atrophy. Regular exercise, good food, water, and rest all keep skeletal muscles strong and flexible for life."
-    },
-    {
-      "level": 1200,
-      "title": "Muscles: How Your Body Moves",
-      "text": "Raising an arm or bending a knee needs skeletal muscles, bones, and joints working together in a coordinated way, a team effort most people never notice until something interrupts it.\n\nSkeletal muscles, the muscles used for voluntary movement, are elastic tissue that contracts, or shortens, to produce a pull. The body has more than 600 skeletal muscles, which let a person walk, run, chew food, throw a ball, and smile.\n\nEach muscle is made of many thin, flexible fibers bundled tightly together into bundles wrapped in connective tissue. When the brain sends a signal along a nerve, these fibers contract almost at the same time, and the combined pull of thousands of fibers is enough to move a bone, even a large one such as the thigh bone.\n\nMuscles attach to bones by tough, fibrous cords called tendons, which connect one end of a muscle to a bone. So when the muscle contracts, it reliably pulls that bone toward it. A torn tendon can keep a muscle from moving its bone properly.\n\nBecause muscles can only pull, never push, they work in opposing pairs, often called antagonist muscles, around a joint, the exact spot where two bones meet and can move. When one muscle in an antagonist pair contracts to bend the joint, its partner relaxes and lengthens; the partner then contracts in turn to straighten the joint back out, and this pattern repeats with nearly every move a person makes.\n\nDuring vigorous exercise, muscle fibers get tiny tears, and the body repairs this tissue during rest, often rebuilding the fibers a little thicker than before, a process called hypertrophy that depends on enough protein and sleep, which is why athletes build rest days into training.\n\nIf a muscle remains unused for a long period, it gradually loses mass and strength, a process called atrophy. Regular exercise, good food, water, and rest all work together to keep skeletal muscles strong and flexible throughout life."
-    },
-    {
-      "level": 1300,
-      "title": "Muscles: How Your Body Moves",
-      "text": "Raising an arm or bending a knee requires skeletal muscles, bones, and joints working together in a coordinated way, a collaboration most people never notice until an injury disrupts it.\n\nSkeletal muscles, the muscles responsible for voluntary movement, consist of elastic tissue that contracts, or shortens, to produce a pulling force. The body contains more than 600 skeletal muscles, which allow a person to walk, run, chew food, throw a ball, and smile. Unlike the involuntary smooth muscle in organs or the cardiac muscle of the heart, skeletal muscle responds to conscious, voluntary control.\n\nEach muscle is composed of many thin, flexible fibers bundled tightly together into bundles wrapped in connective tissue. When the brain sends a signal along a nerve, these fibers contract almost simultaneously, and the combined pull of thousands of fibers proves enough to move an entire bone, even a large one such as the thigh bone.\n\nMuscles attach to bones by tough, fibrous cords called tendons, which connect one end of a muscle to a bone, ensuring that when the muscle contracts, it reliably pulls that bone toward it. A torn tendon can prevent a muscle from moving its bone properly at all.\n\nBecause muscles are capable only of pulling, never of pushing, they function in opposing pairs, often called antagonist muscles, arranged around a joint. The biceps and triceps of the upper arm provide a familiar example: when one muscle in this antagonist pair contracts to bend the elbow joint, its partner relaxes and lengthens; the partner then contracts in turn to straighten the joint back out, and this pattern repeats with nearly every movement a person ever makes.\n\nDuring vigorous exercise, muscle fibers experience tiny tears, and the body repairs this tissue during rest, often rebuilding the fibers slightly thicker than before, a process called hypertrophy that depends heavily on adequate protein and sufficient sleep.\n\nIf a muscle remains unused for an extended period, it gradually loses mass and strength, a process called atrophy. Regular exercise, nutritious food, enough water, and sufficient rest all work together to keep skeletal muscles strong and flexible throughout life."
-    },
-    {
-      "level": 1400,
-      "title": "Muscles: How Your Body Moves",
-      "text": "Raising an arm or bending a knee requires skeletal muscles, bones, and joints working together in precise synchrony, a collaboration most people never consciously notice until an injury disrupts it.\n\nSkeletal muscles, the muscles responsible for voluntary movement, consist of elastic tissue distributed throughout the body that contracts, or shortens, in order to generate a pulling force. The body contains more than 600 distinct skeletal muscles, which collectively allow a person to walk, run, chew food, throw a ball, and even smile. Unlike the involuntary smooth muscle found in organs or the cardiac muscle of the heart, skeletal muscle responds directly to conscious, voluntary control.\n\nEach individual muscle is composed of numerous thin, flexible fibers bundled tightly together into larger bundles, which are themselves wrapped in connective tissue. When the brain transmits an electrical signal along a nerve, these fibers contract almost simultaneously, and the combined pulling force generated by thousands of fibers proves more than sufficient to move an entire bone, even a large one such as the thigh bone.\n\nMuscles attach to bones by means of tough, fibrous cords called tendons, which connect one end of a muscle to a bone, ensuring that whenever the muscle contracts, it reliably pulls that particular bone toward it. A torn tendon can prevent a muscle from moving its bone properly at all.\n\nBecause muscles are capable only of pulling and never of pushing, they function in opposing pairs, often called antagonist muscles, arranged around a joint. The biceps and triceps of the upper arm provide a familiar example: when one muscle in this antagonist pair contracts to bend the elbow joint, its partner simultaneously relaxes and lengthens; the partner then contracts in turn to straighten the joint back out, and this pattern repeats with nearly every movement a person ever makes.\n\nDuring vigorous or resistance exercise, muscle fibers experience microscopic tears, and the body responds by repairing this tissue during rest, often rebuilding the fibers slightly thicker than before, a process called hypertrophy that depends heavily on adequate protein intake and sufficient sleep.\n\nConversely, if a muscle remains largely unused for an extended period, it gradually loses mass and strength, a process called atrophy, illustrating the principle commonly summarized as \"use it or lose it.\" Regular exercise, nutritious food, adequate hydration, and sufficient rest collectively work together to keep skeletal muscles strong and flexible throughout an entire lifetime."
-    },
-    {
-      "level": 1500,
-      "title": "Muscles: How Your Body Moves",
-      "text": "Raising an arm or bending a knee requires skeletal muscles, bones, and joints functioning together in precise synchrony, a collaboration most people never consciously notice until an injury disrupts it, and one requiring years of gradual neuromuscular development to perform effortlessly.\n\nSkeletal muscles, the muscles responsible for voluntary movement, consist of elastic tissue distributed throughout the body that contracts, or shortens, in order to generate a pulling force. The body contains more than 600 distinct skeletal muscles, which collectively allow a person to walk, run, chew food, throw a ball, and even smile. Unlike the involuntary smooth muscle found in organs or the cardiac muscle of the heart, skeletal muscle responds directly to conscious, voluntary control.\n\nEach individual muscle is composed of numerous thin, flexible fibers bundled tightly together into larger bundles, which are themselves wrapped in connective tissue that transmits force efficiently. When the brain transmits an electrical signal along a nerve, a transmission occurring within milliseconds, these fibers contract almost simultaneously, and the combined pulling force generated by thousands of fibers proves more than sufficient to move an entire bone, even a large one such as the thigh bone.\n\nMuscles attach to bones by means of tough, fibrous cords called tendons, which connect one end of a muscle to a bone, ensuring that whenever the muscle contracts, it reliably pulls that particular bone toward it. A torn tendon can prevent even a strong muscle from moving its bone properly.\n\nBecause muscles are capable only of pulling and never of pushing, they function in opposing pairs, often called antagonist muscles, arranged around a joint. The biceps and triceps of the upper arm provide a familiar example: when one muscle in this antagonist pair contracts to bend the elbow joint, its partner simultaneously relaxes and lengthens; the partner then contracts in turn to straighten the joint back out.\n\nDuring vigorous or resistance exercise, muscle fibers experience microscopic tears, and the body responds by repairing this tissue during rest, often rebuilding the fibers slightly thicker than before, a process called hypertrophy that depends heavily on adequate protein intake and sufficient sleep, which explains why athletes schedule rest days between intense training sessions.\n\nConversely, if a muscle remains largely unused for an extended period, it gradually loses mass and strength, a process called atrophy, illustrating the principle commonly summarized as \"use it or lose it.\" Regular exercise, nutritious food, adequate hydration, and sufficient rest collectively work together to keep skeletal muscles strong and flexible throughout an entire lifetime, a lifelong investment whose value becomes increasingly apparent with age."
-    },
-    {
-      "level": 1600,
-      "title": "Muscles: How Your Body Moves",
-      "text": "The seemingly effortless act of raising an arm or bending a knee conceals a remarkably intricate coordination among skeletal muscles, bones, and joints, a collaboration most people never consciously register until an injury or impairment disrupts it, and one whose fluency depends on years of gradual neuromuscular refinement.\n\nSkeletal muscles, the muscles responsible for deliberate, voluntary movement, consist of elastic tissue distributed throughout the body that contracts, or shortens, in order to generate a pulling force; the human body contains more than 600 distinct skeletal muscles, which collectively enable walking, running, chewing, and even the subtle muscular coordination required for facial expression. Unlike the involuntary smooth muscle lining internal organs or the specialized cardiac muscle of the heart, skeletal muscle alone responds directly to conscious, deliberate control.\n\nEach individual muscle is composed of numerous slender, flexible fibers bundled tightly together into progressively larger bundles, themselves enclosed within connective tissue that transmits force efficiently throughout the structure. When the brain dispatches an electrical signal along a nerve, a transmission completed within mere milliseconds, these fibers contract almost simultaneously, and the combined pulling force generated by thousands of individual fibers proves more than sufficient to displace an entire bone.\n\nMuscles attach to bones by means of exceptionally tough, fibrous cords called tendons, which connect one terminus of a muscle to a bone, ensuring that whenever the muscle contracts, it reliably transmits that pulling force to the bone in question.\n\nBecause muscles are mechanically capable only of pulling, never of pushing, they invariably function in opposing pairs, conventionally termed antagonist muscles, arranged symmetrically around a joint, the precise anatomical location where two bones meet and articulate relative to one another. The biceps and triceps of the upper arm furnish a familiar illustration: when one muscle within this antagonist pair contracts to flex the elbow joint, its counterpart simultaneously relaxes and lengthens; that counterpart subsequently contracts in turn to extend the joint fully, thereby reversing the original motion.\n\nDuring vigorous or resistance-based exercise, individual muscle fibers sustain microscopic tears, and the body responds by methodically repairing this damaged tissue during subsequent periods of rest, frequently rebuilding the fibers marginally thicker than before, a physiological process termed hypertrophy that depends heavily upon adequate dietary protein and sufficient restorative sleep, which explains why serious athletes deliberately interpose rest days between successive bouts of intense training.\n\nConversely, should a particular muscle remain substantially unused across an extended period, it progressively loses both mass and functional strength, a converse process termed atrophy that vividly illustrates the long-recognized physiological principle commonly summarized as \"use it or lose it.\" Regular physical exercise, nutritionally adequate food, sufficient hydration, and adequate rest collectively and cumulatively sustain skeletal muscles in a strong, flexible condition across an entire lifetime, a lifelong investment whose cumulative value becomes increasingly apparent with advancing age."
-    }
-  ],
-  "bands": {
-    "LOW": {
-      "keyWords": [
-        { "word": "muscle", "partOfSpeech": "noun", "definition": "a part inside your body that can tighten and pull to make you move", "example": "The muscles in your legs help you run fast." },
-        { "word": "pull", "partOfSpeech": "verb", "definition": "to tug something toward you", "example": "Mona had to pull hard to open the heavy door." },
-        { "word": "pair", "partOfSpeech": "noun", "definition": "two things that go together", "example": "I wore a new pair of shoes to school today." },
-        { "word": "strong", "partOfSpeech": "adjective", "definition": "able to do a lot without getting tired or hurt", "example": "The strong rope held the heavy box without breaking." },
-        { "word": "tendon", "partOfSpeech": "noun", "definition": "a tough band that connects a muscle to a bone", "example": "The doctor looked at the tendon near his ankle after the fall." }
-      ],
-      "questions": [
-        {
-          "stem": "What is this article mostly about?",
-          "options": ["How bones are made inside the body", "How muscles pull to move your body", "Why food tastes good to us", "How to tie your shoes well"],
-          "answer": "B",
-          "skill": "central-idea",
-          "why": "The article explains how muscles contract and pull in pairs to move your body.",
-          "wrong": { "A": "Bones are mentioned, but the article focuses on muscles.", "C": "Food is only mentioned as part of how muscles repair.", "D": "Shoes are not discussed." }
-        },
-        {
-          "stem": "What connects a muscle to a bone?",
-          "options": ["A joint", "A tendon", "A nerve", "A fiber"],
-          "answer": "B",
-          "skill": "detail",
-          "why": "The article says a tendon is like a tough string that links a muscle to a bone.",
-          "wrong": { "A": "A joint is where two bones meet, not what connects muscle to bone.", "C": "A nerve is not discussed in this article.", "D": "A fiber is a thin strand inside a muscle, not a connector." }
-        },
-        {
-          "stem": "What can a muscle do?",
-          "options": ["Only push", "Push and pull equally", "Neither push nor pull", "Only pull"],
-          "answer": "D",
-          "skill": "detail",
-          "why": "The article says muscles can only pull, they can not push.",
-          "wrong": { "A": "The article says muscles cannot push.", "B": "Muscles cannot push at all.", "C": "Muscles can pull." }
-        },
-        {
-          "stem": "In the article, what does the word pair mean?",
-          "options": ["Two things that work together", "A piece of fruit that grows on a tree", "A kind of bone in the human leg", "A type of exercise done in a gym"],
-          "answer": "A",
-          "skill": "vocabulary",
-          "why": "The article uses pair to describe two muscles that work together, one pulling one way and one the other.",
-          "wrong": { "B": "The article is not about fruit.", "C": "A pair is not a bone.", "D": "A pair is not a type of exercise." }
-        },
-        {
-          "stem": "What happens to a muscle after you use it hard in sports and then rest and eat well?",
-          "options": ["It disappears completely after a hard day", "It turns into a tendon again", "It stops pulling forever after use", "It fixes itself and grows back thicker"],
-          "answer": "D",
-          "skill": "cause-effect",
-          "why": "The article says rest and good food help fix tiny tears, and the muscle grows back thicker and stronger.",
-          "wrong": { "A": "Muscles do not disappear.", "B": "A muscle does not turn into a tendon.", "C": "The muscle keeps pulling after it heals." }
-        },
-        {
-          "stem": "Why does the article say muscles work in pairs?",
-          "options": ["Because muscles can only pull, not push", "Because two muscles taste better together", "Because tendons need two muscles to grow", "Because bones need two muscles to stay still"],
-          "answer": "A",
-          "skill": "author-purpose",
-          "why": "Since a muscle can only pull in one direction, a partner muscle is needed to pull the body part back the other way.",
-          "wrong": { "B": "This is not a real reason in the article.", "C": "Tendons do not need two muscles to grow.", "D": "Bones need muscles to move, not to stay still." }
-        },
-        {
-          "stem": "Youssef never uses his arm muscles because he never plays or exercises. Based on the article, what will probably happen?",
-          "options": ["His tendons will turn into bone", "His muscles will get weak", "His muscles will turn into pairs", "His muscles will get stronger"],
-          "answer": "B",
-          "skill": "inference",
-          "why": "The article says a muscle that is not used can get weak.",
-          "wrong": { "A": "Tendons do not turn into bone.", "C": "Muscles already work in pairs; not using them does not change this.", "D": "Unused muscles get weaker, not stronger." }
-        },
-        {
-          "stem": "Which child is most likely helping their muscles stay strong?",
-          "options": ["Omar, who plays and exercises, then rests and eats well", "Lina, who never moves much and stays inside all day", "Huda, who eats only candy and sweets all day long", "Sami, who never drinks any water at all"],
-          "answer": "A",
-          "skill": "inference",
-          "why": "The article says exercise, rest, and good food all help keep muscles strong.",
-          "wrong": { "B": "Not moving can make muscles weak.", "C": "Candy alone is not the healthy food the article describes.", "D": "Water is one thing the article says muscles need." }
-        }
-      ],
-      "prompt": "Explain how your muscles work together to move your body. Use at least two ideas from the article.",
-      "checklist": ["I explained that muscles pull, not push.", "I used at least two ideas from the article, like pairs, tendons, or getting strong.", "I wrote full sentences with capital letters and periods."],
-      "modelAnswer": "My muscles pull on my bones using tendons to help me move. Since muscles can only pull, they work in pairs, so one muscle bends my arm while the other straightens it. When I exercise and rest well, my muscles grow back stronger."
-    },
-    "MID": {
-      "keyWords": [
-        { "word": "contract", "partOfSpeech": "verb", "definition": "to become shorter or tighter", "example": "The window glass can contract a little in cold weather." },
-        { "word": "fiber", "partOfSpeech": "noun", "definition": "a thin, thread-like strand that makes up part of a material", "example": "The rope was woven from thousands of tiny fibers." },
-        { "word": "joint", "partOfSpeech": "noun", "definition": "a place in the body where two bones meet and can move", "example": "Doctors check the knee joint after a sports injury." },
-        { "word": "tissue", "partOfSpeech": "noun", "definition": "a group of similar cells that work together in the body", "example": "Skin is a kind of tissue that covers and protects the body." },
-        { "word": "exercise", "partOfSpeech": "noun", "definition": "activity that makes your body work and get stronger", "example": "Playing football is a fun kind of exercise." }
-      ],
-      "questions": [
-        {
-          "stem": "Which sentence best states the central idea of the article?",
-          "options": ["Muscles contract and pull bones in pairs to create movement.", "Tendons alone are responsible for every movement a body makes.", "Only professional athletes ever truly need strong muscles.", "Joints can bend and straighten without any help from muscles at all."],
-          "answer": "A",
-          "skill": "central-idea",
-          "why": "The article explains how fibers contract, how muscles work in pairs, and how joints allow movement.",
-          "wrong": { "B": "Tendons support muscles, but the article does not rank them as more important.", "C": "The article shows everyone needs strong, healthy muscles.", "D": "Joints need muscles pulling on them to move." }
-        },
-        {
-          "stem": "According to the article, what happens when the brain sends a signal to muscle fibers?",
-          "options": ["The fibers slowly turn into tendons over time.", "The fibers immediately stop working for a while.", "The fibers gradually grow into solid bone.", "The fibers all contract at once."],
-          "answer": "D",
-          "skill": "detail",
-          "why": "The article says when the brain sends a signal, muscle fibers contract at the same time.",
-          "wrong": { "A": "Fibers do not turn into tendons.", "B": "Fibers do not stop working when signaled.", "C": "Fibers do not grow into bone." }
-        },
-        {
-          "stem": "What is a joint, according to the article?",
-          "options": ["A thin strand inside a muscle fiber.", "A kind of food that helps muscles grow strong.", "A place where two bones meet and can move.", "A cord that connects muscle to bone."],
-          "answer": "C",
-          "skill": "detail",
-          "why": "The article defines a joint as the place where two bones meet and can move.",
-          "wrong": { "A": "A strand inside a muscle is a fiber, not a joint.", "B": "A joint is not a food.", "D": "A cord connecting muscle to bone is a tendon, not a joint." }
-        },
-        {
-          "stem": "In the article, what does the word tissue mean?",
-          "options": ["A special type of exercise just for muscles.", "A group of similar cells that work together.", "A kind of unusual bone found only in joints.", "A medical tool doctors use to check injuries."],
-          "answer": "B",
-          "skill": "vocabulary",
-          "why": "The article uses tissue to describe the muscle material that gets tiny tears and repairs itself.",
-          "wrong": { "A": "Exercise is a different idea in the article.", "C": "Tissue is not a kind of bone.", "D": "Tissue is not a tool." }
-        },
-        {
-          "stem": "How does the author explain why muscles work in pairs?",
-          "options": ["By telling a long story about one doctor's entire career in a big hospital.", "By comparing muscles to several different kinds of food in a kitchen.", "By explaining that a pulling-only muscle needs a partner to reverse its motion.", "By carefully listing every single muscle in the human body, one by one."],
-          "answer": "C",
-          "skill": "text-structure",
-          "why": "The article explains that because a muscle can only pull one way, its partner is needed to pull the joint back the other way.",
-          "wrong": { "A": "There is no story about a doctor.", "B": "The article does not compare muscles to food.", "D": "The article does not list every muscle." }
-        },
-        {
-          "stem": "What is the effect of exercise on muscle fibers?",
-          "options": ["Tiny tears form and heal into thicker, stronger fibers.", "The fibers immediately turn into tough tendons.", "The fibers stop contracting completely and permanently.", "The fibers slowly disappear if used too often."],
-          "answer": "A",
-          "skill": "cause-effect",
-          "why": "The article says exercise causes tiny tears, and rest and food repair them into thicker, stronger fibers.",
-          "wrong": { "B": "Fibers do not turn into tendons.", "C": "Fibers keep contracting after exercise and rest.", "D": "Fibers do not disappear from use." }
-        },
-        {
-          "stem": "Rana lifts light weights several times a week and eats enough protein. Based on the article, what will probably happen to her muscles?",
-          "options": ["They will slowly weaken.", "They will stop needing tendons.", "They will turn into a different kind of tissue.", "They will grow slightly thicker and stronger."],
-          "answer": "D",
-          "skill": "inference",
-          "why": "The article says exercise with enough rest and protein-rich food helps muscle fibers grow back thicker and stronger.",
-          "wrong": { "A": "Using muscles regularly with good food helps them get stronger, not weaker.", "B": "Muscles always need tendons to pull on bones.", "C": "Muscle tissue stays muscle tissue; it does not become something else." }
-        },
-        {
-          "stem": "What can you infer about a muscle that is never exercised?",
-          "options": ["It will likely grow weaker over time.", "It will automatically become more flexible.", "It will grow extra tendons.", "It will contract more quickly than before."],
-          "answer": "A",
-          "skill": "inference",
-          "why": "The article says a muscle that goes unused for a long time gradually weakens.",
-          "wrong": { "B": "The article links flexibility to exercise, not inactivity.", "C": "Muscles do not grow extra tendons.", "D": "Unused muscles do not contract faster." }
-        }
-      ],
-      "prompt": "Write advice for a younger student about how to keep muscles strong and healthy. Use at least three ideas from the article and explain why each one helps.",
-      "checklist": ["I gave at least three pieces of advice from the article.", "I explained why each idea helps, using words like because.", "I used at least two key words, such as fiber, joint, or exercise."],
-      "modelAnswer": "First, exercise regularly, because contracting your muscle fibers often helps them grow thicker and stronger over time. Second, eat enough protein-rich food, because your body needs it to repair the tiny tears that form in muscle tissue after hard exercise. Third, rest between workouts, because muscles need time to rebuild before you use the same joint again."
-    },
-    "HIGH": {
-      "keyWords": [
-        { "word": "skeletal", "partOfSpeech": "adjective", "definition": "relating to the bones and the muscles that move them", "example": "A physical therapist studies skeletal injuries to help people move again." },
-        { "word": "antagonist", "partOfSpeech": "noun", "definition": "a muscle that works opposite another muscle, relaxing when its partner contracts", "example": "In the leg, the hamstring acts as an antagonist to the quadriceps." },
-        { "word": "hypertrophy", "partOfSpeech": "noun", "definition": "the growth and thickening of muscle fibers after repeated exercise", "example": "Years of training caused noticeable hypertrophy in the swimmer's shoulder muscles." },
-        { "word": "nerve", "partOfSpeech": "noun", "definition": "a thin strand of tissue that carries electrical signals between the brain and the body", "example": "A pinched nerve in his back made his leg feel numb." },
-        { "word": "flexible", "partOfSpeech": "adjective", "definition": "able to bend or move easily without breaking", "example": "Gymnasts stretch every day to stay flexible." }
-      ],
-      "questions": [
-        {
-          "stem": "Which statement best captures the central idea of the article?",
-          "options": ["Skeletal muscles pull bones in antagonist pairs and strengthen through exercise.", "Only the biceps and triceps are ever capable of true antagonist movement.", "Nerves are considerably more essential to movement than muscles themselves.", "Hypertrophy happens entirely automatically, regardless of exercise or diet."],
-          "answer": "A",
-          "skill": "central-idea",
-          "why": "The article explains how skeletal muscles contract in antagonist pairs and strengthen through exercise, rest, and nutrition.",
-          "wrong": { "B": "The biceps and triceps are only one example; many muscle pairs work this way.", "C": "Nerves signal muscles, but muscles themselves generate the pulling force.", "D": "Hypertrophy depends on adequate exercise, protein, and sleep." }
-        },
-        {
-          "stem": "According to the article, what is skeletal muscle unlike?",
-          "options": ["Cardiac and smooth muscle, which function involuntarily", "Tendons, which are said to never move at all in the body", "Joints, which supposedly contain no tissue or bone at all", "Fibers, which are said to never bundle together in the body"],
-          "answer": "A",
-          "skill": "detail",
-          "why": "The article says skeletal muscle is unlike the involuntary smooth muscle in organs or the cardiac muscle of the heart.",
-          "wrong": { "B": "Tendons are not contrasted with skeletal muscle this way.", "C": "Joints are not described as containing no tissue.", "D": "Fibers do bundle together, according to the article." }
-        },
-        {
-          "stem": "What does the article identify as an example of an antagonist pair?",
-          "options": ["The hamstring and the heart", "The nerve and the tendon", "The biceps and triceps", "The skull and the spine"],
-          "answer": "C",
-          "skill": "detail",
-          "why": "The article names the biceps and triceps of the upper arm as a familiar antagonist pair example.",
-          "wrong": { "A": "The heart is cardiac muscle, not part of this example.", "B": "A nerve and a tendon are not a muscle pair.", "D": "The skull and spine are bones, not muscles." }
-        },
-        {
-          "stem": "In the article, what does hypertrophy refer to?",
-          "options": ["The gradual weakening of a muscle from disuse", "The sudden breaking of a bone during a fall", "The electrical signal sent by a nerve to a muscle", "The growth and thickening of fibers after exercise"],
-          "answer": "D",
-          "skill": "vocabulary",
-          "why": "The article describes hypertrophy as the process where fibers rebuild slightly thicker after exercise.",
-          "wrong": { "A": "Weakening from disuse is called atrophy, the opposite process.", "B": "Bone breaking is not discussed in this article.", "C": "A nerve signal is a separate idea from hypertrophy." }
-        },
-        {
-          "stem": "How does the author structure the explanation after introducing skeletal muscle's basic function?",
-          "options": ["By comparing muscles across several different animal species, from fish to birds", "By moving through fiber structure, bone attachment, antagonist pairs, and exercise", "By telling a single long story about one professional athlete and his coach", "By arguing throughout that muscles matter less than bones do for the body"],
-          "answer": "B",
-          "skill": "text-structure",
-          "why": "The article moves through fiber structure, tendon attachment, antagonist pairs, and the effects of exercise and inactivity in order.",
-          "wrong": { "A": "Animal species are not compared.", "C": "There is no story about one athlete.", "D": "The article treats muscles and bones as working together, not ranked." }
-        },
-        {
-          "stem": "Based on the article, what effect does resistance exercise have on muscle fibers over time?",
-          "options": ["It causes immediate, permanent damage that never heals.", "It slowly converts muscle fibers into nerve tissue.", "It triggers tiny tears that heal into hypertrophy.", "It entirely eliminates the need for antagonist pairs."],
-          "answer": "C",
-          "skill": "cause-effect",
-          "why": "The article explains that resistance exercise causes microscopic tears that the body repairs into thicker, stronger fibers, a process called hypertrophy.",
-          "wrong": { "A": "The body repairs the damage rather than leaving permanent harm.", "B": "Muscle fibers do not turn into nerve tissue.", "D": "Antagonist pairs are still needed regardless of exercise." }
-        },
-        {
-          "stem": "A patient has not been able to move one arm for several months due to injury. Based on the article, what would you expect?",
-          "options": ["The arm's muscles have likely undergone atrophy.", "The arm's muscles have undergone hypertrophy from rest.", "The arm's tendons have slowly turned into nerves.", "The arm's joints have stopped needing muscles entirely."],
-          "answer": "A",
-          "skill": "inference",
-          "why": "The article says a muscle left unused for an extended period gradually loses mass and strength, a process called atrophy.",
-          "wrong": { "B": "Hypertrophy results from exercise, not from rest alone.", "C": "Tendons do not turn into nerves.", "D": "Joints still need muscles to move once the injury heals." }
-        },
-        {
-          "stem": "How do skeletal muscle and cardiac muscle differ, based on the article?",
-          "options": ["Skeletal muscle is involuntary, while cardiac muscle is voluntary.", "Both kinds of muscle are controlled in exactly the same way.", "Neither type of muscle is ever able to contract.", "Skeletal muscle is voluntary; cardiac muscle is involuntary."],
-          "answer": "D",
-          "skill": "compare",
-          "why": "The article states skeletal muscle responds to conscious, voluntary control, unlike the involuntary cardiac muscle of the heart.",
-          "wrong": { "A": "This reverses the article's description.", "B": "The article contrasts voluntary and involuntary control.", "C": "Both muscle types can contract." }
-        }
-      ],
-      "prompt": "Explain how skeletal muscles create movement through antagonist pairs, and how exercise leads to hypertrophy, using specific evidence from the article.",
-      "checklist": ["I explained how antagonist muscle pairs work across a joint.", "I described how exercise, rest, and protein lead to hypertrophy.", "I used at least two key words, such as skeletal, nerve, or flexible."],
-      "modelAnswer": "Skeletal muscles can only pull, so they work in antagonist pairs: when a nerve signal causes one muscle to contract and flex a joint, its partner relaxes, then contracts in turn to extend the joint back out. During resistance exercise, this repeated pulling causes microscopic tears in the muscle fibers, and with enough protein and rest, the body repairs them into thicker, stronger tissue, a process called hypertrophy that keeps skeletal muscles strong and flexible."
-    }
+ "code": "RR-238",
+ "title": "Muscles: How Your Body Moves",
+ "topic": "Health",
+ "summary": "How skeletal muscles pull on bones in opposing pairs to create movement, and how exercise and rest make muscles stronger.",
+ "poll": "Muscles can push bones as well as pull them.",
+ "versions": [
+  {
+   "level": 300,
+   "title": "Muscles: How Your Body Moves",
+   "text": "Move your arm up and down. What makes it move? Your muscles do!\n\nMuscles are parts in you that pull. You have over 600 of them. They help you walk and jump.\n\nA muscle joins to a bone by a tendon. A tendon is like a string.\n\nMuscles can only pull. They can not push. So they work in pairs. One muscle pulls to bend your arm. The other one pulls to make it straight.\n\nIf you use a muscle a lot, tiny tears can form. Rest and food can fix it. The muscle grows back a bit strong.\n\nIf you do not use a muscle, it can get weak. So keep moving each day!\n\nDrink water. Eat good food. Rest well. Move each day. This keeps you strong."
+  },
+  {
+   "level": 400,
+   "title": "Muscles: How Your Body Moves",
+   "text": "Move your arm up and down. What makes it move? Your muscles do it!\n\nMuscles are parts in your body that pull. You have more than 600 muscles. They help you walk, jump, run, and smile.\n\nMuscles join to bones by tendons. A tendon is like a tough string. It links a muscle to a bone.\n\nMuscles can only pull. They can not push. So muscles work in pairs. One muscle pulls to bend your arm. The other muscle pulls to make it straight.\n\nWhen you use a muscle a lot, tiny tears can happen inside it. Rest and good food help fix this. The muscle grows back a bit thicker and stronger.\n\nIf you do not use a muscle much, it can get weak. So keep moving every day.\n\nDrink water, eat good food, rest well, and move your body often. This keeps your muscles strong for life."
+  },
+  {
+   "level": 500,
+   "title": "Muscles: How Your Body Moves",
+   "text": "Move your arm up and down, or bend your knee. What makes this happen? Your muscles do the work.\n\nMuscles are stretchy parts in your body that pull. The body has more than 600 muscles. They help you walk, jump, run, chew, and smile.\n\nA muscle joins to a bone by a tendon. A tendon is like a tough string. It links a muscle to a bone, so the muscle can pull the bone.\n\nMuscles have one limit: they can only pull, not push. So muscles work in pairs. One muscle pulls to bend a part, like your elbow. The other muscle pulls to straighten it back.\n\nWhen you use a muscle a lot, tiny tears can form inside it. After rest and good food, your body fixes these tears. The muscle grows back a little thicker and stronger.\n\nIf a muscle is rarely used, it can slowly get weak over time. This is why it helps to keep moving every day.\n\nDrinking enough water, eating good food, getting rest, and staying active all help keep your muscles strong for life."
+  },
+  {
+   "level": 600,
+   "title": "Muscles: How Your Body Moves",
+   "text": "Move your arm up and down, or bend your knee. What makes these moves happen? Your muscles do the work.\n\nMuscles are stretchy tissue in your body that pull. The body has more than 600 muscles. Together they help you walk, jump, run, chew food, and smile.\n\nA muscle joins to a bone by a tendon. A tendon is like a tough cord. It links a muscle to a bone, so the muscle can pull that bone when it tightens.\n\nMuscles have one limit: they can only pull, and they never push. So muscles almost always work in pairs on opposite sides of a part of your body. One muscle in the pair pulls to bend that part, like your elbow or knee. The other muscle pulls to straighten it back out.\n\nWhen you use a muscle a lot, such as in sports, tiny tears can form in it. After rest and good food, your body fixes these tears. The muscle grows back a little thicker and stronger than before.\n\nIf a muscle is rarely used, it can slowly get weak over time. This is one reason it helps to keep moving every day.\n\nDrinking enough water, eating good food, getting rest, and staying active often all help keep your muscles strong for life."
+  },
+  {
+   "level": 700,
+   "title": "Muscles: How Your Body Moves",
+   "text": "Move your arm up and down, or bend your knee. What makes this happen? Muscles, bones, and joints work together to do it.\n\nMuscles are stretchy tissue that contract, or tighten, to pull. The body has more than 600 muscles. They help you walk, jump, run, chew food, and smile.\n\nEach muscle is made of many thin fibers bundled together. When your brain sends a signal, these fibers contract at once. The pull of thousands of fibers is strong enough to move a bone.\n\nA muscle joins to a bone by a tendon, a tough cord that links the muscle to the bone. When the muscle contracts, it pulls that bone.\n\nMuscles can only pull, never push. So they almost always work in pairs around a joint, the place where two bones meet and can move. One muscle contracts to bend the joint, like the elbow, while its partner relaxes. Then the partner contracts to straighten it back out.\n\nDuring exercise, muscles work hard, and tiny tears can form in the muscle tissue. With rest and good food, the body fixes these tears. The fibers grow back a little thicker and stronger.\n\nIf a muscle goes unused for a long time, it slowly gets weaker. Regular exercise, good food, water, and rest all help keep muscles strong for life."
+  },
+  {
+   "level": 800,
+   "title": "Muscles: How Your Body Moves",
+   "text": "Moving an arm up and down, or bending a knee, takes muscles, bones, and joints working together.\n\nMuscles are stretchy tissue in the body that contract, or tighten, to produce a pull. The body has more than 600 muscles. They let a person walk, jump, run, chew food, and smile.\n\nEach muscle is made of many thin fibers bundled together. When the brain sends a signal, these fibers contract at the same time. The combined pull of thousands of fibers is enough to move a bone.\n\nMuscles join to bones through tough cords called tendons. A tendon links one end of a muscle to a bone. So when the muscle contracts, it pulls that bone toward it.\n\nBecause muscles can only pull, never push, they almost always work in pairs around a joint, the spot where two bones meet and can move. One muscle in the pair contracts to bend the joint, like the elbow or knee, while its partner relaxes. The partner then contracts to straighten the joint back out.\n\nDuring exercise, muscles work hard, and tiny tears can form in the muscle tissue. With rest and good food, the body repairs these tears, and the fibers grow back a bit thicker and stronger.\n\nIf a muscle stays unused for a long time, it slowly weakens. Regular exercise, good food, enough water, and rest all work together to keep muscles strong for life."
+  },
+  {
+   "level": 900,
+   "title": "Muscles: How Your Body Moves",
+   "text": "Moving an arm up and down, or bending a knee, requires muscles, bones, and joints working together. These three body parts must act as one coordinated system.\n\nMuscles consist of elastic tissue in the body that contracts, or tightens, to produce a pull. The body has more than 600 muscles. They let a person walk, jump, run, chew food, kick a ball, and smile.\n\nEach muscle is made of many thin fibers bundled tightly together. When the brain sends a signal, these fibers contract at almost the same time. The combined pull of thousands of fibers is enough to move a whole bone, even a large one like the thigh bone.\n\nMuscles attach to bones through tough, fibrous cords called tendons. A tendon connects one end of a muscle to a bone, so whenever the muscle contracts, it pulls that bone toward it. Without tendons, a contracting muscle would not move anything at all.\n\nBecause muscles can only pull, never push, they almost always work in opposing pairs around a joint, the spot where two bones meet and can move. One muscle in the pair contracts to bend the joint, such as the elbow or knee, while its partner relaxes. The partner then contracts to straighten the joint back out, and the cycle repeats with every movement.\n\nDuring exercise, muscles work especially hard, and tiny tears often form in the muscle tissue. With enough rest and good food, the body repairs these tears, and the fibers grow back somewhat thicker and stronger. This is one reason athletes rest between hard workouts.\n\nIf a muscle stays unused for a long time, it gradually weakens. Regular exercise, good food, enough water, and rest all work together to keep muscles strong throughout a lifetime."
+  },
+  {
+   "level": 1000,
+   "title": "Muscles: How Your Body Moves",
+   "text": "Moving an arm up and down, or bending a knee, requires muscles, bones, and joints working together in a coordinated way. Every simple movement depends on this hidden teamwork.\n\nMuscles consist of elastic tissue in the body that contracts, or tightens, to produce a pull. The body has more than 600 muscles, which let a person walk, jump, run, chew food, throw a ball, and smile.\n\nEach muscle is made of many thin fibers bundled tightly together. When the brain sends an electrical signal, these fibers contract almost at the same time, and the combined pull of thousands of fibers is enough to move an entire bone, even a heavy one such as the hip bone.\n\nMuscles attach to bones through tough, fibrous cords called tendons. A tendon connects one end of a muscle to a bone, so whenever the muscle contracts, it reliably pulls that bone toward it. Without a tendon, the strongest muscle could not move a bone at all.\n\nBecause muscles can only pull and never push, they almost always work in opposing pairs around a joint, the exact spot where two bones meet and can move. One muscle in the pair contracts to bend the joint, such as the elbow or knee, while its partner relaxes; the partner then contracts in turn to straighten the joint back out, and this back-and-forth repeats with every movement a person makes.\n\nDuring vigorous exercise, muscles work especially hard, and tiny tears often form within the muscle tissue. With enough rest and protein-rich food, the body repairs these tears, and the fibers grow back somewhat thicker and stronger than before. This is why athletes plan rest days into their training schedules.\n\nIf a particular muscle remains unused for a long period, it gradually weakens. Regular exercise, good food, enough water, and enough rest all work together to keep muscles strong throughout a lifetime."
+  },
+  {
+   "level": 1100,
+   "title": "Muscles: How Your Body Moves",
+   "text": "Raising an arm or bending a knee requires skeletal muscles, bones, and joints working together in a coordinated way, a partnership that most people take entirely for granted.\n\nSkeletal muscles, the muscles used for voluntary movement, are elastic tissue that contracts, or shortens, to produce a pull. The body has more than 600 skeletal muscles, which let a person walk, run, chew food, throw a ball, and smile.\n\nEach muscle is made of many thin, flexible fibers bundled tightly together. When the brain sends a signal along a nerve, these fibers contract almost at the same time, and the pull of thousands of fibers is enough to move a bone, even a large one such as the thigh bone.\n\nMuscles attach to bones by tough cords called tendons, which connect one end of a muscle to a bone, so that when the muscle contracts, it pulls that bone toward it. A torn tendon can keep a muscle from moving a bone properly at all.\n\nBecause muscles can only pull, never push, they work in opposing pairs, often called antagonist muscles, around a joint, the spot where two bones meet and can move. When one muscle in an antagonist pair contracts to bend the joint, its partner relaxes and lengthens; the partner then contracts in turn to straighten the joint back out, and this pattern repeats with nearly every movement the body makes.\n\nDuring exercise, muscle fibers get tiny tears, and the body repairs this tissue during rest, often rebuilding the fibers a bit thicker than before, a process called hypertrophy. Enough protein and sleep support this repair well, which is why athletes build rest into their training plans.\n\nIf a muscle stays unused for a long time, it loses mass and strength, a process called atrophy. Regular exercise, good food, water, and rest all keep skeletal muscles strong and flexible for life."
+  },
+  {
+   "level": 1200,
+   "title": "Muscles: How Your Body Moves",
+   "text": "Raising an arm or bending a knee needs skeletal muscles, bones, and joints working together in a coordinated way, a team effort most people never notice until something interrupts it.\n\nSkeletal muscles, the muscles used for voluntary movement, are elastic tissue that contracts, or shortens, to produce a pull. The body has more than 600 skeletal muscles, which let a person walk, run, chew food, throw a ball, and smile.\n\nEach muscle is made of many thin, flexible fibers bundled tightly together into bundles wrapped in connective tissue. When the brain sends a signal along a nerve, these fibers contract almost at the same time, and the combined pull of thousands of fibers is enough to move a bone, even a large one such as the thigh bone.\n\nMuscles attach to bones by tough, fibrous cords called tendons, which connect one end of a muscle to a bone. So when the muscle contracts, it reliably pulls that bone toward it. A torn tendon can keep a muscle from moving its bone properly.\n\nBecause muscles can only pull, never push, they work in opposing pairs, often called antagonist muscles, around a joint, the exact spot where two bones meet and can move. When one muscle in an antagonist pair contracts to bend the joint, its partner relaxes and lengthens; the partner then contracts in turn to straighten the joint back out, and this pattern repeats with nearly every move a person makes.\n\nDuring vigorous exercise, muscle fibers get tiny tears, and the body repairs this tissue during rest, often rebuilding the fibers a little thicker than before, a process called hypertrophy that depends on enough protein and sleep, which is why athletes build rest days into training.\n\nIf a muscle remains unused for a long period, it gradually loses mass and strength, a process called atrophy. Regular exercise, good food, water, and rest all work together to keep skeletal muscles strong and flexible throughout life."
+  },
+  {
+   "level": 1300,
+   "title": "Muscles: How Your Body Moves",
+   "text": "Raising an arm or bending a knee requires skeletal muscles, bones, and joints working together in a coordinated way, a collaboration most people never notice until an injury disrupts it.\n\nSkeletal muscles, the muscles responsible for voluntary movement, consist of elastic tissue that contracts, or shortens, to produce a pulling force. The body contains more than 600 skeletal muscles, which allow a person to walk, run, chew food, throw a ball, and smile. Unlike the involuntary smooth muscle in organs or the cardiac muscle of the heart, skeletal muscle responds to conscious, voluntary control.\n\nEach muscle is composed of many thin, flexible fibers bundled tightly together into bundles wrapped in connective tissue. When the brain sends a signal along a nerve, these fibers contract almost simultaneously, and the combined pull of thousands of fibers proves enough to move an entire bone, even a large one such as the thigh bone.\n\nMuscles attach to bones by tough, fibrous cords called tendons, which connect one end of a muscle to a bone, ensuring that when the muscle contracts, it reliably pulls that bone toward it. A torn tendon can prevent a muscle from moving its bone properly at all.\n\nBecause muscles are capable only of pulling, never of pushing, they function in opposing pairs, often called antagonist muscles, arranged around a joint. The biceps and triceps of the upper arm provide a familiar example: when one muscle in this antagonist pair contracts to bend the elbow joint, its partner relaxes and lengthens; the partner then contracts in turn to straighten the joint back out, and this pattern repeats with nearly every movement a person ever makes.\n\nDuring vigorous exercise, muscle fibers experience tiny tears, and the body repairs this tissue during rest, often rebuilding the fibers slightly thicker than before, a process called hypertrophy that depends heavily on adequate protein and sufficient sleep.\n\nIf a muscle remains unused for an extended period, it gradually loses mass and strength, a process called atrophy. Regular exercise, nutritious food, enough water, and sufficient rest all work together to keep skeletal muscles strong and flexible throughout life."
+  },
+  {
+   "level": 1400,
+   "title": "Muscles: How Your Body Moves",
+   "text": "Raising an arm or bending a knee requires skeletal muscles, bones, and joints working together in precise synchrony, a collaboration most people never consciously notice until an injury disrupts it.\n\nSkeletal muscles, the muscles responsible for voluntary movement, consist of elastic tissue distributed throughout the body that contracts, or shortens, in order to generate a pulling force. The body contains more than 600 distinct skeletal muscles, which collectively allow a person to walk, run, chew food, throw a ball, and even smile. Unlike the involuntary smooth muscle found in organs or the cardiac muscle of the heart, skeletal muscle responds directly to conscious, voluntary control.\n\nEach individual muscle is composed of numerous thin, flexible fibers bundled tightly together into larger bundles, which are themselves wrapped in connective tissue. When the brain transmits an electrical signal along a nerve, these fibers contract almost simultaneously, and the combined pulling force generated by thousands of fibers proves more than sufficient to move an entire bone, even a large one such as the thigh bone.\n\nMuscles attach to bones by means of tough, fibrous cords called tendons, which connect one end of a muscle to a bone, ensuring that whenever the muscle contracts, it reliably pulls that particular bone toward it. A torn tendon can prevent a muscle from moving its bone properly at all.\n\nBecause muscles are capable only of pulling and never of pushing, they function in opposing pairs, often called antagonist muscles, arranged around a joint. The biceps and triceps of the upper arm provide a familiar example: when one muscle in this antagonist pair contracts to bend the elbow joint, its partner simultaneously relaxes and lengthens; the partner then contracts in turn to straighten the joint back out, and this pattern repeats with nearly every movement a person ever makes.\n\nDuring vigorous or resistance exercise, muscle fibers experience microscopic tears, and the body responds by repairing this tissue during rest, often rebuilding the fibers slightly thicker than before, a process called hypertrophy that depends heavily on adequate protein intake and sufficient sleep.\n\nConversely, if a muscle remains largely unused for an extended period, it gradually loses mass and strength, a process called atrophy, illustrating the principle commonly summarized as \"use it or lose it.\" Regular exercise, nutritious food, adequate hydration, and sufficient rest collectively work together to keep skeletal muscles strong and flexible throughout an entire lifetime."
+  },
+  {
+   "level": 1500,
+   "title": "Muscles: How Your Body Moves",
+   "text": "Raising an arm or bending a knee requires skeletal muscles, bones, and joints functioning together in precise synchrony, a collaboration most people never consciously notice until an injury disrupts it, and one requiring years of gradual neuromuscular development to perform effortlessly.\n\nSkeletal muscles, the muscles responsible for voluntary movement, consist of elastic tissue distributed throughout the body that contracts, or shortens, in order to generate a pulling force. The body contains more than 600 distinct skeletal muscles, which collectively allow a person to walk, run, chew food, throw a ball, and even smile. Unlike the involuntary smooth muscle found in organs or the cardiac muscle of the heart, skeletal muscle responds directly to conscious, voluntary control.\n\nEach individual muscle is composed of numerous thin, flexible fibers bundled tightly together into larger bundles, which are themselves wrapped in connective tissue that transmits force efficiently. When the brain transmits an electrical signal along a nerve, a transmission occurring within milliseconds, these fibers contract almost simultaneously, and the combined pulling force generated by thousands of fibers proves more than sufficient to move an entire bone, even a large one such as the thigh bone.\n\nMuscles attach to bones by means of tough, fibrous cords called tendons, which connect one end of a muscle to a bone, ensuring that whenever the muscle contracts, it reliably pulls that particular bone toward it. A torn tendon can prevent even a strong muscle from moving its bone properly.\n\nBecause muscles are capable only of pulling and never of pushing, they function in opposing pairs, often called antagonist muscles, arranged around a joint. The biceps and triceps of the upper arm provide a familiar example: when one muscle in this antagonist pair contracts to bend the elbow joint, its partner simultaneously relaxes and lengthens; the partner then contracts in turn to straighten the joint back out.\n\nDuring vigorous or resistance exercise, muscle fibers experience microscopic tears, and the body responds by repairing this tissue during rest, often rebuilding the fibers slightly thicker than before, a process called hypertrophy that depends heavily on adequate protein intake and sufficient sleep, which explains why athletes schedule rest days between intense training sessions.\n\nConversely, if a muscle remains largely unused for an extended period, it gradually loses mass and strength, a process called atrophy, illustrating the principle commonly summarized as \"use it or lose it.\" Regular exercise, nutritious food, adequate hydration, and sufficient rest collectively work together to keep skeletal muscles strong and flexible throughout an entire lifetime, a lifelong investment whose value becomes increasingly apparent with age."
+  },
+  {
+   "level": 1600,
+   "title": "Muscles: How Your Body Moves",
+   "text": "The seemingly effortless act of raising an arm or bending a knee conceals a remarkably intricate coordination among skeletal muscles, bones, and joints, a collaboration most people never consciously register until an injury or impairment disrupts it, and one whose fluency depends on years of gradual neuromuscular refinement.\n\nSkeletal muscles, the muscles responsible for deliberate, voluntary movement, consist of elastic tissue distributed throughout the body that contracts, or shortens, in order to generate a pulling force; the human body contains more than 600 distinct skeletal muscles, which collectively enable walking, running, chewing, and even the subtle muscular coordination required for facial expression. Unlike the involuntary smooth muscle lining internal organs or the specialized cardiac muscle of the heart, skeletal muscle alone responds directly to conscious, deliberate control.\n\nEach individual muscle is composed of numerous slender, flexible fibers bundled tightly together into progressively larger bundles, themselves enclosed within connective tissue that transmits force efficiently throughout the structure. When the brain dispatches an electrical signal along a nerve, a transmission completed within mere milliseconds, these fibers contract almost simultaneously, and the combined pulling force generated by thousands of individual fibers proves more than sufficient to displace an entire bone.\n\nMuscles attach to bones by means of exceptionally tough, fibrous cords called tendons, which connect one terminus of a muscle to a bone, ensuring that whenever the muscle contracts, it reliably transmits that pulling force to the bone in question.\n\nBecause muscles are mechanically capable only of pulling, never of pushing, they invariably function in opposing pairs, conventionally termed antagonist muscles, arranged symmetrically around a joint, the precise anatomical location where two bones meet and articulate relative to one another. The biceps and triceps of the upper arm furnish a familiar illustration: when one muscle within this antagonist pair contracts to flex the elbow joint, its counterpart simultaneously relaxes and lengthens; that counterpart subsequently contracts in turn to extend the joint fully, thereby reversing the original motion.\n\nDuring vigorous or resistance-based exercise, individual muscle fibers sustain microscopic tears, and the body responds by methodically repairing this damaged tissue during subsequent periods of rest, frequently rebuilding the fibers marginally thicker than before, a physiological process termed hypertrophy that depends heavily upon adequate dietary protein and sufficient restorative sleep, which explains why serious athletes deliberately interpose rest days between successive bouts of intense training.\n\nConversely, should a particular muscle remain substantially unused across an extended period, it progressively loses both mass and functional strength, a converse process termed atrophy that vividly illustrates the long-recognized physiological principle commonly summarized as \"use it or lose it.\" Regular physical exercise, nutritionally adequate food, sufficient hydration, and adequate rest collectively and cumulatively sustain skeletal muscles in a strong, flexible condition across an entire lifetime, a lifelong investment whose cumulative value becomes increasingly apparent with advancing age."
   }
+ ],
+ "bands": {
+  "LOW": {
+   "keyWords": [
+    {
+     "word": "muscle",
+     "partOfSpeech": "noun",
+     "definition": "a part inside your body that can tighten and pull to make you move",
+     "example": "The muscles in your legs help you run fast."
+    },
+    {
+     "word": "pull",
+     "partOfSpeech": "verb",
+     "definition": "to tug something toward you",
+     "example": "Mona had to pull hard to open the heavy door."
+    },
+    {
+     "word": "pair",
+     "partOfSpeech": "noun",
+     "definition": "two things that go together",
+     "example": "I wore a new pair of shoes to school today."
+    },
+    {
+     "word": "strong",
+     "partOfSpeech": "adjective",
+     "definition": "able to do a lot without getting tired or hurt",
+     "example": "The strong rope held the heavy box without breaking."
+    },
+    {
+     "word": "tendon",
+     "partOfSpeech": "noun",
+     "definition": "a tough band that connects a muscle to a bone",
+     "example": "The doctor looked at the tendon near his ankle after the fall."
+    }
+   ],
+   "questions": [
+    {
+     "stem": "What is this article mostly about?",
+     "options": [
+      "How bones are made inside the body",
+      "How muscles pull to move your body",
+      "Why food tastes good to us",
+      "How to tie your shoes well"
+     ],
+     "answer": "B",
+     "skill": "central-idea",
+     "why": "The article explains how muscles contract and pull in pairs to move your body.",
+     "wrong": {
+      "A": "Bones are mentioned, but the article focuses on muscles.",
+      "C": "Food is only mentioned as part of how muscles repair.",
+      "D": "Shoes are not discussed."
+     }
+    },
+    {
+     "stem": "What connects a muscle to a bone?",
+     "options": [
+      "A joint",
+      "A tendon",
+      "A nerve",
+      "A fiber"
+     ],
+     "answer": "B",
+     "skill": "detail",
+     "why": "The article says a tendon is like a tough string that links a muscle to a bone.",
+     "wrong": {
+      "A": "A joint is where two bones meet, not what connects muscle to bone.",
+      "C": "A nerve is not discussed in this article.",
+      "D": "A fiber is a thin strand inside a muscle, not a connector."
+     }
+    },
+    {
+     "stem": "What can a muscle do?",
+     "options": [
+      "Only push",
+      "Push and pull equally",
+      "Neither push nor pull",
+      "Only pull"
+     ],
+     "answer": "D",
+     "skill": "detail",
+     "why": "The article says muscles can only pull, they can not push.",
+     "wrong": {
+      "A": "The article says muscles cannot push.",
+      "B": "Muscles cannot push at all.",
+      "C": "Muscles can pull."
+     }
+    },
+    {
+     "stem": "In the article, what does the word pair mean?",
+     "options": [
+      "Two things that work together",
+      "A piece of fruit that grows on a tree",
+      "A kind of bone in the human leg",
+      "A type of exercise done in a gym"
+     ],
+     "answer": "A",
+     "skill": "vocabulary",
+     "why": "The article uses pair to describe two muscles that work together, one pulling one way and one the other.",
+     "wrong": {
+      "B": "The article is not about fruit.",
+      "C": "A pair is not a bone.",
+      "D": "A pair is not a type of exercise."
+     }
+    },
+    {
+     "stem": "What happens to a muscle after you use it hard in sports and then rest and eat well?",
+     "options": [
+      "It disappears completely after a hard day",
+      "It turns into a tendon again",
+      "It stops pulling forever after use",
+      "It fixes itself and grows back thicker"
+     ],
+     "answer": "D",
+     "skill": "cause-effect",
+     "why": "The article says rest and good food help fix tiny tears, and the muscle grows back thicker and stronger.",
+     "wrong": {
+      "A": "Muscles do not disappear.",
+      "B": "A muscle does not turn into a tendon.",
+      "C": "The muscle keeps pulling after it heals."
+     }
+    },
+    {
+     "stem": "Why does the article say muscles work in pairs?",
+     "options": [
+      "Because muscles can only pull, not push",
+      "Because two muscles taste better together",
+      "Because tendons need two muscles to grow",
+      "Because bones need two muscles to stay still"
+     ],
+     "answer": "A",
+     "skill": "author-purpose",
+     "why": "Since a muscle can only pull in one direction, a partner muscle is needed to pull the body part back the other way.",
+     "wrong": {
+      "B": "This is not a real reason in the article.",
+      "C": "Tendons do not need two muscles to grow.",
+      "D": "Bones need muscles to move, not to stay still."
+     }
+    },
+    {
+     "stem": "Youssef never uses his arm muscles because he never plays or exercises. Based on the article, what will probably happen?",
+     "options": [
+      "His tendons will turn into bone",
+      "His muscles will get weak",
+      "His muscles will turn into pairs",
+      "His muscles will get stronger"
+     ],
+     "answer": "B",
+     "skill": "inference",
+     "why": "The article says a muscle that is not used can get weak.",
+     "wrong": {
+      "A": "Tendons do not turn into bone.",
+      "C": "Muscles already work in pairs; not using them does not change this.",
+      "D": "Unused muscles get weaker, not stronger."
+     }
+    },
+    {
+     "stem": "Which child is most likely helping their muscles stay strong?",
+     "options": [
+      "Omar, who plays and exercises, then rests and eats well",
+      "Lina, who never moves much and stays inside all day",
+      "Huda, who eats only candy and sweets all day long",
+      "Sami, who never drinks any water at all"
+     ],
+     "answer": "A",
+     "skill": "inference",
+     "why": "The article says exercise, rest, and good food all help keep muscles strong.",
+     "wrong": {
+      "B": "Not moving can make muscles weak.",
+      "C": "Candy alone is not the healthy food the article describes.",
+      "D": "Water is one thing the article says muscles need."
+     }
+    }
+   ],
+   "prompt": "Explain how your muscles work together to move your body. Use at least two ideas from the article.",
+   "checklist": [
+    "I explained that muscles pull, not push.",
+    "I used at least two ideas from the article, like pairs, tendons, or getting strong.",
+    "I wrote full sentences with capital letters and periods."
+   ],
+   "modelAnswer": "My muscles pull on my bones using tendons to help me move. Since muscles can only pull, they work in pairs, so one muscle bends my arm while the other straightens it. When I exercise and rest well, my muscles grow back stronger."
+  },
+  "MID": {
+   "keyWords": [
+    {
+     "word": "contract",
+     "partOfSpeech": "verb",
+     "definition": "to become shorter or tighter",
+     "example": "The window glass can contract a little in cold weather."
+    },
+    {
+     "word": "fiber",
+     "partOfSpeech": "noun",
+     "definition": "a thin, thread-like strand that makes up part of a material",
+     "example": "The rope was woven from thousands of tiny fibers."
+    },
+    {
+     "word": "joint",
+     "partOfSpeech": "noun",
+     "definition": "a place in the body where two bones meet and can move",
+     "example": "Doctors check the knee joint after a sports injury."
+    },
+    {
+     "word": "tissue",
+     "partOfSpeech": "noun",
+     "definition": "a group of similar cells that work together in the body",
+     "example": "Skin is a kind of tissue that covers and protects the body."
+    },
+    {
+     "word": "exercise",
+     "partOfSpeech": "noun",
+     "definition": "activity that makes your body work and get stronger",
+     "example": "Playing football is a fun kind of exercise."
+    }
+   ],
+   "questions": [
+    {
+     "stem": "Which sentence best states the central idea of the article?",
+     "options": [
+      "Muscles contract and pull bones in pairs to create movement.",
+      "Tendons alone are responsible for every movement a body makes.",
+      "Only professional athletes ever truly need strong muscles.",
+      "Joints can bend and straighten without any help from muscles at all."
+     ],
+     "answer": "A",
+     "skill": "central-idea",
+     "why": "The article explains how fibers contract, how muscles work in pairs, and how joints allow movement.",
+     "wrong": {
+      "B": "Tendons support muscles, but the article does not rank them as more important.",
+      "C": "The article shows everyone needs strong, healthy muscles.",
+      "D": "Joints need muscles pulling on them to move."
+     }
+    },
+    {
+     "stem": "According to the article, what happens when the brain sends a signal to muscle fibers?",
+     "options": [
+      "The fibers slowly turn into tendons over time.",
+      "The fibers immediately stop working for a while.",
+      "The fibers gradually grow into solid bone.",
+      "The fibers all contract at once."
+     ],
+     "answer": "D",
+     "skill": "detail",
+     "why": "The article says when the brain sends a signal, muscle fibers contract at the same time.",
+     "wrong": {
+      "A": "Fibers do not turn into tendons.",
+      "B": "Fibers do not stop working when signaled.",
+      "C": "Fibers do not grow into bone."
+     }
+    },
+    {
+     "stem": "What is a joint, according to the article?",
+     "options": [
+      "A thin strand inside a muscle fiber.",
+      "A kind of food that helps muscles grow strong.",
+      "A place where two bones meet and can move.",
+      "A cord that connects muscle to bone."
+     ],
+     "answer": "C",
+     "skill": "detail",
+     "why": "The article defines a joint as the place where two bones meet and can move.",
+     "wrong": {
+      "A": "A strand inside a muscle is a fiber, not a joint.",
+      "B": "A joint is not a food.",
+      "D": "A cord connecting muscle to bone is a tendon, not a joint."
+     }
+    },
+    {
+     "stem": "In the article, what does the word tissue mean?",
+     "options": [
+      "A special type of exercise just for muscles.",
+      "A group of similar cells that work together.",
+      "A kind of unusual bone found only in joints.",
+      "A medical tool doctors use to check injuries."
+     ],
+     "answer": "B",
+     "skill": "vocabulary",
+     "why": "The article uses tissue to describe the muscle material that gets tiny tears and repairs itself.",
+     "wrong": {
+      "A": "Exercise is a different idea in the article.",
+      "C": "Tissue is not a kind of bone.",
+      "D": "Tissue is not a tool."
+     }
+    },
+    {
+     "stem": "How does the author explain why muscles work in pairs?",
+     "options": [
+      "By telling a long story about one doctor's entire career in a big hospital.",
+      "By comparing muscles to several different kinds of food in a kitchen.",
+      "By explaining that a pulling-only muscle needs a partner to reverse its motion.",
+      "By carefully listing every single muscle in the human body, one by one."
+     ],
+     "answer": "C",
+     "skill": "text-structure",
+     "why": "The article explains that because a muscle can only pull one way, its partner is needed to pull the joint back the other way.",
+     "wrong": {
+      "A": "There is no story about a doctor.",
+      "B": "The article does not compare muscles to food.",
+      "D": "The article does not list every muscle."
+     }
+    },
+    {
+     "stem": "What is the effect of exercise on muscle fibers?",
+     "options": [
+      "Tiny tears form and heal into thicker, stronger fibers.",
+      "The fibers immediately turn into tough tendons.",
+      "The fibers stop contracting completely and permanently.",
+      "The fibers slowly disappear if used too often."
+     ],
+     "answer": "A",
+     "skill": "cause-effect",
+     "why": "The article says exercise causes tiny tears, and rest and food repair them into thicker, stronger fibers.",
+     "wrong": {
+      "B": "Fibers do not turn into tendons.",
+      "C": "Fibers keep contracting after exercise and rest.",
+      "D": "Fibers do not disappear from use."
+     }
+    },
+    {
+     "stem": "Rana lifts light weights several times a week and eats enough protein. Based on the article, what will probably happen to her muscles?",
+     "options": [
+      "They will slowly weaken.",
+      "They will stop needing tendons.",
+      "They will turn into a different kind of tissue.",
+      "They will grow slightly thicker and stronger."
+     ],
+     "answer": "D",
+     "skill": "inference",
+     "why": "The article says exercise with enough rest and protein-rich food helps muscle fibers grow back thicker and stronger.",
+     "wrong": {
+      "A": "Using muscles regularly with good food helps them get stronger, not weaker.",
+      "B": "Muscles always need tendons to pull on bones.",
+      "C": "Muscle tissue stays muscle tissue; it does not become something else."
+     }
+    },
+    {
+     "stem": "What can you infer about a muscle that is never exercised?",
+     "options": [
+      "It will likely grow weaker over time.",
+      "It will automatically become more flexible.",
+      "It will grow extra tendons.",
+      "It will contract more quickly than before."
+     ],
+     "answer": "A",
+     "skill": "inference",
+     "why": "The article says a muscle that goes unused for a long time gradually weakens.",
+     "wrong": {
+      "B": "The article links flexibility to exercise, not inactivity.",
+      "C": "Muscles do not grow extra tendons.",
+      "D": "Unused muscles do not contract faster."
+     }
+    }
+   ],
+   "prompt": "Write advice for a younger student about how to keep muscles strong and healthy. Use at least three ideas from the article and explain why each one helps.",
+   "checklist": [
+    "I gave at least three pieces of advice from the article.",
+    "I explained why each idea helps, using words like because.",
+    "I used at least two key words, such as fiber, joint, or exercise."
+   ],
+   "modelAnswer": "First, exercise regularly, because contracting your muscle fibers often helps them grow thicker and stronger over time. Second, eat enough protein-rich food, because your body needs it to repair the tiny tears that form in muscle tissue after hard exercise. Third, rest between workouts, because muscles need time to rebuild before you use the same joint again."
+  },
+  "HIGH": {
+   "keyWords": [
+    {
+     "word": "skeletal",
+     "partOfSpeech": "adjective",
+     "definition": "relating to the bones and the muscles that move them",
+     "example": "A physical therapist studies skeletal injuries to help people move again."
+    },
+    {
+     "word": "antagonist",
+     "partOfSpeech": "noun",
+     "definition": "a muscle that works opposite another muscle, relaxing when its partner contracts",
+     "example": "In the leg, the hamstring acts as an antagonist to the quadriceps."
+    },
+    {
+     "word": "hypertrophy",
+     "partOfSpeech": "noun",
+     "definition": "the growth and thickening of muscle fibers after repeated exercise",
+     "example": "Years of training caused noticeable hypertrophy in the swimmer's shoulder muscles."
+    },
+    {
+     "word": "nerve",
+     "partOfSpeech": "noun",
+     "definition": "a thin strand of tissue that carries electrical signals between the brain and the body",
+     "example": "A pinched nerve in his back made his leg feel numb."
+    },
+    {
+     "word": "flexible",
+     "partOfSpeech": "adjective",
+     "definition": "able to bend or move easily without breaking",
+     "example": "Gymnasts stretch every day to stay flexible."
+    }
+   ],
+   "questions": [
+    {
+     "stem": "Which statement best captures the central idea of the article?",
+     "options": [
+      "Skeletal muscles pull bones in antagonist pairs and strengthen through exercise.",
+      "Only the biceps and triceps are ever capable of true antagonist movement.",
+      "Nerves are considerably more essential to movement than muscles themselves.",
+      "Hypertrophy happens entirely automatically, regardless of exercise or diet."
+     ],
+     "answer": "A",
+     "skill": "central-idea",
+     "why": "The article explains how skeletal muscles contract in antagonist pairs and strengthen through exercise, rest, and nutrition.",
+     "wrong": {
+      "B": "The biceps and triceps are only one example; many muscle pairs work this way.",
+      "C": "Nerves signal muscles, but muscles themselves generate the pulling force.",
+      "D": "Hypertrophy depends on adequate exercise, protein, and sleep."
+     }
+    },
+    {
+     "stem": "According to the article, what is skeletal muscle unlike?",
+     "options": [
+      "Cardiac and smooth muscle, which function involuntarily",
+      "Tendons, which are said to never move at all in the body",
+      "Joints, which supposedly contain no tissue or bone at all",
+      "Fibers, which are said to never bundle together in the body"
+     ],
+     "answer": "A",
+     "skill": "detail",
+     "why": "The article says skeletal muscle is unlike the involuntary smooth muscle in organs or the cardiac muscle of the heart.",
+     "wrong": {
+      "B": "Tendons are not contrasted with skeletal muscle this way.",
+      "C": "Joints are not described as containing no tissue.",
+      "D": "Fibers do bundle together, according to the article."
+     }
+    },
+    {
+     "stem": "What does the article identify as an example of an antagonist pair?",
+     "options": [
+      "The hamstring and the heart",
+      "The nerve and the tendon",
+      "The biceps and triceps",
+      "The skull and the spine"
+     ],
+     "answer": "C",
+     "skill": "detail",
+     "why": "The article names the biceps and triceps of the upper arm as a familiar antagonist pair example.",
+     "wrong": {
+      "A": "The heart is cardiac muscle, not part of this example.",
+      "B": "A nerve and a tendon are not a muscle pair.",
+      "D": "The skull and spine are bones, not muscles."
+     }
+    },
+    {
+     "stem": "In the article, what does hypertrophy refer to?",
+     "options": [
+      "The gradual weakening of a muscle from disuse",
+      "The sudden breaking of a bone during a fall",
+      "The electrical signal sent by a nerve to a muscle",
+      "The growth and thickening of fibers after exercise"
+     ],
+     "answer": "D",
+     "skill": "vocabulary",
+     "why": "The article describes hypertrophy as the process where fibers rebuild slightly thicker after exercise.",
+     "wrong": {
+      "A": "Weakening from disuse is called atrophy, the opposite process.",
+      "B": "Bone breaking is not discussed in this article.",
+      "C": "A nerve signal is a separate idea from hypertrophy."
+     }
+    },
+    {
+     "stem": "How does the author structure the explanation after introducing skeletal muscle's basic function?",
+     "options": [
+      "By comparing muscles across several different animal species, from fish to birds",
+      "By moving through fiber structure, bone attachment, antagonist pairs, and exercise",
+      "By telling a single long story about one professional athlete and his coach",
+      "By arguing throughout that muscles matter less than bones do for the body"
+     ],
+     "answer": "B",
+     "skill": "text-structure",
+     "why": "The article moves through fiber structure, tendon attachment, antagonist pairs, and the effects of exercise and inactivity in order.",
+     "wrong": {
+      "A": "Animal species are not compared.",
+      "C": "There is no story about one athlete.",
+      "D": "The article treats muscles and bones as working together, not ranked."
+     }
+    },
+    {
+     "stem": "Based on the article, what effect does resistance exercise have on muscle fibers over time?",
+     "options": [
+      "It causes immediate, permanent damage that never heals.",
+      "It slowly converts muscle fibers into nerve tissue.",
+      "It triggers tiny tears that heal into hypertrophy.",
+      "It entirely eliminates the need for antagonist pairs."
+     ],
+     "answer": "C",
+     "skill": "cause-effect",
+     "why": "The article explains that resistance exercise causes microscopic tears that the body repairs into thicker, stronger fibers, a process called hypertrophy.",
+     "wrong": {
+      "A": "The body repairs the damage rather than leaving permanent harm.",
+      "B": "Muscle fibers do not turn into nerve tissue.",
+      "D": "Antagonist pairs are still needed regardless of exercise."
+     }
+    },
+    {
+     "stem": "A patient has not been able to move one arm for several months due to injury. Based on the article, what would you expect?",
+     "options": [
+      "The arm's muscles have likely undergone atrophy.",
+      "The arm's muscles have undergone hypertrophy from rest.",
+      "The arm's tendons have slowly turned into nerves.",
+      "The arm's joints have stopped needing muscles entirely."
+     ],
+     "answer": "A",
+     "skill": "inference",
+     "why": "The article says a muscle left unused for an extended period gradually loses mass and strength, a process called atrophy.",
+     "wrong": {
+      "B": "Hypertrophy results from exercise, not from rest alone.",
+      "C": "Tendons do not turn into nerves.",
+      "D": "Joints still need muscles to move once the injury heals."
+     }
+    },
+    {
+     "stem": "How do skeletal muscle and cardiac muscle differ, based on the article?",
+     "options": [
+      "Skeletal muscle is involuntary, while cardiac muscle is voluntary.",
+      "Both kinds of muscle are controlled in exactly the same way.",
+      "Neither type of muscle is ever able to contract.",
+      "Skeletal muscle is voluntary; cardiac muscle is involuntary."
+     ],
+     "answer": "D",
+     "skill": "compare",
+     "why": "The article states skeletal muscle responds to conscious, voluntary control, unlike the involuntary cardiac muscle of the heart.",
+     "wrong": {
+      "A": "This reverses the article's description.",
+      "B": "The article contrasts voluntary and involuntary control.",
+      "C": "Both muscle types can contract."
+     }
+    }
+   ],
+   "prompt": "Explain how skeletal muscles create movement through antagonist pairs, and how exercise leads to hypertrophy, using specific evidence from the article.",
+   "checklist": [
+    "I explained how antagonist muscle pairs work across a joint.",
+    "I described how exercise, rest, and protein lead to hypertrophy.",
+    "I used at least two key words, such as skeletal, nerve, or flexible."
+   ],
+   "modelAnswer": "Skeletal muscles can only pull, so they work in antagonist pairs: when a nerve signal causes one muscle to contract and flex a joint, its partner relaxes, then contracts in turn to extend the joint back out. During resistance exercise, this repeated pulling causes microscopic tears in the muscle fibers, and with enough protein and rest, the body repairs them into thicker, stronger tissue, a process called hypertrophy that keeps skeletal muscles strong and flexible."
+  }
+ },
+ "stretch": {
+  "LOW": [
+   {
+    "stem": "About how many muscles do you have?",
+    "options": [
+     "Around sixty",
+     "Around two hundred",
+     "Over six hundred",
+     "Over six thousand"
+    ],
+    "answer": "C",
+    "skill": "detail",
+    "why": "The text says you have over 600 muscles.",
+    "wrong": {
+     "A": "Sixty is far too few.",
+     "B": "Two hundred is far too few.",
+     "D": "Six thousand is far too many."
+    }
+   },
+   {
+    "stem": "Why can a muscle get weak?",
+    "options": [
+     "You do not use it",
+     "You drink too much water",
+     "You rest well each night",
+     "You eat good food"
+    ],
+    "answer": "A",
+    "skill": "cause-effect",
+    "why": "The text says if you do not use a muscle, it can get weak.",
+    "wrong": {
+     "B": "Water is part of the advice to stay strong.",
+     "C": "Rest helps muscles to grow back stronger.",
+     "D": "Good food helps keep you strong."
+    }
+   },
+   {
+    "stem": "The text says tiny tears can form. What does tears mean here?",
+    "options": [
+     "Drops from eyes",
+     "Fast runs",
+     "Small rips",
+     "Hard hits"
+    ],
+    "answer": "C",
+    "skill": "vocabulary",
+    "why": "Tiny tears in a muscle are small rips that rest and food can fix.",
+    "wrong": {
+     "A": "The sentence is about a muscle, not eyes.",
+     "B": "Running is not the meaning.",
+     "D": "The word is about a rip in the muscle, not a hit."
+    }
+   },
+   {
+    "stem": "Why does the author start by asking you to move your arm?",
+    "options": [
+     "To make readers think of muscles",
+     "To say that arms hardly ever move",
+     "To teach a new game about arms",
+     "To show that bones can push"
+    ],
+    "answer": "A",
+    "skill": "author-purpose",
+    "why": "The question gets readers thinking about how their own arm moves, and the answer is muscles.",
+    "wrong": {
+     "B": "The text says muscles move the arm.",
+     "C": "The text does not teach a game.",
+     "D": "The text says muscles pull, and bones do not push."
+    }
+   }
+  ],
+  "MID": [
+   {
+    "stem": "In the text, what does the word contract mean?",
+    "options": [
+     "Grow longer",
+     "Break apart",
+     "Tighten up",
+     "Fall asleep"
+    ],
+    "answer": "C",
+    "skill": "vocabulary",
+    "why": "The sentence itself says contract means tighten, which is how a muscle pulls.",
+    "wrong": {
+     "A": "Contract means to tighten, not to grow longer.",
+     "B": "The text does not say muscles break apart.",
+     "D": "Sleep is not mentioned."
+    }
+   },
+   {
+    "stem": "What is a tendon, according to the article?",
+    "options": [
+     "A kind of bone",
+     "A tough cord",
+     "A place bones meet",
+     "A drop of blood"
+    ],
+    "answer": "B",
+    "skill": "detail",
+    "why": "The text says a tendon is a tough cord that links a muscle to a bone.",
+    "wrong": {
+     "A": "A tendon links a muscle to a bone and is not a bone.",
+     "C": "That describes a joint.",
+     "D": "Blood is not mentioned here."
+    }
+   },
+   {
+    "stem": "In a pair of muscles around the elbow, what happens right after one muscle contracts to bend the joint?",
+    "options": [
+     "Its partner contracts to straighten it",
+     "Both muscles relax at the same time",
+     "Its partner then pushes on the bone",
+     "Both muscles turn into one tendon"
+    ],
+    "answer": "A",
+    "skill": "sequence",
+    "why": "The text says the partner relaxes first, then contracts to straighten the joint back out.",
+    "wrong": {
+     "B": "One muscle contracts while the partner relaxes.",
+     "C": "The text says muscles never push.",
+     "D": "The text does not say they turn into a tendon."
+    }
+   },
+   {
+    "stem": "Why does the author begin by asking you to move your arm or bend your knee?",
+    "options": [
+     "To show that only the legs have muscles",
+     "To warn readers about hurting a knee",
+     "To explain how to build a robot arm",
+     "To link muscles to something you do"
+    ],
+    "answer": "D",
+    "skill": "author-purpose",
+    "why": "The author starts with a familiar movement so readers can connect muscles to their own bodies.",
+    "wrong": {
+     "A": "The text says muscles help you walk, chew, and smile too.",
+     "B": "There is no warning about knees.",
+     "C": "Robots are not mentioned."
+    }
+   }
+  ],
+  "HIGH": [
+   {
+    "stem": "In the text, what does the word voluntary mean?",
+    "options": [
+     "Done by your own choice",
+     "Done without thinking",
+     "Done only while asleep",
+     "Done by the heart alone"
+    ],
+    "answer": "A",
+    "skill": "vocabulary",
+    "why": "Skeletal muscles are the ones you use on purpose to walk, run, or throw a ball.",
+    "wrong": {
+     "B": "Voluntary is the opposite of without thinking.",
+     "C": "The examples are things you do when awake.",
+     "D": "The examples are skeletal muscles, not the heart."
+    }
+   },
+   {
+    "stem": "What can a torn tendon do?",
+    "options": [
+     "Make a muscle much stronger",
+     "Turn a bone into muscle tissue",
+     "Stop a muscle moving a bone",
+     "Make a joint bend farther"
+    ],
+    "answer": "C",
+    "skill": "detail",
+    "why": "The text says a torn tendon can keep a muscle from moving a bone properly at all.",
+    "wrong": {
+     "A": "A torn tendon harms movement, not strength.",
+     "B": "The text does not say a bone turns into muscle.",
+     "D": "A tendon tear does not help a joint bend."
+    }
+   },
+   {
+    "stem": "Why do athletes build rest into their training plans?",
+    "options": [
+     "Muscles grow only when moving",
+     "Rest lets them skip protein",
+     "Rest makes the fibers tear",
+     "Muscle repair happens during rest"
+    ],
+    "answer": "D",
+    "skill": "cause-effect",
+    "why": "The text says the body repairs the muscle tissue during rest, rebuilding fibers a bit thicker.",
+    "wrong": {
+     "A": "The text says repair happens during rest.",
+     "B": "Protein and sleep are said to support repair.",
+     "C": "The tears happen during exercise, not rest."
+    }
+   },
+   {
+    "stem": "Why does the author say most people never think about how muscles, bones, and joints work together?",
+    "options": [
+     "People never use their muscles",
+     "People rarely think about it",
+     "People think bones work alone",
+     "People know every detail of it"
+    ],
+    "answer": "B",
+    "skill": "inference",
+    "why": "To take something for granted is to not think about it, so people rarely notice how muscles and bones work together.",
+    "wrong": {
+     "A": "People use their muscles all the time.",
+     "C": "The author says it is a partnership.",
+     "D": "Taking it for granted means people do not think about it."
+    }
+   }
+  ]
+ }
 }

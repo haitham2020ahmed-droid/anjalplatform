@@ -614,5 +614,217 @@
       ],
       "modelAnswer": "Although Mercury orbits much closer to the sun, Venus is actually the hottest planet in our solar system because of its extraordinary atmosphere. According to the article, Venus is surrounded by an extremely thick blanket of carbon dioxide gas that presses down on the surface with about ninety times more pressure than Earth's atmosphere. This thick atmosphere, along with its corrosive, acid-filled clouds, traps solar heat near the surface instead of letting it radiate back out into space, a process scientists call the greenhouse effect. Mercury, by contrast, has only a thin, nearly nonexistent atmosphere, so whatever heat it absorbs from the nearby sun quickly escapes back into space. In conclusion, distance from the sun matters less than atmospheric thickness, which is exactly why Venus's runaway greenhouse effect makes it hotter than Mercury despite being farther away."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "What may you see in the sky at dusk that could be Venus?",
+        "options": [
+          "A red star that blinks all night",
+          "A bright dot that does not blink",
+          "A big moon that glows at night",
+          "A fast light that moves across"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The text says to look up at dusk and see a bright dot that does not blink.",
+        "wrong": {
+          "A": "The text never says Venus is red or that it blinks.",
+          "C": "Venus is a planet, not a moon.",
+          "D": "The text does not say Venus moves fast across the sky."
+        }
+      },
+      {
+        "stem": "What happens because the air and clouds on Venus trap heat?",
+        "options": [
+          "Venus gets very cold at night",
+          "Venus spins faster",
+          "Venus loses all of its clouds",
+          "Venus is the hottest planet"
+        ],
+        "answer": "D",
+        "skill": "cause-effect",
+        "why": "The text says the trapped heat cannot get out, and this makes Venus the hottest planet of all.",
+        "wrong": {
+          "A": "Trapped heat makes Venus hot, not cold.",
+          "B": "Trapped heat has nothing to do with how fast Venus spins.",
+          "C": "The clouds stay and are the ones that trap the heat."
+        }
+      },
+      {
+        "stem": "How does one spin of Venus compare with one trip round the sun?",
+        "options": [
+          "One spin takes longer",
+          "One spin takes less time",
+          "They take the same time",
+          "One spin is twice as fast"
+        ],
+        "answer": "A",
+        "skill": "compare",
+        "why": "The text says one spin takes longer than one whole trip round the sun.",
+        "wrong": {
+          "B": "The text says the spin is slow, not quick.",
+          "C": "The text says the two are not the same.",
+          "D": "Venus spins slowly, so it is not fast."
+        }
+      },
+      {
+        "stem": "Why does the author begin by asking you to look for a bright dot in the sky?",
+        "options": [
+          "To warn readers about the sun",
+          "To teach how to build a telescope",
+          "To make readers curious about Venus",
+          "To say that Venus is a star"
+        ],
+        "answer": "C",
+        "skill": "author-purpose",
+        "why": "The question pulls readers in and leads them to the idea that the dot may be Venus.",
+        "wrong": {
+          "A": "The opening says nothing about danger from the sun.",
+          "B": "The text does not teach how to build anything.",
+          "D": "The text says Venus is a planet, not a star."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "Why do many people say Venus is the brightest planet we can see from Earth?",
+        "options": [
+          "It is the biggest planet of all",
+          "It is the closest planet to Earth",
+          "Its clouds reflect sunlight very well",
+          "It makes its own light like a star"
+        ],
+        "answer": "C",
+        "skill": "cause-effect",
+        "why": "The text says its clouds reflect sunlight so well that Venus looks the brightest.",
+        "wrong": {
+          "A": "The text says Venus is almost the same size as Earth, not the biggest.",
+          "B": "The text does not say Venus is the closest planet to Earth.",
+          "D": "The text says the clouds reflect sunlight, so the light is not its own."
+        }
+      },
+      {
+        "stem": "In this article, what is the atmosphere of Venus?",
+        "options": [
+          "A blanket of gas around the planet",
+          "A layer of rock under the clouds",
+          "A kind of acid rain from the sky",
+          "A spacecraft that visits the planet"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "The text says scientists call the thick blanket of gas that covers the planet the atmosphere.",
+        "wrong": {
+          "B": "The text does not describe a layer of rock called the atmosphere.",
+          "C": "The acid is in the clouds, and the atmosphere is the gas.",
+          "D": "A spacecraft is a machine, not part of the planet."
+        }
+      },
+      {
+        "stem": "Why did scientists need spacecraft to learn that Venus and Earth are nothing alike?",
+        "options": [
+          "Venus is too far away to see at all",
+          "Thick clouds cover Venus completely",
+          "Venus has no sun to light it up",
+          "Earth is too busy to study"
+        ],
+        "answer": "B",
+        "skill": "inference",
+        "why": "Dense clouds cover the whole planet, so we need spacecraft to learn what is underneath them.",
+        "wrong": {
+          "A": "The text says people can see Venus from Earth.",
+          "C": "The sun does shine on Venus, so this is wrong.",
+          "D": "The text gives no reason like this."
+        }
+      },
+      {
+        "stem": "What is the atmosphere of Venus made of mostly?",
+        "options": [
+          "Water drops",
+          "Pure oxygen",
+          "Dust and sand",
+          "Carbon dioxide"
+        ],
+        "answer": "D",
+        "skill": "detail",
+        "why": "The text says the atmosphere is made mostly of carbon dioxide.",
+        "wrong": {
+          "A": "The text says the clouds are acid, not gentle water drops.",
+          "B": "The text does not mention oxygen.",
+          "C": "The text does not mention dust or sand."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "According to the article, about how hot is the surface of Venus?",
+        "options": [
+          "Around fifty degrees Celsius",
+          "Around two hundred degrees Celsius",
+          "Just below zero degrees Celsius",
+          "Over 450 degrees Celsius"
+        ],
+        "answer": "D",
+        "skill": "detail",
+        "why": "The text gives surface temperatures above four hundred and fifty degrees Celsius.",
+        "wrong": {
+          "A": "Fifty degrees is far too low for a surface that can melt lead.",
+          "B": "Two hundred degrees is lower than the text says.",
+          "C": "Venus is the hottest planet, so it is not near freezing."
+        }
+      },
+      {
+        "stem": "What does the term \"retrograde rotation\" describe?",
+        "options": [
+          "Spinning in a backward direction",
+          "Moving very fast around the sun",
+          "Spinning in the same way as Earth",
+          "Giving off bright light"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "The text says Venus rotates in an unusual, backward direction that astronomers call retrograde rotation.",
+        "wrong": {
+          "B": "The text calls the spin slow, and it is not about speed around the sun.",
+          "C": "The text says most planets spin the other way.",
+          "D": "Brightness comes from the clouds, not from rotation."
+        }
+      },
+      {
+        "stem": "What makes Venus the brightest planet in our night sky?",
+        "options": [
+          "Its dense clouds reflect sunlight toward us",
+          "Its surface glows from the heat",
+          "Its closeness to the sun burns it bright",
+          "Its fast spin throws off light"
+        ],
+        "answer": "A",
+        "skill": "cause-effect",
+        "why": "The text says the dense clouds reflect so much sunlight back toward us.",
+        "wrong": {
+          "B": "The text does not say the surface glows.",
+          "C": "The text says the light is reflected, not burned.",
+          "D": "The text says the spin is very slow."
+        }
+      },
+      {
+        "stem": "Why does the author describe the clouds on Earth as gentle water droplets?",
+        "options": [
+          "To show that Earth has no storms",
+          "To praise Earth's weather",
+          "To show how Earth's clouds are made of acid",
+          "To contrast them with Venus's harsh acid clouds"
+        ],
+        "answer": "D",
+        "skill": "author-purpose",
+        "why": "The word gentle sets Earth's water clouds against the harsh, corrosive acid clouds of Venus.",
+        "wrong": {
+          "A": "The text says nothing about storms.",
+          "B": "The goal is to compare, not to praise.",
+          "C": "Earth's clouds are water, not acid."
+        }
+      }
+    ]
   }
 }

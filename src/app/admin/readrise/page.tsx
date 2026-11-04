@@ -3,7 +3,8 @@ import { PageHeader } from "@/components/page-header";
 import { getActor, repo, requireActor } from "@/server/auth/next";
 import { existsSync, readdirSync } from "node:fs";
 import { join } from "node:path";
-import { readRiseLibraryStatus, startReadRiseLibraryLoad } from "@/server/readrise/seed";
+import { readRiseLibraryStatus, startReadRiseLibraryLoad, stretchQuestionCounts } from "@/server/readrise/seed";
+import { StretchLoader } from "./_components/stretch-loader";
 import { getT } from "@/i18n/server";
 import { listLibrary } from "@/server/readrise/library";
 import { LibraryView, libraryFilters } from "./_components/library-view";
@@ -24,7 +25,7 @@ export default async function ReadRiseLibraryAdmin({ searchParams }: { searchPar
   const me = (await getActor())!.user;
   const sp = await searchParams;
   const f = libraryFilters(sp);
-  const [platformCount, { items, topics }, { t }] = await Promise.all([repo.count("RRArticle", { schoolId: null, deletedAt: null }), listLibrary(repo, actor, f), getT()]);
+  const [platformCount, { items, topics }, { t }, stretchCounts] = await Promise.all([repo.count("RRArticle", { schoolId: null, deletedAt: null }), listLibrary(repo, actor, f), getT(), stretchQuestionCounts(repo)]);
   return (
     <AppShell name={String(me.displayName)}>
       <PageHeader back={{ href: "/admin", label: "Admin" }} icon="🚀" title="ReadRise Library"
@@ -42,6 +43,8 @@ export default async function ReadRiseLibraryAdmin({ searchParams }: { searchPar
           <p className="mt-2 text-sm">Reload this page to try again, or run <code dir="ltr">npx tsx prisma/seed/readrise.ts</code> once from the project folder.</p>
         </div>
       ) : null}
+      {/* ⬆ round 5: the stretch question sets of the article files, added to the articles already loaded (chunked) */}
+      <StretchLoader counts={stretchCounts} />
       <LibraryView base="/admin/readrise" items={items} topics={topics} f={f} />
     </AppShell>
   );

@@ -614,5 +614,217 @@
       ],
       "modelAnswer": "I think one shared time zone can make sense for a huge country, even though it is an arbitrary choice rather than a strict geographic one. China's leaders chose a single zone to synchronize daily life and commerce across the whole country, which likely makes travel, business, and communication simpler, even if it means the Sun is not always overhead at the official noon on the country's western edge."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "How many time zones are there?",
+        "options": [
+          "Twelve",
+          "Twenty-four",
+          "Sixty",
+          "Seven"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The text says there are 24 zones.",
+        "wrong": {
+          "A": "The text says 24, not twelve.",
+          "C": "The text says 24, not sixty.",
+          "D": "The text says 24, not seven."
+        }
+      },
+      {
+        "stem": "Why can the Sun not shine on all of Earth at once?",
+        "options": [
+          "Earth is very small",
+          "The Sun is far away",
+          "Earth is round",
+          "Clouds cover the Sun"
+        ],
+        "answer": "C",
+        "skill": "cause-effect",
+        "why": "The text says Earth is round, so the Sun cannot shine on all of it at once.",
+        "wrong": {
+          "A": "The text does not say Earth is small.",
+          "B": "Distance is not given as the reason.",
+          "D": "The text does not mention clouds."
+        }
+      },
+      {
+        "stem": "The text says Earth spins like a top. What does spins mean?",
+        "options": [
+          "Turns around and around",
+          "Falls down and stops",
+          "Moves up and down",
+          "Stays in one place"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "The text says one spin takes a day and Earth spins like a top, so it turns around and around.",
+        "wrong": {
+          "B": "A spin takes a day, and Earth does not stop.",
+          "C": "A top turns, it does not bounce up and down.",
+          "D": "The word spins means it moves."
+        }
+      },
+      {
+        "stem": "Why do you think there are 24 time zones?",
+        "options": [
+          "There are 24 days in a week",
+          "It matches the 24 hours in a day",
+          "It matches 24 towns on a line",
+          "There are 24 oceans on Earth"
+        ],
+        "answer": "B",
+        "skill": "inference",
+        "why": "The text says the 24 zones are the same as the 24 hours in a day.",
+        "wrong": {
+          "A": "The text does not say there are 24 days in a week.",
+          "C": "The text names one town, Greenwich, on one line.",
+          "D": "The text does not mention oceans."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "Why does one side of Earth have nighttime?",
+        "options": [
+          "It is too far from the Moon",
+          "It spins too slowly",
+          "It has too many clouds",
+          "It faces away from the Sun"
+        ],
+        "answer": "D",
+        "skill": "cause-effect",
+        "why": "The article says the other side faces away from the Sun, so it has nighttime.",
+        "wrong": {
+          "A": "The Moon is not mentioned.",
+          "B": "The article says one spin takes about a day.",
+          "C": "The article does not mention clouds."
+        }
+      },
+      {
+        "stem": "In the text, what does the word sections mean?",
+        "options": [
+          "Parts",
+          "Clocks",
+          "Oceans",
+          "Nights"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "The world is divided into sections, which are parts called time zones.",
+        "wrong": {
+          "B": "Clocks show the time in each zone.",
+          "C": "The sentence is about dividing the world, not oceans.",
+          "D": "Nighttime is the side facing away from the Sun."
+        }
+      },
+      {
+        "stem": "From which line are time zones counted?",
+        "options": [
+          "The Date Line in the sea",
+          "The Greenwich line",
+          "The line through India",
+          "The line at the north pole"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The article says time zones are counted starting from the line that runs through Greenwich.",
+        "wrong": {
+          "A": "The International Date Line changes the date, not where zones start.",
+          "C": "India sets a half-hour offset but does not start the zones.",
+          "D": "The article says longitude lines run from top to bottom."
+        }
+      },
+      {
+        "stem": "What does the word However signal before the article mentions a tricky spot in the pattern?",
+        "options": [
+          "A problem or exception comes next",
+          "The article is about to end",
+          "A list of zones comes next",
+          "The same idea will be repeated"
+        ],
+        "answer": "A",
+        "skill": "text-structure",
+        "why": "The word However shows contrast, and the next lines describe the Date Line and India as exceptions.",
+        "wrong": {
+          "B": "More facts follow after it.",
+          "C": "The next lines tell about the Date Line, not a list.",
+          "D": "However introduces a different idea."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "How long does one complete spin of Earth take?",
+        "options": [
+          "About twenty-four hours",
+          "About one week",
+          "About twelve hours",
+          "About one month"
+        ],
+        "answer": "A",
+        "skill": "detail",
+        "why": "The article says one complete spin takes about twenty-four hours.",
+        "wrong": {
+          "B": "The article says about twenty-four hours, not a week.",
+          "C": "The article says twenty-four hours, not twelve.",
+          "D": "The article says twenty-four hours, not a month."
+        }
+      },
+      {
+        "stem": "Why has the world been divided into time zones?",
+        "options": [
+          "To make clocks cost less",
+          "To match the Sun's path in the sky",
+          "One clock would not match daylight",
+          "To make travel take longer"
+        ],
+        "answer": "C",
+        "skill": "cause-effect",
+        "why": "The article says a single global clock would not match local daylight in most places.",
+        "wrong": {
+          "A": "The article does not mention the cost of clocks.",
+          "B": "The Sun's path is not the stated reason.",
+          "D": "The article does not say zones make travel longer."
+        }
+      },
+      {
+        "stem": "Read: \"Every time zone is designated starting from that single reference line.\" What does designated mean?",
+        "options": [
+          "Erased",
+          "Named or set",
+          "Hidden",
+          "Crossed"
+        ],
+        "answer": "B",
+        "skill": "vocabulary",
+        "why": "The sentence says every zone is set starting from the Greenwich line.",
+        "wrong": {
+          "A": "The zones are in use, so they are not erased.",
+          "C": "The line is called an important reference line.",
+          "D": "The sentence is about starting the zones, not crossing them."
+        }
+      },
+      {
+        "stem": "Why does the author compare the lines to the slices of an orange?",
+        "options": [
+          "To say Earth is made of fruit",
+          "To say oranges grow in zones",
+          "To say the lines are sweet",
+          "To help readers picture the zones"
+        ],
+        "answer": "D",
+        "skill": "author-purpose",
+        "why": "The article says the lines divide Earth like the slices of an orange, which helps readers picture the zones.",
+        "wrong": {
+          "A": "The comparison is only a way of picturing Earth.",
+          "B": "The article does not talk about growing oranges.",
+          "C": "Taste is not the point of the comparison."
+        }
+      }
+    ]
   }
 }

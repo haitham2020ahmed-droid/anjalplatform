@@ -614,5 +614,217 @@
       ],
       "modelAnswer": "Arab navigators turned the night sky into a celestial map by using the North Star's altitude above the horizon to calculate their latitude, since that star barely moves while others cross the sky. They measured this altitude with the kamal, a simple wooden board on a knotted string, lining its bottom edge with the horizon and its top edge with the North Star to read off their position. Their legacy still lives on today, since many star names used around the world, such as Altair and Aldebaran, come from Arabic, and navigators like Ibn Majid left behind written treatises that taught sailors for generations how to find their way."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "What did the sailors bring back from their trips?",
+        "options": [
+          "Spice and cloth",
+          "Dates and horses",
+          "Stars and wood",
+          "Maps and books"
+        ],
+        "answer": "A",
+        "skill": "detail",
+        "why": "The text says they came back with spice and cloth.",
+        "wrong": {
+          "B": "Dates and horses are what they took with them.",
+          "C": "Stars and wood are not things they brought back.",
+          "D": "Maps and books are not mentioned as goods they brought back."
+        }
+      },
+      {
+        "stem": "In this article, what is a navigator?",
+        "options": [
+          "A star that stays still",
+          "A man who sells spice",
+          "A man who guides ships",
+          "A string with knots"
+        ],
+        "answer": "C",
+        "skill": "vocabulary",
+        "why": "The text says a navigator is a man who finds the way at sea.",
+        "wrong": {
+          "A": "The star that stays still is the North Star.",
+          "B": "Sailors traded spice, but that is not what a navigator is.",
+          "D": "The string with knots is part of a tool."
+        }
+      },
+      {
+        "stem": "Why was it hard to find the way at sea?",
+        "options": [
+          "The ships had no sails at all.",
+          "The sea has no signs or roads.",
+          "The sea was much too hot.",
+          "There were far too many ports."
+        ],
+        "answer": "B",
+        "skill": "cause-effect",
+        "why": "The text says the sea is big and has no signs and no roads.",
+        "wrong": {
+          "A": "The text does not say the ships had no sails.",
+          "C": "Heat is not given as the problem.",
+          "D": "The text does not say there were too many ports."
+        }
+      },
+      {
+        "stem": "Why did Ibn Majid write books on how to sail?",
+        "options": [
+          "To trade them for horses",
+          "To show off his ship",
+          "To draw a map of China",
+          "To teach others how to sail"
+        ],
+        "answer": "D",
+        "skill": "inference",
+        "why": "His books were about how to sail, so they were meant to help other sailors learn.",
+        "wrong": {
+          "A": "The text does not say he traded the books.",
+          "B": "The books were about sailing, not about his ship.",
+          "C": "The books are not described as maps of China."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "In the article, what does latitude mean?",
+        "options": [
+          "how fast a ship is moving",
+          "how far north a ship is",
+          "the name of a port",
+          "a kind of wind"
+        ],
+        "answer": "B",
+        "skill": "vocabulary",
+        "why": "The text says the star's height tells sailors their latitude, or how far north they are.",
+        "wrong": {
+          "A": "Latitude is about position, not speed.",
+          "C": "A port has a latitude, but latitude is not a name.",
+          "D": "The wind is called the monsoon."
+        }
+      },
+      {
+        "stem": "What did merchants bring back from India, East Africa, and China?",
+        "options": [
+          "Dates and fine horses",
+          "Wooden boards and rope",
+          "Kamals and long strings",
+          "Spices, silk, and cloth"
+        ],
+        "answer": "D",
+        "skill": "detail",
+        "why": "The text says they returned with spices, silk, and cloth.",
+        "wrong": {
+          "A": "Dates and horses were carried there to sell.",
+          "B": "Wooden boards are part of the kamal, not trade goods.",
+          "C": "Kamals were tools used for sailing."
+        }
+      },
+      {
+        "stem": "Why was the North Star useful for finding direction?",
+        "options": [
+          "It stays in almost the same spot.",
+          "It is the brightest star in the sky.",
+          "It moves across the sky each night.",
+          "It only shines in winter."
+        ],
+        "answer": "A",
+        "skill": "cause-effect",
+        "why": "Other stars seem to move, but the North Star stays almost still and shows north.",
+        "wrong": {
+          "B": "The text does not say it is the brightest.",
+          "C": "The text says other stars move; the North Star does not.",
+          "D": "The text does not say it shines only in winter."
+        }
+      },
+      {
+        "stem": "Why does the author mention Ibn Majid's books?",
+        "options": [
+          "To show how dhows were built",
+          "To say sailors stopped using stars",
+          "To show knowledge was shared",
+          "To list the goods traded"
+        ],
+        "answer": "C",
+        "skill": "author-purpose",
+        "why": "The books taught others how to sail, so they show that sailing knowledge was passed on.",
+        "wrong": {
+          "A": "The books are about sailing, not about building dhows.",
+          "B": "Sailors kept using the stars.",
+          "D": "The goods are listed in another part."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "What do the Arabic names Altair and Aldebaran mean?",
+        "options": [
+          "the lion and the sea",
+          "the north and the south",
+          "the flyer and the follower",
+          "the sailor and the ship"
+        ],
+        "answer": "C",
+        "skill": "detail",
+        "why": "The text says Altair means \"the flyer\" and Aldebaran means \"the follower.\"",
+        "wrong": {
+          "A": "The Lion of the Sea was a name for Ibn Majid.",
+          "B": "North and south are not given as meanings.",
+          "D": "The sailor and the ship are not given as meanings."
+        }
+      },
+      {
+        "stem": "In the article, the word legacy means —",
+        "options": [
+          "something left from the past",
+          "a chart used by navigators",
+          "a wind that changes each year",
+          "a trip made to far lands"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "The star names are a lasting legacy, which means something left behind by these sailors.",
+        "wrong": {
+          "B": "The chart is not what legacy means here.",
+          "C": "The wind that changes is the monsoon.",
+          "D": "A trip is a voyage, not a legacy."
+        }
+      },
+      {
+        "stem": "Why did sailors plan voyages around the monsoon?",
+        "options": [
+          "It made the North Star easier to see",
+          "It kept the sea calm all year",
+          "It brought spices to the ships",
+          "The wind reversed with the seasons"
+        ],
+        "answer": "D",
+        "skill": "cause-effect",
+        "why": "The monsoon reverses direction, so ships could go one way in winter and return in summer.",
+        "wrong": {
+          "A": "The monsoon is a wind, not related to seeing the star.",
+          "B": "The text does not say the sea was calm.",
+          "C": "The text does not say the monsoon brought spices."
+        }
+      },
+      {
+        "stem": "Why was it useful for each knot on the kamal to match a port's latitude?",
+        "options": [
+          "Sailors could count the days at sea",
+          "It showed which latitude a port lay at",
+          "It told sailors the time of day",
+          "It kept the string from breaking"
+        ],
+        "answer": "B",
+        "skill": "inference",
+        "why": "If each knot matched a port's latitude, a sailor could find the knot for his port and know the star height to look for.",
+        "wrong": {
+          "A": "The knots were about latitude, not days.",
+          "C": "The knots were not used to tell time.",
+          "D": "The text gives no sign that knots protect the string."
+        }
+      }
+    ]
   }
 }

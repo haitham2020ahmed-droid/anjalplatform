@@ -614,5 +614,217 @@
       ],
       "modelAnswer": "A star's original mass shapes almost every stage of its life. A star with mass similar to the Sun burns its hydrogen fuel relatively slowly, allowing it to shine steadily for ten billion years or more before expanding into a red giant and settling into a white dwarf. A far more massive star, by contrast, depletes its much larger fuel supply at a dramatically faster rate, often lasting only a few million years before its core collapses catastrophically, triggering a supernova and leaving behind a neutron star or, in extreme cases, a black hole.\n\nThe material scattered by a dying massive star matters for the future of the universe because those heavier elements, flung outward by the explosion, eventually mix into new interstellar clouds. From these enriched nebulae, future generations of stars, and potentially even planets like our own, can one day form, meaning one star's death directly seeds the material needed for new stars and worlds to be born."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "What does gravity do to the cloud of gas and dust?",
+        "options": [
+          "It pushes the cloud far away",
+          "It turns the cloud to ice",
+          "It pulls the cloud in tight",
+          "It splits the cloud in two"
+        ],
+        "answer": "C",
+        "skill": "detail",
+        "why": "The text says gravity pulls the cloud in and packs it in tight.",
+        "wrong": {
+          "A": "Gravity pulls the cloud in, not away.",
+          "B": "The cloud gets hot, not icy.",
+          "D": "The text does not say the cloud splits."
+        }
+      },
+      {
+        "stem": "The text says a small star puffs up big. What does puffs up mean here?",
+        "options": [
+          "Grows much bigger",
+          "Turns very cold",
+          "Moves far away",
+          "Blasts apart"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "The star swells and gets big before it shrinks again.",
+        "wrong": {
+          "B": "The text does not say the star turns cold.",
+          "C": "The sentence is about size, not moving.",
+          "D": "A huge star blasts apart, not a small one."
+        }
+      },
+      {
+        "stem": "Why can a star shine for a very long time?",
+        "options": [
+          "It has no fuel at all",
+          "It gets new fuel every day",
+          "It sleeps in the day",
+          "It uses its fuel bit by bit"
+        ],
+        "answer": "D",
+        "skill": "cause-effect",
+        "why": "The text says the star uses up its fuel bit by bit, so it lasts a long time.",
+        "wrong": {
+          "A": "A star uses fuel, so it does have some.",
+          "B": "The text says the fuel runs out in the end.",
+          "C": "The text does not say a star sleeps."
+        }
+      },
+      {
+        "stem": "What is the bright flash called when a huge star blasts apart?",
+        "options": [
+          "A nebula",
+          "A supernova",
+          "A fusion",
+          "A comet"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The text says the bright flash of a huge star blasting apart is called a supernova.",
+        "wrong": {
+          "A": "A nebula is the cloud where a star starts.",
+          "C": "Fusion is what lights the star at birth.",
+          "D": "A comet is not mentioned in the text."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "What does a star slowly turn hydrogen into while it shines?",
+        "options": [
+          "Dust",
+          "Helium",
+          "Water",
+          "Ice"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The text says a star slowly turns hydrogen into helium deep in its core.",
+        "wrong": {
+          "A": "Dust is part of the cloud, not a result of fusion.",
+          "C": "The text never mentions water.",
+          "D": "A star is hot, and the text does not mention ice."
+        }
+      },
+      {
+        "stem": "In the text, what does the word remnant mean?",
+        "options": [
+          "A new star being born",
+          "A bright cloud of gas",
+          "A huge flash of light",
+          "A part that is left over"
+        ],
+        "answer": "D",
+        "skill": "vocabulary",
+        "why": "The white dwarf is what is left of the core after the star swells and collapses.",
+        "wrong": {
+          "A": "A white dwarf is the end of a star's life, not a birth.",
+          "B": "A white dwarf is described as small and dim.",
+          "C": "The huge flash is the supernova."
+        }
+      },
+      {
+        "stem": "What happens to the core of a star the size of our Sun after it becomes a red giant?",
+        "options": [
+          "It collapses into a white dwarf",
+          "It blasts apart as a supernova",
+          "It turns back into a nebula",
+          "It begins fusion all over again"
+        ],
+        "answer": "A",
+        "skill": "sequence",
+        "why": "The text says the Sun-sized star swells into a red giant and then its core collapses into a white dwarf.",
+        "wrong": {
+          "B": "A much bigger star ends as a supernova.",
+          "C": "The text does not say the star turns back into a cloud.",
+          "D": "Fusion stops when the fuel runs out."
+        }
+      },
+      {
+        "stem": "Why does the author say stars are born, grow old, and in time die?",
+        "options": [
+          "To show stars are living animals",
+          "To warn people about the Sun",
+          "To list the planets near stars",
+          "To compare a star to a living thing"
+        ],
+        "answer": "D",
+        "skill": "author-purpose",
+        "why": "The phrase \"just like living things\" shows the author is comparing a star's life to a living thing's life.",
+        "wrong": {
+          "A": "The text says stars are balls of hot gas, not animals.",
+          "B": "There is no warning about the Sun.",
+          "C": "The sentence does not list planets."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "In the text, what does the word ignites mean?",
+        "options": [
+          "Begins to burn or start",
+          "Slowly fades away",
+          "Falls into a planet",
+          "Splits into small parts"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "Once fusion starts, the cloud becomes a shining star, so ignites means starts.",
+        "wrong": {
+          "B": "The star begins to shine, not fade.",
+          "C": "Nothing falls into a planet in the text.",
+          "D": "The cloud is pulled together, not split."
+        }
+      },
+      {
+        "stem": "What happens to the core of a Sun-sized star after it swells into a red giant?",
+        "options": [
+          "It becomes a black hole",
+          "It blasts apart in a flash",
+          "It settles into a white dwarf",
+          "It drifts back into a nebula"
+        ],
+        "answer": "C",
+        "skill": "detail",
+        "why": "The text says the core of a Sun-sized star settles into a white dwarf.",
+        "wrong": {
+          "A": "Black holes are linked to much bigger stars.",
+          "B": "A supernova is the end of a much bigger star.",
+          "D": "The text does not say the star turns back into a cloud."
+        }
+      },
+      {
+        "stem": "Why does the center of the gas cloud grow hotter as gravity pulls it together?",
+        "options": [
+          "It is packed into a smaller space",
+          "It gets closer to the sun",
+          "It gives off less and less light",
+          "It spins around very slowly"
+        ],
+        "answer": "A",
+        "skill": "cause-effect",
+        "why": "The text says gravity packs the cloud into a smaller space that grows hotter near its dense center.",
+        "wrong": {
+          "B": "The text does not say the cloud nears the sun.",
+          "C": "The cloud heats up before it shines.",
+          "D": "Slow spinning is not mentioned."
+        }
+      },
+      {
+        "stem": "Based on the article, how is the end of a Sun-sized star different from the end of a much bigger star?",
+        "options": [
+          "A much bigger star blasts apart, but a Sun-sized star does not",
+          "A Sun-sized star blasts apart, but a much bigger star does not",
+          "Both kinds of stars turn into red giants and then stop",
+          "Both kinds of stars keep shining forever with no change"
+        ],
+        "answer": "A",
+        "skill": "compare",
+        "why": "A Sun-sized star swells into a red giant and becomes a white dwarf, while a much bigger star explodes in a supernova.",
+        "wrong": {
+          "B": "This is backward; the bigger star explodes.",
+          "C": "Only the Sun-sized star is described as becoming a red giant and white dwarf.",
+          "D": "The article says stars run out of fuel and change."
+        }
+      }
+    ]
   }
 }

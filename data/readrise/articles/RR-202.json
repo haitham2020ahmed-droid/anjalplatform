@@ -614,5 +614,217 @@
       ],
       "modelAnswer": "I disagree that sinkholes always happen suddenly with no way to predict them. The article explains that most sinkholes form through a gradual process of erosion, in which slightly acidic rainwater slowly dissolves soft rock, such as limestone, over a very long period of time, which means geologists can often identify at-risk areas in advance. In addition, the article states that geologists carefully study and map ground in regions with karst, limestone terrain in order to warn people before a collapse happens. While a collapse sinkhole can give way suddenly once its roof becomes too weak, the underlying process that creates the danger develops gradually and can often be studied and tracked beforehand."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "What can a big sinkhole eat?",
+        "options": [
+          "A big mountain",
+          "The whole sea",
+          "A tree or a road",
+          "A high cloud"
+        ],
+        "answer": "C",
+        "skill": "detail",
+        "why": "The text says a big sinkhole can eat a tree and a road.",
+        "wrong": {
+          "A": "The text does not say a sinkhole can eat a mountain.",
+          "B": "The text does not say a sinkhole can eat the sea.",
+          "D": "A sinkhole is in the ground and cannot eat a cloud."
+        }
+      },
+      {
+        "stem": "How is a slow sinkhole different from a fast one?",
+        "options": [
+          "A slow one falls all at once",
+          "A slow one sinks bit by bit",
+          "A slow one has no soft rock",
+          "A slow one is always a tiny one"
+        ],
+        "answer": "B",
+        "skill": "compare",
+        "why": "The text says a slow sinkhole sinks slowly, while a fast one falls all at once.",
+        "wrong": {
+          "A": "This is how the fast kind forms.",
+          "C": "Both kinds form over soft rock.",
+          "D": "The text says a sinkhole can be small or huge, whether slow or fast."
+        }
+      },
+      {
+        "stem": "Read this: \"Then the ground can collapse.\" What does collapse mean?",
+        "options": [
+          "fall down",
+          "grow tall",
+          "dry out",
+          "fill up"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "The text says the ground drops into the hole, so it falls down.",
+        "wrong": {
+          "B": "The ground drops; it does not grow.",
+          "C": "The text is about the ground dropping, not drying.",
+          "D": "The ground drops into the hole and does not fill anything up."
+        }
+      },
+      {
+        "stem": "Why can sinkholes form in some places in Saudi Arabia?",
+        "options": [
+          "The ground there is made of ice",
+          "Too many trees grow there",
+          "The sea covers the roads",
+          "Soft rock lies under the ground"
+        ],
+        "answer": "D",
+        "skill": "cause-effect",
+        "why": "The text says some spots in Saudi Arabia have soft rock, so sinkholes can form there too.",
+        "wrong": {
+          "A": "The text does not say there is ice.",
+          "B": "The text does not link trees to sinkholes.",
+          "C": "The text does not say the sea covers roads."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "Which kind of sinkhole can form with no warning?",
+        "options": [
+          "One where the ground sinks slowly",
+          "One where the roof gives way fast",
+          "One that forms over many years",
+          "One that is always tiny"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The text says the fast kind forms when the roof suddenly gives way, sometimes with no warning.",
+        "wrong": {
+          "A": "The slow kind sinks over many years, so people can notice it.",
+          "C": "Forming over many years is the slow kind.",
+          "D": "The text says sinkholes can be tiny or huge."
+        }
+      },
+      {
+        "stem": "The text says this leaves a hollow cavity underground. What is a cavity?",
+        "options": [
+          "a thick wall",
+          "a deep lake",
+          "a strong rope",
+          "an empty space"
+        ],
+        "answer": "D",
+        "skill": "vocabulary",
+        "why": "The text says the surface sinks into an empty space, which is the cavity.",
+        "wrong": {
+          "A": "A wall is solid, but a cavity is hollow.",
+          "B": "The text does not say the cavity holds a lake.",
+          "C": "A rope is not something that is left behind in rock."
+        }
+      },
+      {
+        "stem": "Why are sinkholes more likely where there is lots of limestone?",
+        "options": [
+          "Water can dissolve limestone slowly",
+          "Limestone makes more rain fall",
+          "Limestone grows bigger each year",
+          "Limestone is too heavy for soil"
+        ],
+        "answer": "A",
+        "skill": "cause-effect",
+        "why": "The text says rainwater slowly dissolves soft rock such as limestone and leaves a cavity.",
+        "wrong": {
+          "B": "Limestone does not change how much rain falls.",
+          "C": "The text does not say limestone grows.",
+          "D": "The problem is that limestone dissolves, not that it is heavy."
+        }
+      },
+      {
+        "stem": "How do slow and fast sinkholes differ?",
+        "options": [
+          "Slow ones only form in winter; fast ones in summer",
+          "Slow ones swallow roads; fast ones swallow only trees",
+          "Slow ones sink over years; fast ones drop all at once",
+          "Slow ones need rain; fast ones need no rain at all"
+        ],
+        "answer": "C",
+        "skill": "compare",
+        "why": "The text says one kind sinks slowly over many years and the other forms fast when the roof gives way.",
+        "wrong": {
+          "A": "The text does not link sinkholes to seasons.",
+          "B": "Large sinkholes of either kind can swallow things.",
+          "D": "Both kinds start with rainwater dissolving rock."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "Why can rainwater dissolve soft rock?",
+        "options": [
+          "It is boiling hot all year",
+          "It is packed with salt",
+          "It is slightly acidic",
+          "It moves very quickly"
+        ],
+        "answer": "C",
+        "skill": "detail",
+        "why": "The text says the rainwater is slightly acidic, so it gradually dissolves the soft rock.",
+        "wrong": {
+          "A": "The text does not say the water is hot.",
+          "B": "The text does not say the water has salt.",
+          "D": "The text says the water seeps slowly through tiny cracks."
+        }
+      },
+      {
+        "stem": "In the article, the word prone means",
+        "options": [
+          "likely to have",
+          "safe from",
+          "far away from",
+          "unable to see"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "Karst landscapes have abundant limestone, so sinkholes are more likely to form there.",
+        "wrong": {
+          "B": "The text says sinkholes are more likely there, not that it is safe.",
+          "C": "The land is the place where sinkholes form, not far from them.",
+          "D": "The word is about how likely sinkholes are, not seeing them."
+        }
+      },
+      {
+        "stem": "How can pumping too much groundwater make a collapse more likely?",
+        "options": [
+          "It adds heavy rain on top of the roof",
+          "It removes water that helped hold the roof",
+          "It cools the limestone until it hardens",
+          "It fills the cavity with solid rock"
+        ],
+        "answer": "B",
+        "skill": "cause-effect",
+        "why": "The text says pumping lowers the water that once helped support a cavity's roof.",
+        "wrong": {
+          "A": "Pumping takes water away; it does not add rain.",
+          "C": "The text does not say limestone hardens.",
+          "D": "A solid cavity could not collapse, and the text does not say this."
+        }
+      },
+      {
+        "stem": "Why does the author open with a quiet morning in a small town?",
+        "options": [
+          "To explain what limestone is",
+          "To list safety rules for towns",
+          "To compare two kinds of sinkholes",
+          "To hook readers with a surprise"
+        ],
+        "answer": "D",
+        "skill": "author-purpose",
+        "why": "The opening describes a sudden hole and asks what could cause it, so it hooks the reader.",
+        "wrong": {
+          "A": "Limestone is explained later.",
+          "B": "The opening does not list rules.",
+          "C": "The two kinds are explained in a later paragraph."
+        }
+      }
+    ]
   }
 }

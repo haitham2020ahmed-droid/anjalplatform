@@ -614,5 +614,217 @@
       ],
       "modelAnswer": "Magnetism is invisible, yet two very different uses described in the article both depend on its basic rules. The compass, which people have used for centuries to navigate deserts and seas, works because a tiny needle made from a magnetic material, much like the ancient lodestone, aligns itself with the planet's own magnetic field, always settling toward north. In contrast, an electromagnet depends on the rule that electric current flowing through a coiled wire creates a magnetic field of its own, meaning the pull exists only while the current flows and vanishes the instant the power is switched off. Although a compass relies on a field that is always present and an electromagnet relies on a field that can be turned on and off, both inventions prove how precisely people have learned to harness an invisible force they cannot even see."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "What did men find long ago that could pull iron?",
+        "options": [
+          "A wooden walking stick",
+          "A little glass ball",
+          "A rock called lodestone",
+          "A large steel ship"
+        ],
+        "answer": "C",
+        "skill": "detail",
+        "why": "The text says men found a rock called lodestone that could pull iron.",
+        "wrong": {
+          "A": "Wood is not pulled by a magnet.",
+          "B": "Glass is not pulled by a magnet.",
+          "D": "A ship was not the thing they found."
+        }
+      },
+      {
+        "stem": "A thin paper is on top of a pin. You hold a magnet over the paper. What will most likely happen?",
+        "options": [
+          "The pin will jump to the paper",
+          "The pin will not move at all",
+          "The paper will fly away",
+          "The pin will turn into wood"
+        ],
+        "answer": "A",
+        "skill": "inference",
+        "why": "The text says the pull can go through thin paper, so the pin will move up.",
+        "wrong": {
+          "B": "The pull can go through thin paper, so the pin moves.",
+          "C": "The magnet pulls iron things, not paper.",
+          "D": "A magnet cannot change what a pin is made of."
+        }
+      },
+      {
+        "stem": "A big magnet works with power from a wire. It is holding an old car. The power goes off. What happens?",
+        "options": [
+          "The magnet pulls the car harder",
+          "The car turns into a magnet",
+          "The magnet gets very hot",
+          "The magnet lets go of the car"
+        ],
+        "answer": "D",
+        "skill": "cause-effect",
+        "why": "The text says that when the power is turned off, these magnets let go.",
+        "wrong": {
+          "A": "With no power, the magnet does not pull at all.",
+          "B": "The text does not say a car becomes a magnet.",
+          "C": "The text says nothing about heat."
+        }
+      },
+      {
+        "stem": "In the article, the word attract means —",
+        "options": [
+          "to push away",
+          "to pull close",
+          "to break apart",
+          "to turn around"
+        ],
+        "answer": "B",
+        "skill": "vocabulary",
+        "why": "The text says a magnet can pull things, and it calls this to attract them.",
+        "wrong": {
+          "A": "Pushing away is what the word repel means.",
+          "C": "A magnet does not break things.",
+          "D": "The pull does not turn things around."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "According to the article, why does a magnet attract steel?",
+        "options": [
+          "Steel is very shiny",
+          "Steel contains iron",
+          "Steel is made from glass",
+          "Steel is always very hot"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The article says magnets attract steel because steel contains iron.",
+        "wrong": {
+          "A": "Shiny things are not pulled just for shining.",
+          "C": "Glass is not pulled by a magnet.",
+          "D": "Heat is not the reason in the article."
+        }
+      },
+      {
+        "stem": "A steel paper clip lies under a thin sheet of paper. A magnet is held above the paper. What will most likely happen?",
+        "options": [
+          "The paper clip will push the magnet away",
+          "The paper clip will become wood",
+          "The magnet will lose its poles",
+          "The paper clip will move up toward the magnet"
+        ],
+        "answer": "D",
+        "skill": "inference",
+        "why": "The article says the magnetic force can pass through a thin sheet of paper, and steel is attracted.",
+        "wrong": {
+          "A": "A steel object is attracted, not pushed away.",
+          "B": "A magnet cannot change steel into wood.",
+          "C": "A magnet always keeps both of its poles."
+        }
+      },
+      {
+        "stem": "In the article, the word invisible means —",
+        "options": [
+          "not able to be seen",
+          "very loud and strong",
+          "always pointing north",
+          "made of hard metal"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "The pull of a magnet is a real force, but you cannot see it, so invisible means not able to be seen.",
+        "wrong": {
+          "B": "The word is about seeing, not loudness.",
+          "C": "A compass needle points north; that is not what invisible means.",
+          "D": "The word does not describe what something is made of."
+        }
+      },
+      {
+        "stem": "What makes the needle of a compass point north?",
+        "options": [
+          "The strong wind blowing over the sea",
+          "The bright light coming from the sun",
+          "Our planet acts like a giant magnet",
+          "A wire carrying electric power"
+        ],
+        "answer": "C",
+        "skill": "cause-effect",
+        "why": "The article says the Earth acts like a giant magnet, and the compass has a tiny magnet inside.",
+        "wrong": {
+          "A": "The article does not say wind moves the needle.",
+          "B": "The article does not link the needle to sunlight.",
+          "D": "A compass needle does not need electric power."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "What does the article say about a very powerful magnet and a piece of wood?",
+        "options": [
+          "The magnet will pull the wood if it is close enough",
+          "The magnet will pull the wood only through paper",
+          "The magnet will push the wood away from its poles",
+          "The magnet still will not pull the wood"
+        ],
+        "answer": "D",
+        "skill": "detail",
+        "why": "The article says a magnet will not pull wood, regardless of how powerful the magnet is.",
+        "wrong": {
+          "A": "The article says closeness does not change this.",
+          "B": "Paper is not mentioned as a way to pull wood.",
+          "C": "The article does not say wood is pushed away."
+        }
+      },
+      {
+        "stem": "In the article, the word concealed most nearly means —",
+        "options": [
+          "lit up",
+          "counted",
+          "hid",
+          "moved"
+        ],
+        "answer": "C",
+        "skill": "vocabulary",
+        "why": "Clouds and sandstorms hid the stars, so travelers needed compasses.",
+        "wrong": {
+          "A": "Clouds do not make stars brighter.",
+          "B": "Clouds do not count stars.",
+          "D": "Clouds do not move stars."
+        }
+      },
+      {
+        "stem": "Why does the author begin with a pin leaping toward a magnet?",
+        "options": [
+          "To show a magnet can pull without touching",
+          "To prove that all metal pins are made of wood",
+          "To explain how a compass was invented",
+          "To show that paper blocks a magnetic field"
+        ],
+        "answer": "A",
+        "skill": "author-purpose",
+        "why": "The opening shows a pin moving across a gap with nothing visible connecting it, which introduces the invisible force.",
+        "wrong": {
+          "B": "Pins in the text are pulled because they contain iron.",
+          "C": "The compass is explained later, not in this opening.",
+          "D": "The article says the force can pass through thin paper."
+        }
+      },
+      {
+        "stem": "Two magnets are pushed toward each other and shove apart. What can you conclude about the poles that faced each other?",
+        "options": [
+          "They were opposite poles",
+          "They were like poles",
+          "They were made of wood",
+          "They had no magnetic field"
+        ],
+        "answer": "B",
+        "skill": "inference",
+        "why": "The article says that like poles repel, so magnets that shove apart had like poles facing.",
+        "wrong": {
+          "A": "Opposite poles would snap together.",
+          "C": "Wood is not magnetic, so it would not push.",
+          "D": "A push needs a magnetic field."
+        }
+      }
+    ]
   }
 }

@@ -611,5 +611,217 @@
         "I wrote complete sentences with capital letters and periods."
       ]
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "What do people do right after they dry the leaves?",
+        "options": [
+          "Put them on the hand",
+          "Grind them into powder",
+          "Cut them into strips",
+          "Plant them again"
+        ],
+        "answer": "B",
+        "skill": "sequence",
+        "why": "The text says people dry the leaves and then grind them into a powder.",
+        "wrong": {
+          "A": "The paste goes on the hand after the powder is mixed with water.",
+          "C": "The text does not say the leaves are cut into strips.",
+          "D": "The text does not say the leaves are planted again."
+        }
+      },
+      {
+        "stem": "What do people mix with the powder to make the paste?",
+        "options": [
+          "Sand",
+          "Milk",
+          "Oil",
+          "Water"
+        ],
+        "answer": "D",
+        "skill": "detail",
+        "why": "The text says they mix the powder with water to make a paste.",
+        "wrong": {
+          "A": "Sand is not mentioned.",
+          "B": "Milk is not mentioned.",
+          "C": "Oil is not mentioned."
+        }
+      },
+      {
+        "stem": "A girl wants a design for Eid but not one that lasts forever. Why is henna a good choice?",
+        "options": [
+          "It fades after some weeks",
+          "It turns the skin blue",
+          "It never washes off",
+          "It is a real tattoo"
+        ],
+        "answer": "A",
+        "skill": "inference",
+        "why": "The text says the design fades after some weeks and henna is not a real tattoo.",
+        "wrong": {
+          "B": "Henna turns the skin red-brown, not blue.",
+          "C": "The design fades, so it does not stay forever.",
+          "D": "The text says henna is not a real tattoo."
+        }
+      },
+      {
+        "stem": "In the article, what does the word grind mean?",
+        "options": [
+          "Pour into water",
+          "Dry in the sun",
+          "Crush into powder",
+          "Pick off the plant"
+        ],
+        "answer": "C",
+        "skill": "vocabulary",
+        "why": "People grind the dry leaves into a powder, so grind means to crush.",
+        "wrong": {
+          "A": "Pouring is not how powder is made.",
+          "B": "Drying comes before grinding.",
+          "D": "Picking the leaves comes first."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "How long does the paste stay on the skin to dry?",
+        "options": [
+          "A few seconds",
+          "About one year",
+          "A few hours",
+          "A few minutes"
+        ],
+        "answer": "C",
+        "skill": "detail",
+        "why": "The article says the paste must stay on the skin long enough to dry, which takes a few hours.",
+        "wrong": {
+          "A": "A few seconds is much too short.",
+          "B": "One year is much too long.",
+          "D": "A few minutes is too short."
+        }
+      },
+      {
+        "stem": "Why does the henna pattern fade after one to three weeks?",
+        "options": [
+          "Old skin wears off",
+          "The sun burns it away",
+          "People wash it every hour",
+          "The paste dries out again"
+        ],
+        "answer": "A",
+        "skill": "cause-effect",
+        "why": "The article says the pattern fades as old skin wears off.",
+        "wrong": {
+          "B": "The sun is not said to burn the pattern away.",
+          "C": "The paste is washed away once, not every hour.",
+          "D": "The paste is already gone when the pattern appears."
+        }
+      },
+      {
+        "stem": "What does the word detailed mean in \"a detailed pattern\"?",
+        "options": [
+          "Very big and bold",
+          "Plain and very simple",
+          "Painted in one color",
+          "With many small parts"
+        ],
+        "answer": "D",
+        "skill": "vocabulary",
+        "why": "The artist draws the pattern carefully and it takes a long time, so detailed means it has many small parts.",
+        "wrong": {
+          "A": "The pattern takes a long time because it is careful, not just big.",
+          "B": "A plain pattern would not take a long time.",
+          "C": "The pattern is drawn in the henna color, but that is not what detailed means."
+        }
+      },
+      {
+        "stem": "How is henna different from a real tattoo?",
+        "options": [
+          "It is drawn with a needle",
+          "It does not last forever",
+          "It only works on feet",
+          "It is never used at weddings"
+        ],
+        "answer": "B",
+        "skill": "compare",
+        "why": "The article says the henna mark will not stay on the skin for good, unlike a real tattoo.",
+        "wrong": {
+          "A": "The article says the paste is applied to the skin, not with a needle.",
+          "C": "Henna is used on hands and feet.",
+          "D": "People love using henna at weddings."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "How does an artisan apply the paste to draw designs?",
+        "options": [
+          "Through a cone or bottle",
+          "With a thin metal needle",
+          "With a wide wooden brush",
+          "By pressing a stone stamp"
+        ],
+        "answer": "A",
+        "skill": "detail",
+        "why": "The article says the artisan pipes the paste through a small cone or plastic bottle.",
+        "wrong": {
+          "B": "A needle is not mentioned.",
+          "C": "A brush is used to remove the dry paste, not to draw.",
+          "D": "A stamp is not mentioned."
+        }
+      },
+      {
+        "stem": "What happens right after the paste has dried completely?",
+        "options": [
+          "More lemon juice is added",
+          "The leaves are harvested",
+          "It is brushed or washed away",
+          "The design is painted green"
+        ],
+        "answer": "C",
+        "skill": "sequence",
+        "why": "The article says the dry, crumbling paste is brushed or washed away to reveal the design.",
+        "wrong": {
+          "A": "Lemon juice is added when the paste is mixed.",
+          "B": "The leaves are harvested at the very start.",
+          "D": "The paste is green while wet, but the design is revealed, not painted."
+        }
+      },
+      {
+        "stem": "What does the word indefinitely mean in \"will never remain on the skin indefinitely\"?",
+        "options": [
+          "For just a single week",
+          "In a very short time",
+          "Only during the night",
+          "For an unlimited time"
+        ],
+        "answer": "D",
+        "skill": "vocabulary",
+        "why": "The stain fades after one to three weeks, so it does not stay for an unlimited time.",
+        "wrong": {
+          "A": "The pattern lasts one to three weeks, not just one.",
+          "B": "The stain stays for weeks, so it is not quick.",
+          "C": "Night is not part of the meaning."
+        }
+      },
+      {
+        "stem": "Why might some people leave the paste on the skin for an entire night?",
+        "options": [
+          "To keep the leaves fresh",
+          "To let it dry completely and set",
+          "To wash away old skin",
+          "To make the pattern fade faster"
+        ],
+        "answer": "B",
+        "skill": "cause-effect",
+        "why": "The article says the paste must stay on long enough to dry completely and set, sometimes for an entire night.",
+        "wrong": {
+          "A": "The leaves are already ground into powder.",
+          "C": "The paste is not used to wash away skin.",
+          "D": "Leaving it on longer does not make the pattern fade faster."
+        }
+      }
+    ]
   }
 }

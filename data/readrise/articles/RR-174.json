@@ -614,5 +614,217 @@
       ],
       "modelAnswer": "When germs enter the body and begin to multiply, the immune system detects them and sends a signal to the hypothalamus, the brain's thermostat that controls body temperature. The hypothalamus then raises the body's set temperature above the normal 37 degrees Celsius, and because the body thinks it should be hotter, a person shivers to generate more heat even though their temperature is already rising. Once the infection is under control and the fever breaks, the body sweats to cool back down, so it is important to drink plenty of fluids during this time to avoid dehydration."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "Which tool shows how hot you are?",
+        "options": [
+          "A ruler",
+          "A thermometer",
+          "A mask",
+          "A clock"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The text says to use a thermometer to see how hot you are.",
+        "wrong": {
+          "A": "A ruler measures length, not heat.",
+          "C": "The text does not link a mask to heat.",
+          "D": "A clock tells time, not heat."
+        }
+      },
+      {
+        "stem": "Why does shivering help during a fever?",
+        "options": [
+          "It makes heat for the body",
+          "It makes the germs go to sleep",
+          "It helps you drink more water",
+          "It cools you down right away"
+        ],
+        "answer": "A",
+        "skill": "cause-effect",
+        "why": "The text says you shake and shiver, and that makes heat.",
+        "wrong": {
+          "B": "The text does not say shivering puts germs to sleep.",
+          "C": "Shivering has nothing to do with drinking water.",
+          "D": "The sweat at the end cools you, not the shivering."
+        }
+      },
+      {
+        "stem": "In this article, what is a fever?",
+        "options": [
+          "When you get too cold at night",
+          "When you get too warm in the body",
+          "When your skin feels hot from the sun",
+          "When you have a pain in your head"
+        ],
+        "answer": "B",
+        "skill": "vocabulary",
+        "why": "The text says a fever is when you get too warm.",
+        "wrong": {
+          "A": "A fever is too warm, not too cold.",
+          "C": "The text says hot skin from the sun is not a fever.",
+          "D": "The text does not describe a fever as head pain."
+        }
+      },
+      {
+        "stem": "Some germs do not like heat. Why might a fever help you?",
+        "options": [
+          "It makes you sweat all day and all night",
+          "It makes you sleep in a warm, soft bed",
+          "It gives you more water for you to drink",
+          "It slows the germs so they grow less fast"
+        ],
+        "answer": "D",
+        "skill": "inference",
+        "why": "The text says germs cannot grow as fast in the heat, so a fever slows them down.",
+        "wrong": {
+          "A": "Sweat comes when the fever ends, and it only cools you.",
+          "B": "The text does not say that sleeping helps against germs.",
+          "C": "Drinking water replaces what sweat takes away; it is not what the fever does."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "Why should you drink plenty of fluids when you have a fever?",
+        "options": [
+          "Because fluids make the germs hotter",
+          "Because you lose water when you sweat",
+          "Because fluids stop you from shivering",
+          "Because the doctor asks you to drink"
+        ],
+        "answer": "B",
+        "skill": "cause-effect",
+        "why": "The article says to drink fluids because you lose water when you sweat.",
+        "wrong": {
+          "A": "The article does not say fluids affect the germs.",
+          "C": "The article does not link fluids to shivering.",
+          "D": "The reason given is water loss, not a doctor's order."
+        }
+      },
+      {
+        "stem": "The text says an infection happens when germs get inside your body and multiply. What is an infection?",
+        "options": [
+          "A kind of medicine that an adult gives you",
+          "A tool that is used to measure body heat",
+          "A part of the body that fights off germs",
+          "Sickness that starts when germs grow inside you"
+        ],
+        "answer": "D",
+        "skill": "vocabulary",
+        "why": "The sentence says an infection is what happens when germs get inside the body and multiply.",
+        "wrong": {
+          "A": "Medicine is something an adult gives you.",
+          "B": "A thermometer measures body heat.",
+          "C": "The immune system is the part that fights germs."
+        }
+      },
+      {
+        "stem": "Many germs cannot grow as quickly in a hot body. What does this suggest about a fever?",
+        "options": [
+          "It helps the body fight an infection",
+          "It shows the body has no germs",
+          "It makes germs grow much faster",
+          "It cools the body down by itself"
+        ],
+        "answer": "A",
+        "skill": "inference",
+        "why": "If germs grow slowly in heat, then the fever helps the body fight them.",
+        "wrong": {
+          "B": "A fever is a sign that germs are in the body.",
+          "C": "The article says germs grow more slowly in a hot body.",
+          "D": "A fever warms the body; the sweat cools it later."
+        }
+      },
+      {
+        "stem": "When does the article say to tell an adult about a fever?",
+        "options": [
+          "Only when you feel hot after you play outside",
+          "If you feel very sick or it lasts over three days",
+          "When you start to shiver for a short while at first",
+          "Every time that you sweat after a fever ends"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The article says to tell an adult if you feel very sick or if the fever lasts more than three days.",
+        "wrong": {
+          "A": "Feeling hot after playing is not a fever.",
+          "C": "Shivering at the start is normal during a fever.",
+          "D": "Sweating happens when the fever breaks."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "According to the article, where can some thermometers be placed?",
+        "options": [
+          "Under the tongue or the arm",
+          "On the foot or the knee",
+          "Inside the nose or the ear",
+          "Under the hat or the shirt"
+        ],
+        "answer": "A",
+        "skill": "detail",
+        "why": "The article says some thermometers go under the tongue or the arm, and others are held near the forehead or ear.",
+        "wrong": {
+          "B": "The article does not mention the foot or knee.",
+          "C": "The article says near the ear, not inside the nose.",
+          "D": "The article does not mention a hat or shirt."
+        }
+      },
+      {
+        "stem": "The text says a fever is a symptom showing that your body is fighting an infection. What is a symptom?",
+        "options": [
+          "A kind of germ that makes you quite sick",
+          "A tool that checks the heat of the body",
+          "A sign that something is wrong in the body",
+          "A medicine that doctors give only to adults"
+        ],
+        "answer": "C",
+        "skill": "vocabulary",
+        "why": "The fever shows the body is fighting an infection, so a symptom is a sign that something is wrong.",
+        "wrong": {
+          "A": "The germs are viruses and bacteria, not symptoms.",
+          "B": "A thermometer is the tool that checks heat.",
+          "D": "The article says an adult should give medicine; a symptom is not medicine."
+        }
+      },
+      {
+        "stem": "Why does shivering help when a fever begins?",
+        "options": [
+          "The shaking sets the thermostat lower",
+          "The shaking makes the sweat dry faster",
+          "The shaking calls in the immune system",
+          "The shaking muscles make extra heat"
+        ],
+        "answer": "D",
+        "skill": "cause-effect",
+        "why": "The article says you shiver and the shaking muscles make extra heat to reach the new setting.",
+        "wrong": {
+          "A": "The brain raises the setting; shivering does not lower it.",
+          "B": "Sweat comes later, when the fever breaks.",
+          "C": "The immune system sends the message, not the shaking."
+        }
+      },
+      {
+        "stem": "Why is a fever different from overheating after playing in the sun?",
+        "options": [
+          "Overheating comes from germs inside the body",
+          "Heat from outside does not change the brain's setting",
+          "The sun makes the immune system work harder",
+          "Playing makes the hypothalamus raise the setting"
+        ],
+        "answer": "B",
+        "skill": "compare",
+        "why": "The article says outside heat does not change the brain's setting, while a fever is a raised setting.",
+        "wrong": {
+          "A": "Overheating comes from outside heat, not germs.",
+          "C": "The article does not link the sun to the immune system.",
+          "D": "A fever raises the setting because of germs, not play."
+        }
+      }
+    ]
   }
 }

@@ -614,5 +614,217 @@
       ],
       "modelAnswer": "I disagree that old building ideas like windcatchers have no place in modern cities. First, the article explains that windcatchers need no fuel and no electricity, since they rely only on wind, rising hot air, and smart planning, which makes them a naturally sustainable way to cool a building. Second, the article notes that architects today are studying windcatchers closely so they can design new buildings that stay comfortable while using far less energy, showing that this ancient ventilation idea is still considered valuable rather than outdated. Because an idea that worked in ancient Egypt and still inspires architects today clearly has lasting value, I think windcatchers deserve a real place in modern, energy-conscious cities."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "Why do windcatchers need no fuel?",
+        "options": [
+          "They are run by a fan.",
+          "They burn dry wood.",
+          "They just use the wind.",
+          "They are made of metal."
+        ],
+        "answer": "C",
+        "skill": "cause-effect",
+        "why": "The text says these towers need no fuel because they just use the wind.",
+        "wrong": {
+          "A": "The text says there were no fans.",
+          "B": "Burning wood would need fuel, and the text says none is needed.",
+          "D": "The text never says what the towers are made of."
+        }
+      },
+      {
+        "stem": "In this article, what are gaps?",
+        "options": [
+          "Open spaces",
+          "Pools of water",
+          "Tall towers",
+          "Cool rooms"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "The top of the tower has big gaps that face the wind, so the gaps are open spaces for the breeze.",
+        "wrong": {
+          "B": "The pools are a different part of some towers.",
+          "C": "The tower is the whole structure, not the gaps.",
+          "D": "The rooms are where the cool air goes."
+        }
+      },
+      {
+        "stem": "How did the sea breeze get into the tall homes in old Jeddah?",
+        "options": [
+          "Through a hollow tower",
+          "Through a pool",
+          "Through the roof gaps",
+          "Through big wood screens"
+        ],
+        "answer": "D",
+        "skill": "detail",
+        "why": "The text says the homes had big wood screens on the sides and the sea breeze came in through them.",
+        "wrong": {
+          "A": "The Jeddah homes used screens, not windcatcher towers.",
+          "B": "Pools are used in some windcatchers, not in Jeddah's homes.",
+          "C": "The screens were on the sides, not in the roof."
+        }
+      },
+      {
+        "stem": "Why do builders make the gaps face the wind?",
+        "options": [
+          "To keep rain out",
+          "To catch the breeze",
+          "To let the heat in",
+          "To make the tower taller"
+        ],
+        "answer": "B",
+        "skill": "inference",
+        "why": "The gaps face the wind so that a breeze blows in and is pushed down into the rooms.",
+        "wrong": {
+          "A": "The text does not talk about rain.",
+          "C": "The tower is meant to cool the house, not heat it.",
+          "D": "The gaps do not change the tower's height."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "How old are the Egyptian paintings that show rooftop vents?",
+        "options": [
+          "More than 3,000 years old",
+          "About 100 years old",
+          "About 500 years old",
+          "Exactly 1,000 years old"
+        ],
+        "answer": "A",
+        "skill": "detail",
+        "why": "The text says the paintings show vents from more than three thousand years ago.",
+        "wrong": {
+          "B": "The paintings are much older than that.",
+          "C": "The paintings are much older than that.",
+          "D": "The text says more than 3,000 years, not 1,000."
+        }
+      },
+      {
+        "stem": "In the article, architects are people who —",
+        "options": [
+          "build towers from clay",
+          "repair air conditioners",
+          "design buildings",
+          "sell cool water"
+        ],
+        "answer": "C",
+        "skill": "vocabulary",
+        "why": "The text says architects study windcatchers because they hope to design new buildings.",
+        "wrong": {
+          "A": "The text does not say architects build with clay.",
+          "B": "Air conditioners are not what architects work on in the text.",
+          "D": "Selling water is not mentioned."
+        }
+      },
+      {
+        "stem": "Why is Yazd called the city of windcatchers?",
+        "options": [
+          "It was the first to build one",
+          "It has so many of them",
+          "It has no wind",
+          "Its towers are the tallest"
+        ],
+        "answer": "B",
+        "skill": "cause-effect",
+        "why": "The text says Yazd has so many windcatchers that it is called the city of windcatchers.",
+        "wrong": {
+          "A": "The text does not say Yazd built the first one.",
+          "C": "The city is named for its towers, which catch wind.",
+          "D": "The text does not compare tower heights."
+        }
+      },
+      {
+        "stem": "What do the Egyptian paintings and the many towers in Iran show?",
+        "options": [
+          "They were a short-lived fashion.",
+          "They were used only in Egypt.",
+          "They needed electricity to work.",
+          "People used them for a long time."
+        ],
+        "answer": "D",
+        "skill": "inference",
+        "why": "Paintings from over 3,000 years ago and hundreds of years of building in Iran show a long history of use.",
+        "wrong": {
+          "A": "Hundreds of years of use is not short-lived.",
+          "B": "The text says Iran and the Gulf had them too.",
+          "C": "The text says windcatchers need no electricity."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "What did some builders do to make the incoming air cooler?",
+        "options": [
+          "They passed it over hot stones",
+          "They sent it across water",
+          "They filtered it through cloth",
+          "They released it at ground level"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "Builders sent the air across underground channels, pools, or clay jars of water.",
+        "wrong": {
+          "A": "Hot stones would warm the air, not cool it.",
+          "C": "Cloth is not mentioned.",
+          "D": "The openings are near the top of the tower."
+        }
+      },
+      {
+        "stem": "In the first paragraph, the word scorching most nearly means —",
+        "options": [
+          "rainy and cool",
+          "dark and quiet",
+          "windy and dusty",
+          "extremely hot"
+        ],
+        "answer": "D",
+        "skill": "vocabulary",
+        "why": "The paragraph talks about staying cool without fans, so scorching means extremely hot.",
+        "wrong": {
+          "A": "Rainy and cool does not match the need to stay cool.",
+          "B": "Nothing in the paragraph is about darkness.",
+          "C": "Wind and dust are not the problem described."
+        }
+      },
+      {
+        "stem": "Why do architects want to mix traditional ideas with modern materials?",
+        "options": [
+          "To cool buildings with less energy",
+          "To use more air conditioners",
+          "To copy the Egyptian paintings",
+          "To make towers harder to build"
+        ],
+        "answer": "A",
+        "skill": "inference",
+        "why": "They hope to design buildings that stay comfortable while using much less energy.",
+        "wrong": {
+          "B": "Air conditioners use huge amounts of electricity, which they want to avoid.",
+          "C": "The paintings only show how old the idea is.",
+          "D": "Nothing suggests they want hard-to-build towers."
+        }
+      },
+      {
+        "stem": "Why does the author begin by asking readers to imagine a scorching afternoon before electricity?",
+        "options": [
+          "To list the towns that had windcatchers",
+          "To explain how pools cool air",
+          "To show the problem windcatchers solved",
+          "To compare two modern machines"
+        ],
+        "answer": "C",
+        "skill": "author-purpose",
+        "why": "The opening sets up the problem of staying cool without electricity, and then the windcatcher is the answer.",
+        "wrong": {
+          "A": "The towns are listed later in the article.",
+          "B": "Pools are explained in a later paragraph.",
+          "D": "The opening is about a time before modern machines."
+        }
+      }
+    ]
   }
 }

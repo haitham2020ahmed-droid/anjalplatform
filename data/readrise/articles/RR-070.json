@@ -614,5 +614,217 @@
       ],
       "modelAnswer": "One advantage of 3D printing is that it wastes very little material, because this additive process only adds the plastic filament a design actually needs, unlike cutting a shape out of a big block where much of the material is thrown away. Doctors and dentists also use this precise process to manufacture custom prosthetic hands and teeth that fit one person perfectly. However, 3D printing is not always the best choice, since a small toy might take an hour to print while a large object can take a day or more, which makes it too slow for producing many identical copies quickly."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "What happens to each layer after the tip lays it down?",
+        "options": [
+          "It cools and gets hard",
+          "It melts into a block",
+          "It turns into ink",
+          "It rolls off the printer"
+        ],
+        "answer": "A",
+        "skill": "detail",
+        "why": "The text says each layer cools and gets hard.",
+        "wrong": {
+          "B": "Melting happens in the tip, before the layer is laid.",
+          "C": "The printer does not use ink.",
+          "D": "The layers stay in place to build the thing."
+        }
+      },
+      {
+        "stem": "Some builders print the walls of a house. What does this tell you?",
+        "options": [
+          "Printers only make small toys",
+          "Houses are very light",
+          "3D printers can make big things",
+          "Walls need no plan"
+        ],
+        "answer": "C",
+        "skill": "inference",
+        "why": "If a printer can make house walls, it can make big things, not only toys.",
+        "wrong": {
+          "A": "The text says printers can make walls too.",
+          "B": "The text does not say houses are light.",
+          "D": "Every print starts from a plan, the design."
+        }
+      },
+      {
+        "stem": "The text tells how the thing grows as the printer adds each layer. What does grows mean here?",
+        "options": [
+          "Gets older every single day",
+          "Gets bigger with each layer",
+          "Gets a bright new color",
+          "Gets lost in the printer"
+        ],
+        "answer": "B",
+        "skill": "vocabulary",
+        "why": "Each new layer is added on top, so the thing gets bigger.",
+        "wrong": {
+          "A": "Age is not the idea.",
+          "C": "Color is not mentioned.",
+          "D": "Nothing gets lost."
+        }
+      },
+      {
+        "stem": "Why does the author tell about hands and arms for kids?",
+        "options": [
+          "To teach about plastic",
+          "To say kids like toys",
+          "To show how fast printers go",
+          "To show printers help people"
+        ],
+        "answer": "D",
+        "skill": "author-purpose",
+        "why": "Doctors use 3D printers to make hands and arms, which shows they help people.",
+        "wrong": {
+          "A": "The point is not about plastic.",
+          "B": "The hands and arms are not toys.",
+          "C": "The text says printing can take hours."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "In the article, what is a nozzle?",
+        "options": [
+          "A roll of plastic thread",
+          "A tool for slicing models",
+          "A shape on a computer screen",
+          "A small metal tip that gets hot"
+        ],
+        "answer": "D",
+        "skill": "vocabulary",
+        "why": "The article says the nozzle is a small metal tip that gets very hot.",
+        "wrong": {
+          "A": "The thread of plastic is pushed into the nozzle.",
+          "B": "A special program slices the model.",
+          "C": "The model is shown on the computer."
+        }
+      },
+      {
+        "stem": "What does the digital model show?",
+        "options": [
+          "The exact shape and size",
+          "The price of the object",
+          "The color of the plastic",
+          "The time it will take"
+        ],
+        "answer": "A",
+        "skill": "detail",
+        "why": "The article says the design is a digital model that shows the exact shape and size.",
+        "wrong": {
+          "B": "Price is not mentioned.",
+          "C": "Plastic color is not mentioned.",
+          "D": "The time is not part of the model."
+        }
+      },
+      {
+        "stem": "Why would an inventor print a prototype first?",
+        "options": [
+          "To waste less wood",
+          "To make many copies",
+          "To test if it works",
+          "To sell it to doctors"
+        ],
+        "answer": "C",
+        "skill": "cause-effect",
+        "why": "The article says the inventor can check if it works before making many copies.",
+        "wrong": {
+          "A": "Wood is not part of this idea.",
+          "B": "Copies come after the prototype.",
+          "D": "Selling is not mentioned."
+        }
+      },
+      {
+        "stem": "Why does the author end by listing doctors, dentists, and builders?",
+        "options": [
+          "To teach what each job is like",
+          "To show printers are widely used",
+          "To say that printers are costly",
+          "To compare the three jobs with each other"
+        ],
+        "answer": "B",
+        "skill": "author-purpose",
+        "why": "The ending says 3D printers help in many places and gives examples.",
+        "wrong": {
+          "A": "The article does not teach those jobs.",
+          "C": "Cost is not mentioned.",
+          "D": "The jobs are not compared."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "In the article, what is filament?",
+        "options": [
+          "A tip heated to a high temperature",
+          "A model of an object on a screen",
+          "A long thread of plastic on a spool",
+          "A powder that is fused by lasers"
+        ],
+        "answer": "C",
+        "skill": "vocabulary",
+        "why": "The article defines filament as a long thread of plastic wound around a spool.",
+        "wrong": {
+          "A": "That describes the nozzle.",
+          "B": "That describes the digital design.",
+          "D": "The article says some printers fuse metal powder, but that is not filament."
+        }
+      },
+      {
+        "stem": "What did Chuck Hull's first machine use to harden a liquid?",
+        "options": [
+          "A hot nozzle",
+          "A beam of ultraviolet light",
+          "Strong steel wires",
+          "A roll of plastic thread"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The article says his machine used a beam of ultraviolet light to harden a liquid.",
+        "wrong": {
+          "A": "Heated nozzles are used with filament printers.",
+          "C": "Steel wires are not mentioned for printing.",
+          "D": "Thread (filament) is used in many home printers."
+        }
+      },
+      {
+        "stem": "Why does each layer cool rapidly and harden?",
+        "options": [
+          "So it can hold the next layer",
+          "So it can be sliced again",
+          "So it can be sold sooner",
+          "So it can melt the filament"
+        ],
+        "answer": "A",
+        "skill": "cause-effect",
+        "why": "The article says each layer hardens so that it can support the next layer.",
+        "wrong": {
+          "B": "Slicing happens to the model on the computer.",
+          "C": "Selling is not mentioned.",
+          "D": "The heat melts the filament before the layers are laid."
+        }
+      },
+      {
+        "stem": "Why might a doctor choose to print a prosthetic hand for a child?",
+        "options": [
+          "Printers are used by factories",
+          "Printers never make mistakes",
+          "Plastic is stronger than steel",
+          "It can fit that child perfectly"
+        ],
+        "answer": "D",
+        "skill": "inference",
+        "why": "The article says doctors print prosthetic hands that fit a particular child perfectly.",
+        "wrong": {
+          "A": "Factory use does not explain the choice.",
+          "B": "The article does not say that.",
+          "C": "The article does not compare plastic with steel."
+        }
+      }
+    ]
   }
 }

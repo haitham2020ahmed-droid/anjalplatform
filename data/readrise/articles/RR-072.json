@@ -614,5 +614,217 @@
       ],
       "modelAnswer": "Undersea cables are vulnerable because, even though they transmit optical signals as flashes of light, in deep water they are only as thick as a garden hose, and most damage comes from ship anchors and fishing nets catching on them. To protect the cables, engineers add steel armor near the shore where ships and fishing gear are more likely to snag them, and repeaters placed every 50 to 100 kilometers amplify the weakening light signal along the way. When a cable does break, a repair ship lifts the damaged section to the surface so workers can splice the fiber back together and restore the connection."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "How thin is the glass inside a cable?",
+        "options": [
+          "As thin as a rope",
+          "As thin as a plate",
+          "As thin as a hair",
+          "As thin as a pipe"
+        ],
+        "answer": "C",
+        "skill": "detail",
+        "why": "The text says the glass is as thin as a hair.",
+        "wrong": {
+          "A": "A rope is thick.",
+          "B": "A plate is not a thin strand.",
+          "D": "A pipe is thick."
+        }
+      },
+      {
+        "stem": "What happens if a cable breaks?",
+        "options": [
+          "A ship comes to fix it",
+          "The sea turns warm",
+          "The cable fixes itself",
+          "The light gets stronger"
+        ],
+        "answer": "A",
+        "skill": "cause-effect",
+        "why": "The text says that if a cable breaks, a ship comes to fix it.",
+        "wrong": {
+          "B": "The sea is not changed by a break.",
+          "C": "The text does not say cables fix themselves.",
+          "D": "Boxes on the cable make light strong, not a break."
+        }
+      },
+      {
+        "stem": "The article says a cable has a \"coat\" of steel. What does coat mean here?",
+        "options": [
+          "A warm shirt",
+          "A cup of water",
+          "A big wave",
+          "An outer cover"
+        ],
+        "answer": "D",
+        "skill": "vocabulary",
+        "why": "The steel coat covers the cable and keeps it safe.",
+        "wrong": {
+          "A": "A cable does not wear a shirt.",
+          "B": "Water is not a cover.",
+          "C": "A wave is not a cover."
+        }
+      },
+      {
+        "stem": "Why does the author mention cables that come up at Jeddah?",
+        "options": [
+          "To teach how to swim well",
+          "To show they link us up",
+          "To tell of a long boat trip",
+          "To say the Red Sea is warm"
+        ],
+        "answer": "B",
+        "skill": "author-purpose",
+        "why": "The text says the cables at Jeddah link us to the world.",
+        "wrong": {
+          "A": "Swimming is not mentioned.",
+          "C": "The article does not describe a boat trip to Jeddah.",
+          "D": "Sea temperature is not mentioned."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "How long would the cables be if laid end to end?",
+        "options": [
+          "Ten thousand kilometers",
+          "More than a million kilometers",
+          "Exactly one hundred kilometers",
+          "About fifty kilometers"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The article says they would be more than a million kilometers long.",
+        "wrong": {
+          "A": "That is far too short.",
+          "C": "That is far too short.",
+          "D": "That is far too short."
+        }
+      },
+      {
+        "stem": "The article says hundreds of cables stretch across the seas. What does stretch mean here?",
+        "options": [
+          "Break up into parts",
+          "Float on top of it",
+          "Hide deep below sand",
+          "Reach from side to side"
+        ],
+        "answer": "D",
+        "skill": "vocabulary",
+        "why": "The cables go all the way across the oceans from one land to another.",
+        "wrong": {
+          "A": "Cables do not break into parts across the sea.",
+          "B": "The cables lie on the ocean floor.",
+          "C": "The article says the cables are on the ocean floor."
+        }
+      },
+      {
+        "stem": "Why does information move through the fibers so fast?",
+        "options": [
+          "It moves as flashes of light",
+          "It is carried by big ships",
+          "It floats on the waves",
+          "It moves by tiny wheels"
+        ],
+        "answer": "A",
+        "skill": "cause-effect",
+        "why": "The article says information travels through the fibers as flashes of light.",
+        "wrong": {
+          "B": "Ships lay and repair cables, but do not carry the data.",
+          "C": "Data does not float on waves.",
+          "D": "Wheels are not mentioned."
+        }
+      },
+      {
+        "stem": "Why does the author say the answer to where our data travels is surprising?",
+        "options": [
+          "Because the cables are very old indeed",
+          "Because the cables are hidden",
+          "Because photos take hours to go",
+          "Because it was thought to be in space"
+        ],
+        "answer": "D",
+        "skill": "author-purpose",
+        "why": "The next paragraph says many people think the internet travels through space, but it mostly runs under the sea.",
+        "wrong": {
+          "A": "Age is not the surprise.",
+          "B": "Hidden sand is not mentioned.",
+          "C": "The article says photos arrive in seconds."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "According to the article, how much can a single modern cable carry at once?",
+        "options": [
+          "One message",
+          "A few photographs",
+          "Hundreds of videos",
+          "Millions of conversations"
+        ],
+        "answer": "D",
+        "skill": "detail",
+        "why": "The article says a single modern cable can carry millions of conversations simultaneously.",
+        "wrong": {
+          "A": "One message is far too few.",
+          "B": "The article says millions of conversations.",
+          "C": "The article says millions of conversations."
+        }
+      },
+      {
+        "stem": "The article says technicians \"splice\" the fibers. What does splice mean?",
+        "options": [
+          "Join together",
+          "Pull far apart",
+          "Paint a color",
+          "Wrap in steel"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "The broken section is brought up and the fibers are joined back together.",
+        "wrong": {
+          "B": "Splicing repairs the break, so it is not pulling apart.",
+          "C": "Painting is not mentioned.",
+          "D": "The steel armor is added near the shore, not by splicing."
+        }
+      },
+      {
+        "stem": "Why does the article call Saudi Arabia an important link in the global internet?",
+        "options": [
+          "It has the longest cables",
+          "It makes all the fibers",
+          "Cables join it to continents",
+          "It lays cables in space"
+        ],
+        "answer": "C",
+        "skill": "inference",
+        "why": "Several cables come ashore at Jeddah and connect Saudi Arabia with Asia, Africa, and Europe.",
+        "wrong": {
+          "A": "The article does not say it has the longest cable.",
+          "B": "The article does not say it makes fibers.",
+          "D": "The cables lie on the sea floor."
+        }
+      },
+      {
+        "stem": "Why does the author begin the second paragraph with what many people assume?",
+        "options": [
+          "To prove that satellites do not exist",
+          "To correct a common mistaken belief",
+          "To describe how satellites are built",
+          "To say the cables are very old"
+        ],
+        "answer": "B",
+        "skill": "author-purpose",
+        "why": "The author states the common belief about space and then shows that most data travels through cables.",
+        "wrong": {
+          "A": "The article says some data does use satellites.",
+          "C": "Building satellites is not described.",
+          "D": "Age is not the point of that paragraph."
+        }
+      }
+    ]
   }
 }

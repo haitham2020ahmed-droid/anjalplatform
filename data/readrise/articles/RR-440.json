@@ -614,5 +614,217 @@
       ],
       "modelAnswer": "I agree that talking to your teammates matters more than individual skill, at least in a team sport like volleyball. In the story, the team's collisions and missed balls were not caused by a lack of skill, but by a lack of communication, since no one called out who would hit the ball. Once Coach Amal taught them a simple strategy, calling out 'Mine!' and supporting each other after mistakes, the same players suddenly moved together with real coordination and confidence, playing their best match of the year. Someone might argue that individual skill still matters, since a team of weak players could not win no matter how well they communicated, but the story shows that even skilled players like Dana and Hind could not play well together until they learned to talk to each other."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "Who came to watch the school tournament match?",
+        "options": [
+          "Many parents",
+          "Only the coach",
+          "Players from the Eagles",
+          "The school bus driver"
+        ],
+        "answer": "A",
+        "skill": "detail",
+        "why": "The text says many parents came to watch the match.",
+        "wrong": {
+          "B": "Many people came, not only the coach.",
+          "C": "The Eagles are not in this story.",
+          "D": "No bus driver is in the story."
+        }
+      },
+      {
+        "stem": "In the story, a captain is a player who —",
+        "options": [
+          "sells food to the fans",
+          "wears the longest shirt",
+          "only watches the game",
+          "leads the team"
+        ],
+        "answer": "D",
+        "skill": "vocabulary",
+        "why": "Dana was the captain, and she led the team by calling the ball and cheering for her friends.",
+        "wrong": {
+          "A": "Selling food is not part of the story.",
+          "B": "Shirts are not the topic.",
+          "C": "Dana played in the game."
+        }
+      },
+      {
+        "stem": "Why did Hind smile and try again?",
+        "options": [
+          "She wanted to leave the game",
+          "Dana said kind words to her",
+          "The coach gave her a prize",
+          "The ball was easy to hit"
+        ],
+        "answer": "B",
+        "skill": "cause-effect",
+        "why": "Dana told Hind, \"Good try! Get the next one!\" and Hind smiled and tried again.",
+        "wrong": {
+          "A": "Hind stayed to play again.",
+          "C": "No prize is mentioned.",
+          "D": "Hind had just missed a hit."
+        }
+      },
+      {
+        "stem": "What can you tell about Dana from how she speaks to Hind?",
+        "options": [
+          "She is angry at her friends",
+          "She likes to win alone",
+          "She does not like the coach",
+          "She is kind to her teammates"
+        ],
+        "answer": "D",
+        "skill": "inference",
+        "why": "Dana cheers for Hind after a miss, which shows she is kind and helps her team.",
+        "wrong": {
+          "A": "Dana is not angry with Hind.",
+          "B": "Dana plays with the team, not alone.",
+          "C": "The story does not say that about the coach."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "How long had Coach Amal trained the volleyball team?",
+        "options": [
+          "One week",
+          "Two seasons",
+          "Ten years",
+          "One whole day"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The article says Coach Amal had trained the team for two seasons.",
+        "wrong": {
+          "A": "She had trained them longer than one week.",
+          "C": "Ten years is much longer than the text says.",
+          "D": "She trained them for much longer than a day."
+        }
+      },
+      {
+        "stem": "In the article, the word collided means —",
+        "options": [
+          "called out very loudly to others",
+          "ran away fast from the ball",
+          "hit hard against each other",
+          "jumped up high at the net"
+        ],
+        "answer": "C",
+        "skill": "vocabulary",
+        "why": "Two players ran for the same ball at once, so they crashed into each other.",
+        "wrong": {
+          "A": "Calling out is what stopped the problem.",
+          "B": "They ran toward the ball, not away.",
+          "D": "The word is about crashing, not jumping."
+        }
+      },
+      {
+        "stem": "Why did easy balls sometimes hit the floor?",
+        "options": [
+          "The net was too high",
+          "The players were too tired",
+          "Coach Amal stopped the game",
+          "No one called for the ball"
+        ],
+        "answer": "D",
+        "skill": "cause-effect",
+        "why": "The article says no one called out the ball, so no one moved for it.",
+        "wrong": {
+          "A": "The net is not mentioned.",
+          "B": "Tiredness is not given as a reason.",
+          "C": "The coach stopped the game later, at practice."
+        }
+      },
+      {
+        "stem": "Why does the author list the calls \"Mine!\" \"Switch!\" and \"Nice serve!\" in the match?",
+        "options": [
+          "To show the players talked and cheered throughout",
+          "To show that the players forgot all the rules",
+          "To explain how to serve a volleyball well",
+          "To show that the coach called every play"
+        ],
+        "answer": "A",
+        "skill": "author-purpose",
+        "why": "The calls show the girls talking, helping, and cheering all through the match.",
+        "wrong": {
+          "B": "The calls show they followed their new habit.",
+          "C": "The author does not teach serving.",
+          "D": "The girls called the plays themselves."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "According to the article, what did the players learn to do after every play?",
+        "options": [
+          "Argue with the referee",
+          "Support one another",
+          "Change places with the coach",
+          "Leave the court quickly"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The article says the players learned to support one another after every play, good or poor.",
+        "wrong": {
+          "A": "Arguing is not mentioned.",
+          "C": "The coach did not play.",
+          "D": "They stayed on the court to play."
+        }
+      },
+      {
+        "stem": "In the article, the word deficient most nearly means —",
+        "options": [
+          "not good enough",
+          "very loud",
+          "well planned",
+          "quite new"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "The article says the communication was deficient and it was costing the team points, so it was lacking.",
+        "wrong": {
+          "B": "Nothing says the team was loud, the problem was silence.",
+          "C": "A well planned team would not lose points this way.",
+          "D": "The problem was an old one, not a new one."
+        }
+      },
+      {
+        "stem": "What changed for teammates who had once blamed each other for mistakes?",
+        "options": [
+          "They stopped playing in matches",
+          "They asked the coach for a new team",
+          "They built real trust in each other",
+          "They moved to a new gym"
+        ],
+        "answer": "C",
+        "skill": "cause-effect",
+        "why": "The article says that supporting one another built genuine, lasting trust between teammates who had once blamed each other.",
+        "wrong": {
+          "A": "They played in the tournament.",
+          "B": "No new team is mentioned.",
+          "D": "A new gym is not mentioned."
+        }
+      },
+      {
+        "stem": "What can you infer caused the team to lose easy points early in the season?",
+        "options": [
+          "The players did not call out the ball",
+          "The coach did not come to practice",
+          "The net was set too high",
+          "The team had too few players"
+        ],
+        "answer": "A",
+        "skill": "inference",
+        "why": "No one called out the ball, so players collided or let easy balls drop, which cost the team points.",
+        "wrong": {
+          "B": "Coach Amal trained the team.",
+          "C": "The net is not described as a problem.",
+          "D": "The number of players is not the problem."
+        }
+      }
+    ]
   }
 }

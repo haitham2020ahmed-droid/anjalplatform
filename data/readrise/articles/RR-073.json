@@ -614,5 +614,217 @@
       ],
       "modelAnswer": "I believe the benefits of drones outweigh their risks. Drones that fly over farms can spot thirsty or diseased crops early, and others search for lost people or inspect dangerous structures, which clearly helps society in ways that save time and even lives. However, drones also create real risks, since a wayward drone near an airport could endanger an airplane, and cameras flying overhead raise questions about privacy. Because of risks like these, governments require regulation, such as registering every drone in Saudi Arabia, but with those rules in place the practical benefits are worth it."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "How can a man on the ground fly a drone?",
+        "options": [
+          "He holds a box with two sticks",
+          "He pulls it with a long rope",
+          "He shouts up at it loudly",
+          "He sits inside it and steers"
+        ],
+        "answer": "A",
+        "skill": "detail",
+        "why": "The text says he holds a box with two sticks.",
+        "wrong": {
+          "B": "No rope is mentioned.",
+          "C": "Shouting is not mentioned.",
+          "D": "The text says no one sits in a drone."
+        }
+      },
+      {
+        "stem": "What can drones take to sick people who live far off?",
+        "options": [
+          "Water bottles",
+          "Hot meals",
+          "Pills",
+          "Warm coats"
+        ],
+        "answer": "C",
+        "skill": "detail",
+        "why": "The text says drones can take pills to sick folks far off.",
+        "wrong": {
+          "A": "Water bottles are not mentioned.",
+          "B": "Hot meals are not mentioned.",
+          "D": "Coats are not mentioned."
+        }
+      },
+      {
+        "stem": "What rule does the text give for drones in Saudi Arabia?",
+        "options": [
+          "Each must be painted a bright color",
+          "Each must be put on an official list",
+          "Each must fly only late at night",
+          "Each must carry a pilot inside it"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The text says each drone in Saudi Arabia must be signed up, or registered, which puts it on an official list.",
+        "wrong": {
+          "A": "Paint color is not a rule in the text.",
+          "C": "The text does not say drones fly only at night.",
+          "D": "Drones have no pilot inside; they are flown from the ground."
+        }
+      },
+      {
+        "stem": "A farm is very big. Why is a drone with a camera helpful there?",
+        "options": [
+          "It can mow all the farm grass",
+          "It can milk all the farm cows",
+          "It can pick all the ripe fruit",
+          "It can see crops from above"
+        ],
+        "answer": "D",
+        "skill": "inference",
+        "why": "The text says a camera can see a lot from up high, so it helps farmers check crops.",
+        "wrong": {
+          "A": "Mowing is not mentioned.",
+          "B": "Milking is not mentioned.",
+          "C": "Picking fruit is not mentioned."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "How many propellers do most small drones have?",
+        "options": [
+          "Two",
+          "Four",
+          "Six",
+          "Eight"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The article says most small drones have four propellers.",
+        "wrong": {
+          "A": "Two is too few.",
+          "C": "The article says four.",
+          "D": "The article says four."
+        }
+      },
+      {
+        "stem": "The article says drones can \"inspect\" towers and bridges. What does inspect mean?",
+        "options": [
+          "Build from nothing",
+          "Paint a bright color",
+          "Break into small pieces",
+          "Look at closely to check"
+        ],
+        "answer": "D",
+        "skill": "vocabulary",
+        "why": "Drones look over towers and bridges so workers do not have to climb up to check them.",
+        "wrong": {
+          "A": "Drones do not build towers.",
+          "B": "Painting is not mentioned.",
+          "C": "Breaking is not mentioned."
+        }
+      },
+      {
+        "stem": "Why must drones stay away from airports?",
+        "options": [
+          "Airports are very, very noisy",
+          "Airports have no wind at all",
+          "They could be unsafe near planes",
+          "They cannot see well in them"
+        ],
+        "answer": "C",
+        "skill": "inference",
+        "why": "The article says drones must be flown safely and must stay away from airports, where large aircraft fly.",
+        "wrong": {
+          "A": "Noise is not given as the reason.",
+          "B": "Wind is not mentioned.",
+          "D": "The article does not say they cannot see."
+        }
+      },
+      {
+        "stem": "Why does the author begin by asking you to look up and listen?",
+        "options": [
+          "To get readers curious about drones",
+          "To teach readers to fly drones",
+          "To warn readers about loud noise",
+          "To show how birds sing"
+        ],
+        "answer": "A",
+        "skill": "author-purpose",
+        "why": "The opening asks you to notice a buzzing sound, which makes you curious about what a drone is.",
+        "wrong": {
+          "B": "The article does not teach flying.",
+          "C": "The sound is described as soft.",
+          "D": "Birds are not the topic."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "What limit does a drone's battery put on it?",
+        "options": [
+          "How loud the drone can be",
+          "How many cameras it can have",
+          "How far it can go before landing",
+          "How high the wind can blow"
+        ],
+        "answer": "C",
+        "skill": "detail",
+        "why": "The article says the battery typically lasts less than an hour, which limits how far a drone can travel before it must land.",
+        "wrong": {
+          "A": "Loudness is not linked to the battery.",
+          "B": "The number of cameras is not linked to the battery.",
+          "D": "Wind is not controlled by a battery."
+        }
+      },
+      {
+        "stem": "Governments make regulations about how drones may be flown. What are regulations?",
+        "options": [
+          "Large new drones",
+          "Faster batteries",
+          "Official rules",
+          "Strong cameras"
+        ],
+        "answer": "C",
+        "skill": "vocabulary",
+        "why": "Governments create rules about safety and privacy, such as registering drones and staying away from airports.",
+        "wrong": {
+          "A": "Drones are the things being controlled.",
+          "B": "Batteries are not mentioned here.",
+          "D": "Cameras are the reason for the concern."
+        }
+      },
+      {
+        "stem": "What happens to a drone's battery when it carries a heavy package?",
+        "options": [
+          "It becomes hot",
+          "It lasts much longer",
+          "It stops the wind",
+          "It drains more quickly"
+        ],
+        "answer": "D",
+        "skill": "cause-effect",
+        "why": "The article says a heavy package drains the battery more quickly.",
+        "wrong": {
+          "A": "Heat is not mentioned.",
+          "B": "The article says the opposite.",
+          "C": "A battery does not stop wind."
+        }
+      },
+      {
+        "stem": "Engineers are testing drone taxis that might carry passengers. What does this suggest?",
+        "options": [
+          "Drones may be used in new ways",
+          "Drones will soon be banned",
+          "Taxis are no longer needed",
+          "Drones can never carry weight"
+        ],
+        "answer": "A",
+        "skill": "inference",
+        "why": "Testing larger drones for passengers shows that drone uses may grow beyond what they do today.",
+        "wrong": {
+          "B": "The article says rules exist, not that drones will be banned.",
+          "C": "The article does not say taxis are not needed.",
+          "D": "The article says larger drones could carry heavier packages."
+        }
+      }
+    ]
   }
 }

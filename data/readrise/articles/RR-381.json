@@ -614,5 +614,217 @@
       ],
       "modelAnswer": "I agree that ordinary people can help protect wildlife without being experts, as long as they know their limits. In the story, Rakan could not safely climb the cliff or handle the chick himself, yet his quick decision to find Ranger Noura was essential to saving the eagle. Someone might argue that untrained people should simply stay away from wild animals entirely, but the story shows that noticing a problem and alerting an expert, as Rakan did, is itself a valuable form of conservation that keeps both people and wildlife safe."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "What did Ranger Noura find when she looked at the chick?",
+        "options": [
+          "It was not hurt.",
+          "Its wing was broken.",
+          "It was too cold.",
+          "It was very hungry."
+        ],
+        "answer": "A",
+        "skill": "detail",
+        "why": "The text says she looked at the chick and it was not hurt.",
+        "wrong": {
+          "B": "The text does not say a wing was broken.",
+          "C": "Cold is not mentioned.",
+          "D": "Hunger is not mentioned."
+        }
+      },
+      {
+        "stem": "Why was the small chick on the ground?",
+        "options": [
+          "It flew down to play.",
+          "Rakan had carried it there.",
+          "It fell from its high nest.",
+          "It was hiding from a dog."
+        ],
+        "answer": "C",
+        "skill": "cause-effect",
+        "why": "The text says the chick could not fly and fell from its nest high on the cliff.",
+        "wrong": {
+          "A": "The chick could not fly.",
+          "B": "Rakan did not touch the chick.",
+          "D": "Hiding is not in the story."
+        }
+      },
+      {
+        "stem": "In the story, what is a chick?",
+        "options": [
+          "A kind of rock",
+          "A thick glove",
+          "A small dog",
+          "A baby bird"
+        ],
+        "answer": "D",
+        "skill": "vocabulary",
+        "why": "Rakan finds a small eagle chick that cannot fly and has a mother eagle, so it is a baby bird.",
+        "wrong": {
+          "A": "The chick is an animal, not a rock.",
+          "B": "The gloves are worn by Noura.",
+          "C": "Rakan has a dog, but the chick is a bird."
+        }
+      },
+      {
+        "stem": "What happened after Ranger Noura put the chick back in its nest?",
+        "options": [
+          "The chick flew away at once.",
+          "The mother eagle came back soon.",
+          "The nest fell off the cliff.",
+          "Rakan climbed up the cliff."
+        ],
+        "answer": "B",
+        "skill": "cause-effect",
+        "why": "The text says the mother eagle came back soon after the chick was put back.",
+        "wrong": {
+          "A": "The chick could not fly.",
+          "C": "The nest stayed on the cliff.",
+          "D": "Ranger Noura climbed the cliff, not Rakan."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "What was Rakan doing when he heard the strange cry?",
+        "options": [
+          "Selling food at the village market",
+          "Climbing the cliff with a rope",
+          "Walking along the cliffs with his dog",
+          "Fishing at a river near the village"
+        ],
+        "answer": "C",
+        "skill": "detail",
+        "why": "Almost every evening Rakan walked along the cliffs with his dog, and that is when he heard the cry.",
+        "wrong": {
+          "A": "A market is not in the story.",
+          "B": "Rakan did not climb; Ranger Noura did.",
+          "D": "No river is mentioned."
+        }
+      },
+      {
+        "stem": "Ranger Noura says eagles play an important part in the ecosystem. What is an ecosystem?",
+        "options": [
+          "a nest high up on a cliff",
+          "all living things in one place",
+          "a kind of very large bird",
+          "a path for hikers in the hills"
+        ],
+        "answer": "B",
+        "skill": "vocabulary",
+        "why": "Eagles matter because they are part of the web of plants and animals living together in that place.",
+        "wrong": {
+          "A": "A nest is a home, not an ecosystem.",
+          "C": "An eagle is a bird; the ecosystem is much bigger.",
+          "D": "A path is not an ecosystem."
+        }
+      },
+      {
+        "stem": "Why did the mother eagle sit beside her chick when it came back?",
+        "options": [
+          "She was angry at the ranger",
+          "She wanted to guard her chick",
+          "She was hunting for lizards",
+          "She was trying to rest from flying"
+        ],
+        "answer": "B",
+        "skill": "inference",
+        "why": "The text says she sat protectively beside her chick, so she wanted to guard it.",
+        "wrong": {
+          "A": "The text does not say she was angry.",
+          "C": "She was caring for her chick, not hunting.",
+          "D": "Resting is not mentioned."
+        }
+      },
+      {
+        "stem": "Why did Rakan feel proud at the end of the story?",
+        "options": [
+          "He helped the eagle in a safe way",
+          "He climbed the cliff all by himself",
+          "He found a new nest for the chick",
+          "He taught Ranger Noura about eagles"
+        ],
+        "answer": "A",
+        "skill": "cause-effect",
+        "why": "He helped the little eagle in a safe way by trusting someone who understood nature.",
+        "wrong": {
+          "B": "Ranger Noura climbed the cliff.",
+          "C": "The chick went back to its own nest.",
+          "D": "Ranger Noura taught Rakan, not the other way around."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "According to the story, how good is an eagle's eyesight?",
+        "options": [
+          "Many times sharper than a person's",
+          "Best at seeing in the dark of night",
+          "Able to see right through the rocks",
+          "About as good as a person's eyesight"
+        ],
+        "answer": "A",
+        "skill": "detail",
+        "why": "The text says an eagle's eyesight is many times sharper than a human's.",
+        "wrong": {
+          "B": "The text does not say it works best at night.",
+          "C": "No one can see through rocks in the story.",
+          "D": "The text says it is far sharper."
+        }
+      },
+      {
+        "stem": "In the story, what does the word \"predators\" mean?",
+        "options": [
+          "Birds that only eat seeds",
+          "Animals that hunt other animals",
+          "Rangers who protect the nests",
+          "Chicks that have fallen down"
+        ],
+        "answer": "B",
+        "skill": "vocabulary",
+        "why": "Eagles are predators that hunt prey such as mice, lizards, and snakes.",
+        "wrong": {
+          "A": "Eagles hunt animals, not seeds.",
+          "C": "Rangers protect eagles; they are not predators.",
+          "D": "Fallen chicks are not predators."
+        }
+      },
+      {
+        "stem": "Why do rangers keep records of every known nesting site?",
+        "options": [
+          "To decide which chicks to take to the village",
+          "To tell farmers when to plant their crops",
+          "To keep track of nests and protect the eagles",
+          "To teach school children how to climb cliffs"
+        ],
+        "answer": "C",
+        "skill": "inference",
+        "why": "Rangers check on each nest a few times a year as part of keeping the species safe.",
+        "wrong": {
+          "A": "Rangers are not said to take chicks away.",
+          "B": "Farmers benefit from eagles, but the records are not for planting.",
+          "D": "Teaching children is not mentioned."
+        }
+      },
+      {
+        "stem": "Why does the author describe the eagles' eyesight and talons in the middle of the story?",
+        "options": [
+          "To show that Rakan wanted to become a ranger",
+          "To explain how the chick fell from its nest",
+          "To prove that eagles are not protected by law",
+          "To show why eagles are such skilled hunters"
+        ],
+        "answer": "D",
+        "skill": "author-purpose",
+        "why": "The details explain how eagles spot and catch prey, showing they are well suited to life on the cliffs.",
+        "wrong": {
+          "A": "Rakan's future job is not mentioned.",
+          "B": "The fall is explained earlier by the chick not being able to fly.",
+          "C": "Eagles are protected under the law."
+        }
+      }
+    ]
   }
 }

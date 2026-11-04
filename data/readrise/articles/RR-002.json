@@ -614,5 +614,217 @@
       ],
       "modelAnswer": "I disagree that desalination completely solves Saudi Arabia's water problem, so saving water still matters. Although desalination plants along the coasts can turn seawater into fresh water, this process requires enormous amounts of energy and cannot reach every region, especially towns located far from the coast that depend on an ancient aquifer that refills extremely slowly. In addition, natural precipitation and the condensation that forms dew are limited in this arid climate, so groundwater supplies are not easily replaced once they are used up. Because both desalinated water and natural groundwater are costly or slow to renew, I believe people should keep conserving water rather than assuming desalination alone will always be enough."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "Why do the drops in a cloud fall to the ground?",
+        "options": [
+          "They get big and fat.",
+          "They get hot and dry.",
+          "They turn into gas.",
+          "They hit the sun."
+        ],
+        "answer": "A",
+        "skill": "cause-effect",
+        "why": "The text says the drops bump, join, get big and fat, and then they fall.",
+        "wrong": {
+          "B": "The drops are cold up high, not hot and dry.",
+          "C": "Turning into gas is evaporation, which sends water up.",
+          "D": "The text never says drops hit the sun."
+        }
+      },
+      {
+        "stem": "What does some of the rain do after it lands?",
+        "options": [
+          "It turns into snow.",
+          "It sinks into the ground.",
+          "It goes back into a cloud.",
+          "It makes the sun hotter."
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The text says the rain runs to seas and lakes and some of it sinks in the ground.",
+        "wrong": {
+          "A": "Rain does not turn to snow after it lands.",
+          "C": "It must first be heated and evaporate to reach a cloud.",
+          "D": "Rain has no effect on the sun in the text."
+        }
+      },
+      {
+        "stem": "In this article, what does desalination mean?",
+        "options": [
+          "Making clouds from rain",
+          "Pulling water up from wells",
+          "Making dew on cool nights",
+          "Taking salt out of sea water"
+        ],
+        "answer": "D",
+        "skill": "vocabulary",
+        "why": "The text says big plants by the sea take the salt out of sea water, and that is desalination.",
+        "wrong": {
+          "A": "Clouds are made by condensation.",
+          "B": "Wells pull up water from the ground, which is different.",
+          "C": "Dew forms by itself on cool nights."
+        }
+      },
+      {
+        "stem": "Which step comes right after condensation?",
+        "options": [
+          "Evaporation",
+          "Desalination",
+          "Precipitation",
+          "Dew"
+        ],
+        "answer": "C",
+        "skill": "sequence",
+        "why": "After the drops form a cloud, they join, get big and fall; this step is precipitation.",
+        "wrong": {
+          "A": "Evaporation comes before condensation.",
+          "B": "Desalination is not a step of the water cycle.",
+          "D": "Dew is not a step in the cycle."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "What is a wadi, according to the article?",
+        "options": [
+          "A kind of cloud",
+          "A large plant that makes water",
+          "A dry valley that can fill fast",
+          "A well in the desert"
+        ],
+        "answer": "C",
+        "skill": "detail",
+        "why": "The text calls wadis dry valleys that can suddenly fill with rushing water after a storm.",
+        "wrong": {
+          "A": "Clouds are made of droplets, not wadis.",
+          "B": "Desalination plants make fresh water; wadis do not.",
+          "D": "A wadi is a valley, not a well."
+        }
+      },
+      {
+        "stem": "In this article, what does the word condenses mean?",
+        "options": [
+          "It turns from a gas into drops",
+          "It turns from ice into a gas",
+          "It sinks into the soil slowly",
+          "It flows into the ocean fast"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "The article says vapor condenses, which means it changes back into tiny droplets of liquid water.",
+        "wrong": {
+          "B": "Ice is not mentioned in that sentence.",
+          "C": "Sinking into the soil is called seeping.",
+          "D": "Flowing into the ocean is part of collection."
+        }
+      },
+      {
+        "stem": "What makes the droplets in a cloud fall to Earth?",
+        "options": [
+          "The wind blows them down.",
+          "The sun pulls them down.",
+          "They grow too heavy to float.",
+          "They get too warm to stay."
+        ],
+        "answer": "C",
+        "skill": "cause-effect",
+        "why": "The article says the droplets join, and when they grow too heavy to float, they fall.",
+        "wrong": {
+          "A": "Wind is not given as the cause.",
+          "B": "The sun powers the cycle but does not pull drops down.",
+          "D": "The drops are in cold air, not too warm."
+        }
+      },
+      {
+        "stem": "The last sentence says your water may once have floated in a cloud over a faraway sea. What does this show?",
+        "options": [
+          "Water is used again and again.",
+          "Clouds only form over the sea.",
+          "Drinking water is always salty.",
+          "Seas are close to every home."
+        ],
+        "answer": "A",
+        "skill": "inference",
+        "why": "Because the water cycle never stops, the same water moves around and can reach people far away.",
+        "wrong": {
+          "B": "The text says clouds form from vapor over oceans, lakes and rivers.",
+          "C": "The vapor from seawater is fresh water.",
+          "D": "The sea is called faraway, so it is not close."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "In this article, what is an aquifer?",
+        "options": [
+          "A dry valley that suddenly fills in storms",
+          "Rock and sand that hold underground water",
+          "A plant by the sea that makes fresh water",
+          "A cloud made of salt and dust in the sky"
+        ],
+        "answer": "B",
+        "skill": "vocabulary",
+        "why": "The article says layers of rock and sand that hold underground water are called aquifers.",
+        "wrong": {
+          "A": "That describes a wadi.",
+          "C": "That describes a desalination plant.",
+          "D": "Clouds are made of water droplets that form around dust or salt."
+        }
+      },
+      {
+        "stem": "Why does the total amount of water on Earth stay almost the same?",
+        "options": [
+          "Rain adds new water each year.",
+          "The ocean makes more water daily.",
+          "Plants make water in their leaves.",
+          "The cycle recycles the same water."
+        ],
+        "answer": "D",
+        "skill": "cause-effect",
+        "why": "The article says the cycle recycles the same water, so the total stays almost the same.",
+        "wrong": {
+          "A": "Rain is part of the cycle and does not create new water.",
+          "B": "The ocean does not make new water in the text.",
+          "C": "Plants only release vapor; they do not create water."
+        }
+      },
+      {
+        "stem": "What can you infer about wadis from the article?",
+        "options": [
+          "They are usually empty but can flood.",
+          "They are full of water all year.",
+          "They are found only along the coast.",
+          "They are made by desalination plants."
+        ],
+        "answer": "A",
+        "skill": "inference",
+        "why": "They are called dry valleys that suddenly fill with rushing water after a powerful storm.",
+        "wrong": {
+          "B": "They are dry valleys, so not full all year.",
+          "C": "The article places wadis in a dry land, not on the coast.",
+          "D": "Wadis are valleys; plants do not make them."
+        }
+      },
+      {
+        "stem": "What happens to the salt when seawater evaporates?",
+        "options": [
+          "It rises in the vapor.",
+          "It falls with the rain.",
+          "It turns into dust.",
+          "It stays in the ocean."
+        ],
+        "answer": "D",
+        "skill": "detail",
+        "why": "The text says the dissolved salt remains behind in the ocean, so the vapor is fresh water.",
+        "wrong": {
+          "A": "The vapor is fresh, so the salt does not rise.",
+          "B": "Rain is fresh water because the salt stays behind.",
+          "C": "The text does not say salt turns into dust."
+        }
+      }
+    ]
   }
 }

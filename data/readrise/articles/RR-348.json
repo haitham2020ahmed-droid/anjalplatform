@@ -614,5 +614,217 @@
       ],
       "modelAnswer": "The Arabian Peninsula is largely arid because several geographic mechanisms act together rather than any single cause acting alone. According to the article, prevailing winds that reach the peninsula have typically already deposited much of their moisture elsewhere, meaning there is simply less water vapor left to fall as precipitation by the time the air arrives. Surrounding mountain ranges add to this effect by intercepting whatever moisture does remain, creating rain shadow conditions on their leeward sides and preventing that moisture from reaching the interior. Finally, the intense and nearly constant solar heating described in the article rapidly evaporates the small amounts of water that do arrive, leaving the land dry even when brief rain does fall. Together, these overlapping mechanisms, rather than any one factor in isolation, explain why the Arabian Peninsula remains one of the most arid regions on Earth."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "What does the wind do with the water it picks up?",
+        "options": [
+          "It blows the water far",
+          "It hides the water in sand",
+          "It sends the water to the sun",
+          "It keeps the water in the sea"
+        ],
+        "answer": "A",
+        "skill": "detail",
+        "why": "The text says wind picks up the water and blows it far.",
+        "wrong": {
+          "B": "The text does not say wind hides water in sand.",
+          "C": "The sun dries the land; wind does not send water to it.",
+          "D": "The wind takes the water from the sea."
+        }
+      },
+      {
+        "stem": "How is wind over warm sea water different from wind over cold sea water?",
+        "options": [
+          "It holds more water",
+          "It holds less water",
+          "It blows much slower",
+          "It is much colder"
+        ],
+        "answer": "A",
+        "skill": "compare",
+        "why": "The text says warm sea water gives wind more water, and cold sea water gives less.",
+        "wrong": {
+          "B": "That describes wind over cold sea water.",
+          "C": "The text does not talk about wind speed.",
+          "D": "The text does not say the wind is colder."
+        }
+      },
+      {
+        "stem": "What can you tell about the air at the top of a tall mountain?",
+        "options": [
+          "It is cooler than the air below",
+          "It is warmer than the air below",
+          "It is full of sand",
+          "It has no wind at all"
+        ],
+        "answer": "A",
+        "skill": "inference",
+        "why": "The text says the air gets cool as it goes up the mountain.",
+        "wrong": {
+          "B": "The air cools as it goes up, so it is not warmer.",
+          "C": "Sand is not linked to mountain air in the text.",
+          "D": "The wind rises up the mountain, so there is wind."
+        }
+      },
+      {
+        "stem": "In the text, the word rise means to —",
+        "options": [
+          "go down",
+          "stay still",
+          "turn round",
+          "go up"
+        ],
+        "answer": "D",
+        "skill": "vocabulary",
+        "why": "The wet wind hits a mountain and goes up it, so rise means go up.",
+        "wrong": {
+          "A": "Going down is the opposite of rise.",
+          "B": "The wind must move, not stay still.",
+          "C": "The wind goes up, not round."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "What happens to the air as it climbs a tall mountain?",
+        "options": [
+          "It gets hotter",
+          "It turns into sand",
+          "It cools down",
+          "It stops moving"
+        ],
+        "answer": "C",
+        "skill": "detail",
+        "why": "The text says that as the air climbs, it cools down.",
+        "wrong": {
+          "A": "The air cools, not heats.",
+          "B": "The text does not say air turns to sand.",
+          "D": "The wind keeps moving up and over the mountain."
+        }
+      },
+      {
+        "stem": "In the article, the word condense means to —",
+        "options": [
+          "blow away very fast",
+          "dry up in the hot sun",
+          "become drops of water",
+          "fly over a tall mountain"
+        ],
+        "answer": "C",
+        "skill": "vocabulary",
+        "why": "The vapor condenses and then falls as rain, so it turns into drops of water.",
+        "wrong": {
+          "A": "Condense is not about speed.",
+          "B": "Drying up is the sun's work on land.",
+          "D": "The wind flies over the mountain, not the vapor itself."
+        }
+      },
+      {
+        "stem": "Why does the hot sun make dry sands even drier?",
+        "options": [
+          "It sends more wind to them",
+          "It dries the last water",
+          "It brings rain from the ocean",
+          "It cools the air above them"
+        ],
+        "answer": "B",
+        "skill": "cause-effect",
+        "why": "The text says the hot sun dries out what little water remains.",
+        "wrong": {
+          "A": "The text does not say the sun sends wind.",
+          "C": "The sun does not bring rain.",
+          "D": "The sun is hot, so it does not cool the air."
+        }
+      },
+      {
+        "stem": "Why does the author begin with a question about wet and dry regions?",
+        "options": [
+          "To list the biggest oceans",
+          "To pose a puzzle to solve",
+          "To tell readers where to travel",
+          "To show that rain is bad"
+        ],
+        "answer": "B",
+        "skill": "author-purpose",
+        "why": "The opening asks what explains the big difference, and the rest of the article answers it.",
+        "wrong": {
+          "A": "The article does not list oceans.",
+          "C": "The article is not about travel.",
+          "D": "The article does not say rain is bad."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "According to the article, why does air cool as it climbs?",
+        "options": [
+          "Pressure drops at higher altitude",
+          "The sun is weaker over mountains",
+          "Ocean currents are colder there",
+          "Moist wind turns into sand"
+        ],
+        "answer": "A",
+        "skill": "cause-effect",
+        "why": "The article says air cools as it climbs because pressure drops at higher altitude.",
+        "wrong": {
+          "B": "The article does not say the sun is weaker there.",
+          "C": "Ocean currents affect coasts, not the climbing air.",
+          "D": "Wind does not turn into sand."
+        }
+      },
+      {
+        "stem": "According to the article, what mostly drives evaporation from the ocean?",
+        "options": [
+          "Winds from the mountains",
+          "The sun's heat on the sea",
+          "Rain falling on the sea",
+          "Cold ocean currents"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The article says evaporation is driven mostly by the sun's heat on the sea.",
+        "wrong": {
+          "A": "Winds carry the vapor but do not drive evaporation.",
+          "C": "Rain is the result of vapor, not the cause of evaporation.",
+          "D": "Cold currents give wind less moisture."
+        }
+      },
+      {
+        "stem": "In the last paragraph, the word arid means —",
+        "options": [
+          "very dry",
+          "cool and windy",
+          "full of lakes",
+          "covered in rain"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "The paragraph explains that the sun dries whatever little water arrives, so arid means very dry.",
+        "wrong": {
+          "B": "The paragraph talks about sun, not cool wind.",
+          "C": "The region has very little water.",
+          "D": "The region gets little rain."
+        }
+      },
+      {
+        "stem": "If the sun's heat on the sea became weaker, what would most likely happen?",
+        "options": [
+          "More vapor would rise into the air",
+          "The sea would produce less vapor",
+          "Mountains would become taller",
+          "Rain shadows would turn to oceans"
+        ],
+        "answer": "B",
+        "skill": "inference",
+        "why": "Evaporation is driven by the sun's heat, so weaker heat means less vapor.",
+        "wrong": {
+          "A": "Weaker heat would not add vapor.",
+          "C": "The sun does not change mountain height.",
+          "D": "Nothing in the article says this would happen."
+        }
+      }
+    ]
   }
 }

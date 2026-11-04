@@ -99,11 +99,16 @@ export function fitOf(textLevel: number, studentLevel: number): Fit {
   return d > FIT_BAND ? "STRETCH" : d < -FIT_BAND ? "EASY" : "EXACT";
 }
 
+/** chooseVersion's window: an alternative version is taken only within ± this many points of the nominal pick. */
+export const CHOOSE_WINDOW = 50;
+
 /**
  * The version to show, using each version's MEASURED level: among the nominal pick (versionFor) and its two
  * neighbours, the one whose measured level is closest to the student's level (a text measuring more than 50 above
  * the student counts 1.5× as far: a little easy beats too hard). Ties keep the nominal pick, so when every text
- * measures at its target this is exactly versionFor. Never more than one version away from the nominal pick.
+ * measures at its target this is exactly versionFor. Round 5 (owner): an alternative is only taken within ±CHOOSE_WINDOW
+ * (50, was 100) of the nominal pick, so with the standard 100-point versions every card is the student's own level
+ * (the version's measured difficulty is shown small, "text ≈1390").
  */
 export function chooseVersion(studentLevel: number, versions: MeasuredVersion[]): number {
   if (!versions.length) return RR_MIN;
@@ -111,7 +116,7 @@ export function chooseVersion(studentLevel: number, versions: MeasuredVersion[])
   const cost = (v: MeasuredVersion) => { const m = measuredLevel(v), d = m - studentLevel; return d > 50 ? d * 1.5 : Math.abs(d); };
   let best = versions.find((v) => Number(v.level) === nominal)!, bestCost = cost(best);
   for (const v of versions) {
-    if (Math.abs(Number(v.level) - nominal) > 100 || Number(v.level) === nominal) continue;
+    if (Math.abs(Number(v.level) - nominal) > CHOOSE_WINDOW || Number(v.level) === nominal) continue;
     const c = cost(v);
     if (c < bestCost) { best = v; bestCost = c; }
   }

@@ -614,5 +614,217 @@
       ],
       "modelAnswer": "I believe mastering a difficult traditional art like thuluth calligraphy is worth years of practice. Maha's story shows how much meticulous effort the script demanded, since she had to control the pen's exact angle and pressure for every letter, something that usually takes years to develop. Her patience eventually paid off: her piece was praised by the exhibition curator for its balanced composition and confident lines, connecting her personally to a centuries-old heritage tradition. Someone might argue that spending so many months on one skill is not worth the effort, but Maha's finished page proves that disciplined practice can produce lasting, meaningful art that few people ever achieve."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "Where did Master Nasser write?",
+        "options": [
+          "In a small shop",
+          "In a big school",
+          "In Maha's home",
+          "In a museum"
+        ],
+        "answer": "A",
+        "skill": "detail",
+        "why": "The text says Master Nasser wrote in a small shop.",
+        "wrong": {
+          "B": "The text does not say he wrote in a school.",
+          "C": "He wrote in his shop, not in Maha's home.",
+          "D": "A museum is not mentioned as his place of work."
+        }
+      },
+      {
+        "stem": "What did Maha get so she could start to write?",
+        "options": [
+          "A brush and red paint",
+          "A reed pen and black ink",
+          "A pencil and blue ink",
+          "A feather and gold ink"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The text says she got a pen made of reed and black ink.",
+        "wrong": {
+          "A": "She did not get a brush or red paint.",
+          "C": "She did not get a pencil or blue ink.",
+          "D": "She did not get a feather or gold ink."
+        }
+      },
+      {
+        "stem": "In the story, what does the word practice mean?",
+        "options": [
+          "Showing work to a crowd",
+          "Buying new pens and ink",
+          "Doing it again and again",
+          "Resting after a long day"
+        ],
+        "answer": "C",
+        "skill": "vocabulary",
+        "why": "The text says Maha filled page after page again and again, and calls this practice.",
+        "wrong": {
+          "A": "Showing work to a crowd happened later at the show.",
+          "B": "Buying things is not what the text calls practice.",
+          "D": "Maha worked every day, so practice is not resting."
+        }
+      },
+      {
+        "stem": "What does the story show about Maha?",
+        "options": [
+          "She was afraid of Master Nasser.",
+          "She did not like her messy lines.",
+          "She gave up when work was hard.",
+          "She kept on trying."
+        ],
+        "answer": "D",
+        "skill": "inference",
+        "why": "Even when her lines were messy and she felt sad, the text says she did not stop and came back every day.",
+        "wrong": {
+          "A": "The text does not show that she feared him.",
+          "B": "She felt sad, but she kept working on them.",
+          "C": "The text says she did not stop."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "In the story, an apprentice is someone who —",
+        "options": [
+          "sells art to visitors",
+          "learns from an expert",
+          "judges art at a show",
+          "makes pens and ink"
+        ],
+        "answer": "B",
+        "skill": "vocabulary",
+        "why": "Master Nasser took Maha on as his apprentice and she learned calligraphy from him.",
+        "wrong": {
+          "A": "Maha did not sell art; her page was shown in an exhibition.",
+          "C": "Maha was learning, not judging.",
+          "D": "Maha received a pen and ink; she did not make them."
+        }
+      },
+      {
+        "stem": "For how long had people admired thuluth calligraphy?",
+        "options": [
+          "For hundreds of years",
+          "For only a few weeks",
+          "For about twenty years",
+          "For one afternoon"
+        ],
+        "answer": "A",
+        "skill": "detail",
+        "why": "The text says people had admired this kind of calligraphy for hundreds of years.",
+        "wrong": {
+          "B": "Weeks is how long Maha took to improve her hand, not how long people admired thuluth.",
+          "C": "Twenty years is not mentioned in the text.",
+          "D": "One afternoon is when Maha wrote sabr, not the history of thuluth."
+        }
+      },
+      {
+        "stem": "Why did Maha's arm grow tired in the shop?",
+        "options": [
+          "The reed pen was very heavy.",
+          "Master Nasser made her stand all day.",
+          "She walked a long way each day.",
+          "She repeated each stroke many times."
+        ],
+        "answer": "D",
+        "skill": "cause-effect",
+        "why": "The text says she repeated each stroke many times until her arm grew tired.",
+        "wrong": {
+          "A": "The pen is described as thin, not heavy.",
+          "B": "The text does not say he made her stand.",
+          "C": "Walking is not given as the reason."
+        }
+      },
+      {
+        "stem": "What does the last sentence suggest about patience?",
+        "options": [
+          "It is only useful for writing one word.",
+          "It makes a person work more slowly.",
+          "It helped Maha grow as a person too.",
+          "It is the same as being lucky."
+        ],
+        "answer": "C",
+        "skill": "inference",
+        "why": "The text says patience shaped both the word on the page and the artist who wrote it, so it changed Maha too.",
+        "wrong": {
+          "A": "The text says patience shaped the artist, not just one word.",
+          "B": "The text does not link patience with being slow.",
+          "D": "Maha's success came from patience and practice, not luck."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "For about how long had Master Nasser practiced his craft?",
+        "options": [
+          "For a few months",
+          "For one year",
+          "For over thirty years",
+          "For about ten years"
+        ],
+        "answer": "C",
+        "skill": "detail",
+        "why": "The text says he had practiced his craft for more than thirty years in his small shop.",
+        "wrong": {
+          "A": "A few months is how long Maha's improvement took, not Nasser's career.",
+          "B": "One year is not mentioned.",
+          "D": "Ten years is not mentioned."
+        }
+      },
+      {
+        "stem": "In the story, the word discouraged means —",
+        "options": [
+          "less hopeful and less confident",
+          "proud of what one has done",
+          "calm and ready to learn",
+          "eager to show work to others"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "Maha felt discouraged because she improved slowly and her classmates teased her, so she lost some hope.",
+        "wrong": {
+          "B": "Maha felt proud later, after the exhibition.",
+          "C": "Calm does not fit how she felt about her slow progress.",
+          "D": "She was upset, not eager to show her early work."
+        }
+      },
+      {
+        "stem": "Why did Maha feel discouraged at first?",
+        "options": [
+          "She disliked the shape of the Arabic letters.",
+          "Master Nasser was strict and unkind with her.",
+          "She improved slowly and was teased.",
+          "The reed pen and ink were poor quality."
+        ],
+        "answer": "C",
+        "skill": "cause-effect",
+        "why": "The text says she felt discouraged by how slowly she improved and because classmates teased her.",
+        "wrong": {
+          "A": "She loved the shapes of Arabic letters.",
+          "B": "The text says he gave patient, meticulous feedback.",
+          "D": "The text says nothing bad about her pen or ink."
+        }
+      },
+      {
+        "stem": "Why did Master Nasser remind Maha that rushing only made mistakes more likely?",
+        "options": [
+          "He wanted her to finish her pages sooner.",
+          "He wanted her to work slowly and carefully.",
+          "He wanted her to stop practicing so often.",
+          "He wanted her to write in a different script."
+        ],
+        "answer": "B",
+        "skill": "inference",
+        "why": "His reminder shows that careful, unhurried work leads to fewer mistakes, which fits the control thuluth demands.",
+        "wrong": {
+          "A": "Rushing is what he warned against, so he did not want faster pages.",
+          "C": "The text shows he supported her daily practice.",
+          "D": "The text does not say he wanted her to change scripts."
+        }
+      }
+    ]
   }
 }

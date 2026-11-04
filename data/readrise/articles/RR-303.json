@@ -614,5 +614,217 @@
       ],
       "modelAnswer": "I disagree that traditions like burning bakhoor are fading away. First, the article explains that bakhoor remains central to hospitality rituals today, since hosts still carry a lit burner from room to room to welcome guests without saying a word. Second, the article notes that trained artisans continue to guard their signature blends as family heritage, refining recipes across generations rather than abandoning them. Because this ritual still shapes everyday hospitality and is actively preserved by skilled artisans, I think bakhoor remains a living tradition rather than a fading one."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "The text says a rare wood is oud. What does rare mean?",
+        "options": [
+          "Very hot to touch",
+          "Not easy to find",
+          "Very old and worn",
+          "Cheap to buy"
+        ],
+        "answer": "B",
+        "skill": "vocabulary",
+        "why": "Oud is a special wood that makes bakhoor rich, so rare means it is not easy to find.",
+        "wrong": {
+          "A": "The text does not talk about heat when it names oud.",
+          "C": "Rare is about how few there are, not about age.",
+          "D": "The text says nothing about cost."
+        }
+      },
+      {
+        "stem": "How may each home make its bakhoor?",
+        "options": [
+          "With a spray can",
+          "By buying the same one",
+          "In its own way",
+          "With only one recipe"
+        ],
+        "answer": "C",
+        "skill": "detail",
+        "why": "The text says each home may mix bakhoor its own way.",
+        "wrong": {
+          "A": "The text says bakhoor needs no spray can.",
+          "B": "Homes mix their own, so they do not all buy one.",
+          "D": "Each home mixes its own, so there is more than one recipe."
+        }
+      },
+      {
+        "stem": "What happens right after bakhoor goes on top of the hot coals?",
+        "options": [
+          "The coals get cold",
+          "The burner is put away",
+          "The guest goes home",
+          "The smoke goes up"
+        ],
+        "answer": "D",
+        "skill": "sequence",
+        "why": "The text says bakhoor goes on top, and then smoke goes up.",
+        "wrong": {
+          "A": "The coals are hot, and the text does not say they get cold.",
+          "B": "The burner is used to fill the room, so it stays out.",
+          "C": "The text does not say the guest goes home."
+        }
+      },
+      {
+        "stem": "Why do you think people still burn bakhoor today?",
+        "options": [
+          "They like its rich scent and old custom",
+          "A law says every home must burn it daily",
+          "They have no other way to clean a room",
+          "It is the only wood that they can buy"
+        ],
+        "answer": "A",
+        "skill": "inference",
+        "why": "The text says people burned bakhoor long ago and still do, and that it has a rich scent and is a warm act.",
+        "wrong": {
+          "B": "The text does not mention any law.",
+          "C": "Bakhoor is about scent, and the text does not say it cleans.",
+          "D": "The text does not say it is the only wood."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "When do many homes burn a rich blend of bakhoor?",
+        "options": [
+          "On holidays",
+          "Only in the summer",
+          "When it rains",
+          "Every night"
+        ],
+        "answer": "A",
+        "skill": "detail",
+        "why": "The article says that on holidays, many homes burn a rich blend to mark the moment.",
+        "wrong": {
+          "B": "The article does not link bakhoor to summer.",
+          "C": "The article does not link bakhoor to rain.",
+          "D": "The article does not say it is burned every night."
+        }
+      },
+      {
+        "stem": "What happens when the bakhoor chips warm on the glowing coals?",
+        "options": [
+          "The hot coals slowly turn into resin",
+          "The wood chips quickly turn into oud",
+          "Smoke rises and spreads in the room",
+          "The small burner cools down very fast"
+        ],
+        "answer": "C",
+        "skill": "cause-effect",
+        "why": "The article says that as the chips warm, smoke rises and spreads through the room.",
+        "wrong": {
+          "A": "Coals do not turn into resin in the article.",
+          "B": "Oud is a resin from a tree, not made in the burner.",
+          "D": "The coals keep glowing while the chips warm."
+        }
+      },
+      {
+        "stem": "Why do people in Arabia burn bakhoor when guests visit?",
+        "options": [
+          "To argue with them",
+          "To show respect to them",
+          "To hide away from them",
+          "To ask them for money"
+        ],
+        "answer": "B",
+        "skill": "inference",
+        "why": "Bakhoor is part of hospitality, so burning it to honor guests means showing them respect.",
+        "wrong": {
+          "A": "Burning bakhoor is a kind welcome, not an argument.",
+          "C": "People welcome guests; they do not hide from them.",
+          "D": "Money is not part of the custom."
+        }
+      },
+      {
+        "stem": "What can you conclude about a host who carries the lit burner through the room?",
+        "options": [
+          "The host wants to put out all the coals",
+          "The host wants to leave the room alone",
+          "The host is trying to hide a bad smell",
+          "The host wants each guest to enjoy it"
+        ],
+        "answer": "D",
+        "skill": "inference",
+        "why": "The article says the host carries the burner so everyone can enjoy the scent, which shows care for all guests.",
+        "wrong": {
+          "A": "The coals are lit on purpose to give off scent.",
+          "B": "The host is moving through the room with the guests.",
+          "C": "The article presents bakhoor as a welcome, not a cover-up."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "According to the article, what are bakhoor burners often made of?",
+        "options": [
+          "Wood, resin, or oil",
+          "Glass, steel, or stone",
+          "Wax, paper, or cloth",
+          "Brass, silver, or clay"
+        ],
+        "answer": "D",
+        "skill": "detail",
+        "why": "The article says the small burner is often made of brass, silver, or clay.",
+        "wrong": {
+          "A": "Wood, resin, and oil are what bakhoor itself is made from.",
+          "B": "These materials are not named in the article.",
+          "C": "These materials would burn and are not named in the article."
+        }
+      },
+      {
+        "stem": "The article says oud is prized by \"connoisseurs.\" What is a connoisseur?",
+        "options": [
+          "An expert who deeply values fine things",
+          "A trader who buys wood in large amounts",
+          "A worker who gathers resin from trees",
+          "A guest who visits a home for the first time"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "Connoisseurs prize oud's warm, rounded note highly, which describes people who know and value quality.",
+        "wrong": {
+          "B": "The article does not say these people trade wood.",
+          "C": "Gatherers harvest oud, but connoisseurs are the ones who prize it.",
+          "D": "Prizing oud takes knowledge, not just a first visit."
+        }
+      },
+      {
+        "stem": "Why is oud gathered with great care and patience?",
+        "options": [
+          "Its trees grow in every region",
+          "Its resin spoils in the heat quickly",
+          "Good trees are difficult to find",
+          "Its smoke is harmful to gatherers"
+        ],
+        "answer": "C",
+        "skill": "cause-effect",
+        "why": "The article says good trees are difficult to find, so the resin is gathered carefully.",
+        "wrong": {
+          "A": "The article says the tree grows in only a handful of regions.",
+          "B": "The article never says the resin spoils.",
+          "D": "The article does not say the smoke is harmful."
+        }
+      },
+      {
+        "stem": "What can you infer from the fact that rich bakhoor is burned at holidays and weddings?",
+        "options": [
+          "Bakhoor is only ever used by the guests",
+          "It is linked with happy, important times",
+          "It is too costly to use on normal days",
+          "It is only used to end a celebration"
+        ],
+        "answer": "B",
+        "skill": "inference",
+        "why": "The article says households burn an unusually rich blend at these times, almost as a form of celebration.",
+        "wrong": {
+          "A": "The article shows hosts burning it for guests, not guests using it.",
+          "C": "The article does not discuss cost for normal days.",
+          "D": "The article says it marks the occasion, not its end."
+        }
+      }
+    ]
   }
 }

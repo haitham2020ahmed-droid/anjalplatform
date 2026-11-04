@@ -614,5 +614,217 @@
         }
       ]
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "How do the men carry their water?",
+        "options": [
+          "In big jars",
+          "In bags",
+          "In small cups",
+          "In pots"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The text says they put water in bags.",
+        "wrong": {
+          "A": "Big jars are not mentioned.",
+          "C": "Small cups are not mentioned.",
+          "D": "Pots are not mentioned."
+        }
+      },
+      {
+        "stem": "In the story, a leak is a place where water —",
+        "options": [
+          "gets very hot",
+          "turns into sand",
+          "slowly gets out",
+          "is kept clean"
+        ],
+        "answer": "C",
+        "skill": "vocabulary",
+        "why": "A man's bag had a leak and his water was almost gone, so a leak lets water out.",
+        "wrong": {
+          "A": "Heat is not what a leak means.",
+          "B": "Water does not turn into sand.",
+          "D": "A leak does not keep water clean."
+        }
+      },
+      {
+        "stem": "Why did the men stop when the wind came?",
+        "options": [
+          "Sand flew all around",
+          "They wanted to eat",
+          "The camels were tired",
+          "It began to rain"
+        ],
+        "answer": "A",
+        "skill": "cause-effect",
+        "why": "The wind blew sand all around, so the men stopped and waited.",
+        "wrong": {
+          "B": "Eating is not the reason.",
+          "C": "The text does not say the camels were tired.",
+          "D": "It did not rain in the story."
+        }
+      },
+      {
+        "stem": "Why does Dad show Faisal one star?",
+        "options": [
+          "To make him go to sleep",
+          "To tell him a funny story",
+          "To count the stars with him",
+          "To teach him the way"
+        ],
+        "answer": "D",
+        "skill": "inference",
+        "why": "Dad says they walk toward that star, so he is teaching Faisal to find the way.",
+        "wrong": {
+          "A": "The star is not shown for sleep.",
+          "B": "The star is not part of a funny story.",
+          "C": "They do not count stars."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "For about how long had the route been used by merchants?",
+        "options": [
+          "Hundreds of years",
+          "Just a few short weeks",
+          "Only about one year",
+          "Close to ten days"
+        ],
+        "answer": "A",
+        "skill": "detail",
+        "why": "The text says the route had been used by merchants for hundreds of years.",
+        "wrong": {
+          "B": "A few weeks is far too short.",
+          "C": "One year is far too short.",
+          "D": "Ten days is far too short."
+        }
+      },
+      {
+        "stem": "In the story, landmarks are —",
+        "options": [
+          "tools for digging wells",
+          "bags for water",
+          "things that guide travelers",
+          "stories told by merchants"
+        ],
+        "answer": "C",
+        "skill": "vocabulary",
+        "why": "A rock shaped like a camel's head is a landmark that helps the men know where they are.",
+        "wrong": {
+          "A": "Landmarks are not tools.",
+          "B": "Landmarks are not bags.",
+          "D": "Landmarks are things to see, not stories."
+        }
+      },
+      {
+        "stem": "Why did the caravan stop in the strong wind?",
+        "options": [
+          "The camels had run away",
+          "The men could not see the landmarks",
+          "The merchants wanted to sell goods",
+          "Faisal got sick"
+        ],
+        "answer": "B",
+        "skill": "cause-effect",
+        "why": "Sand filled the air, so the men could not see the landmarks they used to find their way.",
+        "wrong": {
+          "A": "The camels did not run away.",
+          "C": "They were in the desert, not at a market.",
+          "D": "Faisal's health is not mentioned."
+        }
+      },
+      {
+        "stem": "What does \"No one crosses this desert alone\" mean?",
+        "options": [
+          "The desert is not hot",
+          "Camels cannot walk alone",
+          "Merchants must not talk",
+          "Travelers need each other"
+        ],
+        "answer": "D",
+        "skill": "inference",
+        "why": "The other traders shared water with the merchant, which shows travelers rely on one another.",
+        "wrong": {
+          "A": "The desert is described as hot and dry.",
+          "B": "The sentence is about people, not camels.",
+          "C": "Nothing says merchants must not talk."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "What did Faisal help sell at the market town?",
+        "options": [
+          "Frankincense",
+          "Fresh water",
+          "Camels",
+          "Dates"
+        ],
+        "answer": "A",
+        "skill": "detail",
+        "why": "The text says Faisal proudly helped sell the frankincense they had carried.",
+        "wrong": {
+          "B": "Water was kept for the trip, not sold.",
+          "C": "Selling camels is not mentioned.",
+          "D": "Dates are not mentioned."
+        }
+      },
+      {
+        "stem": "In the story, the word scarce most nearly means —",
+        "options": [
+          "easy to carry",
+          "hard to find",
+          "very dirty",
+          "very loud"
+        ],
+        "answer": "B",
+        "skill": "vocabulary",
+        "why": "Water was hard to find for long stretches, so scarce means hard to find.",
+        "wrong": {
+          "A": "The text does not talk about carrying ease.",
+          "C": "Dirt is not mentioned.",
+          "D": "Water has no loudness."
+        }
+      },
+      {
+        "stem": "Why did the men use every drop of water with great care?",
+        "options": [
+          "They did not like the taste",
+          "The camels drank too much",
+          "The wells were full",
+          "They might not reach more"
+        ],
+        "answer": "D",
+        "skill": "cause-effect",
+        "why": "They were never certain exactly when they would reach the next well or oasis.",
+        "wrong": {
+          "A": "Taste is not mentioned.",
+          "B": "The camels carried water; they were not the cause.",
+          "C": "The wells were scattered, not full."
+        }
+      },
+      {
+        "stem": "The other traders shared their water without any hesitation. What does this show about them?",
+        "options": [
+          "They helped right away",
+          "They were afraid of the wind",
+          "They wanted something back",
+          "They did not like the merchant"
+        ],
+        "answer": "A",
+        "skill": "inference",
+        "why": "Without hesitation means no delay, so the traders shared their water right away.",
+        "wrong": {
+          "B": "The wind had already passed.",
+          "C": "Nothing says they asked for payment.",
+          "D": "They shared their water with him, which shows kindness."
+        }
+      }
+    ]
   }
 }

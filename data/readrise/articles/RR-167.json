@@ -614,5 +614,217 @@
       ],
       "modelAnswer": "A coral reef depends on a close symbiosis between coral polyps and the algae living inside them: the algae use sunlight to make food and share it with the polyps, while the polyps provide the algae a safe place to live and build the hard limestone skeletons that form the reef itself. When ocean water becomes too hot, however, this partnership breaks down through a process called bleaching, in which the coral expels its algae and turns white, losing both its color and its main food source. If the heat lasts too long, the coral can die completely, which threatens the incredible biodiversity, like the more than a thousand kinds of fish, that depends on the reef and its sediment of broken coral and sand."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "How many islands does Farasan have?",
+        "options": [
+          "More than eighty",
+          "About eight",
+          "More than eight hundred",
+          "About eighteen"
+        ],
+        "answer": "A",
+        "skill": "detail",
+        "why": "The text says Farasan has more than eighty islands.",
+        "wrong": {
+          "B": "The text says more than eighty, not about eight.",
+          "C": "The text says more than eighty, not eight hundred.",
+          "D": "The text does not say eighteen."
+        }
+      },
+      {
+        "stem": "Why does a reef grow bigger over a long time?",
+        "options": [
+          "Fish bring rocks to the reef each day",
+          "Waves push sand and plants into one place",
+          "New polyps grow on top of the old cups",
+          "The sun makes the old coral swell up"
+        ],
+        "answer": "C",
+        "skill": "cause-effect",
+        "why": "When a polyp dies, its cup stays, and new polyps grow on top, so the reef grows.",
+        "wrong": {
+          "A": "Fish chew the reef; the text does not say they bring rocks.",
+          "B": "Waves break bits off; they do not build the reef.",
+          "D": "The text says the reef grows by new polyps, not by swelling."
+        }
+      },
+      {
+        "stem": "The text says each tiny coral animal is a polyp. What is a polyp?",
+        "options": [
+          "a kind of small fish",
+          "a small soft animal",
+          "a green sea plant",
+          "a kind of hard rock"
+        ],
+        "answer": "B",
+        "skill": "vocabulary",
+        "why": "Coral is made of many tiny animals, and each one is called a polyp.",
+        "wrong": {
+          "A": "A polyp is not a fish.",
+          "C": "The algae are the plants; a polyp is an animal.",
+          "D": "The reef can look like rock, but a polyp is alive."
+        }
+      },
+      {
+        "stem": "The article says some fish live in no other place. What does this tell us?",
+        "options": [
+          "Reefs like these are special and need care",
+          "All fish can live in any sea they like",
+          "Fish do not need coral to live",
+          "Fish live only near the islands of Farasan"
+        ],
+        "answer": "A",
+        "skill": "inference",
+        "why": "If some fish live only on these reefs, losing the reefs would lose those fish, so the reefs need care.",
+        "wrong": {
+          "B": "Some fish live in no other place, so not every fish can live anywhere.",
+          "C": "The text says lots of fish live on the reefs.",
+          "D": "The text does not say the fish live only near Farasan."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "How many kinds of fish live on the Red Sea reefs?",
+        "options": [
+          "Exactly eighty kinds",
+          "More than a thousand kinds",
+          "About one hundred kinds",
+          "Fewer than ten kinds"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The text says more than a thousand kinds of fish live on the Red Sea reefs.",
+        "wrong": {
+          "A": "Eighty is the number of islands in Farasan.",
+          "C": "The text says more than a thousand.",
+          "D": "The text says there are many more kinds."
+        }
+      },
+      {
+        "stem": "Read this: \"Gazelles roam the land.\" What does roam mean?",
+        "options": [
+          "Sleep in one place",
+          "Walk around freely",
+          "Hide from the heat",
+          "Dig into the ground"
+        ],
+        "answer": "B",
+        "skill": "vocabulary",
+        "why": "Gazelles roam the islands, which means they walk around from place to place.",
+        "wrong": {
+          "A": "Roam means to move about, not to sleep.",
+          "C": "The text does not say the gazelles hide.",
+          "D": "The text does not say the gazelles dig."
+        }
+      },
+      {
+        "stem": "Why does coral turn white when it loses its algae?",
+        "options": [
+          "The water becomes too salty for polyps",
+          "The polyps grow a new white cup of stone",
+          "The sand covers the coral completely",
+          "The algae give coral its bright colors"
+        ],
+        "answer": "D",
+        "skill": "cause-effect",
+        "why": "The algae give coral its bright colors, so without them the coral turns white.",
+        "wrong": {
+          "A": "The text says heat, not salt, makes coral lose algae.",
+          "B": "The text does not say polyps grow a white cup.",
+          "C": "Sand is not mentioned as the cause."
+        }
+      },
+      {
+        "stem": "The Farasan Islands are made mostly of ancient coral rock. What can you tell from this?",
+        "options": [
+          "The islands were once made by volcanoes",
+          "People built the islands long ago",
+          "Reefs once grew where the islands now stand",
+          "Gazelles carried the rock to the islands"
+        ],
+        "answer": "C",
+        "skill": "inference",
+        "why": "Coral rock comes from reefs, so reefs must have grown there long ago and later formed land.",
+        "wrong": {
+          "A": "The text says the islands are coral rock, not volcanoes.",
+          "B": "The text says reefs form islands, not people.",
+          "D": "The text does not say gazelles moved the rock."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "How do polyps catch food, according to the article?",
+        "options": [
+          "They use a ring of small tentacles",
+          "They grind coral with their hard cups",
+          "They hunt fish along the reef",
+          "They take it from the sand below"
+        ],
+        "answer": "A",
+        "skill": "detail",
+        "why": "Each polyp has a ring of small tentacles that capture particles of food drifting past.",
+        "wrong": {
+          "B": "The cup is a skeleton for protection, not a tool for catching food.",
+          "C": "Polyps are tiny; the text does not say they hunt fish.",
+          "D": "The text says food drifts past, not that it comes from sand."
+        }
+      },
+      {
+        "stem": "The article says the Red Sea reefs have great biodiversity. What does biodiversity mean?",
+        "options": [
+          "many different kinds of life",
+          "very clear, shallow water",
+          "a large amount of sand",
+          "strong waves on the shore"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "The reefs hold more than a thousand kinds of fish, so biodiversity means many different kinds of living things.",
+        "wrong": {
+          "B": "Clear water helps coral, but that is not biodiversity.",
+          "C": "Sand is not what the word means.",
+          "D": "Waves are not part of the meaning."
+        }
+      },
+      {
+        "stem": "Birds and wind-blown seeds soon arrive at a new coral island. What can you infer from this?",
+        "options": [
+          "Coral islands stay empty for centuries",
+          "Life can start on new land quite quickly",
+          "Seeds cannot grow on sand and coral",
+          "Birds build the island by dropping sand"
+        ],
+        "answer": "B",
+        "skill": "inference",
+        "why": "The text says birds and seeds soon arrive once the island forms, so life begins quickly.",
+        "wrong": {
+          "A": "The text says they arrive soon, not after centuries.",
+          "C": "The text suggests seeds start to grow there.",
+          "D": "Waves and parrotfish make the sand, not the birds."
+        }
+      },
+      {
+        "stem": "What is the main job of the last paragraph in the article?",
+        "options": [
+          "It describes how a new island slowly forms",
+          "It lists the many kinds of fish in the sea",
+          "It tells where the Farasan Islands are found",
+          "It names a danger to coral and a way to help"
+        ],
+        "answer": "D",
+        "skill": "text-structure",
+        "why": "The last paragraph explains bleaching from heat and then says people can help by keeping the sea clean.",
+        "wrong": {
+          "A": "Island formation is explained in an earlier paragraph.",
+          "B": "Fish are in an earlier paragraph.",
+          "C": "The Farasan Islands are described in an earlier paragraph."
+        }
+      }
+    ]
   }
 }

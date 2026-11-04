@@ -614,5 +614,217 @@
       ],
       "modelAnswer": "Star mapping was work built up by many cultures over thousands of years. The Greek astronomer Hipparchus created an early catalog of about 850 stars around 150 BCE, sorting them by brightness, an idea scientists still use today. Centuries later, the Persian astronomer al-Sufi expanded on this tradition in his Book of Fixed Stars, drawing each constellation twice and describing the Andromeda Galaxy as a faint little cloud. Because of his work, many stars still carry Arabic names today, such as Aldebaran, Altair, and Rigel, showing how later astronomers carried this knowledge of navigation and the night sky even further, up to the modern Gaia space telescope."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "What did the stars tell farmers long ago?",
+        "options": [
+          "When to plant",
+          "Where to find water",
+          "How to build homes",
+          "Which animals to hunt"
+        ],
+        "answer": "A",
+        "skill": "detail",
+        "why": "The text says the stars told people when to plant.",
+        "wrong": {
+          "B": "The text does not say stars showed water.",
+          "C": "The text does not say stars taught building.",
+          "D": "The text does not say stars showed animals."
+        }
+      },
+      {
+        "stem": "The clay dried hard. Why is this good for a list of stars?",
+        "options": [
+          "The marks could not be seen",
+          "The clay could be eaten",
+          "The marks stayed for years",
+          "The list could be changed fast"
+        ],
+        "answer": "C",
+        "skill": "inference",
+        "why": "Hard clay keeps the marks, so the list lasted a long, long time.",
+        "wrong": {
+          "A": "Marks in clay can be seen.",
+          "B": "The text never says clay was food.",
+          "D": "Hard clay is not easy to change."
+        }
+      },
+      {
+        "stem": "The article says al-Sufi saw a small, dim cloud. What does dim mean?",
+        "options": [
+          "very bright",
+          "not bright",
+          "very large",
+          "very near"
+        ],
+        "answer": "B",
+        "skill": "vocabulary",
+        "why": "A dim cloud in the sky is one that is not bright.",
+        "wrong": {
+          "A": "Bright is the opposite of dim.",
+          "C": "The cloud is called small, not large.",
+          "D": "Dim is about light, not distance."
+        }
+      },
+      {
+        "stem": "Why do our maps show far more stars now?",
+        "options": [
+          "The night sky has no lamps",
+          "Stars have grown brighter",
+          "The Greek man drew them",
+          "Telescopes show more stars"
+        ],
+        "answer": "D",
+        "skill": "cause-effect",
+        "why": "The text says we have big telescopes now, so we can see a lot more.",
+        "wrong": {
+          "A": "Lamps are not the reason.",
+          "B": "The text does not say stars changed.",
+          "C": "The Greek man's list was long ago."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "What did the Chinese star chart from about 700 CE show?",
+        "options": [
+          "About 850 stars",
+          "Almost two billion stars",
+          "More than 1,300 stars",
+          "Only one constellation"
+        ],
+        "answer": "C",
+        "skill": "detail",
+        "why": "The article says the paper chart from about 700 CE shows more than 1,300 stars.",
+        "wrong": {
+          "A": "About 850 stars were in Hipparchus's catalog.",
+          "B": "Almost two billion stars were mapped by Gaia.",
+          "D": "The chart showed more than one constellation."
+        }
+      },
+      {
+        "stem": "Why do stars such as Aldebaran, Altair, and Rigel have Arabic names today?",
+        "options": [
+          "Arabic names in books spread",
+          "Greek astronomers learned Arabic",
+          "Gaia gave the stars new names",
+          "They were seen only in Arabia"
+        ],
+        "answer": "A",
+        "skill": "cause-effect",
+        "why": "The Arabic names in books like al-Sufi's spread around the world.",
+        "wrong": {
+          "B": "The text does not say this.",
+          "C": "Gaia is a modern space telescope that maps stars.",
+          "D": "People all over the world watched the stars."
+        }
+      },
+      {
+        "stem": "The article calls the Andromeda Galaxy a \"faint\" little cloud. What does faint mean?",
+        "options": [
+          "very loud",
+          "very large",
+          "very bright",
+          "hard to see"
+        ],
+        "answer": "D",
+        "skill": "vocabulary",
+        "why": "A faint cloud in the night sky is one that is hard to see.",
+        "wrong": {
+          "A": "Loud is about sound, not sight.",
+          "B": "The cloud is called little.",
+          "C": "Faint is the opposite of bright."
+        }
+      },
+      {
+        "stem": "Why does the author tell about Babylon, Greece, China, and Persia?",
+        "options": [
+          "To say only Greeks knew the stars",
+          "To show many peoples mapped stars",
+          "To explain how a telescope works",
+          "To tell which land is the oldest"
+        ],
+        "answer": "B",
+        "skill": "author-purpose",
+        "why": "Each place had people who recorded the stars, so many peoples mapped them.",
+        "wrong": {
+          "A": "The article names people in other lands too.",
+          "C": "Telescopes are mentioned only at the end.",
+          "D": "The author does not compare which land is oldest."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "Why might one constellation have a different name in different places?",
+        "options": [
+          "Each community saw its own picture",
+          "The stars moved from place to place",
+          "Hunters were not allowed to name them",
+          "Only the Greeks could name them"
+        ],
+        "answer": "A",
+        "skill": "cause-effect",
+        "why": "The article says cultures named patterns themselves, so one might look like a hunter to one group and a lion to another.",
+        "wrong": {
+          "B": "The article does not say the stars moved.",
+          "C": "The article says nothing about rules for hunters.",
+          "D": "Different cultures gave their own names."
+        }
+      },
+      {
+        "stem": "In the fourth paragraph, the word \"systematically\" means",
+        "options": [
+          "by pure accident",
+          "with great speed",
+          "in an orderly way",
+          "in a secret way"
+        ],
+        "answer": "C",
+        "skill": "vocabulary",
+        "why": "People recorded stars in lists and catalogs, which means in an orderly way.",
+        "wrong": {
+          "A": "Making catalogs was planned.",
+          "B": "The text does not describe speed.",
+          "D": "The records were shared, not secret."
+        }
+      },
+      {
+        "stem": "The article says the Dunhuang chart is one of the oldest complete star maps that still survives. What can be inferred?",
+        "options": [
+          "No older maps of the sky were ever made",
+          "Chinese sky-watchers drew very few stars",
+          "Caves were the best place to study stars",
+          "Some older star maps may not have survived"
+        ],
+        "answer": "D",
+        "skill": "inference",
+        "why": "The word survives suggests that some older maps have been lost or are not complete.",
+        "wrong": {
+          "A": "Babylonians made star lists about 3,000 years ago.",
+          "B": "The chart shows more than 1,300 stars.",
+          "C": "The cave is only where the chart was found."
+        }
+      },
+      {
+        "stem": "Which of these mapmakers worked earliest?",
+        "options": [
+          "al-Sufi",
+          "Hipparchus",
+          "The Chinese chart makers",
+          "The Gaia scientists"
+        ],
+        "answer": "B",
+        "skill": "sequence",
+        "why": "Hipparchus made his catalog around 150 BCE, before the other dates in the passage.",
+        "wrong": {
+          "A": "Al-Sufi finished his book in 964.",
+          "C": "The Chinese chart is from about 700 CE.",
+          "D": "Gaia is a modern space telescope."
+        }
+      }
+    ]
   }
 }

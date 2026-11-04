@@ -612,5 +612,217 @@
       ],
       "modelAnswer": "I agree that a small group with a good idea can get a whole school excited about something. In the story, only three students, Sara, Omar, and Lina, were part of the library club, yet their two initiatives, Mystery Month and the book wall, eventually made the club one of the most popular activities at the school. Someone might argue that a club needs many organizers to succeed, but this story shows that a single enthusiastic team with a genuinely creative initiative can transform how an entire student body feels about something as ordinary as reading, especially when that initiative removes the feeling of obligation and replaces it with curiosity."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "On which day does the library club meet?",
+        "options": [
+          "On Mondays",
+          "On Fridays",
+          "On Saturdays",
+          "On Tuesdays"
+        ],
+        "answer": "D",
+        "skill": "detail",
+        "why": "The text says, \"They meet on Tuesdays.\"",
+        "wrong": {
+          "A": "The club does not meet on Mondays.",
+          "B": "The club does not meet on Fridays.",
+          "C": "The club does not meet on Saturdays."
+        }
+      },
+      {
+        "stem": "What does each book get in the book game?",
+        "options": [
+          "A sticker",
+          "A bookmark",
+          "A star on a sign",
+          "A new cover"
+        ],
+        "answer": "A",
+        "skill": "detail",
+        "why": "The text says each book gets a sticker.",
+        "wrong": {
+          "B": "A bookmark is not mentioned.",
+          "C": "The signs are painted by Sara, not given to books.",
+          "D": "New covers are not mentioned."
+        }
+      },
+      {
+        "stem": "The text says kids pin notes on the wall. What does pin mean?",
+        "options": [
+          "To throw notes away in the bin",
+          "To fix notes to the wall",
+          "To read notes out loud",
+          "To paint notes on the wall"
+        ],
+        "answer": "B",
+        "skill": "vocabulary",
+        "why": "Kids put notes about books on the wall so other kids can read them, so pin means to fix them there.",
+        "wrong": {
+          "A": "Other kids read the notes, so they are kept.",
+          "C": "The notes are read by other kids, not read aloud by the writers.",
+          "D": "Sara paints signs, but the kids pin notes."
+        }
+      },
+      {
+        "stem": "Why do more kids come to the club in the end?",
+        "options": [
+          "The teacher says they must come",
+          "They like the new ideas and signs",
+          "The club gives out free snacks",
+          "The library is closed for a week"
+        ],
+        "answer": "B",
+        "skill": "cause-effect",
+        "why": "Many kids like the new ideas and the signs, and soon more kids come to the club.",
+        "wrong": {
+          "A": "The teacher does not make anyone come.",
+          "C": "Snacks are not mentioned.",
+          "D": "The library is open and gets busy."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "Where does the sticker go when a student finishes a mystery book?",
+        "options": [
+          "On the student's backpack",
+          "On the librarian's desk",
+          "On a big chart by the door",
+          "On the page of the book"
+        ],
+        "answer": "C",
+        "skill": "detail",
+        "why": "The text says the sticker goes on a big chart by the door.",
+        "wrong": {
+          "A": "The text does not say it goes on a backpack.",
+          "B": "The desk is not mentioned.",
+          "D": "The sticker goes on the chart, not in the book."
+        }
+      },
+      {
+        "stem": "The friends want an idea that sparks curiosity. What is curiosity?",
+        "options": [
+          "a wish to know more",
+          "a feeling of being tired",
+          "a rule in the library",
+          "a kind of sticker"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "The friends want classmates to want to find out about books, so curiosity is a wish to know more.",
+        "wrong": {
+          "B": "Being tired is the opposite of curious.",
+          "C": "Curiosity is a feeling, not a rule.",
+          "D": "Stickers are part of the plan, but curiosity is a feeling."
+        }
+      },
+      {
+        "stem": "Why did the friends need more than just asking kids to join?",
+        "options": [
+          "Asking was not enough to excite kids",
+          "Kids were not allowed in the library at all",
+          "The principal had said no to asking them",
+          "They had already asked every single student"
+        ],
+        "answer": "A",
+        "skill": "cause-effect",
+        "why": "The text says that just asking kids to join is not enough and they needed an exciting idea.",
+        "wrong": {
+          "B": "Kids could enter the library; they just did not come.",
+          "C": "The principal is not mentioned in this story.",
+          "D": "The text does not say that they asked every student."
+        }
+      },
+      {
+        "stem": "Why does the author end with the teacher's words about one small idea?",
+        "options": [
+          "To show that the teacher wrote the idea",
+          "To tell all readers to join the club now",
+          "To show a small idea can bring big change",
+          "To say the library needs a new teacher soon"
+        ],
+        "answer": "C",
+        "skill": "author-purpose",
+        "why": "The teacher says one small idea turned a forgotten club into a popular one.",
+        "wrong": {
+          "A": "The friends came up with the idea.",
+          "B": "The ending is not a call to join.",
+          "D": "The teacher is praising the friends."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "Where did the friends post reminders before they tried new ideas?",
+        "options": [
+          "Near the cafeteria and the gym",
+          "Inside every single classroom",
+          "On the roof of the library",
+          "On the side of the school bus"
+        ],
+        "answer": "A",
+        "skill": "detail",
+        "why": "The text says they posted friendly reminders near the cafeteria and the gym.",
+        "wrong": {
+          "B": "Classrooms are not mentioned.",
+          "C": "A roof is not mentioned.",
+          "D": "A bus is not mentioned."
+        }
+      },
+      {
+        "stem": "In the story, the word \"brainstorm\" most nearly means —",
+        "options": [
+          "to cancel a plan",
+          "to think of many ideas",
+          "to repeat an old idea",
+          "to argue about a rule"
+        ],
+        "answer": "B",
+        "skill": "vocabulary",
+        "why": "The friends sit among the bookshelves hoping to come up with something new to spark curiosity.",
+        "wrong": {
+          "A": "They are trying to build something, not cancel it.",
+          "C": "They want something new, not the same old announcements.",
+          "D": "They work together calmly."
+        }
+      },
+      {
+        "stem": "Why does Sara paint several bright signs?",
+        "options": [
+          "To decorate the library walls",
+          "To cover up the old announcements",
+          "To say thank you to the principal",
+          "To spread the word about the ideas"
+        ],
+        "answer": "D",
+        "skill": "cause-effect",
+        "why": "The text says she paints the signs to spread the word.",
+        "wrong": {
+          "A": "The signs are meant to spread the word, not just to decorate.",
+          "B": "Covering old announcements is not mentioned.",
+          "C": "Thanking the principal is not mentioned."
+        }
+      },
+      {
+        "stem": "What does it suggest that attendance never rose above the three organizers, even after the reminders?",
+        "options": [
+          "The library was too far away to reach",
+          "The reminders did not interest students",
+          "Students were not allowed to attend",
+          "The friends did not post any reminders"
+        ],
+        "answer": "B",
+        "skill": "inference",
+        "why": "They posted reminders and still only the three came, so the reminders did not work.",
+        "wrong": {
+          "A": "Distance is not mentioned.",
+          "C": "Nothing says students were not allowed.",
+          "D": "The text says they did post reminders."
+        }
+      }
+    ]
   }
 }

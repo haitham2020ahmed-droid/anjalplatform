@@ -614,5 +614,217 @@
       ],
       "modelAnswer": "I think an ancient idea like the qanat is still worth studying because it is both sustainable and remarkably efficient without using any machines. The article explains that gravity alone moved water along a carefully sloped tunnel, so no pump or fuel was ever required, which makes the system cheap to run for centuries. It also explains that building the channel underground reduced evaporation, since the blazing sun could not reach the water as it traveled. Because some qanats and Oman's aflaj have distributed water for over a thousand years, modern engineers studying sustainable design have good reason to learn from such an ingenious, time-tested solution."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "What did the qanat give to the towns near the hills?",
+        "options": [
+          "Cold ice in the summer",
+          "Fresh bread each day",
+          "Heavy rain for farms",
+          "Water all year long"
+        ],
+        "answer": "D",
+        "skill": "detail",
+        "why": "The text says the qanat gave water all year to the towns near the hills.",
+        "wrong": {
+          "A": "The text does not say the qanat gave ice.",
+          "B": "Bread is not mentioned.",
+          "C": "The text says it did not rain much."
+        }
+      },
+      {
+        "stem": "Why was it hard and risky to dig a qanat?",
+        "options": [
+          "A tunnel could fall in",
+          "The water was too cold",
+          "The men had a pump",
+          "The hills were too small"
+        ],
+        "answer": "A",
+        "skill": "cause-effect",
+        "why": "The text says the work was hard and that a tunnel could fall in.",
+        "wrong": {
+          "B": "The cool water helped crops and was not a danger.",
+          "C": "The text says a qanat has no pump.",
+          "D": "The text says the well sat on a hill."
+        }
+      },
+      {
+        "stem": "In the article, what does the word slope mean?",
+        "options": [
+          "A flat piece of sand",
+          "A round hole in the ground",
+          "Ground that goes down",
+          "A kind of simple tool"
+        ],
+        "answer": "C",
+        "skill": "vocabulary",
+        "why": "The text says the water flows down a slope, so a slope is ground that goes down.",
+        "wrong": {
+          "A": "Flat sand would not make water flow.",
+          "B": "The air holes are round holes, but they are not a slope.",
+          "D": "Simple tools are a different thing in the text."
+        }
+      },
+      {
+        "stem": "Where besides Persia did men dig qanats?",
+        "options": [
+          "In cold snowy hills",
+          "In Arabia and parts of Africa",
+          "In big cities by the sea",
+          "In green lands with rivers"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The text says men in Arabia and parts of Africa dug qanats, too.",
+        "wrong": {
+          "A": "The text says qanats were dug in dry lands.",
+          "C": "Big sea cities are not mentioned.",
+          "D": "Qanats were for places with few rivers."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "Where did the idea of the qanat spread after Persia?",
+        "options": [
+          "To the cold lands of the north",
+          "To Arabia, North Africa, and Spain",
+          "To the rainy lands of Asia only",
+          "To islands in the open ocean"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The text says engineers in Arabia and builders in North Africa and Spain dug their own qanats.",
+        "wrong": {
+          "A": "The text says the idea spread to other dry regions.",
+          "C": "Qanats were for dry lands where rain rarely falls.",
+          "D": "The ocean is not mentioned."
+        }
+      },
+      {
+        "stem": "What does the word vertical mean in \"vertical shafts\"?",
+        "options": [
+          "Wide and flat on top",
+          "Hidden from all sight",
+          "Very cold and wet",
+          "Straight up and down"
+        ],
+        "answer": "D",
+        "skill": "vocabulary",
+        "why": "The shafts go down to the tunnel from above, so they run straight up and down.",
+        "wrong": {
+          "A": "The shafts go down to the tunnel and are not flat.",
+          "B": "Hidden does not tell the shape of the shafts.",
+          "C": "The text does not say the shafts are wet."
+        }
+      },
+      {
+        "stem": "Why was digging a qanat risky for the workers?",
+        "options": [
+          "The sun was too hot inside",
+          "A tunnel could suddenly fall in",
+          "The water was too deep to drink",
+          "The pump was too loud"
+        ],
+        "answer": "B",
+        "skill": "cause-effect",
+        "why": "The text says the work was risky because a tunnel could suddenly fall in.",
+        "wrong": {
+          "A": "The sun could not reach the tunnel.",
+          "C": "Drinking is not the danger described.",
+          "D": "The text says no pump was used."
+        }
+      },
+      {
+        "stem": "The article says many qanats still carry water long after their builders have been forgotten. What does this suggest?",
+        "options": [
+          "The qanats were built well",
+          "The builders were paid too little",
+          "The qanats stopped working long ago",
+          "The builders did not like their work"
+        ],
+        "answer": "A",
+        "skill": "inference",
+        "why": "The qanats still carry water today, even though the builders are forgotten, so the work lasted.",
+        "wrong": {
+          "B": "The text does not mention pay.",
+          "C": "The text says many still carry water today.",
+          "D": "The text does not say how the builders felt."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "What did the vertical shafts let workers do with the loose soil?",
+        "options": [
+          "Pour it into the well",
+          "Haul it out of the tunnel",
+          "Spread it on the farms",
+          "Press it into the walls"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The text says the shafts let workers haul out loose soil.",
+        "wrong": {
+          "A": "The text does not say soil went into the well.",
+          "C": "Farms are not linked to the soil in the text.",
+          "D": "The text does not say soil was used for the walls."
+        }
+      },
+      {
+        "stem": "In the article, what does the word arduous mean?",
+        "options": [
+          "Very hard and tiring",
+          "Quiet and calm to do",
+          "Short and easy to do",
+          "Loud and bright to see"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "The text says the work needed many skilled laborers and a long time, so it was very hard.",
+        "wrong": {
+          "B": "The text does not describe the work as calm.",
+          "C": "The work took a long time and was not easy.",
+          "D": "Noise and light are not mentioned for the work."
+        }
+      },
+      {
+        "stem": "Why does the author call the work perilous?",
+        "options": [
+          "The hill was too far away",
+          "Water could not flow downhill",
+          "A tunnel could collapse on them",
+          "The workers did not have air"
+        ],
+        "answer": "C",
+        "skill": "cause-effect",
+        "why": "The text says a tunnel could suddenly collapse upon the diggers below.",
+        "wrong": {
+          "A": "Distance is not the danger described.",
+          "B": "The water did flow downhill on its own.",
+          "D": "The shafts let fresh air in."
+        }
+      },
+      {
+        "stem": "Why does the author mention the UNESCO World Heritage site?",
+        "options": [
+          "To tell how to dig a tunnel",
+          "To explain how to use a pump",
+          "To say that Oman has no water",
+          "To show old channels are valued"
+        ],
+        "answer": "D",
+        "skill": "author-purpose",
+        "why": "The text says the aflaj have been maintained for centuries and are now a World Heritage site, showing their value.",
+        "wrong": {
+          "A": "The text does not give digging steps there.",
+          "B": "The text says no pump was needed.",
+          "C": "Oman has water channels, so this is wrong."
+        }
+      }
+    ]
   }
 }

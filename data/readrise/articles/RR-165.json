@@ -614,5 +614,217 @@
       ],
       "modelAnswer": "I disagree that meteorites are just interesting rocks with no real value, because the article shows they are actually ancient scientific treasures. Most meteorites formed about 4.5 billion years ago, making them older than almost any rock found on Earth, so scientists study them to learn how Earth and the other planets first formed. The article also describes the Wabar craters in Saudi Arabia, huge pits formed when a dense iron meteorite slammed into the desert, which shows in sharp contrast to an ordinary rock just how much force and history these objects carry."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "Why does a space rock glow as it zooms down?",
+        "options": [
+          "It gets so hot.",
+          "It turns into iron.",
+          "It is a star.",
+          "It meets a magnet."
+        ],
+        "answer": "A",
+        "skill": "cause-effect",
+        "why": "The text says the rock gets so hot that it glows.",
+        "wrong": {
+          "B": "Only some rocks are iron, and this is not why they glow.",
+          "C": "The text says a shooting star is not a star.",
+          "D": "A magnet sticks to iron but does not make light."
+        }
+      },
+      {
+        "stem": "What did the man find in the Empty Quarter in 1932?",
+        "options": [
+          "A huge iron chunk",
+          "A thin black crust",
+          "Big pits in the sand",
+          "A shooting star"
+        ],
+        "answer": "C",
+        "skill": "detail",
+        "why": "The text says he found big pits in the sand, and each pit is a crater.",
+        "wrong": {
+          "A": "The huge chunk was found in 1965.",
+          "B": "The crust is on the rock itself.",
+          "D": "A shooting star is a rock falling from the sky."
+        }
+      },
+      {
+        "stem": "In the article, the word streak means —",
+        "options": [
+          "a long line",
+          "a deep hole",
+          "a heavy rock",
+          "a small star"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "The streak of light is a meteor, which looks like a long line of light.",
+        "wrong": {
+          "B": "A deep hole is a crater.",
+          "C": "A heavy rock is an iron meteorite.",
+          "D": "The text says it is not a star."
+        }
+      },
+      {
+        "stem": "How old are meteorites compared with the rocks of Earth?",
+        "options": [
+          "They are younger.",
+          "They are older.",
+          "They are the same age.",
+          "They are not as old as sand."
+        ],
+        "answer": "B",
+        "skill": "compare",
+        "why": "The text says these rocks are older than the rocks of Earth.",
+        "wrong": {
+          "A": "They are not younger.",
+          "C": "They are older, not the same age.",
+          "D": "The text does not compare them with sand."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "How big are most meteors?",
+        "options": [
+          "As big as a car",
+          "As big as a house",
+          "As big as a mountain",
+          "As small as sand grains"
+        ],
+        "answer": "D",
+        "skill": "detail",
+        "why": "The text says most meteors are as tiny as grains of sand, so they burn up.",
+        "wrong": {
+          "A": "They are much smaller than a car.",
+          "B": "They are much smaller than a house.",
+          "C": "They are far smaller than a mountain."
+        }
+      },
+      {
+        "stem": "In the article, the word survives means —",
+        "options": [
+          "burns up in the air",
+          "gets lost in space",
+          "stays in one piece",
+          "turns all to dust"
+        ],
+        "answer": "C",
+        "skill": "vocabulary",
+        "why": "A piece that survives the fall does not burn up; it lands on the ground.",
+        "wrong": {
+          "A": "Burning up is what most meteors do.",
+          "B": "Getting lost is not the idea.",
+          "D": "A surviving piece does not turn to dust."
+        }
+      },
+      {
+        "stem": "Why do rocks last a long time in the desert?",
+        "options": [
+          "The air is dry, so they rust slowly.",
+          "Plants grow over them and hide them.",
+          "The sand keeps them very cold.",
+          "The wind rolls them far away."
+        ],
+        "answer": "A",
+        "skill": "cause-effect",
+        "why": "The text says desert air is so dry that rocks rust slowly and last a long time.",
+        "wrong": {
+          "B": "There are few plants in the desert.",
+          "C": "Cold is not mentioned.",
+          "D": "Wind is not mentioned."
+        }
+      },
+      {
+        "stem": "A boy finds a strange rock. What does the article say he should do?",
+        "options": [
+          "Break it open fast",
+          "Show it to a teacher",
+          "Put it in some water",
+          "Throw it far away"
+        ],
+        "answer": "B",
+        "skill": "inference",
+        "why": "The text says to show it to a teacher so a science lab can test whether it came from space.",
+        "wrong": {
+          "A": "Breaking is not suggested.",
+          "C": "Water is not mentioned.",
+          "D": "A real meteorite may be valuable to science."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "How were the Wabar craters formed?",
+        "options": [
+          "An iron meteorite broke apart.",
+          "Wind carved them into the dunes.",
+          "Explorers dug them in 1932.",
+          "A volcano erupted in the sand."
+        ],
+        "answer": "A",
+        "skill": "cause-effect",
+        "why": "The text says an iron meteorite broke apart and blasted out the Wabar craters.",
+        "wrong": {
+          "B": "Wind is not given as the cause.",
+          "C": "The explorer only recorded them.",
+          "D": "Volcanoes are not mentioned."
+        }
+      },
+      {
+        "stem": "What nickname was given to the gigantic iron chunk found in 1965?",
+        "options": [
+          "The Empty Quarter",
+          "The Fusion Crust",
+          "The Desert Star",
+          "The Camel's Hump"
+        ],
+        "answer": "D",
+        "skill": "detail",
+        "why": "The text says the chunk was nicknamed the Camel's Hump.",
+        "wrong": {
+          "A": "The Empty Quarter is the place where it was found.",
+          "B": "Fusion crust is the coating on a meteorite.",
+          "C": "This name is not in the text."
+        }
+      },
+      {
+        "stem": "In the article, the word ancient most nearly means —",
+        "options": [
+          "very old",
+          "very heavy",
+          "very bright",
+          "very far away"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "Most meteorites formed 4.5 billion years ago, so they are very old.",
+        "wrong": {
+          "B": "Heaviness is about iron types.",
+          "C": "Brightness is about meteors.",
+          "D": "Distance is not the idea."
+        }
+      },
+      {
+        "stem": "Why do researchers also search Antarctica for meteorites?",
+        "options": [
+          "It is also a frozen desert.",
+          "It has more craters than deserts.",
+          "It is very close to Riyadh.",
+          "It is where meteoroids begin."
+        ],
+        "answer": "A",
+        "skill": "inference",
+        "why": "Antarctica is a frozen desert, and researchers search it for the same reasons as hot deserts.",
+        "wrong": {
+          "B": "The text does not say this.",
+          "C": "Riyadh is only where a chunk is displayed.",
+          "D": "Meteoroids come from space."
+        }
+      }
+    ]
   }
 }

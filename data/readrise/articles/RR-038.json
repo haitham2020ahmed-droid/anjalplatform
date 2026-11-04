@@ -614,5 +614,217 @@
       ],
       "modelAnswer": "The fennec fox's oversized ears solve the extreme heat problem by helping the fox dissipate warmth, since heat from its blood escapes easily through the thin skin covering such a large extremity. This fits a broader pattern biologists have noticed: animals in hot climates tend to have larger ears and limbs than relatives in cold regions, because more exposed surface releases heat more easily, which is the opposite of what cold-climate animals need to conserve warmth. The same large ears solve the fox's second problem, finding food, because their acute hearing lets it detect insects and rodents moving beneath the sand, so it can quickly dig out a meal it could never have spotted by sight alone in the dark desert night."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "How light is the fennec fox?",
+        "options": [
+          "As light as a car tire",
+          "As light as a bag of sugar",
+          "As light as a school desk",
+          "As light as a large sheep"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The text says the fennec fox is as light as a bag of sugar.",
+        "wrong": {
+          "A": "A car tire is much heavier than a bag of sugar.",
+          "C": "A school desk is much heavier than the fox.",
+          "D": "A large sheep is much heavier than the fox."
+        }
+      },
+      {
+        "stem": "In the article, a desert is —",
+        "options": [
+          "a place with lots of rain",
+          "a cold land with deep snow",
+          "a wet land with tall trees",
+          "a dry land with hot sand"
+        ],
+        "answer": "D",
+        "skill": "vocabulary",
+        "why": "The text says a desert is a dry land with lots of hot sand and very little rain.",
+        "wrong": {
+          "A": "A desert gets very little rain.",
+          "B": "The desert in the text is hot.",
+          "C": "A desert is dry, not wet."
+        }
+      },
+      {
+        "stem": "Why does the fox nap in a burrow during the day?",
+        "options": [
+          "The day is too hot.",
+          "It is afraid of the moon.",
+          "It wants to dig for bugs.",
+          "It needs a place to drink."
+        ],
+        "answer": "A",
+        "skill": "cause-effect",
+        "why": "The text says the day is too hot, so the fox naps in a hole.",
+        "wrong": {
+          "B": "The text does not say the fox fears the moon.",
+          "C": "It digs for bugs at night.",
+          "D": "The fox does not drink much."
+        }
+      },
+      {
+        "stem": "What can you tell about the fennec fox's food?",
+        "options": [
+          "It eats only one kind of bug.",
+          "It eats only fruit.",
+          "It eats many kinds of food.",
+          "It eats only at the middle of the day."
+        ],
+        "answer": "C",
+        "skill": "inference",
+        "why": "The text lists bugs, mice, eggs, and fruit, so it eats many kinds of food.",
+        "wrong": {
+          "A": "The fox also eats mice, eggs, and fruit.",
+          "B": "The fox also eats bugs, mice, and eggs.",
+          "D": "The fox hunts at night."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "In the article, an adaptation is —",
+        "options": [
+          "a hole under the sand where foxes sleep",
+          "a kind of food that foxes eat at night",
+          "a body part that helps an animal survive",
+          "a group of foxes that live together"
+        ],
+        "answer": "C",
+        "skill": "vocabulary",
+        "why": "The text says an adaptation is a body feature that helps an animal survive in its home.",
+        "wrong": {
+          "A": "That describes a burrow.",
+          "B": "The text does not call food an adaptation.",
+          "D": "That describes a family group."
+        }
+      },
+      {
+        "stem": "What are baby fennec foxes called?",
+        "options": [
+          "Kits",
+          "Cubs",
+          "Pups",
+          "Chicks"
+        ],
+        "answer": "A",
+        "skill": "detail",
+        "why": "The text says a mother usually has two to five babies, called kits.",
+        "wrong": {
+          "B": "The text calls them kits, not cubs.",
+          "C": "The text calls them kits, not pups.",
+          "D": "Chicks are baby birds."
+        }
+      },
+      {
+        "stem": "How does the fur on the bottoms of the fox's paws help it?",
+        "options": [
+          "It lets the fox hear insects under the sand.",
+          "It keeps the fox warm on cold nights.",
+          "It helps the fox blend in with the sand.",
+          "It protects its feet from hot sand."
+        ],
+        "answer": "D",
+        "skill": "cause-effect",
+        "why": "The text says the paw fur protects its feet from the hot sand and helps it walk on dunes.",
+        "wrong": {
+          "A": "The ears do the hearing.",
+          "B": "The thick coat keeps it warm.",
+          "C": "The sand-colored coat helps it blend in."
+        }
+      },
+      {
+        "stem": "Why does the fox most likely hunt at night?",
+        "options": [
+          "Insects only come out when it rains",
+          "The nights are cooler than the days",
+          "Its ears work only in the dark",
+          "Eagles and owls are asleep at night"
+        ],
+        "answer": "B",
+        "skill": "inference",
+        "why": "The days are scorching and the fox rests in a burrow during the hottest hours, so night is a better time to hunt.",
+        "wrong": {
+          "A": "The text says rain is rare, not that insects need it.",
+          "C": "The ears help it hear at any time.",
+          "D": "The text does not say its predators sleep at night."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "In the second paragraph, the word scarce means —",
+        "options": [
+          "easy to see from far away",
+          "full of dust blown by the wind",
+          "hard to find or not common",
+          "heavy and strong enough to carry"
+        ],
+        "answer": "C",
+        "skill": "vocabulary",
+        "why": "The text describes a desert where rain is rare, so scarce means hard to find.",
+        "wrong": {
+          "A": "The sentence is about rain, not about seeing.",
+          "B": "The text does not describe rain as dusty.",
+          "D": "Rain is not heavy or strong in this sentence."
+        }
+      },
+      {
+        "stem": "What two jobs does the fennec fox's thick coat do?",
+        "options": [
+          "It hides the fox and warms it at night",
+          "It cools the fox and helps it hear",
+          "It stores water and feeds the kits",
+          "It protects its paws and helps it dig"
+        ],
+        "answer": "A",
+        "skill": "detail",
+        "why": "The coat provides camouflage against predators and insulation during chilly nights.",
+        "wrong": {
+          "B": "The ears cool the fox and help it hear.",
+          "C": "The text does not say the coat stores water.",
+          "D": "Fur on the paws protects the feet, not the coat."
+        }
+      },
+      {
+        "stem": "Why might the sand fox have large ears and furry paws like the fennec fox?",
+        "options": [
+          "Because it lives in the cold Arctic",
+          "Because it was born in North Africa",
+          "Because it eats only insects",
+          "Because it also lives in a hot desert"
+        ],
+        "answer": "D",
+        "skill": "inference",
+        "why": "The article shows that large ears and furry paws help animals survive in hot, sandy deserts.",
+        "wrong": {
+          "A": "The Arctic fox has small, rounded ears.",
+          "B": "The text says the sand fox lives in Saudi Arabia.",
+          "C": "Ear size is linked to heat, not to diet."
+        }
+      },
+      {
+        "stem": "Why does the author compare the fox to something that fits in a shoebox?",
+        "options": [
+          "To show that foxes are kept as pets",
+          "To help readers picture how tiny the fox is",
+          "To explain how foxes dig burrows",
+          "To prove that foxes are weaker than owls"
+        ],
+        "answer": "B",
+        "skill": "author-purpose",
+        "why": "The shoebox image shows the fox is small enough to curl up inside one.",
+        "wrong": {
+          "A": "The text never says foxes are pets.",
+          "C": "The shoebox has nothing to do with burrows.",
+          "D": "The comparison is about size, not strength."
+        }
+      }
+    ]
   }
 }

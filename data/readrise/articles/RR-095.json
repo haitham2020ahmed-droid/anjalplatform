@@ -614,5 +614,217 @@
       ],
       "modelAnswer": "Training builds the gradual increase in endurance a runner needs, since running a little farther each week strengthens the muscles enough to handle 42 kilometers. This training also increases how much glycogen, the sugar stored in muscles for fuel, a runner's body can use before it runs out late in the race and causes the feeling known as hitting the wall. Good hydration works alongside this fuel, because runners lose water and salt through sweat, so drinking during the race keeps muscles working properly even as glycogen stores drop. Finally, a smart pacing strategy ties everything together: a runner who starts too fast burns through glycogen and fluids far too quickly, while one who paces steadily uses training, fuel, and hydration efficiently enough to reach the finish line."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "How long is a marathon compared to a track?",
+        "options": [
+          "About ten laps",
+          "About thirty laps",
+          "About fifty laps",
+          "More than 100 laps"
+        ],
+        "answer": "D",
+        "skill": "detail",
+        "why": "The text says a marathon is more than 100 laps of a track.",
+        "wrong": {
+          "A": "Ten laps is far too few.",
+          "B": "Thirty laps is too few.",
+          "C": "Fifty laps is too few."
+        }
+      },
+      {
+        "stem": "Why does a runner need to eat foods like rice and bread?",
+        "options": [
+          "To get energy for the race",
+          "To stay cool in the sun",
+          "To make the legs feel like stone",
+          "To learn the history of the race"
+        ],
+        "answer": "A",
+        "skill": "cause-effect",
+        "why": "The text says you get energy from food like rice and bread.",
+        "wrong": {
+          "B": "Water is for sweat, not food.",
+          "C": "Legs feel like stone when energy runs out.",
+          "D": "Food does not teach history."
+        }
+      },
+      {
+        "stem": "In the article, a marathon is —",
+        "options": [
+          "a kind of food",
+          "a small town",
+          "a very long race",
+          "a short walk"
+        ],
+        "answer": "C",
+        "skill": "vocabulary",
+        "why": "The text says a marathon is a very long race.",
+        "wrong": {
+          "A": "A marathon is a race, not food.",
+          "B": "The town is where the name came from, but a marathon is a race.",
+          "D": "A marathon is very long, not a short walk."
+        }
+      },
+      {
+        "stem": "What can you infer from the fact that runners run a bit more each week?",
+        "options": [
+          "Runners do not like to rest",
+          "The body needs time to get ready",
+          "Weeks are too long for runners",
+          "Short races are not allowed"
+        ],
+        "answer": "B",
+        "skill": "inference",
+        "why": "Running a bit more each week lets the body get ready slowly for such a long race.",
+        "wrong": {
+          "A": "The text says runners rest, too.",
+          "C": "The length of weeks is not the point.",
+          "D": "The text does not talk about rules for short races."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "About how long ago does the old story say the messenger ran?",
+        "options": [
+          "Fifty years ago",
+          "About 250 years ago",
+          "About 2,500 years ago",
+          "About 25,000 years ago"
+        ],
+        "answer": "C",
+        "skill": "detail",
+        "why": "The text says about 2,500 years ago a messenger is said to have run to Athens.",
+        "wrong": {
+          "A": "That is far too recent.",
+          "B": "That is far too recent.",
+          "D": "The story is not that old."
+        }
+      },
+      {
+        "stem": "Why do runners take rest days?",
+        "options": [
+          "Muscles get time to heal and grow strong",
+          "Their legs always hit the wall first",
+          "They need to drink a lot less water",
+          "The race has a rule about rest days"
+        ],
+        "answer": "A",
+        "skill": "cause-effect",
+        "why": "The text says rest gives their muscles time to heal and grow strong.",
+        "wrong": {
+          "B": "Hitting the wall happens late in a race.",
+          "C": "Water is not linked to rest days.",
+          "D": "The text mentions no such rule."
+        }
+      },
+      {
+        "stem": "Why do runners need to drink water most of all on hot days?",
+        "options": [
+          "Hot days make the whole road longer",
+          "The sun makes all runners eat less",
+          "Runners start the race much faster",
+          "They sweat more and lose more water"
+        ],
+        "answer": "D",
+        "skill": "inference",
+        "why": "The text says runners lose water and salt when they sweat, so on hot days they sweat more and need more water.",
+        "wrong": {
+          "A": "The road is the same length.",
+          "B": "Eating is not the reason given.",
+          "C": "Hot days are not linked to a faster start."
+        }
+      },
+      {
+        "stem": "In the article, the word steady means —",
+        "options": [
+          "very fast",
+          "not changing much",
+          "getting slower",
+          "hard to see"
+        ],
+        "answer": "B",
+        "skill": "vocabulary",
+        "why": "Wise runners keep a steady pace, meaning the same speed so they have strength to finish.",
+        "wrong": {
+          "A": "Runners who start fast run out of energy.",
+          "C": "A steady pace does not get slower.",
+          "D": "Seeing is not the idea."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "Where and when was the first modern Olympic marathon held?",
+        "options": [
+          "In Marathon in 490 BC",
+          "In Riyadh in 1996",
+          "In Athens in 1896",
+          "In Rome in 1796"
+        ],
+        "answer": "C",
+        "skill": "detail",
+        "why": "The text says the first modern Olympic marathon was held in Athens in 1896.",
+        "wrong": {
+          "A": "Marathon is the town in the story, not where the Olympic race was held.",
+          "B": "Riyadh is named only as a city that holds marathons today.",
+          "D": "Rome is not mentioned."
+        }
+      },
+      {
+        "stem": "Why do experienced runners keep a consistent pace?",
+        "options": [
+          "To start the race before the others do",
+          "To finish the whole race in under an hour",
+          "To use up all of their energy very early",
+          "To save strength for the final kilometers"
+        ],
+        "answer": "D",
+        "skill": "cause-effect",
+        "why": "The text says experienced runners keep a consistent pace and conserve strength for the final kilometers.",
+        "wrong": {
+          "A": "The text does not link pace to starting first.",
+          "B": "Marathons take hours, not under one hour.",
+          "C": "Using energy early is what fast starters do."
+        }
+      },
+      {
+        "stem": "In the article, the word prematurely means —",
+        "options": [
+          "too early",
+          "too slowly",
+          "very quietly",
+          "without water"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "Runners who start too quickly use their energy before the right time, which means too early.",
+        "wrong": {
+          "B": "They run too fast, not too slowly.",
+          "C": "Sound is not the idea.",
+          "D": "Water is not the idea of this word."
+        }
+      },
+      {
+        "stem": "Why does the author say nobody can just wake up one morning and finish a marathon?",
+        "options": [
+          "To say that marathons start in the morning",
+          "To show that a marathon takes months of training",
+          "To say that most people dislike running",
+          "To show that races are held in cities"
+        ],
+        "answer": "B",
+        "skill": "author-purpose",
+        "why": "The next sentences explain that runners train for months, so the line shows the need to prepare.",
+        "wrong": {
+          "A": "The line is not about the time the race starts.",
+          "C": "The text does not say people dislike running.",
+          "D": "The city races come in a later paragraph."
+        }
+      }
+    ]
   }
 }

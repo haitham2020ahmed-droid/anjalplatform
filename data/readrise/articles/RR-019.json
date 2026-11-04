@@ -614,5 +614,217 @@
       ],
       "modelAnswer": "A rainbow's colors always appear in the same order because this beautiful phenomenon follows a precise, predictable physical rule rather than random chance. Sunlight is really a mixture of colors forming a full spectrum, and each color has a slightly different wavelength, which causes it to bend by a slightly different amount during refraction as it enters and exits a raindrop. This difference in bending causes dispersion, separating the colors so that red, which bends the least, always ends up on the outside of the arc, while violet, which bends the most, always ends up on the inside. Because every raindrop refracts light according to the very same physical laws, this consistent order of colors appears in rainbows everywhere, every time."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "Which color is on the top band of a rainbow?",
+        "options": [
+          "Violet",
+          "Blue",
+          "Green",
+          "Red"
+        ],
+        "answer": "D",
+        "skill": "detail",
+        "why": "The text says red is on top of the rainbow.",
+        "wrong": {
+          "A": "Violet is at the bottom.",
+          "B": "Blue comes after green, near the bottom.",
+          "C": "Green is in the middle of the bow."
+        }
+      },
+      {
+        "stem": "One day Omar sees two bows in the sky. Which bow has red at the bottom?",
+        "options": [
+          "The pale top bow",
+          "The bright low bow",
+          "Both of the bows",
+          "Neither of the bows"
+        ],
+        "answer": "A",
+        "skill": "inference",
+        "why": "The text says the top bow is pale and its colors are flipped, so red is at the bottom.",
+        "wrong": {
+          "B": "The bright bow has red on top.",
+          "C": "Only one bow has flipped colors.",
+          "D": "The top bow has flipped colors."
+        }
+      },
+      {
+        "stem": "In the article, the word bounces means —",
+        "options": [
+          "breaks into small bits",
+          "gets very, very hot",
+          "hits and comes back",
+          "falls down very fast"
+        ],
+        "answer": "C",
+        "skill": "vocabulary",
+        "why": "Light goes into the drop and bounces off the back, so it hits the back and comes back out.",
+        "wrong": {
+          "A": "The light does not break into bits.",
+          "B": "Heat is not part of the idea.",
+          "D": "The light does not fall down."
+        }
+      },
+      {
+        "stem": "What happens to light when it goes into a raindrop?",
+        "options": [
+          "It turns white",
+          "It bends",
+          "It stops moving",
+          "It becomes rain"
+        ],
+        "answer": "B",
+        "skill": "cause-effect",
+        "why": "The text says light goes in and bends, hits the back, bounces, and bends again.",
+        "wrong": {
+          "A": "Sunlight is already white-looking and splits into colors.",
+          "C": "The light keeps moving and comes out.",
+          "D": "The light does not become rain."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "According to the article, which two everyday things are needed to make a rainbow?",
+        "options": [
+          "Wind and clouds",
+          "Glass and a hose",
+          "Sunlight and water",
+          "Heat and a prism"
+        ],
+        "answer": "C",
+        "skill": "detail",
+        "why": "The article says the science of rainbows needs just sunlight and water.",
+        "wrong": {
+          "A": "Wind and clouds are not named as the needs.",
+          "B": "Glass and a hose are not the two things named.",
+          "D": "A prism can split light, but it is not one of the two things."
+        }
+      },
+      {
+        "stem": "In the article, the word reflects in \"reflects off the back of the drop\" means —",
+        "options": [
+          "bounces back",
+          "slows down",
+          "falls apart",
+          "speeds up"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "The light hits the back of the drop and then goes back out, so reflects means bounces back.",
+        "wrong": {
+          "B": "Slowing down happens when light enters the drop.",
+          "C": "The light does not fall apart.",
+          "D": "The article does not say it speeds up."
+        }
+      },
+      {
+        "stem": "Why do the colors of sunlight spread out into an arc?",
+        "options": [
+          "The raindrops are falling very fast",
+          "The sun is too low in the sky today",
+          "Each drop is very large",
+          "Each color bends by a different amount"
+        ],
+        "answer": "D",
+        "skill": "cause-effect",
+        "why": "The article says each color bends by a slightly different amount, so the colors split and fan out.",
+        "wrong": {
+          "A": "The speed of the rain is not the reason.",
+          "B": "A low sun helps you see the bow but does not split the colors.",
+          "C": "The article says the drops are tiny."
+        }
+      },
+      {
+        "stem": "Why do we not usually see the separate colors in sunlight?",
+        "options": [
+          "They are too far away",
+          "They travel together in one beam",
+          "They are hidden by the clouds",
+          "They are only found in rain"
+        ],
+        "answer": "B",
+        "skill": "cause-effect",
+        "why": "The article says the colors travel together in one beam, so we do not see them apart.",
+        "wrong": {
+          "A": "Distance is not the reason given.",
+          "C": "Clouds are not given as the reason.",
+          "D": "Sunlight always holds the colors, even without rain."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "According to the article, what is refraction?",
+        "options": [
+          "The bouncing of light off the back of a drop",
+          "The slowing and changing direction of light",
+          "The splitting of rain into drops",
+          "The measuring of waves by their peaks"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The article says light slows down and changes direction when it enters a drop, a process known as refraction.",
+        "wrong": {
+          "A": "Bouncing off the back of the drop is reflection.",
+          "C": "Refraction is about light, not rain.",
+          "D": "Wavelength is the distance between peaks."
+        }
+      },
+      {
+        "stem": "In the article, the word suspended most nearly means —",
+        "options": [
+          "frozen solid in ice",
+          "falling very quickly",
+          "pushed down hard",
+          "hanging in the air"
+        ],
+        "answer": "D",
+        "skill": "vocabulary",
+        "why": "The raindrops float in the air after rain, so suspended means hanging there.",
+        "wrong": {
+          "A": "The drops are liquid, not frozen.",
+          "B": "They remain in the air, not fall.",
+          "C": "They float, so they are not pushed down."
+        }
+      },
+      {
+        "stem": "What is the result of light reflecting twice inside each raindrop?",
+        "options": [
+          "A second, fainter rainbow, colors reversed",
+          "A brighter rainbow with no violet at all",
+          "A rainbow that can only be seen at noon",
+          "A rainbow with only three colors in it"
+        ],
+        "answer": "A",
+        "skill": "cause-effect",
+        "why": "The article says a second, fainter rainbow forms with its colors in reverse order.",
+        "wrong": {
+          "B": "The article does not say violet disappears.",
+          "C": "Rainbows are best seen when the sun is low.",
+          "D": "The article does not say it loses colors."
+        }
+      },
+      {
+        "stem": "What happens to the light right after it reflects off the back of a raindrop?",
+        "options": [
+          "It turns into rain",
+          "It goes straight back to the sun",
+          "It bends a second time as it exits",
+          "It is absorbed and disappears"
+        ],
+        "answer": "C",
+        "skill": "sequence",
+        "why": "The article says the light reflects off the back and then bends a second time as it exits.",
+        "wrong": {
+          "A": "Light does not become rain.",
+          "B": "The article does not send it back to the sun.",
+          "D": "The light leaves the drop; it does not vanish."
+        }
+      }
+    ]
   }
 }

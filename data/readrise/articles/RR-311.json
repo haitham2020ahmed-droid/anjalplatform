@@ -614,5 +614,217 @@
       ],
       "modelAnswer": "Collaboration matters because large murals often require an entire team of artists, and sometimes community volunteers, working together for days or weeks to finish such a big project. Careful planning matters because turning a small sketch into a giant mural requires a reliable method, such as a grid or projector, for scaling the design accurately onto a huge wall. Official permission matters because painting someone else's wall without asking is legally considered vandalism, no matter how skilled the artist is. Together, these three elements let a team transform a once-blank, gray wall into a vibrant landmark, like the mural projects that now brighten quiet streets in Riyadh and Jeddah."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "According to the text, what does the word mural mean?",
+        "options": [
+          "Paint",
+          "Wall",
+          "Color",
+          "Street"
+        ],
+        "answer": "B",
+        "skill": "vocabulary",
+        "why": "The text says the word mural means wall.",
+        "wrong": {
+          "A": "The text says mural means wall, not paint.",
+          "C": "The text says mural means wall, not color.",
+          "D": "The text says mural means wall, not street."
+        }
+      },
+      {
+        "stem": "Which two cities does the text name for bright walls?",
+        "options": [
+          "Makkah and Medina",
+          "Dammam and Abha",
+          "Tabuk and Hail",
+          "Riyadh and Jeddah"
+        ],
+        "answer": "D",
+        "skill": "detail",
+        "why": "The text says walls get bright in Riyadh and in Jeddah.",
+        "wrong": {
+          "A": "Makkah and Medina are not named in the text.",
+          "B": "Dammam and Abha are not named in the text.",
+          "C": "Tabuk and Hail are not named in the text."
+        }
+      },
+      {
+        "stem": "Why do you think the text says a mural is part of the wall?",
+        "options": [
+          "The paint is put right on the wall",
+          "The wall is made from the paint",
+          "The picture hangs on the wall",
+          "The mural can be moved away"
+        ],
+        "answer": "A",
+        "skill": "inference",
+        "why": "A mural is a painting on a wall, so the paint is on the wall itself and stays there.",
+        "wrong": {
+          "B": "A wall is not made of paint.",
+          "C": "A hanging picture is not a mural.",
+          "D": "A painting on a wall cannot be moved away."
+        }
+      },
+      {
+        "stem": "Why does the author end by telling about bright colors on city walls?",
+        "options": [
+          "To say that murals are too bright",
+          "To say that artists dislike paint",
+          "To show that people enjoy murals",
+          "To say that murals are very costly"
+        ],
+        "answer": "C",
+        "skill": "author-purpose",
+        "why": "The ending shows that people enjoy the bright murals in the cities.",
+        "wrong": {
+          "A": "The text says people like the colors, not that they are too bright.",
+          "B": "The text does not say artists dislike paint.",
+          "D": "The text never talks about cost."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "The article says artists use \"scaffolding or a lift\" for tall walls. What is scaffolding?",
+        "options": [
+          "A kind of very bright paint",
+          "A grid that is drawn on paper",
+          "A frame to stand on high up",
+          "A team of helpers from town"
+        ],
+        "answer": "C",
+        "skill": "vocabulary",
+        "why": "The article says scaffolding or a lift helps artists reach high places safely, so it is something to stand on.",
+        "wrong": {
+          "A": "Paint is what the artist puts on the wall.",
+          "B": "The grid is what helps scale the design.",
+          "D": "Helpers are people and not the scaffolding."
+        }
+      },
+      {
+        "stem": "Where did the word mural come from?",
+        "options": [
+          "An old Latin word",
+          "An old Arabic poem",
+          "A city in Spain",
+          "A type of paint"
+        ],
+        "answer": "A",
+        "skill": "detail",
+        "why": "The article says the word mural comes from the old Latin word murus, meaning wall.",
+        "wrong": {
+          "B": "The article does not mention a poem.",
+          "C": "The article does not mention Spain.",
+          "D": "The word means wall, not a type of paint."
+        }
+      },
+      {
+        "stem": "Who sometimes helps paint the smaller parts of a large mural?",
+        "options": [
+          "Only the building owner",
+          "Only the city leader",
+          "Only one lead artist",
+          "People from the town"
+        ],
+        "answer": "D",
+        "skill": "detail",
+        "why": "The article says people from the town sometimes help paint smaller parts.",
+        "wrong": {
+          "A": "The owner offers the wall but is not named as a painter.",
+          "B": "A city leader is not named as a painter.",
+          "C": "The article says a whole team often works together."
+        }
+      },
+      {
+        "stem": "Why might a community pick a theme such as local history or nature?",
+        "options": [
+          "Because the law says to use it",
+          "So the mural has meaning for the town",
+          "Because the paint is cheaper that way",
+          "So that the wall will stay blank"
+        ],
+        "answer": "B",
+        "skill": "inference",
+        "why": "The community picks the theme, which suggests they want a mural that means something to their town.",
+        "wrong": {
+          "A": "The article does not say any law picks the theme.",
+          "C": "The article does not say the theme changes the cost.",
+          "D": "The mural is meant to fill the blank wall."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "The article says a city or building owner \"commissions\" the artist. What does commissions mean?",
+        "options": [
+          "Takes the finished art away",
+          "Officially asks and hires for a job",
+          "Teaches the artist how to paint",
+          "Hides the whole wall from view"
+        ],
+        "answer": "B",
+        "skill": "vocabulary",
+        "why": "The owner offers a blank wall to the artist, so commissions means officially asking the artist to do the work.",
+        "wrong": {
+          "A": "The article does not say the owner takes the art away.",
+          "C": "The artist is already skilled, so the owner does not teach.",
+          "D": "The wall is offered to be painted, not hidden."
+        }
+      },
+      {
+        "stem": "How long may a large mural take a team of artists?",
+        "options": [
+          "A few minutes",
+          "One short hour",
+          "A single morning",
+          "Days or even weeks"
+        ],
+        "answer": "D",
+        "skill": "detail",
+        "why": "The article says teams collaborate for days or even weeks.",
+        "wrong": {
+          "A": "A few minutes is much too short for a large mural.",
+          "B": "One hour is much too short for a large mural.",
+          "C": "The article says days or weeks, not a single morning."
+        }
+      },
+      {
+        "stem": "Why do artists use paint built to resist sun, wind, and rain?",
+        "options": [
+          "Murals are outdoors on building walls",
+          "Murals are always kept inside of frames",
+          "Murals are painted only late at night",
+          "Murals are made out of soft thin paper"
+        ],
+        "answer": "A",
+        "skill": "cause-effect",
+        "why": "Murals are usually outdoors and a lasting part of the building, so the paint must stand up to the weather.",
+        "wrong": {
+          "B": "A mural is not kept inside a frame.",
+          "C": "Night is only when some artists project a design.",
+          "D": "A mural is painted on a wall, not on paper."
+        }
+      },
+      {
+        "stem": "How is a mural different from a painting that hangs in a frame?",
+        "options": [
+          "It is always much smaller in size",
+          "It is always kept safely inside",
+          "It becomes part of the building",
+          "It can be taken home and hung up"
+        ],
+        "answer": "C",
+        "skill": "compare",
+        "why": "The article says a mural becomes a lasting part of the building itself.",
+        "wrong": {
+          "A": "A mural is a large-scale painting.",
+          "B": "A mural is usually outdoors.",
+          "D": "A mural is painted on the wall, so it cannot be taken home."
+        }
+      }
+    ]
   }
 }

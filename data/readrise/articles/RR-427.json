@@ -614,5 +614,217 @@
       ],
       "modelAnswer": "I agree that careful, repeated checking matters more than working fast. In the story, Tariq's habit of checking every measurement twice is exactly what let him notice that an old record did not match his new observation; if he had rushed, he likely would have missed the discrepancy entirely. His precise, patient approach also gave him enough confidence in his own numbers to bring the problem to the head astronomer, even though doing so felt risky for a young apprentice. Someone might argue that working quickly lets astronomers measure more stars overall, but a catalog full of fast, uncorrected errors would be far less useful to future scholars than a smaller, precise one they can actually trust."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "What do the men do in the tower at night?",
+        "options": [
+          "They sell old books.",
+          "They sleep on top.",
+          "They look at stars.",
+          "They draw a map."
+        ],
+        "answer": "C",
+        "skill": "detail",
+        "why": "The text says men go up the tower at night and look at stars.",
+        "wrong": {
+          "A": "Selling books is not mentioned.",
+          "B": "They go up to watch the stars, not to sleep.",
+          "D": "Drawing a map is not mentioned."
+        }
+      },
+      {
+        "stem": "What is in the big star book?",
+        "options": [
+          "Numbers for many stars",
+          "Stories about kings",
+          "Pictures of the city",
+          "Names of the men"
+        ],
+        "answer": "A",
+        "skill": "detail",
+        "why": "The text says the star book has numbers for many stars.",
+        "wrong": {
+          "B": "Stories about kings are not mentioned.",
+          "C": "Pictures of the city are not mentioned.",
+          "D": "Names of the men are not mentioned."
+        }
+      },
+      {
+        "stem": "Why did Tariq check the old number again?",
+        "options": [
+          "His friend asked him to look.",
+          "The head man was angry at him.",
+          "The star was too bright to see.",
+          "It was not the same as the new one."
+        ],
+        "answer": "D",
+        "skill": "cause-effect",
+        "why": "The old number was not the same as his new one, so he checked it again.",
+        "wrong": {
+          "A": "No friend asks him to check.",
+          "B": "The head man is not angry at that point.",
+          "C": "Brightness is not mentioned."
+        }
+      },
+      {
+        "stem": "What does Tariq's choice to tell the head man show?",
+        "options": [
+          "He likes to give orders.",
+          "He is brave even when scared.",
+          "He wants to leave the tower.",
+          "He does not like the men."
+        ],
+        "answer": "B",
+        "skill": "inference",
+        "why": "Tariq feels scared, but he still tells the head man, so he acts bravely.",
+        "wrong": {
+          "A": "He is a young helper, not someone who gives orders.",
+          "C": "The text does not say he wants to leave.",
+          "D": "The text does not say he dislikes the men."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "What did Tariq carry up the stairs each evening?",
+        "options": [
+          "Lamps and oil",
+          "Ink and paper",
+          "Food and water",
+          "Maps and tools"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The text says he carried ink and paper to help the older men in the dark.",
+        "wrong": {
+          "A": "Lamps and oil are not mentioned.",
+          "C": "Food and water are not mentioned.",
+          "D": "Maps and tools are not mentioned."
+        }
+      },
+      {
+        "stem": "Ulugh Beg built an observatory. What is an observatory?",
+        "options": [
+          "a building for watching the sky",
+          "a school for young kings",
+          "a market for selling tools",
+          "a tall wall to keep out enemies"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "Astronomers worked in the observatory to measure the stars, so it is a building for watching the sky.",
+        "wrong": {
+          "B": "It was not a school for kings.",
+          "C": "It was not a market.",
+          "D": "It was not a wall."
+        }
+      },
+      {
+        "stem": "What happened because one patient apprentice kept careful watch?",
+        "options": [
+          "The star catalog became more accurate.",
+          "The tower had to be closed.",
+          "The head astronomer left the city.",
+          "The stars looked brighter."
+        ],
+        "answer": "A",
+        "skill": "cause-effect",
+        "why": "The last sentence says the star catalog became more accurate for everyone.",
+        "wrong": {
+          "B": "The tower is not closed.",
+          "C": "The head astronomer stays and fixes the error.",
+          "D": "The stars did not change."
+        }
+      },
+      {
+        "stem": "The young apprentice wonders who he is to question the head astronomer's math. What does this show?",
+        "options": [
+          "Tariq was proud of his skills.",
+          "Tariq did not like doing math.",
+          "Tariq felt smaller than the head astronomer.",
+          "Tariq wanted the head astronomer's job."
+        ],
+        "answer": "C",
+        "skill": "inference",
+        "why": "The question shows that Tariq, a young helper, felt too small to question the head astronomer.",
+        "wrong": {
+          "A": "He felt fear, not pride.",
+          "B": "The text does not say he dislikes math.",
+          "D": "The text does not say he wants that job."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "About how long had Tariq been in training?",
+        "options": [
+          "More than ten years",
+          "Nearly two years",
+          "Only one week",
+          "Barely a year"
+        ],
+        "answer": "D",
+        "skill": "detail",
+        "why": "The text calls him a young apprentice barely a year into his training.",
+        "wrong": {
+          "A": "Ten years is not mentioned.",
+          "B": "Nearly two years is not mentioned; the text says barely a year.",
+          "C": "One week is not mentioned."
+        }
+      },
+      {
+        "stem": "In the story, the word compiling means —",
+        "options": [
+          "putting facts in one list",
+          "looking at the sky for fun",
+          "throwing away old records",
+          "painting pictures of stars"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "The astronomers were compiling a catalog, which was a careful list of star positions put together over many years.",
+        "wrong": {
+          "B": "Their work was careful and serious, not for fun.",
+          "C": "They kept old records and checked them.",
+          "D": "The catalog is a list, not a painting."
+        }
+      },
+      {
+        "stem": "What does the error going unnoticed for months suggest?",
+        "options": [
+          "The catalog was never used.",
+          "The head astronomer was careless.",
+          "Experts can miss small errors.",
+          "Tariq wanted to hide the error."
+        ],
+        "answer": "C",
+        "skill": "inference",
+        "why": "The error stayed hidden from experienced eyes for months, so even experts can miss small mistakes.",
+        "wrong": {
+          "A": "Scholars were going to rely on the catalog.",
+          "B": "The text calls the head astronomer careful.",
+          "D": "Tariq brought the error to light."
+        }
+      },
+      {
+        "stem": "Besides ink and paper, what did Tariq carry up the stairs?",
+        "options": [
+          "A heavy telescope",
+          "A small lantern",
+          "A basket of food",
+          "A wooden ladder"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The text says he carried ink, paper, and a small lantern so everyone could see.",
+        "wrong": {
+          "A": "A telescope is not mentioned.",
+          "C": "Food is not mentioned.",
+          "D": "A ladder is not mentioned."
+        }
+      }
+    ]
   }
 }

@@ -614,5 +614,217 @@
       ],
       "modelAnswer": "I believe the benefits of recycling robots outweigh their limits. Guided by cameras, sensors, and an algorithm, these robots sort materials far more efficiently than human workers alone, which supports a more sustainable future with less landfill waste. However, the system does have real limits, since broken glass can injure a worker and a robot sometimes misidentifies an unusual item, requiring engineers to keep retraining the artificial intelligence. Because facilities keep improving the technology to address these limits, the overall benefit to the environment is clearly worth it."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "What does the robot do after it grabs the plastic?",
+        "options": [
+          "It cooks the plastic first",
+          "It drops it in the right bin",
+          "It sends it up to the sun",
+          "It gives it back to a truck"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The text says the arm grabs the plastic and drops it in the right bin.",
+        "wrong": {
+          "A": "The text never says the robot cooks plastic.",
+          "C": "The sun is not mentioned.",
+          "D": "Trucks bring the trash in, they do not take plastic from the robot."
+        }
+      },
+      {
+        "stem": "Why does a tool push the aluminum cans away?",
+        "options": [
+          "They are too hot",
+          "They are very dirty",
+          "They are too old",
+          "They are not steel"
+        ],
+        "answer": "D",
+        "skill": "cause-effect",
+        "why": "The text says some cans are not steel, so a tool pushes the aluminum cans away.",
+        "wrong": {
+          "A": "The text does not say cans are hot.",
+          "B": "Dirt is not the reason in the text.",
+          "C": "Age is not mentioned."
+        }
+      },
+      {
+        "stem": "In the article, what is a sort center?",
+        "options": [
+          "A small garden",
+          "A kind of belt",
+          "A big building for trash",
+          "A robot with a camera"
+        ],
+        "answer": "C",
+        "skill": "vocabulary",
+        "why": "Trucks bring trash to a big building called a sort center, where robots help sort it.",
+        "wrong": {
+          "A": "A garden is not mentioned.",
+          "B": "The conveyor belt is inside the sort center.",
+          "D": "A robot works in the sort center, but it is not the center."
+        }
+      },
+      {
+        "stem": "What does the robot do just before it drops the plastic in the bin?",
+        "options": [
+          "It grabs the plastic",
+          "It cools the belt",
+          "It looks for steel",
+          "It pulls out cans"
+        ],
+        "answer": "A",
+        "skill": "sequence",
+        "why": "The text says the robot sees the plastic, its arm reaches out and grabs it, then it drops it in the bin.",
+        "wrong": {
+          "B": "The text does not say the belt is cooled.",
+          "C": "Steel is found with a magnet, not by this robot arm.",
+          "D": "A magnet pulls cans out."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "What does a robot arm often use to pick up an item?",
+        "options": [
+          "A pair of scissors",
+          "A strong magnet",
+          "A big shovel",
+          "A soft suction cup"
+        ],
+        "answer": "D",
+        "skill": "detail",
+        "why": "The text says a robot arm often uses a soft suction cup.",
+        "wrong": {
+          "A": "Scissors are not mentioned.",
+          "B": "A magnet pulls steel cans, but it is not what the arm uses.",
+          "C": "A shovel is not mentioned."
+        }
+      },
+      {
+        "stem": "Why must aluminum be separated with electric power?",
+        "options": [
+          "It does not stick to magnets",
+          "It is much stronger than steel",
+          "It is too small for robots to see",
+          "It is found only in dirty trash"
+        ],
+        "answer": "A",
+        "skill": "cause-effect",
+        "why": "The text says aluminum does not stick to a regular magnet, so another method is used.",
+        "wrong": {
+          "B": "The text does not compare the strength of aluminum and steel.",
+          "C": "Size is not mentioned.",
+          "D": "Dirt is not the reason for using electric power."
+        }
+      },
+      {
+        "stem": "What does the word contaminate mean in the article?",
+        "options": [
+          "To make a bin much bigger",
+          "To spoil by making dirty",
+          "To carry on a long belt",
+          "To turn something into metal"
+        ],
+        "answer": "B",
+        "skill": "vocabulary",
+        "why": "The text says dirty items can contaminate a whole batch and make it harder to recycle.",
+        "wrong": {
+          "A": "Bins are not made bigger in the text.",
+          "C": "The belt carries items, but that is not contaminating.",
+          "D": "Nothing turns into metal."
+        }
+      },
+      {
+        "stem": "Why does the author end by talking about landfills?",
+        "options": [
+          "To say that robots get tired",
+          "To tell how to build a landfill",
+          "To show a good result of sorting",
+          "To explain how a magnet works"
+        ],
+        "answer": "C",
+        "skill": "author-purpose",
+        "why": "The author says clean material can become new products instead of sitting in a landfill, a good result of sorting.",
+        "wrong": {
+          "A": "The text says robots never get tired.",
+          "B": "The text does not tell how to build a landfill.",
+          "D": "The magnet is explained earlier."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "What does making a product from recycled metal or plastic save?",
+        "options": [
+          "Space inside of the trucks",
+          "Time for all of the workers",
+          "Power compared to starting new",
+          "Water from the nearby rivers"
+        ],
+        "answer": "C",
+        "skill": "detail",
+        "why": "The text says making a product from recycled metal or plastic uses far less power than starting from scratch.",
+        "wrong": {
+          "A": "Truck space is not mentioned.",
+          "B": "The text does not talk about saving worker time.",
+          "D": "Water is not mentioned."
+        }
+      },
+      {
+        "stem": "In the article, what does the word conserves mean?",
+        "options": [
+          "Saves and protects",
+          "Wastes and loses",
+          "Makes and sells",
+          "Finds and counts"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "Recycling uses less power, so it saves energy.",
+        "wrong": {
+          "B": "Recycling uses less power instead of wasting it.",
+          "C": "Selling is not the point of the sentence.",
+          "D": "The sentence is about saving, not counting."
+        }
+      },
+      {
+        "stem": "Why does a trained human worker still check the bins?",
+        "options": [
+          "Robots cannot grab any plastic",
+          "Robots cost too little to use",
+          "Robots work only at night time",
+          "A human may catch a missed item"
+        ],
+        "answer": "D",
+        "skill": "inference",
+        "why": "The text says a worker checks the bins to make sure nothing important was missed, so robots can make mistakes.",
+        "wrong": {
+          "A": "The text says robots grab items with suction cups.",
+          "B": "The text does not mention the robots' price.",
+          "C": "The text says robots work around the clock."
+        }
+      },
+      {
+        "stem": "Why are growing cities investing in recycling facilities?",
+        "options": [
+          "To end all of the trash",
+          "To support a sustainable future",
+          "To make aluminum much heavier",
+          "To stop using any electricity"
+        ],
+        "answer": "B",
+        "skill": "cause-effect",
+        "why": "The text says growing cities invest in these facilities to support a sustainable future.",
+        "wrong": {
+          "A": "The text does not say trash can end.",
+          "C": "Aluminum weight is not mentioned.",
+          "D": "The facilities use electric current in places."
+        }
+      }
+    ]
   }
 }

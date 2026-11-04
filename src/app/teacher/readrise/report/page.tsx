@@ -2,7 +2,8 @@ import Link from "next/link";
 import { AppShell } from "@/components/app-shell";
 import { getActor, repo, requireActor } from "@/server/auth/next";
 import { teacherReadRiseClasses } from "@/server/readrise/teacher";
-import { readRiseTeacherReport, RISING_GAIN, STUCK_DAYS, type ReportStudent } from "@/server/readrise/teacher-report";
+import { readRiseTeacherReport, RISING_GAIN, type ReportStudent } from "@/server/readrise/teacher-report";
+import { BELOW_GOAL_DAYS, BELOW_GOAL_TRIES, NOT_READING_DAYS } from "@/server/readrise/dashboards";
 import { RR_PERIOD_NAME, RR_PERIODS } from "@/server/readrise/windows";
 import { exportsOf } from "@/components/reports/report-ui";
 import { AtAGlance, ReportHeader, ReportIntro, ReportSection, ReportSummary } from "@/components/report-kit";
@@ -52,7 +53,9 @@ export default async function ReadRiseReportPage({ searchParams }: { searchParam
       <AtAGlance items={[
         { icon: "🧭", label: t("Placed"), value: `${r.summary.placed} / ${r.summary.students}`, tone: r.summary.placed < r.summary.students ? "warn" : "good" },
         { icon: "🗓️", label: t("Reading checks to take"), value: checksOpen, meaning: checksOpen ? t("The reading check is open: students see a card on their ReadRise page.") : undefined, tone: checksOpen ? "warn" : "neutral" },
-        { icon: "⏸", label: t("Stuck"), value: r.summary.stuck, meaning: t("no level change for {n}+ days", { n: STUCK_DAYS }), tone: r.summary.stuck ? "warn" : "neutral" },
+        { icon: "🔴", label: t("Not reading"), value: r.summary.notReading, meaning: t("no counted reading for {n}+ days", { n: NOT_READING_DAYS }), tone: r.summary.notReading ? "bad" : "neutral" },
+        { icon: "🟠", label: t("Reading, below 75%"), value: r.summary.belowGoal, meaning: t("{n}+ first tries in 4 weeks, none at 75%+, level unchanged", { n: BELOW_GOAL_TRIES }), tone: r.summary.belowGoal ? "warn" : "neutral" },
+        { icon: "📉", label: t("Missed the weekly goal 2 weeks in a row"), value: r.summary.missedGoal, tone: r.summary.missedGoal ? "warn" : "neutral" },
         { icon: "🚀", label: t("Rising fast"), value: r.summary.rising, meaning: t("up {n}+ in 4 weeks", { n: RISING_GAIN }), tone: r.summary.rising ? "good" : "neutral" },
         { icon: "⚡", label: t("Unreliable readings"), value: r.summary.unreliable, meaning: t("2+ answers too fast to be read: the level did not move"), tone: r.summary.unreliable ? "bad" : "neutral" },
       ]} />
@@ -78,12 +81,33 @@ export default async function ReadRiseReportPage({ searchParams }: { searchParam
       </ReportSection>
 
       <div className="mt-6 grid gap-6 lg:grid-cols-2">
-        <ReportSection title="Stuck" icon="⏸" className="mb-0" hint={<>{t("Placed students whose level has not changed for {n}+ days. Check the articles' fit or talk with them.", { n: STUCK_DAYS })}</>}>
-          {r.stuck.length === 0 ? <p className="text-sm text-slate-600">{t("Nobody is stuck.")}</p> : (
-            <ul data-testid="rr-report-stuck" className="divide-y divide-slate-100 text-sm">
-              {r.stuck.map((x) => <li key={x.studentId} className="flex flex-wrap justify-between gap-2 py-2"><Link href={studentHref(x.studentId)} className="font-semibold text-brand-navy hover:underline"><bdi>{x.name}</bdi></Link><span className="tabular-nums text-slate-600">{x.level} · {t("{n} days", { n: x.days })} · {t("{n} readings in 4 weeks", { n: x.readings4w })}</span></li>)}
-            </ul>
-          )}
+        <ReportSection title="Stuck" icon="⏸" className="mb-0" hint={<>{t("Two kinds of stuck: students who are not reading, and students who read but stay below 75%. Talk with them, or check the articles' fit.")}</>}>
+          <div data-testid="rr-report-stuck" className="space-y-4 text-sm">
+            <div>
+              <h3 className="font-bold text-red-800">🔴 {t("Not reading")} <span className="font-normal text-slate-600">· {t("no counted reading for {n}+ days", { n: NOT_READING_DAYS })}</span></h3>
+              {r.notReading.length === 0 ? <p className="text-slate-600">{t("Nobody.")}</p> : (
+                <ul data-testid="rr-report-not-reading" className="divide-y divide-slate-100">
+                  {r.notReading.map((x) => <li key={x.studentId} className="flex flex-wrap justify-between gap-2 py-2"><Link href={studentHref(x.studentId)} className="font-semibold text-brand-navy hover:underline"><bdi>{x.name}</bdi></Link><span className="tabular-nums text-slate-600">{x.level} · {x.days === null ? t("has not read yet") : t("last reading {n} days ago", { n: x.days })}</span></li>)}
+                </ul>
+              )}
+            </div>
+            <div>
+              <h3 className="font-bold text-amber-800">🟠 {t("Reading, below 75%")} <span className="font-normal text-slate-600">· {t("{n}+ first tries in 4 weeks, none at 75%+, level unchanged", { n: BELOW_GOAL_TRIES })}</span></h3>
+              {r.belowGoal.length === 0 ? <p className="text-slate-600">{t("Nobody.")}</p> : (
+                <ul data-testid="rr-report-below-goal" className="divide-y divide-slate-100">
+                  {r.belowGoal.map((x) => <li key={x.studentId} className="flex flex-wrap justify-between gap-2 py-2"><Link href={studentHref(x.studentId)} className="font-semibold text-brand-navy hover:underline"><bdi>{x.name}</bdi></Link><span className="tabular-nums text-slate-600">{x.level} · {t("{n} first tries in {d} days", { n: x.tries, d: BELOW_GOAL_DAYS })} · {t("best {n}", { n: fmt(x.best, "%") })}</span></li>)}
+                </ul>
+              )}
+            </div>
+            <div>
+              <h3 className="font-bold text-slate-800">📉 {t("Missed the weekly goal 2 weeks in a row")}</h3>
+              {r.missedGoal.length === 0 ? <p className="text-slate-600">{t("Nobody.")}</p> : (
+                <ul data-testid="rr-report-missed-goal" className="divide-y divide-slate-100">
+                  {r.missedGoal.map((x) => <li key={x.studentId} className="flex flex-wrap justify-between gap-2 py-2"><Link href={studentHref(x.studentId)} className="font-semibold text-brand-navy hover:underline"><bdi>{x.name}</bdi></Link><span className="tabular-nums text-slate-600">{t("goal {n} a week", { n: x.goal })} · {t("last two weeks: {a} and {b}", { a: x.weeks[0], b: x.weeks[1] })}</span></li>)}
+                </ul>
+              )}
+            </div>
+          </div>
         </ReportSection>
         <ReportSection title="Rising fast" icon="🚀" className="mb-0" hint={<>{t("Up {n}+ in the last 4 weeks.", { n: RISING_GAIN })}</>}>
           {r.rising.length === 0 ? <p className="text-sm text-slate-600">{t("Nobody yet.")}</p> : (

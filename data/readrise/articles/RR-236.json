@@ -614,5 +614,217 @@
       ],
       "modelAnswer": "A light-year measures the distance that light, moving at its finite, constant speed of about three hundred thousand kilometers per second, covers in one full year, roughly 9.5 trillion kilometers. In the 1800s, astronomers used parallax, comparing a star's position from opposite sides of Earth's orbit, to calculate the first real stellar distances in light-years. Because light takes real time to cross even that staggering distance, the light reaching our eyes tonight left its star long ago, so every star we see is really showing us its incomprehensibly distant past, not its present moment."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "The article says a trip to school may be how many kilometers?",
+        "options": [
+          "One kilometer",
+          "Two kilometers",
+          "Ten kilometers",
+          "Seven kilometers"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The text says a trip to school may be two kilometers.",
+        "wrong": {
+          "A": "The text says two kilometers, not one.",
+          "C": "The text does not say ten kilometers.",
+          "D": "Seven is how many times light can go around Earth in a second."
+        }
+      },
+      {
+        "stem": "Read: \"Space is vast.\" What does vast mean here?",
+        "options": [
+          "Very dark",
+          "Very noisy",
+          "Very warm",
+          "Very large"
+        ],
+        "answer": "D",
+        "skill": "vocabulary",
+        "why": "The article says space is too big for kilometers, so vast means very large.",
+        "wrong": {
+          "A": "The sentence is about size, not darkness.",
+          "B": "Space has no noise in the text.",
+          "C": "Warmth is not the point."
+        }
+      },
+      {
+        "stem": "How is light from the Sun different from light from other stars?",
+        "options": [
+          "It takes only minutes to reach us",
+          "It takes many years to reach us",
+          "It cannot reach Earth at all",
+          "It moves much more slowly"
+        ],
+        "answer": "A",
+        "skill": "compare",
+        "why": "The Sun's light takes eight minutes, while other stars' light takes many years.",
+        "wrong": {
+          "B": "This describes light from other stars.",
+          "C": "The Sun's light does reach us.",
+          "D": "All light moves at the same fast speed in the text."
+        }
+      },
+      {
+        "stem": "Why does the author mention a trip to school of two kilometers?",
+        "options": [
+          "To say school is far from the Sun",
+          "To teach readers how to travel",
+          "To show how we use kilometers every day",
+          "To prove light is slower than a car"
+        ],
+        "answer": "C",
+        "skill": "author-purpose",
+        "why": "The example shows kilometers work well for everyday trips, but not for space.",
+        "wrong": {
+          "A": "The sentence has nothing to do with the Sun.",
+          "B": "The text does not teach how to travel.",
+          "D": "The text says light is the fastest thing we know."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "About how many kilometers is one light-year?",
+        "options": [
+          "300 thousand kilometers",
+          "9.5 million kilometers",
+          "9.5 billion kilometers",
+          "9.5 trillion kilometers"
+        ],
+        "answer": "D",
+        "skill": "detail",
+        "why": "The last paragraph says one light-year equals about 9.5 trillion kilometers.",
+        "wrong": {
+          "A": "Three hundred thousand kilometers is how far light goes in one second.",
+          "B": "This is far too small.",
+          "C": "This is still much too small."
+        }
+      },
+      {
+        "stem": "In the text, what does the word instantaneous mean?",
+        "options": [
+          "Happening at once",
+          "Happening once a year",
+          "Happening far away",
+          "Happening very slowly"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "The author says light is not instantaneous because it takes real time, so the word means happening at once.",
+        "wrong": {
+          "B": "The sentence is not about a yearly event.",
+          "C": "The sentence is about time, not place.",
+          "D": "Not instantaneous does not mean slowly, and light is fast."
+        }
+      },
+      {
+        "stem": "Why is looking at a distant star like looking back in time?",
+        "options": [
+          "The star is getting younger",
+          "The star stands still in the sky",
+          "The light left the star long ago",
+          "The Sun is brighter than the star"
+        ],
+        "answer": "C",
+        "skill": "cause-effect",
+        "why": "The light you see left the star long ago, so you see the star as it looked in the past.",
+        "wrong": {
+          "A": "The text does not say stars get younger.",
+          "B": "Standing still is not the reason.",
+          "D": "Brightness is not the reason."
+        }
+      },
+      {
+        "stem": "Why does the author mention trips to school and to another city?",
+        "options": [
+          "To show how to plan a long school trip",
+          "To show kilometers fit short trips",
+          "To say cities are close to stars",
+          "To show that light can travel by road"
+        ],
+        "answer": "B",
+        "skill": "author-purpose",
+        "why": "These examples show kilometers work for short trips, and then the author says space is too big for them.",
+        "wrong": {
+          "A": "The article does not teach trip planning.",
+          "C": "Cities are not compared to stars.",
+          "D": "Roads are not mentioned for light."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "About how long does the Sun's light take to reach Earth?",
+        "options": [
+          "Eight seconds",
+          "Eight minutes",
+          "Eight hours",
+          "Eight days"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The text says the Sun's light takes about eight minutes to reach us.",
+        "wrong": {
+          "A": "Eight seconds is too short.",
+          "C": "Eight hours is too long.",
+          "D": "Eight days is far too long."
+        }
+      },
+      {
+        "stem": "The text says writing it out would be clumsy. What does clumsy mean here?",
+        "options": [
+          "Awkward and hard to use",
+          "Quick and easy to do",
+          "Bright and easy to see",
+          "Loud and hard to hear"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "A number that long would be awkward to write, say, or remember.",
+        "wrong": {
+          "B": "The sentence says the opposite of easy.",
+          "C": "The sentence is not about brightness.",
+          "D": "The sentence is not about sound."
+        }
+      },
+      {
+        "stem": "Why do astronomers use light-years rather than kilometers for star distances?",
+        "options": [
+          "Kilometers were never used before now",
+          "Light-years can be seen by the eye",
+          "Light travels faster than any kilometers",
+          "Kilometers make numbers too long to use"
+        ],
+        "answer": "D",
+        "skill": "cause-effect",
+        "why": "The text says the numbers in kilometers would grow so long they would be clumsy to write, say, or remember.",
+        "wrong": {
+          "A": "People do use kilometers on Earth.",
+          "B": "A unit of distance is not something you see.",
+          "C": "Kilometers are a unit of distance, so they cannot be faster."
+        }
+      },
+      {
+        "stem": "What can you infer about a star whose light takes thousands of years to arrive?",
+        "options": [
+          "It is closer than Proxima Centauri",
+          "It is exactly the same as the Sun",
+          "It is much farther than Proxima",
+          "It is the dimmest star in the sky"
+        ],
+        "answer": "C",
+        "skill": "inference",
+        "why": "Proxima's light takes four years, so a star whose light takes thousands of years must be much farther away.",
+        "wrong": {
+          "A": "A closer star would need less time than four years.",
+          "B": "The Sun's light takes only eight minutes.",
+          "D": "Brightness is not tied to how long light takes in the text."
+        }
+      }
+    ]
   }
 }

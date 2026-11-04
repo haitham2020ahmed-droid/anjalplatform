@@ -614,5 +614,217 @@
       ],
       "modelAnswer": "I agree that screens can be bad for children's eyes if they are not used carefully, though the real problem is overuse rather than screens themselves.\n\nThe article explains that focusing on a close screen for long periods causes eye fatigue as tiny muscles strain to adjust the lens, and reduced blinking during screen time leaves eyes without enough moisture, making them dry and itchy. I think spending time outdoors matters most for protecting vision, since the article notes that children today experience myopia far more often than in the past, while those who play outside daily are less likely to become nearsighted. Turning screens off before bed is another important habit, since their bright light can interfere with the melatonin that helps you fall asleep."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "What happens right after light hits the back of your eye?",
+        "options": [
+          "Your eyes get very dry",
+          "You start to blink less",
+          "A note goes to your brain",
+          "You need new glasses"
+        ],
+        "answer": "C",
+        "skill": "sequence",
+        "why": "The text says light hits the back of the eye and then a note goes to your brain.",
+        "wrong": {
+          "A": "Dry eyes come from blinking less at a screen.",
+          "B": "Blinking is not part of how you see.",
+          "D": "The text does not say light at the back of the eye means you need glasses."
+        }
+      },
+      {
+        "stem": "Why may your head hurt after using a screen for a long time?",
+        "options": [
+          "Your eyes work hard all day",
+          "Your eyes blink far too much",
+          "Your eyes are out in the sun",
+          "Your eyes have too much rest"
+        ],
+        "answer": "A",
+        "skill": "cause-effect",
+        "why": "The text says a screen is close, so your eyes work hard the whole time, get tired, and your head may hurt.",
+        "wrong": {
+          "B": "The text says you blink less at a screen.",
+          "C": "The sun is linked to glasses, not to head pain.",
+          "D": "Resting helps your eyes, it does not hurt them."
+        }
+      },
+      {
+        "stem": "The article says dry eyes may itch. What does itch mean?",
+        "options": [
+          "Feel hot and quite wet",
+          "Make you cry very loudly",
+          "Get much too bright",
+          "Feel like scratching them"
+        ],
+        "answer": "D",
+        "skill": "vocabulary",
+        "why": "Dry eyes may itch means they feel bothered, like you want to scratch them.",
+        "wrong": {
+          "A": "Dry eyes are not wet.",
+          "B": "Itching is not loud crying.",
+          "C": "Brightness is a different idea."
+        }
+      },
+      {
+        "stem": "What does the author think about screens?",
+        "options": [
+          "They should never ever be used",
+          "They are fine with eye breaks",
+          "They are best used at bedtime",
+          "They are only good for games"
+        ],
+        "answer": "B",
+        "skill": "author-purpose",
+        "why": "The last lines say screens are fine and you should just give your eyes a break.",
+        "wrong": {
+          "A": "The author says screens are fine.",
+          "C": "The author says not to use a screen just as you go to bed.",
+          "D": "The article does not limit screens to games."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "In the 20-20-20 rule, about how far away should you look?",
+        "options": [
+          "2 meters",
+          "6 meters",
+          "20 meters",
+          "60 meters"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The article says to look at something about 6 meters away for 20 seconds.",
+        "wrong": {
+          "A": "2 meters is too close.",
+          "C": "The 20 in the rule is for minutes and seconds, not meters.",
+          "D": "60 meters is not in the article."
+        }
+      },
+      {
+        "stem": "Why can blinking less make your eyes dry and itchy?",
+        "options": [
+          "Tears do not get spread over them",
+          "Tears pour out of them too fast",
+          "The screen light dries them out",
+          "The muscles inside squeeze too hard"
+        ],
+        "answer": "A",
+        "skill": "cause-effect",
+        "why": "Blinking spreads tears that keep your eyes wet, so blinking less leaves them dry.",
+        "wrong": {
+          "B": "Tears do not pour out faster.",
+          "C": "The article blames less blinking, not light.",
+          "D": "Squeezing muscles cause eye strain, not dryness."
+        }
+      },
+      {
+        "stem": "The article says things can look \"blurry\" with eye strain. What does blurry mean?",
+        "options": [
+          "Very dark",
+          "Too bright",
+          "Far away",
+          "Not clear"
+        ],
+        "answer": "D",
+        "skill": "vocabulary",
+        "why": "After eye strain, things do not look sharp, so they look unclear.",
+        "wrong": {
+          "A": "Dark means no light.",
+          "B": "Bright is about light, not clarity.",
+          "C": "Far away is about distance."
+        }
+      },
+      {
+        "stem": "Studies say kids who play outside every day are less likely to be nearsighted. What does this suggest?",
+        "options": [
+          "Playing outside makes eyes tired",
+          "Nearsighted kids never go outside",
+          "Outdoor play may help protect eyes",
+          "Screens only hurt eyes outside"
+        ],
+        "answer": "C",
+        "skill": "inference",
+        "why": "Because outdoor kids are less likely to be nearsighted, outdoor play may protect eyes.",
+        "wrong": {
+          "A": "The article does not say outdoor play tires eyes.",
+          "B": "The article does not say that.",
+          "D": "The article says screens strain eyes, with no mention of outside."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "According to the article, what often happens in the eye when myopia develops?",
+        "options": [
+          "The pupil grows very large",
+          "The retina becomes too thin",
+          "The lens turns a different color",
+          "The eyeball grows slightly too long"
+        ],
+        "answer": "D",
+        "skill": "detail",
+        "why": "The article says myopia often develops when the eyeball grows slightly too long.",
+        "wrong": {
+          "A": "The pupil is not linked to myopia.",
+          "B": "The retina's thinness is not mentioned as a cause.",
+          "C": "Lens color is not mentioned."
+        }
+      },
+      {
+        "stem": "The article calls the lens \"transparent.\" What does transparent mean?",
+        "options": [
+          "Clear enough to see through",
+          "Soft enough to bend",
+          "Dark enough to hide things",
+          "Hard enough to break"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "Light passes through the lens to the retina, so it must be clear to see through.",
+        "wrong": {
+          "B": "The article says it bends light, but that is not the meaning.",
+          "C": "Light passes through it, so it cannot hide things.",
+          "D": "Hardness is not the meaning."
+        }
+      },
+      {
+        "stem": "Why do the focusing muscles stay active the entire time you use a screen?",
+        "options": [
+          "The screen is bright at night",
+          "The screen is held close to your face",
+          "The screen makes you blink more",
+          "The screen sends signals to your brain"
+        ],
+        "answer": "B",
+        "skill": "cause-effect",
+        "why": "The article says a screen is typically held close, so the muscles must keep adjusting the lens.",
+        "wrong": {
+          "A": "Brightness affects sleep, not these muscles.",
+          "C": "You blink less at a screen.",
+          "D": "Signals go from the retina, not from the screen."
+        }
+      },
+      {
+        "stem": "A student has digital eye strain after homework. What does the article suggest will most likely happen after a good rest?",
+        "options": [
+          "He will need strong glasses",
+          "The strain will likely go away",
+          "His eyeballs will grow longer",
+          "His retina will be harmed"
+        ],
+        "answer": "B",
+        "skill": "inference",
+        "why": "The article says this discomfort is usually temporary and disappears with rest.",
+        "wrong": {
+          "A": "Eye strain is not myopia.",
+          "C": "Eyeball growth is linked to myopia, not strain.",
+          "D": "The article does not say it causes damage."
+        }
+      }
+    ]
   }
 }

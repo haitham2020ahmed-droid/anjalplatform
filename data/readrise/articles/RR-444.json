@@ -614,5 +614,217 @@
       ],
       "modelAnswer": "I disagree with the poll statement. In the article, Rami is an unassuming, often-overlooked boy, yet his quiet vigilance is exactly what allows him to notice the flood before anyone louder or more noticeable does. Someone might argue that loud, confident people are usually the first to act in an emergency because they draw attention and organize others quickly. However, Hamad's rescue depended entirely on Rami's perceptive, discreet attention, and the fact that Hamad offered him only a quiet commendation afterward shows that meaningful help does not require being the loudest person in the room."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "How did Rami's family help Hamad?",
+        "options": [
+          "They gave him a brand new house",
+          "They carried him on a small boat",
+          "They cooked him a big hot meal",
+          "They helped him grab his things"
+        ],
+        "answer": "D",
+        "skill": "detail",
+        "why": "The text says the family helped him grab his things before they went to high ground.",
+        "wrong": {
+          "A": "No new house is mentioned.",
+          "B": "No boat is mentioned.",
+          "C": "No meal is mentioned."
+        }
+      },
+      {
+        "stem": "In the story, what is a neighbor?",
+        "options": [
+          "a person who lives near you",
+          "a big storm with lots of rain",
+          "a kind of boat",
+          "a teacher at school"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "Hamad's house was next to theirs, so a neighbor is a person who lives near you.",
+        "wrong": {
+          "B": "A storm is weather, not a person.",
+          "C": "A boat is not a neighbor.",
+          "D": "A teacher is not the meaning."
+        }
+      },
+      {
+        "stem": "Why did Dad run to Hamad's house?",
+        "options": [
+          "To warn him about the water",
+          "To bring him some food and tea",
+          "To ask him for a boat to use",
+          "To see his big new house"
+        ],
+        "answer": "A",
+        "skill": "cause-effect",
+        "why": "The water was rising near Hamad's house, so Dad ran to warn him.",
+        "wrong": {
+          "B": "Food is not mentioned.",
+          "C": "No boat is mentioned.",
+          "D": "It was not about a new house."
+        }
+      },
+      {
+        "stem": "What does it show that Rami did not brag at all?",
+        "options": [
+          "He was angry at Hamad",
+          "He was too tired to talk",
+          "He was quiet and modest",
+          "He did not like his family"
+        ],
+        "answer": "C",
+        "skill": "inference",
+        "why": "Rami did not brag even though he helped save his neighbor, which shows he is modest.",
+        "wrong": {
+          "A": "Hamad thanked Rami, and no anger is shown.",
+          "B": "Tiredness is not mentioned.",
+          "D": "Rami told his family about the danger."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "How soon did the group reach safety before the water arrived?",
+        "options": [
+          "Many hours before",
+          "Just moments before",
+          "The next morning",
+          "The water never came"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The article says they reached safety just moments before the water arrived.",
+        "wrong": {
+          "A": "They had very little time to spare.",
+          "C": "The flood went down by the next morning.",
+          "D": "The flood rose dangerously high in the street."
+        }
+      },
+      {
+        "stem": "In the article, the word receded means —",
+        "options": [
+          "rose up higher",
+          "came from the hills",
+          "went back down",
+          "fell as hard rain"
+        ],
+        "answer": "C",
+        "skill": "vocabulary",
+        "why": "By morning the flood water had receded and the street was safe again, so it went back down.",
+        "wrong": {
+          "A": "The water rose during the night, not in the morning.",
+          "B": "The rain came from clouds over the hills, not the flood water.",
+          "D": "The rain fell the evening before."
+        }
+      },
+      {
+        "stem": "Why did Rami's parents believe him right away?",
+        "options": [
+          "They looked outside and saw it too",
+          "They had heard it on the news",
+          "They were told by Hamad first",
+          "They had seen the same flood before"
+        ],
+        "answer": "A",
+        "skill": "cause-effect",
+        "why": "The parents looked outside and immediately saw that Rami was right.",
+        "wrong": {
+          "B": "No news is mentioned.",
+          "C": "Hamad was told later, by Rami's father.",
+          "D": "The article does not say that."
+        }
+      },
+      {
+        "stem": "What does Hamad's quick action show about him?",
+        "options": [
+          "He knew the flood would come",
+          "He wanted to stay home alone",
+          "He was very tired of the family",
+          "He trusted Rami's family"
+        ],
+        "answer": "D",
+        "skill": "inference",
+        "why": "Hamad was startled, but he trusted the family and acted quickly.",
+        "wrong": {
+          "A": "He was startled, so he did not know.",
+          "B": "He agreed to leave with them.",
+          "C": "He thanked them warmly."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "How close had the rising water crept to Hamad's home?",
+        "options": [
+          "Into his front door",
+          "Across the whole village",
+          "Within a few meters",
+          "To the hills nearby"
+        ],
+        "answer": "C",
+        "skill": "detail",
+        "why": "The article says the water had crept within a few meters of Hamad's home.",
+        "wrong": {
+          "A": "The water arrived at his doorstep later.",
+          "B": "It was in one street, not the whole village.",
+          "D": "The hills were where the clouds gathered."
+        }
+      },
+      {
+        "stem": "In the article, the word perceptive most nearly means —",
+        "options": [
+          "quick to notice small details",
+          "loud and full of energy",
+          "good at running very fast",
+          "eager to be seen by crowds"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "Rami noticed small details other people walked past, so perceptive means quick to notice.",
+        "wrong": {
+          "B": "Rami was quiet, not loud.",
+          "C": "Running is not mentioned as his skill.",
+          "D": "Rami was unassuming and did not seek attention."
+        }
+      },
+      {
+        "stem": "Why was Rami able to notice the rising water when others missed it?",
+        "options": [
+          "He lived next to the hills",
+          "He heard a warning on a radio",
+          "His sister told him about it",
+          "He often noticed small details"
+        ],
+        "answer": "D",
+        "skill": "cause-effect",
+        "why": "The article says he was remarkably perceptive and noticed small details others walked past.",
+        "wrong": {
+          "A": "The hills are not why he noticed.",
+          "B": "A radio is not mentioned.",
+          "C": "His sister was louder, but she did not warn him."
+        }
+      },
+      {
+        "stem": "What does \"calm yet discreet urgency\" suggest about how they helped Hamad?",
+        "options": [
+          "They waited until it was morning light",
+          "They hurried while staying quiet and calm",
+          "They stopped to rest on the way there",
+          "They called out loudly to every house"
+        ],
+        "answer": "B",
+        "skill": "inference",
+        "why": "Urgency means they hurried, while calm and discreet means they stayed quiet and did not panic.",
+        "wrong": {
+          "A": "They moved that night, before the flood arrived.",
+          "C": "They walked briskly and did not stop to rest.",
+          "D": "Discreet means quiet, not calling out loudly."
+        }
+      }
+    ]
   }
 }

@@ -614,5 +614,217 @@
       ],
       "modelAnswer": "Humidity connects the sea, the sky, and the human body through one continuous cycle of water molecules. Water evaporates from the sea and other sources, filling the air with vapor until it may even become saturated, and when that moist air cools, condensation turns the vapor back into drops that form dew, fog, or clouds. This same humidity also affects people: in coastal cities like Jeddah where the air holds more moisture, sweat evaporates slowly off the skin, so a humid day feels hotter and stickier than a dry one in Riyadh."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "What happens to water vapor when the air cools?",
+        "options": [
+          "It turns back into drops.",
+          "It goes up from the sea.",
+          "It becomes dry air.",
+          "It is hard to see."
+        ],
+        "answer": "A",
+        "skill": "cause-effect",
+        "why": "The text says when air cools, the vapor turns back into drops.",
+        "wrong": {
+          "B": "That is how water gets into the air.",
+          "C": "The text does not say vapor becomes dry air.",
+          "D": "It is hard to see in any air, so this does not answer the question."
+        }
+      },
+      {
+        "stem": "Which of these puts water into the air?",
+        "options": [
+          "Dew on the grass",
+          "Wet clothes",
+          "A cold night",
+          "A dry day"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The text says water goes up from plants and wet clothes.",
+        "wrong": {
+          "A": "Dew is water drops that formed from the air.",
+          "C": "A cold night makes vapor turn into drops.",
+          "D": "A dry day has only a bit of vapor."
+        }
+      },
+      {
+        "stem": "What does sweat do when it dries on your skin on a hot day?",
+        "options": [
+          "It makes you hot.",
+          "It cools you.",
+          "It makes dew.",
+          "It makes clouds."
+        ],
+        "answer": "B",
+        "skill": "cause-effect",
+        "why": "The text says sweat dries on your skin and that cools you.",
+        "wrong": {
+          "A": "The cooling is the point of sweat.",
+          "C": "Dew forms on cold grass.",
+          "D": "Clouds form high up, not on skin."
+        }
+      },
+      {
+        "stem": "The article tells how clouds form when air cools. What does form mean here?",
+        "options": [
+          "fall down",
+          "get warm",
+          "come to be",
+          "move away"
+        ],
+        "answer": "C",
+        "skill": "vocabulary",
+        "why": "Clouds come to be when vapor cools into drops, just like dew.",
+        "wrong": {
+          "A": "Clouds do not fall down in the text.",
+          "B": "Clouds form when air cools.",
+          "D": "The sentence is about how clouds begin."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "What is the amount of water vapor in the air called?",
+        "options": [
+          "Evaporation",
+          "Humidity",
+          "Condensation",
+          "Dew"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The text says the amount of water vapor in the air is called humidity.",
+        "wrong": {
+          "A": "Evaporation is water changing into a gas.",
+          "C": "Condensation is vapor turning to drops.",
+          "D": "Dew is drops on cold grass."
+        }
+      },
+      {
+        "stem": "In the article, the word evaporates means that water —",
+        "options": [
+          "freezes into solid ice",
+          "turns from liquid to gas",
+          "falls as drops",
+          "soaks into the soil"
+        ],
+        "answer": "B",
+        "skill": "vocabulary",
+        "why": "The text says evaporates means it changes from a liquid into a gas.",
+        "wrong": {
+          "A": "Freezing is a different change.",
+          "C": "Falling as drops is not evaporation.",
+          "D": "Soaking in is not mentioned."
+        }
+      },
+      {
+        "stem": "Why does sweat help cool your body?",
+        "options": [
+          "It makes the air more humid.",
+          "It turns into dew on your skin.",
+          "It takes heat away as it evaporates.",
+          "It holds heat close to your skin."
+        ],
+        "answer": "C",
+        "skill": "cause-effect",
+        "why": "As the sweat evaporates, it takes heat away from your skin.",
+        "wrong": {
+          "A": "The text does not say this cools you.",
+          "B": "Dew forms on cold grass.",
+          "D": "It takes heat away, not holds it in."
+        }
+      },
+      {
+        "stem": "Why are the summers in Jeddah and Dammam humid?",
+        "options": [
+          "They are far from the sea.",
+          "They are in the desert.",
+          "They have no plants.",
+          "They are on the coast."
+        ],
+        "answer": "D",
+        "skill": "inference",
+        "why": "Riyadh is far from the sea and dry, while Jeddah and Dammam are on the coast and humid.",
+        "wrong": {
+          "A": "Riyadh is the city far from the sea.",
+          "B": "The text links dry air to being far from the sea.",
+          "C": "Plants add water to the air, so this is not a reason."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "Among which molecules do water vapor molecules drift in the air?",
+        "options": [
+          "Carbon and iron",
+          "Nitrogen and oxygen",
+          "Salt and sugar",
+          "Ice and dust"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The text says water molecules drift among the nitrogen and oxygen molecules in air.",
+        "wrong": {
+          "A": "Carbon and iron are not named.",
+          "C": "Salt and sugar are not named.",
+          "D": "Ice and dust are not named."
+        }
+      },
+      {
+        "stem": "In the article, the word atmosphere most nearly means —",
+        "options": [
+          "the air around Earth",
+          "the water in the sea",
+          "the soil under plants",
+          "the wind in a storm"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "Water enters the atmosphere by evaporating into the air.",
+        "wrong": {
+          "B": "The sea is where water comes from.",
+          "C": "Soil is not mentioned for this.",
+          "D": "Wind is not mentioned."
+        }
+      },
+      {
+        "stem": "Why does sweat that evaporates make you feel cooler?",
+        "options": [
+          "It adds water vapor to your skin.",
+          "It makes humidity drop to zero.",
+          "It carries heat away from your skin.",
+          "It turns your skin into dew."
+        ],
+        "answer": "C",
+        "skill": "cause-effect",
+        "why": "The text says evaporating sweat carries heat away from the skin.",
+        "wrong": {
+          "A": "Adding vapor is not the cooling effect.",
+          "B": "The text does not say this.",
+          "D": "Dew forms on cool grass."
+        }
+      },
+      {
+        "stem": "According to the article, how do clouds and fog form?",
+        "options": [
+          "The same way dew forms, by condensation",
+          "By water vapor freezing on grass",
+          "By hot air leaving the leaves of plants",
+          "By a hygrometer measuring the air"
+        ],
+        "answer": "A",
+        "skill": "cause-effect",
+        "why": "Clouds and fog develop through the same process as dew, condensation of cooled vapor.",
+        "wrong": {
+          "B": "Freezing is not the process described.",
+          "C": "The text does not say leaves make clouds this way.",
+          "D": "A hygrometer only measures humidity."
+        }
+      }
+    ]
   }
 }

@@ -614,5 +614,217 @@
       ],
       "modelAnswer": "I agree that the Moon is more important to life on the coast than the Sun. The article explains that the Moon's gravitational pull is the main cause of tides, creating the bulges of water that produce high and low tide every day, while the Sun's pull is less than half as strong because it is so far away. Whether the Moon is aligned with the Sun or pulling at a nearly perpendicular angle also decides whether a coast gets an extra-large spring tide or a weaker neap tide, showing how closely coastal life follows the Moon's phase. Since sailors depend on predicted tides for navigation and some countries use the movement of tides as a renewable source of electricity, the Moon's daily influence clearly outweighs the Sun's."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "Where is the second bulge of water?",
+        "options": [
+          "Deep under the beach sand",
+          "On the face of the Moon",
+          "Close to the hot Sun",
+          "On the far side of Earth"
+        ],
+        "answer": "D",
+        "skill": "detail",
+        "why": "The text says one bulge is on the side near the Moon and one more bulge is on the far side.",
+        "wrong": {
+          "A": "The bulges are made of sea water, not under the sand.",
+          "B": "The Moon pulls the sea, but the bulge is on Earth.",
+          "C": "The text does not put a bulge near the Sun."
+        }
+      },
+      {
+        "stem": "What happens when the Sun and Moon line up?",
+        "options": [
+          "The tides are small.",
+          "The tides are big.",
+          "The sea goes away.",
+          "The Moon goes dark."
+        ],
+        "answer": "B",
+        "skill": "cause-effect",
+        "why": "The text says that when the Sun and Moon line up, tides are big, and these are spring tides.",
+        "wrong": {
+          "A": "Small tides happen when they do not line up.",
+          "C": "The sea does not go away.",
+          "D": "The text does not say the Moon goes dark."
+        }
+      },
+      {
+        "stem": "The text says the Moon's gravity tugs on the sea. What does tugs mean?",
+        "options": [
+          "pulls",
+          "pushes",
+          "drops",
+          "washes"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "The Moon's pull is called gravity, so tugs means pulls.",
+        "wrong": {
+          "B": "Gravity pulls and does not push.",
+          "C": "The Moon does not drop the sea.",
+          "D": "Washing is something the sea does to the sand."
+        }
+      },
+      {
+        "stem": "Why is the Sun's pull on tides weaker than the Moon's?",
+        "options": [
+          "It is hiding behind the Moon.",
+          "It only shines at night.",
+          "It is far off from Earth.",
+          "It is not a real star."
+        ],
+        "answer": "C",
+        "skill": "cause-effect",
+        "why": "The text says the Sun pulls too, but it is far off, so its pull on tides is less than half as strong.",
+        "wrong": {
+          "A": "The text does not say the Sun hides behind the Moon.",
+          "B": "The Sun shines in the day.",
+          "D": "The Sun is a star, but that is not the reason."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "When does a beach have low tide?",
+        "options": [
+          "When it is inside a bulge",
+          "When it is between the bulges",
+          "When the Sun is at the top",
+          "When the Moon is full"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The text says a beach is in low tide when it is between the bulges.",
+        "wrong": {
+          "A": "Inside a bulge a beach has high tide.",
+          "C": "The text does not link tides to the Sun's position in the sky.",
+          "D": "The text does not say tides depend on a full Moon in this way."
+        }
+      },
+      {
+        "stem": "Why is the Sun's effect on tides less than the Moon's?",
+        "options": [
+          "The Sun is much too cold.",
+          "The Sun faces away from Earth.",
+          "The Sun spins once a day.",
+          "The Sun is so distant."
+        ],
+        "answer": "D",
+        "skill": "cause-effect",
+        "why": "The text says the Sun's effect is less than half as strong because the Sun is so distant.",
+        "wrong": {
+          "A": "The text does not say the Sun is cold.",
+          "B": "The text does not say the Sun faces away.",
+          "C": "It is the Earth that spins once a day."
+        }
+      },
+      {
+        "stem": "The article says scientists can \"predict\" tides years ahead. What does predict mean?",
+        "options": [
+          "say what will happen first",
+          "forget what happened last year",
+          "clean the sea after a storm",
+          "find crabs on the wet sand"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "Scientists understand the patterns and can tell what the tides will be years before they happen.",
+        "wrong": {
+          "B": "Predicting looks forward, not back.",
+          "C": "The text does not talk about cleaning the sea.",
+          "D": "Finding crabs is something families do at low tide."
+        }
+      },
+      {
+        "stem": "Why does the author end by telling about rock pools and electricity?",
+        "options": [
+          "To say tides are dangerous",
+          "To prove the Moon is a planet",
+          "To show that tides are useful",
+          "To explain how bulges form"
+        ],
+        "answer": "C",
+        "skill": "author-purpose",
+        "why": "Families explore rock pools and some countries make electricity from tides, which shows that tides are useful and interesting.",
+        "wrong": {
+          "A": "The ending does not warn about danger.",
+          "B": "The text calls the Moon a body that pulls the sea, not a planet.",
+          "D": "Bulges are explained earlier in the article."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "What is the tidal range?",
+        "options": [
+          "The time between two high tides",
+          "The distance the Moon is from Earth",
+          "The gap between high and low tide",
+          "The speed at which the Earth spins"
+        ],
+        "answer": "C",
+        "skill": "detail",
+        "why": "The text says the difference between high and low tide is called the tidal range.",
+        "wrong": {
+          "A": "The tidal range is a difference in height, not in time.",
+          "B": "The text does not use tidal range for the Moon's distance.",
+          "D": "The Earth's spin is one turn a day, not the tidal range."
+        }
+      },
+      {
+        "stem": "What does the Moon's gravity do to Earth's oceans?",
+        "options": [
+          "It gathers water into a bulge",
+          "It freezes the water at the poles",
+          "It stops the water from moving",
+          "It turns the salt water to fresh"
+        ],
+        "answer": "A",
+        "skill": "cause-effect",
+        "why": "The text says the Moon's pull causes water to accumulate in a bulge on the side of Earth facing the Moon.",
+        "wrong": {
+          "B": "The text does not mention freezing.",
+          "C": "The oceans keep moving as the Earth spins.",
+          "D": "The text does not say the water changes from salt to fresh."
+        }
+      },
+      {
+        "stem": "The article says a second bulge forms simultaneously on the opposite side of Earth. What does simultaneously mean?",
+        "options": [
+          "a long time later",
+          "very slowly over time",
+          "only during the night",
+          "at the same time"
+        ],
+        "answer": "D",
+        "skill": "vocabulary",
+        "why": "The second bulge forms while the first one forms on the side facing the Moon, so simultaneously means at the same time.",
+        "wrong": {
+          "A": "The bulges form together, not one much later.",
+          "B": "The word is about timing together, not speed.",
+          "C": "Night is not part of the meaning."
+        }
+      },
+      {
+        "stem": "Why does the author open with a whole day on the shore?",
+        "options": [
+          "To warn readers about danger",
+          "To help readers picture a tide",
+          "To prove that the Moon is bright",
+          "To explain how ships are built"
+        ],
+        "answer": "B",
+        "skill": "author-purpose",
+        "why": "The opening shows the sea rising and falling during a day so readers can picture a tide before learning its cause.",
+        "wrong": {
+          "A": "The opening has no warning in it.",
+          "C": "The Moon is not described as bright.",
+          "D": "Ships are mentioned later, only as users of tide tables."
+        }
+      }
+    ]
   }
 }

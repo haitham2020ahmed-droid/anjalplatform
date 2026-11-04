@@ -614,5 +614,217 @@
       ],
       "modelAnswer": "I believe people should reduce both the diversion of Jordan River water and the extraction of minerals from the Dead Sea, because the lake's water level is already dropping by more than a meter every year. The extremely high salt concentration is what makes the water so buoyant that visitors can float on the surface, but that same concentration depends on a steady inflow of water that human activity keeps cutting off. Companies that evaporate lake water to collect minerals like potash for fertilizer are speeding up this loss even more, and as the shoreline retreats, dangerous sinkholes keep opening in the exposed ground. Although agriculture and mineral extraction bring real economic benefits, I think protecting a lake with such a unique elevation and history is worth using a little less of its water."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "What does the white salt on the shore look like?",
+        "options": [
+          "Gray rocks",
+          "Ice",
+          "Green grass",
+          "Yellow sand"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The text says the white salt on the shore looks like ice.",
+        "wrong": {
+          "A": "The salt is white, not gray rocks.",
+          "C": "The text does not mention grass.",
+          "D": "The salt is white, not yellow sand."
+        }
+      },
+      {
+        "stem": "Why does less water get into the lake each year?",
+        "options": [
+          "The hot sun makes less rain fall there",
+          "A second river carries the water away",
+          "The salt in the lake blocks the river",
+          "People use the river for farms and homes"
+        ],
+        "answer": "D",
+        "skill": "cause-effect",
+        "why": "The text says people use the river for farms and at home, so less water gets in.",
+        "wrong": {
+          "A": "The text does not say the sun changes the rain.",
+          "B": "The text says no river runs out of the lake.",
+          "C": "The text does not say salt blocks the river."
+        }
+      },
+      {
+        "stem": "A boy puts a river fish in the Dead Sea. What will most likely happen?",
+        "options": [
+          "It will swim and grow bigger",
+          "It will turn white like salt",
+          "It will not be able to live",
+          "It will swim out through a river"
+        ],
+        "answer": "C",
+        "skill": "inference",
+        "why": "The text says no fish can live in the lake because it is too salty.",
+        "wrong": {
+          "A": "No fish can live in the salty water.",
+          "B": "The text does not say fish change color.",
+          "D": "The text says no river runs out of the lake."
+        }
+      },
+      {
+        "stem": "Why does the author say the salt looks like ice?",
+        "options": [
+          "To help readers picture the white salt",
+          "To say the lake is cold in winter",
+          "To show that ice floats in the lake",
+          "To show that salt is made from ice"
+        ],
+        "answer": "A",
+        "skill": "author-purpose",
+        "why": "Comparing the salt to ice helps readers see how white it is.",
+        "wrong": {
+          "B": "The text says the land is hot and dry.",
+          "C": "Ice is not in the lake; only the salt is compared to it.",
+          "D": "The text does not say salt comes from ice."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "How much saltier is the Dead Sea than the ocean?",
+        "options": [
+          "About two times saltier",
+          "About five times saltier",
+          "About ten times saltier",
+          "About fifty times saltier"
+        ],
+        "answer": "C",
+        "skill": "detail",
+        "why": "The text says the water is about ten times saltier than the ocean.",
+        "wrong": {
+          "A": "The text says ten times, not two.",
+          "B": "The text says ten times, not five.",
+          "D": "The text says ten times, not fifty."
+        }
+      },
+      {
+        "stem": "In the article, the word dense means —",
+        "options": [
+          "heavy for its size",
+          "full of tiny fish",
+          "very cold to touch",
+          "easy to see through"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "The text explains that dense means heavy for its size.",
+        "wrong": {
+          "B": "No fish can live in the lake.",
+          "C": "The text says the weather is hot.",
+          "D": "The text does not say the water is clear."
+        }
+      },
+      {
+        "stem": "Why does less water reach the lake today?",
+        "options": [
+          "The Jordan River now flows the other way",
+          "People take river water for farms and cities",
+          "Heavy rain now falls on the lake each year",
+          "Microbes drink up most of the river water"
+        ],
+        "answer": "B",
+        "skill": "cause-effect",
+        "why": "The text says people take water from the Jordan River for farms and cities.",
+        "wrong": {
+          "A": "The text does not say the river changed direction.",
+          "C": "The text says it rarely rains there.",
+          "D": "Microbes are too small to drink up a river."
+        }
+      },
+      {
+        "stem": "Why is the name Dead Sea a good fit?",
+        "options": [
+          "The lake is hot enough to hurt people",
+          "The water is too dark to see through",
+          "People are not allowed to swim in it",
+          "Fish and plants cannot live in its water"
+        ],
+        "answer": "D",
+        "skill": "inference",
+        "why": "The text says no fish or plants can live in the salty water, and this is how the lake got its name.",
+        "wrong": {
+          "A": "The text says people float and relax there.",
+          "B": "The text does not describe the color of the water.",
+          "C": "The text says visitors float in the lake."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "According to the article, what is potash used for?",
+        "options": [
+          "Making skin-care creams",
+          "Making fertilizer for farms",
+          "Building roads near the shore",
+          "Making the water saltier"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The text says potash is taken from lake water for fertilizer.",
+        "wrong": {
+          "A": "The skin-care products come from the dark mud.",
+          "C": "The text does not say potash is used for roads.",
+          "D": "Potash is taken out of the water, not added to it."
+        }
+      },
+      {
+        "stem": "In the article, the word divert most nearly means —",
+        "options": [
+          "to bring back again",
+          "to make much saltier",
+          "to hold in a pond",
+          "to send somewhere else"
+        ],
+        "answer": "D",
+        "skill": "vocabulary",
+        "why": "Communities take river water away for farms and cities, so divert means to send it somewhere else.",
+        "wrong": {
+          "A": "The water is taken away, not brought back.",
+          "B": "The water is moved, not made saltier.",
+          "C": "The ponds are used for lake water, not river water."
+        }
+      },
+      {
+        "stem": "Why does the author include the paragraph about tourists, mud, and factories?",
+        "options": [
+          "To explain why the lake is so salty",
+          "To warn tourists to stay far away",
+          "To show the lake is useful to people",
+          "To prove that bacteria make the mud"
+        ],
+        "answer": "C",
+        "skill": "author-purpose",
+        "why": "The paragraph begins by saying that even with nothing living in its water, the lake is valuable to people.",
+        "wrong": {
+          "A": "The salt is explained in a later paragraph.",
+          "B": "The text says tourists visit the shores.",
+          "D": "The text does not say bacteria make the mud."
+        }
+      },
+      {
+        "stem": "Why might tourism and mineral factories both suffer if the lake keeps shrinking?",
+        "options": [
+          "Both need the lake's water, mud, or minerals",
+          "Both would be forced to move to the river",
+          "Both depend on rain falling on the shore",
+          "Both are paid by the farms near the lake"
+        ],
+        "answer": "A",
+        "skill": "inference",
+        "why": "Tourists come for the shore and mud, and factories take minerals from the water, so a shrinking lake hurts both.",
+        "wrong": {
+          "B": "The text does not say they would move to the river.",
+          "C": "The text says rainfall is unusual there.",
+          "D": "The text does not say farms pay them."
+        }
+      }
+    ]
   }
 }

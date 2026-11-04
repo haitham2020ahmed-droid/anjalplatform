@@ -614,5 +614,217 @@
       ],
       "modelAnswer": "Science has everything to do with sports, and basketball proves it. When a player shoots, the ball follows a curved trajectory shaped by gravity, and a higher arc lets the ball fall at a steeper angle with more room to drop through the hoop. Backspin also matters, since a ball spinning backward loses momentum when it strikes the rim, making it more likely to drop in rather than bounce away. Even the ball's bounce depends on physics, because the elastic rubber material inside flattens on impact and springs back, while friction between a player's shoes and the court floor lets them stop and change direction without slipping."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "Who made the game of basketball?",
+        "options": [
+          "A teacher in the United States",
+          "A farmer in the United States",
+          "A teacher in Saudi Arabia",
+          "A shoe maker in Jeddah"
+        ],
+        "answer": "A",
+        "skill": "detail",
+        "why": "The text says a man who was a teacher in the United States made the game in 1891.",
+        "wrong": {
+          "B": "The text says he was a teacher, not a farmer.",
+          "C": "The text says he lived in the United States, not Saudi Arabia.",
+          "D": "The text does not say a shoe maker made the game."
+        }
+      },
+      {
+        "stem": "Read this: \"When it hits the floor, it squeezes flat.\" What does squeezes mean?",
+        "options": [
+          "grows very big",
+          "flies away fast",
+          "gets pressed in",
+          "turns a new color"
+        ],
+        "answer": "C",
+        "skill": "vocabulary",
+        "why": "The ball is full of air and gets pressed flat on the floor before it pops back.",
+        "wrong": {
+          "A": "The ball gets flat, so it does not grow big.",
+          "B": "The ball stays on the floor for a moment, so it does not fly away.",
+          "D": "The text says nothing about the ball changing color."
+        }
+      },
+      {
+        "stem": "What does spin help a ball do when it hits the rim?",
+        "options": [
+          "Fly out of the gym",
+          "Stop in the air",
+          "Bounce back to the player",
+          "Drop into the hoop"
+        ],
+        "answer": "D",
+        "skill": "cause-effect",
+        "why": "The text says the spin helps a ball that hits the rim drop in.",
+        "wrong": {
+          "A": "The spin helps the ball go in, not fly out.",
+          "B": "The text does not say the ball stops in the air.",
+          "C": "The spin helps the ball drop in, not bounce back."
+        }
+      },
+      {
+        "stem": "What happened in Jeddah in 2025?",
+        "options": [
+          "A new hoop was made",
+          "A big Asian cup was held",
+          "The first game was played",
+          "A teacher used fruit baskets"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The last paragraph says a big Asian cup for this sport was held in Jeddah in 2025.",
+        "wrong": {
+          "A": "The text does not say a new hoop was made there.",
+          "C": "The first game was in 1891 in the United States.",
+          "D": "The fruit baskets were the first hoops long ago, not in Jeddah."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "How high is the hoop above the floor today?",
+        "options": [
+          "About one meter",
+          "About six meters",
+          "About three meters",
+          "About nine meters"
+        ],
+        "answer": "C",
+        "skill": "detail",
+        "why": "The text says the hoop hangs about three meters above the floor.",
+        "wrong": {
+          "A": "One meter is much lower than the hoop in the text.",
+          "B": "Six meters is higher than the text says.",
+          "D": "Nine meters is much higher than the text says."
+        }
+      },
+      {
+        "stem": "In the article, friction is",
+        "options": [
+          "a force that stops sliding",
+          "the air that fills a ball",
+          "a type of fast backspin",
+          "a way to bend the knees"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "The text says friction is the force that stops surfaces from sliding.",
+        "wrong": {
+          "B": "The air inside the ball is not called friction.",
+          "C": "Backspin is a different idea about how the ball turns.",
+          "D": "Bending knees is part of jumping, not friction."
+        }
+      },
+      {
+        "stem": "A player's ball bounces poorly. What should she check first?",
+        "options": [
+          "The size of the court",
+          "The height of the hoop",
+          "The color of the ball",
+          "The air inside the ball"
+        ],
+        "answer": "D",
+        "skill": "inference",
+        "why": "The text says a ball without enough air bounces poorly.",
+        "wrong": {
+          "A": "The court size is not linked to how well the ball bounces.",
+          "B": "The hoop does not change how the ball bounces.",
+          "C": "The text does not say color changes the bounce."
+        }
+      },
+      {
+        "stem": "Why does the author end with the FIBA Asia Cup in Jeddah?",
+        "options": [
+          "To explain how a ball bounces",
+          "To connect the game to home",
+          "To show who invented the game",
+          "To teach how to jump higher"
+        ],
+        "answer": "B",
+        "skill": "author-purpose",
+        "why": "The ending tells readers that this sport is played in Jeddah, in Saudi Arabia, where fans came to cheer.",
+        "wrong": {
+          "A": "The bounce is explained earlier, not in the last paragraph.",
+          "C": "The inventor is named near the start, not at the end.",
+          "D": "Jumping is explained in an earlier paragraph."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "Why did James Naismith invent basketball?",
+        "options": [
+          "He wanted students to study gravity",
+          "He wanted a contest for Asian teams",
+          "He wanted a way to sell fruit baskets",
+          "He wanted an active indoor game for winter"
+        ],
+        "answer": "D",
+        "skill": "detail",
+        "why": "The text says he wanted an energetic indoor activity for the winter months.",
+        "wrong": {
+          "A": "The text does not say he wanted to teach gravity.",
+          "B": "The Asian tournament is mentioned only as a modern event.",
+          "C": "The baskets were used as hoops, not to be sold."
+        }
+      },
+      {
+        "stem": "When players land, they bend their knees to cushion the impact. What does cushion mean here?",
+        "options": [
+          "increase",
+          "soften",
+          "measure",
+          "avoid"
+        ],
+        "answer": "B",
+        "skill": "vocabulary",
+        "why": "Players bend their knees when they land to protect their joints, so they make the impact softer.",
+        "wrong": {
+          "A": "Bending the knees protects the joints, so it does not make the impact bigger.",
+          "C": "The sentence is about protecting joints, not measuring.",
+          "D": "The players still land, so they do not avoid the impact."
+        }
+      },
+      {
+        "stem": "How does backspin help when a shot hits the rim?",
+        "options": [
+          "It slows the ball so it can fall in",
+          "It speeds the ball toward the hoop",
+          "It lifts the ball higher in the air",
+          "It makes the rim bend downward"
+        ],
+        "answer": "A",
+        "skill": "cause-effect",
+        "why": "The text says backspin reduces the ball's speed, so it is likelier to fall through rather than bounce away.",
+        "wrong": {
+          "B": "Backspin reduces speed, so it does not speed the ball up.",
+          "C": "The text does not say backspin lifts the ball higher.",
+          "D": "The rim does not bend in the text."
+        }
+      },
+      {
+        "stem": "How is the explanation of the physics organized?",
+        "options": [
+          "Events are told in the order they happened",
+          "Two sports are compared in every part",
+          "Each part explains a skill and its science",
+          "A problem is raised and solved at the end"
+        ],
+        "answer": "C",
+        "skill": "text-structure",
+        "why": "The paragraphs take shooting, backspin, bouncing, stopping and jumping one at a time and give the science behind each.",
+        "wrong": {
+          "A": "Only the history paragraph tells events by date.",
+          "B": "The article is only about basketball.",
+          "D": "The article does not raise a problem to solve."
+        }
+      }
+    ]
   }
 }

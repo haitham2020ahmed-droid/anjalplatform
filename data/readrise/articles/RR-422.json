@@ -614,5 +614,217 @@
       ],
       "modelAnswer": "I believe preserving a traditional craft like lantern-making matters even in a changing world. Omar's story shows how much meticulous effort the craft demanded, since cutting the intricate pattern required years of steady, disciplined practice to master. His effort was deeply meaningful: the finished lantern symbolically connected three generations of his family, and Grandpa's overwhelming pride showed how much that connection meant to him. Someone might argue that modern conveniences make such slow, traditional crafts unnecessary, but Omar's story proves that these traditions carry family history and meaning that faster, modern methods could never replace."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "Who taught Omar's dad, Khalid, the craft?",
+        "options": [
+          "His uncle",
+          "Grandpa Saeed",
+          "A neighbor",
+          "His teacher"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The text says Grandpa Saeed began the craft and taught Omar's dad.",
+        "wrong": {
+          "A": "An uncle is not mentioned.",
+          "C": "A neighbor is not mentioned.",
+          "D": "A teacher is not mentioned."
+        }
+      },
+      {
+        "stem": "Why did Omar make a lantern?",
+        "options": [
+          "It was a gift for Grandpa.",
+          "His dad told him to sell it.",
+          "He wanted to win a prize.",
+          "The shop needed one more lantern."
+        ],
+        "answer": "A",
+        "skill": "cause-effect",
+        "why": "The text says Grandpa's birthday was soon, so Omar had an idea to make him a gift.",
+        "wrong": {
+          "B": "The text does not say it was to be sold.",
+          "C": "No prize is mentioned.",
+          "D": "The lantern was a gift, not something the shop needed."
+        }
+      },
+      {
+        "stem": "What did Omar do right after he got the sheet of metal?",
+        "options": [
+          "He cut holes in it.",
+          "He gave it to Grandpa.",
+          "He lit a flame inside it.",
+          "He drew a design on it."
+        ],
+        "answer": "D",
+        "skill": "sequence",
+        "why": "The text says Omar got a sheet of metal and then drew a design on it.",
+        "wrong": {
+          "A": "He cut the holes after he drew the design.",
+          "B": "He gave the gift at the end.",
+          "C": "Grandpa lit the lantern at the end."
+        }
+      },
+      {
+        "stem": "In the story, the word neat means —",
+        "options": [
+          "bent and rough",
+          "very old",
+          "clean and tidy",
+          "too big"
+        ],
+        "answer": "C",
+        "skill": "vocabulary",
+        "why": "After Omar practiced each night, the lantern was done and came out neat, not bent like the first holes.",
+        "wrong": {
+          "A": "The first holes were bent, but the final lantern was not.",
+          "B": "Old does not fit the new lantern.",
+          "D": "The text does not talk about size."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "In the story, the word precise means —",
+        "options": [
+          "slow and tired",
+          "very bright",
+          "soft and quiet",
+          "exact and neat"
+        ],
+        "answer": "D",
+        "skill": "vocabulary",
+        "why": "After many nights of work, the pattern was clean and precise, meaning exact and careful, unlike the crooked early holes.",
+        "wrong": {
+          "A": "Omar's arm was tired, but that is not the meaning of precise.",
+          "B": "Bright describes the light, not the pattern.",
+          "C": "Nothing in the text links precise to being quiet."
+        }
+      },
+      {
+        "stem": "What tools did Omar pick up to cut the pattern?",
+        "options": [
+          "A small hammer and a narrow drill",
+          "A wide saw and a big paintbrush",
+          "A pencil and a long ruler",
+          "A large knife and a rough file"
+        ],
+        "answer": "A",
+        "skill": "detail",
+        "why": "The text says Omar picked up a small hammer and a narrow drill.",
+        "wrong": {
+          "B": "A saw and a paintbrush are not mentioned.",
+          "C": "He used a pencil-like tool only to draw, not to cut.",
+          "D": "A knife and a file are not mentioned."
+        }
+      },
+      {
+        "stem": "Why did the hammer, flame, and stars show on the wall?",
+        "options": [
+          "Omar painted them on the wall.",
+          "Khalid held a picture up.",
+          "Grandpa drew them in the air.",
+          "Light shone through holes."
+        ],
+        "answer": "D",
+        "skill": "cause-effect",
+        "why": "When Grandpa lit the lantern, warm light poured through the tiny holes and showed the symbols on the wall.",
+        "wrong": {
+          "A": "Nothing says Omar painted the wall.",
+          "B": "No picture is mentioned.",
+          "C": "Grandpa only lit the lantern."
+        }
+      },
+      {
+        "stem": "Why was this pattern a good gift for Grandpa Saeed?",
+        "options": [
+          "Brass is cheaper than other metals.",
+          "Symbols showed his family's history.",
+          "It showed the new shop that Omar wanted.",
+          "It was the biggest lantern in the workshop."
+        ],
+        "answer": "B",
+        "skill": "inference",
+        "why": "The symbols stood for parts of the family's long history with the craft, which Grandpa Saeed began.",
+        "wrong": {
+          "A": "The text says nothing about cost.",
+          "C": "A new shop is not mentioned.",
+          "D": "The text does not compare its size to other lanterns."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "How did Saeed learn the basics of lantern making?",
+        "options": [
+          "From his own father",
+          "From a book of designs",
+          "By trying alone for years",
+          "From an older craftsman"
+        ],
+        "answer": "D",
+        "skill": "detail",
+        "why": "The text says he learned the basics from an older craftsman before opening his own shop.",
+        "wrong": {
+          "A": "His father is not mentioned as his teacher.",
+          "B": "No book is mentioned.",
+          "C": "He learned from a craftsman, not alone."
+        }
+      },
+      {
+        "stem": "In the story, the word intricate means —",
+        "options": [
+          "full of small details",
+          "hard to see at night",
+          "made in a hurry",
+          "too heavy to lift"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "The design had many lines, holes, and symbols that Omar planned carefully, so it was full of small details.",
+        "wrong": {
+          "B": "Night is not what intricate describes here.",
+          "C": "Omar planned every line carefully, so it was not rushed.",
+          "D": "Weight is not discussed."
+        }
+      },
+      {
+        "stem": "Why did Omar have to redo certain sections of his work?",
+        "options": [
+          "Grandpa asked him to change them.",
+          "Some holes came out crooked.",
+          "He ran out of brass in the workshop.",
+          "The pencil lines had rubbed away."
+        ],
+        "answer": "B",
+        "skill": "cause-effect",
+        "why": "The text says several holes came out crooked and uneven, forcing him to redo sections.",
+        "wrong": {
+          "A": "Grandpa did not see it until the end.",
+          "C": "No shortage of brass is mentioned.",
+          "D": "The pencil lines are not given as the reason."
+        }
+      },
+      {
+        "stem": "Why did Omar plan every line with a pencil before engraving?",
+        "options": [
+          "His dad wanted a drawing to keep.",
+          "Pencil is easier to cut than brass.",
+          "Mistakes in metal are hard to undo.",
+          "He wanted the lantern to look old."
+        ],
+        "answer": "C",
+        "skill": "inference",
+        "why": "He planned every line before engraving, and later he had to redo crooked holes, which shows mistakes in metal cost time and effort.",
+        "wrong": {
+          "A": "The text does not say Khalid wanted the drawing.",
+          "B": "Pencil is not used for cutting the metal.",
+          "D": "The text gives no sign he wanted it to look old."
+        }
+      }
+    ]
   }
 }

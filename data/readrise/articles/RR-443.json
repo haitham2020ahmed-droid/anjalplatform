@@ -614,5 +614,217 @@
       ],
       "modelAnswer": "I disagree with the poll statement. In the article, Lama's single decision to check the tank started the entire chain of solutions that saved the village, and her grandfather's one memory of the forgotten cistern provided an entire second water source. Someone might argue that the council's ration and the water truck's resupply mattered more than any individual, since they affected the whole village at once. However, those larger solutions only existed because individuals first noticed the problem, allocated resources fairly, and chose to collaborate, which shows that small, individual actions can set much larger solutions into motion."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "What hid the old cistern from the people?",
+        "options": [
+          "A big tree and a wall",
+          "Weeds",
+          "A very large rock",
+          "The tall water tank"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The text says weeds hid the old cistern well.",
+        "wrong": {
+          "A": "No tree or wall is mentioned.",
+          "C": "No large rock is mentioned.",
+          "D": "The tank was far from the cistern and did not hide it."
+        }
+      },
+      {
+        "stem": "In the article, a council is a group that —",
+        "options": [
+          "helps run the town",
+          "teaches the kids at school",
+          "fixes the broken trucks",
+          "sells water to the homes"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "The article says a council helps run the town, and this one made the plan for the water.",
+        "wrong": {
+          "B": "The council did not teach school.",
+          "C": "Trucks are not fixed in the article.",
+          "D": "The council gave out water, it did not sell it."
+        }
+      },
+      {
+        "stem": "What happened after the kids and dads dug out the cistern?",
+        "options": [
+          "It began to rain very hard that night",
+          "The council took all the water",
+          "The ration was made much longer",
+          "There were two places for water"
+        ],
+        "answer": "D",
+        "skill": "cause-effect",
+        "why": "The water in the cistern was still good, so the village now had two spots for water.",
+        "wrong": {
+          "A": "The village was still dry.",
+          "B": "The council did not take the water.",
+          "C": "The ration was not made longer."
+        }
+      },
+      {
+        "stem": "What helped the village stay safe until the truck came?",
+        "options": [
+          "Moving all the people away",
+          "Waiting for the rain to fall soon",
+          "Sharing and using the cistern",
+          "Digging deep holes under the tank"
+        ],
+        "answer": "C",
+        "skill": "inference",
+        "why": "The village used a fair ration and the old cistern, and people learned to share.",
+        "wrong": {
+          "A": "People stayed in the village.",
+          "B": "It did not rain.",
+          "D": "The tank was not dug, the cistern was."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "What was the water in the old cistern like?",
+        "options": [
+          "Warm, dark, and very deep",
+          "Muddy, brown, and very low",
+          "Dirty and unsafe to drink or use",
+          "Cool, clear, and safe to drink"
+        ],
+        "answer": "D",
+        "skill": "detail",
+        "why": "The article says the water inside was still cool, clear, and safe to drink.",
+        "wrong": {
+          "A": "The water was cool, not warm.",
+          "B": "The water was clear, not muddy.",
+          "C": "The article says it was safe to drink."
+        }
+      },
+      {
+        "stem": "In the article, the word conserve means to —",
+        "options": [
+          "spend money on many new things",
+          "carry water up the hill daily",
+          "build a new tank for the village",
+          "use a small amount and save the rest"
+        ],
+        "answer": "D",
+        "skill": "vocabulary",
+        "why": "The council wanted to conserve every drop, so they made a ration to save water.",
+        "wrong": {
+          "A": "Spending money is not the meaning.",
+          "B": "Carrying is not conserving.",
+          "C": "A new tank was not built."
+        }
+      },
+      {
+        "stem": "Why had most people forgotten the old cistern?",
+        "options": [
+          "It was too far from the village",
+          "Dust and weeds had buried it",
+          "It was never used by the villagers",
+          "The council had filled it with stones"
+        ],
+        "answer": "B",
+        "skill": "cause-effect",
+        "why": "Over the years, dust and weeds buried the cistern completely.",
+        "wrong": {
+          "A": "It was hidden behind the mosque, in the village.",
+          "C": "The villagers had used it long before the tank.",
+          "D": "The council did not fill it."
+        }
+      },
+      {
+        "stem": "Why did the village council make a fair ration of water?",
+        "options": [
+          "The main tank was almost empty",
+          "Every family wanted more water",
+          "The truck brought too much water",
+          "The cistern water was not safe"
+        ],
+        "answer": "A",
+        "skill": "cause-effect",
+        "why": "Lama found the water level in the main tank had dropped close to the bottom, so the council made a ration to save water.",
+        "wrong": {
+          "B": "The ration limited water; it did not give more.",
+          "C": "The truck came later, at the end.",
+          "D": "The cistern water was safe to drink."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "How many families live in the village of Zahra?",
+        "options": [
+          "Forty families",
+          "Ten families",
+          "Twenty-six families",
+          "Four hundred families"
+        ],
+        "answer": "A",
+        "skill": "detail",
+        "why": "The article says the tank could supply all forty families.",
+        "wrong": {
+          "B": "Ten thousand is the tank's size, not the number of families.",
+          "C": "Twenty-six is the number of dry days.",
+          "D": "The article does not give this number."
+        }
+      },
+      {
+        "stem": "The council decided that strict conservation was needed. What does conservation mean here?",
+        "options": [
+          "careful saving",
+          "fast spending",
+          "loud arguing",
+          "deep digging"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "The council limited how much water each family could take so the water would last, which is careful saving.",
+        "wrong": {
+          "B": "Spending fast is the opposite.",
+          "C": "Arguing is not conservation.",
+          "D": "Digging found the cistern, but that is not conservation."
+        }
+      },
+      {
+        "stem": "What made the village's scarcity feel less threatening?",
+        "options": [
+          "The council made the ration much larger",
+          "Lama found a new hill to climb",
+          "The weather became cool and wet",
+          "Two independent water sources were available"
+        ],
+        "answer": "D",
+        "skill": "cause-effect",
+        "why": "The article says that with two independent water sources, scarcity felt considerably less threatening.",
+        "wrong": {
+          "A": "The ration stayed at two buckets a day.",
+          "B": "Climbing a hill is not the reason.",
+          "C": "The drought did not end with rain."
+        }
+      },
+      {
+        "stem": "Why does the author say the council posted the ration publicly in the village square?",
+        "options": [
+          "To warn people about the old cistern",
+          "So every family could see the same rules",
+          "To show the tank was almost full again",
+          "To ask the families for money or gifts"
+        ],
+        "answer": "B",
+        "skill": "inference",
+        "why": "A posted ration lets everyone see the same fair rules, which suits a plan meant to treat each family alike.",
+        "wrong": {
+          "A": "The cistern was found later.",
+          "C": "The tank was almost empty.",
+          "D": "Nobody was asked for gifts."
+        }
+      }
+    ]
   }
 }

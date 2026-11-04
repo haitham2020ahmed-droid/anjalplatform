@@ -614,5 +614,217 @@
       ],
       "modelAnswer": "I believe companies should invest heavily in research to make batteries last longer, because the reasons in the article make a strong case. First, countless devices, from phones to electric vehicles to massive solar farms, depend on batteries for storage, so even a small improvement in capacity would benefit millions of users and support more sustainable, renewable energy systems. Second, every charge-and-discharge cycle gradually degrades a battery's internal chemistry, which means replacements are constantly needed, straining the infrastructure built to manufacture and recycle them. If scientists can find more optimal materials that slow this decline, batteries would need replacing less often, which would save money and reduce the environmental cost of producing new ones at a global scale."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "What are the two ends of a battery called?",
+        "options": [
+          "Plus and minus",
+          "Left and right",
+          "Hot and cold",
+          "Top and bottom"
+        ],
+        "answer": "A",
+        "skill": "detail",
+        "why": "The text says one end is plus and one end is minus.",
+        "wrong": {
+          "B": "The text does not call the ends left and right.",
+          "C": "The text does not call the ends hot and cold.",
+          "D": "The text does not call the ends top and bottom."
+        }
+      },
+      {
+        "stem": "What happens to a battery each time it is charged?",
+        "options": [
+          "It gets very, very loud",
+          "It gets very warm",
+          "It gets a bit weaker",
+          "It gets brand new"
+        ],
+        "answer": "C",
+        "skill": "detail",
+        "why": "The text says each charge makes the battery weaker, so it wears out a little.",
+        "wrong": {
+          "A": "The text does not say it gets loud.",
+          "B": "The text does not say it gets warm.",
+          "D": "It wears out; it does not become new."
+        }
+      },
+      {
+        "stem": "A toy stops working. What is the most likely reason?",
+        "options": [
+          "The toy has grown too big",
+          "The sun is shining too much",
+          "The battery ends are both plus",
+          "Its battery has no charge left"
+        ],
+        "answer": "D",
+        "skill": "inference",
+        "why": "The text says a battery stores power, so a toy stops when the battery has no charge left.",
+        "wrong": {
+          "A": "The text does not say toys grow.",
+          "B": "The sun does not stop a toy from working.",
+          "C": "The text says one end is plus and the other is minus."
+        }
+      },
+      {
+        "stem": "When do solar farms use the saved power?",
+        "options": [
+          "At noon",
+          "At night",
+          "In the rain",
+          "In the morning"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The text says extra power is saved in a battery and used at night.",
+        "wrong": {
+          "A": "At noon the sun is shining, so no saved power is needed.",
+          "C": "The text does not mention rain.",
+          "D": "The text says the saved power is used at night."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "What happens when both ends of a battery connect?",
+        "options": [
+          "The chemicals turn into water",
+          "The case grows larger and hot",
+          "The plus end becomes a minus",
+          "Power flows out to run a machine"
+        ],
+        "answer": "D",
+        "skill": "detail",
+        "why": "The text says when both ends connect, power flows out and can run a machine.",
+        "wrong": {
+          "A": "The text does not say the chemicals turn to water.",
+          "B": "The text does not say the case grows or heats.",
+          "C": "The ends stay plus and minus."
+        }
+      },
+      {
+        "stem": "The text says it slowly becomes less efficient. What does that mean?",
+        "options": [
+          "not working as well",
+          "getting much larger",
+          "turning a new color",
+          "becoming more costly"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "The text says the battery wears out a little each time and holds less charge, so it works less well.",
+        "wrong": {
+          "B": "The text does not say the battery gets larger.",
+          "C": "The text does not say the battery changes color.",
+          "D": "The text does not talk about cost."
+        }
+      },
+      {
+        "stem": "What happens when you plug a rechargeable battery into a charger?",
+        "options": [
+          "Its chemicals are thrown out",
+          "Power flows back inside it",
+          "It turns into a one-use battery",
+          "Its plus and minus ends swap"
+        ],
+        "answer": "B",
+        "skill": "cause-effect",
+        "why": "The text says power flows back inside so the battery can be used many more times.",
+        "wrong": {
+          "A": "The chemicals stay inside the battery.",
+          "C": "Charging lets it be used again, so it does not become one-use.",
+          "D": "The text does not say the ends swap."
+        }
+      },
+      {
+        "stem": "A phone's battery lasts less time after years of use. What can you infer?",
+        "options": [
+          "The phone has become much heavier",
+          "The charger has grown too large",
+          "The battery has worn out a little",
+          "The sun shines less than before"
+        ],
+        "answer": "C",
+        "skill": "inference",
+        "why": "The text says each charge and use wears a battery out a little, so it holds less charge.",
+        "wrong": {
+          "A": "The text does not say phones get heavier.",
+          "B": "The text does not say chargers grow.",
+          "D": "The sun does not change a phone's battery."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "What does charging a battery do to the chemical reaction?",
+        "options": [
+          "It stops it for good",
+          "It speeds it up",
+          "It reverses it",
+          "It turns it into light"
+        ],
+        "answer": "C",
+        "skill": "detail",
+        "why": "The text says charging reverses the chemical reaction.",
+        "wrong": {
+          "A": "Charging lets the battery work again.",
+          "B": "The text says reverses, not speeds up.",
+          "D": "The text does not say the reaction becomes light."
+        }
+      },
+      {
+        "stem": "As used in the article, \"prized\" most nearly means",
+        "options": [
+          "often avoided",
+          "greatly valued",
+          "easily forgotten",
+          "made very cheap"
+        ],
+        "answer": "B",
+        "skill": "vocabulary",
+        "why": "Lithium-ion batteries are called ideal for phones and laptops, so they are valued for their high capacity.",
+        "wrong": {
+          "A": "The batteries are called ideal, so they are not avoided.",
+          "C": "The batteries are widely used and not forgotten.",
+          "D": "The text does not talk about price."
+        }
+      },
+      {
+        "stem": "Why do solar farms rely on massive batteries?",
+        "options": [
+          "To make the panels work faster",
+          "To keep the panels cool all day",
+          "To clean the panels with water",
+          "To save daytime power for night"
+        ],
+        "answer": "D",
+        "skill": "cause-effect",
+        "why": "The text says sunlight is not always available, so extra daytime power is saved for use after dark.",
+        "wrong": {
+          "A": "Batteries store power; they do not speed up the panels.",
+          "B": "The text does not say batteries cool the panels.",
+          "C": "The text does not say batteries clean the panels."
+        }
+      },
+      {
+        "stem": "Why does the author open by saying it is easy to overlook a battery's chemistry?",
+        "options": [
+          "To make readers notice something ordinary",
+          "To warn readers that batteries are unsafe",
+          "To list the prices of all batteries",
+          "To explain how electric cars are built"
+        ],
+        "answer": "A",
+        "skill": "author-purpose",
+        "why": "The opening points out how much clever chemistry hides inside an ordinary battery, which makes readers look closer.",
+        "wrong": {
+          "B": "The text does not say batteries are unsafe.",
+          "C": "The text does not give prices.",
+          "D": "The text does not explain how cars are built."
+        }
+      }
+    ]
   }
 }

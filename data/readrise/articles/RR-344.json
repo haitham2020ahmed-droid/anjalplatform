@@ -614,5 +614,217 @@
       ],
       "modelAnswer": "A plateau formed by tectonic uplift rises when forces deep within the earth slowly push a large block of crust upward over millions of years, as described for the Tibetan Plateau. A plateau formed by volcanic activity, like the Deccan Plateau, instead builds up gradually as repeated lava eruptions cool into stacked layers of rock that harden into a thick tableland. Once a plateau exists, erosion can still reshape it: as the Colorado Plateau shows, a river can slowly wear away layer after layer of rock over millions of years, eventually carving a deep canyon like the Grand Canyon into what was once an unbroken, flat surface."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "What happens to lava that cools on the land?",
+        "options": [
+          "It makes a deep canyon.",
+          "It turns into a river.",
+          "It becomes a sharp peak.",
+          "It makes flat rock."
+        ],
+        "answer": "D",
+        "skill": "cause-effect",
+        "why": "The text says the lava cools and makes flat rock.",
+        "wrong": {
+          "A": "A river, not lava, cuts a canyon.",
+          "B": "Lava does not turn into a river.",
+          "C": "The text says a peak is sharp, but cooled lava makes flat rock."
+        }
+      },
+      {
+        "stem": "In the article, what is a plateau?",
+        "options": [
+          "a deep hole in the sea",
+          "a big, flat piece of land",
+          "a fast river",
+          "a tall, pointed hill"
+        ],
+        "answer": "B",
+        "skill": "vocabulary",
+        "why": "The text says a plateau is a big, flat piece of land.",
+        "wrong": {
+          "A": "A plateau is land, not a hole in the sea.",
+          "C": "A river is water, not a plateau.",
+          "D": "A plateau is flat, not pointed."
+        }
+      },
+      {
+        "stem": "Which place has flat ground you can walk across for miles?",
+        "options": [
+          "A sharp peak",
+          "A deep valley",
+          "A plateau top",
+          "A deep canyon"
+        ],
+        "answer": "C",
+        "skill": "inference",
+        "why": "The text says the top of a plateau is flat and wide and you can walk for miles up there.",
+        "wrong": {
+          "A": "A peak is sharp, not flat.",
+          "B": "A valley is low land.",
+          "D": "A canyon is a deep path cut by a river."
+        }
+      },
+      {
+        "stem": "Where is flat high land found?",
+        "options": [
+          "Only in Asia",
+          "All over the world",
+          "Only near rivers",
+          "Only on small islands"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The text says flat high land is found all over the world.",
+        "wrong": {
+          "A": "The text does not limit it to Asia.",
+          "C": "Flat high land is not limited to river areas.",
+          "D": "Some plateaus are huge, so not only small islands."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "Which plateau is the largest and highest on Earth?",
+        "options": [
+          "The Deccan Plateau",
+          "The Colorado Plateau",
+          "The Tibetan Plateau",
+          "The Grand Plateau"
+        ],
+        "answer": "C",
+        "skill": "detail",
+        "why": "The text says the Tibetan Plateau in Asia is the largest and highest plateau on Earth.",
+        "wrong": {
+          "A": "The Deccan Plateau covers much of southern India.",
+          "B": "The Colorado Plateau is famous for the Grand Canyon.",
+          "D": "No Grand Plateau is named."
+        }
+      },
+      {
+        "stem": "In the article, the word elevation most nearly means —",
+        "options": [
+          "the age of land",
+          "how high land is",
+          "how wide land is",
+          "the color of rock"
+        ],
+        "answer": "B",
+        "skill": "vocabulary",
+        "why": "A plateau sits at a high elevation, well above the land around it, so elevation is how high land is.",
+        "wrong": {
+          "A": "Age is not the idea of the sentence.",
+          "C": "The sentence is about height, not width.",
+          "D": "Color is not the idea of the sentence."
+        }
+      },
+      {
+        "stem": "Why can people farm and build towns on a plateau?",
+        "options": [
+          "Its top is steep and rocky",
+          "It is always wet",
+          "It is lower than the land around",
+          "Its top stays mostly flat"
+        ],
+        "answer": "D",
+        "skill": "cause-effect",
+        "why": "The text says the top of the plateau stays mostly flat and level, which is why people can farm and build there.",
+        "wrong": {
+          "A": "The sides are steep, but the top is flat.",
+          "B": "Wetness is not mentioned as the reason.",
+          "C": "A plateau is higher than the land around it."
+        }
+      },
+      {
+        "stem": "What can you infer about how long uplift takes?",
+        "options": [
+          "It can take a very long time",
+          "It happens within a few days",
+          "It stops after one week",
+          "It is faster than lava"
+        ],
+        "answer": "A",
+        "skill": "inference",
+        "why": "The text says uplift can take millions of years.",
+        "wrong": {
+          "B": "The text says it can take millions of years.",
+          "C": "Uplift is slow and does not stop after a week.",
+          "D": "The text does not say it is faster than lava."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "What is the Tibetan Plateau often called?",
+        "options": [
+          "The roof of the world",
+          "The edge of the sky",
+          "The floor of the sea",
+          "The heart of Asia"
+        ],
+        "answer": "A",
+        "skill": "detail",
+        "why": "The text says the Tibetan Plateau is often called the roof of the world.",
+        "wrong": {
+          "B": "This name is not used in the text.",
+          "C": "This name is not used in the text.",
+          "D": "This name is not used in the text."
+        }
+      },
+      {
+        "stem": "In the article, the word striking most nearly means —",
+        "options": [
+          "hard to see",
+          "very old",
+          "very noticeable",
+          "easily broken"
+        ],
+        "answer": "C",
+        "skill": "vocabulary",
+        "why": "Plateaus are described as among the most striking landforms, meaning they stand out and catch the eye.",
+        "wrong": {
+          "A": "Striking landforms are not hard to see.",
+          "B": "Age is not the idea of the sentence.",
+          "D": "Breaking is not the idea of the sentence."
+        }
+      },
+      {
+        "stem": "What happens to each lava layer before the next one arrives?",
+        "options": [
+          "It washes away in a river",
+          "It cools and hardens",
+          "It slides off the plateau edge",
+          "It sinks into the crust again"
+        ],
+        "answer": "B",
+        "skill": "sequence",
+        "why": "The text says each new layer cools and hardens before the next one arrives.",
+        "wrong": {
+          "A": "The layers stay and stack up.",
+          "C": "The layers build the tableland instead.",
+          "D": "The layers stack up, not sink."
+        }
+      },
+      {
+        "stem": "What does Each plateau tells its own geologic story suggest?",
+        "options": [
+          "All plateaus formed the same way",
+          "Plateaus have no history",
+          "Only one plateau is famous",
+          "Plateaus formed in different ways"
+        ],
+        "answer": "D",
+        "skill": "inference",
+        "why": "The article shows the Tibetan, Deccan, and Colorado Plateaus formed in different ways, so each has its own story.",
+        "wrong": {
+          "A": "The article shows different formation processes.",
+          "B": "A geologic story means a plateau has a history.",
+          "C": "Three famous plateaus are named."
+        }
+      }
+    ]
   }
 }

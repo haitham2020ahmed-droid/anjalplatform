@@ -614,5 +614,217 @@
       ],
       "modelAnswer": "A total solar eclipse happens when the Moon lines up precisely between the Sun and the Earth, and totality lasts only a few minutes as the Moon's narrow shadow sweeps across a thin strip of the Earth's surface; because looking directly at the Sun can permanently damage your eyes, you must wear certified eclipse glasses the entire time. A total lunar eclipse happens when the Earth lines up between the Sun and the Moon instead, and the Moon can glow a coppery red because Earth's atmosphere refracts, or bends, some red sunlight into its shadow; this kind of eclipse is completely safe to watch with your bare eyes from anywhere on the night side of the Earth. These alignments are something of a coincidence made possible by the Moon's tilted orbit, which is also why eclipses, including an annular eclipse where a ring of sunlight remains visible, do not occur every single month."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "What color may the Moon turn during a lunar eclipse?",
+        "options": [
+          "Blue",
+          "Green",
+          "Red",
+          "Gold"
+        ],
+        "answer": "C",
+        "skill": "detail",
+        "why": "The text says the Moon may turn red during a lunar eclipse.",
+        "wrong": {
+          "A": "Blue is not named in the text.",
+          "B": "Green is not named in the text.",
+          "D": "Gold is not named in the text."
+        }
+      },
+      {
+        "stem": "Why does the sky get dark during a solar eclipse?",
+        "options": [
+          "The Moon blocks the light of the Sun.",
+          "The Earth gets very far from the Sun.",
+          "The Sun goes out for a short time.",
+          "The night comes earlier than usual."
+        ],
+        "answer": "A",
+        "skill": "cause-effect",
+        "why": "The text says the Moon moves in front of the Sun and blocks it, so the sky gets dark.",
+        "wrong": {
+          "B": "The Earth does not move away; the Moon moves in front.",
+          "C": "The Sun does not go out; it is blocked.",
+          "D": "The text says it happens in the day."
+        }
+      },
+      {
+        "stem": "Why does the author tell readers to wear eclipse glasses?",
+        "options": [
+          "So you can read the article at night",
+          "So you can see the red Moon up close",
+          "So you can walk outside on the cold night",
+          "So you can watch the eclipse in a safe way"
+        ],
+        "answer": "D",
+        "skill": "inference",
+        "why": "The text says you must never look right at the Sun and that eclipse glasses keep your eyes safe.",
+        "wrong": {
+          "A": "The glasses are for the Sun, not for reading.",
+          "B": "The text says you can look at the Moon with just your eyes.",
+          "C": "The glasses are not for keeping warm."
+        }
+      },
+      {
+        "stem": "In the text, what does the word orbit mean?",
+        "options": [
+          "To fall down",
+          "To go around",
+          "To stand still",
+          "To get hot"
+        ],
+        "answer": "B",
+        "skill": "vocabulary",
+        "why": "The text says the Earth goes around the Sun and the Moon goes around the Earth, and calls it an orbit.",
+        "wrong": {
+          "A": "Falling is not the same as going around.",
+          "C": "The Earth and Moon move.",
+          "D": "Getting hot is not part of the meaning."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "In which month will a total solar eclipse cross parts of Saudi Arabia?",
+        "options": [
+          "January 2026",
+          "August 2027",
+          "March 2028",
+          "October 2029"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The text says a total solar eclipse will cross parts of Saudi Arabia in August 2027.",
+        "wrong": {
+          "A": "January 2026 is not mentioned.",
+          "C": "March 2028 is not mentioned.",
+          "D": "October 2029 is not mentioned."
+        }
+      },
+      {
+        "stem": "Why do eclipses not happen every month?",
+        "options": [
+          "The Sun moves far away from the Earth each month.",
+          "The Earth stops going around the Sun for a while.",
+          "The Moon is always too small to block the Sun's light.",
+          "The Moon's path is tilted, so the three seldom line up."
+        ],
+        "answer": "D",
+        "skill": "cause-effect",
+        "why": "The text says eclipses do not happen every month because the Moon's path is a little tilted.",
+        "wrong": {
+          "A": "The text does not say that the Sun moves away.",
+          "B": "The Earth travels around the Sun once a year without stopping.",
+          "C": "The Moon can block the Sun in a total eclipse."
+        }
+      },
+      {
+        "stem": "The article says the Sun, Earth, and Moon sometimes align and cause an eclipse. What does align mean?",
+        "options": [
+          "Line up",
+          "Fall apart",
+          "Turn around",
+          "Grow bigger"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "The text says the three bodies are usually not in a straight line, but once in a while they are, so align means to line up.",
+        "wrong": {
+          "B": "Falling apart does not fit with a straight line.",
+          "C": "Turning around does not fit with a straight line.",
+          "D": "Growing bigger does not fit with a straight line."
+        }
+      },
+      {
+        "stem": "How is watching a lunar eclipse different from watching a solar eclipse?",
+        "options": [
+          "You need a telescope for a lunar eclipse.",
+          "You need no glasses for a lunar eclipse.",
+          "You must wait for a month for a lunar eclipse.",
+          "You must go to a narrow strip for a lunar eclipse."
+        ],
+        "answer": "B",
+        "skill": "compare",
+        "why": "The text says a lunar eclipse is safe to watch with just your eyes, but a solar eclipse needs certified glasses.",
+        "wrong": {
+          "A": "The text does not say a telescope is needed.",
+          "C": "The text does not say you must wait a month for a lunar eclipse.",
+          "D": "Only a total solar eclipse covers a narrow strip."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "How much is the Moon's orbit tilted compared with Earth's orbit?",
+        "options": [
+          "About one degree",
+          "About two degrees",
+          "About twenty degrees",
+          "About five degrees"
+        ],
+        "answer": "D",
+        "skill": "detail",
+        "why": "The text says the Moon's orbit is tilted about five degrees compared with Earth's orbit.",
+        "wrong": {
+          "A": "One degree is too small.",
+          "B": "Two degrees is too small.",
+          "C": "Twenty degrees is too large."
+        }
+      },
+      {
+        "stem": "Why do modern scientists still travel to total eclipses?",
+        "options": [
+          "To watch the Moon turn a coppery red",
+          "To see the corona, which is normally hidden",
+          "To measure how far the Moon is from the Sun",
+          "To record the shadow on the night side of Earth"
+        ],
+        "answer": "B",
+        "skill": "cause-effect",
+        "why": "The text says the corona is normally invisible in the overwhelming glare of the Sun, so a total eclipse is a chance to study it.",
+        "wrong": {
+          "A": "The coppery red Moon is seen in a lunar eclipse, which anyone can watch at night.",
+          "C": "The text does not say scientists measure this distance during an eclipse.",
+          "D": "The night side of Earth is for the lunar eclipse."
+        }
+      },
+      {
+        "stem": "In the article, what is totality?",
+        "options": [
+          "The night after the eclipse",
+          "The glowing ring around the Moon",
+          "The time when the Sun is fully hidden",
+          "The shadow of the Earth on the Moon"
+        ],
+        "answer": "C",
+        "skill": "vocabulary",
+        "why": "The text explains that totality is the brief period when the Sun is completely hidden.",
+        "wrong": {
+          "A": "Totality is a short time during the eclipse, not the night after.",
+          "B": "The glowing part around the Moon is the corona.",
+          "D": "The Earth's shadow on the Moon is part of a lunar eclipse."
+        }
+      },
+      {
+        "stem": "Why does the author mention the astronomers of the Islamic world?",
+        "options": [
+          "To show that careful observers improved eclipse math",
+          "To show that eclipses only happen in the Islamic world",
+          "To explain why people long ago were so frightened",
+          "To prove that eclipses can be seen every single month"
+        ],
+        "answer": "A",
+        "skill": "author-purpose",
+        "why": "The text says these astronomers recorded eclipses in detail and improved mathematical methods for calculating the movements of the Sun and Moon.",
+        "wrong": {
+          "B": "Eclipses can be seen in many places.",
+          "C": "The fear of people long ago is a different sentence.",
+          "D": "Eclipses do not happen every month."
+        }
+      }
+    ]
   }
 }

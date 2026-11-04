@@ -614,5 +614,217 @@
       ],
       "modelAnswer": "I agree that honeybees are more valuable for pollination than for honey, because so many crops depend on it. When a forager travels from blossom to blossom collecting nectar, pollen clings to its body and triggers pollination, allowing fruits, vegetables, and nuts to develop into a harvest. Farmers clearly recognize this value, since many of them rent entire hives and position them beside their fields specifically for pollination rather than for honey production. Honey is certainly a tasty reward, but without pollination, countless crops that feed people would never form at all, which is why I consider pollination the bee's most essential contribution."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "How do bees make the nectar thick?",
+        "options": [
+          "They fan it with their wings.",
+          "They mix it with pollen.",
+          "They cool it in the hive.",
+          "They carry it to the queen."
+        ],
+        "answer": "A",
+        "skill": "detail",
+        "why": "The text says bees fan the nectar with their wings and it gets thick.",
+        "wrong": {
+          "B": "Pollen is a different dust; it is not used to thicken nectar.",
+          "C": "The text does not say bees cool the nectar.",
+          "D": "The text does not say the nectar goes to the queen."
+        }
+      },
+      {
+        "stem": "Why do bees eat honey when there are not a lot of blooms?",
+        "options": [
+          "They like the taste more then.",
+          "They cannot find much nectar then.",
+          "The queen tells them to eat it.",
+          "The hive is too hot then."
+        ],
+        "answer": "B",
+        "skill": "cause-effect",
+        "why": "Honey is the stored food bees eat when few flowers are blooming and nectar is hard to find.",
+        "wrong": {
+          "A": "The text does not say taste is the reason.",
+          "C": "The text does not say the queen gives this order.",
+          "D": "Heat is not mentioned as a reason."
+        }
+      },
+      {
+        "stem": "In this article, what does the word sticks mean?",
+        "options": [
+          "Falls off",
+          "Flies away",
+          "Stays on",
+          "Gets wet"
+        ],
+        "answer": "C",
+        "skill": "vocabulary",
+        "why": "Pollen sticks to the bee and then rubs off on the next flower, so sticks means stays on.",
+        "wrong": {
+          "A": "Pollen falls off later, at the next flower; sticks is the opposite.",
+          "B": "Pollen does not fly away; it stays on the bee.",
+          "D": "Getting wet is not the idea."
+        }
+      },
+      {
+        "stem": "What does the bee dance tell the other bees?",
+        "options": [
+          "When to clean the hive",
+          "Which bee is the queen",
+          "How to make honey",
+          "Where to find the blooms"
+        ],
+        "answer": "D",
+        "skill": "detail",
+        "why": "A bee that finds good blooms does a dance that tells the rest where to fly.",
+        "wrong": {
+          "A": "The dance is about food, not cleaning.",
+          "B": "The dance does not name the queen.",
+          "C": "Making honey is not taught by the dance."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "What is the main job of the drones in a colony?",
+        "options": [
+          "To guard the door",
+          "To mate with a queen",
+          "To feed the babies",
+          "To collect nectar"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The text says drones do not collect food or sting; their main job is to mate with a queen.",
+        "wrong": {
+          "A": "Older workers guard the door, not drones.",
+          "C": "Young workers feed the babies.",
+          "D": "Drones do not collect food."
+        }
+      },
+      {
+        "stem": "Why does the colony need honey?",
+        "options": [
+          "It helps the queen lay more eggs.",
+          "It is used to build new comb now.",
+          "It feeds the bees when flowers are rare.",
+          "It is sold to farmers nearby for cash."
+        ],
+        "answer": "C",
+        "skill": "cause-effect",
+        "why": "The article says honey feeds the colony when few flowers are blooming.",
+        "wrong": {
+          "A": "The text does not link honey to egg laying.",
+          "B": "Comb is built by young workers; honey is not said to build it.",
+          "D": "The text does not say bees sell honey to farmers."
+        }
+      },
+      {
+        "stem": "In this article, what is a forager?",
+        "options": [
+          "A worker that flies out for food",
+          "A young bee that cleans wax cells",
+          "A male bee that mates with a queen",
+          "The one bee that lays all the eggs"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "Older workers fly out as foragers to collect food.",
+        "wrong": {
+          "B": "Young workers clean the cells, not foragers.",
+          "C": "That describes a drone.",
+          "D": "That describes the queen."
+        }
+      },
+      {
+        "stem": "Why does the author start with one bee visiting dozens of flowers?",
+        "options": [
+          "To show how fast bees can fly",
+          "To teach readers how to find honey",
+          "To show that a small bee does a big job",
+          "To warn readers about bee stings"
+        ],
+        "answer": "C",
+        "skill": "author-purpose",
+        "why": "The opening shows a small insect doing a small job, then the article explains how important and organized bees are.",
+        "wrong": {
+          "A": "Speed is not discussed.",
+          "B": "The article does not teach how to find honey.",
+          "D": "Stings are barely mentioned."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "Where do the workers put the nectar inside the hive?",
+        "options": [
+          "In the queen's room",
+          "In a special stomach",
+          "In hexagonal wax cells",
+          "On top of the waggle dance floor"
+        ],
+        "answer": "C",
+        "skill": "detail",
+        "why": "The text says workers deposit the nectar in hexagonal wax cells inside the hive.",
+        "wrong": {
+          "A": "No queen's room is mentioned.",
+          "B": "The special stomach is used to carry nectar, not to store it in the hive.",
+          "D": "The comb is used for dancing, not for storing nectar."
+        }
+      },
+      {
+        "stem": "The author says a casual observer sees an insignificant chore. What is the author suggesting?",
+        "options": [
+          "Bees do not really work very hard.",
+          "Their work matters more than it looks.",
+          "People should stay away from bees.",
+          "Bees only do their work in spring."
+        ],
+        "answer": "B",
+        "skill": "inference",
+        "why": "The word Yet shows the author thinks the bee's work is much more important than it first appears.",
+        "wrong": {
+          "A": "The article describes bees as hard workers.",
+          "C": "The author never says people should avoid watching bees.",
+          "D": "Spring is only the example time, not the only time."
+        }
+      },
+      {
+        "stem": "The article says every member fulfills a specific function. What does function mean?",
+        "options": [
+          "Job",
+          "Home",
+          "Gift",
+          "Color"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "The next sentences describe the jobs of the queen, workers and drones, so function means job.",
+        "wrong": {
+          "B": "The sentences describe work, not homes.",
+          "C": "Nothing is being given as a gift.",
+          "D": "Color is never discussed."
+        }
+      },
+      {
+        "stem": "How are drones different from worker bees?",
+        "options": [
+          "Drones sting but workers do not.",
+          "Drones are female but workers are male.",
+          "Drones guard the entrance while workers rest.",
+          "Drones do not collect food, while workers do."
+        ],
+        "answer": "D",
+        "skill": "compare",
+        "why": "Drones collect no food and mainly mate, while workers do nearly all other jobs, including foraging.",
+        "wrong": {
+          "A": "Drones have no stinger.",
+          "B": "Workers are all female and drones are male.",
+          "C": "Middle-aged workers defend the entrance."
+        }
+      }
+    ]
   }
 }

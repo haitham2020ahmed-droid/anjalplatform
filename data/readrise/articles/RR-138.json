@@ -614,5 +614,217 @@
       ],
       "modelAnswer": "I believe restoring Diriyah was worthwhile. First, the town's mud-brick architecture shows clever ventilation, since small openings near the tops of the thick walls let fresh air flow through and kept rooms cool in the desert heat, a heritage worth preserving. Second, Diriyah survived a serious siege in 1818 and was nearly destroyed, so restoring it honors the people who once lived and traded there as a prosperous town. Third, being named a World Heritage Site in 2010 shows that the whole world values this history, and the yearly Founding Day celebration helps commemorate the moment the first Saudi state began."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "Where did the big palace stand?",
+        "options": [
+          "In a valley",
+          "On a hill",
+          "By the sea",
+          "In the desert sand"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The text says a big palace stood on a hill in the main part of town.",
+        "wrong": {
+          "A": "The valley is where palms grow, not the palace.",
+          "C": "The text does not put Diriyah by the sea.",
+          "D": "The palace stood on a hill in town."
+        }
+      },
+      {
+        "stem": "In the article, the word \"capital\" means",
+        "options": [
+          "a large house for kings",
+          "a farm near a valley",
+          "a market for goods",
+          "the main city of a land"
+        ],
+        "answer": "D",
+        "skill": "vocabulary",
+        "why": "Muhammad bin Saud made Diriyah the capital of the first Saudi state, so it was the main city of the land.",
+        "wrong": {
+          "A": "A capital is a city, not a house.",
+          "B": "A capital is a city, not a farm.",
+          "C": "People traded in the town, but a capital is more than a market."
+        }
+      },
+      {
+        "stem": "Why was Diriyah a rich town?",
+        "options": [
+          "People came to trade there.",
+          "It had rain all year long.",
+          "It was next to the sea.",
+          "It had the biggest army."
+        ],
+        "answer": "A",
+        "skill": "cause-effect",
+        "why": "The text says the town was rich because lots of folks came to trade and sold dates and goods.",
+        "wrong": {
+          "B": "The text does not say it had rain all year.",
+          "C": "The text does not say it was by the sea.",
+          "D": "An army only came later and broke the town."
+        }
+      },
+      {
+        "stem": "Why did the capital move to Riyadh?",
+        "options": [
+          "Diriyah had no more palms",
+          "Riyadh was by the sea",
+          "Diriyah was badly broken",
+          "People wanted to eat dates"
+        ],
+        "answer": "C",
+        "skill": "inference",
+        "why": "An army broke a lot of the town, so Riyadh became the next capital.",
+        "wrong": {
+          "A": "The text never says the palms were gone.",
+          "B": "The text does not say Riyadh is by the sea.",
+          "D": "Dates were sold for trade, not a reason to move."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "What did the small openings near the top of the walls do?",
+        "options": [
+          "Held the walls up",
+          "Kept the sand out",
+          "Let fresh air flow in",
+          "Showed the way to town"
+        ],
+        "answer": "C",
+        "skill": "detail",
+        "why": "The text says the small openings let fresh air flow in.",
+        "wrong": {
+          "A": "The thick walls were strong; openings do not hold them.",
+          "B": "The text does not say they kept sand out.",
+          "D": "The text does not say they gave directions."
+        }
+      },
+      {
+        "stem": "Why do people call Diriyah the place where the nation began?",
+        "options": [
+          "It was the first Saudi capital.",
+          "It was built beside a valley.",
+          "It had the most palm trees.",
+          "It was the first town with farms."
+        ],
+        "answer": "A",
+        "skill": "cause-effect",
+        "why": "In 1727 Muhammad bin Saud made Diriyah the capital of the first Saudi state.",
+        "wrong": {
+          "B": "Being beside a valley does not make a nation begin.",
+          "C": "Palm trees are not given as the reason.",
+          "D": "The text does not say it was the first town with farms."
+        }
+      },
+      {
+        "stem": "The article says workers have helped restore the old town. What does restore mean?",
+        "options": [
+          "to make much bigger",
+          "to leave empty again",
+          "to build somewhere new",
+          "to fix up like before"
+        ],
+        "answer": "D",
+        "skill": "vocabulary",
+        "why": "After the town was broken, workers fixed it so people can see the old walls again.",
+        "wrong": {
+          "A": "The workers did not make the town bigger.",
+          "B": "The town was left empty after 1818, not by the workers.",
+          "C": "They worked on the old town, not a new one."
+        }
+      },
+      {
+        "stem": "What does the article suggest about the palace at At-Turaif?",
+        "options": [
+          "It was used only for trade",
+          "It was a center of leadership",
+          "It was built for farmers",
+          "It was made for visitors"
+        ],
+        "answer": "B",
+        "skill": "inference",
+        "why": "The text says leaders lived and met there, so it was a center of leadership.",
+        "wrong": {
+          "A": "Trade is not linked to the palace in the text.",
+          "C": "The text says leaders used it.",
+          "D": "It was used by leaders, not built for visitors."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "According to the article, what is mud brick made of?",
+        "options": [
+          "Sand, water, and stone",
+          "Clay, straw, and water",
+          "Palm leaves and wood",
+          "Stone, clay, and wood"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The text says mud brick is made by mixing clay, straw, and water and drying it in the sun.",
+        "wrong": {
+          "A": "Sand and stone are not named.",
+          "C": "Palm leaves and wood are not named.",
+          "D": "Stone and wood are not named."
+        }
+      },
+      {
+        "stem": "In the fifth paragraph, the word \"prosperous\" means",
+        "options": [
+          "quiet and empty",
+          "small and weak",
+          "damaged and old",
+          "wealthy and busy"
+        ],
+        "answer": "D",
+        "skill": "vocabulary",
+        "why": "The town attracted many traders, so it was wealthy and busy.",
+        "wrong": {
+          "A": "Many merchants came, so it was not quiet.",
+          "B": "A town that attracts traders is not weak.",
+          "C": "The damage came later, in 1818."
+        }
+      },
+      {
+        "stem": "Why does the author include the events of 1902 and 1932?",
+        "options": [
+          "To show the nation's story went on",
+          "To say Riyadh was never the capital",
+          "To explain how mud brick was made",
+          "To tell why the palace was built"
+        ],
+        "answer": "A",
+        "skill": "author-purpose",
+        "why": "The author says the story of the nation continued long afterward, ending with the Kingdom in 1932.",
+        "wrong": {
+          "B": "Riyadh became the capital of the second Saudi state.",
+          "C": "The mud brick part is in another paragraph.",
+          "D": "The palace is not discussed in those events."
+        }
+      },
+      {
+        "stem": "Specialists restored the town using traditional methods. What does this suggest?",
+        "options": [
+          "They could not find modern tools",
+          "They wanted to make the town larger",
+          "They wanted to keep the old character",
+          "They planned to rebuild the palace"
+        ],
+        "answer": "C",
+        "skill": "inference",
+        "why": "Using old methods shows they wanted the restored town to stay true to its past.",
+        "wrong": {
+          "A": "The text does not say tools were missing.",
+          "B": "Restoring is not the same as enlarging.",
+          "D": "The text does not mention rebuilding the palace."
+        }
+      }
+    ]
   }
 }

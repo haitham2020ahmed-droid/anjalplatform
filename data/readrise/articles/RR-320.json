@@ -614,5 +614,217 @@
       ],
       "modelAnswer": "An illustrator composes each scene carefully, deciding what to show and choosing a palette of colors that fits the story's mood, so the finished picture complements the narrative rather than distracting from it. Different genres often call for different choices, since a quiet, gentle story might use soft colors and simple shapes, while a more exciting narrative might use bolder lines and brighter colors to match its tone."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "What does the art in a kids' book help us see?",
+        "options": [
+          "Where the book was made",
+          "Who is in the story",
+          "How long the book is",
+          "What the book costs"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The text says the picture helps us see who is in the story.",
+        "wrong": {
+          "A": "The text does not say where the book was made.",
+          "C": "The text does not talk about how long the book is.",
+          "D": "The text does not talk about cost."
+        }
+      },
+      {
+        "stem": "Why can wall art stand alone?",
+        "options": [
+          "It is always very large",
+          "It is made of stone",
+          "It has words on it",
+          "It does not need words"
+        ],
+        "answer": "D",
+        "skill": "cause-effect",
+        "why": "The text says wall art can stand alone because it does not need words.",
+        "wrong": {
+          "A": "The text does not say wall art is large.",
+          "B": "The text does not say what wall art is made of.",
+          "C": "The text says it does not need words."
+        }
+      },
+      {
+        "stem": "The text says wall art can stand alone. What does stand alone mean?",
+        "options": [
+          "It needs no help",
+          "It is very tall and big",
+          "It has no color at all",
+          "It is far away from us"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "The next lines say wall art does not need words, so it needs nothing else.",
+        "wrong": {
+          "B": "The words are about needing words, not about height.",
+          "C": "The text does not say wall art has no color.",
+          "D": "The words are not about distance."
+        }
+      },
+      {
+        "stem": "Why must the shapes and colors fit the story?",
+        "options": [
+          "So the book is much shorter",
+          "So art fits the words",
+          "So the pages are very bright",
+          "So the book can be sold fast"
+        ],
+        "answer": "B",
+        "skill": "inference",
+        "why": "The text says the art shows what the words say, so it must fit the story.",
+        "wrong": {
+          "A": "The text does not say the art makes the book shorter.",
+          "C": "Bright colors alone would not match the words.",
+          "D": "The text does not talk about selling the book."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "What might each page of a picture book show?",
+        "options": [
+          "A map of the whole town",
+          "A long list of words",
+          "A scene from the story",
+          "The writer's full name"
+        ],
+        "answer": "C",
+        "skill": "detail",
+        "why": "The text says each page of a picture book might show one scene from the story.",
+        "wrong": {
+          "A": "The text does not say a page shows a map.",
+          "B": "The pictures help tell the story with words.",
+          "D": "The text does not say pages show the writer's name."
+        }
+      },
+      {
+        "stem": "The text says the picture must convey the story's mood. What does convey mean?",
+        "options": [
+          "Show or pass on",
+          "Hide or cover up",
+          "Cut or tear apart",
+          "Buy or sell it"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "The picture must show the mood of the story to the audience in a vivid way.",
+        "wrong": {
+          "B": "The picture is meant to be seen.",
+          "C": "The text does not talk about cutting a picture.",
+          "D": "The text does not talk about buying or selling."
+        }
+      },
+      {
+        "stem": "Why might an illustrator read a story several times before drawing?",
+        "options": [
+          "To make the story longer",
+          "To find a printing press",
+          "To copy the words in the book",
+          "To know it very well"
+        ],
+        "answer": "D",
+        "skill": "inference",
+        "why": "The illustrator reads closely and then chooses one meaningful moment, so knowing the story well helps.",
+        "wrong": {
+          "A": "The illustrator does not change the story.",
+          "B": "Printing presses are mentioned only for the past.",
+          "C": "The illustrator draws pictures, not copies of words."
+        }
+      },
+      {
+        "stem": "Why do illustrators work closely with writers today?",
+        "options": [
+          "Pictures and words fit together",
+          "Writers cannot read the whole story",
+          "Illustrators never have any ideas",
+          "Books are only meant for writers"
+        ],
+        "answer": "A",
+        "skill": "cause-effect",
+        "why": "The text says they work closely because pictures and words usually tell a story best when they work together.",
+        "wrong": {
+          "B": "Writers write the story, so they can read it.",
+          "C": "Illustrators choose scenes and colors, so they have ideas.",
+          "D": "The text says books use pictures and words."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "The illustrator chooses colors that complement the story. What does complement mean here?",
+        "options": [
+          "to go well with",
+          "to hide from",
+          "to argue against",
+          "to copy exactly"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "The colors are chosen to suit the story's type and mood, so complement means to go well with.",
+        "wrong": {
+          "B": "The pictures support the story; they do not hide from it.",
+          "C": "The art does not argue against the story.",
+          "D": "The art adds to the story; it does not copy it."
+        }
+      },
+      {
+        "stem": "What does an illustrator try to understand by reading a story closely?",
+        "options": [
+          "Its characters, setting, and events",
+          "Its price and how many pages it has",
+          "Its printer and the year it was made",
+          "Its readers and where they live"
+        ],
+        "answer": "A",
+        "skill": "detail",
+        "why": "The article says the illustrator reads closely to understand characters, setting, and events.",
+        "wrong": {
+          "B": "Price and page count are not mentioned.",
+          "C": "The article does not say the illustrator studies the printer.",
+          "D": "The article does not say the illustrator studies where readers live."
+        }
+      },
+      {
+        "stem": "What does the last paragraph suggest about illustration today?",
+        "options": [
+          "It is no longer needed",
+          "It is still used in many places",
+          "It is only found in old books",
+          "It is done without authors"
+        ],
+        "answer": "B",
+        "skill": "inference",
+        "why": "The paragraph says illustrators remain at work in books, magazines, and countless other places.",
+        "wrong": {
+          "A": "The paragraph says illustrators are still hard at work.",
+          "C": "The paragraph names books, magazines, and other places today.",
+          "D": "The paragraph says they work closely with authors."
+        }
+      },
+      {
+        "stem": "Why might a picture book page show only one single scene?",
+        "options": [
+          "To save paper on each page",
+          "To make the book very short",
+          "To help young readers follow",
+          "To keep all the words hidden"
+        ],
+        "answer": "C",
+        "skill": "cause-effect",
+        "why": "The article says one scene per page helps young readers see who is in the story, where it is, and what is happening.",
+        "wrong": {
+          "A": "The article does not mention saving paper.",
+          "B": "The article does not say the book is short.",
+          "D": "The pictures go with the words, they do not hide them."
+        }
+      }
+    ]
   }
 }

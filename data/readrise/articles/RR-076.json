@@ -614,5 +614,217 @@
       ],
       "modelAnswer": "The first habit is creating a long passphrase made of several unrelated words, such as camel, lantern, mango, and cloud, because adding more characters makes it nearly impossible for a hacker's program to guess. The second habit is turning on two-step verification, which requires both a password and a code sent to your phone, so even if a phishing message tricks someone into revealing their password, the hacker still cannot get in. The third habit is never reusing one password across accounts, since a password stolen from one site could unlock every other account. Together, a strong passphrase, verification, and unique passwords protect a brand-new school account from the very first day."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "What can the tool that bad guys use do?",
+        "options": [
+          "Send a secret code to a phone",
+          "Try lots of words each second",
+          "Make a strong password for you",
+          "Log out of a shared computer"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The text says bad guys use a tool that tries lots of words each second.",
+        "wrong": {
+          "A": "Sites send codes, not the bad guys' tool.",
+          "C": "The tool guesses; it does not make passwords.",
+          "D": "Logging out is something you do on a shared computer."
+        }
+      },
+      {
+        "stem": "Why is a long password a good choice?",
+        "options": [
+          "It is easy to type fast",
+          "It looks nice on the screen",
+          "It is hard to guess",
+          "It can be used on each site"
+        ],
+        "answer": "C",
+        "skill": "cause-effect",
+        "why": "The article says long passwords are hard to guess.",
+        "wrong": {
+          "A": "The text does not say long ones are easy to type.",
+          "B": "The text does not talk about how a password looks.",
+          "D": "The article says not to use one password on each site."
+        }
+      },
+      {
+        "stem": "Sam's password is camel, lamp, and moon. Which tip did he use?",
+        "options": [
+          "He joined words that do not fit",
+          "He added a symbol like # or !",
+          "He used his own name and age",
+          "He told his mom a secret code"
+        ],
+        "answer": "A",
+        "skill": "inference",
+        "why": "The article suggests joining three or four words that do not fit, like camel, lamp, and moon.",
+        "wrong": {
+          "B": "Sam's password has only words, no symbol.",
+          "C": "His password has no name in it.",
+          "D": "No code is part of his password."
+        }
+      },
+      {
+        "stem": "In the article, an account is —",
+        "options": [
+          "a tool that guesses words",
+          "a fake note from a site",
+          "a code sent to a phone",
+          "your own space in an app"
+        ],
+        "answer": "D",
+        "skill": "vocabulary",
+        "why": "The text says an account is your own space in an app.",
+        "wrong": {
+          "A": "The tool that guesses words is used by bad guys.",
+          "B": "A fake note is a different thing the article warns about.",
+          "C": "The code sent to a phone is extra help, not the account."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "What two things do you need to get in when a site uses two-step verification?",
+        "options": [
+          "A phone and a friend",
+          "A new account and a link",
+          "A scam message and a code",
+          "A code and your password"
+        ],
+        "answer": "D",
+        "skill": "detail",
+        "why": "The article says you need both the code sent to a phone and the password.",
+        "wrong": {
+          "A": "A friend is not needed; you should not share your password.",
+          "B": "A link is something to avoid in scam messages.",
+          "C": "Scam messages are something to watch out for."
+        }
+      },
+      {
+        "stem": "Why does the article say to use a long password?",
+        "options": [
+          "Longer passwords are much harder to guess",
+          "Longer passwords are easier to remember",
+          "Hackers like to read long words",
+          "Websites only accept long passwords"
+        ],
+        "answer": "A",
+        "skill": "cause-effect",
+        "why": "The text says a strong password is long because longer passwords are much harder to guess.",
+        "wrong": {
+          "B": "The article says passphrases are easy to remember, not all long passwords.",
+          "C": "The article does not say anything about hackers liking long words.",
+          "D": "The article does not say websites need long passwords."
+        }
+      },
+      {
+        "stem": "Why does the author tell you to log out on a shared computer?",
+        "options": [
+          "The computer will work faster",
+          "The next person could use your account",
+          "The password will change by itself",
+          "Your parents will get a code"
+        ],
+        "answer": "B",
+        "skill": "inference",
+        "why": "If you stay logged in, someone else using the shared computer could get into your account.",
+        "wrong": {
+          "A": "Logging out has nothing to do with speed in the text.",
+          "C": "Passwords do not change by themselves in the article.",
+          "D": "Codes are sent to the phone for two-step verification, not for logging out."
+        }
+      },
+      {
+        "stem": "In the article, the word stolen means —",
+        "options": [
+          "made stronger",
+          "kept secret",
+          "tried many times",
+          "taken without permission"
+        ],
+        "answer": "D",
+        "skill": "vocabulary",
+        "why": "If a password is stolen, other accounts are in danger, so it was taken by someone who should not have it.",
+        "wrong": {
+          "A": "A stolen password is not made stronger.",
+          "B": "A stolen password is no longer secret.",
+          "C": "Trying many times is how hackers guess, not what stolen means."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "According to the article, what is stored in an account?",
+        "options": [
+          "Passwords for other websites",
+          "Messages, files, and progress",
+          "Codes for a phone",
+          "Lists of hackers"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The article says an account is where your messages, files, and progress are stored.",
+        "wrong": {
+          "A": "The article does not say an account holds other passwords.",
+          "C": "Temporary codes are sent to a phone, not stored in an account.",
+          "D": "The article never mentions lists of hackers."
+        }
+      },
+      {
+        "stem": "Why can hackers discover weak passwords almost instantly?",
+        "options": [
+          "Weak passwords are usually very long and complex",
+          "Websites give hackers the stored passwords",
+          "Programs try millions of combinations every second",
+          "Hackers watch people type them in public"
+        ],
+        "answer": "C",
+        "skill": "cause-effect",
+        "why": "The text says hackers use automated programs that attempt millions of combinations every second.",
+        "wrong": {
+          "A": "Weak passwords are short, and the article says long ones are stronger.",
+          "B": "The article does not say websites hand over passwords.",
+          "D": "The article does not say hackers watch people type."
+        }
+      },
+      {
+        "stem": "Why does the author say to log out on a shared computer at school or in a library?",
+        "options": [
+          "Someone else could enter your account",
+          "The computer needs to rest",
+          "Your password would be shown to others",
+          "The school will send you a code"
+        ],
+        "answer": "A",
+        "skill": "inference",
+        "why": "Other people use a shared computer, so staying signed in could let them into your account.",
+        "wrong": {
+          "B": "The article gives no reason about resting computers.",
+          "C": "Logging out does not show a password to anyone.",
+          "D": "Codes are part of two-step verification, not logging out."
+        }
+      },
+      {
+        "stem": "The article says passwords should be kept confidential. What does confidential most nearly mean?",
+        "options": [
+          "easy to guess",
+          "shared with friends",
+          "written on paper",
+          "kept secret"
+        ],
+        "answer": "D",
+        "skill": "vocabulary",
+        "why": "The article tells readers not to share passwords even with close friends, so confidential means kept secret.",
+        "wrong": {
+          "A": "A good password should be hard to guess.",
+          "B": "The article says not to share passwords.",
+          "C": "Writing it down is not what confidential means."
+        }
+      }
+    ]
   }
 }

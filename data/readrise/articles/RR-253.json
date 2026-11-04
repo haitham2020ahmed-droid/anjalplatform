@@ -614,5 +614,217 @@
       ],
       "modelAnswer": "A pioneer is someone who breaks through barriers to accomplish something few or no people like them had done before, opening the way for others to follow. Katherine Johnson fits this description because she worked as a Black woman mathematician at NASA during an era of strict segregation, when very few people who looked like her were given such opportunities. Her precision was so trusted that astronaut John Glenn insisted she personally verify the equations behind his orbital trajectory by hand before he would agree to fly, even after an electronic computer had already checked the math. This evidence shows that Katherine's legacy as a pioneer rests on both her mathematical skill and her refusal to accept the barriers placed in her path."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "How old was Katherine when she finished school?",
+        "options": [
+          "Ten",
+          "Fourteen",
+          "Twenty",
+          "Thirty"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The article says she finished school at 14.",
+        "wrong": {
+          "A": "Ten is not mentioned.",
+          "C": "Twenty is not mentioned.",
+          "D": "Thirty is not mentioned."
+        }
+      },
+      {
+        "stem": "In the article, a mathematician is someone who —",
+        "options": [
+          "flies rockets",
+          "teaches kids to read",
+          "works with numbers",
+          "paints pictures"
+        ],
+        "answer": "C",
+        "skill": "vocabulary",
+        "why": "Katherine's job was math for a rocket team, so a mathematician works with numbers.",
+        "wrong": {
+          "A": "John flew the rocket, not Katherine.",
+          "B": "Reading is not her job in the article.",
+          "D": "Painting is not mentioned."
+        }
+      },
+      {
+        "stem": "What did Katherine get years later?",
+        "options": [
+          "A farm",
+          "A boat",
+          "A rocket",
+          "A big prize"
+        ],
+        "answer": "D",
+        "skill": "detail",
+        "why": "The article says years later she got a big prize.",
+        "wrong": {
+          "A": "A farm is not mentioned.",
+          "B": "A boat is not mentioned.",
+          "C": "She helped send rockets, but did not get one."
+        }
+      },
+      {
+        "stem": "Why was it special that Katherine went to college?",
+        "options": [
+          "Not many girls could go then",
+          "The college was close to her home",
+          "She was the oldest student there",
+          "It was free for every girl"
+        ],
+        "answer": "A",
+        "skill": "inference",
+        "why": "The article says not many girls got to go to college then.",
+        "wrong": {
+          "B": "Distance is not mentioned.",
+          "C": "She was young, not old.",
+          "D": "Cost is not mentioned."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "What did Katherine study in college?",
+        "options": [
+          "Art and music",
+          "Law and history",
+          "Math and French",
+          "Science and sports"
+        ],
+        "answer": "C",
+        "skill": "detail",
+        "why": "The article says she studied math and French.",
+        "wrong": {
+          "A": "Art and music are not mentioned.",
+          "B": "Law and history are not mentioned.",
+          "D": "Sports are not mentioned."
+        }
+      },
+      {
+        "stem": "In the article, the word verify means —",
+        "options": [
+          "to hide the numbers",
+          "to check it is right",
+          "to speak very loudly",
+          "to fly much higher"
+        ],
+        "answer": "B",
+        "skill": "vocabulary",
+        "why": "Glenn wanted Katherine to check every number by hand, so verify means to check it is right.",
+        "wrong": {
+          "A": "Hiding is the opposite of checking.",
+          "C": "Speaking loudly is not meant.",
+          "D": "Flying is not meant."
+        }
+      },
+      {
+        "stem": "What did Katherine do before she joined the human computers?",
+        "options": [
+          "She flew in a rocket",
+          "She worked as a schoolteacher",
+          "She studied the stars at NASA",
+          "She orbited Earth"
+        ],
+        "answer": "B",
+        "skill": "sequence",
+        "why": "The article says she worked for years as a schoolteacher before taking the job with the human computers.",
+        "wrong": {
+          "A": "She never flew in a rocket in this article.",
+          "C": "She worked for NASA after teaching.",
+          "D": "John Glenn orbited Earth, not Katherine."
+        }
+      },
+      {
+        "stem": "What does it show that Katherine refused to give up?",
+        "options": [
+          "She kept trying despite doubts",
+          "She always agreed with others",
+          "She wanted to stop school",
+          "She disliked numbers"
+        ],
+        "answer": "A",
+        "skill": "inference",
+        "why": "Some people doubted her, but she kept going and became a mathematician.",
+        "wrong": {
+          "B": "She kept asking to join talks, so she did not just agree.",
+          "C": "She went to college at 14.",
+          "D": "She loved numbers."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "In the article, the word determination means —",
+        "options": [
+          "a quick guess",
+          "a gentle voice",
+          "a loud argument",
+          "a strong will"
+        ],
+        "answer": "D",
+        "skill": "vocabulary",
+        "why": "Her determination never weakened even when doors seemed closed to her.",
+        "wrong": {
+          "A": "Her work was exact, not a guess.",
+          "B": "A voice is not meant.",
+          "C": "Arguments are not mentioned."
+        }
+      },
+      {
+        "stem": "What did Katherine help do in 1970?",
+        "options": [
+          "Bring the Apollo 13 crew home safely",
+          "Land on the Moon herself",
+          "Teach at a school in West Virginia",
+          "Build the first computer"
+        ],
+        "answer": "A",
+        "skill": "detail",
+        "why": "The article says she helped bring the Apollo 13 crew safely home in 1970.",
+        "wrong": {
+          "B": "She helped with calculations in 1969, not landing herself.",
+          "C": "Teaching was earlier in her life.",
+          "D": "She did not build a computer."
+        }
+      },
+      {
+        "stem": "Why did precision matter so much in Katherine's job?",
+        "options": [
+          "Rockets were very expensive",
+          "A small error could be deadly",
+          "Teachers checked her work daily",
+          "The Moon was far away"
+        ],
+        "answer": "B",
+        "skill": "cause-effect",
+        "why": "The article says a single small mistake could be dangerous for the crew aboard.",
+        "wrong": {
+          "A": "Cost is not mentioned.",
+          "C": "Teachers are not part of this job.",
+          "D": "Distance is not the reason given."
+        }
+      },
+      {
+        "stem": "Why did Katherine's teachers skip her ahead several grades?",
+        "options": [
+          "She was the youngest",
+          "She lived near the school",
+          "Her family asked them to",
+          "She had a gift for math"
+        ],
+        "answer": "D",
+        "skill": "inference",
+        "why": "Her teachers noticed her gift for math, so they moved her ahead.",
+        "wrong": {
+          "A": "Age is not given as the reason.",
+          "B": "Distance is not mentioned.",
+          "C": "Her family is not mentioned in this."
+        }
+      }
+    ]
   }
 }

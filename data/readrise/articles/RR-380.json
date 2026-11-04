@@ -614,5 +614,217 @@
       ],
       "modelAnswer": "I agree that patient, disciplined care is the best way to help an orphaned wild animal. The article shows that rushing or forcing the frightened cub to eat would have harmed its fragile recovery, while a strict feeding schedule and careful record-keeping allowed it to regain strength safely over several months. Someone might argue that a faster approach would have returned the cub to the wild sooner, but the article makes clear that the cub needed time for its instincts and strength to develop before it could safely socialize with other lions, so the slower, responsible approach gave it the best chance at a healthy life."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "What did the cub eat after it got stronger?",
+        "options": [
+          "Big old dry bones",
+          "Fresh green leaves",
+          "Small bits of meat",
+          "Cold fish from the sea"
+        ],
+        "answer": "C",
+        "skill": "detail",
+        "why": "The text says the cub drank more milk and soon ate small bits of meat too.",
+        "wrong": {
+          "A": "Bones are not mentioned.",
+          "B": "Leaves are not mentioned as food.",
+          "D": "Fish is not mentioned."
+        }
+      },
+      {
+        "stem": "In the story, what does the word \"weak\" mean?",
+        "options": [
+          "Very loud",
+          "Not strong",
+          "Full of fun",
+          "Too hot"
+        ],
+        "answer": "B",
+        "skill": "vocabulary",
+        "why": "The cub was weak, small, and thin, and could not drink much milk, so weak means not strong.",
+        "wrong": {
+          "A": "The cub is not described as loud.",
+          "C": "The cub was weak and scared, not full of fun.",
+          "D": "Heat is not mentioned."
+        }
+      },
+      {
+        "stem": "What shows that the cub was feeling better?",
+        "options": [
+          "It began to play and jump around.",
+          "It slept all day in one corner.",
+          "It stopped drinking the milk.",
+          "It hid from the other lions."
+        ],
+        "answer": "A",
+        "skill": "inference",
+        "why": "As the cub got stronger, it began to play and jump around.",
+        "wrong": {
+          "B": "A cub sleeping all day is not in the text.",
+          "C": "The cub drank more milk, not less.",
+          "D": "The cub met the lions through a fence and later joined them."
+        }
+      },
+      {
+        "stem": "Why did Dr. Amal show Lina what to do?",
+        "options": [
+          "Lina was too young to learn at all.",
+          "Dr. Amal did not want to feed the cub.",
+          "The cub was not allowed to eat.",
+          "Dr. Amal is a vet and knew what to do."
+        ],
+        "answer": "D",
+        "skill": "inference",
+        "why": "Dr. Amal is a vet, so she could teach the young helper how to care for the cub.",
+        "wrong": {
+          "A": "Lina was young but she learned and helped.",
+          "B": "Dr. Amal helped the cub by teaching Lina.",
+          "C": "The cub did eat after it got milk."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "Where did the workers find the lion cub?",
+        "options": [
+          "Alone near some rocks",
+          "Inside the vet's office",
+          "Beside a wide river",
+          "Under a big tree"
+        ],
+        "answer": "A",
+        "skill": "detail",
+        "why": "The text says workers found the cub alone near some rocks early one morning.",
+        "wrong": {
+          "B": "It was found outside, not in an office.",
+          "C": "No river is mentioned.",
+          "D": "No tree is mentioned."
+        }
+      },
+      {
+        "stem": "Why did the staff worry when the cub refused to eat or drink?",
+        "options": [
+          "The cub might wake all the other lions",
+          "Lina would have to leave the center soon",
+          "Dr. Amal would stop helping the cub",
+          "Very young cubs can weaken fast without food"
+        ],
+        "answer": "D",
+        "skill": "cause-effect",
+        "why": "The staff knew very young cubs can weaken fast without food.",
+        "wrong": {
+          "A": "The other lions are not part of the worry.",
+          "B": "Lina's leaving is not mentioned.",
+          "C": "Dr. Amal agreed to help and is not said to stop."
+        }
+      },
+      {
+        "stem": "In the article, what does the word \"appetite\" mean?",
+        "options": [
+          "Fear of strangers and other animals",
+          "Power to jump high and play",
+          "A strong wish to eat food",
+          "Need for a safe and warm bed"
+        ],
+        "answer": "C",
+        "skill": "vocabulary",
+        "why": "The cub soon ate meat as its appetite returned, so appetite is the wish to eat.",
+        "wrong": {
+          "A": "The cub was scared, but that is not appetite.",
+          "B": "Jumping comes later and is different.",
+          "D": "Beds are not mentioned."
+        }
+      },
+      {
+        "stem": "Why does the author mention the cub chasing leaves and toys?",
+        "options": [
+          "To show the cub was still weak and afraid",
+          "To show the cub had become strong and playful",
+          "To explain why Lina had to leave the center",
+          "To prove the cub could not eat meat yet"
+        ],
+        "answer": "B",
+        "skill": "author-purpose",
+        "why": "The cub grew bigger each week and played, so the detail shows its recovery.",
+        "wrong": {
+          "A": "A cub that chases toys is no longer weak.",
+          "C": "Lina leaving is not mentioned.",
+          "D": "The cub already ate small amounts of meat."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "How old was the cub when it was found?",
+        "options": [
+          "About two years old",
+          "Nearly one year old",
+          "Barely a few weeks old",
+          "About six months old"
+        ],
+        "answer": "C",
+        "skill": "detail",
+        "why": "The text says the cub was barely a few weeks old.",
+        "wrong": {
+          "A": "A cub of two years would not need bottle-feeding.",
+          "B": "The text says weeks, not nearly a year.",
+          "D": "Six months is older than the text says."
+        }
+      },
+      {
+        "stem": "What did the staff hope the cub would gain from meeting the other lions?",
+        "options": [
+          "A new bottle-feeding schedule",
+          "A chance to relearn lion behavior",
+          "A bigger pen for playing with toys",
+          "A reason to avoid Dr. Amal"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The staff let the cub gradually relearn lion behavior from the group it would join for good.",
+        "wrong": {
+          "A": "The feeding schedule was from Dr. Amal, not the lions.",
+          "C": "Toys are not the goal of meeting lions.",
+          "D": "Dr. Amal is the vet who guided the care."
+        }
+      },
+      {
+        "stem": "In the article, what does the word \"disrupt\" mean?",
+        "options": [
+          "Interrupt and upset",
+          "Speed up and improve",
+          "Record and measure",
+          "Protect and warm"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "Rushing the frightened cub would only harm its fragile recovery, so disrupt means to upset it.",
+        "wrong": {
+          "B": "Rushing would not improve recovery.",
+          "C": "Recording is something Lina did for progress.",
+          "D": "Rushing would not protect the cub."
+        }
+      },
+      {
+        "stem": "Why did Dr. Amal ask Lina to weigh the cub every day?",
+        "options": [
+          "To decide which lions the cub would meet",
+          "To teach the cub to stand very still",
+          "To prove the cub was growing too heavy",
+          "To follow the cub's progress as it recovered"
+        ],
+        "answer": "D",
+        "skill": "cause-effect",
+        "why": "Lina had to weigh the cub and record its progress while it recovered.",
+        "wrong": {
+          "A": "The lions it met were not chosen by weight.",
+          "B": "Standing still is not mentioned.",
+          "C": "The cub was thin and weak, not too heavy."
+        }
+      }
+    ]
   }
 }

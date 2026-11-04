@@ -614,5 +614,217 @@
       ],
       "modelAnswer": "A flamingo's unusual appearance comes directly from how it feeds. Its bent beak acts as a filter, pumping water from a salty lagoon through its edges to trap tiny shrimp and algae, which few other animals can eat. These foods contain a pigment called carotenoid, and as the flamingo digests them day after day, that pigment builds up in its feathers and slowly turns a gray chick into a bright pink adult. In this way, the flamingo's filtering beak and its diet are the direct cause of its famous pink color."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "What does a pair of flamingos make and lay?",
+        "options": [
+          "A mud nest and one egg",
+          "A sand hole and ten eggs",
+          "A big flock and one egg",
+          "A water pool and two eggs"
+        ],
+        "answer": "A",
+        "skill": "detail",
+        "why": "The text says each pair makes a nest of mud and lays one egg on top.",
+        "wrong": {
+          "B": "They do not dig sand holes or lay ten eggs.",
+          "C": "A flock is a group, not something a pair makes.",
+          "D": "They lay one egg, not two."
+        }
+      },
+      {
+        "stem": "What does the bent beak do?",
+        "options": [
+          "Cracks open clams",
+          "Keeps the food in",
+          "Pulls up mud",
+          "Makes the bird pink"
+        ],
+        "answer": "B",
+        "skill": "cause-effect",
+        "why": "The text says the bent beak lets the water out and keeps the food in.",
+        "wrong": {
+          "A": "Clams are not in the text.",
+          "C": "Mud is not what it pulls up.",
+          "D": "The food makes the bird pink."
+        }
+      },
+      {
+        "stem": "In the article, the word flock means —",
+        "options": [
+          "a nest of mud",
+          "a group of birds",
+          "a pool of water",
+          "a kind of shrimp"
+        ],
+        "answer": "B",
+        "skill": "vocabulary",
+        "why": "The text says these birds live in a big group called a flock.",
+        "wrong": {
+          "A": "The nest is made of mud.",
+          "C": "Pools are where they wade.",
+          "D": "Shrimp is a food."
+        }
+      },
+      {
+        "stem": "A flamingo stands on one leg for a long time. What is it most likely doing?",
+        "options": [
+          "Eating shrimp",
+          "Making a nest",
+          "Resting",
+          "Hunting"
+        ],
+        "answer": "C",
+        "skill": "inference",
+        "why": "The text says the bird can rest on one leg for a long time.",
+        "wrong": {
+          "A": "It eats with its head in the water.",
+          "B": "Nest making is done on the ground with mud.",
+          "D": "The text does not link one leg to hunting."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "Where does the pink color from the flamingo's food end up?",
+        "options": [
+          "In its feathers",
+          "In its beak",
+          "In its nest",
+          "In the salty water"
+        ],
+        "answer": "A",
+        "skill": "detail",
+        "why": "The text says the pink color from the food ends up in the bird's feathers.",
+        "wrong": {
+          "B": "The beak is used to filter food.",
+          "C": "The nest is made of mud.",
+          "D": "The water is not what is colored."
+        }
+      },
+      {
+        "stem": "Why do scientists think flamingos stand on one leg?",
+        "options": [
+          "To see farther away",
+          "To warm the other leg",
+          "To save energy",
+          "To catch more shrimp"
+        ],
+        "answer": "C",
+        "skill": "detail",
+        "why": "The text says scientists think standing on one leg may help flamingos save energy.",
+        "wrong": {
+          "A": "Sight is not mentioned.",
+          "B": "Warming a leg is not mentioned.",
+          "D": "The text does not link it to shrimp."
+        }
+      },
+      {
+        "stem": "The article says the bent beak acts like a filter. A filter is something that —",
+        "options": [
+          "lets some pass and traps others",
+          "makes a very loud, deep sound",
+          "gives off a bright pink color",
+          "holds a lot of water"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "The beak lets water out and traps the tiny bits of food inside.",
+        "wrong": {
+          "B": "No sound is mentioned.",
+          "C": "The food gives color, not the filter.",
+          "D": "The beak lets water pass out."
+        }
+      },
+      {
+        "stem": "What would most likely happen to a chick that ate no food with the pink color in it?",
+        "options": [
+          "It would turn blue.",
+          "It would stay gray.",
+          "It would grow very fast.",
+          "It would fly away."
+        ],
+        "answer": "B",
+        "skill": "inference",
+        "why": "The pink color in the food ends up in the feathers and a chick turns pink as it eats, so without it the chick would stay gray.",
+        "wrong": {
+          "A": "Blue is not mentioned.",
+          "C": "Speed of growth is not linked to color.",
+          "D": "Flying away is not linked to the food."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "What do the comb-like plates along the beak do?",
+        "options": [
+          "Crack open shells",
+          "Trap food particles",
+          "Make the bird pink",
+          "Cut mud in half"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The comb-like plates trap tiny food particles while the water escapes.",
+        "wrong": {
+          "A": "Shells are not mentioned.",
+          "C": "Carotenoids in the food make the bird pink.",
+          "D": "Mud cutting is not mentioned."
+        }
+      },
+      {
+        "stem": "The article says the flamingo's food contains natural pigments. What are pigments?",
+        "options": [
+          "kinds of salt in water",
+          "small shrimp in lagoons",
+          "things that give color",
+          "long pink feathers"
+        ],
+        "answer": "C",
+        "skill": "vocabulary",
+        "why": "The pigments are stored in the feathers and give the bird its pink color, so pigments are things that give color.",
+        "wrong": {
+          "A": "Salt does not make the bird pink.",
+          "B": "Shrimp contain the pigments, but they are food, not pigments.",
+          "D": "Pigments go into the feathers; they are not feathers."
+        }
+      },
+      {
+        "stem": "Why does living in a colony help a flamingo?",
+        "options": [
+          "Predators cannot attack a lone bird easily.",
+          "The colony makes the water too salty.",
+          "The other birds share their pink color.",
+          "The colony builds one big nest."
+        ],
+        "answer": "A",
+        "skill": "cause-effect",
+        "why": "Being part of a crowd helps protect individuals from predators that might attack a lone bird.",
+        "wrong": {
+          "B": "The birds do not change the water.",
+          "C": "Color comes from food.",
+          "D": "Each pair builds its own nest."
+        }
+      },
+      {
+        "stem": "What happens after a flamingo pair builds its mud nest?",
+        "options": [
+          "They leave for the coast.",
+          "They feed the chick.",
+          "They lay a single egg.",
+          "They join a colony."
+        ],
+        "answer": "C",
+        "skill": "sequence",
+        "why": "Each pair builds a nest from mud and then lays a single egg; feeding the chick comes later.",
+        "wrong": {
+          "A": "Visiting the coast is a separate fact.",
+          "B": "They feed the chick after it hatches.",
+          "D": "They already live in a colony."
+        }
+      }
+    ]
   }
 }

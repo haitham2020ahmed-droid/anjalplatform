@@ -614,5 +614,217 @@
       ],
       "modelAnswer": "Golf rewards precision and consistency more than raw power because every single stroke counts equally toward the final score, whether it comes from a long drive or a short, careful putt. A golfer who hits the ball a long way but lands far from the hole still needs extra strokes to finish, while a golfer who controls the shot's distance and direction with an iron can save strokes and win. This emphasis on control, not strength, helps explain why golf has spread so widely since it began on the coastal terrain of Scotland, growing into a global sport played today on courses across Saudi Arabia and many other countries."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "In this article, what is a course?",
+        "options": [
+          "A grass field for golf",
+          "A small bag for the clubs",
+          "A class at a school today",
+          "A special kind of golf ball"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "The text says the big grass field where she plays is called a course.",
+        "wrong": {
+          "B": "A bag is not mentioned.",
+          "C": "A school class is not the meaning here.",
+          "D": "The ball is not called a course."
+        }
+      },
+      {
+        "stem": "What does a good golfer look at before she picks a club?",
+        "options": [
+          "The sky and the moon",
+          "Her shoes and her hat",
+          "The wind and the grass",
+          "The clock and the crowd"
+        ],
+        "answer": "C",
+        "skill": "detail",
+        "why": "The text says a good golfer looks at the wind and the grass, then picks a club.",
+        "wrong": {
+          "A": "The sky and moon are not mentioned.",
+          "B": "Shoes and hats are not mentioned.",
+          "D": "The clock and crowd are not mentioned."
+        }
+      },
+      {
+        "stem": "Why does a golfer want few strokes?",
+        "options": [
+          "The tall player wins.",
+          "The low score wins.",
+          "The loud player wins.",
+          "The late player wins."
+        ],
+        "answer": "B",
+        "skill": "cause-effect",
+        "why": "The text says the score is the count of strokes and the low score wins.",
+        "wrong": {
+          "A": "Height is not mentioned.",
+          "C": "Being loud is not mentioned.",
+          "D": "Arriving late is not mentioned."
+        }
+      },
+      {
+        "stem": "What does the last sentence suggest about who can play golf well?",
+        "options": [
+          "Only very strong adults",
+          "Only people from Scotland",
+          "Only people with long clubs",
+          "People who are not strong"
+        ],
+        "answer": "D",
+        "skill": "inference",
+        "why": "The text says you do not need to be strong, only to have a steady hand and a good plan.",
+        "wrong": {
+          "A": "The text says you do not need to be strong.",
+          "B": "People play golf all over the world.",
+          "C": "Club length is not the point of the sentence."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "What is a putt used for?",
+        "options": [
+          "To roll the ball near the hole",
+          "To send the ball very far away",
+          "To count each stroke aloud",
+          "To mark the end of the game"
+        ],
+        "answer": "A",
+        "skill": "detail",
+        "why": "The text says near the hole a player often uses a gentle putt to roll the ball in.",
+        "wrong": {
+          "B": "Sending the ball far is the job of a driver.",
+          "C": "Counting strokes is not a putt's job.",
+          "D": "A putt does not end the game."
+        }
+      },
+      {
+        "stem": "In the article, the word assumption means —",
+        "options": [
+          "a special kind of club",
+          "a rule of the whole game",
+          "a very big, deep hole",
+          "an idea not yet checked"
+        ],
+        "answer": "D",
+        "skill": "vocabulary",
+        "why": "Many new players assume that hitting far matters most, but the text says that assumption is not correct, so it is an idea believed without checking.",
+        "wrong": {
+          "A": "A club is a tool, not an idea.",
+          "B": "The text says this idea is not a rule.",
+          "C": "Holes are narrow in the text."
+        }
+      },
+      {
+        "stem": "Why does hitting to the right spot matter more than hitting far?",
+        "options": [
+          "Accuracy saves strokes.",
+          "Far hits break the clubs.",
+          "Long fields are not allowed.",
+          "The wind always stops them."
+        ],
+        "answer": "A",
+        "skill": "cause-effect",
+        "why": "The text says hitting to exactly the right spot matters more because accuracy saves strokes.",
+        "wrong": {
+          "B": "Broken clubs are not mentioned.",
+          "C": "The text does not forbid long fields.",
+          "D": "The wind does not always stop shots."
+        }
+      },
+      {
+        "stem": "Why could a player with a steady hand beat a stronger player?",
+        "options": [
+          "Strong players are not allowed.",
+          "Steady players use fewer clubs.",
+          "Careful aim can matter more than power.",
+          "Strong players hit the ball too slow."
+        ],
+        "answer": "C",
+        "skill": "inference",
+        "why": "The text says a steady hand and a careful plan matter more than raw power.",
+        "wrong": {
+          "A": "The text does not say strong players are banned.",
+          "B": "The text does not link steady hands to fewer clubs.",
+          "D": "Speed of the swing is not mentioned."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "What did early golfers in Scotland use?",
+        "options": [
+          "Homemade clubs and leather balls",
+          "Metal clubs and bouncy rubber balls",
+          "Wooden rackets and paper balls",
+          "Long sticks and glass balls"
+        ],
+        "answer": "A",
+        "skill": "detail",
+        "why": "The text says golf began in Scotland using simple homemade clubs and leather balls.",
+        "wrong": {
+          "B": "Metal clubs and rubber balls are not mentioned.",
+          "C": "Rackets and paper balls are not mentioned.",
+          "D": "Glass balls are not mentioned."
+        }
+      },
+      {
+        "stem": "In the article, the word propel most nearly means —",
+        "options": [
+          "to hide away",
+          "to push forward",
+          "to count out",
+          "to hold still"
+        ],
+        "answer": "B",
+        "skill": "vocabulary",
+        "why": "A driver can propel the ball far down the fairway, which means it sends the ball forward.",
+        "wrong": {
+          "A": "Hiding the ball does not fit.",
+          "C": "Counting is not what a club does.",
+          "D": "Holding still is the opposite of sending far."
+        }
+      },
+      {
+        "stem": "Why does hitting to the right spot matter more than hitting a long way?",
+        "options": [
+          "Long hits are not allowed.",
+          "The ball may lose its color.",
+          "The fairway has no grass.",
+          "Accuracy saves strokes."
+        ],
+        "answer": "D",
+        "skill": "cause-effect",
+        "why": "The text says accuracy consistently saves valuable strokes over an entire round.",
+        "wrong": {
+          "A": "Long hits are allowed, as the driver shows.",
+          "B": "Color is not mentioned.",
+          "C": "The fairway is a grass field."
+        }
+      },
+      {
+        "stem": "Each hit counts as one stroke, no matter how far the ball travels. What does this suggest about a stroke?",
+        "options": [
+          "A long hit counts for two strokes.",
+          "Short and long hits count alike.",
+          "Only putts are counted as strokes.",
+          "A stroke is counted by distance."
+        ],
+        "answer": "B",
+        "skill": "inference",
+        "why": "The text says each hit counts as exactly one stroke regardless of distance, so short and long hits count the same.",
+        "wrong": {
+          "A": "Each hit counts as one stroke, not two.",
+          "C": "Every hit is a stroke, not just putts.",
+          "D": "The text says distance does not change the count."
+        }
+      }
+    ]
   }
 }

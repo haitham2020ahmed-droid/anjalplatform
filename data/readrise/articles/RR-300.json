@@ -615,5 +615,217 @@
       ],
       "modelAnswer": "A craftsman's composition is the overall plan for how every tessera fits together, often built around a repeated motif that gives the mosaic a sense of order. Because old mosaics can crack or lose pieces over time, meticulous restoration is needed to repair them so future visitors can still enjoy the original design."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "How do the pieces of a mosaic fit?",
+        "options": [
+          "On top of each other",
+          "Side by side",
+          "In a circle only",
+          "Far apart"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The text says the pieces fit side by side.",
+        "wrong": {
+          "A": "The text says side by side, not on top of each other.",
+          "C": "The text does not say the pieces make only a circle.",
+          "D": "Pieces fit together, not far apart."
+        }
+      },
+      {
+        "stem": "Why does a mosaic take a long time to make?",
+        "options": [
+          "The pieces are far away",
+          "The artist sleeps a lot",
+          "The pieces are very heavy",
+          "Each piece is set one by one"
+        ],
+        "answer": "D",
+        "skill": "cause-effect",
+        "why": "The text says the artist sets each piece with care, piece by piece, so the work goes slow.",
+        "wrong": {
+          "A": "The text does not say the pieces are far away.",
+          "B": "Sleeping is not mentioned.",
+          "C": "The text does not say the pieces are heavy."
+        }
+      },
+      {
+        "stem": "In the article, what is a mosaic?",
+        "options": [
+          "art made from small pieces",
+          "a kind of big stone house",
+          "a paint for walls",
+          "a glass cup"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "The text says a mosaic is a kind of art made by putting small pieces together.",
+        "wrong": {
+          "B": "A mosaic is art, not a house.",
+          "C": "A mosaic is made of pieces, not paint.",
+          "D": "Glass may be used, but a mosaic is not a cup."
+        }
+      },
+      {
+        "stem": "Why does the maker check each piece?",
+        "options": [
+          "To fit it just right",
+          "To count the pieces",
+          "To sell it",
+          "To make it dry"
+        ],
+        "answer": "A",
+        "skill": "cause-effect",
+        "why": "The text says the maker checks each piece and fits it just right.",
+        "wrong": {
+          "B": "The text does not say the maker counts the pieces.",
+          "C": "Nothing is sold in the text.",
+          "D": "Drying is not mentioned."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "What does the word set mean in \"set each tessera firmly\"?",
+        "options": [
+          "Throw it far away",
+          "Break it into bits",
+          "Count it out loud",
+          "Press it into place"
+        ],
+        "answer": "D",
+        "skill": "vocabulary",
+        "why": "The article says to set a piece means to glue or press it into place.",
+        "wrong": {
+          "A": "Throwing away would ruin the picture.",
+          "B": "The craftsman may cut pieces before, but setting is placing them.",
+          "C": "Counting is not the meaning."
+        }
+      },
+      {
+        "stem": "What might a craftsman do to make smaller bits?",
+        "options": [
+          "Cut stone or glass",
+          "Melt the tile",
+          "Paint the stones",
+          "Glue paper on"
+        ],
+        "answer": "A",
+        "skill": "detail",
+        "why": "The article says a craftsman may cut stone or glass into smaller bits.",
+        "wrong": {
+          "B": "Melting tile is not mentioned.",
+          "C": "Painting stones is not mentioned.",
+          "D": "Gluing paper is not mentioned."
+        }
+      },
+      {
+        "stem": "How does planning color and shape help the final picture?",
+        "options": [
+          "The pieces become lighter",
+          "The picture looks balanced",
+          "The border gets thicker",
+          "The glue dries faster"
+        ],
+        "answer": "B",
+        "skill": "cause-effect",
+        "why": "The article says this planning helps the final picture look balanced.",
+        "wrong": {
+          "A": "Planning does not change the weight of the pieces.",
+          "C": "The border is not said to get thicker.",
+          "D": "The glue is not affected by planning."
+        }
+      },
+      {
+        "stem": "What does the article suggest about careful work?",
+        "options": [
+          "It is always fast",
+          "It makes pieces smaller",
+          "It can create real beauty",
+          "It costs a lot of money"
+        ],
+        "answer": "C",
+        "skill": "inference",
+        "why": "The article says mosaics take patience and planning and show how careful work can create real beauty.",
+        "wrong": {
+          "A": "Mosaics are set slowly, one piece at a time.",
+          "B": "Careful work does not make pieces smaller.",
+          "D": "The article does not talk about cost."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "What does the word composition mean in the article?",
+        "options": [
+          "The whole plan of the art",
+          "One small piece of glass",
+          "The glue under the pieces",
+          "A kind of old building"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "The article defines composition as the overall plan of how every piece fits together.",
+        "wrong": {
+          "B": "A single small piece is called a tessera.",
+          "C": "Glue is not mentioned in the article.",
+          "D": "A building is not what composition means."
+        }
+      },
+      {
+        "stem": "Why does a small gap or crooked edge matter in a mosaic?",
+        "options": [
+          "It makes the glass break easily",
+          "It turns the stone to dust",
+          "It can spoil the whole picture",
+          "It changes the border's color"
+        ],
+        "answer": "C",
+        "skill": "cause-effect",
+        "why": "The article says even a small gap or crooked edge can throw off the whole composition.",
+        "wrong": {
+          "A": "The article does not say a gap makes glass break.",
+          "B": "The article does not say stone turns to dust.",
+          "D": "The article does not say the border changes color."
+        }
+      },
+      {
+        "stem": "According to the article, what do modern buildings in Saudi Arabia still use today?",
+        "options": [
+          "Paper pictures",
+          "Painted wooden doors",
+          "Plastic pieces",
+          "Similar tile patterns"
+        ],
+        "answer": "D",
+        "skill": "detail",
+        "why": "The article says modern buildings in Saudi Arabia still use similar tile patterns today.",
+        "wrong": {
+          "A": "Paper pictures are not mentioned.",
+          "B": "Painted wooden doors are not mentioned.",
+          "C": "Plastic pieces are not mentioned."
+        }
+      },
+      {
+        "stem": "Why does the author end by mentioning years of careful restoration?",
+        "options": [
+          "To say mosaics are easy to make",
+          "To show the work behind mosaics",
+          "To warn people not to visit",
+          "To list the colors of tile"
+        ],
+        "answer": "B",
+        "skill": "author-purpose",
+        "why": "The ending shows that skilled work keeps old mosaics standing, so readers value what is behind each one.",
+        "wrong": {
+          "A": "The article says mosaics need patience and a meticulous eye.",
+          "C": "The article invites readers to study mosaics, not avoid them.",
+          "D": "Tile colors are not listed in the ending."
+        }
+      }
+    ]
   }
 }

@@ -614,5 +614,217 @@
       ],
       "modelAnswer": "Rising ocean temperatures are a serious problem for coral reefs because even a rise of just one or two degrees for several weeks can break the symbiotic relationship between a coral polyp and the algae living inside it, forcing the coral to expel the algae that normally feeds it and gives it color. Without that partnership, the coral is left starving, and if the high temperature continues too long, it can die completely and be covered in seaweed. Fortunately, reefs can recover in a few resilient ways: coral larvae can drift in and settle onto clean rock to start growing new polyps, and scientists in Saudi Arabia grow coral fragments in underwater nurseries before planting them onto damaged reefs. Because recovery depends on both nature's own processes and human help, protecting reefs from rising temperatures while supporting these recovery methods gives coral its best chance of survival."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "What do the algae get from the coral?",
+        "options": [
+          "A safe home",
+          "A bright color",
+          "A hard shell",
+          "Some food"
+        ],
+        "answer": "A",
+        "skill": "detail",
+        "why": "The text says the algae get a safe home in return.",
+        "wrong": {
+          "B": "The algae give the coral its color.",
+          "C": "The coral builds the shell for itself.",
+          "D": "The algae make food and share it with the coral."
+        }
+      },
+      {
+        "stem": "What can happen to a white coral if the heat stays?",
+        "options": [
+          "It turns bright red",
+          "It grows a new shell",
+          "It moves to the Red Sea",
+          "It can die"
+        ],
+        "answer": "D",
+        "skill": "cause-effect",
+        "why": "The text says that if the heat stays, the white coral can die.",
+        "wrong": {
+          "A": "Red is not mentioned.",
+          "B": "A new shell is not mentioned.",
+          "C": "Coral does not move to another sea."
+        }
+      },
+      {
+        "stem": "The text says a coral can recover if the water cools. What does recover mean?",
+        "options": [
+          "get sick",
+          "get well again",
+          "grow very hot",
+          "turn white"
+        ],
+        "answer": "B",
+        "skill": "vocabulary",
+        "why": "When the water cools, the coral gets its color back, so recover means to get well again.",
+        "wrong": {
+          "A": "Getting sick happens when the water is too hot, not when it recovers.",
+          "C": "The water cools; the coral does not grow hot.",
+          "D": "Turning white is what happens before it recovers."
+        }
+      },
+      {
+        "stem": "Why do fish that eat weeds help a reef?",
+        "options": [
+          "Fish make the sea hot",
+          "Young corals need clean rock",
+          "Fish bring the algae back",
+          "Weeds help corals grow"
+        ],
+        "answer": "B",
+        "skill": "inference",
+        "why": "Young corals stick to clean rock, so fish that eat the weeds leave clean rock for them.",
+        "wrong": {
+          "A": "Hot water hurts coral.",
+          "C": "The algae return when the sea cools.",
+          "D": "Weeds grow on dead coral and get in the way."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "What are the tiny animals that make up corals called?",
+        "options": [
+          "Algae",
+          "Parrotfish",
+          "Polyps",
+          "Skeletons"
+        ],
+        "answer": "C",
+        "skill": "detail",
+        "why": "The text says corals are tiny animals called polyps.",
+        "wrong": {
+          "A": "Algae are the plant-like living things inside the polyps.",
+          "B": "Parrotfish eat seaweed.",
+          "D": "A skeleton is what a polyp builds."
+        }
+      },
+      {
+        "stem": "Why is a bleached coral starving?",
+        "options": [
+          "Fish eat all of its hard skeleton at night",
+          "It has no safe place to hide from fish",
+          "The sea has become too cold for it to live",
+          "The algae that made its food are gone"
+        ],
+        "answer": "D",
+        "skill": "cause-effect",
+        "why": "The coral pushes the algae out, and the algae made most of its food.",
+        "wrong": {
+          "A": "Fish eat seaweed, not the skeleton.",
+          "B": "The coral still has its own skeleton.",
+          "C": "The problem is hot water."
+        }
+      },
+      {
+        "stem": "In the article, the word settle means —",
+        "options": [
+          "to melt away",
+          "to get lost",
+          "to stay in one place",
+          "to make a loud noise"
+        ],
+        "answer": "C",
+        "skill": "vocabulary",
+        "why": "Baby corals drift in and then stay on clean rock, where they grow.",
+        "wrong": {
+          "A": "Melting is not the idea.",
+          "B": "The corals find a place to grow.",
+          "D": "Noise is not mentioned."
+        }
+      },
+      {
+        "stem": "Why does the author call a reef \"an underwater garden\"?",
+        "options": [
+          "To help readers picture its bright colors",
+          "To say that all corals are really plants",
+          "To say that gardens can grow in the sea",
+          "To show that reefs are mostly made of soil"
+        ],
+        "answer": "A",
+        "skill": "author-purpose",
+        "why": "A garden is bright and full of life, so the comparison helps readers picture the reef.",
+        "wrong": {
+          "B": "The text says corals are not plants.",
+          "C": "The comparison is not about real gardens.",
+          "D": "Reefs are made of coral skeletons."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "What are coral larvae?",
+        "options": [
+          "The hard skeletons of old corals",
+          "The seaweed that grows over reefs",
+          "The tiny swimming young of corals",
+          "The algae that live inside polyps"
+        ],
+        "answer": "C",
+        "skill": "detail",
+        "why": "The text defines coral larvae as the tiny swimming young of corals.",
+        "wrong": {
+          "A": "Skeletons are built by polyps.",
+          "B": "Seaweed is what the parrotfish eat.",
+          "D": "Algae live inside the polyps."
+        }
+      },
+      {
+        "stem": "In the article, the word smother means —",
+        "options": [
+          "to cover so that something cannot grow",
+          "to carry something far across the sea",
+          "to clean something with fresh water",
+          "to light something up with the sun"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "Seaweed would cover the young corals, so parrotfish eat it.",
+        "wrong": {
+          "B": "Carrying is not the idea.",
+          "C": "Cleaning is what the fish do for the reef.",
+          "D": "Sunlight is not the idea."
+        }
+      },
+      {
+        "stem": "Why is bleaching happening more often?",
+        "options": [
+          "More fish are eating algae",
+          "Reefs are growing too large",
+          "Coral larvae are moving away",
+          "The oceans are getting warmer"
+        ],
+        "answer": "D",
+        "skill": "cause-effect",
+        "why": "The text says that because the oceans are getting warmer, bleaching is happening more often.",
+        "wrong": {
+          "A": "Fish eat seaweed, not the algae inside coral.",
+          "B": "Reefs growing is not the cause.",
+          "C": "Larvae moving is not the cause."
+        }
+      },
+      {
+        "stem": "What can you infer about why people are told not to touch or stand on coral?",
+        "options": [
+          "Coral is made of hard rock and nothing else",
+          "Coral is a living animal that can be hurt",
+          "Coral grows back again in just a few days",
+          "Coral gets too hot in the sun to touch"
+        ],
+        "answer": "B",
+        "skill": "inference",
+        "why": "Corals are tiny animals with soft bodies, so touching or standing on them can harm them.",
+        "wrong": {
+          "A": "The text says corals are animals, not rocks.",
+          "C": "The text says recovery takes ten years or more.",
+          "D": "Heat in the sea is the problem, not hot coral."
+        }
+      }
+    ]
   }
 }

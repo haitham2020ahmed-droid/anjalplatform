@@ -614,5 +614,217 @@
       ],
       "modelAnswer": "I believe schools should teach students about sleep and screens, because many students do not realize how much screens affect their bodies. Our internal circadian clock uses light to know when it is day or night, and screens give off blue light that can confuse this clock and reduce the hormone melatonin, making it harder to fall asleep. Without enough sleep, students find it difficult to concentrate in class and may forget what they learned. If schools taught a consistent, screen-free bedtime routine, students would likely feel more alert and do better in school."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "What does your brain do while you sleep?",
+        "options": [
+          "It turns off until the morning",
+          "It makes the room get darker",
+          "It sorts what you learned that day",
+          "It plays games to stay awake"
+        ],
+        "answer": "C",
+        "skill": "detail",
+        "why": "The text says your brain is busy and sorts what you learned that day.",
+        "wrong": {
+          "A": "The text says the brain is busy, not off.",
+          "B": "Darkness comes from the day ending, not from the brain.",
+          "D": "The text does not say the brain plays games."
+        }
+      },
+      {
+        "stem": "The text says to build a good habit before bed. What is a habit?",
+        "options": [
+          "a new toy to play with",
+          "a thing you do each night",
+          "a bright screen on a phone",
+          "a long dream while asleep"
+        ],
+        "answer": "B",
+        "skill": "vocabulary",
+        "why": "A good bedtime habit is something you do the same way each night.",
+        "wrong": {
+          "A": "A habit is not a toy.",
+          "C": "A screen is a thing, not a habit.",
+          "D": "A dream is not something you choose to do."
+        }
+      },
+      {
+        "stem": "What happens in your brain when it gets dark?",
+        "options": [
+          "It makes you feel sleepy",
+          "It makes you feel hungry",
+          "It makes you want to play",
+          "It makes you feel grumpy"
+        ],
+        "answer": "A",
+        "skill": "cause-effect",
+        "why": "The text says that when it gets dark, your brain makes you feel sleepy.",
+        "wrong": {
+          "B": "Hunger is not linked to darkness in the text.",
+          "C": "Playing is not linked to darkness in the text.",
+          "D": "Grumpiness comes from too little sleep, not from the dark."
+        }
+      },
+      {
+        "stem": "Why is reading a book a good idea before bed?",
+        "options": [
+          "A book makes a room very bright",
+          "Books keep your brain wide awake",
+          "Books tell your body clock the time",
+          "A book has no bright light to fool you"
+        ],
+        "answer": "D",
+        "skill": "inference",
+        "why": "Screens give off bright light that fools the brain, and a book does not, so it is a better habit.",
+        "wrong": {
+          "A": "A book does not light up a room.",
+          "B": "The text says screens keep you awake, not books.",
+          "C": "The body clock uses light, not books."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "How many hours of sleep do health experts say most kids aged six to twelve need?",
+        "options": [
+          "Six to eight hours",
+          "Seven to nine hours",
+          "Ten to fourteen hours",
+          "Nine to twelve hours"
+        ],
+        "answer": "D",
+        "skill": "detail",
+        "why": "The text says most kids between six and twelve need nine to twelve hours every night.",
+        "wrong": {
+          "A": "The text says nine to twelve, not six to eight.",
+          "B": "The text says nine to twelve, not seven to nine.",
+          "C": "The text says nine to twelve, not ten to fourteen."
+        }
+      },
+      {
+        "stem": "Why does screen light at night make you stay alert?",
+        "options": [
+          "It heats the room until you feel awake",
+          "It tells your body to grow faster at night",
+          "It makes the brain release less melatonin",
+          "It sorts your memories into the wrong place"
+        ],
+        "answer": "C",
+        "skill": "cause-effect",
+        "why": "The light tricks the brain into acting as if it were day, so it makes less melatonin.",
+        "wrong": {
+          "A": "The text does not say screens heat the room.",
+          "B": "The text does not say light makes the body grow faster.",
+          "D": "Sorting memories is the brain's job during sleep."
+        }
+      },
+      {
+        "stem": "In the article, the word alert means —",
+        "options": [
+          "very sleepy",
+          "awake and ready",
+          "cold and quiet",
+          "sore and tired"
+        ],
+        "answer": "B",
+        "skill": "vocabulary",
+        "why": "With less melatonin you do not feel sleepy, so alert means awake and ready.",
+        "wrong": {
+          "A": "Less melatonin means you are not sleepy.",
+          "C": "The sentence is not about temperature.",
+          "D": "Being tired comes the next morning."
+        }
+      },
+      {
+        "stem": "Why might a child who stays up late forget things in class?",
+        "options": [
+          "The brain had less time to store memories",
+          "The tablet erased the day's lessons",
+          "The classroom lights were too bright",
+          "The body made far too much melatonin"
+        ],
+        "answer": "A",
+        "skill": "inference",
+        "why": "The text says the brain stores what you learned as memories during sleep, so less sleep means less storing.",
+        "wrong": {
+          "B": "A tablet cannot erase lessons from the brain.",
+          "C": "The text does not link forgetting to classroom lights.",
+          "D": "Screens make less melatonin, not more."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "According to the article, what does adequate sleep help the body to do?",
+        "options": [
+          "Release more blue light at night",
+          "Defend itself against infections",
+          "Avoid the need for melatonin",
+          "Make the alarm clock ring sooner"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The text says adequate sleep strengthens the immune system, which helps the body defend itself against infections.",
+        "wrong": {
+          "A": "Blue light comes from screens, not from the body.",
+          "C": "The body still needs melatonin to feel drowsy.",
+          "D": "The alarm clock is not linked to sleep benefits."
+        }
+      },
+      {
+        "stem": "In the article, the word irritable most nearly means —",
+        "options": [
+          "calm and happy",
+          "shy and quiet",
+          "full of energy",
+          "easily annoyed"
+        ],
+        "answer": "D",
+        "skill": "vocabulary",
+        "why": "A tired student may feel this way with friends and family, so irritable means easily annoyed.",
+        "wrong": {
+          "A": "A tired student is the opposite of calm and happy.",
+          "B": "The text does not say tired students are shy.",
+          "C": "A tired student has less energy, not more."
+        }
+      },
+      {
+        "stem": "According to the article, what can happen to a tired student the next day?",
+        "options": [
+          "Trouble focusing and forgetting facts",
+          "A much stronger immune system at once",
+          "More melatonin released around noon",
+          "Easier homework and much calmer moods"
+        ],
+        "answer": "A",
+        "skill": "cause-effect",
+        "why": "The text says a tired student may find it harder to concentrate, forget information, and feel irritable.",
+        "wrong": {
+          "B": "The immune system is strengthened by enough sleep, not by too little.",
+          "C": "The text says melatonin is released when darkness falls.",
+          "D": "A tired student feels irritable, not calm."
+        }
+      },
+      {
+        "stem": "Why does the article suggest charging phones outside the bedroom?",
+        "options": [
+          "So the batteries stay cool all night",
+          "So the phone can make melatonin",
+          "So alerts do not keep you awake",
+          "So the screen light looks softer"
+        ],
+        "answer": "C",
+        "skill": "inference",
+        "why": "The text says notifications can keep the mind racing, so keeping phones away helps you sleep.",
+        "wrong": {
+          "A": "The text does not mention batteries.",
+          "B": "A phone cannot make melatonin; the brain does.",
+          "D": "Night mode, not distance, changes the light."
+        }
+      }
+    ]
   }
 }

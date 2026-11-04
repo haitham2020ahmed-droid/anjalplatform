@@ -614,5 +614,217 @@
       ],
       "modelAnswer": "I disagree that shadows are just darkness with no use, because the article gives two clear examples of how people use them. First, ancient people built sundials, which used the shadow of a stick at a certain angle to tell the time of day. Second, people in hot places like Saudi Arabia rest in the shade of palm trees, which is really just a large, cool shadow that blocks the opaque leaves' sunlight. Both examples show that shadows can be genuinely useful, not just dark empty space."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "How long does light from the sun take to get to us?",
+        "options": [
+          "Eight minutes",
+          "Eight hours",
+          "Eight days",
+          "Eight seconds"
+        ],
+        "answer": "A",
+        "skill": "detail",
+        "why": "The text says light from the sun gets to us in just eight minutes.",
+        "wrong": {
+          "B": "The text says minutes, not hours.",
+          "C": "Light is far faster than days.",
+          "D": "The text says minutes, not seconds."
+        }
+      },
+      {
+        "stem": "Why do you make a shadow when you stand in the sun?",
+        "options": [
+          "The sun gets very low.",
+          "You block some light.",
+          "The air turns cold.",
+          "Glass lets the light in."
+        ],
+        "answer": "B",
+        "skill": "cause-effect",
+        "why": "The text says you block some light, and a dark shape forms on the ground.",
+        "wrong": {
+          "A": "Low sun changes the length of a shadow, not whether you make one.",
+          "C": "Air temperature is not the cause.",
+          "D": "Glass is an example of a transparent thing."
+        }
+      },
+      {
+        "stem": "In the article, the word block means —",
+        "options": [
+          "make hot",
+          "make loud",
+          "stop",
+          "help"
+        ],
+        "answer": "C",
+        "skill": "vocabulary",
+        "why": "Wood and rock let in no light; they block it, so block means stop.",
+        "wrong": {
+          "A": "Blocking light is not about heat.",
+          "B": "Sound is not mentioned.",
+          "D": "Wood and rock do the opposite of helping light in."
+        }
+      },
+      {
+        "stem": "Why does shade from a palm tree keep us cool?",
+        "options": [
+          "The tree makes its own light.",
+          "The tree is made of clear glass.",
+          "The tree moves the sun lower.",
+          "The tree blocks the hot sunlight."
+        ],
+        "answer": "D",
+        "skill": "inference",
+        "why": "Shade is a big shadow, and a shadow forms where light is blocked.",
+        "wrong": {
+          "A": "Only light sources make light.",
+          "B": "A palm tree is not transparent.",
+          "C": "A tree cannot move the sun."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "What did a sundial use to show the time of day?",
+        "options": [
+          "The light of the moon",
+          "The shadow of a stick",
+          "The heat of a campfire",
+          "The color of the sky"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The text says sundials used the shadow of a stick to show the time.",
+        "wrong": {
+          "A": "The moon is not used in the text.",
+          "C": "Campfires are light sources, not clocks.",
+          "D": "The sky color is not mentioned."
+        }
+      },
+      {
+        "stem": "Why does a dark area form behind you in the sunlight?",
+        "options": [
+          "The sun is too far away.",
+          "Your body is a translucent thing.",
+          "Light moves slowly.",
+          "Light cannot bend around you."
+        ],
+        "answer": "D",
+        "skill": "cause-effect",
+        "why": "The text says light cannot bend around you, so a dark area forms where it cannot reach.",
+        "wrong": {
+          "A": "Distance changes shadow size, not why one forms.",
+          "B": "The text says the body is opaque.",
+          "C": "The text says light is the fastest thing."
+        }
+      },
+      {
+        "stem": "In the article, the word scatter means —",
+        "options": [
+          "go in many ways",
+          "stop completely",
+          "come back",
+          "get brighter"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "Translucent things let some light through but scatter it, so it goes many ways instead of straight.",
+        "wrong": {
+          "B": "Stopping light is what opaque things do.",
+          "C": "Coming back is reflecting.",
+          "D": "The text does not say light gets brighter."
+        }
+      },
+      {
+        "stem": "Which of these is a light source?",
+        "options": [
+          "The moon",
+          "A clear window",
+          "A candle",
+          "A palm tree"
+        ],
+        "answer": "C",
+        "skill": "detail",
+        "why": "The text lists lamps, candles, and campfires as light sources that make their own light.",
+        "wrong": {
+          "A": "The moon only reflects light.",
+          "B": "A clear window lets light pass through.",
+          "D": "A tree makes shade, not light."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "Why do things look blurry through a translucent material?",
+        "options": [
+          "It stops all of the light.",
+          "It lets all of the light pass through.",
+          "It scatters the light in many directions.",
+          "It makes its own light."
+        ],
+        "answer": "C",
+        "skill": "cause-effect",
+        "why": "Translucent materials let some light through but scatter it, so things look blurry.",
+        "wrong": {
+          "A": "That describes opaque materials.",
+          "B": "That describes transparent materials.",
+          "D": "Only light sources make light."
+        }
+      },
+      {
+        "stem": "In the article, the word reflect most nearly means —",
+        "options": [
+          "to send back",
+          "to run out",
+          "to make dark",
+          "to cool down"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "The moon reflects light by sending back the sunlight that strikes it.",
+        "wrong": {
+          "B": "Nothing runs out in the text.",
+          "C": "Reflecting does not make things dark.",
+          "D": "Temperature is not the idea."
+        }
+      },
+      {
+        "stem": "Why are windows made of glass?",
+        "options": [
+          "Glass is opaque, so it blocks the heat.",
+          "Glass is transparent, so light gets in.",
+          "Glass makes shadows shrink.",
+          "Glass is a light source."
+        ],
+        "answer": "B",
+        "skill": "cause-effect",
+        "why": "The text says clear glass allows almost all light to pass through, which is why windows are made of glass.",
+        "wrong": {
+          "A": "Glass is not opaque.",
+          "C": "Shrinking shadows depend on distance.",
+          "D": "Glass does not make light."
+        }
+      },
+      {
+        "stem": "How can a puppet performer make a giant shadow shape?",
+        "options": [
+          "By using frosted glass",
+          "By waiting until midday",
+          "By moving the puppet farther from the lamp",
+          "By moving the puppet closer to the lamp"
+        ],
+        "answer": "D",
+        "skill": "inference",
+        "why": "An object near a lamp blocks a wider part of the light, so its shadow gets larger.",
+        "wrong": {
+          "A": "Frosted glass would scatter the light.",
+          "B": "Midday is about the sun, not puppets.",
+          "C": "Moving away makes the shadow shrink."
+        }
+      }
+    ]
   }
 }

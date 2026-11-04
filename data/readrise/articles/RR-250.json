@@ -614,5 +614,217 @@
       ],
       "modelAnswer": "Mariam al-Asturlabi deserves to be called a meticulous and renowned craftswoman because of the careful, exacting way she built her astrolabes. As an apprentice in her father's workshop, she learned to engrave metal plates for different latitudes with great precision, a skill that normally took many years to master. Her reputation for this precise work eventually reached Sayf al-Dawla, the ruler of Aleppo, who invited her to build instrumentation for his royal court, a clear sign of how renowned she had become.\n\nFurthermore, her instruments served many different kinds of people: astronomers used them to study the stars, sailors and desert travelers used them for navigation, and worshippers used them to find the correct times for prayer. However, scholarly records about the rest of her personal life are scarce, since few women craftsmen were written about in detail at that time. Even so, her legacy endures today as valuable evidence that women made genuine, meticulous contributions to science and craftsmanship during the Islamic Golden Age."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "Besides direction, what else did Mariam's tools tell people?",
+        "options": [
+          "The weather",
+          "The time",
+          "The price",
+          "The age"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The article says her tools helped find direction and also told the time.",
+        "wrong": {
+          "A": "Weather is not mentioned.",
+          "C": "Price is not mentioned.",
+          "D": "Age is not mentioned."
+        }
+      },
+      {
+        "stem": "In the article, the word skilled means —",
+        "options": [
+          "good at doing it",
+          "far away from home",
+          "new to the whole job",
+          "afraid to try again"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "Mariam learned fast and made each astrolabe with care, so she was good at her craft.",
+        "wrong": {
+          "B": "Where she lived is not the meaning.",
+          "C": "She became expert, not new.",
+          "D": "She worked hard and was not afraid."
+        }
+      },
+      {
+        "stem": "Who asked Mariam to make fine tools?",
+        "options": [
+          "Her father",
+          "A sailor",
+          "The city's ruler",
+          "Her teacher"
+        ],
+        "answer": "C",
+        "skill": "detail",
+        "why": "The article says a ruler of the city asked her to make fine tools.",
+        "wrong": {
+          "A": "Her father taught her, but he did not ask this.",
+          "B": "No sailor is mentioned in this version.",
+          "D": "No teacher is mentioned."
+        }
+      },
+      {
+        "stem": "Why would an astrolabe be useful at night?",
+        "options": [
+          "It made the sky bright",
+          "It was easy to carry",
+          "It was very loud",
+          "It showed the stars"
+        ],
+        "answer": "D",
+        "skill": "inference",
+        "why": "The article says an astrolabe showed stars and people used it at night.",
+        "wrong": {
+          "A": "The astrolabe does not light the sky.",
+          "B": "Carrying is not discussed.",
+          "C": "Sound is not discussed."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "What did worshippers use astrolabes for?",
+        "options": [
+          "To cross the desert",
+          "To study the moon",
+          "To know when to pray",
+          "To make new plates"
+        ],
+        "answer": "C",
+        "skill": "detail",
+        "why": "The article says worshippers used them to find the right time to pray.",
+        "wrong": {
+          "A": "Desert travelers used them for navigation.",
+          "B": "Astronomers studied the sky with them.",
+          "D": "Makers like Mariam made plates."
+        }
+      },
+      {
+        "stem": "In the article, an apprentice is a person who —",
+        "options": [
+          "rules a city and court",
+          "sails a boat at sea",
+          "studies the stars alone",
+          "learns a craft at work"
+        ],
+        "answer": "D",
+        "skill": "vocabulary",
+        "why": "As a young apprentice, Mariam learned the craft in her father's workshop.",
+        "wrong": {
+          "A": "The ruler governed the city.",
+          "B": "Sailors used astrolabes at sea.",
+          "C": "Mariam learned in a workshop, not alone."
+        }
+      },
+      {
+        "stem": "What did the ruler of Aleppo do after her name for fine work reached him?",
+        "options": [
+          "He invited her to his court",
+          "He sent her away to Spain",
+          "He closed her workshop door",
+          "He took her father's job"
+        ],
+        "answer": "A",
+        "skill": "cause-effect",
+        "why": "Her reputation reached him, so he asked her to make tools for his court.",
+        "wrong": {
+          "B": "Spain is not mentioned.",
+          "C": "He honored her work, not closed it.",
+          "D": "Nothing about her father's job is said."
+        }
+      },
+      {
+        "stem": "What does calling Mariam \"a rare named woman\" suggest?",
+        "options": [
+          "Few women sailors were known",
+          "Many women made astrolabes",
+          "Few women then are named",
+          "She had no family"
+        ],
+        "answer": "C",
+        "skill": "inference",
+        "why": "Rare means few, so not many women of that time are remembered by name.",
+        "wrong": {
+          "A": "The phrase is about makers, not sailors.",
+          "B": "Rare means few, not many.",
+          "D": "Her family is not discussed."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "In the article, the word renowned means —",
+        "options": [
+          "famous and respected",
+          "new and unknown",
+          "hidden and secret",
+          "angry and loud"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "Her father is called a renowned maker, and Mariam later became renowned too, so they were well known.",
+        "wrong": {
+          "B": "They were known, not unknown.",
+          "C": "Their work was shared widely.",
+          "D": "Mood is not meant."
+        }
+      },
+      {
+        "stem": "What did travelers depend on astrolabes for?",
+        "options": [
+          "Studying the sun",
+          "Telling old stories",
+          "Finding their way",
+          "Shaping metal plates"
+        ],
+        "answer": "C",
+        "skill": "detail",
+        "why": "Travelers depended on them for navigation, finding direction without roads or landmarks.",
+        "wrong": {
+          "A": "Astronomers studied the sun.",
+          "B": "Stories are not mentioned.",
+          "D": "Makers shaped the plates."
+        }
+      },
+      {
+        "stem": "What was the result of Mariam's meticulous approach, according to the article?",
+        "options": [
+          "Her father stopped making astrolabes",
+          "The ruler closed the royal court",
+          "Fewer people used astrolabes",
+          "Later makers tried to match her standard"
+        ],
+        "answer": "D",
+        "skill": "cause-effect",
+        "why": "Her meticulous approach set a standard that later makers tried to match.",
+        "wrong": {
+          "A": "Her father's work is not said to stop.",
+          "B": "The court was where she was invited to work.",
+          "C": "Many people depended on her instruments."
+        }
+      },
+      {
+        "stem": "Why does the author list astronomers, sailors, travelers, and worshippers together?",
+        "options": [
+          "To compare their salaries",
+          "To show many users needed her",
+          "To explain how astrolabes break",
+          "To describe the city of Aleppo"
+        ],
+        "answer": "B",
+        "skill": "author-purpose",
+        "why": "The list shows that very different people depended on the instruments she made.",
+        "wrong": {
+          "A": "Pay is not discussed.",
+          "C": "Breaking is not discussed.",
+          "D": "The list is about users, not the city."
+        }
+      }
+    ]
   }
 }

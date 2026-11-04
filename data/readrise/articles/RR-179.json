@@ -614,5 +614,217 @@
       ],
       "modelAnswer": "I believe every school in Saudi Arabia should have a compost program. One piece of evidence is that compost adds nutrients to soil and helps sandy soil hold water, which is especially useful in a dry country where water is precious. Another piece of evidence is that composting keeps food out of landfills, where it would rot without air and release methane, a gas that traps heat around the Earth. Because composting both improves soil and reduces harmful methane, schools that start a compost program would be helping the environment in two important ways at once."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "How does finished compost smell?",
+        "options": [
+          "Like a wet field",
+          "Like old meat",
+          "Like fresh milk",
+          "Like burning paper"
+        ],
+        "answer": "A",
+        "skill": "detail",
+        "why": "The text says the heap smells like a wet field when it is ready.",
+        "wrong": {
+          "B": "Meat is something to keep out because it smells bad.",
+          "C": "Milk is something to keep out because it smells bad.",
+          "D": "The text does not mention burning paper."
+        }
+      },
+      {
+        "stem": "The text says meat and milk bring pests. What are pests?",
+        "options": [
+          "Dry leaves that fall in the heap",
+          "Tiny things that make a heap rot",
+          "Animals that bother people or plants",
+          "Pieces of paper that are very old"
+        ],
+        "answer": "C",
+        "skill": "vocabulary",
+        "why": "Meat and milk smell bad and attract animals that bother the heap and the home, which are pests.",
+        "wrong": {
+          "A": "Dry leaves are good to add.",
+          "B": "The tiny things that make a heap rot are helpful, not pests.",
+          "D": "Old paper is something you can add."
+        }
+      },
+      {
+        "stem": "Why should you not put meat or milk in a compost heap?",
+        "options": [
+          "They make the heap too cold",
+          "They smell bad and bring pests",
+          "They use up all the water",
+          "They turn the soil sandy"
+        ],
+        "answer": "B",
+        "skill": "cause-effect",
+        "why": "The text says meat and milk smell bad and bring pests.",
+        "wrong": {
+          "A": "The text says the heap gets warm in the middle.",
+          "C": "The text does not say they use up the water.",
+          "D": "The text does not say they change the soil."
+        }
+      },
+      {
+        "stem": "Why does the author start by talking about food scraps?",
+        "options": [
+          "To warn you about the dump",
+          "To tell you to feed worms only",
+          "To show that scraps can be useful",
+          "To say that compost smells bad"
+        ],
+        "answer": "C",
+        "skill": "author-purpose",
+        "why": "The author begins with an order that makes readers see that scraps can be turned into rich soil.",
+        "wrong": {
+          "A": "The dump is mentioned at the end, not as a warning.",
+          "B": "The text says worms help, but they are not the only helpers.",
+          "D": "The text says finished compost smells like a wet field."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "How do worms and insects help in a compost pile?",
+        "options": [
+          "They give off heat in the center",
+          "They chew the scraps into smaller pieces",
+          "They keep the pile wet like a sponge",
+          "They add dry leaves to the pile"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The article says worms and insects help by chewing the scraps into smaller pieces.",
+        "wrong": {
+          "A": "The bacteria give off heat.",
+          "C": "People keep the pile moist; worms are not said to do this.",
+          "D": "People add the dry leaves."
+        }
+      },
+      {
+        "stem": "What are decomposers?",
+        "options": [
+          "Gardeners who take care of the compost pile each week",
+          "Living things that break down dead plants and animals",
+          "Dry things such as straw, leaves, and cardboard",
+          "Machines that turn the compost pile every week"
+        ],
+        "answer": "B",
+        "skill": "vocabulary",
+        "why": "The article says decomposers are living things that break down dead plants and animals.",
+        "wrong": {
+          "A": "Gardeners are people, not decomposers.",
+          "C": "Straw and cardboard are called browns.",
+          "D": "The article says people turn the pile."
+        }
+      },
+      {
+        "stem": "Why should a person turn the compost pile every week or two?",
+        "options": [
+          "To keep the pile from drying out",
+          "To add fresh air for the decomposers",
+          "To make the worms work faster",
+          "To cover the smell of the greens"
+        ],
+        "answer": "B",
+        "skill": "cause-effect",
+        "why": "The article says decomposers need air, and turning the pile adds fresh air.",
+        "wrong": {
+          "A": "The pile should be moist, but turning it is for air.",
+          "C": "The article does not say that turning speeds up worms.",
+          "D": "The article does not say that turning hides smells."
+        }
+      },
+      {
+        "stem": "Compost helps sandy soil hold water. Why is this valuable in Saudi Arabia?",
+        "options": [
+          "Sandy soil makes dates grow faster",
+          "Saudi Arabia has many wet fields",
+          "Dry places need to keep their water",
+          "Compost turns sand into cardboard"
+        ],
+        "answer": "C",
+        "skill": "inference",
+        "why": "The article says this is valuable in dry places like Saudi Arabia, where water is hard to keep.",
+        "wrong": {
+          "A": "The article does not say that.",
+          "B": "The article calls Saudi Arabia a dry place.",
+          "D": "This is not mentioned in the article."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "According to the article, how should a compost pile feel?",
+        "options": [
+          "Hard and very dry",
+          "Soft and covered in ice",
+          "Damp like a squeezed sponge",
+          "Oily and a little sticky"
+        ],
+        "answer": "C",
+        "skill": "detail",
+        "why": "The article says the pile should remain damp, similar to a sponge that has been squeezed out.",
+        "wrong": {
+          "A": "Decomposers require moisture, so the pile should not be dry.",
+          "B": "The center of the pile gets hot, not icy.",
+          "D": "Oily food should be kept out."
+        }
+      },
+      {
+        "stem": "In the text, what does the word diverts mean?",
+        "options": [
+          "Keeps away and sends elsewhere",
+          "Brings in and buries deeply",
+          "Burns up and makes into gas",
+          "Counts and keeps a record of"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "Composting keeps food out of landfills and turns it into a resource, so diverts means turns it away.",
+        "wrong": {
+          "B": "Burying food in landfills is the problem the article describes.",
+          "C": "Gas is made when food decays in a landfill.",
+          "D": "The article does not talk about counting."
+        }
+      },
+      {
+        "stem": "Why should meat, dairy, and oily food be excluded from compost?",
+        "options": [
+          "They cool the pile to well below sixty degrees",
+          "They give the decomposers far too much oxygen",
+          "They make the pile far too dry and crumbly",
+          "They create unpleasant odors and attract pests"
+        ],
+        "answer": "D",
+        "skill": "cause-effect",
+        "why": "The article says these foods generate unpleasant odors and attract unwanted pests.",
+        "wrong": {
+          "A": "The article does not link them to the pile's temperature.",
+          "B": "The article does not say they add oxygen.",
+          "C": "The article does not say they dry out the pile."
+        }
+      },
+      {
+        "stem": "How does the author organize the explanation of ingredients in the second paragraph?",
+        "options": [
+          "By telling the steps in order from first to last",
+          "By describing two kinds with examples of each",
+          "By comparing compost with food in a landfill",
+          "By listing problems along with their solutions"
+        ],
+        "answer": "B",
+        "skill": "text-structure",
+        "why": "The paragraph describes greens and browns and gives examples of each.",
+        "wrong": {
+          "A": "The paragraph is not a series of steps.",
+          "C": "The landfill comparison is in the last paragraph.",
+          "D": "The paragraph is not built around problems and solutions."
+        }
+      }
+    ]
   }
 }

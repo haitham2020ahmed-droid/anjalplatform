@@ -614,5 +614,217 @@
       ],
       "modelAnswer": "Astronomers rely on indirect evidence to confirm black holes exist, since a black hole itself emits no light at all. One kind of evidence is watching stars orbit around what otherwise looks like empty space, which suggests something supermassive and invisible is pulling on them with its gravity. Another kind is observing gas that becomes extremely dense and hot as it swirls toward a black hole, glowing brightly enough for telescopes to detect.\n\nI find the direct image produced in 2019, when scientists connected telescopes around the world to photograph the dark shadow of a black hole in a distant galaxy, the most convincing evidence of all. Unlike inferring a black hole's presence from the behavior of nearby stars or gas, this image let scientists actually detect the shadow where light disappears, which feels like the closest thing to truly seeing something that is, by definition, impossible to see directly."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "What happens to gas that is near a black hole?",
+        "options": [
+          "It turns cold and dark.",
+          "It gets hot and glows.",
+          "It turns into a star.",
+          "It spins round the Sun."
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The text says gas near a black hole gets hot and glows.",
+        "wrong": {
+          "A": "The gas gets hot, not cold.",
+          "C": "The text never says gas becomes a star.",
+          "D": "The gas is near the black hole, not the Sun."
+        }
+      },
+      {
+        "stem": "Why does a huge star fall in?",
+        "options": [
+          "Its fuel runs out.",
+          "A telescope pulls it.",
+          "It gets too far away.",
+          "Light pushes it down."
+        ],
+        "answer": "A",
+        "skill": "cause-effect",
+        "why": "The text says the star burns for a long time, then its fuel runs out and it falls in.",
+        "wrong": {
+          "B": "A telescope only takes pictures; it does not pull stars.",
+          "C": "Distance is not the reason the star falls in.",
+          "D": "Light does not push the star in this text."
+        }
+      },
+      {
+        "stem": "The text says all of a black hole's stuff gets squeezed small. What does squeezed mean?",
+        "options": [
+          "made very hot",
+          "made very loud",
+          "made very new",
+          "pressed together"
+        ],
+        "answer": "D",
+        "skill": "vocabulary",
+        "why": "A black hole's stuff is pressed into a very small space, so squeezed means pressed together.",
+        "wrong": {
+          "A": "Heat is not what squeezed means.",
+          "B": "Sound is not part of the idea.",
+          "C": "The word is not about being new."
+        }
+      },
+      {
+        "stem": "Why does the author end by telling readers not to worry?",
+        "options": [
+          "To show that stars are not real",
+          "To warn that the Sun will change",
+          "To tell us black holes are no danger",
+          "To ask us to find a black hole"
+        ],
+        "answer": "C",
+        "skill": "author-purpose",
+        "why": "The author says black holes are far from us and the Sun is too small to be one, so we are safe.",
+        "wrong": {
+          "A": "The text says stars are real and can be seen.",
+          "B": "The text says the Sun is too small to become a black hole.",
+          "D": "The author does not ask readers to look for one."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "What does gravity do for people on Earth?",
+        "options": [
+          "It makes them see in the dark.",
+          "It holds them on the ground.",
+          "It makes them grow heavier each day.",
+          "It keeps them warm at night."
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The text says gravity holds you on the ground and keeps Earth in orbit around the Sun.",
+        "wrong": {
+          "A": "Gravity is a pulling force, not a light.",
+          "C": "The text does not say gravity makes people heavier each day.",
+          "D": "The text does not link gravity to warmth."
+        }
+      },
+      {
+        "stem": "Why does a star's gravity become extremely strong when it collapses?",
+        "options": [
+          "Its matter is squeezed into a very small space.",
+          "It begins to shine for millions of years.",
+          "It moves farther from other stars.",
+          "Its gas cools down and turns to light."
+        ],
+        "answer": "A",
+        "skill": "cause-effect",
+        "why": "The text says the matter is squeezed into a very small space, so gravity becomes extremely strong.",
+        "wrong": {
+          "B": "Shining for millions of years happens before the collapse.",
+          "C": "The text does not mention moving away from other stars.",
+          "D": "The gas near a black hole gets hot, and the star does not turn to light."
+        }
+      },
+      {
+        "stem": "The article says the star \"begins to collapse.\" What does collapse mean here?",
+        "options": [
+          "grow brighter",
+          "burst into flames",
+          "fall inward",
+          "move away"
+        ],
+        "answer": "C",
+        "skill": "vocabulary",
+        "why": "The star can no longer hold itself up, so its matter falls inward into a small space.",
+        "wrong": {
+          "A": "The star does not grow brighter in the text.",
+          "B": "The text does not say the star bursts into flames.",
+          "D": "Matter is squeezed together, not moved away."
+        }
+      },
+      {
+        "stem": "Why do scientists call the 2019 picture a picture of a \"dark shadow\"?",
+        "options": [
+          "Cameras can only take black pictures.",
+          "The black hole was hiding behind a star.",
+          "The picture was taken at night.",
+          "No light escapes, so only a dark shape shows."
+        ],
+        "answer": "D",
+        "skill": "inference",
+        "why": "Since no light can get out of a black hole, the picture can only show its dark shape.",
+        "wrong": {
+          "A": "The picture showed a dark shape because of the black hole, not because of the camera.",
+          "B": "The text does not say a star was hiding it.",
+          "C": "The time of day is not the reason."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "What is Sagittarius A*?",
+        "options": [
+          "A telescope that links continents",
+          "A giant black hole in our galaxy",
+          "A massive star about to explode",
+          "A cloud of hot gas near the Sun"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The text calls it a supermassive black hole at the center of our galaxy, holding about four million times as much matter as the Sun.",
+        "wrong": {
+          "A": "The telescopes are described separately in the article.",
+          "C": "It is a black hole, not a star.",
+          "D": "It is not described as a gas cloud near the Sun."
+        }
+      },
+      {
+        "stem": "What causes a massive star to begin collapsing at the end of its life?",
+        "options": [
+          "It is struck by another star.",
+          "It grows too hot and bright.",
+          "It runs out of fuel.",
+          "It crosses the event horizon."
+        ],
+        "answer": "C",
+        "skill": "cause-effect",
+        "why": "The text says that after the star exhausts its fuel, it can no longer support its own enormous weight.",
+        "wrong": {
+          "A": "The text never mentions a star being struck.",
+          "B": "The star runs out of fuel; it does not overheat.",
+          "D": "The event horizon belongs to a black hole that already exists."
+        }
+      },
+      {
+        "stem": "The article says astronomers look for \"indirect evidence\" of black holes. What does indirect evidence mean?",
+        "options": [
+          "Clues about something that cannot be seen",
+          "A picture that shows the thing clearly",
+          "A guess made without any facts",
+          "A result that scientists already knew"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "Astronomers cannot see black holes, so they use clues such as orbiting stars and glowing gas.",
+        "wrong": {
+          "B": "A clear picture would be direct evidence.",
+          "C": "The clues are real observations, not guesses.",
+          "D": "The clues are used to find new black holes."
+        }
+      },
+      {
+        "stem": "Why does the author begin with stars glittering overhead before naming black holes?",
+        "options": [
+          "To explain how telescopes are built",
+          "To show that stars cause black holes",
+          "To warn readers about danger from space",
+          "To contrast seen stars with hidden ones"
+        ],
+        "answer": "D",
+        "skill": "author-purpose",
+        "why": "The opening describes visible stars and then calls black holes \"hidden giants\" that give off no light.",
+        "wrong": {
+          "A": "The opening is not about building telescopes.",
+          "B": "Only massive stars become black holes, which the opening does not say.",
+          "C": "The article says there is no reason for alarm."
+        }
+      }
+    ]
   }
 }

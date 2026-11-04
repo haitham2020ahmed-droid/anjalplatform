@@ -614,5 +614,217 @@
       ],
       "modelAnswer": "Plate tectonics explains both the Red Sea's widening and its high salinity. The African and Arabian plates are slowly diverging along a fault within a rift valley, and geologists point to young volcanic rock at the center of the rift as evidence that this tectonic spreading is still active, steadily widening and deepening the basin. At the same time, this same desert setting produces intense evaporation while very little fresh water flows in, so the sea's salinity ranks among the highest on Earth, and geologists predict the rift's widening could eventually transform the Red Sea into an entirely new ocean."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "Which two lands are on the sides of the Red Sea?",
+        "options": [
+          "Europe and India",
+          "Africa and Arabia",
+          "Asia and Australia",
+          "Greece and Spain"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The text says Africa is on one side and Arabia is on the other.",
+        "wrong": {
+          "A": "Europe and India are not named in the text.",
+          "C": "Asia and Australia are not named in the text.",
+          "D": "Greece and Spain are not named in the text."
+        }
+      },
+      {
+        "stem": "The text says the land sits on big rock slabs. What is a slab?",
+        "options": [
+          "a big flat piece",
+          "a very tall tree",
+          "a small sea fish",
+          "a deep, wide river"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "The plates are big, flat pieces of rock, so a slab is a big flat piece.",
+        "wrong": {
+          "B": "A slab is rock, not a tree.",
+          "C": "A slab is not an animal.",
+          "D": "A slab is solid rock, not water."
+        }
+      },
+      {
+        "stem": "What likes the warm, salty water of the Red Sea?",
+        "options": [
+          "Polar bears and seals",
+          "Camels and goats",
+          "Fish and coral",
+          "Rivers and lakes"
+        ],
+        "answer": "C",
+        "skill": "detail",
+        "why": "The text says fish like the warm, salty water and coral likes it too.",
+        "wrong": {
+          "A": "Polar bears and seals are not mentioned.",
+          "B": "Camels and goats live on land.",
+          "D": "Rivers and lakes are water, not living things that like the sea."
+        }
+      },
+      {
+        "stem": "Why would scientists study rocks on the sea floor?",
+        "options": [
+          "To count the fish",
+          "To make the water less salty",
+          "To find new rivers",
+          "To learn about the crack"
+        ],
+        "answer": "D",
+        "skill": "inference",
+        "why": "The text says scientists look at rocks on the sea floor and study the crack.",
+        "wrong": {
+          "A": "The text says they look at rocks, not fish.",
+          "B": "The text does not say scientists change the salt.",
+          "C": "The text says few rivers flow in and does not say they look for new ones."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "Which side of the sea does Saudi Arabia's long coast lie on?",
+        "options": [
+          "The northern side",
+          "The western side",
+          "The eastern side",
+          "The southern side"
+        ],
+        "answer": "C",
+        "skill": "detail",
+        "why": "The text says Saudi Arabia has a long coast along the eastern side of the Red Sea.",
+        "wrong": {
+          "A": "The text says eastern, not northern.",
+          "B": "Africa lies on the western side.",
+          "D": "The text says eastern, not southern."
+        }
+      },
+      {
+        "stem": "As used in the article, \"predict\" most nearly means",
+        "options": [
+          "to remember the past",
+          "to say what may happen",
+          "to count every wave",
+          "to build a new bridge"
+        ],
+        "answer": "B",
+        "skill": "vocabulary",
+        "why": "Geologists say what may happen in the future when the rift grows wide.",
+        "wrong": {
+          "A": "Predicting is about the future, not the past.",
+          "C": "The text does not talk about counting waves.",
+          "D": "The text does not talk about building bridges."
+        }
+      },
+      {
+        "stem": "Why is the Red Sea a fine home for coral and fish?",
+        "options": [
+          "The water is cold and fresh",
+          "The water is dark and deep",
+          "The water changes each winter",
+          "The water is warm and clear"
+        ],
+        "answer": "D",
+        "skill": "cause-effect",
+        "why": "The text says the warm, clear, salty water is a fine home for coral and fish.",
+        "wrong": {
+          "A": "The text says the water is warm and salty.",
+          "B": "The text says the water is clear.",
+          "C": "The text says the sea stays warm all year, even in winter."
+        }
+      },
+      {
+        "stem": "What does young rock rising along the center of the rift suggest?",
+        "options": [
+          "The plates are still moving apart",
+          "The sea is getting smaller",
+          "The rift stopped growing long ago",
+          "The water is no longer salty"
+        ],
+        "answer": "A",
+        "skill": "inference",
+        "why": "The text says the young rock is a sign that the plates are still pulling apart today.",
+        "wrong": {
+          "B": "The text says the rift is widening, not getting smaller.",
+          "C": "The rock is evidence that the rift is still growing.",
+          "D": "The rock says nothing about the salt in the sea."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "About how far does the rift widen each year?",
+        "options": [
+          "Several kilometers",
+          "A few centimeters",
+          "Many meters",
+          "Not at all"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The text says the motion amounts to only a few centimeters each year.",
+        "wrong": {
+          "A": "Kilometers are far more than the text says.",
+          "C": "Meters are far more than the text says.",
+          "D": "The text says the plates are still spreading apart."
+        }
+      },
+      {
+        "stem": "As used in the article, \"vibrant\" most nearly means",
+        "options": [
+          "dying",
+          "very small",
+          "dark and empty",
+          "full of life"
+        ],
+        "answer": "D",
+        "skill": "vocabulary",
+        "why": "The coral reefs support a wide range of marine life, so vibrant means full of life.",
+        "wrong": {
+          "A": "The reefs are described as healthy, not dying.",
+          "B": "The text does not describe the reefs as small.",
+          "C": "The reefs hold a wide range of marine life, so they are not empty."
+        }
+      },
+      {
+        "stem": "Why does the author mention the larger system of rifts in East Africa?",
+        "options": [
+          "To prove the Red Sea is very deep indeed",
+          "To compare the rift with a desert region",
+          "To link the rift to a larger active system",
+          "To explain why the sea is so very salty"
+        ],
+        "answer": "C",
+        "skill": "author-purpose",
+        "why": "The text says the Red Sea rift is part of a larger system in a region among the most active on the planet.",
+        "wrong": {
+          "A": "The text does not talk about the depth of the sea.",
+          "B": "The East African rifts are not compared with a desert.",
+          "D": "Salt is explained by evaporation and few rivers."
+        }
+      },
+      {
+        "stem": "Why might people not notice the Red Sea widening?",
+        "options": [
+          "It moves only a few centimeters yearly",
+          "It stops widening whenever it is hot",
+          "The widening happens only at night",
+          "Ships always cover the changing shoreline"
+        ],
+        "answer": "A",
+        "skill": "inference",
+        "why": "The text says the widening amounts to only a few centimeters each year, which is too small to see.",
+        "wrong": {
+          "B": "The text does not link widening to heat.",
+          "C": "The text says the plates move slowly all the time.",
+          "D": "The text does not mention ships."
+        }
+      }
+    ]
   }
 }

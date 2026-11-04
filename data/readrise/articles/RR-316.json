@@ -614,5 +614,217 @@
       ],
       "modelAnswer": "Cultural wisdom means the useful knowledge and values that a group of people pass down through their stories. In folk tales, this wisdom appears in the clear moral at the end of each tale, which taught listeners to be kind, honest, or hardworking. Storytellers also used patterns like repeated phrases and steady rhythm so that this wisdom could survive accurately in memory, and today many people work to preserve this folklore in books so later generations can still learn from it."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "How did kids act while a grandparent told a tale?",
+        "options": [
+          "They sang a song",
+          "They were still",
+          "They ran outside",
+          "They told their own tale"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The text says that when a grandparent told a tale, the kids were still.",
+        "wrong": {
+          "A": "The text does not say the kids sang.",
+          "C": "The kids sat close, they did not run outside.",
+          "D": "The grandparent told the tale, not the kids."
+        }
+      },
+      {
+        "stem": "What happened because folks told the tales again and again?",
+        "options": [
+          "The tales got much longer",
+          "The tales were lost",
+          "Small bits changed",
+          "The tales stopped being fun"
+        ],
+        "answer": "C",
+        "skill": "cause-effect",
+        "why": "The text says folks told the tales again, and small bits changed.",
+        "wrong": {
+          "A": "The text does not say the tales got longer.",
+          "B": "The tales were kept, not lost.",
+          "D": "The text says kin liked their tales."
+        }
+      },
+      {
+        "stem": "The text says each kin liked its tales. What does kin mean?",
+        "options": [
+          "Family",
+          "Pet",
+          "Book",
+          "Night"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "Kin sat close at night and a grandparent told a tale, so kin means family.",
+        "wrong": {
+          "B": "A pet is a talking animal in some tales, not kin.",
+          "C": "Kin liked the tales, so kin is not a book.",
+          "D": "Night is the time of day, not who liked the tales."
+        }
+      },
+      {
+        "stem": "How do we know people still like to tell tales today?",
+        "options": [
+          "Tales are never in books",
+          "Kin still use voice",
+          "Kids are not still",
+          "Pets tell the tales"
+        ],
+        "answer": "B",
+        "skill": "inference",
+        "why": "The last lines say some tales are in books, but kin still use voice to tell them.",
+        "wrong": {
+          "A": "The text says some tales are in books.",
+          "C": "Kids being still was long ago and does not show tales today.",
+          "D": "Pets only talk in made-up bits."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "When did families sit close to hear tales?",
+        "options": [
+          "Before they ate in the morning",
+          "During a long trip",
+          "After a day of work, in the dark",
+          "When it was time for school"
+        ],
+        "answer": "C",
+        "skill": "detail",
+        "why": "The text says families sat close after a day of work, in the dark.",
+        "wrong": {
+          "A": "The text does not mention morning.",
+          "B": "No trip is mentioned.",
+          "D": "School is not mentioned in the text."
+        }
+      },
+      {
+        "stem": "The text says they shared tales through an oral way. What does oral mean?",
+        "options": [
+          "Spoken",
+          "Written",
+          "Drawn",
+          "Silent"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "The text says tales were shared by voice instead of being set down in writing.",
+        "wrong": {
+          "B": "The text says tales were rarely set down in writing.",
+          "C": "Nothing is said about drawing.",
+          "D": "Tales were told with the voice, so they were not silent."
+        }
+      },
+      {
+        "stem": "Why are some tales set down in books today?",
+        "options": [
+          "Families stopped liking tales",
+          "Kids cannot hear well",
+          "Books are needed to be clever",
+          "So the tales are not lost"
+        ],
+        "answer": "D",
+        "skill": "cause-effect",
+        "why": "The text says tales are set down in books so they are not lost.",
+        "wrong": {
+          "A": "The text says families still like telling tales.",
+          "B": "Nothing is said about kids not hearing well.",
+          "C": "Being clever is about the tale's hero, not about books."
+        }
+      },
+      {
+        "stem": "How did the clever one in many folk tales fix problems?",
+        "options": [
+          "By being rich",
+          "By quick thought",
+          "By being big",
+          "By asking a king"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The text says the clever one fixed problems by quick thought, not by being big or rich.",
+        "wrong": {
+          "A": "The text says it was not by being rich.",
+          "C": "The text says it was not by being big.",
+          "D": "No king is mentioned."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "What does the phrase \"oral tradition\" most nearly mean in the first paragraph?",
+        "options": [
+          "A custom of passing stories on by speaking",
+          "A habit of reading aloud at school",
+          "A way of drawing stories on walls",
+          "A rule that stories must be written down"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "The paragraph says stories lived in memory and passed from voice to voice across generations.",
+        "wrong": {
+          "B": "The paragraph says stories were not read from books.",
+          "C": "Nothing is said about drawing.",
+          "D": "The paragraph says stories were carried in memory instead."
+        }
+      },
+      {
+        "stem": "According to the article, how did the clever character in many folk tales solve problems?",
+        "options": [
+          "By being strong or rich",
+          "By asking the grandparent for help",
+          "By using magic objects",
+          "By thinking fast"
+        ],
+        "answer": "D",
+        "skill": "detail",
+        "why": "The article says the clever character solved problems by thinking fast, not by being strong, rich, or powerful.",
+        "wrong": {
+          "A": "The article says it was not by being strong or rich.",
+          "B": "The grandparent is the storyteller, not a helper in the tale.",
+          "C": "Magic objects are mentioned only as make-believe extras."
+        }
+      },
+      {
+        "stem": "Why did different regions often favor different folk tales?",
+        "options": [
+          "The tales were all written down",
+          "Each had its own cultural background",
+          "Children there did not like the morals",
+          "Storytellers there forgot the endings of tales"
+        ],
+        "answer": "B",
+        "skill": "cause-effect",
+        "why": "The article says each region's tales were shaped by its own cultural background.",
+        "wrong": {
+          "A": "The article says tales lived in memory before books.",
+          "C": "The article says tales usually had a moral.",
+          "D": "Nothing is said about forgetting the endings."
+        }
+      },
+      {
+        "stem": "What does the author suggest by saying cultural wisdom, carried only by memory and voice, can outlast centuries of change?",
+        "options": [
+          "Only written books can last for ages",
+          "Folk tales will soon disappear",
+          "Spoken tales can last a long time",
+          "Families no longer enjoy stories"
+        ],
+        "answer": "C",
+        "skill": "inference",
+        "why": "The author says wisdom carried only by memory and voice has lasted through centuries, so spoken tales can survive.",
+        "wrong": {
+          "A": "The author says voice and memory can last, not only books.",
+          "B": "The author says the tales have lasted.",
+          "D": "The article says many families still enjoy telling stories."
+        }
+      }
+    ]
   }
 }

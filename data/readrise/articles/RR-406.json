@@ -614,5 +614,217 @@
       ],
       "modelAnswer": "I agree that machines can misbehave but never truly choose to disobey the way a person can. In the story, the robots freeze, repeat words, and refuse to pack toys, which looks exactly like a strike. However, the story makes clear that a single syntax error, a missing space that merged two commands into one unreadable word, is the actual cause, not any feeling of anger or rebellion. Someone might argue that the robots' refusal looks just like a person's refusal to work, but a person could choose to keep working despite frustration, while the robots had no such choice at all; they simply could not interpret a command that no longer made sense, and once Ms. Huda corrected that one tiny error, every robot cooperated again exactly as before."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "What job do the robots do at the factory?",
+        "options": [
+          "They paint toys and ship them",
+          "They sort toys and pack boxes",
+          "They build toys from wood",
+          "They fix broken toys"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The text says the robots sort toys and pack boxes.",
+        "wrong": {
+          "A": "The robots do not paint or ship toys in the story.",
+          "C": "The story never says the robots build toys.",
+          "D": "The story never says the robots fix toys."
+        }
+      },
+      {
+        "stem": "In the story, what is an update?",
+        "options": [
+          "A new toy for the box",
+          "A worker at the factory",
+          "A screen on the wall",
+          "New code for the robots"
+        ],
+        "answer": "D",
+        "skill": "vocabulary",
+        "why": "The text says, \"An update is new code.\"",
+        "wrong": {
+          "A": "An update is code, not a toy.",
+          "B": "An update is not a person.",
+          "C": "The screen shows the code, but it is not the update."
+        }
+      },
+      {
+        "stem": "Why does Dalia look very close at the screen?",
+        "options": [
+          "She wants to find the problem",
+          "She wants to play a game",
+          "She is tired of the robots",
+          "She wants to call her mom"
+        ],
+        "answer": "A",
+        "skill": "inference",
+        "why": "The robots are broken, so Dalia looks closely to find what is wrong with the code.",
+        "wrong": {
+          "B": "Nothing in the story says she plays a game.",
+          "C": "She is trying to help, not leave the robots.",
+          "D": "The story never mentions Dalia's mom."
+        }
+      },
+      {
+        "stem": "What happens right after Ms. Huda adds the space?",
+        "options": [
+          "The workers go home",
+          "The robots keep standing still",
+          "The robots sort and pack again",
+          "The screen turns off"
+        ],
+        "answer": "C",
+        "skill": "sequence",
+        "why": "After she adds the space, the robots work again and sort and pack like before.",
+        "wrong": {
+          "A": "The workers do not go home in the story.",
+          "B": "The robots stop standing still after the fix.",
+          "D": "The story never says the screen turns off."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "Who is Ms. Huda in the story?",
+        "options": [
+          "Dalia's teacher at school",
+          "A worker who packs boxes",
+          "The factory's lead engineer",
+          "Dalia's aunt from home"
+        ],
+        "answer": "C",
+        "skill": "detail",
+        "why": "The text calls Ms. Huda the factory's lead engineer.",
+        "wrong": {
+          "A": "She works at the factory, not at Dalia's school.",
+          "B": "She studies the code; she is not a box packer.",
+          "D": "The story says Dalia's uncle is the engineer, not an aunt."
+        }
+      },
+      {
+        "stem": "In the story, the word jumbled means —",
+        "options": [
+          "mixed up and hard to read",
+          "quick and easy to follow",
+          "loud and very exciting",
+          "new and freshly made"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "Two commands joined into one confusing word, so the command was mixed up and the robots could not read it.",
+        "wrong": {
+          "B": "A jumbled command is hard to follow, not easy.",
+          "C": "The word is about confusion, not loud sound.",
+          "D": "Jumbled does not mean new."
+        }
+      },
+      {
+        "stem": "Why do the robots freeze in place?",
+        "options": [
+          "Their wheels run out of power",
+          "The workers turn them all off",
+          "They get angry at the workers",
+          "They can not read the command"
+        ],
+        "answer": "D",
+        "skill": "cause-effect",
+        "why": "The text says the robots can not understand a jumbled command like that, so they freeze.",
+        "wrong": {
+          "A": "Power is never mentioned as the problem.",
+          "B": "The workers do not turn them off.",
+          "C": "The story says robots can not really get angry."
+        }
+      },
+      {
+        "stem": "Why does Dalia spot the bug when others have not?",
+        "options": [
+          "She watches the screen very closely",
+          "She has fixed robots many times",
+          "She wrote the update last night",
+          "She is taller than the workers"
+        ],
+        "answer": "A",
+        "skill": "inference",
+        "why": "Dalia leans in and studies the screen with real curiosity, so her careful looking helps her see the missing space.",
+        "wrong": {
+          "B": "The story never says she has fixed robots before.",
+          "C": "The workers installed the update, not Dalia.",
+          "D": "Her height has nothing to do with the story."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "According to the story, why did the technicians install the new update?",
+        "options": [
+          "To make the robots work faster",
+          "To teach the robots a new word",
+          "To replace the old robots",
+          "To fix small old problems"
+        ],
+        "answer": "D",
+        "skill": "detail",
+        "why": "The text says the update was meant to correct minor malfunctions left from the preceding version.",
+        "wrong": {
+          "A": "Speed is not given as the reason.",
+          "B": "Teaching a new word is not the goal of the update.",
+          "C": "The update replaces instructions, not the robots."
+        }
+      },
+      {
+        "stem": "In the story, the word irregular most nearly means —",
+        "options": [
+          "out of the ordinary",
+          "very easy to fix",
+          "carefully planned",
+          "common and expected"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "Ms. Huda searches for anything irregular, meaning something unusual that could explain the malfunction.",
+        "wrong": {
+          "B": "Irregular does not describe how easy a fix is.",
+          "C": "A planned thing is the opposite of what she hunts for.",
+          "D": "Common things would not be a sign of trouble."
+        }
+      },
+      {
+        "stem": "What does the technician's nervous laughter suggest?",
+        "options": [
+          "He thinks the robots are broken forever",
+          "He is uneasy about the strange scene",
+          "He planned the problem as a prank",
+          "He is proud of the new update"
+        ],
+        "answer": "B",
+        "skill": "inference",
+        "why": "He laughs nervously at the bizarre scene, which shows he is uneasy and is using a joke to cope.",
+        "wrong": {
+          "A": "Nothing says he believes the damage is forever.",
+          "C": "The story gives no sign of a prank.",
+          "D": "A proud person would not laugh nervously at a failure."
+        }
+      },
+      {
+        "stem": "How does the author mainly organize the story?",
+        "options": [
+          "Two robots are compared side by side",
+          "A problem appears and then is solved",
+          "The events are told from last to first",
+          "A list of rules explains how robots work"
+        ],
+        "answer": "B",
+        "skill": "text-structure",
+        "why": "The story begins with the robots freezing, then Dalia and Ms. Huda find the cause and fix it.",
+        "wrong": {
+          "A": "The story does not compare two robots.",
+          "C": "The events are told in the order they happen.",
+          "D": "The story is a tale, not a list of rules."
+        }
+      }
+    ]
   }
 }

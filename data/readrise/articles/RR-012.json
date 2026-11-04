@@ -614,5 +614,217 @@
       ],
       "modelAnswer": "I disagree that staying up late to study is better than sleeping, because the evidence shows sleep is when learning actually gets locked in. During sleep, the brain works to consolidate memory, replaying the day's information so it can be stored and recalled later, which means skipping sleep to cram may prevent new knowledge from truly sticking. Sleep deprivation also disrupts the body's circadian rhythm, since the hormone melatonin that should make a person feel sleepy in the evening gets delayed by late-night screens and activity, leaving a tired student less able to concentrate the next day. Because growth hormone and memory consolidation both depend on getting enough rest, I believe a good night's sleep helps a student learn far more effectively than extra hours of exhausted studying."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "When do kids grow the most?",
+        "options": [
+          "When they run and play",
+          "When they eat a big meal",
+          "In deep sleep",
+          "When they read a book"
+        ],
+        "answer": "C",
+        "skill": "detail",
+        "why": "The text says kids grow most in deep sleep.",
+        "wrong": {
+          "A": "Running and playing help you sleep, but growth happens in deep sleep.",
+          "B": "Meals are not mentioned as the time for growth.",
+          "D": "Reading is part of a calm routine, not when kids grow."
+        }
+      },
+      {
+        "stem": "Why is it easy to learn the next day after good sleep?",
+        "options": [
+          "The brain has sorted facts and memory is strong.",
+          "The room has been kept bright all through the night.",
+          "The body has eaten a lot of food before bed.",
+          "The phone has told the brain it is day time."
+        ],
+        "answer": "A",
+        "skill": "cause-effect",
+        "why": "At night the brain sorts what you learned, which makes memory strong and learning easy the next day.",
+        "wrong": {
+          "B": "The text says to keep the room dark.",
+          "C": "Food is not mentioned.",
+          "D": "The phone's light makes it hard to sleep."
+        }
+      },
+      {
+        "stem": "In this article, what does the word routine mean?",
+        "options": [
+          "A loud alarm clock",
+          "A big meal at night",
+          "A long nap after school",
+          "Steps you do each night"
+        ],
+        "answer": "D",
+        "skill": "vocabulary",
+        "why": "A calm routine, like reading a book before bed, is a set of steps you do each night.",
+        "wrong": {
+          "A": "An alarm is not a routine.",
+          "B": "A meal is not what a bedtime routine means.",
+          "C": "A nap is not the steps you take before bed."
+        }
+      },
+      {
+        "stem": "The text says that when you sleep, your body is hard at work. What does this mean?",
+        "options": [
+          "You move around the whole room.",
+          "Your body is doing helpful jobs.",
+          "You do all of your homework.",
+          "Your eyes stay open all night."
+        ],
+        "answer": "B",
+        "skill": "inference",
+        "why": "The text says the brain sorts facts and the body repairs itself, so your body is busy even when you rest.",
+        "wrong": {
+          "A": "You are lying still in bed.",
+          "C": "No homework is mentioned.",
+          "D": "You shut your eyes when you sleep."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "What happens to your heart rate and breathing in deep sleep?",
+        "options": [
+          "They speed up.",
+          "They slow down.",
+          "They stay the same.",
+          "They stop for a while."
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The article says in deep sleep your heart rate and breathing slow down.",
+        "wrong": {
+          "A": "They slow down, not speed up.",
+          "C": "They change in deep sleep.",
+          "D": "They do not stop."
+        }
+      },
+      {
+        "stem": "The article says sleep strengthens the body's defenses against germs. What are defenses?",
+        "options": [
+          "Ways the body protects itself",
+          "Times when you sleep deeply",
+          "Messages sent by the brain",
+          "Lessons that students remember"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "Defenses work against germs, so they are the ways the body protects itself.",
+        "wrong": {
+          "B": "Deep sleep is a stage, not a defense.",
+          "C": "Messages from the brain are not called defenses.",
+          "D": "Lessons are about learning, not fighting germs."
+        }
+      },
+      {
+        "stem": "Why do students who sleep well often do better in lessons?",
+        "options": [
+          "They have bigger brains.",
+          "They finish their meals faster.",
+          "They can concentrate and remember.",
+          "They stay up later than others."
+        ],
+        "answer": "C",
+        "skill": "cause-effect",
+        "why": "The article says students who sleep well find it easier to concentrate and remember their lessons.",
+        "wrong": {
+          "A": "Brain size is not mentioned.",
+          "B": "Meals are not mentioned.",
+          "D": "Staying up late is the opposite of good sleep."
+        }
+      },
+      {
+        "stem": "Which list shows the stages of one sleep cycle in the right order?",
+        "options": [
+          "Deep sleep, light sleep, REM sleep",
+          "REM sleep, deep sleep, light sleep",
+          "Light sleep, REM sleep, deep sleep",
+          "Light sleep, deep sleep, REM sleep"
+        ],
+        "answer": "D",
+        "skill": "sequence",
+        "why": "The article says you start in light sleep, then drift into deep sleep, and after that comes REM sleep.",
+        "wrong": {
+          "A": "You start in light sleep, not deep sleep.",
+          "B": "REM sleep comes last in the cycle.",
+          "C": "Deep sleep comes before REM sleep."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "The article says sleep is not a single, uniform condition. What does uniform mean?",
+        "options": [
+          "The same all the time",
+          "Very loud and fast",
+          "Hard to wake from",
+          "Full of bright light"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "The article says sleep is a sequence of distinct stages, so it is not the same all the time.",
+        "wrong": {
+          "B": "Sound and speed are not the point.",
+          "C": "Light sleep is easy to wake from.",
+          "D": "Sleep happens in the dark."
+        }
+      },
+      {
+        "stem": "What happens to your body temperature in deep sleep?",
+        "options": [
+          "It rises quickly.",
+          "It stays very high.",
+          "It gradually declines.",
+          "It changes every minute."
+        ],
+        "answer": "C",
+        "skill": "detail",
+        "why": "The article says in deep sleep heart rate, breathing and body temperature gradually decline.",
+        "wrong": {
+          "A": "The temperature goes down, not up.",
+          "B": "It does not stay high.",
+          "D": "The article does not say that."
+        }
+      },
+      {
+        "stem": "Why does the author say an entirely different kind of activity begins when you sleep?",
+        "options": [
+          "To say that sleep is a waste of time",
+          "To show that sleep is an active process",
+          "To tell readers to stay up late",
+          "To prove that dreams are not real"
+        ],
+        "answer": "B",
+        "skill": "inference",
+        "why": "The article goes on to describe the jobs your brain and body do during sleep, so sleep is active, not empty rest.",
+        "wrong": {
+          "A": "The article shows sleep is valuable.",
+          "C": "The author advises good sleep habits.",
+          "D": "Dreams are not argued about."
+        }
+      },
+      {
+        "stem": "What does melatonin cause when darkness falls?",
+        "options": [
+          "Sharp attention",
+          "Quick growth",
+          "Strong muscles",
+          "Sleepiness"
+        ],
+        "answer": "D",
+        "skill": "cause-effect",
+        "why": "The article says the brain releases melatonin, a hormone that produces drowsiness.",
+        "wrong": {
+          "A": "Melatonin makes you drowsy, not alert.",
+          "B": "Growth hormone helps growth, not melatonin.",
+          "C": "Muscle growth is linked to growth hormone."
+        }
+      }
+    ]
   }
 }

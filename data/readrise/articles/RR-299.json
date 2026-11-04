@@ -615,5 +615,217 @@
       ],
       "modelAnswer": "Acquisition brings new artifacts into a museum through purchase, donation, or excavation, and researchers then study each artifact's provenance to understand where it came from and who owned it. Conservation protects these artifacts from damage so they survive for future generations, while a curator interprets them for visitors, explaining their meaning so that people can connect with their shared heritage."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "What do museum workers write down?",
+        "options": [
+          "What they see",
+          "A long poem",
+          "The price of things",
+          "The names of visitors"
+        ],
+        "answer": "A",
+        "skill": "detail",
+        "why": "The text says workers write down what they see.",
+        "wrong": {
+          "B": "A poem is not mentioned.",
+          "C": "Prices are not mentioned.",
+          "D": "The text does not say workers write visitors' names."
+        }
+      },
+      {
+        "stem": "What kinds of things did people make by hand long ago?",
+        "options": [
+          "Cars, phones, and toys",
+          "Boats, planes, and trains",
+          "Tools, pots, and art",
+          "Robots, lights, and clocks"
+        ],
+        "answer": "C",
+        "skill": "detail",
+        "why": "The text says long ago people made tools, pots, and art by hand.",
+        "wrong": {
+          "A": "Cars and phones are not mentioned.",
+          "B": "Planes and trains are not mentioned.",
+          "D": "Robots are not mentioned."
+        }
+      },
+      {
+        "stem": "What do workers do after they go out and look far and near?",
+        "options": [
+          "Sell the objects",
+          "Bring the objects back",
+          "Paint the objects",
+          "Throw the objects away"
+        ],
+        "answer": "B",
+        "skill": "sequence",
+        "why": "The text says workers look far and near and then bring the objects back.",
+        "wrong": {
+          "A": "The museum keeps the objects, so it does not sell them.",
+          "C": "The text does not say workers paint objects.",
+          "D": "A museum keeps old things safe, not throws them away."
+        }
+      },
+      {
+        "stem": "In the article, what does the word display mean?",
+        "options": [
+          "To hide it in a box",
+          "To break it into parts",
+          "To wash it in water",
+          "To show it to people"
+        ],
+        "answer": "D",
+        "skill": "vocabulary",
+        "why": "When a thing goes on display, people come to look at it.",
+        "wrong": {
+          "A": "Hiding is the opposite of display.",
+          "B": "The workers do not want objects to break.",
+          "C": "Washing is not the meaning of display."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "What does the word research mean in the article?",
+        "options": [
+          "Cleaning an object with water",
+          "Careful study to find facts",
+          "Moving objects between rooms",
+          "Selling old objects for money"
+        ],
+        "answer": "B",
+        "skill": "vocabulary",
+        "why": "The article says research means careful study to find out facts.",
+        "wrong": {
+          "A": "Cleaning is not how the article defines research.",
+          "C": "Moving objects is not research.",
+          "D": "Museums keep artifacts and do not sell them."
+        }
+      },
+      {
+        "stem": "What does a curator write to explain each artifact to visitors?",
+        "options": [
+          "Songs",
+          "Tickets",
+          "Letters",
+          "Labels"
+        ],
+        "answer": "D",
+        "skill": "detail",
+        "why": "The article says the curator writes labels that explain each artifact.",
+        "wrong": {
+          "A": "Songs are not mentioned.",
+          "B": "Tickets are not mentioned.",
+          "C": "Letters are not mentioned."
+        }
+      },
+      {
+        "stem": "Why do museums matter, according to the article?",
+        "options": [
+          "They let us learn from real objects",
+          "They sell old things to visitors",
+          "They build new roads for cities",
+          "They stop people from reading"
+        ],
+        "answer": "A",
+        "skill": "cause-effect",
+        "why": "The article says museums matter because they let us learn from real objects, not only by reading.",
+        "wrong": {
+          "B": "Museums keep artifacts; they do not sell them.",
+          "C": "Building roads is not a job of a museum.",
+          "D": "The article says reading about the past is useful too; museums add real objects."
+        }
+      },
+      {
+        "stem": "Why does the author end by saying each artifact has its own story?",
+        "options": [
+          "To say museums are closing",
+          "To explain how coins are made",
+          "To get readers to look closely",
+          "To tell visitors to touch things"
+        ],
+        "answer": "C",
+        "skill": "author-purpose",
+        "why": "The ending asks readers to look closely at exhibits next time because every artifact was preserved and researched.",
+        "wrong": {
+          "A": "The article does not say museums are closing.",
+          "B": "Coin making is not explained.",
+          "D": "Workers handle artifacts with great care, so touching is not encouraged."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "What is an exhibit, according to the article?",
+        "options": [
+          "A written history of an object",
+          "A tool for digging at old sites",
+          "Artifacts grouped around one idea",
+          "A museum's room for repairs"
+        ],
+        "answer": "C",
+        "skill": "detail",
+        "why": "The article says an exhibit is a well-organized group of artifacts arranged around one idea.",
+        "wrong": {
+          "A": "A written history of an object is its provenance.",
+          "B": "Digging at old sites is one way museums acquire artifacts.",
+          "D": "The article does not describe a room for repairs."
+        }
+      },
+      {
+        "stem": "What does the word heritage mean in the article?",
+        "options": [
+          "Culture passed down to us",
+          "Money kept in a museum",
+          "The cost of an old object",
+          "A museum's yearly plan"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "The article defines heritage as the shared culture, ways, and history passed down from people before us.",
+        "wrong": {
+          "B": "The article does not link heritage to money.",
+          "C": "Heritage is not about the price of an object.",
+          "D": "A plan is not what the article means."
+        }
+      },
+      {
+        "stem": "Why do museums matter, according to the article?",
+        "options": [
+          "They sell artifacts to collectors",
+          "They make new copies of art",
+          "They replace books at schools",
+          "They link people to heritage"
+        ],
+        "answer": "D",
+        "skill": "cause-effect",
+        "why": "The article says museums matter because they let people connect with their heritage through real objects.",
+        "wrong": {
+          "A": "Museums may buy objects, but selling is not their purpose.",
+          "B": "Making copies is not mentioned.",
+          "C": "The article does not say museums replace books."
+        }
+      },
+      {
+        "stem": "The National Museum in Riyadh is part of which larger center?",
+        "options": [
+          "The Arabian Archaeology Center",
+          "King Abdulaziz Historical Center",
+          "The Riyadh Public Library Center",
+          "The Saudi Heritage Art Academy"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The article says the National Museum is part of the larger King Abdulaziz Historical Center.",
+        "wrong": {
+          "A": "The article does not name an archaeology center.",
+          "C": "The article does not name a library center.",
+          "D": "The article does not name an art academy."
+        }
+      }
+    ]
   }
 }

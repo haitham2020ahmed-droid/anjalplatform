@@ -611,5 +611,217 @@
         "I addressed at least one point someone might make against my view."
       ]
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "What did Ammar sell at the market?",
+        "options": [
+          "Shoes and hats",
+          "Fish and bread",
+          "Gold and silver",
+          "Cloth and dates"
+        ],
+        "answer": "D",
+        "skill": "detail",
+        "why": "The text says Ammar sold cloth and dates.",
+        "wrong": {
+          "A": "Shoes and hats are not mentioned.",
+          "B": "Fish and bread are not mentioned.",
+          "C": "Gold and silver are not mentioned."
+        }
+      },
+      {
+        "stem": "In the story, the word honest means —",
+        "options": [
+          "rich and proud",
+          "truthful and fair",
+          "quiet and shy",
+          "fast and busy"
+        ],
+        "answer": "B",
+        "skill": "vocabulary",
+        "why": "Ammar tells Salim to be fair and honest so people will trust him, so honest means truthful.",
+        "wrong": {
+          "A": "Honest does not mean rich.",
+          "C": "Honest does not mean shy.",
+          "D": "Honest does not mean busy."
+        }
+      },
+      {
+        "stem": "How did Ammar know what Salim was thinking?",
+        "options": [
+          "He saw it on Salim's face",
+          "The traveler told him",
+          "Salim said it out loud",
+          "He read it in a book"
+        ],
+        "answer": "A",
+        "skill": "inference",
+        "why": "The text says Ammar saw Salim's face and knew what he was thinking.",
+        "wrong": {
+          "B": "The traveler knew nothing about the idea.",
+          "C": "Salim thought it to himself.",
+          "D": "No book is in the story."
+        }
+      },
+      {
+        "stem": "Why did the man say thanks to Ammar?",
+        "options": [
+          "Ammar gave him free dates",
+          "Ammar sent him home",
+          "Ammar gave a fair price",
+          "Ammar showed him the town"
+        ],
+        "answer": "C",
+        "skill": "cause-effect",
+        "why": "Ammar told the man the fair price, the same as for everyone, so the man said thanks.",
+        "wrong": {
+          "A": "Free dates are not mentioned.",
+          "B": "The man was not sent home.",
+          "D": "A tour of the town is not mentioned."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "What was Ammar known for selling?",
+        "options": [
+          "Cloth and sweet dates",
+          "Sharp tools and ropes",
+          "Old maps and books",
+          "Spices and sweet tea"
+        ],
+        "answer": "A",
+        "skill": "detail",
+        "why": "The text says Ammar was known for the fine cloth and sweet dates he sold.",
+        "wrong": {
+          "B": "Tools and ropes are not mentioned.",
+          "C": "Maps and books are not mentioned.",
+          "D": "Spices and tea are not mentioned."
+        }
+      },
+      {
+        "stem": "In the story, the word tempted means —",
+        "options": [
+          "very tired",
+          "very proud",
+          "wanting to do wrong",
+          "happy to help a friend"
+        ],
+        "answer": "C",
+        "skill": "vocabulary",
+        "why": "Ammar remembered wanting to cheat when he was young, just as Salim did.",
+        "wrong": {
+          "A": "Tempted does not mean tired.",
+          "B": "Tempted does not mean proud.",
+          "D": "Wanting to help is the opposite of tempted."
+        }
+      },
+      {
+        "stem": "Why did Ammar shake his head without saying a word?",
+        "options": [
+          "To say no quietly to Salim",
+          "To tell the traveler to go",
+          "To ask for more coins",
+          "To say the cloth was old"
+        ],
+        "answer": "A",
+        "skill": "inference",
+        "why": "Ammar noticed Salim's idea and answered it with a silent no, so Salim knew it was wrong.",
+        "wrong": {
+          "B": "The traveler was not sent away.",
+          "C": "Ammar wanted a fair price, not more coins.",
+          "D": "The cloth was fine, not old."
+        }
+      },
+      {
+        "stem": "Why did Salim decide to offer a fair price to every customer?",
+        "options": [
+          "He was told to by the king",
+          "He wanted a lot of friends",
+          "He wanted to sell more dates",
+          "He wanted people to trust him"
+        ],
+        "answer": "D",
+        "skill": "cause-effect",
+        "why": "Salim wanted the same trust and good name that people gave Ammar.",
+        "wrong": {
+          "A": "No king is in the story.",
+          "B": "Making friends was not his reason.",
+          "C": "The text does not say he wanted to sell dates."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "What did Salim hope to do one day?",
+        "options": [
+          "Sail to a far land",
+          "Teach the traveler",
+          "Become a king's guard",
+          "Run his own stall"
+        ],
+        "answer": "D",
+        "skill": "detail",
+        "why": "The text says Salim hoped one day to operate his own stall.",
+        "wrong": {
+          "A": "Sailing is not mentioned.",
+          "B": "Teaching the traveler is not mentioned.",
+          "C": "Being a guard is not mentioned."
+        }
+      },
+      {
+        "stem": "In the story, the word reputable describes a merchant who is —",
+        "options": [
+          "new to the town",
+          "trusted and respected",
+          "good at singing",
+          "often late"
+        ],
+        "answer": "B",
+        "skill": "vocabulary",
+        "why": "A reputable merchant deals fairly with every customer, so people trust him.",
+        "wrong": {
+          "A": "The word is not about being new.",
+          "C": "Singing is not mentioned.",
+          "D": "Being late is not mentioned."
+        }
+      },
+      {
+        "stem": "How was Ammar's price for the traveler different from Salim's plan?",
+        "options": [
+          "Ammar's price was fair, Salim's was high",
+          "Ammar's price was high, Salim's was fair",
+          "Both prices were the same",
+          "Ammar gave the cloth away"
+        ],
+        "answer": "A",
+        "skill": "compare",
+        "why": "Ammar quoted the usual fair price, while Salim thought of charging a considerably higher price.",
+        "wrong": {
+          "B": "It was Salim who thought of a high price.",
+          "C": "The prices were different.",
+          "D": "Ammar did not give the cloth away."
+        }
+      },
+      {
+        "stem": "Why does the author describe the traveler's dusty, worn clothes?",
+        "options": [
+          "To say the town was dirty",
+          "To show he was a tired stranger",
+          "To show he was a rich buyer",
+          "To say he sold cloth too"
+        ],
+        "answer": "B",
+        "skill": "author-purpose",
+        "why": "The details show he was weary and new to the town, which made him easy to cheat.",
+        "wrong": {
+          "A": "The dust came from the road, not from the town.",
+          "C": "His worn clothes do not suggest he was rich.",
+          "D": "He came to buy cloth, not to sell it."
+        }
+      }
+    ]
   }
 }

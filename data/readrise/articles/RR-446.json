@@ -614,5 +614,217 @@
       ],
       "modelAnswer": "I agree that one person's small effort, kept up over many years, can grow into something much bigger than they imagined. Saeed started with just one seedling on a barren hill, but his perseverance in watering it daily, combined with his choice to plant native species, eventually caught his neighbors' attention. Because he kept going year after year, a single neighbor's sapling turned into a full community effort that restored the entire hillside and even inspired other communities to attempt similar projects. Someone might argue that Saeed alone could never have created a whole forest, but the story shows that his consistent, modest actions were exactly what made the larger community effort possible in the first place."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "What is the hill made of at the start of the story?",
+        "options": [
+          "Grass and flowers",
+          "Rock and sand",
+          "Mud and old leaves",
+          "Snow and thick ice"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The text says the bare hill is just rock and sand.",
+        "wrong": {
+          "A": "No grass grows on the bare hill.",
+          "C": "The hill has no leaves at the start.",
+          "D": "Snow is not mentioned."
+        }
+      },
+      {
+        "stem": "In the story, the word bare means —",
+        "options": [
+          "full of animals and birds",
+          "covered with water and mud",
+          "very high and hard to climb",
+          "with nothing growing on it"
+        ],
+        "answer": "D",
+        "skill": "vocabulary",
+        "why": "No trees grow on the bare hill, so bare means with nothing growing on it.",
+        "wrong": {
+          "A": "Birds came only after the trees grew.",
+          "B": "The hill is rock and sand, not water.",
+          "C": "Its height is not the topic."
+        }
+      },
+      {
+        "stem": "Why do birds live on the hill at the end of the story?",
+        "options": [
+          "There are trees for them to live in",
+          "There is a big pond on the hill",
+          "Saeed brings them food each day",
+          "The neighbors built them a house"
+        ],
+        "answer": "A",
+        "skill": "cause-effect",
+        "why": "The hill is now full of trees, and the birds live in the trees.",
+        "wrong": {
+          "B": "No pond is mentioned.",
+          "C": "Saeed gave water to the trees, not food to the birds.",
+          "D": "The neighbors planted trees, not bird houses."
+        }
+      },
+      {
+        "stem": "What can you tell about the neighbors at the end of the story?",
+        "options": [
+          "They want to leave the hill",
+          "They are sad about the trees",
+          "They care about their new forest",
+          "They do not like Saeed's plan"
+        ],
+        "answer": "C",
+        "skill": "inference",
+        "why": "The neighbors helped plant the trees and feel proud of the forest, which shows they care about it.",
+        "wrong": {
+          "A": "They are proud of the hill.",
+          "B": "They feel proud, not sad.",
+          "D": "They helped with Saeed's plan."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "Where did Saeed's father get the seedling?",
+        "options": [
+          "From a garden at school",
+          "From a tree on the hill",
+          "At the market",
+          "From a neighbor's yard"
+        ],
+        "answer": "C",
+        "skill": "detail",
+        "why": "The article says his father agreed and bought one at the market.",
+        "wrong": {
+          "A": "The teacher only taught the lesson.",
+          "B": "No trees grew on the hill at first.",
+          "D": "The neighbor came later, with her own sapling."
+        }
+      },
+      {
+        "stem": "In the article, the word seedling means —",
+        "options": [
+          "a very young plant",
+          "a heavy can for water",
+          "a rock on the hill",
+          "a lesson at school"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "Saeed placed the young seedling in a hole and watered it, so it is a very young plant.",
+        "wrong": {
+          "B": "The can held the water.",
+          "C": "The hill had rock, but that is not a seedling.",
+          "D": "The lesson was what gave Saeed the idea."
+        }
+      },
+      {
+        "stem": "What happened to the small tree because Saeed climbed the hill every day?",
+        "options": [
+          "It was moved to the market",
+          "It was eaten by animals",
+          "It grew into a big forest at once",
+          "It grew taller and stronger"
+        ],
+        "answer": "D",
+        "skill": "cause-effect",
+        "why": "Saeed carried water every day, and over many weeks the small tree grew taller and stronger.",
+        "wrong": {
+          "A": "The tree stayed on the hill.",
+          "B": "No animals harmed the tree.",
+          "C": "The forest took years to grow."
+        }
+      },
+      {
+        "stem": "Each person brought water and careful attention to the young trees. What does this show about the community?",
+        "options": [
+          "Only Saeed did the hard work",
+          "Everyone shared the work",
+          "The hill belonged to the school",
+          "The trees needed no help"
+        ],
+        "answer": "B",
+        "skill": "inference",
+        "why": "Each person brought water and care, so the whole community shared the work.",
+        "wrong": {
+          "A": "The article says the whole community planted.",
+          "C": "The article does not say who owned the hill.",
+          "D": "The trees were watered and cared for."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "According to the teacher, what do trees help prevent?",
+        "options": [
+          "Rain from falling",
+          "Birds from flying",
+          "Neighbors from moving",
+          "Soil erosion"
+        ],
+        "answer": "D",
+        "skill": "detail",
+        "why": "The teacher explained that trees help prevent soil erosion and support biodiversity.",
+        "wrong": {
+          "A": "Trees do not stop rain in the lesson.",
+          "B": "Trees give creatures a place to live.",
+          "C": "Neighbors moving is not mentioned."
+        }
+      },
+      {
+        "stem": "In the article, the word restore most nearly means —",
+        "options": [
+          "to bring back to a good condition",
+          "to give away to a kind neighbor",
+          "to dig it up and carry it far away",
+          "to cover it over with sand and rock"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "Saeed wanted to restore the barren hill, and by the end it is full of healthy trees again.",
+        "wrong": {
+          "B": "Giving the hill away is not his plan.",
+          "C": "He wanted to add trees, not dig things up.",
+          "D": "The hill already had rock and sand."
+        }
+      },
+      {
+        "stem": "Why did more neighbors join in enthusiastically?",
+        "options": [
+          "The school told them all to plant trees",
+          "They wanted to sell the trees at the market",
+          "They saw Saeed's work over several months",
+          "Saeed's father offered them a big prize"
+        ],
+        "answer": "C",
+        "skill": "cause-effect",
+        "why": "The article says neighbors joined in after witnessing the project happen over several months.",
+        "wrong": {
+          "A": "The school is not said to have asked them.",
+          "B": "Selling trees is not mentioned.",
+          "D": "No prize is mentioned."
+        }
+      },
+      {
+        "stem": "Why does the author say nothing green was visible anywhere on the hill?",
+        "options": [
+          "To show how much the hill needed trees",
+          "To prove that the hill was too small",
+          "To explain why the neighbors left",
+          "To tell readers how to dig soil"
+        ],
+        "answer": "A",
+        "skill": "author-purpose",
+        "why": "A hill with nothing green shows how much change the trees brought by the end.",
+        "wrong": {
+          "B": "The hill's size is not the point.",
+          "C": "The neighbors later came to help.",
+          "D": "The story does not teach digging."
+        }
+      }
+    ]
   }
 }

@@ -614,5 +614,217 @@
       ],
       "modelAnswer": "I agree that staying calm is more important than being strong when something goes wrong outdoors. Yusuf and Khalid were not rescued because of physical strength; they were reunited with their group because Yusuf kept his composure, told Khalid to stop and think, and the boys methodically followed trail markers and used their whistle to navigate back safely. Someone might argue that strength matters more on a difficult mountain climb, but even a very strong hiker who panics and runs blindly into the woods could become more lost and harder to find than two calm, disoriented boys who think carefully and signal for help."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "What does Khalid see on a rock?",
+        "options": [
+          "A trail mark",
+          "A small whistle",
+          "A wet shoe",
+          "A big map"
+        ],
+        "answer": "A",
+        "skill": "detail",
+        "why": "The text says Khalid sees a mark on a rock and calls it a trail mark.",
+        "wrong": {
+          "B": "The boys have a whistle, but it is not on the rock.",
+          "C": "The shoe was tied at the start.",
+          "D": "No map is in the story."
+        }
+      },
+      {
+        "stem": "In the story, the word lost means the boys —",
+        "options": [
+          "are very hungry and cold",
+          "do not know where they are",
+          "have found the right trail",
+          "are tying a loose shoe"
+        ],
+        "answer": "B",
+        "skill": "vocabulary",
+        "why": "The boys are on the wrong path and ask where everyone is, so they do not know where they are.",
+        "wrong": {
+          "A": "Hunger is not mentioned.",
+          "C": "They have not found the trail yet.",
+          "D": "They tied the shoe before they got lost."
+        }
+      },
+      {
+        "stem": "Why does the group hear the boys?",
+        "options": [
+          "Yusuf shouts as loud as he can",
+          "Khalid runs back to the group",
+          "The boys blow a whistle back",
+          "The wind carries a soft song"
+        ],
+        "answer": "C",
+        "skill": "cause-effect",
+        "why": "The boys blow their own whistle back, and the group hears it.",
+        "wrong": {
+          "A": "The text says the boys use a whistle.",
+          "B": "The boys stay on the trail and do not run.",
+          "D": "No song is in the story."
+        }
+      },
+      {
+        "stem": "How does the teacher feel when she sees the boys?",
+        "options": [
+          "Angry and tired",
+          "Bored and sleepy",
+          "Afraid of the trail",
+          "Glad and relieved"
+        ],
+        "answer": "D",
+        "skill": "inference",
+        "why": "The teacher says they are so glad to see the boys.",
+        "wrong": {
+          "A": "The teacher says she is glad.",
+          "B": "The teacher was searching for them.",
+          "C": "The text does not say she is afraid."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "How many blasts does the boys' whistle signal?",
+        "options": [
+          "Five long blasts",
+          "One loud blast",
+          "Three short blasts",
+          "Two slow blasts"
+        ],
+        "answer": "C",
+        "skill": "detail",
+        "why": "The boys signal three short blasts, as they had practiced.",
+        "wrong": {
+          "A": "The story says three short blasts.",
+          "B": "The story says three short blasts.",
+          "D": "The story says three short blasts."
+        }
+      },
+      {
+        "stem": "In the story, the word relieved describes people who feel —",
+        "options": [
+          "worried about danger",
+          "happy that a worry is gone",
+          "angry about a mistake",
+          "sleepy after a long walk"
+        ],
+        "answer": "B",
+        "skill": "vocabulary",
+        "why": "The classmates are relieved to see the boys safe, so their worry is gone.",
+        "wrong": {
+          "A": "The worry ends when they see the boys.",
+          "C": "The group is not angry in the story.",
+          "D": "Relieved is not about being sleepy."
+        }
+      },
+      {
+        "stem": "How does the group know where the boys are?",
+        "options": [
+          "They hear the answering whistle",
+          "They follow the footprints",
+          "They see smoke on the hill",
+          "They read a map of the trail"
+        ],
+        "answer": "A",
+        "skill": "cause-effect",
+        "why": "The group heard the answering whistle and walked toward the sound.",
+        "wrong": {
+          "B": "Footprints are not mentioned.",
+          "C": "Smoke is not mentioned.",
+          "D": "No map is mentioned."
+        }
+      },
+      {
+        "stem": "Why does the author say the two paths looked almost the same?",
+        "options": [
+          "To show that the hike was easy",
+          "To show a mistake was easy",
+          "To tell readers the trail was new",
+          "To show that the paths were short"
+        ],
+        "answer": "B",
+        "skill": "author-purpose",
+        "why": "Because the paths looked alike, it was easy for the boys to pick the wrong one.",
+        "wrong": {
+          "A": "The boys get lost, so it was not easy.",
+          "C": "The text does not say the trail was new.",
+          "D": "The text does not say how long the paths are."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "How many short blasts did the boys signal with their whistle?",
+        "options": [
+          "Three",
+          "One",
+          "Five",
+          "Seven"
+        ],
+        "answer": "A",
+        "skill": "detail",
+        "why": "The story says the boys signaled three short blasts as they had practiced.",
+        "wrong": {
+          "B": "One blast is not what the story says.",
+          "C": "Five blasts is not what the story says.",
+          "D": "Seven blasts is not what the story says."
+        }
+      },
+      {
+        "stem": "In the story, the word resonant describes a whistle that is —",
+        "options": [
+          "very quiet",
+          "hard to hear",
+          "broken and weak",
+          "loud and echoing"
+        ],
+        "answer": "D",
+        "skill": "vocabulary",
+        "why": "The whistle echoes sharply through the mountains, so resonant means loud and echoing.",
+        "wrong": {
+          "A": "It echoes through the mountains.",
+          "B": "The boys hear it clearly.",
+          "C": "It is strong enough to echo."
+        }
+      },
+      {
+        "stem": "Why did the boys take the wrong path?",
+        "options": [
+          "A guide told them to go left",
+          "They wanted to explore alone",
+          "The paths looked almost identical",
+          "They were running away from class"
+        ],
+        "answer": "C",
+        "skill": "cause-effect",
+        "why": "The two paths appeared almost identical with no clear marker, so the boys picked the wrong one.",
+        "wrong": {
+          "A": "No guide told them the way.",
+          "B": "The boys did not mean to leave the group.",
+          "D": "The boys did not run away."
+        }
+      },
+      {
+        "stem": "Why did the group walk \"briskly\" toward the whistle?",
+        "options": [
+          "They wanted to reach them fast",
+          "They were late for the bus home",
+          "They were tired of the hike",
+          "They wanted to find a new trail"
+        ],
+        "answer": "A",
+        "skill": "inference",
+        "why": "The group was worried, so walking briskly shows they wanted to reach the boys quickly.",
+        "wrong": {
+          "B": "A bus is not part of this story.",
+          "C": "Brisk walking does not show tiredness.",
+          "D": "They followed the sound, not a new trail."
+        }
+      }
+    ]
   }
 }

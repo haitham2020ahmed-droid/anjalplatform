@@ -614,5 +614,217 @@
       ],
       "modelAnswer": "I agree with Ibn Khaldun that solidarity helps a group rise while comfort can make it fall. The article explains that a group with strong solidarity, or shared loyalty, can rise to power, but as rulers in a dynasty grow comfortable over several generations, that feeling of solidarity fades and the group grows weak. I see the same pattern in a successful company today, where a small team that starts out working closely together can lose its drive once it becomes large and comfortable, echoing the pattern Ibn Khaldun first described centuries ago."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "What did Ibn Khaldun do at the fort?",
+        "options": [
+          "He worked as a judge",
+          "He fought a war",
+          "He sold books",
+          "He wrote a big book"
+        ],
+        "answer": "D",
+        "skill": "detail",
+        "why": "The text says he stayed at the fort for four years and wrote a big book of history.",
+        "wrong": {
+          "A": "He was a judge later, in Cairo.",
+          "B": "No war is mentioned at the fort.",
+          "C": "He wrote a book there; the text does not say he sold books."
+        }
+      },
+      {
+        "stem": "What did Ibn Khaldun do after he grew up?",
+        "options": [
+          "He moved to Cairo.",
+          "He worked for kings.",
+          "He wrote his book at the fort.",
+          "He was born in Tunis."
+        ],
+        "answer": "B",
+        "skill": "sequence",
+        "why": "The text says he grew up, and then he worked for kings.",
+        "wrong": {
+          "A": "He lived in Cairo late in his life.",
+          "C": "The fort came after his years working for kings.",
+          "D": "He was born before he grew up."
+        }
+      },
+      {
+        "stem": "Why do you think Ibn Khaldun went to a fort?",
+        "options": [
+          "To work for a king",
+          "To become a judge",
+          "To find a quiet place",
+          "To visit his parents"
+        ],
+        "answer": "C",
+        "skill": "inference",
+        "why": "The text says it was quiet there, and he wrote a big book while he stayed.",
+        "wrong": {
+          "A": "He went to the fort to get away from the kings.",
+          "B": "He became a judge later in Cairo.",
+          "D": "His parents had died when he was a teen."
+        }
+      },
+      {
+        "stem": "In this article, what are tales?",
+        "options": [
+          "Stories",
+          "Rules for kings",
+          "Walls of a fort",
+          "Parts of a book"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "Ibn Khaldun said to check old tales, which are old stories, to see if they are true.",
+        "wrong": {
+          "B": "Tales are not rules.",
+          "C": "The wall of a fort is not called a tale.",
+          "D": "Tales are stories people tell, not parts of a book."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "Where had Ibn Khaldun's family moved from?",
+        "options": [
+          "Cairo",
+          "al-Andalus",
+          "Egypt",
+          "A quiet fort"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The text says his family had moved to Tunis from al-Andalus.",
+        "wrong": {
+          "A": "Cairo is where he lived in his last years.",
+          "C": "Egypt is where he died, not where his family came from.",
+          "D": "The fort is where he later wrote his book."
+        }
+      },
+      {
+        "stem": "In the article, what is solidarity?",
+        "options": [
+          "A quiet fort far from cities",
+          "A terrible disease of the time",
+          "A long book about the world",
+          "A feeling that unites a group"
+        ],
+        "answer": "D",
+        "skill": "vocabulary",
+        "why": "The text says solidarity is the feeling that holds a group together.",
+        "wrong": {
+          "A": "The quiet fort is a place, not a feeling.",
+          "B": "The disease in the text is the plague.",
+          "C": "The long book is the Introduction."
+        }
+      },
+      {
+        "stem": "How is the article mostly organized?",
+        "options": [
+          "In time order, from birth to death",
+          "By comparing two rulers",
+          "By listing every book he wrote",
+          "By arguing against old reports"
+        ],
+        "answer": "A",
+        "skill": "text-structure",
+        "why": "The article follows his life from his birth in 1332 to his death in 1406.",
+        "wrong": {
+          "B": "It does not compare two rulers.",
+          "C": "It talks about one main book, not a list.",
+          "D": "It explains his ideas but is not an argument."
+        }
+      },
+      {
+        "stem": "What does it show that he kept studying after his parents died?",
+        "options": [
+          "He was afraid of the plague",
+          "He wanted to be a ruler",
+          "He was determined to learn",
+          "He was tired of books"
+        ],
+        "answer": "C",
+        "skill": "inference",
+        "why": "Even after a great loss he kept studying and became a brilliant scholar, so he was determined to learn.",
+        "wrong": {
+          "A": "Nothing says he was afraid; he kept studying.",
+          "B": "The text does not say he wanted to be a ruler.",
+          "D": "He kept studying, so he was not tired of books."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "According to Ibn Khaldun, what shapes how people work, eat, and build their towns?",
+        "options": [
+          "The size of their army",
+          "The rulers' taxes",
+          "The land and weather",
+          "The books they read"
+        ],
+        "answer": "C",
+        "skill": "detail",
+        "why": "The text says he believed the land and weather where people live shape how they work, eat, and build.",
+        "wrong": {
+          "A": "An army is not mentioned in this idea.",
+          "B": "Heavy taxes make people stop working, but they do not shape food and towns.",
+          "D": "Books are not named as a cause."
+        }
+      },
+      {
+        "stem": "In the article, the word withdrew most nearly means —",
+        "options": [
+          "went away from others",
+          "was forced to fight",
+          "became very rich",
+          "asked for help"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "He withdrew to a remote fortress, so he went away from others to a far place.",
+        "wrong": {
+          "B": "Nothing says he was forced to fight.",
+          "C": "The text does not say he became rich.",
+          "D": "He went to write, not to ask for help."
+        }
+      },
+      {
+        "stem": "What does his meeting with Timur suggest?",
+        "options": [
+          "He feared the conqueror's army",
+          "He wanted to be a soldier",
+          "He was angry about taxes",
+          "A conqueror respected his ideas"
+        ],
+        "answer": "D",
+        "skill": "inference",
+        "why": "A powerful conqueror talked with him about history for many days, which suggests respect for his knowledge.",
+        "wrong": {
+          "A": "The two men talked for many days, which does not show fear.",
+          "B": "He is described as a scholar and judge, not a soldier.",
+          "C": "Taxes were not the topic of the meeting."
+        }
+      },
+      {
+        "stem": "Why did some rulers imprison Ibn Khaldun?",
+        "options": [
+          "He refused to write for them",
+          "The political situation changed",
+          "He had taken money from them",
+          "He argued with them about taxes"
+        ],
+        "answer": "B",
+        "skill": "cause-effect",
+        "why": "The text says some rulers imprisoned him when politics shifted.",
+        "wrong": {
+          "A": "The text does not say he refused to write.",
+          "C": "The text does not say he took money.",
+          "D": "The text does not give taxes as the reason."
+        }
+      }
+    ]
   }
 }

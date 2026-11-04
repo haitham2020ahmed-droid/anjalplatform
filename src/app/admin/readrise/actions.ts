@@ -6,6 +6,7 @@ import { ForbiddenError } from "@/server/auth/rbac";
 import { ValidationError } from "@/server/curriculum-admin";
 import { importArticleJson, previewArticleFile, type Issue, type VersionCheck } from "@/server/readrise/import";
 import { deleteArticle, setArticleHidden, setArticleStatus, setOfficialLexile } from "@/server/readrise/library";
+import { syncStretchChunk, type StretchSyncChunk } from "@/server/readrise/seed";
 
 const STAFF = { roles: ["TEACHER", "SCHOOL_ADMIN", "SUPER_ADMIN"] as ("TEACHER" | "SCHOOL_ADMIN" | "SUPER_ADMIN")[], permission: "questions:edit" as const };
 const MAX_FILE = 5 * 1024 * 1024;
@@ -99,4 +100,14 @@ export async function setReadRiseLexileAction(f: FormData): Promise<void> {
     msg = value === null ? "Official Lexile removed." : `Official Lexile saved (${value}L).`;
   } catch (e) { msg = msgOf(e); }
   go(`${back}/${id}`, msg);
+}
+
+/**
+ * ⬆ round 5: "Load stretch questions" — ONE short chunk of article files per call (the button loops with a progress
+ * bar); adds only the stretch questions the database does not have yet (idempotent: running it again adds nothing).
+ */
+export async function stretchChunkAction(start: number): Promise<{ ok: true; data: StretchSyncChunk } | { ok: false; error: string }> {
+  await requireActor({ roles: ["SCHOOL_ADMIN", "SUPER_ADMIN"], permission: "questions:edit" });
+  try { return { ok: true, data: await syncStretchChunk(repo, process.cwd(), Number.isFinite(Number(start)) ? Number(start) : 0) }; }
+  catch (e) { console.error("readrise.stretch_sync", e); return { ok: false, error: "This part could not be done. Press the button again to go on from here." }; }
 }

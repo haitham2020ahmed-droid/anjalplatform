@@ -614,5 +614,217 @@
       ],
       "modelAnswer": "I agree that planting mangroves is one of the best ways to protect our coasts, because the article gives strong evidence for how valuable this ecosystem truly is. First, mangrove roots hold sediment and mud in place, which prevents erosion and keeps the coastline from washing away. Second, mangroves reduce the force of strong waves during storms, directly protecting coastal communities from damage. Third, mangroves function as a nursery for sea life, sheltering young fish, crabs, and shrimp among their roots until the animals are ready for the open sea, which keeps the wider ecosystem healthy. Because mangroves protect the coast physically while also supporting the animals that depend on it, planting more of them is clearly one of the smartest ways to protect our coasts."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "Where do birds make their nests in a mangrove?",
+        "options": [
+          "Down in the mud",
+          "In the tops of the trees",
+          "Under the salt water",
+          "Inside the small roots"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The text says birds make nests in the tops.",
+        "wrong": {
+          "A": "The mud is where some roots stick up, not where birds nest.",
+          "C": "Birds do not nest in water.",
+          "D": "Small fish hide in the roots, not birds."
+        }
+      },
+      {
+        "stem": "How do mangrove roots help the coast?",
+        "options": [
+          "They make the big waves come faster",
+          "They bring more salt to the coast",
+          "They hold mud and slow big waves",
+          "They give the fish lots of food"
+        ],
+        "answer": "C",
+        "skill": "cause-effect",
+        "why": "The text says the roots hold the mud and slow down big waves.",
+        "wrong": {
+          "A": "The roots slow waves, they do not make them.",
+          "B": "Salt is pushed out by the leaves, not brought by the roots.",
+          "D": "The text does not say the roots give food."
+        }
+      },
+      {
+        "stem": "Why does the author write, \"But a mangrove can!\"?",
+        "options": [
+          "To show a mangrove is a special tree",
+          "To say that all trees can live in the sea",
+          "To tell us that salt is very good for trees",
+          "To show that the tree is very small"
+        ],
+        "answer": "A",
+        "skill": "author-purpose",
+        "why": "Most trees cannot live in the sea, so the author shows that a mangrove is a special tree.",
+        "wrong": {
+          "B": "The text says most trees can not live in the sea.",
+          "C": "The text says salt would kill most trees.",
+          "D": "The size of the tree is not the point."
+        }
+      },
+      {
+        "stem": "Which animals does the text say live among the mangroves?",
+        "options": [
+          "camels and goats",
+          "lions and bears",
+          "owls and bats",
+          "crabs and shrimp"
+        ],
+        "answer": "D",
+        "skill": "detail",
+        "why": "The text says crabs and shrimp live among the mangroves.",
+        "wrong": {
+          "A": "Camels and goats live on land, not in the mangroves.",
+          "B": "Lions and bears are not in the text.",
+          "C": "Owls and bats are not named in the text."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "What can readers infer about why some roots take in oxygen when the tide is low?",
+        "options": [
+          "The tide makes the roots grow much longer each day",
+          "The roots are under water when the tide is high",
+          "The mud has too much oxygen when the tide is low",
+          "The roots only take in air during the night"
+        ],
+        "answer": "B",
+        "skill": "inference",
+        "why": "The tide covers the roots twice a day, so the roots can only reach air when the tide is low.",
+        "wrong": {
+          "A": "The text does not say the tide changes root length.",
+          "C": "The text says the mud has very little oxygen.",
+          "D": "Night is not mentioned."
+        }
+      },
+      {
+        "stem": "How do mangrove roots protect the coast during storms?",
+        "options": [
+          "They slow down strong waves",
+          "They pull the tide away",
+          "They make the water less salty",
+          "They stop the wind from blowing"
+        ],
+        "answer": "A",
+        "skill": "cause-effect",
+        "why": "The text says the roots slow down strong waves during storms.",
+        "wrong": {
+          "B": "The tide is not moved by roots.",
+          "C": "Salt is pushed out by the leaves, not by roots.",
+          "D": "The roots are in the mud, so they do not stop wind."
+        }
+      },
+      {
+        "stem": "Why does the author say the roots look like \"rows of pencils\"?",
+        "options": [
+          "To say the roots are used for writing",
+          "To say the roots are very hard",
+          "To say the roots are all the same color",
+          "To help readers picture the roots"
+        ],
+        "answer": "D",
+        "skill": "author-purpose",
+        "why": "The comparison gives readers a picture of thin roots standing up out of the mud.",
+        "wrong": {
+          "A": "The roots are not used for writing.",
+          "B": "The text does not say the roots are hard.",
+          "C": "Color is not mentioned."
+        }
+      },
+      {
+        "stem": "Why have people cut down many mangroves?",
+        "options": [
+          "To find new seeds",
+          "To build houses and farms",
+          "To stop big storms",
+          "To get salt from the leaves"
+        ],
+        "answer": "B",
+        "skill": "cause-effect",
+        "why": "The text says people cut down many mangroves to build houses and farms.",
+        "wrong": {
+          "A": "The seeds grow on the trees, so people do not need to cut trees for them.",
+          "C": "Mangroves help in storms, so cutting them does not stop storms.",
+          "D": "The text does not say people want the salt."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "According to the article, where do mangroves mostly grow?",
+        "options": [
+          "In cold lands far from the sea",
+          "In deep water far from the coast",
+          "In dry deserts with no mud",
+          "In warm regions near the equator"
+        ],
+        "answer": "D",
+        "skill": "detail",
+        "why": "The text says mangroves grow mostly in warm regions near the equator.",
+        "wrong": {
+          "A": "Mangroves live in warm places, not cold ones.",
+          "B": "They grow where the land meets the sea, along coasts.",
+          "C": "They need muddy coasts, not dry deserts."
+        }
+      },
+      {
+        "stem": "In the article, the word adaptations means —",
+        "options": [
+          "rules that the government makes to protect trees",
+          "features that help a plant live in its place",
+          "places where the seeds drop into the mud",
+          "tools that people use to plant new trees"
+        ],
+        "answer": "B",
+        "skill": "vocabulary",
+        "why": "The text lists salt glands and special roots, which help the mangrove live in salty, muddy places.",
+        "wrong": {
+          "A": "Adaptations are not rules.",
+          "C": "Seed-dropping places are not what the text describes.",
+          "D": "The adaptations belong to the tree, not to people."
+        }
+      },
+      {
+        "stem": "What problem do the upward-growing roots solve for a mangrove?",
+        "options": [
+          "They get oxygen that the mud does not have",
+          "They remove salt from the leaves",
+          "They keep the seeds from floating away",
+          "They stop the tide from rising"
+        ],
+        "answer": "A",
+        "skill": "cause-effect",
+        "why": "The mud has very little oxygen, so some roots grow up and take in oxygen at low tide.",
+        "wrong": {
+          "B": "The leaves release salt through glands.",
+          "C": "The seeds float because they are carried by currents.",
+          "D": "The tide cannot be stopped by roots."
+        }
+      },
+      {
+        "stem": "Why does the author include the paragraph about the Farasan Islands?",
+        "options": [
+          "To say that turtles are the main animal in the sea",
+          "To say that mangroves only grow in the Red Sea",
+          "To give an example of Saudi mangroves that shelter wildlife",
+          "To show that people have cut down all mangroves there"
+        ],
+        "answer": "C",
+        "skill": "author-purpose",
+        "why": "The paragraph gives a Saudi example where mangroves shelter turtles, fish and birds in a protected area.",
+        "wrong": {
+          "A": "The text names turtles, fish and birds together.",
+          "B": "Mangroves also grow along the Gulf.",
+          "D": "The text says the area is protected."
+        }
+      }
+    ]
   }
 }

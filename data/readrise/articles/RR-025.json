@@ -614,5 +614,217 @@
       ],
       "modelAnswer": "My classmate's idea is dangerous, because thunder itself is harmless, but it is only a sound, and ignoring it means ignoring the lightning that makes it. The article explains that a lightning discharge heats the surrounding atmosphere to a temperature about five times hotter than the surface of the sun, which is more than enough to seriously injure or kill a person struck by it. Because light travels about a million times faster than sound, hearing thunder means the lightning that caused it has already happened nearby, not that it is still far away, so waiting until lightning looks directly overhead means waiting until it is already too late to find shelter safely. As a precaution, the article even recommends going inside immediately when thunder is heard and waiting thirty minutes after the last thunder before going back outside, since lightning can strike from clouds that look far away. For all these reasons, my classmate's plan to stay outside is extremely risky, and the safest choice is always to take shelter as soon as thunder is heard."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "How hot is the spark of lightning?",
+        "options": [
+          "Cooler than a cup of tea",
+          "About as warm as a sunny day",
+          "Hotter than the top of the sun",
+          "As cold as a block of ice"
+        ],
+        "answer": "C",
+        "skill": "detail",
+        "why": "The text says the spark is more hot than the top of the sun.",
+        "wrong": {
+          "A": "The spark is very, very hot.",
+          "B": "The spark is much hotter than a sunny day.",
+          "D": "The spark is hot, not cold."
+        }
+      },
+      {
+        "stem": "Why do we see the flash before we hear the boom?",
+        "options": [
+          "Light is fast and sound is slow",
+          "Sound is fast and light is slow",
+          "The boom comes from a far cloud",
+          "The flash is made after the boom"
+        ],
+        "answer": "A",
+        "skill": "cause-effect",
+        "why": "The text says we see the flash first because light is fast and sound is slow.",
+        "wrong": {
+          "B": "This is backwards; light is faster than sound.",
+          "C": "The text does not say the boom comes from a different cloud.",
+          "D": "The flash and the boom come from the same spark."
+        }
+      },
+      {
+        "stem": "In the article, the word spark means —",
+        "options": [
+          "a loud sound after a flash",
+          "a dark cloud full of rain",
+          "a strong and cold wind",
+          "a quick flash of electricity"
+        ],
+        "answer": "D",
+        "skill": "vocabulary",
+        "why": "The text says lightning is a giant spark that jumps when the charge gets too big, so a spark is a quick flash of electricity.",
+        "wrong": {
+          "A": "The loud sound is thunder, not the spark.",
+          "B": "The cloud holds the charge; it is not the spark.",
+          "C": "Wind is not what a spark is."
+        }
+      },
+      {
+        "stem": "A storm is coming. Which place is the safest to be?",
+        "options": [
+          "Standing by a tall tree",
+          "Sitting in a car",
+          "Walking on the beach",
+          "Swimming at the beach"
+        ],
+        "answer": "B",
+        "skill": "inference",
+        "why": "The text says a car is a good shelter, and it says to stay off the beach and away from tall trees.",
+        "wrong": {
+          "A": "The text says not to stand by a tall tree.",
+          "C": "The text says to stay off the beach.",
+          "D": "The text says to stay off the beach."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "According to the article, how hot is a lightning bolt compared to the surface of the sun?",
+        "options": [
+          "About half as hot",
+          "About five times hotter",
+          "About the same",
+          "About ten times cooler"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The article says a lightning bolt is about five times hotter than the surface of the sun.",
+        "wrong": {
+          "A": "A bolt is hotter than the sun's surface, not cooler.",
+          "C": "A bolt is much hotter than the surface of the sun.",
+          "D": "A bolt is much hotter, not cooler."
+        }
+      },
+      {
+        "stem": "In the article, the word tower means —",
+        "options": [
+          "fall far down",
+          "move very fast",
+          "grow very quiet",
+          "rise up very tall"
+        ],
+        "answer": "D",
+        "skill": "vocabulary",
+        "why": "The clouds are described as high above the land, so tower means to rise up tall.",
+        "wrong": {
+          "A": "The clouds are high above the land.",
+          "B": "The sentence does not say how fast they move.",
+          "C": "The sentence is not about sound."
+        }
+      },
+      {
+        "stem": "What happens inside a storm cloud when ice and water particles crash and rub together?",
+        "options": [
+          "They build up an electric charge",
+          "They turn into bits of metal",
+          "They stop the strong winds",
+          "They cool the air around the cloud"
+        ],
+        "answer": "A",
+        "skill": "cause-effect",
+        "why": "The article says that as the particles crash and rub, they build up an electric charge.",
+        "wrong": {
+          "B": "The article does not say they become metal.",
+          "C": "The winds carry the particles up and down.",
+          "D": "The lightning heats the air, not cools it."
+        }
+      },
+      {
+        "stem": "Mona counts nine seconds between a flash and the boom. About how far away is the storm?",
+        "options": [
+          "About one kilometer",
+          "About two kilometers",
+          "About three kilometers",
+          "About nine kilometers"
+        ],
+        "answer": "C",
+        "skill": "inference",
+        "why": "The article says every three seconds equals about one kilometer, so nine seconds is about three kilometers.",
+        "wrong": {
+          "A": "One kilometer would be about three seconds.",
+          "B": "Two kilometers would be about six seconds.",
+          "D": "Nine kilometers would be about twenty-seven seconds."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "According to the article, where may a lightning discharge flash?",
+        "options": [
+          "Only straight down to the ground below us",
+          "Only inside one single huge storm cloud",
+          "Only between two tall buildings in a town",
+          "In a cloud, between clouds, or to the ground"
+        ],
+        "answer": "D",
+        "skill": "detail",
+        "why": "The article says the discharge may flash within a cloud, travel between clouds, or strike the ground.",
+        "wrong": {
+          "A": "The ground is only one of three places.",
+          "B": "A cloud is only one of three places.",
+          "C": "Buildings are not named as a path for the discharge."
+        }
+      },
+      {
+        "stem": "In the article, the word precautions most nearly means —",
+        "options": [
+          "loud warnings",
+          "steps taken to stay safe",
+          "a kind of storm",
+          "tools for measuring heat"
+        ],
+        "answer": "B",
+        "skill": "vocabulary",
+        "why": "The next sentences list safe actions, such as moving inside, so precautions are steps taken to stay safe.",
+        "wrong": {
+          "A": "The article lists actions, not warning sounds.",
+          "C": "A storm is the danger, not the precaution.",
+          "D": "No tool for measuring heat is mentioned."
+        }
+      },
+      {
+        "stem": "Why do we observe lightning before we hear thunder?",
+        "options": [
+          "Light travels far faster than sound",
+          "Thunder forms in the air before the flash does",
+          "Sound waves are blocked by thick clouds",
+          "The flash happens closer than the boom does"
+        ],
+        "answer": "A",
+        "skill": "cause-effect",
+        "why": "The article says light travels about a million times faster than sound.",
+        "wrong": {
+          "B": "Both come from the same discharge.",
+          "C": "The article does not mention clouds blocking sound.",
+          "D": "Both start at the same place, but light arrives sooner."
+        }
+      },
+      {
+        "stem": "Why does the author mention the shock from a metal door handle?",
+        "options": [
+          "To show that lightning always comes from carpets",
+          "To warn readers not to touch metal in a storm",
+          "To give a small, familiar example of the same idea",
+          "To explain how a lightning rod is made"
+        ],
+        "answer": "C",
+        "skill": "author-purpose",
+        "why": "The article calls the shock a miniature version and says lightning works on the same principle.",
+        "wrong": {
+          "A": "Carpet is just part of the everyday example.",
+          "B": "The door handle is not a safety warning.",
+          "D": "The lightning rod is described later."
+        }
+      }
+    ]
   }
 }

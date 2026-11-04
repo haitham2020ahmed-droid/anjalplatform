@@ -614,5 +614,217 @@
       ],
       "modelAnswer": "I believe prevention matters more than cleanup for protecting the ocean. The article explains that plastic trash never completely disappears, because sunlight and waves only break it into smaller and smaller pieces of microplastic that spread through the water and accumulate in giant garbage patches, which makes full cleanup nearly impossible once trash is already in the sea. While volunteers and special boats can remove some visible trash, prevention methods, like using cloth bags, refillable bottles, and recycling, stop plastic from becoming litter and reaching rivers in the first place, which is far more effective than trying to clean up microplastic that can never truly be fully removed."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "How do boats help clean the ocean?",
+        "options": [
+          "They carry fish to the shore",
+          "They break plastic into bits",
+          "They push trash toward beaches",
+          "They scoop trash from waves"
+        ],
+        "answer": "D",
+        "skill": "detail",
+        "why": "The text says boats scoop trash from the waves.",
+        "wrong": {
+          "A": "Carrying fish is not about cleaning.",
+          "B": "Plastic breaks into bits by itself, not because of boats.",
+          "C": "The boats take trash out of the water."
+        }
+      },
+      {
+        "stem": "In this article, what are loops?",
+        "options": [
+          "Long rows of swimming fish",
+          "Circles of moving water",
+          "Piles of old fishing nets",
+          "Strong waves near a beach"
+        ],
+        "answer": "B",
+        "skill": "vocabulary",
+        "why": "The text says the sea moves in big loops that pull trash to the same spots, so loops are circles of moving water.",
+        "wrong": {
+          "A": "Rows of fish are not mentioned.",
+          "C": "Old nets are a different problem.",
+          "D": "The loops are in the whole sea, not at a beach."
+        }
+      },
+      {
+        "stem": "What happens to a turtle that eats a plastic bag?",
+        "options": [
+          "It gets sick.",
+          "It gets stuck.",
+          "It sleeps well.",
+          "It grows big."
+        ],
+        "answer": "A",
+        "skill": "cause-effect",
+        "why": "The text says the turtle eats the bag and gets sick.",
+        "wrong": {
+          "B": "Getting stuck happens to animals in old nets.",
+          "C": "The text says it gets sick, not that it sleeps well.",
+          "D": "Nothing says it grows."
+        }
+      },
+      {
+        "stem": "Why is it better to stop trash first than to clean it up later?",
+        "options": [
+          "Boats cannot float on the sea.",
+          "Beaches are always clean.",
+          "Plastic bits never go away.",
+          "Trash helps the fish."
+        ],
+        "answer": "C",
+        "skill": "inference",
+        "why": "Plastic breaks into small bits that do not go away, so it is hard to clean up; stopping it first is better.",
+        "wrong": {
+          "A": "Boats do scoop trash from the waves.",
+          "B": "Beaches are one place where trash is left.",
+          "D": "Trash hurts sea life."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "Why might a sea turtle eat a floating plastic bag?",
+        "options": [
+          "Bags smell like fresh fish.",
+          "It sees the bag as a jellyfish.",
+          "Strong currents push bags in.",
+          "Bags feel warm on its skin."
+        ],
+        "answer": "B",
+        "skill": "cause-effect",
+        "why": "The text says a sea turtle may mistake a floating plastic bag for a jellyfish and eat it.",
+        "wrong": {
+          "A": "Smell is not mentioned.",
+          "C": "Currents push trash to patches, not into a turtle's mouth.",
+          "D": "Warmth is not mentioned."
+        }
+      },
+      {
+        "stem": "In the article, what is litter?",
+        "options": [
+          "A kind of ocean current",
+          "Water that flows in rivers",
+          "Fish caught in nets",
+          "Trash left on the ground"
+        ],
+        "answer": "D",
+        "skill": "vocabulary",
+        "why": "Most ocean plastic starts on land as litter that wind blows and rain washes into rivers.",
+        "wrong": {
+          "A": "Currents are the huge circles of water.",
+          "B": "The rivers carry the litter; litter is not the water.",
+          "C": "Fishing nets are a separate source."
+        }
+      },
+      {
+        "stem": "About how much of our planet does the ocean cover?",
+        "options": [
+          "About one tenth",
+          "About half",
+          "About seven tenths",
+          "All of it"
+        ],
+        "answer": "C",
+        "skill": "detail",
+        "why": "The first sentence says the ocean covers about seven tenths of our planet.",
+        "wrong": {
+          "A": "The ocean covers much more than one tenth.",
+          "B": "The text gives seven tenths, which is more than half.",
+          "D": "Land covers the rest."
+        }
+      },
+      {
+        "stem": "Why does the author mention coral reefs like those in the Red Sea?",
+        "options": [
+          "To make ocean life feel close to readers",
+          "To show how to build a reef",
+          "To compare the Red Sea with a river",
+          "To say the Red Sea has no trash"
+        ],
+        "answer": "A",
+        "skill": "author-purpose",
+        "why": "The Red Sea is near Saudi readers, so it helps them see the ocean's life as something they know.",
+        "wrong": {
+          "B": "The article does not explain how to build a reef.",
+          "C": "No comparison with a river is made.",
+          "D": "The article does not say the Red Sea has no trash."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "Where is the largest garbage patch located?",
+        "options": [
+          "In the Red Sea",
+          "Along Saudi Arabia's coast",
+          "In the Pacific Ocean",
+          "In a deep river"
+        ],
+        "answer": "C",
+        "skill": "detail",
+        "why": "The text says the largest one is in the Pacific Ocean between Hawaii and California.",
+        "wrong": {
+          "A": "The Red Sea is named for its coral reefs.",
+          "B": "The text says patches form far from any shore.",
+          "D": "Garbage patches form in the ocean."
+        }
+      },
+      {
+        "stem": "In the first paragraph, the word sustains most nearly means —",
+        "options": [
+          "keeps alive and fed",
+          "washes far away",
+          "pushes out of sight",
+          "covers with a layer"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "The ocean is home to fish, whales, turtles, and reefs, so sustains means it keeps them alive.",
+        "wrong": {
+          "B": "Washing away does not fit living things.",
+          "C": "The sentence is about life, not hiding.",
+          "D": "Covering would not help animals live."
+        }
+      },
+      {
+        "stem": "What causes garbage patches to form far from any shore?",
+        "options": [
+          "Rain washing trash into rivers",
+          "Ships leaving nets behind",
+          "Beaches being cleaned by volunteers",
+          "Currents pushing trash together"
+        ],
+        "answer": "D",
+        "skill": "cause-effect",
+        "why": "The text says rotating currents push floating trash into the same regions.",
+        "wrong": {
+          "A": "Rain brings trash to rivers, not into patches.",
+          "B": "Nets are one source of debris, not the cause of patches.",
+          "C": "Volunteers clean beaches and do not make patches."
+        }
+      },
+      {
+        "stem": "Why does the author mention microplastics in seafood, salt, and deep trenches?",
+        "options": [
+          "To explain how to cook seafood",
+          "To show how far plastic has spread",
+          "To compare table salt with seafood",
+          "To praise those who explore trenches"
+        ],
+        "answer": "B",
+        "skill": "author-purpose",
+        "why": "Finding microplastics in food and in the deepest places shows plastic has spread almost everywhere.",
+        "wrong": {
+          "A": "The article does not talk about cooking.",
+          "C": "No comparison of salt and seafood is made.",
+          "D": "No one is praised for exploring."
+        }
+      }
+    ]
   }
 }

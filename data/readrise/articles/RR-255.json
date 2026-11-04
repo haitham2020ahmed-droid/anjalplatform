@@ -614,5 +614,217 @@
       ],
       "modelAnswer": "I agree that Edison's approach to failure may be his greatest achievement, because it is what ultimately made his inventions possible. The article explains that he tested well over a thousand materials, and the overwhelming majority of those experiments ended in failure, yet he treated each one as valuable information rather than wasted effort. That perseverance eventually produced a carbonized cotton filament that glowed for more than thirteen hours, and later an even more durable carbonized bamboo filament that allowed the bulb to be sold commercially. Because this same patient, methodical attitude also helped him become an extraordinarily prolific inventor with more than a thousand patents, his willingness to learn from failure seems just as important as any single invention he produced."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "Why did Edison want a better light than candles?",
+        "options": [
+          "Candles were not safe",
+          "Candles were too bright",
+          "Candles were too cheap",
+          "Candles were too tall"
+        ],
+        "answer": "A",
+        "skill": "cause-effect",
+        "why": "The article says candles were not safe, so he wanted a better light.",
+        "wrong": {
+          "B": "Candles were not described as too bright.",
+          "C": "Cost is not mentioned.",
+          "D": "Height is not mentioned."
+        }
+      },
+      {
+        "stem": "In the article, an inventor is a person who —",
+        "options": [
+          "grows plants",
+          "sells candles",
+          "draws maps",
+          "makes new things"
+        ],
+        "answer": "D",
+        "skill": "vocabulary",
+        "why": "Edison made a new kind of light and other new things, so he was an inventor.",
+        "wrong": {
+          "A": "Growing plants is not his job here.",
+          "B": "He wanted to replace candles, not sell them.",
+          "C": "Maps are not mentioned."
+        }
+      },
+      {
+        "stem": "What other machine did Edison make?",
+        "options": [
+          "A machine that cut thread",
+          "A machine that played sound",
+          "A machine that grew plants",
+          "A machine that lit candles"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The article says he made a machine that could play sound.",
+        "wrong": {
+          "A": "Cutting thread is not mentioned.",
+          "C": "Growing plants is not mentioned.",
+          "D": "He worked to replace candles."
+        }
+      },
+      {
+        "stem": "What can you tell about Edison from the many things he tried?",
+        "options": [
+          "He was afraid of fire",
+          "He wanted to quit early",
+          "He liked to try many ideas",
+          "He did the work alone"
+        ],
+        "answer": "C",
+        "skill": "inference",
+        "why": "He tried thread, string, and plant parts, so he was willing to try many ideas.",
+        "wrong": {
+          "A": "He worked with heat and glowing wire.",
+          "B": "The article says he did not stop.",
+          "D": "He worked with helpers."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "How long did the first working filament glow?",
+        "options": [
+          "A few seconds",
+          "More than thirteen hours",
+          "Over a thousand hours",
+          "Exactly one day"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The article says the cotton-thread filament glowed for more than thirteen hours.",
+        "wrong": {
+          "A": "A few seconds is how long failed filaments lasted.",
+          "C": "Over a thousand hours is the bamboo filament.",
+          "D": "One day is not mentioned."
+        }
+      },
+      {
+        "stem": "In the article, the word durable means —",
+        "options": [
+          "very loud",
+          "brightly colored",
+          "long-lasting",
+          "easy to see"
+        ],
+        "answer": "C",
+        "skill": "vocabulary",
+        "why": "The challenge was finding a filament that would glow a long time without burning away.",
+        "wrong": {
+          "A": "Loudness is not meant.",
+          "B": "Color is not meant.",
+          "D": "Visibility is not the meaning."
+        }
+      },
+      {
+        "stem": "Why were candles and gas lamps a problem?",
+        "options": [
+          "They were too bright",
+          "They cost too much",
+          "They were hard to carry",
+          "They were weak and unsafe"
+        ],
+        "answer": "D",
+        "skill": "cause-effect",
+        "why": "The article says they gave weak light and sometimes started fires.",
+        "wrong": {
+          "A": "The light was weak, not too bright.",
+          "B": "Cost is not mentioned.",
+          "C": "Carrying is not mentioned."
+        }
+      },
+      {
+        "stem": "Why was Edison's workshop called an \"invention factory\"?",
+        "options": [
+          "It made many inventions",
+          "It made only light bulbs",
+          "It sold candles and lamps",
+          "It was a very small room"
+        ],
+        "answer": "A",
+        "skill": "inference",
+        "why": "Edison held more than a thousand patents, so many inventions came out of his workshop.",
+        "wrong": {
+          "B": "He made other things too.",
+          "C": "He wanted to replace candles.",
+          "D": "The article calls it a large workshop."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "In the article, the word prolific means —",
+        "options": [
+          "quiet, shy, and humble",
+          "making very many things",
+          "slow and very careful",
+          "weak and easy to break"
+        ],
+        "answer": "B",
+        "skill": "vocabulary",
+        "why": "A prolific inventor held more than a thousand patents, so he produced a great many inventions.",
+        "wrong": {
+          "A": "Shyness is not meant.",
+          "C": "He tested carefully, but prolific is about quantity.",
+          "D": "Breaking is not meant."
+        }
+      },
+      {
+        "stem": "Where was Edison's laboratory?",
+        "options": [
+          "In Alabama",
+          "In California",
+          "In Texas",
+          "In New Jersey"
+        ],
+        "answer": "D",
+        "skill": "detail",
+        "why": "The article says his laboratory was in Menlo Park, New Jersey.",
+        "wrong": {
+          "A": "Alabama is not mentioned.",
+          "B": "California is not mentioned.",
+          "C": "Texas is not mentioned."
+        }
+      },
+      {
+        "stem": "Why did people need a better light than candles and gas lamps?",
+        "options": [
+          "They were weak and unsafe",
+          "They were too hard to buy",
+          "They stopped working in winter",
+          "They were too loud at night"
+        ],
+        "answer": "A",
+        "skill": "cause-effect",
+        "why": "The article says candles and gas lamps gave weak light and sometimes caused fires.",
+        "wrong": {
+          "B": "Buying them is not mentioned.",
+          "C": "Winter is not mentioned.",
+          "D": "Noise is not mentioned."
+        }
+      },
+      {
+        "stem": "Why does the author say Edison wanted a bulb practical enough to sell?",
+        "options": [
+          "To keep it inside a laboratory",
+          "To make it for one rich home",
+          "To serve many ordinary homes",
+          "To use it only for experiments"
+        ],
+        "answer": "C",
+        "skill": "inference",
+        "why": "The article says he wanted a dependable light for ordinary homes, not just a curiosity in a laboratory.",
+        "wrong": {
+          "A": "The article says he did not want it confined to a laboratory.",
+          "B": "He aimed at ordinary homes, not one rich home.",
+          "D": "He wanted a bulb for real use."
+        }
+      }
+    ]
   }
 }

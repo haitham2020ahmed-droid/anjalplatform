@@ -614,5 +614,217 @@
       ],
       "modelAnswer": "I agree that correct form matters more than lifting heavy weights, because the article shows that technique protects the joints and tendons while still allowing hypertrophy to occur safely over time. Progressive overload only works when the weight increases gradually and the body stays in proper alignment; without that, a heavy lift performed with poor technique can easily strain a tendon or injure the back, knees, or shoulders. Since real strength comes from patient, well-coached training rather than from lifting as much weight as possible right away, I believe focusing on form first is clearly the safer and ultimately more effective approach."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "How long does it take for muscles to get a bit stronger?",
+        "options": [
+          "One short day",
+          "Only a few minutes",
+          "One quiet hour",
+          "Many weeks"
+        ],
+        "answer": "D",
+        "skill": "detail",
+        "why": "The text says muscles get a bit stronger over time and that this takes many weeks.",
+        "wrong": {
+          "A": "One day is far too short, since the text says many weeks.",
+          "B": "A few minutes is far too short, since the text says many weeks.",
+          "C": "One hour is far too short, since the text says many weeks."
+        }
+      },
+      {
+        "stem": "In this article, what does the word basic mean?",
+        "options": [
+          "Very heavy",
+          "The main, simple kind",
+          "Hard to learn",
+          "Used only by coaches"
+        ],
+        "answer": "B",
+        "skill": "vocabulary",
+        "why": "The text names the squat and the deadlift as the few basic lifts, which are the simple, main lifts young lifters start with.",
+        "wrong": {
+          "A": "The text says young lifters start with light weights.",
+          "C": "The basic lifts are the ones lifters begin with, so they are not the hard ones.",
+          "D": "Young lifters do these lifts, not only coaches."
+        }
+      },
+      {
+        "stem": "What would likely happen to a lifter who never rests?",
+        "options": [
+          "Her muscles may not grow well.",
+          "Her bar would get lighter.",
+          "Her coach would lift for her.",
+          "Her form would be perfect."
+        ],
+        "answer": "A",
+        "skill": "inference",
+        "why": "The text says muscles grow during rest, so a lifter who never rests may not grow stronger.",
+        "wrong": {
+          "B": "The bar's weight does not change by itself.",
+          "C": "The coach only watches and checks.",
+          "D": "Resting is what matters, and skipping it does not improve form."
+        }
+      },
+      {
+        "stem": "What do young lifters do after they start with light weights?",
+        "options": [
+          "They lift the bar once.",
+          "They stop lifting for a year.",
+          "They add more weight over time.",
+          "They only watch the coach."
+        ],
+        "answer": "C",
+        "skill": "sequence",
+        "why": "The text says young lifters start with light weights and then add more weight over time.",
+        "wrong": {
+          "A": "The text says they build strength over many lifts.",
+          "B": "They keep lifting in slow steps.",
+          "D": "The coach watches each lift, but the lifters do the lifting."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "What does the coach make sure of during a lift?",
+        "options": [
+          "The bar is painted bright",
+          "The lifter lifts very fast",
+          "The back stays straight",
+          "The weights are the same"
+        ],
+        "answer": "C",
+        "skill": "detail",
+        "why": "The text says the coach makes sure the back stays straight and the knees track correctly.",
+        "wrong": {
+          "A": "The color of the bar is not mentioned.",
+          "B": "Fast lifting is not mentioned; the text stresses careful, steady work.",
+          "D": "The text says weights are added slowly, not kept the same."
+        }
+      },
+      {
+        "stem": "In the article, the word technique means —",
+        "options": [
+          "the right way to move",
+          "the size of the weights",
+          "a rest between two lifts",
+          "a kind of hard muscle"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "Good technique keeps a lifter safe and the coach checks posture, so technique is the correct way to do a move.",
+        "wrong": {
+          "B": "Technique is about how a lift is done, not how heavy it is.",
+          "C": "Rest is a separate idea in the text.",
+          "D": "Technique is not a muscle."
+        }
+      },
+      {
+        "stem": "Why does the article say getting stronger takes real patience?",
+        "options": [
+          "The coach is often late.",
+          "Muscles grow very slowly.",
+          "The gym is far from home.",
+          "Rest days are not allowed."
+        ],
+        "answer": "B",
+        "skill": "cause-effect",
+        "why": "The text says muscles slowly grow stronger over weeks of steady practice and never change fast.",
+        "wrong": {
+          "A": "The coach's time is not mentioned.",
+          "C": "The gym's place is not mentioned.",
+          "D": "The text says rest matters a lot."
+        }
+      },
+      {
+        "stem": "Why does the author begin with an athlete bending her knees and gripping the bar?",
+        "options": [
+          "To list every basic lift",
+          "To show how to buy weights",
+          "To explain how muscles grow",
+          "To picture a careful start"
+        ],
+        "answer": "D",
+        "skill": "author-purpose",
+        "why": "The opening shows an athlete preparing with focus, which sets up the idea that safe lifting starts with careful steps.",
+        "wrong": {
+          "A": "Only the squat and deadlift are named, and later.",
+          "B": "Buying weights is not mentioned.",
+          "C": "Muscle growth is explained later in the article."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "According to the article, what does correct technique protect?",
+        "options": [
+          "The bar and the floor",
+          "The coach and the room",
+          "The joints and tendons",
+          "The shoes and the belt"
+        ],
+        "answer": "C",
+        "skill": "detail",
+        "why": "The text says correct technique protects the joints and tendons while muscles grow stronger.",
+        "wrong": {
+          "A": "The bar and the floor are not mentioned as protected.",
+          "B": "The coach and the room are not mentioned as protected.",
+          "D": "Shoes and belts are not mentioned."
+        }
+      },
+      {
+        "stem": "Why would muscles have little reason to change without progressive overload?",
+        "options": [
+          "They are never pushed any further",
+          "They grow too fast for the athlete",
+          "They always need more rest first",
+          "They are checked too often by a coach"
+        ],
+        "answer": "A",
+        "skill": "cause-effect",
+        "why": "The text says without a slow, steady increase, muscles are never challenged beyond what they already handle.",
+        "wrong": {
+          "B": "The text says growth is slow, not too fast.",
+          "C": "Rest matters, but it is not the reason given here.",
+          "D": "Coach checks are about technique, not muscle growth."
+        }
+      },
+      {
+        "stem": "In the article, the word foundational most nearly means —",
+        "options": [
+          "very expensive for a gym",
+          "hard to see from afar",
+          "needed for later lifts",
+          "only meant for adults"
+        ],
+        "answer": "C",
+        "skill": "vocabulary",
+        "why": "Young athletes master foundational lifts first, before anything more advanced, so these lifts are the base for later ones.",
+        "wrong": {
+          "A": "Cost is not mentioned.",
+          "B": "Seeing is not part of the meaning.",
+          "D": "The text says young athletes learn them."
+        }
+      },
+      {
+        "stem": "What does the article suggest about a lifter who skips rest?",
+        "options": [
+          "She will lift heavier right away.",
+          "She may not let muscles repair.",
+          "She will learn the squat faster.",
+          "She will not need a coach."
+        ],
+        "answer": "B",
+        "skill": "inference",
+        "why": "The text says muscle fibers repair and strengthen during recovery, so skipping rest may stop that repair.",
+        "wrong": {
+          "A": "The text does not say skipping rest makes lifting heavier.",
+          "C": "Rest is not linked to learning the squat faster.",
+          "D": "A coach is needed for technique, not rest."
+        }
+      }
+    ]
   }
 }

@@ -38,6 +38,8 @@ import { STUDY_PLAN_KINDS } from "../curriculum-map/plans";
 import { myStrategySurvey, OPEN_KEY, surveyTerm } from "../surveys/strategy";
 import { hiddenWorkKeys, placeCancelled, withoutCancelled } from "./cancelled-work";
 import { bookletSourceOf } from "../nafs/booklet-source";
+import { visibleArticles } from "../readrise/student";
+import { ARTICLE_STATUS_LABEL, articleStatus } from "../readrise/first-try";
 import { startedBy } from "../../lib/assign-dates";
 
 export { WORK_KIND_LABEL as KIND_LABEL, WORK_KINDS } from "../../lib/work-kinds";
@@ -165,24 +167,30 @@ async function planRows(repo: Repo, classIds: string[], mine: Row[], hidden: Set
   return out;
 }
 
-/** ReadRise articles the teacher assigned to my classes: Done when my reading of it is finished. */
-async function readRiseRows(repo: Repo, sid: string, classIds: string[], now: Date): Promise<MyWorkItem[]> {
-  if (!classIds.length) return [];
+/**
+ * ReadRise articles the teacher assigned to my classes. Round 5: the ONE article status (first-try.ts articleStatus,
+ * the same words as the library): Not started / In progress / In progress + "Finish steps 4–5" / Done (the first try
+ * finished all 5 steps); only articles the library shows (published, not deleted, not hidden by the school).
+ */
+async function readRiseRows(repo: Repo, sid: string, schoolId: string | null | undefined, classIds: string[], now: Date): Promise<MyWorkItem[]> {
+  if (!classIds.length || !schoolId) return [];
   // r68: an article assigned for later (its start date) is not in My Work before that day
   // 3 Nov 2026: no "newest 100" cut — a class with many old (cancelled) articles pushed a live one out of My Work
   const given = (await repo.findMany("RRClassArticle", { classId: { in: classIds } }, { select: ["articleId", "dueAt", "startAt", "createdAt"], orderBy: [{ field: "createdAt", dir: "desc" }], take: 2000 })).filter((g) => startedBy(g.startAt, now));
   if (!given.length) return [];
   const ids = [...new Set(given.map((g) => s(g.articleId)))];
-  const [arts, runs] = await Promise.all([
-    repo.findMany("RRArticle", { id: { in: ids }, deletedAt: null }, { select: ["id", "title"] }),
-    repo.findMany("RRRun", { studentId: sid, articleId: { in: ids } }, { select: ["articleId", "step", "completedAt"] }),
+  const [visible, runs] = await Promise.all([
+    visibleArticles(repo, schoolId),
+    repo.findMany("RRRun", { studentId: sid, articleId: { in: ids } }, { select: ["articleId", "step", "score", "completedAt", "firstTry", "stretch", "startedAt"] }),
   ]);
-  return ids.filter((id) => arts.some((a) => a.id === id)).map((id) => {
+  const title = new Map(visible.map((a) => [s(a.id), s(a.title)]));
+  return ids.filter((id) => title.has(id)).map((id) => {
     const g = given.find((x) => s(x.articleId) === id)!;
-    const mineRuns = runs.filter((r) => s(r.articleId) === id);
-    const status: WorkStatus = mineRuns.some((r) => r.completedAt || r.step === "DONE") ? "Done" : mineRuns.length ? "In progress" : "Not started";
+    const st = articleStatus(runs.filter((r) => s(r.articleId) === id));
+    const status: WorkStatus = st === "DONE" ? "Done" : st === "NEW" ? "Not started" : "In progress";
     const due = iso(g.dueAt);
-    return row("READRISE", id, `ReadRise — ${s(arts.find((a) => a.id === id)?.title)}`, status, `/student/readrise/${encodeURIComponent(id)}`, { dueAt: due, overdue: late(due, now) });
+    const item = row("READRISE", id, `ReadRise — ${title.get(id)}`, status, `/student/readrise/${encodeURIComponent(id)}`, { dueAt: due, overdue: late(due, now) });
+    return st === "FINISH_STEPS" ? { ...item, note: ARTICLE_STATUS_LABEL.FINISH_STEPS } : item;
   });
 }
 
@@ -229,7 +237,7 @@ export async function extraWorkItems(repo: Repo, actor: Actor, now = new Date(),
     safeIfBehind("work.map-test", () => (pre.map ?? mapTestsOf(repo, actor, now)).then(mapRows), none),
     safeIfBehind("work.nafs-tests", () => nafsTestRows(repo, sid, classIds, now), none),
     safeIfBehind("work.nafs-practice", () => nafsPracticeRows(repo, sid, classIds, now), none),
-    safeIfBehind("work.readrise", () => readRiseRows(repo, sid, classIds, now), none),
+    safeIfBehind("work.readrise", () => readRiseRows(repo, sid, actor.schoolId, classIds, now), none),
     safeIfBehind("work.writing", () => (pre.writing ?? myTasks(repo, actor)).then((x) => writingRows(x, now)), none),
     safeIfBehind("work.respond", () => (pre.respond ?? studentRespondWork(repo, actor)).then((x) => respondRows(x, now)), none),
     safeIfBehind("work.exit", () => exitRows(repo, sid, classIds), none),

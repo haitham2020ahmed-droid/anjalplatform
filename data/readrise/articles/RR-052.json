@@ -614,5 +614,217 @@
       ],
       "modelAnswer": "I think it is more useful to prepare for earthquakes than to try to predict them. The article says nobody can predict exactly when an earthquake will happen, so instead engineers design reinforced buildings that can bend without breaking along a fault. Scientists also monitor the ground with instruments to understand seismic activity, but this does not tell them the exact moment friction between the plates will finally let go. Since we cannot know the timing, practicing safety steps ahead of time saves more lives than waiting for a prediction."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "What makes the ground shake in a quake?",
+        "options": [
+          "Energy let out when plates slip",
+          "Wind that moves across the crust",
+          "A tool that gives the quake a number",
+          "The Red Sea getting wider"
+        ],
+        "answer": "A",
+        "skill": "cause-effect",
+        "why": "The text says the plates slip all at once, which lets out lots of energy that shakes the ground.",
+        "wrong": {
+          "B": "The text never says wind causes a quake.",
+          "C": "The tool only feels a quake and gives it a number.",
+          "D": "The Red Sea gets wider slowly, which is not what shakes the ground."
+        }
+      },
+      {
+        "stem": "What can a quake in the sea make?",
+        "options": [
+          "A deep hole",
+          "A hot wind",
+          "A tall hill",
+          "A huge wave"
+        ],
+        "answer": "D",
+        "skill": "detail",
+        "why": "The text says a quake in the sea can make a huge wave.",
+        "wrong": {
+          "A": "The text does not say a quake in the sea makes a deep hole.",
+          "B": "The text does not mention a hot wind.",
+          "C": "The text does not say a quake in the sea makes a hill."
+        }
+      },
+      {
+        "stem": "The text says the edges of two plates \"get stuck.\" What does stuck mean?",
+        "options": [
+          "moving very fast",
+          "not able to move",
+          "broken into parts",
+          "pushed far apart"
+        ],
+        "answer": "B",
+        "skill": "vocabulary",
+        "why": "The edges get stuck and then slip all at once, so stuck means not able to move for a time.",
+        "wrong": {
+          "A": "The edges do not move at all while they are stuck.",
+          "C": "The crust is cut into plates, but stuck is about the edges.",
+          "D": "The plates push together, not apart."
+        }
+      },
+      {
+        "stem": "What should you do right after you drop down in a quake?",
+        "options": [
+          "Run outside fast",
+          "Go to the sea",
+          "Get under a desk",
+          "Look for the epicenter"
+        ],
+        "answer": "C",
+        "skill": "sequence",
+        "why": "The text says to drop down, get under a desk, and hold on.",
+        "wrong": {
+          "A": "The text says to stay down, not run.",
+          "B": "The sea can be dangerous in a quake.",
+          "D": "The epicenter is a spot deep below, and people cannot look for it."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "What is the crust of the Earth made of?",
+        "options": [
+          "Hot gas",
+          "Hard rock",
+          "Soft sand",
+          "Deep water"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The text says the outer layer of the Earth, the crust, is made of hard rock.",
+        "wrong": {
+          "A": "The crust is solid, not gas.",
+          "C": "The text says rock, not soft sand.",
+          "D": "The ocean sits on the crust; it is not the crust."
+        }
+      },
+      {
+        "stem": "What happens when the rocks slip all at once?",
+        "options": [
+          "The plates stop moving forever",
+          "The rocks turn into a spring",
+          "The ground cools and gets still",
+          "Energy shakes the ground"
+        ],
+        "answer": "D",
+        "skill": "cause-effect",
+        "why": "The text says the slip lets out a huge burst of energy that moves through the ground in waves.",
+        "wrong": {
+          "A": "The plates keep moving slowly.",
+          "B": "The spring is only a comparison for stress.",
+          "C": "The ground shakes, so it is not still."
+        }
+      },
+      {
+        "stem": "Students hide under a \"sturdy\" desk. What does sturdy mean?",
+        "options": [
+          "strong and firm",
+          "small and light",
+          "new and clean",
+          "old and broken"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "A desk that protects you from a quake must be strong and firm.",
+        "wrong": {
+          "B": "A light desk would not protect you well.",
+          "C": "Being new or clean has nothing to do with safety.",
+          "D": "A broken desk would not protect anyone."
+        }
+      },
+      {
+        "stem": "A quake has a very small magnitude. What will most likely happen?",
+        "options": [
+          "It will make a giant wave.",
+          "Buildings will fall down.",
+          "People will not notice it.",
+          "The Red Sea will dry up."
+        ],
+        "answer": "C",
+        "skill": "inference",
+        "why": "The text says a bigger magnitude means a stronger quake, and most small quakes are never noticed.",
+        "wrong": {
+          "A": "Giant waves come from large quakes under the ocean.",
+          "B": "Large quakes knock down buildings, not small ones.",
+          "D": "The Red Sea is getting wider and the quake does not dry it up."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "What happens to the shaking as you move farther from the epicenter?",
+        "options": [
+          "It becomes more violent.",
+          "It stays the same.",
+          "It stops for a day.",
+          "It grows weaker."
+        ],
+        "answer": "D",
+        "skill": "detail",
+        "why": "The text says the shaking is most violent near the epicenter and grows weaker with distance.",
+        "wrong": {
+          "A": "The shaking is strongest near the epicenter.",
+          "B": "The text says it changes with distance.",
+          "C": "The text does not say the shaking stops for a day."
+        }
+      },
+      {
+        "stem": "How can an earthquake beneath the ocean floor cause a tsunami?",
+        "options": [
+          "It lifts a huge amount of water.",
+          "It heats the water until it boils.",
+          "It pushes the plates together slowly.",
+          "It makes the crust grow thicker."
+        ],
+        "answer": "A",
+        "skill": "cause-effect",
+        "why": "The text says a quake under the ocean can lift an enormous volume of water and make a destructive wave.",
+        "wrong": {
+          "B": "The text does not say the water boils.",
+          "C": "The plates move slowly all the time, which does not make a wave.",
+          "D": "The text does not say the crust gets thicker."
+        }
+      },
+      {
+        "stem": "The article says pressure \"accumulates\" in the rocks. What does accumulates mean?",
+        "options": [
+          "slowly goes away",
+          "builds up over time",
+          "moves out to the sea",
+          "turns into friction"
+        ],
+        "answer": "B",
+        "skill": "vocabulary",
+        "why": "The plates keep pushing, like a spring squeezed tighter and tighter, so pressure builds up over time.",
+        "wrong": {
+          "A": "The pressure grows until the rocks slip.",
+          "C": "The pressure stays in the rocks.",
+          "D": "Friction is what makes the edges lock together."
+        }
+      },
+      {
+        "stem": "Why does the author say the plates fit together like pieces of a gigantic puzzle?",
+        "options": [
+          "To show that quakes are a game",
+          "To explain how fast the plates move",
+          "To help readers see how the plates meet",
+          "To say that the crust is made of glass"
+        ],
+        "answer": "C",
+        "skill": "author-purpose",
+        "why": "A puzzle shows how separate pieces fit together, which helps readers picture the plates meeting.",
+        "wrong": {
+          "A": "The comparison is not about a game.",
+          "B": "The speed is explained with fingernails.",
+          "D": "The crust is hard rock, not glass."
+        }
+      }
+    ]
   }
 }

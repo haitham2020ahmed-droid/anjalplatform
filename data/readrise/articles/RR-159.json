@@ -614,5 +614,217 @@
       ],
       "modelAnswer": "I believe visitors should not be allowed to pick up sea stars in tide pools, because even gentle handling can stress these delicate invertebrates. The article explains that a sea star has no blood and pumps water through a system of tubes just to move its tube feet, so lifting it out of the water could damage this fragile system. It also notes that while a sea star can regenerate a lost arm, this process can take a year, showing that an injury from careless handling has a long-lasting cost to the animal and its role in the shore ecosystem."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "What can a sea star's eye spot do?",
+        "options": [
+          "Find clams in the sand",
+          "See clear pictures",
+          "Tell light from dark",
+          "Warn of the tide"
+        ],
+        "answer": "C",
+        "skill": "detail",
+        "why": "The text says the eye spot at the tip of each arm can tell light from dark.",
+        "wrong": {
+          "A": "The text does not say the eye spot finds clams.",
+          "B": "It only tells light from dark.",
+          "D": "The tide is not sensed by the eye spot."
+        }
+      },
+      {
+        "stem": "How does a sea star eat a clam?",
+        "options": [
+          "It bites the shell in two.",
+          "It pushes its stomach into the shell.",
+          "It waits for the clam to swim away.",
+          "It rubs the shell on a rock."
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The text says the stomach goes in the shell and the sea star eats the clam there.",
+        "wrong": {
+          "A": "The text says it pulls the shell a bit open.",
+          "C": "The sea star goes after the clam.",
+          "D": "Rocks are only where the sea star creeps."
+        }
+      },
+      {
+        "stem": "In the article, the word regrow means to —",
+        "options": [
+          "grow again",
+          "grow slow",
+          "run away",
+          "lose weight"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "A sea star that loses an arm can regrow it, so the arm grows again.",
+        "wrong": {
+          "B": "The text says it takes a long time, but regrow does not mean slow.",
+          "C": "Running away is not the meaning.",
+          "D": "Weight is not mentioned."
+        }
+      },
+      {
+        "stem": "A sea star has no blood. How does it get by?",
+        "options": [
+          "Sea water goes through it.",
+          "Its brain pumps air around.",
+          "Its eyes make its food.",
+          "Its shell holds water."
+        ],
+        "answer": "A",
+        "skill": "inference",
+        "why": "The text says sea water moves through its body, so it does not need blood.",
+        "wrong": {
+          "B": "The sea star has no brain.",
+          "C": "Eye spots only sense light.",
+          "D": "A sea star has no shell."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "What can the eye spot at the tip of each arm sense?",
+        "options": [
+          "Sound and heat",
+          "Light and darkness",
+          "Color and shape",
+          "Food and water"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The text says it cannot see clear pictures but can sense light and darkness.",
+        "wrong": {
+          "A": "Sound and heat are not mentioned.",
+          "C": "It cannot see clear pictures.",
+          "D": "The text does not say it senses food or water."
+        }
+      },
+      {
+        "stem": "Why is a sea star not a fish?",
+        "options": [
+          "It lives in the Red Sea.",
+          "It has a brain but no blood.",
+          "It has no backbone or fins.",
+          "It has twenty or more arms."
+        ],
+        "answer": "C",
+        "skill": "detail",
+        "why": "The text says it has no backbone, no fins, and no gills like a fish.",
+        "wrong": {
+          "A": "Many fish live in the Red Sea too.",
+          "B": "It has no brain and no blood.",
+          "D": "Only some kinds have that many arms."
+        }
+      },
+      {
+        "stem": "In the article, the word digest means to —",
+        "options": [
+          "break down food",
+          "hold on tight",
+          "push out",
+          "grow back"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "The stomach starts to digest the clam inside the shell, which means it breaks the food down.",
+        "wrong": {
+          "B": "Holding on is done by tube feet.",
+          "C": "Pushing out is what the stomach does first.",
+          "D": "Growing back is regrowing an arm."
+        }
+      },
+      {
+        "stem": "Why do sea stars rest in tide pools or under damp seaweed when the tide goes out?",
+        "options": [
+          "To hunt for clams and snails",
+          "To find a place to lay eggs",
+          "To stay wet until water returns",
+          "To hide from the Red Sea"
+        ],
+        "answer": "C",
+        "skill": "inference",
+        "why": "They rest in pools or under damp seaweed until the water returns, which suggests they need to stay wet.",
+        "wrong": {
+          "A": "The text says they rest, not hunt, at this time.",
+          "B": "Egg laying is not linked to the tide.",
+          "D": "The Red Sea is a place they live."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "What name do scientists give to sea stars, sea urchins, and sand dollars together?",
+        "options": [
+          "Invertebrates",
+          "Predators",
+          "Echinoderms",
+          "Boulders"
+        ],
+        "answer": "C",
+        "skill": "detail",
+        "why": "The text says scientists classify them together as echinoderms.",
+        "wrong": {
+          "A": "Invertebrate describes the sea star's lack of a backbone, not the group name.",
+          "B": "Predators is about hunting.",
+          "D": "Boulders are rocks."
+        }
+      },
+      {
+        "stem": "In the article, the word recedes most nearly means —",
+        "options": [
+          "goes back out",
+          "comes rushing in",
+          "turns very cold",
+          "becomes too salty"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "When the tide recedes, it goes out and leaves tide pools behind.",
+        "wrong": {
+          "B": "That is the opposite of recedes.",
+          "C": "Temperature is not the idea.",
+          "D": "Saltiness is not the idea."
+        }
+      },
+      {
+        "stem": "What makes a sea star's tube feet extend and retract?",
+        "options": [
+          "Muscles in its brain",
+          "Water pressure in its canals",
+          "The pull of the tide",
+          "Movement of its eye spots"
+        ],
+        "answer": "B",
+        "skill": "cause-effect",
+        "why": "The text says water pressure within the canals extends and retracts the feet.",
+        "wrong": {
+          "A": "A sea star has no brain.",
+          "C": "The tide is not described as moving the feet.",
+          "D": "Eye spots only detect light."
+        }
+      },
+      {
+        "stem": "A crab bites off one arm of a sea star. What will most likely happen?",
+        "options": [
+          "The sea star will die at once.",
+          "The arm will grow back in time.",
+          "The sea star will grow a brain.",
+          "The other arms will fall off."
+        ],
+        "answer": "B",
+        "skill": "inference",
+        "why": "The text says a sea star can regenerate a replacement arm, which may take months or a year.",
+        "wrong": {
+          "A": "The text says it can regenerate.",
+          "C": "A sea star has no brain at all.",
+          "D": "The text does not say this."
+        }
+      }
+    ]
   }
 }

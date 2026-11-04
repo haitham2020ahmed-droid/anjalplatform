@@ -614,5 +614,217 @@
       ],
       "modelAnswer": "My friend's idea that the Moon's dark part is Earth's shadow is a common misconception, but the article makes clear that the Sun always illuminates exactly one hemisphere of the Moon, the half that faces the Sun, while the opposite hemisphere simply stays in darkness because sunlight never reaches it. The real cause of the lunar phases is the Moon's orbit around Earth: as it travels along that path, we on Earth see different portions of its lit half, from a thin crescent to a full Moon and back again, which has nothing to do with Earth blocking sunlight."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "Which half of the Moon does the Sun light?",
+        "options": [
+          "The half that is far from the Sun",
+          "The bottom half only",
+          "The half that faces the Sun",
+          "The half that faces the stars"
+        ],
+        "answer": "C",
+        "skill": "detail",
+        "why": "The text says the Sun lights the half that faces the Sun.",
+        "wrong": {
+          "A": "The far half is dark.",
+          "B": "The text does not say it is the bottom half.",
+          "D": "The text does not say the stars matter."
+        }
+      },
+      {
+        "stem": "In the article, an orbit is —",
+        "options": [
+          "the path of the Moon around Earth",
+          "a round shape of the full Moon",
+          "a lamp that shines on a ball",
+          "a thin curved piece of Moon"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "The text says the Moon goes around Earth and this path is its orbit.",
+        "wrong": {
+          "B": "The full Moon is a phase, not an orbit.",
+          "C": "The lamp and ball are a model to test the idea.",
+          "D": "A thin curved piece is a crescent."
+        }
+      },
+      {
+        "stem": "Why does the Moon's shape seem to change?",
+        "options": [
+          "The Earth's shadow covers it.",
+          "The Moon gets bigger and smaller.",
+          "The Sun turns on and off.",
+          "We see more or less of the lit half."
+        ],
+        "answer": "D",
+        "skill": "cause-effect",
+        "why": "As the Moon moves, we see more or less of its lit half.",
+        "wrong": {
+          "A": "The text says the dark part is not Earth's shadow.",
+          "B": "The text says the Moon is the same.",
+          "C": "The Sun always lights half of the Moon."
+        }
+      },
+      {
+        "stem": "What starts each month of the Hijri calendar in Saudi Arabia?",
+        "options": [
+          "A very bright full Moon",
+          "A new crescent that is seen",
+          "A bright half Moon at night",
+          "A very dark and cloudy sky"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The text says each month starts when the new crescent is seen.",
+        "wrong": {
+          "A": "A full Moon comes in the middle of the cycle.",
+          "C": "The half Moon does not start the month.",
+          "D": "A dark sky alone does not start the month."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "In the article, the word illuminated means —",
+        "options": [
+          "hidden in the shadow of Earth",
+          "lit up by the light of the Sun",
+          "turned away from the Sun",
+          "covered with gray rocks"
+        ],
+        "answer": "B",
+        "skill": "vocabulary",
+        "why": "The Sun lights half of the Moon, and that lit half is the illuminated half.",
+        "wrong": {
+          "A": "The lit half is the opposite of hidden.",
+          "C": "The half turned away is dark.",
+          "D": "The rocks are the Moon's surface, not what illuminated means."
+        }
+      },
+      {
+        "stem": "What does the Moon's surface look like?",
+        "options": [
+          "Smooth and blue",
+          "Wet and green",
+          "Hot and red",
+          "Gray and rocky"
+        ],
+        "answer": "D",
+        "skill": "detail",
+        "why": "The text says sunlight falls on its gray, rocky surface.",
+        "wrong": {
+          "A": "The surface is gray and rocky, not smooth and blue.",
+          "B": "The text does not say it is wet or green.",
+          "C": "The text does not say it is red."
+        }
+      },
+      {
+        "stem": "Why can we see the Moon at night if it makes no light?",
+        "options": [
+          "It reflects sunlight toward Earth.",
+          "It stores light from the stars.",
+          "Earth's shadow makes it glow.",
+          "It is lit by lamps on Earth."
+        ],
+        "answer": "A",
+        "skill": "cause-effect",
+        "why": "Sunlight falls on the Moon's surface, which reflects some of it toward Earth.",
+        "wrong": {
+          "B": "The text says the light comes from the Sun.",
+          "C": "The dark part is not Earth's shadow.",
+          "D": "The text does not mention lamps on Earth lighting it."
+        }
+      },
+      {
+        "stem": "Why does the author say the \"Earth's shadow\" idea is not true?",
+        "options": [
+          "To make readers afraid of the dark side",
+          "To say the Moon is hiding from Earth",
+          "To correct a common mistake",
+          "To show the Moon has no phases"
+        ],
+        "answer": "C",
+        "skill": "author-purpose",
+        "why": "The text says many people believe it, but it is not true, so the author corrects it.",
+        "wrong": {
+          "A": "The author is explaining, not scaring.",
+          "B": "The Moon is not described as hiding.",
+          "D": "The article describes many phases."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "In the article, a misconception is —",
+        "options": [
+          "a clear photograph of the Moon",
+          "a scientist who studies phases",
+          "a true fact that everyone knows",
+          "a wrong idea many people believe"
+        ],
+        "answer": "D",
+        "skill": "vocabulary",
+        "why": "The text says a widespread misconception about Earth's shadow is incorrect.",
+        "wrong": {
+          "A": "The sentence is about an idea, not a photo.",
+          "B": "The word describes an idea, not a person.",
+          "C": "The text says the idea is incorrect."
+        }
+      },
+      {
+        "stem": "How long does it take the Moon to complete one entire cycle of shapes?",
+        "options": [
+          "About seven whole days",
+          "About 29 and a half days",
+          "About ninety whole days",
+          "About one whole year"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The text says one cycle takes approximately 29 and a half days.",
+        "wrong": {
+          "A": "Seven days is about one quarter of the cycle.",
+          "C": "Ninety days is too long.",
+          "D": "A year is far too long."
+        }
+      },
+      {
+        "stem": "Why is the Moon practically invisible at the new Moon?",
+        "options": [
+          "Earth's shadow covers the whole Moon",
+          "The Moon moves far from its orbit",
+          "The sunlit half faces away from us",
+          "The Sun stops shining on the Moon"
+        ],
+        "answer": "C",
+        "skill": "cause-effect",
+        "why": "At the new Moon the sunlit hemisphere faces away from us.",
+        "wrong": {
+          "A": "The article says Earth's shadow is not the dark part.",
+          "B": "The Moon stays on its orbit.",
+          "D": "The Sun always lights half of the Moon."
+        }
+      },
+      {
+        "stem": "How is the paragraph about the new Moon organized?",
+        "options": [
+          "In the order the shapes appear during one cycle",
+          "From the brightest phase to the darkest phase",
+          "By comparing the Moon with the Sun",
+          "By listing facts about Earth's shadow"
+        ],
+        "answer": "A",
+        "skill": "text-structure",
+        "why": "It goes from new Moon to crescent, half, full, then back to new Moon.",
+        "wrong": {
+          "B": "It does not start with the brightest phase.",
+          "C": "The paragraph is about phases, not a comparison.",
+          "D": "Earth's shadow is in a different paragraph."
+        }
+      }
+    ]
   }
 }

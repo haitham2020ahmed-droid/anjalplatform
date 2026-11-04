@@ -614,5 +614,217 @@
       ],
       "modelAnswer": "I recommend that the town council build the solar farm instead of a power plant that burns fuel. Photovoltaic panels use semiconductors to absorb sunlight and produce clean electricity without emissions or air pollution, unlike a fuel-burning plant. Sunlight is also a renewable, sustainable resource, since it will never run out, and a large array of panels can be built in open deserts where sunlight is especially strong. The main challenge is that solar power is intermittent, because the sun does not always shine at the same strength, so the town would need another power source to use alongside it, especially at night. Even with this challenge, the environmental benefits make the solar farm the better long-term choice."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "What did people long ago lay out on mats to dry?",
+        "options": [
+          "Fish",
+          "Dates",
+          "Bread",
+          "Rice"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The text says people laid dates out on mats and the sun dried them.",
+        "wrong": {
+          "A": "Fish are not mentioned.",
+          "C": "Bread is not mentioned.",
+          "D": "Rice is not mentioned."
+        }
+      },
+      {
+        "stem": "The text says the sun will never run out. What does run out mean?",
+        "options": [
+          "Be used up",
+          "Move away",
+          "Make a sound",
+          "Grow bigger"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "Saying the sun will not run out means it will never be used up.",
+        "wrong": {
+          "B": "The sun is not moving away.",
+          "C": "Sound is not the point.",
+          "D": "Size is not the point."
+        }
+      },
+      {
+        "stem": "A home uses only solar power. What will most likely happen to the lamps at night?",
+        "options": [
+          "They will get brighter",
+          "They may go dark",
+          "They will turn into fans",
+          "They will make smoke"
+        ],
+        "answer": "B",
+        "skill": "inference",
+        "why": "The text says the panels stop when the sun sets, so power for lamps may stop.",
+        "wrong": {
+          "A": "With no sun, the power gets less, not stronger.",
+          "C": "Lamps do not change into fans.",
+          "D": "The text says solar power makes no smoke."
+        }
+      },
+      {
+        "stem": "Where is the Sakaka solar farm?",
+        "options": [
+          "In the east of the Kingdom",
+          "In the south of the Kingdom",
+          "In the north of the Kingdom",
+          "In the middle of the sea"
+        ],
+        "answer": "C",
+        "skill": "detail",
+        "why": "The text says the big solar farm called Sakaka is in the north.",
+        "wrong": {
+          "A": "The text says north, not east.",
+          "B": "The text says north, not south.",
+          "D": "The farm is on land, not in the sea."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "What did people use sundials for?",
+        "options": [
+          "To dry food",
+          "To make electricity",
+          "To tell time",
+          "To cool the air"
+        ],
+        "answer": "C",
+        "skill": "detail",
+        "why": "The text says people built sundials to tell time.",
+        "wrong": {
+          "A": "Drying food was done directly in the sun.",
+          "B": "Electricity is a modern use.",
+          "D": "Cooling the air is not mentioned."
+        }
+      },
+      {
+        "stem": "In the article, what is the \"power grid\"?",
+        "options": [
+          "A tool that cools down solar cells",
+          "A system that brings power to homes",
+          "A large field filled with solar panels",
+          "A kind of fuel that burns in a farm"
+        ],
+        "answer": "B",
+        "skill": "vocabulary",
+        "why": "Cables carry electricity to the grid, which brings power to homes, schools, and factories.",
+        "wrong": {
+          "A": "The grid is not a cooling tool.",
+          "C": "A large field of panels is a solar farm.",
+          "D": "Panels do not burn fuel."
+        }
+      },
+      {
+        "stem": "Why must solar farms work with other power sources?",
+        "options": [
+          "The sun does not always shine",
+          "Solar panels cause pollution",
+          "Cables are too short",
+          "Deserts are too cold"
+        ],
+        "answer": "A",
+        "skill": "cause-effect",
+        "why": "The text says the sun does not always shine, so electricity changes from hour to hour.",
+        "wrong": {
+          "B": "The text says panels do not cause air pollution.",
+          "C": "Cable length is not discussed.",
+          "D": "Deserts are described as places of strong sun."
+        }
+      },
+      {
+        "stem": "Why does the author tell about people drying food with the sun more than a thousand years ago?",
+        "options": [
+          "To show people have used the sun for a long time",
+          "To show solar farms are very old",
+          "To show drying food is better than electricity",
+          "To show the sun was weaker long ago"
+        ],
+        "answer": "A",
+        "skill": "author-purpose",
+        "why": "The old uses show that using the sun's energy is not a new idea.",
+        "wrong": {
+          "B": "Solar farms are described as a modern use.",
+          "C": "The text does not compare food drying with electricity.",
+          "D": "The sun's strength is not compared over time."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "In the article, what does the word \"capacity\" mean?",
+        "options": [
+          "How old the panels have become",
+          "How much a farm costs to build",
+          "What color the panels are made in",
+          "The most power a farm can make"
+        ],
+        "answer": "D",
+        "skill": "vocabulary",
+        "why": "The text defines capacity as the maximum electricity a farm can produce at one time.",
+        "wrong": {
+          "A": "Color is not discussed.",
+          "B": "Age is a different idea, called degrading.",
+          "C": "Cost is not discussed."
+        }
+      },
+      {
+        "stem": "What flows when a semiconductor absorbs sunlight?",
+        "options": [
+          "Water",
+          "Electrons",
+          "Smoke",
+          "Heat only"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The text says a semiconductor releases a flow of electrons, which produces an electric current.",
+        "wrong": {
+          "A": "Water is not mentioned.",
+          "C": "The text says panels release no smoke.",
+          "D": "The text names electrons as the flow."
+        }
+      },
+      {
+        "stem": "What happens to a solar panel's output as the panel gets older?",
+        "options": [
+          "It slowly goes down",
+          "It stays exactly the same",
+          "It suddenly doubles",
+          "It stops at once"
+        ],
+        "answer": "A",
+        "skill": "cause-effect",
+        "why": "The text says panels slowly degrade over many years, so their output gradually decreases.",
+        "wrong": {
+          "B": "The text says output decreases.",
+          "C": "Output goes down, not up.",
+          "D": "The decrease is gradual, not sudden."
+        }
+      },
+      {
+        "stem": "Why does the author say sunlight carries a surprising amount of usable energy?",
+        "options": [
+          "To explain why the sun is far away",
+          "To warn readers about hot days",
+          "To compare the sun to a battery",
+          "To introduce the sun as a power source"
+        ],
+        "answer": "D",
+        "skill": "author-purpose",
+        "why": "The opening idea prepares readers for how people use sunlight to make electricity.",
+        "wrong": {
+          "A": "Distance is mentioned only in passing.",
+          "B": "The aim is not to warn readers.",
+          "C": "Batteries are not compared with the sun here."
+        }
+      }
+    ]
   }
 }

@@ -614,5 +614,217 @@
       ],
       "modelAnswer": "I disagree that you only need to drink water when you feel thirsty. Thirst is already a sign your body needs more water, so waiting for it means you may already be a little dehydrated and could develop a headache or feel tired. Water also helps your kidneys filter waste out of the blood that circulates through your body, and it helps regulate your temperature as sweat evaporates, so drinking steadily throughout the day, especially in Saudi Arabia's extreme summer heat, keeps you better hydrated than waiting until you are thirsty."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "What does the water in your mouth help you do?",
+        "options": [
+          "Eat your food",
+          "Run very fast",
+          "Sleep at night",
+          "Feel less hot"
+        ],
+        "answer": "A",
+        "skill": "detail",
+        "why": "The text says water makes spit in your mouth and spit helps you eat.",
+        "wrong": {
+          "B": "The text does not link spit to running.",
+          "C": "The text does not link spit to sleep.",
+          "D": "Sweat cools you, not spit."
+        }
+      },
+      {
+        "stem": "The article says a melon is full of water. What does this tell you?",
+        "options": [
+          "Melons are bad for you",
+          "Only drinks have water",
+          "Food can give you water",
+          "Melons are hot to eat"
+        ],
+        "answer": "C",
+        "skill": "inference",
+        "why": "The text says drinks give you water and so does food, and a melon is an example.",
+        "wrong": {
+          "A": "Nothing in the text says melons are bad.",
+          "B": "The text says food gives water too.",
+          "D": "The text says nothing about melons being hot."
+        }
+      },
+      {
+        "stem": "The article says water pads your joints. What does pads mean here?",
+        "options": [
+          "Makes them very hot",
+          "Gives them a soft cushion",
+          "Makes them grow longer",
+          "Washes them clean"
+        ],
+        "answer": "B",
+        "skill": "vocabulary",
+        "why": "Water keeps joints safe like a soft cushion between the bones.",
+        "wrong": {
+          "A": "Padding does not make joints hot.",
+          "C": "Padding does not make joints grow.",
+          "D": "Washing is the job of the kidneys, not joints."
+        }
+      },
+      {
+        "stem": "Besides sweat and urine, how else do you lose water?",
+        "options": [
+          "When you sleep only",
+          "When you eat melon",
+          "When you drink milk",
+          "When you breathe out"
+        ],
+        "answer": "D",
+        "skill": "detail",
+        "why": "The text says water also goes out when you breathe.",
+        "wrong": {
+          "A": "The text does not say this happens only in sleep.",
+          "B": "Eating melon gives you water.",
+          "C": "Drinking gives you water, it does not take it away."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "Which parts of the body does the article name as joints?",
+        "options": [
+          "Your skin and eyes",
+          "Your knees and elbows",
+          "Your blood and bones",
+          "Your mouth and brain"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The article says water pads your joints, such as your knees and elbows.",
+        "wrong": {
+          "A": "Skin and eyes are not called joints.",
+          "C": "Blood and bones are not joints.",
+          "D": "The mouth and brain are not joints."
+        }
+      },
+      {
+        "stem": "What would happen if your blood did not have enough water?",
+        "options": [
+          "It could not carry nutrients and oxygen well",
+          "It would clean the waste from your kidneys",
+          "It would cool your body faster on hot days",
+          "It would make more saliva for your mouth"
+        ],
+        "answer": "A",
+        "skill": "cause-effect",
+        "why": "The text says that without enough water your blood could not do its job of carrying nutrients and oxygen well.",
+        "wrong": {
+          "B": "Cleaning blood is the kidneys' job.",
+          "C": "Cooling comes from sweat, not from blood needing water.",
+          "D": "Saliva is made by water in the mouth, not by blood problems."
+        }
+      },
+      {
+        "stem": "Which meaning of dehydrated fits the article best?",
+        "options": [
+          "Full of food energy",
+          "Covered in sweat",
+          "Too warm to move",
+          "Without enough water"
+        ],
+        "answer": "D",
+        "skill": "vocabulary",
+        "why": "The text says that if you do not drink enough you can become dehydrated, with a headache or tiredness.",
+        "wrong": {
+          "A": "Food energy is not the topic of the word.",
+          "B": "Sweat is a cause of water loss, not the meaning.",
+          "C": "The word is about water, not about heat."
+        }
+      },
+      {
+        "stem": "Omar's urine is pale yellow. What can you tell from this?",
+        "options": [
+          "He is drinking too much",
+          "He has lost his thirst",
+          "He is likely drinking enough",
+          "He should drink more right now"
+        ],
+        "answer": "C",
+        "skill": "inference",
+        "why": "The article says pale yellow means you are fine.",
+        "wrong": {
+          "A": "The text does not say he drinks too much.",
+          "B": "The text does not link color to thirst being lost.",
+          "D": "Dark yellow, not pale yellow, means drink more."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "According to the article, where does the oxygen that your blood carries come from?",
+        "options": [
+          "Your lungs",
+          "Your kidneys",
+          "Your food",
+          "Your bones"
+        ],
+        "answer": "A",
+        "skill": "detail",
+        "why": "The article says blood carries oxygen from your lungs to every living cell.",
+        "wrong": {
+          "B": "Kidneys filter blood and make urine.",
+          "C": "Food gives nutrients, not oxygen.",
+          "D": "Bones are made partly of water but do not supply oxygen."
+        }
+      },
+      {
+        "stem": "In the article, what does the word circulate mean?",
+        "options": [
+          "Stay still in one place",
+          "Dry out very slowly",
+          "Move around and around",
+          "Change into a gas"
+        ],
+        "answer": "C",
+        "skill": "vocabulary",
+        "why": "Blood circulates through your entire body, so it keeps moving around it.",
+        "wrong": {
+          "A": "Blood never stops moving in the text.",
+          "B": "Drying is not what blood does.",
+          "D": "Turning into a gas describes evaporation, not circulation."
+        }
+      },
+      {
+        "stem": "How is the article mostly organized?",
+        "options": [
+          "It tells a short story in time order",
+          "It explains jobs of water, then how to get it",
+          "It compares water with sugary drinks only",
+          "It gives one problem and one long solution"
+        ],
+        "answer": "B",
+        "skill": "text-structure",
+        "why": "Most paragraphs each explain one job of water, and the end tells how to get enough water.",
+        "wrong": {
+          "A": "There is no story or time order.",
+          "C": "Sugary drinks appear only in the last sentence.",
+          "D": "There is no single problem and solution."
+        }
+      },
+      {
+        "stem": "Why does the author say it is wise not to ignore the feeling of thirst?",
+        "options": [
+          "It means you have eaten too much food",
+          "It signals that your body needs water",
+          "It helps you sweat a lot less than usual",
+          "It makes your blood move much faster"
+        ],
+        "answer": "B",
+        "skill": "cause-effect",
+        "why": "Thirst is the signal that your body requires water, and ignoring it can lead to dehydration and headaches.",
+        "wrong": {
+          "A": "Food is not linked to thirst in the text.",
+          "C": "The text does not say thirst changes sweating.",
+          "D": "The text does not say thirst speeds up blood."
+        }
+      }
+    ]
   }
 }

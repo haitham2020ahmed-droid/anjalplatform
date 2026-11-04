@@ -614,5 +614,217 @@
       ],
       "modelAnswer": "I agree that recycling is a sustainable alternative to mining, because the article shows how much it can save compared with digging new resources out of the ground. For example, a ton of old phones contains much more gold than a ton of rock from a gold mine, so recycling can extract more valuable metal with far less digging. In addition, mining new metal requires huge mines that damage the land and use a great deal of energy, while recycling simply reuses metals that already exist instead of harming more of the environment. Because recycling gets more value from materials we already have and avoids some of mining's toxic and destructive effects, it truly is a more sustainable choice."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "After people take old phones apart, what do they do next?",
+        "options": [
+          "They melt the metal",
+          "They bury the parts",
+          "They sort the parts",
+          "They sell the phones"
+        ],
+        "answer": "C",
+        "skill": "sequence",
+        "why": "The text says people take the phones apart and then sort the parts.",
+        "wrong": {
+          "A": "Melting the metal comes after the parts are sorted.",
+          "B": "The text says nothing about burying parts.",
+          "D": "The text does not say the phones are sold."
+        }
+      },
+      {
+        "stem": "Which one has more gold in it?",
+        "options": [
+          "A heap of old phones",
+          "A heap of rock from a mine",
+          "A heap of used batteries",
+          "A heap of dirt from a garden"
+        ],
+        "answer": "A",
+        "skill": "compare",
+        "why": "The text says old phones hold more gold than the same heap of rock from a mine.",
+        "wrong": {
+          "B": "The rock from a mine has less gold than old phones.",
+          "C": "The text does not say used batteries hold the most gold.",
+          "D": "Garden dirt is not mentioned."
+        }
+      },
+      {
+        "stem": "In the article, the word e-waste means —",
+        "options": [
+          "a new phone in a shop window",
+          "a box with a slot for drops",
+          "metal that comes from a new mine",
+          "old electronic things thrown out"
+        ],
+        "answer": "D",
+        "skill": "vocabulary",
+        "why": "The text says we throw out lots of old phones, and this is e-waste.",
+        "wrong": {
+          "A": "A new phone in a shop is not thrown out.",
+          "B": "A drop box is where you can take old phones.",
+          "C": "Mine metal is new metal, not waste."
+        }
+      },
+      {
+        "stem": "Why does the author ask, \"What can you do?\"",
+        "options": [
+          "To say that kids cannot help",
+          "To give ideas for ways to help",
+          "To ask where phones are made",
+          "To find out who owns a phone"
+        ],
+        "answer": "B",
+        "skill": "author-purpose",
+        "why": "After the question, the author lists things the reader can do, like fixing a phone or using a drop box.",
+        "wrong": {
+          "A": "The author says you can help.",
+          "C": "The text does not talk about where phones are made.",
+          "D": "The question is not about who owns a phone."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "Which harmful metals in some electronics can leak into soil and water?",
+        "options": [
+          "Gold and silver",
+          "Copper and iron",
+          "Salt and sand",
+          "Lead and mercury"
+        ],
+        "answer": "D",
+        "skill": "detail",
+        "why": "The text says some electronics contain lead or mercury, which can leak into the soil and water.",
+        "wrong": {
+          "A": "Gold and silver are valuable metals inside phones, not the harmful ones named.",
+          "B": "Copper is a useful metal in phones, not a harmful one named in the text.",
+          "C": "Salt and sand are not mentioned."
+        }
+      },
+      {
+        "stem": "Why does the author say to repair a phone when it breaks?",
+        "options": [
+          "Because new phones cost too much money",
+          "Because it keeps the phone in use longer",
+          "Because broken phones hold more gold",
+          "Because mines can not make new metal"
+        ],
+        "answer": "B",
+        "skill": "inference",
+        "why": "The text says to keep your phone as long as you can, so repairing it keeps it from becoming waste.",
+        "wrong": {
+          "A": "The text does not talk about cost.",
+          "C": "A broken phone does not hold more gold.",
+          "D": "Mines can make new metal, but they hurt the land."
+        }
+      },
+      {
+        "stem": "What can happen because people dig huge mines?",
+        "options": [
+          "The land can be damaged",
+          "More phones are recycled",
+          "Gold becomes easy to find",
+          "Less energy is used"
+        ],
+        "answer": "A",
+        "skill": "cause-effect",
+        "why": "The text says mining can damage the land and use a lot of energy.",
+        "wrong": {
+          "B": "Recycling is the choice that protects the land, not mining.",
+          "C": "The text says these metals are hard to find in nature.",
+          "D": "The text says mining uses a lot of energy."
+        }
+      },
+      {
+        "stem": "In the article, the word rare means —",
+        "options": [
+          "very dirty",
+          "very heavy",
+          "hard to find",
+          "easy to melt"
+        ],
+        "answer": "C",
+        "skill": "vocabulary",
+        "why": "The text says the materials are hard to find in nature and some are rare.",
+        "wrong": {
+          "A": "Dirt is not the idea here.",
+          "B": "Weight is not mentioned.",
+          "D": "Melting is part of recycling, not the meaning of rare."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "Which substances in electronics does the article call toxic?",
+        "options": [
+          "Gold and copper",
+          "Lead and mercury",
+          "Plastic and glass",
+          "Silver and sand"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The text says some electronics contain toxic substances such as lead or mercury.",
+        "wrong": {
+          "A": "Gold and copper are valuable metals, not toxic ones named in the text.",
+          "C": "Plastic and glass are not called toxic.",
+          "D": "Silver is a valuable metal, and sand is not mentioned."
+        }
+      },
+      {
+        "stem": "In the article, the word sustainable means —",
+        "options": [
+          "able to go on without using up resources",
+          "able to be sold for a very high price",
+          "able to be built in only a short time",
+          "able to be found in every country in the world"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "The author says recycling is a sustainable way to supply metals, which means we can keep getting metals without digging more.",
+        "wrong": {
+          "B": "Price is not the idea.",
+          "C": "Time to build is not the idea.",
+          "D": "The text does not say where metals are found."
+        }
+      },
+      {
+        "stem": "Why does the author say that most of the valuable materials in e-waste are lost forever?",
+        "options": [
+          "Because they melt in garbage trucks",
+          "Because mines take them back",
+          "Because they are mixed with water",
+          "Because most e-waste is not recycled"
+        ],
+        "answer": "D",
+        "skill": "cause-effect",
+        "why": "Less than a quarter of e-waste is recycled, so most of the metals are lost for good.",
+        "wrong": {
+          "A": "Only batteries are said to catch fire in trucks.",
+          "B": "Mines do not take materials back.",
+          "C": "Water is a place where harmful metals can leak, not why materials are lost."
+        }
+      },
+      {
+        "stem": "Why does the author write that every phone you recycle helps the Kingdom?",
+        "options": [
+          "To show that only the government can act",
+          "To warn that recycling is too hard",
+          "To show that one person's action matters",
+          "To prove that phones last forever"
+        ],
+        "answer": "C",
+        "skill": "author-purpose",
+        "why": "The author links one person's recycled phone to the Kingdom's big goals.",
+        "wrong": {
+          "A": "The author asks readers to help.",
+          "B": "The author gives easy steps for readers to follow.",
+          "D": "The author says to keep phones long, but not forever."
+        }
+      }
+    ]
   }
 }

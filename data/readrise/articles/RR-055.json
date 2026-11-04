@@ -614,5 +614,217 @@
       ],
       "modelAnswer": "I believe building the Aswan High Dam was worth it. The dam created a reservoir at Lake Nasser that stores water and generates electricity, and it also stopped the unpredictable floods that could threaten farmland and towns along the river. Some people might argue the dam hurt agriculture because the sediment that naturally made the soil fertile now stays trapped behind it, but farmers have adapted by using fertilizer and irrigation to keep their crops healthy. Overall, the dam's steady water supply and power are worth more than the cost of replacing the lost sediment."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "Where does the Blue Nile start?",
+        "options": [
+          "In the hills",
+          "Near a big lake",
+          "At the sea",
+          "In the desert"
+        ],
+        "answer": "A",
+        "skill": "detail",
+        "why": "The text says the Blue Nile starts in the hills.",
+        "wrong": {
+          "B": "The White Nile starts near a big lake.",
+          "C": "The Nile ends at the sea; it does not start there.",
+          "D": "The text says the land by the river is desert, but the Blue Nile does not start there."
+        }
+      },
+      {
+        "stem": "Why did the Nile rise each year long ago?",
+        "options": [
+          "Dark soil fell from the sky.",
+          "The sea pushed it back.",
+          "Rain fell far away.",
+          "A dam filled it up."
+        ],
+        "answer": "C",
+        "skill": "cause-effect",
+        "why": "The text says rain fell far off, so the river rose and spread on the land.",
+        "wrong": {
+          "A": "The dark soil was left after the flood, not before.",
+          "B": "The text does not say the sea pushed the river back.",
+          "D": "The dam came later and stopped the floods."
+        }
+      },
+      {
+        "stem": "The text says a big dam holds back the water. What does this mean?",
+        "options": [
+          "lets the water run very fast",
+          "keeps the water from flowing on",
+          "turns the water dark and thick",
+          "carries the water to the sea"
+        ],
+        "answer": "B",
+        "skill": "vocabulary",
+        "why": "Because the dam holds the water back, there is no flood, so it keeps the water from flowing on.",
+        "wrong": {
+          "A": "The dam slows the river down, so there is no flood.",
+          "C": "The dark mud stays behind the dam, but the water is not turned dark.",
+          "D": "The river ends at the sea, but the dam holds the water back."
+        }
+      },
+      {
+        "stem": "Why does the author end by saying the Nile must be kept clean?",
+        "options": [
+          "To say that the Nile is a dirty river",
+          "To explain how a dam makes power",
+          "To show where the Nile starts and ends",
+          "To remind us to take care of it"
+        ],
+        "answer": "D",
+        "skill": "author-purpose",
+        "why": "The Nile gives us water, so the author reminds readers to take care of it.",
+        "wrong": {
+          "A": "The text does not say the Nile is dirty now.",
+          "B": "The dam's power is told in an earlier paragraph.",
+          "C": "The start and end of the river are told earlier."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "Where does the Blue Nile begin?",
+        "options": [
+          "At Lake Victoria",
+          "At Lake Tana in Ethiopia",
+          "In the city of Khartoum",
+          "At the Mediterranean Sea"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The text says the Blue Nile starts at Lake Tana, high in the mountains of Ethiopia.",
+        "wrong": {
+          "A": "The White Nile begins around Lake Victoria.",
+          "C": "Khartoum is where the two branches meet.",
+          "D": "The Mediterranean Sea is where the river ends."
+        }
+      },
+      {
+        "stem": "Why do nearly all the people of Egypt live close to the Nile?",
+        "options": [
+          "The Mediterranean Sea is too cold.",
+          "The river is too short to cross.",
+          "Boats cannot leave the river.",
+          "Only the land beside it is green."
+        ],
+        "answer": "D",
+        "skill": "cause-effect",
+        "why": "Much of the land is desert, but a narrow strip beside the river is green and fertile.",
+        "wrong": {
+          "A": "The text does not say the sea is too cold.",
+          "B": "The river is about 6,650 kilometers long.",
+          "C": "The text says boats traveled north and south on the river."
+        }
+      },
+      {
+        "stem": "The article says the Nile is formed by two main branches. What are branches here?",
+        "options": [
+          "rivers that join to make one",
+          "small trees beside the water",
+          "boats that carry people",
+          "towns along the river"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "The two branches meet at Khartoum and continue as one river, so branches are rivers that join.",
+        "wrong": {
+          "B": "Here branches are parts of a river, not parts of trees.",
+          "C": "Boats are not called branches.",
+          "D": "Khartoum is a city where the branches meet, not a branch."
+        }
+      },
+      {
+        "stem": "Why does the author end by saying that keeping the river clean matters to everyone?",
+        "options": [
+          "To show the river is already clean",
+          "To explain how silt is made",
+          "To say the river needs our care",
+          "To tell how long the river is"
+        ],
+        "answer": "C",
+        "skill": "author-purpose",
+        "why": "The Nile gives water to many people, so the author reminds readers that it needs to be protected.",
+        "wrong": {
+          "A": "The sentence says keeping it clean still matters, so it is not already clean.",
+          "B": "Silt is explained earlier, with the floods.",
+          "D": "The length is given in the first paragraph."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "Where do the White Nile and the Blue Nile unite?",
+        "options": [
+          "At Lake Victoria",
+          "At Lake Nasser",
+          "At the city of Khartoum",
+          "At the Aswan High Dam"
+        ],
+        "answer": "C",
+        "skill": "detail",
+        "why": "The text says the two branches unite at the city of Khartoum, in Sudan.",
+        "wrong": {
+          "A": "Lake Victoria is where the White Nile begins.",
+          "B": "Lake Nasser is the reservoir behind the dam.",
+          "D": "The dam is near the end of the river, far from where the branches meet."
+        }
+      },
+      {
+        "stem": "What caused the Blue Nile to carry extra water downstream each summer?",
+        "options": [
+          "Heavy rains in the highlands",
+          "Water let out from Lake Nasser",
+          "Melting snow in the desert",
+          "Canals that the farmers dug"
+        ],
+        "answer": "A",
+        "skill": "cause-effect",
+        "why": "The text says heavy seasonal rains drenched the Ethiopian highlands and the Blue Nile carried the extra water.",
+        "wrong": {
+          "B": "Lake Nasser was made by the dam, which ended the floods.",
+          "C": "The text says rain is rare in the desert.",
+          "D": "The canals only moved water to the fields."
+        }
+      },
+      {
+        "stem": "Boats sailed south using the prevailing northern winds. What does prevailing mean?",
+        "options": [
+          "very rare and weak",
+          "cold and very wet",
+          "blowing in from the sea",
+          "blowing most of the time"
+        ],
+        "answer": "D",
+        "skill": "vocabulary",
+        "why": "Sailors raised sails to go south because the wind usually blows from the north, so prevailing means blowing most of the time.",
+        "wrong": {
+          "A": "The sailors depended on this wind, so it is not rare.",
+          "B": "The text does not say the wind is cold or wet.",
+          "C": "The text says only that it blows from the north."
+        }
+      },
+      {
+        "stem": "Why does the author explain that boats drifted north with the current and sailed south with the wind?",
+        "options": [
+          "To say the river was paved with stone",
+          "To show people traveled both ways on it",
+          "To explain how canals were dug",
+          "To warn that the river was unsafe"
+        ],
+        "answer": "B",
+        "skill": "author-purpose",
+        "why": "The article shows the current and the winds let boats travel north and south, so the river was a natural route for travel and trade.",
+        "wrong": {
+          "A": "The river was not paved.",
+          "C": "Canals are not described here.",
+          "D": "The article does not warn that the river was unsafe."
+        }
+      }
+    ]
   }
 }

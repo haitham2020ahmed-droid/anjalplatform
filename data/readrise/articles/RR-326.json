@@ -614,5 +614,217 @@
       ],
       "modelAnswer": "I think the peninsula's surrounding seas have been its greatest long-term advantage, even more than oil. The article explains that long before oil was discovered, water bordering the peninsula on three sides let merchants, pilgrims, and travelers reach markets in East Africa, South Asia, and the Mediterranean, connecting three continents for centuries. The article also notes that the Strait of Hormuz remains strategically vital today because so much trade, including oil exports, still depends on passing through it. This shows that the maritime geography itself, not any single resource, is what has continuously shaped the region's economy and history, from ancient trade routes to modern shipping lanes."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "On how many sides does water sit around the peninsula?",
+        "options": [
+          "Two",
+          "Three",
+          "Four",
+          "Five"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The text says water sits on three sides.",
+        "wrong": {
+          "A": "The text says three, not two.",
+          "C": "The text says three, not four.",
+          "D": "The text says three, not five."
+        }
+      },
+      {
+        "stem": "In the text, what does the word surrounds mean?",
+        "options": [
+          "Is far from",
+          "Is under",
+          "Is inside of",
+          "Is all around"
+        ],
+        "answer": "D",
+        "skill": "vocabulary",
+        "why": "The text says water is all around the land on three sides.",
+        "wrong": {
+          "A": "The text says water is close to the land on three sides.",
+          "B": "The water is not under the land.",
+          "C": "The water is around the land and not inside it."
+        }
+      },
+      {
+        "stem": "What can you tell about the land from the text?",
+        "options": [
+          "It is not the same everywhere",
+          "It is all flat and sandy land",
+          "It is only made of mountains",
+          "It is only covered in snow"
+        ],
+        "answer": "A",
+        "skill": "inference",
+        "why": "The text says some land has mountains, some has desert sand, and some is flat.",
+        "wrong": {
+          "B": "The text says some land has mountains too.",
+          "C": "The text says some land has sand and some is flat.",
+          "D": "The text says the sun is hot and the sand is dry."
+        }
+      },
+      {
+        "stem": "Which lands share the peninsula with Saudi Arabia?",
+        "options": [
+          "Egypt and Italy",
+          "India and China",
+          "Yemen and Oman",
+          "Spain and France"
+        ],
+        "answer": "C",
+        "skill": "detail",
+        "why": "The text says Yemen and Oman are on the peninsula too.",
+        "wrong": {
+          "A": "Egypt and Italy are not named.",
+          "B": "India and China are not named.",
+          "D": "Spain and France are not named."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "Which sea runs along the south side of the peninsula?",
+        "options": [
+          "The Red Sea",
+          "The Persian Gulf",
+          "The Gulf of Oman",
+          "The Arabian Sea"
+        ],
+        "answer": "D",
+        "skill": "detail",
+        "why": "The article says the Arabian Sea runs along the south side.",
+        "wrong": {
+          "A": "The Red Sea runs along the west side.",
+          "B": "The Persian Gulf lies along the east side.",
+          "C": "The Gulf of Oman lies along the east side."
+        }
+      },
+      {
+        "stem": "In the text, what does the word terrain mean?",
+        "options": [
+          "The weather in winter",
+          "The kind of land",
+          "The speed of ships",
+          "The size of a country"
+        ],
+        "answer": "B",
+        "skill": "vocabulary",
+        "why": "The next lines tell about mountains, deserts, and plains, which are kinds of land.",
+        "wrong": {
+          "A": "The sentence is about land, not weather.",
+          "C": "The sentence is not about ships.",
+          "D": "The next lines tell about mountains and deserts, not size."
+        }
+      },
+      {
+        "stem": "Why have ships long been able to reach many parts of the peninsula?",
+        "options": [
+          "The north side joins Asia too",
+          "Mountains cover all its coast",
+          "It has water on three sides",
+          "It has a very large desert"
+        ],
+        "answer": "C",
+        "skill": "cause-effect",
+        "why": "The article says water surrounds the peninsula on three sides, so ships can reach many parts.",
+        "wrong": {
+          "A": "Only the north side joins the rest of Asia, so ships do not use it.",
+          "B": "Only some parts have tall mountains.",
+          "D": "A desert would not help ships."
+        }
+      },
+      {
+        "stem": "Why are the flat plains along the coast good for ports?",
+        "options": [
+          "They are close to where ships arrive",
+          "They are far from the water",
+          "They are covered in tall mountains",
+          "They are made of thick sand"
+        ],
+        "answer": "A",
+        "skill": "inference",
+        "why": "The article says the flat, low plains along the coast are good for cities and ports because they are by the sea.",
+        "wrong": {
+          "B": "The plains are along the coast.",
+          "C": "The plains are flat and low.",
+          "D": "The sandy desert is a different kind of land."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "Which body of water separates the Arabian Peninsula from Africa?",
+        "options": [
+          "The Arabian Sea",
+          "The Persian Gulf",
+          "The Red Sea",
+          "The Gulf of Oman"
+        ],
+        "answer": "C",
+        "skill": "detail",
+        "why": "The article says the Red Sea runs along the west side, separating the peninsula from Africa.",
+        "wrong": {
+          "A": "The Arabian Sea borders the south coast.",
+          "B": "The Persian Gulf lies along the east side.",
+          "D": "The Gulf of Oman lies along the east side."
+        }
+      },
+      {
+        "stem": "The article says the peninsula has a \"hot, arid climate.\" What does arid mean?",
+        "options": [
+          "Very dry",
+          "Very rainy",
+          "Very cold",
+          "Very green"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "The article says there are only brief seasons of rain, so arid means very dry.",
+        "wrong": {
+          "B": "The article says rain is brief.",
+          "C": "The climate is hot, and not cold.",
+          "D": "The article describes a hot and dry land, not green fields."
+        }
+      },
+      {
+        "stem": "Why has maritime trade reached nearly every part of the peninsula?",
+        "options": [
+          "Mountains cover its middle",
+          "It has no coast on the north",
+          "Rain falls there each day",
+          "It has water on three sides"
+        ],
+        "answer": "D",
+        "skill": "cause-effect",
+        "why": "The article says water surrounds the peninsula on three sides, so maritime trade has reached nearly every part.",
+        "wrong": {
+          "A": "Mountains rise in the southwest, not in the middle.",
+          "B": "The north edge joins Asia, but trade came by sea.",
+          "C": "The article says rain comes only in brief seasons."
+        }
+      },
+      {
+        "stem": "Why is the Arabian Peninsula not an island?",
+        "options": [
+          "It has no sea all around it",
+          "Asia joins it on the north",
+          "It sits right next to Africa",
+          "It has only dry desert land"
+        ],
+        "answer": "B",
+        "skill": "inference",
+        "why": "The article says the north edge joins the rest of Asia, so it is not an island.",
+        "wrong": {
+          "A": "The article says water surrounds it on three sides.",
+          "C": "The Red Sea separates it from Africa.",
+          "D": "The article says it also has mountains and plains."
+        }
+      }
+    ]
   }
 }

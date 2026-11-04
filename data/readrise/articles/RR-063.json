@@ -614,5 +614,217 @@
       ],
       "modelAnswer": "For my sedentary friend, I would plan a week that gradually builds up to 60 minutes of activity a day, starting with a short morning walk and working toward more vigorous activities like swimming, cycling, or football by the end of the week. Each aerobic session strengthens the heart muscle so it can circulate more blood with every beat, which means the heart will not need to beat as often while resting. Over time, this routine builds real endurance and protects the whole cardiovascular system, which matters most for someone moving away from a sedentary lifestyle."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "How many times a minute does your heart beat when you rest?",
+        "options": [
+          "10 to 20 times",
+          "40 to 50 times",
+          "70 to 100 times",
+          "200 to 300 times"
+        ],
+        "answer": "C",
+        "skill": "detail",
+        "why": "The text says that at rest your heart beats about 70 to 100 times a minute.",
+        "wrong": {
+          "A": "That is far too few beats.",
+          "B": "The text says 70 to 100, not 40 to 50.",
+          "D": "That is far too many beats for rest."
+        }
+      },
+      {
+        "stem": "The article says you feel a \"thump\" in your chest. What is a thump?",
+        "options": [
+          "A beat you can feel",
+          "A very loud song",
+          "A cold drink of water",
+          "A kind of tired feeling"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "The thump is the beat of your heart that you feel when you put your hand on your chest.",
+        "wrong": {
+          "B": "A thump is a beat, not a song.",
+          "C": "A thump is not a drink.",
+          "D": "A thump is the heart beat, not a tired feeling."
+        }
+      },
+      {
+        "stem": "What might happen to a heart that never gets any exercise?",
+        "options": [
+          "It would turn into an arm",
+          "It would stop beating fast",
+          "It would grow as big as a leg",
+          "It might not get strong"
+        ],
+        "answer": "D",
+        "skill": "inference",
+        "why": "The text says exercise makes your heart strong, so with no exercise it may stay weak.",
+        "wrong": {
+          "A": "Hearts do not turn into other body parts.",
+          "B": "The text says the heart beats fast when you run, not when you sit.",
+          "C": "The text says the heart is as big as your fist."
+        }
+      },
+      {
+        "stem": "How long should kids play hard each day?",
+        "options": [
+          "Ten minutes",
+          "One hour",
+          "Five hours",
+          "One minute"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The text says kids should try to play hard for one hour each day.",
+        "wrong": {
+          "A": "Ten minutes is less than the text says.",
+          "C": "Five hours is much more than the text says.",
+          "D": "One minute is far less than the text says."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "What are blood vessels?",
+        "options": [
+          "Small drops of sweat",
+          "Muscles around the heart",
+          "Parts of the lungs",
+          "Tubes that carry blood"
+        ],
+        "answer": "D",
+        "skill": "vocabulary",
+        "why": "The article says blood travels around the body through tubes called blood vessels.",
+        "wrong": {
+          "A": "Sweat is not mentioned as a blood part.",
+          "B": "The heart is a muscle, but vessels are tubes.",
+          "C": "The lungs are not named as vessels."
+        }
+      },
+      {
+        "stem": "What does your heart do while you are asleep?",
+        "options": [
+          "It slows down and stops",
+          "It keeps pumping blood",
+          "It gets a long rest",
+          "It beats only once a minute"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The article says the heart pumps blood day and night, even while you sleep.",
+        "wrong": {
+          "A": "The article says the heart never takes a break.",
+          "C": "The article says it never takes a break.",
+          "D": "A resting heart still beats about 70 to 100 times a minute."
+        }
+      },
+      {
+        "stem": "Why do you breathe harder when you run in a race?",
+        "options": [
+          "To bring in air for your muscles",
+          "To cool the sweat on your skin fast",
+          "To make your heart slow down",
+          "To help you feel your pulse"
+        ],
+        "answer": "A",
+        "skill": "cause-effect",
+        "why": "The article says your muscles need extra oxygen, so you breathe harder to pull in more air.",
+        "wrong": {
+          "B": "The article does not link breathing to sweat.",
+          "C": "Your heart beats faster during a race, not slower.",
+          "D": "Breathing does not help you feel your pulse."
+        }
+      },
+      {
+        "stem": "Why does the author end by saying your heart will thank you?",
+        "options": [
+          "To tell a joke about your doctor",
+          "To say that hearts can talk",
+          "To say exercise helps your heart",
+          "To warn you about hot weather"
+        ],
+        "answer": "C",
+        "skill": "author-purpose",
+        "why": "The line is a friendly way to say that exercising, with care in the heat, helps your heart.",
+        "wrong": {
+          "A": "The line is not about doctors.",
+          "B": "It is a way of speaking, not a fact about hearts.",
+          "D": "The warning about heat comes before this line."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "How does the article say you can calculate your heart rate?",
+        "options": [
+          "Count beats for 15 seconds, then multiply by four",
+          "Count beats for one minute, then divide by two",
+          "Count beats for 60 seconds, then add four",
+          "Count beats for 20 seconds, then multiply by ten"
+        ],
+        "answer": "A",
+        "skill": "detail",
+        "why": "The article says to count the beats for 15 seconds and then multiply the total by four.",
+        "wrong": {
+          "B": "The article does not say to divide by two.",
+          "C": "The article does not say to add four.",
+          "D": "The article says 15 seconds and four, not 20 and ten."
+        }
+      },
+      {
+        "stem": "In the article, what does the word endurance mean?",
+        "options": [
+          "The speed of your heart",
+          "The weight you can lift",
+          "The color of your blood",
+          "The ability to keep going"
+        ],
+        "answer": "D",
+        "skill": "vocabulary",
+        "why": "The article defines endurance as the capacity to continue an activity without becoming exhausted quickly.",
+        "wrong": {
+          "A": "Endurance is about lasting, not how fast the heart beats.",
+          "B": "Lifting weights is only a comparison for strength.",
+          "C": "Blood color is not mentioned."
+        }
+      },
+      {
+        "stem": "Why must blood circulate through an extensive network of vessels?",
+        "options": [
+          "To keep the heart from beating fast",
+          "To bring oxygen and food to each cell",
+          "To make the lungs grow much larger",
+          "To let you measure the pulse at the wrist"
+        ],
+        "answer": "B",
+        "skill": "cause-effect",
+        "why": "The article says blood delivers oxygen and nutrients to every individual cell in the body.",
+        "wrong": {
+          "A": "Blood vessels do not stop the heart.",
+          "C": "The article does not say vessels change the lungs.",
+          "D": "A pulse can be felt, but that is not why blood circulates."
+        }
+      },
+      {
+        "stem": "Why does the author begin by asking you to place a hand on your chest?",
+        "options": [
+          "To teach you how to count to four",
+          "To show that doctors use a hand test",
+          "To warn you about heart problems",
+          "To let you feel your own heartbeat"
+        ],
+        "answer": "D",
+        "skill": "author-purpose",
+        "why": "The opening lets readers feel their own steady thump, which makes the topic of the heart real.",
+        "wrong": {
+          "A": "Counting to four comes later, for the heart rate.",
+          "B": "The article does not mention a doctor's hand test here.",
+          "C": "The opening does not warn about problems."
+        }
+      }
+    ]
   }
 }

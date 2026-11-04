@@ -614,5 +614,217 @@
       ],
       "modelAnswer": "I disagree with the poll, because the bimaristans show that this ancient institution already understood ideas hospitals still rely on today. For example, doctors in Baghdad had to pass an exam before they could treat patients, an early version of the licensing modern physicians still need before they can diagnose an illness. Al-Razi also tested where meat spoiled most slowly to decide the cleanest site for a hospital, a method that shows he was already thinking carefully about the causes behind symptoms of disease, long before germs were understood. These examples prove that hospitals from a thousand years ago still have real lessons to teach us today."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "What did each patient get at the hospital?",
+        "options": [
+          "A horse to take them back home",
+          "A hard test and a book to read",
+          "A bed, food, and clean clothes",
+          "A small room with a private door"
+        ],
+        "answer": "C",
+        "skill": "detail",
+        "why": "The text says each patient got a bed, food, and clean clothes.",
+        "wrong": {
+          "A": "A horse is not mentioned.",
+          "B": "The test was for doctors, not patients.",
+          "D": "Patients had a bed in a ward, not a private room."
+        }
+      },
+      {
+        "stem": "In the article, the care was free. This means it —",
+        "options": [
+          "cost no money",
+          "lasted only one day",
+          "was far from town",
+          "was only for the rich"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "Rich or poor could go, and it was free, so it cost no money.",
+        "wrong": {
+          "B": "The text does not say the care lasted one day.",
+          "C": "The hospitals were in big towns.",
+          "D": "The text says rich or poor could go."
+        }
+      },
+      {
+        "stem": "Why did young men come to the hospitals?",
+        "options": [
+          "To mix food for the sick",
+          "To pass a test in Cairo",
+          "To build new wards",
+          "To learn how to heal"
+        ],
+        "answer": "D",
+        "skill": "cause-effect",
+        "why": "The text says young men came to learn; they watched and read.",
+        "wrong": {
+          "A": "The text says medicine was mixed there, not food.",
+          "B": "The test was in Baghdad and was for doctors.",
+          "C": "Nothing says they came to build wards."
+        }
+      },
+      {
+        "stem": "What can you tell about Ibn Sina's book?",
+        "options": [
+          "It was never read outside Baghdad",
+          "It helped doctors for a long time",
+          "It was about how to cook food",
+          "It was written for patients only"
+        ],
+        "answer": "B",
+        "skill": "inference",
+        "why": "His book on how to heal was used in Europe for a long time, so it was helpful.",
+        "wrong": {
+          "A": "It was used in Europe too.",
+          "C": "The book was about how to heal.",
+          "D": "It was used by doctors in Europe."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "Which two diseases did Al-Razi write about?",
+        "options": [
+          "Fever and eye problems",
+          "Smallpox and measles",
+          "Colds and fevers",
+          "Eye problems and smallpox"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The text says Al-Razi wrote about two diseases that cause spots, smallpox and measles.",
+        "wrong": {
+          "A": "Fevers and eye problems were hospital wards.",
+          "C": "Colds are not named in the text.",
+          "D": "Eye problems were a ward, and measles was left out."
+        }
+      },
+      {
+        "stem": "Why did the big hospital in Cairo give some patients money when they left?",
+        "options": [
+          "So they could pay the doctors for care",
+          "So they could buy a new bed to sleep on",
+          "So they could rest at home before work",
+          "So they could travel to Baghdad to study"
+        ],
+        "answer": "C",
+        "skill": "cause-effect",
+        "why": "The text says the money let patients rest at home before going back to work.",
+        "wrong": {
+          "A": "The care was free.",
+          "B": "Patients got a bed in the hospital.",
+          "D": "Nothing is said about travel to Baghdad."
+        }
+      },
+      {
+        "stem": "Why was the new rule of 931 good for patients?",
+        "options": [
+          "Hospitals became free for rich and poor",
+          "Doctors were paid more for each patient",
+          "Patients had to pass a test to get in",
+          "Doctors had to show they knew medicine"
+        ],
+        "answer": "D",
+        "skill": "inference",
+        "why": "Doctors had to pass an exam first, so patients could trust their doctors knew medicine.",
+        "wrong": {
+          "A": "Care was already free.",
+          "B": "The rule was about an exam, not pay.",
+          "C": "The exam was for doctors, not patients."
+        }
+      },
+      {
+        "stem": "In the article, the word physician means —",
+        "options": [
+          "a doctor",
+          "a hospital",
+          "a medicine",
+          "a patient"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "Young men watched each physician care for the sick, so a physician is a doctor.",
+        "wrong": {
+          "B": "The hospital is the place.",
+          "C": "Medicines were mixed in the pharmacy.",
+          "D": "Patients are the sick people."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "Besides a bed and clean clothes, what did each patient receive?",
+        "options": [
+          "A small gift of money",
+          "A place in the library",
+          "Nourishing meals",
+          "A copy of a medical book"
+        ],
+        "answer": "C",
+        "skill": "detail",
+        "why": "The text says each patient received a bed, nourishing meals, and clean clothes.",
+        "wrong": {
+          "A": "Only some Cairo patients got money, as they left.",
+          "B": "The library was for young men who studied.",
+          "D": "The medical book was written by Ibn Sina for doctors."
+        }
+      },
+      {
+        "stem": "Some bimaristans cared for hundreds of people at once. What can you infer?",
+        "options": [
+          "They were mostly empty",
+          "They were very large and well organized",
+          "They were built only in Cairo",
+          "They treated only wealthy city people"
+        ],
+        "answer": "B",
+        "skill": "inference",
+        "why": "Caring for hundreds with wards and a pharmacy shows they were large and organized.",
+        "wrong": {
+          "A": "Hundreds of patients means they were not empty.",
+          "C": "They also stood in Baghdad and Damascus.",
+          "D": "Anyone who was sick could go."
+        }
+      },
+      {
+        "stem": "How were patients with eye problems and patients with fevers cared for?",
+        "options": [
+          "They shared one big room together",
+          "They were sent home to rest",
+          "They were treated by the same worker",
+          "They stayed in different areas"
+        ],
+        "answer": "D",
+        "skill": "compare",
+        "why": "The text says eye patients stayed in one area while fever patients stayed in another.",
+        "wrong": {
+          "A": "The sick were not kept together in one big room.",
+          "B": "They stayed in the hospital in wards.",
+          "C": "The text does not say one worker treated both."
+        }
+      },
+      {
+        "stem": "Why did bimaristans have a hospital library?",
+        "options": [
+          "So young men could study books",
+          "So patients could read for fun",
+          "So the pharmacy could sell books",
+          "So doctors could rest in the evening"
+        ],
+        "answer": "A",
+        "skill": "cause-effect",
+        "why": "The text says the hospitals were places of learning where young men studied books in the library.",
+        "wrong": {
+          "B": "The library was for students.",
+          "C": "The pharmacy mixed medicines.",
+          "D": "Nothing is said about doctors resting."
+        }
+      }
+    ]
   }
 }

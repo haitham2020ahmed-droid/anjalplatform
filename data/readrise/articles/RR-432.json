@@ -614,5 +614,217 @@
       ],
       "modelAnswer": "I agree that genuine friendship can matter more than winning a competition. Sam's experience in the article shows this clearly: Sam made a deliberate decision to turn back and help Nour fix a stubborn, broken chain, even though continuing on would have guaranteed an easy, uncontested victory. Someone might argue that competitions exist specifically to be won, and that Sam gave up a fair chance at success. However, by choosing not to resume the race afterward and instead riding home together calmly, Sam and Nour show that a genuine friendship, strengthened through helping one another, can feel far more rewarding than any single victory."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "Who says go at the start of the race?",
+        "options": [
+          "Nour's dad",
+          "Sam's mom",
+          "A neighbor",
+          "Sam's teacher"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The text says Sam's mom says go.",
+        "wrong": {
+          "A": "Nour's dad is not mentioned.",
+          "C": "A neighbor is not mentioned.",
+          "D": "A teacher is not mentioned."
+        }
+      },
+      {
+        "stem": "How long does it take to fix the chain?",
+        "options": [
+          "One whole hour",
+          "A few seconds",
+          "A few minutes",
+          "Two long days"
+        ],
+        "answer": "C",
+        "skill": "detail",
+        "why": "The text says it takes a few minutes, and then the chain works again.",
+        "wrong": {
+          "A": "An hour is not mentioned.",
+          "B": "Seconds is too short; the text says minutes.",
+          "D": "Two days is not mentioned."
+        }
+      },
+      {
+        "stem": "What do Sam and Nour do after the chain works again?",
+        "options": [
+          "They go home alone.",
+          "They race each other.",
+          "They sell the bikes.",
+          "They ride on together."
+        ],
+        "answer": "D",
+        "skill": "sequence",
+        "why": "The text says they do not race anymore and ride to the end side by side.",
+        "wrong": {
+          "A": "They ride together, not alone.",
+          "B": "They do not race anymore.",
+          "C": "Selling bikes is not mentioned."
+        }
+      },
+      {
+        "stem": "What does the story show about Sam?",
+        "options": [
+          "Sam values a friend over a win.",
+          "Sam does not like Nour much.",
+          "Sam is afraid to lose a race.",
+          "Sam wants a faster new bike."
+        ],
+        "answer": "A",
+        "skill": "inference",
+        "why": "Sam could have won but stopped to help Nour, which shows Sam values a friend over a win.",
+        "wrong": {
+          "B": "Sam helps Nour, so Sam likes Nour.",
+          "C": "Sam was in front and could win.",
+          "D": "A new bike is not mentioned."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "Where do the friends line up for the race?",
+        "options": [
+          "At the end of the street",
+          "In front of a shop",
+          "Near Sam's house",
+          "Beside a bike shop"
+        ],
+        "answer": "C",
+        "skill": "detail",
+        "why": "The text says they line up their bikes near Sam's house.",
+        "wrong": {
+          "A": "The end of the street is not mentioned.",
+          "B": "A shop is not mentioned.",
+          "D": "A bike shop is not mentioned."
+        }
+      },
+      {
+        "stem": "In the article, the word frustrated means —",
+        "options": [
+          "upset that it is not working",
+          "happy about a big surprise",
+          "sleepy after a long ride",
+          "proud of a win"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "Nour is stopped by a broken chain and looks frustrated, upset that the bike is not working.",
+        "wrong": {
+          "B": "Nour is not happy.",
+          "C": "Sleepy does not fit a broken chain.",
+          "D": "Nour did not win."
+        }
+      },
+      {
+        "stem": "What made Sam turn the bike around?",
+        "options": [
+          "Sam's mother called out.",
+          "Sam felt too tired.",
+          "Sam heard a loud noise.",
+          "Sam saw Nour stopped."
+        ],
+        "answer": "D",
+        "skill": "cause-effect",
+        "why": "Sam glanced back and noticed that Nour had stopped at the side of the road, looking frustrated.",
+        "wrong": {
+          "A": "Sam's mother cheered at the start only.",
+          "B": "Sam rode at a strong, steady pace.",
+          "C": "The loud clank was Nour's chain, and Sam looked back later."
+        }
+      },
+      {
+        "stem": "How did the friends fix the chain?",
+        "options": [
+          "They bought a new chain.",
+          "They worked patiently together.",
+          "They asked a grown-up to do it.",
+          "They pushed the bike home."
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "After patient effort and some trial and error, the chain clicked back into place.",
+        "wrong": {
+          "A": "They fixed the chain they had.",
+          "C": "The text says the two friends did it together.",
+          "D": "They rode the bikes home after the fix."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "Why did Sam and Nour decide to hold a race?",
+        "options": [
+          "To settle who was faster",
+          "To please the neighbors",
+          "To win a prize",
+          "To practice for school"
+        ],
+        "answer": "A",
+        "skill": "detail",
+        "why": "The text says they organized a race just to settle who is faster.",
+        "wrong": {
+          "B": "The neighbors only watched.",
+          "C": "A prize is not mentioned.",
+          "D": "School is not mentioned."
+        }
+      },
+      {
+        "stem": "Sam makes a deliberate decision to turn back. What does deliberate mean?",
+        "options": [
+          "done on purpose",
+          "done by accident",
+          "done very late",
+          "done for a prize"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "Sam chooses to turn around to help Nour, so the decision is made on purpose.",
+        "wrong": {
+          "B": "Sam chooses to turn back; it is not an accident.",
+          "C": "Sam acts right away.",
+          "D": "Sam gives up the chance to win; there is no prize for turning back."
+        }
+      },
+      {
+        "stem": "What does the phrase \"effortless victory\" suggest about winning alone?",
+        "options": [
+          "It would have felt grand and proud.",
+          "It would have been easy and empty.",
+          "It would have been very hard to do.",
+          "It would have pleased Nour."
+        ],
+        "answer": "B",
+        "skill": "inference",
+        "why": "With Nour stopped, winning would take no effort, and Sam felt helping a friend was more rewarding.",
+        "wrong": {
+          "A": "Sam felt helping was more rewarding.",
+          "C": "The text says winning would be easy.",
+          "D": "Nour thanked Sam for stopping instead."
+        }
+      },
+      {
+        "stem": "What did the friends get on their fingers while fixing the chain?",
+        "options": [
+          "Wet paint",
+          "Fine sand",
+          "Wax from a candle",
+          "A bit of grease"
+        ],
+        "answer": "D",
+        "skill": "detail",
+        "why": "The text says they got a bit of grease on their fingers as they worked.",
+        "wrong": {
+          "A": "Paint is not mentioned.",
+          "B": "Sand is not mentioned.",
+          "C": "Wax is not mentioned."
+        }
+      }
+    ]
   }
 }

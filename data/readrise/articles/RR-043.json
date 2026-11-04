@@ -614,5 +614,217 @@
       ],
       "modelAnswer": "I think space agencies should keep sending robots to Mars rather than sending people right now. The article shows how effective autonomous rovers can be, since Opportunity was only built to work for 90 days but instead kept exploring for almost 15 years, and the rover Perseverance has already found evidence that water once flowed in Jezero Crater. One major challenge that supports this position is Mars's harsh, unbreathable environment, since the article notes that its thin air would not let people breathe, which makes sending a robot a far safer way to gather evidence while rovers continue helping astronauts get ready for a future human mission."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "What can a rover's arm do?",
+        "options": [
+          "Fly in the sky",
+          "Drill a rock",
+          "Plant a seed",
+          "Make rain"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The text says the arm can drill a rock.",
+        "wrong": {
+          "A": "The arm does not make the rover fly.",
+          "C": "The text does not say it plants seeds.",
+          "D": "The text does not say it makes rain."
+        }
+      },
+      {
+        "stem": "Why do we send a robot to Mars instead of a person?",
+        "options": [
+          "A robot likes to look at the stars",
+          "A robot can swim in the old lakes",
+          "A robot is red, just like the planet",
+          "Mars is far, and the trip takes months."
+        ],
+        "answer": "D",
+        "skill": "cause-effect",
+        "why": "The text says Mars is far and the trip takes months, so we send a robot.",
+        "wrong": {
+          "A": "The text gives no reason about liking stars.",
+          "B": "The lakes on Mars are old and dry.",
+          "C": "The color of a robot is not a reason."
+        }
+      },
+      {
+        "stem": "In the article, drill means —",
+        "options": [
+          "to make a hole in a rock",
+          "to jump over a big rock",
+          "to paint a rock bright red",
+          "to fly fast over the dust"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "The rover's arm can drill a rock, which means it can make a hole in it.",
+        "wrong": {
+          "B": "The arm does not jump.",
+          "C": "The red color comes from rust in the dust.",
+          "D": "Drilling is not flying."
+        }
+      },
+      {
+        "stem": "The text ends by saying the rovers help us get ready. What does this tell you?",
+        "options": [
+          "Rovers will carry people to Mars soon.",
+          "Rovers are too old to be of any use.",
+          "Rovers help people get ready to go.",
+          "Rovers must be set on the ground by hand."
+        ],
+        "answer": "C",
+        "skill": "inference",
+        "why": "The line before it says we may go to Mars one day, so rovers help get people ready.",
+        "wrong": {
+          "A": "Rovers are robots and do not carry people.",
+          "B": "The article says rovers have done great work.",
+          "D": "Rovers drive on their own wheels."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "In the article, a mission is —",
+        "options": [
+          "a big plan with a goal",
+          "a small piece of rock",
+          "a long radio signal",
+          "a round hole in the ground"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "The text says a mission is a big plan with a goal.",
+        "wrong": {
+          "B": "A small piece of rock is a sample.",
+          "C": "A signal is what guides the rover.",
+          "D": "A crater is a huge round hole."
+        }
+      },
+      {
+        "stem": "Why can't a rover wait for every order from Earth?",
+        "options": [
+          "It uses its arm to drill all day.",
+          "Its cameras only work at night.",
+          "Signals can take up to 20 minutes.",
+          "Its power supply lasts only a few days."
+        ],
+        "answer": "C",
+        "skill": "cause-effect",
+        "why": "The signal can take up to 20 minutes to arrive, so the rover makes some choices itself.",
+        "wrong": {
+          "A": "The arm is not the reason it cannot wait.",
+          "B": "The text does not say the cameras only work at night.",
+          "D": "Opportunity worked for almost 15 years."
+        }
+      },
+      {
+        "stem": "How did Opportunity's time on Mars compare with the plan?",
+        "options": [
+          "It worked for less than 90 days.",
+          "It worked far longer than 90 days.",
+          "It worked exactly 90 days.",
+          "It never worked at all."
+        ],
+        "answer": "B",
+        "skill": "compare",
+        "why": "It was built to work for 90 days but kept going for almost 15 years.",
+        "wrong": {
+          "A": "It lasted much longer than 90 days.",
+          "C": "It did not stop at 90 days.",
+          "D": "It worked for almost 15 years."
+        }
+      },
+      {
+        "stem": "What can the reader infer from the fact that some rocks on Mars formed in water?",
+        "options": [
+          "Mars has always been dry like it is now",
+          "People once lived beside the old lakes",
+          "The rocks were carried there by helicopter",
+          "Mars long ago had water on its surface"
+        ],
+        "answer": "D",
+        "skill": "inference",
+        "why": "Rocks that formed in water show that water was once there, unlike today's dry planet.",
+        "wrong": {
+          "A": "The water rocks show Mars was not always dry.",
+          "B": "The text says nobody can live on Mars.",
+          "C": "The helicopter is unrelated to how the rocks formed."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "Scientists wonder whether ancient Mars was habitable. What does habitable mean?",
+        "options": [
+          "bright, crowded, and full of noise",
+          "covered in deep oceans of water",
+          "able to support living things",
+          "small and easy to reach by rocket"
+        ],
+        "answer": "C",
+        "skill": "vocabulary",
+        "why": "The article explains that habitable means able to support tiny living things.",
+        "wrong": {
+          "A": "Mars is not described as crowded or noisy.",
+          "B": "The word is about supporting life, not being covered in oceans.",
+          "D": "The word is not about size or travel."
+        }
+      },
+      {
+        "stem": "What does the Hope orbiter do?",
+        "options": [
+          "It circles Mars and studies the weather",
+          "It digs for rocks in Jezero Crater",
+          "It carries a helicopter to the surface",
+          "It seals samples in tubes for Earth"
+        ],
+        "answer": "A",
+        "skill": "detail",
+        "why": "The text says Hope circles Mars and studies the planet's weather.",
+        "wrong": {
+          "B": "Perseverance explores Jezero Crater.",
+          "C": "Perseverance carried the helicopter.",
+          "D": "Perseverance seals the samples."
+        }
+      },
+      {
+        "stem": "Why could a person not survive on Mars without protective equipment?",
+        "options": [
+          "The planet is too crowded with rovers",
+          "Its dust is too heavy to walk through",
+          "Its gravity pulls people into the ground",
+          "Its atmosphere has almost no oxygen"
+        ],
+        "answer": "D",
+        "skill": "cause-effect",
+        "why": "The text says the thin atmosphere contains almost no oxygen.",
+        "wrong": {
+          "A": "The text does not say Mars is crowded.",
+          "B": "The text does not say the dust is heavy.",
+          "C": "The text does not mention gravity."
+        }
+      },
+      {
+        "stem": "Why does the author end with astronauts journeying to Mars?",
+        "options": [
+          "To say rovers will be replaced by helicopters",
+          "To show rovers prepare for human travel",
+          "To explain why the dust looks red from Earth",
+          "To warn that the trip is too dangerous"
+        ],
+        "answer": "B",
+        "skill": "author-purpose",
+        "why": "The last sentence says the rovers are helping astronauts prepare for the trip.",
+        "wrong": {
+          "A": "The text does not say helicopters will replace rovers.",
+          "C": "The color of Mars was explained near the start.",
+          "D": "The ending is hopeful, not a warning."
+        }
+      }
+    ]
   }
 }

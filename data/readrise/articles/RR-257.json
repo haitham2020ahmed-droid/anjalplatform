@@ -614,5 +614,217 @@
       ],
       "modelAnswer": "Grace Hopper's work still matters today because her compiler, a true innovation, translated plain English words into the code a computer could run, instead of forcing every programmer to write confusing strings of numbers by hand. This change opened programming to far more people, not only trained mathematicians, and helped lead to COBOL, a widely used programming language. Over her career, Grace also gave the field the word bug, after her team found a moth inside a mechanical relay, a term programmers around the world still use whenever they fix a problem in their code today."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "What was special about the Navy's new machine?",
+        "options": [
+          "It could fly high",
+          "It could talk to people",
+          "It did math fast",
+          "It could cook food"
+        ],
+        "answer": "C",
+        "skill": "detail",
+        "why": "The text says the new machine did math fast and was one of the first computers.",
+        "wrong": {
+          "A": "The text never says the machine could fly.",
+          "B": "The text never says the machine could talk.",
+          "D": "The text never says the machine could cook."
+        }
+      },
+      {
+        "stem": "The text says a moth was stuck in the machine. What does stuck mean?",
+        "options": [
+          "flying around fast",
+          "not able to get out",
+          "very loud and noisy",
+          "fixed and like new"
+        ],
+        "answer": "B",
+        "skill": "vocabulary",
+        "why": "The moth was caught inside a part of the machine and could not get out, so it was stuck.",
+        "wrong": {
+          "A": "The moth was trapped, not flying.",
+          "C": "Stuck is not about sound.",
+          "D": "The machine was broken, not fixed."
+        }
+      },
+      {
+        "stem": "Grace took apart clocks when she was young. What does this show about her?",
+        "options": [
+          "She wanted to know how things work",
+          "She did not like clocks at all",
+          "She wanted to sell the old clocks",
+          "She was afraid of machines"
+        ],
+        "answer": "A",
+        "skill": "inference",
+        "why": "Taking clocks apart to see their parts shows she wanted to know how things work.",
+        "wrong": {
+          "B": "She took them apart to learn, not because she disliked them.",
+          "C": "Selling clocks is not in the text.",
+          "D": "She liked machines; she later worked on a computer."
+        }
+      },
+      {
+        "stem": "What big idea did Grace have after the bug story?",
+        "options": [
+          "She made a new kind of clock",
+          "She took the moth to the Navy",
+          "She joined a new Navy crew",
+          "She found a way to use real words"
+        ],
+        "answer": "D",
+        "skill": "sequence",
+        "why": "After the moth story, the text says she had one more big idea: writing steps with real words.",
+        "wrong": {
+          "A": "Fixing clocks was when she was a girl.",
+          "B": "The moth was found before this idea.",
+          "C": "She joined the Navy before the bug story."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "What job did Grace have at a college near New York City?",
+        "options": [
+          "She was a pilot in the Navy",
+          "She was a math professor",
+          "She was a maker of clocks",
+          "She was a builder of ships"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The text says she became a mathematics professor and taught students for many years.",
+        "wrong": {
+          "A": "She was not a pilot in the text.",
+          "C": "She took clocks apart as a child, but that was not her job.",
+          "D": "Building ships is not mentioned."
+        }
+      },
+      {
+        "stem": "In the article, what does the word \"enormous\" mean?",
+        "options": [
+          "Very loud",
+          "Very old",
+          "Very quiet",
+          "Very big"
+        ],
+        "answer": "D",
+        "skill": "vocabulary",
+        "why": "An enormous machine that solves long problems is a very big machine.",
+        "wrong": {
+          "A": "The text does not describe the sound.",
+          "B": "The text calls it new, not old.",
+          "C": "The text does not describe it as quiet."
+        }
+      },
+      {
+        "stem": "What does the article suggest about girls and math in Grace's time?",
+        "options": [
+          "Few girls were expected to love math",
+          "All girls studied math in school",
+          "Girls were not allowed to read",
+          "Girls liked math more than boys did"
+        ],
+        "answer": "A",
+        "skill": "inference",
+        "why": "The text says her love of math was unusual for girls at that time.",
+        "wrong": {
+          "B": "If it was unusual, not all girls studied it.",
+          "C": "Reading is not discussed.",
+          "D": "The text does not compare girls and boys this way."
+        }
+      },
+      {
+        "stem": "Why does the author say the computer could solve long math problems faster than any person by hand?",
+        "options": [
+          "To show why the machine was so important",
+          "To show Grace did not like math",
+          "To show people were slow at reading",
+          "To show the machine was easy to fix"
+        ],
+        "answer": "A",
+        "skill": "author-purpose",
+        "why": "The comparison shows how powerful and useful the new machine was.",
+        "wrong": {
+          "B": "The text says Grace loved math.",
+          "C": "Reading speed is not the point.",
+          "D": "The text says the computer stopped working once, not that it was easy to fix."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "Which university did the Navy send Grace to?",
+        "options": [
+          "Berkeley",
+          "Columbia",
+          "Vassar",
+          "Harvard"
+        ],
+        "answer": "D",
+        "skill": "detail",
+        "why": "The text says the Navy sent her to Harvard University to work on the Mark I.",
+        "wrong": {
+          "A": "Berkeley is not named in this article.",
+          "B": "Columbia is not named in this article.",
+          "C": "Vassar is where she studied, not where the Navy sent her."
+        }
+      },
+      {
+        "stem": "In the article, what does the word \"debugging\" mean?",
+        "options": [
+          "Fixing a problem in a computer",
+          "Taping paper into a notebook",
+          "Writing a long letter to the Navy",
+          "Teaching students how to count"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "The team removed the moth that caused the failure and called this fix debugging.",
+        "wrong": {
+          "B": "They taped the moth in a logbook, but that is not the meaning of debugging.",
+          "C": "Letters are not mentioned.",
+          "D": "Teaching is not part of the word's meaning here."
+        }
+      },
+      {
+        "stem": "Why did Grace's mother let her keep taking apart clocks after she broke a few?",
+        "options": [
+          "She did not like the clocks",
+          "She thought curiosity was good",
+          "She wanted Grace to join the Navy",
+          "She planned to sell the clocks"
+        ],
+        "answer": "B",
+        "skill": "cause-effect",
+        "why": "The text says her mother believed curiosity should be encouraged, especially in daughters.",
+        "wrong": {
+          "A": "The text gives a different reason.",
+          "C": "The Navy is mentioned much later.",
+          "D": "Selling clocks is not mentioned."
+        }
+      },
+      {
+        "stem": "How does the author mostly organize the article?",
+        "options": [
+          "By comparing two different computers",
+          "By listing the rules of the Navy",
+          "By explaining how computers are built",
+          "In time order, following Grace's life"
+        ],
+        "answer": "D",
+        "skill": "text-structure",
+        "why": "The article moves from Grace's childhood to college, the war, her computer work, and her later years.",
+        "wrong": {
+          "A": "It does not compare computers in this way.",
+          "B": "It does not list rules.",
+          "C": "It does not explain how computers are built."
+        }
+      }
+    ]
   }
 }

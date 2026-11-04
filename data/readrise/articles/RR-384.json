@@ -614,5 +614,217 @@
       ],
       "modelAnswer": "I disagree that an unusual skill like Hamza's must come from something magical. The story explains clearly that Hamza spent many months meticulously observing birds and listening to their calls before he could recognize any patterns, and he always corrected villagers who joked about magic. Someone might argue that predicting a storm from bird calls still sounds impossible for an ordinary person, but the article shows his forecast came from recognizing a specific warning pattern he had heard once before, not from any supernatural power. His success proves that patient, careful practice can produce results that look magical without actually being magical at all."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "What did the birds do when they made the loud, strange call?",
+        "options": [
+          "Many flew away fast.",
+          "They all sat still.",
+          "They sang a soft song.",
+          "They came to Hamza."
+        ],
+        "answer": "A",
+        "skill": "detail",
+        "why": "The text says many birds flew away fast after the loud, strange call.",
+        "wrong": {
+          "B": "The birds flew away; they did not sit still.",
+          "C": "The call was loud and strange, not soft.",
+          "D": "The birds flew away from the trees."
+        }
+      },
+      {
+        "stem": "In the article, what does the word \"copy\" mean?",
+        "options": [
+          "Run far away from them",
+          "Write down a long story",
+          "Make the same sound",
+          "Hide from all the birds"
+        ],
+        "answer": "C",
+        "skill": "vocabulary",
+        "why": "Hamza learned to copy some calls, so people thought he could talk to birds.",
+        "wrong": {
+          "A": "Hamza stayed near the birds.",
+          "B": "Writing is not mentioned.",
+          "D": "Hamza did not hide from the birds; he listened."
+        }
+      },
+      {
+        "stem": "What happened after Hamza said a storm was coming?",
+        "options": [
+          "The birds came back to the trees.",
+          "The storm went to another village.",
+          "Everyone laughed and went to sleep.",
+          "The sky grew dark and a storm came."
+        ],
+        "answer": "D",
+        "skill": "sequence",
+        "why": "At first no one believed him, then the sky grew dark and a storm came.",
+        "wrong": {
+          "A": "The birds had flown away.",
+          "B": "The storm came to the village.",
+          "C": "The village got ready; they did not sleep."
+        }
+      },
+      {
+        "stem": "Why does the author tell us Hamza heard the call once before a big storm?",
+        "options": [
+          "To show the storm was small",
+          "To show why Hamza knew the call",
+          "To show Hamza was afraid of birds",
+          "To show the village was far away"
+        ],
+        "answer": "B",
+        "skill": "author-purpose",
+        "why": "Because he had heard that call before a storm, Hamza knew it was a warning.",
+        "wrong": {
+          "A": "The storm was big.",
+          "C": "Hamza liked birds.",
+          "D": "The distance of the village is not the point."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "What did Hamza do when his friends teased him for sitting so still?",
+        "options": [
+          "He stopped going outside.",
+          "He did not give up.",
+          "He told them all to leave.",
+          "He moved to a new village."
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The text says he did not give up even when his friends teased him.",
+        "wrong": {
+          "A": "He kept sitting outside to observe.",
+          "C": "The text does not say he told them to leave.",
+          "D": "He stayed in his village."
+        }
+      },
+      {
+        "stem": "In the article, what does the word \"timely\" mean?",
+        "options": [
+          "Very loud and a little angry",
+          "Hard to understand at first",
+          "Whispered so no one could hear",
+          "Given at just the right time"
+        ],
+        "answer": "D",
+        "skill": "vocabulary",
+        "why": "Hamza warned the village early enough for people to prepare, so his warning was timely.",
+        "wrong": {
+          "A": "His warning was not angry.",
+          "B": "His warning was clear.",
+          "C": "He told his family out loud."
+        }
+      },
+      {
+        "stem": "What did the villagers do because Hamza warned them early?",
+        "options": [
+          "They left the village for a week",
+          "They planted new trees by the well",
+          "They brought the animals to shelter",
+          "They sent the birds far away"
+        ],
+        "answer": "C",
+        "skill": "cause-effect",
+        "why": "With early warning, people moved inside, tied down loose things, and brought animals to shelter.",
+        "wrong": {
+          "A": "They stayed in the village.",
+          "B": "Planting trees is not mentioned.",
+          "D": "The birds had already flown away."
+        }
+      },
+      {
+        "stem": "Which detail best shows that Hamza was patient?",
+        "options": [
+          "He kept listening for months even when teased",
+          "He ran home quickly to warn his family",
+          "He learned to copy some of the bird calls",
+          "He told his family that a storm was near"
+        ],
+        "answer": "A",
+        "skill": "inference",
+        "why": "Hamza listened for many months, even when teased, before he understood the calls.",
+        "wrong": {
+          "B": "Running home shows speed, not patience.",
+          "C": "Copying calls came after he learned them.",
+          "D": "Telling his family shows he was alert."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "In the article, what does the word \"meticulous\" suggest about Hamza?",
+        "options": [
+          "Loud and playful with other children",
+          "Quick to anger when teased by friends",
+          "Very careful about small details",
+          "Slow to learn anything new"
+        ],
+        "answer": "C",
+        "skill": "vocabulary",
+        "why": "Hamza observed the birds carefully and noticed patterns in their sounds, so he was careful about details.",
+        "wrong": {
+          "A": "Hamza was quiet and spent time alone.",
+          "B": "He did not give up when teased.",
+          "D": "Hamza learned the bird calls."
+        }
+      },
+      {
+        "stem": "What did Hamza think the third kind of call did?",
+        "options": [
+          "It seemed to call far birds closer",
+          "It meant that a storm was coming",
+          "It meant that danger was near",
+          "It meant that food had been found"
+        ],
+        "answer": "A",
+        "skill": "detail",
+        "why": "The text says one call signaled danger, another meant food, and another seemed to summon distant birds closer.",
+        "wrong": {
+          "B": "The storm call was a different, strange sound.",
+          "C": "The danger call was the first kind.",
+          "D": "The food call was the second kind."
+        }
+      },
+      {
+        "stem": "Why did the villagers have time to prepare for the storm?",
+        "options": [
+          "The storm moved slowly across the desert",
+          "The elders had already told them to",
+          "The birds had stayed in the trees",
+          "Hamza gave his warning early"
+        ],
+        "answer": "D",
+        "skill": "cause-effect",
+        "why": "Because Hamza gave his warning early, the villagers had time to prepare.",
+        "wrong": {
+          "A": "The text says a powerful storm struck within the hour.",
+          "B": "The elders doubted Hamza at first.",
+          "C": "The birds scattered away."
+        }
+      },
+      {
+        "stem": "Why does the author say Hamza listened to birds rather than playing with children his age?",
+        "options": [
+          "To show that he had no friends at all",
+          "To show how dedicated he was to learning",
+          "To explain why the village had no games",
+          "To prove that the children disliked birds"
+        ],
+        "answer": "B",
+        "skill": "author-purpose",
+        "why": "The detail shows Hamza gave up playtime to study the birds carefully.",
+        "wrong": {
+          "A": "He had friends who teased him, so he did have friends.",
+          "C": "The text does not say the village had no games.",
+          "D": "The text does not say the children disliked birds."
+        }
+      }
+    ]
   }
 }

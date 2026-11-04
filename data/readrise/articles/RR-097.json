@@ -614,5 +614,217 @@
       ],
       "modelAnswer": "I think Ibn Sina's idea that diseases can be contagious was his most important contribution, because it changed how people understood the spread of illness centuries before germs were discovered. The article explains that he recognized some diseases could pass from person to person, an insight that later scholars and physicians built upon as they developed ways to prevent outbreaks. His comprehensive book, The Canon of Medicine, worked almost like an encyclopedia of disease and treatment, and it was later translated into Latin so European doctors could study his contagious-disease theory for hundreds of years. Because this one influential idea shaped medical thinking across cultures and centuries, I believe it was Ibn Sina's single most important contribution to medicine."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "How old was Ibn Sina when he knew the Quran by heart?",
+        "options": [
+          "Five years old",
+          "Ten years old",
+          "Fifteen years old",
+          "Twenty years old"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The text says that at ten, he knew the Quran by heart.",
+        "wrong": {
+          "A": "He was ten, not five.",
+          "C": "He was ten, not fifteen.",
+          "D": "He was ten, not twenty."
+        }
+      },
+      {
+        "stem": "Why did Ibn Sina come to the palace?",
+        "options": [
+          "To find a new job as the king's guard",
+          "To read the poems in the king's library",
+          "To bring a gift to the king's family",
+          "To help the king when no one could"
+        ],
+        "answer": "D",
+        "skill": "cause-effect",
+        "why": "The king was sick and no one could help, so Ibn Sina came and found a cure.",
+        "wrong": {
+          "A": "He was already a doctor, not a king.",
+          "B": "Poems are not the reason he came.",
+          "C": "He came to help, and the gift was given to him later."
+        }
+      },
+      {
+        "stem": "In the article, the words rare books mean books that —",
+        "options": [
+          "are hard to find",
+          "are very old news",
+          "are cheap to buy",
+          "are easy to read"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "The king's library had rare books that were special and hard to find.",
+        "wrong": {
+          "B": "Old news is not the idea.",
+          "C": "Cost is not mentioned.",
+          "D": "Nothing says they are easy to read."
+        }
+      },
+      {
+        "stem": "What did Ibn Sina's huge book teach?",
+        "options": [
+          "How to write poems for a king",
+          "How to find what was wrong",
+          "How to build a big library",
+          "How to be a wise king"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The text says the book told how to find what was wrong and how to help the sick.",
+        "wrong": {
+          "A": "The book was about medicine, not poems.",
+          "C": "Building a library is not mentioned.",
+          "D": "Being a king is not mentioned."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "What did Ibn Sina study after he learned the Quran and many poems?",
+        "options": [
+          "Farming, trade, and travel",
+          "Art, music, and drawing",
+          "Math, science, and logic",
+          "Law, history, and maps"
+        ],
+        "answer": "C",
+        "skill": "detail",
+        "why": "The text says he then studied math, science, and logic.",
+        "wrong": {
+          "A": "Farming and trade are not mentioned.",
+          "B": "Art and music are not mentioned here.",
+          "D": "Law and history are not mentioned."
+        }
+      },
+      {
+        "stem": "What happened right after Ibn Sina started reading books about medicine?",
+        "options": [
+          "He learned fast and soon treated patients",
+          "He wrote The Canon of Medicine in Europe",
+          "He was called to the palace by the king",
+          "He moved to Europe to become a doctor"
+        ],
+        "answer": "A",
+        "skill": "sequence",
+        "why": "The text says he learned so fast that he was soon treating patients.",
+        "wrong": {
+          "B": "He wrote the Canon later in life.",
+          "C": "The palace visit came at about seventeen.",
+          "D": "The text does not say he moved to Europe."
+        }
+      },
+      {
+        "stem": "In the article, the word rare means —",
+        "options": [
+          "not cooked long",
+          "very large in size",
+          "made of gold",
+          "few and hard to find"
+        ],
+        "answer": "D",
+        "skill": "vocabulary",
+        "why": "The text says the books were ones that few people had ever read.",
+        "wrong": {
+          "A": "Cooking is not the idea.",
+          "B": "Size is not mentioned.",
+          "C": "Gold is not mentioned."
+        }
+      },
+      {
+        "stem": "Why was Ibn Sina called to the palace?",
+        "options": [
+          "To teach the palace children",
+          "The ruler was very sick",
+          "To write a book for the king",
+          "To fix the royal library"
+        ],
+        "answer": "B",
+        "skill": "cause-effect",
+        "why": "The text says he was called to the palace because the ruler of Bukhara was very sick.",
+        "wrong": {
+          "A": "Teaching children is not mentioned.",
+          "C": "He wrote the Canon later.",
+          "D": "The library was his reward, not the reason."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "What did Ibn Sina set out careful rules for?",
+        "options": [
+          "Writing long poems for kings",
+          "Building a palace for a ruler",
+          "Training new doctors to heal",
+          "Testing if a medicine works"
+        ],
+        "answer": "D",
+        "skill": "detail",
+        "why": "The text says he set out careful rules for testing whether a medicine really works.",
+        "wrong": {
+          "A": "Poems are not mentioned in that way.",
+          "B": "Building a palace is not mentioned.",
+          "C": "Training doctors was not described as a set of rules."
+        }
+      },
+      {
+        "stem": "In the article, the word summoned means —",
+        "options": [
+          "asked to leave",
+          "called to come",
+          "taught to read",
+          "left alone"
+        ],
+        "answer": "B",
+        "skill": "vocabulary",
+        "why": "He was summoned to the palace because the ruler was ill, so he was called there.",
+        "wrong": {
+          "A": "He was asked to come, not leave.",
+          "C": "Reading is not the idea.",
+          "D": "He was needed, not left alone."
+        }
+      },
+      {
+        "stem": "Why were experienced physicians coming to learn from Ibn Sina by the time he was sixteen?",
+        "options": [
+          "He learned medicine fast and treated patients",
+          "He was the ruler of the city of Bukhara by then",
+          "He had already written all five books of The Canon",
+          "He had already traveled across Europe and taught"
+        ],
+        "answer": "A",
+        "skill": "cause-effect",
+        "why": "The text says he learned so rapidly that he was soon treating patients.",
+        "wrong": {
+          "B": "The ruler of Bukhara was a different person.",
+          "C": "He wrote The Canon later.",
+          "D": "The text does not say he went to Europe."
+        }
+      },
+      {
+        "stem": "How is most of the article organized?",
+        "options": [
+          "By the places he visited",
+          "By the books that he read",
+          "By the names of his teachers",
+          "By the order of his life"
+        ],
+        "answer": "D",
+        "skill": "text-structure",
+        "why": "The article moves from his birth, to his teens, to his later work, to his death.",
+        "wrong": {
+          "A": "Places are not the main order.",
+          "B": "Books are not the main order.",
+          "C": "Teachers are not named."
+        }
+      }
+    ]
   }
 }

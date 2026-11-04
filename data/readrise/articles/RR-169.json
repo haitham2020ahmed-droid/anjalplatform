@@ -614,5 +614,217 @@
       ],
       "modelAnswer": "I believe a community should share its water sustainably, balancing farmers' need for irrigation with the lake's own need for water to survive. The Aral Sea shows the consequence of ignoring this balance: when farmers diverted its rivers for cotton irrigation in the 1960s, the lake shrank so much that fishing boats were stranded on dry sand and people got sick from salty dust blown off the dry lakebed. On the other hand, the article shows that building a dam in 2005 let water and fish return to part of the lake, proving that careful, planned water use can let both farms and lakes survive together."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "In the text, what does the word evaporate mean?",
+        "options": [
+          "To turn into ice and fall back down",
+          "To change into a gas and rise into the air",
+          "To sink into the ground and disappear",
+          "To flow away down a stream to the sea"
+        ],
+        "answer": "B",
+        "skill": "vocabulary",
+        "why": "The sun warms the lake and bits of water go up in the air; that is what evaporate means.",
+        "wrong": {
+          "A": "The text says water goes up in the air, not that it freezes.",
+          "C": "The text says the water goes up in the air, not down.",
+          "D": "A stream carries water away, but that is not evaporation."
+        }
+      },
+      {
+        "stem": "What fills a lake with water?",
+        "options": [
+          "Rain and streams",
+          "Sun and wind",
+          "Salt and sand",
+          "Ships and farms"
+        ],
+        "answer": "A",
+        "skill": "detail",
+        "why": "The text says rain fills a lake up, and so do streams.",
+        "wrong": {
+          "B": "The sun makes a lake lose water.",
+          "C": "Salt is what is left when a desert lake dries up.",
+          "D": "Farms used the water and made the Aral Sea shrink."
+        }
+      },
+      {
+        "stem": "Why does a lake form in Saudi Arabia for a short time?",
+        "options": [
+          "A big storm fills low land with water",
+          "A stream runs through the desert all year",
+          "The sea moves over the land each day",
+          "Farmers dig a hole and fill it up"
+        ],
+        "answer": "A",
+        "skill": "cause-effect",
+        "why": "The text says there is not much rain, but a big storm can fill low land and a lake forms for a short time.",
+        "wrong": {
+          "B": "The text says there is not much water in Saudi Arabia; the lake is short-lived.",
+          "C": "The text does not say the sea moves over the land.",
+          "D": "The text does not say that farmers dig holes for these lakes."
+        }
+      },
+      {
+        "stem": "A dam was built and part of the Aral Sea grew back. What does this show?",
+        "options": [
+          "Lakes can never be saved by people",
+          "Lakes only grow back in the north",
+          "Farms are the best use for lake water",
+          "People can help a lake get better"
+        ],
+        "answer": "D",
+        "skill": "inference",
+        "why": "After the dam, part of the lake grew back and fish returned, so people can help a lake.",
+        "wrong": {
+          "A": "The dam helped save part of the lake.",
+          "B": "The text does not say lakes only grow back in the north.",
+          "C": "The farms took water and helped the lake dry up."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "What happens to the water of Lost Lake each year?",
+        "options": [
+          "It drains away underground",
+          "It turns into white salt",
+          "It flows out through a river",
+          "It is used to grow cotton"
+        ],
+        "answer": "A",
+        "skill": "detail",
+        "why": "The text says Lost Lake has a hole in its floor and its water drains away underground every year.",
+        "wrong": {
+          "B": "White salt is left by Saudi desert lakes, not Lost Lake.",
+          "C": "The text says the water drains through a hole, not a river.",
+          "D": "Cotton was grown with water from the Aral Sea rivers."
+        }
+      },
+      {
+        "stem": "Read this: \"Fishing boats were left stranded on the sand.\" What does stranded mean?",
+        "options": [
+          "Painted and cleaned",
+          "Stuck and unable to move",
+          "Moved to a safer place",
+          "Sold to the farmers"
+        ],
+        "answer": "B",
+        "skill": "vocabulary",
+        "why": "The water dried up, so the boats were stuck on the sand and could not move.",
+        "wrong": {
+          "A": "The text says boats were left on sand, not painted.",
+          "C": "The boats were left where they were, so they were not moved.",
+          "D": "The text does not say the boats were sold."
+        }
+      },
+      {
+        "stem": "Why did less and less water reach the Aral Sea?",
+        "options": [
+          "Strong winds blew the water away",
+          "The sun was much hotter every year",
+          "Farmers took water from its rivers",
+          "A dam stopped the rain from falling"
+        ],
+        "answer": "C",
+        "skill": "cause-effect",
+        "why": "Farmers took water from the two rivers to grow cotton, so less water reached the lake.",
+        "wrong": {
+          "A": "Wind blew dust from the dry lakebed, but it did not take the water.",
+          "B": "The text does not blame hotter sun.",
+          "D": "The dam was built later to save the lake."
+        }
+      },
+      {
+        "stem": "Why does the author say the Aral Sea was once the fourth largest lake in the world?",
+        "options": [
+          "To show how little water farms used",
+          "To show how much the lake lost",
+          "To explain why fish are rare there",
+          "To prove that dams are never needed"
+        ],
+        "answer": "B",
+        "skill": "author-purpose",
+        "why": "Saying it was once so large shows how big the loss was when most of it dried up.",
+        "wrong": {
+          "A": "The farms used a lot of water, enough to dry up most of the lake.",
+          "C": "Fish returning is described, but that is not the reason for this fact.",
+          "D": "A dam helped part of the lake, so the author does not say that."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "The text says seasonal lakes are common in arid regions. What does arid mean?",
+        "options": [
+          "Very cold",
+          "Very crowded",
+          "Very green",
+          "Very dry"
+        ],
+        "answer": "D",
+        "skill": "vocabulary",
+        "why": "The next sentences describe Saudi Arabia, which gets very little rainfall, so arid means dry.",
+        "wrong": {
+          "A": "The example is a desert, which is dry, not cold.",
+          "B": "The text is not about crowds of people.",
+          "C": "A desert with little rain is not green."
+        }
+      },
+      {
+        "stem": "Which crop did farmers grow in the desert with water from the Aral Sea's rivers?",
+        "options": [
+          "Cotton",
+          "Wheat",
+          "Dates",
+          "Rice"
+        ],
+        "answer": "A",
+        "skill": "detail",
+        "why": "The planners diverted the water so that farmers could cultivate cotton in the desert.",
+        "wrong": {
+          "B": "The article does not say wheat.",
+          "C": "The article does not say dates.",
+          "D": "The article does not say rice."
+        }
+      },
+      {
+        "stem": "Why does the author include the example of Lost Lake?",
+        "options": [
+          "To show how farms can dry up a lake",
+          "To show a lake that shrinks because of a dam",
+          "To show another natural way a lake can lose water",
+          "To show that satellite photographs are useful"
+        ],
+        "answer": "C",
+        "skill": "text-structure",
+        "why": "Lost Lake drains through an opening in its floor, which is a natural way to lose water, different from evaporation.",
+        "wrong": {
+          "A": "Lost Lake is a natural example, not a farming one.",
+          "B": "The dam is in the Aral Sea example, not Lost Lake.",
+          "D": "Satellites are discussed near the end, not with Lost Lake."
+        }
+      },
+      {
+        "stem": "Why does a seasonal lake in Saudi Arabia last only a few weeks?",
+        "options": [
+          "Evaporation removes the water",
+          "The lake drains through a tunnel",
+          "Farmers divert the water for crops",
+          "The salty water sinks into the sand"
+        ],
+        "answer": "A",
+        "skill": "cause-effect",
+        "why": "After a storm, evaporation removes the shallow water and leaves a crust of white salt.",
+        "wrong": {
+          "B": "The tunnel is part of the Lost Lake example in Oregon.",
+          "C": "Diverting water is the Aral Sea example, not these desert lakes.",
+          "D": "The text says the water evaporates, not that it sinks into the sand."
+        }
+      }
+    ]
   }
 }

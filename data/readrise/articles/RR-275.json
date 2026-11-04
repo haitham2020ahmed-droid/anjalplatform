@@ -614,5 +614,217 @@
       ],
       "modelAnswer": "Table tennis is far from slow or simple. Because the ball is so light, a hard hit sends it along a fast, flat trajectory that reaches high velocity, leaving an opponent only a brief fraction of a second of reflex time to respond. Spin adds another layer of challenge, since rotation created by friction between the rubber paddle and the ball bends its trajectory and changes how sharply it bounces off the table. Together, speed, spin, and reflex make table tennis one of the fastest reaction-time sports in the world."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "When did people in England play this game long ago?",
+        "options": [
+          "Before they ate breakfast",
+          "On a boat at sea",
+          "In the school yard",
+          "After dinner"
+        ],
+        "answer": "D",
+        "skill": "detail",
+        "why": "The text says people in England played the game after dinner.",
+        "wrong": {
+          "A": "The text says after dinner, not before breakfast.",
+          "B": "A boat is not mentioned.",
+          "C": "A school yard is not mentioned for the early game."
+        }
+      },
+      {
+        "stem": "What must the ball do right after it bounces on your side?",
+        "options": [
+          "Go over the net",
+          "Hit the paddle twice",
+          "Stop on the table",
+          "Fly off the table"
+        ],
+        "answer": "A",
+        "skill": "sequence",
+        "why": "The text says the ball bounces on your side, then goes over the net, then bounces on the other side.",
+        "wrong": {
+          "B": "The text does not say the ball hits the paddle twice.",
+          "C": "The ball must keep moving to the other side.",
+          "D": "Flying off the table would end the play."
+        }
+      },
+      {
+        "stem": "In this article, what does the word serve mean?",
+        "options": [
+          "To clean the whole table",
+          "To win by two points",
+          "To hit the ball first",
+          "To hold the paddle still"
+        ],
+        "answer": "C",
+        "skill": "vocabulary",
+        "why": "Players take turns to serve, which means they hit the ball first to start each play.",
+        "wrong": {
+          "A": "Cleaning the table is not mentioned.",
+          "B": "Winning by two points is a rule for ending the game.",
+          "D": "Players move their paddles to hit the ball."
+        }
+      },
+      {
+        "stem": "What does the last sentence tell the reader?",
+        "options": [
+          "Table tennis is too hard for children.",
+          "Saudi students enjoy table tennis.",
+          "Table tennis is played only at home.",
+          "Table tennis has no clubs."
+        ],
+        "answer": "B",
+        "skill": "inference",
+        "why": "The text says schools in Saudi Arabia have table tennis clubs for fast, fun games, so students enjoy it.",
+        "wrong": {
+          "A": "Children play it in school clubs.",
+          "C": "The text says it is played in school clubs.",
+          "D": "The text says schools have clubs."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "What covers the paddle, according to the article?",
+        "options": [
+          "A soft piece of cloth",
+          "A thin layer of rubber",
+          "A coat of bright paint",
+          "A sheet of thin glass"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The text says the paddle is covered with a thin layer of rubber.",
+        "wrong": {
+          "A": "Cloth is not mentioned.",
+          "C": "Paint is not mentioned.",
+          "D": "Glass is not mentioned."
+        }
+      },
+      {
+        "stem": "Why can the ball reach high speed after a hard hit?",
+        "options": [
+          "The table is very large.",
+          "The net is very high.",
+          "The players are very tall.",
+          "The ball is very light."
+        ],
+        "answer": "D",
+        "skill": "cause-effect",
+        "why": "The text says that because the ball is so light, it can reach high speed after a hard hit.",
+        "wrong": {
+          "A": "The table is described as small.",
+          "B": "The net's height is not given as a cause.",
+          "C": "The text does not mention the players' height."
+        }
+      },
+      {
+        "stem": "In the article, the word hollow describes a ball that is —",
+        "options": [
+          "empty inside",
+          "made of rubber",
+          "very bright",
+          "covered in cloth"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "The text says the ball is light, hollow, and small, so it is empty inside, which is why it is light.",
+        "wrong": {
+          "B": "The thin rubber covers the paddle, not the ball.",
+          "C": "The text does not describe the ball's color.",
+          "D": "The ball is not described as covered in cloth."
+        }
+      },
+      {
+        "stem": "What does using stacked books as a net show about the early game?",
+        "options": [
+          "It was played with simple things.",
+          "It needed a huge table.",
+          "It was played only outside in parks.",
+          "It had no rules at all."
+        ],
+        "answer": "A",
+        "skill": "inference",
+        "why": "Early players used stacked books for a net, which shows they played for fun with simple things they had.",
+        "wrong": {
+          "B": "The text says the official table is fairly small.",
+          "C": "The text says players used books on a table, not that they played only outside.",
+          "D": "Using a net of books does not mean there were no rules."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "Who first played the game as an after-dinner amusement?",
+        "options": [
+          "Wealthy households",
+          "School teams",
+          "Famous sailors",
+          "Desert travelers"
+        ],
+        "answer": "A",
+        "skill": "detail",
+        "why": "The text says the game began as an after-dinner amusement for wealthy households.",
+        "wrong": {
+          "B": "School teams are not mentioned as the first players.",
+          "C": "Sailors are not mentioned.",
+          "D": "Desert travelers are not mentioned."
+        }
+      },
+      {
+        "stem": "In the article, the word velocity most nearly means —",
+        "options": [
+          "color",
+          "weight",
+          "speed",
+          "sound"
+        ],
+        "answer": "C",
+        "skill": "vocabulary",
+        "why": "The light ball affects the velocity it can reach, and the text then talks about a fast hit, so velocity is speed.",
+        "wrong": {
+          "A": "The sentence is about how fast the ball can go, not color.",
+          "B": "Weight is described with the word light.",
+          "D": "Sound is not mentioned."
+        }
+      },
+      {
+        "stem": "What does the name change once formal rules were written suggest?",
+        "options": [
+          "The game stopped being any fun.",
+          "The game became more organized.",
+          "The game moved to a new country.",
+          "The game ended in England."
+        ],
+        "answer": "B",
+        "skill": "inference",
+        "why": "The text says the game took the name table tennis once formal rules were written, which suggests it became more organized.",
+        "wrong": {
+          "A": "The text does not say it stopped being fun.",
+          "C": "The text does not say it moved to another country.",
+          "D": "The game did not end; it got a new name."
+        }
+      },
+      {
+        "stem": "Why can a hard hit send the ball along a fast, flat path?",
+        "options": [
+          "The table is very long.",
+          "The paddle is very smooth.",
+          "The net is very low.",
+          "The ball is very light."
+        ],
+        "answer": "D",
+        "skill": "cause-effect",
+        "why": "The text says that because the ball is so light, a hard hit sends it along a fast, flat trajectory.",
+        "wrong": {
+          "A": "The table is described as fairly small.",
+          "B": "A smooth paddle is linked to weaker spin, not speed.",
+          "C": "The net's height is not given as a cause."
+        }
+      }
+    ]
   }
 }

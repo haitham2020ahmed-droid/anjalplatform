@@ -614,5 +614,217 @@
       ],
       "modelAnswer": "I agree that staying calm is more useful than panicking when something goes wrong. When Salem's engine fails far from shore, he feels afraid but deliberately refuses to panic, because he knows panic rarely solves a real problem and often makes things worse. Instead, his calm thinking lets him use his meticulous knowledge of the current and the stars: he anticipates that the current will carry him toward his village, and he patiently lets it do so instead of exhausting himself. Someone might argue that panic can sometimes push people to act quickly in an emergency, but in Salem's case, quick, frantic action would likely have wasted his energy and left him drifting the wrong way, so his calm, careful approach was clearly the better choice."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "Why does Salem go far out to sea?",
+        "options": [
+          "Fish live far out",
+          "He likes the cold",
+          "His dad lives there",
+          "He wants to race"
+        ],
+        "answer": "A",
+        "skill": "detail",
+        "why": "The text says fish live far out.",
+        "wrong": {
+          "B": "The text does not mention the cold.",
+          "C": "His dad waits at home.",
+          "D": "The text does not mention a race."
+        }
+      },
+      {
+        "stem": "In the story, the word drift means to —",
+        "options": [
+          "sink down under the sea",
+          "go fast with a loud engine",
+          "be carried slowly by water",
+          "stay still all day long"
+        ],
+        "answer": "C",
+        "skill": "vocabulary",
+        "why": "Salem lets the boat drift with the current, so the water carries it slowly.",
+        "wrong": {
+          "A": "The boat floats on the water.",
+          "B": "The engine has stopped.",
+          "D": "The current moves the boat."
+        }
+      },
+      {
+        "stem": "What does Salem do just before he lets the boat drift?",
+        "options": [
+          "He lights a lamp",
+          "He sees the stars",
+          "He tells his dad",
+          "He lifts the anchor"
+        ],
+        "answer": "D",
+        "skill": "sequence",
+        "why": "Salem lifts the anchor and then lets the boat drift.",
+        "wrong": {
+          "A": "The village lights the lamp.",
+          "B": "He sees the stars later, when the sun sets.",
+          "C": "His dad is at home, far away."
+        }
+      },
+      {
+        "stem": "Why is Salem's dad worried?",
+        "options": [
+          "Salem is not back yet",
+          "The fish are gone",
+          "The engine is loud",
+          "The village is dark"
+        ],
+        "answer": "A",
+        "skill": "cause-effect",
+        "why": "The text says Yousef is worried because Salem is not back yet.",
+        "wrong": {
+          "B": "The text does not say the fish are gone.",
+          "C": "The engine has stopped.",
+          "D": "The village lights a lamp, but that is not the reason."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "Whose boat did Salem's boat belong to before?",
+        "options": [
+          "His father",
+          "His teacher",
+          "His grandfather",
+          "A neighbor"
+        ],
+        "answer": "C",
+        "skill": "detail",
+        "why": "The story says the boat once belonged to Salem's grandfather.",
+        "wrong": {
+          "A": "His father is Yousef, who waits in the village.",
+          "B": "A teacher is not in the story.",
+          "D": "A neighbor is not in the story."
+        }
+      },
+      {
+        "stem": "Why does Salem lower his anchor?",
+        "options": [
+          "To make the broken engine start again",
+          "To keep the boat from drifting fast",
+          "To help the fish swim close to the boat",
+          "To let the villagers know where he is"
+        ],
+        "answer": "B",
+        "skill": "cause-effect",
+        "why": "The story says Salem lowers his anchor so the boat will not drift away too fast.",
+        "wrong": {
+          "A": "The engine still does not work; the anchor has nothing to do with it.",
+          "C": "Fish are not the reason he lowers the anchor.",
+          "D": "The villagers light a lamp later; the anchor does not tell them where he is."
+        }
+      },
+      {
+        "stem": "In the story, the word exhausted means —",
+        "options": [
+          "very tired",
+          "very proud",
+          "very hungry",
+          "very scared"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "Salem drifts all night, so he is exhausted but unharmed, which means very tired.",
+        "wrong": {
+          "B": "Proud is not what the word means.",
+          "C": "Hunger is not mentioned.",
+          "D": "He is already safe, so scared does not fit."
+        }
+      },
+      {
+        "stem": "Why does the author tell us that his father Yousef grows worried?",
+        "options": [
+          "To show his family cares",
+          "To show the engine was broken",
+          "To explain how fish are caught",
+          "To show the sea was cold"
+        ],
+        "answer": "A",
+        "skill": "author-purpose",
+        "why": "His worry and the lamp show that people at home care about Salem.",
+        "wrong": {
+          "B": "The engine problem is told earlier.",
+          "C": "The story does not explain fishing here.",
+          "D": "The story does not talk about cold."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "Where does Salem usually fish?",
+        "options": [
+          "Far out, past the rocky reef",
+          "Close to the village dock",
+          "Inside a calm harbor",
+          "Near the shallow beach"
+        ],
+        "answer": "A",
+        "skill": "detail",
+        "why": "The story says he travels far, well past the rocky reef, where the water is deep and cool.",
+        "wrong": {
+          "B": "He sails far from the shore.",
+          "C": "He goes far from the harbor.",
+          "D": "The best fishing is in deep water."
+        }
+      },
+      {
+        "stem": "In the story, the word converge means to —",
+        "options": [
+          "move apart",
+          "stop moving",
+          "grow stronger",
+          "come together"
+        ],
+        "answer": "D",
+        "skill": "vocabulary",
+        "why": "The two tidal currents converge near the headland, which means they come together.",
+        "wrong": {
+          "A": "Moving apart is the opposite.",
+          "B": "Currents keep moving.",
+          "C": "Converge is about where currents meet."
+        }
+      },
+      {
+        "stem": "Why does Salem refuse to let panic take over?",
+        "options": [
+          "He thinks it is just a game",
+          "His boat is faster than most",
+          "Panic rarely solves a problem",
+          "He wants to catch more fish"
+        ],
+        "answer": "C",
+        "skill": "cause-effect",
+        "why": "The story says he knows panic rarely solves a genuine problem on open water.",
+        "wrong": {
+          "A": "It is a real problem, not a game.",
+          "B": "His engine has stopped.",
+          "D": "Fish are not his goal here."
+        }
+      },
+      {
+        "stem": "What does Salem's choice to let the sea carry him suggest?",
+        "options": [
+          "He is working with the sea",
+          "He does not want to go home",
+          "He has lost his oar",
+          "He is too tired to think"
+        ],
+        "answer": "A",
+        "skill": "inference",
+        "why": "He is patient and uses the current instead of fighting it.",
+        "wrong": {
+          "B": "He is trying to get home.",
+          "C": "He uses an oar to steer.",
+          "D": "He thinks carefully through the night."
+        }
+      }
+    ]
   }
 }

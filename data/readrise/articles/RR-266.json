@@ -614,5 +614,217 @@
       ],
       "modelAnswer": "Birds migrate mainly because food becomes scarce and daylight hours shorten in cold months, so flying to a warmer region with more food and a milder climate helps them survive. To find their way, migrating birds rely on several cues together, including the position of the sun and stars, Earth's magnetic field, which some species can sense through specialized cells, and landmarks such as rivers, coastlines, and mountain ranges. The Arabian Peninsula plays an important role in this journey because it lies between Africa, Asia, and Europe, forming a natural land bridge, so countless species use its coastlines, wetlands, and desert oases as resting corridors along a long-established flyway."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "Which of these helps birds know which way to fly?",
+        "options": [
+          "The wind",
+          "The stars",
+          "The rain",
+          "The snow"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The text says birds use the sun, the stars, and rivers and hills below.",
+        "wrong": {
+          "A": "The wind is not named.",
+          "C": "Rain is not named.",
+          "D": "Snow is not named."
+        }
+      },
+      {
+        "stem": "In the article, what does the word \"journey\" mean?",
+        "options": [
+          "A long trip",
+          "A loud song",
+          "A small nest",
+          "A cold night"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "The text talks about a very long journey across seas and deserts, which is a long trip.",
+        "wrong": {
+          "B": "A song is not mentioned.",
+          "C": "A nest is where eggs are laid.",
+          "D": "The text does not use journey to mean a night."
+        }
+      },
+      {
+        "stem": "What would most likely happen if birds stayed in a cold place in the cold months?",
+        "options": [
+          "They would find lots of food",
+          "They would grow bigger",
+          "They would build more nests",
+          "They would find little food"
+        ],
+        "answer": "D",
+        "skill": "inference",
+        "why": "The text says food is hard to find in cold months, so birds that stay would find little food.",
+        "wrong": {
+          "A": "The text says food is hard to find.",
+          "B": "Growing bigger is not mentioned.",
+          "C": "Nests are built in the warm months."
+        }
+      },
+      {
+        "stem": "What do some birds cross on a very long journey?",
+        "options": [
+          "Cities and roads",
+          "Seas and deserts",
+          "Farms and gardens",
+          "Lakes and caves"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The text says some birds cross seas and deserts.",
+        "wrong": {
+          "A": "Cities are not named.",
+          "C": "Farms are not named.",
+          "D": "Caves are not named."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "About how far can some birds travel during migration?",
+        "options": [
+          "A few meters",
+          "Hundreds of meters",
+          "Thousands of kilometers",
+          "Only a short walk"
+        ],
+        "answer": "C",
+        "skill": "detail",
+        "why": "The text says some birds travel thousands of kilometers.",
+        "wrong": {
+          "A": "A few meters is much too short.",
+          "B": "Hundreds of meters is much too short.",
+          "D": "Migration is a very long trip."
+        }
+      },
+      {
+        "stem": "In the article, what does the word \"territory\" mean?",
+        "options": [
+          "A place a bird lives",
+          "A kind of seed to eat",
+          "A strong wind at sea",
+          "A star in the sky"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "Birds fly back to their original territory to build nests and raise young, so it is the area they call home.",
+        "wrong": {
+          "B": "Seeds are food, not a place.",
+          "C": "Wind is not the meaning.",
+          "D": "Stars help with direction."
+        }
+      },
+      {
+        "stem": "Why do many birds leave cold regions in winter?",
+        "options": [
+          "Food gets scarce there",
+          "Nests grow too small",
+          "The stars are hidden",
+          "The seas are too warm"
+        ],
+        "answer": "A",
+        "skill": "cause-effect",
+        "why": "The text says food such as insects, seeds, and fish can become scarce in cold winter months.",
+        "wrong": {
+          "B": "Nest size is not mentioned.",
+          "C": "Stars help birds find direction and are not the reason.",
+          "D": "Warm seas are not a reason to leave."
+        }
+      },
+      {
+        "stem": "Why does the author ask why so many birds migrate at all?",
+        "options": [
+          "To say that birds never migrate",
+          "To lead into the reasons for migration",
+          "To end the article",
+          "To talk about the Arabian Peninsula"
+        ],
+        "answer": "B",
+        "skill": "text-structure",
+        "why": "The question sets up the next paragraph, which explains why birds migrate.",
+        "wrong": {
+          "A": "Many birds do migrate.",
+          "C": "The article goes on after this question.",
+          "D": "The peninsula comes later."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "Which birds follow the same route year after year, according to the article?",
+        "options": [
+          "The sparrow and the pigeon",
+          "Steppe eagle and bee-eater",
+          "The falcon and the parrot",
+          "The ostrich and the owl"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The text names the steppe eagle and the European bee-eater as birds on this route.",
+        "wrong": {
+          "A": "The article does not name these birds.",
+          "C": "The article does not name these birds.",
+          "D": "The article does not name these birds."
+        }
+      },
+      {
+        "stem": "In the third paragraph, what does the word \"offspring\" mean?",
+        "options": [
+          "Old birds",
+          "Wild seeds",
+          "Young birds",
+          "Warm nests"
+        ],
+        "answer": "C",
+        "skill": "vocabulary",
+        "why": "Birds raise their offspring after laying eggs, so offspring means their young.",
+        "wrong": {
+          "A": "Old birds do not hatch from eggs.",
+          "B": "Seeds are food, not young birds.",
+          "D": "A nest is where young birds are kept."
+        }
+      },
+      {
+        "stem": "Why does the Arabian Peninsula form a natural corridor for birds?",
+        "options": [
+          "It has no deserts or seas",
+          "It is very cold all year",
+          "It is the largest land of all",
+          "It lies between three continents"
+        ],
+        "answer": "D",
+        "skill": "cause-effect",
+        "why": "The text says it sits between three continents, so birds use it as a route.",
+        "wrong": {
+          "A": "Deserts are not removed from the text.",
+          "B": "Cold is not mentioned.",
+          "C": "Its size is not mentioned."
+        }
+      },
+      {
+        "stem": "How do the breeding grounds and wintering grounds of the species in the article differ?",
+        "options": [
+          "Breeding is in Africa; wintering is in Europe or Asia",
+          "Breeding is in Europe or Asia; wintering is in Africa",
+          "Both are in Africa",
+          "Both are in Europe"
+        ],
+        "answer": "B",
+        "skill": "compare",
+        "why": "The text says they travel between breeding grounds in Europe or Asia and wintering grounds in Africa.",
+        "wrong": {
+          "A": "This reverses the places in the text.",
+          "C": "The grounds are in different places.",
+          "D": "The grounds are in different places."
+        }
+      }
+    ]
   }
 }

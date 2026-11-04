@@ -614,5 +614,217 @@
       ],
       "modelAnswer": "The article shows that the same sun that helps us also has a hidden danger. Sunlight gives us light and warmth and even helps our bodies make vitamin D, but it also sends out invisible ultraviolet rays that can damage the skin and cause sunburn, wrinkles, or even skin cancer over time. Heat from the sun can also cause dehydration, since the body loses water through sweat on hot days. Even surfaces like sand and water reflect ultraviolet rays back at you, which is why protection is still necessary even in the shade or on a cloudy day."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "What is sunscreen?",
+        "options": [
+          "A wide hat that shades your face",
+          "A cool spot made by a tree",
+          "A cold drink for very hot days",
+          "A cream that blocks the rays"
+        ],
+        "answer": "D",
+        "skill": "detail",
+        "why": "The text says sunscreen is a cream that helps block the rays.",
+        "wrong": {
+          "A": "A hat is a different way to stay safe.",
+          "B": "That describes shade.",
+          "C": "The text says to drink water, but that is not sunscreen."
+        }
+      },
+      {
+        "stem": "Why should you not look right at the Sun?",
+        "options": [
+          "It can make you feel too cold",
+          "The rays can hurt your eyes",
+          "It can turn your shadow short",
+          "It makes the clouds go away"
+        ],
+        "answer": "B",
+        "skill": "cause-effect",
+        "why": "The text says the rays can hurt your eyes, so do not look right at the Sun.",
+        "wrong": {
+          "A": "The Sun is hot, not cold.",
+          "C": "The Sun's height changes your shadow, not your looking at it.",
+          "D": "Looking at the Sun does not change the clouds."
+        }
+      },
+      {
+        "stem": "Why do long sleeves help you stay safe in the sun?",
+        "options": [
+          "They make the sun go behind a cloud",
+          "They keep your hands cold and wet",
+          "They cover your skin from the rays",
+          "They make your shadow much longer"
+        ],
+        "answer": "C",
+        "skill": "inference",
+        "why": "The rays can burn your skin, so sleeves that cover your arms keep the rays off.",
+        "wrong": {
+          "A": "Clothes cannot move the sun or clouds.",
+          "B": "Sleeves do not make skin wet.",
+          "D": "A short shadow shows strong sun, but sleeves do not change it."
+        }
+      },
+      {
+        "stem": "In the article, the word block means —",
+        "options": [
+          "to stop and keep out",
+          "to build with toy blocks",
+          "to make brighter",
+          "to make hotter"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "Sunscreen helps stop the rays from reaching your skin, so block means to keep out.",
+        "wrong": {
+          "B": "The sentence is not about toys.",
+          "C": "Sunscreen does not make rays brighter.",
+          "D": "Sunscreen does not make rays hotter."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "What does the Sun help our bodies make?",
+        "options": [
+          "Dark skin cream",
+          "Vitamin D",
+          "More salty sweat",
+          "Strong clouds"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The text says the Sun helps our bodies make vitamin D, which keeps bones strong.",
+        "wrong": {
+          "A": "The text does not mention skin cream made by the body.",
+          "C": "Sweat is lost on hot days; the Sun does not help make it.",
+          "D": "Clouds are in the sky, not made by our bodies."
+        }
+      },
+      {
+        "stem": "In the article, the word invisible means —",
+        "options": [
+          "extremely bright",
+          "extremely hot",
+          "very powerful",
+          "cannot be seen"
+        ],
+        "answer": "D",
+        "skill": "vocabulary",
+        "why": "The UV rays are along with light we can see, so invisible means we cannot see them.",
+        "wrong": {
+          "A": "Invisible rays are not bright to the eye.",
+          "B": "Invisible is about seeing, not heat.",
+          "C": "Invisible is about seeing, not power."
+        }
+      },
+      {
+        "stem": "What can too much sun over many years cause?",
+        "options": [
+          "Wrinkles and skin cancer",
+          "Thicker skin that blocks UV rays",
+          "Better eyes that see in the dark",
+          "A cooler body on hot days"
+        ],
+        "answer": "A",
+        "skill": "cause-effect",
+        "why": "The text says too much sun can cause wrinkles and even skin cancer over many years.",
+        "wrong": {
+          "B": "The text does not say skin gets thicker and safer.",
+          "C": "UV rays can harm the eyes.",
+          "D": "Sun makes the body hot, not cool."
+        }
+      },
+      {
+        "stem": "You see that your shadow is shorter than you are. What should you infer?",
+        "options": [
+          "The sun has gone behind a cloud",
+          "It is time to drink all your water",
+          "The UV rays are strong right now",
+          "You are standing inside the shade"
+        ],
+        "answer": "C",
+        "skill": "inference",
+        "why": "The text says that if your shadow is shorter than you are, the rays are strong.",
+        "wrong": {
+          "A": "Clouds do not make a shadow short.",
+          "B": "Drinking water is a separate tip.",
+          "D": "In the shade you would not see your own shadow."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "According to the article, when should sunscreen be reapplied?",
+        "options": [
+          "Once a week",
+          "Only when you swim",
+          "Every two hours",
+          "Every ten minutes"
+        ],
+        "answer": "C",
+        "skill": "detail",
+        "why": "The text says to reapply sunscreen every two hours, particularly after swimming.",
+        "wrong": {
+          "A": "Once a week is much too long.",
+          "B": "The text says every two hours, especially after swimming, not only then.",
+          "D": "The text says every two hours, not ten minutes."
+        }
+      },
+      {
+        "stem": "In the article, excessive sun exposure means —",
+        "options": [
+          "too much time in the sun",
+          "a short walk in the sun",
+          "sitting inside near a window",
+          "looking at pictures of the Sun"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "The sentence says it can cause wrinkles and skin cancer, so excessive means too much.",
+        "wrong": {
+          "B": "A short walk would not cause harm over many years.",
+          "C": "The article is about being outdoors in the sun.",
+          "D": "Pictures of the Sun do not harm skin."
+        }
+      },
+      {
+        "stem": "What happens when your body loses too much water?",
+        "options": [
+          "You grow much stronger in the heat",
+          "You become able to see UV rays",
+          "You get a higher UV index",
+          "You may feel dizzy and sick"
+        ],
+        "answer": "D",
+        "skill": "cause-effect",
+        "why": "The text says dehydration can make you feel exhausted, dizzy, and sick.",
+        "wrong": {
+          "A": "Losing water makes you weaker, not stronger.",
+          "B": "UV rays stay invisible.",
+          "C": "The UV index is about the sun, not your body."
+        }
+      },
+      {
+        "stem": "Why does the article tell you to inform an adult if you feel faint?",
+        "options": [
+          "Adults can make the UV index go lower",
+          "Feeling faint can be a sign of heat danger",
+          "Adults must pick the color of your clothes",
+          "Adults will take you to buy sunglasses"
+        ],
+        "answer": "B",
+        "skill": "inference",
+        "why": "The article puts feeling faint with the dangers of heat and dehydration, so an adult can help right away.",
+        "wrong": {
+          "A": "Adults cannot change the UV index.",
+          "C": "Clothes color is a different tip.",
+          "D": "Buying sunglasses does not help someone who feels faint."
+        }
+      }
+    ]
   }
 }

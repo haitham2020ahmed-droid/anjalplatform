@@ -1,315 +1,830 @@
 {
-  "code": "RR-337",
-  "title": "Urbanization: Why Cities Grow",
-  "topic": "Geography",
-  "summary": "Why people move from the countryside to cities over time, what draws them there, and how Riyadh's growth shows this change happening around the world.",
-  "poll": "Living in a big, growing city is better than living in a small rural town.",
-  "versions": [
-    {
-      "level": 300,
-      "title": "Why Cities Grow",
-      "text": "Long ago, people lived in the land. This place is rural. They grew food there.\n\nNow, many live in a city. A city is urban. Why move? Jobs! Cash can be earned. Help is there too. This is a service. Schools help kids learn. Life feels good.\n\nRiyadh is a city. It sits in Saudi Arabia. Long ago, it was small. Now it is big. Many live there now. Tall towers rise up. Roads are busy.\n\nWhen many move in, it gets crowded. Cars fill the roads. New homes are a must. Leaders must plan. They plan for schools. They plan for clean water too.\n\nCities will grow more. People want jobs. They want a good life."
-    },
-    {
-      "level": 400,
-      "title": "Why Cities Grow",
-      "text": "Long ago, most people lived out on the land. That kind of place is rural. They grew food there. They kept farm animals too.\n\nToday, more people live in a city. A city is urban. It has many buildings close by. Why do they move? Cities have lots of jobs. People can earn cash there. Cities also have good service. Schools and clinics are two kinds. Life can feel better in a city.\n\nRiyadh is a city in Saudi Arabia. Long ago, it was just a small town. Now it has grown into a huge city. Many more people live there today. It has tall towers. It has wide roads. It has busy markets too.\n\nWhen many people move to one city, that city gets crowded. Roads fill up with cars. Buses get full too. New homes must be built. City leaders must plan. They plan for more schools. They plan for clean water too.\n\nCities will likely keep growing. More people will want jobs. They will want good service. They will want a better life in a city."
-    },
-    {
-      "level": 500,
-      "title": "Why Cities Grow",
-      "text": "Long ago, most people lived out on the land. This kind of place is a rural area. They grew food there. They kept farm animals too. Life moved slowly. News came in slowly too.\n\nToday, more people live in cities. A city is an urban place. It has many buildings close together. This shift is happening almost everywhere. Why do people move to cities? Cities have many jobs. People can earn cash there. Cities also have good service. Schools, clinics, and shops are examples. Many families feel life will be better in a city.\n\nRiyadh is a city in Saudi Arabia. It shows this shift well. Long ago, it was just a small town. Now it has grown into one of the biggest cities in the region. It has tall towers. It has wide roads and busy markets. Many more people live there now.\n\nWhen many people move to one city, that city gets crowded. This brings new troubles. Roads fill up with cars. Buses get full too. New homes are needed. Crews put up more buildings each year. City leaders must plan with care. They plan for more schools and clean water. If they do not, the city will have trouble.\n\nCities around the world, not just Riyadh, will likely keep growing. More people will keep looking for jobs. They want good service too. They want a better life in a city."
-    },
-    {
-      "level": 600,
-      "title": "Why Cities Grow",
-      "text": "Long ago, most people lived out on the land, where they grew food and kept farm animals. This kind of place is called a rural area. Life moved slowly there. News came in slowly too.\n\nToday, more and more people live in cities instead. A city is an urban place with many buildings close together. This shift is happening nearly everywhere. Why do people move to cities? Cities offer many jobs, so people can earn cash. Cities also give good service, such as schools, clinics, and shops. Many families feel life will be better in a city than in a small village.\n\nRiyadh is a city in Saudi Arabia, and it shows this shift well. Long ago, it was just a small town. Now it has grown into one of the biggest cities in the region. It is filled with tall towers, wide roads, and busy markets. Many more people live there now than only a few years back.\n\nWhen many people move into one city, that city gets crowded. This brings new troubles. Roads fill up with cars, and buses get packed too. New homes are needed for all the new people, so crews build more each year. City leaders must plan with care for more schools and clean water. If they do not, the city will have trouble.\n\nCities around the world, not just Riyadh, will likely keep growing. More and more people will keep looking for jobs, good service, and a better life in a city."
-    },
-    {
-      "level": 700,
-      "title": "Urbanization: Why Cities Grow",
-      "text": "For most of history, most people lived in the countryside. This is called a rural area. They grew food there. They raised animals too. Life moved slowly. News took weeks to arrive.\n\nOver the last century, more people have moved into cities. Geographers call this urbanization. A city is an urban place. Many buildings and people are packed close together. Why do people migrate to cities? Cities offer many jobs. People can earn money there. Cities also give good services. Schools and hospitals are examples. Many families see cities as a place of opportunity.\n\nRiyadh is the capital of Saudi Arabia. It shows this process well. Decades ago, it was a small town. It was surrounded by desert. Now it is one of the largest cities in the region. It has tall towers and busy markets. Government jobs and oil wealth drew people there. New businesses did too.\n\nWhen many people move into one city, the population can overwhelm its infrastructure. That means the roads, water pipes, and power lines. Roads fill up with cars. Buses and trains get packed too. New housing is needed. City leaders must plan. They plan for schools, hospitals, and clean water.\n\nUrbanization is not only in Saudi Arabia. Cities around the world will likely keep growing. People will keep searching for jobs. They will search for good services too."
-    },
-    {
-      "level": 800,
-      "title": "Urbanization: Why Cities Grow",
-      "text": "For most of history, most people lived in the countryside. This is called a rural area. They grew food there and raised animals too. Life moved slowly, and news took weeks to arrive.\n\nOver the last century, more people have moved into cities. Geographers call this urbanization. Today, for the first time, more than half of the world's people live in urban areas. A city is a place where many buildings and people are packed close together. Why do people migrate to cities? Cities offer many jobs, so people can earn money there. Cities also give good services, such as schools and hospitals. Many families see cities as a place of opportunity.\n\nRiyadh is the capital of Saudi Arabia, and it shows this process well. Decades ago, it was a small town surrounded by desert. Now it is one of the largest cities in the region, with tall towers and busy markets. Government jobs, oil wealth, and new businesses drew people there. The city's population has grown many times over since the mid-twentieth century.\n\nWhen many people move into one city, the population can overwhelm its infrastructure. That means the roads, water pipes, and power lines that keep a city running. Roads fill up with cars, housing grows more costly, and buses and trains get packed too. City leaders must plan carefully for more schools, hospitals, and clean water.\n\nUrbanization is not only in Saudi Arabia. Cities around the world, from Lagos to Dhaka, will likely keep growing, because people will keep searching for jobs and good services."
-    },
-    {
-      "level": 900,
-      "title": "Urbanization: Why Cities Grow",
-      "text": "For most of history, most people lived in rural areas. They grew food and raised animals on small farms, and life there moved slowly. News sometimes took weeks to arrive.\n\nOver the last century, more people have moved from rural areas into cities. Geographers call this process urbanization. Today, for the first time, more than half of the world's people live in urban areas, and that share keeps climbing each year. Why do so many people migrate to cities? Cities offer many jobs, so people can earn money and support their families. Cities also give good services, such as schools and hospitals. Many families see cities as a place of real opportunity.\n\nRiyadh, the capital of Saudi Arabia, shows this process clearly. Decades ago, it was a small town surrounded by desert, but it has since grown into one of the largest cities in the region, with tall towers and busy markets. Government jobs, oil wealth, and new businesses drew people from across the country. The city's population has grown many times over since the mid-twentieth century. Through its Vision 2030 plan, Saudi Arabia is also working to grow its economy beyond oil.\n\nWhen many people move into one city, the population can overwhelm its infrastructure, meaning the roads, water pipes, and power lines that keep a city running. Roads fill up with cars, housing grows more costly, and buses and trains get packed too. City leaders must plan carefully for more schools, hospitals, and clean water.\n\nUrbanization is not unique to Saudi Arabia; cities around the world, from Lagos to Dhaka, will likely keep growing, because people will keep searching for jobs and good services."
-    },
-    {
-      "level": 1000,
-      "title": "Urbanization: Why Cities Grow",
-      "text": "For most of history, the great majority of people lived in rural areas. They grew crops and raised animals on small farms, and life there moved slowly. News sometimes took weeks to arrive.\n\nOver the past century, however, an enormous number of people have moved from rural areas into cities, a process that geographers call urbanization. Today, for the first time in history, more than half of the world's population lives in urban areas, and that share keeps climbing each year. Why do so many people choose to migrate to cities? Cities offer a wide range of jobs, letting people earn money and support their families. Cities also provide reliable services, such as schools and hospitals. Many families see cities as places of real opportunity, a chance to build a better future.\n\nRiyadh, the capital of Saudi Arabia, shows this process clearly. Decades ago, it was merely a small town surrounded by desert, yet it has since grown into one of the largest cities in the region, filled with towering buildings and bustling markets. Government jobs, oil wealth, and new businesses drew people from across the country. The city's population has grown many times over since the mid-twentieth century. Through its Vision 2030 plan, Saudi Arabia is also working to grow its economy beyond oil.\n\nWhen large numbers of people move into a single city, the growing population can overwhelm its infrastructure, meaning the roads, water pipes, and power lines that keep a city running. Roads become congested with cars, housing grows more costly, and buses and trains become overcrowded as well. City leaders must plan carefully for more schools, hospitals, and clean water.\n\nUrbanization is by no means unique to Saudi Arabia; cities around the world, from Lagos to Dhaka, will likely keep growing, because more people will keep searching for jobs and reliable services."
-    },
-    {
-      "level": 1100,
-      "title": "Urbanization: Why Cities Grow",
-      "text": "Throughout most of human history, most people lived in rural areas, cultivating crops and raising animals on small farms. Life there moved slowly, and news from distant places could take weeks to arrive, since there were no fast ways to send a message.\n\nOver the past century, however, an enormous number of people have moved from rural areas into cities, a demographic shift that geographers call urbanization. Today, more than half of the world's population lives in urban areas, and that share keeps climbing each year. Cities offer a wide range of jobs, letting people earn money and support their families. Cities also provide reliable services, such as schools and hospitals, that are often harder to find in small villages. Many families regard cities as places of genuine economic opportunity, offering chances that rural life rarely can.\n\nRiyadh, the capital of Saudi Arabia, shows this process clearly. It has grown from a small desert town into a sprawling megacity with millions of residents. Government jobs, oil wealth, and new businesses drew people from across the country, and the number of residents has multiplied many times over in just a few decades. Through its Vision 2030 plan, Saudi Arabia is also working to diversify its economy beyond oil, hoping to create even more jobs for the future.\n\nWhen large numbers of people move into one city, the growing population can overwhelm its infrastructure, meaning the roads, water pipes, and power lines that keep a city functioning. Roads grow congested, housing costs rise, and urban sprawl pushes new neighborhoods far beyond the city's old center. Schools and hospitals can struggle to keep pace with so many new residents. City leaders must plan carefully, or this kind of growth may not be sustainable over the long term.\n\nUrbanization is by no means unique to Saudi Arabia; cities around the world, from Lagos to Dhaka, will likely keep growing into megacities of their own, as people keep searching for jobs, services, and a better life."
-    },
-    {
-      "level": 1200,
-      "title": "Urbanization: Why Cities Grow",
-      "text": "Throughout most of human history, most people resided in rural areas, cultivating crops and raising livestock on modest farms. Life there proceeded slowly, and news from distant places could take weeks to arrive, since no fast way existed to send a message.\n\nOver the past century, however, an enormous number of people have relocated from rural areas into cities, a demographic shift that geographers refer to as urbanization. Today, more than half of the world's population resides in urban areas, and that share keeps climbing each year. Cities offer an extensive range of jobs, enabling people to earn income and support their families. Cities also provide dependable services, such as schools and hospitals, which can be harder to find in small villages. Many families regard cities as locations of genuine economic opportunity, offering chances rural life rarely can.\n\nRiyadh, the capital of Saudi Arabia, illustrates this process clearly. It has expanded from a modest desert town into a sprawling megacity with millions of residents. Government jobs, oil wealth, and emerging businesses drew people from across the country, and the number of residents has multiplied many times over in just a few decades. Through its Vision 2030 plan, Saudi Arabia is also working to diversify its economy beyond oil, hoping to create even more jobs for the future.\n\nWhen substantial numbers of people relocate into one city, the growing population can overwhelm its infrastructure, meaning the roads, water pipes, and power lines that keep a city functioning properly. Roads grow congested, housing costs rise sharply, and urban sprawl pushes new neighborhoods far beyond the city's original center. Schools and hospitals can struggle to keep pace with so many new residents. City leaders must plan with care, or this kind of growth may ultimately fail to be sustainable over the long term.\n\nUrbanization is by no means unique to Saudi Arabia; cities around the world, from Lagos to Dhaka, will likely keep expanding into megacities of their own, as people keep searching for jobs, services, and a better life."
-    },
-    {
-      "level": 1300,
-      "title": "Urbanization: Why Cities Grow",
-      "text": "Throughout most of human history, the majority of people resided in rural areas, cultivating crops and raising livestock on modest farms. Existence there proceeded at an unhurried pace, and news from distant places could require weeks to arrive, since no rapid means existed to send a message.\n\nOver the past century, nevertheless, an enormous number of people have relocated from rural areas into cities, a demographic shift that geographers refer to as urbanization. Today, more than half of the world's population resides in urban areas, and that share keeps climbing with every passing year. Cities offer an extensive range of employment opportunities, enabling people to earn income and support their families. Cities also provide dependable services, such as schools and hospitals, which can be considerably harder to find in small villages. Many families regard cities as locations of genuine economic opportunity, offering chances that rural life rarely can.\n\nRiyadh, the capital of Saudi Arabia, illustrates this process with particular clarity. It has expanded from a modest desert town into a sprawling megacity populated by millions of residents. Government jobs, oil wealth, and emerging enterprises drew people from across the country, and the number of residents has multiplied many times over in just a few decades. Through its Vision 2030 plan, Saudi Arabia is also endeavoring to diversify its economy beyond oil, hoping to create even more jobs for the future.\n\nWhen substantial numbers of people relocate into a single city, the growing population can readily overwhelm its infrastructure, meaning the roads, water pipes, and power lines that keep a city functioning properly. Roads grow congested, housing costs rise sharply, and unchecked urban sprawl pushes new neighborhoods far beyond the city's original center. Schools and hospitals can struggle considerably to keep pace with so many new residents. City leaders must plan with considerable care, or this kind of growth may ultimately fail to prove sustainable over the long term.\n\nUrbanization is by no means unique to Saudi Arabia; cities around the world, from Lagos to Dhaka, will likely continue expanding into megacities of their own, as people persistently search for jobs, services, and a better life."
-    },
-    {
-      "level": 1400,
-      "title": "Urbanization: Why Cities Grow",
-      "text": "Throughout the greater part of human history, the majority of the world's population resided in rural areas, cultivating crops and raising livestock on comparatively modest farms. Existence there proceeded at an unhurried, predictable pace, and news originating from distant places could require weeks to arrive, since no rapid means existed to send a message.\n\nOver the past century, nevertheless, an extraordinary number of people have relocated from rural areas into cities, a demographic shift that geographers consistently refer to as urbanization. Today, more than half of the world's population resides in urban areas, and that share keeps climbing with every passing year, a trend demographers expect to persist for decades. Cities offer an exceptionally extensive range of employment opportunities, enabling people to earn income and support their families. Cities also provide dependable services, such as schools and hospitals, which can be considerably harder to find in small villages. Many families regard cities as locations of genuine economic opportunity, offering chances that rural life rarely can provide.\n\nRiyadh, the capital of Saudi Arabia, illustrates this process with particular clarity. It has expanded from a modest desert town into a sprawling megacity populated by millions of residents. Government jobs, oil wealth, and emerging private enterprises drew people from across the country, and the number of residents has multiplied many times over in just a few decades. Through its Vision 2030 plan, Saudi Arabia is also endeavoring to diversify its economy beyond oil, hoping to create even more jobs for the future.\n\nWhen substantial numbers of people relocate into a single city, the growing population can readily overwhelm its infrastructure, meaning the roads, water pipes, and power lines that keep a city functioning properly. Roads grow increasingly congested, housing costs rise sharply, and unchecked urban sprawl pushes new neighborhoods far beyond the city's original center. Schools and hospitals can struggle considerably to keep pace with so many new residents. City leaders must plan with considerable care, or this kind of growth may ultimately fail to prove sustainable over the long term, leaving infrastructure permanently strained.\n\nUrbanization is by no means unique to Saudi Arabia; cities around the world, from Lagos to Dhaka, will likely continue expanding into megacities of their own, as ever more people persistently search for jobs, services, and a better life."
-    },
-    {
-      "level": 1500,
-      "title": "Urbanization: Why Cities Grow",
-      "text": "Throughout the greater part of recorded human history, the overwhelming majority of the world's population resided permanently in rural areas, cultivating crops and raising livestock on comparatively modest farms. Existence there proceeded at an unhurried, remarkably predictable pace, and news originating from distant places could routinely require weeks to arrive, since no rapid means of communication existed at all.\n\nOver the course of the past century, nevertheless, an extraordinary number of people have voluntarily relocated from rural areas into cities, a demographic shift that geographers consistently and specifically refer to as urbanization. Today, more than half of the world's entire population resides in urban areas, and that share continues to climb steadily with every passing year, a trend demographers widely expect to persist for several more decades. Cities offer an exceptionally extensive range of employment opportunities, enabling individuals to earn income and adequately support their families. Cities also consistently provide dependable, essential services, such as schools and hospitals, which can be considerably harder to find in small, isolated villages. Countless families regard cities as locations of genuine, tangible economic opportunity, offering chances that rural life can rarely provide.\n\nRiyadh, the capital of Saudi Arabia, illustrates this broader process with particular clarity, having expanded dramatically from a modest desert town into a sprawling, bustling megacity populated by millions upon millions of residents. Government jobs, substantial oil wealth, and emerging private enterprises collectively drew people from across the entire country, and the number of residents has multiplied many times over within just a few decades. Through its ambitious Vision 2030 plan, Saudi Arabia is also actively endeavoring to diversify its economy well beyond oil, hoping to create even more jobs for the future.\n\nWhen substantial numbers of people relocate into a single city within a short span of time, the swelling population can quite readily overwhelm its existing infrastructure, meaning the roads, water pipes, and power lines that keep a city functioning properly. Roads become increasingly congested, housing costs rise markedly, and largely unchecked urban sprawl pushes new neighborhoods far beyond the city's original center. Schools and hospitals can struggle considerably to keep pace with so many new residents. City leaders must consequently plan with considerable, sustained care, or this kind of unmanaged growth may ultimately fail to prove sustainable over the long term, leaving infrastructure permanently and severely strained.\n\nUrbanization is by absolutely no means unique to Saudi Arabia; cities all around the world, from Lagos to Dhaka, will almost certainly continue expanding into megacities of their own, as ever-increasing numbers of people persistently and determinedly search for jobs, services, and a markedly better life."
-    },
-    {
-      "level": 1600,
-      "title": "Urbanization: Why Cities Grow",
-      "text": "Throughout the greater part of recorded human history, the overwhelming majority of the world's entire population resided permanently and almost exclusively in rural areas, cultivating crops and raising livestock on comparatively modest, labor-intensive farms. Existence there proceeded at an unhurried, remarkably predictable pace, and news originating from genuinely distant places could routinely require weeks or even months to arrive at all, since no rapid means of communication existed anywhere.\n\nOver the course of the past century, nevertheless, an extraordinary and unprecedented number of people have voluntarily relocated from rural areas into cities, a sweeping demographic shift that geographers consistently and specifically refer to as urbanization. Today, for the very first time in recorded history, more than half of the world's entire population resides in urban areas, and that share continues to climb steadily and unmistakably with every passing year, a trend that demographers widely and confidently expect to persist for several more decades to come. Cities offer an exceptionally extensive and diverse range of employment opportunities, enabling individuals to earn income and adequately support their families. Cities also consistently provide dependable, essential services, such as schools and hospitals, which can be considerably harder to find in small, isolated villages. Countless families around the globe regard cities as locations of genuine, tangible economic opportunity, offering chances that rural life can rarely provide.\n\nRiyadh, the capital of Saudi Arabia, illustrates this broader global process with particular clarity, having expanded dramatically and rapidly from a modest desert town into a sprawling, bustling megacity populated by millions upon millions of residents. Government jobs, substantial oil wealth, and numerous emerging private enterprises collectively drew people from across the entire country, and the number of residents has multiplied many times over within just a few decades. Through its ambitious Vision 2030 plan, Saudi Arabia is also actively and deliberately endeavoring to diversify its economy well beyond oil, hoping to create even more jobs for the future.\n\nWhen substantial numbers of people relocate into a single city within a remarkably short span of time, the swelling population can quite readily overwhelm its existing infrastructure, meaning the roads, water pipes, and power lines that keep a city functioning properly on a daily basis. Roads become increasingly and visibly congested, housing costs rise markedly for ordinary working families, and largely unchecked urban sprawl pushes new neighborhoods far beyond the city's original center and historic core. Schools and hospitals can struggle enormously to keep pace with so many new residents. City leaders must consequently plan with considerable, sustained, and deliberate care, or this kind of unmanaged growth may ultimately fail to prove sustainable over the long term, leaving essential infrastructure permanently and severely strained for generations to come.\n\nUrbanization is by absolutely no means unique to Saudi Arabia alone; cities all around the world, from Lagos to Dhaka, will almost certainly continue expanding into megacities of their own, as ever-increasing numbers of people persistently and determinedly continue searching for jobs, services, and a markedly better life."
-    }
-  ],
-  "bands": {
-    "LOW": {
-      "keyWords": [
-        { "word": "rural", "partOfSpeech": "adjective", "definition": "describing the countryside, away from cities", "example": "My grandparents live in a rural town surrounded by farms." },
-        { "word": "urban", "partOfSpeech": "adjective", "definition": "describing a city, with many buildings and people", "example": "The urban streets downtown were full of cars and shops." },
-        { "word": "job", "partOfSpeech": "noun", "definition": "work that a person does to earn money", "example": "My aunt found a new job at a hospital in the city." },
-        { "word": "crowded", "partOfSpeech": "adjective", "definition": "full of many people or things, with little space", "example": "The bus was so crowded that we had to stand." },
-        { "word": "service", "partOfSpeech": "noun", "definition": "help or care a person gets, such as from a school or hospital", "example": "The new clinic offers free medical service to families." }
-      ],
-      "questions": [
-        {
-          "stem": "What is this article mostly about?",
-          "options": ["How farmers grow food in rural villages with simple tools", "How Riyadh built tall towers for tourists to visit each year", "Why people move from the countryside to cities and how cities grow", "Why roads are built across the desert, and who drives on them"],
-          "answer": "C",
-          "skill": "central-idea",
-          "why": "The article explains why people leave rural areas for cities and how cities like Riyadh grow larger over time.",
-          "wrong": { "A": "Farming in villages is mentioned only as what rural life used to be like.", "B": "Riyadh's tall towers are one detail, not the main idea.", "D": "Desert roads are not described in the article." }
-        },
-        {
-          "stem": "Why do people move to cities, according to the article?",
-          "options": ["To find jobs and get better services", "To live closer to farm animals and fields", "To escape heavy rain each year in villages", "To grow larger wheat farms near the town"],
-          "answer": "A",
-          "skill": "detail",
-          "why": "The article says cities have jobs and good services, which is why people move there.",
-          "wrong": { "B": "The article does not say people move to be near farm animals.", "C": "Rain is not given as a reason to move.", "D": "Wheat farms are not mentioned as a reason to move." }
-        },
-        {
-          "stem": "What has Riyadh become today, according to the article?",
-          "options": ["A small farming village with few people", "An empty stretch of desert with no buildings", "A quiet rural town with farms", "One of the biggest cities in the region"],
-          "answer": "D",
-          "skill": "detail",
-          "why": "The article says Riyadh has grown into one of the biggest cities in the region.",
-          "wrong": { "A": "Riyadh was small long ago, not today.", "B": "The article says Riyadh is full of towers and markets, not empty.", "C": "Riyadh is described as a big city now, not a quiet town." }
-        },
-        {
-          "stem": "The article says a rural place is in the countryside. What does rural mean?",
-          "options": ["Found in a busy, crowded city", "Found out in the countryside", "Found deep under the ocean", "Found only in tall towers"],
-          "answer": "B",
-          "skill": "vocabulary",
-          "why": "The article says rural areas are the countryside, where people once grew food on farms.",
-          "wrong": { "A": "A busy city is urban, which is the opposite of rural.", "C": "The article never places rural areas under the ocean.", "D": "Tall towers are found in cities, not rural areas." }
-        },
-        {
-          "stem": "What happens when many people move to one city?",
-          "options": ["The city becomes crowded", "The city becomes empty", "New farms appear downtown", "All the roads disappear"],
-          "answer": "A",
-          "skill": "cause-effect",
-          "why": "The article says that when many people move to one city, the city becomes crowded.",
-          "wrong": { "B": "More people make a city fuller, not emptier.", "C": "The article does not say farms appear downtown.", "D": "Crowded roads fill with cars; they do not disappear." }
-        },
-        {
-          "stem": "Why must city leaders plan for more schools and water?",
-          "options": ["Because fewer people live there now", "Because old schools became too large", "Because the city's population is growing", "Because the city no longer needs water"],
-          "answer": "C",
-          "skill": "inference",
-          "why": "The article says leaders must plan for more schools and water because more people keep moving to the city.",
-          "wrong": { "A": "If fewer people lived there, there would be less need to plan.", "B": "The article does not say old schools grew too large.", "D": "A growing city needs more water, not less." }
-        },
-        {
-          "stem": "Why do many families think life will be better in a city?",
-          "options": ["Cities have more rain than villages", "Cities never change or grow", "Cities have fewer buildings than villages", "Cities have jobs and good services"],
-          "answer": "D",
-          "skill": "inference",
-          "why": "The article says cities offer jobs and good services, which makes life feel better there.",
-          "wrong": { "A": "Rain is not compared between cities and villages.", "B": "The article says cities keep growing and changing.", "C": "Cities are described as having many buildings, not few." }
-        },
-        {
-          "stem": "What does the article describe about Riyadh?",
-          "options": ["How it will become a small village again one day", "How it changed from a small town into a big city", "How it was always a big city in the desert", "How farmers grow crops there with deep wells"],
-          "answer": "B",
-          "skill": "sequence",
-          "why": "The article describes how Riyadh went from a small town to a big city over time.",
-          "wrong": { "A": "The article shows Riyadh growing, not shrinking back into a village.", "C": "The article says Riyadh used to be small, not always big.", "D": "Farming is part of rural life, not what the Riyadh section describes." }
-        }
-      ],
-      "prompt": "Why do people move from the countryside to cities? Write 2–3 sentences with two reasons.",
-      "checklist": ["I gave two reasons from the article.", "I mentioned Riyadh or another city as an example.", "I used at least one key word, like job or service."],
-      "modelAnswer": "People move from the countryside to cities because cities have many jobs, so people can earn money. Cities also have good services, like schools and hospitals, which make life easier. Riyadh grew from a small town into a big city as more people moved there for these reasons."
-    },
-    "MID": {
-      "keyWords": [
-        { "word": "urbanization", "partOfSpeech": "noun", "definition": "the process in which more and more people move from the countryside into cities", "example": "Urbanization has changed small towns into busy cities all over the world." },
-        { "word": "migrate", "partOfSpeech": "verb", "definition": "to move from one place to live in another place", "example": "Many young workers migrate to the capital city to find jobs." },
-        { "word": "opportunity", "partOfSpeech": "noun", "definition": "a chance to do something that can improve your life", "example": "The new factory brought jobs and opportunity to the whole town." },
-        { "word": "infrastructure", "partOfSpeech": "noun", "definition": "the basic systems a city needs, such as roads, water pipes, and power lines", "example": "The city upgraded its infrastructure by building new roads and water pipes." },
-        { "word": "population", "partOfSpeech": "noun", "definition": "the number of people living in a place", "example": "The population of the city doubled in just twenty years." }
-      ],
-      "questions": [
-        {
-          "stem": "Which sentence best states the central idea of the article?",
-          "options": ["Riyadh has many government offices and big companies, and thousands of workers drive there each morning to do their jobs in the busy city center.", "Cities need more schools and hospitals, and builders must work quickly to make them for the families who live there.", "Urbanization is the process of people migrating from rural areas to cities in search of jobs and better services, as shown by Riyadh's growth.", "Rural villages are quiet and slow-paced, so families there enjoy a calm life far from busy roads and tall buildings."],
-          "answer": "C",
-          "skill": "central-idea",
-          "why": "The article's central idea is that urbanization, driven by jobs and services, explains why cities like Riyadh grow quickly.",
-          "wrong": { "A": "Government offices are one detail about Riyadh, not the whole idea.", "B": "Needing more schools and hospitals is an effect, not the central idea.", "D": "Rural life is described mainly as a contrast to city life." }
-        },
-        {
-          "stem": "According to the article, what has driven job growth in Riyadh?",
-          "options": ["Fishing and shipping industries along the coast", "Large farms that grow wheat and barley", "Tourism and souvenir shops near old forts", "Government offices, oil wealth, and new businesses"],
-          "answer": "D",
-          "skill": "detail",
-          "why": "The article says government offices, oil wealth, and new businesses created jobs that drew people to Riyadh.",
-          "wrong": { "A": "Fishing and shipping are not mentioned as reasons for Riyadh's growth.", "B": "Wheat farms are described as part of rural life, not Riyadh's job growth.", "C": "Coastal tourism is not discussed in the article." }
-        },
-        {
-          "stem": "What happens to a city's infrastructure when its population grows quickly?",
-          "options": ["It can become overwhelmed", "It becomes stronger automatically", "It disappears completely", "It moves to the countryside"],
-          "answer": "A",
-          "skill": "detail",
-          "why": "The article says a growing population can overwhelm a city's infrastructure, meaning its roads, water, and power lines.",
-          "wrong": { "B": "The article says infrastructure can be overwhelmed, not automatically stronger.", "C": "The article does not say infrastructure disappears.", "D": "Infrastructure stays in the city; it does not move to the countryside." }
-        },
-        {
-          "stem": "The article says many people migrate to cities. What does migrate mean?",
-          "options": ["to build new infrastructure in a town or a city", "to move from one place to live in another", "to lose a job suddenly and move away from home", "to grow crops on a farm near the village"],
-          "answer": "B",
-          "skill": "vocabulary",
-          "why": "The article uses migrate to describe people moving from rural areas to live in cities.",
-          "wrong": { "A": "Building infrastructure is a separate idea from migrating.", "C": "Losing a job is not what migrate means.", "D": "Growing crops is part of rural life, not the meaning of migrate." }
-        },
-        {
-          "stem": "Why do city leaders need to plan carefully as a city's population increases?",
-          "options": ["So that farms can return to the busy city center", "So that fewer new buildings are built downtown", "So that the city's population quickly shrinks", "So that the growing number of people can be served well"],
-          "answer": "D",
-          "skill": "cause-effect",
-          "why": "The article says leaders must plan so the growing number of people can be served well with schools, hospitals, and water.",
-          "wrong": { "A": "The article does not describe farms returning to cities.", "B": "The article says more buildings are built, not fewer.", "C": "Careful planning is meant to serve people, not shrink the population." }
-        },
-        {
-          "stem": "Why might someone see moving to a city as an opportunity?",
-          "options": ["Villages offer more jobs than cities, so people should stay in the countryside", "Cities never need new infrastructure, because the old roads and pipes last forever", "A city may offer a chance at a better life through jobs and services", "Rural areas have more hospitals than cities, so the sick should live there"],
-          "answer": "C",
-          "skill": "inference",
-          "why": "The article suggests cities offer a chance at a better life, which is why many families see them as an opportunity.",
-          "wrong": { "A": "The article says cities, not villages, offer many jobs.", "B": "The article says growing cities need more infrastructure, not less.", "D": "The article describes cities, not rural areas, as having more services." }
-        },
-        {
-          "stem": "What can you infer about cities around the world based on Riyadh's growth?",
-          "options": ["Urbanization is likely happening in many places, not only Saudi Arabia", "Most cities are shrinking back into small villages every year", "Only desert cities experience urbanization in the whole world", "Urbanization only affects government workers in the cities of Saudi Arabia"],
-          "answer": "A",
-          "skill": "inference",
-          "why": "The article says urbanization is not unique to Saudi Arabia, suggesting it is happening in many places.",
-          "wrong": { "B": "The article describes cities growing, not shrinking.", "C": "The article does not limit urbanization to desert cities.", "D": "The article describes jobs across many industries, not just government work." }
-        },
-        {
-          "stem": "Why does the author describe Riyadh's growth from a small town to a major city?",
-          "options": ["To prove that deserts cannot support cities", "To give a real example of urbanization in action", "To compare Riyadh's weather with other cities", "To argue that cities should stop growing"],
-          "answer": "B",
-          "skill": "author-purpose",
-          "why": "The author uses Riyadh's history to show urbanization happening in a real place.",
-          "wrong": { "A": "The article shows a desert city thriving, not failing.", "C": "Weather is not compared between cities.", "D": "The article does not argue against city growth." }
-        }
-      ],
-      "prompt": "Explain how urbanization has changed Riyadh. Use at least three details from the article.",
-      "checklist": ["I explained why people migrated to Riyadh.", "I described at least one challenge that comes with rapid growth.", "I used at least two key words, such as urbanization or infrastructure."],
-      "modelAnswer": "Urbanization has transformed Riyadh from a small desert town into one of the largest cities in the region. Government offices, oil wealth, and new businesses created many jobs, so people began to migrate there from rural areas in search of opportunity. As the population grew quickly, the city's infrastructure, including its roads and water systems, had to expand to keep up, and leaders had to plan carefully for more schools and hospitals."
-    },
-    "HIGH": {
-      "keyWords": [
-        { "word": "demographic", "partOfSpeech": "adjective", "definition": "relating to the number and features of people living in a place, such as their age or where they live", "example": "A demographic study showed that most of the city's new residents were young adults." },
-        { "word": "sustainable", "partOfSpeech": "adjective", "definition": "able to continue for a long time without causing serious harm", "example": "Planners want sustainable growth that does not run out of water or space." },
-        { "word": "megacity", "partOfSpeech": "noun", "definition": "an extremely large city, usually with more than ten million people", "example": "Tokyo is often called a megacity because of its enormous population." },
-        { "word": "economic", "partOfSpeech": "adjective", "definition": "relating to money, jobs, trade, and resources", "example": "The new factory brought real economic benefits to the whole region." },
-        { "word": "sprawl", "partOfSpeech": "noun", "definition": "the spreading out of a city's buildings and roads over a large area", "example": "Urban sprawl pushed new neighborhoods far beyond the city's old center." }
-      ],
-      "questions": [
-        {
-          "stem": "Which statement best summarizes the article?",
-          "options": ["Riyadh's roads are wider than those of other capitals, and the city has no traffic at all, because its cars are few and its drivers are careful, so there are no problems.", "Rural villages generally have more hospitals than cities, because villages have more people to care for and more space for them to build large clinics.", "Government buildings are the tallest structures in Riyadh, and no houses, hotels, or towers rise above them in the city, because the law does not allow it.", "Urbanization, driven by economic opportunity, has reshaped Riyadh into a modern megacity, though rapid growth brings infrastructure and sustainability challenges."],
-          "answer": "D",
-          "skill": "central-idea",
-          "why": "The article's main point is that economic opportunity drives urbanization, turning Riyadh into a megacity, while also creating challenges for sustainable growth.",
-          "wrong": { "A": "Road width compared to other capitals is not discussed.", "B": "The article focuses on cities, not a comparison of rural hospitals.", "C": "Building height is not the article's main focus." }
-        },
-        {
-          "stem": "What demographic shift does the article describe?",
-          "options": ["A steady movement of population from the countryside to cities", "A sudden drop in the number of children who are born each year", "A migration of city residents back to the villages and the farms", "An increase in rural farming jobs in the countryside and villages"],
-          "answer": "A",
-          "skill": "detail",
-          "why": "The article describes a steady demographic shift as people move from rural areas into cities like Riyadh.",
-          "wrong": { "B": "A drop in births is not mentioned.", "C": "The article describes movement toward cities, not back to villages.", "D": "Farming jobs are described as part of the past, not a current increase." }
-        },
-        {
-          "stem": "What size of city has Riyadh grown to resemble, according to the article?",
-          "options": ["A small rural town with only a few streets", "A mid-sized coastal village near the sea", "A megacity with millions of residents", "A farming settlement with a handful of fields"],
-          "answer": "C",
-          "skill": "detail",
-          "why": "The article describes Riyadh growing into a megacity with millions of residents.",
-          "wrong": { "A": "Riyadh was a small town long ago, not today.", "B": "A coastal village does not match Riyadh's size or location.", "D": "Riyadh is described as a modern city, not a farming settlement." }
-        },
-        {
-          "stem": "The article describes sustainable growth. What does sustainable mean in this context?",
-          "options": ["Growth that happens instantly, in a single day or night, and never slows down", "Growth that can continue without causing serious long-term harm", "Growth that only affects government buildings and offices in the capital", "Growth that reduces a city's population year after year until it is empty"],
-          "answer": "B",
-          "skill": "vocabulary",
-          "why": "The article uses sustainable to describe growth that can last without causing serious long-term harm.",
-          "wrong": { "A": "Sustainable growth is about lasting over time, not happening instantly.", "C": "Sustainable growth concerns the whole city, not just government buildings.", "D": "The article is concerned with managing growth, not reducing population." }
-        },
-        {
-          "stem": "What economic factors does the article link to Riyadh's rapid growth?",
-          "options": ["Fishing exports and seaside tourism trade", "Farming subsidies and large crop exports", "Foreign aid for rural road development", "Oil wealth, government jobs, and new businesses"],
-          "answer": "D",
-          "skill": "cause-effect",
-          "why": "The article links oil wealth, government jobs, and new businesses to Riyadh's rapid economic growth.",
-          "wrong": { "A": "Fishing and tourism are not mentioned as factors in Riyadh's growth.", "B": "Farming subsidies are not discussed in the article.", "C": "Foreign aid for rural development is not mentioned." }
-        },
-        {
-          "stem": "What can be inferred about cities that grow without enough planning for infrastructure?",
-          "options": ["They will automatically become far more sustainable", "They will immediately stop attracting any new residents", "They will struggle to provide services to all their residents", "They will shrink back into small rural villages quickly"],
-          "answer": "C",
-          "skill": "inference",
-          "why": "The article suggests that without enough planning, a growing city will struggle to serve all of its residents.",
-          "wrong": { "A": "Lack of planning does not automatically make a city sustainable.", "B": "Cities are described as continuing to attract residents.", "D": "The article shows cities growing, not shrinking into villages." }
-        },
-        {
-          "stem": "Why might unmanaged urban sprawl create problems for a growing city?",
-          "options": ["It makes a city smaller and easier to manage, with fewer roads and buses to build", "It can stretch infrastructure and services over a wider area than planned", "It always lowers the cost of housing, so every family can buy a larger home nearby", "It has no effect on roads or transportation, because people still live close to work"],
-          "answer": "B",
-          "skill": "inference",
-          "why": "The article suggests unmanaged sprawl can stretch infrastructure and services over a wider area than planned, making them harder to maintain.",
-          "wrong": { "A": "Sprawl spreads a city out; it does not make it smaller.", "C": "Sprawl is linked to costly growth, not automatically lower housing costs.", "D": "Sprawl changes how far roads and transportation must reach." }
-        },
-        {
-          "stem": "How does the article compare Riyadh's past and present?",
-          "options": ["It shows a small desert town growing into a major regional megacity", "It shows a megacity shrinking back into a small town in the desert", "It shows Riyadh staying the same size for decades and decades", "It shows rural villages becoming more popular than cities"],
-          "answer": "A",
-          "skill": "compare",
-          "why": "The article compares Riyadh's past as a small desert town with its present as a major regional megacity.",
-          "wrong": { "B": "The article shows Riyadh growing, not shrinking.", "C": "The article describes major growth, not a city staying the same size.", "D": "The article describes cities, not villages, becoming more prominent." }
-        }
-      ],
-      "prompt": "Is rapid urban growth like Riyadh's sustainable in the long run? Use evidence about benefits and challenges from the article.",
-      "checklist": ["I stated a clear position.", "I used evidence about both economic benefits and infrastructure or sustainability challenges.", "I used at least two key words, such as sustainable or megacity."],
-      "modelAnswer": "I think Riyadh's rapid growth into a megacity can be sustainable, but only if planning keeps pace with its economic success. The article shows that oil wealth, government jobs, and new businesses created strong economic opportunity, drawing millions of people and transforming a small desert town into a major demographic center. However, rapid urban sprawl and a swelling population can overwhelm infrastructure such as roads, water systems, and schools, so without careful, sustainable planning the city's growth could create serious problems for residents in the future."
-    }
+ "code": "RR-337",
+ "title": "Urbanization: Why Cities Grow",
+ "topic": "Geography",
+ "summary": "Why people move from the countryside to cities over time, what draws them there, and how Riyadh's growth shows this change happening around the world.",
+ "poll": "Living in a big, growing city is better than living in a small rural town.",
+ "versions": [
+  {
+   "level": 300,
+   "title": "Why Cities Grow",
+   "text": "Long ago, people lived in the land. This place is rural. They grew food there.\n\nNow, many live in a city. A city is urban. Why move? Jobs! Cash can be earned. Help is there too. This is a service. Schools help kids learn. Life feels good.\n\nRiyadh is a city. It sits in Saudi Arabia. Long ago, it was small. Now it is big. Many live there now. Tall towers rise up. Roads are busy.\n\nWhen many move in, it gets crowded. Cars fill the roads. New homes are a must. Leaders must plan. They plan for schools. They plan for clean water too.\n\nCities will grow more. People want jobs. They want a good life."
+  },
+  {
+   "level": 400,
+   "title": "Why Cities Grow",
+   "text": "Long ago, most people lived out on the land. That kind of place is rural. They grew food there. They kept farm animals too.\n\nToday, more people live in a city. A city is urban. It has many buildings close by. Why do they move? Cities have lots of jobs. People can earn cash there. Cities also have good service. Schools and clinics are two kinds. Life can feel better in a city.\n\nRiyadh is a city in Saudi Arabia. Long ago, it was just a small town. Now it has grown into a huge city. Many more people live there today. It has tall towers. It has wide roads. It has busy markets too.\n\nWhen many people move to one city, that city gets crowded. Roads fill up with cars. Buses get full too. New homes must be built. City leaders must plan. They plan for more schools. They plan for clean water too.\n\nCities will likely keep growing. More people will want jobs. They will want good service. They will want a better life in a city."
+  },
+  {
+   "level": 500,
+   "title": "Why Cities Grow",
+   "text": "Long ago, most people lived out on the land. This kind of place is a rural area. They grew food there. They kept farm animals too. Life moved slowly. News came in slowly too.\n\nToday, more people live in cities. A city is an urban place. It has many buildings close together. This shift is happening almost everywhere. Why do people move to cities? Cities have many jobs. People can earn cash there. Cities also have good service. Schools, clinics, and shops are examples. Many families feel life will be better in a city.\n\nRiyadh is a city in Saudi Arabia. It shows this shift well. Long ago, it was just a small town. Now it has grown into one of the biggest cities in the region. It has tall towers. It has wide roads and busy markets. Many more people live there now.\n\nWhen many people move to one city, that city gets crowded. This brings new troubles. Roads fill up with cars. Buses get full too. New homes are needed. Crews put up more buildings each year. City leaders must plan with care. They plan for more schools and clean water. If they do not, the city will have trouble.\n\nCities around the world, not just Riyadh, will likely keep growing. More people will keep looking for jobs. They want good service too. They want a better life in a city."
+  },
+  {
+   "level": 600,
+   "title": "Why Cities Grow",
+   "text": "Long ago, most people lived out on the land, where they grew food and kept farm animals. This kind of place is called a rural area. Life moved slowly there. News came in slowly too.\n\nToday, more and more people live in cities instead. A city is an urban place with many buildings close together. This shift is happening nearly everywhere. Why do people move to cities? Cities offer many jobs, so people can earn cash. Cities also give good service, such as schools, clinics, and shops. Many families feel life will be better in a city than in a small village.\n\nRiyadh is a city in Saudi Arabia, and it shows this shift well. Long ago, it was just a small town. Now it has grown into one of the biggest cities in the region. It is filled with tall towers, wide roads, and busy markets. Many more people live there now than only a few years back.\n\nWhen many people move into one city, that city gets crowded. This brings new troubles. Roads fill up with cars, and buses get packed too. New homes are needed for all the new people, so crews build more each year. City leaders must plan with care for more schools and clean water. If they do not, the city will have trouble.\n\nCities around the world, not just Riyadh, will likely keep growing. More and more people will keep looking for jobs, good service, and a better life in a city."
+  },
+  {
+   "level": 700,
+   "title": "Urbanization: Why Cities Grow",
+   "text": "For most of history, most people lived in the countryside. This is called a rural area. They grew food there. They raised animals too. Life moved slowly. News took weeks to arrive.\n\nOver the last century, more people have moved into cities. Geographers call this urbanization. A city is an urban place. Many buildings and people are packed close together. Why do people migrate to cities? Cities offer many jobs. People can earn money there. Cities also give good services. Schools and hospitals are examples. Many families see cities as a place of opportunity.\n\nRiyadh is the capital of Saudi Arabia. It shows this process well. Decades ago, it was a small town. It was surrounded by desert. Now it is one of the largest cities in the region. It has tall towers and busy markets. Government jobs and oil wealth drew people there. New businesses did too.\n\nWhen many people move into one city, the population can overwhelm its infrastructure. That means the roads, water pipes, and power lines. Roads fill up with cars. Buses and trains get packed too. New housing is needed. City leaders must plan. They plan for schools, hospitals, and clean water.\n\nUrbanization is not only in Saudi Arabia. Cities around the world will likely keep growing. People will keep searching for jobs. They will search for good services too."
+  },
+  {
+   "level": 800,
+   "title": "Urbanization: Why Cities Grow",
+   "text": "For most of history, most people lived in the countryside. This is called a rural area. They grew food there and raised animals too. Life moved slowly, and news took weeks to arrive.\n\nOver the last century, more people have moved into cities. Geographers call this urbanization. Today, for the first time, more than half of the world's people live in urban areas. A city is a place where many buildings and people are packed close together. Why do people migrate to cities? Cities offer many jobs, so people can earn money there. Cities also give good services, such as schools and hospitals. Many families see cities as a place of opportunity.\n\nRiyadh is the capital of Saudi Arabia, and it shows this process well. Decades ago, it was a small town surrounded by desert. Now it is one of the largest cities in the region, with tall towers and busy markets. Government jobs, oil wealth, and new businesses drew people there. The city's population has grown many times over since the mid-twentieth century.\n\nWhen many people move into one city, the population can overwhelm its infrastructure. That means the roads, water pipes, and power lines that keep a city running. Roads fill up with cars, housing grows more costly, and buses and trains get packed too. City leaders must plan carefully for more schools, hospitals, and clean water.\n\nUrbanization is not only in Saudi Arabia. Cities around the world, from Lagos to Dhaka, will likely keep growing, because people will keep searching for jobs and good services."
+  },
+  {
+   "level": 900,
+   "title": "Urbanization: Why Cities Grow",
+   "text": "For most of history, most people lived in rural areas. They grew food and raised animals on small farms, and life there moved slowly. News sometimes took weeks to arrive.\n\nOver the last century, more people have moved from rural areas into cities. Geographers call this process urbanization. Today, for the first time, more than half of the world's people live in urban areas, and that share keeps climbing each year. Why do so many people migrate to cities? Cities offer many jobs, so people can earn money and support their families. Cities also give good services, such as schools and hospitals. Many families see cities as a place of real opportunity.\n\nRiyadh, the capital of Saudi Arabia, shows this process clearly. Decades ago, it was a small town surrounded by desert, but it has since grown into one of the largest cities in the region, with tall towers and busy markets. Government jobs, oil wealth, and new businesses drew people from across the country. The city's population has grown many times over since the mid-twentieth century. Through its Vision 2030 plan, Saudi Arabia is also working to grow its economy beyond oil.\n\nWhen many people move into one city, the population can overwhelm its infrastructure, meaning the roads, water pipes, and power lines that keep a city running. Roads fill up with cars, housing grows more costly, and buses and trains get packed too. City leaders must plan carefully for more schools, hospitals, and clean water.\n\nUrbanization is not unique to Saudi Arabia; cities around the world, from Lagos to Dhaka, will likely keep growing, because people will keep searching for jobs and good services."
+  },
+  {
+   "level": 1000,
+   "title": "Urbanization: Why Cities Grow",
+   "text": "For most of history, the great majority of people lived in rural areas. They grew crops and raised animals on small farms, and life there moved slowly. News sometimes took weeks to arrive.\n\nOver the past century, however, an enormous number of people have moved from rural areas into cities, a process that geographers call urbanization. Today, for the first time in history, more than half of the world's population lives in urban areas, and that share keeps climbing each year. Why do so many people choose to migrate to cities? Cities offer a wide range of jobs, letting people earn money and support their families. Cities also provide reliable services, such as schools and hospitals. Many families see cities as places of real opportunity, a chance to build a better future.\n\nRiyadh, the capital of Saudi Arabia, shows this process clearly. Decades ago, it was merely a small town surrounded by desert, yet it has since grown into one of the largest cities in the region, filled with towering buildings and bustling markets. Government jobs, oil wealth, and new businesses drew people from across the country. The city's population has grown many times over since the mid-twentieth century. Through its Vision 2030 plan, Saudi Arabia is also working to grow its economy beyond oil.\n\nWhen large numbers of people move into a single city, the growing population can overwhelm its infrastructure, meaning the roads, water pipes, and power lines that keep a city running. Roads become congested with cars, housing grows more costly, and buses and trains become overcrowded as well. City leaders must plan carefully for more schools, hospitals, and clean water.\n\nUrbanization is by no means unique to Saudi Arabia; cities around the world, from Lagos to Dhaka, will likely keep growing, because more people will keep searching for jobs and reliable services."
+  },
+  {
+   "level": 1100,
+   "title": "Urbanization: Why Cities Grow",
+   "text": "Throughout most of human history, most people lived in rural areas, cultivating crops and raising animals on small farms. Life there moved slowly, and news from distant places could take weeks to arrive, since there were no fast ways to send a message.\n\nOver the past century, however, an enormous number of people have moved from rural areas into cities, a demographic shift that geographers call urbanization. Today, more than half of the world's population lives in urban areas, and that share keeps climbing each year. Cities offer a wide range of jobs, letting people earn money and support their families. Cities also provide reliable services, such as schools and hospitals, that are often harder to find in small villages. Many families regard cities as places of genuine economic opportunity, offering chances that rural life rarely can.\n\nRiyadh, the capital of Saudi Arabia, shows this process clearly. It has grown from a small desert town into a sprawling megacity with millions of residents. Government jobs, oil wealth, and new businesses drew people from across the country, and the number of residents has multiplied many times over in just a few decades. Through its Vision 2030 plan, Saudi Arabia is also working to diversify its economy beyond oil, hoping to create even more jobs for the future.\n\nWhen large numbers of people move into one city, the growing population can overwhelm its infrastructure, meaning the roads, water pipes, and power lines that keep a city functioning. Roads grow congested, housing costs rise, and urban sprawl pushes new neighborhoods far beyond the city's old center. Schools and hospitals can struggle to keep pace with so many new residents. City leaders must plan carefully, or this kind of growth may not be sustainable over the long term.\n\nUrbanization is by no means unique to Saudi Arabia; cities around the world, from Lagos to Dhaka, will likely keep growing into megacities of their own, as people keep searching for jobs, services, and a better life."
+  },
+  {
+   "level": 1200,
+   "title": "Urbanization: Why Cities Grow",
+   "text": "Throughout most of human history, most people resided in rural areas, cultivating crops and raising livestock on modest farms. Life there proceeded slowly, and news from distant places could take weeks to arrive, since no fast way existed to send a message.\n\nOver the past century, however, an enormous number of people have relocated from rural areas into cities, a demographic shift that geographers refer to as urbanization. Today, more than half of the world's population resides in urban areas, and that share keeps climbing each year. Cities offer an extensive range of jobs, enabling people to earn income and support their families. Cities also provide dependable services, such as schools and hospitals, which can be harder to find in small villages. Many families regard cities as locations of genuine economic opportunity, offering chances rural life rarely can.\n\nRiyadh, the capital of Saudi Arabia, illustrates this process clearly. It has expanded from a modest desert town into a sprawling megacity with millions of residents. Government jobs, oil wealth, and emerging businesses drew people from across the country, and the number of residents has multiplied many times over in just a few decades. Through its Vision 2030 plan, Saudi Arabia is also working to diversify its economy beyond oil, hoping to create even more jobs for the future.\n\nWhen substantial numbers of people relocate into one city, the growing population can overwhelm its infrastructure, meaning the roads, water pipes, and power lines that keep a city functioning properly. Roads grow congested, housing costs rise sharply, and urban sprawl pushes new neighborhoods far beyond the city's original center. Schools and hospitals can struggle to keep pace with so many new residents. City leaders must plan with care, or this kind of growth may ultimately fail to be sustainable over the long term.\n\nUrbanization is by no means unique to Saudi Arabia; cities around the world, from Lagos to Dhaka, will likely keep expanding into megacities of their own, as people keep searching for jobs, services, and a better life."
+  },
+  {
+   "level": 1300,
+   "title": "Urbanization: Why Cities Grow",
+   "text": "Throughout most of human history, the majority of people resided in rural areas, cultivating crops and raising livestock on modest farms. Existence there proceeded at an unhurried pace, and news from distant places could require weeks to arrive, since no rapid means existed to send a message.\n\nOver the past century, nevertheless, an enormous number of people have relocated from rural areas into cities, a demographic shift that geographers refer to as urbanization. Today, more than half of the world's population resides in urban areas, and that share keeps climbing with every passing year. Cities offer an extensive range of employment opportunities, enabling people to earn income and support their families. Cities also provide dependable services, such as schools and hospitals, which can be considerably harder to find in small villages. Many families regard cities as locations of genuine economic opportunity, offering chances that rural life rarely can.\n\nRiyadh, the capital of Saudi Arabia, illustrates this process with particular clarity. It has expanded from a modest desert town into a sprawling megacity populated by millions of residents. Government jobs, oil wealth, and emerging enterprises drew people from across the country, and the number of residents has multiplied many times over in just a few decades. Through its Vision 2030 plan, Saudi Arabia is also endeavoring to diversify its economy beyond oil, hoping to create even more jobs for the future.\n\nWhen substantial numbers of people relocate into a single city, the growing population can readily overwhelm its infrastructure, meaning the roads, water pipes, and power lines that keep a city functioning properly. Roads grow congested, housing costs rise sharply, and unchecked urban sprawl pushes new neighborhoods far beyond the city's original center. Schools and hospitals can struggle considerably to keep pace with so many new residents. City leaders must plan with considerable care, or this kind of growth may ultimately fail to prove sustainable over the long term.\n\nUrbanization is by no means unique to Saudi Arabia; cities around the world, from Lagos to Dhaka, will likely continue expanding into megacities of their own, as people persistently search for jobs, services, and a better life."
+  },
+  {
+   "level": 1400,
+   "title": "Urbanization: Why Cities Grow",
+   "text": "Throughout the greater part of human history, the majority of the world's population resided in rural areas, cultivating crops and raising livestock on comparatively modest farms. Existence there proceeded at an unhurried, predictable pace, and news originating from distant places could require weeks to arrive, since no rapid means existed to send a message.\n\nOver the past century, nevertheless, an extraordinary number of people have relocated from rural areas into cities, a demographic shift that geographers consistently refer to as urbanization. Today, more than half of the world's population resides in urban areas, and that share keeps climbing with every passing year, a trend demographers expect to persist for decades. Cities offer an exceptionally extensive range of employment opportunities, enabling people to earn income and support their families. Cities also provide dependable services, such as schools and hospitals, which can be considerably harder to find in small villages. Many families regard cities as locations of genuine economic opportunity, offering chances that rural life rarely can provide.\n\nRiyadh, the capital of Saudi Arabia, illustrates this process with particular clarity. It has expanded from a modest desert town into a sprawling megacity populated by millions of residents. Government jobs, oil wealth, and emerging private enterprises drew people from across the country, and the number of residents has multiplied many times over in just a few decades. Through its Vision 2030 plan, Saudi Arabia is also endeavoring to diversify its economy beyond oil, hoping to create even more jobs for the future.\n\nWhen substantial numbers of people relocate into a single city, the growing population can readily overwhelm its infrastructure, meaning the roads, water pipes, and power lines that keep a city functioning properly. Roads grow increasingly congested, housing costs rise sharply, and unchecked urban sprawl pushes new neighborhoods far beyond the city's original center. Schools and hospitals can struggle considerably to keep pace with so many new residents. City leaders must plan with considerable care, or this kind of growth may ultimately fail to prove sustainable over the long term, leaving infrastructure permanently strained.\n\nUrbanization is by no means unique to Saudi Arabia; cities around the world, from Lagos to Dhaka, will likely continue expanding into megacities of their own, as ever more people persistently search for jobs, services, and a better life."
+  },
+  {
+   "level": 1500,
+   "title": "Urbanization: Why Cities Grow",
+   "text": "Throughout the greater part of recorded human history, the overwhelming majority of the world's population resided permanently in rural areas, cultivating crops and raising livestock on comparatively modest farms. Existence there proceeded at an unhurried, remarkably predictable pace, and news originating from distant places could routinely require weeks to arrive, since no rapid means of communication existed at all.\n\nOver the course of the past century, nevertheless, an extraordinary number of people have voluntarily relocated from rural areas into cities, a demographic shift that geographers consistently and specifically refer to as urbanization. Today, more than half of the world's entire population resides in urban areas, and that share continues to climb steadily with every passing year, a trend demographers widely expect to persist for several more decades. Cities offer an exceptionally extensive range of employment opportunities, enabling individuals to earn income and adequately support their families. Cities also consistently provide dependable, essential services, such as schools and hospitals, which can be considerably harder to find in small, isolated villages. Countless families regard cities as locations of genuine, tangible economic opportunity, offering chances that rural life can rarely provide.\n\nRiyadh, the capital of Saudi Arabia, illustrates this broader process with particular clarity, having expanded dramatically from a modest desert town into a sprawling, bustling megacity populated by millions upon millions of residents. Government jobs, substantial oil wealth, and emerging private enterprises collectively drew people from across the entire country, and the number of residents has multiplied many times over within just a few decades. Through its ambitious Vision 2030 plan, Saudi Arabia is also actively endeavoring to diversify its economy well beyond oil, hoping to create even more jobs for the future.\n\nWhen substantial numbers of people relocate into a single city within a short span of time, the swelling population can quite readily overwhelm its existing infrastructure, meaning the roads, water pipes, and power lines that keep a city functioning properly. Roads become increasingly congested, housing costs rise markedly, and largely unchecked urban sprawl pushes new neighborhoods far beyond the city's original center. Schools and hospitals can struggle considerably to keep pace with so many new residents. City leaders must consequently plan with considerable, sustained care, or this kind of unmanaged growth may ultimately fail to prove sustainable over the long term, leaving infrastructure permanently and severely strained.\n\nUrbanization is by absolutely no means unique to Saudi Arabia; cities all around the world, from Lagos to Dhaka, will almost certainly continue expanding into megacities of their own, as ever-increasing numbers of people persistently and determinedly search for jobs, services, and a markedly better life."
+  },
+  {
+   "level": 1600,
+   "title": "Urbanization: Why Cities Grow",
+   "text": "Throughout the greater part of recorded human history, the overwhelming majority of the world's entire population resided permanently and almost exclusively in rural areas, cultivating crops and raising livestock on comparatively modest, labor-intensive farms. Existence there proceeded at an unhurried, remarkably predictable pace, and news originating from genuinely distant places could routinely require weeks or even months to arrive at all, since no rapid means of communication existed anywhere.\n\nOver the course of the past century, nevertheless, an extraordinary and unprecedented number of people have voluntarily relocated from rural areas into cities, a sweeping demographic shift that geographers consistently and specifically refer to as urbanization. Today, for the very first time in recorded history, more than half of the world's entire population resides in urban areas, and that share continues to climb steadily and unmistakably with every passing year, a trend that demographers widely and confidently expect to persist for several more decades to come. Cities offer an exceptionally extensive and diverse range of employment opportunities, enabling individuals to earn income and adequately support their families. Cities also consistently provide dependable, essential services, such as schools and hospitals, which can be considerably harder to find in small, isolated villages. Countless families around the globe regard cities as locations of genuine, tangible economic opportunity, offering chances that rural life can rarely provide.\n\nRiyadh, the capital of Saudi Arabia, illustrates this broader global process with particular clarity, having expanded dramatically and rapidly from a modest desert town into a sprawling, bustling megacity populated by millions upon millions of residents. Government jobs, substantial oil wealth, and numerous emerging private enterprises collectively drew people from across the entire country, and the number of residents has multiplied many times over within just a few decades. Through its ambitious Vision 2030 plan, Saudi Arabia is also actively and deliberately endeavoring to diversify its economy well beyond oil, hoping to create even more jobs for the future.\n\nWhen substantial numbers of people relocate into a single city within a remarkably short span of time, the swelling population can quite readily overwhelm its existing infrastructure, meaning the roads, water pipes, and power lines that keep a city functioning properly on a daily basis. Roads become increasingly and visibly congested, housing costs rise markedly for ordinary working families, and largely unchecked urban sprawl pushes new neighborhoods far beyond the city's original center and historic core. Schools and hospitals can struggle enormously to keep pace with so many new residents. City leaders must consequently plan with considerable, sustained, and deliberate care, or this kind of unmanaged growth may ultimately fail to prove sustainable over the long term, leaving essential infrastructure permanently and severely strained for generations to come.\n\nUrbanization is by absolutely no means unique to Saudi Arabia alone; cities all around the world, from Lagos to Dhaka, will almost certainly continue expanding into megacities of their own, as ever-increasing numbers of people persistently and determinedly continue searching for jobs, services, and a markedly better life."
   }
+ ],
+ "bands": {
+  "LOW": {
+   "keyWords": [
+    {
+     "word": "rural",
+     "partOfSpeech": "adjective",
+     "definition": "describing the countryside, away from cities",
+     "example": "My grandparents live in a rural town surrounded by farms."
+    },
+    {
+     "word": "urban",
+     "partOfSpeech": "adjective",
+     "definition": "describing a city, with many buildings and people",
+     "example": "The urban streets downtown were full of cars and shops."
+    },
+    {
+     "word": "job",
+     "partOfSpeech": "noun",
+     "definition": "work that a person does to earn money",
+     "example": "My aunt found a new job at a hospital in the city."
+    },
+    {
+     "word": "crowded",
+     "partOfSpeech": "adjective",
+     "definition": "full of many people or things, with little space",
+     "example": "The bus was so crowded that we had to stand."
+    },
+    {
+     "word": "service",
+     "partOfSpeech": "noun",
+     "definition": "help or care a person gets, such as from a school or hospital",
+     "example": "The new clinic offers free medical service to families."
+    }
+   ],
+   "questions": [
+    {
+     "stem": "What is this article mostly about?",
+     "options": [
+      "How farmers grow food in rural villages with simple tools",
+      "How Riyadh built tall towers for tourists to visit each year",
+      "Why people move from the countryside to cities and how cities grow",
+      "Why roads are built across the desert, and who drives on them"
+     ],
+     "answer": "C",
+     "skill": "central-idea",
+     "why": "The article explains why people leave rural areas for cities and how cities like Riyadh grow larger over time.",
+     "wrong": {
+      "A": "Farming in villages is mentioned only as what rural life used to be like.",
+      "B": "Riyadh's tall towers are one detail, not the main idea.",
+      "D": "Desert roads are not described in the article."
+     }
+    },
+    {
+     "stem": "Why do people move to cities, according to the article?",
+     "options": [
+      "To find jobs and get better services",
+      "To live closer to farm animals and fields",
+      "To escape heavy rain each year in villages",
+      "To grow larger wheat farms near the town"
+     ],
+     "answer": "A",
+     "skill": "detail",
+     "why": "The article says cities have jobs and good services, which is why people move there.",
+     "wrong": {
+      "B": "The article does not say people move to be near farm animals.",
+      "C": "Rain is not given as a reason to move.",
+      "D": "Wheat farms are not mentioned as a reason to move."
+     }
+    },
+    {
+     "stem": "What has Riyadh become today, according to the article?",
+     "options": [
+      "A small farming village with few people",
+      "An empty stretch of desert with no buildings",
+      "A quiet rural town with farms",
+      "One of the biggest cities in the region"
+     ],
+     "answer": "D",
+     "skill": "detail",
+     "why": "The article says Riyadh has grown into one of the biggest cities in the region.",
+     "wrong": {
+      "A": "Riyadh was small long ago, not today.",
+      "B": "The article says Riyadh is full of towers and markets, not empty.",
+      "C": "Riyadh is described as a big city now, not a quiet town."
+     }
+    },
+    {
+     "stem": "The article says a rural place is in the countryside. What does rural mean?",
+     "options": [
+      "Found in a busy, crowded city",
+      "Found out in the countryside",
+      "Found deep under the ocean",
+      "Found only in tall towers"
+     ],
+     "answer": "B",
+     "skill": "vocabulary",
+     "why": "The article says rural areas are the countryside, where people once grew food on farms.",
+     "wrong": {
+      "A": "A busy city is urban, which is the opposite of rural.",
+      "C": "The article never places rural areas under the ocean.",
+      "D": "Tall towers are found in cities, not rural areas."
+     }
+    },
+    {
+     "stem": "What happens when many people move to one city?",
+     "options": [
+      "The city becomes crowded",
+      "The city becomes empty",
+      "New farms appear downtown",
+      "All the roads disappear"
+     ],
+     "answer": "A",
+     "skill": "cause-effect",
+     "why": "The article says that when many people move to one city, the city becomes crowded.",
+     "wrong": {
+      "B": "More people make a city fuller, not emptier.",
+      "C": "The article does not say farms appear downtown.",
+      "D": "Crowded roads fill with cars; they do not disappear."
+     }
+    },
+    {
+     "stem": "Why must city leaders plan for more schools and water?",
+     "options": [
+      "Because fewer people live there now",
+      "Because old schools became too large",
+      "Because the city's population is growing",
+      "Because the city no longer needs water"
+     ],
+     "answer": "C",
+     "skill": "inference",
+     "why": "The article says leaders must plan for more schools and water because more people keep moving to the city.",
+     "wrong": {
+      "A": "If fewer people lived there, there would be less need to plan.",
+      "B": "The article does not say old schools grew too large.",
+      "D": "A growing city needs more water, not less."
+     }
+    },
+    {
+     "stem": "Why do many families think life will be better in a city?",
+     "options": [
+      "Cities have more rain than villages",
+      "Cities never change or grow",
+      "Cities have fewer buildings than villages",
+      "Cities have jobs and good services"
+     ],
+     "answer": "D",
+     "skill": "inference",
+     "why": "The article says cities offer jobs and good services, which makes life feel better there.",
+     "wrong": {
+      "A": "Rain is not compared between cities and villages.",
+      "B": "The article says cities keep growing and changing.",
+      "C": "Cities are described as having many buildings, not few."
+     }
+    },
+    {
+     "stem": "What does the article describe about Riyadh?",
+     "options": [
+      "How it will become a small village again one day",
+      "How it changed from a small town into a big city",
+      "How it was always a big city in the desert",
+      "How farmers grow crops there with deep wells"
+     ],
+     "answer": "B",
+     "skill": "sequence",
+     "why": "The article describes how Riyadh went from a small town to a big city over time.",
+     "wrong": {
+      "A": "The article shows Riyadh growing, not shrinking back into a village.",
+      "C": "The article says Riyadh used to be small, not always big.",
+      "D": "Farming is part of rural life, not what the Riyadh section describes."
+     }
+    }
+   ],
+   "prompt": "Why do people move from the countryside to cities? Write 2–3 sentences with two reasons.",
+   "checklist": [
+    "I gave two reasons from the article.",
+    "I mentioned Riyadh or another city as an example.",
+    "I used at least one key word, like job or service."
+   ],
+   "modelAnswer": "People move from the countryside to cities because cities have many jobs, so people can earn money. Cities also have good services, like schools and hospitals, which make life easier. Riyadh grew from a small town into a big city as more people moved there for these reasons."
+  },
+  "MID": {
+   "keyWords": [
+    {
+     "word": "urbanization",
+     "partOfSpeech": "noun",
+     "definition": "the process in which more and more people move from the countryside into cities",
+     "example": "Urbanization has changed small towns into busy cities all over the world."
+    },
+    {
+     "word": "migrate",
+     "partOfSpeech": "verb",
+     "definition": "to move from one place to live in another place",
+     "example": "Many young workers migrate to the capital city to find jobs."
+    },
+    {
+     "word": "opportunity",
+     "partOfSpeech": "noun",
+     "definition": "a chance to do something that can improve your life",
+     "example": "The new factory brought jobs and opportunity to the whole town."
+    },
+    {
+     "word": "infrastructure",
+     "partOfSpeech": "noun",
+     "definition": "the basic systems a city needs, such as roads, water pipes, and power lines",
+     "example": "The city upgraded its infrastructure by building new roads and water pipes."
+    },
+    {
+     "word": "population",
+     "partOfSpeech": "noun",
+     "definition": "the number of people living in a place",
+     "example": "The population of the city doubled in just twenty years."
+    }
+   ],
+   "questions": [
+    {
+     "stem": "Which sentence best states the central idea of the article?",
+     "options": [
+      "Riyadh has many government offices and big companies, and thousands of workers drive there each morning to do their jobs in the busy city center.",
+      "Cities need more schools and hospitals, and builders must work quickly to make them for the families who live there.",
+      "Urbanization is the process of people migrating from rural areas to cities in search of jobs and better services, as shown by Riyadh's growth.",
+      "Rural villages are quiet and slow-paced, so families there enjoy a calm life far from busy roads and tall buildings."
+     ],
+     "answer": "C",
+     "skill": "central-idea",
+     "why": "The article's central idea is that urbanization, driven by jobs and services, explains why cities like Riyadh grow quickly.",
+     "wrong": {
+      "A": "Government offices are one detail about Riyadh, not the whole idea.",
+      "B": "Needing more schools and hospitals is an effect, not the central idea.",
+      "D": "Rural life is described mainly as a contrast to city life."
+     }
+    },
+    {
+     "stem": "According to the article, what has driven job growth in Riyadh?",
+     "options": [
+      "Fishing and shipping industries along the coast",
+      "Large farms that grow wheat and barley",
+      "Tourism and souvenir shops near old forts",
+      "Government offices, oil wealth, and new businesses"
+     ],
+     "answer": "D",
+     "skill": "detail",
+     "why": "The article says government offices, oil wealth, and new businesses created jobs that drew people to Riyadh.",
+     "wrong": {
+      "A": "Fishing and shipping are not mentioned as reasons for Riyadh's growth.",
+      "B": "Wheat farms are described as part of rural life, not Riyadh's job growth.",
+      "C": "Coastal tourism is not discussed in the article."
+     }
+    },
+    {
+     "stem": "What happens to a city's infrastructure when its population grows quickly?",
+     "options": [
+      "It can become overwhelmed",
+      "It becomes stronger automatically",
+      "It disappears completely",
+      "It moves to the countryside"
+     ],
+     "answer": "A",
+     "skill": "detail",
+     "why": "The article says a growing population can overwhelm a city's infrastructure, meaning its roads, water, and power lines.",
+     "wrong": {
+      "B": "The article says infrastructure can be overwhelmed, not automatically stronger.",
+      "C": "The article does not say infrastructure disappears.",
+      "D": "Infrastructure stays in the city; it does not move to the countryside."
+     }
+    },
+    {
+     "stem": "The article says many people migrate to cities. What does migrate mean?",
+     "options": [
+      "to build new infrastructure in a town or a city",
+      "to move from one place to live in another",
+      "to lose a job suddenly and move away from home",
+      "to grow crops on a farm near the village"
+     ],
+     "answer": "B",
+     "skill": "vocabulary",
+     "why": "The article uses migrate to describe people moving from rural areas to live in cities.",
+     "wrong": {
+      "A": "Building infrastructure is a separate idea from migrating.",
+      "C": "Losing a job is not what migrate means.",
+      "D": "Growing crops is part of rural life, not the meaning of migrate."
+     }
+    },
+    {
+     "stem": "Why do city leaders need to plan carefully as a city's population increases?",
+     "options": [
+      "So that farms can return to the busy city center",
+      "So that fewer new buildings are built downtown",
+      "So that the city's population quickly shrinks",
+      "So that the growing number of people can be served well"
+     ],
+     "answer": "D",
+     "skill": "cause-effect",
+     "why": "The article says leaders must plan so the growing number of people can be served well with schools, hospitals, and water.",
+     "wrong": {
+      "A": "The article does not describe farms returning to cities.",
+      "B": "The article says more buildings are built, not fewer.",
+      "C": "Careful planning is meant to serve people, not shrink the population."
+     }
+    },
+    {
+     "stem": "Why might someone see moving to a city as an opportunity?",
+     "options": [
+      "Villages offer more jobs than cities, so people should stay in the countryside",
+      "Cities never need new infrastructure, because the old roads and pipes last forever",
+      "A city may offer a chance at a better life through jobs and services",
+      "Rural areas have more hospitals than cities, so the sick should live there"
+     ],
+     "answer": "C",
+     "skill": "inference",
+     "why": "The article suggests cities offer a chance at a better life, which is why many families see them as an opportunity.",
+     "wrong": {
+      "A": "The article says cities, not villages, offer many jobs.",
+      "B": "The article says growing cities need more infrastructure, not less.",
+      "D": "The article describes cities, not rural areas, as having more services."
+     }
+    },
+    {
+     "stem": "What can you infer about cities around the world based on Riyadh's growth?",
+     "options": [
+      "Urbanization is likely happening in many places, not only Saudi Arabia",
+      "Most cities are shrinking back into small villages every year",
+      "Only desert cities experience urbanization in the whole world",
+      "Urbanization only affects government workers in the cities of Saudi Arabia"
+     ],
+     "answer": "A",
+     "skill": "inference",
+     "why": "The article says urbanization is not unique to Saudi Arabia, suggesting it is happening in many places.",
+     "wrong": {
+      "B": "The article describes cities growing, not shrinking.",
+      "C": "The article does not limit urbanization to desert cities.",
+      "D": "The article describes jobs across many industries, not just government work."
+     }
+    },
+    {
+     "stem": "Why does the author describe Riyadh's growth from a small town to a major city?",
+     "options": [
+      "To prove that deserts cannot support cities",
+      "To give a real example of urbanization in action",
+      "To compare Riyadh's weather with other cities",
+      "To argue that cities should stop growing"
+     ],
+     "answer": "B",
+     "skill": "author-purpose",
+     "why": "The author uses Riyadh's history to show urbanization happening in a real place.",
+     "wrong": {
+      "A": "The article shows a desert city thriving, not failing.",
+      "C": "Weather is not compared between cities.",
+      "D": "The article does not argue against city growth."
+     }
+    }
+   ],
+   "prompt": "Explain how urbanization has changed Riyadh. Use at least three details from the article.",
+   "checklist": [
+    "I explained why people migrated to Riyadh.",
+    "I described at least one challenge that comes with rapid growth.",
+    "I used at least two key words, such as urbanization or infrastructure."
+   ],
+   "modelAnswer": "Urbanization has transformed Riyadh from a small desert town into one of the largest cities in the region. Government offices, oil wealth, and new businesses created many jobs, so people began to migrate there from rural areas in search of opportunity. As the population grew quickly, the city's infrastructure, including its roads and water systems, had to expand to keep up, and leaders had to plan carefully for more schools and hospitals."
+  },
+  "HIGH": {
+   "keyWords": [
+    {
+     "word": "demographic",
+     "partOfSpeech": "adjective",
+     "definition": "relating to the number and features of people living in a place, such as their age or where they live",
+     "example": "A demographic study showed that most of the city's new residents were young adults."
+    },
+    {
+     "word": "sustainable",
+     "partOfSpeech": "adjective",
+     "definition": "able to continue for a long time without causing serious harm",
+     "example": "Planners want sustainable growth that does not run out of water or space."
+    },
+    {
+     "word": "megacity",
+     "partOfSpeech": "noun",
+     "definition": "an extremely large city, usually with more than ten million people",
+     "example": "Tokyo is often called a megacity because of its enormous population."
+    },
+    {
+     "word": "economic",
+     "partOfSpeech": "adjective",
+     "definition": "relating to money, jobs, trade, and resources",
+     "example": "The new factory brought real economic benefits to the whole region."
+    },
+    {
+     "word": "sprawl",
+     "partOfSpeech": "noun",
+     "definition": "the spreading out of a city's buildings and roads over a large area",
+     "example": "Urban sprawl pushed new neighborhoods far beyond the city's old center."
+    }
+   ],
+   "questions": [
+    {
+     "stem": "Which statement best summarizes the article?",
+     "options": [
+      "Riyadh's roads are wider than those of other capitals, and the city has no traffic at all, because its cars are few and its drivers are careful, so there are no problems.",
+      "Rural villages generally have more hospitals than cities, because villages have more people to care for and more space for them to build large clinics.",
+      "Government buildings are the tallest structures in Riyadh, and no houses, hotels, or towers rise above them in the city, because the law does not allow it.",
+      "Urbanization, driven by economic opportunity, has reshaped Riyadh into a modern megacity, though rapid growth brings infrastructure and sustainability challenges."
+     ],
+     "answer": "D",
+     "skill": "central-idea",
+     "why": "The article's main point is that economic opportunity drives urbanization, turning Riyadh into a megacity, while also creating challenges for sustainable growth.",
+     "wrong": {
+      "A": "Road width compared to other capitals is not discussed.",
+      "B": "The article focuses on cities, not a comparison of rural hospitals.",
+      "C": "Building height is not the article's main focus."
+     }
+    },
+    {
+     "stem": "What demographic shift does the article describe?",
+     "options": [
+      "A steady movement of population from the countryside to cities",
+      "A sudden drop in the number of children who are born each year",
+      "A migration of city residents back to the villages and the farms",
+      "An increase in rural farming jobs in the countryside and villages"
+     ],
+     "answer": "A",
+     "skill": "detail",
+     "why": "The article describes a steady demographic shift as people move from rural areas into cities like Riyadh.",
+     "wrong": {
+      "B": "A drop in births is not mentioned.",
+      "C": "The article describes movement toward cities, not back to villages.",
+      "D": "Farming jobs are described as part of the past, not a current increase."
+     }
+    },
+    {
+     "stem": "What size of city has Riyadh grown to resemble, according to the article?",
+     "options": [
+      "A small rural town with only a few streets",
+      "A mid-sized coastal village near the sea",
+      "A megacity with millions of residents",
+      "A farming settlement with a handful of fields"
+     ],
+     "answer": "C",
+     "skill": "detail",
+     "why": "The article describes Riyadh growing into a megacity with millions of residents.",
+     "wrong": {
+      "A": "Riyadh was a small town long ago, not today.",
+      "B": "A coastal village does not match Riyadh's size or location.",
+      "D": "Riyadh is described as a modern city, not a farming settlement."
+     }
+    },
+    {
+     "stem": "The article describes sustainable growth. What does sustainable mean in this context?",
+     "options": [
+      "Growth that happens instantly, in a single day or night, and never slows down",
+      "Growth that can continue without causing serious long-term harm",
+      "Growth that only affects government buildings and offices in the capital",
+      "Growth that reduces a city's population year after year until it is empty"
+     ],
+     "answer": "B",
+     "skill": "vocabulary",
+     "why": "The article uses sustainable to describe growth that can last without causing serious long-term harm.",
+     "wrong": {
+      "A": "Sustainable growth is about lasting over time, not happening instantly.",
+      "C": "Sustainable growth concerns the whole city, not just government buildings.",
+      "D": "The article is concerned with managing growth, not reducing population."
+     }
+    },
+    {
+     "stem": "What economic factors does the article link to Riyadh's rapid growth?",
+     "options": [
+      "Fishing exports and seaside tourism trade",
+      "Farming subsidies and large crop exports",
+      "Foreign aid for rural road development",
+      "Oil wealth, government jobs, and new businesses"
+     ],
+     "answer": "D",
+     "skill": "cause-effect",
+     "why": "The article links oil wealth, government jobs, and new businesses to Riyadh's rapid economic growth.",
+     "wrong": {
+      "A": "Fishing and tourism are not mentioned as factors in Riyadh's growth.",
+      "B": "Farming subsidies are not discussed in the article.",
+      "C": "Foreign aid for rural development is not mentioned."
+     }
+    },
+    {
+     "stem": "What can be inferred about cities that grow without enough planning for infrastructure?",
+     "options": [
+      "They will automatically become far more sustainable",
+      "They will immediately stop attracting any new residents",
+      "They will struggle to provide services to all their residents",
+      "They will shrink back into small rural villages quickly"
+     ],
+     "answer": "C",
+     "skill": "inference",
+     "why": "The article suggests that without enough planning, a growing city will struggle to serve all of its residents.",
+     "wrong": {
+      "A": "Lack of planning does not automatically make a city sustainable.",
+      "B": "Cities are described as continuing to attract residents.",
+      "D": "The article shows cities growing, not shrinking into villages."
+     }
+    },
+    {
+     "stem": "Why might unmanaged urban sprawl create problems for a growing city?",
+     "options": [
+      "It makes a city smaller and easier to manage, with fewer roads and buses to build",
+      "It can stretch infrastructure and services over a wider area than planned",
+      "It always lowers the cost of housing, so every family can buy a larger home nearby",
+      "It has no effect on roads or transportation, because people still live close to work"
+     ],
+     "answer": "B",
+     "skill": "inference",
+     "why": "The article suggests unmanaged sprawl can stretch infrastructure and services over a wider area than planned, making them harder to maintain.",
+     "wrong": {
+      "A": "Sprawl spreads a city out; it does not make it smaller.",
+      "C": "Sprawl is linked to costly growth, not automatically lower housing costs.",
+      "D": "Sprawl changes how far roads and transportation must reach."
+     }
+    },
+    {
+     "stem": "How does the article compare Riyadh's past and present?",
+     "options": [
+      "It shows a small desert town growing into a major regional megacity",
+      "It shows a megacity shrinking back into a small town in the desert",
+      "It shows Riyadh staying the same size for decades and decades",
+      "It shows rural villages becoming more popular than cities"
+     ],
+     "answer": "A",
+     "skill": "compare",
+     "why": "The article compares Riyadh's past as a small desert town with its present as a major regional megacity.",
+     "wrong": {
+      "B": "The article shows Riyadh growing, not shrinking.",
+      "C": "The article describes major growth, not a city staying the same size.",
+      "D": "The article describes cities, not villages, becoming more prominent."
+     }
+    }
+   ],
+   "prompt": "Is rapid urban growth like Riyadh's sustainable in the long run? Use evidence about benefits and challenges from the article.",
+   "checklist": [
+    "I stated a clear position.",
+    "I used evidence about both economic benefits and infrastructure or sustainability challenges.",
+    "I used at least two key words, such as sustainable or megacity."
+   ],
+   "modelAnswer": "I think Riyadh's rapid growth into a megacity can be sustainable, but only if planning keeps pace with its economic success. The article shows that oil wealth, government jobs, and new businesses created strong economic opportunity, drawing millions of people and transforming a small desert town into a major demographic center. However, rapid urban sprawl and a swelling population can overwhelm infrastructure such as roads, water systems, and schools, so without careful, sustainable planning the city's growth could create serious problems for residents in the future."
+  }
+ },
+ "stretch": {
+  "LOW": [
+   {
+    "stem": "In the article, a service is —",
+    "options": [
+     "a big new tower",
+     "a kind of food",
+     "help for people",
+     "a busy city road"
+    ],
+    "answer": "C",
+    "skill": "vocabulary",
+    "why": "The text says help is there too and calls this a service, such as schools that help kids learn.",
+    "wrong": {
+     "A": "A tower is a building, not a service.",
+     "B": "The text does not call food a service.",
+     "D": "A road is not described as a service."
+    }
+   },
+   {
+    "stem": "What rises up in Riyadh today?",
+    "options": [
+     "Tall towers",
+     "Big forests",
+     "Green farms",
+     "Sand dunes"
+    ],
+    "answer": "A",
+    "skill": "detail",
+    "why": "The text says tall towers rise up in Riyadh.",
+    "wrong": {
+     "B": "Forests are not mentioned for Riyadh.",
+     "C": "Farms are the rural places in the article.",
+     "D": "Sand dunes are not mentioned."
+    }
+   },
+   {
+    "stem": "Why will cities grow more?",
+    "options": [
+     "Fewer people will want jobs.",
+     "The roads will be quite empty.",
+     "Farms will need many more cars.",
+     "People want jobs and a good life."
+    ],
+    "answer": "D",
+    "skill": "cause-effect",
+    "why": "The text says cities will grow more because people want jobs and a good life.",
+    "wrong": {
+     "A": "The text says people want jobs.",
+     "B": "The roads are busy and crowded.",
+     "C": "Farms and cars are not linked in the text."
+    }
+   },
+   {
+    "stem": "Cars fill the roads in a city. What can you tell about the city?",
+    "options": [
+     "Very few people live there.",
+     "A lot of people live there.",
+     "It has no schools.",
+     "It is a very small town."
+    ],
+    "answer": "B",
+    "skill": "inference",
+    "why": "Roads full of cars show that many people have moved in and the city is crowded.",
+    "wrong": {
+     "A": "Full roads show many people, not few.",
+     "C": "The text says leaders plan for schools.",
+     "D": "A city with full roads is not small."
+    }
+   }
+  ],
+  "MID": [
+   {
+    "stem": "What surrounded Riyadh decades ago?",
+    "options": [
+     "Green rice farms",
+     "Empty desert land",
+     "A wide blue sea",
+     "Tall office towers"
+    ],
+    "answer": "B",
+    "skill": "detail",
+    "why": "The text says that decades ago Riyadh was a small town surrounded by desert.",
+    "wrong": {
+     "A": "The text says desert, not farms.",
+     "C": "No sea is mentioned.",
+     "D": "Towers are in the city today, not decades ago."
+    }
+   },
+   {
+    "stem": "In the article, the word overwhelm most nearly means —",
+    "options": [
+     "to give a lot of help",
+     "to clean and tidy up",
+     "to build something new",
+     "to be too much for"
+    ],
+    "answer": "D",
+    "skill": "vocabulary",
+    "why": "A population that overwhelms infrastructure is too much for the roads, pipes, and power lines.",
+    "wrong": {
+     "A": "Help would not cause packed roads.",
+     "B": "Cleaning does not fit the problem described.",
+     "C": "The text says new housing is needed, but overwhelm does not mean build."
+    }
+   },
+   {
+    "stem": "What does the detail that news took weeks to arrive suggest about rural life long ago?",
+    "options": [
+     "Sending messages was slow",
+     "People did not need news",
+     "Everyone lived in cities",
+     "Roads were always busy"
+    ],
+    "answer": "A",
+    "skill": "inference",
+    "why": "If news took weeks, there were no fast ways to send messages in the countryside.",
+    "wrong": {
+     "B": "The text does not say people did not need news.",
+     "C": "The text says most people lived in the countryside.",
+     "D": "Busy roads are a city problem."
+    }
+   },
+   {
+    "stem": "What does the fourth paragraph mainly do?",
+    "options": [
+     "Tells a story about one family",
+     "Compares two towns in the desert",
+     "Shows a problem and a plan for it",
+     "Lists the oldest cities in the world"
+    ],
+    "answer": "C",
+    "skill": "text-structure",
+    "why": "It names a problem, crowded infrastructure, and then says leaders must plan for schools, hospitals, and water.",
+    "wrong": {
+     "A": "No family story is told.",
+     "B": "No two desert towns are compared.",
+     "D": "No list of old cities is given."
+    }
+   }
+  ],
+  "HIGH": [
+   {
+    "stem": "What share of the world's population lives in urban areas today?",
+    "options": [
+     "Less than a quarter",
+     "Exactly half",
+     "More than half",
+     "About one tenth"
+    ],
+    "answer": "C",
+    "skill": "detail",
+    "why": "The text says more than half of the world's population lives in urban areas.",
+    "wrong": {
+     "A": "The share is more than half, not under a quarter.",
+     "B": "The text says more than half, and it keeps climbing.",
+     "D": "One tenth is far too small."
+    }
+   },
+   {
+    "stem": "In the article, the word congested most nearly means —",
+    "options": [
+     "crowded and slow",
+     "wide and empty",
+     "new and clean",
+     "dark and quiet"
+    ],
+    "answer": "A",
+    "skill": "vocabulary",
+    "why": "Roads grow congested as the population rises, so they become crowded and slow.",
+    "wrong": {
+     "B": "Roads fill up, so they are not empty.",
+     "C": "Clean is not the idea of the sentence.",
+     "D": "The sentence is about traffic, not darkness."
+    }
+   },
+   {
+    "stem": "Why can schools and hospitals struggle in a fast-growing city?",
+    "options": [
+     "Too few people want to use them",
+     "They are moved to the countryside",
+     "Leaders close them to save money",
+     "There are too many new residents"
+    ],
+    "answer": "D",
+    "skill": "cause-effect",
+    "why": "The text says schools and hospitals can struggle to keep pace with so many new residents.",
+    "wrong": {
+     "A": "The problem is too many users, not too few.",
+     "B": "The text does not say they are moved.",
+     "C": "Closing them is not mentioned."
+    }
+   },
+   {
+    "stem": "Why does the author mention the Vision 2030 plan?",
+    "options": [
+     "To prove oil is running out today",
+     "To show efforts to create more jobs",
+     "To explain how roads are built",
+     "To list the growth of Lagos"
+    ],
+    "answer": "B",
+    "skill": "author-purpose",
+    "why": "The plan is mentioned to show Saudi Arabia is working to diversify its economy and create more jobs.",
+    "wrong": {
+     "A": "The text does not say oil is running out.",
+     "C": "Road building is not the topic of that sentence.",
+     "D": "Lagos is mentioned in a different paragraph."
+    }
+   }
+  ]
+ }
 }

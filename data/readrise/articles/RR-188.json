@@ -614,5 +614,217 @@
       ],
       "modelAnswer": "Ada Lovelace's work still matters today because, in her notes, she wrote out a step-by-step algorithm showing how Babbage's engine could calculate a set of numbers, which is why many people call her the first computer programmer even though the machine itself was never built. She was also a visionary, since she imagined that such a machine might one day do far more than math, even compose music, an idea that sounded impossible in her time but describes exactly what modern computers can do. Her early algorithm and her visionary thinking about what machines could become connect directly to the programs that run on every computer today."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "Where did Ada get her plan to fly from?",
+        "options": [
+          "From her mom",
+          "From a book of songs",
+          "From a sums machine",
+          "From birds"
+        ],
+        "answer": "D",
+        "skill": "detail",
+        "why": "The text says she got the plan from birds.",
+        "wrong": {
+          "A": "Her mom is linked to the math lessons.",
+          "B": "Songs are mentioned only in her dream about machines.",
+          "C": "The sums machine was Babbage's, not the source of her flying plan."
+        }
+      },
+      {
+        "stem": "In this article, what does invent mean?",
+        "options": [
+          "Make something new",
+          "Write a long letter",
+          "Fix a broken tool",
+          "Teach a class"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "Charles Babbage liked to invent things, such as a plan for a big machine, so invent means to make something new.",
+        "wrong": {
+          "B": "Writing a letter is not what he did.",
+          "C": "He planned new machines, not fixed old tools.",
+          "D": "He is not described as teaching."
+        }
+      },
+      {
+        "stem": "Why did Ada stay in bed a lot as a child?",
+        "options": [
+          "She was learning to fly",
+          "She did not like math",
+          "She was sick",
+          "She was writing a program"
+        ],
+        "answer": "C",
+        "skill": "cause-effect",
+        "why": "The text says Ada was sick a lot as a child, so she had to stay in bed.",
+        "wrong": {
+          "A": "Her flying plans were drawn in bed, not the reason she was there.",
+          "B": "She had lots of math lessons and her mind was busy.",
+          "D": "She wrote the program as a grown-up."
+        }
+      },
+      {
+        "stem": "How did Ada feel about Babbage's big machine?",
+        "options": [
+          "She was afraid of it",
+          "She was eager to learn about it",
+          "She thought it was too slow",
+          "She wanted to sell it"
+        ],
+        "answer": "B",
+        "skill": "inference",
+        "why": "Ada was glad and wished to learn all of it, so she was eager to learn.",
+        "wrong": {
+          "A": "The text says she was glad.",
+          "C": "The text does not say the machine was slow.",
+          "D": "Selling the machine is not mentioned."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "About how old was Ada when she studied how birds fly?",
+        "options": [
+          "Five",
+          "Twelve",
+          "Seventeen",
+          "Thirty-six"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The text says she was about twelve when she studied birds and drew plans for a flying machine.",
+        "wrong": {
+          "A": "The text says about twelve.",
+          "C": "She was 17 when she met Babbage.",
+          "D": "She died at 36."
+        }
+      },
+      {
+        "stem": "A computer language is named Ada \"in her honor.\" What does in her honor mean?",
+        "options": [
+          "to pay her for her work",
+          "to copy all of her notes",
+          "to keep her name secret",
+          "to show respect for her"
+        ],
+        "answer": "D",
+        "skill": "vocabulary",
+        "why": "Naming a language after her shows respect for her work.",
+        "wrong": {
+          "A": "She died young; the naming is not a payment.",
+          "B": "Naming a language is not copying notes.",
+          "C": "Naming it after her makes her name known."
+        }
+      },
+      {
+        "stem": "Which list shows the events in the right order?",
+        "options": [
+          "Studied birds, met Babbage, translated the article",
+          "Met Babbage, studied birds, translated the article",
+          "Translated the article, studied birds, met Babbage",
+          "Studied birds, translated the article, met Babbage"
+        ],
+        "answer": "A",
+        "skill": "sequence",
+        "why": "She studied birds at about twelve, met Babbage at 17, and translated the article later.",
+        "wrong": {
+          "B": "She studied birds when she was about twelve, before she met Babbage at 17.",
+          "C": "The translation came last.",
+          "D": "She met Babbage before the translation."
+        }
+      },
+      {
+        "stem": "What does it show that Ada's notes were longer than the article itself?",
+        "options": [
+          "She did not like translating",
+          "She was too sick to write",
+          "She had many ideas of her own",
+          "The article was very short"
+        ],
+        "answer": "C",
+        "skill": "inference",
+        "why": "She added her own notes and they became longer than the article, so she had many ideas of her own.",
+        "wrong": {
+          "A": "The text does not say she disliked translating.",
+          "B": "She wrote a lot, so she was not too sick.",
+          "D": "The text does not say the article was short."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "How long were Ada's notes compared with the original article?",
+        "options": [
+          "About three times longer",
+          "About the same length",
+          "Half as long",
+          "Ten times longer"
+        ],
+        "answer": "A",
+        "skill": "detail",
+        "why": "The text says her notes were about three times longer than the original article.",
+        "wrong": {
+          "B": "The notes were much longer.",
+          "C": "The notes were longer, not shorter.",
+          "D": "The text says about three times, not ten."
+        }
+      },
+      {
+        "stem": "In the article, the word fascinated most nearly means —",
+        "options": [
+          "frightened",
+          "tired",
+          "deeply interested",
+          "puzzled"
+        ],
+        "answer": "C",
+        "skill": "vocabulary",
+        "why": "Ada was so fascinated that she wanted to understand every part, so she was deeply interested.",
+        "wrong": {
+          "A": "Wanting to understand every part is not fear.",
+          "B": "She was eager, not tired.",
+          "D": "She wanted to learn more, not just feel puzzled."
+        }
+      },
+      {
+        "stem": "Why did Ada's mother make sure she studied math and science?",
+        "options": [
+          "Girls had to study math then",
+          "The school required it",
+          "She wanted Ada to build a machine",
+          "She was passionate about mathematics"
+        ],
+        "answer": "D",
+        "skill": "cause-effect",
+        "why": "The text says her mother was passionate about mathematics, so she made sure Ada studied it.",
+        "wrong": {
+          "A": "The text says very few girls received such lessons.",
+          "B": "A school is not mentioned.",
+          "C": "Building a machine is not mentioned as her mother's goal."
+        }
+      },
+      {
+        "stem": "Why does the author describe Ada's study of birds while she was ill?",
+        "options": [
+          "To explain how birds fly",
+          "To show her mind stayed active",
+          "To argue that flying is easy",
+          "To show she was often bored"
+        ],
+        "answer": "B",
+        "skill": "author-purpose",
+        "why": "The author says her mind never stopped working, and the bird plans are an example.",
+        "wrong": {
+          "A": "The article does not explain how birds fly.",
+          "C": "The article does not say flying is easy.",
+          "D": "She was busy, not bored."
+        }
+      }
+    ]
   }
 }

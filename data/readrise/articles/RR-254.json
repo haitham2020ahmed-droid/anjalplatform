@@ -614,5 +614,217 @@
       ],
       "modelAnswer": "A pioneer is someone whose new discoveries open a path that others continue to follow and build upon. Louis Pasteur fits this description because his carefully repeated experiments disproved the old belief that living things could appear from nonliving matter and established germ theory, the idea that specific germs cause specific diseases. This evidence directly led to pasteurization, which still keeps milk and juice safe from contamination today, and to vaccines, which train the body's immunity against dangerous diseases. Because so much of modern medicine and food safety builds on these discoveries, Pasteur's work as a pioneer continues to protect people's health long after his own lifetime."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "Where was Louis born?",
+        "options": [
+          "In Spain",
+          "In Egypt",
+          "In Italy",
+          "In France"
+        ],
+        "answer": "D",
+        "skill": "detail",
+        "why": "The article says Louis was born in France.",
+        "wrong": {
+          "A": "Spain is not mentioned.",
+          "B": "Egypt is not mentioned.",
+          "C": "Italy is not mentioned."
+        }
+      },
+      {
+        "stem": "In the article, what is a microscope?",
+        "options": [
+          "a kind of paint",
+          "a tool to see tiny things",
+          "a germ that makes you sick",
+          "a shot from a doctor"
+        ],
+        "answer": "B",
+        "skill": "vocabulary",
+        "why": "Louis looked through a microscope to see tiny germs, so it is a tool to see very small things.",
+        "wrong": {
+          "A": "Paint is a different idea.",
+          "C": "Germs are what you see with a microscope.",
+          "D": "A shot is a vaccine, not a microscope."
+        }
+      },
+      {
+        "stem": "What did Louis see in the milk with a microscope?",
+        "options": [
+          "Small drops of paint",
+          "Little pieces of bread",
+          "Tiny bits called germs",
+          "Bugs from the garden"
+        ],
+        "answer": "C",
+        "skill": "detail",
+        "why": "The article says he saw tiny bits in the milk, which we call germs.",
+        "wrong": {
+          "A": "Paint is not mentioned in the milk.",
+          "B": "Bread is not mentioned.",
+          "D": "Bugs were a childhood interest, not what he saw in milk."
+        }
+      },
+      {
+        "stem": "Why did few people at first think germs were real?",
+        "options": [
+          "Germs are too small to see",
+          "Germs were found in paint",
+          "Germs only live in France",
+          "Germs never made food go bad"
+        ],
+        "answer": "A",
+        "skill": "inference",
+        "why": "The article says germs are too small to see, which would make them hard to believe in.",
+        "wrong": {
+          "B": "Paint is not linked to germs.",
+          "C": "Germs are not limited to France.",
+          "D": "Louis showed that germs make food go bad."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "As a young man, what talent did Louis first show?",
+        "options": [
+          "Singing",
+          "Cooking",
+          "Painting",
+          "Building"
+        ],
+        "answer": "C",
+        "skill": "detail",
+        "why": "The article says he first showed a talent for painting.",
+        "wrong": {
+          "A": "Singing is not mentioned.",
+          "B": "Cooking is not mentioned.",
+          "D": "Building is not mentioned."
+        }
+      },
+      {
+        "stem": "In the article, the word organism means —",
+        "options": [
+          "a kind of tool",
+          "a living thing",
+          "a piece of food",
+          "a type of juice"
+        ],
+        "answer": "B",
+        "skill": "vocabulary",
+        "why": "Louis saw tiny living things moving about, each a tiny organism.",
+        "wrong": {
+          "A": "The microscope is the tool.",
+          "C": "Food is what the germs spoil.",
+          "D": "Juice is what he studied, not an organism."
+        }
+      },
+      {
+        "stem": "Why did Louis heat milk or juice only \"just enough\"?",
+        "options": [
+          "To make it taste sweeter",
+          "To kill germs, keep the taste",
+          "To make it last for a year",
+          "To change its color"
+        ],
+        "answer": "B",
+        "skill": "cause-effect",
+        "why": "The article says the heat killed harmful germs and did not ruin the taste.",
+        "wrong": {
+          "A": "Sweetness is not mentioned.",
+          "C": "A year is not mentioned.",
+          "D": "Color is not mentioned."
+        }
+      },
+      {
+        "stem": "What does the article suggest about Louis's work today?",
+        "options": [
+          "It has been forgotten now",
+          "It only helps people in France",
+          "It is no longer used much",
+          "It still keeps people safe"
+        ],
+        "answer": "D",
+        "skill": "inference",
+        "why": "The article says his way of heating milk is still used and food and drinks are far safer today.",
+        "wrong": {
+          "A": "People still use his work.",
+          "B": "His heating method is used around the world.",
+          "C": "The article says it is still used."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "In the article, the word hypothesis means —",
+        "options": [
+          "an idea that can be tested",
+          "a harmful kind of germ",
+          "a machine for heating milk",
+          "a famous science prize"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "Pasteur tested his idea about germs with careful experiments, so a hypothesis is an idea that can be tested.",
+        "wrong": {
+          "B": "Germs are what he studied, not a hypothesis.",
+          "C": "Heating milk is a method, not a hypothesis.",
+          "D": "A prize is not a hypothesis."
+        }
+      },
+      {
+        "stem": "What other interest did Pasteur enjoy as a boy?",
+        "options": [
+          "Sailing",
+          "Music",
+          "Cooking",
+          "Sports"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The article says he also deeply enjoyed music.",
+        "wrong": {
+          "A": "Sailing is not mentioned.",
+          "C": "Cooking is not mentioned.",
+          "D": "Sports are not mentioned."
+        }
+      },
+      {
+        "stem": "According to germ theory, what can cause disease?",
+        "options": [
+          "Specific germs",
+          "Foul air alone",
+          "Bad dreams",
+          "Hot milk"
+        ],
+        "answer": "A",
+        "skill": "cause-effect",
+        "why": "The article says he showed that specific germs could cause disease, a finding known as germ theory.",
+        "wrong": {
+          "B": "Foul air was the old, mistaken belief.",
+          "C": "Dreams are not mentioned.",
+          "D": "Heated milk is made safe, not the cause."
+        }
+      },
+      {
+        "stem": "The article says Pasteur's discoveries still protect people long after his own lifetime. What does this suggest?",
+        "options": [
+          "He lived a very long life",
+          "His ideas are no longer needed",
+          "He was never praised",
+          "His work has lasting value"
+        ],
+        "answer": "D",
+        "skill": "inference",
+        "why": "The phrase shows his discoveries still protect people today, long after he died.",
+        "wrong": {
+          "A": "The phrase is about after his life ended.",
+          "B": "The ideas are still used.",
+          "C": "The article says people honor his discoveries and call him a pioneer."
+        }
+      }
+    ]
   }
 }

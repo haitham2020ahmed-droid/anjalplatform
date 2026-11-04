@@ -614,5 +614,217 @@
       ],
       "modelAnswer": "I disagree that light pollution is a small problem. First, the article explains that light pollution can harm baby sea turtles on Red Sea beaches, which crawl toward bright lights on land instead of the sea where they belong. Second, birds that migrate at night using the stars can become confused by bright lights and even crash into lit buildings, while insects circle lamps until they are too tired to fly. Third, too much light at night can make it harder for people to sleep well and wastes energy on lights left on for no reason, so light pollution clearly affects animals, people, and energy use all at once."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "What is the Milky Way?",
+        "options": [
+          "A road in town",
+          "A band of stars",
+          "A bright sea",
+          "A kind of lamp"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The text says the Milky Way is a band of stars.",
+        "wrong": {
+          "A": "The text does not call it a road.",
+          "C": "The bright sea is where turtles crawl.",
+          "D": "It is in the sky, not a lamp."
+        }
+      },
+      {
+        "stem": "In this article, what does glows mean?",
+        "options": [
+          "gets very cold",
+          "falls like rain",
+          "shines with light",
+          "makes a loud sound"
+        ],
+        "answer": "C",
+        "skill": "vocabulary",
+        "why": "The sky glows from all the lights, so glows means it shines with light.",
+        "wrong": {
+          "A": "The sky is lit up, not cold.",
+          "B": "Light does not fall like rain.",
+          "D": "Light makes no sound."
+        }
+      },
+      {
+        "stem": "Why can bright lights make birds get lost?",
+        "options": [
+          "They make the wind blow.",
+          "They make the birds sleepy.",
+          "They scare away all the bugs.",
+          "They hide the stars birds use."
+        ],
+        "answer": "D",
+        "skill": "cause-effect",
+        "why": "Some birds use the stars to find their way, and bright lights can make them get lost.",
+        "wrong": {
+          "A": "The text does not say lights make wind.",
+          "B": "Sleep is mentioned for people, not birds.",
+          "C": "Bugs are drawn to lamps, not scared away."
+        }
+      },
+      {
+        "stem": "Why does the author say to point lamps down?",
+        "options": [
+          "So light stays off the sky",
+          "So the lamps last longer",
+          "So bugs can find the lamps",
+          "So signs look much brighter"
+        ],
+        "answer": "A",
+        "skill": "inference",
+        "why": "The text says street lamps shine up and cause light pollution, so pointing them down keeps light off the sky.",
+        "wrong": {
+          "B": "The text does not say lamps last longer.",
+          "C": "Bugs already fly round lamps.",
+          "D": "Signs shining up is part of the problem."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "What happens to insects that circle around lamps?",
+        "options": [
+          "They follow turtles to the sea",
+          "They find food on the lamps",
+          "They glow like the Milky Way",
+          "They end up very tired"
+        ],
+        "answer": "D",
+        "skill": "detail",
+        "why": "The text says insects circle around lamps until they are exhausted.",
+        "wrong": {
+          "A": "Turtles and insects are not linked in the text.",
+          "B": "Food is not mentioned for insects.",
+          "C": "The Milky Way is a band of stars."
+        }
+      },
+      {
+        "stem": "In the article, artificial light is light that —",
+        "options": [
+          "comes from the Milky Way",
+          "is made by people",
+          "shines only in the desert",
+          "turns off by itself"
+        ],
+        "answer": "B",
+        "skill": "vocabulary",
+        "why": "The artificial light in the text comes from street lamps, signs, and buildings, which people make.",
+        "wrong": {
+          "A": "The Milky Way is natural starlight.",
+          "C": "The desert is described as dark.",
+          "D": "The text says we should turn off lights ourselves."
+        }
+      },
+      {
+        "stem": "Why have many city children never seen the Milky Way?",
+        "options": [
+          "Light pollution hides the stars.",
+          "The Milky Way has moved away.",
+          "Children stay inside at night.",
+          "Cities have no clear nights."
+        ],
+        "answer": "A",
+        "skill": "cause-effect",
+        "why": "The text says light pollution hides the stars, so many city children have never seen the Milky Way.",
+        "wrong": {
+          "B": "The text does not say the Milky Way moved.",
+          "C": "The cause given is light, not children staying in.",
+          "D": "The article says even clear nights show only a handful of stars."
+        }
+      },
+      {
+        "stem": "Why does the last paragraph begin by saying light pollution is easy to fix?",
+        "options": [
+          "To say turtles are safe now",
+          "To list new kinds of lamps",
+          "To show the problem can be fixed",
+          "To compare cities and deserts"
+        ],
+        "answer": "C",
+        "skill": "author-purpose",
+        "why": "After describing the problems, the author says light pollution is easy to fix and gives ways to do it.",
+        "wrong": {
+          "A": "Turtles are still confused by bright lights.",
+          "B": "The paragraph shields lamps and turns off lights but does not list new lamps.",
+          "D": "Cities and deserts were compared earlier."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "What is skyglow?",
+        "options": [
+          "A star in the Milky Way",
+          "A bright sea in the dark",
+          "A dome of light over a city",
+          "A hormone that helps sleep"
+        ],
+        "answer": "C",
+        "skill": "detail",
+        "why": "The text says skyglow is a dome of light that hangs over a city.",
+        "wrong": {
+          "A": "Skyglow is not a star.",
+          "B": "The bright sea is the horizon turtles crawl toward.",
+          "D": "The hormone is called melatonin."
+        }
+      },
+      {
+        "stem": "In the article, the word disorient most nearly means —",
+        "options": [
+          "make them feel hungry",
+          "make them feel sleepy",
+          "make them feel angry",
+          "make lose their way"
+        ],
+        "answer": "D",
+        "skill": "vocabulary",
+        "why": "Bright lights disorient turtles so they wander toward roads, and pull birds off course.",
+        "wrong": {
+          "A": "The text does not talk about hunger.",
+          "B": "Sleepiness is mentioned for people.",
+          "C": "The text does not say animals become angry."
+        }
+      },
+      {
+        "stem": "Why do stars become hard to see above a city?",
+        "options": [
+          "Clouds always cover the city.",
+          "Light scatters and hides them.",
+          "The stars move away at night.",
+          "Tall buildings block the sky."
+        ],
+        "answer": "B",
+        "skill": "cause-effect",
+        "why": "Light sent upward scatters in the atmosphere and conceals the stars.",
+        "wrong": {
+          "A": "The text mentions a cloudless night.",
+          "C": "The stars do not move away.",
+          "D": "The buildings send light upward; they do not block the whole sky."
+        }
+      },
+      {
+        "stem": "How does the last paragraph relate to the paragraphs before it?",
+        "options": [
+          "It offers ways to fix the problems",
+          "It repeats the opening question",
+          "It compares two kinds of animals",
+          "It argues that stars are not important"
+        ],
+        "answer": "A",
+        "skill": "text-structure",
+        "why": "The earlier paragraphs describe problems, and the last paragraph gives shielded fixtures and switching off lights as solutions.",
+        "wrong": {
+          "B": "The ending gives solutions rather than repeating the opening.",
+          "C": "No comparison of animals is made.",
+          "D": "The author wants the stars to shine for everyone."
+        }
+      }
+    ]
   }
 }

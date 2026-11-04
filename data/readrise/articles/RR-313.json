@@ -614,5 +614,217 @@
       ],
       "modelAnswer": "Animation works because our eyes hold onto each picture briefly, and the brain blends a fast sequence of still frames into what looks like smooth motion. Riggers support this illusion by building a digital rig, a hidden skeleton of joints, so animators can pose a character naturally frame by frame. Rendering then supports the same illusion by calculating realistic light, shadow, and color for every frame, so each still picture looks convincing enough that, shown quickly in sequence, the brain is tricked into seeing lifelike, continuous movement."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "How long can it take to make a big movie?",
+        "options": [
+          "Just one hour",
+          "A single day",
+          "A few weeks",
+          "Many years"
+        ],
+        "answer": "D",
+        "skill": "detail",
+        "why": "The text says a big movie needs a team and it can take years.",
+        "wrong": {
+          "A": "One hour is far too short for a big movie.",
+          "B": "One day is far too short for a big movie.",
+          "C": "The text says years, not weeks."
+        }
+      },
+      {
+        "stem": "The text says an artist first makes a flipbook. What is a flipbook?",
+        "options": [
+          "a book of drawings that seem to move",
+          "a computer that colors in pictures",
+          "a big screen in a large movie hall",
+          "a paper map of a town"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "When you flip the pages of a flipbook fast, the drawings seem to move.",
+        "wrong": {
+          "B": "A flipbook is made of paper pages, not a computer.",
+          "C": "A screen is not a flipbook.",
+          "D": "A map is not a flipbook."
+        }
+      },
+      {
+        "stem": "What does a computer do for artists today?",
+        "options": [
+          "It draws and colors fast",
+          "It writes every song alone",
+          "It tells the artist to stop",
+          "It takes the place of every team"
+        ],
+        "answer": "A",
+        "skill": "cause-effect",
+        "why": "The text says a computer can draw and color fast and can move the art for them.",
+        "wrong": {
+          "B": "The text does not say a computer writes songs alone.",
+          "C": "The text does not say a computer tells artists to stop.",
+          "D": "The text says the computer helps artists, not replaces a team."
+        }
+      },
+      {
+        "stem": "Why do the drawings in a cartoon seem to move?",
+        "options": [
+          "The drawings are alive",
+          "They are shown one by one, very fast",
+          "The paper is very thin",
+          "The artist moves each one by hand"
+        ],
+        "answer": "B",
+        "skill": "inference",
+        "why": "The text says the pictures are shown one by one, very fast, so they seem to move.",
+        "wrong": {
+          "A": "Drawings are not alive.",
+          "C": "Thin paper is not the reason.",
+          "D": "The pictures are shown fast; the artist does not move them during the show."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "What does animation software already know how to do?",
+        "options": [
+          "Write the whole story for the team",
+          "Sing songs for the entire movie",
+          "Color pictures, add light, move shapes",
+          "Pick the team members for a new movie"
+        ],
+        "answer": "C",
+        "skill": "detail",
+        "why": "The article says the software already knows how to color pictures, add light, and move shapes.",
+        "wrong": {
+          "A": "Writers plan the story.",
+          "B": "Sound designers and composers make the music.",
+          "D": "The article does not say software picks the team."
+        }
+      },
+      {
+        "stem": "The article says the team gives \"feedback\" on the storyboard. What is feedback?",
+        "options": [
+          "Comments about what works or does not",
+          "A very loud kind of sound effect",
+          "A plain picture made of stick figures",
+          "A tool that draws all the pictures"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "The team says what makes sense and what is confusing, and uses it to make changes.",
+        "wrong": {
+          "B": "Sound effects are made by sound designers.",
+          "C": "The stick figures are the storyboard, not the feedback.",
+          "D": "Feedback is something people say, not a tool."
+        }
+      },
+      {
+        "stem": "Why does the team look at the storyboard and give feedback?",
+        "options": [
+          "To save the movie as a finished file",
+          "To pick the music for the end",
+          "To count how many frames are used",
+          "To find what is confusing and fix it"
+        ],
+        "answer": "D",
+        "skill": "cause-effect",
+        "why": "The article says the team finds what makes sense and what is confusing, then makes changes.",
+        "wrong": {
+          "A": "The storyboard is an early sketch, not a finished file.",
+          "B": "The feedback is about the story, not the music.",
+          "C": "The article does not link feedback to counting frames."
+        }
+      },
+      {
+        "stem": "Why do big movies most likely need large teams?",
+        "options": [
+          "The movie has many different jobs to do",
+          "One artist is not allowed to make cartoons",
+          "Computers cannot help with the work",
+          "Small cartoons are not allowed on screen"
+        ],
+        "answer": "A",
+        "skill": "inference",
+        "why": "The article lists many jobs, such as writers, artists, animators, and sound designers, so a big movie needs many people.",
+        "wrong": {
+          "B": "The article says some small cartoons are made by just one artist.",
+          "C": "The article says studios use special software to help.",
+          "D": "The article says small cartoons exist."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "How many frames does the computer often draw every second?",
+        "options": [
+          "Two or three",
+          "Thirty or sixty",
+          "Ten thousand",
+          "One hundred and fifty"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The article says the computer draws a frame often thirty or sixty times every second.",
+        "wrong": {
+          "A": "Two or three is far too few for smooth movement.",
+          "C": "Ten thousand is not mentioned in the article.",
+          "D": "One hundred and fifty is not mentioned in the article."
+        }
+      },
+      {
+        "stem": "The article says specialists \"must collaborate closely.\" What does collaborate mean?",
+        "options": [
+          "To work alone in secret",
+          "To argue about the plan",
+          "To rest after a long job",
+          "To work together"
+        ],
+        "answer": "D",
+        "skill": "vocabulary",
+        "why": "The article says large teams of specialists need to succeed together, so collaborate means to work together.",
+        "wrong": {
+          "A": "A team cannot work alone.",
+          "B": "The team gives feedback, which is not the same as arguing.",
+          "C": "The word is about working, not resting."
+        }
+      },
+      {
+        "stem": "Why does the computer draw a fresh frame many times every second?",
+        "options": [
+          "So that movement looks smooth",
+          "So that the movie stays short",
+          "So that the sound can stop",
+          "So that the story is hidden"
+        ],
+        "answer": "A",
+        "skill": "cause-effect",
+        "why": "The article says the frames are drawn many times a second so movement looks smooth.",
+        "wrong": {
+          "B": "The article does not link frames to a short movie.",
+          "C": "The article does not say the sound stops.",
+          "D": "The frames show the story and do not hide it."
+        }
+      },
+      {
+        "stem": "According to the article, what is a frame?",
+        "options": [
+          "one single picture in the film",
+          "a team that writes the story",
+          "a sound added to a scene",
+          "a computer that colors art"
+        ],
+        "answer": "A",
+        "skill": "detail",
+        "why": "The article says animators make every frame, one individual picture within the film.",
+        "wrong": {
+          "B": "Writers plan the story; that is not a frame.",
+          "C": "Sounds are added by sound designers.",
+          "D": "Software helps color art, but it is not a frame."
+        }
+      }
+    ]
   }
 }

@@ -614,5 +614,217 @@
       ],
       "modelAnswer": "I agree that careful observation can be as valuable as years of experience. Younes's attention to the ants, the lizards, and the unusual clouds let him sense a storm that even Malik's twenty years of experience had not predicted. Someone might argue that experience should always be trusted first, since it is built on many real journeys, but this story shows that even experienced people can miss small signs, so listening carefully to new observations is worth the risk."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "Where did the ants take their food?",
+        "options": [
+          "Up to high ground",
+          "Down into the sand",
+          "Into the camels' bags",
+          "Under the lizards"
+        ],
+        "answer": "A",
+        "skill": "detail",
+        "why": "The text says the ants took food up to high ground.",
+        "wrong": {
+          "B": "The ants went up, not down.",
+          "C": "The camels' bags are not mentioned with the ants.",
+          "D": "The ants did not go under the lizards."
+        }
+      },
+      {
+        "stem": "In the article, a merchant is someone who —",
+        "options": [
+          "draws maps of the desert",
+          "looks after the camels",
+          "buys and sells goods",
+          "finds water in the sand"
+        ],
+        "answer": "C",
+        "skill": "vocabulary",
+        "why": "Malik was an old merchant and his caravan carried cloth, salt, and dates, which are goods to sell.",
+        "wrong": {
+          "A": "The text does not say merchants draw maps.",
+          "B": "The text does not say Malik looks after the camels.",
+          "D": "Finding water is not mentioned."
+        }
+      },
+      {
+        "stem": "What did Younes do after Malik did not trust him?",
+        "options": [
+          "He went home alone.",
+          "He showed Malik the ants and the clouds.",
+          "He asked the camels to stop.",
+          "He stopped talking about the storm."
+        ],
+        "answer": "B",
+        "skill": "sequence",
+        "why": "The text says Younes did not stop and showed Malik the ants and the clouds.",
+        "wrong": {
+          "A": "Younes stayed with the group.",
+          "C": "The camels are not asked to stop.",
+          "D": "Younes did not stop; he kept trying."
+        }
+      },
+      {
+        "stem": "Why did Malik thank Younes at the end?",
+        "options": [
+          "Younes carried the salt.",
+          "Younes led the camels fast.",
+          "Younes knew the old paths best.",
+          "Younes saw signs of the storm."
+        ],
+        "answer": "D",
+        "skill": "cause-effect",
+        "why": "Malik said sharp eyes can save a whole group, because Younes noticed the signs of the storm.",
+        "wrong": {
+          "A": "Carrying salt is not given as the reason.",
+          "B": "Speed is not mentioned as the reason.",
+          "C": "Malik, not Younes, knew the old paths well."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "How old was Younes?",
+        "options": [
+          "Twenty",
+          "Sixteen",
+          "Forty",
+          "Twelve"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The text says Younes was sixteen.",
+        "wrong": {
+          "A": "Twenty is how many years Malik led caravans.",
+          "C": "Forty is the number of camels.",
+          "D": "Twelve is not mentioned."
+        }
+      },
+      {
+        "stem": "In the article, the word experienced means —",
+        "options": [
+          "new to this kind of work",
+          "afraid of all desert storms",
+          "fond of long travel days",
+          "skilled from years of work"
+        ],
+        "answer": "D",
+        "skill": "vocabulary",
+        "why": "Malik had guided caravans on this route for more than twenty years, so he knew the work well.",
+        "wrong": {
+          "A": "Malik was not new to the work.",
+          "B": "The text does not say he was afraid.",
+          "C": "Liking travel is not what experienced means."
+        }
+      },
+      {
+        "stem": "Why did the caravan stay safe and dry?",
+        "options": [
+          "Younes paid close attention to the signs.",
+          "The storm turned away from them.",
+          "Malik had planned to camp in the rocks.",
+          "The camels found water by themselves."
+        ],
+        "answer": "A",
+        "skill": "cause-effect",
+        "why": "The text says that because Younes paid close attention, the caravan stayed safe and dry.",
+        "wrong": {
+          "B": "The storm struck the open ground where they had planned to camp.",
+          "C": "Malik first planned to camp in the open and changed the route.",
+          "D": "Water is not part of the reason."
+        }
+      },
+      {
+        "stem": "What can you infer about Malik at the end of the article?",
+        "options": [
+          "He was angry at Younes.",
+          "He wanted to leave the caravan.",
+          "He was ready to learn from Younes.",
+          "He thought storms never came early."
+        ],
+        "answer": "C",
+        "skill": "inference",
+        "why": "Malik weighed Younes's signs against his own experience, changed the route, and admitted that careful observation can protect a caravan.",
+        "wrong": {
+          "A": "He thanked Younes, so he was not angry.",
+          "B": "He kept leading the caravan.",
+          "D": "He learned that a storm can come early."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "Where did the group go after Malik changed the route?",
+        "options": [
+          "Back to the oasis town",
+          "Toward the market city",
+          "Toward a rocky shelter",
+          "Onto the open ground"
+        ],
+        "answer": "C",
+        "skill": "detail",
+        "why": "The text says the group turned toward a rocky shelter a few hours away.",
+        "wrong": {
+          "A": "The group did not turn back to the oasis.",
+          "B": "They had been heading to the market, but they turned to the shelter.",
+          "D": "The open ground is where the storm struck."
+        }
+      },
+      {
+        "stem": "In the article, the word credible means —",
+        "options": [
+          "believable and trusted",
+          "hard to see",
+          "dangerous and sudden",
+          "loud and quick"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "The animals' behavior seemed to give a credible warning, meaning one that could be trusted, before the clouds confirmed it.",
+        "wrong": {
+          "B": "Seeing is not what the word means here.",
+          "C": "The warning was not described as dangerous.",
+          "D": "Loudness is not described."
+        }
+      },
+      {
+        "stem": "Why did Malik doubt Younes's warning at first?",
+        "options": [
+          "Younes was too far from the camels.",
+          "Malik had not seen any ants.",
+          "The clouds looked too thick.",
+          "He trusted his own storm sense."
+        ],
+        "answer": "D",
+        "skill": "cause-effect",
+        "why": "Malik trusted his own rarely questioned sense of storm timing and said the season was weeks away.",
+        "wrong": {
+          "A": "Distance is not given as a reason.",
+          "B": "Doubt came from his confidence, not from missing the ants.",
+          "C": "The clouds were thin, not thick."
+        }
+      },
+      {
+        "stem": "What does the ending suggest about how Malik saw Younes?",
+        "options": [
+          "He thought Younes was too young to guide.",
+          "He now valued Younes's judgment.",
+          "He wanted Younes to leave the caravan.",
+          "He feared Younes's father."
+        ],
+        "answer": "B",
+        "skill": "inference",
+        "why": "Malik began asking Younes what he had noticed before choosing any route, which shows he trusted Younes's judgment.",
+        "wrong": {
+          "A": "Malik changed his habits because of Younes.",
+          "C": "He asked Younes for advice, so he did not want him gone.",
+          "D": "Fear is not mentioned."
+        }
+      }
+    ]
   }
 }

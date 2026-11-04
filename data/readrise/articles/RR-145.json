@@ -614,5 +614,217 @@
       ],
       "modelAnswer": "I recommend that the town council build the wind farm instead of a power plant that burns fuel. Wind turbines use kinetic energy from moving air to spin a generator, producing clean electricity without emissions or air pollution, unlike a fuel-burning plant. Wind is also a renewable, sustainable resource, since it will never run out, and some wind farms can even be built offshore where the wind blows steadily. The main challenge is that wind power is intermittent, because the wind does not always blow at the same strength, so the town would need another power source to use alongside it during calm periods. Even with this challenge, the environmental benefits make the wind farm the better long-term choice."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "How many long blades are on top of the tall tower?",
+        "options": [
+          "One",
+          "Two",
+          "Three",
+          "Ten"
+        ],
+        "answer": "C",
+        "skill": "detail",
+        "why": "The text says there are three long blades on top of the tower.",
+        "wrong": {
+          "A": "There are three blades, not one.",
+          "B": "There are three blades, not two.",
+          "D": "There are three blades, not ten."
+        }
+      },
+      {
+        "stem": "Where is the wind farm named Dumat Al Jandal?",
+        "options": [
+          "In the north",
+          "Near the sea",
+          "In the south",
+          "In the east"
+        ],
+        "answer": "A",
+        "skill": "detail",
+        "why": "The text says the big wind farm is in the north of Saudi Arabia.",
+        "wrong": {
+          "B": "The text does not put it near the sea.",
+          "C": "It is in the north, not the south.",
+          "D": "It is in the north, not the east."
+        }
+      },
+      {
+        "stem": "What happens after the blades spin?",
+        "options": [
+          "The wind stops",
+          "The tower falls",
+          "The farm moves to sea",
+          "A machine makes power"
+        ],
+        "answer": "D",
+        "skill": "sequence",
+        "why": "A machine at the top turns the spin into power.",
+        "wrong": {
+          "A": "The wind keeps pushing the blades.",
+          "B": "The text does not say the tower falls.",
+          "C": "Some turbines stand in the sea, but they do not move there."
+        }
+      },
+      {
+        "stem": "If the wind stopped and a town had no other power, what might happen?",
+        "options": [
+          "The lamps would get brighter",
+          "The lamps might go out",
+          "The blades would spin faster",
+          "The wind farm would move"
+        ],
+        "answer": "B",
+        "skill": "inference",
+        "why": "When the wind stops, the blades stop, so no power would go to the lamps.",
+        "wrong": {
+          "A": "With no power, lamps could not get brighter.",
+          "C": "The blades stop when the wind stops.",
+          "D": "A wind farm stays where it is built."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "Where did people build windmills more than a thousand years ago?",
+        "options": [
+          "In Egypt",
+          "In Spain",
+          "In China",
+          "In Persia"
+        ],
+        "answer": "D",
+        "skill": "detail",
+        "why": "The text says people in Persia built windmills to grind grain.",
+        "wrong": {
+          "A": "Egypt is not mentioned.",
+          "B": "Spain is not mentioned.",
+          "C": "China is not mentioned."
+        }
+      },
+      {
+        "stem": "In the article, a power grid is",
+        "options": [
+          "a field of tall towers",
+          "a network of wires",
+          "a kind of generator",
+          "a lake near the coast"
+        ],
+        "answer": "B",
+        "skill": "vocabulary",
+        "why": "The article calls it a network of wires that brings power to homes, schools, and factories.",
+        "wrong": {
+          "A": "A field of towers is a wind farm.",
+          "C": "The generator is inside the turbine.",
+          "D": "A grid has nothing to do with lakes."
+        }
+      },
+      {
+        "stem": "Why does the amount of electricity from wind change from hour to hour?",
+        "options": [
+          "Wind does not always blow",
+          "The cables are very long",
+          "The towers keep moving",
+          "The grid turns itself off"
+        ],
+        "answer": "A",
+        "skill": "cause-effect",
+        "why": "The text says the wind does not always blow, so the electricity changes.",
+        "wrong": {
+          "B": "Cable length is not given as a reason.",
+          "C": "The towers stand still.",
+          "D": "The text does not say the grid turns off."
+        }
+      },
+      {
+        "stem": "Why does the author say some turbines are taller than a building with thirty floors?",
+        "options": [
+          "To show they are very old",
+          "To say they use no wind",
+          "To show how big they are",
+          "To say they are cheap"
+        ],
+        "answer": "C",
+        "skill": "author-purpose",
+        "why": "Comparing a turbine to a tall building helps readers picture how big it is.",
+        "wrong": {
+          "A": "The sentence is about size, not age.",
+          "B": "Turbines need wind.",
+          "D": "The sentence says nothing about cost."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "Besides grinding grain, what did windmills later do?",
+        "options": [
+          "Wove cloth for farms",
+          "Pumped water for farms",
+          "Cut wood for farms",
+          "Baked bread for farms"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The text says windmills also pumped water for agricultural communities.",
+        "wrong": {
+          "A": "Making cloth is not mentioned.",
+          "C": "Cutting wood is not mentioned.",
+          "D": "Baking is not mentioned; windmills ground grain."
+        }
+      },
+      {
+        "stem": "The article says wind power is intermittent. What does intermittent mean?",
+        "options": [
+          "very loud",
+          "always steady",
+          "completely free",
+          "rising and falling"
+        ],
+        "answer": "D",
+        "skill": "vocabulary",
+        "why": "The article says the output of wind power rises and falls because the wind does not always blow the same, so intermittent means not steady.",
+        "wrong": {
+          "A": "The word is not about sound.",
+          "B": "Always steady is the opposite of intermittent.",
+          "C": "Cost is not what the word means."
+        }
+      },
+      {
+        "stem": "Right after describing the benefits of wind power, the author explains that wind power is intermittent. What does this part of the article do?",
+        "options": [
+          "add another benefit",
+          "explain how cables work",
+          "show a drawback",
+          "name a new country"
+        ],
+        "answer": "C",
+        "skill": "text-structure",
+        "why": "After praising wind as clean, the word Nevertheless introduces a drawback: blades can injure birds.",
+        "wrong": {
+          "A": "The word signals a contrast, not more praise.",
+          "B": "Cables are explained in an earlier paragraph.",
+          "D": "The next sentence is about birds, not a country."
+        }
+      },
+      {
+        "stem": "Why might large batteries help a wind farm?",
+        "options": [
+          "They save power for calm hours",
+          "They make the wind stronger",
+          "They turn the blades",
+          "They clean the air"
+        ],
+        "answer": "A",
+        "skill": "inference",
+        "why": "Wind output rises and falls, so batteries can hold power for times when the wind is weak.",
+        "wrong": {
+          "B": "Batteries cannot change the wind.",
+          "C": "Wind turns the blades.",
+          "D": "Turbines already release no smoke."
+        }
+      }
+    ]
   }
 }

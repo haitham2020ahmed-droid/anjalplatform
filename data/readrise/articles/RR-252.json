@@ -614,5 +614,217 @@
       ],
       "modelAnswer": "I think Carver's most important contribution was his sustainable crop rotation method, because it solved a problem that threatened farmers' entire livelihoods. The article explains that growing cotton repeatedly exhausted the soil of nutrients, but Carver's resourceful solution of rotating in peanuts and sweet potatoes restored the land so it could keep producing good harvests. His pioneering research into versatile new uses for the peanut then gave farmers a practical reason to keep growing it, which is why his conservation-minded approach to agriculture still matters today."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "In which state did Carver work at a school and help farmers?",
+        "options": [
+          "In Texas",
+          "In Missouri",
+          "In Alabama",
+          "In Florida"
+        ],
+        "answer": "C",
+        "skill": "detail",
+        "why": "The article says he worked at a school in Alabama.",
+        "wrong": {
+          "A": "Texas is not mentioned.",
+          "B": "Missouri was his birthplace and early home.",
+          "D": "Florida is not mentioned."
+        }
+      },
+      {
+        "stem": "In the article, the word crops means —",
+        "options": [
+          "tools used at school",
+          "plants farmers grow",
+          "animals kept on a farm",
+          "rocks found in the soil"
+        ],
+        "answer": "B",
+        "skill": "vocabulary",
+        "why": "The farmers grew cotton and peanuts, which are plants grown on farms.",
+        "wrong": {
+          "A": "Crops are not school tools.",
+          "C": "Cotton and peanuts are plants, not animals.",
+          "D": "Crops grow in the soil; they are not rocks."
+        }
+      },
+      {
+        "stem": "What did peanuts do for the tired soil?",
+        "options": [
+          "They made it very dry",
+          "They made it very hot",
+          "They took away its water",
+          "They made it strong again"
+        ],
+        "answer": "D",
+        "skill": "cause-effect",
+        "why": "The article says peanuts helped the tired soil grow strong again.",
+        "wrong": {
+          "A": "Dryness is not mentioned.",
+          "B": "Heat is not mentioned.",
+          "C": "Peanuts helped the soil, not harmed it."
+        }
+      },
+      {
+        "stem": "Why do you think Carver went to school to learn more?",
+        "options": [
+          "He loved plants and wanted to know more",
+          "He wanted to leave Missouri forever",
+          "He wanted to sell cotton",
+          "He wanted to make soap"
+        ],
+        "answer": "A",
+        "skill": "inference",
+        "why": "The article says he loved plants and then went to school to learn more.",
+        "wrong": {
+          "B": "Leaving Missouri is not given as the reason.",
+          "C": "Selling cotton is not given as the reason.",
+          "D": "Soap came later, from peanut uses."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "What did Carver do as a child in the woods near his home?",
+        "options": [
+          "He sold crops to farmers",
+          "He built farm tools",
+          "He watched plants grow",
+          "He taught new farmers"
+        ],
+        "answer": "C",
+        "skill": "detail",
+        "why": "The article says he spent hours watching how plants grew in the woods.",
+        "wrong": {
+          "A": "Selling crops is not mentioned.",
+          "B": "Building tools is not mentioned.",
+          "D": "He taught farmers later in life."
+        }
+      },
+      {
+        "stem": "In the article, the word fascinated means —",
+        "options": [
+          "afraid of",
+          "bored by",
+          "tired of",
+          "very interested in"
+        ],
+        "answer": "D",
+        "skill": "vocabulary",
+        "why": "He spent hours watching plants and wanted to learn all he could.",
+        "wrong": {
+          "A": "He was not afraid.",
+          "B": "He was not bored.",
+          "C": "He kept watching for hours."
+        }
+      },
+      {
+        "stem": "Why could the land no longer grow good harvests?",
+        "options": [
+          "The same crop had worn out the soil",
+          "Farmers planted too many trees",
+          "The farms were too small",
+          "Peanuts had taken all the water"
+        ],
+        "answer": "A",
+        "skill": "cause-effect",
+        "why": "Growing the same crop again and again drained the nutrients plants need.",
+        "wrong": {
+          "B": "Trees are not mentioned.",
+          "C": "Farm size is not the reason.",
+          "D": "Peanuts helped the soil."
+        }
+      },
+      {
+        "stem": "What does \"discovery after discovery\" suggest about Carver?",
+        "options": [
+          "He lost his work often",
+          "He worked alone and rarely",
+          "He gave up on the peanut",
+          "He kept finding new uses"
+        ],
+        "answer": "D",
+        "skill": "inference",
+        "why": "The phrase shows he found one new use after another, hundreds in all.",
+        "wrong": {
+          "A": "Losing work is not mentioned.",
+          "B": "The phrase is about results, not working alone.",
+          "C": "He found hundreds of uses, so he did not give up."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "In the article, the word resourceful describes someone who is —",
+        "options": [
+          "good at solving problems",
+          "slow to learn new things",
+          "afraid of hard work",
+          "unwilling to help others"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "Carver proposed crop rotation and found many uses for peanuts, which shows he solved problems cleverly.",
+        "wrong": {
+          "B": "Carver learned quickly and widely.",
+          "C": "He worked through years of patient labor.",
+          "D": "He devoted his life to helping farmers."
+        }
+      },
+      {
+        "stem": "Besides peanuts, what else did Carver find new uses for?",
+        "options": [
+          "Rice, wheat, and corn",
+          "Corn, barley, and oats",
+          "Sweet potatoes, soybeans",
+          "Cotton, tobacco, and rice"
+        ],
+        "answer": "C",
+        "skill": "detail",
+        "why": "The article says he also found new uses for sweet potatoes and soybeans.",
+        "wrong": {
+          "A": "Rice and wheat are not mentioned.",
+          "B": "Corn and barley are not mentioned.",
+          "D": "Cotton is the crop that wore out the soil."
+        }
+      },
+      {
+        "stem": "Why did Carver often travel to farms himself?",
+        "options": [
+          "To buy more peanuts from farms",
+          "To teach conservation methods",
+          "To find a new school to join",
+          "To sell his research to farmers"
+        ],
+        "answer": "B",
+        "skill": "cause-effect",
+        "why": "He traveled to farms to teach farmers his conservation methods.",
+        "wrong": {
+          "A": "Buying peanuts is not mentioned.",
+          "C": "He already worked at Tuskegee.",
+          "D": "Selling is not mentioned."
+        }
+      },
+      {
+        "stem": "After farmers began rotating crops, what new problem appeared?",
+        "options": [
+          "They had more peanuts than they could use",
+          "Their cotton grew too tall to pick",
+          "Their soil became too rich for crops",
+          "They could not find any seeds"
+        ],
+        "answer": "A",
+        "skill": "cause-effect",
+        "why": "Many farmers grew large amounts of peanuts, and the article asks what anyone could do with so many extra peanuts.",
+        "wrong": {
+          "B": "Tall cotton is not mentioned.",
+          "C": "Rotation fixed worn-out soil; rich soil was not a problem.",
+          "D": "Seeds are not mentioned as a problem."
+        }
+      }
+    ]
   }
 }

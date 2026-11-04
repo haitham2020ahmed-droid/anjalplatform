@@ -614,5 +614,217 @@
       ],
       "modelAnswer": "I disagree that back problems only matter for adults, because the article explains habits that affect anyone's spine right now, no matter their age. For example, slouching with poor posture for a long time puts strain on the muscles and the flexible discs between the vertebrae, which can happen to a student hunched over a phone just as easily as to an adult. The article also warns that carrying a heavy backpack, something many young students do every day, is a common problem for the back, showing that protecting the core and spine matters starting in childhood, not just adulthood."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "Which muscles help hold your spine up?",
+        "options": [
+          "Muscles in your arms and legs",
+          "Muscles in your back and tummy",
+          "Muscles in your neck and face",
+          "Muscles in your hands and feet"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The text says strong muscles in your back and in your tummy hold your spine up.",
+        "wrong": {
+          "A": "The text names the back and tummy, not arms and legs.",
+          "C": "The text names the back and tummy, not neck and face.",
+          "D": "The text names the back and tummy, not hands and feet."
+        }
+      },
+      {
+        "stem": "The text says how you sit and stand is your posture. What is posture?",
+        "options": [
+          "The way you hold your body",
+          "The bag you take to school",
+          "The bones inside your back",
+          "The pads between your bones"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "The text says posture is how you sit and stand.",
+        "wrong": {
+          "B": "The bag is called a backpack.",
+          "C": "The bones in the back are called the spine.",
+          "D": "The soft pads work like cushions; they are not posture."
+        }
+      },
+      {
+        "stem": "Why should you take out things you do not need from your backpack?",
+        "options": [
+          "It makes the bag look nice and neat to see",
+          "It helps you remember to use both straps",
+          "It makes the bag lighter for your back",
+          "It lets you carry even more books and shoes"
+        ],
+        "answer": "C",
+        "skill": "cause-effect",
+        "why": "The text says a heavy bag can hurt your back, so taking things out makes it lighter.",
+        "wrong": {
+          "A": "The text does not talk about how a bag looks.",
+          "B": "Using both straps is a separate tip.",
+          "D": "The goal is a lighter bag, not more books."
+        }
+      },
+      {
+        "stem": "Why does the author end by saying a strong back helps you play, learn, and grow?",
+        "options": [
+          "To say that backs grow when you sit",
+          "To show why a strong back matters",
+          "To tell you to buy a new backpack",
+          "To explain how the spine is built"
+        ],
+        "answer": "B",
+        "skill": "author-purpose",
+        "why": "The last line gives the reason all the tips are worth following.",
+        "wrong": {
+          "A": "The text says not to sit too long.",
+          "C": "The text does not tell you to buy a bag.",
+          "D": "The spine is explained near the start."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "Bones cannot hold the spine up by themselves. What does this suggest?",
+        "options": [
+          "The spine does not need muscles at all",
+          "Muscles are needed to keep the spine steady",
+          "Discs hold up the spine without help",
+          "The spine can stand without any support"
+        ],
+        "answer": "B",
+        "skill": "inference",
+        "why": "The article says strong muscles in the back and stomach help keep the spine steady.",
+        "wrong": {
+          "A": "The article says muscles are needed.",
+          "C": "Discs cushion the bones, but they do not hold the spine up alone.",
+          "D": "The article says bones alone cannot hold it up."
+        }
+      },
+      {
+        "stem": "Read this: \"The way you sit and stand is called your posture.\" What is posture?",
+        "options": [
+          "The number of small bones in your whole back",
+          "The muscles that you use when you lift boxes",
+          "How you hold your body when you sit or stand",
+          "The weight of your school backpack each day"
+        ],
+        "answer": "C",
+        "skill": "vocabulary",
+        "why": "The sentence says posture is the way you sit and stand.",
+        "wrong": {
+          "A": "The 33 bones are called vertebrae.",
+          "B": "Posture is about sitting and standing, not lifting.",
+          "D": "Backpack weight is a different topic."
+        }
+      },
+      {
+        "stem": "Why does the article say to hold your phone or tablet near eye level?",
+        "options": [
+          "Looking down makes your neck muscles work harder",
+          "Looking up makes your discs soak up more shock",
+          "Holding it near your eyes makes it feel lighter",
+          "The screen is much easier to see in the sunshine"
+        ],
+        "answer": "A",
+        "skill": "cause-effect",
+        "why": "The article says bending your neck down for a long time makes your neck muscles work much harder.",
+        "wrong": {
+          "B": "The discs soak up shock when you run or jump.",
+          "C": "The weight of the phone does not change.",
+          "D": "The article does not talk about the sun and the screen."
+        }
+      },
+      {
+        "stem": "According to the article, how often should you get up after sitting?",
+        "options": [
+          "After about thirty minutes",
+          "After about three hours",
+          "After about ten minutes",
+          "After about one whole day"
+        ],
+        "answer": "A",
+        "skill": "detail",
+        "why": "The article says getting up after about thirty minutes of sitting keeps you from getting stiff.",
+        "wrong": {
+          "B": "That is far too long to sit, according to the article.",
+          "C": "The article says about thirty minutes.",
+          "D": "That is far too long to sit, according to the article."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "About how many vertebrae make up the spine?",
+        "options": [
+          "About 13",
+          "About 23",
+          "About 33",
+          "About 43"
+        ],
+        "answer": "C",
+        "skill": "detail",
+        "why": "The article says the spine is made of about 33 separate bones called vertebrae.",
+        "wrong": {
+          "A": "The article says about 33.",
+          "B": "The article says about 33.",
+          "D": "The article says about 33."
+        }
+      },
+      {
+        "stem": "In the text, what does the word delicate mean?",
+        "options": [
+          "Very heavy",
+          "Very hard",
+          "Very old",
+          "Easily harmed"
+        ],
+        "answer": "D",
+        "skill": "vocabulary",
+        "why": "The cord is protected inside the vertebrae, which shows it is easily harmed.",
+        "wrong": {
+          "A": "The text does not say it is heavy.",
+          "B": "The cord is protected by hard bones, but it is not hard itself.",
+          "C": "The text does not talk about the age of the cord."
+        }
+      },
+      {
+        "stem": "Why does wearing both backpack straps help your back?",
+        "options": [
+          "It spreads the load evenly across the shoulders",
+          "It makes the heavy books closer to the back",
+          "It makes the bag weigh ten percent less",
+          "It lets your leg muscles do the work"
+        ],
+        "answer": "A",
+        "skill": "cause-effect",
+        "why": "The article says wearing both straps spreads the load evenly across the shoulders.",
+        "wrong": {
+          "B": "Packing the heaviest books near the back is a different tip.",
+          "C": "The straps do not change the weight of the bag.",
+          "D": "Leg muscles are used when lifting objects, not when wearing a bag."
+        }
+      },
+      {
+        "stem": "The article says a healthy spine protects much more than your ability to stand up straight. What does the author mean?",
+        "options": [
+          "Standing up straight is not important at all",
+          "It also protects the cord that sends messages",
+          "The spine matters only for sitting at a desk",
+          "Most people never need to protect their spine"
+        ],
+        "answer": "B",
+        "skill": "inference",
+        "why": "The article says the spine protects the spinal cord, which carries messages between the brain and body.",
+        "wrong": {
+          "A": "The article says posture is important.",
+          "C": "The article talks about many activities, not only sitting.",
+          "D": "The article encourages every student to protect the spine."
+        }
+      }
+    ]
   }
 }

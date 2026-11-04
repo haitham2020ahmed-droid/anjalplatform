@@ -614,5 +614,217 @@
       ],
       "modelAnswer": "I disagree that artificial intelligence should be allowed to make important decisions on its own. Machine learning only knows what its training data teaches it, so if that data contains bias or unfair patterns, the resulting decisions could be wrong in ways nobody notices right away. The article explains that AI can make mistakes when its data is flawed, which is exactly why people must always check its work, an ethical responsibility that disappears if a computer is left to decide alone. Because AI is a powerful tool but not a perfect judge, people should stay in charge of important decisions."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "What can AI do with words, according to the text?",
+        "options": [
+          "Make them very loud",
+          "Hide them from people",
+          "Turn them into pictures",
+          "Put them in a new language"
+        ],
+        "answer": "D",
+        "skill": "detail",
+        "why": "The text says AI can change words from one language to another.",
+        "wrong": {
+          "A": "The text does not say AI makes words loud.",
+          "B": "The text does not say AI hides words.",
+          "C": "The text does not say AI turns words into pictures."
+        }
+      },
+      {
+        "stem": "What can AI tell you about roads?",
+        "options": [
+          "Which roads are new",
+          "Which roads are very long",
+          "Which roads are full",
+          "Which roads are wet"
+        ],
+        "answer": "C",
+        "skill": "detail",
+        "why": "The text says AI can tell which roads are full.",
+        "wrong": {
+          "A": "New roads are not mentioned.",
+          "B": "Road length is not mentioned.",
+          "D": "Wet roads are not mentioned."
+        }
+      },
+      {
+        "stem": "AI helps doctors look at scans. What does this tell you about AI?",
+        "options": [
+          "It can help with big jobs",
+          "It does all the doctors' work",
+          "It is only used for games",
+          "It never makes mistakes"
+        ],
+        "answer": "A",
+        "skill": "inference",
+        "why": "Helping doctors shows AI can be useful for important jobs, but it still helps rather than replaces them.",
+        "wrong": {
+          "B": "The text says AI helps, and people must check its work.",
+          "C": "The text lists several real jobs for AI.",
+          "D": "The text says AI can make a mistake."
+        }
+      },
+      {
+        "stem": "Why does the author end by talking about Saudi Arabia and kids who learn to code?",
+        "options": [
+          "To teach how to code well",
+          "To say AI is only for adults",
+          "To show AI matters at home",
+          "To warn that AI is very bad"
+        ],
+        "answer": "C",
+        "skill": "author-purpose",
+        "why": "The ending shows that Saudi Arabia has a big AI team and that kids there learn to code.",
+        "wrong": {
+          "A": "The article does not teach coding.",
+          "B": "The text says kids learn to code too.",
+          "D": "The author says AI helps us."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "Which is an example of a pattern a computer might find in cat photos?",
+        "options": [
+          "A blue sky",
+          "Pointed ears",
+          "A red ball",
+          "Green grass"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The article says the computer looks for a pattern such as pointed ears or whiskers.",
+        "wrong": {
+          "A": "A blue sky is not a cat pattern in the text.",
+          "C": "A red ball is not mentioned.",
+          "D": "Green grass is not mentioned."
+        }
+      },
+      {
+        "stem": "The article says the computer \"adjusts\" its math. What does adjusts mean?",
+        "options": [
+          "Hides completely",
+          "Changes a little",
+          "Counts out loud",
+          "Writes down"
+        ],
+        "answer": "B",
+        "skill": "vocabulary",
+        "why": "After a wrong guess the computer changes its math a little and tries again.",
+        "wrong": {
+          "A": "The computer does not hide its math.",
+          "C": "Counting out loud is not the meaning.",
+          "D": "Writing down is not the meaning."
+        }
+      },
+      {
+        "stem": "What makes a computer quite accurate in the end?",
+        "options": [
+          "Many tries and small changes",
+          "One very long program",
+          "A person doing the work",
+          "A bigger and bigger screen"
+        ],
+        "answer": "A",
+        "skill": "cause-effect",
+        "why": "The article says that after many tries, with small changes after each wrong guess, the computer becomes accurate.",
+        "wrong": {
+          "B": "The article says it learns from data, not one long program.",
+          "C": "The computer is the one that adjusts its math.",
+          "D": "Screens are not mentioned."
+        }
+      },
+      {
+        "stem": "Why does the author begin with a phone that types your words and a map app?",
+        "options": [
+          "To sell phones to readers",
+          "To teach how to use a map",
+          "To warn about traffic jams",
+          "To show AI in daily life"
+        ],
+        "answer": "D",
+        "skill": "author-purpose",
+        "why": "These are everyday examples of machines that learned, which makes the topic feel real.",
+        "wrong": {
+          "A": "The article does not sell phones.",
+          "B": "The article does not teach map use.",
+          "C": "The traffic warning is only an example."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "In what year was Saudi Arabia's national authority for data and AI established?",
+        "options": [
+          "2009",
+          "2019",
+          "2029",
+          "1999"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The article says the authority was established in 2019.",
+        "wrong": {
+          "A": "The article says 2019, not 2009.",
+          "C": "2029 is in the future.",
+          "D": "1999 is too early."
+        }
+      },
+      {
+        "stem": "The article says AI predicts which roads will become \"congested.\" What does congested mean?",
+        "options": [
+          "Crowded and slow",
+          "New and smooth",
+          "Closed and empty",
+          "Wet and slippery"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "A map app warns about traffic, so congested roads are crowded.",
+        "wrong": {
+          "B": "Warnings about traffic do not mean new roads.",
+          "C": "Empty roads would not need a warning.",
+          "D": "Wet roads are not mentioned."
+        }
+      },
+      {
+        "stem": "What problem leads engineers to use machine learning?",
+        "options": [
+          "Computers are far too slow",
+          "Phones have very small screens",
+          "People forget all the data",
+          "Some tasks have too many rules"
+        ],
+        "answer": "D",
+        "skill": "cause-effect",
+        "why": "The article says some tasks involve far too many rules to write, so engineers give the computer examples.",
+        "wrong": {
+          "A": "Speed is not the stated problem.",
+          "B": "Screen size is not mentioned.",
+          "C": "Forgetting data is not mentioned."
+        }
+      },
+      {
+        "stem": "The article says AI does not truly understand the world. What does this suggest about a phone that types your words?",
+        "options": [
+          "It must feel the way you feel",
+          "It can work without real thought",
+          "It will always type it perfectly",
+          "It has learned to think like us"
+        ],
+        "answer": "B",
+        "skill": "inference",
+        "why": "If AI lacks real understanding, the phone can still match speech to words without knowing what they mean.",
+        "wrong": {
+          "A": "The article says AI does not feel anything as people do.",
+          "C": "The article says mistakes can happen and people must check.",
+          "D": "The article says AI does not think exactly like a person."
+        }
+      }
+    ]
   }
 }

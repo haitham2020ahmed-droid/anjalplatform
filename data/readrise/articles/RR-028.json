@@ -614,5 +614,217 @@
       ],
       "modelAnswer": "I agree that yeast is the most important ingredient in bread. The article explains that this tiny microorganism drives fermentation, feeding on sugars and releasing carbon dioxide that creates the bubbles trapped inside the gluten network, which is exactly what makes the loaf rise. As further evidence, the article notes that breads made with very little yeast, or none at all, stay thin flatbreads, which shows that without yeast's fermentation a loaf simply cannot grow into a tall, soft loaf of bread."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "Which four things do you need to make bread?",
+        "options": [
+          "Flour, water, salt, and yeast",
+          "Flour, sugar, milk, and eggs",
+          "Wheat, oil, honey, and yeast",
+          "Rice, water, salt, and butter"
+        ],
+        "answer": "A",
+        "skill": "detail",
+        "why": "The text says you need flour, water, salt, and yeast.",
+        "wrong": {
+          "B": "Sugar, milk, and eggs are not on the list.",
+          "C": "Oil and honey are not on the list.",
+          "D": "Rice and butter are not on the list."
+        }
+      },
+      {
+        "stem": "What does kneading do to the dough?",
+        "options": [
+          "It makes the dough turn brown",
+          "It makes the dough very small",
+          "It makes the dough turn into flour",
+          "It makes the dough strong and stretchy"
+        ],
+        "answer": "D",
+        "skill": "cause-effect",
+        "why": "The text says pushing and folding the dough makes it strong and stretchy.",
+        "wrong": {
+          "A": "The oven makes the top brown.",
+          "B": "The dough gets bigger, not smaller.",
+          "C": "Flour is used to make dough, not the other way."
+        }
+      },
+      {
+        "stem": "Why does the bread get bigger in the hot oven?",
+        "options": [
+          "The salt grows in the heat",
+          "The heat makes the bubbles grow",
+          "The flour turns back into wheat",
+          "The water in the dough is gone"
+        ],
+        "answer": "B",
+        "skill": "cause-effect",
+        "why": "The text says the heat makes the bubbles grow and the bread gets big.",
+        "wrong": {
+          "A": "The text does not say the salt grows.",
+          "C": "Flour does not turn back into wheat.",
+          "D": "The text does not say the water is gone."
+        }
+      },
+      {
+        "stem": "In the article, the word crisp in \"brown and crisp\" means —",
+        "options": [
+          "soft and wet",
+          "tiny and live",
+          "very cold",
+          "hard and crunchy"
+        ],
+        "answer": "D",
+        "skill": "vocabulary",
+        "why": "The top of the bread turns brown in the oven and becomes hard and crunchy.",
+        "wrong": {
+          "A": "Dough is soft and wet before baking, not after.",
+          "B": "Yeast is a tiny live thing, not the crust.",
+          "C": "The bread has just come out of a hot oven."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "According to the article, what is flour powder mostly made of?",
+        "options": [
+          "Gluten and some salt",
+          "Starch, with some proteins",
+          "Yeast and some sugar",
+          "Carbon dioxide gas bubbles"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The article says the powder is mostly starch but also holds proteins.",
+        "wrong": {
+          "A": "Gluten forms later when flour is mixed with water.",
+          "C": "Yeast is added to the flour; it is not flour.",
+          "D": "Carbon dioxide is given off by yeast."
+        }
+      },
+      {
+        "stem": "In the article, the word ferment means —",
+        "options": [
+          "to bake in a clay oven",
+          "to grind seeds to powder",
+          "to feed on sugars and give off gas",
+          "to knead dough again and again"
+        ],
+        "answer": "C",
+        "skill": "vocabulary",
+        "why": "The article says yeast ferments, meaning it feeds on sugars and gives off a gas.",
+        "wrong": {
+          "A": "Baking happens in the oven, after the dough rises.",
+          "B": "Grinding makes flour.",
+          "D": "Kneading is done by the baker."
+        }
+      },
+      {
+        "stem": "What does the gluten web do to the bubbles of gas?",
+        "options": [
+          "It traps them, so the dough rises",
+          "It pops them, so the dough shrinks",
+          "It lets them go, so the dough dries",
+          "It turns them into salt"
+        ],
+        "answer": "A",
+        "skill": "cause-effect",
+        "why": "The article says the gluten web traps the bubbles like small balloons, so the dough rises.",
+        "wrong": {
+          "B": "The web holds the bubbles in, so the dough grows.",
+          "C": "The web keeps the gas in.",
+          "D": "The article does not say the bubbles turn into salt."
+        }
+      },
+      {
+        "stem": "What happens to the outside of the dough in the hot oven?",
+        "options": [
+          "It melts into a thin, runny brown sauce",
+          "It rises faster than the inside does",
+          "It fills up with even more live yeast",
+          "It dries out and forms a crunchy crust"
+        ],
+        "answer": "D",
+        "skill": "cause-effect",
+        "why": "The article says the outside dries out and forms a brown, crunchy crust.",
+        "wrong": {
+          "A": "The dough sets into bread; it does not melt.",
+          "B": "The heat kills the yeast and sets the bread.",
+          "C": "The heat kills the yeast; it does not add more."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "According to the article, what does gluten let the dough do without tearing?",
+        "options": [
+          "Turn brown quickly",
+          "Hold more salt",
+          "Stretch",
+          "Dry out fast"
+        ],
+        "answer": "C",
+        "skill": "detail",
+        "why": "The article says the gluten network becomes elastic, so the dough can stretch without tearing.",
+        "wrong": {
+          "A": "Browning happens in the oven.",
+          "B": "The article does not link gluten to salt.",
+          "D": "Drying happens to the outside in the oven."
+        }
+      },
+      {
+        "stem": "In the article, the word regulates most nearly means —",
+        "options": [
+          "controls",
+          "copies",
+          "feeds",
+          "hides"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "Salt keeps the yeast from working too quickly, so it controls the speed.",
+        "wrong": {
+          "B": "Salt does not copy the yeast.",
+          "C": "Sugar is food for the yeast, not salt.",
+          "D": "Salt does not hide the yeast."
+        }
+      },
+      {
+        "stem": "What causes the surface of the bread to turn brown and crunchy?",
+        "options": [
+          "The yeast gives off carbon dioxide and alcohol",
+          "The gluten network becomes strong and elastic",
+          "Wild yeast drifts in through the open air",
+          "The surface dries as sugars and proteins react"
+        ],
+        "answer": "D",
+        "skill": "cause-effect",
+        "why": "The article says the outer surface dries and browns as sugars and proteins react.",
+        "wrong": {
+          "A": "The gas makes the dough rise.",
+          "B": "Gluten helps hold the gas in the dough.",
+          "C": "Wild yeast helped dough rise long ago."
+        }
+      },
+      {
+        "stem": "A baker mixes dough with water that is far too hot. What will most likely happen?",
+        "options": [
+          "The dough will rise very fast and high",
+          "The yeast dies and the dough will not rise",
+          "The gluten will turn into plain starch",
+          "The dough will turn into flatbread flour"
+        ],
+        "answer": "B",
+        "skill": "inference",
+        "why": "The article says excessive heat destroys yeast, and without yeast the gas bubbles do not form.",
+        "wrong": {
+          "A": "Too much heat kills the yeast.",
+          "C": "The article does not say gluten changes into starch.",
+          "D": "Flatbread flour is not mentioned."
+        }
+      }
+    ]
   }
 }

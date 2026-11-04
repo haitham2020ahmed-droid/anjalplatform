@@ -1,315 +1,830 @@
 {
-  "code": "RR-368",
-  "title": "The Mountain Village's Secret Spring",
-  "topic": "Fiction",
-  "summary": "When their mountain village's only spring suddenly dries up, two children and their Grandpa hike to a forgotten spring his own grandparents once used, learning how water travels underground along the way.",
-  "poll": "Once a village has running water, there is no real need to learn where that water actually comes from.",
-  "versions": [
-    {
-      "level": 300,
-      "title": "The Secret Spring",
-      "text": "Noor and Hamza live in a village. It sits high in the mountains.\n\nA spring gives them water. One dry day, it slows. Then it stops!\n\nNo water comes out. Everyone feels sad.\n\n\"I know a spring,\" Grandpa says. \"I will guide you.\" The kids go with him.\n\nThey walk up a rocky trail. Grandpa knows the way.\n\n\"Rain goes into rock,\" he says. \"Then it comes out as a spring.\"\n\nAt last, they find it! Water flows out. The kids feel glad. They run back with the news.\n\nThe village uses this spring. They thank Grandpa. The kids learn to care for water."
-    },
-    {
-      "level": 400,
-      "title": "The Secret Spring",
-      "text": "Noor and Hamza live in a village. The village is high in the mountains. For years, the village got its water from a spring.\n\nOne dry season, the spring got slow. Then, one day, it stopped! No water came out. The village felt worried and confused.\n\nGrandpa is old and wise. He remembered something. \"I know of another spring,\" he said. \"My own grandparents used it long ago.\" He asked Noor and Hamza to come. He would guide them there.\n\nThe three set off up a rocky path. Grandpa knew the old trail. On the way, he taught them about water. \"Rain soaks into the rock,\" he said. \"Later, it comes back out as a spring.\"\n\nAfter a long walk, they found the old spring! Water flowed out of the rock. Noor and Hamza felt very happy. They hurried back with the good news.\n\nFor now, the village used water from the old spring. Everyone thanked Grandpa. Noor and Hamza learned to value water, and their elders, too."
-    },
-    {
-      "level": 500,
-      "title": "The Secret Spring",
-      "text": "Noor and Hamza live in a village. Their village sits high in the mountains. The family has always had water from a spring.\n\nOne dry season, the spring got slow. Then, one morning, it stopped! Not a drop came out. Everyone in the village felt worried.\n\nGrandpa is old and wise. He remembered something from his childhood. \"I know of another spring,\" he told the family. \"My grandparents used it long ago, higher in the mountains.\" He asked Noor and Hamza to come along. He would guide them there.\n\nThe three set off up a steep, rocky path. Grandpa still knew the old trail well. Along the way, he taught the children about water. \"Rain soaks into cracks in the rock,\" he said. \"Later, it flows out somewhere else as a spring.\"\n\nAfter walking a long while, they spotted the old spring! Clear water still flowed from the rock. Noor and Hamza felt overjoyed. They hurried back down the path with the good news.\n\nFor now, the village drew its water from the old spring. Everyone thanked Grandpa for remembering it. Noor and Hamza learned to value water, and the memory of their elders, too."
-    },
-    {
-      "level": 600,
-      "title": "The Secret Spring",
-      "text": "Noor and Hamza live in a village set high in rocky mountains. For as long as anyone can remember, the village has used one spring for all its water.\n\nOne dry season, the spring's flow got slow. Then, one worrying morning, it stopped completely! Not a drop of water came out. Everyone felt anxious and unsure.\n\nGrandpa is old and wise. He remembered something important from his childhood. \"I know of another spring,\" he told the family calmly. \"My grandparents used it long ago, much higher in the mountains.\" He asked Noor and Hamza to come along. He would guide them safely up the mountain.\n\nThe three set off up a steep, rocky path. Grandpa still remembered the old trail, even after many years. Along the way, he taught the children where water comes from. \"Rain soaks slowly into tiny cracks in the rock,\" he said. \"Later, it flows out again, far away, as a fresh spring.\"\n\nAfter walking a long while, they spotted the old spring between two big rocks! Clear water still flowed from the rock. Noor and Hamza felt overjoyed and relieved. They hurried back down the path with the good news.\n\nFor now, the village carefully drew water from the old spring. Everyone thanked Grandpa for remembering such an important place. Noor and Hamza learned to value water, and the memory of their elders, too."
-    },
-    {
-      "level": 700,
-      "title": "The Secret Spring",
-      "text": "Noor and Hamza lived in a village set high in rocky mountains. Their family had always depended on one spring for drinking water and cooking.\n\nOne dry season, the spring's flow got slow. Then, one worrying morning, the spring stopped completely. Not a drop of water came out of the ground. Everyone felt anxious, and the village elders met to talk about what to do.\n\nGrandpa, one of the village's elders, suddenly remembered something important from his childhood. \"I know of another spring,\" he told the family calmly. \"My grandparents relied on it as their water source long ago, much higher in the mountains.\" He asked Noor and Hamza to come along. He would guide them safely up the old trail.\n\nThe three set off along a steep, rocky trail early the next morning. Grandpa still remembered the old path well, even after many years. Along the way, he explained where underground water comes from. \"Rain slowly soaks through tiny cracks in the rock,\" he said. \"It travels underground for a while before it flows out, far away, as a fresh spring.\"\n\nAfter walking a long while, they finally spotted the old spring between two big rocks. Clear water still flowed steadily from the rock, just as Grandpa remembered. Noor and Hamza felt overjoyed and relieved. They hurried back down the trail with the good news.\n\nFor now, the village drew its water from the old spring while workers fixed the newer one. Villagers also agreed to conserve water more carefully. Everyone thanked Grandpa for remembering such an important source. Noor and Hamza learned to value water far more carefully, and to value the wisdom of their village's elders."
-    },
-    {
-      "level": 800,
-      "title": "The Secret Spring",
-      "text": "Noor and Hamza lived in a village set high in rocky mountains. Their family had always depended on one spring for drinking water, cooking, and watering the animals.\n\nOne dry season, the spring's flow got slow. Villagers whispered nervously about what might happen if it stopped. Then, one worrying morning, the spring stopped completely. Not a drop of water came out of the ground. Everyone felt anxious, and the village elders met to talk about what the community should do.\n\nGrandpa, one of the village's respected elders, suddenly remembered something important from his childhood. \"I know of another spring,\" he told the family calmly. \"My grandparents relied on it as their water source long ago, much higher in the mountains, before the village built pipes down to this one.\" He asked Noor and Hamza to come along. He would guide them safely up the old trail.\n\nThe three set off along a steep, rocky trail early the next morning, carrying water and bread. Grandpa still remembered the old path surprisingly well. Along the way, he patiently explained where underground water comes from. \"Rain slowly soaks through tiny cracks in the rock,\" he explained. \"It travels underground for a while, sometimes for years, before it flows out, far away, as a fresh spring.\"\n\nAfter walking a long while in the hot sun, they finally spotted the old spring between two big rocks. Clear water still flowed steadily from the rock, just as Grandpa remembered. Noor and Hamza felt overjoyed and deeply relieved. They hurried back down the trail to share the good news with the village.\n\nFor now, the village drew its water from the old spring while workers fixed the newer one. Villagers also agreed to conserve water more carefully from then on. Everyone thanked Grandpa for remembering such an important water source from his childhood. Noor and Hamza learned to value water far more carefully, and to value the memory and wisdom of their village's elders."
-    },
-    {
-      "level": 900,
-      "title": "The Secret Spring",
-      "text": "Noor and her brother, Hamza, lived in a small village set high among rocky mountains. Their family had always depended on one spring for drinking water, cooking, and watering the animals.\n\nOne especially dry season, the spring's flow began to slow down. Villagers whispered nervously about what might happen if it stopped altogether. A spring like this depends on underground water that slowly fills during rainy years and slowly empties during dry ones. When several dry years come in a row, even an old, trusted spring can gradually run low. Then, one worrying morning, the spring stopped flowing completely. Not a single drop of water came out of the ground. Everyone in the village felt anxious, and the village elders gathered to talk about what the community should do.\n\nTheir Grandpa, one of the village's respected elders, suddenly remembered something important from his own childhood. \"I know of another spring,\" he told the family calmly. \"My grandparents relied on it as their water source long ago, much higher up in the mountains, before the village built pipes down to this one.\" He asked Noor and Hamza to come along. He promised to guide them safely up the old trail himself.\n\nThe three of them set off together along a steep, rocky trail early the next morning, carrying water and bread. Their Grandpa still remembered the old path surprisingly well. Along the way, he patiently explained to the children where underground water comes from. \"Rain slowly soaks down through tiny cracks in the rock,\" he explained, \"and it travels underground for a while, sometimes for years, before it flows back out, far away, as a fresh spring.\"\n\nAfter walking for a long while in the hot sun, they finally spotted the old spring tucked between two large boulders. Clear, cool water still flowed steadily out of the rock, just as Grandpa remembered. Noor and Hamza felt overjoyed and deeply relieved. They hurried back down the trail to share the good news with the village.\n\nFor now, the village carefully drew its water from the old spring while workers repaired the newer one. Villagers also agreed to conserve water more carefully, and some families began collecting rainwater as a backup source. Everyone warmly thanked their Grandpa for remembering such an important water source. Noor and Hamza learned to value water far more carefully, and to value the memory and wisdom of their village's elders."
-    },
-    {
-      "level": 1000,
-      "title": "The Secret Spring",
-      "text": "Noor and her brother, Hamza, lived in a small village set high among rocky mountains. Their family had always depended on one spring for drinking water, cooking, and watering the animals.\n\nOne especially dry season, the spring's flow began to slow down. Villagers whispered nervously about what might happen if it stopped altogether. A spring like this depends on underground water that slowly fills during rainy years and slowly empties during dry ones. When several dry years come in a row, even an old, trusted spring can gradually run low. Then, one worrying morning, the spring stopped flowing completely. Not a single drop of water came out of the ground. Everyone in the village felt anxious, and the village elders gathered to talk about what the community should do.\n\nTheir Grandpa, one of the village's respected elders, suddenly remembered something important from his own childhood. \"I know of another spring,\" he told the family calmly. \"My grandparents relied on it as their main water source long ago, nearly five kilometers higher up in the mountains, before the village built pipes down to this lower spring.\" He asked Noor and Hamza to come along. He promised to guide them safely up a trail he had not walked in almost thirty years.\n\nThe three of them set off together along the steep, rocky trail early the next morning, carrying water, bread, and a coil of rope. Their Grandpa still remembered the old path surprisingly well, pointing out small stone markers that earlier generations had left along the way. Along the way, he patiently explained to the children where underground water comes from. \"Rain slowly soaks down through tiny cracks in the rock,\" he explained, \"and it travels underground for a while, sometimes for years, before it flows back out, far away, as a fresh spring.\"\n\nAfter walking for a long while in the hot sun, they finally spotted the old spring tucked between two large boulders. Clear, cool water still flowed steadily out of the rock, just as Grandpa remembered. Noor and Hamza felt overjoyed and deeply relieved. They hurried back down the trail to share the good news with the village.\n\nFor now, the village carefully drew its water from the old spring while workers repaired the newer one. Villagers also agreed to conserve water more carefully, and some families began collecting rainwater as a backup source for dry months ahead. Everyone warmly thanked their Grandpa for remembering such an important water source. Noor and Hamza learned to value water far more carefully, and to value the memory and wisdom of their village's elders."
-    },
-    {
-      "level": 1100,
-      "title": "The Village's Forgotten Spring",
-      "text": "Noor and her younger brother, Hamza, lived in a small village set high among rocky mountains, where their family had always depended on one spring for drinking water, cooking, and watering the animals. One especially dry season, the spring's flow began to slow down, and villagers whispered nervously about what might happen if it stopped altogether.\n\nA spring like this depends on an underground aquifer, a layer of rock that holds water the way a sponge does, slowly filling during rainy years and slowly emptying during dry ones, so when several dry years come in a row, even an old, trusted spring can gradually run low. Then, one worrying morning, the spring stopped flowing completely, and not a single drop came out of the ground. Everyone in the village felt anxious, and the elders gathered to discuss what the community should do.\n\nTheir Grandpa, one of the village's respected elders, suddenly recalled something significant from his own childhood. \"I know of another spring,\" he told the family calmly, \"fed from a different pocket of the same aquifer. My own grandparents relied on it as their main water source long ago, nearly five kilometers higher up across difficult terrain.\" He asked Noor and Hamza to come along, promising to guide them safely up a trail he had not walked in almost thirty years.\n\nThe three of them set off together across the steep, rocky terrain early the next morning, carrying water, bread, and a coil of rope. Their Grandpa still remembered the old path remarkably well, pointing out small stone markers that earlier generations had left to guide travelers. Along the long trail, he patiently explained how underground water travels. \"Rain slowly filters down through tiny cracks in the rock,\" he explained, \"and it journeys underground for years before it emerges again, often far from where it fell, as a fresh spring.\"\n\nAfter walking for a long while in the hot sun, they finally spotted the old spring tucked between two large boulders. Clear, cool water still flowed steadily from the rock, exactly as Grandpa remembered. Noor and Hamza felt overjoyed and deeply relieved. They hurried back down the trail to share the welcome news.\n\nFor now, the village drew its water from the old spring while workers repaired the newer one. Villagers agreed to use water more sustainably, and some families began collecting rainwater as a backup source. Everyone thanked their Grandpa for preserving such an important legacy. Noor and Hamza learned to value water far more carefully, and to value the legacy their village's elders had sustained for generations."
-    },
-    {
-      "level": 1200,
-      "title": "The Village's Forgotten Spring",
-      "text": "Noor and her younger brother, Hamza, lived in a small village set high among rugged mountains, where their family had always depended upon one spring for drinking water, cooking, and watering the animals. One especially dry season, however, the spring's flow began to diminish noticeably, and villagers murmured anxiously about what might happen should it cease altogether.\n\nA spring such as this depends upon an underground aquifer, a layer of porous rock that holds water much as a sponge does, slowly filling during rainy years and slowly emptying during dry ones, so that when several dry years arrive consecutively, even an old, trusted spring can gradually run low. Then, one unsettling morning, the spring ceased flowing entirely, and not a single drop emerged from the ground. Everyone in the village felt anxious, and the elders convened to discuss how the community should respond.\n\nTheir Grandpa, one of the village's most respected elders, suddenly recalled something significant from his own distant childhood. \"I know of another spring,\" he told the family calmly, \"fed from a different pocket of the very same aquifer. My own grandparents relied upon it as their principal water source long ago, nearly five kilometers higher up across difficult terrain.\" He asked Noor and Hamza to accompany him, promising to guide them safely along a trail he had not walked in almost thirty years.\n\nThe three of them set off together across the steep, rocky terrain early the next morning, carrying water, bread, and a coil of rope. Their Grandpa still remembered the old path remarkably well, pointing out small stone markers that earlier generations had deliberately left to guide future travelers. Along the long, winding trail, he patiently explained precisely how underground water travels. \"Rain slowly filters down through tiny cracks in the rock,\" he explained, \"and it journeys underground for years before emerging again, often quite far from where it originally fell, as a fresh spring.\"\n\nAfter walking for a considerable while beneath the hot sun, they finally spotted the old spring tucked quietly between two enormous boulders. Clear, cool water still flowed steadily from the rock, exactly as their Grandpa remembered it. Noor and Hamza felt overjoyed and profoundly relieved by what they had discovered together. Eager to share the welcome news, they hurried back down the trail toward the village.\n\nFor the time being, the village carefully drew its water from the old spring while workers repaired the newer one. Villagers agreed to use water considerably more sustainably, and several families began collecting rainwater as a dependable backup source. Everyone warmly thanked their Grandpa for preserving such an invaluable legacy. Noor and Hamza learned to value water far more carefully, and to value the legacy their village's elders had sustained across generations."
-    },
-    {
-      "level": 1300,
-      "title": "The Village's Forgotten Spring",
-      "text": "Noor and her younger brother, Hamza, resided in a small village situated high among rugged mountains, where their family had always depended upon one spring for drinking water, cooking, and watering the animals. One especially arid season, however, the spring's flow began to diminish noticeably, and villagers murmured anxiously about what might happen should it cease altogether.\n\nA spring such as this depends upon an underground aquifer, a layer of porous rock that retains water much as a sponge does, gradually filling during rainy years and gradually emptying during dry ones, so that when several dry years arrive consecutively, even an old, trusted spring can steadily run low. Then, one unsettling morning, the spring ceased flowing entirely, and not a single drop emerged from the ground. Everyone in the village felt anxious, and the elders convened promptly to deliberate how the community should respond.\n\nTheir Grandpa, one of the village's most respected elders, suddenly recalled something significant from his own distant childhood. \"I know of another spring,\" he told the family calmly, \"one fed from a different pocket of the very same aquifer. My own grandparents relied upon it as their principal water source long ago, nearly five kilometers higher up across difficult terrain.\" He asked Noor and Hamza to accompany him, promising to guide them safely along a trail he had not walked in almost thirty years.\n\nThe three of them set off together across the steep, rocky terrain early the next morning, carrying water, bread, and a coil of rope. Their Grandpa still remembered the old path remarkably well, pointing out small stone markers that earlier generations had deliberately left to guide future travelers. Along the long, winding trail, he patiently explained precisely how underground water travels. \"Rain slowly filters down through tiny cracks in the rock,\" he explained, \"and it journeys underground for years before emerging again, often quite far from where it originally fell, as a fresh spring.\"\n\nAfter walking for a considerable while beneath the hot sun, they finally spotted the old spring tucked quietly between two enormous boulders. Clear, cool water still flowed steadily from the rock, exactly as their Grandpa remembered it. Noor and Hamza felt overjoyed and profoundly relieved by what they had discovered together. Eager to share the welcome news, they hurried back down the trail toward the village.\n\nFor the time being, the village carefully drew its water from the old spring while workers repaired the newer one. Villagers agreed to use water considerably more sustainably, and several families began collecting rainwater as a dependable backup source. Everyone warmly thanked their Grandpa for preserving such an invaluable legacy. Noor and Hamza learned to value water far more carefully, and to value the legacy their village's elders had sustained across generations, a lesson they carried with them long after that difficult, dry season had passed."
-    },
-    {
-      "level": 1400,
-      "title": "The Village's Forgotten Spring",
-      "text": "Noor and her younger brother, Hamza, resided in a small village situated high among rugged mountains, where their family had always depended upon one spring for drinking water, cooking, and watering the animals. One especially arid season, however, the spring's flow began to diminish noticeably, and villagers murmured anxiously about what might happen should it cease altogether, since a spring such as this depends upon an underground aquifer, a layer of porous rock that retains water much as a sponge does, gradually filling during rainy years and gradually emptying during dry ones, so that when several dry years arrive consecutively, even an old, trusted spring can steadily run low.\n\nThen, one unsettling morning, the spring ceased flowing entirely, and not a single drop emerged from the ground. Everyone in the village felt anxious, and the elders convened promptly to deliberate how the community should respond. Their Grandpa, one of the village's most respected elders, suddenly recalled something significant from his own distant childhood: \"I know of another spring,\" he told the family calmly, \"one fed from a different pocket of the very same aquifer, which my own grandparents relied upon as their principal water source long ago, nearly five kilometers higher up across difficult terrain.\" He asked Noor and Hamza to accompany him, promising to guide them safely along a trail he had not walked in almost thirty years.\n\nThe three of them set off together across the steep, rocky terrain early the next morning, carrying water, bread, and a coil of rope. Their Grandpa still remembered the old path remarkably well despite the passing decades, and he pointed out small stone markers that earlier generations had deliberately left to guide future travelers. Along the long, winding trail, he patiently explained precisely how underground water travels, noting that rain slowly filters down through tiny cracks in the rock and journeys underground for years before emerging again, often quite far from where it originally fell, as a fresh spring.\n\nAfter walking for a considerable while beneath the hot sun, they finally spotted the old spring tucked quietly between two enormous boulders. Clear, cool water still flowed steadily from the rock, exactly as their Grandpa remembered it, leaving Noor and Hamza overjoyed and profoundly relieved by what they had discovered together. Eager to share the welcome news, they hurried back down the trail toward the village as quickly as they safely could.\n\nFor the time being, the village carefully drew its water from the old spring while workers repaired the newer one, and villagers agreed to use water considerably more sustainably from then on, with several families beginning to collect rainwater as a dependable backup source. Everyone warmly thanked their Grandpa for preserving such an invaluable legacy, a legacy that might otherwise have been lost entirely. From that day forward, Noor and Hamza learned not only to value water far more carefully, but also to value the legacy their village's elders had sustained across generations, a lesson that stayed with them long after that difficult, dry season had passed."
-    },
-    {
-      "level": 1500,
-      "title": "The Village's Forgotten Spring",
-      "text": "Noor and her younger brother, Hamza, resided in a small village situated high among rugged mountains, where their family had always depended upon one spring for drinking water, cooking, and watering the animals, and where nobody had ever seriously needed to consider the water's actual origin, since the spring had simply flowed steadily through every season for generations beyond memory. In the particular dry season this story recounts, however, the spring's flow began to diminish noticeably, prompting villagers to murmur anxiously about what might happen should it cease altogether, since a spring of this kind depends upon an underground aquifer, a layer of porous rock that retains water much as a sponge does, gradually filling during rainy years and gradually emptying during dry ones, so that when several dry years arrive consecutively, even an old, trusted spring can steadily run low.\n\nThen, one unsettling morning, the spring ceased flowing entirely, and not a single drop emerged from the ground, leaving everyone in the village anxious as the elders convened promptly to deliberate how the community should respond. Their Grandpa, one of the village's most respected elders, suddenly recalled something significant from his own distant childhood: \"I know of another spring,\" he told the family calmly, \"one fed from a different pocket of the very same aquifer, which my own grandparents relied upon as their principal water source long ago, nearly five kilometers higher up across difficult terrain.\" He asked Noor and Hamza to accompany him, promising to guide them safely along a trail he had not walked in almost thirty years.\n\nThe three of them set off together across the steep, rocky terrain early the next morning, carrying water, bread, and a coil of rope just in case, and their Grandpa, remembering the old path remarkably well even after so many years, pointed out small stone markers that earlier generations had deliberately left along the way to guide future travelers. Along the long, winding trail, he patiently explained to the children precisely how underground water travels, noting that rain slowly filters down through tiny cracks in the rock and journeys underground for years before emerging again, often quite far from where it originally fell, as a fresh spring.\n\nAfter walking for a considerable while beneath the hot sun, they finally spotted the old spring tucked quietly between two enormous boulders, clear, cool water still flowing steadily from the rock exactly as their Grandpa remembered it, leaving Noor and Hamza overjoyed and profoundly relieved by what they had discovered together; eager to share the welcome news, they hurried back down the trail toward the village as quickly as they safely could.\n\nFor the time being, the village carefully drew its water from the old spring while workers repaired the newer one, and villagers agreed to use water considerably more sustainably from then on, with several families beginning to collect rainwater as a dependable backup source for future dry months. Everyone warmly thanked their Grandpa for preserving such an invaluable legacy from his own childhood, a legacy that might otherwise have been lost entirely, and from that day forward, Noor and Hamza learned not only to value water far more carefully, but also to value the legacy and quiet wisdom their village's elders had sustained across countless generations, a lesson they would carry with them, quietly but firmly, for the rest of their lives."
-    },
-    {
-      "level": 1600,
-      "title": "The Village's Forgotten Spring",
-      "text": "Noor and her younger brother, Hamza, resided in a small village situated high among rugged mountains, where daily life had always depended upon one spring for drinking water, cooking, and watering the animals, and where nobody had ever seriously needed to consider the water's actual geological origin, since the spring had simply flowed steadily through every season for generations beyond anyone's living memory. In the particular dry season this story recounts, however, the spring's flow began to diminish noticeably, prompting villagers to murmur anxiously about what might happen should it cease altogether, since a spring of this kind depends upon an underground aquifer, a layer of porous rock that retains water much as a sponge does, gradually filling during rainy years and gradually emptying during dry ones, so that when several dry years arrive consecutively, even an old, trusted spring can steadily run low and eventually fail.\n\nThen, one unsettling morning, the spring ceased flowing entirely, and not a single drop emerged from the ground, leaving everyone in the village anxious as the elders convened promptly to deliberate carefully how the community should respond to such an unprecedented shortage. Their Grandpa, one of the village's most respected elders, suddenly recalled something significant from his own distant childhood: \"I know of another spring,\" he told the family calmly, \"one fed from a different pocket of the very same aquifer, which my own grandparents relied upon as their principal water source long ago, nearly five kilometers higher up across difficult terrain.\" He asked Noor and Hamza to accompany him, promising to guide them safely along a trail he had not walked in almost thirty years, one he hoped his aging memory could still faithfully retrace.\n\nThe three of them set off together across the steep, rocky terrain early the next morning, carrying water, bread, and a coil of rope just in case, and their Grandpa, remembering the old path remarkably well even after so many years, pointed out small stone markers that earlier generations had deliberately left along the way to guide future travelers safely through the unfamiliar terrain. Along the long, winding trail, he patiently explained to the children precisely how underground water travels, noting that rain slowly filters down through tiny cracks in the rock and journeys underground for years before emerging again, often quite far from where it originally fell, as a fresh spring somewhere else entirely.\n\nAfter walking for a considerable while beneath the hot sun, they finally spotted the old spring tucked quietly between two enormous boulders, clear, cool water still flowing steadily from the rock exactly as their Grandpa remembered it, leaving Noor and Hamza overjoyed and profoundly relieved by what they had discovered together; eager to share the welcome news, they hurried back down the trail toward the village as quickly as they safely could manage.\n\nFor the time being, the village carefully drew its water from the old spring while workers repaired the newer one, and villagers agreed to use water considerably more sustainably from then on, with several families beginning to collect rainwater as a dependable backup source for future dry months ahead. Everyone warmly thanked their Grandpa for preserving such an invaluable legacy from his own childhood, a legacy that might otherwise have vanished entirely with his generation, and from that day forward, Noor and Hamza learned not only to value water far more carefully, but also to value the legacy and quiet wisdom their village's elders had sustained across countless generations. Years afterward, whenever rain fell upon the mountains, Noor and Hamza would still think of their Grandpa's trail and of how much hidden knowledge the past can hold for those willing to climb far enough, and listen closely enough, to find it."
-    }
-  ],
-  "bands": {
-    "LOW": {
-      "keyWords": [
-        { "word": "spring", "partOfSpeech": "noun", "definition": "a place where water comes up naturally from the ground", "example": "The hikers filled their bottles at a cool mountain spring." },
-        { "word": "dry", "partOfSpeech": "adjective", "definition": "having little or no water or rain", "example": "The ground was dry and cracked after many weeks with no rain." },
-        { "word": "mountain", "partOfSpeech": "noun", "definition": "a very tall, rocky hill that rises high above the land around it", "example": "Snow covered the top of the tall mountain." },
-        { "word": "village", "partOfSpeech": "noun", "definition": "a small group of homes and people living together in one place", "example": "Every family in the small village knew each other well." },
-        { "word": "guide", "partOfSpeech": "noun", "definition": "a person who leads others and shows them the way", "example": "A guide led the tourists safely through the old city." }
-      ],
-      "questions": [
-        {
-          "stem": "What is this story mostly about?",
-          "options": ["Children and their Grandpa find an old spring after the village spring dries up", "A family learns to fish in a nearby mountain river after their old well dries up", "A village decides to move far away to a new mountain when the rain stops", "A boy teaches his Grandpa how to read books and write letters in school"],
-          "answer": "A",
-          "skill": "central-idea",
-          "why": "The story follows Noor and Hamza hiking with their Grandpa to find an old spring after their village spring stops flowing.",
-          "wrong": { "B": "No fishing trip happens in the story.", "C": "The village does not move away in the story.", "D": "The story is not about reading lessons." }
-        },
-        {
-          "stem": "Where did Noor and Hamza live?",
-          "options": ["In a big city built right next to the sea", "In a small village high in the mountains", "On a small boat floating near a river", "In a desert far away from any water"],
-          "answer": "B",
-          "skill": "detail",
-          "why": "The story says Noor and Hamza live in a small village set high among the mountains.",
-          "wrong": { "A": "No city or sea is mentioned in the story.", "C": "No boat is mentioned in the story.", "D": "The village is in the mountains, not a desert." }
-        },
-        {
-          "stem": "What happened to the village's spring?",
-          "options": ["It became too cold for anyone to use", "It suddenly turned a strange, dark color", "It stopped flowing completely one morning", "It flowed faster and stronger than ever before"],
-          "answer": "C",
-          "skill": "detail",
-          "why": "The story says that one morning, the spring stopped flowing completely and no water came out.",
-          "wrong": { "A": "The story does not mention the spring freezing.", "B": "No color change is mentioned in the story.", "D": "The spring stopped, it did not flow faster." }
-        },
-        {
-          "stem": "Why did the spring stop flowing?",
-          "options": ["The children accidentally blocked it with large rocks", "The village built a brand-new road over it", "Too many animals came to drink from it at once", "A long dry season made the underground water run low"],
-          "answer": "D",
-          "skill": "cause-effect",
-          "why": "The story explains that a dry season made the underground water that fed the spring run low.",
-          "wrong": { "A": "No blocking by the children is mentioned.", "B": "No road is mentioned in the story.", "C": "Too many animals drinking is not the reason given." }
-        },
-        {
-          "stem": "What did Grandpa do right after the spring stopped?",
-          "options": ["He remembered an older spring from his own childhood", "He planted new trees near the village square", "He built a brand-new well in just one day", "He moved the whole village to another mountain"],
-          "answer": "A",
-          "skill": "sequence",
-          "why": "Right after the spring stopped, Grandpa remembered another spring his grandparents had used long ago.",
-          "wrong": { "B": "No tree-planting happens in the story.", "C": "No new well is built in one day.", "D": "The village does not move to another mountain." }
-        },
-        {
-          "stem": "Why did Grandpa ask Noor and Hamza to come with him?",
-          "options": ["He wanted help carrying heavy rocks back home", "He wanted them to learn the trail and about water", "He did not want to walk alone in the dark", "He needed them to cook dinner on the trail"],
-          "answer": "B",
-          "skill": "inference",
-          "why": "Grandpa brings the children along and teaches them about water and the trail as they walk.",
-          "wrong": { "A": "Carrying rocks is not mentioned in the story.", "C": "They hike in daylight, not in the dark.", "D": "No cooking on the trail is mentioned." }
-        },
-        {
-          "stem": "In the story, the word guide means —",
-          "options": ["a kind of small mountain animal", "a tool used for digging into rock", "a person who leads the way for others", "a type of very cold mountain water"],
-          "answer": "C",
-          "skill": "vocabulary",
-          "why": "Grandpa acts as a guide, leading Noor and Hamza safely up the mountain trail.",
-          "wrong": { "A": "Guide does not mean an animal.", "B": "Guide does not mean a digging tool.", "D": "Guide does not mean cold water." }
-        },
-        {
-          "stem": "Why does the author tell about Grandpa teaching the children about rain and rock?",
-          "options": ["To explain the steps for building a new village by the hills", "To describe how to climb a tall mountain safely with a guide", "To show that rain can be dangerous for hikers on rocky paths", "To help readers understand where spring water comes from"],
-          "answer": "D",
-          "skill": "author-purpose",
-          "why": "Grandpa's explanation about rain soaking into rock helps readers understand how spring water forms.",
-          "wrong": { "A": "The story does not give village-building steps.", "B": "The story is not a climbing safety guide.", "C": "The story does not describe rain as dangerous." }
-        }
-      ],
-      "prompt": "Would you like to go on the hike with Noor, Hamza, and their Grandpa? Explain why or why not, using at least two facts from the story.",
-      "checklist": ["I clearly said what I think.", "I used at least two facts from the story.", "I wrote complete sentences with capital letters and periods."],
-      "modelAnswer": "I would like to go on the hike with Noor, Hamza, and their Grandpa. I would want to see the old spring that their grandparents used long ago. I would also like to learn how rain turns into spring water, the way Grandpa explained it. The hike sounds hard, but finding the spring would be exciting."
-    },
-    "MID": {
-      "keyWords": [
-        { "word": "trail", "partOfSpeech": "noun", "definition": "a path through rough or wild land, such as mountains or forests", "example": "Hikers followed the narrow trail up the hillside." },
-        { "word": "elder", "partOfSpeech": "noun", "definition": "an older person, especially one who is respected for their experience and wisdom", "example": "The village elders met to decide how to share the water fairly." },
-        { "word": "conserve", "partOfSpeech": "verb", "definition": "to use something carefully so it is not wasted or used up", "example": "During the dry month, the family tried hard to conserve water at home." },
-        { "word": "underground", "partOfSpeech": "adjective", "definition": "below the surface of the ground", "example": "Workers dug a pipe to bring underground water up to the village." },
-        { "word": "source", "partOfSpeech": "noun", "definition": "the place where something begins or comes from", "example": "A mountain spring can be the source of a whole river." }
-      ],
-      "questions": [
-        {
-          "stem": "Which sentence best states the central idea of the story?",
-          "options": ["After their village spring dries up, children and their Grandpa follow an old trail to find a hidden source their family once relied on.", "A Grandpa teaches his grandchildren how to build a brand-new well in the village yard, with bricks and ropes, and they find water there, too.", "A village argues loudly about who should fetch the water each morning from the spring, and the elders choose a plan that is fair for all of the families.", "A family decides that finding water is not worth worrying about, so they move to the city, and the children never visit the old trail or the spring again."],
-          "answer": "A",
-          "skill": "central-idea",
-          "why": "The story centers on the children and their Grandpa hiking an old trail to find a hidden water source after the village spring fails.",
-          "wrong": { "B": "No well-building is described in the story.", "C": "No argument over fetching water occurs in the story.", "D": "The family works hard to solve the water problem, showing they do worry about it." }
-        },
-        {
-          "stem": "About how far was the old spring from the village?",
-          "options": ["Less than one kilometer away from the village", "Nearly five kilometers higher up the mountain", "On the opposite side of a wide, deep river", "Actually located inside the village itself"],
-          "answer": "B",
-          "skill": "detail",
-          "why": "The story says the old spring was nearly five kilometers higher up in the mountains.",
-          "wrong": { "A": "The distance given in the story is much farther.", "C": "No river crossing is mentioned in the story.", "D": "The old spring is far from the village, not inside it." }
-        },
-        {
-          "stem": "What did Grandpa use to help explain how water travels underground?",
-          "options": ["A map he had carefully drawn that very morning", "A chart taken from a science book he carried", "Stories about rain soaking into cracks in rock", "A video about rivers he had watched long ago"],
-          "answer": "C",
-          "skill": "detail",
-          "why": "Grandpa explains that rain soaks down through cracks in rock and later flows out as a spring.",
-          "wrong": { "A": "No hand-drawn map is mentioned in the story.", "B": "No science book is mentioned in the story.", "D": "No video is mentioned in the story." }
-        },
-        {
-          "stem": "Why can even an old, trusted spring eventually run low?",
-          "options": ["Too many stone markers end up blocking its narrow path", "The village had simply forgotten where the spring was located", "The Grandpa had used too much of his old rope", "Several dry years in a row can slowly empty its underground water"],
-          "answer": "D",
-          "skill": "cause-effect",
-          "why": "The story explains that several dry years in a row can slowly empty the underground water that feeds a spring.",
-          "wrong": { "A": "Stone markers guide travelers; they do not block water.", "B": "The village knew about its spring until it ran low.", "C": "Rope is used for the hike, not for the spring's water." }
-        },
-        {
-          "stem": "In the story, the word conserve means —",
-          "options": ["to use something carefully so that it lasts longer", "to use something wastefully without any real care", "to search for something that has been completely lost", "to carry something heavy a very long distance"],
-          "answer": "A",
-          "skill": "vocabulary",
-          "why": "After the water trouble, villagers agree to conserve water, meaning they use it carefully so it lasts.",
-          "wrong": { "B": "This is the opposite of conserve.", "C": "Conserve does not mean searching for something lost.", "D": "Conserve does not mean carrying something far." }
-        },
-        {
-          "stem": "Why did Grandpa still remember the old trail after so many years?",
-          "options": ["He had walked that same trail recently, every single week", "He had used that trail often as a child and never forgot it", "He had read directions to it from an old family letter", "A neighbor had just shown him the way earlier that morning"],
-          "answer": "B",
-          "skill": "inference",
-          "why": "Grandpa's grandparents used the spring and trail when he was a child, so he remembers it well even decades later.",
-          "wrong": { "A": "The story says he had not walked it in almost thirty years.", "C": "No old letter is mentioned in the story.", "D": "No neighbor shows him the way in the story." }
-        },
-        {
-          "stem": "What did the village do right after the old spring was found?",
-          "options": ["They stopped using the newer spring completely forever", "They built an entire new village near the old spring", "They used the old spring while workers repaired the newer one", "They forgot about the newer spring completely afterward"],
-          "answer": "C",
-          "skill": "sequence",
-          "why": "After finding the old spring, the village drew water from it while workers repaired the newer spring.",
-          "wrong": { "A": "The village planned to keep using both springs over time.", "B": "No new village is built in the story.", "D": "The newer spring is repaired, not forgotten." }
-        },
-        {
-          "stem": "How does the author mainly organize this story?",
-          "options": ["By comparing two different villages that never actually meet each other", "By listing several rules for saving water during a long drought in the village", "By describing each nearby mountain peak one at a time there", "By following events in order, from the dry spring to finding the old one"],
-          "answer": "D",
-          "skill": "text-structure",
-          "why": "The story moves in time order: the spring slows and stops, Grandpa remembers an old spring, and the family hikes to find it.",
-          "wrong": { "A": "Only one village appears in the story.", "B": "The story is a narrative, not a rule list.", "C": "The mountain peaks are not described one by one." }
-        }
-      ],
-      "prompt": "Explain how Noor, Hamza, and their Grandpa solved the village's water problem. Use at least two details from the story.",
-      "checklist": ["I explained what caused the water problem.", "I explained how the characters solved it.", "I used at least two details from the story."],
-      "modelAnswer": "The village's only spring stopped flowing after a long dry season, because the underground water that fed it had slowly run low. To solve the problem, the Grandpa remembered an older spring his own grandparents had used, nearly five kilometers higher up the mountain, and he guided Noor and Hamza along an old trail to find it. Once they found the spring still flowing, the village used it while workers repaired the newer one, and families began conserving water and collecting rain as a backup."
-    },
-    "HIGH": {
-      "keyWords": [
-        { "word": "aquifer", "partOfSpeech": "noun", "definition": "an underground layer of rock or soil that holds and slowly releases water", "example": "The desert town pumped its drinking water from a deep aquifer." },
-        { "word": "filter", "partOfSpeech": "verb", "definition": "to pass slowly through small gaps, or to make a liquid cleaner by passing it through something", "example": "Rainwater filters through layers of sand before it reaches the underground water." },
-        { "word": "sustain", "partOfSpeech": "verb", "definition": "to keep something going at a steady, healthy level over a long time", "example": "Careful farming can sustain a community's food supply for generations." },
-        { "word": "terrain", "partOfSpeech": "noun", "definition": "the natural features of an area of land, such as hills, rocks, or valleys", "example": "The hikers studied a map before crossing the rough terrain." },
-        { "word": "legacy", "partOfSpeech": "noun", "definition": "something valuable, such as knowledge or a tradition, passed down from earlier generations", "example": "The old farming methods are an important legacy from the writer's grandparents." }
-      ],
-      "questions": [
-        {
-          "stem": "Which statement best expresses the central idea of the story?",
-          "options": ["After a trusted spring runs dry, a Grandpa's legacy of knowledge leads his grandchildren across difficult terrain to a forgotten, sustainable source.", "The story argues that villages should never depend on a single spring for their water, because springs dry up every summer.", "The story mainly explains how to measure the depth of an underground aquifer with a long rope and a stone.", "A village abandons the mountains entirely after a single dry season and moves to the city by the sea, and never returns, because its people are tired."],
-          "answer": "A",
-          "skill": "central-idea",
-          "why": "The story centers on the Grandpa drawing on his own childhood knowledge to lead the children across the terrain to a sustainable old spring once the village's spring fails.",
-          "wrong": { "B": "The story does not argue against ever using a single spring.", "C": "No depth measurement is taught in the story.", "D": "The village stays and solves its water problem rather than abandoning the mountains." }
-        },
-        {
-          "stem": "Why did the village's spring stop flowing that particular season?",
-          "options": ["The village had accidentally filled in the spring while building a road", "Grandpa's old trail had disturbed the rocks and blocked the water", "Too many curious hikers had visited the spring that year", "An unusually long dry season drained the aquifer that fed the spring"],
-          "answer": "D",
-          "skill": "cause-effect",
-          "why": "The story explains that an unusually long dry season drained the underground aquifer feeding the village's spring.",
-          "wrong": { "A": "No road-building is mentioned in the story.", "B": "The trail is unrelated to the spring's water supply.", "C": "No hikers visiting the spring are mentioned." }
-        },
-        {
-          "stem": "What evidence shows Grandpa's personal connection to the old spring?",
-          "options": ["He had personally built the old trail as a young man with his friends", "He had relied on that spring's aquifer as a child, guided by his own grandparents", "He had read about the old spring in a recent newspaper article last year", "He had discovered the old spring for the very first time that day in the hills"],
-          "answer": "B",
-          "skill": "detail",
-          "why": "The story explains that his own grandparents relied on that spring long ago, which is why he remembers the trail.",
-          "wrong": { "A": "He did not build the trail; he walked it as a child.", "C": "No newspaper is mentioned in the story.", "D": "He already knew of the spring before that day." }
-        },
-        {
-          "stem": "In the story, the word sustain most nearly means —",
-          "options": ["to use something up completely without any care", "to discover something for the very first time", "to keep something going steadily over a long time", "to measure something's exact size or depth"],
-          "answer": "C",
-          "skill": "vocabulary",
-          "why": "The elders' knowledge and the village's water use are described as sustained across generations, meaning kept going steadily over time.",
-          "wrong": { "A": "This is the opposite of sustain.", "B": "Sustain does not mean discovering something new.", "D": "Sustain does not mean measuring size." }
-        },
-        {
-          "stem": "What can readers infer about why the village never considered where its water came from before the spring dried up?",
-          "options": ["The spring's steady flow across many generations had made its source seem permanent and unremarkable", "No one in the village had ever been curious about nature at all, so they never asked questions", "The village had no elders who remembered anything useful about the land, the rain or the spring", "The spring had only existed for a single year before this story, so nobody had time to wonder"],
-          "answer": "A",
-          "skill": "inference",
-          "why": "Because the spring had flowed steadily for generations, villagers had no reason to question where it came from until it failed.",
-          "wrong": { "B": "Curiosity is not shown to be lacking; the question never arose before.", "C": "Grandpa proves the village does have useful elder knowledge.", "D": "The spring had existed for generations, not just one year." }
-        },
-        {
-          "stem": "Put these events in the order they happened.",
-          "options": ["The family found the old spring, then the spring stopped, then Grandpa recalled it", "The family searched the terrain, then the spring stopped, then Grandpa recalled the old spring", "The spring stopped, Grandpa recalled the old spring, and the family searched the terrain to find it", "Grandpa recalled the old spring, then the spring stopped, then the family searched the terrain"],
-          "answer": "C",
-          "skill": "sequence",
-          "why": "The village's spring stopped first, which prompted Grandpa to recall the old spring, and only then did the family search the terrain to find it.",
-          "wrong": { "A": "The family found the spring last, not first.", "B": "The spring stopped before the search began, not during it.", "D": "Grandpa recalled the spring only after it stopped, not before." }
-        },
-        {
-          "stem": "Why does the author explain in detail how rain filters through rock to form a spring?",
-          "options": ["To argue that mountain springs are more reliable than rivers in the dry season", "To help readers understand the natural process behind the family's solution", "To criticize the village for building pipes in the first place, years ago", "To suggest that rock formations are more interesting than water to scientists"],
-          "answer": "B",
-          "skill": "author-purpose",
-          "why": "Grandpa's explanation of how rain filters through rock helps readers understand why a second spring could exist and still be flowing.",
-          "wrong": { "A": "The story never compares springs to rivers.", "C": "The story does not criticize the earlier pipe-building.", "D": "The explanation is about water, not about rocks being more interesting." }
-        },
-        {
-          "stem": "How are Grandpa's and the children's roles in the story different?",
-          "options": ["Grandpa refuses to walk, while the children do all the hiking alone, far ahead of him and without any map", "Grandpa forgets the trail entirely, while the children lead the way instead of him, because they know the hills", "Grandpa cares only about the new spring, while the children care only about the old one that dried up long ago", "Grandpa provides the legacy of knowledge and memory, while the children provide energy and willingness to learn"],
-          "answer": "D",
-          "skill": "compare",
-          "why": "Grandpa supplies the memory and knowledge of the old trail and spring, while Noor and Hamza contribute energy and eagerness to learn along the way.",
-          "wrong": { "A": "Grandpa actively leads the hike himself.", "B": "Grandpa remembers the trail well, despite the years.", "C": "Both children and Grandpa care about solving the water problem together." }
-        }
-      ],
-      "prompt": "The poll might claim that old knowledge from grandparents is no longer useful today. Do you agree or disagree? Support your argument with evidence from the story about the aquifer, the trail, and the village's response.",
-      "checklist": ["I stated a clear position on the poll statement.", "I supported my position with specific evidence from the story.", "I addressed at least one point someone might make against my view."],
-      "modelAnswer": "I disagree that old knowledge from grandparents is no longer useful today. In the story, the Grandpa's memory of a hidden spring fed by the same aquifer saved the village when its main water source failed, something no one else in the family could have known. Someone might argue that modern pipes and technology make such old knowledge unnecessary, but the story shows that technology alone could not solve the sudden water shortage; it was the Grandpa's legacy of experience with the terrain that located a sustainable solution quickly, which proves that old knowledge still has real, practical value."
-    }
+ "code": "RR-368",
+ "title": "The Mountain Village's Secret Spring",
+ "topic": "Fiction",
+ "summary": "When their mountain village's only spring suddenly dries up, two children and their Grandpa hike to a forgotten spring his own grandparents once used, learning how water travels underground along the way.",
+ "poll": "Once a village has running water, there is no real need to learn where that water actually comes from.",
+ "versions": [
+  {
+   "level": 300,
+   "title": "The Secret Spring",
+   "text": "Noor and Hamza live in a village. It sits high in the mountains.\n\nA spring gives them water. One dry day, it slows. Then it stops!\n\nNo water comes out. Everyone feels sad.\n\n\"I know a spring,\" Grandpa says. \"I will guide you.\" The kids go with him.\n\nThey walk up a rocky trail. Grandpa knows the way.\n\n\"Rain goes into rock,\" he says. \"Then it comes out as a spring.\"\n\nAt last, they find it! Water flows out. The kids feel glad. They run back with the news.\n\nThe village uses this spring. They thank Grandpa. The kids learn to care for water."
+  },
+  {
+   "level": 400,
+   "title": "The Secret Spring",
+   "text": "Noor and Hamza live in a village. The village is high in the mountains. For years, the village got its water from a spring.\n\nOne dry season, the spring got slow. Then, one day, it stopped! No water came out. The village felt worried and confused.\n\nGrandpa is old and wise. He remembered something. \"I know of another spring,\" he said. \"My own grandparents used it long ago.\" He asked Noor and Hamza to come. He would guide them there.\n\nThe three set off up a rocky path. Grandpa knew the old trail. On the way, he taught them about water. \"Rain soaks into the rock,\" he said. \"Later, it comes back out as a spring.\"\n\nAfter a long walk, they found the old spring! Water flowed out of the rock. Noor and Hamza felt very happy. They hurried back with the good news.\n\nFor now, the village used water from the old spring. Everyone thanked Grandpa. Noor and Hamza learned to value water, and their elders, too."
+  },
+  {
+   "level": 500,
+   "title": "The Secret Spring",
+   "text": "Noor and Hamza live in a village. Their village sits high in the mountains. The family has always had water from a spring.\n\nOne dry season, the spring got slow. Then, one morning, it stopped! Not a drop came out. Everyone in the village felt worried.\n\nGrandpa is old and wise. He remembered something from his childhood. \"I know of another spring,\" he told the family. \"My grandparents used it long ago, higher in the mountains.\" He asked Noor and Hamza to come along. He would guide them there.\n\nThe three set off up a steep, rocky path. Grandpa still knew the old trail well. Along the way, he taught the children about water. \"Rain soaks into cracks in the rock,\" he said. \"Later, it flows out somewhere else as a spring.\"\n\nAfter walking a long while, they spotted the old spring! Clear water still flowed from the rock. Noor and Hamza felt overjoyed. They hurried back down the path with the good news.\n\nFor now, the village drew its water from the old spring. Everyone thanked Grandpa for remembering it. Noor and Hamza learned to value water, and the memory of their elders, too."
+  },
+  {
+   "level": 600,
+   "title": "The Secret Spring",
+   "text": "Noor and Hamza live in a village set high in rocky mountains. For as long as anyone can remember, the village has used one spring for all its water.\n\nOne dry season, the spring's flow got slow. Then, one worrying morning, it stopped completely! Not a drop of water came out. Everyone felt anxious and unsure.\n\nGrandpa is old and wise. He remembered something important from his childhood. \"I know of another spring,\" he told the family calmly. \"My grandparents used it long ago, much higher in the mountains.\" He asked Noor and Hamza to come along. He would guide them safely up the mountain.\n\nThe three set off up a steep, rocky path. Grandpa still remembered the old trail, even after many years. Along the way, he taught the children where water comes from. \"Rain soaks slowly into tiny cracks in the rock,\" he said. \"Later, it flows out again, far away, as a fresh spring.\"\n\nAfter walking a long while, they spotted the old spring between two big rocks! Clear water still flowed from the rock. Noor and Hamza felt overjoyed and relieved. They hurried back down the path with the good news.\n\nFor now, the village carefully drew water from the old spring. Everyone thanked Grandpa for remembering such an important place. Noor and Hamza learned to value water, and the memory of their elders, too."
+  },
+  {
+   "level": 700,
+   "title": "The Secret Spring",
+   "text": "Noor and Hamza lived in a village set high in rocky mountains. Their family had always depended on one spring for drinking water and cooking.\n\nOne dry season, the spring's flow got slow. Then, one worrying morning, the spring stopped completely. Not a drop of water came out of the ground. Everyone felt anxious, and the village elders met to talk about what to do.\n\nGrandpa, one of the village's elders, suddenly remembered something important from his childhood. \"I know of another spring,\" he told the family calmly. \"My grandparents relied on it as their water source long ago, much higher in the mountains.\" He asked Noor and Hamza to come along. He would guide them safely up the old trail.\n\nThe three set off along a steep, rocky trail early the next morning. Grandpa still remembered the old path well, even after many years. Along the way, he explained where underground water comes from. \"Rain slowly soaks through tiny cracks in the rock,\" he said. \"It travels underground for a while before it flows out, far away, as a fresh spring.\"\n\nAfter walking a long while, they finally spotted the old spring between two big rocks. Clear water still flowed steadily from the rock, just as Grandpa remembered. Noor and Hamza felt overjoyed and relieved. They hurried back down the trail with the good news.\n\nFor now, the village drew its water from the old spring while workers fixed the newer one. Villagers also agreed to conserve water more carefully. Everyone thanked Grandpa for remembering such an important source. Noor and Hamza learned to value water far more carefully, and to value the wisdom of their village's elders."
+  },
+  {
+   "level": 800,
+   "title": "The Secret Spring",
+   "text": "Noor and Hamza lived in a village set high in rocky mountains. Their family had always depended on one spring for drinking water, cooking, and watering the animals.\n\nOne dry season, the spring's flow got slow. Villagers whispered nervously about what might happen if it stopped. Then, one worrying morning, the spring stopped completely. Not a drop of water came out of the ground. Everyone felt anxious, and the village elders met to talk about what the community should do.\n\nGrandpa, one of the village's respected elders, suddenly remembered something important from his childhood. \"I know of another spring,\" he told the family calmly. \"My grandparents relied on it as their water source long ago, much higher in the mountains, before the village built pipes down to this one.\" He asked Noor and Hamza to come along. He would guide them safely up the old trail.\n\nThe three set off along a steep, rocky trail early the next morning, carrying water and bread. Grandpa still remembered the old path surprisingly well. Along the way, he patiently explained where underground water comes from. \"Rain slowly soaks through tiny cracks in the rock,\" he explained. \"It travels underground for a while, sometimes for years, before it flows out, far away, as a fresh spring.\"\n\nAfter walking a long while in the hot sun, they finally spotted the old spring between two big rocks. Clear water still flowed steadily from the rock, just as Grandpa remembered. Noor and Hamza felt overjoyed and deeply relieved. They hurried back down the trail to share the good news with the village.\n\nFor now, the village drew its water from the old spring while workers fixed the newer one. Villagers also agreed to conserve water more carefully from then on. Everyone thanked Grandpa for remembering such an important water source from his childhood. Noor and Hamza learned to value water far more carefully, and to value the memory and wisdom of their village's elders."
+  },
+  {
+   "level": 900,
+   "title": "The Secret Spring",
+   "text": "Noor and her brother, Hamza, lived in a small village set high among rocky mountains. Their family had always depended on one spring for drinking water, cooking, and watering the animals.\n\nOne especially dry season, the spring's flow began to slow down. Villagers whispered nervously about what might happen if it stopped altogether. A spring like this depends on underground water that slowly fills during rainy years and slowly empties during dry ones. When several dry years come in a row, even an old, trusted spring can gradually run low. Then, one worrying morning, the spring stopped flowing completely. Not a single drop of water came out of the ground. Everyone in the village felt anxious, and the village elders gathered to talk about what the community should do.\n\nTheir Grandpa, one of the village's respected elders, suddenly remembered something important from his own childhood. \"I know of another spring,\" he told the family calmly. \"My grandparents relied on it as their water source long ago, much higher up in the mountains, before the village built pipes down to this one.\" He asked Noor and Hamza to come along. He promised to guide them safely up the old trail himself.\n\nThe three of them set off together along a steep, rocky trail early the next morning, carrying water and bread. Their Grandpa still remembered the old path surprisingly well. Along the way, he patiently explained to the children where underground water comes from. \"Rain slowly soaks down through tiny cracks in the rock,\" he explained, \"and it travels underground for a while, sometimes for years, before it flows back out, far away, as a fresh spring.\"\n\nAfter walking for a long while in the hot sun, they finally spotted the old spring tucked between two large boulders. Clear, cool water still flowed steadily out of the rock, just as Grandpa remembered. Noor and Hamza felt overjoyed and deeply relieved. They hurried back down the trail to share the good news with the village.\n\nFor now, the village carefully drew its water from the old spring while workers repaired the newer one. Villagers also agreed to conserve water more carefully, and some families began collecting rainwater as a backup source. Everyone warmly thanked their Grandpa for remembering such an important water source. Noor and Hamza learned to value water far more carefully, and to value the memory and wisdom of their village's elders."
+  },
+  {
+   "level": 1000,
+   "title": "The Secret Spring",
+   "text": "Noor and her brother, Hamza, lived in a small village set high among rocky mountains. Their family had always depended on one spring for drinking water, cooking, and watering the animals.\n\nOne especially dry season, the spring's flow began to slow down. Villagers whispered nervously about what might happen if it stopped altogether. A spring like this depends on underground water that slowly fills during rainy years and slowly empties during dry ones. When several dry years come in a row, even an old, trusted spring can gradually run low. Then, one worrying morning, the spring stopped flowing completely. Not a single drop of water came out of the ground. Everyone in the village felt anxious, and the village elders gathered to talk about what the community should do.\n\nTheir Grandpa, one of the village's respected elders, suddenly remembered something important from his own childhood. \"I know of another spring,\" he told the family calmly. \"My grandparents relied on it as their main water source long ago, nearly five kilometers higher up in the mountains, before the village built pipes down to this lower spring.\" He asked Noor and Hamza to come along. He promised to guide them safely up a trail he had not walked in almost thirty years.\n\nThe three of them set off together along the steep, rocky trail early the next morning, carrying water, bread, and a coil of rope. Their Grandpa still remembered the old path surprisingly well, pointing out small stone markers that earlier generations had left along the way. Along the way, he patiently explained to the children where underground water comes from. \"Rain slowly soaks down through tiny cracks in the rock,\" he explained, \"and it travels underground for a while, sometimes for years, before it flows back out, far away, as a fresh spring.\"\n\nAfter walking for a long while in the hot sun, they finally spotted the old spring tucked between two large boulders. Clear, cool water still flowed steadily out of the rock, just as Grandpa remembered. Noor and Hamza felt overjoyed and deeply relieved. They hurried back down the trail to share the good news with the village.\n\nFor now, the village carefully drew its water from the old spring while workers repaired the newer one. Villagers also agreed to conserve water more carefully, and some families began collecting rainwater as a backup source for dry months ahead. Everyone warmly thanked their Grandpa for remembering such an important water source. Noor and Hamza learned to value water far more carefully, and to value the memory and wisdom of their village's elders."
+  },
+  {
+   "level": 1100,
+   "title": "The Village's Forgotten Spring",
+   "text": "Noor and her younger brother, Hamza, lived in a small village set high among rocky mountains, where their family had always depended on one spring for drinking water, cooking, and watering the animals. One especially dry season, the spring's flow began to slow down, and villagers whispered nervously about what might happen if it stopped altogether.\n\nA spring like this depends on an underground aquifer, a layer of rock that holds water the way a sponge does, slowly filling during rainy years and slowly emptying during dry ones, so when several dry years come in a row, even an old, trusted spring can gradually run low. Then, one worrying morning, the spring stopped flowing completely, and not a single drop came out of the ground. Everyone in the village felt anxious, and the elders gathered to discuss what the community should do.\n\nTheir Grandpa, one of the village's respected elders, suddenly recalled something significant from his own childhood. \"I know of another spring,\" he told the family calmly, \"fed from a different pocket of the same aquifer. My own grandparents relied on it as their main water source long ago, nearly five kilometers higher up across difficult terrain.\" He asked Noor and Hamza to come along, promising to guide them safely up a trail he had not walked in almost thirty years.\n\nThe three of them set off together across the steep, rocky terrain early the next morning, carrying water, bread, and a coil of rope. Their Grandpa still remembered the old path remarkably well, pointing out small stone markers that earlier generations had left to guide travelers. Along the long trail, he patiently explained how underground water travels. \"Rain slowly filters down through tiny cracks in the rock,\" he explained, \"and it journeys underground for years before it emerges again, often far from where it fell, as a fresh spring.\"\n\nAfter walking for a long while in the hot sun, they finally spotted the old spring tucked between two large boulders. Clear, cool water still flowed steadily from the rock, exactly as Grandpa remembered. Noor and Hamza felt overjoyed and deeply relieved. They hurried back down the trail to share the welcome news.\n\nFor now, the village drew its water from the old spring while workers repaired the newer one. Villagers agreed to use water more sustainably, and some families began collecting rainwater as a backup source. Everyone thanked their Grandpa for preserving such an important legacy. Noor and Hamza learned to value water far more carefully, and to value the legacy their village's elders had sustained for generations."
+  },
+  {
+   "level": 1200,
+   "title": "The Village's Forgotten Spring",
+   "text": "Noor and her younger brother, Hamza, lived in a small village set high among rugged mountains, where their family had always depended upon one spring for drinking water, cooking, and watering the animals. One especially dry season, however, the spring's flow began to diminish noticeably, and villagers murmured anxiously about what might happen should it cease altogether.\n\nA spring such as this depends upon an underground aquifer, a layer of porous rock that holds water much as a sponge does, slowly filling during rainy years and slowly emptying during dry ones, so that when several dry years arrive consecutively, even an old, trusted spring can gradually run low. Then, one unsettling morning, the spring ceased flowing entirely, and not a single drop emerged from the ground. Everyone in the village felt anxious, and the elders convened to discuss how the community should respond.\n\nTheir Grandpa, one of the village's most respected elders, suddenly recalled something significant from his own distant childhood. \"I know of another spring,\" he told the family calmly, \"fed from a different pocket of the very same aquifer. My own grandparents relied upon it as their principal water source long ago, nearly five kilometers higher up across difficult terrain.\" He asked Noor and Hamza to accompany him, promising to guide them safely along a trail he had not walked in almost thirty years.\n\nThe three of them set off together across the steep, rocky terrain early the next morning, carrying water, bread, and a coil of rope. Their Grandpa still remembered the old path remarkably well, pointing out small stone markers that earlier generations had deliberately left to guide future travelers. Along the long, winding trail, he patiently explained precisely how underground water travels. \"Rain slowly filters down through tiny cracks in the rock,\" he explained, \"and it journeys underground for years before emerging again, often quite far from where it originally fell, as a fresh spring.\"\n\nAfter walking for a considerable while beneath the hot sun, they finally spotted the old spring tucked quietly between two enormous boulders. Clear, cool water still flowed steadily from the rock, exactly as their Grandpa remembered it. Noor and Hamza felt overjoyed and profoundly relieved by what they had discovered together. Eager to share the welcome news, they hurried back down the trail toward the village.\n\nFor the time being, the village carefully drew its water from the old spring while workers repaired the newer one. Villagers agreed to use water considerably more sustainably, and several families began collecting rainwater as a dependable backup source. Everyone warmly thanked their Grandpa for preserving such an invaluable legacy. Noor and Hamza learned to value water far more carefully, and to value the legacy their village's elders had sustained across generations."
+  },
+  {
+   "level": 1300,
+   "title": "The Village's Forgotten Spring",
+   "text": "Noor and her younger brother, Hamza, resided in a small village situated high among rugged mountains, where their family had always depended upon one spring for drinking water, cooking, and watering the animals. One especially arid season, however, the spring's flow began to diminish noticeably, and villagers murmured anxiously about what might happen should it cease altogether.\n\nA spring such as this depends upon an underground aquifer, a layer of porous rock that retains water much as a sponge does, gradually filling during rainy years and gradually emptying during dry ones, so that when several dry years arrive consecutively, even an old, trusted spring can steadily run low. Then, one unsettling morning, the spring ceased flowing entirely, and not a single drop emerged from the ground. Everyone in the village felt anxious, and the elders convened promptly to deliberate how the community should respond.\n\nTheir Grandpa, one of the village's most respected elders, suddenly recalled something significant from his own distant childhood. \"I know of another spring,\" he told the family calmly, \"one fed from a different pocket of the very same aquifer. My own grandparents relied upon it as their principal water source long ago, nearly five kilometers higher up across difficult terrain.\" He asked Noor and Hamza to accompany him, promising to guide them safely along a trail he had not walked in almost thirty years.\n\nThe three of them set off together across the steep, rocky terrain early the next morning, carrying water, bread, and a coil of rope. Their Grandpa still remembered the old path remarkably well, pointing out small stone markers that earlier generations had deliberately left to guide future travelers. Along the long, winding trail, he patiently explained precisely how underground water travels. \"Rain slowly filters down through tiny cracks in the rock,\" he explained, \"and it journeys underground for years before emerging again, often quite far from where it originally fell, as a fresh spring.\"\n\nAfter walking for a considerable while beneath the hot sun, they finally spotted the old spring tucked quietly between two enormous boulders. Clear, cool water still flowed steadily from the rock, exactly as their Grandpa remembered it. Noor and Hamza felt overjoyed and profoundly relieved by what they had discovered together. Eager to share the welcome news, they hurried back down the trail toward the village.\n\nFor the time being, the village carefully drew its water from the old spring while workers repaired the newer one. Villagers agreed to use water considerably more sustainably, and several families began collecting rainwater as a dependable backup source. Everyone warmly thanked their Grandpa for preserving such an invaluable legacy. Noor and Hamza learned to value water far more carefully, and to value the legacy their village's elders had sustained across generations, a lesson they carried with them long after that difficult, dry season had passed."
+  },
+  {
+   "level": 1400,
+   "title": "The Village's Forgotten Spring",
+   "text": "Noor and her younger brother, Hamza, resided in a small village situated high among rugged mountains, where their family had always depended upon one spring for drinking water, cooking, and watering the animals. One especially arid season, however, the spring's flow began to diminish noticeably, and villagers murmured anxiously about what might happen should it cease altogether, since a spring such as this depends upon an underground aquifer, a layer of porous rock that retains water much as a sponge does, gradually filling during rainy years and gradually emptying during dry ones, so that when several dry years arrive consecutively, even an old, trusted spring can steadily run low.\n\nThen, one unsettling morning, the spring ceased flowing entirely, and not a single drop emerged from the ground. Everyone in the village felt anxious, and the elders convened promptly to deliberate how the community should respond. Their Grandpa, one of the village's most respected elders, suddenly recalled something significant from his own distant childhood: \"I know of another spring,\" he told the family calmly, \"one fed from a different pocket of the very same aquifer, which my own grandparents relied upon as their principal water source long ago, nearly five kilometers higher up across difficult terrain.\" He asked Noor and Hamza to accompany him, promising to guide them safely along a trail he had not walked in almost thirty years.\n\nThe three of them set off together across the steep, rocky terrain early the next morning, carrying water, bread, and a coil of rope. Their Grandpa still remembered the old path remarkably well despite the passing decades, and he pointed out small stone markers that earlier generations had deliberately left to guide future travelers. Along the long, winding trail, he patiently explained precisely how underground water travels, noting that rain slowly filters down through tiny cracks in the rock and journeys underground for years before emerging again, often quite far from where it originally fell, as a fresh spring.\n\nAfter walking for a considerable while beneath the hot sun, they finally spotted the old spring tucked quietly between two enormous boulders. Clear, cool water still flowed steadily from the rock, exactly as their Grandpa remembered it, leaving Noor and Hamza overjoyed and profoundly relieved by what they had discovered together. Eager to share the welcome news, they hurried back down the trail toward the village as quickly as they safely could.\n\nFor the time being, the village carefully drew its water from the old spring while workers repaired the newer one, and villagers agreed to use water considerably more sustainably from then on, with several families beginning to collect rainwater as a dependable backup source. Everyone warmly thanked their Grandpa for preserving such an invaluable legacy, a legacy that might otherwise have been lost entirely. From that day forward, Noor and Hamza learned not only to value water far more carefully, but also to value the legacy their village's elders had sustained across generations, a lesson that stayed with them long after that difficult, dry season had passed."
+  },
+  {
+   "level": 1500,
+   "title": "The Village's Forgotten Spring",
+   "text": "Noor and her younger brother, Hamza, resided in a small village situated high among rugged mountains, where their family had always depended upon one spring for drinking water, cooking, and watering the animals, and where nobody had ever seriously needed to consider the water's actual origin, since the spring had simply flowed steadily through every season for generations beyond memory. In the particular dry season this story recounts, however, the spring's flow began to diminish noticeably, prompting villagers to murmur anxiously about what might happen should it cease altogether, since a spring of this kind depends upon an underground aquifer, a layer of porous rock that retains water much as a sponge does, gradually filling during rainy years and gradually emptying during dry ones, so that when several dry years arrive consecutively, even an old, trusted spring can steadily run low.\n\nThen, one unsettling morning, the spring ceased flowing entirely, and not a single drop emerged from the ground, leaving everyone in the village anxious as the elders convened promptly to deliberate how the community should respond. Their Grandpa, one of the village's most respected elders, suddenly recalled something significant from his own distant childhood: \"I know of another spring,\" he told the family calmly, \"one fed from a different pocket of the very same aquifer, which my own grandparents relied upon as their principal water source long ago, nearly five kilometers higher up across difficult terrain.\" He asked Noor and Hamza to accompany him, promising to guide them safely along a trail he had not walked in almost thirty years.\n\nThe three of them set off together across the steep, rocky terrain early the next morning, carrying water, bread, and a coil of rope just in case, and their Grandpa, remembering the old path remarkably well even after so many years, pointed out small stone markers that earlier generations had deliberately left along the way to guide future travelers. Along the long, winding trail, he patiently explained to the children precisely how underground water travels, noting that rain slowly filters down through tiny cracks in the rock and journeys underground for years before emerging again, often quite far from where it originally fell, as a fresh spring.\n\nAfter walking for a considerable while beneath the hot sun, they finally spotted the old spring tucked quietly between two enormous boulders, clear, cool water still flowing steadily from the rock exactly as their Grandpa remembered it, leaving Noor and Hamza overjoyed and profoundly relieved by what they had discovered together; eager to share the welcome news, they hurried back down the trail toward the village as quickly as they safely could.\n\nFor the time being, the village carefully drew its water from the old spring while workers repaired the newer one, and villagers agreed to use water considerably more sustainably from then on, with several families beginning to collect rainwater as a dependable backup source for future dry months. Everyone warmly thanked their Grandpa for preserving such an invaluable legacy from his own childhood, a legacy that might otherwise have been lost entirely, and from that day forward, Noor and Hamza learned not only to value water far more carefully, but also to value the legacy and quiet wisdom their village's elders had sustained across countless generations, a lesson they would carry with them, quietly but firmly, for the rest of their lives."
+  },
+  {
+   "level": 1600,
+   "title": "The Village's Forgotten Spring",
+   "text": "Noor and her younger brother, Hamza, resided in a small village situated high among rugged mountains, where daily life had always depended upon one spring for drinking water, cooking, and watering the animals, and where nobody had ever seriously needed to consider the water's actual geological origin, since the spring had simply flowed steadily through every season for generations beyond anyone's living memory. In the particular dry season this story recounts, however, the spring's flow began to diminish noticeably, prompting villagers to murmur anxiously about what might happen should it cease altogether, since a spring of this kind depends upon an underground aquifer, a layer of porous rock that retains water much as a sponge does, gradually filling during rainy years and gradually emptying during dry ones, so that when several dry years arrive consecutively, even an old, trusted spring can steadily run low and eventually fail.\n\nThen, one unsettling morning, the spring ceased flowing entirely, and not a single drop emerged from the ground, leaving everyone in the village anxious as the elders convened promptly to deliberate carefully how the community should respond to such an unprecedented shortage. Their Grandpa, one of the village's most respected elders, suddenly recalled something significant from his own distant childhood: \"I know of another spring,\" he told the family calmly, \"one fed from a different pocket of the very same aquifer, which my own grandparents relied upon as their principal water source long ago, nearly five kilometers higher up across difficult terrain.\" He asked Noor and Hamza to accompany him, promising to guide them safely along a trail he had not walked in almost thirty years, one he hoped his aging memory could still faithfully retrace.\n\nThe three of them set off together across the steep, rocky terrain early the next morning, carrying water, bread, and a coil of rope just in case, and their Grandpa, remembering the old path remarkably well even after so many years, pointed out small stone markers that earlier generations had deliberately left along the way to guide future travelers safely through the unfamiliar terrain. Along the long, winding trail, he patiently explained to the children precisely how underground water travels, noting that rain slowly filters down through tiny cracks in the rock and journeys underground for years before emerging again, often quite far from where it originally fell, as a fresh spring somewhere else entirely.\n\nAfter walking for a considerable while beneath the hot sun, they finally spotted the old spring tucked quietly between two enormous boulders, clear, cool water still flowing steadily from the rock exactly as their Grandpa remembered it, leaving Noor and Hamza overjoyed and profoundly relieved by what they had discovered together; eager to share the welcome news, they hurried back down the trail toward the village as quickly as they safely could manage.\n\nFor the time being, the village carefully drew its water from the old spring while workers repaired the newer one, and villagers agreed to use water considerably more sustainably from then on, with several families beginning to collect rainwater as a dependable backup source for future dry months ahead. Everyone warmly thanked their Grandpa for preserving such an invaluable legacy from his own childhood, a legacy that might otherwise have vanished entirely with his generation, and from that day forward, Noor and Hamza learned not only to value water far more carefully, but also to value the legacy and quiet wisdom their village's elders had sustained across countless generations. Years afterward, whenever rain fell upon the mountains, Noor and Hamza would still think of their Grandpa's trail and of how much hidden knowledge the past can hold for those willing to climb far enough, and listen closely enough, to find it."
   }
+ ],
+ "bands": {
+  "LOW": {
+   "keyWords": [
+    {
+     "word": "spring",
+     "partOfSpeech": "noun",
+     "definition": "a place where water comes up naturally from the ground",
+     "example": "The hikers filled their bottles at a cool mountain spring."
+    },
+    {
+     "word": "dry",
+     "partOfSpeech": "adjective",
+     "definition": "having little or no water or rain",
+     "example": "The ground was dry and cracked after many weeks with no rain."
+    },
+    {
+     "word": "mountain",
+     "partOfSpeech": "noun",
+     "definition": "a very tall, rocky hill that rises high above the land around it",
+     "example": "Snow covered the top of the tall mountain."
+    },
+    {
+     "word": "village",
+     "partOfSpeech": "noun",
+     "definition": "a small group of homes and people living together in one place",
+     "example": "Every family in the small village knew each other well."
+    },
+    {
+     "word": "guide",
+     "partOfSpeech": "noun",
+     "definition": "a person who leads others and shows them the way",
+     "example": "A guide led the tourists safely through the old city."
+    }
+   ],
+   "questions": [
+    {
+     "stem": "What is this story mostly about?",
+     "options": [
+      "Children and their Grandpa find an old spring after the village spring dries up",
+      "A family learns to fish in a nearby mountain river after their old well dries up",
+      "A village decides to move far away to a new mountain when the rain stops",
+      "A boy teaches his Grandpa how to read books and write letters in school"
+     ],
+     "answer": "A",
+     "skill": "central-idea",
+     "why": "The story follows Noor and Hamza hiking with their Grandpa to find an old spring after their village spring stops flowing.",
+     "wrong": {
+      "B": "No fishing trip happens in the story.",
+      "C": "The village does not move away in the story.",
+      "D": "The story is not about reading lessons."
+     }
+    },
+    {
+     "stem": "Where did Noor and Hamza live?",
+     "options": [
+      "In a big city built right next to the sea",
+      "In a small village high in the mountains",
+      "On a small boat floating near a river",
+      "In a desert far away from any water"
+     ],
+     "answer": "B",
+     "skill": "detail",
+     "why": "The story says Noor and Hamza live in a small village set high among the mountains.",
+     "wrong": {
+      "A": "No city or sea is mentioned in the story.",
+      "C": "No boat is mentioned in the story.",
+      "D": "The village is in the mountains, not a desert."
+     }
+    },
+    {
+     "stem": "What happened to the village's spring?",
+     "options": [
+      "It became too cold for anyone to use",
+      "It suddenly turned a strange, dark color",
+      "It stopped flowing completely one morning",
+      "It flowed faster and stronger than ever before"
+     ],
+     "answer": "C",
+     "skill": "detail",
+     "why": "The story says that one morning, the spring stopped flowing completely and no water came out.",
+     "wrong": {
+      "A": "The story does not mention the spring freezing.",
+      "B": "No color change is mentioned in the story.",
+      "D": "The spring stopped, it did not flow faster."
+     }
+    },
+    {
+     "stem": "Why did the spring stop flowing?",
+     "options": [
+      "The children accidentally blocked it with large rocks",
+      "The village built a brand-new road over it",
+      "Too many animals came to drink from it at once",
+      "A long dry season made the underground water run low"
+     ],
+     "answer": "D",
+     "skill": "cause-effect",
+     "why": "The story explains that a dry season made the underground water that fed the spring run low.",
+     "wrong": {
+      "A": "No blocking by the children is mentioned.",
+      "B": "No road is mentioned in the story.",
+      "C": "Too many animals drinking is not the reason given."
+     }
+    },
+    {
+     "stem": "What did Grandpa do right after the spring stopped?",
+     "options": [
+      "He remembered an older spring from his own childhood",
+      "He planted new trees near the village square",
+      "He built a brand-new well in just one day",
+      "He moved the whole village to another mountain"
+     ],
+     "answer": "A",
+     "skill": "sequence",
+     "why": "Right after the spring stopped, Grandpa remembered another spring his grandparents had used long ago.",
+     "wrong": {
+      "B": "No tree-planting happens in the story.",
+      "C": "No new well is built in one day.",
+      "D": "The village does not move to another mountain."
+     }
+    },
+    {
+     "stem": "Why did Grandpa ask Noor and Hamza to come with him?",
+     "options": [
+      "He wanted help carrying heavy rocks back home",
+      "He wanted them to learn the trail and about water",
+      "He did not want to walk alone in the dark",
+      "He needed them to cook dinner on the trail"
+     ],
+     "answer": "B",
+     "skill": "inference",
+     "why": "Grandpa brings the children along and teaches them about water and the trail as they walk.",
+     "wrong": {
+      "A": "Carrying rocks is not mentioned in the story.",
+      "C": "They hike in daylight, not in the dark.",
+      "D": "No cooking on the trail is mentioned."
+     }
+    },
+    {
+     "stem": "In the story, the word guide means —",
+     "options": [
+      "a kind of small mountain animal",
+      "a tool used for digging into rock",
+      "a person who leads the way for others",
+      "a type of very cold mountain water"
+     ],
+     "answer": "C",
+     "skill": "vocabulary",
+     "why": "Grandpa acts as a guide, leading Noor and Hamza safely up the mountain trail.",
+     "wrong": {
+      "A": "Guide does not mean an animal.",
+      "B": "Guide does not mean a digging tool.",
+      "D": "Guide does not mean cold water."
+     }
+    },
+    {
+     "stem": "Why does the author tell about Grandpa teaching the children about rain and rock?",
+     "options": [
+      "To explain the steps for building a new village by the hills",
+      "To describe how to climb a tall mountain safely with a guide",
+      "To show that rain can be dangerous for hikers on rocky paths",
+      "To help readers understand where spring water comes from"
+     ],
+     "answer": "D",
+     "skill": "author-purpose",
+     "why": "Grandpa's explanation about rain soaking into rock helps readers understand how spring water forms.",
+     "wrong": {
+      "A": "The story does not give village-building steps.",
+      "B": "The story is not a climbing safety guide.",
+      "C": "The story does not describe rain as dangerous."
+     }
+    }
+   ],
+   "prompt": "Would you like to go on the hike with Noor, Hamza, and their Grandpa? Explain why or why not, using at least two facts from the story.",
+   "checklist": [
+    "I clearly said what I think.",
+    "I used at least two facts from the story.",
+    "I wrote complete sentences with capital letters and periods."
+   ],
+   "modelAnswer": "I would like to go on the hike with Noor, Hamza, and their Grandpa. I would want to see the old spring that their grandparents used long ago. I would also like to learn how rain turns into spring water, the way Grandpa explained it. The hike sounds hard, but finding the spring would be exciting."
+  },
+  "MID": {
+   "keyWords": [
+    {
+     "word": "trail",
+     "partOfSpeech": "noun",
+     "definition": "a path through rough or wild land, such as mountains or forests",
+     "example": "Hikers followed the narrow trail up the hillside."
+    },
+    {
+     "word": "elder",
+     "partOfSpeech": "noun",
+     "definition": "an older person, especially one who is respected for their experience and wisdom",
+     "example": "The village elders met to decide how to share the water fairly."
+    },
+    {
+     "word": "conserve",
+     "partOfSpeech": "verb",
+     "definition": "to use something carefully so it is not wasted or used up",
+     "example": "During the dry month, the family tried hard to conserve water at home."
+    },
+    {
+     "word": "underground",
+     "partOfSpeech": "adjective",
+     "definition": "below the surface of the ground",
+     "example": "Workers dug a pipe to bring underground water up to the village."
+    },
+    {
+     "word": "source",
+     "partOfSpeech": "noun",
+     "definition": "the place where something begins or comes from",
+     "example": "A mountain spring can be the source of a whole river."
+    }
+   ],
+   "questions": [
+    {
+     "stem": "Which sentence best states the central idea of the story?",
+     "options": [
+      "After their village spring dries up, children and their Grandpa follow an old trail to find a hidden source their family once relied on.",
+      "A Grandpa teaches his grandchildren how to build a brand-new well in the village yard, with bricks and ropes, and they find water there, too.",
+      "A village argues loudly about who should fetch the water each morning from the spring, and the elders choose a plan that is fair for all of the families.",
+      "A family decides that finding water is not worth worrying about, so they move to the city, and the children never visit the old trail or the spring again."
+     ],
+     "answer": "A",
+     "skill": "central-idea",
+     "why": "The story centers on the children and their Grandpa hiking an old trail to find a hidden water source after the village spring fails.",
+     "wrong": {
+      "B": "No well-building is described in the story.",
+      "C": "No argument over fetching water occurs in the story.",
+      "D": "The family works hard to solve the water problem, showing they do worry about it."
+     }
+    },
+    {
+     "stem": "About how far was the old spring from the village?",
+     "options": [
+      "Less than one kilometer away from the village",
+      "Nearly five kilometers higher up the mountain",
+      "On the opposite side of a wide, deep river",
+      "Actually located inside the village itself"
+     ],
+     "answer": "B",
+     "skill": "detail",
+     "why": "The story says the old spring was nearly five kilometers higher up in the mountains.",
+     "wrong": {
+      "A": "The distance given in the story is much farther.",
+      "C": "No river crossing is mentioned in the story.",
+      "D": "The old spring is far from the village, not inside it."
+     }
+    },
+    {
+     "stem": "What did Grandpa use to help explain how water travels underground?",
+     "options": [
+      "A map he had carefully drawn that very morning",
+      "A chart taken from a science book he carried",
+      "Stories about rain soaking into cracks in rock",
+      "A video about rivers he had watched long ago"
+     ],
+     "answer": "C",
+     "skill": "detail",
+     "why": "Grandpa explains that rain soaks down through cracks in rock and later flows out as a spring.",
+     "wrong": {
+      "A": "No hand-drawn map is mentioned in the story.",
+      "B": "No science book is mentioned in the story.",
+      "D": "No video is mentioned in the story."
+     }
+    },
+    {
+     "stem": "Why can even an old, trusted spring eventually run low?",
+     "options": [
+      "Too many stone markers end up blocking its narrow path",
+      "The village had simply forgotten where the spring was located",
+      "The Grandpa had used too much of his old rope",
+      "Several dry years in a row can slowly empty its underground water"
+     ],
+     "answer": "D",
+     "skill": "cause-effect",
+     "why": "The story explains that several dry years in a row can slowly empty the underground water that feeds a spring.",
+     "wrong": {
+      "A": "Stone markers guide travelers; they do not block water.",
+      "B": "The village knew about its spring until it ran low.",
+      "C": "Rope is used for the hike, not for the spring's water."
+     }
+    },
+    {
+     "stem": "In the story, the word conserve means —",
+     "options": [
+      "to use something carefully so that it lasts longer",
+      "to use something wastefully without any real care",
+      "to search for something that has been completely lost",
+      "to carry something heavy a very long distance"
+     ],
+     "answer": "A",
+     "skill": "vocabulary",
+     "why": "After the water trouble, villagers agree to conserve water, meaning they use it carefully so it lasts.",
+     "wrong": {
+      "B": "This is the opposite of conserve.",
+      "C": "Conserve does not mean searching for something lost.",
+      "D": "Conserve does not mean carrying something far."
+     }
+    },
+    {
+     "stem": "Why did Grandpa still remember the old trail after so many years?",
+     "options": [
+      "He had walked that same trail recently, every single week",
+      "He had used that trail often as a child and never forgot it",
+      "He had read directions to it from an old family letter",
+      "A neighbor had just shown him the way earlier that morning"
+     ],
+     "answer": "B",
+     "skill": "inference",
+     "why": "Grandpa's grandparents used the spring and trail when he was a child, so he remembers it well even decades later.",
+     "wrong": {
+      "A": "The story says he had not walked it in almost thirty years.",
+      "C": "No old letter is mentioned in the story.",
+      "D": "No neighbor shows him the way in the story."
+     }
+    },
+    {
+     "stem": "What did the village do right after the old spring was found?",
+     "options": [
+      "They stopped using the newer spring completely forever",
+      "They built an entire new village near the old spring",
+      "They used the old spring while workers repaired the newer one",
+      "They forgot about the newer spring completely afterward"
+     ],
+     "answer": "C",
+     "skill": "sequence",
+     "why": "After finding the old spring, the village drew water from it while workers repaired the newer spring.",
+     "wrong": {
+      "A": "The village planned to keep using both springs over time.",
+      "B": "No new village is built in the story.",
+      "D": "The newer spring is repaired, not forgotten."
+     }
+    },
+    {
+     "stem": "How does the author mainly organize this story?",
+     "options": [
+      "By comparing two different villages that never actually meet each other",
+      "By listing several rules for saving water during a long drought in the village",
+      "By describing each nearby mountain peak one at a time there",
+      "By following events in order, from the dry spring to finding the old one"
+     ],
+     "answer": "D",
+     "skill": "text-structure",
+     "why": "The story moves in time order: the spring slows and stops, Grandpa remembers an old spring, and the family hikes to find it.",
+     "wrong": {
+      "A": "Only one village appears in the story.",
+      "B": "The story is a narrative, not a rule list.",
+      "C": "The mountain peaks are not described one by one."
+     }
+    }
+   ],
+   "prompt": "Explain how Noor, Hamza, and their Grandpa solved the village's water problem. Use at least two details from the story.",
+   "checklist": [
+    "I explained what caused the water problem.",
+    "I explained how the characters solved it.",
+    "I used at least two details from the story."
+   ],
+   "modelAnswer": "The village's only spring stopped flowing after a long dry season, because the underground water that fed it had slowly run low. To solve the problem, the Grandpa remembered an older spring his own grandparents had used, nearly five kilometers higher up the mountain, and he guided Noor and Hamza along an old trail to find it. Once they found the spring still flowing, the village used it while workers repaired the newer one, and families began conserving water and collecting rain as a backup."
+  },
+  "HIGH": {
+   "keyWords": [
+    {
+     "word": "aquifer",
+     "partOfSpeech": "noun",
+     "definition": "an underground layer of rock or soil that holds and slowly releases water",
+     "example": "The desert town pumped its drinking water from a deep aquifer."
+    },
+    {
+     "word": "filter",
+     "partOfSpeech": "verb",
+     "definition": "to pass slowly through small gaps, or to make a liquid cleaner by passing it through something",
+     "example": "Rainwater filters through layers of sand before it reaches the underground water."
+    },
+    {
+     "word": "sustain",
+     "partOfSpeech": "verb",
+     "definition": "to keep something going at a steady, healthy level over a long time",
+     "example": "Careful farming can sustain a community's food supply for generations."
+    },
+    {
+     "word": "terrain",
+     "partOfSpeech": "noun",
+     "definition": "the natural features of an area of land, such as hills, rocks, or valleys",
+     "example": "The hikers studied a map before crossing the rough terrain."
+    },
+    {
+     "word": "legacy",
+     "partOfSpeech": "noun",
+     "definition": "something valuable, such as knowledge or a tradition, passed down from earlier generations",
+     "example": "The old farming methods are an important legacy from the writer's grandparents."
+    }
+   ],
+   "questions": [
+    {
+     "stem": "Which statement best expresses the central idea of the story?",
+     "options": [
+      "After a trusted spring runs dry, a Grandpa's legacy of knowledge leads his grandchildren across difficult terrain to a forgotten, sustainable source.",
+      "The story argues that villages should never depend on a single spring for their water, because springs dry up every summer.",
+      "The story mainly explains how to measure the depth of an underground aquifer with a long rope and a stone.",
+      "A village abandons the mountains entirely after a single dry season and moves to the city by the sea, and never returns, because its people are tired."
+     ],
+     "answer": "A",
+     "skill": "central-idea",
+     "why": "The story centers on the Grandpa drawing on his own childhood knowledge to lead the children across the terrain to a sustainable old spring once the village's spring fails.",
+     "wrong": {
+      "B": "The story does not argue against ever using a single spring.",
+      "C": "No depth measurement is taught in the story.",
+      "D": "The village stays and solves its water problem rather than abandoning the mountains."
+     }
+    },
+    {
+     "stem": "Why did the village's spring stop flowing that particular season?",
+     "options": [
+      "The village had accidentally filled in the spring while building a road",
+      "Grandpa's old trail had disturbed the rocks and blocked the water",
+      "Too many curious hikers had visited the spring that year",
+      "An unusually long dry season drained the aquifer that fed the spring"
+     ],
+     "answer": "D",
+     "skill": "cause-effect",
+     "why": "The story explains that an unusually long dry season drained the underground aquifer feeding the village's spring.",
+     "wrong": {
+      "A": "No road-building is mentioned in the story.",
+      "B": "The trail is unrelated to the spring's water supply.",
+      "C": "No hikers visiting the spring are mentioned."
+     }
+    },
+    {
+     "stem": "What evidence shows Grandpa's personal connection to the old spring?",
+     "options": [
+      "He had personally built the old trail as a young man with his friends",
+      "He had relied on that spring's aquifer as a child, guided by his own grandparents",
+      "He had read about the old spring in a recent newspaper article last year",
+      "He had discovered the old spring for the very first time that day in the hills"
+     ],
+     "answer": "B",
+     "skill": "detail",
+     "why": "The story explains that his own grandparents relied on that spring long ago, which is why he remembers the trail.",
+     "wrong": {
+      "A": "He did not build the trail; he walked it as a child.",
+      "C": "No newspaper is mentioned in the story.",
+      "D": "He already knew of the spring before that day."
+     }
+    },
+    {
+     "stem": "In the story, the word sustain most nearly means —",
+     "options": [
+      "to use something up completely without any care",
+      "to discover something for the very first time",
+      "to keep something going steadily over a long time",
+      "to measure something's exact size or depth"
+     ],
+     "answer": "C",
+     "skill": "vocabulary",
+     "why": "The elders' knowledge and the village's water use are described as sustained across generations, meaning kept going steadily over time.",
+     "wrong": {
+      "A": "This is the opposite of sustain.",
+      "B": "Sustain does not mean discovering something new.",
+      "D": "Sustain does not mean measuring size."
+     }
+    },
+    {
+     "stem": "What can readers infer about why the village never considered where its water came from before the spring dried up?",
+     "options": [
+      "The spring's steady flow across many generations had made its source seem permanent and unremarkable",
+      "No one in the village had ever been curious about nature at all, so they never asked questions",
+      "The village had no elders who remembered anything useful about the land, the rain or the spring",
+      "The spring had only existed for a single year before this story, so nobody had time to wonder"
+     ],
+     "answer": "A",
+     "skill": "inference",
+     "why": "Because the spring had flowed steadily for generations, villagers had no reason to question where it came from until it failed.",
+     "wrong": {
+      "B": "Curiosity is not shown to be lacking; the question never arose before.",
+      "C": "Grandpa proves the village does have useful elder knowledge.",
+      "D": "The spring had existed for generations, not just one year."
+     }
+    },
+    {
+     "stem": "Put these events in the order they happened.",
+     "options": [
+      "The family found the old spring, then the spring stopped, then Grandpa recalled it",
+      "The family searched the terrain, then the spring stopped, then Grandpa recalled the old spring",
+      "The spring stopped, Grandpa recalled the old spring, and the family searched the terrain to find it",
+      "Grandpa recalled the old spring, then the spring stopped, then the family searched the terrain"
+     ],
+     "answer": "C",
+     "skill": "sequence",
+     "why": "The village's spring stopped first, which prompted Grandpa to recall the old spring, and only then did the family search the terrain to find it.",
+     "wrong": {
+      "A": "The family found the spring last, not first.",
+      "B": "The spring stopped before the search began, not during it.",
+      "D": "Grandpa recalled the spring only after it stopped, not before."
+     }
+    },
+    {
+     "stem": "Why does the author explain in detail how rain filters through rock to form a spring?",
+     "options": [
+      "To argue that mountain springs are more reliable than rivers in the dry season",
+      "To help readers understand the natural process behind the family's solution",
+      "To criticize the village for building pipes in the first place, years ago",
+      "To suggest that rock formations are more interesting than water to scientists"
+     ],
+     "answer": "B",
+     "skill": "author-purpose",
+     "why": "Grandpa's explanation of how rain filters through rock helps readers understand why a second spring could exist and still be flowing.",
+     "wrong": {
+      "A": "The story never compares springs to rivers.",
+      "C": "The story does not criticize the earlier pipe-building.",
+      "D": "The explanation is about water, not about rocks being more interesting."
+     }
+    },
+    {
+     "stem": "How are Grandpa's and the children's roles in the story different?",
+     "options": [
+      "Grandpa refuses to walk, while the children do all the hiking alone, far ahead of him and without any map",
+      "Grandpa forgets the trail entirely, while the children lead the way instead of him, because they know the hills",
+      "Grandpa cares only about the new spring, while the children care only about the old one that dried up long ago",
+      "Grandpa provides the legacy of knowledge and memory, while the children provide energy and willingness to learn"
+     ],
+     "answer": "D",
+     "skill": "compare",
+     "why": "Grandpa supplies the memory and knowledge of the old trail and spring, while Noor and Hamza contribute energy and eagerness to learn along the way.",
+     "wrong": {
+      "A": "Grandpa actively leads the hike himself.",
+      "B": "Grandpa remembers the trail well, despite the years.",
+      "C": "Both children and Grandpa care about solving the water problem together."
+     }
+    }
+   ],
+   "prompt": "The poll might claim that old knowledge from grandparents is no longer useful today. Do you agree or disagree? Support your argument with evidence from the story about the aquifer, the trail, and the village's response.",
+   "checklist": [
+    "I stated a clear position on the poll statement.",
+    "I supported my position with specific evidence from the story.",
+    "I addressed at least one point someone might make against my view."
+   ],
+   "modelAnswer": "I disagree that old knowledge from grandparents is no longer useful today. In the story, the Grandpa's memory of a hidden spring fed by the same aquifer saved the village when its main water source failed, something no one else in the family could have known. Someone might argue that modern pipes and technology make such old knowledge unnecessary, but the story shows that technology alone could not solve the sudden water shortage; it was the Grandpa's legacy of experience with the terrain that located a sustainable solution quickly, which proves that old knowledge still has real, practical value."
+  }
+ },
+ "stretch": {
+  "LOW": [
+   {
+    "stem": "What kind of trail do Noor, Hamza, and Grandpa walk up?",
+    "options": [
+     "A rocky trail",
+     "A sandy road",
+     "A wet river path",
+     "A smooth paved street"
+    ],
+    "answer": "A",
+    "skill": "detail",
+    "why": "The text says they walk up a rocky trail.",
+    "wrong": {
+     "B": "The trail is rocky, not sandy.",
+     "C": "No river path is mentioned.",
+     "D": "The trail is in the mountains, not paved."
+    }
+   },
+   {
+    "stem": "Why do the kids run back down the trail?",
+    "options": [
+     "To catch a big fish",
+     "To share the good news",
+     "To get away from Grandpa",
+     "To fetch their lunch bags"
+    ],
+    "answer": "B",
+    "skill": "cause-effect",
+    "why": "The text says the kids feel glad and run back with the news of the spring.",
+    "wrong": {
+     "A": "Fish are not in the story.",
+     "C": "The kids like Grandpa and walk with him.",
+     "D": "No lunch bags are mentioned."
+    }
+   },
+   {
+    "stem": "In the story, the word spring means —",
+    "options": [
+     "a season of warm flowers",
+     "a jump into the air",
+     "water from under the ground",
+     "a coil made of metal"
+    ],
+    "answer": "C",
+    "skill": "vocabulary",
+    "why": "The village gets water from a spring, and rain goes into rock and comes out as a spring.",
+    "wrong": {
+     "A": "The story is about water, not a season.",
+     "B": "The spring gives water; no one is jumping.",
+     "D": "A spring in this story gives water, not metal."
+    }
+   },
+   {
+    "stem": "Why does the village thank Grandpa?",
+    "options": [
+     "He built a new, long road",
+     "He gave them lots of food",
+     "He fixed the broken spring",
+     "He helped them find new water"
+    ],
+    "answer": "D",
+    "skill": "cause-effect",
+    "why": "Grandpa guides the kids to a spring, so the village has water to use again.",
+    "wrong": {
+     "A": "No road is built in the story.",
+     "B": "The text does not say he gave food.",
+     "C": "Grandpa finds another spring; he does not fix the first."
+    }
+   }
+  ],
+  "MID": [
+   {
+    "stem": "Where do Noor and Hamza first see the old spring?",
+    "options": [
+     "Next to the village well",
+     "Between two big rocks",
+     "Inside a dark cave",
+     "Beside a wide river"
+    ],
+    "answer": "B",
+    "skill": "detail",
+    "why": "The text says they spot the old spring between two big rocks.",
+    "wrong": {
+     "A": "The village spring has stopped, and the well is not mentioned.",
+     "C": "No cave is in the story.",
+     "D": "No river is in the story."
+    }
+   },
+   {
+    "stem": "What do the village elders do when the spring stops?",
+    "options": [
+     "Move to a new village",
+     "Go to sleep and rest",
+     "Dig a hole in the road",
+     "Meet to talk about it"
+    ],
+    "answer": "D",
+    "skill": "cause-effect",
+    "why": "The text says the elders met to talk about what to do.",
+    "wrong": {
+     "A": "The village stays where it is.",
+     "B": "Everyone feels anxious, so they do not rest.",
+     "C": "Digging a hole is not mentioned."
+    }
+   },
+   {
+    "stem": "In the story, the phrase relied on means —",
+    "options": [
+     "forgot about",
+     "played near",
+     "depended on",
+     "hid from"
+    ],
+    "answer": "C",
+    "skill": "vocabulary",
+    "why": "Grandpa's grandparents relied on the spring as their water source, so they depended on it.",
+    "wrong": {
+     "A": "They used the spring, so they did not forget it.",
+     "B": "The spring was their water source, not a play place.",
+     "D": "They needed the water, not hid from it."
+    }
+   },
+   {
+    "stem": "Why do Noor and Hamza value the elders' wisdom at the end?",
+    "options": [
+     "Grandpa remembered the old spring.",
+     "Grandpa made it rain more often.",
+     "The elders built a bigger spring.",
+     "The elders ended the dry season."
+    ],
+    "answer": "A",
+    "skill": "inference",
+    "why": "Grandpa remembered an old spring from his childhood, and that saved the village's water.",
+    "wrong": {
+     "B": "Grandpa cannot control the rain.",
+     "C": "No one builds a new spring in the story.",
+     "D": "The elders do not end the dry season."
+    }
+   }
+  ],
+  "HIGH": [
+   {
+    "stem": "What did earlier generations leave along the old trail to guide travelers?",
+    "options": [
+     "Painted red signs",
+     "Wooden fence posts",
+     "Bright cloth flags",
+     "Small stone markers"
+    ],
+    "answer": "D",
+    "skill": "detail",
+    "why": "The text says Grandpa pointed out small stone markers that earlier generations left.",
+    "wrong": {
+     "A": "Painted signs are not mentioned.",
+     "B": "Fence posts are not mentioned.",
+     "C": "Cloth flags are not mentioned."
+    }
+   },
+   {
+    "stem": "The story says that one morning not a single drop of water emerged from the ground. What does emerge mean?",
+    "options": [
+     "comes out",
+     "sinks down",
+     "dries up",
+     "turns cold"
+    ],
+    "answer": "A",
+    "skill": "vocabulary",
+    "why": "Rain travels underground and then comes out again as a spring.",
+    "wrong": {
+     "B": "The water comes out of the rock, not further down.",
+     "C": "The water flows out, so it does not dry up.",
+     "D": "The spring water is clear and cool, but emerges does not mean cold."
+    }
+   },
+   {
+    "stem": "Why do some families begin collecting rainwater?",
+    "options": [
+     "They like the taste more.",
+     "The spring is too far to see.",
+     "They want a backup water source.",
+     "The workers asked for rain."
+    ],
+    "answer": "C",
+    "skill": "cause-effect",
+    "why": "The text says families began collecting rainwater as a backup source.",
+    "wrong": {
+     "A": "Taste is not mentioned.",
+     "B": "The spring is not too far to see.",
+     "D": "The workers repair the newer spring; they do not ask for rain."
+    }
+   },
+   {
+    "stem": "How are the old spring and the village's usual spring alike?",
+    "options": [
+     "Both are close to the village.",
+     "Both come from the same aquifer.",
+     "Both are guarded by stones.",
+     "Both stopped during a dry season."
+    ],
+    "answer": "B",
+    "skill": "compare",
+    "why": "Grandpa says the old spring is fed from a different pocket of the same aquifer.",
+    "wrong": {
+     "A": "The old spring is nearly five kilometers higher up.",
+     "C": "Only the trail has stone markers.",
+     "D": "The old spring still flows."
+    }
+   }
+  ]
+ }
 }

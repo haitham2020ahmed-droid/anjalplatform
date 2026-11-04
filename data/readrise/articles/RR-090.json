@@ -614,5 +614,217 @@
       ],
       "modelAnswer": "I agree that Fatima's legacy is remarkable, because she turned a personal inheritance into an institution that has lasted over a thousand years. Instead of keeping her father's wealth for herself, she made the generous choice to found al-Qarawiyyin, a place where students could study subjects ranging from law to the movement of the stars. That mosque eventually became a university that historians still call the oldest in the world to have never closed, which means her gift is still changing lives today. Few people's choices echo across so many centuries, which is exactly why her legacy deserves to be called remarkable."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "What did the students learn at the mosque?",
+        "options": [
+          "How to sail big ships",
+          "How to grow food on farms",
+          "Math and the stars",
+          "How to build a new city"
+        ],
+        "answer": "C",
+        "skill": "detail",
+        "why": "The text says the students read books and learned math and the stars.",
+        "wrong": {
+          "A": "Sailing is not mentioned.",
+          "B": "Farming is not mentioned.",
+          "D": "Building a city is not mentioned."
+        }
+      },
+      {
+        "stem": "In the article, a university is —",
+        "options": [
+          "a school for grown-ups",
+          "a big town in the far west",
+          "a gift of money to the poor",
+          "a book about math and stars"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "The text says a university is a school for grown-ups.",
+        "wrong": {
+          "B": "Fez is the big city in the west.",
+          "C": "The gift was a place to learn, not money for the poor.",
+          "D": "The books were in the library."
+        }
+      },
+      {
+        "stem": "Why did Fatima build the mosque?",
+        "options": [
+          "To sell goods to the rich",
+          "To show her dad's wealth",
+          "To find a new city to live in",
+          "To help the people of the town"
+        ],
+        "answer": "D",
+        "skill": "cause-effect",
+        "why": "After her dad died she had a plan to help the town.",
+        "wrong": {
+          "A": "Her dad sold things, but the mosque was not for selling.",
+          "B": "Her plan was to help, not to show off.",
+          "C": "They already lived in Fez."
+        }
+      },
+      {
+        "stem": "The school is still open after more than a thousand years. What does this tell you?",
+        "options": [
+          "It was very easy for anyone to close",
+          "It has been important to many people",
+          "It has always had only a few students",
+          "It was built last year in the town"
+        ],
+        "answer": "B",
+        "skill": "inference",
+        "why": "A school that stays open for so long must have helped many people.",
+        "wrong": {
+          "A": "The text does not say it was easy to close.",
+          "C": "Lots of men came to learn there.",
+          "D": "It was built in the year 859."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "In what year did Fatima found al-Qarawiyyin?",
+        "options": [
+          "In the year 859",
+          "In the year 895",
+          "In the year 589",
+          "In the year 958"
+        ],
+        "answer": "A",
+        "skill": "detail",
+        "why": "The text says that in the year 859 Fatima founded the mosque.",
+        "wrong": {
+          "B": "895 is not the year in the text.",
+          "C": "589 is not the year in the text.",
+          "D": "958 is not the year in the text."
+        }
+      },
+      {
+        "stem": "In the article, the word founded means —",
+        "options": [
+          "closed for good",
+          "taught to read",
+          "started or set up",
+          "moved to a new town"
+        ],
+        "answer": "C",
+        "skill": "vocabulary",
+        "why": "Fatima founded the mosque, which means she started it and it later became a school.",
+        "wrong": {
+          "A": "The school is still open.",
+          "B": "Founding is about starting a place, not teaching reading.",
+          "D": "The mosque stayed in Fez."
+        }
+      },
+      {
+        "stem": "What can you infer from the list of subjects the students learned?",
+        "options": [
+          "The Quran was the only thing taught there",
+          "It was a school only for small children",
+          "Students came there mostly to play games",
+          "The school taught many kinds of subjects"
+        ],
+        "answer": "D",
+        "skill": "inference",
+        "why": "Students learned the Quran, Arabic, law, math, medicine, and the stars, so the school taught many subjects.",
+        "wrong": {
+          "A": "They also learned law, math, medicine, and more.",
+          "B": "A scholar taught them in a ring; it was for learners of many ages.",
+          "C": "People came from far away to gain knowledge."
+        }
+      },
+      {
+        "stem": "Why does the author say Fatima could have kept her wealth for herself?",
+        "options": [
+          "To show that she was very poor",
+          "To show how generous she was",
+          "To explain how her father got rich",
+          "To say her sister kept the money"
+        ],
+        "answer": "B",
+        "skill": "author-purpose",
+        "why": "She could have kept it but built a place to learn instead, which shows she was generous.",
+        "wrong": {
+          "A": "She was rich because she inherited wealth.",
+          "C": "The father's trade is told earlier and is not the point here.",
+          "D": "Her sister also used her share to build a mosque."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "What happened to al-Qarawiyyin in 1963?",
+        "options": [
+          "Fatima founded it for the people of Kairouan",
+          "Its old library was repaired and reopened",
+          "It joined Morocco's modern university system",
+          "It was closed for the first time in history"
+        ],
+        "answer": "C",
+        "skill": "detail",
+        "why": "The text says that in 1963 it became part of Morocco's modern university system.",
+        "wrong": {
+          "A": "Fatima founded it in 859.",
+          "B": "The library was repaired and reopened in 2016.",
+          "D": "The text says it has kept teaching without a break."
+        }
+      },
+      {
+        "stem": "In the article, the word generous most nearly means —",
+        "options": [
+          "afraid to spend any money",
+          "willing to give freely",
+          "good at selling goods",
+          "slow to make plans"
+        ],
+        "answer": "B",
+        "skill": "vocabulary",
+        "why": "The sisters did not spend the money on themselves but gave it to their community, so they were willing to give freely.",
+        "wrong": {
+          "A": "They spent the money on mosques.",
+          "C": "Selling goods was their father's work.",
+          "D": "They decided to build the mosques."
+        }
+      },
+      {
+        "stem": "Why did Fatima and Mariam each build a mosque?",
+        "options": [
+          "They chose to invest in their community",
+          "They wanted to sell goods in a new city",
+          "They needed a larger home to live in Fez",
+          "They had been ordered to do so by a king"
+        ],
+        "answer": "A",
+        "skill": "cause-effect",
+        "why": "The generous sisters decided to invest their fortune in their community.",
+        "wrong": {
+          "B": "Selling goods was their father's business, not their reason.",
+          "C": "The mosques were not homes.",
+          "D": "No king is mentioned."
+        }
+      },
+      {
+        "stem": "How did the mosque change over time?",
+        "options": [
+          "It was a library that later became a market",
+          "It was a market that later became a school",
+          "It was a house that later became a library",
+          "It began for prayer, then grew into a school"
+        ],
+        "answer": "D",
+        "skill": "compare",
+        "why": "The text says it was built for prayer and slowly grew into an important institution of learning.",
+        "wrong": {
+          "A": "The library was added later, but it did not become a market.",
+          "B": "It began as a mosque, not a market.",
+          "C": "It began as a mosque, not a house."
+        }
+      }
+    ]
   }
 }

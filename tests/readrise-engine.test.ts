@@ -325,7 +325,7 @@ describe("🚀 ReadRise: placement, the 5-step routine, the level engine and goa
     assert.equal(await lvl(), ENGINE.min);
   });
 
-  test("goals: weekly goal (75%+ first try, stretch counts), streak, summary + projection", async () => {
+  test("goals: weekly goal (75%+ first try, one credit per article), streak, summary + projection", async () => {
     // pure
     const g = goalStats([at(0), at(1), at(7), at(8), at(14)], 2, at(15));
     assert.deepEqual([g.thisWeek, g.met, g.streak, g.weeksMet], [1, false, 2, 2]);
@@ -340,14 +340,15 @@ describe("🚀 ReadRise: placement, the 5-step routine, the level engine and goa
     const [a, b] = await Promise.all([makeArticle(repo, { code: "G-1" }), makeArticle(repo, { code: "G-2" })]);
     await readArticle(repo, s, a, 8, at(1));
     const st1 = await readArticle(repo, s, a, 6, at(1, 1), true);
-    assert.deepEqual([st1.done.done!.goal.thisWeek, st1.done.done!.goal.met], [2, true], "a stretch at 75%+ counts toward the goal");
+    // round 5: ONE goal credit per article — the first try already earned it, so the stretch adds none
+    assert.deepEqual([st1.done.done!.goal.thisWeek, st1.done.done!.goal.met], [1, false], "one goal credit per article (first try OR stretch)");
     await readArticle(repo, s, b, 3, at(1, 2));
     const sum = (await studentReadRiseSummary(repo, s.studentId!, at(1, 3)))!;
     assert.equal(sum.weeklyGoal, 2);
     assert.equal(sum.articlesDone, 2);
     assert.equal(sum.firstTryAvg, Math.round((100 + 38) / 2), "stretch readings are not in the first-try average");
-    assert.equal(sum.weeksMet, 1);
-    assert.equal(sum.streak, 1);
+    assert.equal(sum.weeksMet, 0);
+    assert.equal(sum.streak, 0);
     assert.equal(typeof sum.growth, "number");
     assert.equal(await studentReadRiseSummary(repo, st[6].studentId!, at(1)), null);
   });

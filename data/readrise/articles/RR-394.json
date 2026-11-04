@@ -614,5 +614,217 @@
       ],
       "modelAnswer": "I disagree that losing again and again means you should give up. Khaled lost to Sara every single time at first, yet he remained determined and analyzed each disappointing loss instead of quitting. Through patient, resilient practice, he began to notice recurring patterns in Sara's strategic approach, and that understanding carried directly into his tournament match. Someone might argue that repeated losing is simply discouraging and a sign to try something else, but Khaled's long, close, hard-fought victory shows that persistence and careful analysis can turn early failure into real improvement."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "What does the school chess club plan?",
+        "options": [
+          "A trip to the sea",
+          "A big match",
+          "A new chess shop",
+          "A class party"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The text says, \"The club plans a big match.\"",
+        "wrong": {
+          "A": "A trip is not mentioned.",
+          "C": "A shop is not mentioned.",
+          "D": "A party is not mentioned."
+        }
+      },
+      {
+        "stem": "In the story, what does \"quit\" mean?",
+        "options": [
+          "Play a game fast",
+          "Win a big prize",
+          "Ask for help",
+          "Stop doing something"
+        ],
+        "answer": "D",
+        "skill": "vocabulary",
+        "why": "Khaled wants to give up, but he does not quit, so he keeps trying.",
+        "wrong": {
+          "A": "Khaled plays slowly and plans, so fast play is not the meaning.",
+          "B": "Winning a prize is not what quit means.",
+          "C": "Asking for help is not what quit means."
+        }
+      },
+      {
+        "stem": "How does Khaled play when he practices?",
+        "options": [
+          "He moves slowly and plans each move",
+          "He moves fast and does not plan",
+          "He plays only with his eyes closed",
+          "He plays without any pieces"
+        ],
+        "answer": "A",
+        "skill": "detail",
+        "why": "The text says he moves his pieces slowly and plans each move.",
+        "wrong": {
+          "B": "He does the opposite: he plans and goes slowly.",
+          "C": "The text says nothing about closing his eyes.",
+          "D": "He uses the king, queen, and other pieces."
+        }
+      },
+      {
+        "stem": "What does Khaled do at the match that helps him win?",
+        "options": [
+          "He plays very fast",
+          "He asks his sister what to do",
+          "He thinks hard about each move",
+          "He quits for a short time"
+        ],
+        "answer": "C",
+        "skill": "cause-effect",
+        "why": "He thinks hard about each move, and then he sees a smart move and wins.",
+        "wrong": {
+          "A": "He thinks hard, so he does not play fast.",
+          "B": "His sister is not at the match in the story.",
+          "D": "He does not quit; he stays and plays."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "How long had Sara played chess?",
+        "options": [
+          "Only for a day",
+          "For about a week",
+          "For a few months",
+          "For years"
+        ],
+        "answer": "D",
+        "skill": "detail",
+        "why": "The text says Sara had played chess for years.",
+        "wrong": {
+          "A": "A day is far too short; she knew far more strategy.",
+          "B": "A week is far too short.",
+          "C": "The text says years, not months."
+        }
+      },
+      {
+        "stem": "In the story, the word \"discouraged\" means —",
+        "options": [
+          "having less hope and confidence",
+          "feeling very proud and happy",
+          "being full of new ideas",
+          "wanting to play more games"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "Khaled lost every game to Sara and felt discouraged, so he wanted to give up.",
+        "wrong": {
+          "B": "He was sad, not proud.",
+          "C": "The sentence is about losing hope, not new ideas.",
+          "D": "He wanted to give up chess, not play more."
+        }
+      },
+      {
+        "stem": "Why did Khaled's games against Sara become closer?",
+        "options": [
+          "Sara decided to stop playing her best chess",
+          "He played far fewer games with Sara each week",
+          "He practiced carefully and planned ahead every day",
+          "He moved to a much easier board"
+        ],
+        "answer": "C",
+        "skill": "cause-effect",
+        "why": "He practiced every day, thought ahead, and tried not to repeat mistakes, so his games became closer.",
+        "wrong": {
+          "A": "Nothing says Sara played worse.",
+          "B": "He practiced every day, not less.",
+          "D": "The text never mentions a different board."
+        }
+      },
+      {
+        "stem": "Why does the author say Khaled \"still usually lost in the end\"?",
+        "options": [
+          "To show that Sara was a very cruel player",
+          "To show that he improved slowly, not all at once",
+          "To show that chess is far too hard to learn",
+          "To show that he should have quit chess"
+        ],
+        "answer": "B",
+        "skill": "author-purpose",
+        "why": "His games were closer, but he still lost, which shows slow improvement over time.",
+        "wrong": {
+          "A": "The text does not call Sara cruel.",
+          "C": "Khaled does learn chess by the end.",
+          "D": "The story rewards him for not quitting."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "How often did Khaled practice chess?",
+        "options": [
+          "Only on weekends",
+          "Once a month",
+          "Every single day after school",
+          "Only before the tournament"
+        ],
+        "answer": "C",
+        "skill": "detail",
+        "why": "The text says he practiced every single day after school, refusing to skip even one session.",
+        "wrong": {
+          "A": "He practiced on school days, not only weekends.",
+          "B": "Once a month is far too rarely for the text.",
+          "D": "He practiced long before the tournament was announced."
+        }
+      },
+      {
+        "stem": "In the story, the word \"analyze\" most nearly means —",
+        "options": [
+          "to forget it quickly",
+          "to study closely to understand",
+          "to throw away",
+          "to play without much thinking"
+        ],
+        "answer": "B",
+        "skill": "vocabulary",
+        "why": "Khaled looked at the board after each loss and asked which move was a mistake, so he examined it closely.",
+        "wrong": {
+          "A": "He remembered his losses to learn.",
+          "C": "He kept his losses in mind, not threw them away.",
+          "D": "He thought carefully about every move."
+        }
+      },
+      {
+        "stem": "Why did Khaled sign up for the tournament even though he felt nervous?",
+        "options": [
+          "He was determined to test his skills",
+          "His older sister made him join",
+          "He knew he would win very easily",
+          "The school gave him a prize for joining"
+        ],
+        "answer": "A",
+        "skill": "cause-effect",
+        "why": "The text says he signed up right away, determined to test his improving skills.",
+        "wrong": {
+          "B": "The text does not say Sara made him.",
+          "C": "He felt nervous, so he did not expect an easy win.",
+          "D": "No prize for joining is mentioned."
+        }
+      },
+      {
+        "stem": "What does the sentence about Khaled waiting, \"determined not to let the opportunity slip away,\" show?",
+        "options": [
+          "He was too scared to move any piece at all",
+          "He forgot what to do next in the long game",
+          "He wanted the long game to end soon",
+          "He stayed patient and focused at a key moment"
+        ],
+        "answer": "D",
+        "skill": "inference",
+        "why": "He noticed a clever move and waited carefully, which shows patience and focus.",
+        "wrong": {
+          "A": "He made the move carefully, so he was not frozen.",
+          "B": "He knew the clever move, so he did not forget.",
+          "C": "He kept playing through a long, close match."
+        }
+      }
+    ]
   }
 }

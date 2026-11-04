@@ -614,5 +614,217 @@
       ],
       "modelAnswer": "I think studying underwater volcanoes matters because they constantly reshape the planet and can also threaten people who live far away. For instance, the article explains that magma rising between separating tectonic plates builds new seafloor along a ridge that circles the entire Earth, the same process that created the Hawaiian Islands and the island of Surtsey near Iceland. It also matters because a shallow eruption, like the 2022 Hunga Tonga explosion, can unleash a tsunami capable of crossing an entire ocean. Finally, scientists use a submersible to reach hydrothermal vents, where they have found tube worms and clams thriving in total darkness, a discovery that could change how we think about where life can survive."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "What do the round lumps of lava look like?",
+        "options": [
+          "Big rocks",
+          "Big pillows",
+          "Big eggs",
+          "Big stars"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The text says the lumps look like big pillows.",
+        "wrong": {
+          "A": "Rocks are not mentioned.",
+          "C": "Eggs are not mentioned.",
+          "D": "Stars are not mentioned."
+        }
+      },
+      {
+        "stem": "What happens to the magma that comes up in a crack in the sea floor?",
+        "options": [
+          "It turns into black smoke",
+          "It flows up into the sky",
+          "It cools and makes new floor",
+          "It makes the sea very cold"
+        ],
+        "answer": "C",
+        "skill": "cause-effect",
+        "why": "The text says the magma cools and makes new floor.",
+        "wrong": {
+          "A": "Black smoke comes from vents.",
+          "B": "The magma stays under the sea.",
+          "D": "The sea is already cold; the magma does not make it cold."
+        }
+      },
+      {
+        "stem": "In the article, the word island means —",
+        "options": [
+          "a deep hole in the sea",
+          "a hot rock under the ground",
+          "a cloud of gray ash",
+          "land with water all around"
+        ],
+        "answer": "D",
+        "skill": "vocabulary",
+        "why": "The volcanoes grow until they rise out of the sea and make an island, which is land with water all around it.",
+        "wrong": {
+          "A": "An island rises up; it is not a hole.",
+          "B": "Hot rock under the ground is magma.",
+          "C": "Ash is not land."
+        }
+      },
+      {
+        "stem": "Why must an island volcano grow and grow?",
+        "options": [
+          "To rise above the surface of the sea",
+          "To cool down all of the hot water",
+          "To make more room for the worms and crabs",
+          "To fill up the cracks in the Red Sea"
+        ],
+        "answer": "A",
+        "skill": "inference",
+        "why": "Some grow and grow until at last they poke out of the sea and make an island.",
+        "wrong": {
+          "B": "The sea cools the lava, not the other way.",
+          "C": "Worms live near vents, not in the volcano's growth.",
+          "D": "The Red Sea is a different crack."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "Which animals live around the vents in total darkness?",
+        "options": [
+          "Sharks, whales, and dolphins",
+          "Seals, turtles, and sea birds",
+          "Eels, jellyfish, and squid",
+          "Tube worms, crabs, and clams"
+        ],
+        "answer": "D",
+        "skill": "detail",
+        "why": "The text says tube worms, crabs, and clams live around the vents in total darkness.",
+        "wrong": {
+          "A": "Sharks and whales are not mentioned.",
+          "B": "Seals and turtles are not mentioned.",
+          "C": "Eels and jellyfish are not mentioned."
+        }
+      },
+      {
+        "stem": "Why does cold water make lava form round lumps?",
+        "options": [
+          "It cools the lava very quickly",
+          "It makes the lava much hotter",
+          "It lifts the lava to the surface",
+          "It breaks the lava into dust"
+        ],
+        "answer": "A",
+        "skill": "cause-effect",
+        "why": "The text says the cold water cools the lava so fast that it forms round lumps called pillow lava.",
+        "wrong": {
+          "B": "Cold water cools lava, not heats it.",
+          "C": "Lifting is not mentioned.",
+          "D": "Dust is not mentioned."
+        }
+      },
+      {
+        "stem": "In the article, the word explosive describes an eruption that —",
+        "options": [
+          "is very cold and calm",
+          "is very quiet and gentle",
+          "blows up with a bang",
+          "moves very slowly down"
+        ],
+        "answer": "C",
+        "skill": "vocabulary",
+        "why": "The text says most deep eruptions are quiet, not explosive, so explosive means loud and violent.",
+        "wrong": {
+          "A": "Cold is not the idea.",
+          "B": "Quiet is the opposite.",
+          "D": "Speed is not the idea."
+        }
+      },
+      {
+        "stem": "What happens right after magma rises into the gap in the seafloor?",
+        "options": [
+          "The ridge sinks into the gap",
+          "It cools and becomes new seafloor",
+          "It pours out of vents as black smoke",
+          "It rises up to form a new island"
+        ],
+        "answer": "B",
+        "skill": "sequence",
+        "why": "The text says magma rises into the gap, and then it cools and becomes new seafloor.",
+        "wrong": {
+          "A": "The ridge is made by this process.",
+          "C": "Black smoke comes from vents.",
+          "D": "Islands form from seamounts."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "How fast do the tectonic plates move?",
+        "options": [
+          "Faster than a car",
+          "In sudden jumps each day",
+          "About as fast as a wave",
+          "Extremely slowly"
+        ],
+        "answer": "D",
+        "skill": "detail",
+        "why": "The text says the plates move extremely slowly.",
+        "wrong": {
+          "A": "The plates are not described as fast.",
+          "B": "Jumps each day are not mentioned.",
+          "C": "Waves are not mentioned in this way."
+        }
+      },
+      {
+        "stem": "What happens to magma that rises into the gap between two separating plates?",
+        "options": [
+          "It is carried away by a tsunami",
+          "It turns into a tall mountain at once",
+          "It cools and hardens into new seafloor",
+          "It stays soft forever"
+        ],
+        "answer": "C",
+        "skill": "cause-effect",
+        "why": "The text says magma rises into the widening gap, where it cools and hardens into brand-new seafloor.",
+        "wrong": {
+          "A": "The tsunami is linked to Hunga Tonga.",
+          "B": "The text says it forms a ridge, not a mountain at once.",
+          "D": "The text says it cools and hardens."
+        }
+      },
+      {
+        "stem": "The article says a submersible is built to withstand crushing pressure. What does withstand mean?",
+        "options": [
+          "to sink into",
+          "to be broken apart by",
+          "to make larger",
+          "to hold up against"
+        ],
+        "answer": "D",
+        "skill": "vocabulary",
+        "why": "The vessel is built so the deep-sea pressure does not crush it, so withstand means to hold up against.",
+        "wrong": {
+          "A": "The vessel dives, but withstand is about not being crushed.",
+          "B": "Being broken is the opposite of withstanding.",
+          "C": "The vessel does not make the pressure larger."
+        }
+      },
+      {
+        "stem": "What can you infer from the fact that the Red Sea lies above a spreading boundary?",
+        "options": [
+          "The Red Sea is full of volcanoes",
+          "The Red Sea will soon become dry",
+          "Two plates under it are moving apart",
+          "The Red Sea has no fish in it"
+        ],
+        "answer": "C",
+        "skill": "inference",
+        "why": "A spreading boundary is where two plates separate, so the seafloor there is widening.",
+        "wrong": {
+          "A": "The text does not say it is full of volcanoes.",
+          "B": "The sea becomes wider, not dry.",
+          "D": "Fish are not mentioned."
+        }
+      }
+    ]
   }
 }

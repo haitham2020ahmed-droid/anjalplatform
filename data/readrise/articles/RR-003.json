@@ -614,5 +614,217 @@
       ],
       "modelAnswer": "I agree that the date palm deserves to be called a symbol of generosity and endurance, because the evidence in the article supports both qualities. For endurance, the tree is remarkably adapted to arid regions, surviving scorching summer temperatures as long as its deep roots can reach underground moisture, which shows how tough it is even in the harshest desert conditions. For generosity, people have learned to use nearly every part of the palm, from weaving its fronds into baskets to using its trunk as roof beams, and its dates provide abundant, nutritious energy that many families rely on, especially to break their fast during Ramadan. Because farmers have cultivated this tree for thousands of years and depend on its generosity to this day, I think the description fits perfectly."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "When do the dates get ripe?",
+        "options": [
+          "In early spring",
+          "In late summer",
+          "In the winter cold",
+          "In the rainy season"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The text says the dates get ripe in late summer.",
+        "wrong": {
+          "A": "Spring is not when dates get ripe.",
+          "C": "The text does not mention winter.",
+          "D": "The text does not mention a rainy season."
+        }
+      },
+      {
+        "stem": "Why do date palms have roots that go deep?",
+        "options": [
+          "To hold up the big leaves",
+          "To make the dates sweet",
+          "To keep the tree cool",
+          "To find water in the ground"
+        ],
+        "answer": "D",
+        "skill": "cause-effect",
+        "why": "The text says the roots go deep so the palm can find water deep in the ground.",
+        "wrong": {
+          "A": "The text does not say roots hold up the leaves.",
+          "B": "Sweetness comes from the dates, not the roots.",
+          "C": "Cooling is not mentioned as a reason."
+        }
+      },
+      {
+        "stem": "In this article, what does the word ripe mean?",
+        "options": [
+          "Soft, sweet and ready to pick",
+          "Hard and green on the tree",
+          "Dry and ready for roofs",
+          "Small and still growing"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "The text says the ripe dates turn soft and sweet and then it is time to pick them.",
+        "wrong": {
+          "B": "Ripe dates are soft, not hard.",
+          "C": "Roofs are made from fronds, not dates.",
+          "D": "Ripe dates are ready, not still growing."
+        }
+      },
+      {
+        "stem": "What kind of land do date palms like?",
+        "options": [
+          "Cold, wet land with snow",
+          "Dark land with lots of shade",
+          "Hot, dry land with lots of sun",
+          "Land under the sea"
+        ],
+        "answer": "C",
+        "skill": "detail",
+        "why": "The text says date palms like hot, dry land and lots of sun.",
+        "wrong": {
+          "A": "Palms like hot land, not cold.",
+          "B": "They like sun, not shade.",
+          "D": "Palms grow on land with deep roots, not under the sea."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "How did builders use palm trunks in the past?",
+        "options": [
+          "As ropes for tying roofs",
+          "As beams to hold up roofs",
+          "As baskets for the dates",
+          "As fans to cool the house"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The article says builders used palm trunks as beams to hold up roofs.",
+        "wrong": {
+          "A": "Rope is made from the fibers around the trunk.",
+          "C": "Baskets are woven from fronds.",
+          "D": "Fans are woven from fronds."
+        }
+      },
+      {
+        "stem": "In this article, what is an oasis?",
+        "options": [
+          "A tall palm with feathery leaves",
+          "A green place in the desert with water",
+          "A farm where only male palms grow",
+          "A road that crosses the sand dunes"
+        ],
+        "answer": "B",
+        "skill": "vocabulary",
+        "why": "The article describes an oasis as a green area in the desert where water reaches or lies near the surface.",
+        "wrong": {
+          "A": "That describes the palm tree, not the oasis.",
+          "C": "The article does not describe such a farm.",
+          "D": "An oasis is a place with water, not a road."
+        }
+      },
+      {
+        "stem": "Why are dates a good food for families to eat when they break the fast?",
+        "options": [
+          "Their sugars give quick energy.",
+          "Their fibers can be made into rope.",
+          "They are picked in the spring.",
+          "They grow only in Al-Ahsa."
+        ],
+        "answer": "A",
+        "skill": "inference",
+        "why": "The article says the natural sugars in dates give quick energy, which helps after a fast.",
+        "wrong": {
+          "B": "Rope is made from the trunk fibers, not from the fruit.",
+          "C": "Dates are picked in late summer and autumn.",
+          "D": "Other regions, such as Al-Qassim, are also famous."
+        }
+      },
+      {
+        "stem": "When do farmers climb the trunks to place the male flowers?",
+        "options": [
+          "In the winter",
+          "In late summer",
+          "In spring",
+          "In the autumn"
+        ],
+        "answer": "C",
+        "skill": "detail",
+        "why": "The article says farmers climb the tall trunks in spring to place strands of male flowers among the female flowers.",
+        "wrong": {
+          "A": "Winter is not mentioned.",
+          "B": "Late summer is when dates are picked.",
+          "D": "Autumn is part of the harvest time."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "The article says the wind rarely carries enough pollen for an abundant crop. What does abundant mean?",
+        "options": [
+          "Large and plentiful",
+          "Small and weak",
+          "Late and slow",
+          "Dry and bitter"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "Workers must add pollen by hand because wind alone rarely gives a big crop, so abundant means large and plentiful.",
+        "wrong": {
+          "B": "A small, weak crop is the opposite of what growers want.",
+          "C": "The word is about the size of the crop, not its timing.",
+          "D": "The word is about how much fruit grows, not its taste."
+        }
+      },
+      {
+        "stem": "According to the article, what can the hard seeds of the date be used for?",
+        "options": [
+          "Twisting into strong rope",
+          "Weaving into baskets",
+          "Feeding livestock",
+          "Holding up roofs"
+        ],
+        "answer": "C",
+        "skill": "detail",
+        "why": "The article says the hard seeds can be ground to feed livestock.",
+        "wrong": {
+          "A": "Rope comes from the coarse fibers around the trunk.",
+          "B": "Baskets are woven from fronds.",
+          "D": "Roofs are held up with palm trunks."
+        }
+      },
+      {
+        "stem": "The article names Khalas, Sukkari, and Ajwa. What can you infer from this?",
+        "options": [
+          "Saudi Arabia grows many kinds of dates.",
+          "All dates taste exactly the same.",
+          "These dates grow only in Madinah.",
+          "These dates are not sweet or soft."
+        ],
+        "answer": "A",
+        "skill": "inference",
+        "why": "The article calls them distinctive varieties grown in Saudi Arabia, so many kinds exist.",
+        "wrong": {
+          "B": "Calling them distinct varieties suggests they differ.",
+          "C": "The article lists several regions, not only Madinah.",
+          "D": "The article says ripe dates become soft and sweet."
+        }
+      },
+      {
+        "stem": "Why does the second paragraph use the word Nevertheless?",
+        "options": [
+          "To show that palms like cool shade",
+          "To show that water is not needed",
+          "To show that palms grow slowly",
+          "To show that palms still need water"
+        ],
+        "answer": "D",
+        "skill": "text-structure",
+        "why": "The word links two ideas: palms love heat, but nevertheless they cannot survive without water.",
+        "wrong": {
+          "A": "The paragraph says palms need intense sunlight.",
+          "B": "The next sentence says palms need dependable water.",
+          "C": "Growth speed is not discussed."
+        }
+      }
+    ]
   }
 }

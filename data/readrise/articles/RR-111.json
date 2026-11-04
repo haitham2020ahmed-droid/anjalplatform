@@ -614,5 +614,217 @@
       ],
       "modelAnswer": "I think the owl's silent flight is its most important adaptation for hunting at night, because the soft, fringed edges of its feathers muffle the sound of rushing air, letting this stealthy predator approach its prey completely undetected. This matters even more than the owl's unusual neck, which contains twice as many vertebrae as a human's and lets the head rotate almost all the way around to make up for eyes that cannot move in their sockets. That flexible neck helps the owl locate prey by sight and sound, but silent flight is what actually decides whether the final strike succeeds, since even the sharpest hearing is wasted if the mouse hears the owl coming. Without that silent approach, the owl could never get close enough to later regurgitate a pellet of the bones and fur it cannot digest."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "Which of these foods does an owl eat?",
+        "options": [
+          "Grass",
+          "Seeds",
+          "Mice",
+          "Fruit"
+        ],
+        "answer": "C",
+        "skill": "detail",
+        "why": "The text says owls eat mice, bugs, and small birds.",
+        "wrong": {
+          "A": "Grass is not on the owl's food list.",
+          "B": "Seeds are not on the owl's food list.",
+          "D": "Fruit is not on the owl's food list."
+        }
+      },
+      {
+        "stem": "Why can some owls find a mouse in the dark without seeing it?",
+        "options": [
+          "They hear well and find it by sound.",
+          "They fly very fast over the farm.",
+          "They look for the mouse in a pellet.",
+          "They turn their eyes to look around."
+        ],
+        "answer": "A",
+        "skill": "cause-effect",
+        "why": "The text says owls hear well and some can find a mouse by sound.",
+        "wrong": {
+          "B": "Speed is not given as the reason.",
+          "C": "A pellet is what an owl spits up after it eats.",
+          "D": "The text says an owl's eyes can not move."
+        }
+      },
+      {
+        "stem": "What does an owl do after it gulps its prey whole?",
+        "options": [
+          "It sleeps for the whole night.",
+          "It grabs it with its claws.",
+          "It flies to the farm to eat more.",
+          "It spits up a small pellet."
+        ],
+        "answer": "D",
+        "skill": "sequence",
+        "why": "The text says the owl can not use the bones and fur, so it spits up a small ball called a pellet.",
+        "wrong": {
+          "A": "The text says owls hunt at night and sleep in the day.",
+          "B": "Grabbing the prey with claws happens before it eats.",
+          "C": "The text does not say that the owl goes to the farm to eat more."
+        }
+      },
+      {
+        "stem": "The text says owls swallow small prey whole. What does whole mean here?",
+        "options": [
+          "In small bits",
+          "In one piece",
+          "Very slowly",
+          "After cooking"
+        ],
+        "answer": "B",
+        "skill": "vocabulary",
+        "why": "Owls do not tear small prey into bits; they swallow it whole, in one piece.",
+        "wrong": {
+          "A": "Whole is the opposite of in small bits.",
+          "C": "The word is not about speed.",
+          "D": "Owls do not cook their food."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "What are an owl's sharp, curved claws called?",
+        "options": [
+          "Pellets",
+          "Talons",
+          "Species",
+          "Sockets"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The text says the owl grabs the mouse with its sharp, curved claws, called talons.",
+        "wrong": {
+          "A": "A pellet is what an owl coughs up.",
+          "C": "Species means kinds of owls.",
+          "D": "Sockets are where the eyes sit."
+        }
+      },
+      {
+        "stem": "Why does the mouse not hear the owl until it is too late?",
+        "options": [
+          "The owl flies very high up in the dark night sky.",
+          "The mouse is busy looking for food on the ground.",
+          "The owl calls out in a very soft and quiet voice.",
+          "The soft, fringed edges of the wings quiet the air."
+        ],
+        "answer": "D",
+        "skill": "cause-effect",
+        "why": "The text says the soft, fringed edges of the wing feathers quiet the rush of air.",
+        "wrong": {
+          "A": "The text does not say that the owl flies high.",
+          "B": "The reason given is the owl's quiet wings, not what the mouse is doing.",
+          "C": "The text says the owl flies silently, not that it calls softly."
+        }
+      },
+      {
+        "stem": "A scientist finds mouse fur and tiny bones in a pellet. What does this show?",
+        "options": [
+          "The owl ate a mouse not long before.",
+          "The owl hunts only on warm nights.",
+          "The owl is a young bird of prey.",
+          "The mouse was very hard to catch."
+        ],
+        "answer": "A",
+        "skill": "inference",
+        "why": "The text says owls swallow prey whole and cough up the bones and fur a few hours later, so the pellet shows what the owl ate.",
+        "wrong": {
+          "B": "Warm nights are not part of the text.",
+          "C": "A pellet does not show the age of the owl.",
+          "D": "The pellet cannot tell how hard the catch was."
+        }
+      },
+      {
+        "stem": "The article says owls cannot digest bones and fur. What does digest mean?",
+        "options": [
+          "To grab with claws",
+          "To hear from far away",
+          "To break food down in the body",
+          "To spit out in a small ball"
+        ],
+        "answer": "C",
+        "skill": "vocabulary",
+        "why": "The owl can not use the bones and fur, so it coughs them up; digest means to break food down inside the body.",
+        "wrong": {
+          "A": "Grabbing is done with talons.",
+          "B": "Hearing is not related to eating.",
+          "D": "The spitting out is what happens because they can not digest it."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "About how many degrees can an owl turn its head?",
+        "options": [
+          "180",
+          "90",
+          "360",
+          "270"
+        ],
+        "answer": "D",
+        "skill": "detail",
+        "why": "The text says an owl can turn its head up to about 270 degrees.",
+        "wrong": {
+          "A": "The text says 270, not 180.",
+          "B": "The text says 270, not 90.",
+          "C": "The text says 270, not a full circle of 360."
+        }
+      },
+      {
+        "stem": "Why can an owl fly almost silently?",
+        "options": [
+          "It flaps its wings very slowly and rarely.",
+          "It glides over the desert at great heights.",
+          "Soft, fringed feather edges reduce the noise of air.",
+          "Its facial disc blocks the sound of the wings."
+        ],
+        "answer": "C",
+        "skill": "cause-effect",
+        "why": "The text says the soft, fringed edges of its wing feathers reduce the turbulent noise of rushing air.",
+        "wrong": {
+          "A": "The text does not say it flaps slowly.",
+          "B": "Flying high is not given as the reason.",
+          "D": "The facial disc collects sound for hearing; it does not block wing noise."
+        }
+      },
+      {
+        "stem": "In the text, what does the word regurgitate mean?",
+        "options": [
+          "To bring back up",
+          "To carry to a nest",
+          "To hide in a tree",
+          "To catch in the dark"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "The owl can not digest bones and fur, so it brings them back up a few hours later in a pellet.",
+        "wrong": {
+          "B": "No nest is mentioned.",
+          "C": "Hiding in a tree is how owls rest during the day, not how they make a pellet.",
+          "D": "Catching prey happens before the pellet."
+        }
+      },
+      {
+        "stem": "Why are many owls' feathers mottled brown and grey, most likely?",
+        "options": [
+          "To keep warm during cold desert nights",
+          "To blend in with the trees where they rest",
+          "To help them fly without making any sound",
+          "To help them hear from a longer distance"
+        ],
+        "answer": "B",
+        "skill": "inference",
+        "why": "The text says many owls rest in trees by day, where the patterns of their feathers provide effective camouflage.",
+        "wrong": {
+          "A": "The text does not link the color to warmth.",
+          "C": "Soft, fringed edges, not color, make the flight silent.",
+          "D": "The facial disc and ears help with hearing."
+        }
+      }
+    ]
   }
 }

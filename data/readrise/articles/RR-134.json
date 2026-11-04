@@ -614,5 +614,217 @@
       ],
       "modelAnswer": "The House of Wisdom brought scholars from many cultures together, which helped preserve old knowledge and also create new discoveries. First, scholars translated ancient manuscripts from Greece, Persia, and India into Arabic, which let ideas from different civilizations combine in one place. Second, al-Khwarizmi used this shared foundation of mathematics to write a book that gave us the word algebra, and his name is also the origin of the word algorithm. Third, other scholars studied astronomy and tried to measure the size of the Earth, building on knowledge gathered from many lands. Even though an invading army destroyed many books in 1258, the legacy of this collaboration survived and was later translated again in Europe."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "Where was the city of Baghdad?",
+        "options": [
+          "On a high hill in the cold",
+          "Beside a wide river",
+          "On an island at sea",
+          "In the middle of a forest"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The text says Baghdad was by a wide river.",
+        "wrong": {
+          "A": "The text says the sun was hot.",
+          "C": "The city was by a river, not on an island.",
+          "D": "The text does not mention a forest."
+        }
+      },
+      {
+        "stem": "What did some scholars make maps of?",
+        "options": [
+          "The sea",
+          "The desert roads",
+          "The old libraries",
+          "The sky"
+        ],
+        "answer": "D",
+        "skill": "detail",
+        "why": "The text says some scholars looked at the stars and made maps of the sky.",
+        "wrong": {
+          "A": "Sea maps are not mentioned.",
+          "B": "Road maps are not mentioned.",
+          "C": "Library maps are not mentioned."
+        }
+      },
+      {
+        "stem": "In the article, a scholar is —",
+        "options": [
+          "a person who studies and learns a lot",
+          "a person who sells paper at a market",
+          "a person who rides in an army",
+          "a person who draws maps of roads"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "Scholars read books, translated them, and had new thoughts, so a scholar is someone who studies a lot.",
+        "wrong": {
+          "B": "Scholars did not sell paper.",
+          "C": "The army was the group that took the city.",
+          "D": "Scholars made maps of the sky, not of roads."
+        }
+      },
+      {
+        "stem": "Why were lots of books lost in 1258?",
+        "options": [
+          "Paper was too cheap to keep",
+          "The scholars hid them in a cave",
+          "An army took over the city",
+          "The library ran out of room"
+        ],
+        "answer": "C",
+        "skill": "cause-effect",
+        "why": "The text says an army took the city in 1258 and lots of books were lost.",
+        "wrong": {
+          "A": "Cheap paper helped make more books.",
+          "B": "The text does not say scholars hid the books.",
+          "D": "The text does not mention a lack of room."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "From which lands did scholars gather old books?",
+        "options": [
+          "Egypt, Spain, and Rome",
+          "China, Japan, and Korea",
+          "Greece, Persia, and India",
+          "Brazil, Peru, and Chile"
+        ],
+        "answer": "C",
+        "skill": "detail",
+        "why": "The text says scholars gathered old books from Greece, Persia, and India.",
+        "wrong": {
+          "A": "Those lands are not named in the text.",
+          "B": "Those lands are not named in the text.",
+          "D": "Those lands are not named in the text."
+        }
+      },
+      {
+        "stem": "In the article, astronomy is —",
+        "options": [
+          "the study of old animal skins",
+          "the science of stars and planets",
+          "the art of writing with the hand",
+          "the skill of measuring paper"
+        ],
+        "answer": "B",
+        "skill": "vocabulary",
+        "why": "The text says astronomy is the science of the stars and planets.",
+        "wrong": {
+          "A": "Animal skins were used before paper.",
+          "C": "Writing by hand is how manuscripts were made.",
+          "D": "Measuring paper is not mentioned."
+        }
+      },
+      {
+        "stem": "What happened to the House of Wisdom's ideas after 1258?",
+        "options": [
+          "They were forgotten by every scholar",
+          "They were burned with all the books",
+          "They stayed locked inside Baghdad",
+          "They were later translated in Europe"
+        ],
+        "answer": "D",
+        "skill": "cause-effect",
+        "why": "The text says the ideas had already spread far and wide and were later translated again in Europe.",
+        "wrong": {
+          "A": "The text says we still use the ideas today.",
+          "B": "The books were lost, but the ideas had spread.",
+          "C": "The ideas had spread far and wide."
+        }
+      },
+      {
+        "stem": "Why did students come to Baghdad from many lands?",
+        "options": [
+          "It was a great center of learning",
+          "It was the smallest city on Earth",
+          "It had no rulers and no rules",
+          "It stood on the shore of the sea"
+        ],
+        "answer": "A",
+        "skill": "inference",
+        "why": "Baghdad had the House of Wisdom, a great library and center of learning, so students came to study.",
+        "wrong": {
+          "B": "The text says it was one of the largest cities.",
+          "C": "The text says it was ruled by a caliph.",
+          "D": "The text says it stood beside the Tigris River."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "In which year was Baghdad founded?",
+        "options": [
+          "622",
+          "762",
+          "850",
+          "1258"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The text says Baghdad was founded in 762 as the capital of the Abbasid caliphs.",
+        "wrong": {
+          "A": "622 is not in the article.",
+          "C": "850 is not in the article.",
+          "D": "1258 is when the Mongol army captured the city."
+        }
+      },
+      {
+        "stem": "Scholars in Baghdad collected ancient manuscripts. What are manuscripts?",
+        "options": [
+          "long trips to faraway lands",
+          "buildings made for study",
+          "machines that work alone",
+          "old books written by hand"
+        ],
+        "answer": "D",
+        "skill": "vocabulary",
+        "why": "The scholars collected manuscripts from Greece, Persia, and India and translated them, so manuscripts are old handwritten books.",
+        "wrong": {
+          "A": "Trips are not something you translate.",
+          "B": "The House of Wisdom was a building; manuscripts were kept in it.",
+          "C": "Machines are a different part of the article."
+        }
+      },
+      {
+        "stem": "What was the result when the ideas were translated into Latin in Europe?",
+        "options": [
+          "They helped spark new learning",
+          "They were soon lost forever",
+          "They were banned by the rulers",
+          "They ended the Abbasid rule"
+        ],
+        "answer": "A",
+        "skill": "cause-effect",
+        "why": "The text says the Latin translations helped spark new learning in Europe.",
+        "wrong": {
+          "B": "The text says the legacy continues today.",
+          "C": "The text does not mention a ban.",
+          "D": "The text does not link Latin translation to Abbasid rule."
+        }
+      },
+      {
+        "stem": "Why did the ideas survive even after the books were destroyed in 1258?",
+        "options": [
+          "The soldiers kept copies of the books",
+          "The scholars moved to a new library",
+          "They had already spread to other places",
+          "Paper cannot be burned in a fire"
+        ],
+        "answer": "C",
+        "skill": "inference",
+        "why": "The text says the ideas had already traveled widely before 1258 and were later translated in Europe.",
+        "wrong": {
+          "A": "The text says the books were destroyed.",
+          "B": "The text does not mention a new library.",
+          "D": "The text says countless books were destroyed."
+        }
+      }
+    ]
   }
 }

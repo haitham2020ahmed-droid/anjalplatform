@@ -614,5 +614,217 @@
       ],
       "modelAnswer": "These measures matter because ordinary eating habits from Earth would be genuinely dangerous aboard a floating spacecraft. The article explains that a single floating crumb or grain of salt could drift into delicate equipment and cause costly damage, which is why food is dehydrated, thermostabilized, or otherwise specially packaged, and why loose seasonings are dissolved into liquid form instead. Careful habits, such as keeping a spoon ready and strapping down food trays, further reduce the risk of stray food drifting away mid-meal. Even flavor has to be carefully considered, since shifting body fluids dull astronauts' senses, which is part of why many crew members prefer bold, spicy flavors and why dietitians test menus so thoroughly before launch. Together, these engineered solutions make it possible to eat safely and enjoyably during a long mission far from Earth."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "Why can crumbs be a problem in space?",
+        "options": [
+          "They taste bad to the crew",
+          "They are too hard to chew",
+          "They could get into a machine",
+          "They make the food go dry"
+        ],
+        "answer": "C",
+        "skill": "cause-effect",
+        "why": "The text says crumbs float and could get into a machine.",
+        "wrong": {
+          "A": "The text does not say crumbs taste bad.",
+          "B": "Chewing is not mentioned as a problem.",
+          "D": "The text does not say crumbs dry out food."
+        }
+      },
+      {
+        "stem": "Read: \"Then it is sealed.\" What does sealed mean here?",
+        "options": [
+          "Closed up tightly",
+          "Sold in a shop",
+          "Thrown away",
+          "Washed with water"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "The cooked food is closed tightly in a pack so it stays safe a long time.",
+        "wrong": {
+          "B": "Nothing in the sentence is about selling.",
+          "C": "The food is kept, not thrown away.",
+          "D": "The text does not say the food is washed."
+        }
+      },
+      {
+        "stem": "When do people plan the meals for a space trip?",
+        "options": [
+          "On the last day",
+          "While in space",
+          "In the middle of the trip",
+          "Months ahead"
+        ],
+        "answer": "D",
+        "skill": "detail",
+        "why": "The text says people plan meals months ahead.",
+        "wrong": {
+          "A": "The text says months ahead, not the last day.",
+          "B": "The meals are planned before the trip.",
+          "C": "The text does not say planning happens mid-trip."
+        }
+      },
+      {
+        "stem": "How is cooked space food kept safe for a long time?",
+        "options": [
+          "It is kept in a cold fridge",
+          "It is sealed after it is cooked",
+          "It is eaten right away",
+          "It is mixed with water"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The text says other food is cooked first, then sealed, and it stays safe a long time.",
+        "wrong": {
+          "A": "The text does not mention a fridge for this food.",
+          "C": "The food stays safe a long time, so it need not be eaten right away.",
+          "D": "Adding water is for dried food, not cooked food."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "Which kind of food needs no special prep at all?",
+        "options": [
+          "Dehydrated meals",
+          "Nuts",
+          "Thermostabilized pouches",
+          "Liquid salt"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The text says a few foods, such as nuts, need no special prep.",
+        "wrong": {
+          "A": "Dehydrated food needs water added.",
+          "C": "Thermostabilized food is cooked and sealed first.",
+          "D": "Salt is turned into a liquid, so it is prepared."
+        }
+      },
+      {
+        "stem": "In the text, what does the word sensitive mean?",
+        "options": [
+          "Easily harmed",
+          "Very old",
+          "Strong and heavy",
+          "Easy to see"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "A small crumb can hurt the equipment, which shows it is easily harmed.",
+        "wrong": {
+          "B": "Age is not the point of the sentence.",
+          "C": "If it were strong, a crumb could not damage it.",
+          "D": "The sentence is not about seeing the equipment."
+        }
+      },
+      {
+        "stem": "Why do some crew members end up liking spicy dishes and hot sauce?",
+        "options": [
+          "They want to save water",
+          "They have to cook the food",
+          "They miss eating nuts",
+          "Spicy food has more flavor"
+        ],
+        "answer": "D",
+        "skill": "cause-effect",
+        "why": "Food loses flavor in orbit, so crew members turn to spicy food that has a stronger taste.",
+        "wrong": {
+          "A": "Saving water is not mentioned as a reason.",
+          "B": "Hot sauce is not about cooking.",
+          "C": "Nuts are not linked to spicy food in the text."
+        }
+      },
+      {
+        "stem": "Why did the Saudi astronauts most likely bring dates and Arabic coffee to the station?",
+        "options": [
+          "To use them in a science experiment",
+          "To sell them to the crew",
+          "To feed the plants on board",
+          "To share Saudi food with the crew"
+        ],
+        "answer": "D",
+        "skill": "inference",
+        "why": "The article says they carried dates and Arabic coffee and shared them with the crew, so they wanted to share food from home.",
+        "wrong": {
+          "A": "The article does not say the food was used in an experiment.",
+          "B": "They shared the food; they did not sell it.",
+          "C": "The food was for people, not plants."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "Why is damage to equipment especially serious on a spacecraft?",
+        "options": [
+          "It is hard to repair so far from home",
+          "The crew has no time for any work",
+          "Equipment there breaks very easily",
+          "Repairs cost less than on Earth"
+        ],
+        "answer": "A",
+        "skill": "cause-effect",
+        "why": "The text says the instruments are hard to repair so far from home.",
+        "wrong": {
+          "B": "The text does not say the crew has no time.",
+          "C": "The text does not say equipment breaks easily in space.",
+          "D": "The text says the damage is costly."
+        }
+      },
+      {
+        "stem": "In the text, what does the word perishable mean?",
+        "options": [
+          "Very sweet",
+          "Hard to carry",
+          "Likely to spoil",
+          "Packed in a pouch"
+        ],
+        "answer": "C",
+        "skill": "vocabulary",
+        "why": "Fruit that must be eaten quickly is fruit that spoils soon.",
+        "wrong": {
+          "A": "The text does not talk about sweetness.",
+          "B": "Weight is not the point of the sentence.",
+          "D": "The fruit is described as natural food, not as pouch food."
+        }
+      },
+      {
+        "stem": "How do astronauts get water into dehydrated food?",
+        "options": [
+          "They drop the food in a pool",
+          "They inject water into the pouch",
+          "They hold the food over steam",
+          "They wait for it to melt"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The text says astronauts rehydrate dehydrated food by injecting hot or cold water into the sealed pouch.",
+        "wrong": {
+          "A": "No pool is mentioned for food.",
+          "C": "Steam is not mentioned.",
+          "D": "Dehydrated food is dry, so it has nothing to melt."
+        }
+      },
+      {
+        "stem": "Why do many crew members choose intensely spicy dishes?",
+        "options": [
+          "Spicy food is cheaper to send up here",
+          "Spicy food stays fresh for longer",
+          "Hot sauce is easy to store away",
+          "Bold flavors cut through dull senses"
+        ],
+        "answer": "D",
+        "skill": "cause-effect",
+        "why": "Taste and smell are dulled in orbit, and bold flavors cut through that.",
+        "wrong": {
+          "A": "Cost is not mentioned.",
+          "B": "Freshness is not the reason given.",
+          "C": "Storage is not the reason given."
+        }
+      }
+    ]
   }
 }

@@ -614,5 +614,217 @@
       ],
       "modelAnswer": "I agree that old family traditions can still be useful on a modern farm. In the story, Grandma's advice to cover young shoots and harvest early came from years of practical experience, and it turned out to be exactly what the orchard needed when an unusual cold front arrived. Someone might argue that modern forecasts and equipment make old traditions unnecessary, but the forecast alone did not protect the trees — it was Noor's memory of her grandma's method that actually preserved the yield. This shows that scientific tools and traditional knowledge can work well together, rather than one replacing the other."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "What did Noor's family grow on their farm?",
+        "options": [
+          "Dates",
+          "Wheat",
+          "Apples",
+          "Rice"
+        ],
+        "answer": "A",
+        "skill": "detail",
+        "why": "The text says Noor's family grew dates.",
+        "wrong": {
+          "B": "Wheat is not mentioned.",
+          "C": "Apples are not mentioned.",
+          "D": "Rice is not mentioned."
+        }
+      },
+      {
+        "stem": "In the story, what is the harvest?",
+        "options": [
+          "the time to pick the crop",
+          "a kind of tall date tree",
+          "a cold night",
+          "a family meal"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "The text says the busy season of picking dates is called the harvest.",
+        "wrong": {
+          "B": "The palms are trees; the harvest is the picking time.",
+          "C": "A cold night is a danger, not the harvest.",
+          "D": "A meal is not the harvest."
+        }
+      },
+      {
+        "stem": "Why did the family cover the young shoots with cloth?",
+        "options": [
+          "To keep the birds away",
+          "To make the shoots grow fast",
+          "To hide them from the sun",
+          "To protect them from the cold"
+        ],
+        "answer": "D",
+        "skill": "cause-effect",
+        "why": "Grandma said to cover the young shoots because the cold could hurt them.",
+        "wrong": {
+          "A": "Birds are not mentioned.",
+          "B": "The cloth did not make them grow.",
+          "C": "The danger was the cold, not the sun."
+        }
+      },
+      {
+        "stem": "What does the end of the story show about Grandma's old advice?",
+        "options": [
+          "It was too hard to follow",
+          "It was still useful",
+          "It was only for big farms",
+          "It did not work well"
+        ],
+        "answer": "B",
+        "skill": "inference",
+        "why": "Grandma's old trick saved the harvest, so it was still useful.",
+        "wrong": {
+          "A": "The family followed it in one day.",
+          "C": "The story is about a family farm, not only big farms.",
+          "D": "It saved the shoots and the dates."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "What were Noor's parents doing when the warning came on the radio?",
+        "options": [
+          "Picking dates from the trees",
+          "Planting young shoots by hand",
+          "Checking ladders and fixing baskets",
+          "Wrapping the trees in some cloth"
+        ],
+        "answer": "C",
+        "skill": "detail",
+        "why": "The article says they were busy checking ladders and fixing baskets.",
+        "wrong": {
+          "A": "They were getting ready, not picking yet.",
+          "B": "Planting is not mentioned.",
+          "D": "They covered the shoots later, after Noor spoke."
+        }
+      },
+      {
+        "stem": "Noor lived on a date palm orchard. What is an orchard?",
+        "options": [
+          "a farm of fruit trees",
+          "a large city market",
+          "a deep water well",
+          "a kind of desert tent"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "The orchard had long rows of date palms, so an orchard is a farm of fruit trees.",
+        "wrong": {
+          "B": "A market sells things; an orchard grows them.",
+          "C": "A well holds water.",
+          "D": "A tent is a home, not an orchard."
+        }
+      },
+      {
+        "stem": "How did Noor change her parents' minds?",
+        "options": [
+          "She said one cold night could ruin their work",
+          "She asked their neighbors to talk to them",
+          "She turned off the radio for them",
+          "She promised to do all of the work alone"
+        ],
+        "answer": "A",
+        "skill": "cause-effect",
+        "why": "She told them one cold night could ruin months of careful work, and then they agreed.",
+        "wrong": {
+          "B": "The neighbors are not mentioned.",
+          "C": "The radio is not turned off.",
+          "D": "The whole family worked as a team."
+        }
+      },
+      {
+        "stem": "What can you tell about Noor from the fact that she did not give up?",
+        "options": [
+          "She did not like doing farm work",
+          "She was afraid of the loud radio",
+          "She is determined and caring",
+          "She wanted to win a big prize"
+        ],
+        "answer": "C",
+        "skill": "inference",
+        "why": "Noor kept asking her parents because she wanted to protect the family's harvest.",
+        "wrong": {
+          "A": "She cared about the farm.",
+          "B": "The radio only gave the warning.",
+          "D": "No prize is mentioned."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "In which region was Noor's family orchard located?",
+        "options": [
+          "The Eastern Province",
+          "The Asir mountains",
+          "The Qassim region",
+          "The coast of the Red Sea"
+        ],
+        "answer": "C",
+        "skill": "detail",
+        "why": "The article says the orchard was near a village in Saudi Arabia's Qassim region.",
+        "wrong": {
+          "A": "The article places the orchard in Qassim, not the Eastern Province.",
+          "B": "The article places the orchard in Qassim, not the Asir mountains.",
+          "D": "The article places the orchard in Qassim, not on the Red Sea coast."
+        }
+      },
+      {
+        "stem": "In the article, the word yield most nearly refers to —",
+        "options": [
+          "the amount of fruit a farm produces",
+          "the speed of a cold wind",
+          "a basket used for carrying fruit",
+          "a warning heard on the radio"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "The article says the yield could vary with the weather and that the family's entire yield was preserved, so it means the amount of crop.",
+        "wrong": {
+          "B": "Wind speed is not what yield means.",
+          "C": "A basket holds the dates, but it is not the yield.",
+          "D": "The warning was the forecast."
+        }
+      },
+      {
+        "stem": "Why did the family tie each cloth covering?",
+        "options": [
+          "So the shoots would grow faster",
+          "So the cloth would stay bright",
+          "So the dates could be counted",
+          "So the wind could not tear it loose"
+        ],
+        "answer": "D",
+        "skill": "cause-effect",
+        "why": "The article says each covering was tied so the wind could not tear it loose.",
+        "wrong": {
+          "A": "Tying the cloth was for protection.",
+          "B": "Color is not mentioned.",
+          "C": "Counting dates is not mentioned."
+        }
+      },
+      {
+        "stem": "Why does the author say the yield could vary depending on the weather?",
+        "options": [
+          "To show how much dates cost at the market",
+          "To explain how a farm radio works",
+          "To show why the cold was a risk to income",
+          "To tell readers how to grow palm trees"
+        ],
+        "answer": "C",
+        "skill": "author-purpose",
+        "why": "If the weather changes the yield, an early cold front could put the family's food and income at risk.",
+        "wrong": {
+          "A": "Prices are not discussed.",
+          "B": "The article does not explain radios.",
+          "D": "The article does not teach how to grow palms."
+        }
+      }
+    ]
   }
 }

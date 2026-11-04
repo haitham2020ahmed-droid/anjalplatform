@@ -614,5 +614,217 @@
       ],
       "modelAnswer": "Across track and field, different disciplines reward different physical qualities. Sprinters rely almost entirely on raw velocity and acceleration out of the blocks, while distance runners instead rely on pacing and endurance to avoid exhausting themselves over a longer distance. The long jump shows how velocity converts into a measurable trajectory, since horizontal speed carries the athlete farther through the air. Meanwhile, the high jump and hurdles reward precise technique over raw speed, and throwing events like the javelin and shot put demand explosive power generated through the entire body, showing that no single skill defines success across all disciplines."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "Where does a long jumper land?",
+        "options": [
+          "On a bar",
+          "In water",
+          "On grass",
+          "In sand"
+        ],
+        "answer": "D",
+        "skill": "detail",
+        "why": "The text says the kid jumps far into sand.",
+        "wrong": {
+          "A": "The bar is used in the high jump.",
+          "B": "Water is not mentioned in the article.",
+          "C": "Grass is not mentioned in the article."
+        }
+      },
+      {
+        "stem": "What do kids throw in the javelin throw?",
+        "options": [
+          "A heavy ball",
+          "A long stick",
+          "A small bar",
+          "A baton"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The text says that in the javelin throw, kids throw a long stick.",
+        "wrong": {
+          "A": "The heavy ball is pushed in the shot put.",
+          "C": "Kids jump over a bar, they do not throw it.",
+          "D": "A baton is handed to the next kid in a relay."
+        }
+      },
+      {
+        "stem": "Why do kids need strong arms for the shot put?",
+        "options": [
+          "They push a heavy ball far",
+          "They run for a long time",
+          "They jump over small bars",
+          "They hand a stick to a friend"
+        ],
+        "answer": "A",
+        "skill": "cause-effect",
+        "why": "The text says kids push a heavy ball far, and both throwing events need strong arms.",
+        "wrong": {
+          "B": "Running far is done in a distance race, not the shot put.",
+          "C": "Jumping over bars is the hurdles and high jump.",
+          "D": "Handing a stick to a friend is a relay."
+        }
+      },
+      {
+        "stem": "In the article, what does the word meet mean?",
+        "options": [
+          "A short and fast race",
+          "A round kind of ball",
+          "A day of many events",
+          "A team of four kids"
+        ],
+        "answer": "C",
+        "skill": "vocabulary",
+        "why": "The text says a meet has many events in one day.",
+        "wrong": {
+          "A": "A fast race is called a sprint.",
+          "B": "A meet is not a ball.",
+          "D": "Four kids make a relay team."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "What do sprinters burst out of at the start of a race?",
+        "options": [
+          "Starting blocks",
+          "A sand pit",
+          "A baton",
+          "A runway"
+        ],
+        "answer": "A",
+        "skill": "detail",
+        "why": "The text says sprinters burst out of the starting blocks.",
+        "wrong": {
+          "B": "A sand pit is where long jumpers land.",
+          "C": "A baton is handed off in a relay.",
+          "D": "A runway is used in the long jump."
+        }
+      },
+      {
+        "stem": "What does the word explosive mean in \"a short, explosive race\"?",
+        "options": [
+          "Loud and noisy",
+          "Slow and careful",
+          "Quick and strong",
+          "Long and tiring"
+        ],
+        "answer": "C",
+        "skill": "vocabulary",
+        "why": "A sprint is short, and sprinters burst out and hold top speed, so explosive means quick and powerful.",
+        "wrong": {
+          "A": "The text is about speed, not noise.",
+          "B": "Sprinters go fast, not slow.",
+          "D": "A sprint is short, not long."
+        }
+      },
+      {
+        "stem": "Why does a long jumper sprint down the runway before leaping?",
+        "options": [
+          "To warm up the sand pit",
+          "To add speed to the jump",
+          "To measure the high bar",
+          "To pass the baton on"
+        ],
+        "answer": "B",
+        "skill": "cause-effect",
+        "why": "The text says both speed and the angle of takeoff affect the jump.",
+        "wrong": {
+          "A": "The text does not say the sand pit needs to be warmed.",
+          "C": "The long jump has no bar.",
+          "D": "Batons are used in relay races."
+        }
+      },
+      {
+        "stem": "How are the shot put and the javelin alike?",
+        "options": [
+          "Both use a runway and sand",
+          "Both are relay races",
+          "Both need a raised bar",
+          "Both demand explosive power"
+        ],
+        "answer": "D",
+        "skill": "compare",
+        "why": "The text says both throwing events demand explosive power.",
+        "wrong": {
+          "A": "The runway and sand are for the long jump.",
+          "B": "Relay races use batons, not throwing.",
+          "C": "A raised bar is used in the high jump."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "What do relay runners do while both athletes are moving at considerable speed?",
+        "options": [
+          "Switch to the starting blocks",
+          "Hand off a baton",
+          "Clear a hurdle together",
+          "Measure the distance"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The article says every runner hands off a baton to the next, often while both are moving at speed.",
+        "wrong": {
+          "A": "Starting blocks are used by sprinters at the start.",
+          "C": "Hurdles are a separate event.",
+          "D": "The article does not say runners measure distance."
+        }
+      },
+      {
+        "stem": "In the article, what does the word specialize mean?",
+        "options": [
+          "Focus mainly on a few",
+          "Compete against everyone",
+          "Quit after one event",
+          "Train without a coach"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "The article says most athletes take part in only a few events because each trains different muscles and skills.",
+        "wrong": {
+          "B": "Competing against everyone is the opposite of choosing only a few.",
+          "C": "The athletes do not quit; they keep competing in a few events.",
+          "D": "Coaches are not mentioned."
+        }
+      },
+      {
+        "stem": "Why do athletes hydrate and stretch before competing?",
+        "options": [
+          "To lower the high bar",
+          "To pass the baton on",
+          "To choose which event",
+          "To ready their bodies"
+        ],
+        "answer": "D",
+        "skill": "inference",
+        "why": "The article says athletes always hydrate and stretch before competing, which readies the body for hard effort.",
+        "wrong": {
+          "A": "Drinking and stretching have nothing to do with the bar.",
+          "B": "The baton is only for relay races.",
+          "C": "Athletes pick events in advance."
+        }
+      },
+      {
+        "stem": "How does the high jump differ from the long jump?",
+        "options": [
+          "The high jump uses a sand pit, and the long jump uses a bar",
+          "Only the long jump needs the athlete to run first",
+          "The high jump depends more on technique than raw speed",
+          "The long jump is done with a baton"
+        ],
+        "answer": "C",
+        "skill": "compare",
+        "why": "The article says technique matters considerably more than raw speed in the high jump, while the long jump depends on speed and takeoff angle.",
+        "wrong": {
+          "A": "It is the other way around: the long jump uses sand and the high jump uses a bar.",
+          "B": "In the high jump the athlete also runs toward the bar.",
+          "D": "A baton is used only in relay races."
+        }
+      }
+    ]
   }
 }

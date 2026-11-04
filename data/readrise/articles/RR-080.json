@@ -614,5 +614,217 @@
       ],
       "modelAnswer": "I agree that the pyramids are a testament to human skill and organization, because building the Great Pyramid required an extraordinary level of planning. First, paid laborers organized by skilled engineers moved more than two million stone blocks, some weighing more than a car, using only wooden sledges and wetted sand. Second, builders transported smooth limestone from across the river and heavy granite by boat all the way from Aswan, showing a precise system for sourcing different materials. Third, each side of the Great Pyramid faces almost exactly north, south, east, or west, an accuracy that still impresses archaeologists today. Such a massive, carefully coordinated monument could only have come from a highly organized civilization."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "About how many stone blocks does the Great Pyramid have?",
+        "options": [
+          "Only about two hundred",
+          "More than two million",
+          "About twenty",
+          "Exactly one hundred"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The text says the Great Pyramid has more than two million stone blocks.",
+        "wrong": {
+          "A": "Two hundred is far too few.",
+          "C": "Twenty is the number of years it took to build.",
+          "D": "One hundred is not in the text."
+        }
+      },
+      {
+        "stem": "In the article, a ramp is —",
+        "options": [
+          "a big sled for stones",
+          "a kind of boat",
+          "a town near the Nile",
+          "a slope"
+        ],
+        "answer": "D",
+        "skill": "vocabulary",
+        "why": "The text says a ramp is a slope used to pull the blocks up.",
+        "wrong": {
+          "A": "A sledge, not a ramp, is the big sled.",
+          "B": "Boats carried the stones on the Nile, but they are not ramps.",
+          "C": "The workers' town is a different place."
+        }
+      },
+      {
+        "stem": "Why did the men most likely live in a town close by?",
+        "options": [
+          "They worked at the pyramid for a long time",
+          "They were afraid of the Nile boats",
+          "The king told them to sleep in tombs",
+          "They wanted to sell stones in the town"
+        ],
+        "answer": "A",
+        "skill": "inference",
+        "why": "The building took about 20 years, so workers lived near the pyramid.",
+        "wrong": {
+          "B": "The text does not say they feared the boats.",
+          "C": "Tombs were for dead kings, not for workers.",
+          "D": "The workers were paid; they did not sell stones."
+        }
+      },
+      {
+        "stem": "What does the article say about the men who built the pyramid?",
+        "options": [
+          "They were kings called pharaohs",
+          "They were boat makers from Cairo",
+          "They were paid for their work",
+          "They lived on the boats all year"
+        ],
+        "answer": "C",
+        "skill": "detail",
+        "why": "The text says the men were paid and lived in a town close by.",
+        "wrong": {
+          "A": "The kings were buried in the tombs, not the builders.",
+          "B": "The text does not say the builders were boat makers.",
+          "D": "They lived in a town close by."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "About how tall was the Great Pyramid when it was built?",
+        "options": [
+          "About 20 meters",
+          "About 4,500 meters",
+          "About 146 meters",
+          "About 2,000 meters"
+        ],
+        "answer": "C",
+        "skill": "detail",
+        "why": "The text says it was originally about 146 meters tall.",
+        "wrong": {
+          "A": "Twenty is the number of years it took to build.",
+          "B": "4,500 is how many years ago it was built.",
+          "D": "The text gives no height near 2,000 meters."
+        }
+      },
+      {
+        "stem": "In the article, pharaohs were —",
+        "options": [
+          "workers who cut stone",
+          "robbers who took gold",
+          "boatmen on the Nile",
+          "kings of ancient Egypt"
+        ],
+        "answer": "D",
+        "skill": "vocabulary",
+        "why": "The article says the tombs were built for the kings of ancient Egypt, who were called pharaohs.",
+        "wrong": {
+          "A": "Workers built the pyramids, but they were not pharaohs.",
+          "B": "Robbers took the treasures; they were not pharaohs.",
+          "C": "The pharaohs were rulers, not boatmen."
+        }
+      },
+      {
+        "stem": "Why did workers drag the blocks up ramps?",
+        "options": [
+          "To raise the blocks higher",
+          "To make the blocks wet",
+          "To cut the blocks into shapes",
+          "To send the blocks to Aswan"
+        ],
+        "answer": "A",
+        "skill": "cause-effect",
+        "why": "The text says they dragged the blocks up ramps to raise them higher.",
+        "wrong": {
+          "B": "They poured water on the sand, not on the ramps.",
+          "C": "Blocks were cut at the quarry.",
+          "D": "Granite came from Aswan to the pyramid, not the other way."
+        }
+      },
+      {
+        "stem": "What can you infer about the treasures in the pharaohs' tombs today?",
+        "options": [
+          "Most are still inside the tombs",
+          "Few are left, because robbers took most",
+          "They were all moved to Cairo by boat",
+          "They were buried deeper by workers"
+        ],
+        "answer": "B",
+        "skill": "inference",
+        "why": "The text says robbers took most of the riches long ago, so little remains.",
+        "wrong": {
+          "A": "The text says robbers took most of them.",
+          "C": "The text does not say they were moved to Cairo.",
+          "D": "Nothing says workers buried them deeper."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "According to the article, where did the polished white limestone for the outer casing come from?",
+        "options": [
+          "A quarry adjacent to the pyramid",
+          "Aswan, far to the south",
+          "The step pyramid of Djoser",
+          "From across the river"
+        ],
+        "answer": "D",
+        "skill": "detail",
+        "why": "The text says the polished white limestone was transported from across the river.",
+        "wrong": {
+          "A": "The quarry next to the pyramid gave most of the other blocks.",
+          "B": "Heavy granite, not limestone, came from Aswan.",
+          "C": "The step pyramid is a different monument."
+        }
+      },
+      {
+        "stem": "In the article, the word adjacent most nearly means —",
+        "options": [
+          "far away",
+          "next to",
+          "high above",
+          "hidden under"
+        ],
+        "answer": "B",
+        "skill": "vocabulary",
+        "why": "A quarry adjacent to the pyramid was right beside it, which made moving blocks easier.",
+        "wrong": {
+          "A": "A quarry far away would not be adjacent.",
+          "C": "Nothing says the quarry was above the pyramid.",
+          "D": "The quarry is not described as hidden."
+        }
+      },
+      {
+        "stem": "What can you infer about the Nile from how the stones were moved?",
+        "options": [
+          "It was too deep for boats to cross at all",
+          "It dried up each year during the long summer",
+          "It served as a route for carrying heavy loads",
+          "It was too dangerous for the paid workers to use"
+        ],
+        "answer": "C",
+        "skill": "inference",
+        "why": "Boats carried limestone and granite, so the river worked as a path for heavy loads.",
+        "wrong": {
+          "A": "Boats did cross and use it.",
+          "B": "The text says nothing about it drying up.",
+          "D": "Workers used boats on it to move stone."
+        }
+      },
+      {
+        "stem": "Why does the author say the pyramids were built before trucks, cranes, or iron tools existed?",
+        "options": [
+          "To show how impressive the builders' work was",
+          "To explain why the tombs were left unfinished",
+          "To prove that the pyramids are not tombs",
+          "To suggest that robbers built the pyramids"
+        ],
+        "answer": "A",
+        "skill": "author-purpose",
+        "why": "Mentioning missing machines and tools shows how remarkable it was to build the pyramids.",
+        "wrong": {
+          "B": "The text does not say the tombs were left unfinished.",
+          "C": "The article says each pyramid was a tomb.",
+          "D": "The builders were paid workers."
+        }
+      }
+    ]
   }
 }

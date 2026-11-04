@@ -614,5 +614,217 @@
       ],
       "modelAnswer": "I agree that Arabian racehorses carry forward a legacy of heritage, breeding, and training. The article explains that the Arabian horse's speed and endurance trace back to desert tribes who relied on these qualities to travel between oases centuries ago, showing a heritage that predates most organized sports. The article also shows that today's trainers study each horse's pedigree and plan careful workouts, while veterinarians protect its health, so the horse's natural gifts are combined with modern expertise to keep this legacy alive."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "What do people in Arabia love in horses?",
+        "options": [
+          "Great size",
+          "Great speed",
+          "Great noise",
+          "Great color"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The text says people love horses with great speed.",
+        "wrong": {
+          "A": "Size is not mentioned.",
+          "C": "Noise is not mentioned.",
+          "D": "Color is not mentioned."
+        }
+      },
+      {
+        "stem": "How does a horse compare with a person?",
+        "options": [
+          "A horse can run faster.",
+          "A horse can run slower.",
+          "A horse can sleep less.",
+          "A horse can race alone."
+        ],
+        "answer": "A",
+        "skill": "compare",
+        "why": "The text says a horse can run faster than a person.",
+        "wrong": {
+          "B": "The text says a horse is faster, not slower.",
+          "C": "Sleep is not mentioned.",
+          "D": "The text does not compare racing alone."
+        }
+      },
+      {
+        "stem": "In this article, what does the phrase get set mean?",
+        "options": [
+          "Get a new name",
+          "Get a tall fence",
+          "Get a long rest",
+          "Get ready"
+        ],
+        "answer": "D",
+        "skill": "vocabulary",
+        "why": "A trainer helps the horse get set by giving it food and rest, so get set means get ready.",
+        "wrong": {
+          "A": "A name is not mentioned.",
+          "B": "A fence is not mentioned.",
+          "C": "Rest is one way to get ready, but it is not the meaning of the phrase."
+        }
+      },
+      {
+        "stem": "Why might a trainer give a racehorse good food?",
+        "options": [
+          "To make the stable bigger",
+          "So the horse has strength to run",
+          "So the horse can sleep all day",
+          "To make the track longer"
+        ],
+        "answer": "B",
+        "skill": "inference",
+        "why": "The trainer helps the horse get set to race, so good food gives it the strength to run fast and far.",
+        "wrong": {
+          "A": "Food does not change the stable.",
+          "C": "The trainer helps the horse rest, but food is not for sleeping all day.",
+          "D": "Food does not change the track."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "What is the Arabian horse known for, according to the article?",
+        "options": [
+          "Its great size and heavy weight",
+          "Its shiny color and soft coat",
+          "Its speed, spirit, and endurance",
+          "Its calm and slow walking pace"
+        ],
+        "answer": "C",
+        "skill": "detail",
+        "why": "The text says the Arabian horse is known for its speed, spirit, and endurance.",
+        "wrong": {
+          "A": "Size and weight are not mentioned.",
+          "B": "Color is not named as its famous trait.",
+          "D": "The text says the horse is known for speed, not a slow walk."
+        }
+      },
+      {
+        "stem": "Why does a trainer plan daily workouts?",
+        "options": [
+          "To build the horse's stamina",
+          "To teach the horse to talk",
+          "To help the horse sleep well",
+          "To make the crowd cheer loudly"
+        ],
+        "answer": "A",
+        "skill": "cause-effect",
+        "why": "The text says the trainer plans daily workouts that slowly build stamina.",
+        "wrong": {
+          "B": "Talking is not mentioned.",
+          "C": "Workouts are for building stamina, not for sleep.",
+          "D": "The crowd cheers on race day, not because of workouts."
+        }
+      },
+      {
+        "stem": "In the article, the word stamina means the power to —",
+        "options": [
+          "run faster than any car",
+          "keep going without tiring",
+          "jump over a very high fence",
+          "stay calm in a big crowd"
+        ],
+        "answer": "B",
+        "skill": "vocabulary",
+        "why": "A horse with stamina can gallop far and fast without quickly getting tired.",
+        "wrong": {
+          "A": "Speed is a different thing; stamina is about not tiring.",
+          "C": "Jumping is not mentioned.",
+          "D": "Calm is something grooms help with, not stamina."
+        }
+      },
+      {
+        "stem": "What does \"links modern life to desert history\" mean?",
+        "options": [
+          "Races are held in the desert only.",
+          "Horses can no longer race today.",
+          "Desert horses are slower than before.",
+          "Racing carries on an old tradition."
+        ],
+        "answer": "D",
+        "skill": "inference",
+        "why": "The text calls horse racing an old sport that has gone on for thousands of years in Arabia and is still loved today.",
+        "wrong": {
+          "A": "The text does not say races are only in the desert.",
+          "B": "The text says people still love the sport today.",
+          "C": "The text does not say horses are slower now."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "Why did desert tribes rely on Arabian horses' endurance?",
+        "options": [
+          "To hold a large cheering crowd",
+          "To travel between oases and towns",
+          "To win the richest race prizes",
+          "To teach young horses to trust"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The text says desert tribes relied on the horse's endurance while traveling between scattered oases and trading towns.",
+        "wrong": {
+          "A": "Crowds cheer at modern races, not on desert trips.",
+          "C": "The prizes belong to race day.",
+          "D": "Training young horses is a different idea."
+        }
+      },
+      {
+        "stem": "In the article, the word prestigious most nearly means —",
+        "options": [
+          "quiet and plain",
+          "new and unknown",
+          "highly respected",
+          "cheap and common"
+        ],
+        "answer": "C",
+        "skill": "vocabulary",
+        "why": "Saudi Arabia hosts some of the richest and most prestigious races, which means highly respected races.",
+        "wrong": {
+          "A": "Rich races are not described as quiet or plain.",
+          "B": "The text describes a long tradition, not something unknown.",
+          "D": "The races are called rich, not cheap."
+        }
+      },
+      {
+        "stem": "Why do young horses begin gentle training early?",
+        "options": [
+          "To learn to trust their trainer",
+          "To race in front of a crowd",
+          "To win a valuable prize soon",
+          "To replace their parents quickly"
+        ],
+        "answer": "A",
+        "skill": "cause-effect",
+        "why": "The text says young horses learn to trust their trainer and groom before they ever race.",
+        "wrong": {
+          "B": "They begin training before they ever race.",
+          "C": "The prize is for race winners, not for young horses in training.",
+          "D": "Replacing their parents is not mentioned."
+        }
+      },
+      {
+        "stem": "What does it suggest that many families take great pride in this tradition?",
+        "options": [
+          "Only rich people may own horses.",
+          "Racing will probably end very soon.",
+          "Horses are far too hard to train.",
+          "Racing is a valued tradition."
+        ],
+        "answer": "D",
+        "skill": "inference",
+        "why": "The text says many families take great pride in a tradition that goes back through generations of Arabian history.",
+        "wrong": {
+          "A": "The text does not limit ownership to rich people.",
+          "B": "The text says the tradition is continuing.",
+          "C": "The text says horses can learn to trust their trainers."
+        }
+      }
+    ]
   }
 }

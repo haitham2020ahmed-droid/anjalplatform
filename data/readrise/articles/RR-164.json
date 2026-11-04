@@ -614,5 +614,217 @@
       ],
       "modelAnswer": "The Milky Way is our home galaxy, a huge spiral-shaped collection of more than one hundred billion stars with a bulge in the middle and long curling arms, including the small arm where our own Sun sits. Astronomers estimate its diameter at about 100,000 light-years, meaning light itself takes that long to cross from one side to the other. At its very center lies a supermassive black hole whose powerful gravity controls how the whole galaxy slowly turns. Even though it fills the sky as a soft band of light, bright city lights create light pollution that can hide it completely, so clear observation of the Milky Way really only happens far from cities, such as in the dark desert skies of Saudi Arabia."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "How many stars are in the Milky Way?",
+        "options": [
+          "About a hundred or so",
+          "Over a hundred billion",
+          "About a million or so",
+          "Just one star only"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The text says there are more than a hundred billion stars in the Milky Way.",
+        "wrong": {
+          "A": "A hundred is far too few.",
+          "C": "A million is far too few.",
+          "D": "The Sun is just one of its stars."
+        }
+      },
+      {
+        "stem": "What does the black hole do to things near it?",
+        "options": [
+          "It turns them into stars.",
+          "It pulls on them.",
+          "It pushes them away.",
+          "It makes them cold."
+        ],
+        "answer": "B",
+        "skill": "cause-effect",
+        "why": "The text says the black hole pulls on all things near it.",
+        "wrong": {
+          "A": "The text does not say this.",
+          "C": "It pulls, not pushes.",
+          "D": "Temperature is not mentioned."
+        }
+      },
+      {
+        "stem": "In the article, the word spiral describes a shape that —",
+        "options": [
+          "has no arms at all",
+          "looks like a round ball",
+          "curls round and round",
+          "is flat and square"
+        ],
+        "answer": "C",
+        "skill": "vocabulary",
+        "why": "The arms curl, so it is a spiral like a pinwheel.",
+        "wrong": {
+          "A": "The Milky Way has long arms.",
+          "B": "It is flat, not a ball.",
+          "D": "The galaxy is round, not square."
+        }
+      },
+      {
+        "stem": "Why are the sand lands of Saudi Arabia a great place to look at the Milky Way?",
+        "options": [
+          "They are dark at night.",
+          "They have bright lights.",
+          "They are close to the center.",
+          "They are full of towns."
+        ],
+        "answer": "A",
+        "skill": "cause-effect",
+        "why": "Bright lights hide the Milky Way, and the sand lands are dark at night.",
+        "wrong": {
+          "B": "Bright lights hide the band.",
+          "C": "Earth is far from the center of the galaxy.",
+          "D": "Towns have bright lights that hide it."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "Where is our Sun in the Milky Way?",
+        "options": [
+          "Inside the black hole",
+          "At the very center",
+          "In a small arm, far out",
+          "Outside the galaxy"
+        ],
+        "answer": "C",
+        "skill": "detail",
+        "why": "The text says our Sun sits in a small arm, far from the center.",
+        "wrong": {
+          "A": "The black hole is at the center.",
+          "B": "The Sun is far from the center.",
+          "D": "The Sun is one star in the galaxy."
+        }
+      },
+      {
+        "stem": "In the article, a bulge in the middle is a part that —",
+        "options": [
+          "sticks out",
+          "goes away",
+          "curls like an arm",
+          "spins very fast"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "The galaxy is a flat disk with a bulge in the middle, so the middle sticks out.",
+        "wrong": {
+          "B": "The bulge is part of the disk.",
+          "C": "The arms are what curl.",
+          "D": "Speed is not the meaning."
+        }
+      },
+      {
+        "stem": "What did Galileo see when he looked at the band through a telescope?",
+        "options": [
+          "A giant black hole",
+          "A pinwheel in space",
+          "The path of the straw sellers",
+          "Countless stars"
+        ],
+        "answer": "D",
+        "skill": "detail",
+        "why": "The text says Galileo saw that the band was made of countless stars.",
+        "wrong": {
+          "A": "The black hole is at the center of the galaxy.",
+          "B": "The pinwheel shape is how it would look from far away.",
+          "C": "That is the Arabic name for the band."
+        }
+      },
+      {
+        "stem": "Why is the Saudi desert sky one of the best places to see the Milky Way?",
+        "options": [
+          "It has no clouds ever.",
+          "It has more stars.",
+          "It is far from the center.",
+          "It has no bright city lights."
+        ],
+        "answer": "D",
+        "skill": "cause-effect",
+        "why": "Bright city lights hide the Milky Way, and the desert sky is dark.",
+        "wrong": {
+          "A": "The text does not say that.",
+          "B": "The stars are the same everywhere.",
+          "C": "The galaxy's center is not a factor."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "About how long would a beam of light need to cross the Milky Way?",
+        "options": [
+          "Four hundred years",
+          "Four million years",
+          "Two hundred million years",
+          "One hundred thousand years"
+        ],
+        "answer": "D",
+        "skill": "detail",
+        "why": "The text says its diameter is about 100,000 light-years, so light needs about one hundred thousand years.",
+        "wrong": {
+          "A": "Four hundred years ago is when Galileo looked at the band.",
+          "B": "Four million is how many times heavier the black hole is than the Sun.",
+          "C": "That is how long the Sun takes to orbit the center."
+        }
+      },
+      {
+        "stem": "The article gives the Milky Way's diameter. What is a diameter?",
+        "options": [
+          "how old it is in years",
+          "how brightly it shines",
+          "the distance across it",
+          "the number of stars"
+        ],
+        "answer": "C",
+        "skill": "vocabulary",
+        "why": "The diameter is the distance from edge to edge, about 100,000 light-years, which light needs that many years to cross.",
+        "wrong": {
+          "A": "Age is not what diameter means.",
+          "B": "Brightness is not what diameter means.",
+          "D": "The number of stars is given separately."
+        }
+      },
+      {
+        "stem": "Why can people see Andromeda without a telescope only in very dark places?",
+        "options": [
+          "Light pollution hides it.",
+          "Andromeda is too small.",
+          "The Sun is too bright there.",
+          "The black hole blocks it."
+        ],
+        "answer": "A",
+        "skill": "inference",
+        "why": "Andromeda is only a faint smudge, and light pollution conceals such objects.",
+        "wrong": {
+          "B": "Andromeda is a large spiral.",
+          "C": "The text does not link the Sun to this.",
+          "D": "No black hole blocks it."
+        }
+      },
+      {
+        "stem": "Where is the Sun located in the Milky Way?",
+        "options": [
+          "At the exact center point",
+          "At the outer edge",
+          "Inside the black hole",
+          "In a minor arm, halfway out"
+        ],
+        "answer": "D",
+        "skill": "detail",
+        "why": "The text says the Sun is in a minor arm, roughly halfway between the center and the edge.",
+        "wrong": {
+          "A": "The black hole is at the center.",
+          "B": "It is about halfway, not at the edge.",
+          "C": "The Sun orbits the center, not inside it."
+        }
+      }
+    ]
   }
 }

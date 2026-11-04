@@ -614,5 +614,217 @@
       ],
       "modelAnswer": "A sea turtle's life cycle is remarkable because of its instinct for navigation: scientists believe it can sense Earth's magnetic field like an invisible map, which lets a female migrate thousands of kilometers back to the very beach where she once hatched. The same life cycle also makes the species vulnerable, since the incubation of the eggs depends on sand temperature, which determines whether more males or females hatch, and the long dangerous journey from nest to sea leaves hatchlings easy prey for birds, crabs, and fish. Because threats such as plastic pollution and bright beachside lights add to these natural dangers, conservation efforts like keeping beaches dark and clean are essential to the turtles' survival."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "How does a sea turtle swim?",
+        "options": [
+          "With big, flat legs called flippers",
+          "With a long tail like a big fish",
+          "With wings like a bird in the air",
+          "With its hard shell as a small boat"
+        ],
+        "answer": "A",
+        "skill": "detail",
+        "why": "The text says it swims with big, flat legs called flippers.",
+        "wrong": {
+          "B": "The text does not mention a fish tail.",
+          "C": "A sea turtle has no wings.",
+          "D": "The shell protects the turtle; it does not work like a boat."
+        }
+      },
+      {
+        "stem": "Why does a sea turtle swim up to the top of the water?",
+        "options": [
+          "To find a safe place to hide",
+          "To lay its eggs in the sea",
+          "To get air to breathe",
+          "To look for the bright sand"
+        ],
+        "answer": "C",
+        "skill": "cause-effect",
+        "why": "The text says the turtle needs air, so it swims up to breathe.",
+        "wrong": {
+          "A": "The text does not say it goes up to hide.",
+          "B": "The eggs are laid in a nest in the sand.",
+          "D": "Baby turtles crawl to the bright sea, not sand."
+        }
+      },
+      {
+        "stem": "A nest is in very warm sand. Which turtles will there most likely be more of?",
+        "options": [
+          "More boys",
+          "The same number of boys and girls",
+          "No hatchlings at all",
+          "More girls"
+        ],
+        "answer": "D",
+        "skill": "inference",
+        "why": "The text says warm sand makes more girls and cool sand makes more boys.",
+        "wrong": {
+          "A": "Cool sand makes more boys.",
+          "B": "The sand changes how many girls and boys there are.",
+          "C": "The eggs hatch in warm sand."
+        }
+      },
+      {
+        "stem": "Why can a plastic bag be bad for a sea turtle?",
+        "options": [
+          "It can make the water too warm",
+          "It can look like food",
+          "It can dig up the nest",
+          "It can block the moon"
+        ],
+        "answer": "B",
+        "skill": "cause-effect",
+        "why": "The text says a plastic bag can look like food to a turtle.",
+        "wrong": {
+          "A": "The text does not say bags warm the water.",
+          "C": "Bags do not dig nests.",
+          "D": "The text does not mention the moon."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "How does the mother turtle dig her nest?",
+        "options": [
+          "With her strong front teeth",
+          "With her hard top shell",
+          "With the help of other turtles",
+          "With her back flippers"
+        ],
+        "answer": "D",
+        "skill": "detail",
+        "why": "The article says she digs a deep nest with her back flippers.",
+        "wrong": {
+          "A": "The article does not say she digs with her teeth.",
+          "B": "The shell is for protection, not digging.",
+          "C": "The mother turtle digs the nest alone."
+        }
+      },
+      {
+        "stem": "In the article, the word migrate means to —",
+        "options": [
+          "hide from birds and crabs on the sand",
+          "travel far between feeding and nesting",
+          "dig a nest deep down in the warm sand",
+          "lay about 100 eggs in one night"
+        ],
+        "answer": "B",
+        "skill": "vocabulary",
+        "why": "The article says turtles that migrate travel a long way between where they feed and where they nest.",
+        "wrong": {
+          "A": "Hiding is not what migrate means.",
+          "C": "Digging a nest is only one step of nesting.",
+          "D": "Laying eggs is done at the nest."
+        }
+      },
+      {
+        "stem": "Why do the hatchlings crawl toward the ocean?",
+        "options": [
+          "The sky above the water looks brighter than land",
+          "The sand near the nest is much too cold at night",
+          "The mother turtle calls them from the sea",
+          "The waves are very quiet and calm at night"
+        ],
+        "answer": "A",
+        "skill": "cause-effect",
+        "why": "The article says they crawl toward the ocean because the sky above the water looks brighter.",
+        "wrong": {
+          "B": "The article says warm or cool sand decides the number of males and females, not where they go.",
+          "C": "The mother never comes back to care for her young.",
+          "D": "The article does not mention quiet waves."
+        }
+      },
+      {
+        "stem": "Why can bright lights on a beach confuse hatchlings?",
+        "options": [
+          "The lights make the sand far too warm",
+          "The lights wake them up much too early",
+          "They may think the lights lead to the sea",
+          "The lights make all the birds go away"
+        ],
+        "answer": "C",
+        "skill": "inference",
+        "why": "Hatchlings crawl toward the brightest sky, so a bright light on land can lead them the wrong way.",
+        "wrong": {
+          "A": "The article does not say lights warm the sand.",
+          "B": "The article does not say lights wake them.",
+          "D": "The article does not say lights chase birds away."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "What does the female do after she covers the nest with sand?",
+        "options": [
+          "She guards it day and night until it hatches",
+          "She goes back to sea and never returns",
+          "She digs a second chamber for more eggs",
+          "She moves the eggs to a darker beach"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The article says she returns to the sea, never coming back to care for her offspring.",
+        "wrong": {
+          "A": "She never comes back to care for her young.",
+          "C": "The article does not mention a second chamber.",
+          "D": "The article does not say she moves the eggs."
+        }
+      },
+      {
+        "stem": "In the article, the word laboriously most nearly means —",
+        "options": [
+          "quietly",
+          "happily",
+          "quickly",
+          "with great effort"
+        ],
+        "answer": "D",
+        "skill": "vocabulary",
+        "why": "A heavy sea turtle moves slowly on land, so laboriously means with great effort.",
+        "wrong": {
+          "A": "The sentence is about effort, not sound.",
+          "B": "Nothing in the sentence is about feelings.",
+          "C": "The turtle moves slowly on land."
+        }
+      },
+      {
+        "stem": "Why must sea turtles regularly return to the surface?",
+        "options": [
+          "They breathe air",
+          "They need warm sand",
+          "They hunt for jellyfish",
+          "They follow the moon"
+        ],
+        "answer": "A",
+        "skill": "cause-effect",
+        "why": "The article says that because they breathe air, they must return to the surface between dives.",
+        "wrong": {
+          "B": "Warm sand is needed for eggs on the beach.",
+          "C": "The article does not say they come up to hunt.",
+          "D": "The article does not mention the moon."
+        }
+      },
+      {
+        "stem": "Why would removing plastic from the sea help sea turtles?",
+        "options": [
+          "Plastic bags make the sea water far too warm",
+          "Plastic bags cover up all the nesting beaches",
+          "Turtles may swallow bags that look like jellyfish",
+          "Turtles use plastic bags to build their nests"
+        ],
+        "answer": "C",
+        "skill": "inference",
+        "why": "The article says floating plastic bags resemble jellyfish and turtles that swallow them can become seriously ill.",
+        "wrong": {
+          "A": "The article does not say bags warm the water.",
+          "B": "The article does not say bags hide beaches.",
+          "D": "Turtles dig nests in sand."
+        }
+      }
+    ]
   }
 }

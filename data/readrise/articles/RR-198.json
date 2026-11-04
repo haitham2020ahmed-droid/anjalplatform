@@ -614,5 +614,217 @@
       ],
       "modelAnswer": "Topspin helps a tennis player keep a fast shot inside the court through a careful combination of friction, rotation, and air pressure. As the racket's strings brush up the back of the ball, friction between the strings and the felt causes the ball to spin forward in rapid rotation. This forward rotation changes the air pressure around the ball, creating more pressure on top and less underneath, which pushes the ball downward and makes it dip sharply into the court even when hit with great force. Because of this dip, a player can swing hard for speed while topspin still pulls the ball back down to land safely inside the lines."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "What does a tennis ball have on it?",
+        "options": [
+          "Small bells",
+          "A metal ring",
+          "Soft fuzz",
+          "A paper cover"
+        ],
+        "answer": "C",
+        "skill": "detail",
+        "why": "The text says the ball is made of rubber and has fuzz on it.",
+        "wrong": {
+          "A": "Bells are in a goalball, not in this text.",
+          "B": "The text does not mention a metal ring.",
+          "D": "The text does not mention a paper cover."
+        }
+      },
+      {
+        "stem": "Which city now holds a big event for the best women players?",
+        "options": [
+          "Riyadh",
+          "Jeddah",
+          "Dammam",
+          "Abha"
+        ],
+        "answer": "A",
+        "skill": "detail",
+        "why": "The last paragraph says Riyadh now holds a big event where the best women play.",
+        "wrong": {
+          "B": "Jeddah is not named in this text.",
+          "C": "Dammam is not named in this text.",
+          "D": "Abha is not named in this text."
+        }
+      },
+      {
+        "stem": "Why does a ball with topspin dip into the court?",
+        "options": [
+          "The net pulls it down",
+          "The racket sticks to it",
+          "The court pulls it down",
+          "The air pushes it down"
+        ],
+        "answer": "D",
+        "skill": "cause-effect",
+        "why": "The text says the top of the ball spins on and the air pushes it down.",
+        "wrong": {
+          "A": "The net does not pull the ball.",
+          "B": "The ball leaves the racket.",
+          "C": "The text says the air pushes it down."
+        }
+      },
+      {
+        "stem": "The text says the ball floats. What does floats mean?",
+        "options": [
+          "drops like a rock",
+          "drifts in the air",
+          "spins very fast",
+          "jumps very high"
+        ],
+        "answer": "B",
+        "skill": "vocabulary",
+        "why": "A floating ball stays low and moves softly through the air.",
+        "wrong": {
+          "A": "A floating ball does not drop fast.",
+          "C": "The text does not say it spins faster.",
+          "D": "The ball stays low, so it does not jump high."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "How much time does an opponent have to react to a very fast serve?",
+        "options": [
+          "About one minute",
+          "Less than a second",
+          "About ten seconds",
+          "Half an hour"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The text says the best serves give the opponent less than a second to react.",
+        "wrong": {
+          "A": "One minute is far longer than the text says.",
+          "C": "Ten seconds is far longer than the text says.",
+          "D": "Half an hour is far longer than the text says."
+        }
+      },
+      {
+        "stem": "Why are most tennis balls bright yellow?",
+        "options": [
+          "So they stay cool in the sun",
+          "So they bounce higher on clay",
+          "So they feel soft on the hand",
+          "So players and fans can see them"
+        ],
+        "answer": "D",
+        "skill": "cause-effect",
+        "why": "The text says the bright yellow color lets players and fans see the ball easily as it flies.",
+        "wrong": {
+          "A": "The text does not link color to heat.",
+          "B": "Bounce height depends on spin and the court, not color.",
+          "C": "The soft feel comes from the felt, not the color."
+        }
+      },
+      {
+        "stem": "What does \"weapon\" mean in \"Speed is not the only weapon\"?",
+        "options": [
+          "a tool for winning points",
+          "a tool for cutting grass",
+          "a rule of the game",
+          "a kind of court"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "The text says speed and spin are ways a player wins points.",
+        "wrong": {
+          "B": "Nothing in the text is about cutting grass.",
+          "C": "Speed is a skill, not a rule.",
+          "D": "Courts are named separately, such as grass and clay."
+        }
+      },
+      {
+        "stem": "A player wants the ball to stay low and skid. Which shot should she hit?",
+        "options": [
+          "Topspin",
+          "A very high serve",
+          "Backspin",
+          "A shot into the net"
+        ],
+        "answer": "C",
+        "skill": "inference",
+        "why": "The text says a backspin ball floats, stays low, and skids when it lands.",
+        "wrong": {
+          "A": "Topspin makes the ball dip and kick up high.",
+          "B": "A high serve is not described as skidding.",
+          "D": "A shot into the net does not land."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "Which shot does the article call the most powerful in tennis?",
+        "options": [
+          "The backspin slice",
+          "The return of serve",
+          "The bounce off clay",
+          "The serve"
+        ],
+        "answer": "D",
+        "skill": "detail",
+        "why": "The text calls the serve the most powerful shot in tennis.",
+        "wrong": {
+          "A": "The slice is described as floating and low.",
+          "B": "The text does not call the return the most powerful.",
+          "C": "A bounce is not a shot."
+        }
+      },
+      {
+        "stem": "How do grass and clay courts differ?",
+        "options": [
+          "Grass keeps the ball low; clay makes it bounce higher",
+          "Grass slows the ball down; clay keeps it low",
+          "Both surfaces make the ball skid and stay low",
+          "Grass makes the ball bounce higher than clay does"
+        ],
+        "answer": "A",
+        "skill": "compare",
+        "why": "The text says the ball skids and stays low on grass, but slows down and bounces higher on clay.",
+        "wrong": {
+          "B": "This swaps the two surfaces.",
+          "C": "Only grass makes the ball skid and stay low.",
+          "D": "This reverses what the text says."
+        }
+      },
+      {
+        "stem": "The article says each player tries to hit the ball so the opponent cannot return it. Who is the opponent?",
+        "options": [
+          "the player on the other side",
+          "the person who keeps score",
+          "a fan watching the match",
+          "a partner on the same team"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "Players hit the ball over the net so the player on the other side cannot send it back, so the opponent is that player.",
+        "wrong": {
+          "B": "The scorekeeper does not return the ball.",
+          "C": "Fans watch; they do not play.",
+          "D": "A partner is on your side, not the opponent."
+        }
+      },
+      {
+        "stem": "Why does spin help a player win points?",
+        "options": [
+          "It makes the ball weigh more in the air",
+          "It makes the ball's path hard to predict",
+          "It makes the court smaller for the server",
+          "It makes the opponent's strings break"
+        ],
+        "answer": "B",
+        "skill": "cause-effect",
+        "why": "The last paragraph says spin makes the ball's path difficult to predict and hard to return.",
+        "wrong": {
+          "A": "The text does not say spin changes the ball's weight.",
+          "C": "Spin does not change the size of the court.",
+          "D": "The text does not say strings break."
+        }
+      }
+    ]
   }
 }

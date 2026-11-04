@@ -614,5 +614,217 @@
       ],
       "modelAnswer": "I disagree that fossils are only interesting old rocks with no real scientific value. The article explains that fossils form through a rare, precise sequence of events, and paleontologists study them to reconstruct the general order in which ancient life forms appeared and changed across geological eras. In addition, the discovery of ancient elephant fossils in the dry sands of the Nafud desert reveals that the region's climate was once considerably wetter than it is today, something that could not be known without careful scientific study of fossils. Because fossils provide real evidence about Earth's distant past and changing climate, they are far more than simply interesting rocks."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "What do we call a fossil that is just a track in old mud?",
+        "options": [
+          "A body fossil",
+          "A trace fossil",
+          "A sea fossil",
+          "A shell fossil"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The text says fossils that are just tracks in old mud are trace fossils.",
+        "wrong": {
+          "A": "Body fossils are bones and shells, not tracks.",
+          "C": "The text does not use the name sea fossil.",
+          "D": "A shell is a body fossil, not a track."
+        }
+      },
+      {
+        "stem": "Read this: \"A fossil is ancient.\" What does ancient mean?",
+        "options": [
+          "very small",
+          "very bright",
+          "very new",
+          "very old"
+        ],
+        "answer": "D",
+        "skill": "vocabulary",
+        "why": "The text says a fossil is an old living thing kept inside rock.",
+        "wrong": {
+          "A": "The text does not describe fossils as small.",
+          "B": "The text does not talk about brightness.",
+          "C": "The text says fossils are old, not new."
+        }
+      },
+      {
+        "stem": "Where would you most likely find the newest fossils?",
+        "options": [
+          "Near the top of the layers",
+          "Deep down in the oldest layers",
+          "Only at the bottom of the sea",
+          "Inside every shell on a beach"
+        ],
+        "answer": "A",
+        "skill": "inference",
+        "why": "The text says old fossils sit deep down and new ones sit near the top.",
+        "wrong": {
+          "B": "Deep down is where the old ones sit.",
+          "C": "The text does not say new fossils are only at the bottom of the sea.",
+          "D": "The text does not say fossils are inside every shell."
+        }
+      },
+      {
+        "stem": "Why does the author start with a strange rock in the desert?",
+        "options": [
+          "To show that deserts are cold",
+          "To teach how to dig safely",
+          "To make the reader curious",
+          "To tell where mud comes from"
+        ],
+        "answer": "C",
+        "skill": "author-purpose",
+        "why": "The author describes a shell-shaped rock far from the sea and asks \"What is this?\" to make readers wonder.",
+        "wrong": {
+          "A": "The opening does not talk about cold.",
+          "B": "The opening does not teach digging.",
+          "D": "The opening does not talk about mud."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "What do paleontologists do?",
+        "options": [
+          "They build new deserts",
+          "They fill seas with mud",
+          "They dig up fossils",
+          "They make rocks from sand"
+        ],
+        "answer": "C",
+        "skill": "detail",
+        "why": "The text says paleontologists carefully dig up ancient clues and study them.",
+        "wrong": {
+          "A": "Paleontologists do not build deserts.",
+          "B": "Paleontologists do not fill seas with mud.",
+          "D": "Rocks form by themselves over a long time, not by scientists."
+        }
+      },
+      {
+        "stem": "Read this: \"It has been preserved inside rock.\" What does preserved mean?",
+        "options": [
+          "kept safe from change",
+          "broken into small pieces",
+          "carried away by water",
+          "painted in bright colors"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "The fossil stays inside rock for a very long time, so it is kept safe from change.",
+        "wrong": {
+          "B": "A preserved fossil is kept whole, not broken.",
+          "C": "The text says the fossil stays inside rock.",
+          "D": "The text does not mention painting."
+        }
+      },
+      {
+        "stem": "Why do people find fossils of sea creatures in the Saudi desert?",
+        "options": [
+          "Sea animals once walked there to rest",
+          "Winds carry them from the coast",
+          "Scientists bring them there to study",
+          "A warm sea once covered the land"
+        ],
+        "answer": "D",
+        "skill": "cause-effect",
+        "why": "The text says a warm, shallow sea once covered large parts of what is now the Arabian desert.",
+        "wrong": {
+          "A": "The text does not say sea animals walked there.",
+          "B": "The text says a sea once covered the land, not that wind carried the fossils.",
+          "C": "The text says people still find the fossils there."
+        }
+      },
+      {
+        "stem": "Why does the author begin by asking how a seashell ended up in a desert?",
+        "options": [
+          "To say shells are rare in the sea",
+          "To make readers want to find out",
+          "To show that deserts are wet",
+          "To explain how rocks are cut"
+        ],
+        "answer": "B",
+        "skill": "author-purpose",
+        "why": "The question makes readers curious, and the article then explains fossils and the ancient sea.",
+        "wrong": {
+          "A": "The text does not say shells are rare in the sea.",
+          "C": "The article says the place was once wetter, not that deserts are wet now.",
+          "D": "Cutting rocks is not explained."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "According to the article, what can trace fossils reveal?",
+        "options": [
+          "How an animal moved",
+          "What color an animal was",
+          "How old a rock is",
+          "Which sea an animal swam in"
+        ],
+        "answer": "A",
+        "skill": "detail",
+        "why": "The text says trace fossils such as footprints can reveal how an animal moved.",
+        "wrong": {
+          "B": "The text does not say trace fossils show color.",
+          "C": "The text does not say trace fossils show a rock's age.",
+          "D": "The text does not name a sea for trace fossils."
+        }
+      },
+      {
+        "stem": "As used in the article, \"infiltrate\" most nearly means",
+        "options": [
+          "wash away",
+          "break apart",
+          "slowly pass into",
+          "stay far from"
+        ],
+        "answer": "C",
+        "skill": "vocabulary",
+        "why": "Minerals in underground water slowly enter the remains and replace them with rock.",
+        "wrong": {
+          "A": "The minerals do not wash the remains away; they replace them with rock.",
+          "B": "The remains are replaced, not broken apart.",
+          "D": "The minerals go into the remains, not away from them."
+        }
+      },
+      {
+        "stem": "Why must a body be buried rapidly if it is to become a fossil?",
+        "options": [
+          "So the wind can blow it far away",
+          "So minerals can leave the water fast",
+          "So scientists can find it at once",
+          "So decomposition cannot destroy it"
+        ],
+        "answer": "D",
+        "skill": "cause-effect",
+        "why": "The text says mud, sand, or ash must bury the body before decomposition can destroy it.",
+        "wrong": {
+          "A": "The body must stay buried, not be blown away.",
+          "B": "Minerals enter the remains slowly over thousands of years.",
+          "C": "Scientists dig up fossils much later."
+        }
+      },
+      {
+        "stem": "Why does the author begin by asking how a seashell ended up in a desert?",
+        "options": [
+          "To prove that deserts were forests",
+          "To raise a puzzle the article explains",
+          "To warn hikers about dangerous rocks",
+          "To show seashells are easy to find"
+        ],
+        "answer": "B",
+        "skill": "author-purpose",
+        "why": "The opening question creates a puzzle, and the article later explains the ancient sea that covered the Arabian desert.",
+        "wrong": {
+          "A": "The article says a sea covered the area, not a forest.",
+          "C": "The article does not warn about dangerous rocks.",
+          "D": "The seashell is a surprising find, not an easy one."
+        }
+      }
+    ]
   }
 }

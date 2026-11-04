@@ -614,5 +614,217 @@
       ],
       "modelAnswer": "Weather satellites have changed the way people prepare for dangerous weather by giving forecasters a constant view of the entire planet. For instance, geostationary satellites stay above the same region near the equator and send new pictures every few minutes, allowing forecasters to track a storm as it forms. In addition, infrared sensors can measure heat and detect tall storm clouds even at night, which older methods could not do. Because of this technology, computers can combine the data to create forecasts that warn people of cyclones and dust storms before they strike. In conclusion, satellites have given people far more warning time than ever before."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "What did the first weather satellite send back?",
+        "options": [
+          "A shot of the deep sea floor",
+          "A photo of the moon up close",
+          "A shot of clouds from space",
+          "A shot of a very tall tower"
+        ],
+        "answer": "C",
+        "skill": "detail",
+        "why": "The text says the first satellite sent back a shot of clouds.",
+        "wrong": {
+          "A": "The text does not mention the sea floor.",
+          "B": "The text does not mention the moon.",
+          "D": "The text does not mention a tower."
+        }
+      },
+      {
+        "stem": "In the article, the word forecast means —",
+        "options": [
+          "say what the weather will be",
+          "take a picture of the sky",
+          "make rain and wind come",
+          "send a signal down a wire"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "We can see a storm coming and then forecast the rain and wind, so forecast means to say what weather will come.",
+        "wrong": {
+          "B": "Taking pictures is what satellites do.",
+          "C": "People cannot make rain and wind come.",
+          "D": "There are no wires in this article."
+        }
+      },
+      {
+        "stem": "Why does the low satellite see the whole planet?",
+        "options": [
+          "It hangs still above the equator",
+          "Its flat wings turn around Earth",
+          "It stays near the north pole",
+          "The Earth spins under its path"
+        ],
+        "answer": "D",
+        "skill": "cause-effect",
+        "why": "The text says the low satellite goes from pole to pole while the Earth spins below it, so it sees the planet strip by strip.",
+        "wrong": {
+          "A": "That describes the very high satellite.",
+          "B": "The flat wings catch sun for power.",
+          "C": "It goes from pole to pole, not just one pole."
+        }
+      },
+      {
+        "stem": "Why is it good to see a storm on its way?",
+        "options": [
+          "So the storm will go away",
+          "So people can be warned in time",
+          "So the clouds turn into dust",
+          "So satellites can get more power"
+        ],
+        "answer": "B",
+        "skill": "inference",
+        "why": "The text says we can see a storm coming and then warn folks.",
+        "wrong": {
+          "A": "Seeing a storm does not make it leave.",
+          "C": "Clouds do not turn into dust.",
+          "D": "Satellites get power from the sun."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "Where does a weather satellite get its power?",
+        "options": [
+          "From the sun, through solar panels",
+          "From a long cable that reaches Earth",
+          "From burning gas every single day",
+          "From the radio stations on the ground"
+        ],
+        "answer": "A",
+        "skill": "detail",
+        "why": "The text says the satellite gets its power from the sun through large solar panels.",
+        "wrong": {
+          "B": "The text does not mention a cable.",
+          "C": "The text does not mention burning gas.",
+          "D": "Radio stations receive data; they do not give power."
+        }
+      },
+      {
+        "stem": "In the article, the word scans means —",
+        "options": [
+          "stays in one place over",
+          "drops quickly down to",
+          "sends a loud signal to",
+          "examines piece by piece"
+        ],
+        "answer": "D",
+        "skill": "vocabulary",
+        "why": "The satellite scans the planet one strip at a time, so scans means to look piece by piece.",
+        "wrong": {
+          "A": "The polar satellite does not stay in one place.",
+          "B": "Satellites do not drop to Earth.",
+          "C": "The satellite collects data, it does not send loud signals."
+        }
+      },
+      {
+        "stem": "What do very cold cloud tops tell forecasters?",
+        "options": [
+          "That a dust storm is coming soon",
+          "That the sun is giving power",
+          "That the storm cloud is very tall",
+          "That a camera is not working"
+        ],
+        "answer": "C",
+        "skill": "cause-effect",
+        "why": "The text says very cold cloud tops show tall storm clouds.",
+        "wrong": {
+          "A": "Cold cloud tops are not a sign of dust.",
+          "B": "Solar power has nothing to do with cloud tops.",
+          "D": "Cold tops show tall clouds, not a broken camera."
+        }
+      },
+      {
+        "stem": "How is the polar-orbiting satellite different from the high one?",
+        "options": [
+          "It stays above one fixed region",
+          "It flies lower and passes the poles",
+          "It orbits near the equator all time",
+          "It takes only daytime pictures"
+        ],
+        "answer": "B",
+        "skill": "compare",
+        "why": "The text says the other kind orbits about 800 kilometers up and passes over the North and South Poles.",
+        "wrong": {
+          "A": "That describes the high satellite.",
+          "C": "The high satellite orbits above the equator.",
+          "D": "Both kinds can carry infrared sensors."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "What was special about TIROS-1?",
+        "options": [
+          "Its pictures were much sharper than modern ones",
+          "It was launched by Saudi Arabia in the year 1960",
+          "It could only take pictures of the ocean at night",
+          "It took the first TV image of clouds from space"
+        ],
+        "answer": "D",
+        "skill": "detail",
+        "why": "The text says TIROS-1 transmitted the first television image of clouds ever photographed from space.",
+        "wrong": {
+          "A": "The text says its pictures were blurry by modern standards.",
+          "B": "The text says it was launched by the United States.",
+          "C": "The text says it sent an image of clouds."
+        }
+      },
+      {
+        "stem": "In the article, geostationary satellites are satellites that —",
+        "options": [
+          "stay above the same spot",
+          "fly over both poles",
+          "fall slowly back to Earth",
+          "circle the Moon each day"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "The article says geostationary satellites travel at the same speed Earth turns, so they remain above the same region.",
+        "wrong": {
+          "B": "Polar-orbiting satellites fly over the poles.",
+          "C": "The satellites stay in orbit; they do not fall.",
+          "D": "The satellites orbit Earth, not the Moon."
+        }
+      },
+      {
+        "stem": "Why do polar-orbiting satellites give a more detailed view?",
+        "options": [
+          "They orbit high above the equator",
+          "They stay over the same region",
+          "They travel much closer to Earth",
+          "They carry many more solar panels"
+        ],
+        "answer": "C",
+        "skill": "cause-effect",
+        "why": "The text says they travel much lower, which gives a closer and more detailed view.",
+        "wrong": {
+          "A": "That describes geostationary satellites.",
+          "B": "That is why geostationary satellites watch one place.",
+          "D": "The text does not mention more solar panels."
+        }
+      },
+      {
+        "stem": "Why does the author mention cyclones in the Arabian Sea and dust over the desert?",
+        "options": [
+          "To prove that satellites cannot see dust",
+          "To show how the data helps people nearby",
+          "To explain why gravity pulls satellites",
+          "To say that the sea has no weather"
+        ],
+        "answer": "B",
+        "skill": "author-purpose",
+        "why": "These examples show forecasters using satellite data to track real storms and warn communities.",
+        "wrong": {
+          "A": "The text says forecasters track dust with satellite data.",
+          "C": "Gravity is explained in an earlier paragraph.",
+          "D": "Cyclones are weather over the sea."
+        }
+      }
+    ]
   }
 }

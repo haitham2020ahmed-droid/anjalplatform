@@ -614,5 +614,217 @@
       ],
       "modelAnswer": "A trajectory is the planned path a spacecraft follows, and the lunar module's trajectory carried it from orbit down toward a careful, controlled descent onto the flat plain of the Sea of Tranquility. While that descent was happening, mission controllers on Earth watched a constant stream of telemetry, automatically transmitted data that told them whether the module's fuel, speed, and altitude were staying within safe limits. Together, a well-planned trajectory and reliable telemetry let controllers trust that the lunar module could land safely, and after the astronauts explored the lunar surface, that same kind of careful planning guided their trajectory back to Earth and through the quarantine period that followed their historic landing."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "How many astronauts got into the rocket in 1969?",
+        "options": [
+          "Two",
+          "Three",
+          "Four",
+          "Five"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The text says three astronauts got in the rocket in 1969.",
+        "wrong": {
+          "A": "Two men went down to the Moon, but three got in the rocket.",
+          "C": "The text does not say four.",
+          "D": "The text does not say five."
+        }
+      },
+      {
+        "stem": "What happened right after the men got back in the capsule?",
+        "options": [
+          "It sank in the sea",
+          "It stayed on the Moon",
+          "It flew home alone",
+          "It flew up to the ship"
+        ],
+        "answer": "D",
+        "skill": "sequence",
+        "why": "The text says they got back in and it flew up to the big ship before all three flew home.",
+        "wrong": {
+          "A": "The sinking is not in the text; the capsule landed in the sea later.",
+          "B": "The text says the capsule flew up.",
+          "C": "The capsule joined the big ship first."
+        }
+      },
+      {
+        "stem": "In the text, what does the word surface mean?",
+        "options": [
+          "The top of the ground",
+          "A deep hole",
+          "A big ship",
+          "The inside of a rock"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "The men walked on the outside top part of the Moon.",
+        "wrong": {
+          "B": "People cannot walk on a hole.",
+          "C": "The ship is where they flew, not where they walked.",
+          "D": "They walked on the ground, not inside a rock."
+        }
+      },
+      {
+        "stem": "What can you tell about the third astronaut?",
+        "options": [
+          "He stayed home on Earth",
+          "He stayed in the big ship",
+          "He walked on the Moon too",
+          "He stayed in the capsule"
+        ],
+        "answer": "B",
+        "skill": "inference",
+        "why": "Two men went down in the capsule and all three flew home, so the third man stayed in the big ship.",
+        "wrong": {
+          "A": "All three flew in the rocket.",
+          "C": "Only two men walked on the Moon.",
+          "D": "The capsule carried the two men who went down."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "Where did the lunar module land on the Moon?",
+        "options": [
+          "On the top of a tall mountain",
+          "In a deep, dark crater on the Moon",
+          "In a flat spot, the Sea of Tranquility",
+          "Near a Navy ship in the ocean"
+        ],
+        "answer": "C",
+        "skill": "detail",
+        "why": "The text says it landed in a flat spot called the Sea of Tranquility.",
+        "wrong": {
+          "A": "The landing spot was flat, not a mountain.",
+          "B": "The text calls it flat, not a crater.",
+          "D": "The Navy ship met them after the splashdown on Earth."
+        }
+      },
+      {
+        "stem": "About how long did the two astronauts explore the ground together?",
+        "options": [
+          "More than two hours",
+          "About ten minutes",
+          "Almost two whole days",
+          "Just a few seconds"
+        ],
+        "answer": "A",
+        "skill": "detail",
+        "why": "The text says they explored the ground for more than two hours.",
+        "wrong": {
+          "B": "Ten minutes is far too short.",
+          "C": "Two days is far too long.",
+          "D": "A few seconds is far too short."
+        }
+      },
+      {
+        "stem": "The text says it docked with the command module. What does docked mean here?",
+        "options": [
+          "Fell into the sea",
+          "Took a picture",
+          "Ran out of fuel",
+          "Joined up with it"
+        ],
+        "answer": "D",
+        "skill": "vocabulary",
+        "why": "The lunar module flew back up and joined the command module so all three could go home.",
+        "wrong": {
+          "A": "The splashdown comes later, in the ocean.",
+          "B": "No pictures are mentioned.",
+          "C": "Fuel is not mentioned."
+        }
+      },
+      {
+        "stem": "Why was a Navy ship waiting at the splashdown?",
+        "options": [
+          "To pick up the crew",
+          "To fire off a rocket",
+          "To lead the way to the Moon",
+          "To carry the lunar module"
+        ],
+        "answer": "A",
+        "skill": "cause-effect",
+        "why": "The text says a Navy ship was there to pick them up after they landed in the ocean.",
+        "wrong": {
+          "B": "No rocket launch is mentioned at the splashdown.",
+          "C": "The trip to the Moon was already over.",
+          "D": "The lunar module stayed in space."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "About how far away is the Moon, according to the article?",
+        "options": [
+          "Around 38,000 kilometers",
+          "Around 384,000 kilometers",
+          "Around 3,840,000 kilometers",
+          "Around 3,840 kilometers"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The article says the Moon is roughly 384,000 kilometers away.",
+        "wrong": {
+          "A": "This is ten times too small.",
+          "C": "This is ten times too large.",
+          "D": "This is one hundred times too small."
+        }
+      },
+      {
+        "stem": "In the text, what does the word compact mean?",
+        "options": [
+          "Small and well built",
+          "Very old and worn out",
+          "Loud and very fast",
+          "Wide and very heavy"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "The lunar module was a small craft made to carry two men down to the Moon.",
+        "wrong": {
+          "B": "Nothing says the craft was old.",
+          "C": "Sound and speed are not the point of the sentence.",
+          "D": "Compact is the opposite of wide and heavy."
+        }
+      },
+      {
+        "stem": "Why could the astronauts leap across the Moon more easily than on Earth?",
+        "options": [
+          "It is much warmer there",
+          "Their boots were very light",
+          "The air on the Moon is thick",
+          "Its gravity is much weaker"
+        ],
+        "answer": "D",
+        "skill": "cause-effect",
+        "why": "The Moon's gravity pulls only about one-sixth as strongly as Earth's.",
+        "wrong": {
+          "A": "Warmth is not given as the reason.",
+          "B": "The boots are not mentioned as a cause.",
+          "C": "The text does not say the Moon has thick air."
+        }
+      },
+      {
+        "stem": "Why does the author end by saying the mission proved people could travel to another world and return safely?",
+        "options": [
+          "To tell readers how to build a rocket",
+          "To list all the tools the crew carried",
+          "To warn readers that space is unsafe",
+          "To show why the mission mattered so much"
+        ],
+        "answer": "D",
+        "skill": "author-purpose",
+        "why": "The last paragraph sums up the importance of the mission, which matches the opening line that few events have mattered as much.",
+        "wrong": {
+          "A": "The article does not teach how to build a rocket.",
+          "B": "The tools were listed earlier and not in this sentence.",
+          "C": "The sentence says the crew returned safely."
+        }
+      }
+    ]
   }
 }

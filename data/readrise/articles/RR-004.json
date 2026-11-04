@@ -614,5 +614,217 @@
       ],
       "modelAnswer": "This research matters because Red Sea corals have shown a remarkable ability to tolerate heat that would destroy corals in most other oceans, which makes their symbiosis with algae especially resilient. Normally, when water temperatures rise too high, stressed corals expel their algae in a process called bleaching, and if the heat does not ease, the coral's limestone skeleton is left bare and the animal eventually starves. Because Red Sea corals seem better able to withstand this stress, scientists studying them may discover traits or conditions that could help conservation efforts protect vulnerable reefs elsewhere as ocean temperatures continue rising. In this way, one resilient reef could offer hope for reef ecosystems around the entire world."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "What do the small things in a coral use to make food?",
+        "options": [
+          "Salt",
+          "Fish",
+          "Dust",
+          "The sun"
+        ],
+        "answer": "D",
+        "skill": "detail",
+        "why": "The text says the small things in each coral use the sun to make food.",
+        "wrong": {
+          "A": "Salt is not used to make food in the text.",
+          "B": "Fish live near the reef but do not make food for corals.",
+          "C": "Dust is not mentioned."
+        }
+      },
+      {
+        "stem": "How does a reef grow big over time?",
+        "options": [
+          "Fish carry rocks to the coral.",
+          "The cups of corals stack up.",
+          "Crabs dig deep holes in it.",
+          "The sun heats the sea."
+        ],
+        "answer": "B",
+        "skill": "cause-effect",
+        "why": "The text says the hard cups of many corals stack up and in time make a reef.",
+        "wrong": {
+          "A": "The text does not say fish carry rocks.",
+          "C": "Crabs live in the reef but do not build it.",
+          "D": "Heat can hurt corals; it does not build the reef."
+        }
+      },
+      {
+        "stem": "What do the small things give the coral besides food?",
+        "options": [
+          "Its color",
+          "Its hard cup",
+          "Its cracks",
+          "Its trash"
+        ],
+        "answer": "A",
+        "skill": "detail",
+        "why": "The text says the small things share the food and give the coral its color, too.",
+        "wrong": {
+          "B": "The coral builds its own hard cup.",
+          "C": "Cracks in the reef are used by fish.",
+          "D": "Trash hurts reefs; it does not come from the small things."
+        }
+      },
+      {
+        "stem": "In the last part, what does the word protect mean?",
+        "options": [
+          "To hide",
+          "To move",
+          "To keep safe",
+          "To count"
+        ],
+        "answer": "C",
+        "skill": "vocabulary",
+        "why": "The text says reefs are in danger, so people must act to keep them safe.",
+        "wrong": {
+          "A": "The text does not ask us to hide reefs.",
+          "B": "Nobody is asked to move the reefs.",
+          "D": "Counting reefs would not stop the danger."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "How do reefs help to protect beaches?",
+        "options": [
+          "They slow down strong waves.",
+          "They make the water very warm.",
+          "They push sand into the sea.",
+          "They keep boats far away."
+        ],
+        "answer": "A",
+        "skill": "detail",
+        "why": "The article says reefs protect beaches by slowing down strong waves.",
+        "wrong": {
+          "B": "Warm water is not linked to protecting beaches.",
+          "C": "The text does not say reefs push sand.",
+          "D": "Boats can tie up to floats near reefs; they are not kept away."
+        }
+      },
+      {
+        "stem": "What does the word pollution mean in this article?",
+        "options": [
+          "Bright colors in a reef",
+          "Heat that makes corals white",
+          "Waves that hit the beach",
+          "Dirty things that harm the sea"
+        ],
+        "answer": "D",
+        "skill": "vocabulary",
+        "why": "The article gives plastic and dirty water as examples of pollution that harm reefs.",
+        "wrong": {
+          "A": "Colors come from the algae, not from pollution.",
+          "B": "Heat causes bleaching, which is different.",
+          "C": "Waves are slowed by reefs and are not pollution."
+        }
+      },
+      {
+        "stem": "How does a giant reef form?",
+        "options": [
+          "Old polyps die and new ones grow on top.",
+          "Stones fall from boats into the sea.",
+          "Algae turn into hard rocks in the sun.",
+          "Sea turtles build it out of sand."
+        ],
+        "answer": "A",
+        "skill": "cause-effect",
+        "why": "The article says new polyps grow on top of the skeletons of old ones and over hundreds of years they form a reef.",
+        "wrong": {
+          "B": "A reef is made by animals, not by stones from boats.",
+          "C": "Algae make food; the polyp builds the skeleton.",
+          "D": "Turtles only hide in the reef."
+        }
+      },
+      {
+        "stem": "Why does the author write about parks, floats and divers near the end?",
+        "options": [
+          "To show that reefs are very old",
+          "To show how people are helping reefs",
+          "To tell readers where to go diving",
+          "To explain how corals make food"
+        ],
+        "answer": "B",
+        "skill": "author-purpose",
+        "why": "These examples show what people are doing to protect reefs from danger.",
+        "wrong": {
+          "A": "The age of reefs is not the point of that section.",
+          "C": "The author does not give dive locations.",
+          "D": "Food making is explained earlier, not here."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "What is around the mouth of each polyp?",
+        "options": [
+          "A ring of stinging tentacles",
+          "A shield of hard limestone",
+          "A layer of tiny algae",
+          "A set of bright colors"
+        ],
+        "answer": "A",
+        "skill": "detail",
+        "why": "The article says a polyp has a ring of stinging tentacles around its mouth.",
+        "wrong": {
+          "B": "The limestone skeleton lies beneath the body.",
+          "C": "Algae live inside the tissues, not around the mouth.",
+          "D": "Colors come from the algae but are not a body part."
+        }
+      },
+      {
+        "stem": "The article says stressed corals expel their algae. What does expel mean?",
+        "options": [
+          "Feed",
+          "Push out",
+          "Protect",
+          "Count"
+        ],
+        "answer": "B",
+        "skill": "vocabulary",
+        "why": "After expelling the algae, corals turn white, which shows they have lost them.",
+        "wrong": {
+          "A": "Corals do not feed the algae when stressed.",
+          "C": "Losing the algae does not protect them.",
+          "D": "Counting does not make corals turn white."
+        }
+      },
+      {
+        "stem": "Why do researchers hope the heat-tolerant Red Sea corals can teach them something?",
+        "options": [
+          "The corals could help other reefs live in warmer seas.",
+          "The corals can stop the Red Sea from being salty.",
+          "The corals can remove the sewage from the sea.",
+          "The corals can turn into fish when it is hot."
+        ],
+        "answer": "A",
+        "skill": "inference",
+        "why": "Researchers hope the lessons can show how reefs might survive a warming world.",
+        "wrong": {
+          "B": "The sea is salty because few rivers flow into it.",
+          "C": "Nothing says corals remove sewage.",
+          "D": "Corals are animals that do not turn into fish."
+        }
+      },
+      {
+        "stem": "How does the paragraph that begins with Nevertheless change the article?",
+        "options": [
+          "It adds more facts about colors.",
+          "It tells how to raise young corals.",
+          "It names the longest reefs on Earth.",
+          "It moves from strengths to dangers."
+        ],
+        "answer": "D",
+        "skill": "text-structure",
+        "why": "The earlier paragraphs describe how strong the reefs are, and this paragraph turns to serious threats.",
+        "wrong": {
+          "A": "Colors were explained in an earlier paragraph.",
+          "B": "Nurseries appear in the last paragraph.",
+          "C": "The longest reefs are named in the paragraph before."
+        }
+      }
+    ]
   }
 }

@@ -614,5 +614,217 @@
       ],
       "modelAnswer": "I agree that how an inventor responds to failure matters as much as the invention itself. Maya's gadget malfunctioned in the worst possible moment, right in front of the judges, yet what truly impressed them was not a perfect first test but her composed, meticulous diagnosis of the problem. By inspecting the tube piece by piece and narrowing the opening with a steady hand, she showed the kind of thinking a real engineer relies on. Someone might argue that the invention itself, the clever idea of an automatic waterer, deserves most of the credit, and that is a fair point, but without Maya's calm response to its failure, the judges would have seen only a broken gadget rather than a resourceful inventor."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "Where is Maya's workshop?",
+        "options": [
+          "In the school hall",
+          "In the garage",
+          "In her bedroom",
+          "In the kitchen"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The text says her small workshop is in the garage.",
+        "wrong": {
+          "A": "The school hall is not her workshop.",
+          "C": "Her bedroom is not mentioned.",
+          "D": "The kitchen is not mentioned."
+        }
+      },
+      {
+        "stem": "What does Maya use to build her gadget?",
+        "options": [
+          "A rope and a bell",
+          "A box and a pump",
+          "A cup and a lamp",
+          "A tube and a timer"
+        ],
+        "answer": "D",
+        "skill": "detail",
+        "why": "The text says her gadget has a tube and a timer.",
+        "wrong": {
+          "A": "A rope and a bell are not mentioned.",
+          "B": "A box and a pump are not mentioned.",
+          "C": "A cup and a lamp are not mentioned."
+        }
+      },
+      {
+        "stem": "In the story, what does \"invent\" mean?",
+        "options": [
+          "Make something new",
+          "Buy something old",
+          "Break something quickly",
+          "Hide something away"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "Maya wants to invent something new, so she builds a new gadget.",
+        "wrong": {
+          "B": "She builds a gadget; she does not buy one.",
+          "C": "She wants to make something, not break it.",
+          "D": "She shows her gadget to the judges."
+        }
+      },
+      {
+        "stem": "Why does Maya test her gadget at home before the fair?",
+        "options": [
+          "To hide it from her dad",
+          "To make it break on purpose",
+          "To see if it works",
+          "To win a prize at home"
+        ],
+        "answer": "C",
+        "skill": "inference",
+        "why": "She tests it at home and sees that it works just right, so she knows it is ready.",
+        "wrong": {
+          "A": "Hiding it is not mentioned.",
+          "B": "She wants it to work, not break.",
+          "D": "The prize is at the school fair."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "What does Maya's automatic plant waterer do?",
+        "options": [
+          "It picks plants from the garden",
+          "It cleans the soil for the plant",
+          "It drips water into the soil on its own",
+          "It tells people when the plant is dry"
+        ],
+        "answer": "C",
+        "skill": "detail",
+        "why": "The text says it drips water into a plant's soil so no one has to remember.",
+        "wrong": {
+          "A": "It waters; it does not pick plants.",
+          "B": "Cleaning soil is not mentioned.",
+          "D": "It waters the plant itself, not just tells people."
+        }
+      },
+      {
+        "stem": "In the story, the word \"assembles\" means —",
+        "options": [
+          "draws a picture of",
+          "puts the parts together",
+          "takes the parts apart",
+          "buys the parts from a shop"
+        ],
+        "answer": "B",
+        "skill": "vocabulary",
+        "why": "Maya assembles her gadget from a thin tube and a simple timer, so she puts it together.",
+        "wrong": {
+          "A": "She builds a real gadget.",
+          "C": "She puts it together, not takes it apart.",
+          "D": "The text does not say she bought parts."
+        }
+      },
+      {
+        "stem": "Why were the judges impressed with Maya?",
+        "options": [
+          "She asked her father to fix it",
+          "She used the biggest tube she could find",
+          "She won the fair before it started",
+          "She thought quickly and fixed it herself"
+        ],
+        "answer": "D",
+        "skill": "cause-effect",
+        "why": "The judges were impressed by her quick thinking and by the gadget itself.",
+        "wrong": {
+          "A": "She fixed it with her own steady hand.",
+          "B": "The wide tube opening was the problem.",
+          "C": "The judges judged her at the fair."
+        }
+      },
+      {
+        "stem": "What can you tell about Maya from how she fixed the gadget at the fair?",
+        "options": [
+          "She stays calm and solves problems",
+          "She gives up when things go wrong",
+          "She needs help for every task",
+          "She does not like being watched"
+        ],
+        "answer": "A",
+        "skill": "inference",
+        "why": "Maya stayed calm, inspected the tube, and fixed the opening herself.",
+        "wrong": {
+          "B": "She did not give up; she fixed it.",
+          "C": "She solved the problem on her own.",
+          "D": "She fixed it in front of everyone."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "Where did Maya find the timer for her gadget?",
+        "options": [
+          "In a store downtown",
+          "In her father's toolbox",
+          "At the school office",
+          "In a kitchen drawer"
+        ],
+        "answer": "D",
+        "skill": "detail",
+        "why": "The text says the timer was one she had found in a kitchen drawer.",
+        "wrong": {
+          "A": "A store is not mentioned.",
+          "B": "The tools in the workshop are her father's, but the timer came from a kitchen drawer.",
+          "C": "The school office is not mentioned."
+        }
+      },
+      {
+        "stem": "In the story, the word \"meticulously\" most nearly means —",
+        "options": [
+          "very quickly",
+          "in a messy way",
+          "very carefully",
+          "in a loud way"
+        ],
+        "answer": "C",
+        "skill": "vocabulary",
+        "why": "Maya assembled her gadget with steady care, and the gadget worked perfectly at home.",
+        "wrong": {
+          "A": "A meticulous build is slow and careful, not rushed.",
+          "B": "The gadget worked perfectly, so she was not messy.",
+          "D": "The word is about care, not noise."
+        }
+      },
+      {
+        "stem": "What does the phrase \"instead of watching television with her friends\" suggest about Maya?",
+        "options": [
+          "She does not have any friends",
+          "She would rather invent things",
+          "She is not allowed to watch TV",
+          "She is afraid of the workshop"
+        ],
+        "answer": "B",
+        "skill": "inference",
+        "why": "She spent weekends in the workshop by choice, so she preferred inventing to watching TV.",
+        "wrong": {
+          "A": "The text says she has friends.",
+          "C": "The text says nothing about a rule.",
+          "D": "The workshop is her favorite place in the house."
+        }
+      },
+      {
+        "stem": "Why does the author say the gadget worked \"hour after hour, day after day\" at home?",
+        "options": [
+          "To make the failure at the fair a surprise",
+          "To show that Maya was tired of testing it",
+          "To show the judges worked all day",
+          "To explain how the timer was made"
+        ],
+        "answer": "A",
+        "skill": "author-purpose",
+        "why": "The long success at home makes the sudden flood at the fair more surprising.",
+        "wrong": {
+          "B": "The text does not say she was tired of testing.",
+          "C": "This detail is about the gadget at home.",
+          "D": "The timer's making is not explained."
+        }
+      }
+    ]
   }
 }

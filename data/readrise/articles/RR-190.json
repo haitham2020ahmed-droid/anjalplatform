@@ -614,5 +614,217 @@
       ],
       "modelAnswer": "Tesla's alternating current solved the problem of sending electricity over long distances because, unlike Edison's direct current, it changes direction many times each second and can transmit power far without weakening along the way. He patented a motor that ran on this current, and businessman George Westinghouse used the patent to build the system, which proved itself at Niagara Falls, where a transformer-based power plant sent Tesla's current to a distant city. I think his legacy is so important because most homes in the world still rely on his kind of electricity today, even though he died in 1943 with very little money himself."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "How much money did Tesla have when he went to New York?",
+        "options": [
+          "A big bag of gold",
+          "A rich man's pay",
+          "Just a little cash",
+          "None at all"
+        ],
+        "answer": "C",
+        "skill": "detail",
+        "why": "The text says he had just a bit of cash when he went to New York in 1884.",
+        "wrong": {
+          "A": "He did not have much money.",
+          "B": "The rich man paid him later, after he made his plan.",
+          "D": "The text says he had a bit of cash, not none."
+        }
+      },
+      {
+        "stem": "In this article, what is a plant?",
+        "options": [
+          "A place that makes power",
+          "A tree that grows tall",
+          "A motor that is small",
+          "A waterfall that is big"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "Men built a plant at a big waterfall that made power with the new plan.",
+        "wrong": {
+          "B": "This is not a tree.",
+          "C": "The motor is a different machine.",
+          "D": "The waterfall is where the plant was built."
+        }
+      },
+      {
+        "stem": "Why did the far-off town get light?",
+        "options": [
+          "Edison made it with a motor.",
+          "The town built a big lamp.",
+          "Tesla moved there to work.",
+          "The new current could go far."
+        ],
+        "answer": "D",
+        "skill": "cause-effect",
+        "why": "Tesla's kind of current could go a long way, so the plant's power reached the town far off.",
+        "wrong": {
+          "A": "Edison's current could not go far.",
+          "B": "A big lamp is not mentioned.",
+          "C": "The text does not say Tesla moved there."
+        }
+      },
+      {
+        "stem": "The text says Tesla's ideas still help us today. What does this tell you?",
+        "options": [
+          "He was a very rich man",
+          "His current stopped working",
+          "His work still matters now",
+          "No one uses his current"
+        ],
+        "answer": "C",
+        "skill": "inference",
+        "why": "Most homes now use his kind of electricity, so his work still matters today.",
+        "wrong": {
+          "A": "The text says he did not have much money.",
+          "B": "His kind of current is still used.",
+          "D": "Most homes use his kind of electricity."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "In which country is Tesla's birth village today?",
+        "options": [
+          "Croatia",
+          "Egypt",
+          "Canada",
+          "Spain"
+        ],
+        "answer": "A",
+        "skill": "detail",
+        "why": "The text says the village is now part of Croatia.",
+        "wrong": {
+          "B": "Egypt is not mentioned.",
+          "C": "Canada is not mentioned.",
+          "D": "Spain is not mentioned."
+        }
+      },
+      {
+        "stem": "In the article, what is engineering?",
+        "options": [
+          "A paper that shows who owns an idea",
+          "A kind of electric current",
+          "The science of making machines",
+          "A huge waterfall"
+        ],
+        "answer": "C",
+        "skill": "vocabulary",
+        "why": "The text says engineering is the science of making machines.",
+        "wrong": {
+          "A": "That describes a patent.",
+          "B": "Direct and alternating are the kinds of current.",
+          "D": "The huge waterfall is Niagara Falls."
+        }
+      },
+      {
+        "stem": "Which list shows the events in the right order?",
+        "options": [
+          "Worked for Edison, sailed to New York, Westinghouse bought patents",
+          "Sailed to New York, worked for Edison, Westinghouse bought patents",
+          "Westinghouse bought patents, sailed to New York, worked for Edison",
+          "Sailed to New York, Westinghouse bought patents, worked for Edison"
+        ],
+        "answer": "B",
+        "skill": "sequence",
+        "why": "Tesla sailed to New York in 1884, worked for Edison, and later Westinghouse bought his patents.",
+        "wrong": {
+          "A": "He had to be in New York before working for Edison there.",
+          "C": "The patents were bought after he had arrived and worked for Edison.",
+          "D": "He worked for Edison before Westinghouse bought his patents."
+        }
+      },
+      {
+        "stem": "What does the author suggest by saying Tesla died without much money, but his ideas changed the world?",
+        "options": [
+          "Tesla did not like his ideas",
+          "Money is the only sign of success",
+          "Edison took all of his money",
+          "His work mattered more than money"
+        ],
+        "answer": "D",
+        "skill": "inference",
+        "why": "The word Still shows that even without money, his ideas had a huge effect.",
+        "wrong": {
+          "A": "The text does not say he disliked his ideas.",
+          "B": "The sentence suggests the opposite.",
+          "C": "The text does not say Edison took his money."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "What helped Tesla picture complicated machines before building them?",
+        "options": [
+          "A set of drawings",
+          "A famous teacher",
+          "A strong memory",
+          "A model from Edison"
+        ],
+        "answer": "C",
+        "skill": "detail",
+        "why": "The text says his strong memory let him picture complicated machines in detail.",
+        "wrong": {
+          "A": "Drawings are not mentioned.",
+          "B": "A teacher is not mentioned for this.",
+          "D": "Edison's models are not mentioned."
+        }
+      },
+      {
+        "stem": "In the article, the word superior most nearly means —",
+        "options": [
+          "much older",
+          "more expensive",
+          "harder to build",
+          "of higher quality"
+        ],
+        "answer": "D",
+        "skill": "vocabulary",
+        "why": "Tesla argued that alternating current could travel far with less loss, so it was of higher quality.",
+        "wrong": {
+          "A": "Age is not the point.",
+          "B": "Cost is not discussed.",
+          "C": "Difficulty of building is not discussed."
+        }
+      },
+      {
+        "stem": "Why did Tesla die with very little money?",
+        "options": [
+          "Some of his later projects failed.",
+          "Edison took his patents.",
+          "He gave all his money to Westinghouse.",
+          "His motor stopped working."
+        ],
+        "answer": "A",
+        "skill": "cause-effect",
+        "why": "The text says he died with little money partly because some of his later projects failed.",
+        "wrong": {
+          "B": "Westinghouse bought his patents; Edison did not take them.",
+          "C": "The text does not say he gave away his money.",
+          "D": "His motor worked; the article calls it practical."
+        }
+      },
+      {
+        "stem": "What is the purpose of the paragraph about Niagara Falls?",
+        "options": [
+          "To explain how waterfalls form",
+          "To show the new system really worked",
+          "To describe a trip Tesla took",
+          "To list Tesla's other inventions"
+        ],
+        "answer": "B",
+        "skill": "author-purpose",
+        "why": "The plant sent alternating current to a city many kilometers away, which shows the new system worked in practice.",
+        "wrong": {
+          "A": "The paragraph does not explain how waterfalls form.",
+          "C": "It does not say Tesla took a trip.",
+          "D": "It describes one power plant, not other inventions."
+        }
+      }
+    ]
   }
 }

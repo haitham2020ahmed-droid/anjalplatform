@@ -611,5 +611,217 @@
         "I wrote complete sentences with capital letters and periods."
       ]
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "What does the big drum do for the dancers?",
+        "options": [
+          "It sets the beat",
+          "It says the poem",
+          "It holds the swords",
+          "It makes the rows"
+        ],
+        "answer": "A",
+        "skill": "detail",
+        "why": "The text says the men move with the beat of the drum.",
+        "wrong": {
+          "B": "The poet says the poem, not the drum.",
+          "C": "The men hold the swords themselves.",
+          "D": "The men stand in rows by themselves."
+        }
+      },
+      {
+        "stem": "What do the other men do after the poet says a poem?",
+        "options": [
+          "Put down the swords",
+          "Beat the big drum",
+          "Walk out of the rows",
+          "Say words back to him"
+        ],
+        "answer": "D",
+        "skill": "sequence",
+        "why": "The text says the other men say words back after the poet.",
+        "wrong": {
+          "A": "Each man holds a sword up high.",
+          "B": "The text does not say the men beat the drum.",
+          "C": "The men stay in their rows."
+        }
+      },
+      {
+        "stem": "Why do people do Al-Ardah at weddings?",
+        "options": [
+          "To fight with swords",
+          "To sell old swords",
+          "To celebrate with everyone",
+          "To teach children to read"
+        ],
+        "answer": "C",
+        "skill": "inference",
+        "why": "People do the dance on big days, and it makes them feel proud and close together.",
+        "wrong": {
+          "A": "The text says the men do not fight.",
+          "B": "Nothing is sold in the dance.",
+          "D": "The text does not say the dance teaches reading."
+        }
+      },
+      {
+        "stem": "In the article, what does the word sway mean?",
+        "options": [
+          "Jump straight up and down",
+          "Move side to side slowly",
+          "Run around in circles",
+          "Stand very still"
+        ],
+        "answer": "B",
+        "skill": "vocabulary",
+        "why": "The text says the men sway side to side with the beat.",
+        "wrong": {
+          "A": "The text says side to side, not up and down.",
+          "C": "The men stay in their rows.",
+          "D": "Swaying is a movement, so it is not standing still."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "What does the poet often chant about?",
+        "options": [
+          "Desert animals",
+          "Courage",
+          "Trading goods",
+          "The sea"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The text says the poet chants in a strong voice, often about courage.",
+        "wrong": {
+          "A": "Desert animals are not mentioned.",
+          "C": "Trade is not mentioned.",
+          "D": "The sea is not mentioned."
+        }
+      },
+      {
+        "stem": "In the article, what does the word graceful mean?",
+        "options": [
+          "Loud and wild",
+          "Slow and sad",
+          "Fast and rough",
+          "Smooth and beautiful"
+        ],
+        "answer": "D",
+        "skill": "vocabulary",
+        "why": "The dancers sway together with the beat, which looks strong and graceful, so graceful means smooth and beautiful.",
+        "wrong": {
+          "A": "Swaying together is calm, not wild.",
+          "B": "The dance is proud, not sad.",
+          "C": "The text describes steady, smooth movement."
+        }
+      },
+      {
+        "stem": "What makes the dance look strong and graceful?",
+        "options": [
+          "Swaying with the drum",
+          "Fighting with swords",
+          "Running between the rows",
+          "Singing without a poet"
+        ],
+        "answer": "A",
+        "skill": "cause-effect",
+        "why": "The text says the dancers sway side to side together with the beat, which makes the dance look strong and graceful.",
+        "wrong": {
+          "B": "The text says no one ever fights with a sword.",
+          "C": "The men stand in rows and do not run between them.",
+          "D": "The poet is part of the dance."
+        }
+      },
+      {
+        "stem": "Why does the author begin with a question?",
+        "options": [
+          "To teach how to dance",
+          "To warn about sword danger",
+          "To get readers curious",
+          "To ask for a vote"
+        ],
+        "answer": "C",
+        "skill": "author-purpose",
+        "why": "The opening question makes readers picture men dancing with swords and want to read more.",
+        "wrong": {
+          "A": "The article does not teach dance steps.",
+          "B": "The swords are never used for fighting.",
+          "D": "The article does not ask for a vote."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "According to the article, with whom is the UNESCO honor shared?",
+        "options": [
+          "With every nation on Earth",
+          "Only within one Saudi town",
+          "With a single desert tribe",
+          "Among several Gulf nations"
+        ],
+        "answer": "D",
+        "skill": "detail",
+        "why": "The article says the honor is shared among several Gulf nations.",
+        "wrong": {
+          "A": "The article says several Gulf nations, not every nation.",
+          "B": "The honor is shared by more than one town.",
+          "C": "The article does not name a single tribe."
+        }
+      },
+      {
+        "stem": "What does the word heritage mean as the article explains it?",
+        "options": [
+          "Money left to a family member",
+          "Customs passed down over time",
+          "Rules written by a government",
+          "Buildings made of stone"
+        ],
+        "answer": "B",
+        "skill": "vocabulary",
+        "why": "The article says heritage refers to the customs and traditions a community preserves and passes down.",
+        "wrong": {
+          "A": "The article does not mean money.",
+          "C": "Heritage is about customs, not government rules.",
+          "D": "Buildings are not mentioned."
+        }
+      },
+      {
+        "stem": "What effect does the drum's steady rhythm have on the dancers?",
+        "options": [
+          "They run toward the audience",
+          "They put down their swords",
+          "They sway together in time",
+          "They begin chanting poetry alone"
+        ],
+        "answer": "C",
+        "skill": "cause-effect",
+        "why": "The article says a booming drum sets a steady rhythm and the dancers sway side to side in synchronized movement.",
+        "wrong": {
+          "A": "The dancers stay in their rows.",
+          "B": "Each dancer keeps the sword held up.",
+          "D": "The poet chants, and the rows answer him."
+        }
+      },
+      {
+        "stem": "Why does the article end by describing happy moments?",
+        "options": [
+          "To show why it still matters",
+          "To explain how swords are made",
+          "To list the dates of weddings",
+          "To say the dance is now rare"
+        ],
+        "answer": "A",
+        "skill": "author-purpose",
+        "why": "The ending says the dance connects people to their history and brings communities together at meaningful moments.",
+        "wrong": {
+          "B": "Making swords is not explained.",
+          "C": "No wedding dates are listed.",
+          "D": "The article says it continues to bring communities together."
+        }
+      }
+    ]
   }
 }

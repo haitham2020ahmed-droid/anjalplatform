@@ -614,5 +614,217 @@
       ],
       "modelAnswer": "Peristalsis and villi both play essential but very different roles in digestion. Peristalsis is the wave-like squeezing motion that pushes food through the esophagus, stomach, and intestines, ensuring that food keeps moving forward through the digestive tract no matter how the body is positioned. Without peristalsis, food would not travel from one organ to the next.\n\nVilli, on the other hand, do not move food forward; instead, they help the body absorb nutrients once food has already been broken down into chyme. These tiny, finger-like structures line the small intestine and dramatically increase its surface area, allowing far more nutrients to pass into the bloodstream than would be possible with a smooth intestinal wall. Together, peristalsis and villi show how digestion depends on both movement and absorption working in coordination."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "Where does your body take out the good parts of food?",
+        "options": [
+          "In your teeth",
+          "In your mouth",
+          "In the intestines",
+          "In your throat"
+        ],
+        "answer": "C",
+        "skill": "detail",
+        "why": "The article says the long tubes called intestines take out the good parts.",
+        "wrong": {
+          "A": "Teeth only cut food small.",
+          "B": "The mouth is where chewing starts.",
+          "D": "The throat is just where food goes down."
+        }
+      },
+      {
+        "stem": "In the article, the word digests means —",
+        "options": [
+          "breaks food into parts",
+          "throws food away",
+          "cooks food on a fire",
+          "grows food in a garden"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "The article describes the trip food takes as it is broken into parts the body can use.",
+        "wrong": {
+          "B": "Waste leaves later, but digesting is not throwing away.",
+          "C": "The body does not cook food.",
+          "D": "Growing food is not in the article."
+        }
+      },
+      {
+        "stem": "Why does the stomach squeeze the food and mix in juice?",
+        "options": [
+          "To make the food cold",
+          "To make the food bigger",
+          "To make the food sweet",
+          "To turn the food into mush"
+        ],
+        "answer": "D",
+        "skill": "cause-effect",
+        "why": "The stomach squeezes and mixes juice, and soon the food turns to mush.",
+        "wrong": {
+          "A": "Cold food is not mentioned.",
+          "B": "The food gets softer, not bigger.",
+          "C": "Sweetness is not mentioned."
+        }
+      },
+      {
+        "stem": "What is the first thing that happens to your food?",
+        "options": [
+          "It goes into your blood",
+          "You chew it with your teeth",
+          "It leaves your body",
+          "It goes down to your stomach"
+        ],
+        "answer": "B",
+        "skill": "sequence",
+        "why": "The text says that first, you chew your food.",
+        "wrong": {
+          "A": "Food parts reach the blood much later.",
+          "C": "Waste leaves the body at the end.",
+          "D": "Food goes to the stomach after you chew and swallow."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "What does saliva do for the food in your mouth?",
+        "options": [
+          "It makes food hot",
+          "It turns food into waste",
+          "It softens food for swallowing",
+          "It carries food to the blood"
+        ],
+        "answer": "C",
+        "skill": "detail",
+        "why": "The article says saliva softens the food and makes it easier to swallow.",
+        "wrong": {
+          "A": "Heat is not mentioned.",
+          "B": "Waste is made later in digestion.",
+          "D": "Nutrients, not food, go to the blood."
+        }
+      },
+      {
+        "stem": "In the article, the word fuel means —",
+        "options": [
+          "a kind of cold drink",
+          "what gives you energy",
+          "a part of the stomach",
+          "a sound in the body"
+        ],
+        "answer": "B",
+        "skill": "vocabulary",
+        "why": "Digestion breaks food into fuel that gives the body energy.",
+        "wrong": {
+          "A": "Fuel is not a drink in this article.",
+          "C": "It is not a body part.",
+          "D": "It is not a sound."
+        }
+      },
+      {
+        "stem": "What happens after nutrients are pulled into your blood?",
+        "options": [
+          "They travel to every body part",
+          "They go back to the mouth",
+          "They become waste right away",
+          "They turn into saliva"
+        ],
+        "answer": "A",
+        "skill": "cause-effect",
+        "why": "The nutrients travel all through the body, giving you energy.",
+        "wrong": {
+          "B": "Nutrients do not go back to the mouth.",
+          "C": "Waste is what the body cannot use.",
+          "D": "Saliva is made in the mouth."
+        }
+      },
+      {
+        "stem": "What would probably happen if someone swallowed large pieces of food without chewing?",
+        "options": [
+          "Saliva would stop working",
+          "The food would skip the stomach",
+          "The food would be harder to handle",
+          "The food would turn to waste"
+        ],
+        "answer": "C",
+        "skill": "inference",
+        "why": "The article says chewing makes food much easier for the body to handle, so big pieces would be harder.",
+        "wrong": {
+          "A": "Nothing says saliva would stop.",
+          "B": "All swallowed food goes to the stomach.",
+          "D": "Food only becomes waste if the body cannot use it."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "What does saliva begin to do to food in the mouth?",
+        "options": [
+          "Start to break it down",
+          "Warm it up for you",
+          "Turn it into thick chyme",
+          "Push it down the tube"
+        ],
+        "answer": "A",
+        "skill": "detail",
+        "why": "The article says saliva begins breaking the food down chemically.",
+        "wrong": {
+          "B": "Heating is not mentioned.",
+          "C": "Chyme is made in the stomach.",
+          "D": "Peristalsis pushes food forward."
+        }
+      },
+      {
+        "stem": "The article says extra water is reabsorbed in the colon. What does reabsorbed mean?",
+        "options": [
+          "thrown out again",
+          "added to the food",
+          "kept away from the body",
+          "taken back into the body"
+        ],
+        "answer": "D",
+        "skill": "vocabulary",
+        "why": "The water is taken back before the waste leaves the body.",
+        "wrong": {
+          "A": "Thrown out is the opposite.",
+          "B": "The water is not added to food.",
+          "C": "The body keeps the water."
+        }
+      },
+      {
+        "stem": "What happens in the stomach just before food reaches the small intestine?",
+        "options": [
+          "Villi absorb the nutrients",
+          "Food turns into chyme",
+          "The food is chewed into bits",
+          "Extra water is taken out"
+        ],
+        "answer": "B",
+        "skill": "sequence",
+        "why": "The stomach churns the food into chyme, and then the mush travels to the intestines.",
+        "wrong": {
+          "A": "Villi are in the small intestine.",
+          "C": "Chewing happens first, in the mouth.",
+          "D": "Water is reabsorbed later, in the colon."
+        }
+      },
+      {
+        "stem": "Why is it helpful that chewing breaks food into small bits?",
+        "options": [
+          "Food stays in the mouth longer",
+          "The stomach makes less acid",
+          "Waste leaves the body faster",
+          "Later steps manage it easily"
+        ],
+        "answer": "D",
+        "skill": "cause-effect",
+        "why": "The article says small bits are easier for the rest of the digestive system to manage.",
+        "wrong": {
+          "A": "The article does not say food stays longer.",
+          "B": "Acid production is not linked to chewing.",
+          "C": "Speed of waste leaving is not discussed."
+        }
+      }
+    ]
   }
 }

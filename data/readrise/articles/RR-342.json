@@ -614,5 +614,217 @@
       ],
       "modelAnswer": "The Great Barrier Reef is globally significant because of its extraordinary scale: composed of almost 3,000 smaller reefs and roughly 900 islands stretching more than 2,300 kilometers, it is large enough to be recognized from outer space, a distinction shared by almost no other living formation on Earth. Its biodiversity is equally remarkable, supporting many thousands of species, including fish, sharks, sea turtles, dugongs, and giant clams, a concentration of marine life the article compares to a tropical rainforest. This scale and biodiversity make the reef's vulnerability especially significant, since reef-building corals are highly sensitive to even modest shifts in water temperature; when the sea stays unusually hot for too long, stressed corals expel their algae, turn white, and can starve. Because this fragile, ancient formation took thousands of years to build from coral skeletons and sediment, and supports so much of the ocean's biodiversity, protecting it through long-term conservation efforts matters not just for Australia but for the health of the world's oceans as a whole."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "Which animal lives on the reef?",
+        "options": [
+          "Camels",
+          "Turtles",
+          "Wolves",
+          "Eagles"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The text says turtles live on the reef.",
+        "wrong": {
+          "A": "Camels are not sea animals in the text.",
+          "C": "Wolves are not mentioned.",
+          "D": "Eagles are not mentioned."
+        }
+      },
+      {
+        "stem": "In the article, the words pile up mean —",
+        "options": [
+          "float away",
+          "get smaller",
+          "turn white",
+          "stack up high"
+        ],
+        "answer": "D",
+        "skill": "vocabulary",
+        "why": "The text says the cups pile up high, so they stack on top of each other.",
+        "wrong": {
+          "A": "The cups stay in place to build the reef.",
+          "B": "The reef grows bigger, not smaller.",
+          "C": "Turning white is what hot seas do to coral."
+        }
+      },
+      {
+        "stem": "What can hot seas do to coral?",
+        "options": [
+          "Turn it white",
+          "Make it bigger",
+          "Make it sing",
+          "Turn it into islands"
+        ],
+        "answer": "A",
+        "skill": "cause-effect",
+        "why": "The text says hot seas can turn coral white.",
+        "wrong": {
+          "B": "Hot seas harm coral, not make it bigger.",
+          "C": "Coral does not sing.",
+          "D": "The text does not say coral becomes islands."
+        }
+      },
+      {
+        "stem": "Why do people work to help the reef?",
+        "options": [
+          "It is too small to see.",
+          "It is far from the coast.",
+          "It is in danger now.",
+          "It has no animals."
+        ],
+        "answer": "C",
+        "skill": "inference",
+        "why": "The text says the reef is in danger, and people work to help this place.",
+        "wrong": {
+          "A": "The reef is so big you can see it from space.",
+          "B": "The reef sits off the coast.",
+          "D": "Many animals live on the reef."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "How far does the reef stretch along the coast of Queensland?",
+        "options": [
+          "About 900 kilometers long",
+          "About 3,000 kilometers long",
+          "Under 100 kilometers",
+          "More than 2,300 kilometers"
+        ],
+        "answer": "D",
+        "skill": "detail",
+        "why": "The text says the reef stretches more than 2,300 kilometers along the coast.",
+        "wrong": {
+          "A": "900 is the number of islands, not kilometers.",
+          "B": "3,000 is the number of smaller reefs, not kilometers.",
+          "C": "The reef is far longer than 100 kilometers."
+        }
+      },
+      {
+        "stem": "In the article, the word marine means —",
+        "options": [
+          "of the sea",
+          "of the sky",
+          "of the desert",
+          "of the city"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "The reef is in the ocean, so a marine wonder is a wonder of the sea.",
+        "wrong": {
+          "B": "The reef is in the water, not the sky.",
+          "C": "The reef is not in a desert.",
+          "D": "The reef is not in a city."
+        }
+      },
+      {
+        "stem": "Why do layers pile up to form a giant reef?",
+        "options": [
+          "Sharks push the coral into piles",
+          "Islands sink slowly into the reef",
+          "New coral grows on top of dead coral",
+          "Wind carries sand onto the reef"
+        ],
+        "answer": "C",
+        "skill": "cause-effect",
+        "why": "The text says when a coral dies, new ones grow on top, so the layers pile up.",
+        "wrong": {
+          "A": "Sharks are not said to build the reef.",
+          "B": "Islands are part of the reef system, not what builds it.",
+          "D": "Wind is not mentioned."
+        }
+      },
+      {
+        "stem": "Why does the author write Sadly before describing the danger?",
+        "options": [
+          "To show the reef is not important",
+          "To show the author feels concern",
+          "To say the reef is a happy place",
+          "To tell a funny story about coral"
+        ],
+        "answer": "B",
+        "skill": "author-purpose",
+        "why": "Sadly shows the author is worried about the real danger the reef faces.",
+        "wrong": {
+          "A": "The article treats the reef as a wonder.",
+          "C": "The danger is a sad subject.",
+          "D": "The danger is serious, not funny."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "About how wide are coral polyps?",
+        "options": [
+          "Several meters wide",
+          "A few kilometers",
+          "Only millimeters wide",
+          "Many centimeters"
+        ],
+        "answer": "C",
+        "skill": "detail",
+        "why": "The text says coral polyps are often only millimeters wide.",
+        "wrong": {
+          "A": "Meters is far too big for a tiny polyp.",
+          "B": "Kilometers is far too big.",
+          "D": "The text says millimeters, not many centimeters."
+        }
+      },
+      {
+        "stem": "In the article, the word colossal most nearly means —",
+        "options": [
+          "huge",
+          "tiny",
+          "ancient",
+          "colorful"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "The reef is the largest coral reef on Earth, so colossal means huge.",
+        "wrong": {
+          "B": "Tiny is the opposite of the reef's size.",
+          "C": "Age is not the idea in the sentence.",
+          "D": "Color is not the idea in the sentence."
+        }
+      },
+      {
+        "stem": "What happens to coral when the sea stays too hot for too long?",
+        "options": [
+          "It turns bright green again",
+          "It grows much larger",
+          "It becomes a small island",
+          "It turns white and weak"
+        ],
+        "answer": "D",
+        "skill": "cause-effect",
+        "why": "The text says coral turns pale white and grows dangerously weak in hot water.",
+        "wrong": {
+          "A": "Coral turns pale white, not green.",
+          "B": "Heat weakens coral rather than helping it grow.",
+          "C": "The text does not say coral becomes an island."
+        }
+      },
+      {
+        "stem": "Why does the author say the pieces cover an area larger than many countries?",
+        "options": [
+          "To show the reef is very crowded",
+          "To show how enormous the reef is",
+          "To say Australia is a small country",
+          "To explain how corals build skeletons"
+        ],
+        "answer": "B",
+        "skill": "author-purpose",
+        "why": "Comparing the reef to whole countries shows how huge it is.",
+        "wrong": {
+          "A": "The comparison is about size, not crowding.",
+          "C": "The text does not call Australia small.",
+          "D": "Skeleton building is explained in a different paragraph."
+        }
+      }
+    ]
   }
 }

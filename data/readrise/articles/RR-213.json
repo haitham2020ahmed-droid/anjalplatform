@@ -614,5 +614,217 @@
       ],
       "modelAnswer": "Scientifically, a wing's curved airfoil shape creates lift by making air pressure differ above and below the wing, and this lift must overcome gravity for a plane to fly. Historically, Orville and Wilbur Wright, two pioneering brothers, proved this science could work when their fragile wood-and-cloth aircraft achieved the first powered, controlled flight in 1903. That twelve-second flight connects directly to today's composite, pressurized jets, since every modern aircraft still relies on the same basic forces the Wright brothers first harnessed."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "What does the engine do for the plane?",
+        "options": [
+          "It makes the wings",
+          "It sits at the front",
+          "It makes the air cold",
+          "It pushes the plane"
+        ],
+        "answer": "D",
+        "skill": "detail",
+        "why": "The text says the engine pushes the plane and makes it go fast.",
+        "wrong": {
+          "A": "The text says the plane has two wings but does not say the engine makes them.",
+          "B": "The pilot sits at the front, not the engine.",
+          "C": "The text never says the engine makes air cold."
+        }
+      },
+      {
+        "stem": "In the article, who is the pilot?",
+        "options": [
+          "A boy riding on a bike",
+          "The one who flies the plane",
+          "A man who builds the wings",
+          "A guide at a big airport"
+        ],
+        "answer": "B",
+        "skill": "vocabulary",
+        "why": "The text says the pilot sits at the front and flies the plane.",
+        "wrong": {
+          "A": "The text never mentions a bike.",
+          "C": "The Wright brothers made a plane, but the pilot flies it.",
+          "D": "The text does not mention airport guides."
+        }
+      },
+      {
+        "stem": "What makes lift for a plane?",
+        "options": [
+          "Air moving fast over the wing",
+          "The plane sitting still on land",
+          "The pilot jumping up and down",
+          "Two brothers pushing the wing"
+        ],
+        "answer": "A",
+        "skill": "cause-effect",
+        "why": "The text says air moves over the wing and this makes lift.",
+        "wrong": {
+          "B": "A plane sitting still has no air moving over its wings.",
+          "C": "The text does not say the pilot makes lift.",
+          "D": "The Wright brothers built the first plane, but they do not make lift."
+        }
+      },
+      {
+        "stem": "Why does a plane need both wings and an engine?",
+        "options": [
+          "The wings make it very heavy",
+          "The engine helps the pilot to see",
+          "Wings lift it and the engine pushes",
+          "The engine holds the plane down"
+        ],
+        "answer": "C",
+        "skill": "inference",
+        "why": "The wings help make lift and the engine pushes the plane fast, so both help it fly.",
+        "wrong": {
+          "A": "The text says the plane is heavy but does not say wings cause this.",
+          "B": "The engine pushes the plane and has nothing to do with seeing.",
+          "D": "Lift pushes the plane up, so nothing holds it down here."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "Where did the Wright brothers make their first powered flight?",
+        "options": [
+          "Near an ocean in Spain",
+          "Near Kitty Hawk, North Carolina",
+          "Near a busy airport in Texas",
+          "Near a hill in Paris"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The text says the flight was made near Kitty Hawk, North Carolina.",
+        "wrong": {
+          "A": "Spain is not mentioned.",
+          "C": "The text does not say the flight was near an airport.",
+          "D": "Paris is not mentioned in the text."
+        }
+      },
+      {
+        "stem": "In the article, what does the word thrust mean?",
+        "options": [
+          "A backward force from air",
+          "A force that pulls things down",
+          "The tail part of a plane",
+          "A forward push"
+        ],
+        "answer": "D",
+        "skill": "vocabulary",
+        "why": "The text says the engines make thrust, a forward push.",
+        "wrong": {
+          "A": "That describes drag.",
+          "B": "That describes gravity.",
+          "C": "Thrust is a force, not a part of the plane."
+        }
+      },
+      {
+        "stem": "What would happen if lift were weaker than gravity?",
+        "options": [
+          "The plane could not rise",
+          "The plane would fly faster",
+          "The pilot would feel no drag",
+          "The engines would stop"
+        ],
+        "answer": "A",
+        "skill": "cause-effect",
+        "why": "The text says lift must be strong enough to beat gravity, so weak lift would not lift the plane.",
+        "wrong": {
+          "B": "Speed is not linked to weak lift in the text.",
+          "C": "Drag comes from air, not from lift.",
+          "D": "The text does not say the engines stop."
+        }
+      },
+      {
+        "stem": "Why does the author say flight seems almost magical?",
+        "options": [
+          "To say that flight is not really science",
+          "To teach readers how to fly a jet",
+          "To show how amazing flight feels",
+          "To warn readers that flying is not safe"
+        ],
+        "answer": "C",
+        "skill": "author-purpose",
+        "why": "The author calls flight almost magical and then explains that engineers understand the science.",
+        "wrong": {
+          "A": "The text says engineers understand the science well.",
+          "B": "The article does not teach readers to fly a jet.",
+          "D": "The text says the pilot keeps everyone safe."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "What do the rudder and elevators on the tail control?",
+        "options": [
+          "Turning and climbing or descending",
+          "The tilt of the wingtips in the air",
+          "The pressure inside the cabin",
+          "The strength of the plane engines"
+        ],
+        "answer": "A",
+        "skill": "detail",
+        "why": "The text says the rudder and elevators on the tail control turning and climbing or descending.",
+        "wrong": {
+          "B": "Ailerons near the wingtips do that.",
+          "C": "Pressure in the cabin is a separate feature of modern jets.",
+          "D": "The text says the engines generate thrust."
+        }
+      },
+      {
+        "stem": "In the article, what does the word precision mean?",
+        "options": [
+          "Great speed in the sky",
+          "Great weight on the wings",
+          "Great care and exactness",
+          "Great noise in the cabin"
+        ],
+        "answer": "C",
+        "skill": "vocabulary",
+        "why": "Pilots adjust moving surfaces with precision, which means they control the plane exactly.",
+        "wrong": {
+          "A": "Speed is a different idea from exact control.",
+          "B": "Weight does not describe how pilots control the plane.",
+          "D": "The text does not link precision with noise."
+        }
+      },
+      {
+        "stem": "What can you infer from the last paragraph?",
+        "options": [
+          "Flying is too old to change",
+          "Engineers think flight can still improve",
+          "Planes are now as light as possible",
+          "Safe flights are very rare today"
+        ],
+        "answer": "B",
+        "skill": "inference",
+        "why": "The text says engineers keep studying flight to make future aircraft lighter, quieter, and more efficient.",
+        "wrong": {
+          "A": "The text says engineers keep trying new ideas.",
+          "C": "Engineers still hope to make planes lighter.",
+          "D": "The text says there are countless safe flights every day."
+        }
+      },
+      {
+        "stem": "What pushes a wing upward as the plane gains speed?",
+        "options": [
+          "Air getting hotter near the cockpit",
+          "Wood and cloth on the wings",
+          "A change in the pitch of the engines",
+          "A difference in air pressure"
+        ],
+        "answer": "D",
+        "skill": "cause-effect",
+        "why": "The text says air flows over and under each wing and this difference in pressure pushes the wing upward.",
+        "wrong": {
+          "A": "The text does not mention heat near the cockpit.",
+          "B": "Wood and cloth were used for the first Wright plane's frame, not to push the wing up.",
+          "C": "Engines make thrust, a forward push, not lift."
+        }
+      }
+    ]
   }
 }

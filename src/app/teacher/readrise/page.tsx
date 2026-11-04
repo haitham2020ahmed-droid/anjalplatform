@@ -95,6 +95,8 @@ export default async function ReadRiseTeacher({ searchParams }: { searchParams: 
           s.belowBand ? <>{t("Below band")}: {r.students.filter((x) => x.flags.belowBand).slice(0, 10).map((x) => x.name).join(", ")}</> : null,
           s.inactive ? <>{t("Inactive")}: {r.students.filter((x) => x.flags.inactive).slice(0, 10).map((x) => x.name).join(", ")}</> : null,
           s.notPlaced ? <>{t("Not placed")}: {r.students.filter((x) => x.flags.notPlaced).slice(0, 10).map((x) => x.name).join(", ")}</> : null,
+          s.belowGoal ? <>🟠 {t("Reading, below 75%")}: {r.students.filter((x) => x.flags.belowGoal).slice(0, 10).map((x) => x.name).join(", ")}</> : null,
+          s.missedGoal2w ? <>📉 {t("Missed the weekly goal 2 weeks in a row")}: {r.students.filter((x) => x.flags.missedGoal2w).slice(0, 10).map((x) => x.name).join(", ")}</> : null,
         ]} />
         <Callout kind="next" items={[
           s.writingToScore ? <>{t("Writing to score")}: <b>{s.writingToScore}</b> · <Link href={url("writing")} className="font-semibold text-brand-teal hover:underline">Score now →</Link></> : null,
@@ -171,6 +173,9 @@ function StudentsTab({ r, canWrite, classId, t }: { r: Report; canWrite: boolean
                       {x.flags.notPlaced && <span className="rounded-full bg-slate-100 px-2 py-0.5 text-slate-700">not placed</span>}
                       {x.flags.belowBand && <span className="rounded-full bg-red-50 px-2 py-0.5 text-red-800 ring-1 ring-red-200">below band</span>}
                       {x.flags.inactive && <span className="rounded-full bg-amber-50 px-2 py-0.5 text-amber-900 ring-1 ring-amber-200">inactive</span>}
+                      {x.flags.notReading && <span data-testid="rr-flag-not-reading" className="rounded-full bg-red-50 px-2 py-0.5 text-red-800 ring-1 ring-red-200">🔴 {t("Not reading")}</span>}
+                      {x.flags.belowGoal && <span data-testid="rr-flag-below-goal" className="rounded-full bg-orange-50 px-2 py-0.5 text-orange-900 ring-1 ring-orange-200">🟠 {t("Reading, below 75%")}</span>}
+                      {x.flags.missedGoal2w && <span data-testid="rr-flag-missed-goal" className="rounded-full bg-slate-100 px-2 py-0.5 text-slate-800 ring-1 ring-slate-200" title={t("Missed the weekly goal 2 weeks in a row")}>📉 {t("Goal missed 2 weeks")}</span>}
                     </span>
                   </td>
                   {canWrite && (

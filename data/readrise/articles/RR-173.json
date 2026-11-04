@@ -614,5 +614,217 @@
       ],
       "modelAnswer": "I disagree that the front of a package is enough to judge a food, because the article shows the front can be misleading with bright pictures and words like \"natural\" that do not tell you the real facts. The back of the label lists ingredients in descending order from largest to smallest amount, so if sugar is near the top, you are about to consume a lot of it, which the front never shows. The label also warns about allergens like nuts or milk and reminds shoppers to eat certain foods only in moderation, information that a pretty front picture simply cannot provide."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "In Saudi Arabia, which language is the food label in?",
+        "options": [
+          "Arabic",
+          "English",
+          "French",
+          "Hindi"
+        ],
+        "answer": "A",
+        "skill": "detail",
+        "why": "The text says that in Saudi Arabia, the label is in Arabic.",
+        "wrong": {
+          "B": "The text says Arabic, not English.",
+          "C": "The text does not mention French.",
+          "D": "The text does not mention Hindi."
+        }
+      },
+      {
+        "stem": "What does the date on a label help you do?",
+        "options": [
+          "Pick the snack with more sugar",
+          "Find out how many servings it has",
+          "Know when a snack was made long ago",
+          "Stay away from old food"
+        ],
+        "answer": "D",
+        "skill": "cause-effect",
+        "why": "The text says the label has a date, and tells you not to eat old food.",
+        "wrong": {
+          "A": "The text says too much sugar is bad.",
+          "B": "Servings are shown separately on the label.",
+          "C": "The text says the date helps you avoid eating old food, not learn when it was made."
+        }
+      },
+      {
+        "stem": "Read this: \"Then read the ingredients.\" What are ingredients?",
+        "options": [
+          "Pictures on the front of the box",
+          "The things that are in the food",
+          "The date the food was bought",
+          "The shop where the food is sold"
+        ],
+        "answer": "B",
+        "skill": "vocabulary",
+        "why": "The text says the ingredients list shows what is in the food.",
+        "wrong": {
+          "A": "The front has art, but the ingredients are on the back.",
+          "C": "The date is separate from the ingredients.",
+          "D": "The text does not mention a shop."
+        }
+      },
+      {
+        "stem": "The front of a box has fun art and big words. What can you tell?",
+        "options": [
+          "It tells you all the facts",
+          "It lists the ingredients",
+          "It may not show the facts",
+          "It always has the date"
+        ],
+        "answer": "C",
+        "skill": "inference",
+        "why": "The text says the front may have fun art, but the back has the facts, so the front may not show them.",
+        "wrong": {
+          "A": "The back has the facts, not the front.",
+          "B": "The ingredients are read on the back.",
+          "D": "The text does not say the date is on the front."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "In what order are ingredients listed on a label?",
+        "options": [
+          "From the smallest amount to the largest",
+          "From the largest amount to the smallest",
+          "From the cheapest to the most costly",
+          "From the newest to the oldest"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The article says ingredients are listed from the largest amount to the smallest.",
+        "wrong": {
+          "A": "That is the reverse of what the article says.",
+          "C": "The article does not say price matters.",
+          "D": "The article does not say age matters."
+        }
+      },
+      {
+        "stem": "The text says some people have an allergy to foods like nuts or milk. What is an allergy?",
+        "options": [
+          "A dislike for the color of a food or snack",
+          "A habit of eating the same snack each day",
+          "A quick way to read a food label at the shop",
+          "A body reaction that can make a person very sick"
+        ],
+        "answer": "D",
+        "skill": "vocabulary",
+        "why": "The sentence says these foods can make people very sick, so an allergy is a harmful reaction to a food.",
+        "wrong": {
+          "A": "The text says allergies make people sick, not that they are about color.",
+          "B": "The sentence is about getting sick, not about habits.",
+          "C": "An allergy is not a way to read a label."
+        }
+      },
+      {
+        "stem": "Why does eating a whole bag with two servings mean eating twice the amounts listed?",
+        "options": [
+          "The numbers on the label describe one serving",
+          "The label counts the whole bag two times",
+          "Bags with two servings are always twice as big",
+          "Extra calories are added again at the shop"
+        ],
+        "answer": "A",
+        "skill": "cause-effect",
+        "why": "All the numbers describe one serving, so eating two servings doubles them.",
+        "wrong": {
+          "B": "The label does not count the bag twice; it shows numbers for one serving.",
+          "C": "The article does not talk about the bag size.",
+          "D": "The article does not mention shops adding calories."
+        }
+      },
+      {
+        "stem": "Why does the author end by telling readers to compare two snacks side by side?",
+        "options": [
+          "To show readers how to find which snack costs less",
+          "To show readers that all snacks are about the same",
+          "To show how to use the facts to choose a healthier snack",
+          "To tell readers to buy snacks in big family bags"
+        ],
+        "answer": "C",
+        "skill": "author-purpose",
+        "why": "Comparing labels lets readers use the sugar and sodium facts to choose the healthier snack.",
+        "wrong": {
+          "A": "The article does not talk about price.",
+          "B": "The article says the one with less sugar and sodium is healthier.",
+          "D": "The article does not tell readers to buy bags."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "According to the article, what does the expiry date show?",
+        "options": [
+          "How many servings are in the whole package",
+          "Which ingredients weigh the most in the food",
+          "Where in the world the food was first made",
+          "When the food is no longer at its best or safe"
+        ],
+        "answer": "D",
+        "skill": "detail",
+        "why": "The article says an expiry date shows when food will no longer be at its best or safe to consume.",
+        "wrong": {
+          "A": "Servings are shown by the serving size.",
+          "B": "The ingredients list shows the order of amounts.",
+          "C": "The article does not say that the date shows where food was made."
+        }
+      },
+      {
+        "stem": "In the text, what does the word misleading mean?",
+        "options": [
+          "Giving a wrong idea",
+          "Giving a clear answer",
+          "Giving a good taste",
+          "Giving a safe warning"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "The article says the front is designed to attract shoppers, while the back has the genuine facts, so misleading words give a wrong idea.",
+        "wrong": {
+          "B": "A clear answer would be the opposite.",
+          "C": "The sentence is about information, not taste.",
+          "D": "A warning appears for allergens, not in front words."
+        }
+      },
+      {
+        "stem": "Why do labels highlight allergens?",
+        "options": [
+          "Because they make the food taste much better",
+          "Because they show which ingredient is largest",
+          "Because they can make some people seriously ill",
+          "Because they tell how old the food is now"
+        ],
+        "answer": "C",
+        "skill": "cause-effect",
+        "why": "The article says foods such as nuts or milk can make some people seriously ill, so labels highlight them.",
+        "wrong": {
+          "A": "The article does not link allergens to taste.",
+          "B": "Ingredients are arranged by weight, not highlighted for being the largest.",
+          "D": "The expiry date, not allergens, tells about age."
+        }
+      },
+      {
+        "stem": "According to the article, which step comes right after checking the serving size?",
+        "options": [
+          "Reading the ingredients list",
+          "Examining the calories",
+          "Comparing two snacks",
+          "Looking for the expiry date"
+        ],
+        "answer": "B",
+        "skill": "sequence",
+        "why": "The article says to begin with the serving size, and next to examine the calories.",
+        "wrong": {
+          "A": "The ingredients come after the nutrients.",
+          "C": "Comparing snacks is the final step.",
+          "D": "The expiry date comes near the end."
+        }
+      }
+    ]
   }
 }

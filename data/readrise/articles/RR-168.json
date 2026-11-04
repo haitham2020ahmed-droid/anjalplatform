@@ -614,5 +614,217 @@
       ],
       "modelAnswer": "Mountains like the Sarawat Mountains or Mount Everest form because giant tectonic plates making up Earth's crust are always moving, just very slowly. When two plates collide, they compress the rock between them, folding and pushing it upward in a process called uplift that can take millions of years to build a tall mountain. The Sarawat Mountains formed differently, through a rift, where a piece of land slowly tore away from Africa and rose up beside the Red Sea. Either way, it is the slow movement of tectonic plates that ultimately uplifts the rock into the mountains we see today."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "In this article, what is the crust?",
+        "options": [
+          "The hard shell of the ground",
+          "A tall peak covered in snow all year",
+          "A kind of hot lava from a volcano",
+          "A rug that is pushed on the floor"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "The text says the ground is like a hard shell, and the shell is the crust.",
+        "wrong": {
+          "B": "The crust is the ground's shell, not a snow peak.",
+          "C": "Lava is hot rock that comes up from below, not the crust.",
+          "D": "The rug is only used to show how rock folds."
+        }
+      },
+      {
+        "stem": "What is Mount Everest?",
+        "options": [
+          "A volcano near the Red Sea",
+          "A hill that is shrinking fast",
+          "A peak made of lava",
+          "The top peak in the world"
+        ],
+        "answer": "D",
+        "skill": "detail",
+        "why": "The text calls Mount Everest the top peak in the world.",
+        "wrong": {
+          "A": "Everest grew when plates pushed, not from a volcano.",
+          "B": "The text says it grew, not that it is shrinking fast.",
+          "C": "Everest grew as rock folded up, not from lava."
+        }
+      },
+      {
+        "stem": "What wears the rock of a mountain down?",
+        "options": [
+          "Rain, wind, and ice",
+          "Lava and hot rock",
+          "Plates that move fast",
+          "Snow that never melts"
+        ],
+        "answer": "A",
+        "skill": "cause-effect",
+        "why": "The text says rain, wind, and ice wear the rock down.",
+        "wrong": {
+          "B": "Lava helps a volcano grow; it does not wear rock down.",
+          "C": "The text says plates move very slowly.",
+          "D": "Snow is not named as the cause."
+        }
+      },
+      {
+        "stem": "Plates move as slow as your nails grow. Why can we not feel them move?",
+        "options": [
+          "They only move at night",
+          "They move very, very slowly",
+          "They stop when we stand on them",
+          "They are too deep to move"
+        ],
+        "answer": "B",
+        "skill": "inference",
+        "why": "Nails grow very slowly, so the plates move too slowly for us to feel.",
+        "wrong": {
+          "A": "The text does not say they move only at night.",
+          "C": "The text says plates are always moving.",
+          "D": "The text says the plates move; depth is not the reason."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "About how fast do the plates move?",
+        "options": [
+          "A few kilometers each day",
+          "A few meters each hour",
+          "A few centimeters a year",
+          "A few millimeters a century"
+        ],
+        "answer": "C",
+        "skill": "detail",
+        "why": "The text says plates move only a few centimeters a year, about as fast as fingernails grow.",
+        "wrong": {
+          "A": "That is far too fast for plates.",
+          "B": "That is far too fast for plates.",
+          "D": "A few millimeters a year is how fast Everest rises, not how fast plates move."
+        }
+      },
+      {
+        "stem": "Read this: \"Its summit is the highest point on Earth.\" What does summit mean?",
+        "options": [
+          "The top of a mountain",
+          "The base of a mountain",
+          "The side of a mountain",
+          "The shadow of a mountain"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "The summit of Everest is its highest point, so summit means the top.",
+        "wrong": {
+          "B": "The base is the bottom, not the highest point.",
+          "C": "The sentence says highest point, not side.",
+          "D": "A shadow is not a part of the mountain."
+        }
+      },
+      {
+        "stem": "Why did the Sarawat Mountains rise beside the Red Sea?",
+        "options": [
+          "Lava poured out and piled up in thick layers",
+          "The land there slowly split away from Africa",
+          "Rain and wind stacked up the rock in layers",
+          "Climbers carried rock up to the top"
+        ],
+        "answer": "B",
+        "skill": "cause-effect",
+        "why": "The text says the Sarawat Mountains rose as the land there slowly split away from Africa.",
+        "wrong": {
+          "A": "The text does not say they are volcanoes.",
+          "C": "Rain and wind wear mountains down, not build them.",
+          "D": "Climbers are only mentioned on Everest, and they did not build it."
+        }
+      },
+      {
+        "stem": "Why does the author end the article with the Sarawat Mountains?",
+        "options": [
+          "To prove that Everest is not the highest peak",
+          "To tell the reader how a volcano is made",
+          "To explain how fossils form on mountain tops",
+          "To link the topic to mountains in Saudi Arabia"
+        ],
+        "answer": "D",
+        "skill": "author-purpose",
+        "why": "The Sarawat Mountains are in Saudi Arabia, so they link the topic to the reader's own country.",
+        "wrong": {
+          "A": "The text calls Everest the highest point on Earth.",
+          "B": "Volcanoes are explained earlier.",
+          "C": "Fossils are explained in the Everest paragraph."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "According to the article, which plate crashed into Asia to help form Mount Everest?",
+        "options": [
+          "The plate carrying Africa",
+          "The plate carrying India",
+          "The plate carrying Arabia",
+          "The plate under the Red Sea"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The article says Everest formed when the plate carrying India crashed into Asia.",
+        "wrong": {
+          "A": "Africa is named as the land the Arabian Plate pulled away from.",
+          "C": "The Arabian Plate is linked to the Sarawat Mountains, not Everest.",
+          "D": "The Red Sea is linked to the Sarawat Mountains, not Everest."
+        }
+      },
+      {
+        "stem": "In the article, what does summit mean?",
+        "options": [
+          "The oldest rock on Earth",
+          "The widest valley on land",
+          "The deepest part of a sea",
+          "The top of a mountain"
+        ],
+        "answer": "D",
+        "skill": "vocabulary",
+        "why": "The summit of Everest is described as the highest point on Earth, which is the top of the mountain.",
+        "wrong": {
+          "A": "The sentence is about height, not age.",
+          "B": "A valley is low ground, not the highest point.",
+          "C": "The sea is not the highest point on Earth."
+        }
+      },
+      {
+        "stem": "What opened up the sea between Africa and Arabia?",
+        "options": [
+          "The Arabian Plate slowly pulled away from Africa",
+          "Strong winds wore the land away over time",
+          "Rain filled a huge hole in the crust and stayed",
+          "Lava from a volcano poured across the land"
+        ],
+        "answer": "A",
+        "skill": "cause-effect",
+        "why": "The article says the Arabian Plate slowly pulled away from Africa, which opened up the sea.",
+        "wrong": {
+          "B": "Erosion is described, but not as the cause of the sea.",
+          "C": "The text does not say rain made the sea.",
+          "D": "Lava is linked to volcano growth, not to opening the sea."
+        }
+      },
+      {
+        "stem": "Why does the author compare folding rock to a rug pushed across a smooth floor?",
+        "options": [
+          "To show that rock is soft like thick cloth",
+          "To help readers picture rock bending upward",
+          "To explain why plates move so slowly today",
+          "To prove that mountains stop growing someday"
+        ],
+        "answer": "B",
+        "skill": "author-purpose",
+        "why": "A pushed rug bunches up, which helps readers picture rock folding upward when plates collide.",
+        "wrong": {
+          "A": "The comparison is about the shape of folding, not softness.",
+          "C": "The speed of plates is explained with fingernails, not the rug.",
+          "D": "The article says some mountains are still rising."
+        }
+      }
+    ]
   }
 }

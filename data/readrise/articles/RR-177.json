@@ -614,5 +614,217 @@
       ],
       "modelAnswer": "I think more countries should build maglev lines, because the advantages are impressive even though the challenges are real. Since maglev trains use levitation to float above the guideway, they have almost no friction from the track, which lets them travel extremely fast and quietly, as shown by the Shanghai maglev carrying passengers at over 400 kilometers an hour and a Japanese test train that set a world record of 603 kilometers an hour. The main challenge is that maglev propulsion needs its own expensive guideway built from scratch, since the trains cannot share ordinary rails like the Makkah-Madinah line does. Still, I believe the speed and comfort maglev trains offer make the investment in a dedicated guideway worthwhile for busy routes."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "Why is the ride on a maglev quiet and smooth?",
+        "options": [
+          "It runs on thick wheels of steel",
+          "It does not rub on the track",
+          "It goes slow on its own track",
+          "It has old magnets in the front"
+        ],
+        "answer": "B",
+        "skill": "cause-effect",
+        "why": "The text says a maglev does not rub, so it is fast, quiet, and smooth.",
+        "wrong": {
+          "A": "The text says a maglev has no wheels.",
+          "C": "The text says a maglev is fast.",
+          "D": "The magnets lift and move the train; they do not make it quiet."
+        }
+      },
+      {
+        "stem": "How fast did the test train in Japan go?",
+        "options": [
+          "603 km in an hour",
+          "400 km in an hour",
+          "8 km in an hour",
+          "30 km in an hour"
+        ],
+        "answer": "A",
+        "skill": "detail",
+        "why": "The text says the Japan test train went 603 km in an hour.",
+        "wrong": {
+          "B": "The China line goes more than 400 km in an hour.",
+          "C": "Eight is the number of minutes for the trip in China.",
+          "D": "The text does not give this speed."
+        }
+      },
+      {
+        "stem": "The text says it floats just above the track. What does float mean?",
+        "options": [
+          "To roll on wheels",
+          "To sit very still",
+          "To rest in the air",
+          "To dig into the ground"
+        ],
+        "answer": "C",
+        "skill": "vocabulary",
+        "why": "The maglev has no wheels and magnets lift it, so it rests in the air above the track.",
+        "wrong": {
+          "A": "A maglev has no wheels.",
+          "B": "The train moves; floating does not mean sitting still.",
+          "D": "The train is above the track, not below the ground."
+        }
+      },
+      {
+        "stem": "Why does the author end with Saudi Arabia's fast train?",
+        "options": [
+          "To say that the Saudi train is much too slow to use",
+          "To tell readers they should not ride any trains",
+          "To link to Saudi Arabia and hope for a floating train",
+          "To show that trains with wheels are always better"
+        ],
+        "answer": "C",
+        "skill": "author-purpose",
+        "why": "The author links the topic to Saudi Arabia and hopes a floating train may come one day.",
+        "wrong": {
+          "A": "The text does not call the train too slow.",
+          "B": "The text does not say that.",
+          "D": "The text says one day we may ride one that floats."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "About how long is the maglev line in Shanghai?",
+        "options": [
+          "About 3 kilometers",
+          "About 30 kilometers",
+          "About 300 kilometers",
+          "About 603 kilometers"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The article says the line carries passengers about 30 kilometers from the airport to the city.",
+        "wrong": {
+          "A": "The article says about 30.",
+          "C": "The article says about 30.",
+          "D": "603 kilometers an hour is the speed record in Japan."
+        }
+      },
+      {
+        "stem": "In the article, what is a guideway?",
+        "options": [
+          "A path of tunnels deep under hills",
+          "The track that a maglev floats above",
+          "A kind of magnet inside the train",
+          "A guide who rides on the train"
+        ],
+        "answer": "B",
+        "skill": "vocabulary",
+        "why": "The article says a maglev floats above a special track called a guideway.",
+        "wrong": {
+          "A": "The article does not say it is made of tunnels.",
+          "C": "Magnets are in the guideway, but the guideway itself is the track.",
+          "D": "The guideway is a track, not a person."
+        }
+      },
+      {
+        "stem": "Why is the ride on a maglev quiet and smooth?",
+        "options": [
+          "The train never touches the guideway",
+          "The train has very small wheels",
+          "The magnets switch on and off slowly",
+          "The track is made of soft rubber"
+        ],
+        "answer": "A",
+        "skill": "cause-effect",
+        "why": "The train never touches the guideway, so there is almost no friction, and the ride is quiet and smooth.",
+        "wrong": {
+          "B": "A maglev has no wheels touching its track.",
+          "C": "The magnets switch on and off in a pattern to move the train, not to make it quiet.",
+          "D": "The article does not mention rubber."
+        }
+      },
+      {
+        "stem": "Why does the author mention the train that links Makkah and Madinah?",
+        "options": [
+          "To show that it is faster than a maglev",
+          "To prove that maglevs cost very little",
+          "To explain how friction wears down rails",
+          "To connect the topic to Saudi Arabia"
+        ],
+        "answer": "D",
+        "skill": "author-purpose",
+        "why": "The Makkah to Madinah train is in Saudi Arabia, so it links the topic to the reader's country.",
+        "wrong": {
+          "A": "The article says that train still runs on wheels.",
+          "B": "The article says maglevs cost a lot.",
+          "C": "Friction was explained earlier."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "According to the article, how far above the guideway does a maglev float?",
+        "options": [
+          "Between ten and twenty meters",
+          "Between one and ten centimeters",
+          "Between two and three kilometers",
+          "Between five and six millimeters"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The article says it floats between one and ten centimeters above the guideway.",
+        "wrong": {
+          "A": "That is far too high.",
+          "C": "That is far too high.",
+          "D": "The article says centimeters, not millimeters."
+        }
+      },
+      {
+        "stem": "In the text, what does the word conventional mean?",
+        "options": [
+          "Very new",
+          "Ordinary",
+          "Floating",
+          "Underground"
+        ],
+        "answer": "B",
+        "skill": "vocabulary",
+        "why": "The article compares it with a maglev, so a conventional train is an ordinary one that has wheels.",
+        "wrong": {
+          "A": "The article describes maglevs as the new kind, not conventional trains.",
+          "C": "Floating describes a maglev, not a conventional train.",
+          "D": "The article does not link the word to being underground."
+        }
+      },
+      {
+        "stem": "Why does a maglev give passengers a quiet, smooth ride?",
+        "options": [
+          "Air resistance pushes the train up off the rails",
+          "Superconductors cool the whole track below it",
+          "There is virtually no friction from the track",
+          "The magnets in the nose make much less noise"
+        ],
+        "answer": "C",
+        "skill": "cause-effect",
+        "why": "Because the maglev never touches the guideway, there is virtually no friction, so the ride is quiet and smooth.",
+        "wrong": {
+          "A": "Air resistance pushes against the train; it does not make the ride smooth.",
+          "B": "Superconductors create strong magnetic fields; they do not cool the track.",
+          "D": "The nose is shaped to deal with air resistance."
+        }
+      },
+      {
+        "stem": "Why does the author describe two magnets in the third paragraph?",
+        "options": [
+          "To prove that strong magnets are very expensive",
+          "To give a simple example of the basic principle",
+          "To show how Japan built its long mountain tunnels",
+          "To explain how a sensor works inside the train"
+        ],
+        "answer": "B",
+        "skill": "text-structure",
+        "why": "The two-magnet example helps readers understand the basic idea of attracting and repelling.",
+        "wrong": {
+          "A": "The cost of building is discussed in a later paragraph.",
+          "C": "Japan's tunnels are mentioned later.",
+          "D": "Sensors are not part of this article."
+        }
+      }
+    ]
   }
 }

@@ -16,10 +16,10 @@ import type { Repo, Row } from "../seeding/repo";
 import { assertCan, type Actor } from "../auth/rbac";
 import { assertClassRead } from "../teacher/coordinators";
 import { RR_SKILLS } from "./import";
-import { readRisePlaced, weekLabel, weekStart as engineWeekStart } from "./engine";
+import { goalDates, readRisePlaced, weekLabel, weekStart as engineWeekStart } from "./engine";
 import { questionKeys } from "./question-key";
 import { standardOfSkill } from "./growth-words";
-import { articleRuns, isUnreliableRun, keyRowsLookup, stretchRuns, tallyAnswers, tallyBy, tallyRuns } from "./first-try";
+import { articleRuns, baseBand, countedTries, goalRuns, isUnreliableRun, keyRowsLookup, rapidRead, scoredRun, stretchRuns, tallyAnswers, tallyBy, tallyRuns } from "./first-try";
 
 const s = (v: unknown) => String(v ?? "");
 const DAY = 86_400_000;
@@ -74,6 +74,55 @@ export function goalWeeks(placedAt: number, goal: number, firstTries: { at: numb
   return { met, weeks };
 }
 
+// ------------------------------------------------------------------ teacher signals (pure)
+
+/** 🔴 no counted reading for this many days → "Not reading" */
+export const NOT_READING_DAYS = 14;
+/** 🟠 this many counted first tries in the last BELOW_GOAL_DAYS days, none at 75%+, level unchanged → "Reading, below 75%" */
+export const BELOW_GOAL_TRIES = 4, BELOW_GOAL_DAYS = 28;
+
+export interface ReadingSignals {
+  /** 🔴 no counted reading (a counted first try — first-try.ts countedTries — scored, reliable, not read too fast) for NOT_READING_DAYS+ days */
+  notReading: boolean;
+  /** days since the last counted reading (null: never read) */
+  daysSinceReading: number | null;
+  /** 🟠 BELOW_GOAL_TRIES+ counted first tries in BELOW_GOAL_DAYS days, none at 75%+, no level change in that time */
+  belowGoal: boolean;
+  tries28: number;
+  best28: number | null;
+  /** 📉 the weekly goal (engine goalDates: counted first tries at 75%+) missed in each of the last 2 full weeks */
+  missedGoal2w: boolean;
+  /** first-try articles at 75%+ in the week before last and last week */
+  lastWeeks: [number, number];
+}
+
+/**
+ * The teacher's reading signals for one PLACED student (pure). `runs` = the student's runs (any; the counted ones are
+ * chosen here), `placedAt` / `weeklyGoal` from RRStudent, `changes` = the times of the level changes.
+ * A student placed less than NOT_READING_DAYS days ago is not "not reading"; the goal flag needs two full weeks
+ * after the placement.
+ */
+export function readingSignals(runs: readonly Row[], st: { placedAt: number; weeklyGoal: number }, changes: readonly number[], now: number): ReadingSignals {
+  // a counted reading: a counted first try (first-try.ts countedTries), scored, reliable, not read too fast
+  const counted = countedTries(runs).filter((r) => scoredRun(r) && !isUnreliableRun(r) && !rapidRead(r));
+  const at = (r: Row) => time(r.completedAt) ?? 0;
+  const last = counted.reduce((m, r) => Math.max(m, at(r)), 0);
+  const daysSinceReading = last ? Math.floor((now - last) / DAY) : null;
+  const notReading = now - Math.max(last, st.placedAt) >= NOT_READING_DAYS * DAY;
+  const from = now - BELOW_GOAL_DAYS * DAY;
+  const recent = counted.filter((r) => at(r) >= from);
+  const best28 = recent.length ? Math.max(...recent.map((r) => Number(r.score))) : null;
+  const moved = changes.some((c) => c >= from && c <= now);
+  const belowGoal = recent.length >= BELOW_GOAL_TRIES && (best28 ?? 0) < GOAL_SCORE && !moved;
+  const cur = weekStart(now), w1 = cur - 7 * DAY, w2 = cur - 14 * DAY;
+  const goal = Math.max(1, st.weeklyGoal || 2);
+  const met = goalDates(runs as Row[]).map((d) => d.getTime());
+  const inWeek = (w: number) => met.filter((t) => t >= w && t < w + 7 * DAY).length;
+  const lastWeeks: [number, number] = [inWeek(w2), inWeek(w1)];
+  const missedGoal2w = st.placedAt <= w2 && lastWeeks[0] < goal && lastWeeks[1] < goal;
+  return { notReading, daysSinceReading, belowGoal, tries28: recent.length, best28, missedGoal2w, lastWeeks };
+}
+
 // ------------------------------------------------------------------ loading
 
 interface Data {
@@ -99,7 +148,7 @@ async function loadData(repo: Repo, ids: string[], opts: { map?: boolean; runCol
     many("Student", (p) => ({ id: { in: p } }), ["id", "userId"]),
     many("RRStudent", (p) => ({ studentId: { in: p } })),
     many("RRLevelChange", (p) => ({ studentId: { in: p } }), ["studentId", "toLevel", "createdAt"]),
-    many("RRRun", (p) => ({ studentId: { in: p } }), opts.runCols ?? ["id", "studentId", "articleId", "band", "versionLevel", "step", "prePoll", "postPoll", "answers", "score", "writing", "writingScore", "writingAiScore", "writingAiComment", "firstTry", "stretch", "levelBefore", "levelAfter", "startedAt", "completedAt", "unreliable", "answerMs"]),
+    many("RRRun", (p) => ({ studentId: { in: p } }), opts.runCols ?? ["id", "studentId", "articleId", "band", "versionLevel", "step", "prePoll", "postPoll", "answers", "score", "writing", "writingScore", "writingAiScore", "writingAiComment", "firstTry", "stretch", "levelBefore", "levelAfter", "startedAt", "completedAt", "unreliable", "answerMs", "readSeconds"]),
     opts.map === false ? Promise.resolve([] as Row[]) : many("MapResult", (p) => ({ studentId: { in: p }, lexile: { not: null } }), ["studentId", "lexile", "testDate"]),
     many("RRPlacement", (p) => ({ studentId: { in: p } }), ["studentId", "completedAt", "result"]),
   ]);
@@ -144,14 +193,16 @@ export interface StudentReportRow {
   runs: number;
   /** round 4: stretch readings that counted (their own line: never in the article counts) */
   stretchArticles: number;
-  lastActivity: string | null; writingToScore: number; flags: { notPlaced: boolean; inactive: boolean; belowBand: boolean };
+  lastActivity: string | null; writingToScore: number;
+  /** notReading 🔴 / belowGoal 🟠 / missedGoal2w 📉: readingSignals (placed students only) */
+  flags: { notPlaced: boolean; inactive: boolean; belowBand: boolean; notReading: boolean; belowGoal: boolean; missedGoal2w: boolean };
   /** a placement test is started and not finished (a teacher can restart it) */
   placementOpen: boolean;
 }
 export interface ClassReport {
   classId: string; className: string; grade: number; band: { low: number; high: number };
   students: StudentReportRow[];
-  summary: { students: number; placed: number; notPlaced: number; medianLevel: number | null; avgGrowth: number | null; inactive: number; belowBand: number; writingToScore: number };
+  summary: { students: number; placed: number; notPlaced: number; medianLevel: number | null; avgGrowth: number | null; inactive: number; belowBand: number; writingToScore: number; notReading: number; belowGoal: number; missedGoal2w: number };
   history: { weeks: string[]; series: { studentId: string; name: string; points: (number | null)[] }[]; median: (number | null)[] };
   distribution: { from: number; to: number; count: number; inBand: boolean }[];
 }
@@ -179,13 +230,14 @@ export async function classReport(repo: Repo, actor: Actor, classId: string, now
   const rows: StudentReportRow[] = ids.map((id) => {
     const st = d.rr.get(id);
     const runs = d.runs.filter((r) => s(r.studentId) === id);
-    const ft = firstTryDone(runs);
+    const ft = goalRuns(runs); // the engine's goal readings (one credit per article, careful reads only)
     const arts = articleRuns(runs);
     const last = Math.max(0, ...runs.map((r) => Math.max(time(r.completedAt) ?? 0, time(r.startedAt) ?? 0)));
     const level = st ? Number(st.level) : null, start = st ? Number(st.startLevel) : null;
     const placedAt = st ? time(st.placedAt)! : null;
     const gw = st ? goalWeeks(placedAt!, Number(st.weeklyGoal ?? 2), ft.map((r) => ({ at: time(r.completedAt)!, score: Number(r.score) })), nowT) : { met: 0, weeks: 0 };
     const lastRef = last || placedAt || 0;
+    const sig = st ? readingSignals(runs, { placedAt: placedAt!, weeklyGoal: Number(st.weeklyGoal ?? 2) }, (d.changes.get(id) ?? []).map((c) => c.at), nowT) : null;
     return {
       studentId: id, name: d.names.get(id) ?? "Student", placed: !!st, level, startLevel: start, growth: st ? level! - start! : null, source: st ? s(st.source) : null,
       mapLexile: d.map.get(id)?.lexile ?? null,
@@ -194,7 +246,7 @@ export async function classReport(repo: Repo, actor: Actor, classId: string, now
       firstTryAvg: avg(arts.map((r) => Number(r.score))), goal: st ? Number(st.weeklyGoal ?? 2) : 0, goalMet: gw.met, goalWeeks: gw.weeks,
       lastActivity: last ? new Date(last).toISOString() : null,
       writingToScore: runs.filter((r) => s(r.writing).trim() && (r.writingScore === null || r.writingScore === undefined)).length,
-      flags: { notPlaced: !st, inactive: !!st && nowT - lastRef >= INACTIVE_DAYS * DAY, belowBand: level !== null && level < band.low },
+      flags: { notPlaced: !st, inactive: !!st && nowT - lastRef >= INACTIVE_DAYS * DAY, belowBand: level !== null && level < band.low, notReading: !!sig?.notReading, belowGoal: !!sig?.belowGoal, missedGoal2w: !!sig?.missedGoal2w },
       placementOpen: d.openTest.has(id),
     };
   }).sort((a, b) => a.name.localeCompare(b.name));
@@ -215,6 +267,7 @@ export async function classReport(repo: Repo, actor: Actor, classId: string, now
       students: rows.length, placed: placed.length, notPlaced: rows.length - placed.length, medianLevel: median(placed.map((r) => r.level!)),
       avgGrowth: avg(placed.map((r) => r.growth!)), inactive: rows.filter((r) => r.flags.inactive).length, belowBand: rows.filter((r) => r.flags.belowBand).length,
       writingToScore: rows.reduce((a, r) => a + r.writingToScore, 0),
+      notReading: rows.filter((r) => r.flags.notReading).length, belowGoal: rows.filter((r) => r.flags.belowGoal).length, missedGoal2w: rows.filter((r) => r.flags.missedGoal2w).length,
     },
     // round 4: the label is the week's Sunday in Riyadh time (weekStart is Saturday 21:00 UTC)
     history: { weeks: ends.map((t) => weekLabel(weekStart(t))), series, median: medianSeries },
@@ -340,7 +393,7 @@ export async function writingQueue(repo: Repo, actor: Actor, classId: string, op
     repo.findMany("RRPrompt", { articleId: { in: articleIds } }, { select: ["articleId", "band", "prompt", "checklist"] }),
   ]) : [[], []];
   const item = (r: Row): WritingItem => {
-    const p = prompts.find((x) => x.articleId === r.articleId && x.band === r.band);
+    const p = prompts.find((x) => x.articleId === r.articleId && x.band === baseBand(r.band)); // a stretch set (S-M) uses its band's prompt
     let checklist: unknown = p?.checklist ?? [];
     if (typeof checklist === "string") { try { checklist = JSON.parse(checklist); } catch { checklist = []; } }
     return {
@@ -408,17 +461,19 @@ export async function schoolDashboard(repo: Repo, actor: Actor, now = new Date()
   // per student: the real level row (placed only) and the counted first tries in the window — SCHOOL_BATCH at a time
   const rrBy = new Map<string, { level: number; startLevel: number; placedAt: number; weeklyGoal: number }>();
   const ftBy = new Map<string, { at: number; score: number }[]>();
+  const goalBy = new Map<string, { at: number; score: number }[]>();
   for (let i = 0; i < ids.length; i += SCHOOL_BATCH) {
     const part = ids.slice(i, i + SCHOOL_BATCH);
     const [rr, placements, runs] = await Promise.all([
       repo.findMany("RRStudent", { studentId: { in: part } }, { select: ["studentId", "level", "startLevel", "placedAt", "weeklyGoal", "source"] }),
       repo.findMany("RRPlacement", { studentId: { in: part }, completedAt: { not: null }, result: { not: null } }, { select: ["studentId"] }),
-      repo.findMany("RRRun", { studentId: { in: part }, completedAt: { gte: from } }, { select: ["studentId", "articleId", "band", "score", "firstTry", "stretch", "completedAt", "unreliable"] }),
+      repo.findMany("RRRun", { studentId: { in: part }, completedAt: { gte: from } }, { select: ["studentId", "articleId", "band", "score", "firstTry", "stretch", "completedAt", "unreliable", "readSeconds"] }),
     ]);
     const placedTest = new Set(placements.map((p) => s(p.studentId)));
     for (const r of rr) if (readRisePlaced(r, placedTest.has(s(r.studentId)))) rrBy.set(s(r.studentId), { level: Number(r.level), startLevel: Number(r.startLevel), placedAt: time(r.placedAt) ?? 0, weeklyGoal: Number(r.weeklyGoal ?? 2) });
     // a stretch whose first read is before the window has no band to compare here: it is left out (never over-counted)
     for (const r of firstTryDone(runs)) { const l = ftBy.get(s(r.studentId)) ?? []; l.push({ at: time(r.completedAt)!, score: Number(r.score) }); ftBy.set(s(r.studentId), l); }
+    for (const r of goalRuns(runs)) { const l = goalBy.get(s(r.studentId)) ?? []; l.push({ at: time(r.completedAt)!, score: Number(r.score) }); goalBy.set(s(r.studentId), l); }
   }
   const stats = (studentIds: string[], band: { low: number; high: number }): GroupStats & { usage: (number | null)[] } => {
     const placed = studentIds.filter((id) => rrBy.has(id));
@@ -427,7 +482,7 @@ export async function schoolDashboard(repo: Repo, actor: Actor, now = new Date()
     let met = 0, wk = 0;
     for (const id of placed) {
       const st = rrBy.get(id)!;
-      const g = goalWeeks(st.placedAt, st.weeklyGoal, ftBy.get(id) ?? [], nowT, weeks);
+      const g = goalWeeks(st.placedAt, st.weeklyGoal, goalBy.get(id) ?? [], nowT, weeks);
       met += g.met; wk += g.weeks;
     }
     const used = usage.filter((u): u is number => u !== null);

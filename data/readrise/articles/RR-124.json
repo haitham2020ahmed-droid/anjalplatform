@@ -614,5 +614,217 @@
       ],
       "modelAnswer": "I completely disagree that soil is just dirt that does not need protecting, because the article shows it is actually a complex, living system that almost all of our food depends on. Soil forms extremely slowly through weathering, as heat, cold, rain, and plant roots gradually break solid rock into the fine texture we see in a handful of dirt, a process that can take a thousand years to build just one centimeter. A single handful of healthy soil can also contain more living organisms, including decomposer bacteria and fungi, than there are people on Earth, and these tiny creatures release the nutrients that plants need to survive. Because wind and rain can destroy through erosion in just a few seasons what nature spent centuries building, protecting soil is just as important as protecting any other precious natural resource."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "What helps break rock into smaller and smaller bits?",
+        "options": [
+          "Dark, soft humus from plants",
+          "The sun, the rain, and ice",
+          "The paths made by earthworms",
+          "Wells and dams in the desert"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The text says sun, rain, and ice break rock, and roots crack it.",
+        "wrong": {
+          "A": "Humus comes from rotted plants, not from breaking rock.",
+          "C": "Earthworm paths let air and water go down; they do not break rock.",
+          "D": "Wells and dams are not in the text."
+        }
+      },
+      {
+        "stem": "What do bugs and germs do in soil?",
+        "options": [
+          "They dig deep paths for air and water",
+          "They crack rock into small bits",
+          "They hold the soil in place with roots",
+          "They turn dead leaves into plant food"
+        ],
+        "answer": "D",
+        "skill": "cause-effect",
+        "why": "The text says bugs eat dead leaves and germs help, which makes food for plants.",
+        "wrong": {
+          "A": "The text says earthworms dig the paths.",
+          "B": "The text says sun, rain, ice, and roots break rock.",
+          "C": "The text says roots hold the soil in place."
+        }
+      },
+      {
+        "stem": "Why is it a big problem when wind and rain take soil away?",
+        "options": [
+          "Soil is slow to make and grows our food",
+          "The lost soil turns into hard rock fast",
+          "Trees grow too tall without the soil",
+          "Earthworms stop digging in the paths"
+        ],
+        "answer": "A",
+        "skill": "inference",
+        "why": "The text says soil takes a very long time to make and most of our food grows in it.",
+        "wrong": {
+          "B": "The text does not say soil turns back into rock.",
+          "C": "The text does not say trees grow too tall.",
+          "D": "The text does not say earthworms stop digging."
+        }
+      },
+      {
+        "stem": "Which list shows the soil layers from the top to the bottom?",
+        "options": [
+          "Rock, light layer, dark layer",
+          "Light layer, dark layer, rock",
+          "Dark layer, light layer, rock",
+          "Dark layer, rock, light layer"
+        ],
+        "answer": "C",
+        "skill": "sequence",
+        "why": "The text names the dark top layer first, then a light one, and rock at the base.",
+        "wrong": {
+          "A": "Rock is at the base, not the top.",
+          "B": "The dark layer is on top.",
+          "D": "The light layer comes before the rock."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "What is humus?",
+        "options": [
+          "Tiny pieces of rock that were broken up",
+          "The air and water between the pieces",
+          "Soft, dark material from rotted plants",
+          "The pale layer under the topsoil"
+        ],
+        "answer": "C",
+        "skill": "detail",
+        "why": "The text says humus is the dark, soft material that forms when dead plants and animals rot.",
+        "wrong": {
+          "A": "Those are minerals.",
+          "B": "That is the air and water part of soil.",
+          "D": "That is the subsoil."
+        }
+      },
+      {
+        "stem": "How do plant roots help turn rock into soil?",
+        "options": [
+          "They dig tunnels for the earthworms",
+          "They grow into cracks and split the rock",
+          "They carry heat down to the rock",
+          "They give off ice that breaks the rock"
+        ],
+        "answer": "B",
+        "skill": "cause-effect",
+        "why": "The text says roots grow into cracks and split the rock apart.",
+        "wrong": {
+          "A": "Earthworms dig their own tunnels.",
+          "C": "The text says heat and cold come from the weather.",
+          "D": "Roots do not give off ice."
+        }
+      },
+      {
+        "stem": "Why would planting trees help soil in a sandy place like Saudi Arabia?",
+        "options": [
+          "Trees warm the sand so humus grows",
+          "Trees make rain wash the sand faster",
+          "Trees give the sand more minerals",
+          "Tree roots help hold the ground in place"
+        ],
+        "answer": "D",
+        "skill": "inference",
+        "why": "The text says wind and rain carry soil away when plants do not cover it, and trees help hold the ground in place.",
+        "wrong": {
+          "A": "The text does not say trees warm sand.",
+          "B": "Trees help stop erosion, not speed it up.",
+          "C": "The text does not say trees add minerals."
+        }
+      },
+      {
+        "stem": "How is topsoil different from subsoil?",
+        "options": [
+          "Topsoil is darker and richer in humus",
+          "Topsoil is paler and holds less humus",
+          "Topsoil is solid rock under the ground",
+          "Topsoil has no roots growing in it"
+        ],
+        "answer": "A",
+        "skill": "compare",
+        "why": "The text says topsoil is dark and rich in humus, while subsoil is paler with less humus.",
+        "wrong": {
+          "B": "That describes the subsoil.",
+          "C": "Solid rock lies below the subsoil.",
+          "D": "The text says most roots grow in the topsoil."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "According to the article, what is weathering?",
+        "options": [
+          "Water draining through sandy soil",
+          "Dead leaves being broken down",
+          "Earthworms digging tunnels in soil",
+          "Rock breaking into smaller fragments"
+        ],
+        "answer": "D",
+        "skill": "detail",
+        "why": "The text says weathering is the process in which heat, cold, rain, wind, and ice break rock into smaller fragments.",
+        "wrong": {
+          "A": "That is how sandy soil drains, not weathering.",
+          "B": "That is the work of decomposers.",
+          "C": "That is what earthworms do, not weathering."
+        }
+      },
+      {
+        "stem": "In the article, the word anchor means —",
+        "options": [
+          "hold firmly in place",
+          "dig down deep below",
+          "carry far away from here",
+          "turn slowly into compost"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "The trees will help so the ground is not blown or washed away, so anchor means hold in place.",
+        "wrong": {
+          "B": "Digging deeply is not what keeps ground from blowing away.",
+          "C": "Carrying away is the opposite of what the trees do.",
+          "D": "Trees do not turn the ground into compost."
+        }
+      },
+      {
+        "stem": "What do plants gain when bacteria and fungi break down dead leaves?",
+        "options": [
+          "Extra air that fills the spaces",
+          "Large grains of sandy soil",
+          "Nutrients they need to grow",
+          "A thicker layer of solid rock"
+        ],
+        "answer": "C",
+        "skill": "cause-effect",
+        "why": "The text says decomposers release nutrients that plants need to grow.",
+        "wrong": {
+          "A": "Air and water already fill the spaces between particles.",
+          "B": "Decomposers do not make sand.",
+          "D": "Decomposers do not make rock."
+        }
+      },
+      {
+        "stem": "Why do most plant roots grow in the topsoil?",
+        "options": [
+          "It is paler and has the least humus",
+          "It is dark and rich in humus",
+          "It is solid rock that protects the roots",
+          "It is where sand is sorted from clay"
+        ],
+        "answer": "B",
+        "skill": "inference",
+        "why": "The text says the topsoil is rich in humus and is where most roots grow, so it gives roots what they need.",
+        "wrong": {
+          "A": "That describes the subsoil.",
+          "C": "Solid rock lies far below the roots.",
+          "D": "The text does not say soil is sorted in the topsoil."
+        }
+      }
+    ]
   }
 }

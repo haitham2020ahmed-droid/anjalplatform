@@ -614,5 +614,217 @@
       ],
       "modelAnswer": "I agree that animal signals act like a kind of language, because each one carries a distinct meaning that other animals can interpret and act on. For example, vervet monkeys use a different vocalization for each predator, and the monkeys that hear it know exactly whether to climb a tree, dive into bushes, or check the ground, almost like understanding separate words. Honeybees communicate in an equally specific way through a dance that tells other bees which direction and how far to fly for flowers, showing that these signals convey real information rather than random noise."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "What does a bee's dance show?",
+        "options": [
+          "Where food is and how far",
+          "Where the hive was built",
+          "When a storm will come",
+          "Which flowers smell sweet"
+        ],
+        "answer": "A",
+        "skill": "detail",
+        "why": "The text says the dance shows where to find food and how far to fly.",
+        "wrong": {
+          "B": "The hive is where the dance happens.",
+          "C": "Storms are not mentioned.",
+          "D": "Smell is how ants talk, not bees."
+        }
+      },
+      {
+        "stem": "What do the monkeys do when they hear the snake call?",
+        "options": [
+          "They run up a tree.",
+          "They hide in the bush.",
+          "They stand up tall.",
+          "They howl at the pack."
+        ],
+        "answer": "C",
+        "skill": "detail",
+        "why": "The text says they stand up tall and look down at the grass.",
+        "wrong": {
+          "A": "That is the response to the big cat call.",
+          "B": "That is the response to the eagle call.",
+          "D": "Howling is what wolves do."
+        }
+      },
+      {
+        "stem": "Why can an elephant far off get the deep sounds of another elephant?",
+        "options": [
+          "The sounds are very loud.",
+          "The sounds go far.",
+          "The sounds are high.",
+          "The sounds are fast."
+        ],
+        "answer": "B",
+        "skill": "cause-effect",
+        "why": "The text says the low sounds go far, so an elephant far off can get them.",
+        "wrong": {
+          "A": "The text says some are too low to hear, not loud.",
+          "C": "The sounds are deep, not high.",
+          "D": "Speed is not mentioned."
+        }
+      },
+      {
+        "stem": "In the article, the word scent means —",
+        "options": [
+          "a loud sound",
+          "a deep hole",
+          "a long dance",
+          "a smell"
+        ],
+        "answer": "D",
+        "skill": "vocabulary",
+        "why": "Ants leave a scent that the other ants smell, so scent means a smell.",
+        "wrong": {
+          "A": "Ants use smell, not sound.",
+          "B": "A hole is not mentioned.",
+          "C": "Bees dance, not ants."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "What does a wolf's howl do?",
+        "options": [
+          "It calls the pack and warns others.",
+          "It shows the bees where to fly.",
+          "It makes a trail of scent for ants.",
+          "It scares eagles away from the sky."
+        ],
+        "answer": "A",
+        "skill": "detail",
+        "why": "The text says a wolf howls to call its pack and to warn other wolves to stay out.",
+        "wrong": {
+          "B": "Bees use a dance.",
+          "C": "A scent trail is what ants make.",
+          "D": "Eagles are not mentioned for wolves."
+        }
+      },
+      {
+        "stem": "The article says a wolf's howl warns other wolves to stay out of its territory. What is a territory?",
+        "options": [
+          "a loud call",
+          "the area a pack protects",
+          "a group of wolves",
+          "a place to sleep at night"
+        ],
+        "answer": "B",
+        "skill": "vocabulary",
+        "why": "The article says a territory is the area the pack lives in and defends.",
+        "wrong": {
+          "A": "The howl is the call; the territory is the land.",
+          "C": "A group of wolves is a pack.",
+          "D": "The territory is the whole area, not just a sleeping place."
+        }
+      },
+      {
+        "stem": "Why can elephants keep in touch with family members who are far away?",
+        "options": [
+          "They use scent trails.",
+          "They dance in a hive.",
+          "Their rumbles travel for kilometers.",
+          "Their ears hear very high sounds."
+        ],
+        "answer": "C",
+        "skill": "cause-effect",
+        "why": "The text says the rumbles can travel for several kilometers.",
+        "wrong": {
+          "A": "Ants use scent trails.",
+          "B": "Honeybees dance in a hive.",
+          "D": "The rumbles are low sounds."
+        }
+      },
+      {
+        "stem": "Why do the monkeys dive into thick bushes after the eagle call?",
+        "options": [
+          "To look for the snakes",
+          "To hide from the eagle",
+          "To look for some food",
+          "To call the pack together"
+        ],
+        "answer": "B",
+        "skill": "inference",
+        "why": "The eagle call warns of a danger overhead, so the monkeys hide in thick bushes.",
+        "wrong": {
+          "A": "The snake call is a different call.",
+          "C": "The call is about danger, not food.",
+          "D": "Calling the pack is what wolves do."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "What does the word infrasound mean in the article?",
+        "options": [
+          "A sound too low for human ears",
+          "A sound made by only one animal",
+          "A sound that comes from a hive",
+          "A sound that warns of a snake"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "The text says infrasound means sounds too low for human ears to hear.",
+        "wrong": {
+          "B": "The text does not say this.",
+          "C": "Bees use movement, not sound.",
+          "D": "The snake call is a monkey alarm call."
+        }
+      },
+      {
+        "stem": "Why can communication be risky for an animal?",
+        "options": [
+          "It makes the animal very tired.",
+          "It can show a predator where it is.",
+          "It wakes up the whole pack.",
+          "It leaves a scent on the ground."
+        ],
+        "answer": "B",
+        "skill": "cause-effect",
+        "why": "A loud call that alerts relatives may also reveal the caller's location to a predator.",
+        "wrong": {
+          "A": "Tiredness is not mentioned.",
+          "C": "Waking the pack is not named as a risk.",
+          "D": "A scent trail helps ants find food."
+        }
+      },
+      {
+        "stem": "In the article, infrasound is sound that is —",
+        "options": [
+          "too high for people to hear",
+          "too low for people to hear",
+          "made only by birds at night",
+          "louder than any thunder"
+        ],
+        "answer": "B",
+        "skill": "vocabulary",
+        "why": "The article says elephant rumbles include infrasound, sound too low for human ears to hear.",
+        "wrong": {
+          "A": "Infrasound is low, not high.",
+          "C": "Elephants make infrasound.",
+          "D": "The article does not say it is louder than thunder."
+        }
+      },
+      {
+        "stem": "Why can vervet monkeys protect themselves from several kinds of danger?",
+        "options": [
+          "They live inside the thick bushes.",
+          "They stay far away from trees.",
+          "Each call causes a new reaction.",
+          "They all give one same call."
+        ],
+        "answer": "C",
+        "skill": "cause-effect",
+        "why": "The text says every call produces a different reaction, so the group can respond to each danger.",
+        "wrong": {
+          "A": "The monkeys only dive into bushes for the eagle call.",
+          "B": "They climb trees for the leopard call.",
+          "D": "They have a distinct call for each predator."
+        }
+      }
+    ]
   }
 }

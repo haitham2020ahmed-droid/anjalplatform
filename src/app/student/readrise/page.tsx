@@ -14,12 +14,13 @@ import { GrowthStory } from "@/components/readrise/growth-story";
 import { myGrowthStory } from "@/server/readrise/growth-report";
 import { getT } from "@/i18n/server";
 import { PlacementPopup } from "@/components/readrise/placement-popup";
+import { InterestsPicker } from "@/components/readrise/interests-picker";
 
 export const metadata = { title: "ReadRise" };
 export const dynamic = "force-dynamic";
 
 /** 🚀 ReadRise home: my level, weekly goal and streak, growth + projection, the placement prompt and the library. */
-export default async function ReadRiseHomePage({ searchParams }: { searchParams: Promise<{ q?: string; topic?: string; tab?: string }> }) {
+export default async function ReadRiseHomePage({ searchParams }: { searchParams: Promise<{ q?: string; topic?: string; tab?: string; page?: string; topics?: string }> }) {
   const actor = await requireActor({ roles: ["STUDENT"] });
   startReadRiseLibraryLoad(repo); // new article files of a deploy load in the background — the page never waits for them
   const me = (await getActor())!.user;
@@ -28,7 +29,7 @@ export default async function ReadRiseHomePage({ searchParams }: { searchParams:
   const report = sp.tab === "report";
   const placementTab = sp.tab === "placement";
   const [h, { t }] = await Promise.all([
-    readRiseHome(repo, actor, { q: typeof sp.q === "string" ? sp.q.slice(0, 100) : "", topic: typeof sp.topic === "string" ? sp.topic.slice(0, 100) : "" }),
+    readRiseHome(repo, actor, { q: typeof sp.q === "string" ? sp.q.slice(0, 100) : "", topic: typeof sp.topic === "string" ? sp.topic.slice(0, 100) : "", page: Number(sp.page) || 1 }),
     getT(),
   ]);
   const sum = h.summary;
@@ -119,13 +120,15 @@ export default async function ReadRiseHomePage({ searchParams }: { searchParams:
 
       <details className="mt-4 rounded-2xl bg-teal-50 p-4 text-sm text-slate-700 ring-1 ring-teal-200">
         <summary className="cursor-pointer font-semibold text-brand-navy">How does my level move?</summary>
+        {/* round 5: the real rules (first-try.ts / student.ts stretchOffer / engine.ts) */}
         <ul className="mt-2 list-disc space-y-1 ps-5">
-          <li>Only your <strong>first try</strong> on an article counts.</li>
-          <li>Score 75% or more on 3 of your last 4 articles and your level goes <strong>up 50</strong>.</li>
-          <li>If an article was too hard (25% or less, or under 50% two times in a row), your level goes down 100 so the next articles fit you better.</li>
-          <li>Take your time: answers that come too fast do not count.</li>
-          <li>Three times a year you check your reading level with a few short passages: at the start, in the middle and at the end of the year.</li>
-          <li>After reading an article, try a <strong>Stretch</strong>: the same article one level higher. It can help you move up and never lowers your level.</li>
+          <li>{t("Only your first try on an article counts. Reading it again is practice.")}</li>
+          <li>{t("Score 75% or more on 3 of your last 4 articles and your level goes up 50.")}</li>
+          <li>{t("If an article was too hard (25% or less, or under 50% two times in a row), your level goes down 100 so the next articles fit you better.")}</li>
+          <li>{t("Take your time: answers that come too fast do not count, and an article read in under 45 seconds does not count.")}</li>
+          <li>{t("Your weekly goal counts each article once: 75% or more on the first try, or on its stretch.")}</li>
+          <li>{t("Three times a year you check your reading level with a few short passages: at the start, in the middle and at the end of the year.")}</li>
+          <li>{t("Score 75% or more on your first try and you can Stretch: the same article one level higher. With new stretch questions (or new questions of a higher band) it counts like a first try and can help you move up. If the questions are the same ones, it is practice: it can count for your weekly goal only. A stretch never lowers your level.")}</li>
         </ul>
       </details>
 
@@ -145,8 +148,35 @@ export default async function ReadRiseHomePage({ searchParams }: { searchParams:
 
       {!report && !placementTab && (h.locked ? (
         <p data-testid="rr-locked" className="mt-6 rounded-2xl bg-white p-5 text-slate-700 ring-1 ring-slate-200">🔒 {t("Your articles open after the placement test.")}</p>
-      ) : <ReadRiseLibrary lib={h.library} showLevel={h.placed} />)}
+      ) : (
+        <>
+          <ProgressStrip h={h} t={t} />
+          {h.progress && (h.progress.interests.length === 0 || sp.topics === "1") ? (
+            <div className="mt-4"><InterestsPicker topics={h.progress.topics} chosen={h.progress.interests} /></div>
+          ) : h.progress ? (
+            <p className="mt-2 text-sm"><Link href="/student/readrise?topics=1" data-testid="rr-change-topics" className="text-brand-teal underline">❤️ {t("Change my topics")}</Link></p>
+          ) : null}
+          <ReadRiseLibrary lib={h.library} showLevel={h.placed} t={t} />
+        </>
+      ))}
     </AppShell>
+  );
+}
+
+/**
+ * 📈 Round 5: the progress strip at the top of the Articles tab — "Your level 1400 · This week 1 of 2 · 2 more strong
+ * reads (75%+) to move up +50" (engine.ts levelWindow + readsToMoveUp: the 3-of-4 rule). No level before placement.
+ */
+function ProgressStrip({ h, t }: { h: ReadRiseHome; t: TFn }) {
+  const s = h.summary;
+  const n = h.progress?.toMoveUp ?? null;
+  return (
+    <section data-testid="rr-progress-strip" aria-label={t("My progress")} className="mt-5 flex flex-wrap items-center gap-x-3 gap-y-1 rounded-2xl bg-gradient-to-r from-indigo-50 to-white px-5 py-3 text-slate-800 ring-1 ring-indigo-200">
+      {h.placed && <span className="font-bold text-brand-navy">{t("Your level {n}", { n: s.level })}</span>}
+      {h.placed && <span aria-hidden="true" className="text-slate-400">·</span>}
+      <span>{s.goalMet ? `🏆 ${t("This week {n} of {m}", { n: s.thisWeek, m: s.weeklyGoal })}` : t("This week {n} of {m}", { n: s.thisWeek, m: s.weeklyGoal })}</span>
+      {h.placed && n !== null && <><span aria-hidden="true" className="text-slate-400">·</span><span data-testid="rr-to-move-up">{n === 1 ? t("1 more strong read (75%+) to move up +{step}", { step: h.progress!.step }) : t("{n} more strong reads (75%+) to move up +{step}", { n, step: h.progress!.step })}</span></>}
+    </section>
   );
 }
 

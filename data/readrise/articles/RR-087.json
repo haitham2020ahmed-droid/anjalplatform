@@ -614,5 +614,217 @@
       ],
       "modelAnswer": "Marie Curie is rightly called a pioneer because she broke boundaries that had kept women out of science for generations. She studied at a university in Paris after years of saving money as a teacher, finished at the top of her class, and went on to discover two new elements, polonium and radium. In 1903 she became the first woman ever to win a Nobel Prize, and in 1911 she became the first person in history to win two, an achievement that brought her enormous recognition.\n\nFurthermore, her work on radiation produced real benefits for other people, since doctors used her X-ray trucks to find broken bones in wounded soldiers. However, her discoveries also carried a serious hazard, because the very rays she studied eventually made her sick and led to her death in 1934. Even with that danger, her scientific legacy still helps doctors and scientists around the world today, which is exactly why she remains a pioneer whose impact outlived her."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "What did Marie and Pierre find together?",
+        "options": [
+          "A new school in France",
+          "Two new elements",
+          "A box of old books",
+          "A very large rock"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The text says the two found two new elements.",
+        "wrong": {
+          "A": "Marie went to a school in France, but they did not find one.",
+          "C": "Old books are not mentioned.",
+          "D": "She looked at rocks, but the rock itself was not the find."
+        }
+      },
+      {
+        "stem": "In the article, an element is —",
+        "options": [
+          "a big school in the city of Paris",
+          "a prize given to the best student",
+          "a rock that glows in the dark",
+          "a kind of stuff in all things"
+        ],
+        "answer": "D",
+        "skill": "vocabulary",
+        "why": "The text says an element is a kind of stuff that all things are made of.",
+        "wrong": {
+          "A": "The big school is a university in France.",
+          "B": "The prize is the Nobel Prize.",
+          "C": "Radium is an element that glows, but not every element is a rock that glows."
+        }
+      },
+      {
+        "stem": "What made Marie sick?",
+        "options": [
+          "The rays she worked with",
+          "The cold air in Poland",
+          "The long trip to France",
+          "The prize money she won"
+        ],
+        "answer": "A",
+        "skill": "cause-effect",
+        "why": "The text says the rays made her sick.",
+        "wrong": {
+          "B": "Cold air is not given as the cause.",
+          "C": "The trip is not said to have made her sick.",
+          "D": "Money cannot make a person sick."
+        }
+      },
+      {
+        "stem": "In 1911, no one had won two Nobel Prizes before. What does this tell you?",
+        "options": [
+          "The prize was easy for anyone to win",
+          "The prize was given out only one time",
+          "Marie did something no one had done",
+          "Marie won it by luck and not by work"
+        ],
+        "answer": "C",
+        "skill": "inference",
+        "why": "Because no one had won two before, Marie did something new and great.",
+        "wrong": {
+          "A": "If it were easy, others would have won two.",
+          "B": "Marie won it in 1903 and again in 1911.",
+          "D": "The article ends by saying hard work pays off."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "How did Marie save money to go to a university?",
+        "options": [
+          "She sold books in Paris",
+          "She won a Nobel Prize",
+          "She worked as a teacher",
+          "She worked in a cold lab"
+        ],
+        "answer": "C",
+        "skill": "detail",
+        "why": "The text says she worked as a teacher and saved her money for years.",
+        "wrong": {
+          "A": "Selling books is not mentioned.",
+          "B": "She won the prize years later.",
+          "D": "The cold lab was where she worked after she studied."
+        }
+      },
+      {
+        "stem": "Why did Marie move to Paris?",
+        "options": [
+          "Polish universities did not accept women",
+          "Pierre asked her to marry him in Paris",
+          "She wanted to win a Nobel Prize there",
+          "A teacher told her to go look for uranium"
+        ],
+        "answer": "A",
+        "skill": "cause-effect",
+        "why": "Women in Poland could not study at a university, so she moved to Paris to study.",
+        "wrong": {
+          "B": "She met Pierre after she moved to Paris.",
+          "C": "The prizes came years later.",
+          "D": "She studied uranium after she studied in Paris."
+        }
+      },
+      {
+        "stem": "In the article, the word determined means —",
+        "options": [
+          "too tired to keep going",
+          "afraid to try new things",
+          "easily confused by math",
+          "set on reaching her goal"
+        ],
+        "answer": "D",
+        "skill": "vocabulary",
+        "why": "Marie was determined to learn, so she worked and saved for years to reach her goal.",
+        "wrong": {
+          "A": "She kept going for years.",
+          "B": "She moved to a new country to learn.",
+          "C": "She was very good at math."
+        }
+      },
+      {
+        "stem": "Marie worked in a small, cold lab. What does this suggest?",
+        "options": [
+          "She had very little interest in science",
+          "She cared more about work than comfort",
+          "She wanted to leave Paris very soon",
+          "She worked in the best lab in the world"
+        ],
+        "answer": "B",
+        "skill": "inference",
+        "why": "She made great discoveries in a small, cold lab, so work mattered more to her than comfort.",
+        "wrong": {
+          "A": "She loved science and made big discoveries.",
+          "C": "Nothing says she wanted to leave Paris.",
+          "D": "The lab is described as small and cold."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "How did Marie and Pierre discover the two new elements?",
+        "options": [
+          "By reading old notebooks from Poland",
+          "By asking doctors to use X-rays",
+          "By processing tons of rock",
+          "By buying new machines in Paris"
+        ],
+        "answer": "C",
+        "skill": "detail",
+        "why": "The text says that working with Pierre, she processed tons of rock and discovered two new elements.",
+        "wrong": {
+          "A": "Old notebooks are not mentioned as the source.",
+          "B": "X-ray trucks came later, during a war.",
+          "D": "The lab had very little equipment."
+        }
+      },
+      {
+        "stem": "In the article, the word emitted most nearly means —",
+        "options": [
+          "gave off",
+          "took in",
+          "hid from",
+          "washed away"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "Uranium emitted invisible radiation, meaning it gave off radiation.",
+        "wrong": {
+          "B": "Uranium gave radiation out, not in.",
+          "C": "Nothing is hidden; the radiation was invisible.",
+          "D": "Washing away is not the idea."
+        }
+      },
+      {
+        "stem": "Why does the author mention the X-ray trucks?",
+        "options": [
+          "To show that wars ended because of her",
+          "To explain why she became sick later on",
+          "To prove that she was born in Warsaw",
+          "To show she used science to help people"
+        ],
+        "answer": "D",
+        "skill": "author-purpose",
+        "why": "The trucks let doctors find broken bones in soldiers, showing she used science to help people.",
+        "wrong": {
+          "A": "The text does not say wars ended.",
+          "B": "Her illness came from years of exposure to radiation.",
+          "C": "Her birthplace is mentioned in the first paragraph."
+        }
+      },
+      {
+        "stem": "How did the 1903 Nobel Prize affect Marie?",
+        "options": [
+          "It made her leave science for good",
+          "It brought her international recognition",
+          "It sent her back to teach in Poland",
+          "It made Pierre stop his work"
+        ],
+        "answer": "B",
+        "skill": "cause-effect",
+        "why": "The text says the prize brought her international recognition.",
+        "wrong": {
+          "A": "She kept doing science and won a second prize.",
+          "C": "She stayed in Paris and later taught at her university there.",
+          "D": "Pierre's work ended only when he died in 1906."
+        }
+      }
+    ]
   }
 }

@@ -614,5 +614,217 @@
       ],
       "modelAnswer": "I believe regions with strong, steady winds should invest heavily in wind power, because its advantages are substantial. Wind power is renewable, since the wind will keep blowing indefinitely, and it generates no smoke or atmospheric pollution while operating, unlike the combustion of fossil fuels. However, wind power is inherently intermittent, because wind speed fluctuates continuously from hour to hour and season to season, which can cause electricity output to rise and fall. This challenge can be managed, though, since engineers optimize each turbine's aerodynamic design to remain efficient across a broad range of conditions, and the supporting infrastructure connects wind farms to a wider grid that can draw on other sources when the wind is calm."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "What does the electricity from wind turbines give us?",
+        "options": [
+          "Clean water for farms",
+          "Wind for small sailing boats",
+          "Power for lights and fans",
+          "Gas and oil for cars"
+        ],
+        "answer": "C",
+        "skill": "detail",
+        "why": "The text says the electricity gives us energy for lights and fans.",
+        "wrong": {
+          "A": "The text does not say turbines give water.",
+          "B": "Turbines use wind; they do not give wind.",
+          "D": "The text says wind power is clean and does not mention gas for cars."
+        }
+      },
+      {
+        "stem": "Why is wind power called clean?",
+        "options": [
+          "It makes no smoke",
+          "It uses a lot of water",
+          "It is very cheap to buy",
+          "It only works at night"
+        ],
+        "answer": "A",
+        "skill": "cause-effect",
+        "why": "The text says wind power is clean because it makes no smoke.",
+        "wrong": {
+          "B": "The text does not say it uses water.",
+          "C": "The text does not talk about price.",
+          "D": "The text says wind can blow at night and on most days."
+        }
+      },
+      {
+        "stem": "Why do people save power from windy days in batteries?",
+        "options": [
+          "To make the wind blow more",
+          "To make the blades spin fast",
+          "To clean the air around farms",
+          "To use it on calm days"
+        ],
+        "answer": "D",
+        "skill": "cause-effect",
+        "why": "The text says on calm days there is no wind power, so people use the saved power instead.",
+        "wrong": {
+          "A": "Saving power cannot make the wind blow.",
+          "B": "The batteries do not make the blades spin.",
+          "C": "The text does not say batteries clean the air."
+        }
+      },
+      {
+        "stem": "The text says the wind will not run out. What does run out mean?",
+        "options": [
+          "will blow too hard",
+          "will not be used up",
+          "will go to the sea",
+          "will stop at night"
+        ],
+        "answer": "B",
+        "skill": "vocabulary",
+        "why": "The text says the wind will blow for a long, long time, so it will not be used up.",
+        "wrong": {
+          "A": "Running out is about ending, not about blowing hard.",
+          "C": "The text does not say where the wind goes.",
+          "D": "The text says wind can still blow at night."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "What is Saudi Arabia's goal for the year 2030?",
+        "options": [
+          "To end all use of renewable power",
+          "Half its power from renewable sources",
+          "To sell every wind turbine it owns",
+          "To build the tallest tower on Earth"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The text says Saudi Arabia wants to make about half of its power from renewable sources by 2030.",
+        "wrong": {
+          "A": "The goal is to use more renewable power, not to end it.",
+          "C": "The text does not say it wants to sell its turbines.",
+          "D": "The text does not mention a tallest tower."
+        }
+      },
+      {
+        "stem": "Read this: \"learning to generate electricity.\" What does generate mean?",
+        "options": [
+          "to break",
+          "to sell",
+          "to measure",
+          "to make"
+        ],
+        "answer": "D",
+        "skill": "vocabulary",
+        "why": "A generator turns the spinning shaft into electric current, so generate means to make.",
+        "wrong": {
+          "A": "Countries want to make power, not break it.",
+          "B": "The text is about making power, not selling it.",
+          "C": "The text is about making power, not measuring it."
+        }
+      },
+      {
+        "stem": "Why must engineers plan ahead for days with little wind?",
+        "options": [
+          "Turbines make little power on calm days",
+          "Turbines get too hot on windy days",
+          "Batteries stop working in sunlight",
+          "The blades are too short for wind"
+        ],
+        "answer": "A",
+        "skill": "cause-effect",
+        "why": "The text says wind speed changes and on calm days turbines make little power.",
+        "wrong": {
+          "B": "The text does not say turbines get too hot.",
+          "C": "The text does not say batteries stop working in sunlight.",
+          "D": "The text does not say the blades are too short."
+        }
+      },
+      {
+        "stem": "A town's turbines make extra power on a windy day. What could it do with the extra?",
+        "options": [
+          "Pour it into the nearby sea",
+          "Send it back up to the sky",
+          "Store it in large batteries",
+          "Use it to make the wind stop"
+        ],
+        "answer": "C",
+        "skill": "inference",
+        "why": "The text says large batteries can store extra energy made on windy days for use when the wind is calm.",
+        "wrong": {
+          "A": "Power cannot be poured into the sea, and the text does not say this.",
+          "B": "The text does not say power goes back to the sky.",
+          "D": "Power from turbines does not stop the wind."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "What is a group of connected turbines at one site called?",
+        "options": [
+          "A wind tower",
+          "A power grid",
+          "A solar field",
+          "A wind farm"
+        ],
+        "answer": "D",
+        "skill": "detail",
+        "why": "The text says connecting many turbines at one site is called a wind farm.",
+        "wrong": {
+          "A": "The text does not use this name for a group of turbines.",
+          "B": "The grid is what the equipment connects to, not the group of turbines.",
+          "C": "A solar field uses sunlight, not wind."
+        }
+      },
+      {
+        "stem": "The article says turbine blades have an aerodynamic shape. What does aerodynamic mean?",
+        "options": [
+          "heavy and very slow to turn",
+          "made of strong metal parts",
+          "painted bright and colorful",
+          "shaped to move well through air"
+        ],
+        "answer": "D",
+        "skill": "vocabulary",
+        "why": "The blades are shaped like airplane wings so the wind can turn them well, so aerodynamic means shaped to move well through air.",
+        "wrong": {
+          "A": "The shape helps the blades move easily, not slowly.",
+          "B": "The word is about shape, not material.",
+          "C": "Color is not part of the meaning."
+        }
+      },
+      {
+        "stem": "Why is northern Saudi Arabia well suited to wind farms?",
+        "options": [
+          "It has high mountains and heavy rain",
+          "It has steady wind and open land",
+          "It has many tall buildings",
+          "It has cold winters and snow"
+        ],
+        "answer": "B",
+        "skill": "cause-effect",
+        "why": "The text says the region gets strong, steady wind and has vast stretches of open land.",
+        "wrong": {
+          "A": "The text does not mention mountains or heavy rain.",
+          "C": "The text says open land is the advantage, not tall buildings.",
+          "D": "The text mentions scorching summers, not snow."
+        }
+      },
+      {
+        "stem": "What can be inferred about wind power's future in the region?",
+        "options": [
+          "It may grow as storage improves",
+          "It will replace all other power soon",
+          "It will stop once batteries are used",
+          "It cannot grow because of costs"
+        ],
+        "answer": "A",
+        "skill": "inference",
+        "why": "The last sentence says that as storage technology improves, wind may supply a growing share of the region's power.",
+        "wrong": {
+          "B": "The text says wind may supply a growing share, not all the power.",
+          "C": "Batteries help wind power; they do not stop it.",
+          "D": "The text says the cost of turbines has fallen a great deal."
+        }
+      }
+    ]
   }
 }

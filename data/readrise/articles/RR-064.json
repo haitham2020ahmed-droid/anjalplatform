@@ -614,5 +614,217 @@
       ],
       "modelAnswer": "I disagree with the idea that eating vegetables excuses eating sweets every day. Vegetables and fruit provide vitamins and minerals that help your body digest food properly, but they do not cancel out the sugar in sweets, which the article says should only be eaten in moderation. Different foods give different nutrients, so a healthy diet needs a true balance of vegetables, grains, and protein, not just vegetables plus daily sweets."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "What do milk and cheese help your body do?",
+        "options": [
+          "Run faster than ever",
+          "Fight off a bad cold",
+          "Stay cool in the sun",
+          "Build bones and teeth"
+        ],
+        "answer": "D",
+        "skill": "detail",
+        "why": "The text says milk and cheese make bones and teeth strong.",
+        "wrong": {
+          "A": "The text does not say they make you run faster.",
+          "B": "The text does not say they fight colds.",
+          "C": "The text does not say they cool you down."
+        }
+      },
+      {
+        "stem": "The text says to fill one fourth of your plate with grains. What does one fourth mean?",
+        "options": [
+          "All of the whole plate",
+          "One of four equal parts",
+          "Two of four equal parts",
+          "A tiny bit on the top"
+        ],
+        "answer": "B",
+        "skill": "vocabulary",
+        "why": "The plate is split into parts, and grains fill one fourth, which is one of four equal parts.",
+        "wrong": {
+          "A": "Grains do not fill the whole plate.",
+          "C": "Two of four parts is half, not one fourth.",
+          "D": "One fourth is a real part of the plate, not a tiny bit."
+        }
+      },
+      {
+        "stem": "Huda eats only rice at every meal. What would the article say?",
+        "options": [
+          "She needs a mix of foods",
+          "She should drink more juice",
+          "She is eating the perfect plate",
+          "She should skip lunch"
+        ],
+        "answer": "A",
+        "skill": "inference",
+        "why": "The text says no one food has all your body needs, so you need a mix.",
+        "wrong": {
+          "B": "The text says water is the best drink, not juice.",
+          "C": "A balanced plate has many kinds of food, not just rice.",
+          "D": "The text does not say to skip meals."
+        }
+      },
+      {
+        "stem": "How often should you eat sweets?",
+        "options": [
+          "At every meal",
+          "Each morning",
+          "Once in a while",
+          "Before you play"
+        ],
+        "answer": "C",
+        "skill": "detail",
+        "why": "The text says to have sweets just once in a while.",
+        "wrong": {
+          "A": "Sweets are not meant for every meal.",
+          "B": "The text does not say mornings.",
+          "D": "The text does not say to eat sweets before play."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "Which healthy fats does the article name?",
+        "options": [
+          "Olive oil and nuts",
+          "Butter and cream",
+          "Fried fish and chips",
+          "Cheese and laban"
+        ],
+        "answer": "A",
+        "skill": "detail",
+        "why": "The article says a small amount of healthy fat, such as olive oil or nuts, is good for you.",
+        "wrong": {
+          "B": "Butter and cream are not named.",
+          "C": "Fried foods are only fine now and then.",
+          "D": "Cheese and laban are named for calcium."
+        }
+      },
+      {
+        "stem": "In the article, what are nutrients?",
+        "options": [
+          "Foods that are very sweet",
+          "Bowls used for meals",
+          "Colors of fruit and vegetables",
+          "The useful parts of food"
+        ],
+        "answer": "D",
+        "skill": "vocabulary",
+        "why": "The article says nutrients are the useful parts of food.",
+        "wrong": {
+          "A": "Sweetness is not the meaning.",
+          "B": "Nutrients are not dishes.",
+          "C": "Colors are not nutrients."
+        }
+      },
+      {
+        "stem": "Why do grains give you energy to run and play?",
+        "options": [
+          "They are very cold",
+          "They are full of carbohydrates",
+          "They are made of fiber only",
+          "They have lots of calcium"
+        ],
+        "answer": "B",
+        "skill": "cause-effect",
+        "why": "The article says grains are full of carbohydrates, which give you energy.",
+        "wrong": {
+          "A": "Temperature has nothing to do with energy here.",
+          "C": "Fiber helps digestion and keeps you full, but carbohydrates give energy.",
+          "D": "Calcium builds bones and teeth."
+        }
+      },
+      {
+        "stem": "Why does the author ask you to picture your plate?",
+        "options": [
+          "To teach you how to cook kabsa",
+          "To show a pretty picture of food",
+          "To give a way to plan meals",
+          "To count the dates you eat"
+        ],
+        "answer": "C",
+        "skill": "author-purpose",
+        "why": "The article calls it a helpful way to plan a meal.",
+        "wrong": {
+          "A": "Kabsa is only an example at the end.",
+          "B": "The goal is planning a meal, not a pretty picture.",
+          "D": "Counting dates is not mentioned."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "According to the article, which mineral strengthens bones and teeth?",
+        "options": [
+          "Fiber",
+          "Calcium",
+          "Sugar",
+          "Starch"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The article says dairy foods contain calcium, a mineral that strengthens bones and teeth.",
+        "wrong": {
+          "A": "Fiber helps digestion.",
+          "C": "Sugar is not called a mineral that strengthens bones.",
+          "D": "Starch is not named in the article."
+        }
+      },
+      {
+        "stem": "The article says whole grains \"retain\" more fiber. What does retain mean?",
+        "options": [
+          "Give away",
+          "Break down",
+          "Wash off",
+          "Keep"
+        ],
+        "answer": "D",
+        "skill": "vocabulary",
+        "why": "Whole grains keep more of their fiber, which is why they keep you satisfied longer.",
+        "wrong": {
+          "A": "Giving fiber away would mean less fiber.",
+          "B": "Breaking down is not the meaning.",
+          "C": "Washing off would remove fiber."
+        }
+      },
+      {
+        "stem": "Why does the article recommend protein foods such as fish, eggs, and beans?",
+        "options": [
+          "They build muscles and repair tissue",
+          "They give the body its main energy",
+          "They help the body digest food",
+          "They strengthen bones and teeth"
+        ],
+        "answer": "A",
+        "skill": "cause-effect",
+        "why": "The article says protein enables the body to build strong muscles and repair damaged tissue.",
+        "wrong": {
+          "B": "Carbohydrates are the main energy source.",
+          "C": "Fiber helps digestion.",
+          "D": "Calcium strengthens bones and teeth."
+        }
+      },
+      {
+        "stem": "The article says sugary drinks contain a surprisingly large amount of sugar. What does this suggest?",
+        "options": [
+          "Sugary drinks cost very little money",
+          "People may not know how much sugar",
+          "Water also has a great deal of sugar",
+          "Sugar is very good for your muscles"
+        ],
+        "answer": "B",
+        "skill": "inference",
+        "why": "Calling the amount surprising suggests that people often do not expect so much sugar.",
+        "wrong": {
+          "A": "Price is not mentioned.",
+          "C": "The article calls water the healthiest drink.",
+          "D": "The article does not say sugar helps muscles."
+        }
+      }
+    ]
   }
 }

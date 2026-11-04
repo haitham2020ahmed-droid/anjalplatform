@@ -614,5 +614,217 @@
       ],
       "modelAnswer": "A pioneer is someone who overcomes barriers to do something that few or no people like them had done before. Mae Jemison fits this description because she became the first Black woman to travel to space, flying aboard the space shuttle Endeavour in 1992 despite living in a time when very few women or Black people worked as scientists. Her determination carried her from studying chemical engineering and medicine to being chosen by NASA out of about two thousand applicants, and once in orbit she conducted an experiment about weightlessness and the human body. This evidence shows that her mission broke barriers for the scientists who came after her."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "How old was Mae when she went off to a big school?",
+        "options": [
+          "12",
+          "10",
+          "20",
+          "16"
+        ],
+        "answer": "D",
+        "skill": "detail",
+        "why": "The text says Mae went off to a big school at just 16.",
+        "wrong": {
+          "A": "She was 16, not 12.",
+          "B": "She was 16, not 10.",
+          "C": "She was 16, not 20."
+        }
+      },
+      {
+        "stem": "The text says many people tried to join the space team, but only a few were picked. What does this tell you?",
+        "options": [
+          "It is easy to join",
+          "It is hard to join",
+          "It is only for kids",
+          "It is not in the U.S."
+        ],
+        "answer": "B",
+        "skill": "inference",
+        "why": "If many people try and only a few get in, then it is hard to join.",
+        "wrong": {
+          "A": "Only a few got in, so it was not easy.",
+          "C": "The text does not say it is only for kids.",
+          "D": "The text does not say where the team is."
+        }
+      },
+      {
+        "stem": "In the article, the word astronaut means",
+        "options": [
+          "a person who travels to space",
+          "a person who dances on stage",
+          "a person who works in a hospital",
+          "a person who teaches a class"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "Mae wanted to go to space and became the first Black woman astronaut, a person who travels to space.",
+        "wrong": {
+          "B": "Mae loved to dance, but that is not what an astronaut is.",
+          "C": "Mae was a doctor, but an astronaut goes to space.",
+          "D": "Teaching is not what an astronaut does."
+        }
+      },
+      {
+        "stem": "What did Mae learn from her tests in space?",
+        "options": [
+          "How to fly a big plane",
+          "How to plan a new school",
+          "How the body works in space",
+          "How stars change at night"
+        ],
+        "answer": "C",
+        "skill": "detail",
+        "why": "The text says she did tests and learned how the body works in space.",
+        "wrong": {
+          "A": "Flying a plane is not mentioned.",
+          "B": "Planning a school is not mentioned.",
+          "D": "Her tests were about the body."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "Where did Mae grow up?",
+        "options": [
+          "Chicago",
+          "Houston",
+          "Boston",
+          "Atlanta"
+        ],
+        "answer": "A",
+        "skill": "detail",
+        "why": "The text says Mae grew up in Chicago.",
+        "wrong": {
+          "B": "She grew up in Chicago.",
+          "C": "She grew up in Chicago.",
+          "D": "She grew up in Chicago."
+        }
+      },
+      {
+        "stem": "The article says some people \"doubted\" Mae could become a scientist. What does doubted mean?",
+        "options": [
+          "were happy to help her",
+          "wrote letters to her",
+          "did not believe she could",
+          "taught her to be a scientist"
+        ],
+        "answer": "C",
+        "skill": "vocabulary",
+        "why": "The text says they doubted her, but she did not give up, so they did not believe she could.",
+        "wrong": {
+          "A": "If they were happy to help, she would not need to keep going.",
+          "B": "The text does not mention letters.",
+          "D": "The people who doubted her did not teach her."
+        }
+      },
+      {
+        "stem": "What did Mae do right after she became a doctor?",
+        "options": [
+          "She went to college at 16",
+          "She became a volunteer doctor",
+          "She flew on Endeavour",
+          "She watched astronauts on TV"
+        ],
+        "answer": "B",
+        "skill": "sequence",
+        "why": "After becoming a doctor, she worked as a volunteer doctor in two African countries.",
+        "wrong": {
+          "A": "She went to college before medical school.",
+          "C": "She flew on Endeavour in 1992, much later.",
+          "D": "She watched astronauts when she was young."
+        }
+      },
+      {
+        "stem": "Why was Mae's 1992 flight an important first?",
+        "options": [
+          "The first doctor in space",
+          "The youngest person at NASA",
+          "A flight with fifteen others",
+          "The first Black woman in space"
+        ],
+        "answer": "D",
+        "skill": "cause-effect",
+        "why": "The text says she became the first Black woman to travel to space.",
+        "wrong": {
+          "A": "The text does not say she was the first doctor.",
+          "B": "The text does not say she was the youngest.",
+          "C": "Fifteen people were picked by NASA, not flown with her."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "Which university did Mae enter when she was only 16?",
+        "options": [
+          "Harvard University",
+          "Stanford University",
+          "Chicago University",
+          "Oxford University"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The text says Mae entered Stanford University when she was only 16.",
+        "wrong": {
+          "A": "Harvard is not mentioned.",
+          "C": "Chicago is where she grew up.",
+          "D": "Oxford is not mentioned."
+        }
+      },
+      {
+        "stem": "The article says that even when people doubted her, Mae's determination stayed strong. This tells us that Mae",
+        "options": [
+          "worried about failing",
+          "wished to become famous",
+          "loved watching television",
+          "had a will to keep trying"
+        ],
+        "answer": "D",
+        "skill": "vocabulary",
+        "why": "Some people doubted her, but her determination stayed strong, so she kept trying.",
+        "wrong": {
+          "A": "Determination means she did not give in to worry.",
+          "B": "The text does not say she wanted fame.",
+          "C": "Television inspired her, but it is not what determination means."
+        }
+      },
+      {
+        "stem": "What did Mae do after leaving NASA in 1993?",
+        "options": [
+          "She founded a technology company",
+          "She flew on Endeavour",
+          "She entered Stanford",
+          "She became a volunteer doctor"
+        ],
+        "answer": "A",
+        "skill": "sequence",
+        "why": "The text says that in 1993 she left NASA and founded a technology company and a science camp.",
+        "wrong": {
+          "B": "She flew on Endeavour in 1992, before leaving.",
+          "C": "She entered Stanford when she was 16.",
+          "D": "She was a volunteer doctor before joining NASA."
+        }
+      },
+      {
+        "stem": "What can be inferred from there being two thousand applicants for fifteen places?",
+        "options": [
+          "Anyone could join NASA",
+          "NASA was a small school",
+          "Mae stood out among many",
+          "Most applicants were doctors"
+        ],
+        "answer": "C",
+        "skill": "inference",
+        "why": "Only a few of thousands were chosen, so being picked shows Mae stood out.",
+        "wrong": {
+          "A": "Most applicants were turned down.",
+          "B": "NASA is described as the American space agency.",
+          "D": "The text does not say what most applicants did."
+        }
+      }
+    ]
   }
 }

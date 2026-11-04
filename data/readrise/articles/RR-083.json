@@ -614,5 +614,217 @@
       ],
       "modelAnswer": "I think Huygens's pendulum clock was the most important step in the history of timekeeping, because it was the first invention to make timekeeping truly precise. Earlier mechanical clocks used only gears and often lost many minutes every day, but a pendulum swings back and forth at a steady speed, which an engineer could use to regulate a clock far more reliably. This leap in accuracy eventually made it possible to build devices like quartz watches, whose crystals vibrate at a dependable rate, and even atomic clocks, which synchronize to the tiny movements of atoms. Without the pendulum proving that steady, repeating motion could measure time so exactly, modern timekeeping might have developed very differently."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "How long ago did people in Egypt use sundials?",
+        "options": [
+          "More than 3,000 years ago",
+          "About three hundred years ago",
+          "About thirty years ago",
+          "Just three years ago"
+        ],
+        "answer": "A",
+        "skill": "detail",
+        "why": "The text says sundials were used in Egypt more than 3,000 years ago.",
+        "wrong": {
+          "B": "Three hundred years is much too recent.",
+          "C": "Thirty years is much too recent.",
+          "D": "Three years is much too recent."
+        }
+      },
+      {
+        "stem": "Why did a sundial not work on a gray day?",
+        "options": [
+          "The stick fell over in the strong wind",
+          "The hands of the clock stopped turning",
+          "The Sun was hidden, so no shadow fell",
+          "The water in the pot ran out too soon"
+        ],
+        "answer": "C",
+        "skill": "inference",
+        "why": "A sundial needs the Sun to make the stick cast a shadow, and a gray day hides the Sun.",
+        "wrong": {
+          "A": "The text does not talk about wind.",
+          "B": "A sundial has no hands that turn.",
+          "D": "Water pots belong to water clocks, not sundials."
+        }
+      },
+      {
+        "stem": "In the article, atoms are —",
+        "options": [
+          "wheels with small teeth on them",
+          "drops of water from a big pot",
+          "grains of sand in an hourglass",
+          "tiny bits that atomic clocks count"
+        ],
+        "answer": "D",
+        "skill": "vocabulary",
+        "why": "The text says atomic clocks count tiny bits called atoms.",
+        "wrong": {
+          "A": "Wheels with teeth are gears.",
+          "B": "Drops of water are used in water clocks.",
+          "C": "Sand falls in an hourglass."
+        }
+      },
+      {
+        "stem": "How did a water clock show that time had passed?",
+        "options": [
+          "The water slowly turned to sand",
+          "Less water was left in the pot",
+          "The elephant began to move its legs",
+          "The shadow moved across the lines"
+        ],
+        "answer": "B",
+        "skill": "cause-effect",
+        "why": "The text says drops fell out of a pot, and less water meant more time.",
+        "wrong": {
+          "A": "Water does not turn into sand; sand is in the hourglass.",
+          "C": "The elephant shape is just how al-Jazari's clock looked.",
+          "D": "A moving shadow is how a sundial works."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "About how long ago did people in Europe build the first mechanical clocks?",
+        "options": [
+          "About 3,000 years ago",
+          "About 700 years ago",
+          "About 800 years ago",
+          "About 70 years ago"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The text says about 700 years ago people in Europe built the first mechanical clocks.",
+        "wrong": {
+          "A": "3,000 years ago is when Egyptians used sundials.",
+          "C": "800 years ago is when al-Jazari built his water clock.",
+          "D": "The text does not give 70 years."
+        }
+      },
+      {
+        "stem": "In the article, gears are —",
+        "options": [
+          "marks on a candle",
+          "a tall stick that casts a clear shadow",
+          "weights that swing back and forth slowly",
+          "wheels with teeth that turn each other"
+        ],
+        "answer": "D",
+        "skill": "vocabulary",
+        "why": "The text says gears are wheels with teeth that turn each other to move the hands.",
+        "wrong": {
+          "A": "Marks on a candle were used for candle clocks.",
+          "B": "A stick that casts a shadow is part of a sundial.",
+          "C": "A weight that swings back and forth is a pendulum."
+        }
+      },
+      {
+        "stem": "Why did people make water clocks?",
+        "options": [
+          "To solve the sundial's night and cloud problem",
+          "To keep track of the swing of a pendulum",
+          "To count the tiny movements of atoms in time",
+          "To give the Egyptians a better sundial stick"
+        ],
+        "answer": "A",
+        "skill": "cause-effect",
+        "why": "The sundial did not work at night or on cloudy days, so people made water clocks to solve this.",
+        "wrong": {
+          "B": "The pendulum came much later.",
+          "C": "Atomic clocks came much later.",
+          "D": "Water clocks were a new kind of clock, not a better stick."
+        }
+      },
+      {
+        "stem": "What can you infer about candles with marks and hourglasses?",
+        "options": [
+          "They only worked when the Sun was shining",
+          "They were more accurate than atomic clocks",
+          "They did not need sunlight to measure time",
+          "They were built with gears and pendulums"
+        ],
+        "answer": "C",
+        "skill": "inference",
+        "why": "They were used as other ways to tell time, and they do not depend on the Sun like a sundial.",
+        "wrong": {
+          "A": "That is the problem of sundials, not candles or hourglasses.",
+          "B": "Atomic clocks are the most accurate clocks ever made.",
+          "D": "Gears and pendulums are parts of mechanical clocks."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "What did the earliest mechanical clocks use to move the hands?",
+        "options": [
+          "Dripping water and hourglass sand",
+          "Crystals that vibrate with electricity",
+          "Falling weights and gears",
+          "Shadows and marked candles"
+        ],
+        "answer": "C",
+        "skill": "detail",
+        "why": "The text says the earliest mechanical clocks used falling weights and gears.",
+        "wrong": {
+          "A": "Dripping water was used in water clocks.",
+          "B": "Crystals that vibrate are used in quartz clocks.",
+          "D": "Shadows and candles were used before mechanical clocks."
+        }
+      },
+      {
+        "stem": "In the article, the word precise most nearly means —",
+        "options": [
+          "exact",
+          "heavy",
+          "loud",
+          "famous"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "Early machines that were not precise gained or lost many minutes, so precise means exact.",
+        "wrong": {
+          "B": "Weight is not the idea in the sentence.",
+          "C": "Sound is not the idea in the sentence.",
+          "D": "Being famous has nothing to do with keeping time."
+        }
+      },
+      {
+        "stem": "Why were sundials useless at night or under cloudy skies?",
+        "options": [
+          "Their markings washed away in the rain",
+          "Their sticks were too short to see",
+          "Their shadows moved too slowly at night",
+          "They depended on sunlight to make a shadow"
+        ],
+        "answer": "D",
+        "skill": "cause-effect",
+        "why": "The text says these devices depended on sunlight.",
+        "wrong": {
+          "A": "Rain washing markings away is not mentioned.",
+          "B": "The size of the stick is not the reason.",
+          "C": "At night there is no sunlight, so no shadow moves at all."
+        }
+      },
+      {
+        "stem": "What does the history from sundials to atomic clocks suggest?",
+        "options": [
+          "People gradually lost interest in knowing the time",
+          "People kept seeking more accurate timekeeping",
+          "Sundials remain the best clocks for everyone today",
+          "Water clocks were the last big step in timekeeping"
+        ],
+        "answer": "B",
+        "skill": "inference",
+        "why": "Each new clock solved a problem of the one before and became more precise.",
+        "wrong": {
+          "A": "People kept inventing better clocks, so they did not lose interest.",
+          "C": "Sundials failed at night and in clouds.",
+          "D": "Many newer clocks came after water clocks."
+        }
+      }
+    ]
   }
 }

@@ -614,5 +614,217 @@
       ],
       "modelAnswer": "I disagree that villages should always wait for outside help instead of fixing problems themselves. In the story, Amal's father insists the village cannot simply wait and instead gathers his neighbors to act immediately, building a safe rope-and-plank crossing in a single day using salvaged rope and planks. This quick, collective action lets the children reach school again right away. Someone might argue that waiting for trained workers would produce a stronger, more permanent bridge, which is reasonable, but the story shows that a careful, well-tested temporary solution can still be both effective and safe when outside help might take far too long to arrive."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "How does Amal help build the new bridge?",
+        "options": [
+          "She holds the rope.",
+          "She ties the knots.",
+          "She cuts the planks.",
+          "She calls the neighbors."
+        ],
+        "answer": "A",
+        "skill": "detail",
+        "why": "The text says Amal helps by holding the rope.",
+        "wrong": {
+          "B": "Her brother ties the knots.",
+          "C": "The text does not say she cuts planks.",
+          "D": "Her dad calls the neighbors."
+        }
+      },
+      {
+        "stem": "Why do the kids need the bridge?",
+        "options": [
+          "It leads to a big market.",
+          "It is a good place to play.",
+          "It is where they eat lunch.",
+          "It is the only way to school."
+        ],
+        "answer": "D",
+        "skill": "cause-effect",
+        "why": "The text says the bridge goes to the road and is the only way to school.",
+        "wrong": {
+          "A": "No market is in the story.",
+          "B": "The bridge is not for play.",
+          "C": "Lunch is not mentioned."
+        }
+      },
+      {
+        "stem": "The villagers bring planks to build the bridge. What are planks?",
+        "options": [
+          "long, thick ropes",
+          "flat pieces of wood",
+          "big rocks from the hill",
+          "small boats on the river"
+        ],
+        "answer": "B",
+        "skill": "vocabulary",
+        "why": "The villagers use wooden planks with rope to build the bridge, so planks are flat pieces of wood.",
+        "wrong": {
+          "A": "Ropes are used too, but planks are wood.",
+          "C": "Planks are not rocks.",
+          "D": "Planks are not boats."
+        }
+      },
+      {
+        "stem": "Why do the kids walk slow and hold on when they cross?",
+        "options": [
+          "They are tired of school.",
+          "The bridge is new and simple.",
+          "The river is very calm now.",
+          "They are carrying heavy boxes."
+        ],
+        "answer": "B",
+        "skill": "inference",
+        "why": "The bridge is made only of rope and planks, so the kids go slowly and hold on to stay safe.",
+        "wrong": {
+          "A": "The text says they get to school on time.",
+          "C": "The river was in flood, and the text does not say it is calm.",
+          "D": "The kids are not carrying boxes in the story."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "What is Amal's father's job?",
+        "options": [
+          "A teacher",
+          "A fisherman",
+          "A farmer",
+          "A builder"
+        ],
+        "answer": "C",
+        "skill": "detail",
+        "why": "The text calls Amal's father a farmer.",
+        "wrong": {
+          "A": "He is not a teacher.",
+          "B": "He is not a fisherman.",
+          "D": "He is not a builder; he is a farmer."
+        }
+      },
+      {
+        "stem": "Why do the villagers set a post on each bank?",
+        "options": [
+          "To tie the rope between them",
+          "To mark where the river ends",
+          "To hang lamps for the night",
+          "To keep the planks dry"
+        ],
+        "answer": "A",
+        "skill": "cause-effect",
+        "why": "They set posts on each bank so they can tie thick rope between them.",
+        "wrong": {
+          "B": "The posts hold the rope; they do not mark the river's edge.",
+          "C": "No lamps are mentioned.",
+          "D": "The posts hold the rope, not keep planks dry."
+        }
+      },
+      {
+        "stem": "The new bridge swayed with the wind but held firm. What does swayed mean?",
+        "options": [
+          "moved side to side",
+          "broke into pieces",
+          "fell into the river",
+          "stood very still"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "The bridge moved in the wind but did not break, so swayed means moved gently from side to side.",
+        "wrong": {
+          "B": "The bridge held firm; it did not break.",
+          "C": "The bridge did not fall.",
+          "D": "Swaying is moving, not standing still."
+        }
+      },
+      {
+        "stem": "The new bridge was sturdy enough to carry a child's weight safely. What can you infer?",
+        "options": [
+          "It is made to last for years.",
+          "It is meant for walkers only.",
+          "It is wider than the old bridge.",
+          "It is lower than the river."
+        ],
+        "answer": "B",
+        "skill": "inference",
+        "why": "It is only strong enough for a child, so it is not meant for heavy loads.",
+        "wrong": {
+          "A": "A simple rope bridge is not built to last for years.",
+          "C": "It is a narrow rope-and-plank footpath.",
+          "D": "It crosses the river, so it must be above the water."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "What do the villagers do repeatedly before they lay the planks?",
+        "options": [
+          "Measure the width of the river",
+          "Ask the farmers for more planks",
+          "Count the posts on each bank",
+          "Test the strength of the rope"
+        ],
+        "answer": "D",
+        "skill": "detail",
+        "why": "The text says they stretched the rope between the posts, testing its strength repeatedly.",
+        "wrong": {
+          "A": "Measuring the river is not mentioned.",
+          "B": "The planks came from nearby homes already.",
+          "C": "Counting posts is not mentioned."
+        }
+      },
+      {
+        "stem": "In the passage, the word methodically most nearly means —",
+        "options": [
+          "in a loud and angry way",
+          "in a careful, orderly way",
+          "in a very careless way",
+          "in a slow and sleepy way"
+        ],
+        "answer": "B",
+        "skill": "vocabulary",
+        "why": "The planks are laid one by one, which shows an orderly, careful way of working.",
+        "wrong": {
+          "A": "The villagers work together calmly.",
+          "C": "Laying planks one by one is careful.",
+          "D": "They work all day with energy."
+        }
+      },
+      {
+        "stem": "Why does the author mention that Amal's father had crossed the bridge nearly every day of his life?",
+        "options": [
+          "To show why he cares so much",
+          "To show that he is very old",
+          "To show the bridge is very long",
+          "To show he wants a new job"
+        ],
+        "answer": "A",
+        "skill": "author-purpose",
+        "why": "He has used the bridge all his life, so he cares deeply about fixing it.",
+        "wrong": {
+          "B": "His age is not the point of the detail.",
+          "C": "The detail is about his history with the bridge, not its length.",
+          "D": "His job is not mentioned as changing."
+        }
+      },
+      {
+        "stem": "Why do the children grip the rope with both hands while crossing?",
+        "options": [
+          "They want to race to school.",
+          "The planks are covered in ice.",
+          "It sways above rushing water.",
+          "They are carrying heavy books."
+        ],
+        "answer": "C",
+        "skill": "cause-effect",
+        "why": "The bridge sways above the rushing river, so holding tight keeps them safe.",
+        "wrong": {
+          "A": "They cross slowly, not racing.",
+          "B": "Ice is not mentioned.",
+          "D": "Books are not mentioned."
+        }
+      }
+    ]
   }
 }

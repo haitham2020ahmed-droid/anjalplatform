@@ -614,5 +614,217 @@
       ],
       "modelAnswer": "Scientists study whale sharks in the Red Sea in two main ways. First, because every shark's pattern of spots and stripes is unique, researchers compare photographs to identify individual sharks during the spring aggregation of young whale sharks near Al-Lith. Second, researchers attach small electronic tags that reveal how these juvenile sharks migrate long distances in search of food. This research directly supports conservation, because understanding where and when whale sharks gather and travel helps people create more sustainable fishing and boating rules that protect the sharks from being struck or trapped."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "How long is a whale shark?",
+        "options": [
+          "As long as a bike",
+          "As long as a car",
+          "As long as a bus",
+          "As long as a door"
+        ],
+        "answer": "C",
+        "skill": "detail",
+        "why": "The text says it is as long as a bus.",
+        "wrong": {
+          "A": "A bike is far too short.",
+          "B": "A car is much shorter than a bus.",
+          "D": "A door is far too short."
+        }
+      },
+      {
+        "stem": "In the article, plankton are —",
+        "options": [
+          "tiny things that the shark eats",
+          "big fish that the shark hunts",
+          "white spots on the shark's back",
+          "pads that help the shark swim"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "The text says the shark eats tiny things, and they are plankton.",
+        "wrong": {
+          "B": "The shark does not hunt big fish.",
+          "C": "The spots are on its back, but they are not plankton.",
+          "D": "The pads filter food from the water."
+        }
+      },
+      {
+        "stem": "Why does the whale shark swim with its mouth wide?",
+        "options": [
+          "To scare away big fish",
+          "To show its white spots",
+          "To breathe air at the top",
+          "To let water and food go in"
+        ],
+        "answer": "D",
+        "skill": "cause-effect",
+        "why": "The text says it swims with its mouth wide so water goes in and the pads filter the food.",
+        "wrong": {
+          "A": "The shark is calm and does not hunt big fish.",
+          "B": "The spots are on its back, not in its mouth.",
+          "C": "It breathes with gills, not air."
+        }
+      },
+      {
+        "stem": "What can you tell about the reef near Al-Lith?",
+        "options": [
+          "It is a spot that sharks never visit.",
+          "It is a good spot for young sharks.",
+          "It is a home for only very old sharks.",
+          "It is too cold for sharks in spring."
+        ],
+        "answer": "B",
+        "skill": "inference",
+        "why": "Lots of young sharks come to the reef in spring, so it must be a good place for them.",
+        "wrong": {
+          "A": "Sharks do visit the reef.",
+          "C": "The text says young sharks come there.",
+          "D": "The sharks come in spring."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "About how long can an adult whale shark grow?",
+        "options": [
+          "About two meters",
+          "About twelve meters",
+          "About one hundred meters",
+          "About twenty-five meters"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The text says an adult can grow about twelve meters long.",
+        "wrong": {
+          "A": "Two meters is far too short.",
+          "C": "One hundred meters is far too long.",
+          "D": "Twenty-five meters is too long."
+        }
+      },
+      {
+        "stem": "In the article, the word migrate means —",
+        "options": [
+          "to hide in the sand all day",
+          "to eat tiny plants and fish eggs",
+          "to attach a small tag to a shark",
+          "to travel far to find food"
+        ],
+        "answer": "D",
+        "skill": "vocabulary",
+        "why": "The tags show that whale sharks travel long distances to find food.",
+        "wrong": {
+          "A": "The text does not say they hide in sand.",
+          "B": "Eating plankton is how they feed, not what migrate means.",
+          "C": "Scientists attach tags, not the sharks."
+        }
+      },
+      {
+        "stem": "Why might the spring gathering at the reef help scientists?",
+        "options": [
+          "They can study many young sharks in one place.",
+          "They can feed the sharks by hand.",
+          "They can build nests for the sharks.",
+          "They can move the sharks to the open sea."
+        ],
+        "answer": "A",
+        "skill": "inference",
+        "why": "Many young sharks gather at one reef, and scientists attach tags to some of them.",
+        "wrong": {
+          "B": "People should keep a safe distance and not touch them.",
+          "C": "Sharks do not use nests in the text.",
+          "D": "Scientists tag the sharks, they do not move them."
+        }
+      },
+      {
+        "stem": "Why are whale sharks endangered today?",
+        "options": [
+          "They have thousands of teeth they cannot use.",
+          "They are too gentle to look for food.",
+          "Boats, nets, and plastic trash harm them.",
+          "They cannot breathe water with their gills."
+        ],
+        "answer": "C",
+        "skill": "cause-effect",
+        "why": "The text says boats strike them, nets trap them, and plastic pollutes their waters.",
+        "wrong": {
+          "A": "The teeth do not harm them.",
+          "B": "Being gentle does not stop them from feeding.",
+          "D": "Their gills take oxygen from the water."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "In the article, the word aggregation means —",
+        "options": [
+          "a long and tiring journey across the sea",
+          "a dangerous attack by large, hungry sharks",
+          "a large group gathered in one place",
+          "a rare kind of food that sharks eat"
+        ],
+        "answer": "C",
+        "skill": "vocabulary",
+        "why": "An aggregation of whale sharks forms at a reef each spring, so it means a gathering.",
+        "wrong": {
+          "A": "The sharks gather at a reef, not on a journey.",
+          "B": "The text says whale sharks present no danger to people.",
+          "D": "The sharks eat plankton, not a food called aggregation."
+        }
+      },
+      {
+        "stem": "What do the satellite tags reveal about the young sharks?",
+        "options": [
+          "They travel across the Red Sea and farther.",
+          "They stay at the same reef all year long.",
+          "They sink to the bottom of the sea in winter.",
+          "They only swim near the town of Al-Lith."
+        ],
+        "answer": "A",
+        "skill": "detail",
+        "why": "The data reveal that the young sharks travel across the Red Sea and occasionally far beyond it.",
+        "wrong": {
+          "B": "The tags show they travel.",
+          "C": "The text does not mention winter.",
+          "D": "The tags show they go far beyond the reef."
+        }
+      },
+      {
+        "stem": "Why do researchers compare photographs of the spots over many years?",
+        "options": [
+          "Because the spots fade as sharks grow older",
+          "Because the white spots glow in the dark water",
+          "Because the stripes show how old each shark is",
+          "Because each shark has its own pattern"
+        ],
+        "answer": "D",
+        "skill": "cause-effect",
+        "why": "No two sharks share the same pattern, so photos let researchers identify particular sharks.",
+        "wrong": {
+          "A": "The text does not say the spots fade.",
+          "B": "The text does not say the spots glow.",
+          "C": "The text says the pattern identifies a shark, not its age."
+        }
+      },
+      {
+        "stem": "How is the last paragraph organized?",
+        "options": [
+          "It compares whale sharks with ordinary whales",
+          "It states a problem, its causes, and a solution",
+          "It lists the steps for tagging young sharks",
+          "It tells a story about one diver's trip"
+        ],
+        "answer": "B",
+        "skill": "text-structure",
+        "why": "It says whale sharks are endangered, names the dangers, and suggests sustainable tourism.",
+        "wrong": {
+          "A": "That comparison is in the second paragraph.",
+          "C": "Tagging is described in the earlier paragraph.",
+          "D": "The last paragraph is not a story."
+        }
+      }
+    ]
   }
 }

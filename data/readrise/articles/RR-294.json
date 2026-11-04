@@ -614,5 +614,217 @@
       ],
       "modelAnswer": "I find the two factors equally convincing, since the article shows how closely the oud's physical design and its musical tradition depend on each other. The fretless neck is a physical design choice, yet it exists specifically to allow the gliding pitches and microtones that a maqam, a traditional melodic mode, actually requires. Likewise, the plectrum is a simple physical tool, but the article shows it is used with great skill to serve the expressive demands of Arabic music. Because the design was shaped by the tradition, and the tradition depends on the design, I do not think one factor can be separated from the other as more important."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "How do most strings on the oud come?",
+        "options": [
+          "In threes",
+          "All by themselves",
+          "In big groups",
+          "In pairs"
+        ],
+        "answer": "D",
+        "skill": "detail",
+        "why": "The text says most strings come in pairs.",
+        "wrong": {
+          "A": "The text says pairs, not threes.",
+          "B": "Only one string is alone.",
+          "C": "The text does not mention big groups."
+        }
+      },
+      {
+        "stem": "Singers sing with an oud, and bands play it too. What can you tell?",
+        "options": [
+          "Only one singer uses it",
+          "Many groups use it",
+          "It is only for holidays",
+          "Nobody plays it anymore"
+        ],
+        "answer": "B",
+        "skill": "inference",
+        "why": "Because singers and bands both use it, many different groups play the oud.",
+        "wrong": {
+          "A": "Singers and bands both use it.",
+          "C": "The text does not limit it to holidays.",
+          "D": "The text says many people love this music."
+        }
+      },
+      {
+        "stem": "Why does the author say people in many lands like this music?",
+        "options": [
+          "To tell where the oud is sold",
+          "To say the oud is hard to play",
+          "To show many people love it",
+          "To compare it to a drum"
+        ],
+        "answer": "C",
+        "skill": "author-purpose",
+        "why": "The sentence shows that many people everywhere enjoy the warm sound of the oud.",
+        "wrong": {
+          "A": "The article does not say where the oud is sold.",
+          "B": "The article does not say the oud is hard to play.",
+          "D": "The article does not compare the oud to a drum."
+        }
+      },
+      {
+        "stem": "In the article, what does the word plucks mean?",
+        "options": [
+          "Pulls and lets go of it",
+          "Hits with a big stick",
+          "Holds the string still",
+          "Cuts the string in half"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "A player plucks the strings with a thin pick to make sound, so plucks means pulling a string and letting go.",
+        "wrong": {
+          "B": "A pick is thin, not a big stick.",
+          "C": "A held string would not make sound.",
+          "D": "Cutting a string would ruin the oud."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "How many strings do most ouds have?",
+        "options": [
+          "Four or five",
+          "Six or seven",
+          "Eleven or twelve",
+          "Twenty or thirty"
+        ],
+        "answer": "C",
+        "skill": "detail",
+        "why": "The article says most ouds have eleven or twelve strings.",
+        "wrong": {
+          "A": "Four or five is too few.",
+          "B": "Six or seven is too few.",
+          "D": "Twenty or thirty is too many."
+        }
+      },
+      {
+        "stem": "What is an ensemble, as the article uses the word?",
+        "options": [
+          "A group that plays together",
+          "A kind of string made of wood",
+          "A thin pick for plucking",
+          "A song sung by one singer"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "The article says an ensemble is a small group of musicians who play together.",
+        "wrong": {
+          "B": "Strings are not called ensembles.",
+          "C": "The thin pick is called a risha.",
+          "D": "An ensemble includes many musicians, not one singer."
+        }
+      },
+      {
+        "stem": "Why might the oud's name come from the Arabic word for wood?",
+        "options": [
+          "It is always played outdoors",
+          "It is struck with a wooden stick",
+          "Its strings are cut from trees",
+          "Wood covers its soundboard"
+        ],
+        "answer": "D",
+        "skill": "inference",
+        "why": "The article says wood, not animal skin, covers its soundboard, and its body is built from strips of wood.",
+        "wrong": {
+          "A": "The article does not say it is played outdoors.",
+          "B": "A thin pick plucks the strings, not a wooden stick.",
+          "C": "The article does not say the strings come from trees."
+        }
+      },
+      {
+        "stem": "What does the one bass string add to the sound of the oud?",
+        "options": [
+          "A high, sharp tone",
+          "A deep, low tone",
+          "A soft, quiet echo",
+          "A loud, ringing beat"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The article says one bass string stands apart from the pairs and adds a deep, low tone.",
+        "wrong": {
+          "A": "The bass string adds a low tone, not a high one.",
+          "C": "The article does not say it makes an echo.",
+          "D": "The article does not say it makes a ringing beat."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "In the article, what does the word resonance mean?",
+        "options": [
+          "A rich, full sound",
+          "A quiet, dull sound",
+          "A very thin string",
+          "A smooth wooden finish"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "The rounded body is a chamber that gives the oud its rich, full sound.",
+        "wrong": {
+          "B": "A chamber that gives the instrument its distinct sound is not dull.",
+          "C": "Resonance is about sound, not strings.",
+          "D": "Resonance is about sound, not the finish."
+        }
+      },
+      {
+        "stem": "How did oud-related instruments reach Andalusian Spain?",
+        "options": [
+          "Through war and invasion alone",
+          "Through radio broadcasts",
+          "Through royal gifts from kings",
+          "Through trade and scholarship"
+        ],
+        "answer": "D",
+        "skill": "cause-effect",
+        "why": "The article says trade and scholarship carried oud-related instruments into Andalusian Spain.",
+        "wrong": {
+          "A": "The article does not mention war.",
+          "B": "Radio is not mentioned in the article.",
+          "C": "The article names trade and scholarship, not royal gifts."
+        }
+      },
+      {
+        "stem": "What does the lone bass string add to the oud's sound?",
+        "options": [
+          "A bright tone above the melody",
+          "A deep tone beneath the melody",
+          "A drumlike beat with no pitch",
+          "A silent pause between notes"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The article says the lone bass string adds a deep, resonant tone beneath the melody.",
+        "wrong": {
+          "A": "The bass string adds a low tone, not a high one.",
+          "C": "The string has a tone, not a drum beat.",
+          "D": "The article does not mention silent pauses."
+        }
+      },
+      {
+        "stem": "Why does the author end with students who spend years learning the oud?",
+        "options": [
+          "To warn that the oud is hard",
+          "To say guitars are easier",
+          "To show the oud is passed on",
+          "To list the cost of lessons"
+        ],
+        "answer": "C",
+        "skill": "author-purpose",
+        "why": "The article says the ancient instrument continues to pass from one generation to the next.",
+        "wrong": {
+          "A": "The point is passing on the oud, not warning readers.",
+          "B": "Guitars are not compared here.",
+          "D": "The article does not mention the cost of lessons."
+        }
+      }
+    ]
   }
 }

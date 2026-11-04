@@ -614,5 +614,217 @@
       ],
       "modelAnswer": "The peregrine falcon's story shows that environmental protection can reverse serious damage, because the pesticide DDT once built up in their bodies and made their eggshells so thin that they cracked during incubation, causing populations to decline dramatically. After many countries banned DDT, the falcons gradually recovered, proving that a harmful human action can be undone once people change their behavior. To protect birds today, people could avoid using harmful chemical pesticides near natural habitats, since this same kind of pollution is what nearly destroyed the peregrine falcon in the past."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "How can a falcon find a small bird that is far away?",
+        "options": [
+          "It has a loud call.",
+          "It has sharp eyes.",
+          "It has a long tail.",
+          "It has big feet."
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The text says a falcon has sharp eyes and can see a small bird far off.",
+        "wrong": {
+          "A": "The text does not say a falcon finds prey by its call.",
+          "C": "The text does not mention a long tail.",
+          "D": "Feet are not used to find prey in the text."
+        }
+      },
+      {
+        "stem": "How is the mother falcon different from the father?",
+        "options": [
+          "She is faster than he is.",
+          "She flies higher than he does.",
+          "She is bigger than he is.",
+          "She has a hood on her head."
+        ],
+        "answer": "C",
+        "skill": "compare",
+        "why": "The text says the mom is big and the dad is not as big.",
+        "wrong": {
+          "A": "The text does not say the mom is faster.",
+          "B": "The text does not say how high each one flies.",
+          "D": "A hood is put on by a trainer, not a difference between parents."
+        }
+      },
+      {
+        "stem": "In the article, talons are —",
+        "options": [
+          "sharp claws",
+          "strong wings",
+          "hooked beaks",
+          "thick gloves"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "The text says, \"Talons are sharp claws.\"",
+        "wrong": {
+          "B": "Wings are used to fly, not to grab prey.",
+          "C": "The beak has a hook, but that is not a talon.",
+          "D": "The glove is worn by the trainer."
+        }
+      },
+      {
+        "stem": "What can you tell about falcons in Saudi Arabia?",
+        "options": [
+          "They are new pets that few people know.",
+          "They are too wild for people to train.",
+          "People never show them to anyone else.",
+          "People have cared for them for years."
+        ],
+        "answer": "D",
+        "skill": "inference",
+        "why": "The text says training falcons is old and there is a big falcon show each year.",
+        "wrong": {
+          "A": "The text says this is old, not new.",
+          "B": "The text says men and boys train falcons.",
+          "C": "The text says there is a big falcon show every year."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "In the article, the word predator means —",
+        "options": [
+          "a bird that builds its nest high in the desert",
+          "an animal that is trained by people for show",
+          "an animal that hunts other animals for food",
+          "an animal that lives only in cold places"
+        ],
+        "answer": "C",
+        "skill": "vocabulary",
+        "why": "The text says a predator is an animal that hunts other animals for food.",
+        "wrong": {
+          "A": "The text does not define a predator by where it builds a nest.",
+          "B": "Training is falconry, not the meaning of predator.",
+          "D": "The text places falcons over a desert, not in cold places."
+        }
+      },
+      {
+        "stem": "What is falconry?",
+        "options": [
+          "Training falcons to hunt",
+          "Racing falcons against fast cars",
+          "Feeding wild falcons in the desert",
+          "Counting falcons at a festival"
+        ],
+        "answer": "A",
+        "skill": "detail",
+        "why": "The article says training falcons to hunt is called falconry.",
+        "wrong": {
+          "B": "Cars are only used to show how fast a falcon dives.",
+          "C": "The text does not say falconry means feeding wild birds.",
+          "D": "The festival is a yearly event, not the meaning of falconry."
+        }
+      },
+      {
+        "stem": "What does the article suggest about falconry in Saudi Arabia?",
+        "options": [
+          "It is a new sport for young children.",
+          "It is a job that few families want to do.",
+          "It is a hobby that is slowly disappearing.",
+          "It is an important tradition to many families."
+        ],
+        "answer": "D",
+        "skill": "inference",
+        "why": "Families have passed falconry down for generations and gather at a yearly festival, so it matters to them.",
+        "wrong": {
+          "A": "The text calls it an old tradition.",
+          "B": "Families have kept it for many generations.",
+          "C": "People still gather each year to celebrate their birds."
+        }
+      },
+      {
+        "stem": "Why does the author begin with a falcon gliding and then plunging above the desert?",
+        "options": [
+          "To explain how falcons are trained by people",
+          "To show the bird in action and get readers interested",
+          "To prove that falcons are slower than cars",
+          "To tell readers where all falcons build their nests"
+        ],
+        "answer": "B",
+        "skill": "author-purpose",
+        "why": "The opening scene shows a falcon hunting, which makes readers want to learn more.",
+        "wrong": {
+          "A": "Training comes later in the article.",
+          "C": "The article says a falcon is faster than a racing car.",
+          "D": "The text does not discuss nests."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "What allows female falcons to capture heavier prey than males?",
+        "options": [
+          "They can fly at higher speeds than males.",
+          "They have thicker tubercles in their nostrils.",
+          "They have a third eyelid that males lack.",
+          "They are usually about one third larger."
+        ],
+        "answer": "D",
+        "skill": "cause-effect",
+        "why": "The article says females are usually about one third larger, which allows them to capture heavier prey.",
+        "wrong": {
+          "A": "The text does not say females fly faster.",
+          "B": "Tubercles help with breathing, not with prey size.",
+          "C": "The text does not say males lack a third eyelid."
+        }
+      },
+      {
+        "stem": "In the first paragraph, what is the bird doing as it glides in slow circles?",
+        "options": [
+          "looking over an area with great care",
+          "flying away from danger very quickly",
+          "calling out to others in the sky",
+          "digging for food under the sand"
+        ],
+        "answer": "A",
+        "skill": "detail",
+        "why": "The bird glides in circles and carefully looks over the ground beneath it.",
+        "wrong": {
+          "B": "The bird glides slowly; it is not fleeing.",
+          "C": "The paragraph does not say it calls to other birds.",
+          "D": "The bird is high above the desert, not digging."
+        }
+      },
+      {
+        "stem": "Why does the author include details about tubercles and the third eyelid?",
+        "options": [
+          "To explain why peregrine numbers dropped in the twentieth century",
+          "To show that falcons can be trained for falconry",
+          "To show how the peregrine's body helps it handle extreme speed",
+          "To compare falcon eyesight with human eyesight"
+        ],
+        "answer": "C",
+        "skill": "author-purpose",
+        "why": "Tubercles help the bird keep breathing and the eyelid protects its eyes during very fast dives.",
+        "wrong": {
+          "A": "The drop in numbers was caused by DDT.",
+          "B": "Training is discussed in a different paragraph.",
+          "D": "The comparison with human eyesight is made elsewhere."
+        }
+      },
+      {
+        "stem": "What does a falconer's small leather hood do?",
+        "options": [
+          "It lets the bird perch safely on a hand",
+          "It covers the bird's eyes and keeps it calm",
+          "It protects the bird from wind and dust in flight",
+          "It helps the bird grip and finish its catch"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The text says the hood covers the bird's eyes and keeps it calm.",
+        "wrong": {
+          "A": "The glove, not the hood, lets the bird perch safely.",
+          "C": "The third eyelid protects the eyes in flight.",
+          "D": "The beak's hook and notch help grip the catch."
+        }
+      }
+    ]
   }
 }

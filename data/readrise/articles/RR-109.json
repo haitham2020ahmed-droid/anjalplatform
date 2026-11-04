@@ -614,5 +614,217 @@
       ],
       "modelAnswer": "The history of the camelid family explains both the similarities and the differences between llamas and camels, because all of them descended from common ancestors that once lived in North America millions of years ago. Some of those ancestors crossed into Asia and became camels, while others moved south into the high-altitude Andes and became the wild guanaco and vicuña, which people later brought through domestication to create the llama and alpaca we know today. Because they share the same camelid ancestry, llamas and camels are alike in basic ways, such as chewing their food a second time and living in herds, but millions of years spent in very different environments gave them different features, like the camel's hump for desert travel. The 1998 hybrid named Rama, born from a camel and a guanaco, is further evidence of just how closely related these animals still are beneath their differences."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "How many toes does each foot of a llama or alpaca have?",
+        "options": [
+          "One",
+          "Two",
+          "Three",
+          "Four"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The text says each foot has two toes.",
+        "wrong": {
+          "A": "The text says two toes, not one.",
+          "C": "The text says two toes, not three.",
+          "D": "The text says two toes, not four."
+        }
+      },
+      {
+        "stem": "Why does the alpaca make warm hats?",
+        "options": [
+          "It lives in a very hot place.",
+          "It chews its food two times.",
+          "It has a long and thin neck.",
+          "It has a thick and soft coat."
+        ],
+        "answer": "D",
+        "skill": "cause-effect",
+        "why": "The text says the alpaca has a thick coat that is a soft fleece, and that it makes warm hats.",
+        "wrong": {
+          "A": "The animals live in cold high mountains, not hot places.",
+          "B": "Chewing food twice has nothing to do with hats.",
+          "C": "A long neck does not make a warm hat."
+        }
+      },
+      {
+        "stem": "The llama can take a load up steep paths. What does this tell you?",
+        "options": [
+          "People can use llamas to carry things.",
+          "People cannot ride on any animal.",
+          "Llamas are too small to climb hills.",
+          "Llamas only live with the camels."
+        ],
+        "answer": "A",
+        "skill": "inference",
+        "why": "The text says the llama is big and strong and can take a load, so people can use it to carry things.",
+        "wrong": {
+          "B": "The text does not say that.",
+          "C": "The text says the llama is the big one.",
+          "D": "The text says llamas live in the Andes, far from camels."
+        }
+      },
+      {
+        "stem": "The text says people tamed the wild animals long ago. What does tamed mean?",
+        "options": [
+          "Chased far away from home",
+          "Gave a new name to",
+          "Made to live with people",
+          "Made to run very fast"
+        ],
+        "answer": "C",
+        "skill": "vocabulary",
+        "why": "After the wild ones were tamed, the text says they gave us the llama and the alpaca, so they came to live with people.",
+        "wrong": {
+          "A": "Chased animals would not give us the llama.",
+          "B": "Names are not the point of the sentence.",
+          "D": "Speed is not mentioned."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "How do llamas and alpacas chew their food, like camels do?",
+        "options": [
+          "They chew it only once, very slowly",
+          "They chew it, then spit it at each other",
+          "They chew it, bring it back, and chew again",
+          "They chew it only when they are in a herd"
+        ],
+        "answer": "C",
+        "skill": "detail",
+        "why": "The text says they chew their food, bring it back up, and chew it again.",
+        "wrong": {
+          "A": "The text says they chew it again, not just once.",
+          "B": "Spitting is at each other, not part of chewing food.",
+          "D": "The text does not link chewing to the herd."
+        }
+      },
+      {
+        "stem": "Why can llamas and alpacas live high in the Andes?",
+        "options": [
+          "Their blood is good at picking up oxygen.",
+          "Their feet have two toes and soft pads.",
+          "Their coat comes in many natural colors.",
+          "Their herd keeps them warm at night."
+        ],
+        "answer": "A",
+        "skill": "cause-effect",
+        "why": "The text says the air up there is thin, but their blood is very good at picking up the oxygen they need.",
+        "wrong": {
+          "B": "The feet help them without harming the ground, not with thin air.",
+          "C": "The colors of the fleece do not help with thin air.",
+          "D": "The text does not say that."
+        }
+      },
+      {
+        "stem": "Which event in the article happened most recently?",
+        "options": [
+          "Ancestors lived in North America",
+          "People in the Andes tamed wild animals",
+          "Some ancestors crossed into Asia",
+          "Scientists in Dubai tried a test"
+        ],
+        "answer": "D",
+        "skill": "sequence",
+        "why": "The text puts the Dubai experiment in 1998, long after the other events.",
+        "wrong": {
+          "A": "This was millions of years ago.",
+          "B": "This was about 6,000 years ago.",
+          "C": "This was millions of years ago, long before 1998."
+        }
+      },
+      {
+        "stem": "Read this: \"At such a high altitude, the air is thin.\" What does altitude mean?",
+        "options": [
+          "The color of the land",
+          "How high a place is",
+          "The speed of the wind",
+          "How far a place is"
+        ],
+        "answer": "B",
+        "skill": "vocabulary",
+        "why": "The text says the Andes are high mountains with thin air, so altitude means how high a place is.",
+        "wrong": {
+          "A": "Color has nothing to do with thin air.",
+          "C": "The wind is not mentioned in the sentence.",
+          "D": "The air is thin because of height, not distance."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "What is the name of the animal family that camels, llamas, and alpacas belong to?",
+        "options": [
+          "Herbivores",
+          "Mammals",
+          "Hybrids",
+          "Camelids"
+        ],
+        "answer": "D",
+        "skill": "detail",
+        "why": "The text says that together with camels, they belong to a family called camelids.",
+        "wrong": {
+          "A": "This word is not used in the text.",
+          "B": "This word is not used in the text.",
+          "C": "A hybrid is a mix, such as Rama, not a family."
+        }
+      },
+      {
+        "stem": "Which feature do both llamas and alpacas share?",
+        "options": [
+          "Long necks and no hump",
+          "Short ears that are pointed",
+          "A weight close to 200 kilograms",
+          "Fiber that is used for hats"
+        ],
+        "answer": "A",
+        "skill": "compare",
+        "why": "The text says both animals have long necks but no hump.",
+        "wrong": {
+          "B": "Only the alpaca has short, pointed ears.",
+          "C": "Only the llama can weigh close to 200 kilograms.",
+          "D": "The text says people raise the alpaca for its fiber, not the llama."
+        }
+      },
+      {
+        "stem": "Why can llamas and alpacas live where the air has little oxygen?",
+        "options": [
+          "They breathe much less than other animals.",
+          "They store extra air in their long necks.",
+          "Their blood collects oxygen very well.",
+          "Their soft feet help them find air."
+        ],
+        "answer": "C",
+        "skill": "cause-effect",
+        "why": "The text says their blood is especially efficient at collecting the oxygen their bodies need.",
+        "wrong": {
+          "A": "The text does not say they breathe less.",
+          "B": "The text does not mention stored air.",
+          "D": "The soft feet protect the ground, not help with air."
+        }
+      },
+      {
+        "stem": "In the text, what does the word insulate mean?",
+        "options": [
+          "To make it brighter",
+          "To keep it warm",
+          "To make it faster",
+          "To keep it dry"
+        ],
+        "answer": "B",
+        "skill": "vocabulary",
+        "why": "The fleece helps against freezing nights, so insulate means to keep the animal warm.",
+        "wrong": {
+          "A": "Brightness does not help against freezing nights.",
+          "C": "Speed is not what a fleece is for.",
+          "D": "Freezing nights are about cold, not rain."
+        }
+      }
+    ]
   }
 }

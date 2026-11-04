@@ -614,5 +614,217 @@
       ],
       "modelAnswer": "As a desert subspecies, the Arabian wolf is well adapted to its harsh habitat: it is nocturnal, resting in rocky shade during the scorching day and hunting at night to conserve water and energy, and its pale, thin summer coat along with its oversized ears help it blend in and release heat. It also survives on whatever it can find, hunting small prey and scavenging carrion, so it rarely needs much water. Conservation is important for its future because the article explains these wolves are now rare, partly because farmers hunt them for attacking livestock, so protected areas are needed to keep this unique subspecies from disappearing."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "Which animals does the Arabian wolf eat?",
+        "options": [
+          "Camels and goats",
+          "Fish and clams",
+          "Hares and rats",
+          "Bees and sheep"
+        ],
+        "answer": "C",
+        "skill": "detail",
+        "why": "The text says the wolf eats hares and rats, and also birds and bugs.",
+        "wrong": {
+          "A": "Camels and goats are not named as food.",
+          "B": "Fish and clams are not named.",
+          "D": "Sheep are not named as its food in the text."
+        }
+      },
+      {
+        "stem": "Why can the wolf live where there is little water?",
+        "options": [
+          "It drinks from the sand.",
+          "It gets water from food.",
+          "It never feels thirsty.",
+          "It lives near the sea."
+        ],
+        "answer": "B",
+        "skill": "inference",
+        "why": "The text says it gets a lot of its water from food, so it can live in dry land.",
+        "wrong": {
+          "A": "Drinking sand is not mentioned.",
+          "C": "The text does not say this.",
+          "D": "The wolf lives in hot, dry land."
+        }
+      },
+      {
+        "stem": "In the article, the word pack means —",
+        "options": [
+          "a big bag",
+          "a safe hole",
+          "a wolf group",
+          "a hot day"
+        ],
+        "answer": "C",
+        "skill": "vocabulary",
+        "why": "The text says a pack is a wolf group.",
+        "wrong": {
+          "A": "A bag is not a wolf thing.",
+          "B": "A safe hole is a den.",
+          "D": "The word is about wolves, not weather."
+        }
+      },
+      {
+        "stem": "Why does the wolf rest in the shade in the day?",
+        "options": [
+          "The sun is hot.",
+          "The pups are asleep.",
+          "The hares are gone.",
+          "The sand is wet."
+        ],
+        "answer": "A",
+        "skill": "cause-effect",
+        "why": "The text says the sun is hot in the day, so the wolf rests in the shade.",
+        "wrong": {
+          "B": "Pups are not linked to this.",
+          "C": "The text does not say hares leave.",
+          "D": "The sand is dry and cool at night."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "Which food does the Arabian wolf eat besides live animals?",
+        "options": [
+          "Dead animals it finds",
+          "Dates from palm trees",
+          "Seeds in the sand",
+          "Fish from the sea"
+        ],
+        "answer": "A",
+        "skill": "detail",
+        "why": "The text says it also eats dead animals it finds.",
+        "wrong": {
+          "B": "Dates are not mentioned.",
+          "C": "Seeds are not mentioned.",
+          "D": "The wolf lives on land and fish are not named."
+        }
+      },
+      {
+        "stem": "Why do some farmers hunt Arabian wolves?",
+        "options": [
+          "The wolves dig up crops.",
+          "The wolves frighten the farmers.",
+          "The wolves drink their water.",
+          "The wolves attack sheep and goats."
+        ],
+        "answer": "D",
+        "skill": "cause-effect",
+        "why": "The text says wolves sometimes attack sheep and goats.",
+        "wrong": {
+          "A": "Crops are not mentioned.",
+          "B": "The text gives livestock as the reason.",
+          "C": "Water is not mentioned as the reason."
+        }
+      },
+      {
+        "stem": "In the article, the word habitat means —",
+        "options": [
+          "what an animal eats",
+          "where an animal lives",
+          "the sound an animal makes",
+          "the way an animal hunts"
+        ],
+        "answer": "B",
+        "skill": "vocabulary",
+        "why": "The text lists mountains, deserts, and plains as the wolf's habitat, which are places where it lives.",
+        "wrong": {
+          "A": "The food is listed in a different paragraph.",
+          "C": "No sounds are described.",
+          "D": "Hunting is described in other paragraphs."
+        }
+      },
+      {
+        "stem": "The wolf's coat grows longer in winter. What can you infer about desert nights in winter?",
+        "options": [
+          "They are windy.",
+          "They are cold.",
+          "They are very bright.",
+          "They are wet."
+        ],
+        "answer": "B",
+        "skill": "inference",
+        "why": "The longer coat protects the wolf on cold desert nights.",
+        "wrong": {
+          "A": "Wind is not mentioned.",
+          "C": "Brightness is not mentioned.",
+          "D": "The wolf lives in a dry place."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "In the article, the word camouflage means —",
+        "options": [
+          "a loud and deep call",
+          "a thick winter coat",
+          "a safe hiding place",
+          "looking like the sand"
+        ],
+        "answer": "D",
+        "skill": "vocabulary",
+        "why": "The pale summer fur provides camouflage against the sand, so the wolf looks like its surroundings.",
+        "wrong": {
+          "A": "No calls are mentioned.",
+          "B": "The summer fur is thin, not thick.",
+          "C": "A hiding place is a den or shade."
+        }
+      },
+      {
+        "stem": "Why does hunting in the cool darkness help the Arabian wolf?",
+        "options": [
+          "It saves water and energy.",
+          "It makes the pups sleep.",
+          "It helps it find carrion.",
+          "It keeps farmers away."
+        ],
+        "answer": "A",
+        "skill": "cause-effect",
+        "why": "The text says hunting in the cool darkness lets the wolf conserve water and energy.",
+        "wrong": {
+          "B": "Pups are not mentioned in this idea.",
+          "C": "Carrion is not linked to darkness.",
+          "D": "Farmers are not mentioned here."
+        }
+      },
+      {
+        "stem": "Where are Arabian wolf pups born?",
+        "options": [
+          "Under the open sky",
+          "In a sheltered den",
+          "In a flat desert",
+          "In a farmer's barn"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The text says pups are born in a sheltered den such as a cave or a hollow beneath rocks.",
+        "wrong": {
+          "A": "Pups are born in a den, not outside.",
+          "C": "A sheltered den is not a flat desert.",
+          "D": "Barns are not mentioned."
+        }
+      },
+      {
+        "stem": "What would most likely happen to the wolves if there were no protected areas?",
+        "options": [
+          "They would become more common.",
+          "They would stop hunting at night.",
+          "They would grow smaller.",
+          "They might become even rarer."
+        ],
+        "answer": "D",
+        "skill": "inference",
+        "why": "The wolves are rare and some are killed, and protected areas help safeguard the remaining wolves.",
+        "wrong": {
+          "A": "They are already rare and under threat.",
+          "B": "Protection does not affect when they hunt.",
+          "C": "Size is not linked to protection."
+        }
+      }
+    ]
   }
 }

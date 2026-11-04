@@ -614,5 +614,217 @@
       ],
       "modelAnswer": "To reach the goal of 30 percent electric vehicles in Riyadh by 2030, the city would need far more charging infrastructure, since fast chargers can fill most of a battery in about thirty minutes but drivers need enough stations to rely on them instead of a car with a combustion engine. This shift would be good for the city because electric cars release no emissions from an exhaust pipe, which would reduce air pollution, and their regenerative braking recovers some energy to improve efficiency. However, it would also be a challenge because batteries need mined metals like lithium and remain expensive to produce. Overall, with enough investment in charging infrastructure, this goal would likely improve Riyadh's air quality even though it demands a costly transition."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "Where is the battery of an electric car?",
+        "options": [
+          "In the roof",
+          "In the floor",
+          "In the wheel",
+          "In the trunk"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The text says the big battery is in the floor.",
+        "wrong": {
+          "A": "The roof is not mentioned.",
+          "C": "The motor spins the wheels, but the battery is not in them.",
+          "D": "The trunk is not mentioned."
+        }
+      },
+      {
+        "stem": "Where can you charge an electric car at night?",
+        "options": [
+          "At home",
+          "At a mosque",
+          "At a farm",
+          "At a shop only"
+        ],
+        "answer": "A",
+        "skill": "detail",
+        "why": "The text says you can plug the car in at home at night.",
+        "wrong": {
+          "B": "A mosque is not mentioned.",
+          "C": "A farm is not mentioned.",
+          "D": "The text says home, not only a shop."
+        }
+      },
+      {
+        "stem": "The article says gas is a fuel. What is a fuel?",
+        "options": [
+          "A part inside a wheel",
+          "A kind of strong metal",
+          "A very loud old engine",
+          "Burned to make power"
+        ],
+        "answer": "D",
+        "skill": "vocabulary",
+        "why": "Most cars burn gas to make power, so a fuel is burned for power.",
+        "wrong": {
+          "A": "Gas is not part of a wheel.",
+          "B": "Gas is not a metal.",
+          "C": "An engine is not a fuel."
+        }
+      },
+      {
+        "stem": "Saudi Arabia has its own brand of electric car called Ceer. What does this show?",
+        "options": [
+          "Only other countries make them",
+          "Electric cars cost nothing",
+          "Gas cars are all gone",
+          "Saudi Arabia makes them too"
+        ],
+        "answer": "D",
+        "skill": "inference",
+        "why": "The text says Saudi Arabia now makes these cars with its own brand.",
+        "wrong": {
+          "A": "The text says Saudi Arabia makes them too.",
+          "B": "The text says a battery costs a lot.",
+          "C": "The text does not say gas cars are gone."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "Where does an electric car store its electricity?",
+        "options": [
+          "In a gas tank at the back",
+          "In the horn of the car",
+          "In a battery under the floor",
+          "In the wheels of the car"
+        ],
+        "answer": "C",
+        "skill": "detail",
+        "why": "The article says an electric car stores electricity in a large battery under its floor.",
+        "wrong": {
+          "A": "The article says an electric car has no gas tank at all.",
+          "B": "The horn is not mentioned.",
+          "D": "The wheels are turned by the motor."
+        }
+      },
+      {
+        "stem": "The article says the motor runs in reverse when the driver slows down. What does in reverse mean?",
+        "options": [
+          "Faster than before",
+          "In the opposite way",
+          "With more noise",
+          "Without any power"
+        ],
+        "answer": "B",
+        "skill": "vocabulary",
+        "why": "The motor usually uses power to turn the wheels, but in reverse it makes power instead.",
+        "wrong": {
+          "A": "Slowing down is the opposite of faster.",
+          "C": "Noise is not part of the idea.",
+          "D": "The motor makes a little power."
+        }
+      },
+      {
+        "stem": "Why did gasoline cars take over the roads long ago?",
+        "options": [
+          "They cost less and went farther",
+          "They were quieter and cleaner",
+          "They had batteries under the floor",
+          "They could be charged at home"
+        ],
+        "answer": "A",
+        "skill": "cause-effect",
+        "why": "The article says gasoline cars were cheaper and could travel farther.",
+        "wrong": {
+          "B": "Electric cars are the quiet and clean ones.",
+          "C": "Batteries under the floor are in electric cars.",
+          "D": "Home charging belongs to electric cars."
+        }
+      },
+      {
+        "stem": "Why does the author begin with a car that glides past with no roar?",
+        "options": [
+          "To warn about very noisy cars",
+          "To tell the history of cars",
+          "To teach people how to drive",
+          "To catch interest in a new car"
+        ],
+        "answer": "D",
+        "skill": "author-purpose",
+        "why": "The silent car with no smoke makes the reader curious about the electric car.",
+        "wrong": {
+          "A": "The opening does not warn about noise.",
+          "B": "History comes later in the article.",
+          "C": "The article does not teach driving."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "How does an electric car's battery compare with the battery in a phone?",
+        "options": [
+          "It is similar but far bigger",
+          "It is the same size",
+          "It is much smaller",
+          "It is a different kind of battery"
+        ],
+        "answer": "A",
+        "skill": "compare",
+        "why": "The article says it is a lithium-ion battery similar to a phone's but far bigger.",
+        "wrong": {
+          "B": "The article says it is far bigger.",
+          "C": "The article says it is bigger, not smaller.",
+          "D": "The article says it is usually the same kind, lithium-ion."
+        }
+      },
+      {
+        "stem": "What goal does Saudi Arabia have for electric cars in Riyadh?",
+        "options": [
+          "10 percent by 2025",
+          "50 percent by 2040",
+          "All cars by next year",
+          "30 percent by 2030"
+        ],
+        "answer": "D",
+        "skill": "detail",
+        "why": "The article says Saudi Arabia aims for 30 percent of the cars in Riyadh to be electric by 2030.",
+        "wrong": {
+          "A": "The article says 30 percent by 2030.",
+          "B": "The article says 30 percent by 2030.",
+          "C": "The article does not set that goal."
+        }
+      },
+      {
+        "stem": "The article says electric cars produce no emissions on the street. What are emissions?",
+        "options": [
+          "Sounds from a horn",
+          "Gases released into the air",
+          "Electricity in a battery",
+          "Lights on a charger"
+        ],
+        "answer": "B",
+        "skill": "vocabulary",
+        "why": "A car with no exhaust pipe gives off no gases or smoke, which improves air quality.",
+        "wrong": {
+          "A": "A horn is not an emission.",
+          "C": "Battery electricity is stored energy, not an emission.",
+          "D": "Lights are not an emission."
+        }
+      },
+      {
+        "stem": "Why did gasoline cars gradually dominate the roads over 100 years ago?",
+        "options": [
+          "Batteries were not invented",
+          "Roads were closed to electric cars",
+          "Drivers disliked quiet cars",
+          "They cost less and went farther"
+        ],
+        "answer": "D",
+        "skill": "cause-effect",
+        "why": "The article says gasoline cars were less expensive and could travel greater distances.",
+        "wrong": {
+          "A": "The article says many cars ran on batteries then.",
+          "B": "No road closures are mentioned.",
+          "C": "Noise is not given as a reason."
+        }
+      }
+    ]
   }
 }

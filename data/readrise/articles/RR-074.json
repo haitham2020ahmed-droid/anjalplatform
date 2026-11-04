@@ -614,5 +614,217 @@
       ],
       "modelAnswer": "I agree that the shape of a bridge matters more than its material. A curved arch bridge can push its load outward and down into the ground at each end, which is why stone arch bridges built two thousand years ago are still standing even though stone is a fairly simple material. A suspension bridge's shape, with its road hanging from steel cables anchored deep in the ground, lets it span distances no beam bridge of any material could cross. Since the right shape lets engineers use even an older material like stone or steel safely for centuries, shape seems to matter more than which material is chosen."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "Besides its own weight, what does a bridge hold?",
+        "options": [
+          "Cars, trucks, people",
+          "Only a few small bikes",
+          "Boats from the sea",
+          "Wind from the sky"
+        ],
+        "answer": "A",
+        "skill": "detail",
+        "why": "The text says a bridge holds cars, trucks, and lots of people.",
+        "wrong": {
+          "B": "Bridges hold more than small bikes.",
+          "C": "Boats pass under a bridge, not on it.",
+          "D": "Wind shakes a bridge, it is not held."
+        }
+      },
+      {
+        "stem": "On a beam bridge, where does the flat beam sit?",
+        "options": [
+          "On the water",
+          "On a cable",
+          "On posts",
+          "On the wind"
+        ],
+        "answer": "C",
+        "skill": "detail",
+        "why": "The text says a flat beam sits on posts.",
+        "wrong": {
+          "A": "The beam sits on posts, not on water.",
+          "B": "Cables belong to the hanging bridge.",
+          "D": "The wind cannot hold a beam."
+        }
+      },
+      {
+        "stem": "What happened when wind made one bridge twist long ago?",
+        "options": [
+          "It grew taller",
+          "It fell down",
+          "It turned to stone",
+          "It got a new road"
+        ],
+        "answer": "B",
+        "skill": "cause-effect",
+        "why": "The text says wind made one bridge twist and then it fell.",
+        "wrong": {
+          "A": "The bridge did not grow.",
+          "C": "It did not turn to stone.",
+          "D": "No new road is mentioned."
+        }
+      },
+      {
+        "stem": "The text tells about the King Fahd Causeway. What is a causeway?",
+        "options": [
+          "A big ship for cars",
+          "A tall tower by the sea",
+          "A deep hole in the ground",
+          "A long road over the sea"
+        ],
+        "answer": "D",
+        "skill": "vocabulary",
+        "why": "The King Fahd Causeway is a long road of bridges that crosses the sea to link Saudi Arabia and Bahrain.",
+        "wrong": {
+          "A": "It is a road, not a ship.",
+          "B": "It is long and flat, not a tower.",
+          "C": "It goes over the water, not into the ground."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "What is the first weight a bridge must support?",
+        "options": [
+          "The cars that cross it",
+          "The people on foot",
+          "Its own heavy body",
+          "The wind in a storm"
+        ],
+        "answer": "C",
+        "skill": "detail",
+        "why": "The article says a bridge first has to support its own heavy body of steel or concrete.",
+        "wrong": {
+          "A": "Cars come second.",
+          "B": "People come second, with the cars.",
+          "D": "Wind is mentioned later as a danger."
+        }
+      },
+      {
+        "stem": "The cables of a suspension bridge are \"anchored\" in the ground. What does anchored mean?",
+        "options": [
+          "Held firmly in place",
+          "Painted a bright color",
+          "Lifted high in the air",
+          "Cut into small pieces"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "The cable ends are fixed deep in the ground so that they cannot move.",
+        "wrong": {
+          "B": "Painting is not mentioned.",
+          "C": "Anchored ends are in the ground, not in the air.",
+          "D": "Cutting would weaken the bridge."
+        }
+      },
+      {
+        "stem": "What caused the suspension bridge to collapse in 1940?",
+        "options": [
+          "Too many heavy trucks",
+          "A flood in the river",
+          "A fire on the road",
+          "Wind that made it twist"
+        ],
+        "answer": "D",
+        "skill": "cause-effect",
+        "why": "The article says strong wind made the bridge twist until it collapsed.",
+        "wrong": {
+          "A": "Trucks are not given as the cause.",
+          "B": "A flood is not mentioned.",
+          "C": "A fire is not mentioned."
+        }
+      },
+      {
+        "stem": "Why does the author begin by asking how such a huge structure stays standing?",
+        "options": [
+          "To make readers curious",
+          "To tell readers where to build",
+          "To say all bridges are alike",
+          "To warn readers about danger"
+        ],
+        "answer": "A",
+        "skill": "author-purpose",
+        "why": "The question makes the reader curious, and the rest of the article answers it.",
+        "wrong": {
+          "B": "The article does not advise where to build.",
+          "C": "The article describes different kinds of bridges.",
+          "D": "The opening is not a warning."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "In the article, what are piers?",
+        "options": [
+          "Gaps in the roadway",
+          "Upright beam supports",
+          "Cables over the tower",
+          "Steel bars in concrete"
+        ],
+        "answer": "B",
+        "skill": "vocabulary",
+        "why": "The article says a beam rests on vertical supports called piers.",
+        "wrong": {
+          "A": "Expansion joints are narrow gaps in a roadway.",
+          "C": "The cables pass over towers.",
+          "D": "Steel bars are inside reinforced concrete."
+        }
+      },
+      {
+        "stem": "In which year did the King Fahd Causeway open?",
+        "options": [
+          "1940",
+          "1976",
+          "2019",
+          "1986"
+        ],
+        "answer": "D",
+        "skill": "detail",
+        "why": "The article says the causeway opened in 1986.",
+        "wrong": {
+          "A": "1940 is the year of the bridge collapse.",
+          "B": "The article does not give 1976.",
+          "C": "The article does not give 2019."
+        }
+      },
+      {
+        "stem": "Why are beam bridges most effective when the span is short?",
+        "options": [
+          "Their top is squeezed, bottom stretched",
+          "Roman builders made them that way",
+          "Concrete never cracks under tension",
+          "Steel is too heavy for long beams"
+        ],
+        "answer": "A",
+        "skill": "cause-effect",
+        "why": "Under a load the top of a beam is compressed and the bottom is stretched, which limits how far it can reach.",
+        "wrong": {
+          "B": "Roman builders are linked to arch bridges.",
+          "C": "The article says concrete cracks under tension.",
+          "D": "The article does not say steel is too heavy."
+        }
+      },
+      {
+        "stem": "Why does the author open with a question about how a bridge stays up?",
+        "options": [
+          "To list the main bridge builders",
+          "To prove that all bridges are old",
+          "To set up the problem to explain",
+          "To compare roads with highways"
+        ],
+        "answer": "C",
+        "skill": "author-purpose",
+        "why": "The question introduces the puzzle that the article then explains with loads, forces, and designs.",
+        "wrong": {
+          "A": "No list of builders is given.",
+          "B": "Age is not the main point.",
+          "D": "The article does not compare roads and highways."
+        }
+      }
+    ]
   }
 }

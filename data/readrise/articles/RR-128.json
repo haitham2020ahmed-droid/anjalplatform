@@ -614,5 +614,217 @@
       ],
       "modelAnswer": "A good first aider must always assess the situation first, because the top priority is making sure the area is safe before helping anyone. For example, with a bleeding cut, you should rinse it and apply pressure before covering it with a bandage to prevent infection. For a burn, you should cool the skin under running water for about twenty minutes instead of using ice or butter. If someone shows signs like confusion or fainting, possibly from heatstroke, that is when you must call 997 immediately instead of trying to handle it yourself."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "How long should you pinch the soft part of your nose during a nosebleed?",
+        "options": [
+          "One minute",
+          "Thirty seconds",
+          "Ten minutes",
+          "One hour"
+        ],
+        "answer": "C",
+        "skill": "detail",
+        "why": "The text says to pinch the soft part of your nose for ten minutes.",
+        "wrong": {
+          "A": "One minute is too short; the text says ten minutes.",
+          "B": "Thirty seconds is too short; the text says ten minutes.",
+          "D": "One hour is too long; the text says ten minutes."
+        }
+      },
+      {
+        "stem": "In the article, the word rinse means —",
+        "options": [
+          "wash with clean water",
+          "cover with a bandage",
+          "press down hard",
+          "look at closely"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "The text says to rinse the cut with clean water, so rinse means to wash with water.",
+        "wrong": {
+          "B": "The bandage is put on at the end.",
+          "C": "Pressing is done with a cloth if the cut bleeds.",
+          "D": "Rinse is about water, not looking."
+        }
+      },
+      {
+        "stem": "Why should you know where the first aid kit is?",
+        "options": [
+          "So you can hide it from other kids",
+          "So you can fill it with cool water",
+          "So you can take it to bed with you",
+          "So you can find bandages quickly"
+        ],
+        "answer": "D",
+        "skill": "inference",
+        "why": "The kit holds bandages and gloves, so knowing where it is lets you get them fast.",
+        "wrong": {
+          "A": "The kit is for helping, not hiding.",
+          "B": "Cool water is for burns, not for filling the kit.",
+          "C": "The text does not say to keep it in bed."
+        }
+      },
+      {
+        "stem": "What can happen when you call 997?",
+        "options": [
+          "The bleeding stops at once",
+          "Help can reach you fast",
+          "The kit appears in your home",
+          "The sun goes behind clouds"
+        ],
+        "answer": "B",
+        "skill": "cause-effect",
+        "why": "The text says calling 997 will bring help fast.",
+        "wrong": {
+          "A": "Calling does not stop bleeding by itself.",
+          "C": "The text does not say a kit appears.",
+          "D": "A call has nothing to do with the weather."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "For about how long should a minor burn be cooled under cool running water?",
+        "options": [
+          "About two minutes",
+          "About twenty minutes",
+          "About two hours",
+          "About one minute"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The text says to cool a minor burn under cool running water for about twenty minutes.",
+        "wrong": {
+          "A": "Two minutes is too short.",
+          "C": "Two hours is far too long.",
+          "D": "One minute is too short."
+        }
+      },
+      {
+        "stem": "Why should you cover a small cut with a bandage?",
+        "options": [
+          "To make the cut bleed more",
+          "To wash away dirt from it",
+          "To stop an adult from looking",
+          "To keep germs out of the cut"
+        ],
+        "answer": "D",
+        "skill": "cause-effect",
+        "why": "The text says to cover the cut with a bandage to keep germs out.",
+        "wrong": {
+          "A": "First aid tries to stop bleeding.",
+          "B": "Dirt is rinsed away with water before the bandage.",
+          "C": "You should tell an adult about the injury."
+        }
+      },
+      {
+        "stem": "In the article, the word minor means —",
+        "options": [
+          "small and not serious",
+          "very large and deep",
+          "painful and dangerous",
+          "caused by hot weather"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "A minor burn is one that can be treated with cool water, so minor means small and not serious.",
+        "wrong": {
+          "B": "A minor burn is not large and deep.",
+          "C": "A minor burn is not described as dangerous.",
+          "D": "The article does not link minor burns to weather."
+        }
+      },
+      {
+        "stem": "Why should you help a dizzy person move into the shade?",
+        "options": [
+          "To give them a chance to play",
+          "To keep them away from the nurse",
+          "To get them out of the strong sun",
+          "To check that the kit is full"
+        ],
+        "answer": "C",
+        "skill": "inference",
+        "why": "The text says heat can make a person dizzy, so moving to the shade gets them out of the sun.",
+        "wrong": {
+          "A": "The person needs rest, not play.",
+          "B": "The text says to call for help if they get worse.",
+          "D": "The kit is not part of helping a dizzy person."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "What should a person describe when calling 997?",
+        "options": [
+          "The weather and the time",
+          "The names of the doctors",
+          "The cost of the ambulance",
+          "The location and the problem"
+        ],
+        "answer": "D",
+        "skill": "detail",
+        "why": "The text says to describe the location and the problem clearly.",
+        "wrong": {
+          "A": "The text does not mention weather or time.",
+          "B": "The caller does not need doctors' names.",
+          "C": "The cost is not mentioned."
+        }
+      },
+      {
+        "stem": "In the article, the word nauseous most nearly means —",
+        "options": [
+          "full of energy",
+          "very thirsty",
+          "feeling sick",
+          "easily scared"
+        ],
+        "answer": "C",
+        "skill": "vocabulary",
+        "why": "It is listed with dizzy and weak as signs of heat illness, so nauseous means feeling sick.",
+        "wrong": {
+          "A": "Dizzy and weak people lack energy.",
+          "B": "Thirst is not what the word means.",
+          "D": "The text is about heat, not fear."
+        }
+      },
+      {
+        "stem": "Why is a burn cooled under running water for about twenty minutes?",
+        "options": [
+          "The water draws heat out of the skin",
+          "The water makes a blister form",
+          "The water cleans away the bandage",
+          "The water turns the burn into ice"
+        ],
+        "answer": "A",
+        "skill": "cause-effect",
+        "why": "The text says cool running water draws heat out of the damaged tissue.",
+        "wrong": {
+          "B": "The article says to protect a blister, not make one.",
+          "C": "A bandage is not part of cooling a burn.",
+          "D": "The text says never to use ice."
+        }
+      },
+      {
+        "stem": "Why is it important to know exactly where the first aid kit is stored?",
+        "options": [
+          "So it can be kept hidden from visitors",
+          "So help can begin without any delay",
+          "So the kit can be moved every day",
+          "So the gloves can be counted weekly"
+        ],
+        "answer": "B",
+        "skill": "inference",
+        "why": "First aid is care given right away, so knowing where the supplies are saves time.",
+        "wrong": {
+          "A": "The text says everyone should know where it is.",
+          "C": "Moving the kit would make it harder to find.",
+          "D": "The text does not mention counting gloves."
+        }
+      }
+    ]
   }
 }

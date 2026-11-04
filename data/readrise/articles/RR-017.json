@@ -614,5 +614,217 @@
       ],
       "modelAnswer": "Desalination turns seawater into drinking water by using two changes of state in a careful order. First, large plants heat the salty seawater until its particles gain enough energy to expand apart and evaporate into water vapor, and because salt does not turn into a gas the way water does, the salt is left behind. Second, the rising vapor is then cooled until condensation occurs, changing the particles back into a liquid, but this time the liquid is pure, fresh water with none of the original salt's volume mixed in. By evaporating the water away from the salt and then condensing it separately, these plants along the coasts of Saudi Arabia can produce the fresh water that the region's climate alone cannot reliably provide."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "A rock is a solid. What does it do?",
+        "options": [
+          "It flows like milk",
+          "It keeps its shape",
+          "It spreads out in a room",
+          "It takes the shape of a cup"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The text says a rock is a solid and it keeps its shape.",
+        "wrong": {
+          "A": "Flowing is what a liquid does.",
+          "C": "Spreading out is what a gas does.",
+          "D": "Taking the shape of a cup is what a liquid does."
+        }
+      },
+      {
+        "stem": "A gas is let into a big empty room. What will it most likely do?",
+        "options": [
+          "Stay in one small ball",
+          "Turn into a rock",
+          "Sit at the bottom like milk",
+          "Spread out and fill the room"
+        ],
+        "answer": "D",
+        "skill": "inference",
+        "why": "The text says a gas spreads out and fills all the space it has.",
+        "wrong": {
+          "A": "A gas does not stay in one place.",
+          "B": "A gas does not become a solid by itself.",
+          "C": "A gas spreads out, not sits like a liquid."
+        }
+      },
+      {
+        "stem": "What happens when you heat water a lot?",
+        "options": [
+          "It turns to a gas",
+          "It turns to a rock",
+          "It turns to milk",
+          "It turns to salt"
+        ],
+        "answer": "A",
+        "skill": "cause-effect",
+        "why": "The text says that if you heat the water a lot, it turns to a gas.",
+        "wrong": {
+          "B": "Water does not turn into a rock.",
+          "C": "Water does not turn into milk.",
+          "D": "The salt is left behind, not made."
+        }
+      },
+      {
+        "stem": "Which list shows the order when ice is heated more and more?",
+        "options": [
+          "Gas, then ice, then water",
+          "Water, then gas, then ice",
+          "Ice, then water, then gas",
+          "Gas, then water, then ice"
+        ],
+        "answer": "C",
+        "skill": "sequence",
+        "why": "Heat makes ice melt into water, and a lot more heat turns the water to a gas.",
+        "wrong": {
+          "A": "Heat does not turn a gas into ice first.",
+          "B": "Ice is the first step, not the last.",
+          "D": "That is the order for cooling, not heating."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "How does the article describe matter?",
+        "options": [
+          "Anything that people can see with their eyes",
+          "Anything that feels either hot or cold",
+          "Anything that takes up space and has mass",
+          "Anything that can be poured into a cup"
+        ],
+        "answer": "C",
+        "skill": "detail",
+        "why": "The article says matter is anything that takes up space and has mass.",
+        "wrong": {
+          "A": "Air is matter, but most gases cannot be seen.",
+          "B": "Matter is not defined by its heat.",
+          "D": "Only liquids can be poured."
+        }
+      },
+      {
+        "stem": "In the article, the word definite in \"a definite shape\" means —",
+        "options": [
+          "fixed and clear",
+          "soft and wet",
+          "very small",
+          "always moving"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "The article says a solid's shape does not change, so definite means fixed.",
+        "wrong": {
+          "B": "A solid is not described as soft or wet.",
+          "C": "The word is about the shape, not about size alone.",
+          "D": "A solid keeps its shape; its particles only vibrate."
+        }
+      },
+      {
+        "stem": "What happens to water vapor in the air when it touches a cold can?",
+        "options": [
+          "It freezes into a block of ice",
+          "It turns into salt from the sea",
+          "It speeds up and spreads out wider",
+          "It cools and turns back into liquid"
+        ],
+        "answer": "D",
+        "skill": "cause-effect",
+        "why": "The article says the vapor cools and turns back into liquid, which is called condensation.",
+        "wrong": {
+          "A": "Freezing happens when liquid water gets very cold.",
+          "B": "Salt is not made from vapor.",
+          "C": "Cooling slows particles; heat speeds them up."
+        }
+      },
+      {
+        "stem": "How is a solid different from a liquid?",
+        "options": [
+          "A solid flows easily, but a liquid keeps one fixed shape",
+          "A solid keeps its shape; a liquid fits its container",
+          "A solid has no mass at all, but a liquid has mass",
+          "A solid is invisible to us, but a liquid is not"
+        ],
+        "answer": "B",
+        "skill": "compare",
+        "why": "The article says a solid has a definite shape while a liquid takes the shape of its container.",
+        "wrong": {
+          "A": "This is backwards; a liquid is the one that flows.",
+          "C": "All matter has mass.",
+          "D": "The article says most gases, not solids, are invisible."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "How does the article define matter?",
+        "options": [
+          "Anything that flows or can be poured",
+          "Anything that is visible to the eye",
+          "Anything that is hot enough to boil",
+          "Anything that occupies space and has mass"
+        ],
+        "answer": "D",
+        "skill": "detail",
+        "why": "The article says scientists define matter as anything that occupies space and possesses mass.",
+        "wrong": {
+          "A": "Only liquids flow or are poured.",
+          "B": "Many gases are invisible but are still matter.",
+          "C": "Matter does not need to be hot."
+        }
+      },
+      {
+        "stem": "In the article, the phrase regardless of most nearly means —",
+        "options": [
+          "because of",
+          "far away from",
+          "no matter",
+          "made out of"
+        ],
+        "answer": "C",
+        "skill": "vocabulary",
+        "why": "The article says the result stays the same whatever container is used, so regardless of means no matter.",
+        "wrong": {
+          "A": "The container is not the cause, so because of does not fit.",
+          "B": "Distance is not part of the idea.",
+          "D": "The phrase is not about what a thing is made of."
+        }
+      },
+      {
+        "stem": "What happens to particles when they are heated?",
+        "options": [
+          "They gain energy, move faster, and spread apart",
+          "They lose energy and pack together",
+          "They stop moving and stay in place",
+          "They change into a different kind of matter"
+        ],
+        "answer": "A",
+        "skill": "cause-effect",
+        "why": "The article says heating gives particles more energy, so they move faster and spread apart.",
+        "wrong": {
+          "B": "This describes what happens during cooling.",
+          "C": "Heated particles move more, not less.",
+          "D": "The particles stay the same; only their motion changes."
+        }
+      },
+      {
+        "stem": "Which comparison of particles is supported by the article?",
+        "options": [
+          "In a solid they are far apart; in a gas they are packed tightly",
+          "In a solid they are tightly packed; in a gas they are widely separated",
+          "In a solid they slide past each other; in a gas they only vibrate",
+          "In a solid they travel quickly; in a gas they stay in fixed positions"
+        ],
+        "answer": "B",
+        "skill": "compare",
+        "why": "The article says solid particles are tightly packed and gas particles are widely separated.",
+        "wrong": {
+          "A": "This reverses the two states.",
+          "C": "Sliding is for a liquid and vibrating is for a solid.",
+          "D": "This reverses the two states."
+        }
+      }
+    ]
   }
 }

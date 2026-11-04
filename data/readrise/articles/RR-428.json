@@ -614,5 +614,217 @@
       ],
       "modelAnswer": "I disagree that trying something over and over after it fails is a waste of time. In the story, Noor's first glaze came out gray and her second pot cracked in the kiln, yet neither failure was wasted, because each one taught her something about how minerals and temperature affected the final color. By patiently changing one part of her mixture at a time, she used her earlier failures to guide her later attempts, which is exactly how she eventually recreated the family's lost blue glaze. Someone might argue that repeated failure just wastes clay and time, but without Noor's persistent trial and error, the family tradition tied to that glaze would have stayed lost forever."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "What does a potter make pots from?",
+        "options": [
+          "Wood",
+          "Clay",
+          "Metal",
+          "Glass"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The text says a potter makes pots from clay.",
+        "wrong": {
+          "A": "Pots are not made from wood.",
+          "C": "Pots are not made from metal.",
+          "D": "Pots are not made from glass."
+        }
+      },
+      {
+        "stem": "What made Noor's second blue glaze crack?",
+        "options": [
+          "The heat in the kiln",
+          "Too much clay",
+          "A fall from a shelf",
+          "Cold water"
+        ],
+        "answer": "A",
+        "skill": "cause-effect",
+        "why": "The text says her second try cracked in the heat.",
+        "wrong": {
+          "B": "Too much clay is not mentioned.",
+          "C": "The pot did not fall.",
+          "D": "Cold water is not mentioned."
+        }
+      },
+      {
+        "stem": "What did Noor change each time she tried again?",
+        "options": [
+          "Her aunt's shop",
+          "The size of the pot",
+          "The color of the clay",
+          "The mix and the heat"
+        ],
+        "answer": "D",
+        "skill": "detail",
+        "why": "The text says she kept trying new mixes and changed the heat each time.",
+        "wrong": {
+          "A": "The shop did not change.",
+          "B": "The pot size is not mentioned.",
+          "C": "The color of the clay is not mentioned."
+        }
+      },
+      {
+        "stem": "In the story, the word proud means —",
+        "options": [
+          "afraid of a mistake",
+          "tired of a task",
+          "happy about a result",
+          "angry about a loss"
+        ],
+        "answer": "C",
+        "skill": "vocabulary",
+        "why": "Noor feels proud because she made the blue glaze, so proud means happy about a good result.",
+        "wrong": {
+          "A": "Noor is not afraid at the end.",
+          "B": "She is not tired of the work.",
+          "D": "She has won, not lost."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "Where did Noor see the old family pot?",
+        "options": [
+          "On the kiln floor",
+          "In the shop window",
+          "On a high shelf",
+          "In a hidden box"
+        ],
+        "answer": "C",
+        "skill": "detail",
+        "why": "The text says Noor noticed an old family pot on a high shelf.",
+        "wrong": {
+          "A": "The pot was not on the kiln floor.",
+          "B": "The window is not mentioned.",
+          "D": "The pot was out on the shelf, not hidden in a box."
+        }
+      },
+      {
+        "stem": "In the story, the word determined means —",
+        "options": [
+          "set on a goal",
+          "too tired to start",
+          "unsure what to do",
+          "happy with a gift"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "Noor decides to find the secret glaze herself and keeps trying, so she is set on reaching her goal.",
+        "wrong": {
+          "B": "She keeps working, so she is not too tired.",
+          "C": "She knows what she wants to do.",
+          "D": "No gift is involved."
+        }
+      },
+      {
+        "stem": "Why did Aunt Hind not know the glaze recipe?",
+        "options": [
+          "She had forgotten it last year.",
+          "Noor had hidden it from her.",
+          "It was in a book that burned.",
+          "It was lost before she was born."
+        ],
+        "answer": "D",
+        "skill": "cause-effect",
+        "why": "Aunt Hind says the recipe was lost long before she was born.",
+        "wrong": {
+          "A": "She never knew it; it was lost before her time.",
+          "B": "Noor did not hide it.",
+          "C": "No book or fire is mentioned."
+        }
+      },
+      {
+        "stem": "What changes the color of a glaze, according to the story?",
+        "options": [
+          "The size of the shelf",
+          "Different minerals",
+          "The smell of clay",
+          "The name of the pot"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The text says Noor learned how different minerals change a glaze's color.",
+        "wrong": {
+          "A": "A shelf does not change color.",
+          "C": "The smell of clay is not linked to color.",
+          "D": "A name does not change color."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "Where did Noor find the old family pot?",
+        "options": [
+          "Half hidden on a high shelf",
+          "Inside the big kiln",
+          "Outside the workshop door",
+          "Under a table of tools"
+        ],
+        "answer": "A",
+        "skill": "detail",
+        "why": "The text says the pot rested half hidden among newer pieces on a high shelf.",
+        "wrong": {
+          "B": "The pot was not in the kiln.",
+          "C": "It was inside, on a shelf.",
+          "D": "A table is not mentioned."
+        }
+      },
+      {
+        "stem": "In the story, the word heirloom refers to —",
+        "options": [
+          "a new tool for the kiln",
+          "a kind of blue paint",
+          "a pot made that day",
+          "a family keepsake"
+        ],
+        "answer": "D",
+        "skill": "vocabulary",
+        "why": "The pot was an old family pot passed down in the family, so it is an heirloom.",
+        "wrong": {
+          "A": "The pot is not a tool.",
+          "B": "Blue is the glaze color, not the meaning of the word.",
+          "C": "The family heirloom was old, not made that day."
+        }
+      },
+      {
+        "stem": "What does Aunt Hind's soft sigh suggest?",
+        "options": [
+          "She was bored by the question.",
+          "She wished it was not lost.",
+          "She wanted Noor to go home.",
+          "She was angry at her mother."
+        ],
+        "answer": "B",
+        "skill": "inference",
+        "why": "She sighs while admitting the recipe is lost, which shows she regrets that it is gone.",
+        "wrong": {
+          "A": "She answers kindly and honestly.",
+          "C": "She lets Noor help every day.",
+          "D": "Her mother is not blamed."
+        }
+      },
+      {
+        "stem": "Why did Noor start helping her aunt every day after school?",
+        "options": [
+          "Her aunt had asked her to.",
+          "She needed money for school.",
+          "She wanted to find the glaze.",
+          "She had no other plans."
+        ],
+        "answer": "C",
+        "skill": "cause-effect",
+        "why": "Noor decided to find the secret glaze herself, so she began helping her aunt daily to learn.",
+        "wrong": {
+          "A": "The text does not say her aunt asked.",
+          "B": "Money is not mentioned.",
+          "D": "Her reason was the glaze, not free time."
+        }
+      }
+    ]
   }
 }

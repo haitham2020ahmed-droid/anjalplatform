@@ -614,5 +614,217 @@
       ],
       "modelAnswer": "Electricity flows through a home inside a closed loop called a circuit, and a switch works by opening or closing a small gap in that loop to turn a light on or off. Inside the wires, copper acts as the conductor that lets electrons flow easily, while a layer of plastic insulation wraps around it to keep anyone who touches the wire from getting shocked. If too many appliances draw power at once, the circuit breaker detects the overload and switches off the power before the wire gets hot enough to start a fire. Together, these parts let electricity move efficiently through a house while keeping everyone inside safe."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "What metal is most often inside a wire?",
+        "options": [
+          "Gold",
+          "Copper",
+          "Plastic",
+          "Rubber"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The text says a wire has metal in it, and that it is most of the time copper.",
+        "wrong": {
+          "A": "Gold is not named in the text.",
+          "C": "Plastic is on the outside of the wire, not the metal inside.",
+          "D": "Rubber is not named in the text."
+        }
+      },
+      {
+        "stem": "What can a box in the home do if too much power flows?",
+        "options": [
+          "Make the lights brighter",
+          "Turn on the AC",
+          "Shut off the power",
+          "Make the wire hotter"
+        ],
+        "answer": "C",
+        "skill": "cause-effect",
+        "why": "The text says a box in the home can shut off the power if too much flows.",
+        "wrong": {
+          "A": "The box stops power; it does not make lights brighter.",
+          "B": "The box does not turn on the AC.",
+          "D": "The box is there to keep things safe, not to heat the wire."
+        }
+      },
+      {
+        "stem": "A lamp will not come on. Which could be the reason?",
+        "options": [
+          "The loop has a gap in it.",
+          "The AC is set too warm.",
+          "The wire has plastic on it.",
+          "The plant burns oil and gas."
+        ],
+        "answer": "A",
+        "skill": "inference",
+        "why": "The text says the power stops when the loop has a gap, so the light goes off.",
+        "wrong": {
+          "B": "The AC setting does not change a lamp.",
+          "C": "Plastic on a wire is normal and keeps hands safe.",
+          "D": "Where power is made does not explain one lamp."
+        }
+      },
+      {
+        "stem": "What happens if the loop of power is not closed?",
+        "options": [
+          "The lights get brighter",
+          "The wire gets longer",
+          "The plug turns cold",
+          "The power stops"
+        ],
+        "answer": "D",
+        "skill": "cause-effect",
+        "why": "The text says the loop must be shut, or closed, or the power stops.",
+        "wrong": {
+          "A": "An open loop does not make lights brighter.",
+          "B": "The wire does not change length.",
+          "C": "The text does not say the plug gets cold."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "Besides plastic, which material is named as an insulator?",
+        "options": [
+          "Copper",
+          "Water",
+          "Metal",
+          "Rubber"
+        ],
+        "answer": "D",
+        "skill": "detail",
+        "why": "The text says plastic and rubber block power and are called insulators.",
+        "wrong": {
+          "A": "Copper is named as a conductor.",
+          "B": "Water is named as a conductor.",
+          "C": "Metals such as copper are conductors."
+        }
+      },
+      {
+        "stem": "Why does setting an air conditioner a few degrees warmer help a family?",
+        "options": [
+          "It uses less of the home's power.",
+          "It makes the circuit complete.",
+          "It cools the wires inside.",
+          "It stops the breaker from working."
+        ],
+        "answer": "A",
+        "skill": "cause-effect",
+        "why": "The text says air conditioners use a large share of a home's power, so a warmer setting saves power.",
+        "wrong": {
+          "B": "The setting does not change whether a circuit is complete.",
+          "C": "The text does not say it cools the wires.",
+          "D": "The breaker works to stop too much power, not the AC setting."
+        }
+      },
+      {
+        "stem": "The author calls the click of a switch the end of a long journey. What does this suggest?",
+        "options": [
+          "The switch is far from the light.",
+          "The light stays on for a long time.",
+          "The power has traveled a long way first.",
+          "Switches take a long time to fix."
+        ],
+        "answer": "C",
+        "skill": "inference",
+        "why": "The text says power is made at plants and travels along tall lines to homes before the light comes on.",
+        "wrong": {
+          "A": "The trip is about the power, not the switch and light.",
+          "B": "The text does not talk about how long a light stays on.",
+          "D": "Fixing switches is not mentioned."
+        }
+      },
+      {
+        "stem": "The text says air conditioners use a large share of a home's power. What does share mean here?",
+        "options": [
+          "A gift",
+          "A big part",
+          "A wire",
+          "A switch"
+        ],
+        "answer": "B",
+        "skill": "vocabulary",
+        "why": "A large share means a big part of the power used in a home.",
+        "wrong": {
+          "A": "A gift does not fit the sentence about power use.",
+          "C": "A wire is a thing, not an amount.",
+          "D": "A switch is a thing, not an amount."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "How does electricity get from the power plants to cities, homes, and schools?",
+        "options": [
+          "Through high-voltage power lines",
+          "Through copper pipes in the desert",
+          "Through the plastic of solar panels",
+          "Through the water in the ground"
+        ],
+        "answer": "A",
+        "skill": "detail",
+        "why": "The text says electricity travels along high-voltage power lines from the plants.",
+        "wrong": {
+          "B": "Pipes are not mentioned.",
+          "C": "Solar panels capture sunlight; they are not the path to homes.",
+          "D": "The text says water conducts electricity but does not say it carries power to homes."
+        }
+      },
+      {
+        "stem": "Why does the light go off when a switch opens a gap in the circuit?",
+        "options": [
+          "The plastic gets too hot.",
+          "The wire begins to make power.",
+          "The solar panels stop working.",
+          "The electrons can no longer flow."
+        ],
+        "answer": "D",
+        "skill": "cause-effect",
+        "why": "The text says if the circuit is broken at any point, the electrons stop flowing.",
+        "wrong": {
+          "A": "Heat from plastic is not the reason given.",
+          "B": "Wires carry electricity; they do not make it.",
+          "C": "Solar panels are at the plants, not in the switch."
+        }
+      },
+      {
+        "stem": "In the text, what does the word scorching mean?",
+        "options": [
+          "Rainy and cool",
+          "Short and quiet",
+          "Very hot",
+          "Dark and late"
+        ],
+        "answer": "C",
+        "skill": "vocabulary",
+        "why": "The text says air conditioners work hard in summer, so scorching means very hot.",
+        "wrong": {
+          "A": "Rainy and cool would not need an air conditioner.",
+          "B": "Short and quiet does not fit the heat.",
+          "D": "Dark and late does not fit a summer day."
+        }
+      },
+      {
+        "stem": "Why does the author say that water also conducts electricity?",
+        "options": [
+          "To explain how plants make power",
+          "To show why wet hands are unsafe",
+          "To teach how to save power",
+          "To describe how breakers work"
+        ],
+        "answer": "B",
+        "skill": "author-purpose",
+        "why": "The next idea in the text is never to handle a plug with wet hands, so the fact about water explains that danger.",
+        "wrong": {
+          "A": "Water is not linked to how plants make power.",
+          "C": "Saving power is covered in a different paragraph.",
+          "D": "Breakers are explained with overloaded circuits, not water."
+        }
+      }
+    ]
   }
 }

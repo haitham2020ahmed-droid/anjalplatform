@@ -614,5 +614,217 @@
       ],
       "modelAnswer": "I agree that patience and disciplined practice matter more than natural talent. In the story, Layla's early attempts at the intricate diamond pattern failed again and again, no matter how badly she wanted to succeed through sheer effort alone. It was only once Nura broke the technique into clear, patient steps, and Layla practiced it meticulously row after row, that the pattern finally came together. Someone might argue that some people simply have a natural gift for crafts like weaving, but the story suggests that even an inherited, generations-old pattern can be mastered by anyone willing to practice it patiently, which is a far more hopeful foundation than relying on talent alone."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "What does Nura do on her loom?",
+        "options": [
+          "She weaves cloth.",
+          "She bakes bread.",
+          "She paints walls.",
+          "She sews shoes."
+        ],
+        "answer": "A",
+        "skill": "detail",
+        "why": "The text says Nura weaves cloth on a loom.",
+        "wrong": {
+          "B": "Baking bread is not mentioned.",
+          "C": "Painting walls is not mentioned.",
+          "D": "Sewing shoes is not mentioned."
+        }
+      },
+      {
+        "stem": "What is the pattern like?",
+        "options": [
+          "Big and plain",
+          "New and easy",
+          "Old and hard",
+          "Red and very long"
+        ],
+        "answer": "C",
+        "skill": "detail",
+        "why": "The text says the pattern has small shapes, and it is old and hard to make.",
+        "wrong": {
+          "A": "The shapes are small, not big.",
+          "B": "The pattern is old and hard, not new and easy.",
+          "D": "Color and length are not mentioned."
+        }
+      },
+      {
+        "stem": "In the story, a pattern is —",
+        "options": [
+          "a kind of thread",
+          "shapes in a design",
+          "a place to sit",
+          "a big family day"
+        ],
+        "answer": "B",
+        "skill": "vocabulary",
+        "why": "The pattern is made of small shapes that must line up, so it is a design of shapes.",
+        "wrong": {
+          "A": "Thread is what she weaves with, not the pattern.",
+          "C": "Nura sits by Layla, but that is not what pattern means.",
+          "D": "The big day is the brother coming home."
+        }
+      },
+      {
+        "stem": "What does the story show about Nura?",
+        "options": [
+          "She gets angry fast.",
+          "She wants to weave alone.",
+          "She does not like old things.",
+          "She is kind and patient."
+        ],
+        "answer": "D",
+        "skill": "inference",
+        "why": "Nura sits by Layla and shows her slowly again and again, so she is kind and patient.",
+        "wrong": {
+          "A": "She does not get angry in the story.",
+          "B": "She wants to teach Layla.",
+          "C": "The pattern is old, and she wants Layla to learn it."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "How long had Layla's brother been away?",
+        "options": [
+          "A month",
+          "A year",
+          "A week",
+          "Three years"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The text says her brother was coming home after a year away.",
+        "wrong": {
+          "A": "A month is not mentioned.",
+          "C": "A week is not mentioned.",
+          "D": "Three years is not mentioned."
+        }
+      },
+      {
+        "stem": "In the story, the word eager means —",
+        "options": [
+          "wanting to do it a lot",
+          "afraid to try it",
+          "tired of doing it",
+          "able to do it already"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "Layla was eager to learn, so she wanted very much to learn the pattern.",
+        "wrong": {
+          "B": "Layla was not afraid to try.",
+          "C": "She had just started and was not tired of it.",
+          "D": "She found the pattern hard, so she could not do it yet."
+        }
+      },
+      {
+        "stem": "How did Layla's diamonds start to look right?",
+        "options": [
+          "Nura wove them for her.",
+          "She used new thread.",
+          "Her brother helped her.",
+          "She practiced and counted."
+        ],
+        "answer": "D",
+        "skill": "cause-effect",
+        "why": "With Nura's help, Layla practiced again and again and counted every thread with care.",
+        "wrong": {
+          "A": "Layla wove the pattern herself.",
+          "B": "New thread is not mentioned.",
+          "C": "Her brother was away."
+        }
+      },
+      {
+        "stem": "What does Nura mean by saying patience and practice were the true secret?",
+        "options": [
+          "The craft has a hidden trick.",
+          "Only old weavers can learn it.",
+          "Skill grows from steady effort.",
+          "The pattern is easy to make."
+        ],
+        "answer": "C",
+        "skill": "inference",
+        "why": "Layla improved by practicing slowly and patiently, so skill comes from steady effort.",
+        "wrong": {
+          "A": "Nura says there is no trick, only patience and practice.",
+          "B": "Layla learned it too.",
+          "D": "The pattern was harder than Layla expected."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "How did each weaver change the pattern over time?",
+        "options": [
+          "She made it much bigger.",
+          "She used a new color each time.",
+          "She added a subtle touch.",
+          "She wove it with her eyes closed."
+        ],
+        "answer": "C",
+        "skill": "detail",
+        "why": "The text says each weaver added her own subtle touch and refinement over time.",
+        "wrong": {
+          "A": "Size is not mentioned.",
+          "B": "New colors are not mentioned.",
+          "D": "This is not mentioned."
+        }
+      },
+      {
+        "stem": "In the story, Nura refrained from scolding Layla. This means Nura —",
+        "options": [
+          "held back from scolding",
+          "scolded her very gently",
+          "praised her loudly",
+          "told her to stop"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "Nura did not scold; she sat beside Layla and showed her the technique instead.",
+        "wrong": {
+          "B": "She did not scold at all.",
+          "C": "Loud praise is not mentioned.",
+          "D": "She helped Layla continue."
+        }
+      },
+      {
+        "stem": "What made Layla nearly abandon the project?",
+        "options": [
+          "Her brother came home early.",
+          "The thread ran out.",
+          "Nura told her to stop.",
+          "She felt she lacked the skill."
+        ],
+        "answer": "D",
+        "skill": "cause-effect",
+        "why": "Frustrated, she was convinced she simply lacked the necessary skill, so she nearly gave up.",
+        "wrong": {
+          "A": "Her brother had not yet arrived.",
+          "B": "Running out of thread is not mentioned.",
+          "C": "Nura helped her go on."
+        }
+      },
+      {
+        "stem": "Why does the author say a single mistake was easy to spot from across the room?",
+        "options": [
+          "To show the house was very small",
+          "To show the pattern needs great care",
+          "To show Nura had poor eyesight",
+          "To show the walls were bare"
+        ],
+        "answer": "B",
+        "skill": "inference",
+        "why": "If one mistake is easy to see, the pattern must be made with great precision, which is why it is hard to master.",
+        "wrong": {
+          "A": "The house is described as modest, but this detail is about the pattern.",
+          "C": "Eyesight is not mentioned.",
+          "D": "The walls held textiles, so they were not bare."
+        }
+      }
+    ]
   }
 }

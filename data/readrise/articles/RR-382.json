@@ -614,5 +614,217 @@
       ],
       "modelAnswer": "I agree that this lesson applies well beyond animals. In the story, Lama's perseverance and empathy let her notice a thorn that the rest of the family had missed while simply pulling the rope and calling Saqr's name. Someone might argue that in a real emergency there is no time for such patience, but the story suggests the opposite: it was precisely because Lama slowed down and looked carefully, rather than reacting with frustration, that the real problem was found and solved quickly and safely."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "Who pulled the rope to make Saqr walk?",
+        "options": [
+          "Their mother",
+          "Lama",
+          "Yousef",
+          "Their father"
+        ],
+        "answer": "D",
+        "skill": "detail",
+        "why": "The text says their father pulled the rope.",
+        "wrong": {
+          "A": "Their mother called his name; she did not pull the rope.",
+          "B": "Lama looked at his feet later.",
+          "C": "Yousef gave Saqr some food."
+        }
+      },
+      {
+        "stem": "In the story, what does \"stubborn\" mean?",
+        "options": [
+          "Will not do what is asked",
+          "Likes to eat all day long",
+          "Likes to run very fast",
+          "Is too sleepy to walk far"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "Lama says Saqr is stubborn because he would not walk when everyone asked him to.",
+        "wrong": {
+          "B": "Saqr ate the food but still would not walk.",
+          "C": "Saqr would not move at all.",
+          "D": "Sleepiness is not mentioned."
+        }
+      },
+      {
+        "stem": "What did the family do when Saqr walked again?",
+        "options": [
+          "They went home at once.",
+          "They ate all the dates.",
+          "They laughed and clapped.",
+          "They gave Saqr a new name."
+        ],
+        "answer": "C",
+        "skill": "detail",
+        "why": "The text says the whole family laughed and clapped when Saqr walked again.",
+        "wrong": {
+          "A": "They kept going on their trip.",
+          "B": "Saqr ate the food earlier.",
+          "D": "Saqr kept his name."
+        }
+      },
+      {
+        "stem": "Why did Yousef pull out the thorn gently?",
+        "options": [
+          "So Saqr would run away",
+          "So he would not hurt Saqr",
+          "So Lama could take a nap",
+          "So the thorn would stay in"
+        ],
+        "answer": "B",
+        "skill": "inference",
+        "why": "The thorn was sharp and in Saqr's foot, so pulling gently would not hurt him more.",
+        "wrong": {
+          "A": "The family wanted Saqr to walk with them, not run away.",
+          "C": "Lama was holding Saqr's foot area and helping.",
+          "D": "The goal was to take the thorn out."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "How long did Saqr walk before he stopped?",
+        "options": [
+          "Only a few minutes",
+          "The whole day long",
+          "Almost one hour",
+          "More than two hours"
+        ],
+        "answer": "C",
+        "skill": "detail",
+        "why": "The text says he walked steadily for almost an hour before he stopped.",
+        "wrong": {
+          "A": "The text says almost an hour, not minutes.",
+          "B": "He stopped after almost an hour.",
+          "D": "It was less than an hour."
+        }
+      },
+      {
+        "stem": "In the story, what does the word \"examined\" mean?",
+        "options": [
+          "Washed with warm water",
+          "Looked at closely",
+          "Covered with soft cloth",
+          "Tied up with a rope"
+        ],
+        "answer": "B",
+        "skill": "vocabulary",
+        "why": "Lama knelt and examined each foot carefully, watching for anything that might explain his discomfort.",
+        "wrong": {
+          "A": "Washing is not mentioned.",
+          "C": "No cloth is mentioned.",
+          "D": "The father tugged on the rope, but nobody tied the feet."
+        }
+      },
+      {
+        "stem": "Why did Saqr shifting his weight make Lama want to look more closely?",
+        "options": [
+          "It showed that he was ready to run",
+          "It meant that he wanted more dates",
+          "It showed he was tired of the bags",
+          "It hinted that something might be wrong"
+        ],
+        "answer": "D",
+        "skill": "inference",
+        "why": "Lama saw him shifting his weight and decided to check before giving up, which suggests she sensed a problem.",
+        "wrong": {
+          "A": "He would not walk at all.",
+          "B": "He had already eaten the dates.",
+          "C": "The text does not say he was tired of the bags."
+        }
+      },
+      {
+        "stem": "Why did the family laugh with relief at the end?",
+        "options": [
+          "They learned Saqr was not just stubborn",
+          "They had reached the end of the trip",
+          "They had eaten all the sweet dates",
+          "They had found another camel to ride"
+        ],
+        "answer": "A",
+        "skill": "cause-effect",
+        "why": "The family realized Saqr had not been stubborn and that something was wrong, which was now fixed.",
+        "wrong": {
+          "B": "The trip was continuing.",
+          "C": "The dates were not the reason.",
+          "D": "They kept Saqr as their camel."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "In the story, what does the word \"perseverance\" mean?",
+        "options": [
+          "Hurrying to finish a task",
+          "Refusing to give up",
+          "Asking someone else for help",
+          "Keeping calm when afraid"
+        ],
+        "answer": "B",
+        "skill": "vocabulary",
+        "why": "Lama kept examining Saqr instead of assuming he was difficult, which shows she did not give up.",
+        "wrong": {
+          "A": "Lama was patient, not hurrying.",
+          "C": "She and Yousef checked him themselves.",
+          "D": "Fear is not the focus here."
+        }
+      },
+      {
+        "stem": "What did Saqr do right after the thorn came out?",
+        "options": [
+          "He shook his foot and walked on",
+          "He lay down on the warm sand",
+          "He kicked at Yousef angrily",
+          "He walked slowly back toward home"
+        ],
+        "answer": "A",
+        "skill": "detail",
+        "why": "The camel lifted his foot, shook it, flicked his ears, and took a long, confident step forward.",
+        "wrong": {
+          "B": "He walked on instead of lying down.",
+          "C": "He flicked his ears in a happy gesture.",
+          "D": "He walked forward across the desert."
+        }
+      },
+      {
+        "stem": "How could a thorn cause pain even though camels have padded feet?",
+        "options": [
+          "The padded feet are thin and weak in sand",
+          "Thorns on desert ground are as big as rocks",
+          "Camels step only on hard stones",
+          "A thorn can sometimes slip under the pad"
+        ],
+        "answer": "D",
+        "skill": "cause-effect",
+        "why": "The text says on rare occasions a thorn can slip beneath the tough pad and cause discomfort.",
+        "wrong": {
+          "A": "The pads are described as tough.",
+          "B": "Thorns are described as small and sharp.",
+          "C": "Camels walk on loose sand."
+        }
+      },
+      {
+        "stem": "What is the effect of Saqr happily eating the dates but still refusing to walk?",
+        "options": [
+          "It proves that Saqr wanted a longer rest",
+          "It shows that Yousef fed him too much",
+          "It rules out hunger and deepens the mystery",
+          "It shows that the family had run out of water"
+        ],
+        "answer": "C",
+        "skill": "inference",
+        "why": "Saqr ate the dates, so hunger was not the problem, which makes readers wonder what was wrong.",
+        "wrong": {
+          "A": "A longer rest is not mentioned.",
+          "B": "Overfeeding is not mentioned.",
+          "D": "The family had water and food."
+        }
+      }
+    ]
   }
 }

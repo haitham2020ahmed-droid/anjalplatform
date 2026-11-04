@@ -73,22 +73,23 @@ describe("round 4 — ReadRise", () => {
 
   // ------------------------------------------------------------------ 1. first try / stretch band
 
-  test("1 · stretch only after a reliable first try of 75%+ and only in a NEW question band (UI + server)", async () => {
+  test("1 · stretch after a reliable first try of 75%+ — round 5: also in the SAME band (as practice) (UI + server)", async () => {
     const s = st[0];
     await setLevelByTeacher(repo, admin, s.studentId!, 800, "", at(0)); // 800 MID → stretch 900 MID: same questions
     const a = await makeArticle(repo, "R4-1");
     await read(repo, s, a, 8, at(1));
     const card = (await studentLibrary(repo, s, {}, at(1, 1))).all.find((c) => c.id === a)!;
-    assert.equal(card.canStretch, false, "same band: no stretch button");
-    await assert.rejects(startRun(repo, s, a, { stretch: true }, at(1, 2)), /same questions/);
-    // a new band: 1000 MID → 1100 HIGH
+    assert.equal(card.canStretch, true, "round 5: the same band is offered too (as practice)");
+    const same = await read(repo, s, a, 8, at(1, 2), true);
+    assert.deepEqual([same.start.versionLevel, same.start.band, same.done.done!.stretchCounted], [900, "MID", "PRACTICE"]);
+    // a new band: 1000 MID → 1100 HIGH (counts fully, as before)
     await setLevelByTeacher(repo, admin, s.studentId!, 1000, "", at(2));
     const b = await makeArticle(repo, "R4-2");
     const first = await read(repo, s, b, 8, at(2, 1));
     assert.equal(first.done.done!.canStretch, true);
     const sv = await read(repo, s, b, 8, at(2, 2), true);
-    assert.deepEqual([sv.start.versionLevel, sv.start.band], [1100, "HIGH"]);
-    // a re-read never unlocks a stretch: only the first try does (an Unreliable or low first try → "Try a new article")
+    assert.deepEqual([sv.start.versionLevel, sv.start.band, sv.done.done!.stretchCounted], [1100, "HIGH", "FULL"]);
+    // a re-read never unlocks a stretch: only the first try does (an Unreliable or low first try → no stretch)
     const pure = stretchOffer([{ stretch: false, firstTry: false, step: "DONE", score: 100, band: "MID" }], 1000, [{ level: 1000 }, { level: 1100 }]);
     assert.equal(pure.ok, false);
     const bad = stretchOffer([{ stretch: false, firstTry: true, step: "DONE", score: 100, band: "MID", unreliable: true }], 1000, [{ level: 1000 }, { level: 1100 }]);
@@ -272,7 +273,9 @@ describe("round 4 — ReadRise", () => {
     const reader = readFileSync("src/components/readrise/reader.tsx", "utf8");
     const placement = readFileSync("src/components/readrise/placement.tsx", "utf8");
     assert.match(reader, /useT\(\)/); assert.match(placement, /useT\(\)/);
-    for (const x of ["Try a new article", "Read it again (practice)", "Submit my answers", "I finished reading — go to the activity ▶"]) assert.ok(reader.includes(`tr("${x}")`), x);
+    // round 5: the duplicate "Try a new article" button is gone (Back to ReadRise + Read next instead)
+    assert.ok(!reader.includes("Try a new article"));
+    for (const x of ["Back to ReadRise", "Read it again (practice)", "Submit my answers", "I finished reading — go to the activity ▶"]) assert.ok(reader.includes(`tr("${x}")`), x);
     for (const x of ["Not valid — retake", "Next passage ▶", "Read a short passage, then answer 3 questions."]) assert.ok(placement.includes(`t("${x}")`), x);
     assert.doesNotMatch(reader, />Submit my answers</);
   });

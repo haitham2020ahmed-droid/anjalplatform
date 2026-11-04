@@ -614,5 +614,217 @@
       ],
       "modelAnswer": "I disagree that recycling alone is enough to solve the problem of resource waste, because the article shows that recycling only manages waste after it has already been created rather than preventing it in the first place. One piece of evidence is that the entire recycling process still requires a considerable amount of energy and labor to collect, sort, wash, and reshape old materials, meaning it carries its own environmental cost even while it helps. A second piece of evidence is that reducing consumption stops the whole production cycle, including extraction of raw materials like trees, water, and metal ore, before it ever begins, which recycling can never fully replicate since it works with materials that were already manufactured. Because the hierarchy exists precisely to rank strategies by how much harm they prevent, treating recycling as a complete solution ignores the far greater benefit of simply using fewer finite resources from the start."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "What can an old can become when we recycle it?",
+        "options": [
+          "A new toy",
+          "A bottle of water",
+          "A new can",
+          "A cloth bag"
+        ],
+        "answer": "C",
+        "skill": "detail",
+        "why": "The text says an old can can be a new can.",
+        "wrong": {
+          "A": "A toy is not named as the result.",
+          "B": "A bottle of water is not named.",
+          "D": "A cloth bag is not named."
+        }
+      },
+      {
+        "stem": "In the article, what are \"resources\"?",
+        "options": [
+          "Things from land, like trees",
+          "Things that we throw in the trash",
+          "Toys that break very fast",
+          "Bags that we get at stores"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "The text gives trees and clean water as examples of resources.",
+        "wrong": {
+          "B": "Trash is what is left, not a resource.",
+          "C": "Toys are not described this way.",
+          "D": "Bags are not the resources named."
+        }
+      },
+      {
+        "stem": "What happens if we reduce first?",
+        "options": [
+          "We buy more toys",
+          "We use more trees",
+          "We lose the cans",
+          "We make less trash"
+        ],
+        "answer": "D",
+        "skill": "cause-effect",
+        "why": "The text says if we reduce first, we make less trash.",
+        "wrong": {
+          "A": "Reducing means buying less.",
+          "B": "Reducing saves trees.",
+          "C": "Cans are about recycling, not reducing."
+        }
+      },
+      {
+        "stem": "Sara wants to buy a toy that she does not need. Which R should she use?",
+        "options": [
+          "Recycle it right away",
+          "Reduce, and not buy it",
+          "Reuse it again and again",
+          "Recycle it two times"
+        ],
+        "answer": "B",
+        "skill": "inference",
+        "why": "Reduce means do not buy things you do not need.",
+        "wrong": {
+          "A": "She has no old thing to recycle yet.",
+          "C": "She has no toy to reuse yet.",
+          "D": "There is nothing to recycle."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "What does a student reuse each morning before school?",
+        "options": [
+          "A paper bag",
+          "A sturdy cloth bag",
+          "A durable bottle",
+          "A favorite toy"
+        ],
+        "answer": "C",
+        "skill": "detail",
+        "why": "The text says a student reuses a durable bottle each morning before school.",
+        "wrong": {
+          "A": "A paper bag is not reused in the text.",
+          "B": "The cloth bag is the shopper's example.",
+          "D": "A toy is only named in the opening."
+        }
+      },
+      {
+        "stem": "In the article, what is a \"hierarchy\"?",
+        "options": [
+          "A list put in order of importance",
+          "A group of students at school",
+          "A machine that melts metal",
+          "A bag that can be used again"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "The order of the three Rs is a hierarchy because the steps matter in order, with reduce first.",
+        "wrong": {
+          "B": "The word is not about students.",
+          "C": "Melting is part of recycling, not a hierarchy.",
+          "D": "A reusable bag is an example of reuse."
+        }
+      },
+      {
+        "stem": "Why does recycling still come last, according to the article?",
+        "options": [
+          "Cans can never be melted",
+          "It still takes energy and work",
+          "It makes more trash than reuse",
+          "Only experts can recycle it"
+        ],
+        "answer": "B",
+        "skill": "cause-effect",
+        "why": "The text says the whole job still takes real energy and careful work.",
+        "wrong": {
+          "A": "The text says cans can be melted down.",
+          "C": "The text says recycling truly helps the planet.",
+          "D": "Anyone can follow the three Rs."
+        }
+      },
+      {
+        "stem": "What does the article suggest about people who know the words reduce, reuse, and recycle?",
+        "options": [
+          "Few know that the order matters",
+          "All of them follow the right order",
+          "None of them buy new things",
+          "They all know how to make cans"
+        ],
+        "answer": "A",
+        "skill": "inference",
+        "why": "The text says most students know the words, but far fewer realize that the order matters.",
+        "wrong": {
+          "B": "The text says few realize the order matters.",
+          "C": "Nothing says they never buy things.",
+          "D": "Making cans is not discussed."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "How can an old can be recycled, according to the article?",
+        "options": [
+          "It can be washed and used again and again",
+          "It can be melted down into a new can",
+          "It can be buried so it feeds the soil",
+          "It can be sold to a shop as a bottle"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The text says an old can can be melted down and shaped into a new can.",
+        "wrong": {
+          "A": "Washing and using it again would be reuse.",
+          "C": "Burying it is not mentioned.",
+          "D": "Selling it is not mentioned."
+        }
+      },
+      {
+        "stem": "In the last part of the fifth paragraph, what does \"mitigate\" harm mean?",
+        "options": [
+          "To make harm worse",
+          "To hide the harm",
+          "To cause harm again",
+          "To make harm smaller"
+        ],
+        "answer": "D",
+        "skill": "vocabulary",
+        "why": "Reducing first means less trash and pollution, so harm becomes smaller.",
+        "wrong": {
+          "A": "Reducing makes harm less, not worse.",
+          "B": "The point is to lessen harm, not to hide it.",
+          "C": "Reducing prevents harm instead of causing it."
+        }
+      },
+      {
+        "stem": "How is reuse different from recycle?",
+        "options": [
+          "Reuse melts items; recycle uses them again",
+          "Reuse repeats the item; recycle remakes it",
+          "Both mean buying less of everything",
+          "Both mean throwing items in the trash"
+        ],
+        "answer": "B",
+        "skill": "compare",
+        "why": "Reuse means using the same object again, while recycle processes a used item so its material makes a new product.",
+        "wrong": {
+          "A": "This reverses the two ideas.",
+          "C": "Buying less describes reduce.",
+          "D": "Neither idea means simply throwing things out."
+        }
+      },
+      {
+        "stem": "According to the article, why does making new products create pollution?",
+        "options": [
+          "Because people buy far too little",
+          "Because shoppers reuse their cloth bags",
+          "Trash is made at many steps in the process",
+          "Because recycling happens much too soon"
+        ],
+        "answer": "C",
+        "skill": "cause-effect",
+        "why": "The text says producing new products generates trash and pollution throughout, from digging to final shipping.",
+        "wrong": {
+          "A": "Buying less would reduce pollution.",
+          "B": "Reusing bags reduces waste.",
+          "D": "Recycling is not the cause of pollution."
+        }
+      }
+    ]
   }
 }

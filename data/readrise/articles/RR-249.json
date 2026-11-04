@@ -614,5 +614,217 @@
       ],
       "modelAnswer": "Rosalind Franklin deserves to be called a meticulous scientist because of the painstaking precision of her work. She trained as a chemist, then became an expert in X-ray crystallography, carefully measuring diffraction patterns from coal and later from DNA fibers. Her famous Photo 51 showed, with exact measurements, that DNA has a twisted helix shape, and this evidence became an essential contribution to the discovery of DNA's structure in 1953.\n\nHowever, for many years her contribution was largely overlooked, since the two scientists who published the final model received far more public credit and, eventually, the Nobel Prize, which cannot be awarded after death. Furthermore, Rosalind's meticulous methods did not stop with DNA; she went on to lead important research on the structure of viruses. Today, her legacy as a precise, persistent scientist is fully recognized, showing that credit for important contributions can sometimes take many years to catch up with the truth."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "What did Rosalind learn to use at school?",
+        "options": [
+          "Paint brushes",
+          "X-rays",
+          "Small boats",
+          "Old maps"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The article says she learned to use X-rays.",
+        "wrong": {
+          "A": "Paint brushes are not mentioned.",
+          "C": "Boats are not mentioned.",
+          "D": "Maps are not mentioned."
+        }
+      },
+      {
+        "stem": "In the article, the word discovery means —",
+        "options": [
+          "a hard school test",
+          "a kind of old film",
+          "a clear hard crystal",
+          "something new found"
+        ],
+        "answer": "D",
+        "skill": "vocabulary",
+        "why": "Building a model of DNA was a huge discovery, new knowledge for the world.",
+        "wrong": {
+          "A": "A test is not meant here.",
+          "B": "Film is what the marks were on.",
+          "C": "A crystal is a solid, not a discovery."
+        }
+      },
+      {
+        "stem": "What did the marks on the film show?",
+        "options": [
+          "The shape inside it",
+          "The age of a scientist",
+          "The weather in London",
+          "The color of the rays"
+        ],
+        "answer": "A",
+        "skill": "cause-effect",
+        "why": "The article says the marks made by X-rays showed the shape inside.",
+        "wrong": {
+          "B": "Age is not shown by the marks.",
+          "C": "Weather is not mentioned.",
+          "D": "X-rays cannot be seen, so they have no color."
+        }
+      },
+      {
+        "stem": "Other people used her photograph to build a model of DNA. What does this tell you about her work?",
+        "options": [
+          "Her old film is still in a shop",
+          "Her work helped a big discovery",
+          "Her school is still open",
+          "Her crystals are still hard"
+        ],
+        "answer": "B",
+        "skill": "inference",
+        "why": "Others used her photograph and careful work to build a model of DNA, which was a great discovery.",
+        "wrong": {
+          "A": "The text does not say her film is in a shop.",
+          "C": "Her school is not the point.",
+          "D": "The hardness of crystals is not what this shows."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "Where did Rosalind work when she studied coal?",
+        "options": [
+          "London",
+          "Cairo",
+          "Berlin",
+          "Paris"
+        ],
+        "answer": "D",
+        "skill": "detail",
+        "why": "The article says she worked at a lab in Paris when she first studied coal.",
+        "wrong": {
+          "A": "London is where she later studied DNA.",
+          "B": "Cairo is not mentioned.",
+          "C": "Berlin is not mentioned."
+        }
+      },
+      {
+        "stem": "In the article, the word precise means —",
+        "options": [
+          "exact",
+          "slow",
+          "noisy",
+          "small"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "Her precise marks gave the exact size of the DNA shape.",
+        "wrong": {
+          "B": "Speed is not meant.",
+          "C": "Sound is not meant.",
+          "D": "Precise is about exactness, not size."
+        }
+      },
+      {
+        "stem": "What did Rosalind study right after her DNA work?",
+        "options": [
+          "Coal",
+          "Crystals only",
+          "Viruses",
+          "Photographs"
+        ],
+        "answer": "C",
+        "skill": "sequence",
+        "why": "After her DNA work, she moved to a new lab and studied the shape of viruses.",
+        "wrong": {
+          "A": "Coal came before DNA.",
+          "B": "Crystals were part of her method earlier.",
+          "D": "Photographs were her tool, not her next subject."
+        }
+      },
+      {
+        "stem": "Why does the author say she was \"only 37 years old\"?",
+        "options": [
+          "To show she was too old to work",
+          "To show she died young",
+          "To show she was a child",
+          "To show she went to school late"
+        ],
+        "answer": "B",
+        "skill": "inference",
+        "why": "The word only shows that 37 is a young age to die.",
+        "wrong": {
+          "A": "37 is not called old.",
+          "C": "She was an adult.",
+          "D": "School timing is not discussed."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "In the article, the word meticulous means —",
+        "options": [
+          "careful and exact",
+          "shy and very quiet",
+          "fast and very noisy",
+          "famous and rich"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "Her meticulous measurements and calculations show that she was careful and exact.",
+        "wrong": {
+          "B": "Shyness is not discussed.",
+          "C": "Her work was careful, not fast and noisy.",
+          "D": "She was not famous in her lifetime for this."
+        }
+      },
+      {
+        "stem": "What did Rosalind work with for many months?",
+        "options": [
+          "Thin pieces of coal",
+          "Large crystals of salt",
+          "Photos of viruses",
+          "Fragile DNA fibers"
+        ],
+        "answer": "D",
+        "skill": "detail",
+        "why": "The article says she worked for many months with thin, fragile fibers of DNA.",
+        "wrong": {
+          "A": "Coal was her first topic, not the fibers.",
+          "B": "Salt crystals are not mentioned.",
+          "C": "Virus work came later."
+        }
+      },
+      {
+        "stem": "What can a researcher learn from a diffraction pattern?",
+        "options": [
+          "The age of a crystal",
+          "The name of a scientist",
+          "The shape of a molecule",
+          "The price of a laboratory"
+        ],
+        "answer": "C",
+        "skill": "cause-effect",
+        "why": "Studying the pattern lets a researcher calculate the shape of the molecule inside.",
+        "wrong": {
+          "A": "Age is not mentioned.",
+          "B": "Names are not shown in a pattern.",
+          "D": "Price is not mentioned."
+        }
+      },
+      {
+        "stem": "Why does the author mention that women were given limited chances in science at that time?",
+        "options": [
+          "To say she did not like science",
+          "To show she succeeded anyway",
+          "To say women never studied physics",
+          "To show she was given many chances"
+        ],
+        "answer": "B",
+        "skill": "inference",
+        "why": "The phrase says she earned outstanding marks even though chances were limited, so she overcame obstacles.",
+        "wrong": {
+          "A": "She loved science.",
+          "C": "She studied chemistry and physics there.",
+          "D": "The chances were limited, not many."
+        }
+      }
+    ]
   }
 }

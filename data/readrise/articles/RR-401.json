@@ -614,5 +614,217 @@
       ],
       "modelAnswer": "I agree that patient, meticulous teaching matters more than natural skill when learning something new. Robi was not naturally skilled at his chores; his settings were not calibrated, and his early attempts led to soaked soil and a nearly vacuumed toy car. What changed his performance was not some sudden burst of natural ability, but Mom and Dad's diligent, patient demonstrations of the correct way to do each task. By the frantic morning, Robi applied those lessons calmly instead of feeling overwhelmed, which shows that steady teaching built his competence. Someone might argue that Robi's own effort and willingness to keep trying mattered just as much, and that is fair, but without the family's patient guidance, his enthusiasm alone would likely have led to the same mistakes again and again."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "What does Mom use to show Robi a better way to water?",
+        "options": [
+          "A small cup",
+          "A big bucket",
+          "A long hose",
+          "A new plant"
+        ],
+        "answer": "A",
+        "skill": "detail",
+        "why": "The text says Mom uses a small cup.",
+        "wrong": {
+          "B": "A bucket is not mentioned.",
+          "C": "A hose is not mentioned.",
+          "D": "A new plant is not mentioned."
+        }
+      },
+      {
+        "stem": "What does Omar not find on the busy morning?",
+        "options": [
+          "His shoes",
+          "His toy car",
+          "His bag",
+          "His toast"
+        ],
+        "answer": "C",
+        "skill": "detail",
+        "why": "The text says Omar can not find his bag.",
+        "wrong": {
+          "A": "Lina is the one who cannot find her shoes.",
+          "B": "The toy car is the one Robi nearly vacuums up.",
+          "D": "The toast burns, but Omar does not look for it."
+        }
+      },
+      {
+        "stem": "In the story, what does \"vacuum\" mean?",
+        "options": [
+          "To water a plant",
+          "To cook some toast",
+          "To look for shoes",
+          "To clean the floor"
+        ],
+        "answer": "D",
+        "skill": "vocabulary",
+        "why": "Robi picks up a toy car when he vacuums, so vacuum means cleaning the floor.",
+        "wrong": {
+          "A": "Watering the plant is a different chore.",
+          "B": "Making toast is a different chore.",
+          "C": "Finding shoes is a different job."
+        }
+      },
+      {
+        "stem": "Why does Dad show Robi how to look first?",
+        "options": [
+          "So Robi will not pick up things by mistake",
+          "So Robi can find the burnt toast fast",
+          "So Robi can water the plant",
+          "So Robi will stop doing chores"
+        ],
+        "answer": "A",
+        "skill": "cause-effect",
+        "why": "Robi picked up a toy car by mistake, so Dad teaches him to look first.",
+        "wrong": {
+          "B": "Looking first is about the floor, not the toast.",
+          "C": "Watering was Mom's lesson.",
+          "D": "Dad wants Robi to keep helping."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "How did Mom show Robi how much water a plant needs?",
+        "options": [
+          "She gave him a book about plants",
+          "She turned off his power",
+          "She measured a small cup of water",
+          "She watered every plant herself"
+        ],
+        "answer": "C",
+        "skill": "detail",
+        "why": "The text says she measured a small cup of water so he could see how much a plant needs.",
+        "wrong": {
+          "A": "A book is not mentioned.",
+          "B": "Turning off his power is not mentioned.",
+          "D": "She showed him, so he could learn it himself."
+        }
+      },
+      {
+        "stem": "In the story, the word \"patiently\" means —",
+        "options": [
+          "quickly and in a rush",
+          "calmly without getting upset",
+          "loudly with a strong voice",
+          "secretly when no one is near"
+        ],
+        "answer": "B",
+        "skill": "vocabulary",
+        "why": "Mom does not get upset and patiently shows Robi the right way.",
+        "wrong": {
+          "A": "Mom kneels beside him and shows him slowly.",
+          "C": "She is not shown as loud.",
+          "D": "She teaches him where he can see."
+        }
+      },
+      {
+        "stem": "Why did Robi nearly suck up Omar's toy car?",
+        "options": [
+          "Omar threw the toy car right at him",
+          "The car was in the kitchen",
+          "Dad told him to pick it up",
+          "His sensors were not set correctly yet"
+        ],
+        "answer": "D",
+        "skill": "cause-effect",
+        "why": "The text says his sensors were not set correctly yet.",
+        "wrong": {
+          "A": "Omar did not throw it; it was under the couch.",
+          "B": "The car was under the couch.",
+          "C": "Dad had not taught him yet."
+        }
+      },
+      {
+        "stem": "What does the last paragraph suggest about learning?",
+        "options": [
+          "It takes many tries and small mistakes",
+          "It happens all in one single day",
+          "It is always best to learn alone",
+          "It only works for robots and not kids"
+        ],
+        "answer": "A",
+        "skill": "inference",
+        "why": "After many small mistakes, Robi finally learned how to help the right way.",
+        "wrong": {
+          "B": "Robi needed many tries over several days.",
+          "C": "Mom and Dad helped Robi learn.",
+          "D": "The idea fits any learner, not just robots."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "Where did Robi find the missing shoes?",
+        "options": [
+          "Inside the kitchen toaster",
+          "Tucked under the couch",
+          "By the front door",
+          "In the kitchen sink"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The text says he found the shoes tucked under the couch.",
+        "wrong": {
+          "A": "The toaster is where the toast burned.",
+          "C": "The bag was found by the door, not the shoes.",
+          "D": "The kitchen sink is not mentioned."
+        }
+      },
+      {
+        "stem": "In the story, the word \"diligent\" most nearly means —",
+        "options": [
+          "lazy and slow",
+          "careless and loud",
+          "careful and hardworking",
+          "funny and silly"
+        ],
+        "answer": "C",
+        "skill": "vocabulary",
+        "why": "Robi kept trying again and again, improving with each diligent attempt.",
+        "wrong": {
+          "A": "He was improving, not lazy.",
+          "B": "He learned to be careful.",
+          "D": "The tries were serious, not silly."
+        }
+      },
+      {
+        "stem": "Why did water spill across the kitchen floor?",
+        "options": [
+          "Robi poured too much water into every pot",
+          "Mom dropped the small cup on the floor",
+          "The drainage trays had big holes in them",
+          "A pipe broke in the kitchen"
+        ],
+        "answer": "A",
+        "skill": "cause-effect",
+        "why": "He had not calibrated the setting, so he poured far too much water into each pot.",
+        "wrong": {
+          "B": "Mom measured the small cup later, as a lesson.",
+          "C": "The text says the trays were overwhelmed, not that they had holes.",
+          "D": "A pipe is not mentioned."
+        }
+      },
+      {
+        "stem": "The story says Dad was every bit as patient as Mom. What does this suggest about the family?",
+        "options": [
+          "Dad and Mom do not talk to each other",
+          "They both prefer to fix the mistakes alone",
+          "They are afraid of Robi's mistakes",
+          "Both parents respond to mistakes with patience"
+        ],
+        "answer": "D",
+        "skill": "inference",
+        "why": "Dad is just as patient as Mom, so both parents calmly teach Robi after his mistakes.",
+        "wrong": {
+          "A": "The text does not say they do not talk.",
+          "B": "They teach Robi, so they do not fix everything alone.",
+          "C": "They stay calm, so they are not afraid."
+        }
+      }
+    ]
   }
 }

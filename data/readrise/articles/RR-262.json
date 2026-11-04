@@ -614,5 +614,217 @@
       ],
       "modelAnswer": "I recommend that the government allow a moderate, carefully managed increase in visitors rather than a large, uncontrolled one. Conservation requires funding, and responsible tourism can help pay for ranger patrols and habitat protection that preserve biodiversity. Protected areas like large merged reserves show how combining land can better safeguard wildlife and ecosystems. The main challenge is keeping visitor numbers sustainable, since too many visitors can degrade fragile habitats even as they provide needed funding. A careful, sustainable balance protects both the reserve's biodiversity and its ability to welcome visitors for years to come."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "Why did the animals grow few long ago?",
+        "options": [
+          "Storms washed them away",
+          "People hunted and cut trees",
+          "The sea took their homes",
+          "They moved to the desert"
+        ],
+        "answer": "B",
+        "skill": "cause-effect",
+        "why": "The text says people hunted and cut down trees, and soon the animals grew few.",
+        "wrong": {
+          "A": "Storms are not mentioned.",
+          "C": "The sea is not said to take their homes.",
+          "D": "The text does not say they moved away."
+        }
+      },
+      {
+        "stem": "What kinds of land can a park cover?",
+        "options": [
+          "Only roads and towns",
+          "Only deep, blue water",
+          "Only farms and fields",
+          "Hills, sand, and more"
+        ],
+        "answer": "D",
+        "skill": "detail",
+        "why": "The text says a park covers hills, sand, and more.",
+        "wrong": {
+          "A": "Parks are wild land, not roads and towns.",
+          "B": "Some parks reach the sea, but they also cover land.",
+          "C": "Farms are not mentioned."
+        }
+      },
+      {
+        "stem": "In the article, what is a ranger?",
+        "options": [
+          "a wild animal in the hills",
+          "a big old tree in the park",
+          "a person who guards a park",
+          "a tall hill in the north"
+        ],
+        "answer": "C",
+        "skill": "vocabulary",
+        "why": "The article says rangers watch over parks and help keep them safe.",
+        "wrong": {
+          "A": "A ranger is a person, not an animal.",
+          "B": "A ranger is a person, not a tree.",
+          "D": "A ranger is a person, not a place."
+        }
+      },
+      {
+        "stem": "Why does the author say people must visit parks with care?",
+        "options": [
+          "To say that no one can visit a park",
+          "To say that rangers do all the work",
+          "To remind guests to help keep it safe",
+          "To say that animals like many guests"
+        ],
+        "answer": "C",
+        "skill": "author-purpose",
+        "why": "Just before this, the text says too many guests can hurt a park, so guests must be kind.",
+        "wrong": {
+          "A": "Guests can visit, but they must be kind.",
+          "B": "The author says everyone must help, not only rangers.",
+          "D": "The text says too many guests can hurt the park."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "According to the article, where are parks set up?",
+        "options": [
+          "Only inside big, busy cities",
+          "Where wildlife is rich and rare",
+          "Only next to farms and roads",
+          "Where there are no animals"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The text says parks are set up where wildlife is rich and rare, such as deserts, hills, and coasts.",
+        "wrong": {
+          "A": "Cities are not named as park sites.",
+          "C": "Farms are not mentioned.",
+          "D": "Parks protect wildlife, so they need animals."
+        }
+      },
+      {
+        "stem": "In the article, what does it mean to act in a \"responsible\" way?",
+        "options": [
+          "To run as fast as you can",
+          "To be careful and caring",
+          "To make a lot of noise",
+          "To go home very early"
+        ],
+        "answer": "B",
+        "skill": "vocabulary",
+        "why": "Visitors must follow the rules and respect the land, which is a careful and caring way to act.",
+        "wrong": {
+          "A": "Speed is not the point.",
+          "C": "Noise would bother wildlife.",
+          "D": "Leaving early is not mentioned."
+        }
+      },
+      {
+        "stem": "The article says visitors can hurt \"the very land they came to see.\" What does this show?",
+        "options": [
+          "Visitors never like the parks",
+          "Parks are very easy to build",
+          "Loving a park can still harm it",
+          "Rangers want to have fewer parks"
+        ],
+        "answer": "C",
+        "skill": "inference",
+        "why": "Visitors come to enjoy the land, yet too many of them can damage it.",
+        "wrong": {
+          "A": "Visitors come because they want to see the park.",
+          "B": "The text does not say parks are easy to build.",
+          "D": "Rangers help guard parks, not remove them."
+        }
+      },
+      {
+        "stem": "Why does the author say some parks are larger than a whole small country?",
+        "options": [
+          "To show some parks are very large",
+          "To show countries are very small",
+          "To show parks are not important",
+          "To show rangers travel far"
+        ],
+        "answer": "A",
+        "skill": "author-purpose",
+        "why": "The comparison helps readers picture how large some parks can be.",
+        "wrong": {
+          "B": "The point is about parks, not countries.",
+          "C": "The text says parks protect wildlife, which is important.",
+          "D": "Ranger travel is not mentioned."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "In the article, what is an \"ecosystem\"?",
+        "options": [
+          "A rule that is posted at a gate",
+          "A kind of rare desert animal",
+          "A map that shows the whole park",
+          "Living things and land together"
+        ],
+        "answer": "D",
+        "skill": "vocabulary",
+        "why": "The text explains an ecosystem as the living things and land working together as one.",
+        "wrong": {
+          "A": "A posted rule is called a regulation.",
+          "B": "An ecosystem is not one animal.",
+          "C": "The text does not call it a map."
+        }
+      },
+      {
+        "stem": "What is true of some reserves, according to the article?",
+        "options": [
+          "They only protect one animal",
+          "They connect across borders",
+          "They are closed to all rangers",
+          "They are smaller than a town"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The text says some reserves are set up to connect across borders.",
+        "wrong": {
+          "A": "Parks protect a variety of living things.",
+          "C": "Rangers watch over parks.",
+          "D": "The text says many parks are larger than a small country."
+        }
+      },
+      {
+        "stem": "Why do rangers study the needs of local wildlife before setting new regulations?",
+        "options": [
+          "Because careless rules can harm animals",
+          "Because visitors ask them to do it",
+          "Because parks have too few animals now",
+          "Because rules are not needed at all"
+        ],
+        "answer": "A",
+        "skill": "cause-effect",
+        "why": "The text says careless rules can sometimes harm the very animals they protect.",
+        "wrong": {
+          "B": "Visitors are not given as the reason.",
+          "C": "The text says wildlife is rich and varied.",
+          "D": "The article says rules are needed."
+        }
+      },
+      {
+        "stem": "Why must visitors follow the posted regulations in a park?",
+        "options": [
+          "to help the park make money",
+          "to keep all visitors out",
+          "to protect the land and animals",
+          "to give the rangers a rest"
+        ],
+        "answer": "C",
+        "skill": "cause-effect",
+        "why": "The article says visitors follow the rules to respect the habitat and limit harm to the park.",
+        "wrong": {
+          "A": "The rules are about protecting nature, not money.",
+          "B": "Visitors are allowed in; the rules guide them.",
+          "D": "Rangers still watch over the park."
+        }
+      }
+    ]
   }
 }

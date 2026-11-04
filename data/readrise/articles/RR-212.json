@@ -614,5 +614,217 @@
       ],
       "modelAnswer": "Norman Woodland and Bernard Silver developed the barcode in 1952, hoping to create a universal code that any retailer could use to look up prices accurately instead of typing them by hand. Decades later, Masahiro Hara invented the QR code in Japan during the 1990s so that factories could track car or engine parts more efficiently, and because a QR code can encode far more information than a barcode, including entire web addresses, it eventually found many more uses beyond factories."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "What does the number in a barcode tell the cashier?",
+        "options": [
+          "How old the box is",
+          "Where the shop is",
+          "The price of the thing",
+          "How big the scanner is"
+        ],
+        "answer": "C",
+        "skill": "detail",
+        "why": "The text says the lines stand for a number that tells the price of the product.",
+        "wrong": {
+          "A": "The text does not say the number shows the age of the box.",
+          "B": "The number is about the product, not the shop.",
+          "D": "The number has nothing to do with the scanner size."
+        }
+      },
+      {
+        "stem": "What must happen so the scanner can read the lines?",
+        "options": [
+          "The light bounces back",
+          "The cashier types a price",
+          "The box is put in water",
+          "The lines turn into squares"
+        ],
+        "answer": "A",
+        "skill": "inference",
+        "why": "The text says the scanner shines light and the light bounces back, so the code can be read.",
+        "wrong": {
+          "B": "Typing prices is the old way, before barcodes.",
+          "C": "The text never says the box goes in water.",
+          "D": "Squares are a different kind of code."
+        }
+      },
+      {
+        "stem": "In the article, what is a product?",
+        "options": [
+          "A kind of scanner",
+          "A shop worker",
+          "A type of phone",
+          "A thing for sale"
+        ],
+        "answer": "D",
+        "skill": "vocabulary",
+        "why": "The text says the number tells the price of the thing, and this is called the product.",
+        "wrong": {
+          "A": "The scanner reads the code, but it is not the product.",
+          "B": "The cashier is the shop worker.",
+          "C": "A phone scans a QR code but is not called the product."
+        }
+      },
+      {
+        "stem": "How does a QR code look different from a barcode?",
+        "options": [
+          "It has long red lines",
+          "It has small black squares",
+          "It has only one thick line",
+          "It has no black color"
+        ],
+        "answer": "B",
+        "skill": "compare",
+        "why": "The text says a barcode is made of lines and a QR code is made of small black squares.",
+        "wrong": {
+          "A": "The text does not mention red lines.",
+          "C": "A barcode has many thick and thin lines.",
+          "D": "The QR code is black."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "Who first got the barcode idea while drawing in beach sand?",
+        "options": [
+          "Bernard Silver",
+          "Norman Woodland",
+          "A tired cashier",
+          "A store owner"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The text says Woodland got the idea while drawing lines in beach sand with his fingers.",
+        "wrong": {
+          "A": "Silver worked with Woodland, but Woodland drew in the sand.",
+          "C": "The cashier is only named as the person who typed prices.",
+          "D": "The text does not mention a store owner."
+        }
+      },
+      {
+        "stem": "Why does the scanner send the number to the store's database?",
+        "options": [
+          "To clean the laser light",
+          "To tell the cashier a story",
+          "To keep the line pattern safe",
+          "To find an accurate price"
+        ],
+        "answer": "D",
+        "skill": "cause-effect",
+        "why": "The text says the number is sent to the database for an accurate price.",
+        "wrong": {
+          "A": "The text does not say the database cleans the laser.",
+          "B": "The database gives a price, not a story.",
+          "C": "The database is used to find the price, not to protect the lines."
+        }
+      },
+      {
+        "stem": "In the article, what does accurate mean?",
+        "options": [
+          "Right, with no errors",
+          "Very fast and loud",
+          "Easy to carry back home",
+          "Cheap and brand new"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "The text says typing was not accurate because a tired worker could press the wrong key.",
+        "wrong": {
+          "B": "Speed is a different idea from being accurate.",
+          "C": "Carrying is not mentioned with accurate.",
+          "D": "The word has nothing to do with cost."
+        }
+      },
+      {
+        "stem": "Why can a phone use a QR code to show a menu?",
+        "options": [
+          "The code is bigger than a barcode",
+          "The scanner shines a bright laser",
+          "The code can hold a web address",
+          "The phone has a tiny database"
+        ],
+        "answer": "C",
+        "skill": "inference",
+        "why": "A QR code can hold a web address, so a phone camera can scan it and open a page such as a menu.",
+        "wrong": {
+          "A": "The text does not say a QR code is bigger.",
+          "B": "A laser is used by a barcode scanner, not by a phone camera.",
+          "D": "A database is used by a store, not a phone, in this text."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "Besides the exact item, what else does a barcode number identify?",
+        "options": [
+          "The name of the cashier",
+          "The color of the store",
+          "The date it was sold",
+          "The product's manufacturer"
+        ],
+        "answer": "D",
+        "skill": "detail",
+        "why": "The text says the number identifies the item, its manufacturer, and often its size or color.",
+        "wrong": {
+          "A": "The cashier is not named in the barcode.",
+          "B": "The text says the item may have a color, not the store.",
+          "C": "The sale date is not mentioned."
+        }
+      },
+      {
+        "stem": "In the article, what does the word decode mean?",
+        "options": [
+          "To read a pattern as a number",
+          "To print black lines on a box",
+          "To type a price in by hand",
+          "To pay for an item at a till"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "The text says the computer decodes the pattern into a number almost instantly.",
+        "wrong": {
+          "B": "Printing is how the pattern is made, not decoded.",
+          "C": "Typing by hand is the old method.",
+          "D": "Paying is done after the price is found."
+        }
+      },
+      {
+        "stem": "What does \"is said to have\" suggest about the story of the sand?",
+        "options": [
+          "It was filmed by a cashier",
+          "It happened at a supermarket",
+          "It is a list of facts and dates",
+          "It may not be fully proven"
+        ],
+        "answer": "D",
+        "skill": "inference",
+        "why": "The phrase \"is said to have\" shows the story is told by people and may not be proven.",
+        "wrong": {
+          "A": "The text does not mention any film.",
+          "B": "The sand story was at a beach, not a supermarket.",
+          "C": "The phrase is not used for exact dates."
+        }
+      },
+      {
+        "stem": "What happened in 1953, the year after the barcode idea was developed?",
+        "options": [
+          "A pack of gum was scanned in a shop",
+          "The inventors got a patent",
+          "The QR code was invented in Japan",
+          "Barcodes were used in Ohio first"
+        ],
+        "answer": "B",
+        "skill": "sequence",
+        "why": "The text says the inventors developed it in 1952 and were granted a patent the next year.",
+        "wrong": {
+          "A": "The gum was scanned in 1974.",
+          "C": "The text does not give a date for the QR code.",
+          "D": "Barcodes were used in Ohio only in 1974."
+        }
+      }
+    ]
   }
 }

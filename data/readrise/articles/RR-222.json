@@ -614,5 +614,217 @@
       ],
       "modelAnswer": "I support the claim that many civilizations shaped the numbers we use today. Indian mathematicians invented the positional system with zero, building on earlier Brahmi numerals. Scholars in Baghdad, such as Al-Khwarizmi, studied and explained this system in influential treatises. Later, figures like Leonardo Fibonacci helped the numerals spread through Europe. Since each of these contributions came from a different time and place, the modern numeral system is clearly the result of many civilizations working across centuries, not one single inventor."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "How many signs did the new plan from India have?",
+        "options": [
+          "Five signs",
+          "Twelve signs",
+          "One hundred signs",
+          "Ten signs"
+        ],
+        "answer": "D",
+        "skill": "detail",
+        "why": "The text says India made a plan with just ten signs, from 0 to 9.",
+        "wrong": {
+          "A": "Five is the value of the Roman letter V, not the number of Indian signs.",
+          "B": "The text says ten signs, not twelve.",
+          "C": "One hundred is the size of the big flock, not the signs."
+        }
+      },
+      {
+        "stem": "Why did tally marks become a problem for big groups?",
+        "options": [
+          "Too many marks to make",
+          "The marks were hard to see",
+          "The sheep ran away from us",
+          "Rome had no letters yet"
+        ],
+        "answer": "A",
+        "skill": "cause-effect",
+        "why": "The text says one hundred sheep means a lot of marks, and marks got messy for big groups.",
+        "wrong": {
+          "B": "The text does not say the marks were hard to see.",
+          "C": "Running sheep are not mentioned.",
+          "D": "Rome used letters later, and that has nothing to do with the problem."
+        }
+      },
+      {
+        "stem": "In the article, what is a numeral?",
+        "options": [
+          "A kind of old book",
+          "A sign for a number",
+          "A man from Baghdad",
+          "A group of sheep"
+        ],
+        "answer": "B",
+        "skill": "vocabulary",
+        "why": "The text says each sign in the Indian plan is a numeral, so it is a sign for a number.",
+        "wrong": {
+          "A": "Books are what the wise men wrote.",
+          "C": "The wise men are people, not numerals.",
+          "D": "Sheep are what people counted."
+        }
+      },
+      {
+        "stem": "Who learned the plan from India and then wrote books?",
+        "options": [
+          "Roman sailors on ships",
+          "Sheep farmers in fields",
+          "Wise men in Baghdad",
+          "Clock makers in towns"
+        ],
+        "answer": "C",
+        "skill": "detail",
+        "why": "The text says wise men in Baghdad learned the plan, used it, and wrote books.",
+        "wrong": {
+          "A": "Sailors are not mentioned.",
+          "B": "Farmers are not said to write books.",
+          "D": "Clock makers are not mentioned."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "Where was the carved tally-mark bone found?",
+        "options": [
+          "In Rome",
+          "In Africa",
+          "In Baghdad",
+          "In Europe"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The text says the carved bone was found in Africa.",
+        "wrong": {
+          "A": "Rome is where letters were used for numbers.",
+          "C": "Baghdad is where wise men studied the Indian plan.",
+          "D": "Europe is where the new signs spread later."
+        }
+      },
+      {
+        "stem": "What does the word merchants mean in the article?",
+        "options": [
+          "People who carve old bones",
+          "People who write the books",
+          "People who guard the towns",
+          "People who buy and sell"
+        ],
+        "answer": "D",
+        "skill": "vocabulary",
+        "why": "The merchants did business and carried copies of the books west, so they bought and sold goods.",
+        "wrong": {
+          "A": "Carving bones was a way of making tally marks.",
+          "B": "The wise men in Baghdad wrote books.",
+          "C": "Guards are not mentioned."
+        }
+      },
+      {
+        "stem": "Why were the early number signs of Egypt and Babylon not very useful?",
+        "options": [
+          "They were slow to read",
+          "They were too short to write",
+          "They had a sign for zero",
+          "They were made in Rome"
+        ],
+        "answer": "A",
+        "skill": "cause-effect",
+        "why": "The text says these early signs were slow to read and hard to use for real math.",
+        "wrong": {
+          "B": "The text does not say they were short.",
+          "C": "Zero came from the Indian plan.",
+          "D": "The text says Egypt and Babylon made them."
+        }
+      },
+      {
+        "stem": "Why did people in Europe call the signs Arabic numbers?",
+        "options": [
+          "They were made in Arabia",
+          "They came from Arabic books",
+          "They were first used by sailors",
+          "They were printed on coins"
+        ],
+        "answer": "B",
+        "skill": "cause-effect",
+        "why": "The text says Europeans learned them from Arabic books, not straight from India.",
+        "wrong": {
+          "A": "The plan was built in India.",
+          "C": "Sailors are not mentioned.",
+          "D": "The coins are mentioned only today, not as the reason for the name."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "Which scholar praised the new numerals in a widely read book?",
+        "options": [
+          "Johannes Gutenberg",
+          "Al-Khwarizmi",
+          "Leonardo Fibonacci",
+          "Bi Sheng"
+        ],
+        "answer": "C",
+        "skill": "detail",
+        "why": "The text says the scholar Leonardo Fibonacci praised the numerals in a widely read book of his own.",
+        "wrong": {
+          "A": "Gutenberg is not in this text.",
+          "B": "Al-Khwarizmi wrote a famous book in Baghdad, but Fibonacci praised the numerals in Europe.",
+          "D": "Bi Sheng is not in this text."
+        }
+      },
+      {
+        "stem": "In the article, what does the word resisted mean?",
+        "options": [
+          "Pushed back against it",
+          "Quickly welcomed it",
+          "Wrote a book about it",
+          "Carried it to Europe"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "The merchants trusted their old counting boards, so they pushed back against the change at first.",
+        "wrong": {
+          "B": "They did not welcome it at first.",
+          "C": "The scholars wrote books, not the merchants who resisted.",
+          "D": "Merchants carried copies west, but that is not what resisted means."
+        }
+      },
+      {
+        "stem": "Why did early numeral systems in Egypt and Babylon stay hard to use?",
+        "options": [
+          "They had too many zeros",
+          "They were slow to read and use",
+          "They were made of bone",
+          "They were too short to count"
+        ],
+        "answer": "B",
+        "skill": "cause-effect",
+        "why": "The text says these early schemes were slow to read and even slower to use for arithmetic.",
+        "wrong": {
+          "A": "Zero came later in India.",
+          "C": "The bone was a tally-mark tool, not an Egyptian scheme.",
+          "D": "The text does not say they were too short."
+        }
+      },
+      {
+        "stem": "Why was sifr, meaning empty, a fitting name for zero?",
+        "options": [
+          "Zero was found in an empty book",
+          "Zero was shaped like a bowl",
+          "Zero was used only in Africa",
+          "Zero stands for nothing at all"
+        ],
+        "answer": "D",
+        "skill": "inference",
+        "why": "The text says zero itself meant nothing at all, so the word for empty suits it.",
+        "wrong": {
+          "A": "The text does not say zero was found in an empty book.",
+          "B": "The shape of zero is not described.",
+          "C": "Africa is linked to the old tally bone, not to zero."
+        }
+      }
+    ]
   }
 }

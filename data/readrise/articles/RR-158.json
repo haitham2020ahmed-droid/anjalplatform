@@ -614,5 +614,217 @@
       ],
       "modelAnswer": "A disposable battery and a rechargeable battery both work by letting a chemical reaction at the electrode push electrons out to power a device, but the two types differ in what happens once their chemicals are used up. In a disposable battery, the reaction cannot be undone, so once its chemicals convert completely, it is simply thrown away. A rechargeable battery, however, can have its reaction reversed: a charger pushes energy and ions back through the electrolyte, which restores the electrode's original chemicals so the battery can be used over and over again."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "What is the flow of tiny bits through the wire called?",
+        "options": [
+          "A circuit",
+          "A current",
+          "A volt",
+          "A path"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The text says the flow of tiny bits is a current, and it makes the toy go.",
+        "wrong": {
+          "A": "The circuit is the loop, not the flow.",
+          "C": "A volt is not named in the text.",
+          "D": "The path is the loop the bits run through."
+        }
+      },
+      {
+        "stem": "What makes the stuff in the box start to change?",
+        "options": [
+          "Putting it in the sun",
+          "Hooking both to a toy",
+          "Shaking the box hard",
+          "Turning off the toy"
+        ],
+        "answer": "B",
+        "skill": "cause-effect",
+        "why": "The text says when both ends are hooked to a toy, the stuff in the box starts to change.",
+        "wrong": {
+          "A": "Sun is used to charge big packs in Saudi Arabia, not to start the change.",
+          "C": "Shaking is not mentioned.",
+          "D": "The change starts when the toy is hooked up."
+        }
+      },
+      {
+        "stem": "What do the tiny bits do after they run through the wire?",
+        "options": [
+          "They go back in the box.",
+          "They fill up the toy.",
+          "They turn into a plug.",
+          "They leave the toy forever."
+        ],
+        "answer": "A",
+        "skill": "sequence",
+        "why": "The text says the bits run through the wire and go back in the box.",
+        "wrong": {
+          "B": "The toy does not fill up with bits.",
+          "C": "The bits do not turn into a plug.",
+          "D": "They go back into the box, not away."
+        }
+      },
+      {
+        "stem": "The text says you can recharge a phone. What does recharge mean?",
+        "options": [
+          "throw it in the trash",
+          "turn it off at night",
+          "make it new and shiny",
+          "fill it with power again"
+        ],
+        "answer": "D",
+        "skill": "vocabulary",
+        "why": "When you recharge a phone, the charger pushes power back into the battery.",
+        "wrong": {
+          "A": "Recharging lets you keep using it.",
+          "B": "The phone gets power; it is not just turned off.",
+          "C": "The phone is not made new; its power is filled again."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "What are the two ends of a battery called?",
+        "options": [
+          "Cases",
+          "Circuits",
+          "Disks",
+          "Terminals"
+        ],
+        "answer": "D",
+        "skill": "detail",
+        "why": "The text says each battery has two ends, called terminals.",
+        "wrong": {
+          "A": "The case is the outside shell.",
+          "B": "A circuit is the full loop.",
+          "C": "Disks are what Volta stacked."
+        }
+      },
+      {
+        "stem": "In the article, the word sealed means —",
+        "options": [
+          "closed tight",
+          "very hot",
+          "brand new",
+          "easy to open"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "The chemicals are sealed in the case so they stay locked inside until used.",
+        "wrong": {
+          "B": "Heat is not the meaning.",
+          "C": "The sentence is not about age.",
+          "D": "Sealed is the opposite of easy to open."
+        }
+      },
+      {
+        "stem": "What does a charger do when you plug in a rechargeable phone?",
+        "options": [
+          "It makes the case bigger.",
+          "It stops the electrons.",
+          "It adds more zinc disks.",
+          "It pushes power back in."
+        ],
+        "answer": "D",
+        "skill": "cause-effect",
+        "why": "The charger pushes power back in and turns the chemicals back the way they were.",
+        "wrong": {
+          "A": "The case size does not change.",
+          "B": "A charger helps the reaction go back.",
+          "C": "Zinc disks were in Volta's battery."
+        }
+      },
+      {
+        "stem": "Why is Saudi Arabia building huge batteries that store power from the sun?",
+        "options": [
+          "So the sun will shine longer",
+          "So power is ready after sunset",
+          "So phones need no chargers",
+          "So Volta's battery works better"
+        ],
+        "answer": "B",
+        "skill": "cause-effect",
+        "why": "The batteries store sun power so it is ready when the sun goes down.",
+        "wrong": {
+          "A": "Batteries cannot make the sun shine.",
+          "C": "The text does not say this.",
+          "D": "Volta is only a part of the history."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "Where does the word voltage come from?",
+        "options": [
+          "The name of the scientist Volta",
+          "The name of an Italian city",
+          "The word for a zinc disk",
+          "The sound a lamp makes"
+        ],
+        "answer": "A",
+        "skill": "detail",
+        "why": "The text says the word voltage comes from Alessandro Volta's name.",
+        "wrong": {
+          "B": "Italy is where Volta came from, but the word comes from his name.",
+          "C": "Zinc disks are not linked to the word.",
+          "D": "No sound is mentioned."
+        }
+      },
+      {
+        "stem": "In the article, the word convert most nearly means —",
+        "options": [
+          "lock away",
+          "hold still",
+          "break open",
+          "change into"
+        ],
+        "answer": "D",
+        "skill": "vocabulary",
+        "why": "The battery starts to convert chemical energy into electricity, so it changes one form into another.",
+        "wrong": {
+          "A": "Locked-away energy is the stored form before it is used.",
+          "B": "The energy moves as a current.",
+          "C": "The case stays sealed."
+        }
+      },
+      {
+        "stem": "What is the job of the electrolyte inside a battery?",
+        "options": [
+          "It makes the lamp glow all by itself.",
+          "It keeps electrodes apart yet lets ions by.",
+          "It marks the plus and minus ends.",
+          "It charges the battery from a wall plug."
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The text says the electrolyte keeps the electrodes apart but still lets ions pass through.",
+        "wrong": {
+          "A": "The flow of electrons in the wire lights the lamp.",
+          "C": "The terminals have the plus and minus signs.",
+          "D": "The charger does that job."
+        }
+      },
+      {
+        "stem": "Why does a lamp stay dark if only one terminal is joined to it?",
+        "options": [
+          "The lamp has no electrodes at all.",
+          "The ions cannot reach the lamp.",
+          "The battery has no chemicals.",
+          "The circuit is not complete."
+        ],
+        "answer": "D",
+        "skill": "inference",
+        "why": "The reaction begins when wires form a complete path, so electrons need a full circuit to flow.",
+        "wrong": {
+          "A": "The article does not say this.",
+          "B": "Ions stay inside the battery.",
+          "C": "The chemicals are in the battery until used up."
+        }
+      }
+    ]
   }
 }

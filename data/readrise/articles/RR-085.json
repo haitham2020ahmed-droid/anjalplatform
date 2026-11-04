@@ -614,5 +614,217 @@
       ],
       "modelAnswer": "I support the claim that Al-Khwarizmi's ideas continue to operate all around us, because his contributions to algebra, numerals, and algorithms remain central to modern life. His systematic, step-by-step method for solving an equation became the foundation of algebra, a subject still taught in classrooms worldwide. He also wrote about the Indian number system, whose ten numerals, including zero, now form the basis of nearly every number written today. Finally, his own name, changed into the word algorithm, describes the instructions every computer follows, from phone apps to search engines. Since algebra, numerals, and algorithms are each so influential in daily life, this one scholar's ideas truly do operate all around us."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "What was the House of Wisdom full of?",
+        "options": [
+          "Books to read",
+          "Boats and sails",
+          "Gold and silver",
+          "Land to share"
+        ],
+        "answer": "A",
+        "skill": "detail",
+        "why": "The text says the House of Wisdom was full of books.",
+        "wrong": {
+          "B": "Boats are not mentioned there.",
+          "C": "Gold and silver are not mentioned.",
+          "D": "Folks used his steps to share land, but the House was full of books."
+        }
+      },
+      {
+        "stem": "Where did the name algebra come from?",
+        "options": [
+          "From a city in India",
+          "From the House of Wisdom door",
+          "From a word in his book",
+          "From a sum about land"
+        ],
+        "answer": "C",
+        "skill": "detail",
+        "why": "The text says a word in his book gave us the name algebra.",
+        "wrong": {
+          "A": "India is where the ten signs came from.",
+          "B": "A door is not mentioned.",
+          "D": "Sums about land are only an example of how his steps were used."
+        }
+      },
+      {
+        "stem": "We still use his ten signs today. What does this tell you?",
+        "options": [
+          "They are hard to learn",
+          "They came from Europe",
+          "They were lost long ago",
+          "They are very useful"
+        ],
+        "answer": "D",
+        "skill": "inference",
+        "why": "People still use the signs, so they must work well.",
+        "wrong": {
+          "A": "Nothing says they are hard.",
+          "B": "The signs came from India.",
+          "C": "We still use them, so they were not lost."
+        }
+      },
+      {
+        "stem": "In the article, an algorithm is —",
+        "options": [
+          "a big city",
+          "a list of steps",
+          "a book on land",
+          "a sign for zero"
+        ],
+        "answer": "B",
+        "skill": "vocabulary",
+        "why": "The text says algorithm means a list of steps.",
+        "wrong": {
+          "A": "Baghdad is the big city.",
+          "C": "His book on math is not an algorithm.",
+          "D": "Zero is one of the ten signs."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "What did the library at the House of Wisdom hold?",
+        "options": [
+          "Only books that were written in Latin",
+          "Large maps of the stars over Europe",
+          "Only the books written by al-Khwarizmi",
+          "Books from Greece, Persia, and India"
+        ],
+        "answer": "D",
+        "skill": "detail",
+        "why": "The text says its library held books from Greece, Persia, India, and other lands.",
+        "wrong": {
+          "A": "Latin came later, when books were sent to Europe.",
+          "B": "The text does not mention star maps of Europe.",
+          "C": "The library held books from many lands."
+        }
+      },
+      {
+        "stem": "How did the name algebra come about?",
+        "options": [
+          "It was the way people wrote his name",
+          "It came from al-jabr in his book's title",
+          "It was the name of the city of Baghdad",
+          "It was a word for ten signs from India"
+        ],
+        "answer": "B",
+        "skill": "cause-effect",
+        "why": "One word in the title of his book was al-jabr, and that word gave us the name algebra.",
+        "wrong": {
+          "A": "People wrote his name as Algoritmi, which gave algorithm.",
+          "C": "Baghdad is a city, not the source of the word.",
+          "D": "The ten signs are part of the number system, not the source."
+        }
+      },
+      {
+        "stem": "People used his methods to share land fairly. What does this suggest?",
+        "options": [
+          "His math helped in everyday life",
+          "His math was only useful for stars",
+          "He was a king who owned the land",
+          "Nobody used his math for years"
+        ],
+        "answer": "A",
+        "skill": "inference",
+        "why": "People used his math for real jobs such as sharing land and trading goods.",
+        "wrong": {
+          "B": "People used it for land and trade as well.",
+          "C": "He was a scholar, not a king.",
+          "D": "People used his methods."
+        }
+      },
+      {
+        "stem": "In the article, an algorithm is —",
+        "options": [
+          "a famous place of learning in Baghdad",
+          "a sign that stands for the number zero",
+          "a set of steps for solving a problem",
+          "a book that was translated into Latin"
+        ],
+        "answer": "C",
+        "skill": "vocabulary",
+        "why": "The text says algorithm means a set of steps for solving a problem.",
+        "wrong": {
+          "A": "That describes the House of Wisdom.",
+          "B": "That describes zero, one of the ten signs.",
+          "D": "That describes his books, not an algorithm."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "What did al-Khwarizmi's tables help astronomers do?",
+        "options": [
+          "Spell names in Latin",
+          "Track the sun, moon, and planets",
+          "Divide land into equal shares",
+          "Translate books into Arabic"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The text says his tables helped astronomers track the movements of the sun, moon, and planets.",
+        "wrong": {
+          "A": "Latin is mentioned for his books, not his tables.",
+          "C": "Dividing land was done with his equation methods.",
+          "D": "Scholars translated books at the House of Wisdom."
+        }
+      },
+      {
+        "stem": "In the article, the word diligently most nearly means —",
+        "options": [
+          "slowly and with a sad heart",
+          "quietly and in total secret",
+          "quickly and with great luck",
+          "with careful and steady effort"
+        ],
+        "answer": "D",
+        "skill": "vocabulary",
+        "why": "Scholars worked diligently to translate the texts, meaning with careful and steady effort.",
+        "wrong": {
+          "A": "Nothing says they were sad.",
+          "B": "They worked in a famous library, not in secret.",
+          "C": "The sentence is about effort, not luck."
+        }
+      },
+      {
+        "stem": "Why did the new numerals spread throughout Europe?",
+        "options": [
+          "European kings ordered them painted on coins",
+          "Greek scholars carried them to Baghdad",
+          "His books were translated into Latin",
+          "Persian scholars taught them in every school"
+        ],
+        "answer": "C",
+        "skill": "cause-effect",
+        "why": "The text says his books were translated into Latin and the new numerals gradually spread.",
+        "wrong": {
+          "A": "Coins are not mentioned.",
+          "B": "Carrying them to Baghdad would not spread them in Europe.",
+          "D": "The text does not say they were taught in every school."
+        }
+      },
+      {
+        "stem": "Why does the author explain that whatever you do to one side of an equation, you also do to the other?",
+        "options": [
+          "To explain what balance means in an equation",
+          "To show that he did not enjoy mathematics",
+          "To describe how astronomers used his tables",
+          "To prove that algebra first came from Greece"
+        ],
+        "answer": "A",
+        "skill": "author-purpose",
+        "why": "The phrase explains the principle of keeping both sides of an equation in balance.",
+        "wrong": {
+          "B": "He is described as a great mathematician.",
+          "C": "The tables are mentioned in a different paragraph.",
+          "D": "The text says algebra's name came from al-jabr in his book."
+        }
+      }
+    ]
   }
 }

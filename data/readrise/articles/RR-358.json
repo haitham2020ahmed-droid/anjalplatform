@@ -614,5 +614,217 @@
       ],
       "modelAnswer": "I agree that places in nature can change a great deal in just a few days. In the story, a single storm that lasted about two days was enough to redirect the current and transport enough sediment to create an entirely new island where there had only been open water before. The island itself keeps changing even day to day, appearing large at low tide and nearly disappearing at high tide. Someone might argue that most natural changes happen far too slowly to notice, like mountains forming over millions of years, but this story shows that a single significant storm can reshape a small stretch of coastline almost immediately, even if larger geological changes do take much longer."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "What is the weather like during the storm?",
+        "options": [
+          "Hot with no wind at all",
+          "Cold with thick snow",
+          "Calm with a clear sky",
+          "Strong wind, tall waves"
+        ],
+        "answer": "D",
+        "skill": "detail",
+        "why": "The text says the wind is strong and the waves are tall.",
+        "wrong": {
+          "A": "The wind is strong, not absent.",
+          "B": "The text does not mention snow.",
+          "C": "The storm is not calm."
+        }
+      },
+      {
+        "stem": "Why does the family stay home during the storm?",
+        "options": [
+          "It is not safe on the sea",
+          "They have no boat",
+          "The kids are at school",
+          "The fish are gone"
+        ],
+        "answer": "A",
+        "skill": "cause-effect",
+        "why": "The wind is strong and the waves are tall, so it is not safe to go out in the boat.",
+        "wrong": {
+          "B": "Dad has a boat that they use.",
+          "C": "The text does not mention school.",
+          "D": "The text does not say the fish are gone."
+        }
+      },
+      {
+        "stem": "In the story, the word shallow describes water that is —",
+        "options": [
+          "very hot",
+          "very deep",
+          "not deep",
+          "full of fish"
+        ],
+        "answer": "C",
+        "skill": "vocabulary",
+        "why": "The island is made of sand and the water around it is shallow, so it is not deep.",
+        "wrong": {
+          "A": "Heat is not what shallow means.",
+          "B": "Deep is the opposite of shallow.",
+          "D": "Fish are not part of the word's meaning."
+        }
+      },
+      {
+        "stem": "Lina asks where the island came from. What does this show?",
+        "options": [
+          "She is surprised",
+          "She is angry at Dad",
+          "She is sleepy and tired",
+          "She is afraid of birds"
+        ],
+        "answer": "A",
+        "skill": "inference",
+        "why": "She sees a new island that was not there before, so she is surprised and curious.",
+        "wrong": {
+          "B": "She is asking a question, not blaming Dad.",
+          "C": "Nothing in the story says she is sleepy.",
+          "D": "The birds are standing quietly on the island."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "About how long did the storm last?",
+        "options": [
+          "Almost two days",
+          "About two hours",
+          "Almost two weeks",
+          "Just a few minutes"
+        ],
+        "answer": "A",
+        "skill": "detail",
+        "why": "The story says the storm lasts almost two days before it fades.",
+        "wrong": {
+          "B": "Two hours is much shorter than the storm.",
+          "C": "Two weeks is much longer than the storm.",
+          "D": "A few minutes is much shorter than the storm."
+        }
+      },
+      {
+        "stem": "In the story, erosion means that something is —",
+        "options": [
+          "slowly worn away",
+          "quickly built up",
+          "carried to a boat",
+          "made colder"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "The teacher says erosion could slowly wear the island away.",
+        "wrong": {
+          "B": "Building up is the opposite of erosion.",
+          "C": "Erosion is about wearing away, not carrying to a boat.",
+          "D": "Erosion does not mean getting colder."
+        }
+      },
+      {
+        "stem": "What did the storm change that led to the new island?",
+        "options": [
+          "The color of the sand",
+          "The size of the boat",
+          "The direction of the current",
+          "The height of the waves forever"
+        ],
+        "answer": "C",
+        "skill": "cause-effect",
+        "why": "The story says the storm changed the direction of the current, which carried the sediment.",
+        "wrong": {
+          "A": "The story does not say the sand's color changed.",
+          "B": "The storm did not change the boat.",
+          "D": "The waves fade after the storm."
+        }
+      },
+      {
+        "stem": "Why does Omar dig in the sand with a stick?",
+        "options": [
+          "To find a hidden treasure",
+          "To learn what it is made of",
+          "To dig a place for the birds",
+          "To measure how deep the sea is"
+        ],
+        "answer": "B",
+        "skill": "inference",
+        "why": "Omar is curious, and he finds that it is just sand.",
+        "wrong": {
+          "A": "He finds only sand, and no treasure is mentioned.",
+          "C": "The birds are resting and are not part of his digging.",
+          "D": "He is not measuring the sea."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "What does the island look like at low tide?",
+        "options": [
+          "Like a tiny beach",
+          "Like a tall hill",
+          "Like a floating boat",
+          "Like a rocky cliff"
+        ],
+        "answer": "A",
+        "skill": "detail",
+        "why": "The story says at low tide it looks fairly large, almost like a tiny beach.",
+        "wrong": {
+          "B": "The island is small and flat, not tall.",
+          "C": "It does not float.",
+          "D": "The island is made of sand, not rock."
+        }
+      },
+      {
+        "stem": "In the story, the word submerges most nearly means —",
+        "options": [
+          "covers with water",
+          "dries in the sun",
+          "fills with birds",
+          "lifts into the air"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "At high tide the sea rises and submerges most of the island, leaving only a small bump.",
+        "wrong": {
+          "B": "The sea covers it; the sun does not dry it.",
+          "C": "Birds are not the point of this word.",
+          "D": "The sea rises over the island; the island is not lifted."
+        }
+      },
+      {
+        "stem": "Why did the family remain at home during the storm?",
+        "options": [
+          "The school was open that week",
+          "Waves were unsafe for boats",
+          "Dad had no fishing net left",
+          "The island was not there yet"
+        ],
+        "answer": "B",
+        "skill": "cause-effect",
+        "why": "The story says the waves grew rough and dangerous for any small boat on open water.",
+        "wrong": {
+          "A": "The story does not link school to the storm.",
+          "C": "A fishing net is not mentioned.",
+          "D": "The island appears after the storm."
+        }
+      },
+      {
+        "stem": "Khalid rests his oar to study the unfamiliar shape. What does this suggest?",
+        "options": [
+          "He is thinking it over",
+          "He is tired of rowing",
+          "He wants to go home",
+          "He is afraid of the island"
+        ],
+        "answer": "A",
+        "skill": "inference",
+        "why": "He pauses to look closely, which shows he is thinking about how it formed.",
+        "wrong": {
+          "B": "The story does not say he is tired.",
+          "C": "They row closer to the island.",
+          "D": "The family rows toward it with interest."
+        }
+      }
+    ]
   }
 }

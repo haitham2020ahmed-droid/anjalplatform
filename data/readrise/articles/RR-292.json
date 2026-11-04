@@ -614,5 +614,217 @@
       ],
       "modelAnswer": "Sadu weaving matters as intangible cultural heritage because the true value lies not in the simple tents, rugs, and bags themselves, but in the meticulous skill and symbolic knowledge passed down largely without written instructions from mother to daughter across generations. Each family's distinctive geometric pattern functioned almost like a signature, carrying meaning tied to desert life that every weaver had to inherit and understand, not just imitate. Because this living skill and meaning could easily disappear once factory-made cloth became common, UNESCO's 2020 recognition helps sustain a nomadic tradition that is genuinely at risk of being lost, even though its physical products are modest and practical."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "What can each shape on the sadu cloth do?",
+        "options": [
+          "Keep out the wind",
+          "Stand for a thing",
+          "Hold the thread tight",
+          "Hide the tent"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The text says each shape can mean a thing.",
+        "wrong": {
+          "A": "The cloth keeps out the wind, but the shapes are not said to do this.",
+          "C": "The loom holds the thread tight, not the shapes.",
+          "D": "The text does not say the shapes hide the tent."
+        }
+      },
+      {
+        "stem": "Besides tents, what else did families make from the cloth?",
+        "options": [
+          "Rugs and bags",
+          "Swords and drums",
+          "Pots and bowls",
+          "Boats and sails"
+        ],
+        "answer": "A",
+        "skill": "detail",
+        "why": "The text says families made tents, rugs, and bags from the cloth.",
+        "wrong": {
+          "B": "Swords and drums are not made from sadu cloth in the text.",
+          "C": "Pots and bowls are not mentioned.",
+          "D": "Boats and sails are not mentioned."
+        }
+      },
+      {
+        "stem": "The tent is called house of hair. What does the name tell us?",
+        "options": [
+          "It is made of sand",
+          "It is very tall",
+          "It has a gold roof",
+          "It is made of hair"
+        ],
+        "answer": "D",
+        "skill": "inference",
+        "why": "The name means house of hair, and the cloth is woven from goat, sheep, and camel hair.",
+        "wrong": {
+          "A": "The tent is made of woven hair, not sand.",
+          "B": "The name says nothing about the height.",
+          "C": "The text does not mention a gold roof."
+        }
+      },
+      {
+        "stem": "In the article, what does the word weave mean?",
+        "options": [
+          "to cut cloth into pieces",
+          "to cross threads over and under",
+          "to dye cloth a dark color",
+          "to fold up a tent for a long trip"
+        ],
+        "answer": "B",
+        "skill": "vocabulary",
+        "why": "Women weave thread on a frame to make cloth, which means crossing threads over and under.",
+        "wrong": {
+          "A": "Cutting is not weaving.",
+          "C": "Coloring cloth is not weaving.",
+          "D": "Folding a tent is not weaving."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "What did the women do right after they sheared the animals' hair?",
+        "options": [
+          "Sewed it into a tent",
+          "Wove it into a rug",
+          "Packed it into bags",
+          "Cleaned and spun it"
+        ],
+        "answer": "D",
+        "skill": "sequence",
+        "why": "The text says they sheared the hair, then cleaned and spun it into thread.",
+        "wrong": {
+          "A": "Tents were sewn later, from finished strips of cloth.",
+          "B": "Rugs were made from finished panels, after weaving.",
+          "C": "Bags were woven later from the thread."
+        }
+      },
+      {
+        "stem": "Why do far fewer people weave sadu cloth by hand today?",
+        "options": [
+          "The government banned weaving in desert towns",
+          "Cheap factory-made cloth is easy to find",
+          "Women no longer have time to learn any craft",
+          "UNESCO told weavers to stop making cloth"
+        ],
+        "answer": "B",
+        "skill": "cause-effect",
+        "why": "The text says cheap factory-made cloth is now easy to find nearly everywhere.",
+        "wrong": {
+          "A": "The text never says weaving was banned.",
+          "C": "The text says dedicated weavers still work hard to keep the craft alive.",
+          "D": "UNESCO recognized sadu as heritage, so it did not tell weavers to stop."
+        }
+      },
+      {
+        "stem": "In the article, what does the word nomadic mean?",
+        "options": [
+          "Staying in one big city",
+          "Working only with wool",
+          "Having a great deal of money",
+          "Moving from place to place"
+        ],
+        "answer": "D",
+        "skill": "vocabulary",
+        "why": "The families built tents from cloth and lived in the desert, so a nomadic life means moving from place to place.",
+        "wrong": {
+          "A": "Families in tents were not staying in one city.",
+          "B": "Nomadic is about how people live, not the material they use.",
+          "C": "The text says nothing about being rich."
+        }
+      },
+      {
+        "stem": "How did a young girl usually learn the craft?",
+        "options": [
+          "By helping at the loom",
+          "By reading old books",
+          "By watching camel herders",
+          "By going to a school"
+        ],
+        "answer": "A",
+        "skill": "detail",
+        "why": "The text says a girl learned by watching and helping her mother or grandmother at the loom.",
+        "wrong": {
+          "B": "The text does not mention books.",
+          "C": "She learned from her mother or grandmother, not herders.",
+          "D": "The text does not mention a school."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "According to the article, why have fewer people woven sadu by hand?",
+        "options": [
+          "Cheap factory cloth is easy to get",
+          "Weavers moved away from the desert",
+          "The hair became hard to clean",
+          "Looms became too costly to build"
+        ],
+        "answer": "A",
+        "skill": "cause-effect",
+        "why": "The article says inexpensive factory-made cloth is now readily available almost everywhere.",
+        "wrong": {
+          "B": "The article does not say weavers moved away.",
+          "C": "Cleaning the hair is not given as a problem.",
+          "D": "The article says looms were simple, not costly."
+        }
+      },
+      {
+        "stem": "In the article, what does the word dwellings mean?",
+        "options": [
+          "Roads",
+          "Tools",
+          "Places to live",
+          "Animals"
+        ],
+        "answer": "C",
+        "skill": "vocabulary",
+        "why": "The families built tents from cloth, and tents are places to live.",
+        "wrong": {
+          "A": "The cloth was used for tents, not roads.",
+          "B": "Tools are not what the families built.",
+          "D": "The families kept animals but did not build them."
+        }
+      },
+      {
+        "stem": "Where was the horizontal ground loom often assembled?",
+        "options": [
+          "Inside a large stone workshop",
+          "Outdoors near the family's tent",
+          "At a busy market in town",
+          "Beside a village school"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The article says it was often assembled outdoors near the family's tent.",
+        "wrong": {
+          "A": "The families were nomads living in tents, not in stone buildings.",
+          "C": "The article does not mention a market.",
+          "D": "The article does not mention a school."
+        }
+      },
+      {
+        "stem": "Why does the author explain that bayt al-sha'ar means house of hair?",
+        "options": [
+          "To show the tent was very small",
+          "To explain how looms work",
+          "To list the colors of the tents",
+          "To show what the tent is made of"
+        ],
+        "answer": "D",
+        "skill": "author-purpose",
+        "why": "The article says the name reflects the material the tent is built from.",
+        "wrong": {
+          "A": "The name says nothing about size.",
+          "B": "Looms are explained in a different paragraph.",
+          "C": "The name is not about color."
+        }
+      }
+    ]
   }
 }

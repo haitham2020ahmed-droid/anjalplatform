@@ -614,5 +614,217 @@
       ],
       "modelAnswer": "Two important moments in the article are Bi Sheng's invention of clay movable type in China and Gutenberg's metal movable type in Germany. Bi Sheng's clay blocks, each carved with one character, could be rearranged into different pages and reused, which was far faster than carving an entirely new wooden page every time. Centuries later, Gutenberg built his own mechanism using an alloy and a wooden press modeled on olive-oil presses, which could distribute thousands of identical pages in the time a single scribe needed to finish one page by hand. Because of this mechanism, copies of a book cost only a fraction of what a hand-copied manuscript had cost, and literacy climbed steadily across Europe as more ordinary families could finally afford to own books."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "What did the big press put on paper?",
+        "options": [
+          "Water",
+          "Clay",
+          "Ink",
+          "Rope"
+        ],
+        "answer": "C",
+        "skill": "detail",
+        "why": "The text says the press put ink on paper fast.",
+        "wrong": {
+          "A": "Water is not mentioned for the press.",
+          "B": "Clay is what Bi Sheng's blocks were made of.",
+          "D": "Rope is not mentioned in this text."
+        }
+      },
+      {
+        "stem": "Why could more people buy a book later?",
+        "options": [
+          "Books got cheap",
+          "Books got much heavier",
+          "Monks stopped writing",
+          "Paper was made of clay"
+        ],
+        "answer": "A",
+        "skill": "cause-effect",
+        "why": "The text says books got cheap, so more folks could buy one.",
+        "wrong": {
+          "B": "The text does not say books got heavier.",
+          "C": "The monks made a book with metal blocks.",
+          "D": "The blocks were clay, not the paper."
+        }
+      },
+      {
+        "stem": "In the article, what does rare mean?",
+        "options": [
+          "Very big",
+          "Easy to copy",
+          "Not found in Germany",
+          "Few and hard to get"
+        ],
+        "answer": "D",
+        "skill": "vocabulary",
+        "why": "The text says books were rare, so few could own one.",
+        "wrong": {
+          "A": "Size is not the idea of the word.",
+          "B": "Copying a book by hand took a long time.",
+          "C": "Germany is not linked to the word rare."
+        }
+      },
+      {
+        "stem": "Which kind of blocks does the article tell about first?",
+        "options": [
+          "Metal blocks in Germany",
+          "Clay blocks in China",
+          "Wood blocks in Korea",
+          "Stone blocks in Rome"
+        ],
+        "answer": "B",
+        "skill": "sequence",
+        "why": "The text tells about Bi Sheng's clay blocks in China before it tells about metal blocks.",
+        "wrong": {
+          "A": "Germany comes last in the text.",
+          "C": "The Korean monks used metal blocks.",
+          "D": "Rome is not mentioned."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "Who could pay for a book copied by a scribe?",
+        "options": [
+          "Anyone in a small town",
+          "Boys who learned to read well",
+          "Sailors on a long trip by sea",
+          "Rich families or royal courts"
+        ],
+        "answer": "D",
+        "skill": "detail",
+        "why": "The text says only rich families, temples, or royal courts could pay for one.",
+        "wrong": {
+          "A": "The text says books cost a lot, so not just anyone could buy one.",
+          "B": "Learners are not said to pay for books.",
+          "C": "Sailors are not mentioned."
+        }
+      },
+      {
+        "stem": "What does the word literacy mean in the article?",
+        "options": [
+          "The cost of a book",
+          "The ability to read and write",
+          "The speed of a big press",
+          "The size of a printed page"
+        ],
+        "answer": "B",
+        "skill": "vocabulary",
+        "why": "The text says more people had a reason to learn to read, so literacy grew.",
+        "wrong": {
+          "A": "Cost is the idea of cheap and costly books.",
+          "C": "The press speed is a different idea.",
+          "D": "Page size is not mentioned."
+        }
+      },
+      {
+        "stem": "Why did a scribe need months to finish one book?",
+        "options": [
+          "He copied every word by hand",
+          "He had to make the paper first",
+          "He used a big wooden press",
+          "He worked only in the evening"
+        ],
+        "answer": "A",
+        "skill": "cause-effect",
+        "why": "The text says a scribe copied every word by hand, and this took months.",
+        "wrong": {
+          "B": "Making paper is not said to be the reason.",
+          "C": "The press was used later, by Gutenberg.",
+          "D": "Working hours are not mentioned."
+        }
+      },
+      {
+        "stem": "How was the Korean movable type different from Bi Sheng's type?",
+        "options": [
+          "It was made of wood",
+          "It was made of paper",
+          "It was made of metal",
+          "It was made of stone"
+        ],
+        "answer": "C",
+        "skill": "compare",
+        "why": "The text says the monks used metal movable type, not clay.",
+        "wrong": {
+          "A": "Wood is not mentioned for the type.",
+          "B": "Paper is what was printed on.",
+          "D": "Stone is not mentioned."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "What was Gutenberg's press modeled on?",
+        "options": [
+          "Devices that crush grapes and olives",
+          "Tools that cut clay into blocks",
+          "Machines that carve wooden pages",
+          "Frames that hold a scribe's pen"
+        ],
+        "answer": "A",
+        "skill": "detail",
+        "why": "The text says the press was modeled on devices used in Europe to crush grapes and olives.",
+        "wrong": {
+          "B": "Cutting clay was how Bi Sheng worked.",
+          "C": "Carving whole pages was the older way.",
+          "D": "The text does not mention frames for pens."
+        }
+      },
+      {
+        "stem": "What does the word scarce mean in \"finished books remained scarce\"?",
+        "options": [
+          "Very heavy",
+          "Hard to read",
+          "Cheap to buy",
+          "Few in number"
+        ],
+        "answer": "D",
+        "skill": "vocabulary",
+        "why": "A scribe needed months or years for one book, so few books existed.",
+        "wrong": {
+          "A": "Weight is not the idea.",
+          "B": "Reading is not the point of the sentence.",
+          "C": "The text says books were prized and cost a lot."
+        }
+      },
+      {
+        "stem": "Why could Gutenberg's press beat the speed of a scribe?",
+        "options": [
+          "It used less ink than a pen",
+          "It printed many pages fast",
+          "It was built from clay blocks",
+          "It was carried across Europe"
+        ],
+        "answer": "B",
+        "skill": "cause-effect",
+        "why": "The text says the mechanism distributed many identical pages at a pace no scribe could match.",
+        "wrong": {
+          "A": "Ink amount is not mentioned.",
+          "C": "Gutenberg's type was cast from metal.",
+          "D": "Carrying the press is not mentioned."
+        }
+      },
+      {
+        "stem": "Why was carving a whole wooden page a poor use of effort?",
+        "options": [
+          "The wood was too soft to carve",
+          "Only monks could carve a page",
+          "Clay is always stronger than wood",
+          "The page could not be used again"
+        ],
+        "answer": "D",
+        "skill": "inference",
+        "why": "Movable type meant pieces could be used again rather than thrown away, so a carved page could not.",
+        "wrong": {
+          "A": "The text does not say the wood was soft.",
+          "B": "The text does not limit carving to monks.",
+          "C": "The text does not say clay is always stronger."
+        }
+      }
+    ]
   }
 }

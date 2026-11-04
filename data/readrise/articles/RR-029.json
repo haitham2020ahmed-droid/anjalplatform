@@ -614,5 +614,217 @@
       ],
       "modelAnswer": "I disagree that forecasts are not worth checking just because they are sometimes wrong. The article explains that meteorologists combine data from weather stations, balloons, satellites, and powerful computers, which is why forecasts for the next few days are usually accurate even though predictions weeks ahead are far less certain. This accuracy matters enormously in Saudi Arabia, where rain is uncommon but a sudden storm can flood a dry valley within minutes, so a forecast's warning can genuinely keep a family safe."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "What does each drop in a cloud form on?",
+        "options": [
+          "A piece of ice",
+          "A speck of dust",
+          "A drop of sea salt",
+          "A grain of flour"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The text says each drop forms on a speck of dust.",
+        "wrong": {
+          "A": "The text does not say the drops form on ice.",
+          "C": "Salt is not named in the low version.",
+          "D": "Flour has nothing to do with clouds."
+        }
+      },
+      {
+        "stem": "In the article, a forecast is something that —",
+        "options": [
+          "makes the rain fall down",
+          "fills a dry valley fast",
+          "carries dust high up in air",
+          "tells what the sky will do"
+        ],
+        "answer": "D",
+        "skill": "vocabulary",
+        "why": "The text says a forecast tells us what the sky will do.",
+        "wrong": {
+          "A": "A forecast tells about rain; it does not cause it.",
+          "B": "A storm can fill a valley, not a forecast.",
+          "C": "Warm air carries things up, not a forecast."
+        }
+      },
+      {
+        "stem": "Why does the vapor turn back into drops high up in the sky?",
+        "options": [
+          "The air is cold there",
+          "The sun is hotter there",
+          "The wind is gone there",
+          "The dust is gone there"
+        ],
+        "answer": "A",
+        "skill": "cause-effect",
+        "why": "The text says high up the air is cold, so the vapor turns back into drops.",
+        "wrong": {
+          "B": "High air is cold, not hot.",
+          "C": "The text does not mention the wind here.",
+          "D": "The drops form on specks of dust."
+        }
+      },
+      {
+        "stem": "What do the tools on the ground do?",
+        "options": [
+          "They snap shots of clouds",
+          "They make storms and wind",
+          "They check the air",
+          "They guess far days"
+        ],
+        "answer": "C",
+        "skill": "detail",
+        "why": "The text says tools on the ground check the air.",
+        "wrong": {
+          "A": "A satellite in space does that.",
+          "B": "Tools do not make storms.",
+          "D": "A computer helps us guess."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "What does a meteorologist do?",
+        "options": [
+          "Makes clouds with machines",
+          "Flies balloons for fun",
+          "Studies the weather",
+          "Cleans the sky of dust"
+        ],
+        "answer": "C",
+        "skill": "detail",
+        "why": "The article says a meteorologist is a scientist who studies the weather.",
+        "wrong": {
+          "A": "Scientists do not make clouds.",
+          "B": "Balloons are used to collect facts.",
+          "D": "The article does not mention cleaning the sky."
+        }
+      },
+      {
+        "stem": "According to the article, what are cirrus clouds like?",
+        "options": [
+          "Thin and light",
+          "Hot and heavy",
+          "Loud and fast",
+          "Dark and thick"
+        ],
+        "answer": "A",
+        "skill": "detail",
+        "why": "The article says cirrus clouds are thin and float very high.",
+        "wrong": {
+          "B": "Cirrus clouds are not described as heavy.",
+          "C": "Clouds are not described as loud.",
+          "D": "Cirrus clouds are thin, not thick."
+        }
+      },
+      {
+        "stem": "Why do the droplets in a cloud fall as rain?",
+        "options": [
+          "The sun warms them up again",
+          "The wind blows them down hard",
+          "The ground pulls up more vapor",
+          "They join and become too heavy"
+        ],
+        "answer": "D",
+        "skill": "cause-effect",
+        "why": "The article says the droplets bump, join together, and fall when they are too heavy to stay up.",
+        "wrong": {
+          "A": "Warmth makes water evaporate.",
+          "B": "The article does not give wind as the reason.",
+          "C": "Vapor rises from the ground; it does not pull rain."
+        }
+      },
+      {
+        "stem": "Flat gray stratus clouds cover the whole sky. What weather might come next?",
+        "options": [
+          "A tall thunderstorm",
+          "A light drizzle",
+          "A clear, sunny day",
+          "A strong dust storm"
+        ],
+        "answer": "B",
+        "skill": "inference",
+        "why": "The article says stratus clouds are flat gray sheets that can bring drizzle.",
+        "wrong": {
+          "A": "Tall thunderstorm clouds grow from cumulus clouds.",
+          "C": "Gray sheets of cloud can bring drizzle.",
+          "D": "The article does not link stratus clouds to dust storms."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "Which measurements do meteorologists gather from ground stations and balloons?",
+        "options": [
+          "Temperature, humidity, wind, and air pressure",
+          "Cloud colors, sizes, shapes, and altitudes",
+          "Rain, hail, snow, and ice amounts per day",
+          "Sunlight, shade, dust, and smoke on the ground"
+        ],
+        "answer": "A",
+        "skill": "detail",
+        "why": "The article lists temperature, humidity, wind, and air pressure.",
+        "wrong": {
+          "B": "Cloud shapes are used to sort clouds, not measured by stations.",
+          "C": "The article does not list these measurements.",
+          "D": "The article does not list these measurements."
+        }
+      },
+      {
+        "stem": "In the article, the word suspended most nearly means —",
+        "options": [
+          "buried",
+          "frozen",
+          "hanging",
+          "burning"
+        ],
+        "answer": "C",
+        "skill": "vocabulary",
+        "why": "The droplets and crystals float in the air, so suspended means hanging.",
+        "wrong": {
+          "A": "The droplets are in the air, not buried.",
+          "B": "Only some clouds hold ice crystals.",
+          "D": "The droplets are water, not fire."
+        }
+      },
+      {
+        "stem": "Why does warm air rise?",
+        "options": [
+          "It carries more dust than cool air does",
+          "It is heavier than the air around it",
+          "It is pulled upward by the Moon above",
+          "It is less dense than the air around it"
+        ],
+        "answer": "D",
+        "skill": "cause-effect",
+        "why": "The article says warm air is less dense than the cooler air surrounding it.",
+        "wrong": {
+          "A": "Dust is not given as the reason.",
+          "B": "It is lighter, not heavier.",
+          "C": "The Moon is not mentioned."
+        }
+      },
+      {
+        "stem": "How are stratus clouds different from cirrus clouds?",
+        "options": [
+          "Stratus clouds are made only of ice, and cirrus clouds bring rain",
+          "Stratus clouds form flat gray layers, and cirrus clouds float high as ice",
+          "Stratus clouds are puffy and white, and cirrus clouds are flat and gray",
+          "Stratus clouds form in the evening, and cirrus clouds form in the morning"
+        ],
+        "answer": "B",
+        "skill": "compare",
+        "why": "The article says stratus clouds are flat gray layers that bring drizzle, while cirrus clouds are feathery, high, and made of ice.",
+        "wrong": {
+          "A": "This swaps the two kinds of cloud.",
+          "C": "Puffy white clouds are cumulus clouds.",
+          "D": "The article does not mention time of day."
+        }
+      }
+    ]
   }
 }

@@ -614,5 +614,217 @@
       ],
       "modelAnswer": "I disagree that checkpoints become unnecessary once a border is officially agreed upon, because the article shows that an agreed line and a managed crossing serve two different purposes. A treaty or a natural feature like a river can demarcate exactly where a sovereign country's territory ends, but that line alone cannot control who actually crosses it or what they carry. Checkpoints provide the ongoing infrastructure that lets officials check passports and visas, confirming who is entering and why, which is especially important since the article notes that checkpoints help prevent smuggling and other problems. Without that continuing oversight, an officially recognized border would exist only on paper, with no real way to manage the people and goods that move across it every day."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "Which things can lands use as a border?",
+        "options": [
+          "A road and a school",
+          "A tree and a farm",
+          "A shop and a bridge",
+          "A river or big hills"
+        ],
+        "answer": "D",
+        "skill": "detail",
+        "why": "The text says some lands use a river or a big hill range as a border.",
+        "wrong": {
+          "A": "Roads and schools are not named as borders.",
+          "B": "Trees and farms are not named as borders.",
+          "C": "Shops and bridges are not named as borders."
+        }
+      },
+      {
+        "stem": "In the article, a checkpoint is —",
+        "options": [
+          "a place where cars stop",
+          "a sheet that folks sign",
+          "a wall made of stones",
+          "a river between lands"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "The text says a checkpoint is a spot where cars must stop.",
+        "wrong": {
+          "B": "Folks sign a sheet to agree on the line, which is not a checkpoint.",
+          "C": "The text says a border is not a wall most of the time.",
+          "D": "A river can be a border, not a checkpoint."
+        }
+      },
+      {
+        "stem": "What do folks do after they talk about the line?",
+        "options": [
+          "They build a wall.",
+          "They sign a sheet.",
+          "They pick a new river.",
+          "They close the border."
+        ],
+        "answer": "B",
+        "skill": "sequence",
+        "why": "The text says folks talk and then sign a sheet, and the line becomes the border.",
+        "wrong": {
+          "A": "The text says a border is not usually a wall.",
+          "C": "They agree on a line when there is no river.",
+          "D": "Closing the border is not mentioned."
+        }
+      },
+      {
+        "stem": "Why does a border count a lot even if you cannot see it?",
+        "options": [
+          "It is a tall stone wall.",
+          "It is a river of water.",
+          "It shows where a land ends.",
+          "It is always next to hills."
+        ],
+        "answer": "C",
+        "skill": "inference",
+        "why": "A border is where one country ends and a new land starts, so it matters even as a line.",
+        "wrong": {
+          "A": "The text says a border is not a wall most of the time.",
+          "B": "A border is not always a river.",
+          "D": "Borders are not always next to hills."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "What do officials at a checkpoint check?",
+        "options": [
+          "The speed of cars",
+          "The height of hills",
+          "Travel papers",
+          "The color of coats"
+        ],
+        "answer": "C",
+        "skill": "detail",
+        "why": "The text says officials at a checkpoint check travel papers.",
+        "wrong": {
+          "A": "Car speed is not mentioned.",
+          "B": "Hills are not checked.",
+          "D": "Coats are not mentioned."
+        }
+      },
+      {
+        "stem": "In the article, the word boundary most nearly means —",
+        "options": [
+          "a kind of tool",
+          "a dividing line",
+          "a type of goods",
+          "a long journey"
+        ],
+        "answer": "B",
+        "skill": "vocabulary",
+        "why": "A river or mountain range can mark where one country ends, so a boundary is a dividing line.",
+        "wrong": {
+          "A": "A tool does not fit the sentence.",
+          "C": "Goods are what moves across a border, not a boundary.",
+          "D": "A journey is not a boundary."
+        }
+      },
+      {
+        "stem": "How do checkpoints help stop smuggling?",
+        "options": [
+          "By closing all the roads there",
+          "By building walls near homes",
+          "By signing a treaty every day",
+          "By checking goods moving across"
+        ],
+        "answer": "D",
+        "skill": "cause-effect",
+        "why": "The text says officials check goods moving across the border, which helps stop smuggling.",
+        "wrong": {
+          "A": "The text does not say roads are closed.",
+          "B": "Walls are not mentioned as the way.",
+          "C": "A treaty sets the border, not daily checks."
+        }
+      },
+      {
+        "stem": "What does hard to shift suggest about a mountain range as a border?",
+        "options": [
+          "It stays in the same place over time",
+          "It can be moved by officials easily",
+          "It is too short to be a border",
+          "It changes shape every season"
+        ],
+        "answer": "A",
+        "skill": "inference",
+        "why": "If a feature is hard to shift, the border along it stays where it is.",
+        "wrong": {
+          "B": "Hard to shift means it cannot be moved easily.",
+          "C": "The text says a long mountain range can be a border.",
+          "D": "The text does not say mountains change each season."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "In the article, the word arbitrary most nearly means —",
+        "options": [
+          "formed by rivers",
+          "very ancient",
+          "hard to cross",
+          "picked by people"
+        ],
+        "answer": "D",
+        "skill": "vocabulary",
+        "why": "With no river or mountain nearby, the countries agree on a straight line, so it is picked by people rather than found in nature.",
+        "wrong": {
+          "A": "The sentence says no river is nearby.",
+          "B": "The line is newly agreed, not ancient.",
+          "C": "The sentence is not about crossing."
+        }
+      },
+      {
+        "stem": "What does the article say people sometimes imagine a border to be?",
+        "options": [
+          "A wall",
+          "A river",
+          "A road",
+          "A gate"
+        ],
+        "answer": "A",
+        "skill": "detail",
+        "why": "The text says a border is not a wall at all, even though people sometimes imagine it that way.",
+        "wrong": {
+          "B": "A river is a natural boundary, not what people imagine.",
+          "C": "Roads are not mentioned this way.",
+          "D": "A gate is not mentioned."
+        }
+      },
+      {
+        "stem": "Why can rivers and mountain ranges work as natural boundaries?",
+        "options": [
+          "They were built by border officials",
+          "They are easy to spot and hard to move",
+          "They are always crossed at checkpoints",
+          "They are agreed on in a treaty first"
+        ],
+        "answer": "B",
+        "skill": "cause-effect",
+        "why": "The text says both features are easy for officials to identify and hard for anyone to shift.",
+        "wrong": {
+          "A": "Rivers and mountains are natural, not built.",
+          "C": "The text does not say they are always crossed at checkpoints.",
+          "D": "Natural boundaries need no treaty to exist."
+        }
+      },
+      {
+        "stem": "Why does the author say the border agreement matters to people who live along it every day?",
+        "options": [
+          "They sign the treaties themselves",
+          "They all work as border officers",
+          "The line affects their daily lives",
+          "They own the rivers and mountains"
+        ],
+        "answer": "C",
+        "skill": "inference",
+        "why": "The text says the agreement matters a great deal to people along it daily, so where the line runs affects their lives.",
+        "wrong": {
+          "A": "Officials sign the treaty, not the neighbors.",
+          "B": "The text does not say they are border officers.",
+          "D": "Ownership of rivers and mountains is not mentioned."
+        }
+      }
+    ]
   }
 }

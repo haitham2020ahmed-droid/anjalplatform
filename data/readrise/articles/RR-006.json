@@ -614,5 +614,217 @@
       ],
       "modelAnswer": "I agree that getting a vaccine is a way of helping others, not only yourself, because immunity works on a community level, not just an individual one. Once a person receives a dose and develops immunity to a pathogen, that person is far less likely to catch and spread the infection to someone else. This matters most for vulnerable people, such as newborns or those with illnesses who cannot be vaccinated themselves, since they depend on the immunity of everyone around them for protection. History even shows that widespread vaccination can eventually help eradicate a disease entirely, which proves that one person's choice to get vaccinated can ripple out and protect an entire community."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "Why may you get sick the first time a germ gets in?",
+        "options": [
+          "The germ is very big and very strong.",
+          "The team is slow the first time.",
+          "The shot makes you sick for a week.",
+          "The antibodies are all asleep then."
+        ],
+        "answer": "B",
+        "skill": "cause-effect",
+        "why": "The text says that when a germ gets in for the first time, the team is slow and you may get sick.",
+        "wrong": {
+          "A": "Germs are described as very small.",
+          "C": "No shot is given in that part of the text.",
+          "D": "The text never says antibodies are asleep."
+        }
+      },
+      {
+        "stem": "In this article, what does the word spread mean?",
+        "options": [
+          "To go from one person to another",
+          "To fall down onto the floor",
+          "To grow into a much bigger germ",
+          "To be put into a shot by a nurse"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "When many people get shots, the germ can not spread well from person to person.",
+        "wrong": {
+          "B": "The text is about people, not the floor.",
+          "C": "Spread here is about moving, not growing.",
+          "D": "A shot is not the same as spreading."
+        }
+      },
+      {
+        "stem": "Who may not be able to get a shot?",
+        "options": [
+          "Only very old people",
+          "All of the grown-ups",
+          "Some kids and grown-ups",
+          "Only the doctors"
+        ],
+        "answer": "C",
+        "skill": "detail",
+        "why": "The text says some kids and grown-ups can not get a shot.",
+        "wrong": {
+          "A": "Age alone is not the reason given.",
+          "B": "Only some grown-ups cannot get a shot.",
+          "D": "Doctors are not mentioned."
+        }
+      },
+      {
+        "stem": "Why is it good when many people get a vaccine?",
+        "options": [
+          "Kids play games after the shots.",
+          "Doctors win a big prize each year.",
+          "Germs are happy to spread around.",
+          "When many get shots, all are safer."
+        ],
+        "answer": "D",
+        "skill": "cause-effect",
+        "why": "The text says that when many people get a vaccine, a germ has a hard time spreading, which keeps babies and sick people safer.",
+        "wrong": {
+          "A": "The text does not talk about games after shots.",
+          "B": "No prize is named in the text.",
+          "C": "The text says germs have trouble spreading."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "Where do germs live, according to the article?",
+        "options": [
+          "Only inside the body of a person",
+          "Only in the water that we drink",
+          "Only on very old things in a house",
+          "On hands, in the air and on things"
+        ],
+        "answer": "D",
+        "skill": "detail",
+        "why": "The article says germs live on your hands, in the air, and on the things you touch.",
+        "wrong": {
+          "A": "Germs are also found outside the body.",
+          "B": "Water is not mentioned.",
+          "C": "The article does not say they live only on old things."
+        }
+      },
+      {
+        "stem": "In this article, what does the word invaders mean?",
+        "options": [
+          "Helpful friends",
+          "Harmful germs",
+          "Blood vessels",
+          "Strong muscles"
+        ],
+        "answer": "B",
+        "skill": "vocabulary",
+        "why": "White blood cells look for invaders, and when they find a harmful germ they make antibodies.",
+        "wrong": {
+          "A": "The cells attack invaders; they are not friends.",
+          "C": "Blood vessels are not mentioned.",
+          "D": "Muscles are not what the cells look for."
+        }
+      },
+      {
+        "stem": "Why may a person feel sick the first time a new germ comes?",
+        "options": [
+          "The body needs days to make antibodies.",
+          "The body has no white blood cells yet.",
+          "The germ cannot be seen or touched.",
+          "The memory cells make the germ grow."
+        ],
+        "answer": "A",
+        "skill": "cause-effect",
+        "why": "The immune system needs a few days to make the right antibodies, and meanwhile the germ can multiply.",
+        "wrong": {
+          "B": "White blood cells are always looking for invaders.",
+          "C": "Not being seen does not explain why you feel sick.",
+          "D": "Memory cells remember germs; they do not make them grow."
+        }
+      },
+      {
+        "stem": "What do memory cells do?",
+        "options": [
+          "They kill the germ at once.",
+          "They cause the sore arm.",
+          "They remember the germ.",
+          "They make new vaccines."
+        ],
+        "answer": "C",
+        "skill": "detail",
+        "why": "The article says the body keeps memory cells that remember the germ.",
+        "wrong": {
+          "A": "Antibodies mark germs so other cells can destroy them.",
+          "B": "A sore arm is a sign the body is building protection.",
+          "D": "Memory cells do not make vaccines."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "The article says smallpox was declared eradicated in 1980. What does eradicated mean?",
+        "options": [
+          "Made less painful",
+          "Moved to another place",
+          "Studied by doctors",
+          "Completely wiped out"
+        ],
+        "answer": "D",
+        "skill": "vocabulary",
+        "why": "After a worldwide vaccination effort the disease was gone, which is what eradicated means.",
+        "wrong": {
+          "A": "The disease was removed, not just made less painful.",
+          "B": "The disease did not move anywhere.",
+          "C": "Studying it did not end it."
+        }
+      },
+      {
+        "stem": "Besides a weakened germ, what else can a vaccine contain?",
+        "options": [
+          "Instructions to make a harmless piece",
+          "A small dose of the real disease",
+          "Extra white blood cells",
+          "A medicine that kills all bacteria"
+        ],
+        "answer": "A",
+        "skill": "detail",
+        "why": "The article says some vaccines hold a harmless fragment or instructions that help cells make that fragment.",
+        "wrong": {
+          "B": "Vaccines cannot cause the full illness.",
+          "C": "White blood cells are not put in vaccines.",
+          "D": "Vaccines train the body; they do not kill all bacteria."
+        }
+      },
+      {
+        "stem": "Why does the author say that most germs are harmless and many are helpful?",
+        "options": [
+          "To say vaccines are not needed",
+          "To show that only a few germs are dangerous",
+          "To tell readers to touch more objects",
+          "To prove that white blood cells are useless"
+        ],
+        "answer": "B",
+        "skill": "text-structure",
+        "why": "The word However then introduces the few pathogens that cause serious illness, so the author first shows that not all germs are bad.",
+        "wrong": {
+          "A": "The article later explains why vaccines matter.",
+          "C": "The author never urges readers to touch things.",
+          "D": "White blood cells are described as helpful."
+        }
+      },
+      {
+        "stem": "Why might you get ill the first time you meet an unfamiliar pathogen?",
+        "options": [
+          "Antibodies always stay far away from germs.",
+          "Memory cells attack the body itself.",
+          "The body takes days to make antibodies.",
+          "Vaccines are not given in time to help."
+        ],
+        "answer": "C",
+        "skill": "cause-effect",
+        "why": "The immune system needs several days to make the right antibodies, and meanwhile the germ can multiply.",
+        "wrong": {
+          "A": "Antibodies attach to germs.",
+          "B": "Memory cells protect the body.",
+          "D": "This part is about meeting a germ with no vaccine at all."
+        }
+      }
+    ]
   }
 }

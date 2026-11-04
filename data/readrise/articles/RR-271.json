@@ -614,5 +614,217 @@
       ],
       "modelAnswer": "I believe steady regulation matters more than waiting for a moratorium, because regulation prevents the depletion of fish populations before it becomes severe. The article explains that size limits, fishing seasons, and quotas let fish grow and breed, keeping populations healthy year after year. A moratorium only helps once a population has already been badly depleted, and it can take a long time for a severely reduced population to replenish, which also hurts coastal livelihoods while the ban continues. Preventing depletion in the first place protects both fish and the communities that depend on them."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "What do some people do with the fish they catch for their job?",
+        "options": [
+          "They give it to the boats.",
+          "They put it back in the sea.",
+          "They sell it.",
+          "They keep it for the young fish."
+        ],
+        "answer": "C",
+        "skill": "detail",
+        "why": "The text says fishing can be a job and that people sell the fish they catch.",
+        "wrong": {
+          "A": "Boats do not receive fish in the text.",
+          "B": "Only small fish go back to the sea.",
+          "D": "The text never says fish are kept for young fish."
+        }
+      },
+      {
+        "stem": "In this article, what does the word population mean?",
+        "options": [
+          "The count of fish",
+          "The size of a boat",
+          "The rule for fishing",
+          "The food in the sea"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "The text says the count of fish is the population.",
+        "wrong": {
+          "B": "A boat's size is never called the population.",
+          "C": "A rule is called a limit or a quota, not the population.",
+          "D": "The text does not use population for food."
+        }
+      },
+      {
+        "stem": "What happens to a small fish when there is a size limit?",
+        "options": [
+          "It is sold first.",
+          "It goes back to the sea.",
+          "It is kept for the boat.",
+          "It is counted twice."
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The text says that with a size limit, small fish go back.",
+        "wrong": {
+          "A": "Small fish are not sold under this rule.",
+          "C": "The rule does not say small fish are kept.",
+          "D": "The text does not say small fish are counted twice."
+        }
+      },
+      {
+        "stem": "What might happen on the coast if big boats had no rules?",
+        "options": [
+          "There would be more young fish.",
+          "The fish could run out.",
+          "The fish would grow faster.",
+          "There would be more jobs."
+        ],
+        "answer": "B",
+        "skill": "inference",
+        "why": "The text says big boats catch too much fish, and rules help fish last, so with no rules the fish could run out.",
+        "wrong": {
+          "A": "Catching too much fish leads to fewer young fish, not more.",
+          "C": "The text does not say fish grow faster.",
+          "D": "If fish run out, there would be fewer jobs, not more."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "Which places does the article name as having communities that sell fish for a living?",
+        "options": [
+          "The Nile and the Gulf",
+          "The Red Sea and the Atlantic",
+          "The Gulf and the Pacific",
+          "The Red Sea and the Gulf"
+        ],
+        "answer": "D",
+        "skill": "detail",
+        "why": "The text names coasts like the Red Sea and the Gulf where communities sell fish to earn a living.",
+        "wrong": {
+          "A": "The Nile is not mentioned in the text.",
+          "B": "The Atlantic is not mentioned in the text.",
+          "C": "The Pacific is not mentioned in the text."
+        }
+      },
+      {
+        "stem": "In the article, the word regulations means —",
+        "options": [
+          "rules",
+          "nets",
+          "boats",
+          "seasons"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "The text lists size limits, closed seasons and quotas as useful regulations, which are rules.",
+        "wrong": {
+          "B": "Nets are tools, not regulations.",
+          "C": "Boats are used to fish; they are not regulations.",
+          "D": "A season is only one kind of regulation."
+        }
+      },
+      {
+        "stem": "Why do big boats with huge nets make overfishing more likely?",
+        "options": [
+          "They only catch young fish.",
+          "They scare other sea animals.",
+          "They catch many fish in one trip.",
+          "They fish in closed waters."
+        ],
+        "answer": "C",
+        "skill": "cause-effect",
+        "why": "The text says huge nets let big boats catch a huge number of fish in one trip, faster than a species can grow back.",
+        "wrong": {
+          "A": "The text does not say they catch only young fish.",
+          "B": "Scaring sea animals is not mentioned.",
+          "D": "The text does not say they fish in closed waters."
+        }
+      },
+      {
+        "stem": "What could happen to coastal communities if fish populations keep shrinking?",
+        "options": [
+          "They could keep more fish.",
+          "They could lose food and jobs.",
+          "They could build bigger boats.",
+          "They could catch bigger fish."
+        ],
+        "answer": "B",
+        "skill": "inference",
+        "why": "The text says regulations let communities keep their food and jobs, so shrinking fish populations could put these at risk.",
+        "wrong": {
+          "A": "Fewer fish means less food, not more.",
+          "C": "The text does not link shrinking fish to bigger boats.",
+          "D": "Overfishing does not make fish bigger."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "According to the article, how can a quota be measured?",
+        "options": [
+          "By the size of the vessel",
+          "By the length of the season",
+          "By the number of nets used",
+          "By the number or weight of fish"
+        ],
+        "answer": "D",
+        "skill": "detail",
+        "why": "The text says quotas set the greatest number, or weight, of fish a vessel may legally catch.",
+        "wrong": {
+          "A": "Vessel size is not how a quota is measured.",
+          "B": "Season length belongs to fishing seasons, not quotas.",
+          "C": "The text does not measure quotas by nets."
+        }
+      },
+      {
+        "stem": "What does the example of hamour suggest about overfishing?",
+        "options": [
+          "Hamour cannot breed in Gulf waters.",
+          "Hamour are not caught by large vessels.",
+          "Even a prized fish can be depleted within a few years.",
+          "Hamour are the only fish that need a moratorium."
+        ],
+        "answer": "C",
+        "skill": "inference",
+        "why": "The text says overfishing can deplete a fish species such as hamour within only a handful of years.",
+        "wrong": {
+          "A": "The text does not say hamour cannot breed.",
+          "B": "The text uses hamour as an example of overfishing by large vessels.",
+          "D": "The text does not say hamour is the only fish needing a moratorium."
+        }
+      },
+      {
+        "stem": "In the article, the word spawn most nearly means —",
+        "options": [
+          "to produce eggs",
+          "to search for food",
+          "to swim away from nets",
+          "to hide from danger"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "Seasons close during the months fish gather to spawn, which protects fish while they reproduce.",
+        "wrong": {
+          "B": "The text ties spawning to reproduction, not feeding.",
+          "C": "Nets are not part of the meaning of spawn.",
+          "D": "Hiding is not mentioned in the text."
+        }
+      },
+      {
+        "stem": "Why do marine scientists study fish populations regularly?",
+        "options": [
+          "To stop all fishing in the sea forever",
+          "To build larger nets for the vessels",
+          "To count fish for the local markets",
+          "To adjust rules as conditions change"
+        ],
+        "answer": "D",
+        "skill": "cause-effect",
+        "why": "The text says scientists study populations so regulations can be adjusted whenever conditions change.",
+        "wrong": {
+          "A": "The text aims for fishing that can continue, not to stop it forever.",
+          "B": "Larger nets are part of the problem in the text.",
+          "C": "Counting for markets is not mentioned."
+        }
+      }
+    ]
   }
 }

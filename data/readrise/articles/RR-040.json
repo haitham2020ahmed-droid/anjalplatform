@@ -614,5 +614,217 @@
       ],
       "modelAnswer": "I agree that the oldest member of a herd, the matriarch, is one of its most valuable members. The article explains that during a drought, when rivers and water holes dry up, she can lead her family to places she remembers from years before, which shows that her accumulated knowledge can literally keep the whole herd alive. Her value also comes through in how the herd cooperates under her leadership, since every female helps raise the calves and the adults form a protective circle around the young when danger like lions approaches, which demonstrates a level of coordination that depends on experienced leadership like hers."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "How do elephants feel calls that are too low for us to hear?",
+        "options": [
+          "With their trunks",
+          "With their feet",
+          "With their tusks",
+          "With their tails"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The text says they feel the low calls with their feet.",
+        "wrong": {
+          "A": "The trunk is for smelling, drinking, and grabbing.",
+          "C": "Tusks are long teeth.",
+          "D": "The text does not mention tails."
+        }
+      },
+      {
+        "stem": "In the article, a herd is —",
+        "options": [
+          "a long nose that can smell and drink",
+          "a baby elephant that is as big as a man",
+          "a long white tooth that sticks out",
+          "a group of elephants that live together"
+        ],
+        "answer": "D",
+        "skill": "vocabulary",
+        "why": "The text says elephants live in a group, and the group is a herd.",
+        "wrong": {
+          "A": "That describes the trunk.",
+          "B": "A baby elephant is called a calf.",
+          "C": "That describes a tusk."
+        }
+      },
+      {
+        "stem": "The text says elephants eat plants for most of the day. What can you tell from this?",
+        "options": [
+          "An elephant needs a lot of food.",
+          "An elephant eats only at night.",
+          "An elephant never drinks water.",
+          "An elephant eats mostly meat."
+        ],
+        "answer": "A",
+        "skill": "inference",
+        "why": "If an elephant eats all day, it must need a lot of food for its big body.",
+        "wrong": {
+          "B": "The text says all day long, not only at night.",
+          "C": "The trunk can drink, so elephants do drink.",
+          "D": "The text says they eat plants."
+        }
+      },
+      {
+        "stem": "What do young males do when they grow up?",
+        "options": [
+          "They become the leader.",
+          "They stay and guard the calves.",
+          "They leave the herd.",
+          "They teach the calves to stand."
+        ],
+        "answer": "C",
+        "skill": "detail",
+        "why": "The text says young males leave when they grow up.",
+        "wrong": {
+          "A": "The leader is the old mom.",
+          "B": "The text says the males leave, not stay.",
+          "D": "The text does not say males teach calves."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "At about what age do young males leave the herd?",
+        "options": [
+          "Two to five years",
+          "One to two years",
+          "Twelve to fifteen years",
+          "Thirty to forty years"
+        ],
+        "answer": "C",
+        "skill": "detail",
+        "why": "The text says young males stay until they are about twelve to fifteen years old.",
+        "wrong": {
+          "A": "Two to five is much too young.",
+          "B": "One to two is much too young.",
+          "D": "Thirty to forty is much too old."
+        }
+      },
+      {
+        "stem": "In the article, the word drought means —",
+        "options": [
+          "a long time with little rain",
+          "a strong wind that moves trees",
+          "a circle that adults form",
+          "a group of related mothers"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "The text says that in a drought, rivers and water holes dry up.",
+        "wrong": {
+          "B": "Wind does not dry up rivers in the text.",
+          "C": "The circle protects calves from lions.",
+          "D": "That describes a herd."
+        }
+      },
+      {
+        "stem": "How are African elephants and Asian elephants alike?",
+        "options": [
+          "Both live in the same forests of Asia",
+          "Both live only on very dry grasslands",
+          "Both have herds that are led by males",
+          "Both are smart and need their families"
+        ],
+        "answer": "D",
+        "skill": "compare",
+        "why": "The text says both kinds are smart, and both need their families to survive.",
+        "wrong": {
+          "A": "African elephants live in Africa.",
+          "B": "Asian elephants live in forests and grasslands.",
+          "C": "Herds are led by the oldest female."
+        }
+      },
+      {
+        "stem": "Why does an adult elephant spend most of its time eating?",
+        "options": [
+          "It wants to hide from the lions nearby",
+          "It needs about 150 kilograms of plants a day",
+          "It is trying to call other elephants",
+          "It has to feed the calves with its trunk"
+        ],
+        "answer": "B",
+        "skill": "cause-effect",
+        "why": "The text says an adult may eat about 150 kilograms of plants a day, so it spends most of its time eating.",
+        "wrong": {
+          "A": "The text does not say eating is a way to hide.",
+          "C": "Elephants call with low rumbles, not by eating.",
+          "D": "Calves are fed by their mothers, not by the trunk of others."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "In the second paragraph, the word accumulates means —",
+        "options": [
+          "loses over many years",
+          "gathers over time",
+          "hides from others",
+          "shares with other herds"
+        ],
+        "answer": "B",
+        "skill": "vocabulary",
+        "why": "Over several decades the matriarch builds up knowledge about food, water, and resting places.",
+        "wrong": {
+          "A": "She gains knowledge, not loses it.",
+          "C": "The knowledge is used to guide the family.",
+          "D": "The text does not say she shares with other herds."
+        }
+      },
+      {
+        "stem": "What do adult elephants do when predators approach?",
+        "options": [
+          "They run away from the young",
+          "They send infrasound to other herds",
+          "They hide the young under tall trees",
+          "They form a circle around the young"
+        ],
+        "answer": "D",
+        "skill": "detail",
+        "why": "The adults form a protective circle around the vulnerable young.",
+        "wrong": {
+          "A": "They stay and protect the young.",
+          "B": "The text does not say this is their response to predators.",
+          "C": "The text does not mention hiding under trees."
+        }
+      },
+      {
+        "stem": "Why is the elephant's trunk both powerful and delicate?",
+        "options": [
+          "It contains thousands of muscles",
+          "It is covered with thick, hard ivory",
+          "It is attached to the tusks",
+          "It can drink huge amounts of water"
+        ],
+        "answer": "A",
+        "skill": "cause-effect",
+        "why": "Because it contains thousands of muscles, it can uproot a tree or pick up a single nut.",
+        "wrong": {
+          "B": "Ivory is the material of the tusks.",
+          "C": "The text says the trunk is the nose and upper lip.",
+          "D": "Drinking is one use, but it does not explain its strength."
+        }
+      },
+      {
+        "stem": "What can the reader infer from the fact that infrasound can travel several kilometers?",
+        "options": [
+          "Elephants must stay very close to talk",
+          "Elephants hear better than humans in all ways",
+          "Elephants can stay in touch across long distances",
+          "Elephants make these sounds only at night"
+        ],
+        "answer": "C",
+        "skill": "inference",
+        "why": "Because the rumbles travel several kilometers, elephants far apart can still detect them.",
+        "wrong": {
+          "A": "The sounds travel far, so elephants need not be close.",
+          "B": "The text only says they hear deep sounds humans cannot.",
+          "D": "The text does not say these sounds are made only at night."
+        }
+      }
+    ]
   }
 }

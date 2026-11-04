@@ -614,5 +614,217 @@
       ],
       "modelAnswer": "I agree that effort and growth matter more than winning. In the story, Yousef did not win the spelling bee, yet he spelled far more words correctly than he ever thought possible, which shows real growth from his earlier low grade. Someone might argue that only the winner truly succeeds, but Yousef's sister points out that even past winners once struggled, suggesting that persistence, not a single result, is what ultimately builds real skill."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "What did Ms. Huda give Yousef to help him?",
+        "options": [
+          "A shiny gold prize",
+          "A brand new pencil",
+          "A big story book",
+          "A list of words"
+        ],
+        "answer": "D",
+        "skill": "detail",
+        "why": "The text says she gave Yousef a list of words.",
+        "wrong": {
+          "A": "A prize is not mentioned.",
+          "B": "A pencil is not mentioned.",
+          "C": "A big book is not mentioned."
+        }
+      },
+      {
+        "stem": "The text says Yousef felt nervous. What does nervous mean?",
+        "options": [
+          "happy and very proud",
+          "worried and a bit scared",
+          "sleepy and very tired",
+          "angry and very loud"
+        ],
+        "answer": "B",
+        "skill": "vocabulary",
+        "why": "Yousef was worried about spelling in front of others, so nervous means worried and a bit scared.",
+        "wrong": {
+          "A": "He felt proud later, not nervous.",
+          "C": "Nervous is not sleepy.",
+          "D": "Nervous is not angry."
+        }
+      },
+      {
+        "stem": "Why did Yousef's class clap at the spelling bee?",
+        "options": [
+          "He spelled word after word.",
+          "He won first place at the bee.",
+          "He missed a very hard word.",
+          "He sang a song to the class."
+        ],
+        "answer": "A",
+        "skill": "cause-effect",
+        "why": "His class clapped because he spelled word after word.",
+        "wrong": {
+          "B": "He did not win first place.",
+          "C": "He missed a word later, and the class clapped before that.",
+          "D": "Singing is not mentioned."
+        }
+      },
+      {
+        "stem": "Why did Ms. Huda say she was proud of Yousef?",
+        "options": [
+          "He won the first prize at the bee",
+          "He never felt nervous at any time",
+          "He worked hard and did his best",
+          "He knew every word on the list"
+        ],
+        "answer": "C",
+        "skill": "inference",
+        "why": "She said he worked so hard, and Yousef did his best even without winning.",
+        "wrong": {
+          "A": "He did not win first place.",
+          "B": "Yousef's heart beat fast at the bee.",
+          "D": "He missed one hard word."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "Where did Yousef stand when he spelled the words at the bee?",
+        "options": [
+          "At his own desk in the classroom",
+          "At the mic in front of the school",
+          "In the library next to Ms. Huda",
+          "In the yard with his sister"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "He walked up to the mic in front of the whole school.",
+        "wrong": {
+          "A": "The bee was in front of the whole school.",
+          "C": "The library is not mentioned.",
+          "D": "His sister is not mentioned at the bee."
+        }
+      },
+      {
+        "stem": "In the story, what are \"syllables\"?",
+        "options": [
+          "Small parts of a word",
+          "Long lists of tricky words",
+          "Rows of seats in a room",
+          "Quick tests given each day"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "The text says to break each long word into smaller parts, called syllables.",
+        "wrong": {
+          "B": "The list of words is a different thing.",
+          "C": "Seats are not mentioned.",
+          "D": "The tests are not syllables."
+        }
+      },
+      {
+        "stem": "Why was missing one hard word still a success for Yousef?",
+        "options": [
+          "He got the highest grade in school",
+          "He was chosen to be the next teacher",
+          "He won a prize for the hardest word",
+          "He spelled more words than he expected"
+        ],
+        "answer": "D",
+        "skill": "cause-effect",
+        "why": "The text says he spelled far more words correctly than he had ever imagined.",
+        "wrong": {
+          "A": "A grade is not mentioned there.",
+          "B": "Being a teacher is not mentioned.",
+          "C": "He did not win first place or a prize."
+        }
+      },
+      {
+        "stem": "Why does the author begin by saying few things feel worse than struggling in front of your class?",
+        "options": [
+          "To show that spelling is easy for everyone",
+          "To tell readers Ms. Huda was unkind",
+          "To show how hard spelling felt to Yousef",
+          "To explain why the bee was cancelled"
+        ],
+        "answer": "C",
+        "skill": "author-purpose",
+        "why": "The opening helps readers understand how uncomfortable spelling made Yousef feel.",
+        "wrong": {
+          "A": "Spelling was hard for Yousef.",
+          "B": "Ms. Huda encouraged him gently.",
+          "D": "The bee was not cancelled."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "In the story, what does the word \"articulate\" mean?",
+        "options": [
+          "Write quickly on paper",
+          "Hide from other people",
+          "Say clearly and correctly",
+          "Count in a loud voice"
+        ],
+        "answer": "C",
+        "skill": "vocabulary",
+        "why": "Dividing words into syllables made them easier to remember and say correctly.",
+        "wrong": {
+          "A": "Yousef was saying words, not only writing.",
+          "B": "Hiding is not part of the meaning.",
+          "D": "Counting is not mentioned."
+        }
+      },
+      {
+        "stem": "When did Yousef practice each day?",
+        "options": [
+          "After completing his homework",
+          "Before the sun came up each day",
+          "During the school lunch hour",
+          "Right before he went to bed"
+        ],
+        "answer": "A",
+        "skill": "detail",
+        "why": "The text says every afternoon after completing his homework he practiced.",
+        "wrong": {
+          "B": "He practiced in the afternoon.",
+          "C": "Lunch is not mentioned.",
+          "D": "Bedtime is not mentioned."
+        }
+      },
+      {
+        "stem": "Why did Yousef at first not want to take part in the bee?",
+        "options": [
+          "He believed he had already won once",
+          "His sister told him not to join",
+          "He thought the words were too easy",
+          "He worried about embarrassing himself"
+        ],
+        "answer": "D",
+        "skill": "cause-effect",
+        "why": "The text says he worried that he would only embarrass himself in front of his classmates.",
+        "wrong": {
+          "A": "He had never felt confident about spelling.",
+          "B": "His sister helped him later.",
+          "C": "The words were tricky."
+        }
+      },
+      {
+        "stem": "What does the phrase \"one syllable at a time\" suggest about Yousef's approach?",
+        "options": [
+          "He tried to learn everything at once",
+          "He improved through small, steady steps",
+          "He copied all of his sister's answers",
+          "He skipped the harder words entirely"
+        ],
+        "answer": "B",
+        "skill": "inference",
+        "why": "He broke words into syllables and practiced a little at a time, so he improved in small steps.",
+        "wrong": {
+          "A": "One at a time is the opposite of everything at once.",
+          "C": "His sister helped with flashcards, not answers.",
+          "D": "He practiced a list of tricky words."
+        }
+      }
+    ]
   }
 }

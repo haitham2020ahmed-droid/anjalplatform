@@ -614,5 +614,217 @@
       ],
       "modelAnswer": "I agree that becoming better than you once were can feel just as rewarding as winning outright. Zaid's experience shows this clearly: he trained with consistent effort for several weeks, applying Coach Ali's pacing and breathing techniques, and he finished the big race by beating his own personal best time through sheer perseverance, even though he did not come in first place. Someone might argue that only first place truly counts in competition, but Zaid's steady improvement in endurance and stamina, built through weeks of consistent practice, represents a genuine personal achievement that no single race result could fully capture."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "How does Zaid do in the races at first?",
+        "options": [
+          "He comes in last.",
+          "He comes in first.",
+          "He does not run.",
+          "He wins a prize."
+        ],
+        "answer": "A",
+        "skill": "detail",
+        "why": "The text says Zaid is slow and comes in last each time.",
+        "wrong": {
+          "B": "He does not come in first.",
+          "C": "He runs on the team.",
+          "D": "He does not win a prize."
+        }
+      },
+      {
+        "stem": "In the article, the word pace means —",
+        "options": [
+          "a long break from it",
+          "a loud cheer",
+          "your running speed",
+          "a school team"
+        ],
+        "answer": "C",
+        "skill": "vocabulary",
+        "why": "Zaid keeps a good pace, which means he keeps a steady speed in the race.",
+        "wrong": {
+          "A": "Zaid does not take a long break.",
+          "B": "The cheers are not what pace means.",
+          "D": "The team is not what pace means."
+        }
+      },
+      {
+        "stem": "Why does Zaid not look at the other kids in the big race?",
+        "options": [
+          "They are far ahead of him.",
+          "He wants to run his own race.",
+          "His coach is behind him.",
+          "The track is too dark."
+        ],
+        "answer": "B",
+        "skill": "cause-effect",
+        "why": "The text says he does not look at the other kids, and he runs his own race.",
+        "wrong": {
+          "A": "The text does not say they are far ahead.",
+          "C": "The coach is proud, not behind him.",
+          "D": "Darkness is not mentioned."
+        }
+      },
+      {
+        "stem": "What counts as a win for Zaid at the end?",
+        "options": [
+          "Getting a gold prize",
+          "Running the fastest of all",
+          "Making the coach smile",
+          "Beating his own best time"
+        ],
+        "answer": "D",
+        "skill": "inference",
+        "why": "Zaid does not win, but he beats his own best time and learns that doing better than before is a win too.",
+        "wrong": {
+          "A": "No prize is mentioned.",
+          "B": "He does not win the race.",
+          "C": "Coach Ali is proud, but that is not the win Zaid learns about."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "How long was the big race?",
+        "options": [
+          "Ten meters",
+          "One mile",
+          "Four meters",
+          "Four hundred meters"
+        ],
+        "answer": "D",
+        "skill": "detail",
+        "why": "The text says Zaid lines up for the four-hundred-meter race.",
+        "wrong": {
+          "A": "Ten meters is not mentioned.",
+          "B": "One mile is not mentioned.",
+          "C": "Four meters is not mentioned."
+        }
+      },
+      {
+        "stem": "In the article, a routine is —",
+        "options": [
+          "a surprise prize",
+          "something done often",
+          "a very hard race",
+          "a coach's tip"
+        ],
+        "answer": "B",
+        "skill": "vocabulary",
+        "why": "Zaid runs every afternoon for weeks, and the text calls this his routine.",
+        "wrong": {
+          "A": "No prize is meant here.",
+          "C": "A routine is about repeating, not a race.",
+          "D": "Tips were what the coach gave him; the routine is the daily running."
+        }
+      },
+      {
+        "stem": "Why should a runner not sprint at full speed at the start?",
+        "options": [
+          "It uses up the strength needed later.",
+          "The coach does not like fast starts.",
+          "It makes the race too short.",
+          "Other runners will slow down."
+        ],
+        "answer": "A",
+        "skill": "cause-effect",
+        "why": "Coach Ali says sprinting at the start quickly uses up the strength needed later.",
+        "wrong": {
+          "B": "The coach gives a reason about strength, not about liking.",
+          "C": "Sprinting does not change the race length.",
+          "D": "The text does not say other runners slow down."
+        }
+      },
+      {
+        "stem": "What does Zaid's running in sun and rain show?",
+        "options": [
+          "He likes the rain.",
+          "He wants to quit.",
+          "He wants to get better.",
+          "He is afraid of Coach Ali."
+        ],
+        "answer": "C",
+        "skill": "inference",
+        "why": "He ran every afternoon whatever the weather, even when his legs were tired, so he was committed.",
+        "wrong": {
+          "A": "The text does not say he likes the rain.",
+          "B": "He kept going, so he did not want to quit.",
+          "D": "The coach was kind to him."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "By how much did Zaid beat his old record?",
+        "options": [
+          "By a few minutes",
+          "By a few seconds",
+          "By only a blink",
+          "By one whole hour"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The text says he beat his old record by several whole seconds.",
+        "wrong": {
+          "A": "Minutes are far too long.",
+          "C": "The text says several whole seconds.",
+          "D": "An hour is not mentioned."
+        }
+      },
+      {
+        "stem": "In the article, the word deliberately means —",
+        "options": [
+          "by accident",
+          "with great speed",
+          "without any help",
+          "on purpose"
+        ],
+        "answer": "D",
+        "skill": "vocabulary",
+        "why": "Zaid deliberately avoids glancing at other runners, meaning he chooses to do so.",
+        "wrong": {
+          "A": "It is the opposite of by accident.",
+          "B": "Speed is not what the word means.",
+          "C": "Help is not the focus."
+        }
+      },
+      {
+        "stem": "Why did Zaid feel embarrassed after races?",
+        "options": [
+          "He finished last each time.",
+          "He had forgotten his shoes.",
+          "His coach scolded him loudly.",
+          "He fell down at the start."
+        ],
+        "answer": "A",
+        "skill": "cause-effect",
+        "why": "He finished last race after race while everyone else celebrated around him.",
+        "wrong": {
+          "B": "Shoes are not mentioned.",
+          "C": "Coach Ali was understanding.",
+          "D": "Falling is not mentioned."
+        }
+      },
+      {
+        "stem": "Why does Zaid avoid glancing at the runners beside him?",
+        "options": [
+          "He is afraid of them.",
+          "He thinks they are cheating.",
+          "To stay focused on his own pace",
+          "He wants them to slow down."
+        ],
+        "answer": "C",
+        "skill": "inference",
+        "why": "He concentrates on running his own race at a steady pace, so looking at others would distract him.",
+        "wrong": {
+          "A": "Fear is not mentioned.",
+          "B": "Cheating is not mentioned.",
+          "D": "He cannot make others slow down."
+        }
+      }
+    ]
   }
 }

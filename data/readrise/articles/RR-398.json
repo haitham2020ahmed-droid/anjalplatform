@@ -614,5 +614,217 @@
       ],
       "modelAnswer": "I agree that staying calm and finding an adult is the best first step when something goes wrong on a trip. In the story, Yousef and Noura accidentally board the wrong bus and are surrounded by unfamiliar students, yet instead of panicking, Noura takes a deliberate breath and the two friends calmly approach an unfamiliar teacher, who quickly resolves the mix-up by contacting their own teacher. Someone might argue that it would be faster to simply get off the bus and search for the right one alone, but doing so in an unfamiliar place could easily make the predicament worse; approaching a responsible adult, as Yousef and Noura did, led to a safe and remarkably quick resolution."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "Where does the class go on the trip?",
+        "options": [
+          "To a big park",
+          "To a museum",
+          "To a new school",
+          "To a toy store"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The text says, \"They go to a museum.\"",
+        "wrong": {
+          "A": "A park is not mentioned.",
+          "C": "The class does not go to another school.",
+          "D": "A toy store is not mentioned."
+        }
+      },
+      {
+        "stem": "What does the kind teacher on the bus do to help?",
+        "options": [
+          "She drives them home",
+          "She gives them a map",
+          "She takes them to the museum",
+          "She calls their teacher"
+        ],
+        "answer": "D",
+        "skill": "detail",
+        "why": "The text says the kind teacher calls their teacher.",
+        "wrong": {
+          "A": "She does not drive them home.",
+          "B": "A map is not mentioned.",
+          "C": "They are already past the museum visit."
+        }
+      },
+      {
+        "stem": "In the story, what does \"calm\" mean?",
+        "options": [
+          "Quiet and not upset",
+          "Loud and very angry",
+          "Fast and busy",
+          "Tired and sleepy"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "Noura tells Yousef to stay calm and they do not shout, so calm means quiet and not upset.",
+        "wrong": {
+          "B": "They do not shout, so they are not loud and angry.",
+          "C": "The word is not about speed.",
+          "D": "The word is not about being sleepy."
+        }
+      },
+      {
+        "stem": "What does the teacher's praise show about the way to solve a problem?",
+        "options": [
+          "It is best to hide from everyone",
+          "It is best to run to the front of the bus",
+          "Staying calm can help you fix a problem",
+          "Asking questions makes a problem worse"
+        ],
+        "answer": "C",
+        "skill": "inference",
+        "why": "The teacher says staying calm was smart, and calm talk helped the friends get back to the right bus.",
+        "wrong": {
+          "A": "The friends talked to a teacher, not hid.",
+          "B": "Running is not what helped them.",
+          "D": "Asking the teacher for help is what solved the problem."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "What did the friends see at the museum?",
+        "options": [
+          "A giant robot and a flying space ship",
+          "Some paintings and a garden",
+          "A big library and a clock tower",
+          "Old artifacts and a dinosaur skeleton"
+        ],
+        "answer": "D",
+        "skill": "detail",
+        "why": "The text mentions old artifacts and a dinosaur skeleton that almost touched the ceiling.",
+        "wrong": {
+          "A": "A robot and a space ship are not mentioned.",
+          "B": "Paintings and a garden are not mentioned.",
+          "C": "A library and a clock tower are not mentioned."
+        }
+      },
+      {
+        "stem": "In the story, the word \"fascinating\" means —",
+        "options": [
+          "very hard to find",
+          "very interesting",
+          "very far away",
+          "very crowded"
+        ],
+        "answer": "B",
+        "skill": "vocabulary",
+        "why": "The friends were still chatting about what they saw, so the visit was very interesting.",
+        "wrong": {
+          "A": "They did not have trouble finding the museum.",
+          "C": "Distance is not the topic of the sentence.",
+          "D": "The sentence is about how they liked the visit."
+        }
+      },
+      {
+        "stem": "Why was the teacher relieved when she came to the bus?",
+        "options": [
+          "The bus was ready to leave",
+          "The class had finished lunch",
+          "She found the friends safe",
+          "The museum was closing"
+        ],
+        "answer": "C",
+        "skill": "cause-effect",
+        "why": "The text says their teacher arrived relieved to find them safe.",
+        "wrong": {
+          "A": "The text does not say it was time to leave.",
+          "B": "Lunch is not mentioned.",
+          "D": "The museum closing is not mentioned."
+        }
+      },
+      {
+        "stem": "What does Noura's choice not to shout show about her?",
+        "options": [
+          "She can control strong feelings",
+          "She does not care about Yousef",
+          "She is not worried at all",
+          "She wants the teacher to be angry"
+        ],
+        "answer": "A",
+        "skill": "inference",
+        "why": "She felt an urge to shout, but she took a slow breath, which shows self-control.",
+        "wrong": {
+          "B": "She calmed Yousef down, so she cares about him.",
+          "C": "She felt an urge to shout, so she was worried.",
+          "D": "She wants the problem solved, not an angry teacher."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "What was the unfamiliar teacher doing when the friends first saw her?",
+        "options": [
+          "Giving a long talk to the students",
+          "Quietly reading something on her phone",
+          "Looking around for her own class",
+          "Helping all the students find seats"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The text says she was seated near the front, quietly reading something on her phone.",
+        "wrong": {
+          "A": "She was reading, not giving a talk.",
+          "C": "The text does not say she was looking for a class.",
+          "D": "She was seated, not helping students find seats."
+        }
+      },
+      {
+        "stem": "In the story, the word \"composed\" most nearly means —",
+        "options": [
+          "very noisy and excited",
+          "fast and out of breath",
+          "lost and confused",
+          "calm and in control"
+        ],
+        "answer": "D",
+        "skill": "vocabulary",
+        "why": "The friends agreed that remaining composed was their best option, after Noura reminded Yousef that panicking would not help.",
+        "wrong": {
+          "A": "They were told to avoid panic, not be noisy.",
+          "B": "The word is about feelings, not speed.",
+          "C": "They were confused at first, but composed means they stayed in control."
+        }
+      },
+      {
+        "stem": "Why does the author say Noura felt \"an overwhelming urge to shout\" before she took a breath?",
+        "options": [
+          "To show she had to work hard to stay calm",
+          "To show the bus driver was very angry",
+          "To show that Yousef did not feel worried",
+          "To show the museum was too loud"
+        ],
+        "answer": "A",
+        "skill": "author-purpose",
+        "why": "The strong urge makes her calm breath more impressive, showing she worked at staying calm.",
+        "wrong": {
+          "B": "The bus driver is not mentioned.",
+          "C": "Yousef felt a jolt of anxiety.",
+          "D": "The shout is about the bus, not the museum."
+        }
+      },
+      {
+        "stem": "What does the phrase \"visibly relieved\" suggest about their own teacher?",
+        "options": [
+          "She was angry about the mistake",
+          "She did not think the students were lost",
+          "She had been worried about the students",
+          "She wanted to take a different bus"
+        ],
+        "answer": "C",
+        "skill": "inference",
+        "why": "She was relieved to find both students safe, which shows she had been worried.",
+        "wrong": {
+          "A": "She gave warm praise, so she was not angry.",
+          "B": "She felt relieved, which shows she knew they had been missing.",
+          "D": "The text does not say she wanted another bus."
+        }
+      }
+    ]
   }
 }

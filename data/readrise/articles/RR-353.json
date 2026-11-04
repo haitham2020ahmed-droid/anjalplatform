@@ -614,5 +614,217 @@
       ],
       "modelAnswer": "I disagree that Faisal and Noura should have told all their friends right away. The story shows that rushing to share the discovery could have led crowds to trample the delicate plants and frighten away the animals that depended on the fragile ecosystem. By consulting the village elders instead, the children made the responsible, sustainable choice: the elders designed a plan with a narrow path and limited small-group visits, which protected the spring and let the whole village benefit safely for years. Someone might argue that friends deserved to know immediately, but the story shows that genuine stewardship sometimes means pausing excitement in favor of a wiser, shared plan."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "What did Grandpa do long ago?",
+        "options": [
+          "He built a camp",
+          "He sold some trees",
+          "He lost his way home",
+          "He found a hidden spot"
+        ],
+        "answer": "D",
+        "skill": "detail",
+        "why": "The text says that long ago he found a hidden spot with cool water.",
+        "wrong": {
+          "A": "The text does not say he built a camp.",
+          "B": "The text does not say he sold trees.",
+          "C": "He found the spot; the text does not say he got lost."
+        }
+      },
+      {
+        "stem": "In the story, the word clues means —",
+        "options": [
+          "hints to find something",
+          "water from the ground",
+          "plants that grow in sand",
+          "kids who walk far"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "Grandpa gives clues, like the red rock, to help the kids find the oasis.",
+        "wrong": {
+          "B": "Water from the ground is the spring.",
+          "C": "The clues are rocks and a dry bed.",
+          "D": "The kids use the clues; they are not the clues."
+        }
+      },
+      {
+        "stem": "What could too many feet do at the spring?",
+        "options": [
+          "Make the water cold",
+          "Hurt the plants",
+          "Bring new trees",
+          "Dry up the sand"
+        ],
+        "answer": "B",
+        "skill": "cause-effect",
+        "why": "Faisal says too many feet could hurt the plants.",
+        "wrong": {
+          "A": "The text does not talk about cold water.",
+          "C": "Feet do not bring trees.",
+          "D": "The text does not say feet dry up sand."
+        }
+      },
+      {
+        "stem": "What did the kids pass right after the red rock?",
+        "options": [
+          "Three tall trees",
+          "A hidden spring",
+          "The dry bed",
+          "A big camp"
+        ],
+        "answer": "C",
+        "skill": "sequence",
+        "why": "The kids passed the red rock and then walked by the dry bed.",
+        "wrong": {
+          "A": "The trees are at the spring, at the end.",
+          "B": "They find the spring last.",
+          "D": "The camp is where the kids started."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "How did grandfather first find the oasis?",
+        "options": [
+          "He followed a map he had drawn",
+          "He dug a deep well in the sand",
+          "He wandered the hills as a boy",
+          "He got a clue from the elders"
+        ],
+        "answer": "C",
+        "skill": "detail",
+        "why": "The story says that as a boy he wandered into the hills and discovered it.",
+        "wrong": {
+          "A": "No map is mentioned.",
+          "B": "The spring was already there; he did not dig it.",
+          "D": "The elders are not part of his discovery."
+        }
+      },
+      {
+        "stem": "In the story, the word trample means to —",
+        "options": [
+          "water the plants well",
+          "step on and crush",
+          "plant seeds in rows",
+          "carry them far away"
+        ],
+        "answer": "B",
+        "skill": "vocabulary",
+        "why": "Faisal says too many feet could trample small plants, which means step on and crush them.",
+        "wrong": {
+          "A": "Feet do not water plants.",
+          "C": "Planting is not what feet do here.",
+          "D": "Feet harm the plants; they do not carry them."
+        }
+      },
+      {
+        "stem": "Why did the elders mark one narrow path?",
+        "options": [
+          "To keep the plants safe",
+          "So the spring would run dry",
+          "So the animals could not drink",
+          "So the path would be hard to find"
+        ],
+        "answer": "A",
+        "skill": "cause-effect",
+        "why": "The story says the path was marked so visitors would not damage the plants nearby.",
+        "wrong": {
+          "B": "The elders wanted to protect the spring.",
+          "C": "The elders wanted to protect the animals too.",
+          "D": "The path was marked to help visitors."
+        }
+      },
+      {
+        "stem": "What does \"just like the old story had promised\" tell us?",
+        "options": [
+          "The story was not really true",
+          "Grandfather's story was true",
+          "The oasis was very far away",
+          "The children made it all up"
+        ],
+        "answer": "B",
+        "skill": "inference",
+        "why": "The children find the spring just as grandfather described, so his story was true.",
+        "wrong": {
+          "A": "The children found what the story described.",
+          "C": "The story gave landmarks; it did not say how far.",
+          "D": "The children found a real spring."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "What did the children do right after following the dry riverbed until it curved?",
+        "options": [
+          "Spoke with the elders",
+          "Spotted the three rocks",
+          "Found the red rock",
+          "Drank the spring water"
+        ],
+        "answer": "B",
+        "skill": "sequence",
+        "why": "They followed the riverbed to its curve, and at last spotted the three rocks.",
+        "wrong": {
+          "A": "They saw the elders after the spring.",
+          "C": "They found the red rock before the riverbed.",
+          "D": "They reached the spring after the rocks."
+        }
+      },
+      {
+        "stem": "In the story, the word delicate describes plants that are —",
+        "options": [
+          "easy to damage",
+          "very tall",
+          "bright green",
+          "full of water"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "Faisal worries visitors could trample the delicate plants, so they are easily damaged.",
+        "wrong": {
+          "B": "The plants near the water are small, not tall.",
+          "C": "Their color is not what the word describes.",
+          "D": "The word describes how easily they break."
+        }
+      },
+      {
+        "stem": "Why did the elders let only small groups visit at one time?",
+        "options": [
+          "To make the path longer",
+          "To keep the water supply lasting",
+          "To hide the spring from friends",
+          "To save time for the village"
+        ],
+        "answer": "B",
+        "skill": "cause-effect",
+        "why": "The story says small groups keep the water supply sustainable for generations.",
+        "wrong": {
+          "A": "The path was marked to protect plants.",
+          "C": "The elders wanted to share the water safely.",
+          "D": "Saving time is not mentioned."
+        }
+      },
+      {
+        "stem": "What can you infer about grandfather's old story from what the children found?",
+        "options": [
+          "It was true",
+          "It was made up",
+          "It was about a big city",
+          "It was told by Faisal"
+        ],
+        "answer": "A",
+        "skill": "inference",
+        "why": "The children found the clear spring among trees that grandfather had described, so his story was true.",
+        "wrong": {
+          "B": "What they found matched his words, so it was not made up.",
+          "C": "The story was about a spring in the desert.",
+          "D": "Grandfather told the story, not Faisal."
+        }
+      }
+    ]
   }
 }

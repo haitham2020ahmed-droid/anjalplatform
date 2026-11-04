@@ -614,5 +614,217 @@
       ],
       "modelAnswer": "Technique and concentration work together closely in archery. An archer's technique includes standing sideways to the target, drawing the string back to the same anchor point every time, usually under the chin, and releasing the string smoothly while holding perfectly still, and the fletching on the back of each arrow keeps it flying straight through the air. Concentration matters just as much, because calm breathing keeps the body steady and repeating each step in exactly the same way builds the consistency needed for accuracy, especially since even a gentle wind can push the arrow off course. When technique and concentration work together, the archer gives the arrow the best possible chance of landing in the center of the target."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "What did people use a bow for long ago?",
+        "options": [
+          "To dig holes",
+          "To cook meat",
+          "To hunt animals",
+          "To build a house"
+        ],
+        "answer": "C",
+        "skill": "detail",
+        "why": "The text says long ago people used the bow to hunt.",
+        "wrong": {
+          "A": "The text does not say bows were used to dig.",
+          "B": "The text does not say bows were used to cook.",
+          "D": "The text does not say bows were used to build."
+        }
+      },
+      {
+        "stem": "According to the text, what is the tip of an arrow?",
+        "options": [
+          "the sharp end",
+          "the back part",
+          "a short string",
+          "a small feather"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "The tip is the sharp end at the front of the arrow.",
+        "wrong": {
+          "B": "The back of the arrow has fins.",
+          "C": "The string belongs to the bow.",
+          "D": "The fins at the back are the feathers."
+        }
+      },
+      {
+        "stem": "Why should you never point a bow at a person?",
+        "options": [
+          "The bow could snap in half",
+          "The arrow would not fly far",
+          "The target would be too close",
+          "The arrow could hurt someone"
+        ],
+        "answer": "D",
+        "skill": "inference",
+        "why": "The text says safe play is a must, because an arrow has a sharp tip and could hurt a person.",
+        "wrong": {
+          "A": "The text does not say the bow would break.",
+          "B": "The text does not say how far the arrow would fly.",
+          "C": "The target is not the reason for this rule."
+        }
+      },
+      {
+        "stem": "Where should your hand be when you pull the string back?",
+        "options": [
+          "By your knee",
+          "By your chin",
+          "By your foot",
+          "On the target"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The text says to hold your hand by your chin.",
+        "wrong": {
+          "A": "The text says chin, not knee.",
+          "C": "The text says chin, not foot.",
+          "D": "The hand holds the string, not the target."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "How many points is the gold ring worth?",
+        "options": [
+          "Two",
+          "Five",
+          "Seven",
+          "Ten"
+        ],
+        "answer": "D",
+        "skill": "detail",
+        "why": "The text says the gold ring in the center is worth ten points.",
+        "wrong": {
+          "A": "Two points is too low for the gold ring.",
+          "B": "Five points is too low for the gold ring.",
+          "C": "Seven points is too low for the gold ring."
+        }
+      },
+      {
+        "stem": "Read this: \"Finally, they release the string.\" What does release mean?",
+        "options": [
+          "pull back harder",
+          "let go of",
+          "wrap around",
+          "touch lightly"
+        ],
+        "answer": "B",
+        "skill": "vocabulary",
+        "why": "The archer lets go of the string so the arrow can fly.",
+        "wrong": {
+          "A": "The archer has already pulled the string back.",
+          "C": "The string is not wrapped around anything.",
+          "D": "The arrow flies because the string is let go, not touched lightly."
+        }
+      },
+      {
+        "stem": "Why does an arrow have fins or feathers at the back?",
+        "options": [
+          "They help it fly straight",
+          "They help it hold the string",
+          "They make it very heavy",
+          "They show how many points"
+        ],
+        "answer": "A",
+        "skill": "cause-effect",
+        "why": "The text says the fins or feathers help the arrow fly straight through the air.",
+        "wrong": {
+          "B": "The text does not say they help hold the string.",
+          "C": "Fins and feathers are light, and the text does not say they add weight.",
+          "D": "Points come from the rings on the target."
+        }
+      },
+      {
+        "stem": "What can you infer about archery in Saudi Arabia?",
+        "options": [
+          "Only older adults are allowed to try it",
+          "It is played only during the Olympics",
+          "Young people can learn it and compete",
+          "It is done without any safety rules"
+        ],
+        "answer": "C",
+        "skill": "inference",
+        "why": "The text says young people can learn archery at clubs and take part in competitions.",
+        "wrong": {
+          "A": "The text says young people can learn it.",
+          "B": "The text says clubs and competitions exist in Saudi Arabia.",
+          "D": "The text says archery is safe when everyone follows the rules."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "In Arab history, archery was valued alongside which skill?",
+        "options": [
+          "Swimming",
+          "Horse riding",
+          "Sailing",
+          "Camel racing"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The text says archery was regarded as an admirable accomplishment alongside horse riding.",
+        "wrong": {
+          "A": "Swimming is not named in the text.",
+          "C": "Sailing is not named in the text.",
+          "D": "Camel racing is not named in the text."
+        }
+      },
+      {
+        "stem": "The article says archery helps young people develop patience and discipline. What does discipline mean?",
+        "options": [
+          "control over what you do",
+          "a kind of wooden bow",
+          "a loud cheer from fans",
+          "good luck in a contest"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "Archery builds patience and self-control, so discipline means control over your own actions.",
+        "wrong": {
+          "B": "A bow is equipment, not discipline.",
+          "C": "Cheering is not what discipline means.",
+          "D": "Discipline comes from practice, not luck."
+        }
+      },
+      {
+        "stem": "How does repeating each step in the same way help an archer?",
+        "options": [
+          "It makes the bow lighter",
+          "It lets the archer shoot faster",
+          "It improves accuracy",
+          "It makes the target closer"
+        ],
+        "answer": "C",
+        "skill": "cause-effect",
+        "why": "The text says repeating each step in precisely the same manner improves accuracy.",
+        "wrong": {
+          "A": "The text does not say the bow gets lighter.",
+          "B": "The text says accuracy improves, not speed.",
+          "D": "The target stays seventy meters away."
+        }
+      },
+      {
+        "stem": "What is the purpose of the opening paragraph?",
+        "options": [
+          "To put the reader at an archer's side",
+          "To list the safety rules for coaches",
+          "To compare bows used in the past",
+          "To explain how points are counted"
+        ],
+        "answer": "A",
+        "skill": "author-purpose",
+        "why": "The opening describes one archer drawing the string, which draws the reader into the scene.",
+        "wrong": {
+          "B": "Safety rules come near the end.",
+          "C": "The comparison with the past is not in the opening.",
+          "D": "Points are explained in a later paragraph."
+        }
+      }
+    ]
   }
 }

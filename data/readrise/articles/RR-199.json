@@ -614,5 +614,217 @@
       ],
       "modelAnswer": "I disagree that the Olympic and Paralympic Games should be combined into one event. The article explains that Paralympic sports are specially designed around different disabilities, such as goalball, where players who cannot see use the sound of bells inside the ball, or wheelchair basketball, which depends on the impairment classification of each athlete to keep competition fair. Combining the Games could make it harder to give each sport and classification the attention it deserves, especially since the Paralympic Games already include more than four thousand athletes competing in over twenty sports. Keeping the Games separate, held in the same city just weeks after the Olympics, lets each event celebrate its athletes fully while still showing how closely connected the two competitions are."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "Where were the first real Games held in 1960?",
+        "options": [
+          "Cairo",
+          "Paris",
+          "Jeddah",
+          "Rome"
+        ],
+        "answer": "D",
+        "skill": "detail",
+        "why": "The text says the first real Games were held in Rome in 1960.",
+        "wrong": {
+          "A": "Cairo is not named in the text.",
+          "B": "Paris is not named in the text.",
+          "C": "Jeddah is not named in the text."
+        }
+      },
+      {
+        "stem": "The text says a blind man and a guide hold a short cord. What is a cord?",
+        "options": [
+          "a thin rope",
+          "a fast shoe",
+          "a gold medal",
+          "a kind of ball"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "The two runners hold the cord to stay together, so it is a thin rope.",
+        "wrong": {
+          "B": "A shoe is not something two people hold together.",
+          "C": "A medal is a prize, not something held while running.",
+          "D": "The ball is used in goalball, not in the running pair."
+        }
+      },
+      {
+        "stem": "Why does the guide call out the turns?",
+        "options": [
+          "The guide wants to win a medal",
+          "The runner cannot see the turns",
+          "The track has too many turns",
+          "The crowd is too quiet"
+        ],
+        "answer": "B",
+        "skill": "inference",
+        "why": "The runner is blind, so the guide must tell the runner about the turns.",
+        "wrong": {
+          "A": "The guide gets a medal only if they win, which is not why the guide calls turns.",
+          "C": "The text does not say the track has too many turns.",
+          "D": "The text does not mention the crowd."
+        }
+      },
+      {
+        "stem": "Where are the Paralympic Games held?",
+        "options": [
+          "Only in the town of Rome, Italy",
+          "In a town in England each time",
+          "In the same town as the Olympics",
+          "In the desert near Riyadh"
+        ],
+        "answer": "C",
+        "skill": "detail",
+        "why": "The text says the Games are held in the same town as the Olympics.",
+        "wrong": {
+          "A": "Rome hosted the first real Games in 1960, but not every time.",
+          "B": "England is where the games began in 1948, not where they are always held.",
+          "D": "The text does not name Riyadh."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "Who set up the contest in England in 1948?",
+        "options": [
+          "A doctor named Ludwig Guttmann",
+          "A soldier from Saudi Arabia",
+          "A swimmer from Rome",
+          "A teacher at the Olympics"
+        ],
+        "answer": "A",
+        "skill": "detail",
+        "why": "The text says a doctor named Ludwig Guttmann set up the contest.",
+        "wrong": {
+          "B": "The text does not say a soldier from Saudi Arabia set it up.",
+          "C": "Rome is where the first Games took place in 1960.",
+          "D": "The Olympics did not set up this contest."
+        }
+      },
+      {
+        "stem": "The article says the Paralympic Games run parallel to the Olympic Games. What does parallel mean here?",
+        "options": [
+          "far away from",
+          "much faster than",
+          "in place of",
+          "alongside"
+        ],
+        "answer": "D",
+        "skill": "vocabulary",
+        "why": "The text says \"para\" means \"beside\" and that the Games are held in the same city as the Olympics, just after.",
+        "wrong": {
+          "A": "The Games are held in the same city, not far away.",
+          "B": "The text does not compare their speed.",
+          "C": "The Paralympics happen in addition to the Olympics, not in place of them."
+        }
+      },
+      {
+        "stem": "Why did the soldiers shoot arrows from their wheelchairs?",
+        "options": [
+          "They wanted to hunt animals",
+          "They were training for a race",
+          "Many of them could not walk",
+          "The target was very close"
+        ],
+        "answer": "C",
+        "skill": "cause-effect",
+        "why": "The text says many of the soldiers could not walk, so they shot from wheelchairs.",
+        "wrong": {
+          "A": "The text does not say they hunted.",
+          "B": "The text says they shot arrows, not that they trained for a race.",
+          "D": "The text does not say the target was close."
+        }
+      },
+      {
+        "stem": "What does the number of athletes in 1960 and today suggest?",
+        "options": [
+          "Fewer people like sports now",
+          "The Games have grown a lot",
+          "The Games are only for soldiers",
+          "Rome still hosts the Games"
+        ],
+        "answer": "B",
+        "skill": "inference",
+        "why": "In 1960 there were about four hundred athletes, and now there are more than four thousand.",
+        "wrong": {
+          "A": "More athletes now means more people take part, not fewer.",
+          "C": "The Games are for top athletes with a disability today.",
+          "D": "The text does not say Rome still hosts the Games."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "Since which year have the Winter Paralympic Games been held?",
+        "options": [
+          "1948",
+          "1960",
+          "1976",
+          "2025"
+        ],
+        "answer": "C",
+        "skill": "detail",
+        "why": "The text says Winter Paralympic Games have been held since 1976.",
+        "wrong": {
+          "A": "1948 is when the movement began in England.",
+          "B": "1960 is the year of the first official Paralympic Games.",
+          "D": "The text does not give 2025 for this."
+        }
+      },
+      {
+        "stem": "As used in the article, \"elite\" most nearly means",
+        "options": [
+          "among the best",
+          "very young",
+          "new to sport",
+          "worried"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "The text calls the athletes among the most accomplished in the world, so elite means among the best.",
+        "wrong": {
+          "B": "The text does not say the athletes are young.",
+          "C": "The athletes train for years, so they are not new.",
+          "D": "The text does not describe the athletes as worried."
+        }
+      },
+      {
+        "stem": "Why must goalball defenders listen attentively?",
+        "options": [
+          "The coach shouts the score",
+          "The guide calls out turns",
+          "The crowd gives signals",
+          "The ball has bells inside it"
+        ],
+        "answer": "D",
+        "skill": "cause-effect",
+        "why": "The athletes have visual impairments, so they follow the sound of the bells in the ball to block it.",
+        "wrong": {
+          "A": "The text does not say the coach shouts the score.",
+          "B": "Guides call turns in running, not in goalball.",
+          "C": "The text does not mention signals from the crowd."
+        }
+      },
+      {
+        "stem": "Why does the author end by saying the athletes train for years?",
+        "options": [
+          "To warn that training is too hard",
+          "To show they earn respect through work",
+          "To explain how classification works",
+          "To say only Saudi athletes train"
+        ],
+        "answer": "B",
+        "skill": "author-purpose",
+        "why": "The author says they train for years and show what determination can achieve, which praises their effort.",
+        "wrong": {
+          "A": "The author praises the athletes, not warns about training.",
+          "C": "Classification is explained in an earlier paragraph.",
+          "D": "The article says athletes come from many countries."
+        }
+      }
+    ]
   }
 }

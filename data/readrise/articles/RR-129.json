@@ -614,5 +614,217 @@
       ],
       "modelAnswer": "A box oven and a parabolic cooker both use sunlight, but in different ways. The box oven absorbs sunlight with its black interior and traps the heat using insulation and a clear lid, which slowly builds up thermal energy inside. A parabolic cooker instead uses a curved mirror to concentrate sunlight onto a single point, so it can boil water or fry food much faster than a box oven. One advantage of the box oven is that it is simple and holds heat steadily for slow cooking, while an advantage of the parabolic cooker is its speed, since the focused light heats food quickly. Both designs offer a sustainable alternative to fires that cause respiratory illness from smoke."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "What can a sun oven cook?",
+        "options": [
+          "Rice and bread",
+          "Only cold drinks",
+          "Ice and butter",
+          "Wood and smoke"
+        ],
+        "answer": "A",
+        "skill": "detail",
+        "why": "The text says the box can cook rice and bake bread.",
+        "wrong": {
+          "B": "The text says it cooks hot food, not cold drinks.",
+          "C": "Ice and butter are not cooked in the oven.",
+          "D": "Wood and smoke are not food."
+        }
+      },
+      {
+        "stem": "Why is a sun oven better for people's lungs?",
+        "options": [
+          "It burns wood very slowly",
+          "It makes smoke go up high",
+          "It makes no smoke at all",
+          "It cools the air in the home"
+        ],
+        "answer": "C",
+        "skill": "cause-effect",
+        "why": "The text says smoke is bad for lungs and a sun oven makes no smoke.",
+        "wrong": {
+          "A": "A sun oven needs no wood.",
+          "B": "A sun oven makes no smoke to go up.",
+          "D": "The text does not say it cools the air."
+        }
+      },
+      {
+        "stem": "Why can a sun oven not cook at night?",
+        "options": [
+          "The box turns white after dark",
+          "There is no sunlight to heat it",
+          "The lid is too heavy to lift",
+          "The flaps fall off in the dark"
+        ],
+        "answer": "B",
+        "skill": "inference",
+        "why": "A sun oven needs the sun's light to get hot, and there is no sun at night.",
+        "wrong": {
+          "A": "The text says the inside is black.",
+          "C": "The text does not mention a heavy lid.",
+          "D": "The text does not say the flaps fall off."
+        }
+      },
+      {
+        "stem": "The text says sunlight is free. What does this mean?",
+        "options": [
+          "the sun is far from the home",
+          "the sun moves around freely",
+          "the sun stays in the sky all day",
+          "using the sun costs no money"
+        ],
+        "answer": "D",
+        "skill": "vocabulary",
+        "why": "The text says a sun oven needs no wood, so the sun is a free way to cook that costs no money.",
+        "wrong": {
+          "A": "Free does not mean far away.",
+          "B": "Free does not mean moving around.",
+          "C": "Free does not describe where the sun is."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "In the article, renewable means a source of energy that —",
+        "options": [
+          "costs a great deal to buy",
+          "is used up as it burns",
+          "will never be used up",
+          "can be found only at night"
+        ],
+        "answer": "C",
+        "skill": "vocabulary",
+        "why": "The text explains that a renewable source will not run out.",
+        "wrong": {
+          "A": "The text says sunlight saves families money.",
+          "B": "That describes wood, not sunlight.",
+          "D": "Sunlight is found in the day."
+        }
+      },
+      {
+        "stem": "What does the word solar mean?",
+        "options": [
+          "Of the sun",
+          "Of the wind",
+          "Of the water",
+          "Of the earth"
+        ],
+        "answer": "A",
+        "skill": "detail",
+        "why": "The first paragraph says solar means \"of the sun.\"",
+        "wrong": {
+          "B": "Solar is about the sun, not the wind.",
+          "C": "Solar is about the sun, not water.",
+          "D": "Solar is about the sun, not the earth."
+        }
+      },
+      {
+        "stem": "Why do families with solar ovens not need to cut down trees for firewood?",
+        "options": [
+          "The ovens are built from small trees",
+          "They cook with coal from other places",
+          "Their ovens burn wool and cardboard",
+          "Sunlight cooks the food instead of wood"
+        ],
+        "answer": "D",
+        "skill": "cause-effect",
+        "why": "A solar oven is powered by sunlight instead of wood, so there is no need for firewood.",
+        "wrong": {
+          "A": "The text does not say ovens are made from trees.",
+          "B": "Coal is a fuel for open fires.",
+          "C": "Wool and cardboard are insulation, not fuel."
+        }
+      },
+      {
+        "stem": "Why would a solar oven be a poor choice on a cloudy day?",
+        "options": [
+          "Clouds turn the clear lid black",
+          "Little sunlight reaches the oven",
+          "Clouds push smoke into the box",
+          "Wet air makes the food go bad"
+        ],
+        "answer": "B",
+        "skill": "inference",
+        "why": "The text says solar ovens cannot work on cloudy days because they run on sunlight.",
+        "wrong": {
+          "A": "The text does not say clouds change the lid.",
+          "C": "Solar ovens make no smoke.",
+          "D": "The text does not mention wet air."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "About how many people still cook on open fires or simple stoves?",
+        "options": [
+          "More than two hundred",
+          "More than two billion",
+          "Fewer than two thousand",
+          "About two million"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The text says more than two billion people still cook this way.",
+        "wrong": {
+          "A": "The text says billion, not two hundred.",
+          "C": "The text says billion, not fewer than two thousand.",
+          "D": "The text says billion, not two million."
+        }
+      },
+      {
+        "stem": "In the article, the word respiratory describes illnesses that affect —",
+        "options": [
+          "the skin and the hair",
+          "the bones and muscles",
+          "the eyes and the ears",
+          "the lungs and breathing"
+        ],
+        "answer": "D",
+        "skill": "vocabulary",
+        "why": "The text explains that these illnesses affect the lungs and breathing.",
+        "wrong": {
+          "A": "The text names the lungs, not the skin.",
+          "B": "The text names the lungs, not the bones.",
+          "C": "The text names breathing, not the eyes."
+        }
+      },
+      {
+        "stem": "How does gathering firewood affect the world's forests?",
+        "options": [
+          "It helps new trees grow faster",
+          "It protects the soil in the forest",
+          "It adds to the loss of forests",
+          "It turns forests into solar ovens"
+        ],
+        "answer": "C",
+        "skill": "cause-effect",
+        "why": "The text says gathering firewood contributes to the loss of forests.",
+        "wrong": {
+          "A": "Cutting wood does not help trees grow.",
+          "B": "The text does not say it protects soil.",
+          "D": "Forests are not turned into ovens."
+        }
+      },
+      {
+        "stem": "Compared with a box oven, why does a parabolic cooker cook food faster?",
+        "options": [
+          "Its mirror focuses light on one point",
+          "Its pot is heated by burning charcoal",
+          "Its mirror makes shade over the pot",
+          "Its food is cooked by moonlight"
+        ],
+        "answer": "A",
+        "skill": "compare",
+        "why": "The text says the curved mirror concentrates sunlight onto a single point, so it heats much faster.",
+        "wrong": {
+          "B": "A parabolic cooker uses sunlight, not charcoal.",
+          "C": "The mirror focuses light; it does not make shade.",
+          "D": "Solar cookers run on sunlight, not moonlight."
+        }
+      }
+    ]
   }
 }

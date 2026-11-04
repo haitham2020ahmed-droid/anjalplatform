@@ -614,5 +614,217 @@
       ],
       "modelAnswer": "When you learn something new, neuroplasticity lets neurons build new connections, or synapses, forming a pathway that gets stronger and faster each time you practice the skill. Furthermore, sleep plays a crucial role, because the hippocampus becomes especially active while you rest, helping store the day's new information as lasting memories your brain can later retrieve. As a result, a good study habit, like spreading short review sessions across several days instead of cramming the night before a test, works together with neuroplasticity and sleep to make learning truly stick."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "About how big is your brain?",
+        "options": [
+          "As big as a pea",
+          "As big as two fists",
+          "As big as a football",
+          "As big as a chair"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The text says the brain is about as big as two fists.",
+        "wrong": {
+          "A": "A pea is far too small.",
+          "C": "The text does not compare it to a football.",
+          "D": "A chair is far too big."
+        }
+      },
+      {
+        "stem": "What do neurons do when you learn something new?",
+        "options": [
+          "They all go to sleep",
+          "They turn bright pink",
+          "They get very, very small",
+          "They make a new path"
+        ],
+        "answer": "D",
+        "skill": "detail",
+        "why": "The text says that when you learn, neurons link up and make a new path.",
+        "wrong": {
+          "A": "Sleep is when the brain saves memories, not what neurons do.",
+          "B": "The brain is pink, but that is not what neurons do.",
+          "C": "The text does not say they get smaller."
+        }
+      },
+      {
+        "stem": "How can getting something wrong help you learn?",
+        "options": [
+          "You try again and learn more",
+          "You never have to try again",
+          "Your brain gets much smaller",
+          "The path in the grass goes away"
+        ],
+        "answer": "A",
+        "skill": "cause-effect",
+        "why": "The text says that when you get a thing wrong and try again, you learn.",
+        "wrong": {
+          "B": "The text says you try again.",
+          "C": "The text does not say the brain gets smaller.",
+          "D": "The grass path is a picture of practice, and it does not go away when you try again."
+        }
+      },
+      {
+        "stem": "Grandpa is 70 and wants to learn a new phone. What would the article say?",
+        "options": [
+          "He is too old to learn it",
+          "He should only sleep more",
+          "He should not make mistakes",
+          "He can still learn new things"
+        ],
+        "answer": "D",
+        "skill": "inference",
+        "why": "The text says your brain can learn new things all your life.",
+        "wrong": {
+          "A": "The text says you can learn all your life.",
+          "B": "Sleep helps, but it is not the whole answer.",
+          "C": "The text says mistakes help you learn."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "About how much does the brain weigh?",
+        "options": [
+          "Only half of a kilogram",
+          "Around ten kilograms",
+          "One and a half kilograms",
+          "Around five kilograms"
+        ],
+        "answer": "C",
+        "skill": "detail",
+        "why": "The article says the brain weighs about one and a half kilograms.",
+        "wrong": {
+          "A": "That is too light.",
+          "B": "That is far too heavy.",
+          "D": "That is too heavy."
+        }
+      },
+      {
+        "stem": "What are neurons, according to the article?",
+        "options": [
+          "Tiny cells that pass signals",
+          "Paths made of tall grass",
+          "Parts of the skull bone",
+          "Small muscles near the heart"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "The article says the brain is made of tiny cells called neurons that pass quick signals.",
+        "wrong": {
+          "B": "The grass path is only a comparison.",
+          "C": "The skull protects the brain but is not made of neurons.",
+          "D": "Neurons are in the brain, not near the heart."
+        }
+      },
+      {
+        "stem": "What happens in your brain when you get an answer wrong and try again?",
+        "options": [
+          "It stops saving facts",
+          "It forgets the old path",
+          "It makes the skull stronger",
+          "It improves the path"
+        ],
+        "answer": "D",
+        "skill": "cause-effect",
+        "why": "The article says the brain adjusts the path and improves it.",
+        "wrong": {
+          "A": "The hippocampus keeps saving facts.",
+          "B": "The path is improved, not forgotten.",
+          "C": "The skull is not mentioned in this idea."
+        }
+      },
+      {
+        "stem": "Why does the author begin with learning to ride a bike?",
+        "options": [
+          "To teach how to ride safely",
+          "To show a skill readers know",
+          "To tell a story about a crash",
+          "To explain how bikes are made"
+        ],
+        "answer": "B",
+        "skill": "author-purpose",
+        "why": "Riding a bike is a common skill that shows how practice changes the brain.",
+        "wrong": {
+          "A": "The article does not teach bike safety.",
+          "C": "The wobbling is only a small detail.",
+          "D": "Bike making is not the topic."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "What does the article say neuroplasticity is?",
+        "options": [
+          "A special kind of brain food",
+          "The brain's power to reshape",
+          "A hard part of the skull",
+          "The speed of a heartbeat"
+        ],
+        "answer": "B",
+        "skill": "vocabulary",
+        "why": "The article says scientists call the brain's ability to reshape itself neuroplasticity.",
+        "wrong": {
+          "A": "Food is a different tip.",
+          "C": "The skull only protects the brain.",
+          "D": "The heart is not the topic here."
+        }
+      },
+      {
+        "stem": "About how much of the body's energy does the brain consume?",
+        "options": [
+          "One half",
+          "One tenth",
+          "One twentieth",
+          "One fifth"
+        ],
+        "answer": "D",
+        "skill": "detail",
+        "why": "The article says the brain consumes approximately one fifth of the body's energy.",
+        "wrong": {
+          "A": "One half is far too much.",
+          "B": "The article says one fifth, not one tenth.",
+          "C": "One twentieth is far too little."
+        }
+      },
+      {
+        "stem": "According to the article, what happens to a pathway each time you use a skill?",
+        "options": [
+          "It is strengthened, so signals travel faster",
+          "It is erased, so signals slow down",
+          "It is split in two, so signals multiply",
+          "It is moved, so signals change places"
+        ],
+        "answer": "A",
+        "skill": "cause-effect",
+        "why": "The article says each use strengthens the pathway so signals travel more quickly.",
+        "wrong": {
+          "B": "Using a skill does not erase the pathway.",
+          "C": "The article does not describe splitting.",
+          "D": "The article does not describe moving."
+        }
+      },
+      {
+        "stem": "Why does the author describe a trail through tall grass?",
+        "options": [
+          "To explain how to walk safely",
+          "To describe a school trip place",
+          "To show how use makes a pathway clear",
+          "To compare grass with brain cells"
+        ],
+        "answer": "C",
+        "skill": "author-purpose",
+        "why": "The trail becomes obvious with daily use, just as a brain pathway grows stronger with practice.",
+        "wrong": {
+          "A": "Safety is not the point of the comparison.",
+          "B": "No school trip is mentioned.",
+          "D": "The comparison is with a pathway, not with cells."
+        }
+      }
+    ]
   }
 }

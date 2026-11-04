@@ -10,11 +10,12 @@
  *  Scoring   on the server. FIRST-TRY rule: only the first scored reading of an article counts (score, level,
  *            goals); later re-reads have firstTry = false. After submitting, every answer's "why" is shown and a
  *            practice pass is allowed that never changes the score.
- *  Stretch   the same article one version higher (stretch = true): ≥ 75% counts toward goals; never lowers the level.
- *            Round 4 (owner): ONLY the first try counts — a re-read is practice (never the level, goal, window or
- *            stars). A stretch is offered (and accepted by the server) only after a RELIABLE first try of 75%+ and only
- *            when the stretch version's question band differs from the first read's band (new questions); otherwise
- *            the student is offered "Try a new article" (stretchOffer below).
+ *  Stretch   the same article one version higher (stretch = true): never lowers the level. Round 4 (owner): ONLY the
+ *            first try counts — a re-read is practice (never the level, goal, window or stars). Round 5 (owner): after a
+ *            RELIABLE first try of 75%+ a stretch is ALWAYS offered while a higher version exists (stretchOffer below):
+ *            with the article's stretch set ("S-L/M/H", 4 new questions) or in a new band it counts fully; in the same
+ *            band without a set it is practice (weekly goal only — one credit per article).
+ *  Status    ONE article status (first-try.ts articleStatus): New / In progress / Finish steps 4–5 / Done.
  *  completedAt = when the activity (step 3) was scored — the moment the reading "counts". step = DONE when all
  *  5 steps are finished.
  *  Accuracy  owner r69 (accuracy.ts): the reader sends when each question was first answered; 2+ rapid guesses make
@@ -31,9 +32,13 @@ import { loadReadRiseWindows, placementChecks, type RRPeriod } from "./windows";
 import type { Repo, Row } from "../seeding/repo";
 import { ForbiddenError, type Actor } from "../auth/rbac";
 import { ValidationError } from "../curriculum-admin";
-import { LIBRARY_LEVELS, bandOf, chooseVersion, stretchAbove, type MeasuredVersion, type RRBand } from "./level";
-import { ENGINE, applyFirstTryScore, ensureRRStudent, goalDates, goalStats, levelHistory, readRisePlaced, s, studentReadRiseSummary, toDate, yearEndFor, type GoalStats, type ReadRiseSummary } from "./engine";
-import { isFirst, isStretch, isUnreliableRun, rapidRead } from "./first-try";
+import { LIBRARY_LEVELS, bandOf, chooseVersion, measuredLevel, stretchAbove, type MeasuredVersion, type RRBand } from "./level";
+import { ENGINE, applyFirstTryScore, ensureRRStudent, goalDates, goalStats, levelHistory, levelWindow, readRisePlaced, readsToMoveUp, s, studentReadRiseSummary, toDate, yearEndFor, type GoalStats, type ReadRiseSummary } from "./engine";
+import { articleStatus, baseBand, firstTryRun, isFirst, isStretch, isUnreliableRun, rapidRead, stretchCountsFully, stretchSetBand, type ArticleStatus } from "./first-try";
+import { activeCancels } from "../student/cancelled-work";
+import { readNext, recommendFor, type RecommendReason } from "./recommend";
+import { getInterests } from "./interests";
+import { carryKeyWords, wordWarmup, type WarmupQ } from "./words-carry";
 import { placementStatus } from "./placement";
 import { loadPlacementPassages, type PlacementPassage } from "./content-loader";
 import { modelVersion } from "../cache/bank-version";
@@ -115,25 +120,72 @@ async function visibleArticle(repo: Repo, schoolId: string, articleId: string): 
 // ------------------------------------------------------------------ library
 
 export interface ArticleCard {
-  id: string; title: string; topic: string; summary: string; minutes: number; versionLevel: number;
-  status: "NEW" | "IN_PROGRESS" | "DONE"; firstTryScore: number | null; canStretch: boolean; stretchDone: boolean;
+  id: string; title: string; topic: string; summary: string; minutes: number;
+  /** the version the student reads now (chooseVersion) */
+  versionLevel: number;
+  /** round 5: that version's MEASURED difficulty (shown small: "text ≈1390") */
+  textLevel?: number;
+  /** round 5: the version the first try actually READ (a finished card shows it), null before a first try */
+  readLevel?: number | null;
+  /** round 5: the ONE article status (first-try.ts articleStatus) */
+  status: ArticleStatus; firstTryScore: number | null; canStretch: boolean; stretchDone: boolean;
   assigned: boolean; dueAt: string | null;
+  /** round 5: when the first try's activity was scored (the Finished shelf, newest first) */
+  finishedAt?: string | null;
+  /** round 5: why it is recommended (recommend.ts: show it with reasonLabel) */
+  reason?: RecommendReason | null;
 }
-export interface Library { level: number; assigned: ArticleCard[]; recommended: ArticleCard[]; all: ArticleCard[]; topics: string[]; query: string; topic: string }
+export interface Library {
+  level: number;
+  /** ⏳ the first try is open (IN_PROGRESS / FINISH_STEPS) */
+  continueReading: ArticleCard[];
+  /** 📌 assigned by the teacher (started, not cancelled), not done */
+  assigned: ArticleCard[];
+  /** ✨ recommend.ts recommendFor (never a future-start assigned article) */
+  recommended: ArticleCard[];
+  /** ✅ DONE, newest first */
+  finished: ArticleCard[];
+  /** 📚 every visible article matching the search / topic — one page (LIBRARY_PAGE_SIZE) */
+  all: ArticleCard[];
+  /** matching articles in all (every page) */
+  total: number; page: number; pages: number;
+  topics: string[]; query: string; topic: string;
+}
+export const LIBRARY_PAGE_SIZE = 24;
+export interface LibraryFilter { q?: string; topic?: string; page?: number }
 
-export async function studentLibrary(repo: Repo, actor: Actor, filter: { q?: string; topic?: string } = {}, now = new Date()): Promise<Library> {
+/**
+ * The RRClassArticle ids cancelled for this student (Assigned page: AssignmentCancel kind READRISE, refId = the
+ * class-article row, for everyone or for this one student, not restored). By ROW, so a cancel in one class never
+ * hides the same article given in another class.
+ */
+async function cancelledClassArticles(repo: Repo, studentId: string, schoolId: string): Promise<Set<string>> {
+  const rows = (await activeCancels(repo, schoolId)).filter((r) => r.kind === "READRISE" && (!r.studentId || s(r.studentId) === studentId));
+  return new Set(rows.map((r) => s(r.refId)));
+}
+
+const iso = (v: unknown): string | null => { if (!v) return null; const d = toDate(v); return Number.isFinite(d.getTime()) ? d.toISOString() : null; };
+
+export async function studentLibrary(repo: Repo, actor: Actor, filter: LibraryFilter = {}, now = new Date()): Promise<Library> {
   const { studentId, schoolId } = studentOf(actor);
   // independent reads in parallel; the article catalog is cached (the same for every student)
-  const [rr, { arts, versions }, runs, mems] = await Promise.all([
+  const [rr, { arts, versions }, runs, mems, cancelled] = await Promise.all([
     ensureRRStudent(repo, studentId, now),
     visibleCatalog(repo, schoolId),
-    repo.findMany("RRRun", { studentId }, { select: ["articleId", "band", "step", "score", "firstTry", "stretch", "completedAt", "startedAt", "unreliable"] }),
+    repo.findMany("RRRun", { studentId }, { select: ["articleId", "band", "versionLevel", "step", "score", "firstTry", "stretch", "completedAt", "startedAt", "unreliable", "readSeconds"] }),
     repo.findMany("ClassMembership", { studentId, leftAt: null }, { select: ["classId"] }),
+    cancelledClassArticles(repo, studentId, schoolId).catch(() => new Set<string>()),
   ]);
   const level = Number(rr.level);
   const visible = new Set(arts.map((a) => s(a.id)));
-  // the classes' assigned articles (few rows), kept to the visible ones: no list of every article id in the query
-  const assignedRows = mems.length && arts.length ? (await repo.findMany("RRClassArticle", { classId: { in: mems.map((m) => s(m.classId)) } }, { select: ["articleId", "dueAt", "startAt"] })).filter((r) => visible.has(s(r.articleId)) && startedBy(r.startAt, now)) : [];
+  // the classes' assigned articles (few rows), kept to the visible ones: no list of every article id in the query.
+  // Round 5: a cancelled class-article ROW (Assigned page: AssignmentCancel.refId = RRClassArticle.id, for everyone
+  // or for this student) is not assigned any more — the same article still open in another class stays; one that starts
+  // later is not shown (and never recommended) before its start date
+  const given = mems.length && arts.length ? (await repo.findMany("RRClassArticle", { classId: { in: mems.map((m) => s(m.classId)) } }, { select: ["id", "articleId", "dueAt", "startAt"] })).filter((r) => visible.has(s(r.articleId)) && !cancelled.has(s(r.id))) : [];
+  const assignedRows = given.filter((r) => startedBy(r.startAt, now));
+  const future = new Set(given.filter((r) => !startedBy(r.startAt, now)).map((r) => s(r.articleId)));
+  for (const r of assignedRows) future.delete(s(r.articleId)); // also given (started) in another class: it is assigned now
   const runsBy = new Map<string, Row[]>();
   for (const r of runs) { const l = runsBy.get(s(r.articleId)); if (l) l.push(r); else runsBy.set(s(r.articleId), [r]); }
   const due = new Map<string, Date | null>();
@@ -142,30 +194,33 @@ export async function studentLibrary(repo: Repo, actor: Actor, filter: { q?: str
     due.set(s(r.articleId), prev === undefined ? d : prev && d ? (d < prev ? d : prev) : prev ?? d);
   }
   const cards: ArticleCard[] = [];
+  const startedAt = new Map<string, number>();
   for (const a of arts) {
     const vs = versions.get(s(a.id)) ?? [];
     if (!vs.length) continue;
-    const vl = chooseVersion(level, vs.map((v) => ({ level: Number(v.level), estLevel: v.estLevel, officialLexile: v.officialLexile })));
+    const vl = chooseVersion(level, asMeasured(vs));
     const v = vs.find((x) => Number(x.level) === vl)!;
     const mine = runsBy.get(s(a.id)) ?? [];
-    const main = mine.filter((r) => r.stretch !== true);
-    // r85 audit: don't show a score from an Unreliable (2+ rapid-guess) run on the library tile — it's excluded
-    // from level/mastery/goal logic everywhere else (engine.ts's countsForLevel), so the tile shouldn't make it
-    // look like a normal, counted result either. The article is still shown as DONE (below) since it was scored.
-    const first = main.find((r) => r.firstTry === true && r.score !== null && r.score !== undefined && r.unreliable !== true);
+    // round 5: ONE status (first-try.ts articleStatus) — from the first try only; re-reads and stretches never change it
+    const status = articleStatus(mine);
+    const first = firstTryRun(mine);
+    if (first) startedAt.set(s(a.id), toDate(first.startedAt).getTime() || 0);
+    // r85 audit: no score from an Unreliable (2+ rapid-guess) run on the tile
+    const scored = first && first.score !== null && first.score !== undefined && !isUnreliableRun(first) ? first : null;
     const open = mine.some((r) => r.step !== "DONE");
-    const done = main.some((r) => r.step === "DONE");
-    const stretchDone = mine.some((r) => r.stretch === true && r.step === "DONE");
+    const stretchDone = mine.some((r) => isStretch(r) && r.step === "DONE");
     const offer = stretchOffer(mine, level, asMeasured(vs));
+    const readV = first ? vs.find((x) => Number(x.level) === Number(first.versionLevel)) : null;
     cards.push({
-      id: s(a.id), title: s(v.title) || s(a.title), topic: s(a.topic), summary: s(a.summary), minutes: minutesFor(Number(v.wordCount) || 0), versionLevel: vl,
-      status: open ? "IN_PROGRESS" : done ? "DONE" : "NEW", firstTryScore: first ? Number(first.score) : null,
-      // ⬆ r## owner: Stretch only offered after a strong score (75%+, ENGINE.up) — matches the help text shown next
-      // to the button ("75%+ counts toward your goal and can help you move up"). Before this, Stretch showed for
-      // ANY completed reading regardless of score, including a reading that had JUST dropped the student's level.
-      // round 4: the server's own stretch rule (stretchOffer): a reliable first try of 75%+ and a NEW question band
-      canStretch: done && !stretchDone && !open && offer.ok, stretchDone,
+      id: s(a.id), title: s((status === "DONE" && readV ? readV : v).title) || s(a.title), topic: s(a.topic), summary: s(a.summary),
+      minutes: minutesFor(Number((status === "DONE" && readV ? readV : v).wordCount) || 0), versionLevel: vl,
+      textLevel: Math.round(measuredLevel({ level: Number(v.level), estLevel: v.estLevel, officialLexile: v.officialLexile }) / 10) * 10,
+      readLevel: first ? Number(first.versionLevel) || null : null,
+      status, firstTryScore: scored ? Number(scored.score) : null,
+      // round 5: the one stretch rule (stretchOffer): a reliable first try of 75%+ → always, while a higher version exists
+      canStretch: status === "DONE" && !stretchDone && !open && offer.ok, stretchDone,
       assigned: due.has(s(a.id)), dueAt: due.get(s(a.id))?.toISOString() ?? null,
+      finishedAt: status === "DONE" && first ? iso(first.completedAt) : null,
     });
   }
   const topics = [...new Set(cards.map((c) => c.topic))].filter(Boolean).sort();
@@ -173,10 +228,33 @@ export async function studentLibrary(repo: Repo, actor: Actor, filter: { q?: str
   const titleOf = new Map(arts.map((a) => [s(a.id), s(a.title)]));
   const match = (c: ArticleCard) => (!topic || c.topic === topic) && (!q || `${c.title} ${c.topic} ${c.summary}`.toLowerCase().includes(q) || (titleOf.get(c.id) ?? "").toLowerCase().includes(q));
   const byTitle = (a: ArticleCard, b: ArticleCard) => a.title.localeCompare(b.title);
-  const assigned = cards.filter((c) => c.assigned && match(c)).sort((a, b) => Number(a.status === "DONE") - Number(b.status === "DONE") || (a.dueAt ?? "9").localeCompare(b.dueAt ?? "9") || byTitle(a, b));
-  const recommended = recommend(cards.filter((c) => !c.assigned && c.status === "NEW" && match(c)), runs, arts, now);
-  const all = cards.filter(match).sort((a, b) => ["IN_PROGRESS", "NEW", "DONE"].indexOf(a.status) - ["IN_PROGRESS", "NEW", "DONE"].indexOf(b.status) || byTitle(a, b));
-  return { level, assigned, recommended, all, topics, query: filter.q ?? "", topic };
+  const filtered = Boolean(q || topic);
+  const continueReading = cards.filter((c) => (c.status === "IN_PROGRESS" || c.status === "FINISH_STEPS") && match(c)).sort((a, b) => (startedAt.get(b.id) ?? 0) - (startedAt.get(a.id) ?? 0) || byTitle(a, b));
+  const assigned = cards.filter((c) => c.assigned && c.status !== "DONE" && match(c)).sort((a, b) => (a.dueAt ?? "9").localeCompare(b.dueAt ?? "9") || byTitle(a, b));
+  const finished = cards.filter((c) => c.status === "DONE" && match(c)).sort((a, b) => (b.finishedAt ?? "").localeCompare(a.finishedAt ?? "") || byTitle(a, b));
+  const recommended = filtered ? [] : await recommendedCards(repo, studentId, schoolId, cards.filter((c) => !future.has(c.id)), runs, arts, now);
+  const ORDER: ArticleStatus[] = ["IN_PROGRESS", "FINISH_STEPS", "NEW", "DONE"];
+  const every = cards.filter(match).sort((a, b) => ORDER.indexOf(a.status) - ORDER.indexOf(b.status) || byTitle(a, b));
+  const pages = Math.max(1, Math.ceil(every.length / LIBRARY_PAGE_SIZE));
+  const page = Math.min(pages, Math.max(1, Math.floor(Number(filter.page) || 1)));
+  const all = every.slice((page - 1) * LIBRARY_PAGE_SIZE, page * LIBRARY_PAGE_SIZE);
+  return { level, continueReading, assigned, recommended, finished, all, total: every.length, page, pages, topics, query: filter.q ?? "", topic };
+}
+
+/**
+ * ✨ "Recommended for you" through recommend.ts recommendFor (each card with its reason); when it cannot answer, the
+ * simple local rule (unread, topics not read lately). `cards` never holds a future-start assigned article.
+ */
+async function recommendedCards(repo: Repo, studentId: string, schoolId: string, cards: ArticleCard[], runs: Row[], arts: Row[], now: Date, take = 6): Promise<ArticleCard[]> {
+  const byId = new Map(cards.map((c) => [c.id, c]));
+  try {
+    const picks = await recommendFor(repo, studentId, schoolId, cards.map((c) => ({ id: c.id, topic: c.topic, status: c.status === "FINISH_STEPS" ? "IN_PROGRESS" as const : c.status, assigned: c.assigned, dueAt: c.dueAt })), now, take);
+    const out: ArticleCard[] = [];
+    for (const p of picks) { const c = byId.get(s(p.articleId)); if (c && !out.some((x) => x.id === c.id)) out.push({ ...c, reason: p.reason ?? null }); }
+    return out.slice(0, take);
+  } catch {
+    return recommend(cards.filter((c) => !c.assigned && c.status === "NEW"), runs, arts, now, take);
+  }
 }
 
 /** "Recommended for you": unread articles, topics not read in the last 30 days first, one topic at a time. */
@@ -204,11 +282,23 @@ export interface DoneView {
   score: number | null; firstTry: boolean; stretch: boolean; levelBefore: number; levelAfter: number; goal: GoalStats; canStretch: boolean; prePoll: number | null; postPoll: number | null;
   /** owner r69: some answers were too fast to be read, so this reading did not count (a gentle "take your time") */
   tooFast?: boolean;
-  /** round 4: why there is no stretch for this article (the page then offers "Try a new article"); null = it can stretch */
+  /** round 4: why there is no stretch for this article; null = it can stretch */
   stretchWhy?: string | null;
+  /** round 5: which reading this was — the first try, a practice re-read or the stretch (the heading) */
+  kind?: "FIRST" | "REREAD" | "STRETCH";
+  /** round 5: read faster than RR_MIN_READ_SECONDS: it did not count (goal, articles read, level) */
+  readTooFast?: boolean;
+  /** round 5: how the offered stretch counts (FULL = new questions, PRACTICE = weekly goal only) */
+  stretchMode?: StretchMode | null;
+  /** round 5: for a stretch run — how THIS stretch counted */
+  stretchCounted?: StretchMode | null;
+  /** round 5: 📖 the next article to read (recommend.ts readNext) */
+  readNext?: { articleId: string; title: string; reason: RecommendReason; stretch: boolean } | null;
+  /** round 5: 🗂 key words saved to My Words when the first try was finished (only right after the last step) */
+  wordsSaved?: number | null;
 }
 export interface RunView {
-  runId: string; articleId: string; step: RunStep; stretch: boolean; firstTry: boolean; versionLevel: number; band: RRBand;
+  runId: string; articleId: string; step: RunStep; stretch: boolean; firstTry: boolean; versionLevel: number; /** the question band — round 5: a stretch run may use a stretch set ("S-L" / "S-M" / "S-H") */ band: RRBand | string;
   title: string; topic: string; poll: string; prePoll: number | null; postPoll: number | null;
   body: string; keyWords: KeyWord[]; annotations: Annotation[]; readSeconds: number; listened: boolean;
   questions: QuestionView[]; score: number | null; answers: Record<string, string> | null; review: Review[] | null;
@@ -218,6 +308,8 @@ export interface RunView {
    * thinking). null when the article has none yet, or the student has not written their answer. */
   modelAnswer: string | null;
   done: DoneView | null;
+  /** round 5: an optional, unscored word warm-up (2 quick questions) before reading — only on the key-words step */
+  warmup?: WarmupQ[];
 }
 
 const asKeyWords = (v: unknown): KeyWord[] => (Array.isArray(v) ? v : []).filter((k) => k && typeof k === "object" && (k as KeyWord).word).map((k) => ({ word: s((k as KeyWord).word), partOfSpeech: s((k as KeyWord).partOfSpeech), definition: s((k as KeyWord).definition), example: s((k as KeyWord).example) }));
@@ -285,41 +377,68 @@ export function stretchVersion(level: number, available: (number | MeasuredVersi
 const asMeasured = (rows: Row[]): MeasuredVersion[] => rows.map((v) => ({ level: Number(v.level), estLevel: v.estLevel, officialLexile: v.officialLexile }));
 const MEASURE_COLS = ["level", "estLevel", "officialLexile"];
 
+/** How a stretch counts (round 5): FULL = new questions (a stretch set, or a new band); PRACTICE = the same questions. */
+export type StretchMode = "FULL" | "PRACTICE";
+export interface StretchOfferResult {
+  ok: boolean; up: number | null; why: string | null;
+  /** the question band the stretch run uses: a stretch set ("S-H" …) or the version's band */
+  band?: string | null;
+  mode?: StretchMode | null;
+}
+
 /**
- * 🎯 Round 4 (owner): may this article be stretched now? The same rule for the library card, the article page, the
- * done screen and the server (startRun). Only after a RELIABLE first try (not a re-read, not Unreliable) of 75%+,
- * once, and only when the stretch version's question band (LOW / MID / HIGH) differs from the first read's band —
- * the same band would show the questions (and answers) the student has already seen. `runs` = the student's runs
- * of this article (columns: band, step, score, firstTry, stretch, unreliable).
+ * 🎯 Round 5 (owner): may this article be stretched now? The same rule for the library card, the article page, the
+ * done screen and the server (startRun). After a RELIABLE first try (not a re-read, not Unreliable) of 75%+, once,
+ * a stretch is ALWAYS offered when a higher version exists. How it counts:
+ *   - the article has a stretch set for the higher version's band (`stretchBands` holds "S-L" / "S-M" / "S-H") →
+ *     the stretch uses those 4 NEW questions and counts fully (level window, weekly goal, stars);
+ *   - else a band different from the first read's → that band's questions, counts fully (the round 4 rule);
+ *   - else (same band, no set) → the band's questions again, as PRACTICE: the weekly goal only (one credit per
+ *     article: first-try.ts goalRuns), never the level or the stars.
+ * `runs` = the student's runs of this article (columns: band, versionLevel, step, score, firstTry, stretch, unreliable).
  */
-export function stretchOffer(runs: readonly Row[], level: number, versions: MeasuredVersion[]): { ok: boolean; up: number | null; why: string | null } {
-  const no = (why: string) => ({ ok: false, up: null, why });
+export function stretchOffer(runs: readonly Row[], level: number, versions: MeasuredVersion[], stretchBands: ReadonlySet<string> = new Set()): StretchOfferResult {
+  const no = (why: string): StretchOfferResult => ({ ok: false, up: null, why, band: null, mode: null });
   if (runs.some((r) => isStretch(r))) return no("You already stretched this article.");
-  const first = runs.find((r) => !isStretch(r) && isFirst(r));
-  if (!first || first.step !== "DONE" || first.score === null || first.score === undefined) return no("Read the article first, then stretch it.");
+  const first = firstTryRun(runs);
+  if (!first || !isFirst(first) || first.step !== "DONE" || first.score === null || first.score === undefined) return no("Read the article first, then stretch it.");
   if (isUnreliableRun(first)) return no("Your first reading did not count (some answers came too fast), so it cannot unlock a stretch. Try a new article.");
   if (Number(first.score) < ENGINE.up) return no(`Score ${ENGINE.up}% or higher on this article first, then you can stretch it.`);
-  const up = stretchVersion(level, versions);
+  // the stretch is one version above the HIGHER of today's version and the version the first try READ (after a level
+  // drop, today's version may be lower: a "stretch" must never be the same or an easier text)
+  const read = Number(first.versionLevel);
+  const base = Math.max(chooseVersion(level, versions), Number.isFinite(read) && read > 0 ? read : 0);
+  const up = stretchAbove(base, versions.map((v) => Number(v.level)));
   if (up === null) return no("There is no higher version of this article.");
-  if (bandOf(up) === s(first.band)) return no("The higher version has the same questions you already answered. Try a new article.");
-  return { ok: true, up, why: null };
+  const vb = bandOf(up), set = stretchSetBand(vb);
+  if (stretchBands.has(set)) return { ok: true, up, why: null, band: set, mode: "FULL" };
+  return { ok: true, up, why: null, band: vb, mode: stretchCountsFully(s(first.band), vb) ? "FULL" : "PRACTICE" };
+}
+
+/** The stretch-set bands ("S-L" / "S-M" / "S-H") an article has questions for. */
+export async function stretchBandsOf(repo: Repo, articleId: string): Promise<Set<string>> {
+  const rows = await repo.findMany("RRQuestion", { articleId, band: { in: ["S-L", "S-M", "S-H"] } }, { select: ["band"] });
+  return new Set(rows.map((r) => s(r.band)));
 }
 
 async function goalFor(repo: Repo, studentId: string, now: Date): Promise<GoalStats> {
   const rr = await repo.findUnique("RRStudent", { studentId });
-  const runs = await repo.findMany("RRRun", { studentId, firstTry: true, score: { not: null } }, { select: ["studentId", "articleId", "band", "firstTry", "stretch", "score", "completedAt", "unreliable"] });
-  // round 4: counted first tries only (a re-read never; a stretch only in a new band), never an Unreliable run
+  const runs = await repo.findMany("RRRun", { studentId, firstTry: true, score: { not: null } }, { select: ["studentId", "articleId", "band", "firstTry", "stretch", "score", "completedAt", "unreliable", "readSeconds"] });
+  // round 5: one credit per article (its first try OR its stretch), never a re-read, an Unreliable or a too-fast run
   return goalStats(goalDates(runs), Number(rr?.weeklyGoal ?? 2), now);
 }
 
 /** Everything the reader needs for one run (answers hidden until the activity is scored). */
-export async function runView(repo: Repo, actor: Actor, runId: string, now = new Date()): Promise<RunView> {
+export async function runView(repo: Repo, actor: Actor, runId: string, now = new Date(), extra: { wordsSaved?: number | null } = {}): Promise<RunView> {
   const run = await ownRun(repo, actor, runId);
   const articleId = s(run.articleId);
+  // round 5: a stretch run may use the article's stretch set ("S-H" …): its questions by the run's band, its prompt
+  // and key words by the band it belongs to (first-try.ts baseBand)
+  const band = baseBand(run.band);
   const [art, ver, prompt, qs] = await Promise.all([
     repo.findUnique("RRArticle", { id: articleId }),
     repo.findUnique("RRVersion", { articleId, level: Number(run.versionLevel) }),
-    repo.findUnique("RRPrompt", { articleId, band: s(run.band) }),
+    repo.findUnique("RRPrompt", { articleId, band }),
     questionsOf(repo, articleId, s(run.band)),
   ]);
   const version = ver, pr = prompt;
@@ -327,24 +446,39 @@ export async function runView(repo: Repo, actor: Actor, runId: string, now = new
   const scored = run.score !== null && run.score !== undefined;
   const answers = scored && run.answers && typeof run.answers === "object" ? (run.answers as Record<string, string>) : null;
   let done: DoneView | null = null;
-  const keyWords = keyWordsFor(repo, articleId, s(run.band), body); // read alongside the rest
+  const keyWords = keyWordsFor(repo, articleId, band, body); // read alongside the rest
   keyWords.catch(() => undefined); // (awaited below; never an unhandled rejection meanwhile)
+  // 🔤 round 5: the optional word warm-up, only before reading starts (the key-words step), never scored
+  const warmup: Promise<WarmupQ[]> = run.step === "READ" && !Number(run.readSeconds ?? 0)
+    ? wordWarmup(repo, s(run.studentId), now).then((w) => (Array.isArray(w) ? w.slice(0, 2) : [])).catch(() => [])
+    : Promise.resolve([]);
   if (run.step === "DONE") {
     const studentId = s(run.studentId);
-    const [vers, rr, mine, goal] = await Promise.all([
+    const [vers, rr, mine, goal, sets] = await Promise.all([
       repo.findMany("RRVersion", { articleId }, { select: MEASURE_COLS }),
       ensureRRStudent(repo, studentId, now),
-      repo.findMany("RRRun", { studentId, articleId }, { select: ["id", "band", "step", "score", "firstTry", "stretch", "unreliable"] }),
+      repo.findMany("RRRun", { studentId, articleId }, { select: ["id", "band", "versionLevel", "step", "score", "firstTry", "stretch", "unreliable", "startedAt"] }),
       goalFor(repo, studentId, now),
+      stretchBandsOf(repo, articleId),
     ]);
-    const offer = run.stretch === true ? { ok: false, why: null } : stretchOffer(mine, Number(rr.level), asMeasured(vers));
+    const isStretchRun = run.stretch === true;
+    const offer: StretchOfferResult = isStretchRun ? { ok: false, up: null, why: null } : stretchOffer(mine, Number(rr.level), asMeasured(vers), sets);
+    const firstBand = mine.find((r) => isFirst(r) && !isStretch(r))?.band;
+    const kind: DoneView["kind"] = isStretchRun ? "STRETCH" : run.firstTry === true ? "FIRST" : "REREAD";
+    let next: DoneView["readNext"] = null;
+    try {
+      const n = await readNext(repo, studentId, s(run.schoolId), { articleId, score: scored ? Number(run.score) : 0, firstTry: run.firstTry === true, stretch: isStretchRun, band: s(run.band), canStretch: offer.ok }, now);
+      next = n ? { articleId: s(n.articleId), title: s(n.title), reason: n.reason, stretch: Boolean(n.stretch) } : null;
+    } catch { next = null; }
     done = {
-      score: scored ? Number(run.score) : null, firstTry: run.firstTry === true, stretch: run.stretch === true,
+      score: scored ? Number(run.score) : null, firstTry: run.firstTry === true, stretch: isStretchRun,
       levelBefore: Number(run.levelBefore), levelAfter: Number(run.levelAfter ?? run.levelBefore), goal,
-      // ⬆ round 4: the one stretch rule (stretchOffer): a reliable first try of 75%+ and a new question band
-      canStretch: offer.ok, stretchWhy: offer.ok ? null : offer.why,
+      // ⬆ round 5: the one stretch rule (stretchOffer): a reliable first try of 75%+ → always, while a higher version exists
+      canStretch: offer.ok, stretchWhy: offer.ok ? null : offer.why, stretchMode: offer.ok ? offer.mode ?? null : null,
+      stretchCounted: isStretchRun ? (stretchCountsFully(firstBand ? s(firstBand) : null, s(run.band)) ? "FULL" : "PRACTICE") : null,
       prePoll: run.prePoll === null || run.prePoll === undefined ? null : Number(run.prePoll), postPoll: run.postPoll === null || run.postPoll === undefined ? null : Number(run.postPoll),
       tooFast: run.unreliable === true || run.unreliable === 1,
+      kind, readTooFast: rapidRead(run), readNext: next, wordsSaved: extra.wordsSaved ?? null,
     };
   }
   return {
@@ -359,11 +493,19 @@ export async function runView(repo: Repo, actor: Actor, runId: string, now = new
     writing: s(run.writing), writingScore: run.writingScore === null || run.writingScore === undefined ? null : Number(run.writingScore), writingComment: run.writingComment ? s(run.writingComment) : null,
     // ✍️ only once the student submitted their OWN writing (run.writing is set) — never before, so it cannot be copied
     modelAnswer: s(run.writing).trim() && pr?.modelAnswer ? s(pr.modelAnswer) : null,
-    done,
+    done, warmup: await warmup,
   };
 }
 
-export interface ArticlePage { articleId: string; title: string; topic: string; summary: string; minutes: number; versionLevel: number; run: RunView | null; canStretch: boolean; hasRead: boolean; level: number }
+export interface ArticlePage {
+  articleId: string; title: string; topic: string; summary: string; minutes: number; versionLevel: number; run: RunView | null; canStretch: boolean; hasRead: boolean; level: number;
+  /** round 5: the ONE article status (first-try.ts articleStatus) */
+  status?: ArticleStatus;
+  /** round 5: the version's measured difficulty ("text ≈1390") */
+  textLevel?: number;
+  /** round 5: the first try's score and the version it READ (null before a first try) */
+  firstTryScore?: number | null; readLevel?: number | null;
+}
 
 /** The article page: the open run (resume), else the latest finished run (done screen), else the start screen. */
 export async function articlePage(repo: Repo, actor: Actor, articleId: string, now = new Date()): Promise<ArticlePage> {
@@ -382,20 +524,43 @@ export async function articlePage(repo: Repo, actor: Actor, articleId: string, n
   const open = runs.find((r) => r.step !== "DONE");
   const latest = open ?? runs[0];
   const offer = stretchOffer(runs, Number(rr.level), asMeasured(vers));
+  const first = firstTryRun(runs);
   return {
     articleId, title: s(v.title) || s(art.title), topic: s(art.topic), summary: s(art.summary), minutes: minutesFor(Number(v.wordCount) || 0), versionLevel: vl, level: Number(rr.level),
     run: latest ? await runView(repo, actor, s(latest.id), now) : null,
-    // ⬆ round 4: the one stretch rule (stretchOffer)
+    // ⬆ round 5: the one stretch rule (stretchOffer)
     canStretch: !open && offer.ok,
     hasRead: runs.some((r) => r.step === "DONE"),
+    status: articleStatus(runs),
+    textLevel: Math.round(measuredLevel({ level: Number(v.level), estLevel: v.estLevel, officialLexile: v.officialLexile }) / 10) * 10,
+    firstTryScore: first && first.score !== null && first.score !== undefined && !isUnreliableRun(first) ? Number(first.score) : null,
+    readLevel: first ? Number(first.versionLevel) || null : null,
   };
+}
+
+/**
+ * 🔒 Round 5: one start at a time per student × article in this server process (a double tap / two tabs: the second
+ * waits, then finds the run the first created). The RRStudent row lock in startRun covers other processes.
+ */
+const startQueue = new Map<string, Promise<unknown>>();
+function oneAtATime<T>(key: string, fn: () => Promise<T>): Promise<T> {
+  const prev = startQueue.get(key) ?? Promise.resolve();
+  const next = prev.catch(() => undefined).then(fn);
+  const tail = next.catch(() => undefined);
+  startQueue.set(key, tail);
+  void tail.then(() => { if (startQueue.get(key) === tail) startQueue.delete(key); });
+  return next;
 }
 
 /** Starts a reading (or returns the open one). stretch = the same article one version higher (after reading it). */
 export async function startRun(repo: Repo, actor: Actor, articleId: string, opts: { stretch?: boolean } = {}, now = new Date()): Promise<RunView> {
   const { studentId, schoolId } = studentOf(actor);
   await visibleArticle(repo, schoolId, articleId);
-  const id = await repo.transaction(async (tx) => {
+  await ensureRRStudent(repo, studentId, now);
+  const id = await oneAtATime(`${studentId}|${articleId}`, () => repo.transaction(async (tx) => {
+    // 🔒 round 5: serialise starts per student — the FIRST statement takes the RRStudent row lock, so a double tap or
+    // a second tab waits here and then sees the run the first request created (never two stretch / first-try runs)
+    await tx.updateMany("RRStudent", { studentId }, { updatedAt: now });
     const runs = await tx.findMany("RRRun", { studentId, articleId });
     const open = runs.find((r) => r.step !== "DONE");
     if (open) return s(open.id);
@@ -403,21 +568,23 @@ export async function startRun(repo: Repo, actor: Actor, articleId: string, opts
     const level = Number(rr.level);
     const levels = asMeasured(await tx.findMany("RRVersion", { articleId }, { select: MEASURE_COLS }));
     if (!levels.length) throw new ForbiddenError("Article not found.");
-    let versionLevel: number;
+    let versionLevel: number, band: string;
     if (opts.stretch) {
-      // ⬆ round 4: the server's copy of the one stretch rule (never trust the button being hidden client-side): a
-      // reliable first try of 75%+, once, and a version in a NEW question band (new questions)
-      const offer = stretchOffer(runs, level, levels);
+      // ⬆ round 5: the server's copy of the one stretch rule (never trust the button being hidden client-side): a
+      // reliable first try of 75%+, once, while a higher version exists. The run's band = the questions it uses: the
+      // article's stretch set ("S-H" …) when it has one for that band, else the version's band
+      const offer = stretchOffer(runs, level, levels, await stretchBandsOf(tx, articleId));
       if (!offer.ok || offer.up === null) throw new ValidationError(offer.why ?? "This article cannot be stretched.");
       versionLevel = offer.up;
-    } else versionLevel = chooseVersion(level, levels);
+      band = offer.band ?? bandOf(versionLevel);
+    } else { versionLevel = chooseVersion(level, levels); band = bandOf(versionLevel); }
     const firstTry = !runs.some((r) => (r.stretch === true) === Boolean(opts.stretch));
     const row = await tx.create("RRRun", {
-      studentId, schoolId, articleId, versionLevel, band: bandOf(versionLevel), step: "PREPOLL", levelBefore: level,
+      studentId, schoolId, articleId, versionLevel, band, step: "PREPOLL", levelBefore: level,
       firstTry, stretch: Boolean(opts.stretch), listened: false, startedAt: now,
     });
     return s(row.id);
-  });
+  }));
   return runView(repo, actor, id, now);
 }
 
@@ -495,11 +662,12 @@ export async function submitActivity(repo: Repo, actor: Actor, runId: string, ra
     let before = Number(rr.level), after = before;
     // first try counts; a stretch below 75% is ignored by the level (never lowers it); an Unreliable run never counts.
     // Round 4: a re-read never counts; a run read faster than RR_MIN_READ_SECONDS never counts (the skill-evidence
-    // rule); a stretch counts only in a band different from the first read's (an older same-band stretch: never)
+    // rule). Round 5: a stretch counts for the level only with NEW questions — its stretch set ("S-…") or a band
+    // different from the first read's (first-try.ts stretchCountsFully); a same-band practice stretch: weekly goal only
     let counts = run.firstTry === true && !fast.unreliable && !rapidRead(run) && (run.stretch !== true || pct >= ENGINE.up);
     if (counts && run.stretch === true) {
       const base = (await tx.findMany("RRRun", { studentId: s(run.studentId), articleId: s(run.articleId), stretch: false, firstTry: true }, { select: ["band"], take: 1 }))[0];
-      counts = !!base && s(base.band) !== s(run.band);
+      counts = stretchCountsFully(base ? s(base.band) : null, s(run.band));
     }
     if (counts) ({ levelBefore: before, levelAfter: after } = await applyFirstTryScore(tx, { ...run, score: pct, completedAt: now, unreliable: false }, now));
     moved = after !== before;
@@ -552,7 +720,7 @@ export async function submitWriting(repo: Repo, actor: Actor, runId: string, tex
   // response, so the student is never kept waiting on an AI call; silently skipped if AI is off/limited/fails.
   // Round 4: only for a first try (a re-read is practice: no AI draft is spent on it)
   if (run.firstTry === true) runAfterResponse("readrise.writing_ai", async () => {
-    const pr = await repo.findUnique("RRPrompt", { articleId: s(run.articleId), band: s(run.band) });
+    const pr = await repo.findUnique("RRPrompt", { articleId: s(run.articleId), band: baseBand(run.band) });
     await draftReadRiseWritingScore(
       repo, { schoolId: s(run.schoolId), runId, prompt: s(pr?.prompt), checklist: (pr?.checklist ?? []) as string[], text: t }, aiEnv(),
     ).catch(() => undefined);
@@ -564,8 +732,13 @@ export async function submitWriting(repo: Repo, actor: Actor, runId: string, tex
 export async function submitPostPoll(repo: Repo, actor: Actor, runId: string, value: number, now = new Date()): Promise<RunView> {
   const run = await ownRun(repo, actor, runId);
   expectStep(run, "POSTPOLL");
-  await repo.updateMany("RRRun", { id: runId, step: "POSTPOLL" }, { postPoll: pollValue(value), step: "DONE" });
-  return runView(repo, actor, runId, now);
+  const changed = await repo.updateMany("RRRun", { id: runId, step: "POSTPOLL" }, { postPoll: pollValue(value), step: "DONE" });
+  // 🗂 round 5: a reliable, careful first try finished all 5 steps → its key words go to My Words (words-carry.ts)
+  let wordsSaved: number | null = null;
+  if (changed && run.firstTry === true && run.stretch !== true && !isUnreliableRun(run) && !rapidRead(run) && run.score !== null && run.score !== undefined) {
+    try { wordsSaved = Number(await carryKeyWords(repo, s(run.studentId), s(run.articleId), baseBand(run.band), now)) || 0; } catch { wordsSaved = null; }
+  }
+  return runView(repo, actor, runId, now, { wordsSaved });
 }
 
 /** Levels a student can see ARTICLE versions for (for labels) — the library's full 300–1600 range (see level.ts). */
@@ -591,6 +764,11 @@ export interface ReadRiseHome {
   placed: boolean;
   /** not placed and the placement test is available: the articles stay locked until the placement is finished */
   locked: boolean;
+  /**
+   * round 5: the progress strip on the Articles tab — strong reads (75%+, counted) still needed to move up +50 (the
+   * level window's 3-of-4 rule), the student's chosen topics (interests.ts) and every library topic (the picker)
+   */
+  progress?: { toMoveUp: number | null; step: number; interests: string[]; topics: string[] };
 }
 
 /**
@@ -604,11 +782,13 @@ export async function readRiseAccess(repo: Repo, studentId: string, passages: Pl
 }
 
 /** Everything /student/readrise shows: level, goal, streak, growth + projection, placement prompt and the library. */
-export async function readRiseHome(repo: Repo, actor: Actor, filter: { q?: string; topic?: string } = {}, now = new Date(), passages: PlacementPassage[] = loadPlacementPassages()): Promise<ReadRiseHome> {
+export async function readRiseHome(repo: Repo, actor: Actor, filter: LibraryFilter = {}, now = new Date(), passages: PlacementPassage[] = loadPlacementPassages()): Promise<ReadRiseHome> {
   const { studentId, schoolId } = studentOf(actor);
-  const [library, yearEnd, pst, windows] = await Promise.all([
+  const [library, yearEnd, pst, windows, win, interests] = await Promise.all([
     studentLibrary(repo, actor, filter, now), // creates the RRStudent row on first use
     yearEndFor(repo, schoolId, now), placementStatus(repo, studentId, now), loadReadRiseWindows(repo, schoolId, now),
+    levelWindow(repo, studentId).catch(() => [] as number[]),
+    Promise.resolve().then(() => getInterests(repo, studentId)).catch(() => [] as string[]),
   ]);
   const [summary, hist, placements] = await Promise.all([
     studentReadRiseSummary(repo, studentId, now), levelHistory(repo, studentId),
@@ -621,5 +801,6 @@ export async function readRiseHome(repo: Repo, actor: Actor, filter: { q?: strin
     growth: { points: hist.points.map((p) => ({ at: p.at.toISOString(), level: p.level })), projected: summary!.projected, yearEnd: yearEnd.toISOString() },
     placement: { state, result: pst.last ? Number(pst.last.result) : null, doneAt: pst.last?.completedAt ? new Date(pst.last.completedAt instanceof Date ? pst.last.completedAt.toISOString() : String(pst.last.completedAt)).toISOString() : null, ready, due: pst.due, checks: placementChecks(windows, placements) },
     placed: summary!.placed, locked: !summary!.placed && ready,
+    progress: { toMoveUp: readsToMoveUp(win, library.level), step: ENGINE.step, interests: Array.isArray(interests) ? interests.map(String) : [], topics: library.topics },
   };
 }

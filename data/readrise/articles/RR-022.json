@@ -614,5 +614,217 @@
       ],
       "modelAnswer": "I agree that fossils are some of the best evidence we have about the distant past, because they reveal facts about ancient organisms that no other record can show. When paleontologists carefully excavate fossils that were long concealed underground, the layers of sediment that compress around them reveal roughly how old each fossil is, since deeper layers formed earlier than those nearer the surface. Even more strikingly, fossil bones of hippos and elephants found in the arid Nafud desert prove that this now-dry region was once green and filled with lakes and rivers, since hippos cannot survive without that kind of environment. Because fossils can reveal both the age of ancient life and the climate conditions those organisms needed to survive, I think they remain one of our most powerful windows into Earth's distant past."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "Which of these is a fossil?",
+        "options": [
+          "A new toy kept in a box",
+          "A tooth kept in a rock",
+          "A cup full of plain sand",
+          "A blue pen in a bag"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The text says a fossil can be a bone, a tooth, a shell, or a footprint kept in rock.",
+        "wrong": {
+          "A": "A new toy is not left from a plant or animal.",
+          "C": "Sand is not left from a plant or animal.",
+          "D": "A pen is not left from a plant or animal."
+        }
+      },
+      {
+        "stem": "One fossil is deep in a cliff. Another fossil is near the top. Which one is older?",
+        "options": [
+          "The fossil that is deep down",
+          "The fossil that is near the top",
+          "Both fossils are the same age",
+          "Neither of the fossils is old"
+        ],
+        "answer": "A",
+        "skill": "inference",
+        "why": "The text says deep rock is old and top rock is new, so the deep fossil is the old one.",
+        "wrong": {
+          "B": "Top rock is new, so that fossil is newer.",
+          "C": "Deep rock and top rock are not the same age.",
+          "D": "Both are fossils from long ago."
+        }
+      },
+      {
+        "stem": "In the article, the word buried means —",
+        "options": [
+          "washed clean with water",
+          "picked up by a hand",
+          "dug up with a soft brush",
+          "covered up by mud or sand"
+        ],
+        "answer": "D",
+        "skill": "vocabulary",
+        "why": "The text says mud and sand fall on the animal, so it is buried, or covered up.",
+        "wrong": {
+          "A": "The text does not talk about washing.",
+          "B": "Nobody picks the animal up in the text.",
+          "C": "Digging up happens later, not when it is buried."
+        }
+      },
+      {
+        "stem": "What happens first when a fossil forms?",
+        "options": [
+          "The mud turns to rock",
+          "Mud falls on the animal",
+          "An animal dies",
+          "The soft parts rot"
+        ],
+        "answer": "C",
+        "skill": "sequence",
+        "why": "The text starts with an animal that dies, and then the mud falls on it.",
+        "wrong": {
+          "A": "The mud turns to rock near the end, after a long time.",
+          "B": "The mud falls on the animal after it dies.",
+          "D": "The soft parts rot after the animal is buried."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "According to the article, what is sediment?",
+        "options": [
+          "A tool for digging up bones",
+          "The mark of a living thing",
+          "Mud or sand that covers a body",
+          "A scientist who studies fossils"
+        ],
+        "answer": "C",
+        "skill": "detail",
+        "why": "The article says the mud and sand that cover the body are called sediment.",
+        "wrong": {
+          "A": "Scientists use picks and brushes for digging.",
+          "B": "A mark of a living thing is a trace such as a footprint.",
+          "D": "That scientist is called a paleontologist."
+        }
+      },
+      {
+        "stem": "In the article, the phrase \"preserved remains\" means remains that are —",
+        "options": [
+          "kept safe for a long time",
+          "washed away by a river",
+          "eaten by other animals",
+          "made by a person"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "Fossils are left from living things of long ago, so preserved means kept over time.",
+        "wrong": {
+          "B": "Washed away remains could not become fossils.",
+          "C": "The article does not say fossils are eaten.",
+          "D": "Fossils come from living things, not people."
+        }
+      },
+      {
+        "stem": "Why do paleontologists dig with small picks and soft brushes?",
+        "options": [
+          "They want to dig a deep hole fast",
+          "They want to clean the rocks to sell",
+          "They want to make new fossils",
+          "They want the old bones not to break"
+        ],
+        "answer": "D",
+        "skill": "cause-effect",
+        "why": "The article says they use small picks and soft brushes so the old bones do not break.",
+        "wrong": {
+          "A": "Small tools and brushes are slow, not fast.",
+          "B": "Selling rocks is not mentioned.",
+          "C": "Scientists find fossils; they do not make them."
+        }
+      },
+      {
+        "stem": "A scientist finds fossil bones and shells but no fossil skin. What is the most likely reason?",
+        "options": [
+          "The skin turned into water",
+          "The soft parts rot away after death",
+          "The skin was taken by a paleontologist",
+          "Animals in the past had no skin"
+        ],
+        "answer": "B",
+        "skill": "inference",
+        "why": "The article says the soft parts rot away and only the hard parts remain.",
+        "wrong": {
+          "A": "The article says soft parts rot away, not turn into water.",
+          "C": "Paleontologists dig carefully and do not take the skin.",
+          "D": "The article does not say animals had no skin."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "According to the article, what happens to the soft tissues of a buried animal?",
+        "options": [
+          "They turn into minerals in the rock",
+          "They decay while the hard parts remain",
+          "They become the first layer of rock",
+          "They turn into sediment and sink down"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The article says the soft tissues decay, but the hard parts remain.",
+        "wrong": {
+          "A": "Minerals replace the hard parts, not the soft tissues.",
+          "C": "The layers are made of sediment, not tissues.",
+          "D": "Sediment is the mud and sand that covers the body."
+        }
+      },
+      {
+        "stem": "In the article, the word excavate most nearly means —",
+        "options": [
+          "to write about",
+          "to measure",
+          "to draw",
+          "to dig out"
+        ],
+        "answer": "D",
+        "skill": "vocabulary",
+        "why": "Paleontologists use picks and brushes to take fossils out of the ground, so excavate means to dig out.",
+        "wrong": {
+          "A": "They dig; writing is not the action here.",
+          "B": "Picks and brushes are not for measuring.",
+          "C": "Picks and brushes are digging tools, not drawing tools."
+        }
+      },
+      {
+        "stem": "Why is a fossil found far beneath the surface usually older than one near the top?",
+        "options": [
+          "The deepest layers generally formed first",
+          "The deepest layers are made of harder rock",
+          "Deep fossils come from larger animals",
+          "Surface fossils form more slowly"
+        ],
+        "answer": "A",
+        "skill": "cause-effect",
+        "why": "The article says the deepest layers generally formed first, so what is buried in them is older.",
+        "wrong": {
+          "B": "Hardness is not the reason given.",
+          "C": "The article does not link depth to animal size.",
+          "D": "The article does not compare how fast fossils form."
+        }
+      },
+      {
+        "stem": "How is the third paragraph organized?",
+        "options": [
+          "It compares body fossils with trace fossils",
+          "It lists the tools that scientists must use",
+          "It tells why fossils are rare in the world",
+          "It explains the stages of forming a fossil"
+        ],
+        "answer": "D",
+        "skill": "text-structure",
+        "why": "The paragraph describes the steps in order: death, burial, decay, layering, and turning to stone.",
+        "wrong": {
+          "A": "It does not compare two kinds of fossils.",
+          "B": "Tools are described in the next paragraph.",
+          "C": "The paragraph does not say fossils are rare."
+        }
+      }
+    ]
   }
 }

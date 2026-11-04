@@ -614,5 +614,217 @@
       ],
       "modelAnswer": "I believe pottery should be valued as both a historical record and as art, since the article shows these two roles are deeply connected. Archaeologists rely on surviving pottery fragments to reconstruct the heritage of long-vanished communities, which makes pottery an irreplaceable historical record. At the same time, the intricate geometric patterns of Islamic pottery and the delicate craftsmanship of Chinese porcelain show that potters were also creating genuine art, not just practical containers. Because the same humble object can teach us history while also moving us as art, pottery deserves to be valued for both reasons at once."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "What is clay?",
+        "options": [
+          "A kind of glass",
+          "A hot oven",
+          "Soft, wet earth",
+          "A kind of paint"
+        ],
+        "answer": "C",
+        "skill": "detail",
+        "why": "The text says clay is wet earth and it is soft.",
+        "wrong": {
+          "A": "A glaze is like glass, but clay is not.",
+          "B": "A kiln is the hot oven.",
+          "D": "The text does not say clay is paint."
+        }
+      },
+      {
+        "stem": "What did people keep in pots long ago?",
+        "options": [
+          "Swords and rugs",
+          "Sand and wood",
+          "Paint and lines",
+          "Food and water"
+        ],
+        "answer": "D",
+        "skill": "detail",
+        "why": "The text says pots held food and water.",
+        "wrong": {
+          "A": "Swords and rugs are not mentioned.",
+          "B": "Sand and wood are not mentioned as things in pots.",
+          "C": "Potters paint pots, but paint is not what pots held."
+        }
+      },
+      {
+        "stem": "Why is pottery both a craft and an art?",
+        "options": [
+          "We use pots, and they look nice",
+          "Pots come from only one country",
+          "Every pot must be painted blue",
+          "Pots are made of shiny glass"
+        ],
+        "answer": "A",
+        "skill": "inference",
+        "why": "The text says a craft makes things we use and art makes things look nice, and pottery can do both.",
+        "wrong": {
+          "B": "Pots were made in Egypt, Iraq, China, and Arabia.",
+          "C": "The text does not say pots are painted blue.",
+          "D": "Clay pots are not made of glass."
+        }
+      },
+      {
+        "stem": "In the article, what is a craft?",
+        "options": [
+          "A very big hot oven",
+          "Making things we use",
+          "A shiny coat on a pot",
+          "A wheel that spins fast"
+        ],
+        "answer": "B",
+        "skill": "vocabulary",
+        "why": "The text says a craft makes things we use.",
+        "wrong": {
+          "A": "The hot oven is called a kiln.",
+          "C": "The shiny coat is a glaze.",
+          "D": "A wheel is a tool a potter uses, not the meaning of craft."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "What does the word knead mean in the article?",
+        "options": [
+          "Spin it quickly on a wheel",
+          "Bake it in a hot oven",
+          "Paint it with bright colors",
+          "Press and fold it many times"
+        ],
+        "answer": "D",
+        "skill": "vocabulary",
+        "why": "The article says kneading means pressing and folding the clay over and over.",
+        "wrong": {
+          "A": "Spinning on a wheel is a way to shape clay.",
+          "B": "Baking happens later, in the kiln.",
+          "C": "Painting is a way to decorate."
+        }
+      },
+      {
+        "stem": "What is the hard material called that clay becomes after it is fired?",
+        "options": [
+          "Ceramic",
+          "Glaze",
+          "Wheel",
+          "Kiln"
+        ],
+        "answer": "A",
+        "skill": "detail",
+        "why": "The article says the heat changes the soft clay into a hard material called ceramic.",
+        "wrong": {
+          "B": "A glaze is a glassy coating.",
+          "C": "A wheel is a flat disk that spins.",
+          "D": "A kiln is the oven."
+        }
+      },
+      {
+        "stem": "Why does a glaze help a pot hold liquids?",
+        "options": [
+          "It makes the clay softer",
+          "It seals the pottery",
+          "It spins the pot faster",
+          "It removes air bubbles"
+        ],
+        "answer": "B",
+        "skill": "cause-effect",
+        "why": "The article says a glaze seals the pottery so it can hold liquids.",
+        "wrong": {
+          "A": "A glaze makes the surface smooth, not the clay softer.",
+          "C": "The wheel spins the pot, not the glaze.",
+          "D": "Kneading removes air bubbles."
+        }
+      },
+      {
+        "stem": "Why does the author compare kneading clay to kneading bread dough?",
+        "options": [
+          "To say clay can be eaten",
+          "To show potters also bake bread",
+          "To help readers picture it",
+          "To explain what a kiln is"
+        ],
+        "answer": "C",
+        "skill": "author-purpose",
+        "why": "The comparison helps readers picture pressing and folding the clay.",
+        "wrong": {
+          "A": "The article never says clay can be eaten.",
+          "B": "The article does not say potters bake bread.",
+          "D": "The kiln is explained in a different paragraph."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "According to the article, where does the word ceramic come from?",
+        "options": [
+          "A Chinese word for porcelain",
+          "Greek word for potter's clay",
+          "An Arabic word for the kiln",
+          "A Roman word for glass"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The article says ceramic comes from the ancient Greek word for potter's clay.",
+        "wrong": {
+          "A": "Porcelain is linked to China, but it is not where ceramic comes from.",
+          "C": "The article does not link ceramic to Arabic.",
+          "D": "The article does not link ceramic to Rome."
+        }
+      },
+      {
+        "stem": "When is a glaze brushed onto a piece of pottery?",
+        "options": [
+          "Before the clay is kneaded",
+          "While the wheel is spinning",
+          "After the piece is sold",
+          "Before a second firing"
+        ],
+        "answer": "D",
+        "skill": "sequence",
+        "why": "The article says a glaze is brushed on before a second firing.",
+        "wrong": {
+          "A": "Kneading is the first step, before any shaping.",
+          "B": "The glaze is added to a shaped, fired piece, not on the wheel.",
+          "C": "The article does not say anything about selling."
+        }
+      },
+      {
+        "stem": "What does the word intricate mean in \"carve intricate designs\"?",
+        "options": [
+          "Big and very simple",
+          "Done in a few minutes",
+          "Full of fine detail",
+          "Painted in one color"
+        ],
+        "answer": "C",
+        "skill": "vocabulary",
+        "why": "The article pairs intricate designs with elaborate scenes and patterns, so they are full of fine detail.",
+        "wrong": {
+          "A": "Elaborate designs are not simple.",
+          "B": "The article says nothing about speed here.",
+          "D": "The designs are carved, not painted."
+        }
+      },
+      {
+        "stem": "Why does shaping clay on a wheel take years to master?",
+        "options": [
+          "Spinning clay is hard to control well",
+          "The kiln takes years to reach high heat",
+          "Wet clay needs years to dry completely",
+          "Potters first have to learn ancient Greek"
+        ],
+        "answer": "A",
+        "skill": "inference",
+        "why": "The article says trained hands press, pull, and lift spinning clay, which is a skill that takes years of practice.",
+        "wrong": {
+          "B": "The kiln heat is not described as taking years.",
+          "C": "Drying is not said to take years.",
+          "D": "Greek is only where the word ceramic comes from."
+        }
+      }
+    ]
   }
 }

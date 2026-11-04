@@ -614,5 +614,217 @@
       ],
       "modelAnswer": "Jane Goodall's work still matters today because her patient research on wild chimpanzees at the Gombe preserve revealed that chimps use tools and form close family bonds, discoveries that genuinely reshaped how scientists understood animal behavior. Rather than relying only on numbers and cages, Jane observed free chimpanzees in their natural habitat and gave them personal names, which helped the world see them as individuals with real emotions. Her later conservation work, protecting chimpanzees and their forests from destruction, continues to inspire new generations to care about the natural world."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "Which country did Jane fly to?",
+        "options": [
+          "London",
+          "Egypt",
+          "Tanzania",
+          "India"
+        ],
+        "answer": "C",
+        "skill": "detail",
+        "why": "The text says she flew to a land called Tanzania.",
+        "wrong": {
+          "A": "London is where she was born.",
+          "B": "Egypt is not named in the text.",
+          "D": "India is not named in the text."
+        }
+      },
+      {
+        "stem": "Why did the chimps stop running from Jane?",
+        "options": [
+          "She gave them food",
+          "They got used to her",
+          "She left the forest",
+          "She made loud sounds"
+        ],
+        "answer": "B",
+        "skill": "cause-effect",
+        "why": "Jane sat still day after day, and the chimps got used to her.",
+        "wrong": {
+          "A": "Food is not mentioned.",
+          "C": "She stayed in the forest.",
+          "D": "She sat still and quiet, not loud."
+        }
+      },
+      {
+        "stem": "In the article, what does the word \"protect\" mean?",
+        "options": [
+          "To keep safe",
+          "To take far away",
+          "To count every day",
+          "To chase and catch"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "Jane worked to protect chimps, which means she worked to keep them safe.",
+        "wrong": {
+          "B": "Protecting does not mean moving them away.",
+          "C": "Counting is not what protect means.",
+          "D": "Chasing is the opposite of keeping them safe."
+        }
+      },
+      {
+        "stem": "Why was the twig news a big surprise?",
+        "options": [
+          "Twigs are very hard to find",
+          "Chimps had learned to fly",
+          "Jane found a brand new forest",
+          "No one knew chimps use tools"
+        ],
+        "answer": "D",
+        "skill": "inference",
+        "why": "The text says no one knew chimps could use a twig as a tool.",
+        "wrong": {
+          "A": "The text does not say twigs are rare.",
+          "B": "Flying is not mentioned.",
+          "C": "The surprise was about the chimp, not a forest."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "What did Jane do because her family did not have much money for a trip?",
+        "options": [
+          "She asked the chimps for help",
+          "She sold her garden notes",
+          "She worked hard and saved",
+          "She stayed home in her garden"
+        ],
+        "answer": "C",
+        "skill": "detail",
+        "why": "The text says she worked hard and saved what she could.",
+        "wrong": {
+          "A": "The chimps are not part of this step.",
+          "B": "Selling notes is not mentioned.",
+          "D": "She did go to Africa in the end."
+        }
+      },
+      {
+        "stem": "In the article, what does the phrase \"scientific community\" mean?",
+        "options": [
+          "A small town in Tanzania",
+          "A group of scientists",
+          "A forest by a lake",
+          "A family of chimps"
+        ],
+        "answer": "B",
+        "skill": "vocabulary",
+        "why": "The discovery surprised the whole group of people who work as scientists.",
+        "wrong": {
+          "A": "It is not a town.",
+          "C": "It is not a place in the forest.",
+          "D": "It is not a chimp family."
+        }
+      },
+      {
+        "stem": "Why did Jane's discovery about tools surprise scientists?",
+        "options": [
+          "Chimps had never been seen before",
+          "Scientists thought only humans used tools",
+          "Tools were new in all of Tanzania",
+          "The chimps were afraid of her at first"
+        ],
+        "answer": "B",
+        "skill": "cause-effect",
+        "why": "The text says scientists believed only humans could use tools.",
+        "wrong": {
+          "A": "Scientists already knew about chimps.",
+          "C": "The text does not say tools were new.",
+          "D": "Their fear was earlier and is a different point."
+        }
+      },
+      {
+        "stem": "Jane kept careful notes on the birds and bugs in her garden. What does this show about her?",
+        "options": [
+          "She wanted to be famous",
+          "She was a careful watcher",
+          "She did not like animals",
+          "She was afraid of bugs"
+        ],
+        "answer": "B",
+        "skill": "inference",
+        "why": "Writing careful notes shows she watched closely and took her interest seriously.",
+        "wrong": {
+          "A": "The text does not say she wanted fame.",
+          "C": "The text says she loved animals.",
+          "D": "She spent hours watching bugs."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "Which scientist offered Jane the chance to do research in Tanzania?",
+        "options": [
+          "Louis Leakey",
+          "Jane Goodall",
+          "Chen-Ning Yang",
+          "Gombe Tanganyika"
+        ],
+        "answer": "A",
+        "skill": "detail",
+        "why": "The text says a respected scientist named Louis Leakey offered her the chance.",
+        "wrong": {
+          "B": "Jane Goodall is the researcher herself.",
+          "C": "This name is not in the article.",
+          "D": "Gombe and Lake Tanganyika are places, not a person."
+        }
+      },
+      {
+        "stem": "In the third paragraph, what does the word \"fled\" mean?",
+        "options": [
+          "Walked slowly",
+          "Ran away quickly",
+          "Sat down quietly",
+          "Came close"
+        ],
+        "answer": "B",
+        "skill": "vocabulary",
+        "why": "The chimps fled whenever she came near, which means they ran away.",
+        "wrong": {
+          "A": "Fleeing is not slow walking.",
+          "C": "The chimps were not sitting still.",
+          "D": "They moved away from her, not toward her."
+        }
+      },
+      {
+        "stem": "Why does the author say Jane's family did not have much money?",
+        "options": [
+          "To show Jane did not like Africa",
+          "To show the trip was not planned",
+          "To show chimps cost a lot",
+          "To show how hard Jane worked"
+        ],
+        "answer": "D",
+        "skill": "author-purpose",
+        "why": "The author includes it to show Jane saved and worked hard to reach her dream despite little money.",
+        "wrong": {
+          "A": "The text says she dreamed of going to Africa.",
+          "B": "She worked and saved for it, so it was planned.",
+          "C": "The chimps are not described as costing money."
+        }
+      },
+      {
+        "stem": "What did Jane's patient research show about chimpanzees?",
+        "options": [
+          "They feel emotion and form bonds",
+          "They can fly across the whole lake",
+          "They only ever live in small cages",
+          "They never play together or bond"
+        ],
+        "answer": "A",
+        "skill": "cause-effect",
+        "why": "The text says her research showed chimps feel emotion, play, and form close family bonds.",
+        "wrong": {
+          "B": "Flying is not mentioned.",
+          "C": "They live in forests, not cages.",
+          "D": "The text says they play together."
+        }
+      }
+    ]
   }
 }

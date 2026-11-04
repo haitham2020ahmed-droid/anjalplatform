@@ -614,5 +614,217 @@
       ],
       "modelAnswer": "Desalination gives Saudi Arabia a reliable water supply even though the country has no rivers and receives almost no rainfall. However, it also creates serious challenges: both distillation and the membrane method demand an enormous amount of energy, and the leftover brine can threaten the marine ecosystem if it is not dispersed carefully. In my view, the energy demand matters most, because an energy-hungry process is not truly sustainable unless it is powered by something renewable, which is why I think the new solar-powered plants are such an important step."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "What do most new plants use to take salt out of seawater?",
+        "options": [
+          "A big fire under the sea",
+          "A filter with tiny holes",
+          "A rain cloud over a lake",
+          "A long pipe to Riyadh"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The text says most new plants use a filter with tiny holes where drops get through but salt does not.",
+        "wrong": {
+          "A": "Heat is one way, but most new plants use the filter.",
+          "C": "Rain is only compared to the heat way.",
+          "D": "Pipes carry the fresh water; they do not take out salt."
+        }
+      },
+      {
+        "stem": "Why must the left-over salt be spread out in the sea?",
+        "options": [
+          "It makes the water warm",
+          "It helps plants to grow",
+          "It makes the pumps strong",
+          "It keeps the fish safe"
+        ],
+        "answer": "D",
+        "skill": "cause-effect",
+        "why": "The text says the salt must be spread out because that keeps fish safe.",
+        "wrong": {
+          "A": "The text does not say it warms the water.",
+          "B": "The text does not mention plants growing in the sea.",
+          "C": "The pumps are not helped by the salt."
+        }
+      },
+      {
+        "stem": "In the filter way, what does the strong pump do?",
+        "options": [
+          "It pushes seawater at the filter",
+          "It heats the water to make steam",
+          "It spreads the salt out in the sea",
+          "It sends the water far to Riyadh"
+        ],
+        "answer": "A",
+        "skill": "detail",
+        "why": "The text says a strong pump pushes the seawater at the filter, which has tiny holes.",
+        "wrong": {
+          "B": "Heating to make steam is the other way.",
+          "C": "The left-over salt is spread out, but not by the pump.",
+          "D": "Long pipes take the water to Riyadh."
+        }
+      },
+      {
+        "stem": "Steam cools and turns into fresh water. What else is made in a like way?",
+        "options": [
+          "Salt",
+          "Sea fish",
+          "Rain",
+          "A filter"
+        ],
+        "answer": "C",
+        "skill": "compare",
+        "why": "The text says rain is made like this, too.",
+        "wrong": {
+          "A": "The salt stays down.",
+          "B": "Fish are not made this way.",
+          "D": "A filter is a tool, not something that forms from steam."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "About how much of the water on Earth is in the oceans?",
+        "options": [
+          "About 97 percent",
+          "About 50 percent",
+          "About 10 percent",
+          "About 3 percent"
+        ],
+        "answer": "A",
+        "skill": "detail",
+        "why": "The article says about 97 percent of the water on Earth is in the oceans.",
+        "wrong": {
+          "B": "The share in the oceans is much larger than half.",
+          "C": "The share in the oceans is much larger than ten percent.",
+          "D": "Only a small part of Earth's water is fresh, about three percent."
+        }
+      },
+      {
+        "stem": "Why does drinking seawater leave you even more thirsty?",
+        "options": [
+          "Seawater is so cold that it chills the body",
+          "Seawater has no water inside it to drink",
+          "Seawater is salty, so the body loses water",
+          "Seawater has too much fresh water in it"
+        ],
+        "answer": "C",
+        "skill": "cause-effect",
+        "why": "The article says seawater is so salty that drinking it would make your body lose water.",
+        "wrong": {
+          "A": "The article does not talk about cold water.",
+          "B": "Seawater is mostly water but has salt in it.",
+          "D": "Seawater has very little fresh water in it."
+        }
+      },
+      {
+        "stem": "Why does Saudi Arabia depend on desalination?",
+        "options": [
+          "It has too many rivers and lakes",
+          "It has no sea coast anywhere near",
+          "It wants to make more table salt",
+          "It has no rivers and little rain"
+        ],
+        "answer": "D",
+        "skill": "cause-effect",
+        "why": "The article says Saudi Arabia has no rivers and gets very little rain, so it depends on desalination.",
+        "wrong": {
+          "A": "The country has no rivers.",
+          "B": "The country has coasts on the Red Sea and the Arabian Gulf.",
+          "C": "The goal is fresh water, not salt."
+        }
+      },
+      {
+        "stem": "In the article, the word inland means —",
+        "options": [
+          "out into the deep sea",
+          "away from the coast",
+          "under the sandy ground",
+          "high up toward the sky"
+        ],
+        "answer": "B",
+        "skill": "vocabulary",
+        "why": "The pipelines carry water hundreds of kilometers to Riyadh, which is away from the coast.",
+        "wrong": {
+          "A": "The pipelines carry the water away from the sea.",
+          "C": "The text does not say the pipes go under sand.",
+          "D": "The pipes carry water along the ground."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "According to the article, what would drinking seawater do inside your body?",
+        "options": [
+          "Fill your cells with fresh water",
+          "Cool your body down quickly",
+          "Draw water out of your body's cells",
+          "Remove the salt from your blood"
+        ],
+        "answer": "C",
+        "skill": "detail",
+        "why": "The article says drinking seawater would draw water out of your body's cells and leave you thirstier.",
+        "wrong": {
+          "A": "It would take water out of the cells, not fill them.",
+          "B": "The article does not talk about cooling.",
+          "D": "The article says seawater adds salt, not removes it."
+        }
+      },
+      {
+        "stem": "The article says fresh water should be conserved. What does conserve most nearly mean?",
+        "options": [
+          "to save it from waste",
+          "to sell it to other lands",
+          "to make it very salty",
+          "to move it by pipeline"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "Making fresh water takes great effort and energy, so every drop should be saved rather than wasted.",
+        "wrong": {
+          "B": "Selling water is not mentioned.",
+          "C": "Fresh water has the salt removed.",
+          "D": "Pipelines move water, but that is not what conserve means."
+        }
+      },
+      {
+        "stem": "According to the article, why are Saudi Arabia's natural sources of fresh water extremely limited?",
+        "options": [
+          "Its sea water is too salty for any use",
+          "Its people drink far too much water",
+          "Its pipelines are far too long to use",
+          "No rivers all year and little rain"
+        ],
+        "answer": "D",
+        "skill": "cause-effect",
+        "why": "The article says it has no rivers that flow all year and receives very little rainfall.",
+        "wrong": {
+          "A": "Salty seawater is the source that desalination uses.",
+          "B": "The article does not blame how much people drink.",
+          "C": "Pipelines carry water; they do not limit it."
+        }
+      },
+      {
+        "stem": "How is distillation different from reverse osmosis?",
+        "options": [
+          "Distillation uses a membrane, and reverse osmosis uses heat",
+          "Distillation uses heat, and reverse osmosis uses a membrane",
+          "Distillation makes brine, and reverse osmosis does not",
+          "Distillation is newer, and reverse osmosis is older"
+        ],
+        "answer": "B",
+        "skill": "compare",
+        "why": "The article says distillation relies on heat, while reverse osmosis forces seawater against a membrane.",
+        "wrong": {
+          "A": "This swaps the two methods.",
+          "C": "The article says both methods produce brine.",
+          "D": "The article says distillation is the older method."
+        }
+      }
+    ]
   }
 }

@@ -614,5 +614,217 @@
         }
       ]
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "Who did Lina meet while she watered the plants?",
+        "options": [
+          "Mr. Nasser",
+          "Sara",
+          "Her mom",
+          "A teacher"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The text says Lina met a girl named Sara and they watered plants together.",
+        "wrong": {
+          "A": "Mr. Nasser started the garden, but Lina did not meet him there.",
+          "C": "Lina's mom is not the new friend.",
+          "D": "No teacher is in the story."
+        }
+      },
+      {
+        "stem": "In the story, the word harvest means —",
+        "options": [
+          "digging the dirt with tools",
+          "pulling weeds out of the lot",
+          "picking the food that grew",
+          "picking up all of the trash"
+        ],
+        "answer": "C",
+        "skill": "vocabulary",
+        "why": "At harvest time the neighbors picked the food that had grown in the garden.",
+        "wrong": {
+          "A": "Digging was done before planting.",
+          "B": "Pulling weeds was done to clean the lot.",
+          "D": "Picking up trash was done to clean the lot."
+        }
+      },
+      {
+        "stem": "Why did Lina go back to the garden each day?",
+        "options": [
+          "To play games with her mom",
+          "To plant a new tree",
+          "To find some lost toys",
+          "To give her seed some water"
+        ],
+        "answer": "D",
+        "skill": "cause-effect",
+        "why": "Lina put a seed in the dirt and came back each day to water it.",
+        "wrong": {
+          "A": "Her mom only told her to try it.",
+          "B": "She planted a seed, not a tree.",
+          "C": "No lost toys are in the story."
+        }
+      },
+      {
+        "stem": "Why did the neighbors give food to every home?",
+        "options": [
+          "They wanted to share the garden",
+          "They did not like the food much",
+          "They had too many baskets to hold",
+          "They wanted to sell it for money"
+        ],
+        "answer": "A",
+        "skill": "inference",
+        "why": "The neighbors gave the food to every home, which shows they wanted everyone to enjoy the garden.",
+        "wrong": {
+          "B": "Lina loved the garden and the food grew well.",
+          "C": "Baskets are not the reason in the text.",
+          "D": "They gave the food away, they did not sell it."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "What grew quietly beneath the surface of the soil?",
+        "options": [
+          "Red fruit",
+          "Tall dry weeds",
+          "Orange roots",
+          "Green leaves"
+        ],
+        "answer": "C",
+        "skill": "detail",
+        "why": "The article says red fruit grew on the vines while orange roots grew beneath the surface.",
+        "wrong": {
+          "A": "The red fruit ripened on the vines.",
+          "B": "Weeds were pulled out of the lot.",
+          "D": "The leaves grew on the vines above the soil."
+        }
+      },
+      {
+        "stem": "In the article, the word flourish means to —",
+        "options": [
+          "grow strong and well",
+          "dry up and die",
+          "hide under the ground",
+          "get picked by hand"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "The plants began to flourish in rich soil and ripened into fruit, so it means to grow well.",
+        "wrong": {
+          "B": "The plants did not die.",
+          "C": "Only the roots grew beneath the ground.",
+          "D": "Picking came later, at harvest."
+        }
+      },
+      {
+        "stem": "Why did Lina make a friend named Sara?",
+        "options": [
+          "They went to the same school",
+          "They worked side by side in the garden",
+          "They lived in the same house",
+          "Mr. Nasser asked them to be friends"
+        ],
+        "answer": "B",
+        "skill": "cause-effect",
+        "why": "The two girls watered plants and pulled weeds together, and the garden gave Lina a true friend.",
+        "wrong": {
+          "A": "The article does not mention school.",
+          "C": "They did not live in the same house.",
+          "D": "Mr. Nasser did not ask this."
+        }
+      },
+      {
+        "stem": "What can you tell about the neighbors from the dozens of volunteers who showed up?",
+        "options": [
+          "They were paid to work",
+          "They had nothing else to do",
+          "They did not know the lot",
+          "They cared about their street"
+        ],
+        "answer": "D",
+        "skill": "inference",
+        "why": "Dozens of people gave up their weekend to clean the lot, which shows they cared about their community.",
+        "wrong": {
+          "A": "Pay is not mentioned.",
+          "B": "The article does not say that.",
+          "C": "They lived near the lot and had passed it for years."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "Where did Lina plant her seed?",
+        "options": [
+          "Beside the school",
+          "In a pot at home",
+          "Under a large tree",
+          "Near the fence"
+        ],
+        "answer": "D",
+        "skill": "detail",
+        "why": "The article says she pressed the seed into the soil near the fence.",
+        "wrong": {
+          "A": "The school is not mentioned as the place.",
+          "B": "She planted it in the garden, not at home.",
+          "C": "No large tree is mentioned."
+        }
+      },
+      {
+        "stem": "In the article, the word cultivate most nearly means —",
+        "options": [
+          "to build a high wall around it",
+          "to grow and care for plants",
+          "to sell food in a small shop",
+          "to clean up the old trash"
+        ],
+        "answer": "B",
+        "skill": "vocabulary",
+        "why": "Mr. Nasser invited everyone to cultivate something in the garden, which means to grow and tend plants.",
+        "wrong": {
+          "A": "A wall is not part of the plan.",
+          "C": "Nothing is sold in the article.",
+          "D": "Cleaning the trash was done first, before cultivating."
+        }
+      },
+      {
+        "stem": "Why did the neighbors agree so quickly to Mr. Nasser's idea?",
+        "options": [
+          "They had already wished the lot looked better",
+          "They had been paid by the school board",
+          "They were afraid of the tall dry weeds",
+          "They had their own large gardens at home"
+        ],
+        "answer": "A",
+        "skill": "cause-effect",
+        "why": "The article says most neighbors had secretly wished for a long time that the lot looked better.",
+        "wrong": {
+          "B": "No payment is mentioned.",
+          "C": "Avoiding weeds is not the reason given.",
+          "D": "Their own gardens are not mentioned."
+        }
+      },
+      {
+        "stem": "Why does the author stress that the lot sat in plain sight every day?",
+        "options": [
+          "To show that the lot was too small to use",
+          "To show that the lot belonged to Mr. Nasser",
+          "To show that people saw it but did nothing",
+          "To show that children played on it"
+        ],
+        "answer": "C",
+        "skill": "inference",
+        "why": "The lot was visible every day, yet no one took the initiative to clean it up.",
+        "wrong": {
+          "A": "The size of the lot is not discussed.",
+          "B": "The owner is not named.",
+          "D": "The children simply walked past it."
+        }
+      }
+    ]
   }
 }

@@ -611,5 +611,217 @@
         "I addressed at least one point someone might make against my view."
       ]
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "What did Ms. Reem tell the boys to think about?",
+        "options": [
+          "How much the kite costs at a big store",
+          "How many of their friends could fly it",
+          "What color the long kite string should be",
+          "The shape of the kite and what it is made of"
+        ],
+        "answer": "D",
+        "skill": "detail",
+        "why": "Ms. Reem said, \"Think about your kite's shape and what it is made of.\"",
+        "wrong": {
+          "A": "She did not talk about the cost of a kite.",
+          "B": "She did not talk about how many friends could fly it.",
+          "C": "She did not talk about the string color."
+        }
+      },
+      {
+        "stem": "In the story, what does \"give up\" mean?",
+        "options": [
+          "Give a nice gift to a friend",
+          "Stop trying to do something",
+          "Start a brand new school day",
+          "Fly a kite up very high today"
+        ],
+        "answer": "B",
+        "skill": "vocabulary",
+        "why": "The boys did not give up, and they kept trying until their kite flew.",
+        "wrong": {
+          "A": "The story is not about giving gifts.",
+          "C": "It has nothing to do with starting a school day.",
+          "D": "The boys fly the kite at the end, but that is not what the words mean."
+        }
+      },
+      {
+        "stem": "What helped the boys most to make a kite that flew?",
+        "options": [
+          "They learned from their old kites",
+          "They waited for a day with no wind",
+          "They asked a friend to fly it",
+          "They painted the kite a bright color"
+        ],
+        "answer": "A",
+        "skill": "inference",
+        "why": "The boys looked at their old kites, saw why they broke, and then built a stronger one.",
+        "wrong": {
+          "B": "The kite flew in the wind, so they did not wait for no wind.",
+          "C": "No friend flies the kite for them in the story.",
+          "D": "The story does not say anything about paint."
+        }
+      },
+      {
+        "stem": "How did the boys let out the string?",
+        "options": [
+          "Very fast and hard",
+          "In the middle of the night",
+          "Slowly",
+          "With a big tail"
+        ],
+        "answer": "C",
+        "skill": "detail",
+        "why": "The text says, \"They let the string out slowly.\"",
+        "wrong": {
+          "A": "They did not pull the string fast.",
+          "B": "The story is set on Kite Day at school, not at night.",
+          "D": "The tail is on the kite, not a way of letting out the string."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "According to Ms. Reem, which way should you face when you launch a kite?",
+        "options": [
+          "Away from the wind",
+          "Straight into the wind",
+          "Toward the school field",
+          "Up at the sun"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "She said you need to launch it facing straight into the wind.",
+        "wrong": {
+          "A": "She said to face into the wind, not away from it.",
+          "C": "The field is where the kite flies, not the direction she gave.",
+          "D": "She never mentions the sun."
+        }
+      },
+      {
+        "stem": "In the article, what does the word \"determined\" mean?",
+        "options": [
+          "Scared of the strong wind outside",
+          "Bored with the whole kite game",
+          "Firmly decided to keep trying",
+          "Surprised by a very new idea"
+        ],
+        "answer": "C",
+        "skill": "vocabulary",
+        "why": "After the first kite crashed, the boys were determined to succeed, so they built a second one.",
+        "wrong": {
+          "A": "The boys keep building, so they are not scared.",
+          "B": "They were working hard, not bored.",
+          "D": "They were not surprised; they wanted to succeed."
+        }
+      },
+      {
+        "stem": "Why does the author start the article with a question?",
+        "options": [
+          "To test whether readers already know how to build kites",
+          "To tell readers all the rules for Kite Day at school",
+          "To list all the parts that make up a good kite",
+          "To make readers think about their own failures and success"
+        ],
+        "answer": "D",
+        "skill": "author-purpose",
+        "why": "The question asks if you ever failed before you finally succeeded, which connects the reader to the boys' story.",
+        "wrong": {
+          "A": "The question is not a test of kite skills.",
+          "B": "The rules of Kite Day are never listed.",
+          "C": "The parts of a kite are explained later by Ms. Reem."
+        }
+      },
+      {
+        "stem": "What does the last paragraph suggest about failing at first?",
+        "options": [
+          "It can lead to success when you keep learning",
+          "It means you should choose a new game",
+          "It happens only to people who do not try",
+          "It is the fault of the wind"
+        ],
+        "answer": "A",
+        "skill": "inference",
+        "why": "The boys failed twice, and their careful thinking and hard work finally paid off.",
+        "wrong": {
+          "B": "The boys did not change games; they kept trying.",
+          "C": "The boys tried hard and still failed at first.",
+          "D": "The article says the design and materials were the problem."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "What did the boys realize about the thin sticks in their broken kites?",
+        "options": [
+          "They were far too heavy for the thin paper cover",
+          "They were painted the wrong color",
+          "They snapped when the frame could not hold its shape",
+          "They were too long for the string"
+        ],
+        "answer": "C",
+        "skill": "detail",
+        "why": "The text says thin sticks snap when a frame cannot hold its shape.",
+        "wrong": {
+          "A": "The sticks were thin, not heavy.",
+          "B": "Color is never mentioned.",
+          "D": "Length is never mentioned as a problem."
+        }
+      },
+      {
+        "stem": "According to the article, why does a kite without a proper tail have trouble?",
+        "options": [
+          "It cannot stay balanced when the wind pulls on it unevenly",
+          "It becomes too heavy to climb into the sky above the field",
+          "It makes the string tangle on the ground",
+          "It tears the paper at the center"
+        ],
+        "answer": "A",
+        "skill": "cause-effect",
+        "why": "The boys understood that without a tail, a kite cannot stay balanced when wind resistance pulls unevenly.",
+        "wrong": {
+          "B": "The article does not say a tail adds too much weight.",
+          "C": "String tangles are not mentioned.",
+          "D": "The tail is linked to balance, not to tearing paper."
+        }
+      },
+      {
+        "stem": "In the article, the word \"withstand\" most nearly means —",
+        "options": [
+          "to copy another kite exactly",
+          "to hide",
+          "to repair",
+          "to handle without breaking"
+        ],
+        "answer": "D",
+        "skill": "vocabulary",
+        "why": "Kites break when their design or materials cannot withstand strong wind, so the word means to handle the wind without breaking.",
+        "wrong": {
+          "A": "Copying a kite is not what the sentence is about.",
+          "B": "Hiding does not fit with strong wind.",
+          "C": "Repairing happens after a kite breaks, not before."
+        }
+      },
+      {
+        "stem": "What does the last sentence suggest about learning from mistakes?",
+        "options": [
+          "Luck is the best way to learn anything new",
+          "Failed attempts can teach more than one lucky success",
+          "Two tries are always enough to make anything work",
+          "It is best to avoid trying new designs"
+        ],
+        "answer": "B",
+        "skill": "inference",
+        "why": "The author says two failed attempts taught the boys more than a single lucky success could have.",
+        "wrong": {
+          "A": "The author says a lucky success teaches less.",
+          "C": "The boys needed three tries, not two.",
+          "D": "The boys learned by trying new designs."
+        }
+      }
+    ]
   }
 }

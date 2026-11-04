@@ -614,5 +614,217 @@
       ],
       "modelAnswer": "I disagree that students should always choose their own partners, because the passage shows how much Layla and Yousef gained from an assigned pairing they did not want. Despite their clashing perspectives, they were forced to reconcile their differences, and Layla's organized research ended up complementing Yousef's bold artwork far better than either expected. Someone might argue that students work best with friends who already get along, but the passage suggests the opposite: Layla and Yousef's collaboration became invaluable precisely because their differing strengths, not their similarity, made the finished project stronger than either could have produced alone."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "What does Layla like to make?",
+        "options": [
+          "Fast drawings",
+          "New toys",
+          "Lists",
+          "Funny jokes"
+        ],
+        "answer": "C",
+        "skill": "detail",
+        "why": "The text says Layla likes to plan and makes lists.",
+        "wrong": {
+          "A": "Yousef is the one who draws the art.",
+          "B": "The text does not say she makes toys.",
+          "D": "The text does not say she makes jokes."
+        }
+      },
+      {
+        "stem": "In the story, what does \"groan\" mean?",
+        "options": [
+          "To make a sad sound when unhappy",
+          "To jump up and cheer with joy",
+          "To whisper a secret to a friend",
+          "To clap your hands for a team"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "Both students groan when they hear they are partners, because they do not want to work together.",
+        "wrong": {
+          "B": "They are not cheering; they say \"Not her\" and \"Not him.\"",
+          "C": "They talk out loud, not in secret.",
+          "D": "They are not happy about the team."
+        }
+      },
+      {
+        "stem": "What happens right after Layla and Yousef fight about the plan?",
+        "options": [
+          "They go home early",
+          "They ask a new partner to join",
+          "The teacher ends the project",
+          "They sit down and talk"
+        ],
+        "answer": "D",
+        "skill": "sequence",
+        "why": "The text says, \"Then they sit down. They talk.\"",
+        "wrong": {
+          "A": "They stay and work on the project.",
+          "B": "No new partner joins them.",
+          "C": "The project goes on and turns out great."
+        }
+      },
+      {
+        "stem": "Why does the teacher feel proud?",
+        "options": [
+          "The two worked well and made a great project",
+          "The class got the day off from school",
+          "Yousef finished the work before Layla",
+          "Layla and Yousef changed their teacher's mind"
+        ],
+        "answer": "A",
+        "skill": "cause-effect",
+        "why": "The teacher says, \"You two did well,\" because they worked together and the project turns out great.",
+        "wrong": {
+          "B": "The text does not say anything about a day off.",
+          "C": "The work was shared, and there was no race.",
+          "D": "The teacher did not change his mind; he is just proud."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "What did Yousef like to do when he started a task?",
+        "options": [
+          "Make a neat list before anything else",
+          "Ask the teacher for a full plan",
+          "Work fast and test new ideas right away",
+          "Wait and watch what his partner did"
+        ],
+        "answer": "C",
+        "skill": "detail",
+        "why": "The text says Yousef liked to work fast and test new ideas right away.",
+        "wrong": {
+          "A": "Making neat lists is what Layla does.",
+          "B": "Nothing says he asked for a plan; he rarely planned.",
+          "D": "He wanted to start, not wait."
+        }
+      },
+      {
+        "stem": "In the story, the word \"dismay\" means —",
+        "options": [
+          "great joy and pride",
+          "a feeling of being tired",
+          "a happy surprise",
+          "a feeling of being upset"
+        ],
+        "answer": "D",
+        "skill": "vocabulary",
+        "why": "They groaned and muttered when they were placed on the same team, so dismay means they felt upset.",
+        "wrong": {
+          "A": "They were not joyful at the news.",
+          "B": "Tiredness is not the reason they groaned.",
+          "C": "They did not like the surprise."
+        }
+      },
+      {
+        "stem": "Why did Layla and Yousef groan at the news from the teacher?",
+        "options": [
+          "They did not get along and did not want to be partners",
+          "They thought the project would be far too easy for them",
+          "They had already finished all of the project",
+          "They wanted to work alone on a big poster"
+        ],
+        "answer": "A",
+        "skill": "cause-effect",
+        "why": "The two had never gotten along well and neither wanted to be partners.",
+        "wrong": {
+          "B": "They were upset about the partner, not about the work being easy.",
+          "C": "The project was just being assigned.",
+          "D": "The text does not mention a poster."
+        }
+      },
+      {
+        "stem": "What does the ending suggest about how Layla and Yousef feel about working together?",
+        "options": [
+          "They want to work alone next time",
+          "They are still angry at each other",
+          "They now like the team more than they expected",
+          "They wish the teacher chose new partners"
+        ],
+        "answer": "C",
+        "skill": "inference",
+        "why": "They share a surprised smile and begin to appreciate a team they had not expected to enjoy.",
+        "wrong": {
+          "A": "They are starting to appreciate the team.",
+          "B": "They exchange a smile, so they are not angry.",
+          "D": "They are beginning to enjoy the team they got."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "How did the teacher announce the new project groups?",
+        "options": [
+          "With a long speech about teamwork",
+          "After each student chose a friend",
+          "With a vote by the whole class",
+          "Without any warning"
+        ],
+        "answer": "D",
+        "skill": "detail",
+        "why": "The text says the teacher assigned new project groups without any warning.",
+        "wrong": {
+          "A": "No speech about teamwork is mentioned.",
+          "B": "The teacher chose the groups; students did not.",
+          "C": "No class vote is mentioned."
+        }
+      },
+      {
+        "stem": "In the passage, what does the phrase \"impossible to reconcile\" mean?",
+        "options": [
+          "Too funny to talk about at all",
+          "Too small to matter very much",
+          "Impossible to bring into agreement",
+          "Too old to be remembered well"
+        ],
+        "answer": "C",
+        "skill": "vocabulary",
+        "why": "The pair kept arguing, so their differences seemed impossible to bring into agreement.",
+        "wrong": {
+          "A": "Their argument was not funny.",
+          "B": "Their differences felt big to them.",
+          "D": "The argument was happening now."
+        }
+      },
+      {
+        "stem": "What helped Layla and Yousef stop arguing?",
+        "options": [
+          "The teacher chose a new partner for each",
+          "They sat down and talked things through",
+          "Their classmates told them what to do",
+          "They agreed to follow Layla's plan only"
+        ],
+        "answer": "B",
+        "skill": "cause-effect",
+        "why": "After a tense silence, the two sat down and genuinely talked things through.",
+        "wrong": {
+          "A": "The teacher did not change the partners.",
+          "C": "The classmates only glanced at them.",
+          "D": "They agreed to divide the work by strengths, not to follow only Layla's plan."
+        }
+      },
+      {
+        "stem": "Why does the author include the whispered lines \"Not her\" and \"Not him\"?",
+        "options": [
+          "To show both felt the same frustration",
+          "To show that the classmates were laughing",
+          "To show that the teacher was angry",
+          "To show the project was already done"
+        ],
+        "answer": "A",
+        "skill": "author-purpose",
+        "why": "Yousef and Layla say nearly the same thing, which shows they both felt upset about the pairing.",
+        "wrong": {
+          "B": "The classmates only gave curious glances.",
+          "C": "The teacher is not shown as angry.",
+          "D": "The project has not started yet at that point."
+        }
+      }
+    ]
   }
 }

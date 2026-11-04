@@ -9,8 +9,9 @@
  *      3 of the last 4 ≥ 75% and the latest ≥ 75%  → +50 (unchanged)
  *    never below 200 or above 1700; the reason is written in plain words (RRLevelChange) for the teacher.
  *  - An UNRELIABLE run (2+ rapid answers, accuracy.ts) never takes part: no level move, no goal, no skill evidence.
- *  - A STRETCH reading (one version higher) joins the window only when it scored ≥ 75%: it can help a student
- *    move up and counts toward the weekly goal, but never lowers the level.
+ *  - A STRETCH reading (one version higher) joins the window only when it scored ≥ 75% AND used new questions (a
+ *    stretch set "S-…" or a new band, first-try.ts): it can help a student move up but never lowers the level. A
+ *    practice stretch (same questions) never joins the window. Weekly goal: one credit per article (goalRuns).
  *  - A teacher can set the level (source TEACHER). Every change is an RRLevelChange with a clear reason.
  *  - Weekly goal (default 2 articles a week at 75%+ on the first try), streak of weeks meeting it, growth since
  *    placement, and a projected end-of-year level (linear trend of the last 8 weeks — an estimate).
@@ -20,7 +21,7 @@ import type { Repo, Row } from "../seeding/repo";
 import { ForbiddenError, type Actor } from "../auth/rbac";
 import { ValidationError } from "../curriculum-admin";
 import { RR_LEVELS, RR_MAX, RR_MIN, defaultLevel } from "./level";
-import { articleRuns, countedTries, isUnreliableRun, rapidRead, scoredRun } from "./first-try";
+import { articleRuns, countedTries, goalRuns, isUnreliableRun, rapidRead } from "./first-try";
 
 export const s = (v: unknown) => String(v ?? "");
 export const toDate = (v: unknown) => (v instanceof Date ? v : new Date(s(v)));
@@ -166,11 +167,37 @@ const unreliableRun = (r: Row) => isUnreliableRun(r);
 export const countsForLevel = (r: Row) => r.firstTry === true && r.score !== null && r.score !== undefined && !unreliableRun(r) && !rapidRead(r) && (r.stretch !== true || Number(r.score) >= ENGINE.up);
 
 /**
- * The completion dates that count toward the weekly goal: counted first tries (a re-read never; a stretch only in a
- * new band), reliable, scored 75%+.
+ * The completion dates that count toward the weekly goal (round 5, first-try.ts goalRuns): ONE credit per article —
+ * its first try OR its stretch (a counted or a practice stretch), whichever first scored 75%+ reliably and was not
+ * read faster than RR_MIN_READ_SECONDS. A re-read never. Rows need studentId, articleId, firstTry, stretch, score,
+ * completedAt, unreliable (and readSeconds for the read-time rule).
  */
 export function goalDates(runs: readonly Row[]): Date[] {
-  return countedTries(runs).filter((r) => scoredRun(r) && !unreliableRun(r) && Number(r.score) >= ENGINE.up).map((r) => toDate(r.completedAt));
+  return goalRuns(runs, ENGINE.up).map((r) => toDate(r.completedAt));
+}
+
+/**
+ * 📈 How many more strong reads (75%+, counted) would move the level up now: the level window (counted first tries
+ * since the last level change, oldest first) plus k reads of 100% until levelDecision says +50. Pure. 1…4; null when
+ * the student's `level` is already at or above RR_MAX (the top version).
+ */
+export function readsToMoveUp(windowScores: readonly number[]): number;
+export function readsToMoveUp(windowScores: readonly number[], level: number): number | null;
+export function readsToMoveUp(windowScores: readonly number[], level?: number): number | null {
+  // at / above the top version (RR_MAX) there is no higher article to move up to: no "+50" promise
+  if (level !== undefined && Number(level) >= RR_MAX) return null;
+  for (let k = 1; k <= 4; k++) if (levelDecision([...windowScores, ...Array<number>(k).fill(100)]).delta > 0) return k;
+  return 4;
+}
+
+/** The student's level window: the scores of the counted first tries since the last level change (oldest first). */
+export async function levelWindow(repo: Repo, studentId: string): Promise<number[]> {
+  const changes = await levelChanges(repo, studentId);
+  const since = changes.length ? toDate(changes[changes.length - 1].createdAt).getTime() : -Infinity;
+  return countedTries(await repo.findMany("RRRun", { studentId, firstTry: true, score: { not: null } }, { select: ["studentId", "articleId", "band", "firstTry", "stretch", "score", "completedAt", "unreliable", "readSeconds"] }))
+    .filter((r) => r.completedAt && toDate(r.completedAt).getTime() > since && countsForLevel(r))
+    .sort((a, b) => toDate(a.completedAt).getTime() - toDate(b.completedAt).getTime())
+    .map((r) => Number(r.score));
 }
 
 /**
@@ -193,7 +220,7 @@ export async function applyFirstTryScore(repo: Repo, run: Row, now: Date): Promi
     const articlesDoneBefore = Number(rr.articlesDone ?? 0);
     const changes = await levelChanges(repo, studentId);
     const since = changes.length ? toDate(changes[changes.length - 1].createdAt).getTime() : -Infinity;
-    // only counted first tries (a stretch in the same band as the first read reuses its questions: never counted)
+    // only counted first tries (a same-band stretch without a stretch set reuses its questions: practice, never counted)
     const runs = countedTries(await repo.findMany("RRRun", { studentId, firstTry: true, score: { not: null } }))
       .filter((r) => r.completedAt && toDate(r.completedAt).getTime() > since && countsForLevel(r))
       .sort((a, b) => toDate(a.completedAt).getTime() - toDate(b.completedAt).getTime());
@@ -344,7 +371,7 @@ export async function studentReadRiseSummary(repo: Repo, studentId: string, now 
   const rr = await repo.findUnique("RRStudent", { studentId });
   if (!rr) return null;
   // an Unreliable run (2+ rapid answers) counts for nothing: not the average, the goal or the projection
-  const all = await repo.findMany("RRRun", { studentId, firstTry: true, score: { not: null } }, { select: ["studentId", "articleId", "band", "firstTry", "score", "stretch", "completedAt", "unreliable"] });
+  const all = await repo.findMany("RRRun", { studentId, firstTry: true, score: { not: null } }, { select: ["studentId", "articleId", "band", "firstTry", "score", "stretch", "completedAt", "unreliable", "readSeconds"] });
   const runs = countedTries(all).filter((r) => !unreliableRun(r));
   // round 4: ONE article definition (first-try.ts articleRuns): a reliable, scored, non-stretch first try
   const main = articleRuns(all);

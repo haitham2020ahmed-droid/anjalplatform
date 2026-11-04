@@ -614,5 +614,217 @@
       ],
       "modelAnswer": "I disagree that veterinarians only help animals. One piece of evidence is that vets give vaccines that protect animals from diseases, and the article notes that some of these diseases can spread from animals to people, so protecting animals also protects human health. Another piece of evidence is that vets diagnose problems using tools like stethoscopes, X-rays, and blood tests and even perform surgery, skills that keep farm animals like camels and sheep healthy, which matters to the many families and communities who depend on those animals. Because animal health and human health are so closely connected, veterinarians clearly help people as well as animals."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "Where do some vets work besides animal hospitals?",
+        "options": [
+          "At zoos",
+          "At banks",
+          "At bakeries",
+          "At airports"
+        ],
+        "answer": "A",
+        "skill": "detail",
+        "why": "The text says some vets work at zoos.",
+        "wrong": {
+          "B": "Banks are not mentioned.",
+          "C": "Bakeries are not mentioned.",
+          "D": "Airports are not mentioned."
+        }
+      },
+      {
+        "stem": "In this article, what are clues?",
+        "options": [
+          "Loud noises that pets make",
+          "Toys that pets like to chew",
+          "Hints that show what is wrong",
+          "Shots that vets give to pets"
+        ],
+        "answer": "C",
+        "skill": "vocabulary",
+        "why": "The vet looks for clues, such as the eyes and heart, to find out what is wrong.",
+        "wrong": {
+          "A": "The pet cannot say what hurts, and noises are not called clues.",
+          "B": "Toys are not mentioned.",
+          "D": "Shots are called vaccines."
+        }
+      },
+      {
+        "stem": "What does a vaccine do?",
+        "options": [
+          "It cleans a cut.",
+          "It stops some bad germs.",
+          "It shows the bones.",
+          "It helps a pet sleep."
+        ],
+        "answer": "B",
+        "skill": "cause-effect",
+        "why": "The text says a shot can be a vaccine and it stops some bad germs.",
+        "wrong": {
+          "A": "Vets fix cuts in another way.",
+          "C": "A test shows the bones.",
+          "D": "The text does not say a vaccine helps a pet sleep."
+        }
+      },
+      {
+        "stem": "What does it tell you that some hospitals are just for camels and falcons?",
+        "options": [
+          "Vets do not like other pets",
+          "Camels and falcons never get sick",
+          "Vets cannot treat cats or dogs",
+          "Those animals are valued there"
+        ],
+        "answer": "D",
+        "skill": "inference",
+        "why": "A hospital built just for camels or falcons shows that these animals matter a lot in the Gulf.",
+        "wrong": {
+          "A": "Vets help many kinds of pets.",
+          "B": "The hospitals are there because the animals do get sick.",
+          "C": "The text says vets help dogs and cats."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "About how long must a person study to become a vet?",
+        "options": [
+          "About one year",
+          "Two or three months",
+          "Five years or more",
+          "A few short weeks"
+        ],
+        "answer": "C",
+        "skill": "detail",
+        "why": "The text says a person must study at a university for about five years or more.",
+        "wrong": {
+          "A": "The text says five years or more.",
+          "B": "The text says five years or more.",
+          "D": "The text says five years or more."
+        }
+      },
+      {
+        "stem": "In the article, a stethoscope is a tool used to —",
+        "options": [
+          "listen to the heart",
+          "take a picture of bones",
+          "give a shot to a pet",
+          "test a drop of blood"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "The vet listens to the heart with a stethoscope.",
+        "wrong": {
+          "B": "An X-ray shows the bones.",
+          "C": "A vaccine is given as a shot.",
+          "D": "A blood test is a different step."
+        }
+      },
+      {
+        "stem": "Why do vets have a great deal to learn?",
+        "options": [
+          "Most pets need very little care",
+          "Every vet has to work at a zoo",
+          "Animal hospitals are very large",
+          "Every animal's body is different"
+        ],
+        "answer": "D",
+        "skill": "cause-effect",
+        "why": "The text says each kind of beast has a body that works in its own way, so vets have a lot to learn.",
+        "wrong": {
+          "A": "The text says vets have a lot to learn, not little.",
+          "B": "Only some vets work at zoos.",
+          "C": "Hospital size is not mentioned."
+        }
+      },
+      {
+        "stem": "Why does the author begin by comparing a sick person with a sick cat, goat, or camel?",
+        "options": [
+          "To list all the kinds of doctors",
+          "To show a vet is an animal doctor",
+          "To teach people when to see a doctor",
+          "To compare pets with farm animals"
+        ],
+        "answer": "B",
+        "skill": "author-purpose",
+        "why": "The comparison leads to the sentence saying a vet is a doctor who takes care of animals.",
+        "wrong": {
+          "A": "The article is about vets, not all doctors.",
+          "C": "The article does not teach when to see a doctor.",
+          "D": "The comparison is about doctors for people and animals."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "What happens to patients in the recovery areas?",
+        "options": [
+          "They are sent to a zoo",
+          "They begin university study",
+          "They have X-rays every hour",
+          "Workers watch them closely"
+        ],
+        "answer": "D",
+        "skill": "detail",
+        "why": "The text says workers watch them closely until they are healthy and ready to go home.",
+        "wrong": {
+          "A": "Going to a zoo is not mentioned.",
+          "B": "Animals do not study.",
+          "C": "The text does not say X-rays are done every hour."
+        }
+      },
+      {
+        "stem": "In the first paragraph, the phrase specializes in most nearly means —",
+        "options": [
+          "is afraid of",
+          "focuses mainly on",
+          "is paid for",
+          "is tired of"
+        ],
+        "answer": "B",
+        "skill": "vocabulary",
+        "why": "A veterinarian specializes in diagnosing and treating animals, meaning that animals are the main focus.",
+        "wrong": {
+          "A": "Vets are not described as afraid.",
+          "C": "The sentence is about what vets do, not what they are paid for.",
+          "D": "Vets are not described as tired."
+        }
+      },
+      {
+        "stem": "Why does becoming a veterinarian require so many years of university study?",
+        "options": [
+          "Each species' body works in its own way",
+          "Animal hospitals have too many rooms",
+          "Vaccines are very difficult to make",
+          "Zoos have strict rules for visitors"
+        ],
+        "answer": "A",
+        "skill": "cause-effect",
+        "why": "The text says it takes years because every species has a special body that works in its own way.",
+        "wrong": {
+          "B": "The number of rooms is not the reason.",
+          "C": "Making vaccines is not given as the reason.",
+          "D": "Zoo visitors are not mentioned."
+        }
+      },
+      {
+        "stem": "Why should a child tell an adult about a hurt wild animal instead of helping it?",
+        "options": [
+          "Wild animals never get hurt",
+          "Adults can feed the animal first",
+          "Trained experts can help it safely",
+          "Hurt animals cannot be seen"
+        ],
+        "answer": "C",
+        "skill": "inference",
+        "why": "A hurt wild animal can be dangerous, so the adult can contact officials and trained experts who can help it safely.",
+        "wrong": {
+          "A": "The text says wild animals can be hurt.",
+          "B": "Feeding the animal is not mentioned.",
+          "D": "The text says to tell an adult because it can be found, not because it is unseen."
+        }
+      }
+    ]
   }
 }

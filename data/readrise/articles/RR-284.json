@@ -614,5 +614,217 @@
       ],
       "modelAnswer": "Rock climbing grew from a practical skill into a modern sport over a long time. It began as training for mountaineers who needed to climb dangerous mountains safely, which is why climbers still rely on a harness and anchor to lower the risk of a fall. Over the years, specialized gyms opened around the world, including new gyms in Saudi Arabia, and in 2020 sport climbing became part of the Olympic Games with three disciplines: speed, bouldering, and lead climbing. Today's climbers also evaluate friction and plan their sequence carefully, showing that the sport rewards strategy as much as physical strength."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "In this article, what are holds?",
+        "options": [
+          "Ropes that are very long",
+          "Small bumps on the wall",
+          "Shoes with thick soles",
+          "Gloves for the hands"
+        ],
+        "answer": "B",
+        "skill": "vocabulary",
+        "why": "The text says the wall has small bumps and calls them holds.",
+        "wrong": {
+          "A": "The rope is a separate piece of gear.",
+          "C": "Shoes are not mentioned.",
+          "D": "Gloves are not mentioned."
+        }
+      },
+      {
+        "stem": "What is a route in climbing?",
+        "options": [
+          "A kind of strong rope",
+          "A map of the whole gym",
+          "A coach who helps kids",
+          "A path up the wall"
+        ],
+        "answer": "D",
+        "skill": "detail",
+        "why": "The text says a path up the wall is a route.",
+        "wrong": {
+          "A": "The rope is called a rope, not a route.",
+          "B": "A map is not mentioned.",
+          "C": "A coach is not called a route."
+        }
+      },
+      {
+        "stem": "What happened to climbing after it began as mountain training?",
+        "options": [
+          "It became its own sport.",
+          "It was stopped for good.",
+          "It was only done at night.",
+          "It was kept a secret."
+        ],
+        "answer": "A",
+        "skill": "sequence",
+        "why": "The text says climbing began as training for men on big mountains and now it is its own sport.",
+        "wrong": {
+          "B": "The text says climbing is a sport now.",
+          "C": "Night climbing is not mentioned.",
+          "D": "The text says climbing was in the Olympic Games."
+        }
+      },
+      {
+        "stem": "Why must a climber think a few moves ahead?",
+        "options": [
+          "To pick out a new gym",
+          "To count all the holds",
+          "To check the rope twice",
+          "To know where a hand goes"
+        ],
+        "answer": "D",
+        "skill": "cause-effect",
+        "why": "The text says a climber must plan a few moves ahead and guess where her hand will go next.",
+        "wrong": {
+          "A": "Picking a gym is not mentioned.",
+          "B": "Counting holds is not mentioned.",
+          "C": "The rope is checked for safety, not for planning moves."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "What does a climber clip the rope to?",
+        "options": [
+          "A friend at the bottom",
+          "A strong anchor above",
+          "A loose hold on the wall",
+          "A chalk bag on the floor"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The text says a climber clips a rope to a strong anchor above so the rope can catch a fall.",
+        "wrong": {
+          "A": "The text says the rope is clipped to an anchor above.",
+          "C": "A loose hold would not catch a fall.",
+          "D": "Chalk is used to keep hands dry, not for the rope."
+        }
+      },
+      {
+        "stem": "In the article, the word technique means —",
+        "options": [
+          "a special kind of shoe",
+          "a good way of moving",
+          "a loud sound in the gym",
+          "a tall wall at the gym"
+        ],
+        "answer": "B",
+        "skill": "vocabulary",
+        "why": "The text says a clear technique means a good way of moving.",
+        "wrong": {
+          "A": "Shoes are not defined as technique.",
+          "C": "Sound is not mentioned.",
+          "D": "A wall is a different thing in the text."
+        }
+      },
+      {
+        "stem": "What did skilled climbers do after climbing began as mountaineer training?",
+        "options": [
+          "They opened indoor climbing gyms.",
+          "They stopped climbing mountains.",
+          "They sold their ropes.",
+          "They went to the Olympics."
+        ],
+        "answer": "A",
+        "skill": "sequence",
+        "why": "The text says that over time skilled climbers opened indoor gyms, and that climbing joined the Olympics later.",
+        "wrong": {
+          "B": "The text does not say they stopped.",
+          "C": "Selling ropes is not mentioned.",
+          "D": "The Olympics came later, in 2020."
+        }
+      },
+      {
+        "stem": "What does \"anyone can begin\" suggest about climbing?",
+        "options": [
+          "Only experts may try it out.",
+          "It needs no gear at all.",
+          "Many people can try it.",
+          "It is a very short game."
+        ],
+        "answer": "C",
+        "skill": "inference",
+        "why": "The text says all you need is a gym and a friend, which suggests many kinds of people can try climbing.",
+        "wrong": {
+          "A": "The text says anyone can begin.",
+          "B": "Gear such as a harness and rope is used.",
+          "D": "The text does not say it is a short game."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "In the article, the word arrest in \"arrest a fall\" most nearly means —",
+        "options": [
+          "to make louder",
+          "to slow a bit",
+          "to stop",
+          "to hide"
+        ],
+        "answer": "C",
+        "skill": "vocabulary",
+        "why": "The rope is clipped to an anchor so that it can stop a fall safely.",
+        "wrong": {
+          "A": "Loudness does not fit a rope and a fall.",
+          "B": "A rope must stop a fall, not only slow it a little.",
+          "D": "Hiding a fall does not fit the sentence."
+        }
+      },
+      {
+        "stem": "What does \"reading the route\" mean in climbing?",
+        "options": [
+          "Planning where hands and feet go",
+          "Counting every climber in the gym",
+          "Reading a book about mountains",
+          "Painting all the holds new colors"
+        ],
+        "answer": "A",
+        "skill": "detail",
+        "why": "The text says the climber plans where to place each hand and foot before touching the wall, which climbers call reading the route.",
+        "wrong": {
+          "B": "Counting climbers is not mentioned.",
+          "C": "Books are not mentioned.",
+          "D": "Painting holds is not mentioned."
+        }
+      },
+      {
+        "stem": "Why is a rope inspected before every single use?",
+        "options": [
+          "To make the rope much longer",
+          "To pick out a harder route",
+          "To give the rope a new color",
+          "A weak rope might fail"
+        ],
+        "answer": "D",
+        "skill": "inference",
+        "why": "The text says the rope must arrest a fall, so a weak rope could fail and the climber would not be safe.",
+        "wrong": {
+          "A": "Making the rope longer is not mentioned.",
+          "B": "Inspecting a rope does not pick a route.",
+          "C": "Color is not mentioned."
+        }
+      },
+      {
+        "stem": "Why does balance matter as much as grip?",
+        "options": [
+          "Hands do not tire when climbing.",
+          "Weight stays over her feet.",
+          "The holds are always very large.",
+          "Chalk makes balance very easy."
+        ],
+        "answer": "B",
+        "skill": "cause-effect",
+        "why": "The text says a climber must keep weight over the feet rather than rely only on tired, pulling arms.",
+        "wrong": {
+          "A": "The text mentions tired arms.",
+          "C": "The text says holds come in many shapes and sizes.",
+          "D": "Chalk keeps hands dry; it does not give balance."
+        }
+      }
+    ]
   }
 }

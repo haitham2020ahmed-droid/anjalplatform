@@ -614,5 +614,217 @@
       ],
       "modelAnswer": "I think searching for subsurface life on Europa is the approach most likely to succeed first, because this field of astrobiology already has strong evidence that liquid water, the clearest requirement for life, exists in a vast salty ocean beneath its icy shell. On Earth, extremophiles survive in boiling springs and on the dark ocean floor, which suggests that simple life could also endure in a similarly extreme, lightless subsurface ocean on an icy moon. The main limitation of this approach is that no spacecraft has yet drilled through Europa's thick ice to search directly for a biosignature, so for now scientists can only study the ocean indirectly through the water that occasionally sprays out through cracks. By comparison, searching for a biosignature on a distant exoplanet with a telescope is powerful but even more limited, since it relies on reading faint chemical signals in starlight from unimaginably far away rather than collecting an actual sample."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "What does the rover pick up on Mars?",
+        "options": [
+          "Bits of ice",
+          "Bits of rock",
+          "Bits of plants",
+          "Bits of sand and glass"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The text says the rover picks up bits of rock.",
+        "wrong": {
+          "A": "The text says rock, not ice, for the rover.",
+          "C": "There are no plants on Mars in the text.",
+          "D": "The text says rock, not sand and glass."
+        }
+      },
+      {
+        "stem": "Why did a rover go to Mars?",
+        "options": [
+          "To bring water back to the Earth",
+          "To find out if life lived there",
+          "To look at the stars far away",
+          "To dig a lake for small things"
+        ],
+        "answer": "B",
+        "skill": "cause-effect",
+        "why": "The text asks if life lived on Mars and says a rover went to find out.",
+        "wrong": {
+          "A": "The text does not say the rover brings back water.",
+          "C": "The big telescope in space looks at far planets.",
+          "D": "The rover does not dig lakes."
+        }
+      },
+      {
+        "stem": "Why would any signs of life in the Mars rocks be from long ago?",
+        "options": [
+          "The Mars rocks are very, very small.",
+          "The rover picks up the rocks too slowly.",
+          "Mars once had lakes but is dry and cold now.",
+          "Mars has a thick shell of ice on top."
+        ],
+        "answer": "C",
+        "skill": "inference",
+        "why": "The text says Mars had lakes and rivers long ago, and now it is dry and cold, so any life would be from long ago.",
+        "wrong": {
+          "A": "The size of the rocks does not tell their age.",
+          "B": "The speed of the rover does not matter.",
+          "D": "The thick shell of ice is on Europa, not Mars."
+        }
+      },
+      {
+        "stem": "The text says life is tough. What does tough mean here?",
+        "options": [
+          "Strong, even in hard places",
+          "Very small and very quiet",
+          "Easy to find on the red planet",
+          "Warm and wet all day long"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "The text says small things live in hot springs and deep, dark seas, so life is strong in hard places.",
+        "wrong": {
+          "B": "Small things are mentioned, but tough is about strength.",
+          "C": "No life has been found on Mars yet.",
+          "D": "Hot springs and dark seas are not warm and wet in an easy way."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "Which spacecraft launched in 2024 to study Europa?",
+        "options": [
+          "Perseverance",
+          "The James Webb Space Telescope",
+          "Europa Clipper",
+          "Enceladus"
+        ],
+        "answer": "C",
+        "skill": "detail",
+        "why": "The text says a spacecraft called Europa Clipper launched in 2024 to study Europa.",
+        "wrong": {
+          "A": "Perseverance is the rover on Mars.",
+          "B": "The telescope studies the atmosphere around planets.",
+          "D": "Enceladus is a moon of Saturn."
+        }
+      },
+      {
+        "stem": "In the article, what is evidence?",
+        "options": [
+          "Proof",
+          "A tiny rock",
+          "A hot spring",
+          "A laboratory"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "The text explains evidence as proof.",
+        "wrong": {
+          "B": "The rocks are what scientists search, not the evidence itself.",
+          "C": "A hot spring is a place on Earth where microbes live.",
+          "D": "A laboratory is not named in the text."
+        }
+      },
+      {
+        "stem": "Why did Perseverance land in a crater?",
+        "options": [
+          "The crater is the coldest place on Mars.",
+          "The crater is where a rocket can land safely.",
+          "The crater is full of water right now.",
+          "The crater once held a lake."
+        ],
+        "answer": "D",
+        "skill": "cause-effect",
+        "why": "The text says the rover landed in a crater that once held a lake, and microbes might once have lived there.",
+        "wrong": {
+          "A": "The text does not say that the crater is the coldest place.",
+          "B": "Safe landing is not the reason given.",
+          "C": "Mars is a cold, dry desert today."
+        }
+      },
+      {
+        "stem": "Microbes live in boiling springs on Earth. What does this suggest about other worlds?",
+        "options": [
+          "Life may exist in very harsh places.",
+          "Life must be as big as a camel.",
+          "Life needs a very hot planet to start.",
+          "Life cannot live without a lake on land."
+        ],
+        "answer": "A",
+        "skill": "inference",
+        "why": "The text says life can be tough and microbes live in boiling springs and on the dark sea floor, which keeps scientists searching.",
+        "wrong": {
+          "B": "The text says that life would most likely be microbes.",
+          "C": "Hot springs are one place, but the text also names the dark sea floor and icy moons.",
+          "D": "Europa's ocean is hidden under ice, not in a lake on land."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "How many exoplanets have astronomers confirmed, according to the article?",
+        "options": [
+          "Exactly five",
+          "About fifty",
+          "More than five hundred",
+          "More than five thousand"
+        ],
+        "answer": "D",
+        "skill": "detail",
+        "why": "The text says astronomers have confirmed more than five thousand exoplanets.",
+        "wrong": {
+          "A": "Five is far too small a number.",
+          "B": "Fifty is far too small a number.",
+          "C": "Five hundred is smaller than the text says."
+        }
+      },
+      {
+        "stem": "According to the article, what is true of exoplanets?",
+        "options": [
+          "They are moons of Jupiter and Saturn.",
+          "They are outside our solar system.",
+          "They are made only of ice and water.",
+          "They are as close as Mars is."
+        ],
+        "answer": "B",
+        "skill": "vocabulary",
+        "why": "The text says exoplanets orbit stars other than our Sun, so they are outside our solar system.",
+        "wrong": {
+          "A": "Moons like Europa and Enceladus are in our solar system.",
+          "C": "The text does not say what exoplanets are made of.",
+          "D": "They orbit other stars, so they are very far away."
+        }
+      },
+      {
+        "stem": "Why have the radio-telescope scientists not announced that they found an alien civilization?",
+        "options": [
+          "They never got a message that nature cannot explain.",
+          "They have listened to only one star for a single week.",
+          "They are afraid of what the signals might say to them.",
+          "They think life on other worlds must be microbes."
+        ],
+        "answer": "A",
+        "skill": "inference",
+        "why": "The text says that after decades they have never received a message that could not be explained by natural causes or human technology.",
+        "wrong": {
+          "B": "The text says they have scanned many stars for decades.",
+          "C": "The text does not say they are afraid.",
+          "D": "Scientists do suspect microbes, but that is not the reason the text gives for the radio search."
+        }
+      },
+      {
+        "stem": "How does Europa differ from Enceladus in the article?",
+        "options": [
+          "Europa orbits Saturn and Enceladus orbits Jupiter.",
+          "Europa has no water and Enceladus has a lot.",
+          "Europa has a hidden ocean and Enceladus sprays jets.",
+          "Europa is a planet and Enceladus is a star."
+        ],
+        "answer": "C",
+        "skill": "compare",
+        "why": "The text says Europa appears to have a subsurface ocean beneath its icy shell, while Enceladus sprays jets of water through fractures in its frozen surface.",
+        "wrong": {
+          "A": "Europa is a moon of Jupiter and Enceladus is a moon of Saturn.",
+          "B": "Both are described as having water.",
+          "D": "Both are moons, not a planet and a star."
+        }
+      }
+    ]
   }
 }

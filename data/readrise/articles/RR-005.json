@@ -614,5 +614,217 @@
       ],
       "modelAnswer": "Cooperation is necessary for a project like the International Space Station because no single nation could continuously maintain such a massive, complex structure on its own. The station was assembled piece by piece from modules built by different countries, and it has been continuously occupied since 2000, which requires many nations to share the cost and responsibility of keeping it running. Astronauts rely on shared systems, such as machines that purify sweat and breath moisture into drinking water, since dehydrated food and heavy water supplies cannot easily be replaced from Earth. The article also notes that astronauts from Saudi Arabia and the United Arab Emirates traveled to the station in 2023 to conduct experiments, which shows how countries work together, sharing resources and knowledge, to keep this remarkable laboratory functioning smoothly."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "What may you see if you look up at night and spot the ISS?",
+        "options": [
+          "A cloud of white dust",
+          "A bright dot that moves fast",
+          "A big moon that stands still",
+          "A plane with red lights"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The text says you may see a bright dot that moves fast in the sky.",
+        "wrong": {
+          "A": "The text does not mention dust.",
+          "C": "The ISS moves fast; it does not stand still.",
+          "D": "The text does not say it looks like a plane."
+        }
+      },
+      {
+        "stem": "The ISS goes around Earth in less than two hours. What does this tell you?",
+        "options": [
+          "It moves very fast.",
+          "It is very close to the moon.",
+          "It stays in one place.",
+          "It is smaller than a bus."
+        ],
+        "answer": "A",
+        "skill": "inference",
+        "why": "Going all the way around the Earth in under two hours means the station must move very fast.",
+        "wrong": {
+          "B": "The moon is never mentioned.",
+          "C": "The ISS goes round Earth, so it does not stay in one place.",
+          "D": "The text does not give the size of the ISS."
+        }
+      },
+      {
+        "stem": "In this article, what are experiments?",
+        "options": [
+          "Bags for sleeping",
+          "Packs of dried food",
+          "Tests the crew does",
+          "Clean water to drink"
+        ],
+        "answer": "C",
+        "skill": "vocabulary",
+        "why": "The text says the crew does tests and calls the tests experiments.",
+        "wrong": {
+          "A": "Sleeping bags are tied to the wall.",
+          "B": "Food packs are for eating.",
+          "D": "Clean water comes from the ISS water system."
+        }
+      },
+      {
+        "stem": "What do the astronauts grow in their experiments?",
+        "options": [
+          "Fruit trees",
+          "Rice",
+          "Flowers",
+          "Plants"
+        ],
+        "answer": "D",
+        "skill": "detail",
+        "why": "The text says the crew grows plants in the lab.",
+        "wrong": {
+          "A": "Fruit trees are not mentioned.",
+          "B": "Rice is not mentioned.",
+          "C": "Flowers are not mentioned."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "How was the ISS built?",
+        "options": [
+          "On Earth, then flown up whole",
+          "In space, piece by piece",
+          "By a crew of one astronaut",
+          "In one day over the sea"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The article says the station was built in space, piece by piece.",
+        "wrong": {
+          "A": "It was not built whole on Earth.",
+          "C": "Many countries built it together.",
+          "D": "The article says it took many years."
+        }
+      },
+      {
+        "stem": "What does the word recycle mean in this article?",
+        "options": [
+          "To throw away at once",
+          "To carry from Earth",
+          "To store in cold packs",
+          "To clean and use again"
+        ],
+        "answer": "D",
+        "skill": "vocabulary",
+        "why": "Machines clean sweat and breath water into drinking water, so the water is used again.",
+        "wrong": {
+          "A": "The station cannot throw away water it needs.",
+          "B": "The point is that water is heavy to carry from Earth.",
+          "C": "Cold packs are not mentioned."
+        }
+      },
+      {
+        "stem": "Why do astronauts' bones and muscles grow weaker in space?",
+        "options": [
+          "They eat dried food from packs a lot.",
+          "They do not have to hold up the body.",
+          "They sleep for too many hours at night.",
+          "They look up at the sun for too long."
+        ],
+        "answer": "B",
+        "skill": "cause-effect",
+        "why": "The article says bones and muscles do not have to hold up the body in space, so they grow weaker.",
+        "wrong": {
+          "A": "Food is not given as the cause.",
+          "C": "Sleep is not given as the cause.",
+          "D": "The sun is not linked to weak bones."
+        }
+      },
+      {
+        "stem": "Why must the station recycle its water?",
+        "options": [
+          "Water is heavy to send from Earth.",
+          "There is too much rain in space.",
+          "Astronauts do not like fresh water.",
+          "The machines need salty water."
+        ],
+        "answer": "A",
+        "skill": "cause-effect",
+        "why": "The article says water is heavy to send from Earth, so the station must recycle it.",
+        "wrong": {
+          "B": "The article does not say there is rain in space.",
+          "C": "Astronauts drink the cleaned water.",
+          "D": "The machines make clean drinking water."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "The article says many foods are dehydrated. What does dehydrated mean?",
+        "options": [
+          "Made very hot in a big oven",
+          "Frozen in ice until it is hard",
+          "Cut into very small bits",
+          "Dried with the water removed"
+        ],
+        "answer": "D",
+        "skill": "vocabulary",
+        "why": "These foods are sealed in pouches and astronauts add water before eating, so the water was taken out.",
+        "wrong": {
+          "A": "Adding water, not heat, is the step before eating.",
+          "B": "Ice is not mentioned.",
+          "C": "The text does not mention cutting food."
+        }
+      },
+      {
+        "stem": "Why might an astronaut wear an eye mask at bedtime?",
+        "options": [
+          "To keep the cabin warm",
+          "To hide from other crew",
+          "To block the many sunrises",
+          "To stay safe from floating crumbs"
+        ],
+        "answer": "C",
+        "skill": "cause-effect",
+        "why": "The article says the astronaut wears an eye mask to block the frequent sunrises.",
+        "wrong": {
+          "A": "A mask does not warm a cabin.",
+          "B": "Each astronaut has a private cabin, so hiding is not the reason.",
+          "D": "Crumbs are a problem for equipment, not for sleeping."
+        }
+      },
+      {
+        "stem": "Why does the treadmill on the ISS have straps that hold astronauts down?",
+        "options": [
+          "The floor of the station is wet.",
+          "The station is moving too slowly.",
+          "The astronauts would float off it.",
+          "The straps make the machine safe."
+        ],
+        "answer": "C",
+        "skill": "inference",
+        "why": "Everything floats in microgravity, so straps are needed to keep a runner on the treadmill.",
+        "wrong": {
+          "A": "The article does not say the floor is wet.",
+          "B": "The station moves very fast.",
+          "D": "The straps are needed because of floating, not to make the machine safe."
+        }
+      },
+      {
+        "stem": "Besides sweat, what do the machines capture to make clean drinking water?",
+        "options": [
+          "Rain from the roof",
+          "Moisture from breath",
+          "Ice from space",
+          "Water from plants"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The article says the machines capture sweat and the moisture from astronauts' breath.",
+        "wrong": {
+          "A": "There is no rain in space.",
+          "C": "Ice is not mentioned.",
+          "D": "Water from plants is not mentioned."
+        }
+      }
+    ]
   }
 }

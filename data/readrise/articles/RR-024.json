@@ -614,5 +614,217 @@
       ],
       "modelAnswer": "The claim that animals ultimately depend on plants means that nearly everything animals need to survive can be traced back to photosynthesis happening inside a plant's chloroplasts. As a producer, a plant uses sunlight, water, and carbon dioxide entering through its stomata to create glucose, and this sugar either becomes the plant's own food or is eaten directly or indirectly by animals, which shows how all food ultimately comes from this process. At the same time, photosynthesis releases oxygen as a byproduct through the stomata, and since every animal needs oxygen to breathe, this gas connects plants to animal survival just as strongly as food does. Because plants are the ultimate source of both the food animals eat and the oxygen animals breathe, the article's claim that animals depend on them is accurate in two essential ways."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "What three things does a plant need to make food?",
+        "options": [
+          "Soil, rain, and a hungry little bee",
+          "Sugar, oxygen, and a warm strong wind",
+          "Sunlight, water, and a gas from air",
+          "Roots, stems, and a big heavy rock"
+        ],
+        "answer": "C",
+        "skill": "detail",
+        "why": "The text says a plant needs sunlight, water, and a gas from the air.",
+        "wrong": {
+          "A": "Soil and a bee are not the three things named.",
+          "B": "Sugar and oxygen are made or let out by the plant.",
+          "D": "A rock is not needed."
+        }
+      },
+      {
+        "stem": "How does the gas get into a leaf?",
+        "options": [
+          "Through tiny holes in the leaf",
+          "Through the roots in the soil",
+          "Through the green stuff in the stem",
+          "Through the dates on the palm"
+        ],
+        "answer": "A",
+        "skill": "detail",
+        "why": "The text says the gas gets in through tiny holes on the leaf.",
+        "wrong": {
+          "B": "The roots take in water, not the gas.",
+          "C": "Chlorophyll soaks up the sun, not the gas.",
+          "D": "The dates are the fruit of the palm."
+        }
+      },
+      {
+        "stem": "Why are most leaves green?",
+        "options": [
+          "They are full of water inside",
+          "They hold lots of sugar inside",
+          "They take in oxygen from air",
+          "They have chlorophyll in them"
+        ],
+        "answer": "D",
+        "skill": "cause-effect",
+        "why": "The text says leaves are green because they have green stuff in them, called chlorophyll.",
+        "wrong": {
+          "A": "Water does not make a leaf green.",
+          "B": "Sugar is the food made by the leaf.",
+          "C": "Oxygen is let out by the plant."
+        }
+      },
+      {
+        "stem": "Which list shows the path water takes inside a plant?",
+        "options": [
+          "Leaf, stem, roots",
+          "Roots, stem, leaf",
+          "Stem, leaf, roots",
+          "Stem, roots, leaf"
+        ],
+        "answer": "B",
+        "skill": "sequence",
+        "why": "The text says the roots take in water, it goes up the stem, and then it goes to each leaf.",
+        "wrong": {
+          "A": "This is the reverse of the path.",
+          "C": "The water starts in the roots, not the stem.",
+          "D": "The water does not go down to the roots."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "How does water get from the roots to the leaves?",
+        "options": [
+          "It flows out through the stomata",
+          "Thin tubes carry it up the stem",
+          "It is blown up by the wind",
+          "It soaks up into the glucose"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The article says thin tubes carry water up the stem to the leaves.",
+        "wrong": {
+          "A": "Stomata let in carbon dioxide and let out oxygen.",
+          "C": "The article does not mention wind.",
+          "D": "Glucose is made in the leaf; it does not carry water."
+        }
+      },
+      {
+        "stem": "In the article, the word glucose means —",
+        "options": [
+          "a gas that leaves let out",
+          "water taken in by roots",
+          "a green stuff in leaves",
+          "a sugar the plant makes"
+        ],
+        "answer": "D",
+        "skill": "vocabulary",
+        "why": "The article says the leaf makes a simple sugar called glucose, which is the plant's food.",
+        "wrong": {
+          "A": "The gas leaves let out is oxygen.",
+          "B": "Water is taken in by roots; glucose is made in the leaf.",
+          "C": "The green stuff in leaves is chlorophyll."
+        }
+      },
+      {
+        "stem": "Why are leaves green?",
+        "options": [
+          "They hold chlorophyll",
+          "They hold glucose",
+          "They hold oxygen",
+          "They hold carbon dioxide"
+        ],
+        "answer": "A",
+        "skill": "cause-effect",
+        "why": "The article says leaves are green because they hold chlorophyll.",
+        "wrong": {
+          "B": "Glucose is a sugar the plant makes.",
+          "C": "Oxygen is a gas the plant lets out.",
+          "D": "Carbon dioxide is a gas the leaf takes in."
+        }
+      },
+      {
+        "stem": "What does a plant do with the oxygen it makes?",
+        "options": [
+          "It stores all the oxygen inside its seeds",
+          "It turns the oxygen into water and sugar",
+          "It lets the oxygen out through its stomata",
+          "It uses the oxygen to build new roots"
+        ],
+        "answer": "C",
+        "skill": "detail",
+        "why": "The article says the plant lets oxygen out through its stomata.",
+        "wrong": {
+          "A": "The plant stores glucose, not oxygen, in seeds.",
+          "B": "The article does not say oxygen becomes water.",
+          "D": "Glucose is used to build roots, not oxygen."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "According to the article, what can a plant do with its stomata?",
+        "options": [
+          "Use them to store extra glucose for later",
+          "Fill them with green chlorophyll to grow",
+          "Cut them off when the weather turns cloudy",
+          "Open and close them as the weather changes"
+        ],
+        "answer": "D",
+        "skill": "detail",
+        "why": "The article says the plant can open and close its stomata as the weather changes.",
+        "wrong": {
+          "A": "Glucose is stored in roots, seeds, or fruit.",
+          "B": "Chlorophyll is in the chloroplasts.",
+          "C": "The article does not say plants cut them off."
+        }
+      },
+      {
+        "stem": "The article says photosynthesis makes oxygen as a byproduct. What does byproduct most nearly mean?",
+        "options": [
+          "the main food a plant makes",
+          "something extra made too",
+          "a tube that carries water",
+          "a tiny opening in a leaf"
+        ],
+        "answer": "B",
+        "skill": "vocabulary",
+        "why": "The plant mainly makes glucose, and oxygen is made too and released, so a byproduct is something extra made along the way.",
+        "wrong": {
+          "A": "The main food is glucose, not the byproduct.",
+          "C": "Tubes carry water; that is not a byproduct.",
+          "D": "Tiny openings are stomata."
+        }
+      },
+      {
+        "stem": "Why do animals ultimately depend on plants?",
+        "options": [
+          "They cannot make food, so they rely on plants",
+          "Animals cannot move, so they stay near plants",
+          "Animals are made of glucose and chlorophyll",
+          "Animals need carbon dioxide from plant stems"
+        ],
+        "answer": "A",
+        "skill": "cause-effect",
+        "why": "The article says animals cannot manufacture their own food, so they depend on plants for nourishment and oxygen.",
+        "wrong": {
+          "B": "The article says plants, not animals, cannot wander.",
+          "C": "Animals are not described this way.",
+          "D": "Animals breathe out carbon dioxide."
+        }
+      },
+      {
+        "stem": "How are chloroplasts different from chlorophyll?",
+        "options": [
+          "Chloroplasts are a green gas, and chlorophyll is a root of the plant",
+          "Chloroplasts are a sugar, and chlorophyll is a gas that is released",
+          "Chloroplasts are structures, and chlorophyll is the pigment in them",
+          "Chloroplasts are pores in leaves, and chlorophyll is a stem tube"
+        ],
+        "answer": "C",
+        "skill": "compare",
+        "why": "The article says chloroplasts are tiny structures in the leaf where photosynthesis happens, and they contain the green pigment chlorophyll.",
+        "wrong": {
+          "A": "Neither one is a gas or a root.",
+          "B": "Glucose is the sugar, and oxygen is a byproduct.",
+          "D": "Pores are called stomata."
+        }
+      }
+    ]
   }
 }

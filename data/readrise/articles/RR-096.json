@@ -614,5 +614,217 @@
       ],
       "modelAnswer": "Bioluminescence can help an animal be seen when it needs to attract something, as when the anglerfish dangles a glowing lure that pulls curious prey within striking distance. Fireflies rely on the same visibility, flashing distinct patterns of light so other fireflies of the same kind can find them in the dark. At the same time, bioluminescence can help an animal disappear through counterillumination, where a fish or squid glows faintly on its belly to match the wavelength of dim light filtering down from the surface, so a predator looking upward sees no shadow at all. Because the same chemical glow can either call attention to an animal or erase its outline completely, bioluminescence proves to be a remarkably flexible survival tool in the deep sea."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "What is the light of a glowing animal like?",
+        "options": [
+          "It is hot",
+          "It is red",
+          "It is cool",
+          "It is loud"
+        ],
+        "answer": "C",
+        "skill": "detail",
+        "why": "The text says the light is not hot, it is cool.",
+        "wrong": {
+          "A": "The text says the light is not hot.",
+          "B": "Red is not mentioned.",
+          "D": "Light does not make sound."
+        }
+      },
+      {
+        "stem": "Why does the text say the light comes from the body?",
+        "options": [
+          "To say that lamps can glow in the sea",
+          "To say the deep sea fish uses a lamp",
+          "To show the living thing makes it",
+          "To say that bugs cannot see at night"
+        ],
+        "answer": "C",
+        "skill": "author-purpose",
+        "why": "The text says the light is not from a lamp; the living thing makes it in its own body.",
+        "wrong": {
+          "A": "The text is not about lamps in the sea.",
+          "B": "The fish does not use a lamp.",
+          "D": "The text does not say bugs cannot see."
+        }
+      },
+      {
+        "stem": "What happens when the two things mix in the body?",
+        "options": [
+          "They make heat",
+          "They make a sound",
+          "They make water",
+          "They make light"
+        ],
+        "answer": "D",
+        "skill": "cause-effect",
+        "why": "The text says they mix and make light.",
+        "wrong": {
+          "A": "The light is cool and not hot.",
+          "B": "No sound is mentioned.",
+          "C": "Water is not mentioned."
+        }
+      },
+      {
+        "stem": "In the article, the word signal means —",
+        "options": [
+          "a message sent with a flash",
+          "a place to hide from fish",
+          "a kind of food for bugs",
+          "a very deep and dark sea"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "The text says the flash is a signal that helps the bugs find each other.",
+        "wrong": {
+          "B": "Hiding is a different idea in the article.",
+          "C": "Food is not the idea.",
+          "D": "The deep sea is a different part of the article."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "What does the anglerfish have over its mouth?",
+        "options": [
+          "A pair of large eyes",
+          "A glowing tip on a rod",
+          "A bright glowing cloud",
+          "A hard blue outer shell"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The text says the anglerfish has a glowing tip on a rod that hangs over its mouth.",
+        "wrong": {
+          "A": "Eyes are not described this way.",
+          "C": "A glowing cloud is squirted by squid and shrimp.",
+          "D": "A shell is not mentioned."
+        }
+      },
+      {
+        "stem": "In the article, the word attracted means —",
+        "options": [
+          "pushed away",
+          "made angry",
+          "drawn closer",
+          "kept hidden"
+        ],
+        "answer": "C",
+        "skill": "vocabulary",
+        "why": "Small fish are attracted to the light and swim closer.",
+        "wrong": {
+          "A": "They swim closer, not away.",
+          "B": "Anger is not mentioned.",
+          "D": "The light shows the fish, not hides it."
+        }
+      },
+      {
+        "stem": "What makes plankton glow?",
+        "options": [
+          "Waves shaking them",
+          "The heat of the sun",
+          "A bright squid",
+          "Fireflies flying by"
+        ],
+        "answer": "A",
+        "skill": "cause-effect",
+        "why": "The text says plankton glow when waves shake them.",
+        "wrong": {
+          "B": "Heat is not what makes them glow.",
+          "C": "Squid are not mentioned here.",
+          "D": "Fireflies are not mentioned here."
+        }
+      },
+      {
+        "stem": "Why does the author open with lights over a field and a fish deep in the ocean?",
+        "options": [
+          "To say that deep sea fish can fly over a field",
+          "To show readers how to catch fireflies at night",
+          "To show living light is in different places",
+          "To show that fields are darker than the sea"
+        ],
+        "answer": "C",
+        "skill": "author-purpose",
+        "why": "The opening gives two places where living things glow, which brings readers into the topic.",
+        "wrong": {
+          "A": "Fish do not fly in the text.",
+          "B": "No one catches fireflies in the text.",
+          "D": "The field is not the point."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "Why does every species of firefly have its own pattern of blinks?",
+        "options": [
+          "So they can use less energy",
+          "So they can hide from the beetles",
+          "So they can copy other species",
+          "So they can recognize their own kind"
+        ],
+        "answer": "D",
+        "skill": "detail",
+        "why": "The text says each species has its own pattern so fireflies can recognize members of their own kind in the dark.",
+        "wrong": {
+          "A": "Energy is not mentioned.",
+          "B": "Fireflies are beetles themselves.",
+          "C": "The patterns help tell species apart, not copy."
+        }
+      },
+      {
+        "stem": "In the article, the word organisms means —",
+        "options": [
+          "living things",
+          "bright lamps",
+          "chemical tools",
+          "ocean currents"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "The lights are produced by living organisms, so organisms are living things.",
+        "wrong": {
+          "B": "The text says the light does not come from lamps.",
+          "C": "The chemicals are inside the living things.",
+          "D": "Currents are not mentioned for this."
+        }
+      },
+      {
+        "stem": "According to the article, why might some mushrooms glow?",
+        "options": [
+          "To stay warm at night in damp forests",
+          "To warn the other fish living nearby",
+          "To scare away the beetles at night",
+          "To attract insects that carry spores"
+        ],
+        "answer": "D",
+        "skill": "cause-effect",
+        "why": "Scientists think the glow attracts insects, which carry spores to new places.",
+        "wrong": {
+          "A": "The glow makes almost no heat.",
+          "B": "Fish are not in the forest.",
+          "C": "The insects are attracted, not scared."
+        }
+      },
+      {
+        "stem": "Why does the author say that living light is not found only in the ocean?",
+        "options": [
+          "To say that the ocean has no glowing animals",
+          "To show glowing also happens in other places",
+          "To say that mushrooms are not really living things",
+          "To show that most fish prefer to live in forests"
+        ],
+        "answer": "B",
+        "skill": "author-purpose",
+        "why": "The author then gives the example of glowing mushrooms in damp forests, showing that living light is found on land too.",
+        "wrong": {
+          "A": "The ocean has many glowing animals.",
+          "C": "Mushrooms are living things that glow.",
+          "D": "Fish are not said to prefer forests."
+        }
+      }
+    ]
   }
 }

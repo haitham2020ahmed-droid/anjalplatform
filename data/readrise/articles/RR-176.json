@@ -614,5 +614,217 @@
       ],
       "modelAnswer": "An elevator works through traction, the grip between the steel cables and the wheel that lets the motor pull the car up or lower it down. A counterweight that is about as heavy as the car plus part of a load hangs on the other side of the cables, so as the car rises the counterweight falls, which is a key part of the mechanism that reduces the strain on the motor. For safety, Elisha Otis invented a brake in the 1850s that grabs the rails the moment a cable breaks, stopping the car before it can fall, and that invention is the evidence that made people trust elevators enough to build skyscrapers."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "The text says the lift box rides in a tall shaft. What is a shaft?",
+        "options": [
+          "A long tube in the house",
+          "A big wheel at the top",
+          "A thick steel cable",
+          "A heavy block of steel"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "The text says the shaft is like a long tube in the house.",
+        "wrong": {
+          "B": "The big wheel is at the top of the shaft; it is not the shaft.",
+          "C": "The cables hang inside the shaft.",
+          "D": "The heavy block hangs on the far end of the cables."
+        }
+      },
+      {
+        "stem": "What can you do at the top of the tall tower in Riyadh?",
+        "options": [
+          "Ride a train to the city",
+          "Stand on a bridge",
+          "Swim in a big pool",
+          "Visit a farm for dates"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The text says you can stand on a bridge at the top.",
+        "wrong": {
+          "A": "The text does not mention a train.",
+          "C": "The text does not mention a pool.",
+          "D": "The text does not mention a farm."
+        }
+      },
+      {
+        "stem": "The author asks who would want to climb a hundred floors on foot. What does this show?",
+        "options": [
+          "Most people would be glad to climb them",
+          "Lifts are slower than walking up stairs",
+          "Few people would want to walk up so far",
+          "Towers do not need any lifts at all"
+        ],
+        "answer": "C",
+        "skill": "inference",
+        "why": "The question shows that very few people would want to climb so many floors, so lifts are needed.",
+        "wrong": {
+          "A": "The question suggests people would not want to climb.",
+          "B": "The text says lifts make tall towers work.",
+          "D": "The text says lifts made tall towers work."
+        }
+      },
+      {
+        "stem": "Why does the author start by saying you step into a small room?",
+        "options": [
+          "To explain how a brake grabs the rails",
+          "To help you picture riding in a lift",
+          "To tell you where the tower is",
+          "To show how heavy the block is"
+        ],
+        "answer": "B",
+        "skill": "author-purpose",
+        "why": "The opening describes a lift ride the reader knows, which leads into how a lift works.",
+        "wrong": {
+          "A": "The brake is explained later in the article.",
+          "C": "The tower in Riyadh is mentioned at the end.",
+          "D": "The heavy block is explained later."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "What keeps the elevator car steady inside the shaft?",
+        "options": [
+          "A strong electric motor",
+          "Metal rails on the sides",
+          "A heavy block of steel",
+          "Wet pads on the wall"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The article says metal rails on the sides of the shaft keep the car steady.",
+        "wrong": {
+          "A": "The motor turns the wheel; it does not steady the car.",
+          "C": "The counterweight balances the car, but the rails keep it steady.",
+          "D": "Wet pads are not mentioned in this article."
+        }
+      },
+      {
+        "stem": "The text says elevators made the skyscraper possible. What is a skyscraper?",
+        "options": [
+          "A very tall building",
+          "A fast kind of elevator",
+          "A bridge near the top",
+          "A safety brake on rails"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "The sentence talks about climbing a hundred floors, so a skyscraper is a very tall building.",
+        "wrong": {
+          "B": "The skyscraper is a building, not an elevator.",
+          "C": "The bridge is near the top of the Kingdom Centre, not what the word means.",
+          "D": "The brake was built by Otis; it is not the skyscraper."
+        }
+      },
+      {
+        "stem": "Why did elevators make the skyscraper possible?",
+        "options": [
+          "They are easier to build than a set of stairs",
+          "Few people would climb a hundred floors on foot",
+          "They need very little power to run each day",
+          "They can be used in short buildings as well"
+        ],
+        "answer": "B",
+        "skill": "cause-effect",
+        "why": "The article says that without elevators, few people would climb a hundred floors on foot.",
+        "wrong": {
+          "A": "The article does not compare weight with stairs.",
+          "C": "The counterweight lowers the power needed, but that is not why skyscrapers are possible.",
+          "D": "Short buildings use hydraulic elevators, which is a different point."
+        }
+      },
+      {
+        "stem": "Why does the author end with the Kingdom Centre in Riyadh?",
+        "options": [
+          "To show elevators are used in Saudi Arabia",
+          "To prove that Otis built a tower there too",
+          "To explain how a hydraulic lift works well",
+          "To tell why the counterweight is so heavy"
+        ],
+        "answer": "A",
+        "skill": "author-purpose",
+        "why": "The Kingdom Centre is in Saudi Arabia, so it links the machine to the reader's own country.",
+        "wrong": {
+          "B": "The article does not say that Otis built it.",
+          "C": "Hydraulic lifts were explained earlier.",
+          "D": "The counterweight was explained earlier."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "According to the article, how are modern elevators made safer by their cables?",
+        "options": [
+          "Each cable can hold the car alone",
+          "One thick cable replaces all others",
+          "The cables are hidden inside the rails",
+          "The cables are cooled by the pads"
+        ],
+        "answer": "A",
+        "skill": "detail",
+        "why": "The article says modern elevators hang from several cables, each strong enough to hold the car alone.",
+        "wrong": {
+          "B": "The article says several cables are used.",
+          "C": "The cables are not said to be hidden in the rails.",
+          "D": "The article does not mention cooling the cables."
+        }
+      },
+      {
+        "stem": "The article says a heavy counterweight hangs at the other end of the cables. What does a counterweight do?",
+        "options": [
+          "It balances the weight of the car",
+          "It opens the doors of the car",
+          "It shows riders which floor they are on",
+          "It cools the motor at the top"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "The counterweight hangs on the other end of the cables and balances the car, so the motor needs less effort.",
+        "wrong": {
+          "B": "Doors are not opened by the counterweight.",
+          "C": "A screen or buttons show floors, not the counterweight.",
+          "D": "The counterweight does not cool anything."
+        }
+      },
+      {
+        "stem": "Why do computers decide which car should answer each call?",
+        "options": [
+          "So the cables can stay cool",
+          "So passengers wait as little as possible",
+          "So the motor can use more energy",
+          "So riders must choose a floor later"
+        ],
+        "answer": "B",
+        "skill": "cause-effect",
+        "why": "The article says computers decide which car answers each call so that passengers wait as little as possible.",
+        "wrong": {
+          "A": "Cables are not said to need cooling.",
+          "C": "The counterweight is meant to reduce energy use.",
+          "D": "In some towers, riders choose their floor before entering."
+        }
+      },
+      {
+        "stem": "The car hangs from several cables, each strong enough to hold it alone. What does this suggest?",
+        "options": [
+          "The cables are cheap to make",
+          "The car is very light in weight",
+          "The system keeps working if one cable fails",
+          "The motor never needs to turn the sheave"
+        ],
+        "answer": "C",
+        "skill": "inference",
+        "why": "If each cable can hold the car alone, then the car stays safe even when one cable breaks.",
+        "wrong": {
+          "A": "The text says nothing about the cost of cables.",
+          "B": "The counterweight is about as heavy as the empty car plus part of a load.",
+          "D": "The motor turns the sheave to move the car."
+        }
+      }
+    ]
   }
 }

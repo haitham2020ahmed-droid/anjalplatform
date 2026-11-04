@@ -614,5 +614,217 @@
       ],
       "modelAnswer": "A live performance comes together through the collaboration of many different people and elements described in the article. A playwright writes the script, which gives the cast their lines and stage directions, while a director leads the cast through weeks of rehearsal to refine their lines, blocking, and timing. Meanwhile, the crew builds a set and designs lighting, sound, and costumes that help the audience understand the time, mood, and characters of the story. Because all of these people and elements come together live, with no chance to redo a mistake the way a film can, every single performance feels subtly different, which is what makes theater unique."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "Which kind of old word is the word theater?",
+        "options": [
+          "A Latin word",
+          "An Arabic word",
+          "A Greek word",
+          "A French word"
+        ],
+        "answer": "C",
+        "skill": "detail",
+        "why": "The text says theater is an old Greek word.",
+        "wrong": {
+          "A": "The text says Greek, not Latin.",
+          "B": "The text says Greek, not Arabic.",
+          "D": "The text says Greek, not French."
+        }
+      },
+      {
+        "stem": "In the text, who is the crew?",
+        "options": [
+          "The helpers who work on the show",
+          "The people who sit in the seats",
+          "The actors who say the words",
+          "The writer who makes the script"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "The text says actors are the cast and other helpers are the crew.",
+        "wrong": {
+          "B": "The people in the seats are the audience.",
+          "C": "The actors are the cast.",
+          "D": "The writer makes the script and is not the crew."
+        }
+      },
+      {
+        "stem": "Why do you think each live show feels a bit different?",
+        "options": [
+          "Because the set is always taken away",
+          "Because the script has no words",
+          "Because the lights are never turned on",
+          "Because live things can change each time"
+        ],
+        "answer": "D",
+        "skill": "inference",
+        "why": "The text says a play is live and a mistake can happen, so each show can change.",
+        "wrong": {
+          "A": "The text does not say the set is taken away.",
+          "B": "The text says a script has words.",
+          "C": "The text says a show needs lights."
+        }
+      },
+      {
+        "stem": "How is a play different from a movie?",
+        "options": [
+          "A play has no story at all",
+          "A play is live in front of people",
+          "A play has no actors on stage",
+          "A play is only about sad things"
+        ],
+        "answer": "B",
+        "skill": "compare",
+        "why": "The text says a play is live and is not like a movie.",
+        "wrong": {
+          "A": "The text says all plays tell a story.",
+          "C": "The text says actors act it out on a stage.",
+          "D": "The text says many plays are funny."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "What do lights do in a production, according to the article?",
+        "options": [
+          "They make the actors speak louder",
+          "They suggest the time of day",
+          "They show where the script is",
+          "They tell the crew to go home"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The article says lighting is used to suggest the time of day.",
+        "wrong": {
+          "A": "The article does not link lights to speaking louder.",
+          "C": "Stage directions in the script tell where to stand.",
+          "D": "The article does not link lights to the crew leaving."
+        }
+      },
+      {
+        "stem": "The article says actors \"portray\" characters. What does portray mean?",
+        "options": [
+          "Act as and show a character",
+          "Write the words for a play",
+          "Build a set for a show",
+          "Watch a play from a seat"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "Actors use their voices, faces, and movements to show characters, so portray means to act as them.",
+        "wrong": {
+          "B": "The playwright writes the script.",
+          "C": "The crew works behind the scenes on sets.",
+          "D": "The audience watches from seats."
+        }
+      },
+      {
+        "stem": "What happens during the weeks before opening night?",
+        "options": [
+          "The audience learns the script",
+          "The set is thrown away",
+          "The cast goes through rehearsal",
+          "The playwright stops writing"
+        ],
+        "answer": "C",
+        "skill": "sequence",
+        "why": "The article says a director guides the cast through weeks of rehearsal before opening night.",
+        "wrong": {
+          "A": "The cast learns the lines, not the audience.",
+          "B": "The set is needed for the show.",
+          "D": "The article does not say when the playwright stops."
+        }
+      },
+      {
+        "stem": "Why must the show go on after a small mistake?",
+        "options": [
+          "The audience wants a shorter show",
+          "The actors do not like practice",
+          "The director has left the stage",
+          "A live show cannot be done over"
+        ],
+        "answer": "D",
+        "skill": "inference",
+        "why": "The article says a film can be recorded again, but a live show must continue even after a mistake.",
+        "wrong": {
+          "A": "The article does not say the audience wants it shorter.",
+          "B": "The cast spends weeks practicing in rehearsal.",
+          "C": "The article does not say the director leaves."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "According to the article, where does the history of theater trace back to?",
+        "options": [
+          "Early radio shows",
+          "Large sports games",
+          "Old market stories",
+          "Ancient religious ceremonies"
+        ],
+        "answer": "D",
+        "skill": "detail",
+        "why": "The article says theater traces back to ancient religious ceremonies.",
+        "wrong": {
+          "A": "Radio came much later, since the article says theater is older than recorded sound.",
+          "B": "Sports games are not mentioned.",
+          "C": "Market stories are not mentioned."
+        }
+      },
+      {
+        "stem": "The article calls theater an \"enduring\" form of storytelling. What does enduring mean?",
+        "options": [
+          "Very costly to make",
+          "Lasting for a long time",
+          "Hard for people to see",
+          "Easy to forget quickly"
+        ],
+        "answer": "B",
+        "skill": "vocabulary",
+        "why": "Theater has been performed for thousands of years, so enduring means lasting a long time.",
+        "wrong": {
+          "A": "The article does not talk about cost.",
+          "C": "Audiences watch from seats facing a stage, so it is not hard to see.",
+          "D": "It has lasted thousands of years, so it is not quickly forgotten."
+        }
+      },
+      {
+        "stem": "What can a film do that a live performance cannot?",
+        "options": [
+          "Be recorded again and again until flawless",
+          "Be watched by an audience in the same room",
+          "Show a story with actors on a real set",
+          "Use lighting to show the time of the day"
+        ],
+        "answer": "A",
+        "skill": "compare",
+        "why": "The article says a film can be recorded repeatedly until every detail looks flawless, while a live show must continue.",
+        "wrong": {
+          "B": "Live theater is the one watched in the same room.",
+          "C": "Live theater also has actors and a set.",
+          "D": "Lighting is part of a live production."
+        }
+      },
+      {
+        "stem": "The article says people watched live shows long before recorded sound or film existed. What does this suggest about early audiences?",
+        "options": [
+          "They watched many films every single day",
+          "They had no interest in any kind of story",
+          "They enjoyed stories by live performance",
+          "They listened to music on the radio at night"
+        ],
+        "answer": "C",
+        "skill": "inference",
+        "why": "With no recorded sound or film, people gathered to watch live performances.",
+        "wrong": {
+          "A": "Film did not exist then.",
+          "B": "The article says people gathered to watch for thousands of years.",
+          "D": "Recorded sound did not exist then."
+        }
+      }
+    ]
   }
 }

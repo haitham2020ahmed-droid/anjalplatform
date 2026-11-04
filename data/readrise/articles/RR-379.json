@@ -614,5 +614,217 @@
       ],
       "modelAnswer": "I agree that patience and scientific understanding are the best way to help wildlife in distress. The article shows that touching the whale or making sudden loud noise could have caused it to panic and swim further into danger, while a slow, steady acoustic signal calmly guided it back to open water. Someone might argue that a faster, more forceful rescue would have saved time, but the article shows that forcing a frightened animal often makes a dangerous situation worse, so the patient approach used by Dr. Huda's team was clearly the safer and more effective choice."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "How did the whale swim in the shallow water?",
+        "options": [
+          "It swam in rings.",
+          "It swam straight out to sea.",
+          "It swam fast after the men.",
+          "It swam far under the boat."
+        ],
+        "answer": "A",
+        "skill": "detail",
+        "why": "The text says the whale swam in rings and did not go to deep water.",
+        "wrong": {
+          "B": "It did not go to deep water.",
+          "C": "The whale did not chase the men.",
+          "D": "The whale was in shallow water, not under the boat."
+        }
+      },
+      {
+        "stem": "Why was the whale alone in the bay?",
+        "options": [
+          "It wanted to play with the kids.",
+          "It was looking for some fish.",
+          "It had lost its pod.",
+          "It liked the shallow water."
+        ],
+        "answer": "C",
+        "skill": "cause-effect",
+        "why": "The text says the whale had lost its group, and a group of whales is a pod.",
+        "wrong": {
+          "A": "The kids came later to learn.",
+          "B": "Fish are not mentioned.",
+          "D": "Swimming in rings shows it was lost, not that it liked the water."
+        }
+      },
+      {
+        "stem": "In the story, what does the word \"guide\" mean?",
+        "options": [
+          "Scare away",
+          "Wake up",
+          "Hold tight",
+          "Show the way"
+        ],
+        "answer": "D",
+        "skill": "vocabulary",
+        "why": "The soft sound guided the whale, and the whale swam after the boat toward the sea.",
+        "wrong": {
+          "A": "The team did not want to scare the whale.",
+          "B": "The sound was not meant to wake it.",
+          "C": "No one touched the whale."
+        }
+      },
+      {
+        "stem": "What did the other whales do when the whale swam out to sea?",
+        "options": [
+          "They swam away fast.",
+          "They called to it.",
+          "They hid under the boat.",
+          "They splashed the kids."
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The text says other whales called to it and the whale found its pod.",
+        "wrong": {
+          "A": "The whales welcomed it; they did not swim away.",
+          "C": "No whales hid under the boat.",
+          "D": "The kids were not splashed."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "What did the fishermen think might happen if the tide dropped?",
+        "options": [
+          "The whale might join its pod.",
+          "The whale might get stuck.",
+          "The whale might jump out of the water.",
+          "The whale might sink the boat."
+        ],
+        "answer": "B",
+        "skill": "cause-effect",
+        "why": "The fishermen worried the whale might get stuck if the tide dropped.",
+        "wrong": {
+          "A": "The text does not link the tide to the pod.",
+          "C": "Jumping is not mentioned.",
+          "D": "The boat is not mentioned as being in danger."
+        }
+      },
+      {
+        "stem": "In the article, what does the word \"shallow\" mean?",
+        "options": [
+          "Very cold and dark",
+          "Full of fish and boats",
+          "Not deep",
+          "Far from the shore"
+        ],
+        "answer": "C",
+        "skill": "vocabulary",
+        "why": "The whale circled in shallow water near the shoreline instead of heading to open water, so shallow means not deep.",
+        "wrong": {
+          "A": "Temperature is not mentioned.",
+          "B": "The text does not say the water was full of fish.",
+          "D": "The whale was near the shoreline, not far from it."
+        }
+      },
+      {
+        "stem": "What can you infer from the other whales calling back at the end?",
+        "options": [
+          "The pod was angry that it left",
+          "The boat had scared the pod",
+          "The young whale was lost again",
+          "The pod was answering it"
+        ],
+        "answer": "D",
+        "skill": "inference",
+        "why": "The whales called back and the young whale rejoined its pod, so they were answering it.",
+        "wrong": {
+          "A": "The text gives no sign of anger.",
+          "B": "The boat had helped guide the whale.",
+          "C": "The whale had reached open sea and rejoined the pod."
+        }
+      },
+      {
+        "stem": "How long did the rescue take before the whale reached the open sea?",
+        "options": [
+          "Nearly an hour",
+          "A few short minutes",
+          "All day long",
+          "Two whole days"
+        ],
+        "answer": "A",
+        "skill": "detail",
+        "why": "The text says the whale reached the open sea after nearly an hour.",
+        "wrong": {
+          "B": "Minutes is how long it took for the helpers to set out.",
+          "C": "The rescue took about an hour, not all day.",
+          "D": "Two days is not mentioned."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "In the article, what does the word \"disoriented\" mean?",
+        "options": [
+          "Very hungry and weak",
+          "Angry at the boat",
+          "Unsure which way to go",
+          "Proud and strong"
+        ],
+        "answer": "C",
+        "skill": "vocabulary",
+        "why": "The whale kept turning in one narrow stretch and could not find its way to deeper water, so it was unsure of direction.",
+        "wrong": {
+          "A": "Hunger is not mentioned.",
+          "B": "The whale is not described as angry.",
+          "D": "The whale was lost and in need of help."
+        }
+      },
+      {
+        "stem": "About how old did the fishermen think the whale was?",
+        "options": [
+          "About ten or twelve years old",
+          "Only a few days or weeks old",
+          "More than twenty years old",
+          "No more than a year or two old"
+        ],
+        "answer": "D",
+        "skill": "detail",
+        "why": "Judging by its size, the fishermen guessed it was no more than a year or two old.",
+        "wrong": {
+          "A": "The fishermen thought it was a young whale.",
+          "B": "They did not say it was only days old.",
+          "C": "They thought it was young, not twenty."
+        }
+      },
+      {
+        "stem": "Why does the author explain what a pod does for young whales?",
+        "options": [
+          "To show why a lone young whale was in trouble",
+          "To explain how the fishermen spotted it",
+          "To show how biologists train for rescues",
+          "To describe the songs whales sing at sea"
+        ],
+        "answer": "A",
+        "skill": "author-purpose",
+        "why": "The pod guides young whales during long journeys, so being separated leaves the whale unable to navigate.",
+        "wrong": {
+          "B": "The fishermen spotted it by chance near the shoreline.",
+          "C": "Training is not part of this explanation.",
+          "D": "The explanation is about guidance, not songs."
+        }
+      },
+      {
+        "stem": "Why did Captain Yusuf radio the research center instead of trying to rescue the whale himself?",
+        "options": [
+          "His own boat was too small to move",
+          "He knew trained experts could help safely",
+          "He wanted the schoolchildren to join him",
+          "The research center owned the whale"
+        ],
+        "answer": "B",
+        "skill": "inference",
+        "why": "He called for a rescue team of marine biologists, who know how to help lost whales.",
+        "wrong": {
+          "A": "The size of his boat is not mentioned.",
+          "C": "The children happened to be aboard the biologists' boat.",
+          "D": "No one owns the whale in the article."
+        }
+      }
+    ]
   }
 }

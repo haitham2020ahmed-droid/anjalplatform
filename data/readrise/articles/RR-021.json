@@ -614,5 +614,217 @@
       ],
       "modelAnswer": "The article says machines involve an exchange because every simple machine trades the amount of force a person must exert for the distance over which that force is applied, rather than eliminating the work itself. For example, pushing a heavy cart up a ramp lets a person exert far less effort than lifting it straight up, but the advantage comes at the cost of moving the cart over a much longer distance along the slope. A screw, which is really an inclined plane wrapped around a thread, shows this exchange even more clearly, since turning it many times trades distance for the force needed to drive it into a surface. However, friction always works against this exchange in real machines, quietly resisting motion and wasting some of the effort as heat, which is why compound machines combining several simple machines, like bicycles, are carefully designed to keep friction as low as possible."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "How many kinds of simple machines does the article say there are?",
+        "options": [
+          "Four",
+          "Five",
+          "Six",
+          "Seven"
+        ],
+        "answer": "C",
+        "skill": "detail",
+        "why": "The text says there are six kinds of simple machines.",
+        "wrong": {
+          "A": "There are more than four kinds.",
+          "B": "There are more than five kinds.",
+          "D": "There are fewer than seven kinds."
+        }
+      },
+      {
+        "stem": "Hana wants a lever to lift a heavy load with less force. Where should she put the point the bar rests on?",
+        "options": [
+          "Near the load",
+          "Far from the load",
+          "On the ground far away",
+          "At the very end of the bar"
+        ],
+        "answer": "A",
+        "skill": "inference",
+        "why": "The text says that if the point is near the load, you need less force.",
+        "wrong": {
+          "B": "Far from the load needs more force.",
+          "C": "The text says to put the point near the load.",
+          "D": "The text says near the load, not at the end."
+        }
+      },
+      {
+        "stem": "In the article, the word load means —",
+        "options": [
+          "a long rope",
+          "a bar that rests on a point",
+          "a tool that splits things",
+          "the thing you lift or move"
+        ],
+        "answer": "D",
+        "skill": "vocabulary",
+        "why": "The text talks about lifting a load with a lever and a pulley, so a load is the thing that is moved.",
+        "wrong": {
+          "A": "A rope is part of a pulley, not the load.",
+          "B": "That is a lever.",
+          "C": "That is a wedge."
+        }
+      },
+      {
+        "stem": "How are a screw and a ramp alike?",
+        "options": [
+          "Both are made of rope",
+          "A screw is a ramp that winds round a post",
+          "Both are used to split things apart",
+          "A screw is a wheel that turns a small rod"
+        ],
+        "answer": "B",
+        "skill": "compare",
+        "why": "The text says a screw is a ramp that winds round a post.",
+        "wrong": {
+          "A": "Neither one is made of rope.",
+          "C": "A wedge, such as an axe, splits things.",
+          "D": "A wheel and axle turns, not a screw."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "What happens when you push one end of a seesaw down?",
+        "options": [
+          "The other end stays still",
+          "The other end rises",
+          "The seesaw turns into a ramp",
+          "The fulcrum moves closer"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The article says that when you push one end down, the other end rises.",
+        "wrong": {
+          "A": "The bar turns on its point, so the other end moves.",
+          "C": "A seesaw is a lever, not a ramp.",
+          "D": "The article does not say the fulcrum moves."
+        }
+      },
+      {
+        "stem": "In the article, the word effort means —",
+        "options": [
+          "the speed of a turning wheel",
+          "the length of a long rope",
+          "the weight of a heavy load",
+          "the push or pull you must use"
+        ],
+        "answer": "D",
+        "skill": "vocabulary",
+        "why": "The article says machines make work easier because you use less effort, meaning less push or pull.",
+        "wrong": {
+          "A": "Effort is about how hard you push, not wheel speed.",
+          "B": "Rope length is not effort.",
+          "C": "The load is the thing being moved."
+        }
+      },
+      {
+        "stem": "Why does a ramp make it easier to move a heavy cart up?",
+        "options": [
+          "It needs less effort but is longer",
+          "It makes the cart weigh nothing",
+          "It lifts the cart straight up",
+          "It turns the cart into a wheel"
+        ],
+        "answer": "A",
+        "skill": "cause-effect",
+        "why": "The article says pushing a cart up a ramp takes less effort than lifting it, but the path is longer.",
+        "wrong": {
+          "B": "The cart is still heavy.",
+          "C": "Lifting straight up is the harder way.",
+          "D": "A ramp does not change the cart."
+        }
+      },
+      {
+        "stem": "How does a doorknob work as a simple machine?",
+        "options": [
+          "It splits the door into two pieces",
+          "It raises the door on a long rope",
+          "It uses a large wheel to turn a rod",
+          "It rests on a point like a long bar"
+        ],
+        "answer": "C",
+        "skill": "detail",
+        "why": "The article says a wheel and axle, such as a doorknob, uses a large wheel to turn a small rod.",
+        "wrong": {
+          "A": "Splitting things is what a wedge does.",
+          "B": "Raising a load on a rope is a pulley.",
+          "D": "Resting on a point is a lever."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "According to the article, when are you doing work?",
+        "options": [
+          "When you sit and read about a machine in a book",
+          "When you rest quietly beside a very heavy load",
+          "When you stand and wait beside a long ramp",
+          "When you push, pull, or lift an object that moves"
+        ],
+        "answer": "D",
+        "skill": "detail",
+        "why": "The article says that when you push, pull, or lift an object and it moves, you are doing work.",
+        "wrong": {
+          "A": "Reading does not move an object.",
+          "B": "Resting does not move an object.",
+          "C": "Standing does not move an object."
+        }
+      },
+      {
+        "stem": "In the article, the word rigid in \"a rigid bar\" most nearly means —",
+        "options": [
+          "very long",
+          "stiff",
+          "very old",
+          "shiny"
+        ],
+        "answer": "B",
+        "skill": "vocabulary",
+        "why": "A lever pivots on a fixed point, so its bar must be stiff and must not bend.",
+        "wrong": {
+          "A": "The sentence is not about length.",
+          "C": "The sentence is not about age.",
+          "D": "The sentence is not about how the bar looks."
+        }
+      },
+      {
+        "stem": "Why is using a pulley often more comfortable than lifting a load directly?",
+        "options": [
+          "You pull down on the rope and the load goes up",
+          "You push the load slowly along a long ramp",
+          "You move the fulcrum closer to a heavy load",
+          "You turn a large wheel to spin a small rod"
+        ],
+        "answer": "A",
+        "skill": "cause-effect",
+        "why": "The article says pulling downward on the rope lifts the load upward, which is more comfortable.",
+        "wrong": {
+          "B": "A long ramp is an inclined plane, not a pulley.",
+          "C": "Moving a fulcrum is how a lever is used.",
+          "D": "That describes a wheel and axle."
+        }
+      },
+      {
+        "stem": "Why does the author mention automobiles and washing machines in the second paragraph?",
+        "options": [
+          "To prove that simple machines are always much larger",
+          "To prove that engines are the simplest kind of machine",
+          "To explain how scientists measure the work done",
+          "To contrast them with machines of only one or two parts"
+        ],
+        "answer": "D",
+        "skill": "author-purpose",
+        "why": "The author says many machines have engines and many parts, while others are so basic they have one or two components.",
+        "wrong": {
+          "A": "Simple machines are the smaller ones.",
+          "B": "The article says simple machines have no engines.",
+          "C": "Work is explained in the first paragraph."
+        }
+      }
+    ]
   }
 }

@@ -614,5 +614,217 @@
       ],
       "modelAnswer": "Alchemy failed at its most famous goal because, despite trying for a long time, alchemists never succeeded in turning ordinary metals into gold. Yet alchemy still helped create chemistry, because a scholar like Jabir ibn Hayyan used careful experiments rather than guesswork, testing and recording processes like distillation and crystallization that could purify liquids and form pure crystal substances. Both things can be true because the alchemists' specific goal of making gold was a failure, but their experimental methods and tools, like the alembic, became the foundation that real chemistry was built on, and we still use distillation today to make rose water in Taif and fresh drinking water from the sea."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "How long ago did Jabir live?",
+        "options": [
+          "100 years ago",
+          "1,200 years ago",
+          "12 years ago",
+          "500 years ago"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The text says he lived 1,200 years ago.",
+        "wrong": {
+          "A": "The text gives a much longer time.",
+          "C": "The text gives a much longer time.",
+          "D": "The text says 1,200 years, not 500."
+        }
+      },
+      {
+        "stem": "In this article, what does pure mean?",
+        "options": [
+          "very hot and bubbling",
+          "full of tiny salt bits",
+          "made into shiny gold",
+          "clean and not mixed"
+        ],
+        "answer": "D",
+        "skill": "vocabulary",
+        "why": "After distilling, the liquid is pure, meaning it is clean and has nothing else mixed in.",
+        "wrong": {
+          "A": "Cooling the steam does not make it very hot.",
+          "B": "Salt crystals are a different topic.",
+          "C": "The alchemists wanted gold; distilling does not make it."
+        }
+      },
+      {
+        "stem": "Why does the steam drip back down as a liquid?",
+        "options": [
+          "It is cooled.",
+          "It is heated again.",
+          "It is mixed with salt.",
+          "It is turned into gold."
+        ],
+        "answer": "A",
+        "skill": "cause-effect",
+        "why": "The text says you cool the steam and it drips back down.",
+        "wrong": {
+          "B": "Heat turns the liquid to steam, not back to liquid.",
+          "C": "Salt is not part of distilling in the text.",
+          "D": "Turning things to gold never worked."
+        }
+      },
+      {
+        "stem": "How was Jabir different from the men who tried to make gold?",
+        "options": [
+          "He tried to make gold too.",
+          "He only used guesses.",
+          "He did tests and wrote notes.",
+          "He lived 100 years ago."
+        ],
+        "answer": "C",
+        "skill": "compare",
+        "why": "The text says Jabir did not just guess; he did tests and wrote down what he saw.",
+        "wrong": {
+          "A": "It was the other men who tried to make gold.",
+          "B": "The text says he did not just guess.",
+          "D": "He lived 1,200 years ago."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "In which city did Jabir live?",
+        "options": [
+          "Taif",
+          "Cairo",
+          "Kufa",
+          "Tunis"
+        ],
+        "answer": "C",
+        "skill": "detail",
+        "why": "The text says Jabir lived in the city of Kufa, in what is now Iraq.",
+        "wrong": {
+          "A": "Taif is where roses are distilled today.",
+          "B": "Cairo is not mentioned.",
+          "D": "Tunis is not mentioned."
+        }
+      },
+      {
+        "stem": "In the article, what was alchemy?",
+        "options": [
+          "Early work with metals and medicines",
+          "A tool used to cool the vapor down",
+          "A grain of salt with flat sides",
+          "A way to make sweet rose water"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "Alchemists studied metals and tried to make medicines before chemistry existed.",
+        "wrong": {
+          "B": "The tool for distillation was the alembic.",
+          "C": "Crystals are the flat-sided pieces.",
+          "D": "Rose water is made by distilling roses."
+        }
+      },
+      {
+        "stem": "How could people in Europe read Jabir's books?",
+        "options": [
+          "Jabir taught there himself.",
+          "They were printed in Taif.",
+          "Rose water was sold with them.",
+          "They were translated into Latin."
+        ],
+        "answer": "D",
+        "skill": "cause-effect",
+        "why": "The books were translated into Latin and then studied in Europe.",
+        "wrong": {
+          "A": "The text does not say Jabir went to Europe.",
+          "B": "Taif is only mentioned for rose water.",
+          "C": "Rose water has nothing to do with the books."
+        }
+      },
+      {
+        "stem": "How are distillation and crystallization alike?",
+        "options": [
+          "Both turn metal into gold",
+          "Both give a pure substance",
+          "Both need an alembic",
+          "Both make rose water"
+        ],
+        "answer": "B",
+        "skill": "compare",
+        "why": "Distillation makes liquids purer, and making crystals is one more way to get a pure substance.",
+        "wrong": {
+          "A": "Turning metals to gold never worked.",
+          "C": "Only distillation uses an alembic.",
+          "D": "Only distillation makes rose water."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "In the article, the word apparatus means —",
+        "options": [
+          "a record of the results",
+          "a large group of scholars",
+          "equipment for a process",
+          "a rare type of metal"
+        ],
+        "answer": "C",
+        "skill": "vocabulary",
+        "why": "An alembic is an apparatus used for distillation, so an apparatus is equipment for a process.",
+        "wrong": {
+          "A": "The alembic is not a record.",
+          "B": "Scholars are people, not an alembic.",
+          "D": "The alembic is a tool, not a metal."
+        }
+      },
+      {
+        "stem": "Why did Jabir record precisely what happened in his experiments?",
+        "options": [
+          "So others could repeat his work",
+          "So he could hide his methods",
+          "So kings would pay him",
+          "So he could make gold faster"
+        ],
+        "answer": "A",
+        "skill": "cause-effect",
+        "why": "The text says he recorded precisely what happened so that others could repeat his work.",
+        "wrong": {
+          "B": "Recording the steps shares methods, not hides them.",
+          "C": "Payment from kings is not mentioned.",
+          "D": "Making gold never succeeded."
+        }
+      },
+      {
+        "stem": "What happens during crystallization?",
+        "options": [
+          "A liquid is heated until it is vapor",
+          "A plain metal is turned into gold",
+          "A vapor is cooled in an alembic",
+          "Dissolved matter forms solid crystals"
+        ],
+        "answer": "D",
+        "skill": "detail",
+        "why": "The text says a dissolved substance forms solid crystals with flat faces.",
+        "wrong": {
+          "A": "That describes the first step of distillation.",
+          "B": "That was the alchemists' goal, which never succeeded.",
+          "C": "That describes distillation."
+        }
+      },
+      {
+        "stem": "Why does the author explain alchemy before describing Jabir's method?",
+        "options": [
+          "To list the books he wrote",
+          "To show what made his method new",
+          "To explain how rose water is made",
+          "To describe the city of Kufa"
+        ],
+        "answer": "B",
+        "skill": "text-structure",
+        "why": "The author first shows what alchemy was like, then says what distinguished Jabir: his method of experiments.",
+        "wrong": {
+          "A": "The books are discussed later.",
+          "C": "Rose water appears at the end.",
+          "D": "Kufa is only mentioned at the start."
+        }
+      }
+    ]
   }
 }

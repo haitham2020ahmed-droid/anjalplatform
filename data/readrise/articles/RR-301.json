@@ -614,5 +614,217 @@
       ],
       "modelAnswer": "Two techniques that helped oral storytellers engage audiences and preserve heritage were voice shifting and repetition. By changing their voice to match each character, tellers let listeners recognize who was speaking without any narration, which pulled the audience fully into the tale and made complex stories easier to follow and pass along accurately. Repetition worked differently: by repeating certain lines again and again, tellers invited the audience to chant along, which reinforced the community's shared memory of the story. Because these tales carried lessons and history with no written record at all, techniques like these were essential; they let a culture's heritage survive accurately across many generations, carried only by trained voices and attentive memory."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "The text says a soft voice was a hush. What does hush mean?",
+        "options": [
+          "A very quiet sound",
+          "A very loud shout",
+          "A fast, happy song",
+          "A sad, long cry"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "The text sets a soft voice against a loud storm voice, so a hush is a quiet sound.",
+        "wrong": {
+          "B": "A loud voice is the one like a storm, not the soft one.",
+          "C": "The text says nothing about a fast song.",
+          "D": "The text does not say a soft voice was a cry."
+        }
+      },
+      {
+        "stem": "Which place does the text name for hearing tales today?",
+        "options": [
+          "On a boat",
+          "At a bank",
+          "In shows",
+          "In a shop"
+        ],
+        "answer": "C",
+        "skill": "detail",
+        "why": "The last part says we hear tales from kin, on the air, and in shows.",
+        "wrong": {
+          "A": "A boat is not named in the text.",
+          "B": "A bank is not named in the text.",
+          "D": "A shop is not named in the text."
+        }
+      },
+      {
+        "stem": "Why do you think most tales taught a point?",
+        "options": [
+          "To make the tale very long",
+          "To help the teller rest",
+          "To keep kids from hearing it",
+          "To help folks learn how to act"
+        ],
+        "answer": "D",
+        "skill": "inference",
+        "why": "The text says a point can show right from wrong and teach us to be brave and kind, so it helps folks learn.",
+        "wrong": {
+          "A": "Nothing in the text says a point made a tale longer.",
+          "B": "The point was for the crowd, not for the teller to rest.",
+          "C": "Tales were told to kids, so the point was meant for them."
+        }
+      },
+      {
+        "stem": "Why does the author end by saying people still love a good teller?",
+        "options": [
+          "To say that tales are gone now",
+          "To show tellers still matter today",
+          "To say that books are better",
+          "To tell kids to go to bed soon"
+        ],
+        "answer": "B",
+        "skill": "author-purpose",
+        "why": "The ending lists where we hear tales now, which shows that tellers are still loved.",
+        "wrong": {
+          "A": "The ending says we still hear tales, so they are not gone.",
+          "C": "The text does not say books are better.",
+          "D": "The text never talks about bed time."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "What did a soft, careful whisper do to the listeners?",
+        "options": [
+          "It made them fall asleep",
+          "It made them leave the room",
+          "It pulled them closer",
+          "It made them laugh loudly"
+        ],
+        "answer": "C",
+        "skill": "detail",
+        "why": "The text says a careful whisper pulled listeners closer.",
+        "wrong": {
+          "A": "The text never says a whisper made people sleep.",
+          "B": "A whisper drew listeners in, not away.",
+          "D": "The text does not link a whisper to loud laughing."
+        }
+      },
+      {
+        "stem": "In the last paragraph, the author writes about a \"gifted storyteller.\" What does gifted mean here?",
+        "options": [
+          "Very talented",
+          "Given a present",
+          "Very old",
+          "Very loud"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "The article describes a skilled teller who can make a tale feel real, so gifted means talented.",
+        "wrong": {
+          "B": "Nobody gives a present in this part of the article.",
+          "C": "The article does not link skill to age.",
+          "D": "Loudness is only one tool, and gifted is about skill."
+        }
+      },
+      {
+        "stem": "According to the article, why was a strong beat useful in long stories?",
+        "options": [
+          "It helped the teller finish the story faster",
+          "It kept the audience from talking at all",
+          "It let the teller skip some of the lines",
+          "It made the story easier to follow and remember"
+        ],
+        "answer": "D",
+        "skill": "cause-effect",
+        "why": "The article says the rhythm made long stories easier to follow and remember.",
+        "wrong": {
+          "A": "The beat helped listeners follow, and speed is not mentioned.",
+          "B": "The audience joined in, so talking was not stopped.",
+          "C": "The teller repeated lines, not skipped them."
+        }
+      },
+      {
+        "stem": "Why does the author end by listing radio, cartoons, and films?",
+        "options": [
+          "To say old tales are boring",
+          "To show that storytelling still matters today",
+          "To tell readers to buy a radio",
+          "To prove cartoons are better than tellers"
+        ],
+        "answer": "B",
+        "skill": "author-purpose",
+        "why": "The list shows that people still enjoy stories in new ways, so the craft lives on.",
+        "wrong": {
+          "A": "The article says people still treasure stories.",
+          "C": "The article is not selling anything.",
+          "D": "The article never compares cartoons with tellers."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "The article says storytellers held the attention of the audience. What does attention mean?",
+        "options": [
+          "careful listening and watching",
+          "a loud cheer at the end",
+          "a long trip to a faraway town",
+          "a written copy of a tale"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "Good storytellers kept listeners focused on every word, so attention means careful listening and watching.",
+        "wrong": {
+          "B": "A cheer may come later, but it is not attention.",
+          "C": "A trip is not what attention means.",
+          "D": "The tales were spoken, not written."
+        }
+      },
+      {
+        "stem": "According to the article, what effect did a steady rhythm have on long stories?",
+        "options": [
+          "It made them easier to follow and remember",
+          "It made each story much shorter to tell",
+          "It made the whole audience stay silent",
+          "It replaced the need for a trained voice"
+        ],
+        "answer": "A",
+        "skill": "cause-effect",
+        "why": "The article states that rhythm made long, intricate stories noticeably easier to follow and remember.",
+        "wrong": {
+          "B": "The article does not say rhythm shortened a story.",
+          "C": "The audience chanted lines together, so they were not silent.",
+          "D": "Tellers still used trained voices along with rhythm."
+        }
+      },
+      {
+        "stem": "Why does the author most likely mention that \"no written record\" was kept?",
+        "options": [
+          "To show that tellers disliked all books",
+          "To show that the tales were not important",
+          "To show that tales lived on only by memory",
+          "To show that listeners wrote the tales down later"
+        ],
+        "answer": "C",
+        "skill": "inference",
+        "why": "With no written record, the only way a tale could last was for people to remember it and tell it again.",
+        "wrong": {
+          "A": "The article does not say tellers disliked books.",
+          "B": "The article calls the craft a respected heritage.",
+          "D": "The article says the tales passed by word of mouth alone."
+        }
+      },
+      {
+        "stem": "Which details does the article say hands and facial expressions could show?",
+        "options": [
+          "The names of each of the listeners",
+          "The time of day that the tale begins",
+          "A bird swooping low or waves crashing",
+          "How long the tale would last for"
+        ],
+        "answer": "C",
+        "skill": "detail",
+        "why": "The article gives a bird swooping low and waves crashing against a distant shore as examples.",
+        "wrong": {
+          "A": "Listener names are never mentioned.",
+          "B": "The time of day is never mentioned.",
+          "D": "The length of the tale is never mentioned."
+        }
+      }
+    ]
   }
 }

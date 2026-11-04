@@ -614,5 +614,217 @@
       ],
       "modelAnswer": "I think Al-Zahrawi's most important contribution was his meticulous approach to designing and illustrating surgical instruments, because it meant his innovations could spread far beyond Cordoba. The article explains that he drew detailed pictures of each tool so that other doctors, even in distant cities, could study and copy them correctly. This careful documentation, combined with his encyclopedia being translated into Latin, allowed surgeons across Europe to rely on his techniques and instruments as a standard textbook for centuries, which is why his legacy as the father of surgery still endures today."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "Where did Al-Zahrawi live?",
+        "options": [
+          "In Cairo",
+          "In Cordoba",
+          "In Makkah",
+          "In Paris"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The article says he lived in Cordoba, which is in Spain now.",
+        "wrong": {
+          "A": "Cairo is not mentioned.",
+          "C": "Makkah is not mentioned.",
+          "D": "Paris is not mentioned."
+        }
+      },
+      {
+        "stem": "In the article, the word wound means —",
+        "options": [
+          "a kind of big book",
+          "a sharp metal tool",
+          "a stitch of thread",
+          "a hurt on the body"
+        ],
+        "answer": "D",
+        "skill": "vocabulary",
+        "why": "He helped hurt people and cared for each wound, so a wound is a hurt place on the body.",
+        "wrong": {
+          "A": "Books are a different thing in the article.",
+          "B": "The tools are the knives and hooks.",
+          "C": "The stitch is used to close a wound."
+        }
+      },
+      {
+        "stem": "What did the surgery part of his big book show?",
+        "options": [
+          "His tools",
+          "His home",
+          "His garden",
+          "His family"
+        ],
+        "answer": "A",
+        "skill": "detail",
+        "why": "The article says the book had many pages and showed his tools.",
+        "wrong": {
+          "B": "His home is not shown.",
+          "C": "A garden is not mentioned.",
+          "D": "His family is not mentioned."
+        }
+      },
+      {
+        "stem": "His book went to Europe, and many people used it there. What does this tell you?",
+        "options": [
+          "He had many students",
+          "He was the oldest doctor",
+          "His book was very useful",
+          "He lived in Europe"
+        ],
+        "answer": "C",
+        "skill": "inference",
+        "why": "People far away used his book for a long time, so it must have been very useful.",
+        "wrong": {
+          "A": "The text does not talk about students.",
+          "B": "His age is not the point.",
+          "D": "He lived in Cordoba; his book went to Europe."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "What are scalpels, according to the article?",
+        "options": [
+          "Small jars of oil",
+          "Tall stone towers",
+          "Small, sharp knives",
+          "Soft thread"
+        ],
+        "answer": "C",
+        "skill": "detail",
+        "why": "The article calls scalpels small, sharp knives.",
+        "wrong": {
+          "A": "Jars are not mentioned.",
+          "B": "Towers are not mentioned.",
+          "D": "Thread is linked to the stitch, not scalpels."
+        }
+      },
+      {
+        "stem": "In the article, the word technique means —",
+        "options": [
+          "a way of doing a task",
+          "a heavy medical book",
+          "a kind of small room",
+          "a famous place in Spain"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "A new technique for closing a wound is a special way of doing it.",
+        "wrong": {
+          "B": "A technique is not a book.",
+          "C": "A technique is not a room.",
+          "D": "A technique is not a place."
+        }
+      },
+      {
+        "stem": "What did Al-Zahrawi believe about a calm technique?",
+        "options": [
+          "It was too slow for doctors",
+          "It made the knives sharper",
+          "It helped the book travel",
+          "It helped the body heal faster"
+        ],
+        "answer": "D",
+        "skill": "cause-effect",
+        "why": "The article says he believed a calm technique helped the body heal faster.",
+        "wrong": {
+          "A": "He valued calm, not speed.",
+          "B": "Knives are not linked to calm.",
+          "C": "The book traveled for another reason."
+        }
+      },
+      {
+        "stem": "What does the name Abulcasis suggest about Al-Zahrawi?",
+        "options": [
+          "He was born in Europe",
+          "Europe knew him well",
+          "He wrote only in Latin",
+          "He lived in Rome"
+        ],
+        "answer": "B",
+        "skill": "inference",
+        "why": "European surgeons studied his book for hundreds of years and gave him their own name for him.",
+        "wrong": {
+          "A": "He was born near Cordoba.",
+          "C": "His book was translated into Latin later.",
+          "D": "Rome is not mentioned."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "In the article, the word innovations means —",
+        "options": [
+          "old rules",
+          "new inventions",
+          "simple songs",
+          "long journeys"
+        ],
+        "answer": "B",
+        "skill": "vocabulary",
+        "why": "The article says he designed instruments that doctors had never used before, which were new inventions.",
+        "wrong": {
+          "A": "His tools were new, not old.",
+          "C": "Songs are not mentioned.",
+          "D": "Journeys are not the meaning."
+        }
+      },
+      {
+        "stem": "Besides scalpels and hooks, what else did Al-Zahrawi design?",
+        "options": [
+          "Probes",
+          "Thread",
+          "Boats",
+          "Drums"
+        ],
+        "answer": "A",
+        "skill": "detail",
+        "why": "The article lists scalpels, hooks, and probes.",
+        "wrong": {
+          "B": "Special thread is not listed among the tools.",
+          "C": "Boats are not mentioned.",
+          "D": "Drums are not mentioned."
+        }
+      },
+      {
+        "stem": "Why did Al-Zahrawi draw meticulous pictures of each tool?",
+        "options": [
+          "To decorate the royal court",
+          "To hide how the tools worked",
+          "To let far doctors copy them",
+          "To teach families to cook"
+        ],
+        "answer": "C",
+        "skill": "cause-effect",
+        "why": "The pictures let other doctors, even in far cities, study and copy each tool.",
+        "wrong": {
+          "A": "Decoration is not the reason.",
+          "B": "The pictures were meant to share how tools worked.",
+          "D": "Cooking is not mentioned."
+        }
+      },
+      {
+        "stem": "Why did Al-Zahrawi treat every wound with great patience?",
+        "options": [
+          "He wanted to finish each job quickly",
+          "He had no tools to use",
+          "He worked with no helpers",
+          "He believed calm care healed better"
+        ],
+        "answer": "D",
+        "skill": "inference",
+        "why": "The article says he believed a calm, careful technique helped the body heal better than rushing.",
+        "wrong": {
+          "A": "Patience is the opposite of hurrying.",
+          "B": "He made many tools.",
+          "C": "Working alone is not the reason given."
+        }
+      }
+    ]
   }
 }

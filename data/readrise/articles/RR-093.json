@@ -614,5 +614,217 @@
       ],
       "modelAnswer": "I think planting ten billion trees is an ambitious but not impossible goal for Saudi Arabia's Green Initiative, because the article describes both strong benefits and serious challenges. On the benefit side, trees could restore damaged land by holding soil in place against erosion, cooling the air with shade, and absorbing carbon dioxide while releasing oxygen, which supports greater biodiversity in an otherwise harsh environment. However, the challenges are real too: rain is rare, summer heat can burn young leaves, and some soil is too salty, so many seedlings need years of careful watering and protection before they can survive alone. Because the initiative accounts for these difficulties by using native, drought-tolerant trees and a nursery system to nurture them, the goal seems difficult but achievable given enough time and resources."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "Which two trees does the article name?",
+        "options": [
+          "Palm and olive",
+          "Pine and oak",
+          "Ghaf and sidr",
+          "Fig and lemon"
+        ],
+        "answer": "C",
+        "skill": "detail",
+        "why": "The text says the ghaf tree and the sidr tree grow well in the desert.",
+        "wrong": {
+          "A": "Palm and olive are not named.",
+          "B": "Pine and oak are not named.",
+          "D": "Fig and lemon are not named."
+        }
+      },
+      {
+        "stem": "The text says the land wants to plant ten billion trees. What does this tell the reader?",
+        "options": [
+          "It is a very big job",
+          "The trees grow in one day",
+          "Seeds are hard to find",
+          "Few people want to help"
+        ],
+        "answer": "A",
+        "skill": "inference",
+        "why": "Ten billion is a very big number, so planting that many will take many years.",
+        "wrong": {
+          "B": "The text says it will take a long time.",
+          "C": "Seeds are not described as hard to find.",
+          "D": "The text does not talk about who wants to help."
+        }
+      },
+      {
+        "stem": "What happens after a young tree is strong?",
+        "options": [
+          "It goes back in a pot",
+          "It is cut down for wood",
+          "It goes to a big fence",
+          "It goes in the ground"
+        ],
+        "answer": "D",
+        "skill": "sequence",
+        "why": "The text says the tree grows in a pot, and when it is strong, it goes in the ground.",
+        "wrong": {
+          "A": "The pot is where it grows first.",
+          "B": "Nothing says the tree is cut down.",
+          "C": "The fence is put there to keep goats and camels out."
+        }
+      },
+      {
+        "stem": "The text says that after a few years the tree can live on its own. What does this mean?",
+        "options": [
+          "It lives with a friend",
+          "It no longer needs help from people",
+          "It needs more water than before",
+          "It grows a new fence"
+        ],
+        "answer": "B",
+        "skill": "vocabulary",
+        "why": "After a few years, the tree no longer needs the pipe and fence.",
+        "wrong": {
+          "A": "The tree does not need a friend.",
+          "C": "The tree needs less help, not more water.",
+          "D": "Trees do not grow fences."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "What does the thin pipe do for a young tree?",
+        "options": [
+          "It drips water onto the roots",
+          "It keeps goats and camels away",
+          "It gives shade to the leaves",
+          "It holds the soil in place"
+        ],
+        "answer": "A",
+        "skill": "detail",
+        "why": "The text says a thin pipe drips water right onto the roots.",
+        "wrong": {
+          "B": "The fence keeps animals away.",
+          "C": "The pipe does not give shade.",
+          "D": "The roots hold the soil, not the pipe."
+        }
+      },
+      {
+        "stem": "Why is there less dust in the air where trees grow?",
+        "options": [
+          "The shade makes the air very wet",
+          "Birds clean the air with their wings",
+          "Roots hold soil so wind can not blow it",
+          "Tree leaves soak up all the sand"
+        ],
+        "answer": "C",
+        "skill": "cause-effect",
+        "why": "The roots hold the soil in place, so the wind cannot blow it away.",
+        "wrong": {
+          "A": "Shade cools the air but the text does not say it makes it wet.",
+          "B": "Birds only make homes in the branches.",
+          "D": "The text does not say leaves soak up sand."
+        }
+      },
+      {
+        "stem": "In the article, the word launched means —",
+        "options": [
+          "stopped",
+          "started",
+          "ended",
+          "copied"
+        ],
+        "answer": "B",
+        "skill": "vocabulary",
+        "why": "Saudi Arabia launched the Saudi Green Initiative in 2021 and its goal is to plant trees in the coming decades, so it started it.",
+        "wrong": {
+          "A": "The plan is still going on.",
+          "C": "The plan has not ended.",
+          "D": "Nothing says the plan was copied."
+        }
+      },
+      {
+        "stem": "What happens right after a young tree is strong enough?",
+        "options": [
+          "A pipe is taken away",
+          "Workers move it to a nursery",
+          "It is planted in the ground",
+          "A fence is built around the desert"
+        ],
+        "answer": "C",
+        "skill": "sequence",
+        "why": "The text says that when the young tree is strong enough, it is planted in the ground.",
+        "wrong": {
+          "A": "The pipe comes after planting.",
+          "B": "The nursery is where the tree grows first.",
+          "D": "The fence keeps animals away from the trees, and it comes after planting."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "When is a young tree usually transplanted into the ground?",
+        "options": [
+          "During the hottest days",
+          "In the middle of a storm",
+          "During the cooler months",
+          "After it is ten years old"
+        ],
+        "answer": "C",
+        "skill": "detail",
+        "why": "The text says the tree is transplanted usually during the cooler months.",
+        "wrong": {
+          "A": "The text says summer heat can scorch leaves.",
+          "B": "Storms are not mentioned.",
+          "D": "The tree is moved when it is sturdy, not at ten years old."
+        }
+      },
+      {
+        "stem": "Why do many young desert trees need extra care in the first years?",
+        "options": [
+          "Rain is rare, summers are hot, and soil can be salty",
+          "Goats and camels like to plant them in the sand",
+          "Workers forget where all of the trees are planted",
+          "The trees grow too fast for the soil to hold them"
+        ],
+        "answer": "A",
+        "skill": "cause-effect",
+        "why": "The text lists rare rain, hot summers and salty soil as problems for young trees.",
+        "wrong": {
+          "B": "The animals eat young trees, they do not plant them.",
+          "C": "The text does not say workers forget the trees.",
+          "D": "The text does not say the trees grow too fast."
+        }
+      },
+      {
+        "stem": "In the article, the word ambitious describes a plan that —",
+        "options": [
+          "is easy to finish",
+          "costs very little",
+          "has been stopped",
+          "is big and hard"
+        ],
+        "answer": "D",
+        "skill": "vocabulary",
+        "why": "Planting ten billion trees is a very big goal that needs great effort.",
+        "wrong": {
+          "A": "Ten billion trees is not easy.",
+          "B": "Cost is not mentioned.",
+          "C": "The plan is still going."
+        }
+      },
+      {
+        "stem": "Why does the author include the paragraph about the problems young desert trees face?",
+        "options": [
+          "To say people should not plant trees",
+          "To show the reader the job is hard",
+          "To show that the desert has no soil",
+          "To say that Africa has easier work"
+        ],
+        "answer": "B",
+        "skill": "author-purpose",
+        "why": "The author lists problems like heat and little rain to show that planting in the desert is hard.",
+        "wrong": {
+          "A": "The author still supports planting trees.",
+          "C": "The text says some soil is salty, not that there is none.",
+          "D": "The text does not say Africa's work is easier."
+        }
+      }
+    ]
   }
 }

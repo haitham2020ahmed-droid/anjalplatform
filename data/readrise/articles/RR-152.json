@@ -614,5 +614,217 @@
       ],
       "modelAnswer": "Most materials get denser and shrink when they freeze, but water does the opposite: its molecules lock into a crystal pattern with extra space between them, so ice actually expands and becomes less dense than liquid water. This unusual behavior matters in the real world because a full glass bottle of water can crack in the freezer, and because ice is less dense, it floats on top of lakes in winter and lets fish survive in the water underneath instead of freezing solid."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "What is the difference between a liquid and a solid?",
+        "options": [
+          "A liquid keeps its shape and a solid flows.",
+          "A liquid can flow and a solid keeps its shape.",
+          "A liquid is hard and a solid can spill.",
+          "A liquid is light and a solid is wet."
+        ],
+        "answer": "B",
+        "skill": "compare",
+        "why": "The text says water is a liquid that can flow and ice is a solid that keeps its shape.",
+        "wrong": {
+          "A": "This swaps the two.",
+          "C": "A liquid can spill, but a solid does not.",
+          "D": "The text does not describe them this way."
+        }
+      },
+      {
+        "stem": "Why does ice float in your drink?",
+        "options": [
+          "It is hot.",
+          "It is heavy.",
+          "It is light.",
+          "It is wet."
+        ],
+        "answer": "C",
+        "skill": "cause-effect",
+        "why": "The text says ice is light, so it floats in your drink.",
+        "wrong": {
+          "A": "Ice is cold, not hot.",
+          "B": "Ice is light, not heavy.",
+          "D": "Being wet does not make it float."
+        }
+      },
+      {
+        "stem": "What can you tell about iron from the article?",
+        "options": [
+          "It needs a huge fire to melt.",
+          "It melts in a warm hand.",
+          "It turns to water in the sun.",
+          "It melts faster than chocolate."
+        ],
+        "answer": "A",
+        "skill": "inference",
+        "why": "The article says iron does not melt in a hand and needs a huge fire.",
+        "wrong": {
+          "B": "Chocolate melts in a warm hand, not iron.",
+          "C": "Snow and ice melt in the sun, not iron.",
+          "D": "Iron melts slower, not faster."
+        }
+      },
+      {
+        "stem": "What happens to water that has turned to ice when it gets warm?",
+        "options": [
+          "It stays hard forever.",
+          "It gets bigger.",
+          "It cracks a jar.",
+          "It melts back into water."
+        ],
+        "answer": "D",
+        "skill": "sequence",
+        "why": "Heat makes ice melt, and then it turns back to water.",
+        "wrong": {
+          "A": "Heat makes ice melt, so it does not stay hard.",
+          "B": "Ice takes more room than water, so it gets smaller when it melts.",
+          "C": "A jar cracks when water freezes, not when ice melts."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "What is a liquid like water able to do that a solid cannot?",
+        "options": [
+          "Flow and fill its container",
+          "Keep its shape in any place",
+          "Float on top of a lake",
+          "Melt at zero degrees Celsius"
+        ],
+        "answer": "A",
+        "skill": "compare",
+        "why": "The text says a liquid flows and takes the shape of its container, while a solid keeps its shape.",
+        "wrong": {
+          "B": "A solid is the one that keeps its shape.",
+          "C": "Ice floats on water, not the other way around.",
+          "D": "Melting is a change that happens to ice."
+        }
+      },
+      {
+        "stem": "Why do fish stay alive in a frozen lake in a cold country?",
+        "options": [
+          "Ice forms at the bottom and keeps them warm.",
+          "Ice forms on top and the water below stays liquid.",
+          "The fish melt the ice around them.",
+          "Fish freeze and then wake up later."
+        ],
+        "answer": "B",
+        "skill": "cause-effect",
+        "why": "Ice floats and forms on top, so the water below stays liquid for the fish.",
+        "wrong": {
+          "A": "Ice floats to the top, not the bottom.",
+          "C": "The text does not say fish melt ice.",
+          "D": "The text says the fish live in the water below the ice."
+        }
+      },
+      {
+        "stem": "Most materials shrink when they freeze. What does water do?",
+        "options": [
+          "It shrinks a little.",
+          "It stays the same.",
+          "It disappears.",
+          "It expands."
+        ],
+        "answer": "D",
+        "skill": "compare",
+        "why": "The text says water does the opposite of most materials, so ice expands.",
+        "wrong": {
+          "A": "That is what most other materials do.",
+          "B": "The text says water changes size when it freezes.",
+          "C": "Nothing disappears when water freezes."
+        }
+      },
+      {
+        "stem": "Why does the author mention chocolate and iron?",
+        "options": [
+          "To show that iron is lighter than ice",
+          "To show each material melts at its own temperature",
+          "To show that all solids melt in a warm human hand",
+          "To show how to make a furnace"
+        ],
+        "answer": "B",
+        "skill": "author-purpose",
+        "why": "The author says each material melts at its own temperature and gives chocolate and iron as examples.",
+        "wrong": {
+          "A": "Weight is not discussed for iron.",
+          "C": "Iron does not melt in a warm hand.",
+          "D": "The text does not teach how to make a furnace."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "What happens to the molecules in ice when it absorbs heat?",
+        "options": [
+          "They stop moving.",
+          "They lock into a crystal.",
+          "They vibrate faster.",
+          "They shrink in size."
+        ],
+        "answer": "C",
+        "skill": "cause-effect",
+        "why": "When ice absorbs heat, its molecules vibrate faster until they break out of the crystal.",
+        "wrong": {
+          "A": "They move faster, not stop.",
+          "B": "Locking into a crystal happens when water loses heat.",
+          "D": "The text does not say molecules shrink."
+        }
+      },
+      {
+        "stem": "What does the article say about the molecules in liquid water?",
+        "options": [
+          "They are held in a regular crystal pattern.",
+          "They cannot move at all.",
+          "They have left the water as vapor.",
+          "They attract one another but can slide"
+        ],
+        "answer": "D",
+        "skill": "detail",
+        "why": "The text says in liquid water the molecules still attract one another but can slide past each other.",
+        "wrong": {
+          "A": "That describes a solid like ice.",
+          "B": "They can slide, so they do move.",
+          "C": "Vapor is not discussed for liquid water."
+        }
+      },
+      {
+        "stem": "Why does a sealed glass bottle full of water crack in a freezer?",
+        "options": [
+          "The cold makes the glass shrink.",
+          "The bottle is too light.",
+          "The ice is less dense than the bottle.",
+          "Water expands when it freezes."
+        ],
+        "answer": "D",
+        "skill": "cause-effect",
+        "why": "The crystal pattern of ice has open spaces, so water expands and can crack the bottle.",
+        "wrong": {
+          "A": "The text says the water expands, not that the glass shrinks.",
+          "B": "Weight is not the reason.",
+          "C": "Density is compared with liquid water, not glass."
+        }
+      },
+      {
+        "stem": "What can you infer about the shape of the liquid water in a juice glass?",
+        "options": [
+          "It has the shape of a crystal.",
+          "It takes the shape of the glass.",
+          "It keeps a fixed shape on its own.",
+          "It matches the shape of the ice."
+        ],
+        "answer": "B",
+        "skill": "inference",
+        "why": "The text says liquid water flows and takes the shape of its container.",
+        "wrong": {
+          "A": "A crystal pattern belongs to solid ice.",
+          "C": "Only solids keep a fixed shape.",
+          "D": "Liquid water does not copy the ice shape."
+        }
+      }
+    ]
   }
 }

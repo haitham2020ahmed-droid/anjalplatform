@@ -614,5 +614,217 @@
       ],
       "modelAnswer": "I think it is important for Dr. Lina to remind people that Rex's laugh is simulated, not real. The article explains that once the microphone was recalibrated and a short delay was added, Rex's laugh became so well-timed that it felt almost like a real friend reacting to a joke. Someone might argue that if the laugh feels natural and comforting, it does not matter whether it is simulated. However, understanding that Rex's algorithm, not real emotion, controls the laugh helps people use the robot correctly and avoid expecting feelings a machine cannot actually have."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "How does Rex help kids before a shot?",
+        "options": [
+          "He gives them a toy",
+          "He helps them feel brave",
+          "He tells them to sleep",
+          "He plays loud music"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The text says Rex helps kids feel brave before a shot.",
+        "wrong": {
+          "A": "The text does not say Rex gives toys.",
+          "C": "Rex does not tell them to sleep.",
+          "D": "The loud sound was a problem, not a help."
+        }
+      },
+      {
+        "stem": "In the story, the word brave means —",
+        "options": [
+          "very tired",
+          "very hungry",
+          "very loud",
+          "not afraid"
+        ],
+        "answer": "D",
+        "skill": "vocabulary",
+        "why": "Rex helps kids feel not afraid before a shot, so brave means not afraid.",
+        "wrong": {
+          "A": "Brave does not mean tired.",
+          "B": "Brave does not mean hungry.",
+          "C": "Brave does not mean loud."
+        }
+      },
+      {
+        "stem": "Why do kids like Rex now?",
+        "options": [
+          "He has a new red coat",
+          "He is the biggest robot",
+          "His jokes make them smile",
+          "He lets them drive him"
+        ],
+        "answer": "C",
+        "skill": "cause-effect",
+        "why": "The text says Rex's jokes make kids smile, and his laugh now comes at the right time.",
+        "wrong": {
+          "A": "A coat is not mentioned.",
+          "B": "His size is not mentioned.",
+          "D": "Driving him is not mentioned."
+        }
+      },
+      {
+        "stem": "Why did the kids on the ward help Dr. Lina?",
+        "options": [
+          "They knew what felt wrong",
+          "They wanted to take Rex home",
+          "They had built Rex before",
+          "They were bored in class"
+        ],
+        "answer": "A",
+        "skill": "inference",
+        "why": "Sara told Dr. Lina when the laugh felt wrong, so the kids knew what the problem felt like.",
+        "wrong": {
+          "B": "Nothing says they wanted to take Rex home.",
+          "C": "Dr. Lina built Rex.",
+          "D": "The kids are in the hospital, not in class."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "What did Sara do to help the engineers?",
+        "options": [
+          "She wrote new jokes",
+          "She fixed the sensor",
+          "She tracked bad laughs",
+          "She chose Rex's name"
+        ],
+        "answer": "C",
+        "skill": "detail",
+        "why": "The text says Sara kept track of exactly when the laugh felt wrong.",
+        "wrong": {
+          "A": "She did not write jokes.",
+          "B": "The engineers adjusted the sensor.",
+          "D": "Rex's name is not chosen in the story."
+        }
+      },
+      {
+        "stem": "In the article, the word startled means —",
+        "options": [
+          "made calm",
+          "made sleepy",
+          "badly surprised",
+          "made very hungry"
+        ],
+        "answer": "C",
+        "skill": "vocabulary",
+        "why": "The sudden loud laugh surprised people, which was the opposite of comforting.",
+        "wrong": {
+          "A": "The laugh did not calm people.",
+          "B": "The laugh did not make people sleepy.",
+          "D": "Hunger is not mentioned."
+        }
+      },
+      {
+        "stem": "Why did Rex laugh when a nurse closed a door?",
+        "options": [
+          "The nurse told a joke",
+          "His sensor was too keen",
+          "His speaker was broken",
+          "Sara pressed a button"
+        ],
+        "answer": "B",
+        "skill": "cause-effect",
+        "why": "The sensor was far too sensitive, so it set off the laugh at almost any sound.",
+        "wrong": {
+          "A": "The nurse did not tell a joke.",
+          "C": "The speaker worked; the sensor was the problem.",
+          "D": "Sara kept track of the laughs and pressed no button."
+        }
+      },
+      {
+        "stem": "Why did a sudden, loud laugh upset the patients in the ward?",
+        "options": [
+          "It scared worried patients",
+          "It woke the engineers",
+          "It broke the speakers",
+          "It came from the nurses"
+        ],
+        "answer": "A",
+        "skill": "inference",
+        "why": "Rex is there to comfort kids, but the sudden laugh startled people instead.",
+        "wrong": {
+          "B": "The engineers are not part of this problem.",
+          "C": "The speakers did not break.",
+          "D": "The laugh came from Rex."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "What does the algorithm now respond to after the fix?",
+        "options": [
+          "Any sound in the ward",
+          "The beep of a monitor",
+          "The click of a door",
+          "Real rising laughter"
+        ],
+        "answer": "D",
+        "skill": "detail",
+        "why": "The text says the algorithm now ignores background noise and responds to the rising sound of real laughter.",
+        "wrong": {
+          "A": "It now ignores ordinary noise.",
+          "B": "Monitor beeps are now ignored.",
+          "C": "Door clicks are now ignored."
+        }
+      },
+      {
+        "stem": "In the article, the word unsettled most nearly means —",
+        "options": [
+          "made uneasy",
+          "made hungry",
+          "made proud",
+          "made sleepy"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "The startling laugh was the opposite of comforting, so it made patients and nurses uneasy.",
+        "wrong": {
+          "B": "Hunger is not mentioned.",
+          "C": "The laugh did not make anyone proud.",
+          "D": "The laugh did not make anyone sleepy."
+        }
+      },
+      {
+        "stem": "How is the article organized?",
+        "options": [
+          "A list of the best jokes",
+          "Problem, fix, then reminder",
+          "Two robots are compared",
+          "Events are told backward"
+        ],
+        "answer": "B",
+        "skill": "text-structure",
+        "why": "It describes the laugh problem, then the changes the team made, then Dr. Lina's reminder about Rex.",
+        "wrong": {
+          "A": "No list of jokes is given.",
+          "C": "Only one robot is in the article.",
+          "D": "The events are told in the order they happened."
+        }
+      },
+      {
+        "stem": "How is Rex's two-second delay like a person's behavior?",
+        "options": [
+          "It copies how friends talk fast",
+          "It matches how people react",
+          "It copies how people sleep",
+          "It matches how nurses walk"
+        ],
+        "answer": "B",
+        "skill": "compare",
+        "why": "The text says the delay matches how people naturally react to something funny.",
+        "wrong": {
+          "A": "The delay is a pause, not fast talking.",
+          "C": "Sleep is not part of the delay.",
+          "D": "Nurses walking is not mentioned."
+        }
+      }
+    ]
   }
 }

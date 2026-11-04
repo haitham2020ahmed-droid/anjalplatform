@@ -614,5 +614,217 @@
       ],
       "modelAnswer": "I disagree that bayt al-sha'ar has little to teach modern builders. First, the article explains that its dark, woven panels work as a form of natural insulation, keeping the shaded space beneath noticeably cooler without any artificial cooling at all. Second, the article shows that the tent's portable, resilient design let nomadic families dismantle it quickly and survive sandstorms, proving that smart, simple design can solve real problems without complex technology. Because this centuries-old tent already solved cooling and durability in ways modern buildings still strive for, I think it has real lessons left to teach."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "Why did people move a lot in the desert long ago?",
+        "options": [
+          "To find a place with more snow",
+          "To find food and water",
+          "To find a new kind of cloth",
+          "To find a bigger tent to buy"
+        ],
+        "answer": "B",
+        "skill": "cause-effect",
+        "why": "The text says people moved a lot in the desert to find food and water.",
+        "wrong": {
+          "A": "The text talks about a hot desert, not snow.",
+          "C": "The cloth came from goats and camels, not from moving.",
+          "D": "The text does not say people bought tents."
+        }
+      },
+      {
+        "stem": "What happens to the hair right after goats and camels give it?",
+        "options": [
+          "It is made into a rope",
+          "It is put on a fire",
+          "It is washed in water",
+          "It is spun"
+        ],
+        "answer": "D",
+        "skill": "sequence",
+        "why": "The text says the hair was given, then it was spun, and then made into cloth.",
+        "wrong": {
+          "A": "The text says the ropes hold the tent, not that the hair is made into them first.",
+          "B": "The hair is used for cloth, and the text does not say it is burned.",
+          "C": "The text never says the hair is washed."
+        }
+      },
+      {
+        "stem": "The text says wind can pass through \"small gaps\" in the cloth. What are gaps?",
+        "options": [
+          "Small open spaces",
+          "Small sharp stones",
+          "Small dark spots",
+          "Small heavy ropes"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "Wind can pass through the gaps, so they must be small open spaces.",
+        "wrong": {
+          "B": "Wind cannot pass through stones.",
+          "C": "Dark spots would not let wind pass.",
+          "D": "Ropes hold the tent down and are not the gaps."
+        }
+      },
+      {
+        "stem": "Why does the author begin by talking about a home that can move?",
+        "options": [
+          "To ask readers to go and buy a tent",
+          "To tell readers that they must move soon",
+          "To get readers curious about a home that moves",
+          "To show that a house is better than a tent"
+        ],
+        "answer": "C",
+        "skill": "author-purpose",
+        "why": "The question starts the article by making readers curious about the tent that can move.",
+        "wrong": {
+          "A": "The article does not try to sell anything.",
+          "B": "The question does not tell readers to move.",
+          "D": "The article does not say that houses are better than tents."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "How did bayt al-sha'ar get its name?",
+        "options": [
+          "From the cloth made of hair",
+          "From the sand around the tent",
+          "From the camp where it was first built",
+          "From the poles used to hold it up"
+        ],
+        "answer": "A",
+        "skill": "detail",
+        "why": "The article says the tent gets its name from its cloth, which is woven from hair.",
+        "wrong": {
+          "B": "The article does not link the name to sand.",
+          "C": "The article does not name a first camp.",
+          "D": "The name means house of hair, not poles."
+        }
+      },
+      {
+        "stem": "What is the best reason for the article to say some families raise the tent for special visits?",
+        "options": [
+          "It is the cheapest kind of home to build",
+          "It is the only home that they have left",
+          "It stands for desert life and the past",
+          "It is much faster to build than a new house"
+        ],
+        "answer": "C",
+        "skill": "inference",
+        "why": "The article says the tent stands for desert life, so raising it for visits honors that tradition.",
+        "wrong": {
+          "A": "The article never talks about cost.",
+          "B": "The article says only that some families still raise one, not that it is their only home.",
+          "D": "Speed is not given as the reason for special visits."
+        }
+      },
+      {
+        "stem": "The article says the tent stands firm against strong \"gusts.\" What are gusts?",
+        "options": [
+          "Long, dry seasons",
+          "Sudden bursts of wind",
+          "Heavy loads of sand",
+          "Large groups of animals"
+        ],
+        "answer": "B",
+        "skill": "vocabulary",
+        "why": "The tent stands against wind in a sandstorm, so gusts are sudden bursts of wind.",
+        "wrong": {
+          "A": "Seasons are mentioned for moving, not for wind.",
+          "C": "Sand is carried by gusts, but the word gusts means the wind itself.",
+          "D": "Animals are not what the tent stands against."
+        }
+      },
+      {
+        "stem": "What lets a breeze move inside the tent on a hot, still day?",
+        "options": [
+          "The camel stands at the door",
+          "The panels are lifted by poles",
+          "The sides are left open all day",
+          "Small gaps between the threads"
+        ],
+        "answer": "D",
+        "skill": "cause-effect",
+        "why": "The article says small gaps between the threads let air pass through the walls.",
+        "wrong": {
+          "A": "A camel is used to carry the tent, not to make a breeze.",
+          "B": "Poles hold up the tent, but the article says the gaps let air in.",
+          "C": "The sides are closed in a sandstorm, and the breeze comes through the walls."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "According to the article, what was the inside of the tent usually like after a sandstorm passed?",
+        "options": [
+          "Cool but covered in sand",
+          "Torn and badly damaged",
+          "Mostly free of fine sand and dust",
+          "Too hot for the family to enter"
+        ],
+        "answer": "C",
+        "skill": "detail",
+        "why": "The article says the interior typically remained remarkably free of fine sand and dust.",
+        "wrong": {
+          "A": "The article says the cloth kept sand out.",
+          "B": "The article calls the tent resilient, so it was not badly damaged.",
+          "D": "The article says the shade stays cooler than the open desert."
+        }
+      },
+      {
+        "stem": "The article calls the tent \"portable.\" What does portable mean here?",
+        "options": [
+          "Easy to carry or move",
+          "Hard to take apart",
+          "Able to hold a large herd",
+          "Made of stone and brick"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "The family can take the tent down quickly and load it onto a camel, so portable means easy to move.",
+        "wrong": {
+          "B": "The article says it can be dismantled within a short time.",
+          "C": "The tent shelters a family, and herds are not mentioned inside.",
+          "D": "The article says a stone house is permanent, unlike this tent."
+        }
+      },
+      {
+        "stem": "Why do you think museums and cultural centers preserve examples of the tent?",
+        "options": [
+          "They want to sell tents to visitors",
+          "They want families to stop moving",
+          "They believe tents are better than houses",
+          "They see the tent as a valued part of heritage"
+        ],
+        "answer": "D",
+        "skill": "inference",
+        "why": "The article calls the tent a visible piece of desert heritage, so museums keep it for visitors to see.",
+        "wrong": {
+          "A": "The article says visitors come to see examples, not to buy.",
+          "B": "Nothing suggests museums want to change how families live.",
+          "C": "The article does not compare tents with houses in this way."
+        }
+      },
+      {
+        "stem": "What effect do the tiny gaps between the woven threads have on the tent?",
+        "options": [
+          "They keep out all the heat from the sun",
+          "They let air pass and create a gentle breeze",
+          "They make the tent heavy to carry on a camel",
+          "They help the panels stay dark in color"
+        ],
+        "answer": "B",
+        "skill": "cause-effect",
+        "why": "The article says the gaps let air pass steadily through the walls, creating a gentle breeze.",
+        "wrong": {
+          "A": "The dark panels absorb heat, and the gaps let air in.",
+          "C": "The article says the tent is portable and light enough to load.",
+          "D": "The color comes from the hair, not from the gaps."
+        }
+      }
+    ]
   }
 }

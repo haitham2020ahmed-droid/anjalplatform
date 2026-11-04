@@ -614,5 +614,217 @@
       ],
       "modelAnswer": "When you take a photo, light first reflects off an object and enters the camera through a small opening called the aperture. The lens bends, or refracts, this light so the rays meet and come into focus, forming a sharp image instead of a blurry one. Then the shutter opens for a very short exposure, letting just enough light reach the sensor, which is covered with millions of tiny pixels. Each pixel measures the light that hits it, and together they combine into a digital photo that your phone can save and share."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "How does light get into the camera?",
+        "options": [
+          "Through a hole in the front",
+          "Through the back of the box",
+          "Through the sensor dots",
+          "Through the shutter door"
+        ],
+        "answer": "A",
+        "skill": "detail",
+        "why": "The text says a camera is a dark box with a small hole in the front, and light gets in through it.",
+        "wrong": {
+          "B": "The light lands on the back of the box; it does not enter there.",
+          "C": "The dots are in the sensor at the back and record the light.",
+          "D": "The shutter opens after the light gets in the hole."
+        }
+      },
+      {
+        "stem": "The text says in a phone, there is a sensor at the back. What does the sensor do?",
+        "options": [
+          "It bends the light to make it sharp",
+          "It opens and shuts like a door",
+          "It tells how much light hit each dot",
+          "It lets the light into the box"
+        ],
+        "answer": "C",
+        "skill": "vocabulary",
+        "why": "The text says the sensor has small dots and each dot tells how much light hit it.",
+        "wrong": {
+          "A": "The lens bends the light.",
+          "B": "The shutter works like a door.",
+          "D": "The small hole lets the light in."
+        }
+      },
+      {
+        "stem": "The shutter opens fast and then shuts. What does this tell you about taking a photo?",
+        "options": [
+          "It needs the shutter to stay open all day",
+          "It takes a very short time",
+          "It takes a whole minute to finish",
+          "It needs the light to be turned off"
+        ],
+        "answer": "B",
+        "skill": "inference",
+        "why": "The shutter opens fast and shuts again, so the light is let in for only a very short time.",
+        "wrong": {
+          "A": "The text says the shutter is shut most of the time.",
+          "C": "The shutter opens fast, so the photo does not take a minute.",
+          "D": "The camera needs light to take a photo."
+        }
+      },
+      {
+        "stem": "Which part does the light meet right after it goes in through the hole?",
+        "options": [
+          "The shutter",
+          "The sensor",
+          "The lens",
+          "The eye"
+        ],
+        "answer": "C",
+        "skill": "sequence",
+        "why": "The text says there is a lens in the hole, and it bends the light before the shutter and sensor.",
+        "wrong": {
+          "A": "The shutter comes next after the lens.",
+          "B": "The sensor is at the back of the box.",
+          "D": "The eye is only compared to the camera."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "What does the shutter do?",
+        "options": [
+          "It bends the light to meet at one spot",
+          "It stays closed until you press the button",
+          "It measures the light that hits each pixel",
+          "It makes the opening bigger at night"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The article says the shutter works like a tiny door that stays closed until you press the button.",
+        "wrong": {
+          "A": "The lens bends the light.",
+          "C": "Pixels measure the light.",
+          "D": "The aperture's size changes how much light comes in."
+        }
+      },
+      {
+        "stem": "The text says we say the light reflects off it. What does reflects mean?",
+        "options": [
+          "Bends through glass",
+          "Bounces back",
+          "Turns to heat",
+          "Stops moving"
+        ],
+        "answer": "B",
+        "skill": "vocabulary",
+        "why": "The article says the light bounces off the cat in all directions, which is called reflecting.",
+        "wrong": {
+          "A": "The lens bends light; reflecting is bouncing.",
+          "C": "The text does not say light turns to heat.",
+          "D": "Reflected light keeps traveling into the camera."
+        }
+      },
+      {
+        "stem": "Why does the lens bend the light?",
+        "options": [
+          "So the rays meet at one spot to make it sharp",
+          "So the cat looks much bigger on the screen",
+          "So the shutter can open a little bit faster",
+          "So that less light is able to enter the box"
+        ],
+        "answer": "A",
+        "skill": "cause-effect",
+        "why": "The lens bends the light so the rays meet at one spot, which brings the image into focus.",
+        "wrong": {
+          "B": "The article does not say the lens makes the cat bigger.",
+          "C": "The lens and the shutter do different jobs.",
+          "D": "The aperture, not the lens, controls how much light enters."
+        }
+      },
+      {
+        "stem": "What can you tell about Ibn al-Haytham's work on light?",
+        "options": [
+          "He built the first phone that had a sensor",
+          "He learned how old film changes in sunlight",
+          "He found out that pixels measure the light",
+          "He explained how a small hole makes a picture"
+        ],
+        "answer": "D",
+        "skill": "inference",
+        "why": "He explained how light through a small hole in a dark room makes a picture, which is like a camera's opening.",
+        "wrong": {
+          "A": "The article does not say he made a phone.",
+          "B": "The article says old cameras used film, not that he studied it.",
+          "C": "Pixels are part of phones today."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "What does each pixel do with the light that reaches it?",
+        "options": [
+          "It turns the amount into a number",
+          "It bends the light into one point",
+          "It flips the picture back upright",
+          "It opens and closes like a door"
+        ],
+        "answer": "A",
+        "skill": "detail",
+        "why": "The article says each pixel measures how much light reaches it and turns that amount into a number.",
+        "wrong": {
+          "B": "The lens bends the light into one point.",
+          "C": "The camera flips the image back; pixels do not.",
+          "D": "The shutter works like a door."
+        }
+      },
+      {
+        "stem": "In the text, what does the word inverted mean?",
+        "options": [
+          "Brighter than before",
+          "Upside down",
+          "Smaller than before",
+          "Dull and blurry"
+        ],
+        "answer": "B",
+        "skill": "vocabulary",
+        "why": "The article explains that inverted means upside down.",
+        "wrong": {
+          "A": "The article does not say the image is brighter.",
+          "C": "The article does not say the image is smaller.",
+          "D": "The focus makes the image sharp, not blurry."
+        }
+      },
+      {
+        "stem": "How is the human eye similar to a camera?",
+        "options": [
+          "It has a shutter that stays closed",
+          "Its lens focuses light onto the retina",
+          "It records pictures with chemical film",
+          "Its pixels build a picture from numbers"
+        ],
+        "answer": "B",
+        "skill": "compare",
+        "why": "The article says the eye's lens focuses light onto the retina at the back of the eye, much as a camera lens does.",
+        "wrong": {
+          "A": "The article does not give the eye a shutter.",
+          "C": "Film was used in older cameras, not in the eye.",
+          "D": "Pixels belong to a phone's digital sensor."
+        }
+      },
+      {
+        "stem": "The dark room studied by Ibn al-Haytham produced an upside-down picture. What does this suggest about cameras?",
+        "options": [
+          "Cameras use the same idea of light through a small hole",
+          "Cameras were first invented long ago in a dark room",
+          "Cameras cannot work at all in rooms with lots of light",
+          "Cameras make upside-down pictures on the phone screen"
+        ],
+        "answer": "A",
+        "skill": "inference",
+        "why": "A small opening letting light make an upside-down picture is much like a camera's aperture and image.",
+        "wrong": {
+          "B": "The article does not say cameras were invented in a dark room.",
+          "C": "The phone camera in the article works in ordinary light.",
+          "D": "The camera flips the picture back before you see it."
+        }
+      }
+    ]
   }
 }

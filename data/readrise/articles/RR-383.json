@@ -614,5 +614,217 @@
       ],
       "modelAnswer": "I disagree that having better equipment is the most important part of being good at something. In the story, Yusuf's brand-new, expensive net failed him because he threw it before the right moment, while Saleh's old, patched net caught an enormous fish because Saleh patiently read the current, the ripples, and the diving birds. Someone might argue that good equipment still helps, and that is true, since a working net is necessary either way. But the story shows that inherited skill and patient observation, built over decades, matter far more than how large or costly a tool happens to be."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "How did Yusuf feel about his new net?",
+        "options": [
+          "He was proud of it.",
+          "He was afraid of it.",
+          "He wanted to give it away.",
+          "He did not like how big it was."
+        ],
+        "answer": "A",
+        "skill": "detail",
+        "why": "The text says Yusuf's new net was big and he was proud of it.",
+        "wrong": {
+          "B": "The text does not say he was afraid of it.",
+          "C": "He wanted to use it, not give it away.",
+          "D": "He liked that it was big."
+        }
+      },
+      {
+        "stem": "In the story, what are \"patches\" on a net?",
+        "options": [
+          "Large holes that fish made in it",
+          "Bright colors painted on the net",
+          "Strong ropes that tie up a boat",
+          "Small pieces that cover holes"
+        ],
+        "answer": "D",
+        "skill": "vocabulary",
+        "why": "Saleh's net was old and had patches, so the patches are pieces added to fix it.",
+        "wrong": {
+          "A": "Holes would hurt the net; patches fix it.",
+          "B": "Painting is not mentioned.",
+          "C": "Boat ropes are not mentioned."
+        }
+      },
+      {
+        "stem": "Why did Yusuf sit by his grandfather at the end?",
+        "options": [
+          "He was tired of fishing.",
+          "He wanted to learn from him.",
+          "He wanted to sell his new net.",
+          "He was afraid of the sea."
+        ],
+        "answer": "B",
+        "skill": "cause-effect",
+        "why": "Yusuf wanted to learn to watch and wait, too, so he sat by his grandfather.",
+        "wrong": {
+          "A": "He wanted to learn more about fishing.",
+          "C": "Selling the net is not mentioned.",
+          "D": "Fear is not mentioned."
+        }
+      },
+      {
+        "stem": "What happened first on the day they went to fish?",
+        "options": [
+          "Saleh caught a big fish from the sea.",
+          "Yusuf asked how Saleh did it.",
+          "Saleh sat and watched the water.",
+          "A big fish swam away from Yusuf."
+        ],
+        "answer": "C",
+        "skill": "sequence",
+        "why": "The old man sat and watched the water first, before Yusuf threw his net.",
+        "wrong": {
+          "A": "Saleh caught his fish later.",
+          "B": "Yusuf asked this at the end.",
+          "D": "The fish swam away after Yusuf threw his net."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "Where did Saleh and Yusuf go to fish?",
+        "options": [
+          "To a wide river",
+          "To the village market",
+          "To the rocky shore",
+          "To a deep lake"
+        ],
+        "answer": "C",
+        "skill": "detail",
+        "why": "The text says the two walked down to the rocky shore to fish.",
+        "wrong": {
+          "A": "No river is mentioned.",
+          "B": "The market is not where they fished.",
+          "D": "No lake is mentioned."
+        }
+      },
+      {
+        "stem": "In the article, what does the word \"restless\" mean?",
+        "options": [
+          "Very sleepy and moving slowly",
+          "Unable to stay calm and still",
+          "Proud, happy, and well rested",
+          "Cold, wet, and shaking hard"
+        ],
+        "answer": "B",
+        "skill": "vocabulary",
+        "why": "Yusuf could not bear to wait, so he was restless, meaning he could not stay calm.",
+        "wrong": {
+          "A": "He wanted to act, not sleep.",
+          "C": "He was impatient, not happy and rested.",
+          "D": "Cold is not mentioned."
+        }
+      },
+      {
+        "stem": "Why did Yusuf feel sure he would be a great fisherman?",
+        "options": [
+          "He had already fished for fifty years",
+          "His grandfather had promised him so",
+          "He had once won a fishing contest",
+          "He thought a big new net was enough"
+        ],
+        "answer": "D",
+        "skill": "cause-effect",
+        "why": "He was proud of his large, costly net and thought it would make him a great fisherman.",
+        "wrong": {
+          "A": "Saleh had fished for fifty years, not Yusuf.",
+          "B": "No promise is mentioned.",
+          "C": "No contest is mentioned."
+        }
+      },
+      {
+        "stem": "Why does the author say Saleh used the same careful technique he had used for fifty years?",
+        "options": [
+          "To show his skill came from long practice",
+          "To show he was too old to learn new things",
+          "To explain why his net was patched",
+          "To show Yusuf was older than Saleh"
+        ],
+        "answer": "A",
+        "skill": "author-purpose",
+        "why": "The detail shows that years of practice gave Saleh his skill at reading the sea.",
+        "wrong": {
+          "B": "Saleh's skill shows he had learned a lot.",
+          "C": "The patches have a different reason: they show the net was old.",
+          "D": "Yusuf is Saleh's grandson and younger."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "How long had Saleh used the same careful technique?",
+        "options": [
+          "Five years",
+          "Two years",
+          "Fifty years",
+          "A hundred years"
+        ],
+        "answer": "C",
+        "skill": "detail",
+        "why": "The text says he used the same technique he had relied on for fifty years.",
+        "wrong": {
+          "A": "Five years is too short.",
+          "B": "Two years is too short.",
+          "D": "A hundred years is too long for one man."
+        }
+      },
+      {
+        "stem": "In the article, what does the word \"weathered\" mean about Saleh's net?",
+        "options": [
+          "Brand-new and still very shiny",
+          "Light enough to float on the sea",
+          "Woven with bright golden thread",
+          "Worn and marked by long use"
+        ],
+        "answer": "D",
+        "skill": "vocabulary",
+        "why": "The net is weathered, patched, and faded with age, so it is worn by long use.",
+        "wrong": {
+          "A": "The net was old, not new.",
+          "B": "Floating is not mentioned.",
+          "C": "The net was faded, not golden."
+        }
+      },
+      {
+        "stem": "Why did Yusuf feel embarrassed at the end of the story?",
+        "options": [
+          "His impatience had cost him the big fish",
+          "His new net had been ripped on the rocks",
+          "Saleh had laughed at him in front of the village",
+          "He had lost his uncle's gift in the sea"
+        ],
+        "answer": "A",
+        "skill": "cause-effect",
+        "why": "Yusuf felt embarrassed about his stubborn impatience, which made him throw the net too soon.",
+        "wrong": {
+          "B": "The net was not ripped.",
+          "C": "Saleh spoke gently and did not laugh.",
+          "D": "Yusuf still had his net."
+        }
+      },
+      {
+        "stem": "What do the two nets help the author show?",
+        "options": [
+          "That expensive tools are always the best choice",
+          "That skill and patience matter more than equipment",
+          "That Yusuf's uncle was richer than Saleh",
+          "That fishing nets cannot be repaired"
+        ],
+        "answer": "B",
+        "skill": "compare",
+        "why": "The old net caught the big fish while the new net caught nothing, so patience matters more than the net.",
+        "wrong": {
+          "A": "The expensive net failed to catch a fish.",
+          "C": "The text does not compare the uncle and Saleh.",
+          "D": "Saleh's net was patched and still worked."
+        }
+      }
+    ]
   }
 }

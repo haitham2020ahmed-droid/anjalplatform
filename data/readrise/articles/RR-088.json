@@ -614,5 +614,217 @@
       ],
       "modelAnswer": "I agree that a failed experiment can be just as valuable as a successful one, and Abbas ibn Firnas proves this well. Even though his flight ended in an injury rather than a perfect landing, he still demonstrated that a person wearing carefully built wings could glide through the air for a real distance, a discovery future inventors could build upon. His own explanation of the failure, that he had forgotten to imitate the tail birds use to slow down, gave future experimenters a precise lesson about what still needed solving. Because his attempt revealed both what worked and exactly what did not, historians still consider his flight part of his lasting legacy, showing that even an imperfect experiment can move knowledge forward."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "What did Abbas make that ran on water?",
+        "options": [
+          "A pair of wings",
+          "A clock",
+          "A small boat",
+          "A tall bridge"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The text says he made a clock that ran on water.",
+        "wrong": {
+          "A": "The wings were made of wood, silk, and feathers.",
+          "C": "A boat is not mentioned.",
+          "D": "A bridge is not mentioned as something he made."
+        }
+      },
+      {
+        "stem": "In the article, an inventor is a person who —",
+        "options": [
+          "hurts his back often",
+          "lives on the Moon",
+          "watches the night sky",
+          "makes new things"
+        ],
+        "answer": "D",
+        "skill": "vocabulary",
+        "why": "The text says Abbas was an inventor and that he made new things.",
+        "wrong": {
+          "A": "He hurt his back once.",
+          "B": "Only a crater has his name; he did not live on the Moon.",
+          "C": "He made a room like the night sky, but that is not what an inventor is."
+        }
+      },
+      {
+        "stem": "Why did Abbas go up a high hill to try his wings?",
+        "options": [
+          "He needed a high place to jump from",
+          "He wanted to sell the wings there",
+          "He wanted to find more feathers",
+          "He wanted to see the Moon"
+        ],
+        "answer": "A",
+        "skill": "inference",
+        "why": "He jumped and glided through the air, so he needed a high place to start from.",
+        "wrong": {
+          "B": "Nothing says he wanted to sell them.",
+          "C": "He had already put feathers on the wings.",
+          "D": "The Moon is mentioned only for the crater."
+        }
+      },
+      {
+        "stem": "What did the special room that Abbas made look like?",
+        "options": [
+          "A hill with silk",
+          "A big clock",
+          "The sky at night",
+          "A bird's nest"
+        ],
+        "answer": "C",
+        "skill": "detail",
+        "why": "The text says he made a room that looked like the sky at night.",
+        "wrong": {
+          "A": "The hill is where he jumped.",
+          "B": "The clock was a different invention.",
+          "D": "A nest is not mentioned."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "What did Abbas cover his wooden frame with?",
+        "options": [
+          "Silk and many feathers",
+          "Crystal cut in Egypt long ago",
+          "Clouds painted on wood",
+          "Metal plates from Egypt"
+        ],
+        "answer": "A",
+        "skill": "detail",
+        "why": "The text says he built a light wooden frame, covered it with silk, and attached many feathers.",
+        "wrong": {
+          "B": "Crystal was something he learned to cut, not a wing cover.",
+          "C": "Clouds were in his sky room.",
+          "D": "Metal plates are not mentioned."
+        }
+      },
+      {
+        "stem": "In the article, the word scholars means —",
+        "options": [
+          "kinds of birds",
+          "pieces of cut crystal",
+          "people who study a lot",
+          "clocks that use water"
+        ],
+        "answer": "C",
+        "skill": "vocabulary",
+        "why": "Cordoba was famous for its scholars and libraries, so scholars are people who study and learn.",
+        "wrong": {
+          "A": "Birds are not called scholars.",
+          "B": "Crystal is a hard, clear rock.",
+          "D": "Water clocks were an invention of Abbas."
+        }
+      },
+      {
+        "stem": "Abbas was already an old man when he jumped. What does this show?",
+        "options": [
+          "He was too weak to try",
+          "He kept trying new things",
+          "He wanted a young helper",
+          "He did not like birds"
+        ],
+        "answer": "B",
+        "skill": "inference",
+        "why": "Even as an old man he tried something new and brave.",
+        "wrong": {
+          "A": "He climbed a high hill and glided.",
+          "C": "Nothing says he wanted a helper.",
+          "D": "He loved to watch birds."
+        }
+      },
+      {
+        "stem": "What made Abbas dream of flying?",
+        "options": [
+          "A poem that he wrote for a king",
+          "A trip that he took to Egypt",
+          "A visit that he made to the Moon",
+          "Watching birds stay in the air"
+        ],
+        "answer": "D",
+        "skill": "cause-effect",
+        "why": "He loved to watch birds and wondered how they stayed in the air so long.",
+        "wrong": {
+          "A": "Poems are not given as the reason.",
+          "B": "Egypt is only where crystal was once sent.",
+          "C": "The Moon only has a crater with his name."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "How did Abbas build his wings?",
+        "options": [
+          "With metal, leather, and glass beads",
+          "With wood, silk, and many feathers",
+          "With crystal, wax, and paper sails",
+          "With clay, rope, and wet sand"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The text says he used a lightweight wooden frame, covered it with silk, and attached feathers.",
+        "wrong": {
+          "A": "Metal and leather are not mentioned.",
+          "C": "Crystal and wax are not mentioned for the wings.",
+          "D": "Clay, rope, and sand are not mentioned."
+        }
+      },
+      {
+        "stem": "In the article, the word plummeting most nearly means —",
+        "options": [
+          "floating gently",
+          "climbing slowly",
+          "turning around",
+          "falling fast"
+        ],
+        "answer": "D",
+        "skill": "vocabulary",
+        "why": "Instead of plummeting straight down, he traveled a distance, so plummeting means falling fast.",
+        "wrong": {
+          "A": "If he had been floating, the sentence would not contrast it.",
+          "B": "Climbing is not the idea.",
+          "C": "Turning around is not the idea."
+        }
+      },
+      {
+        "stem": "Why did Abbas travel a considerable distance instead of falling straight down?",
+        "options": [
+          "His wings allowed him to glide",
+          "He jumped from the highest mountain",
+          "A strong wind carried him home",
+          "The crowd pushed him forward"
+        ],
+        "answer": "A",
+        "skill": "cause-effect",
+        "why": "The text says his wings allowed him to glide.",
+        "wrong": {
+          "B": "He jumped from a hill, not a mountain.",
+          "C": "Wind is not mentioned.",
+          "D": "The crowd watched; nobody pushed him."
+        }
+      },
+      {
+        "stem": "Why was Cordoba a good place for an inventor like Abbas?",
+        "options": [
+          "It had no libraries or scholars at all",
+          "It was famous mainly for its deserts",
+          "It was full of scholars and new ideas",
+          "It was the capital city of ancient Egypt"
+        ],
+        "answer": "C",
+        "skill": "inference",
+        "why": "Cordoba was celebrated for its libraries, scholars, and scientific ideas, which helped creative minds.",
+        "wrong": {
+          "A": "Cordoba had enormous libraries and scholars.",
+          "B": "Cordoba was famous for learning, not deserts.",
+          "D": "Cordoba was in Spain, not Egypt."
+        }
+      }
+    ]
   }
 }

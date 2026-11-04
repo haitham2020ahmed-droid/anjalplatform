@@ -614,5 +614,217 @@
       ],
       "modelAnswer": "A colony can function well without any ant giving orders because each ant simply reacts to signals and does its own job, and together those actions add up to organized cooperation. For example, a worker that finds food leaves a pheromone trail, and other ants follow that scent without needing to be told, which lets the whole colony find food efficiently. Likewise, when a load is too heavy for one ant, several ants cooperate automatically to carry it together, and worker ants naturally divide into roles such as caring for larvae, digging tunnels, or defending the nest. None of this requires a leader directing traffic; it shows how simple individual behaviors, repeated by thousands of ants, create complex teamwork for the whole colony."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "What is one job of a worker ant?",
+        "options": [
+          "Laying eggs",
+          "Guarding the nest",
+          "Flying to new nests",
+          "Giving orders to the queen"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The text says workers dig, care for the young, guard the nest, and find food.",
+        "wrong": {
+          "A": "Only the queen lays eggs.",
+          "C": "The text says only some male ants have wings, and they are not workers.",
+          "D": "The text never says ants give orders."
+        }
+      },
+      {
+        "stem": "Which ants have wings?",
+        "options": [
+          "Male ants",
+          "Worker ants",
+          "Ants that dig tunnels",
+          "Ants that guard the nest"
+        ],
+        "answer": "A",
+        "skill": "compare",
+        "why": "The text says some ants are male and they have wings.",
+        "wrong": {
+          "B": "Workers are female and are not described with wings.",
+          "C": "The ants that dig are workers.",
+          "D": "The ants that guard the nest are workers."
+        }
+      },
+      {
+        "stem": "Why do some ants cut bits of leaf?",
+        "options": [
+          "To eat them for lunch",
+          "To build a tall nest roof",
+          "To show the way to food",
+          "To grow food on them"
+        ],
+        "answer": "D",
+        "skill": "cause-effect",
+        "why": "The text says some ants cut bits of leaf and grow food on the bits.",
+        "wrong": {
+          "A": "The ants do not eat the leaf bits themselves.",
+          "B": "The text does not say the leaves are used for a roof.",
+          "C": "The trail of scent shows the way to food."
+        }
+      },
+      {
+        "stem": "The text says the colony works as one team. What can you tell from this?",
+        "options": [
+          "Ants fight with other ants a lot.",
+          "Each ant works alone most days.",
+          "Ants work together to get jobs done.",
+          "All ants in a colony are one size."
+        ],
+        "answer": "C",
+        "skill": "inference",
+        "why": "The article shows ants sharing jobs and news, so they act like a team.",
+        "wrong": {
+          "A": "The text shows ants helping each other, not fighting.",
+          "B": "The text shows ants working with the colony.",
+          "D": "The text does not say they are all one size."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "How many ants can a giant colony have?",
+        "options": [
+          "A few dozen",
+          "About ten",
+          "Just one queen",
+          "Millions"
+        ],
+        "answer": "D",
+        "skill": "detail",
+        "why": "The text says a giant colony can have millions of ants.",
+        "wrong": {
+          "A": "A few dozen is for a small colony.",
+          "B": "Ten is far fewer than the text says.",
+          "C": "A colony has a queen and many workers."
+        }
+      },
+      {
+        "stem": "What do ants do when a load is too big for one ant?",
+        "options": [
+          "They leave it on the ground and go home.",
+          "Several ants cooperate to move it.",
+          "The queen comes out to carry it.",
+          "They wait for the male ants to fly it."
+        ],
+        "answer": "B",
+        "skill": "cause-effect",
+        "why": "The text says that when a load is too big, several ants cooperate to move it.",
+        "wrong": {
+          "A": "The text says they work together to move it.",
+          "C": "The queen lays eggs and does not carry loads.",
+          "D": "Male ants live a short time to mate, not to carry loads."
+        }
+      },
+      {
+        "stem": "In the article, the word organized means —",
+        "options": [
+          "having jobs and working in good order",
+          "spread out all over a wide sidewalk",
+          "covered with a special scent",
+          "hiding under the ground"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "The ants each have jobs and work together as one team.",
+        "wrong": {
+          "B": "The ants are in a line, not spread out.",
+          "C": "The scent is used for trails, not for this meaning.",
+          "D": "The word describes the group, not where it hides."
+        }
+      },
+      {
+        "stem": "Why is the queen most likely so important to the colony?",
+        "options": [
+          "She finds all of the food.",
+          "She gives orders to the workers.",
+          "She is the only ant that lays eggs.",
+          "She is the only ant that has wings."
+        ],
+        "answer": "C",
+        "skill": "inference",
+        "why": "Only the queen lays eggs, so the colony needs her to have new ants.",
+        "wrong": {
+          "A": "Workers go out to gather food.",
+          "B": "The text says no ant gives orders.",
+          "D": "The male ants have wings."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "In the article, the word immature describes ants that are —",
+        "options": [
+          "able to dig tunnels",
+          "not yet fully grown",
+          "unable to smell trails",
+          "living far from the nest"
+        ],
+        "answer": "B",
+        "skill": "vocabulary",
+        "why": "Larvae are young ants, not adults, so immature means not fully grown.",
+        "wrong": {
+          "A": "Older workers dig tunnels.",
+          "C": "Smelling trails is done with antennae by workers.",
+          "D": "The text says nurses care for larvae in the nest."
+        }
+      },
+      {
+        "stem": "What is the primary purpose of the male ants?",
+        "options": [
+          "To nurse the larvae",
+          "To build tunnels and chambers",
+          "To defend the entrance of the nest",
+          "To mate with a young queen"
+        ],
+        "answer": "D",
+        "skill": "detail",
+        "why": "The text says their primary purpose is to mate with a young queen.",
+        "wrong": {
+          "A": "Younger workers nurse the larvae.",
+          "B": "Older workers excavate tunnels.",
+          "C": "Older workers defend the entrance."
+        }
+      },
+      {
+        "stem": "Why do several ants coordinate their movements to transport an object?",
+        "options": [
+          "The object is too large for one ant to carry",
+          "The queen has ordered them to work together",
+          "The pheromone trail has grown too weak",
+          "The object is a fungus that must be protected"
+        ],
+        "answer": "A",
+        "skill": "cause-effect",
+        "why": "The text says when an object is too large, several ants coordinate to move it together.",
+        "wrong": {
+          "B": "The text says no ant issues orders.",
+          "C": "A stronger trail, not a weaker one, comes from more ants.",
+          "D": "The fungus grows on leaves and is not what they move here."
+        }
+      },
+      {
+        "stem": "Why does the author point out that no ant gives commands to the others?",
+        "options": [
+          "To show that ants are afraid of the queen",
+          "To explain how ants dig their tunnels and chambers",
+          "To show teamwork can happen without a leader",
+          "To argue that ants are weaker than people"
+        ],
+        "answer": "C",
+        "skill": "author-purpose",
+        "why": "The author points out that simple rules, not orders, make the colony an efficient team.",
+        "wrong": {
+          "A": "The text does not say ants fear the queen.",
+          "B": "The sentence is about orders, not digging.",
+          "D": "The article says ants are very strong for their size."
+        }
+      }
+    ]
   }
 }

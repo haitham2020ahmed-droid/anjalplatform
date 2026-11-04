@@ -614,5 +614,217 @@
       ],
       "modelAnswer": "I think brushing with fluoride toothpaste does the most to prevent tooth decay. Fluoride is a mineral that strengthens enamel, which matters most for permanent adult teeth that must last a lifetime, so a stronger enamel layer resists the acid that would otherwise erode it. Flossing, visiting the dentist, and even the traditional miswak stick's antibacterial substances all help too, but none of them rebuild enamel the way fluoride does, which is why I chose brushing as the most important daily habit."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "How many baby teeth do kids have?",
+        "options": [
+          "12",
+          "20",
+          "32",
+          "28"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The text says kids have 20 baby teeth.",
+        "wrong": {
+          "A": "The text says 20, not 12.",
+          "C": "Adults, not kids, have 32 teeth.",
+          "D": "The text does not give 28."
+        }
+      },
+      {
+        "stem": "What is enamel?",
+        "options": [
+          "The hard coat on a tooth",
+          "A sticky film on teeth",
+          "A hole in a tooth",
+          "A stick from a tree"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "The text says each tooth has a hard coat called enamel.",
+        "wrong": {
+          "B": "The sticky film is called plaque.",
+          "C": "A hole in a tooth is a cavity.",
+          "D": "The stick from a tree is a miswak."
+        }
+      },
+      {
+        "stem": "What can acid from germs do to a tooth?",
+        "options": [
+          "Make it grow longer",
+          "Make it shine more",
+          "Make a hole in it",
+          "Make it fall out fast"
+        ],
+        "answer": "C",
+        "skill": "cause-effect",
+        "why": "The text says acid can make a hole in a tooth, called a cavity.",
+        "wrong": {
+          "A": "The text does not say acid makes teeth grow.",
+          "B": "Acid hurts teeth, it does not make them shine.",
+          "D": "The text says baby teeth fall out at about age six, not because of acid."
+        }
+      },
+      {
+        "stem": "How long should you brush your teeth each time?",
+        "options": [
+          "One short minute",
+          "Five long minutes",
+          "Ten long minutes",
+          "Two full minutes"
+        ],
+        "answer": "D",
+        "skill": "detail",
+        "why": "The text says to brush for two full minutes.",
+        "wrong": {
+          "A": "One minute is too short for the text.",
+          "B": "The text says two minutes, not five.",
+          "C": "The text says two minutes, not ten."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "According to the article, what is the hardest material in the human body?",
+        "options": [
+          "Plaque",
+          "Fluoride",
+          "Enamel",
+          "Bacteria"
+        ],
+        "answer": "C",
+        "skill": "detail",
+        "why": "The article says enamel is the hardest material in the human body.",
+        "wrong": {
+          "A": "Plaque is a thin, sticky film.",
+          "B": "Fluoride is a helper in toothpaste.",
+          "D": "Bacteria are tiny living things."
+        }
+      },
+      {
+        "stem": "In the article, a cavity is —",
+        "options": [
+          "a hole in a tooth",
+          "a kind of toothbrush",
+          "a type of sweet food",
+          "a hard outer coat"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "The article says acid can damage enamel and make a hole called a cavity.",
+        "wrong": {
+          "B": "A toothbrush cleans teeth; it is not a cavity.",
+          "C": "Sweet food can lead to cavities but is not one.",
+          "D": "The hard outer coat is the enamel."
+        }
+      },
+      {
+        "stem": "Why do baby teeth begin to fall out at about age six?",
+        "options": [
+          "They are hurt by sugar",
+          "They are cleaned by floss",
+          "They are too sticky",
+          "Larger teeth grow in below"
+        ],
+        "answer": "D",
+        "skill": "cause-effect",
+        "why": "The article says larger adult teeth grow in to replace the baby teeth.",
+        "wrong": {
+          "A": "Sugar is linked to cavities, not to baby teeth falling out.",
+          "B": "Floss cleans between teeth, it does not push teeth out.",
+          "C": "Stickiness is a feature of plaque."
+        }
+      },
+      {
+        "stem": "Why does the author begin by talking about smiling, biting an apple, and saying hello?",
+        "options": [
+          "To teach how to eat apples",
+          "To show we use teeth often",
+          "To tell a funny story",
+          "To warn about sugary food"
+        ],
+        "answer": "B",
+        "skill": "author-purpose",
+        "why": "These everyday actions show that we use our teeth all day long.",
+        "wrong": {
+          "A": "The article is not about how to eat apples.",
+          "C": "The opening is not a story and is not meant to be funny.",
+          "D": "The warning about sugar comes later in the article."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "According to the article, why is flossing important?",
+        "options": [
+          "It makes enamel thicker",
+          "It removes plaque a brush cannot reach",
+          "It replaces the need for toothpaste",
+          "It stops baby teeth from falling out"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The article says floss removes plaque from between your teeth, where a toothbrush cannot reach.",
+        "wrong": {
+          "A": "Fluoride strengthens enamel, not floss.",
+          "C": "The article says to use both floss and toothpaste.",
+          "D": "Baby teeth fall out naturally around age six."
+        }
+      },
+      {
+        "stem": "The article says sweets \"nourish\" bacteria. What does nourish mean here?",
+        "options": [
+          "Clean and wash",
+          "Feed and help grow",
+          "Slow down and stop",
+          "Cover and protect"
+        ],
+        "answer": "B",
+        "skill": "vocabulary",
+        "why": "Bacteria feed on sugar and then produce acid, so sweets feed them.",
+        "wrong": {
+          "A": "Sweets do not clean bacteria.",
+          "C": "Sweets help bacteria, not stop them.",
+          "D": "Bacteria are not being protected by sweets in the text."
+        }
+      },
+      {
+        "stem": "Why does the author begin with smiling, biting an apple, and greeting a friend?",
+        "options": [
+          "To show that teeth are used all day",
+          "To describe how apples are grown",
+          "To explain how to greet a friend",
+          "To warn readers about sweet foods"
+        ],
+        "answer": "A",
+        "skill": "author-purpose",
+        "why": "These everyday actions show that people depend on their teeth from morning until night.",
+        "wrong": {
+          "B": "The article never talks about growing apples.",
+          "C": "Greeting a friend is just an example of using teeth.",
+          "D": "Sweet foods are discussed later, not in the opening."
+        }
+      },
+      {
+        "stem": "Karim brushes twice a day with fluoride toothpaste but sips sugary drinks all day. What is the most reasonable conclusion?",
+        "options": [
+          "His teeth are completely safe",
+          "His teeth will grow back",
+          "His dentist visits are not needed",
+          "His teeth are still at risk"
+        ],
+        "answer": "D",
+        "skill": "inference",
+        "why": "Sugary drinks feed the bacteria, which make acid that can erode enamel even if he brushes.",
+        "wrong": {
+          "A": "The article says sugar still feeds the bacteria that cause decay.",
+          "B": "Permanent teeth do not grow back.",
+          "C": "The article says to visit a dentist every six months."
+        }
+      }
+    ]
   }
 }

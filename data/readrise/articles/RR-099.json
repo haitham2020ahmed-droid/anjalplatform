@@ -614,5 +614,217 @@
       ],
       "modelAnswer": "I agree that conservation is everyone's responsibility, because the article shows how much effort goes into every drop of tap water before it ever reaches a home. Desalination plants must remove salt from sea water using costly coastal infrastructure, a process that uses significant energy before the water can even be treated. The water then goes through treatment to remove contaminants, from trash caught by screens to the dirt trapped by sand and gravel, before powerful pumps create the pressure needed to push it through pipes beneath entire cities. Since turning on a tap depends on this long chain of infrastructure and energy, wasting water wastes all of that invested effort, which is exactly why conservation should matter to everyone, not just engineers."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "What do the big screens catch?",
+        "options": [
+          "Mud and dirt",
+          "Salt and sand",
+          "Germs and bleach",
+          "Trash and sticks"
+        ],
+        "answer": "D",
+        "skill": "detail",
+        "why": "The text says big screens catch trash and sticks.",
+        "wrong": {
+          "A": "Mud and dirt sink in a tank.",
+          "B": "Salt is taken out at the big plants.",
+          "C": "Bleach is added to kill germs."
+        }
+      },
+      {
+        "stem": "Why must sea water be changed before people drink it?",
+        "options": [
+          "It has salt in it",
+          "It is too cold",
+          "It has no water",
+          "It is too clean"
+        ],
+        "answer": "A",
+        "skill": "cause-effect",
+        "why": "The text says sea water has salt and is not good to drink.",
+        "wrong": {
+          "B": "Cold is not mentioned.",
+          "C": "Sea water is water.",
+          "D": "The water is made clean in later steps."
+        }
+      },
+      {
+        "stem": "What happens right after the mud and dirt sink in the tank?",
+        "options": [
+          "The water goes down a drain",
+          "Workers add the bleach",
+          "The water goes through a filter",
+          "The pipes bring it to homes"
+        ],
+        "answer": "C",
+        "skill": "sequence",
+        "why": "The text says that after the mud and dirt sink, the water goes through a filter.",
+        "wrong": {
+          "A": "Drain water is water that was already used.",
+          "B": "Bleach is added after the filter.",
+          "D": "Pipes come near the end."
+        }
+      },
+      {
+        "stem": "In the article, the word fresh means water that —",
+        "options": [
+          "is very warm",
+          "has no salt",
+          "is full of germs",
+          "is very old"
+        ],
+        "answer": "B",
+        "skill": "vocabulary",
+        "why": "Big plants take the salt out, and then the water is fresh.",
+        "wrong": {
+          "A": "Warmth is not the idea.",
+          "C": "Germs are killed later.",
+          "D": "Age is not the idea."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "How far is some desalinated water carried to cities like Riyadh?",
+        "options": [
+          "Hundreds of kilometers",
+          "Just a few meters",
+          "About ten kilometers",
+          "Across the whole sea"
+        ],
+        "answer": "A",
+        "skill": "detail",
+        "why": "The text says some of it is carried hundreds of kilometers to cities like Riyadh.",
+        "wrong": {
+          "B": "A few meters is far too short.",
+          "C": "Ten kilometers is far too short.",
+          "D": "The water is carried by pipes over land."
+        }
+      },
+      {
+        "stem": "Why do workers add chlorine to the water?",
+        "options": [
+          "To make the water taste sweet and cool",
+          "To make the mud sink to the bottom faster",
+          "To kill germs that can make people sick",
+          "To take all the salt out of the water"
+        ],
+        "answer": "C",
+        "skill": "cause-effect",
+        "why": "The text says chlorine is added to kill germs that can make people sick.",
+        "wrong": {
+          "A": "Taste is not mentioned.",
+          "B": "Mud sinks by resting in a tank.",
+          "D": "Desalination plants take out the salt."
+        }
+      },
+      {
+        "stem": "In the article, the word inland means —",
+        "options": [
+          "deep under the sea",
+          "away from the coast",
+          "high above the clouds",
+          "inside a long pipe"
+        ],
+        "answer": "B",
+        "skill": "vocabulary",
+        "why": "Water starts at the coast and travels inland to cities such as Riyadh.",
+        "wrong": {
+          "A": "The water leaves the sea.",
+          "C": "Clouds are not mentioned.",
+          "D": "The pipes carry the water but that is not what inland means."
+        }
+      },
+      {
+        "stem": "What happens right after the water flows through the sand and stone filter?",
+        "options": [
+          "Mud sinks to the bottom of a tank",
+          "Big screens catch the trash and sticks",
+          "The water is used to water the farms",
+          "Workers add chlorine to kill germs"
+        ],
+        "answer": "D",
+        "skill": "sequence",
+        "why": "After the filter, the text says workers add chlorine to kill germs.",
+        "wrong": {
+          "A": "The tank comes before the filter.",
+          "B": "Screens come first.",
+          "C": "Farm use comes after the water goes down the drain."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "How does the article describe Saudi Arabia's place among producers of desalinated water?",
+        "options": [
+          "It makes none at all",
+          "It is one of the largest",
+          "It is the very smallest",
+          "It buys all of its water"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The text says the Kingdom is one of the largest producers of desalinated water in the world.",
+        "wrong": {
+          "A": "The text says it relies on the sea for water.",
+          "C": "The text says it is one of the largest, not the smallest.",
+          "D": "It makes its own water from the sea."
+        }
+      },
+      {
+        "stem": "Why does Saudi Arabia depend heavily on the sea for drinking water?",
+        "options": [
+          "Wells are not allowed in the Kingdom",
+          "Lakes cost too much money to use",
+          "Rivers are too far away from the cities",
+          "It has few rivers and little rain"
+        ],
+        "answer": "D",
+        "skill": "cause-effect",
+        "why": "The text says it has almost no permanent rivers and very little rainfall.",
+        "wrong": {
+          "A": "Wells are named as a possible source.",
+          "B": "Cost is not the reason given.",
+          "C": "The text says there are almost no rivers."
+        }
+      },
+      {
+        "stem": "In the article, the word infrastructure means —",
+        "options": [
+          "pipes, plants, and tanks that serve people",
+          "a kind of drink made from salt and water",
+          "a test done in a laboratory each week",
+          "a group of rivers and lakes near cities"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "The text describes a huge system that most people never see, such as plants, pipelines, and tanks.",
+        "wrong": {
+          "B": "Drinks are not mentioned.",
+          "C": "Tests are only one small part.",
+          "D": "Saudi Arabia has few rivers and lakes."
+        }
+      },
+      {
+        "stem": "Why do laboratory workers test samples of water regularly?",
+        "options": [
+          "To collect more salt from water",
+          "To make sure the water is safe",
+          "To make the water pipes longer",
+          "To save energy at the plant"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The text says samples are tested regularly to make sure the water is safe.",
+        "wrong": {
+          "A": "Salt is removed, not collected.",
+          "C": "Pipes are not made in the lab.",
+          "D": "Saving energy is not the reason given."
+        }
+      }
+    ]
   }
 }

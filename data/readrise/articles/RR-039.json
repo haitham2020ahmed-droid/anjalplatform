@@ -614,5 +614,217 @@
       ],
       "modelAnswer": "I disagree that behaviors like huddling matter more than body features like blubber for penguin survival, because the article shows that both work together as a layered system of insulation. Under their skin, penguins already have a thick layer of blubber plus tightly packed feathers that block wind and water before any huddling even begins, so the body features provide a constant baseline of warmth every single day. Huddling is certainly important during extreme storms, since hundreds of birds take turns in the warm center of the group, but without the blubber and feathers underneath, huddling alone could not keep a penguin alive through Antarctica's brutal winter."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "How tall is an emperor penguin?",
+        "options": [
+          "As tall as a big truck",
+          "As tall as a grown-up man",
+          "As tall as a small child",
+          "As tall as a tall palm tree"
+        ],
+        "answer": "C",
+        "skill": "detail",
+        "why": "The text says the emperor penguin is as tall as a small child.",
+        "wrong": {
+          "A": "A truck is far taller than a penguin.",
+          "B": "A grown-up man is taller than the penguin.",
+          "D": "A palm tree is far taller than the penguin."
+        }
+      },
+      {
+        "stem": "In the article, krill are —",
+        "options": [
+          "small animals like shrimp",
+          "big fish with sharp teeth",
+          "warm skin that holds an egg",
+          "ice that floats on the sea"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "The text says krill are small, like shrimp, and penguins eat them.",
+        "wrong": {
+          "B": "Krill are small, not big fish.",
+          "C": "The warm skin is a flap that keeps the egg safe.",
+          "D": "Krill are animals, not ice."
+        }
+      },
+      {
+        "stem": "Why are a penguin's black back and white front useful?",
+        "options": [
+          "They keep out the cold wind.",
+          "They help it find the krill.",
+          "They make the egg stay warm.",
+          "They help it hide in the sea."
+        ],
+        "answer": "D",
+        "skill": "cause-effect",
+        "why": "The text says the black back and white front help the penguin hide in the sea.",
+        "wrong": {
+          "A": "Feathers and fat keep out the cold.",
+          "B": "The text does not say the colors help it find krill.",
+          "C": "A flap of warm skin keeps the egg warm."
+        }
+      },
+      {
+        "stem": "What does the mom emperor penguin do after she gives the egg to the dad?",
+        "options": [
+          "She sits on the egg too.",
+          "She goes to the sea to eat.",
+          "She huddles in the warm middle.",
+          "She flies far to the south."
+        ],
+        "answer": "B",
+        "skill": "sequence",
+        "why": "The text says she goes to the sea to eat and comes back when the chick hatches.",
+        "wrong": {
+          "A": "The dad holds the egg on his feet.",
+          "C": "The text does not say she huddles then.",
+          "D": "Penguins cannot fly."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "In the article, blubber is —",
+        "options": [
+          "a kind of krill that penguins eat",
+          "a warm fold of skin that holds an egg",
+          "a very strong storm in Antarctica",
+          "a thick layer of fat under the skin"
+        ],
+        "answer": "D",
+        "skill": "vocabulary",
+        "why": "The text says under their skin is a thick layer of fat called blubber.",
+        "wrong": {
+          "A": "Krill are tiny animals that look like shrimp.",
+          "B": "The fold of skin holds the egg and is not blubber.",
+          "C": "Blubber helps penguins survive storms."
+        }
+      },
+      {
+        "stem": "About how long does the father emperor penguin go without eating?",
+        "options": [
+          "About two months",
+          "About two days",
+          "About two years",
+          "About two weeks"
+        ],
+        "answer": "A",
+        "skill": "detail",
+        "why": "The text says he eats nothing for about two months.",
+        "wrong": {
+          "B": "Two days is too short.",
+          "C": "Two years is too long.",
+          "D": "Two weeks is too short."
+        }
+      },
+      {
+        "stem": "What can the reader infer about winter days in Antarctica?",
+        "options": [
+          "They are warm and bright most of the day",
+          "They are short and sunny near the ice",
+          "They are dark for weeks at a time",
+          "They are quiet and calm with no wind"
+        ],
+        "answer": "C",
+        "skill": "inference",
+        "why": "The text says the sun does not rise for weeks in winter, so days are dark.",
+        "wrong": {
+          "A": "Antarctica is the coldest place on Earth.",
+          "B": "The sun does not rise for weeks.",
+          "D": "Antarctica is the windiest place on Earth."
+        }
+      },
+      {
+        "stem": "How do the small, tightly packed feathers help penguins?",
+        "options": [
+          "They help the penguin dive deep.",
+          "They keep out wind and water.",
+          "They help the penguin count krill.",
+          "They make the penguin black and white."
+        ],
+        "answer": "B",
+        "skill": "cause-effect",
+        "why": "The text says the packed feathers keep out the wind and water.",
+        "wrong": {
+          "A": "The text does not say feathers help it dive.",
+          "C": "Scientists, not penguins, count animals.",
+          "D": "Camouflage is a different paragraph's idea."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "In the second paragraph, the word hostile describes an environment that is —",
+        "options": [
+          "crowded with many large animals",
+          "harsh and dangerous to live in",
+          "warm and easy for birds",
+          "quiet and full of food"
+        ],
+        "answer": "B",
+        "skill": "vocabulary",
+        "why": "The paragraph says it is remarkable that penguins thrive in the freezing, windy place.",
+        "wrong": {
+          "A": "Antarctica is not described as crowded.",
+          "C": "Antarctica is extremely cold.",
+          "D": "The text does not say food is easy to find."
+        }
+      },
+      {
+        "stem": "How have penguins' wings changed over millions of years?",
+        "options": [
+          "They have grown longer so the bird can glide",
+          "They have turned into soft, fluffy feathers",
+          "They have become small and hidden under fur",
+          "They became stiff, paddle-shaped flippers"
+        ],
+        "answer": "D",
+        "skill": "detail",
+        "why": "The text says their wings evolved into stiff, paddle-shaped flippers.",
+        "wrong": {
+          "A": "Penguins cannot fly or glide.",
+          "B": "The flippers are stiff, not soft.",
+          "C": "The wings became flippers used for swimming."
+        }
+      },
+      {
+        "stem": "How does a penguin's white front help it when a predator looks up from below?",
+        "options": [
+          "It matches the bright surface above",
+          "It blends with the dark ocean depths",
+          "It reflects the Antarctic sun's heat",
+          "It warms the egg held on its feet"
+        ],
+        "answer": "A",
+        "skill": "cause-effect",
+        "why": "From below, its pale belly matches the bright surface, so the predator has trouble spotting it.",
+        "wrong": {
+          "B": "The dark back blends with the depths when seen from above.",
+          "C": "The text does not say the belly reflects heat.",
+          "D": "A fold of feathered skin covers the egg."
+        }
+      },
+      {
+        "stem": "Why do researchers most likely monitor the remote colonies?",
+        "options": [
+          "To find out how many seals are nearby",
+          "To collect the droppings for food",
+          "To see how melting ice affects them",
+          "To teach the penguins to swim"
+        ],
+        "answer": "C",
+        "skill": "inference",
+        "why": "Sea ice is melting and penguins depend on it for breeding, so researchers watch the colonies.",
+        "wrong": {
+          "A": "The text does not say they count seals.",
+          "B": "The droppings only show where the birds are.",
+          "D": "Penguins are already excellent swimmers."
+        }
+      }
+    ]
   }
 }

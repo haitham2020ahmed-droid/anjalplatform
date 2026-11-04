@@ -614,5 +614,217 @@
       ],
       "modelAnswer": "I do not think engineers should try to remove friction completely, because the evidence shows it is essential as well as inconvenient. Friction is a force that always opposes motion, and its value depends heavily on a surface's texture, since rough textures generate far more friction than smooth ones; without any friction at all, shoes could never grip the ground and brakes could never stop a moving vehicle. At the same time, friction does create real problems, wearing down tires and machine parts, which is why engineers already use a lubricant to make moving parts more efficient without eliminating friction entirely. Because friction is necessary for walking, braking, and countless everyday actions, I believe engineers should keep managing it carefully rather than trying to remove it altogether."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "What do the brakes on a bike do?",
+        "options": [
+          "They make the wheel hot and fast",
+          "They rub the wheel to slow the bike",
+          "They push oil onto the chain",
+          "They make the wheel smooth"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The text says the brakes rub the wheel, so the bike slows and stops.",
+        "wrong": {
+          "A": "Brakes slow the wheel; they do not speed it up.",
+          "C": "Oil is put on the chain by people, not by brakes.",
+          "D": "The text does not say brakes smooth the wheel."
+        }
+      },
+      {
+        "stem": "Why do people put oil on a bike chain?",
+        "options": [
+          "To make the chain look bright and new",
+          "To make the bike go to sleep at night",
+          "To cut friction so the chain moves easily",
+          "To make the brakes rub the wheel more"
+        ],
+        "answer": "C",
+        "skill": "cause-effect",
+        "why": "The text says oil on the chain cuts friction so the chain can move with ease.",
+        "wrong": {
+          "A": "The text does not talk about a bright chain.",
+          "B": "A bike cannot go to sleep.",
+          "D": "Oil cuts friction; it does not add more."
+        }
+      },
+      {
+        "stem": "In the article, the word surface means —",
+        "options": [
+          "a small drop of oil",
+          "a kind of shoe",
+          "a rub that makes heat",
+          "the top of a thing"
+        ],
+        "answer": "D",
+        "skill": "vocabulary",
+        "why": "The text says the top of a thing is its surface.",
+        "wrong": {
+          "A": "Oil is not called a surface.",
+          "B": "A shoe is not called a surface.",
+          "C": "The rub is friction; the top part is the surface."
+        }
+      },
+      {
+        "stem": "Ali slides one box on smooth ice and one on rough sand. Which box will slide farther?",
+        "options": [
+          "The box on the ice",
+          "The box on the sand",
+          "Both boxes slide the same",
+          "Neither box will slide"
+        ],
+        "answer": "A",
+        "skill": "inference",
+        "why": "Smooth things make less friction than rough things, so the box on ice is slowed less.",
+        "wrong": {
+          "B": "Sand is rough and makes a lot of friction.",
+          "C": "Rough and smooth things make different friction.",
+          "D": "A push can move a box on both surfaces."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "According to the article, what is tread?",
+        "options": [
+          "The bumpy pattern that grips the road",
+          "The oil people put on machine parts",
+          "The heat made when you rub your hands",
+          "The flat top of a hockey rink"
+        ],
+        "answer": "A",
+        "skill": "detail",
+        "why": "The article calls tread the bumpy pattern that grips the road.",
+        "wrong": {
+          "B": "Oil is a lubricant, not tread.",
+          "C": "That heat comes from friction.",
+          "D": "An ice rink does not have tread."
+        }
+      },
+      {
+        "stem": "In the article, the word glide means —",
+        "options": [
+          "stop quickly",
+          "bump up and down",
+          "slide smoothly",
+          "spin in place"
+        ],
+        "answer": "C",
+        "skill": "vocabulary",
+        "why": "A puck on smooth ice slides with little friction, so glide means slide smoothly.",
+        "wrong": {
+          "A": "The puck goes a long way, so it does not stop quickly.",
+          "B": "Smooth ice does not make it bump.",
+          "D": "The puck moves along the rink."
+        }
+      },
+      {
+        "stem": "Why do your hands feel warm when you rub them together quickly?",
+        "options": [
+          "The cold morning air warms them",
+          "Your hands become rough",
+          "Your hands become smooth",
+          "Friction turns motion into heat"
+        ],
+        "answer": "D",
+        "skill": "cause-effect",
+        "why": "The article says friction turns motion into heat.",
+        "wrong": {
+          "A": "The article says the morning is cold.",
+          "B": "Roughness is not the cause of the heat.",
+          "C": "Smoothness would give less friction, not more heat."
+        }
+      },
+      {
+        "stem": "A ball rolls across grass. Another ball with the same push rolls across polished glass. What will most likely happen?",
+        "options": [
+          "Both balls will stop at the same spot",
+          "The ball on glass will roll farther",
+          "The ball on grass will roll farther",
+          "Neither ball will stop"
+        ],
+        "answer": "B",
+        "skill": "inference",
+        "why": "Polished glass is smooth and makes very little friction, while grass is rough and makes a lot.",
+        "wrong": {
+          "A": "The two surfaces make different amounts of friction.",
+          "C": "Grass is rough and slows a ball more.",
+          "D": "Friction always slows a rolling ball."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "According to the article, what slowly happens to automobile tires because of friction?",
+        "options": [
+          "They become hotter than the wheels",
+          "They lose their tread",
+          "They become larger",
+          "They fill with oil"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The article says friction wears objects out and that tires slowly lose their tread.",
+        "wrong": {
+          "A": "The article does not say tires get hotter than wheels.",
+          "C": "Tires wear down; they do not grow.",
+          "D": "Oil is put on chains and machines, not tires."
+        }
+      },
+      {
+        "stem": "In the article, the word oppose most nearly means —",
+        "options": [
+          "to speed up",
+          "to copy",
+          "to start",
+          "to work against"
+        ],
+        "answer": "D",
+        "skill": "vocabulary",
+        "why": "The article says friction pushes in the opposite direction to the motion, so it works against it.",
+        "wrong": {
+          "A": "Friction slows motion down.",
+          "B": "Friction does not copy motion.",
+          "C": "Friction does not start motion."
+        }
+      },
+      {
+        "stem": "Why does a car come to a safe stop when the driver uses the brakes?",
+        "options": [
+          "The brakes press the wheels and friction slows them",
+          "The brakes make the road very smooth for the tires",
+          "The brakes turn heat into motion inside the engine",
+          "The brakes wipe all of the oil from the wheels"
+        ],
+        "answer": "A",
+        "skill": "cause-effect",
+        "why": "The article says brakes press firmly against the wheels and the resulting friction slows them until the vehicle stops.",
+        "wrong": {
+          "B": "Smooth surfaces make less friction, which would not stop the car.",
+          "C": "Friction turns motion into heat, not heat into motion.",
+          "D": "The article does not mention oil on wheels in this way."
+        }
+      },
+      {
+        "stem": "How is the last paragraph of the article organized?",
+        "options": [
+          "It lists three kinds of machines",
+          "It tells a story about a football",
+          "It describes a problem and then a solution",
+          "It compares rough and smooth surfaces"
+        ],
+        "answer": "C",
+        "skill": "text-structure",
+        "why": "The paragraph tells how friction wears objects out and then explains that lubricant reduces the damage.",
+        "wrong": {
+          "A": "It names machines but does not list kinds of them.",
+          "B": "The football story is at the start of the article.",
+          "D": "The comparison of surfaces is in an earlier paragraph."
+        }
+      }
+    ]
   }
 }

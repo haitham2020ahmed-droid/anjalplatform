@@ -614,5 +614,217 @@
       ],
       "modelAnswer": "A single dust particle begins trapped in ice near a comet's nucleus, its solid center, while the comet travels through the freezing, dark part of its orbit far from the Sun. As the comet approaches the Sun, the surrounding ice warms and undergoes sublimation, changing directly into gas, which releases the dust particle into the glowing cloud and tail that always points away from the Sun. The comet then leaves this particle behind along its orbit as debris, and when Earth eventually passes through that trail, the particle plunges into the atmosphere at tremendous speed, where compressed, heated air makes it burn up and glow as the bright streak of light we call a meteor."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "Halley's Comet comes back each 76 years. What does this tell you about it?",
+        "options": [
+          "It goes round the Sun again.",
+          "It stays near Earth all the time.",
+          "It is a very small star.",
+          "It burns up each year."
+        ],
+        "answer": "A",
+        "skill": "inference",
+        "why": "A comet that comes back each 76 years must keep going round the Sun on its orbit.",
+        "wrong": {
+          "B": "The text says a comet is far out in the dark most of the time.",
+          "C": "The text says a comet is a ball of ice, dust, and rock, not a star.",
+          "D": "It comes back, so it does not burn up."
+        }
+      },
+      {
+        "stem": "Why do bits of dust glow when they hit our air?",
+        "options": [
+          "They get very cold.",
+          "They turn into ice.",
+          "They get hot and burn.",
+          "They fall onto the sand."
+        ],
+        "answer": "C",
+        "skill": "cause-effect",
+        "why": "The text says the bits hit our air fast, get hot, and burn.",
+        "wrong": {
+          "A": "The bits get hot, not cold.",
+          "B": "The ice turns to gas near the Sun; the bits do not turn into ice.",
+          "D": "Most bits burn up before they reach the sand."
+        }
+      },
+      {
+        "stem": "In the text, what is a meteor?",
+        "options": [
+          "A big ball of ice and dust",
+          "The long tail of a comet",
+          "A star that is very far away",
+          "A streak from a burning bit"
+        ],
+        "answer": "D",
+        "skill": "vocabulary",
+        "why": "The text says each streak made by a burning bit is a meteor.",
+        "wrong": {
+          "A": "That describes a comet.",
+          "B": "The tail is made by gas and dust near the Sun.",
+          "C": "A meteor is not a star; the text says a shooting star is not a star."
+        }
+      },
+      {
+        "stem": "What made the big holes in the sand in Saudi Arabia?",
+        "options": [
+          "A comet's long tail",
+          "Big rocks from space",
+          "Hot gas from the Sun",
+          "Sand blown by wind"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The text says big rocks like that hit the sand in Saudi Arabia and made big holes.",
+        "wrong": {
+          "A": "The tail is gas and dust and does not reach the ground.",
+          "C": "Gas from the Sun is not linked to the holes in the text.",
+          "D": "The text says rocks made the holes, not wind."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "Where are the Wabar craters?",
+        "options": [
+          "Close to the hot surface of the Sun",
+          "At the end of a comet's long tail",
+          "In the Empty Quarter of Saudi Arabia",
+          "Under the bright lights of a city"
+        ],
+        "answer": "C",
+        "skill": "detail",
+        "why": "The text says meteorites made the Wabar craters in the Empty Quarter of Saudi Arabia.",
+        "wrong": {
+          "A": "The craters are on Earth, not on the Sun.",
+          "B": "A comet's tail is not on the ground.",
+          "D": "The text says to go far from city lights to watch meteors."
+        }
+      },
+      {
+        "stem": "Why does a comet's tail always point away from the Sun?",
+        "options": [
+          "Sunlight and wind from the Sun push it outward",
+          "The comet moves backward through space",
+          "The tail is heavier than the comet itself",
+          "Cold air near the comet pulls it away"
+        ],
+        "answer": "A",
+        "skill": "cause-effect",
+        "why": "The text says sunlight and the wind from the Sun push the tail outward.",
+        "wrong": {
+          "B": "The text does not say a comet moves backward.",
+          "C": "The text does not compare the weight of the tail.",
+          "D": "There is no air in space to pull the tail."
+        }
+      },
+      {
+        "stem": "In the article, what is the atmosphere?",
+        "options": [
+          "The cloud of gas around a comet",
+          "The layer of air around our planet",
+          "The path of a comet round the Sun",
+          "The bright tail of a shooting star"
+        ],
+        "answer": "B",
+        "skill": "vocabulary",
+        "why": "The text says the atmosphere is the layer of air around our planet.",
+        "wrong": {
+          "A": "That describes the glowing cloud near a comet.",
+          "C": "That is an orbit.",
+          "D": "The streak is called a meteor."
+        }
+      },
+      {
+        "stem": "How is a meteorite different from a meteor?",
+        "options": [
+          "A meteorite is the tail of a comet.",
+          "A meteorite burns up before it lands.",
+          "A meteorite is a streak of light high up.",
+          "A meteorite is a space rock that lands."
+        ],
+        "answer": "D",
+        "skill": "compare",
+        "why": "The text says a meteor is the bright streak, and a space rock that reaches the ground is a meteorite.",
+        "wrong": {
+          "A": "The tail is gas and dust and is not a meteorite.",
+          "B": "A meteorite is a rock that survives and lands.",
+          "C": "The streak of light is the meteor."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "What does the word sublimation mean in the article?",
+        "options": [
+          "Ice melting into water first",
+          "Ice turning directly into gas",
+          "Gas cooling into solid dust",
+          "Dust glowing in the sunlight"
+        ],
+        "answer": "B",
+        "skill": "vocabulary",
+        "why": "The text explains that some ice changes directly into gas without first becoming liquid.",
+        "wrong": {
+          "A": "The text says the ice does not become liquid first.",
+          "C": "The change goes from ice to gas, not gas to solid.",
+          "D": "The glow comes after the gas and dust spread out."
+        }
+      },
+      {
+        "stem": "Why do the particles glow as they plunge into the atmosphere?",
+        "options": [
+          "They reflect the light of the full Moon",
+          "They are filled with glowing hot gas",
+          "They are pushed hard by the solar wind",
+          "Squeezed air heats them until they burn"
+        ],
+        "answer": "D",
+        "skill": "cause-effect",
+        "why": "The text says the air in front of the particles is compressed and heated so much that they burn up and glow.",
+        "wrong": {
+          "A": "The text does not link the glow to the Moon.",
+          "B": "The particles are bits of dust and rock, not gas.",
+          "C": "The solar wind pushes a comet's tail, not the particles in the atmosphere."
+        }
+      },
+      {
+        "stem": "When did people last observe Halley's Comet?",
+        "options": [
+          "In 1986",
+          "In 1961",
+          "In 2061",
+          "In 1876"
+        ],
+        "answer": "A",
+        "skill": "detail",
+        "why": "The text says people last observed Halley's Comet in 1986.",
+        "wrong": {
+          "B": "The text does not give 1961.",
+          "C": "2061 is when it is expected to return.",
+          "D": "The text does not give 1876."
+        }
+      },
+      {
+        "stem": "How is the article mainly organized?",
+        "options": [
+          "It lists meteor showers by their dates",
+          "It compares two comets point by point",
+          "It follows a chain, from comet to meteor",
+          "It tells a story about a trip to the desert"
+        ],
+        "answer": "C",
+        "skill": "text-structure",
+        "why": "The article starts with the comet, then its debris trail, then the meteors and meteorites that result.",
+        "wrong": {
+          "A": "Only one meteor shower, the Perseids, is named.",
+          "B": "Halley's Comet is the only comet described in detail.",
+          "D": "The desert is mentioned only as a good place to watch."
+        }
+      }
+    ]
   }
 }

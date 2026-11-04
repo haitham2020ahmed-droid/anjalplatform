@@ -614,5 +614,217 @@
       ],
       "modelAnswer": "The Rihla is valuable today because it is a chronicle of an extraordinarily diverse world, describing more than 40 modern-day countries across Africa, Asia, and the Middle East that few other medieval travelers ever visited together. It also records the perilous realities of medieval travel, including storms, robbers, and a shipwreck that cost Ibn Battuta nearly everything he owned, giving historians rare details about the dangers people faced on these routes.\n\nHowever, historians must still read the Rihla carefully, because Ibn Battuta did not write the book himself; he dictated his memories to the scholar Ibn Juzayy many years after his journeys began, so some details may have faded or grown exaggerated with time. Despite this, the Rihla remains Ibn Battuta's lasting legacy, a text historians continue to study closely in order to understand the world he traveled through."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "Where was Ibn Battuta born?",
+        "options": [
+          "In Makkah",
+          "In Tangier",
+          "In Mali",
+          "In India"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The text says a boy was born in Tangier, a town in Morocco.",
+        "wrong": {
+          "A": "Makkah is where he went for Hajj.",
+          "C": "Mali is a land he visited later.",
+          "D": "India is a land he visited, where he was a judge."
+        }
+      },
+      {
+        "stem": "How old was Ibn Battuta when he left home?",
+        "options": [
+          "He was 12",
+          "He was 30",
+          "He was 21",
+          "He was 50"
+        ],
+        "answer": "C",
+        "skill": "detail",
+        "why": "The text says that at 21 he left home.",
+        "wrong": {
+          "A": "Twelve is not in the text.",
+          "B": "Thirty is about how many years his journey took.",
+          "D": "Fifty is not in the text."
+        }
+      },
+      {
+        "stem": "Why do you think a man wrote down Ibn Battuta's tale?",
+        "options": [
+          "So the ship could sail again",
+          "So the king could write his own book",
+          "So Ibn Battuta could learn the law",
+          "So people could read it later on"
+        ],
+        "answer": "D",
+        "skill": "inference",
+        "why": "The tale made a big book, and the text says we still read it now.",
+        "wrong": {
+          "A": "The ship sank and has nothing to do with the book.",
+          "B": "The man wrote down Ibn Battuta's tale, not the king's.",
+          "C": "He already knew the law."
+        }
+      },
+      {
+        "stem": "In the article, a judge is a person who —",
+        "options": [
+          "helps end fights using the law",
+          "rides a camel in the sand",
+          "sails a ship in a storm",
+          "writes a big book about trips"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "The text says that in India he was a judge and helped end fights.",
+        "wrong": {
+          "B": "Riding camels is what he did in a caravan.",
+          "C": "Sailing a ship is not what a judge does.",
+          "D": "The man who wrote the book was not the judge."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "Why did Ibn Battuta work as a judge in India?",
+        "options": [
+          "He knew the law",
+          "He owned a ship there",
+          "He was born in Delhi",
+          "He was the sultan's son"
+        ],
+        "answer": "A",
+        "skill": "cause-effect",
+        "why": "The text says that because he knew the law, he worked as a judge for the sultan of Delhi.",
+        "wrong": {
+          "B": "Owning a ship is not mentioned.",
+          "C": "He was born in Tangier, Morocco.",
+          "D": "He was not the sultan's son."
+        }
+      },
+      {
+        "stem": "What did Ibn Battuta do after the pilgrimage to Makkah?",
+        "options": [
+          "He went straight home to Tangier again",
+          "He became a judge in the land of Mali",
+          "He wrote the Rihla in Makkah right away",
+          "He kept going to see more of the world"
+        ],
+        "answer": "D",
+        "skill": "sequence",
+        "why": "The text says he did not go home; he wanted to see more of the world, so he kept going.",
+        "wrong": {
+          "A": "The text says he did not go home after the pilgrimage.",
+          "B": "He was a judge in India and the Maldives, and later went to Mali.",
+          "C": "The Rihla was written after he came home."
+        }
+      },
+      {
+        "stem": "Ibn Battuta lost most of what he owned and still kept traveling. What can you infer?",
+        "options": [
+          "He was too poor to go home",
+          "He was very determined",
+          "He was afraid of ships",
+          "He wanted to be a sultan"
+        ],
+        "answer": "B",
+        "skill": "inference",
+        "why": "He faced loss and danger and did not stop, which shows he was determined.",
+        "wrong": {
+          "A": "The text does not say he could not go home; he returned in 1354.",
+          "C": "He kept taking long sea voyages.",
+          "D": "Nothing says he wanted to be a sultan."
+        }
+      },
+      {
+        "stem": "In the article, the word voyages means —",
+        "options": [
+          "friendly meetings",
+          "heavy loads of goods",
+          "long trips by sea",
+          "tall sand hills"
+        ],
+        "answer": "C",
+        "skill": "vocabulary",
+        "why": "At sea, he took long voyages on ships, so voyages are long trips by sea.",
+        "wrong": {
+          "A": "The sentence is about travel, not meetings.",
+          "B": "The loads were carried by camels in caravans.",
+          "D": "Sand hills are on land."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "What did Ibn Battuta observe in detail among rulers, merchants, and scholars?",
+        "options": [
+          "Their food, clothing, and customs",
+          "Their ships, swords, and armor",
+          "Their gardens, camels, and coins",
+          "Their crowns, thrones, and palaces"
+        ],
+        "answer": "A",
+        "skill": "detail",
+        "why": "The text says he observed their food, clothing, and customs in remarkable detail.",
+        "wrong": {
+          "B": "Ships, swords, and armor are not listed.",
+          "C": "Gardens, camels, and coins are not listed.",
+          "D": "Crowns, thrones, and palaces are not listed."
+        }
+      },
+      {
+        "stem": "In the article, the word chronicle most nearly means —",
+        "options": [
+          "a heavy load",
+          "a sailing ship",
+          "a written record",
+          "a kind of storm"
+        ],
+        "answer": "C",
+        "skill": "vocabulary",
+        "why": "The Rihla is described as a valuable record, so a chronicle is a written record.",
+        "wrong": {
+          "A": "Heavy loads were carried by camels.",
+          "B": "Ships carried him at sea but are not chronicles.",
+          "D": "Storms were dangers he faced."
+        }
+      },
+      {
+        "stem": "Why did Ibn Battuta not return home after completing the pilgrimage?",
+        "options": [
+          "He had lost his ship in a storm",
+          "He was deeply curious about the world",
+          "He was waiting for the sultan to call him",
+          "He wanted to study the law in Mali"
+        ],
+        "answer": "B",
+        "skill": "cause-effect",
+        "why": "The text says he did not return because he was deeply curious about the rest of the world.",
+        "wrong": {
+          "A": "The ship sank later in his journey.",
+          "C": "The sultan of Morocco asked for his stories after he returned.",
+          "D": "He had already studied the law in Tangier."
+        }
+      },
+      {
+        "stem": "What does it suggest that the sultan of Morocco asked him to share his memories?",
+        "options": [
+          "The sultan wanted him to stop traveling",
+          "The sultan thought he was a robber",
+          "The sultan had already visited India",
+          "His experiences were seen as worth keeping"
+        ],
+        "answer": "D",
+        "skill": "inference",
+        "why": "The sultan asked him to dictate his memories, which shows they were seen as valuable.",
+        "wrong": {
+          "A": "He had already returned home for good.",
+          "B": "The sultan invited him to tell his story, not to punish him.",
+          "C": "The text does not say the sultan visited India."
+        }
+      }
+    ]
   }
 }

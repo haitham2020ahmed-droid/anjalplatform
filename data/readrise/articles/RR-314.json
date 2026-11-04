@@ -614,5 +614,217 @@
       ],
       "modelAnswer": "To document an event, a photographer mainly wants an accurate, clear record, so they might choose a fast exposure and a wide aperture that keeps the whole scene readable, capturing the moment honestly as evidence. To create art instead, the same photographer might choose an unusual perspective, such as a low angle, and a longer exposure to blur motion on purpose, shaping the image emotionally rather than just recording it. The same camera and the same technical tools, aperture and exposure among them, can serve either goal depending on the choices the photographer makes."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "What is film, according to the text?",
+        "options": [
+          "A kind of bent clear glass piece",
+          "A small round hole in the camera",
+          "A strip that could capture light",
+          "A screen used to see a shot fast"
+        ],
+        "answer": "C",
+        "skill": "detail",
+        "why": "The text says film is a strip that could capture light.",
+        "wrong": {
+          "A": "Bent glass is the lens.",
+          "B": "The small hole lets light into the camera.",
+          "D": "A screen is used with digital cameras."
+        }
+      },
+      {
+        "stem": "The text says a lens makes the shot look sharp, not blurry. What does sharp mean here?",
+        "options": [
+          "Clear to see",
+          "Very dark",
+          "Very small",
+          "Hard to find"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "Sharp is the opposite of blurry, so it means clear to see.",
+        "wrong": {
+          "B": "Dark is not the opposite of blurry.",
+          "C": "Small is not the opposite of blurry.",
+          "D": "Hard to find is not the opposite of blurry."
+        }
+      },
+      {
+        "stem": "The text says what you leave out counts, too. What does this tell you?",
+        "options": [
+          "A photo must show everything",
+          "A photographer cannot choose",
+          "Leaving things out hurts the camera",
+          "Choosing what to skip changes the photo"
+        ],
+        "answer": "D",
+        "skill": "inference",
+        "why": "The photographer picks what to show, so what is left out also shapes the photo.",
+        "wrong": {
+          "A": "The text says you pick what to show.",
+          "B": "The text says you can pick what to show.",
+          "C": "The text does not say the camera is hurt."
+        }
+      },
+      {
+        "stem": "How is a digital camera different from a film camera?",
+        "options": [
+          "It uses a strip of film",
+          "It shows the shot at once",
+          "It has no lens",
+          "It must wait for the dark"
+        ],
+        "answer": "B",
+        "skill": "compare",
+        "why": "The text says a digital camera saves the shot right away and you see it at once, while film made you wait.",
+        "wrong": {
+          "A": "Film cameras use the strip of film.",
+          "C": "The text says a camera has a lens.",
+          "D": "The text does not say a digital camera must wait for the dark."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "What does the lens do to the light, according to the article?",
+        "options": [
+          "It makes all of the light much brighter",
+          "It bends the light so the picture is sharp",
+          "It turns the light directly into film",
+          "It keeps all of the light out of the box"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The article says the lens bends the light so it lands sharply, not as a blurry smear.",
+        "wrong": {
+          "A": "The article does not say the lens makes light brighter.",
+          "C": "Film is a strip coated with chemicals.",
+          "D": "The opening lets light into the box."
+        }
+      },
+      {
+        "stem": "The article says soft light creates a calmer \"mood.\" What does mood mean here?",
+        "options": [
+          "A kind of sharp shadow",
+          "A part of the camera",
+          "The time of the day",
+          "The feeling of a photo"
+        ],
+        "answer": "D",
+        "skill": "vocabulary",
+        "why": "Soft light makes a photo feel calmer, so mood means the feeling of the photo.",
+        "wrong": {
+          "A": "Sharp shadows come from strong light.",
+          "B": "The mood is not a camera part.",
+          "C": "The time of day is not what mood means."
+        }
+      },
+      {
+        "stem": "What does strong, direct light create in a photo?",
+        "options": [
+          "A calm mood with no shadows",
+          "A blurry smear of color",
+          "Sharp shadows and bold contrast",
+          "A picture that develops faster"
+        ],
+        "answer": "C",
+        "skill": "cause-effect",
+        "why": "The article says strong, direct light creates sharp shadows and bold contrast.",
+        "wrong": {
+          "A": "Soft light creates the calmer mood.",
+          "B": "A blurry smear happens when the lens does not focus the light.",
+          "D": "The article does not link light to faster development."
+        }
+      },
+      {
+        "stem": "Why does the author end by saying museums now display photos?",
+        "options": [
+          "To show that photos are valued in the Kingdom",
+          "To say that cameras are no longer used",
+          "To say that museums sell cameras",
+          "To show that film is better than digital"
+        ],
+        "answer": "A",
+        "skill": "author-purpose",
+        "why": "Museums display photos of daily life and desert views, which shows photos are valued as proof and as art.",
+        "wrong": {
+          "B": "The article says cameras are used every day.",
+          "C": "The article does not say museums sell cameras.",
+          "D": "The article does not say film is better than digital."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "What had to happen to film before anyone could judge the result?",
+        "options": [
+          "It had to be developed in a dark room",
+          "It had to be shown on a computer",
+          "It had to be sent to another country",
+          "It had to be covered in bright light"
+        ],
+        "answer": "A",
+        "skill": "detail",
+        "why": "The article says film had to be carefully developed in a dark room.",
+        "wrong": {
+          "B": "Computers came with digital sensors.",
+          "C": "The article does not mention sending film abroad.",
+          "D": "Bright light would harm film that reacts to light."
+        }
+      },
+      {
+        "stem": "The article says photography can \"document\" real events as proof. What does document mean?",
+        "options": [
+          "To change by adding color",
+          "To make into a work of art",
+          "To record as a true account",
+          "To hide from public view"
+        ],
+        "answer": "C",
+        "skill": "vocabulary",
+        "why": "The article pairs document with proof, so it means to record what truly happened.",
+        "wrong": {
+          "A": "Changing colors is called manipulating an image.",
+          "B": "Making art is the second purpose, not documenting.",
+          "D": "Documenting shows events and does not hide them."
+        }
+      },
+      {
+        "stem": "What effect does soft light have on a photo?",
+        "options": [
+          "It creates sharp shadows and bold contrast",
+          "It creates a calmer mood",
+          "It freezes fast motion",
+          "It controls how much light enters"
+        ],
+        "answer": "B",
+        "skill": "cause-effect",
+        "why": "The article says soft light creates a calmer mood.",
+        "wrong": {
+          "A": "Strong light creates sharp shadows.",
+          "C": "A shorter exposure freezes fast motion.",
+          "D": "The aperture controls how much light enters."
+        }
+      },
+      {
+        "stem": "Why does the author mention Saudi museums and galleries at the end?",
+        "options": [
+          "To say photographers should stop using cameras",
+          "To say that galleries only show old film",
+          "To say that tourists cannot take photos",
+          "To show photography is valued as record and art"
+        ],
+        "answer": "D",
+        "skill": "author-purpose",
+        "why": "The galleries show photographers who document daily life and explore art, which fits the two purposes of photography.",
+        "wrong": {
+          "A": "The article says photographers keep exhibiting their work.",
+          "B": "The article does not say galleries only show film.",
+          "C": "The article does not mention tourists taking photos."
+        }
+      }
+    ]
   }
 }

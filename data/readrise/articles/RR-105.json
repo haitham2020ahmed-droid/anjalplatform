@@ -614,5 +614,217 @@
       ],
       "modelAnswer": "I think our school should set a rule limiting headphone volume during breaks, because the article explains that hair-cell damage from loud noise is permanent and the delicate cells never grow back once they are harmed. These hair cells line the fluid-filled cochlea and are essential to the auditory system, since they convert vibrations into the signals the brain uses to hear. Different hair cells respond to different frequencies, so losing them to loud noise could permanently weaken a student's ability to hear certain sounds for the rest of their life. A simple volume rule would protect this fragile, irreplaceable part of the ear before any damage can happen."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "What is the cochlea shaped like?",
+        "options": [
+          "A cup",
+          "A snail shell",
+          "A drum",
+          "A long tube"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The text says the cochlea is shaped like a snail shell.",
+        "wrong": {
+          "A": "The outer ear is like a cup.",
+          "C": "The eardrum is like skin on a drum.",
+          "D": "The ear canal is the tube."
+        }
+      },
+      {
+        "stem": "Where do the signals from the hair cells go next?",
+        "options": [
+          "Back to the eardrum",
+          "To the outer ear",
+          "To a nerve",
+          "Into the air"
+        ],
+        "answer": "C",
+        "skill": "sequence",
+        "why": "The text says the hair cells send signals to a nerve, and the nerve goes to the brain.",
+        "wrong": {
+          "A": "The signals do not go back.",
+          "B": "The outer ear is the first part, not the next.",
+          "D": "The signals stay inside the body."
+        }
+      },
+      {
+        "stem": "In the article, the word vibrate means —",
+        "options": [
+          "to shake fast",
+          "to stay still",
+          "to get cold",
+          "to make a cup"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "The text says things that make sound vibrate, which means they shake fast.",
+        "wrong": {
+          "B": "Staying still is the opposite.",
+          "C": "Cold is not the idea.",
+          "D": "A cup is a shape of the outer ear."
+        }
+      },
+      {
+        "stem": "What happens to the air when a thing vibrates?",
+        "options": [
+          "It gets very thick",
+          "It turns into water",
+          "It goes into the ground",
+          "The air shakes too"
+        ],
+        "answer": "D",
+        "skill": "cause-effect",
+        "why": "The text says the air shakes too, and the shake moves to you.",
+        "wrong": {
+          "A": "Thick air is not mentioned.",
+          "B": "Water is not mentioned.",
+          "C": "The shake moves through the air to you."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "What sits at the end of the ear canal?",
+        "options": [
+          "The cochlea",
+          "The hammer",
+          "The nerve",
+          "The eardrum"
+        ],
+        "answer": "D",
+        "skill": "detail",
+        "why": "The text says the eardrum sits at the end of the canal.",
+        "wrong": {
+          "A": "The cochlea comes after the three tiny bones.",
+          "B": "The hammer is behind the eardrum.",
+          "C": "The nerve carries signals to the brain."
+        }
+      },
+      {
+        "stem": "In the article, the word respond means —",
+        "options": [
+          "to hide from",
+          "to react to",
+          "to forget about",
+          "to break apart"
+        ],
+        "answer": "B",
+        "skill": "vocabulary",
+        "why": "Some hair cells respond to high sounds, which means they react to them.",
+        "wrong": {
+          "A": "The cells do not hide.",
+          "C": "The cells do not forget.",
+          "D": "The cells do not break apart from sound in this idea."
+        }
+      },
+      {
+        "stem": "Why does the author compare moving air to ripples across a pond?",
+        "options": [
+          "To help readers picture waves spreading out",
+          "To say that sound can only travel in water",
+          "To show that ponds are always very noisy",
+          "To explain how the ear canal is shaped"
+        ],
+        "answer": "A",
+        "skill": "author-purpose",
+        "why": "Ripples spread outward from one spot, just like sound waves spread outward until they reach your ears.",
+        "wrong": {
+          "B": "Sound travels in the air.",
+          "C": "Noise from ponds is not the idea.",
+          "D": "The ear canal is a short tube."
+        }
+      },
+      {
+        "stem": "What makes the eardrum begin to shake?",
+        "options": [
+          "The tiny hair cells",
+          "Sound waves that strike it",
+          "The nerve to the brain",
+          "The fluid in the cochlea"
+        ],
+        "answer": "B",
+        "skill": "cause-effect",
+        "why": "The text says that when sound waves strike the eardrum, it begins to shake.",
+        "wrong": {
+          "A": "Hair cells are in the cochlea.",
+          "C": "The nerve carries signals later.",
+          "D": "The fluid is in the cochlea, far from the eardrum."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "What does earwax do in the ear canal?",
+        "options": [
+          "It makes sound louder",
+          "It traps dust and protects the skin",
+          "It helps the brain keep balance",
+          "It turns vibrations into signals"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The text says earwax traps dust and protects the delicate skin inside.",
+        "wrong": {
+          "A": "The tiny bones make the vibration stronger.",
+          "C": "Balance is helped by the inner ear.",
+          "D": "The hair cells turn vibrations into signals."
+        }
+      },
+      {
+        "stem": "In the article, the word amplifying means —",
+        "options": [
+          "making stronger",
+          "making quieter",
+          "making shorter",
+          "making warmer"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "The three tiny bones pass the vibration along while making it stronger.",
+        "wrong": {
+          "B": "Quieter is the opposite.",
+          "C": "Length is not the idea.",
+          "D": "Heat is not the idea."
+        }
+      },
+      {
+        "stem": "Why can very loud noise cause permanent damage?",
+        "options": [
+          "The brain stops listening to the ear",
+          "The ear canal closes up too tightly",
+          "The eardrum grows too thick to shake",
+          "The body cannot replace the hair cells"
+        ],
+        "answer": "D",
+        "skill": "cause-effect",
+        "why": "The text says loud noise can damage the hair cells, and the body cannot replace them.",
+        "wrong": {
+          "A": "The brain is not said to stop.",
+          "B": "The ear canal is not said to close.",
+          "C": "The eardrum is not said to grow thick."
+        }
+      },
+      {
+        "stem": "Why does the author compare sound waves to ripples across a pond?",
+        "options": [
+          "To show that sound can only move in water",
+          "To say that ponds can cause ear damage",
+          "To help readers picture waves spreading out",
+          "To explain how the cochlea is coiled up"
+        ],
+        "answer": "C",
+        "skill": "author-purpose",
+        "why": "Ripples spread outward from one spot, and the comparison shows how sound waves spread until they reach your ears.",
+        "wrong": {
+          "A": "Sound travels through air.",
+          "B": "Ponds are not linked to ear damage.",
+          "D": "The cochlea is compared to a snail shell."
+        }
+      }
+    ]
   }
 }

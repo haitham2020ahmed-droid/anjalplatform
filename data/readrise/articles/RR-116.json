@@ -614,5 +614,217 @@
       ],
       "modelAnswer": "I agree that \"king of the planets\" fits Jupiter perfectly. Its sheer mass is greater than all the other planets in the solar system combined, and it is built almost entirely from hydrogen and helium gas rather than solid rock. Jupiter also commands a vast system of moons, including one with volcanic eruptions and a powerful magnetic field that shields the whole system around it. Robotic spacecraft still travel there today just to study this giant world and its many moons up close, which shows how much influence and mystery Jupiter still holds over our solar system."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "How many of Jupiter's moons are big?",
+        "options": [
+          "One",
+          "Two",
+          "Three",
+          "Four"
+        ],
+        "answer": "D",
+        "skill": "detail",
+        "why": "The text says Jupiter has lots of moons and four are big.",
+        "wrong": {
+          "A": "The text says four, not one.",
+          "B": "The text says four, not two.",
+          "C": "The text says four, not three."
+        }
+      },
+      {
+        "stem": "Why is a day on Jupiter only about ten hours long?",
+        "options": [
+          "It is very close to the Sun.",
+          "It spins very fast.",
+          "It has lots of moons.",
+          "It is made of ice."
+        ],
+        "answer": "B",
+        "skill": "cause-effect",
+        "why": "The text says Jupiter spins fast, and a day there is just ten hours.",
+        "wrong": {
+          "A": "Jupiter is the fifth planet from the Sun, and its year is long.",
+          "C": "The moons do not change the length of a day.",
+          "D": "The text says Jupiter is made of gas."
+        }
+      },
+      {
+        "stem": "The red spot has spun for a long, long time. What does this tell you?",
+        "options": [
+          "It is a very strong storm.",
+          "It is a small and weak storm.",
+          "It is a place to land a ship.",
+          "It is a moon of Jupiter."
+        ],
+        "answer": "A",
+        "skill": "inference",
+        "why": "The text says the spot is a storm wider than Earth that has spun for a long time, so it is very strong.",
+        "wrong": {
+          "B": "The text says the spot is wide, wider than Earth.",
+          "C": "The text says that you can not stand on Jupiter.",
+          "D": "The text says the spot is a storm."
+        }
+      },
+      {
+        "stem": "The text says Jupiter's clouds look like stripes. What are stripes?",
+        "options": [
+          "Round spots of color",
+          "Long lines of color",
+          "Tiny moons in the sky",
+          "Big storms of dust"
+        ],
+        "answer": "B",
+        "skill": "vocabulary",
+        "why": "Jupiter has long bands of clouds that look like stripes, which are long lines of color.",
+        "wrong": {
+          "A": "Stripes are long lines, not round spots.",
+          "C": "Moons are not stripes.",
+          "D": "The stripes are bands of clouds, not dust storms."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "Who first spotted four of Jupiter's large moons through a telescope?",
+        "options": [
+          "Europa",
+          "Ganymede",
+          "Galileo",
+          "Juno"
+        ],
+        "answer": "C",
+        "skill": "detail",
+        "why": "The text says the scientist Galileo first spotted them through a telescope.",
+        "wrong": {
+          "A": "Europa is a moon of Jupiter.",
+          "B": "Ganymede is a moon of Jupiter.",
+          "D": "Juno is not named in this text."
+        }
+      },
+      {
+        "stem": "Why do people sometimes call Jupiter the king of the planets?",
+        "options": [
+          "It is the planet closest to the Sun.",
+          "It is a huge planet with a very large size.",
+          "It is the only planet that has any moons.",
+          "It is the planet that is the brightest at night."
+        ],
+        "answer": "B",
+        "skill": "cause-effect",
+        "why": "The text says that because of its size, people sometimes call it the king of the planets.",
+        "wrong": {
+          "A": "Jupiter is the fifth planet from the Sun.",
+          "C": "The text does not say that other planets have no moons.",
+          "D": "Jupiter is bright, but the nickname is given for its size."
+        }
+      },
+      {
+        "stem": "The article says Jupiter's thick atmosphere is full of clouds. What is an atmosphere?",
+        "options": [
+          "A moon with ice on top",
+          "A storm wider than Earth",
+          "A layer of gases around a planet",
+          "A tool that makes things big"
+        ],
+        "answer": "C",
+        "skill": "vocabulary",
+        "why": "The text says Jupiter is a ball of gas with clouds in its thick atmosphere, so it is the gases around the planet.",
+        "wrong": {
+          "A": "Europa is the moon with ice.",
+          "B": "The storm is called the Great Red Spot.",
+          "D": "A telescope makes far things look big, not an atmosphere."
+        }
+      },
+      {
+        "stem": "The article says scientists \"believe\" a salty ocean lies beneath Europa's ice. What does this show?",
+        "options": [
+          "They have dived into the ocean.",
+          "They saw the ocean with a telescope.",
+          "They have drunk the water.",
+          "They are not completely sure it is there."
+        ],
+        "answer": "D",
+        "skill": "inference",
+        "why": "The word believe shows that scientists think it is there, but they are not sure.",
+        "wrong": {
+          "A": "No one has dived there, as far as the text says.",
+          "B": "The ice covers the ocean, so it cannot be seen.",
+          "C": "The text says nothing about drinking the water."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "For how long have astronomers observed the Great Red Spot swirling?",
+        "options": [
+          "Less than ten years",
+          "About fifty years",
+          "More than 150 years",
+          "More than 400 years"
+        ],
+        "answer": "C",
+        "skill": "detail",
+        "why": "The text says astronomers have observed it swirling for more than one hundred and fifty years.",
+        "wrong": {
+          "A": "Ten years is far too short.",
+          "B": "Fifty years is shorter than the text says.",
+          "D": "Four hundred years is when Galileo saw the moons."
+        }
+      },
+      {
+        "stem": "In the text, what does the word celebrated mean?",
+        "options": [
+          "Famous",
+          "Hidden",
+          "Dangerous",
+          "Quiet"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "The Great Red Spot is described as a gigantic storm that astronomers have watched for 150 years, so it is famous.",
+        "wrong": {
+          "B": "Astronomers can see the spot, so it is not hidden.",
+          "C": "The sentence says it is well known, not dangerous.",
+          "D": "A swirling storm is not quiet."
+        }
+      },
+      {
+        "stem": "Why does one complete orbit around the Sun take Jupiter about twelve Earth years?",
+        "options": [
+          "It spins faster than any other planet.",
+          "It has a strong magnetic field.",
+          "It is made mostly of gas and no ground.",
+          "It travels at a great distance from the Sun."
+        ],
+        "answer": "D",
+        "skill": "cause-effect",
+        "why": "The text says that because Jupiter travels at such a great distance from the Sun, one orbit takes about twelve Earth years.",
+        "wrong": {
+          "A": "Spinning fast makes the day short and has nothing to do with the year.",
+          "B": "The magnetic field makes auroras, not the length of the year.",
+          "C": "Being made of gas is not linked to the length of the year."
+        }
+      },
+      {
+        "stem": "How is Jupiter different from Earth, according to the article?",
+        "options": [
+          "It has dozens of moons and Earth has none at all.",
+          "It has no solid surface for a visitor to stand on.",
+          "It is made mostly of rock and metal, like Earth.",
+          "It orbits the Sun in less than one full Earth year."
+        ],
+        "answer": "B",
+        "skill": "compare",
+        "why": "The text says that, unlike Earth, Jupiter has no solid surface on which a visitor could stand.",
+        "wrong": {
+          "A": "The text does not say that Earth has no moons.",
+          "C": "The text says Jupiter is a gas giant made of hydrogen and helium.",
+          "D": "Jupiter takes about twelve Earth years to orbit."
+        }
+      }
+    ]
   }
 }

@@ -614,5 +614,217 @@
       ],
       "modelAnswer": "Newton's third law explains why a rocket can fly: when the engine burns propellant and blasts hot exhaust gas downward out of the nozzle, that action produces an equal and opposite reaction that pushes the rocket upward as thrust. This reaction only works if the fuel keeps burning, but because there is no oxygen in the thin upper atmosphere or in the vacuum of space, a rocket must carry its own oxidizer onboard so combustion can continue all the way to orbit. Together, Newton's third law and a built-in oxidizer let a rocket accelerate to the enormous velocity, nearly 28,000 kilometers per hour, that it needs to stay in orbit instead of falling back to Earth. Even a rocket launched near the equator, where Earth's own spin gives it an extra push, still depends on this same basic combination of propellant, oxidizer, and reaction force to reach space."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "In 2023, how many more Saudi astronauts went up to space?",
+        "options": [
+          "Two",
+          "One",
+          "Four",
+          "Six"
+        ],
+        "answer": "A",
+        "skill": "detail",
+        "why": "The text says that in 2023, two more Saudi astronauts went up.",
+        "wrong": {
+          "B": "The text says two, not one.",
+          "C": "The text says two, not four.",
+          "D": "The text says two, not six."
+        }
+      },
+      {
+        "stem": "Why does a rocket need lots of fuel?",
+        "options": [
+          "It has to burn the fuel to make a loud noise.",
+          "It has to push hard against Earth's pull.",
+          "It has to drop the fuel as it goes up high.",
+          "It has to make the balloon zoom off the ground."
+        ],
+        "answer": "B",
+        "skill": "cause-effect",
+        "why": "The text says Earth pulls on the rocket and holds it down, so it has to push hard and needs lots of fuel.",
+        "wrong": {
+          "A": "Noise is not the reason given.",
+          "C": "Stages drop off when they run out of fuel, but fuel is not dropped.",
+          "D": "The balloon is only an example of how a rocket works."
+        }
+      },
+      {
+        "stem": "A rocket must go very fast to stay up. What would happen if it went too slow?",
+        "options": [
+          "It would turn into a stage.",
+          "It would go round the Earth faster.",
+          "It would fall back to Earth.",
+          "It would burn more fuel."
+        ],
+        "answer": "C",
+        "skill": "inference",
+        "why": "The text says Earth pulls us down and the rocket must go very fast to stay up, so a slow rocket would come back down.",
+        "wrong": {
+          "A": "A stage is a part of a rocket, not something it turns into.",
+          "B": "A slow rocket would not go faster.",
+          "D": "The text does not link slow speed to more fuel."
+        }
+      },
+      {
+        "stem": "In the text, what is an orbit?",
+        "options": [
+          "A tool that helps us see far",
+          "A part of a big rocket",
+          "A kind of fuel that burns",
+          "A path around the Earth"
+        ],
+        "answer": "D",
+        "skill": "vocabulary",
+        "why": "The text says this path, where the rocket goes round and round the Earth, is an orbit.",
+        "wrong": {
+          "A": "A telescope is the tool to see far, not an orbit.",
+          "B": "A part of a rocket is called a stage.",
+          "C": "Fuel is what burns to make gas."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "About how fast must a spacecraft travel to stay in orbit?",
+        "options": [
+          "About 28 kilometers an hour",
+          "About 280 kilometers an hour",
+          "About 2,800 kilometers an hour",
+          "About 28,000 kilometers an hour"
+        ],
+        "answer": "D",
+        "skill": "detail",
+        "why": "The text says a spacecraft must travel about 28,000 kilometers an hour to stay in orbit.",
+        "wrong": {
+          "A": "This is far too slow.",
+          "B": "This is far too slow.",
+          "C": "This is much slower than the text says."
+        }
+      },
+      {
+        "stem": "Why is most of a rocket's weight at launch made of fuel?",
+        "options": [
+          "Fuel is lighter than the rocket's engine.",
+          "The rocket needs thrust greater than its weight.",
+          "The nozzle can only work with a lot of fuel.",
+          "Astronauts must carry the fuel with them."
+        ],
+        "answer": "B",
+        "skill": "cause-effect",
+        "why": "The text says a rocket can rise only when its thrust is greater than its weight, which is why most of its launch weight is fuel.",
+        "wrong": {
+          "A": "The text does not compare the weight of fuel and the engine.",
+          "C": "The nozzle is the opening where the gas blasts out.",
+          "D": "The text does not say that astronauts carry the fuel."
+        }
+      },
+      {
+        "stem": "In the article, what does thrust do?",
+        "options": [
+          "It pushes the rocket up.",
+          "It pulls everything down.",
+          "It keeps the oxygen in a tank.",
+          "It makes a stage fall away."
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "The text says that as the gas rushes down, it pushes the rocket up, and this upward push is called thrust.",
+        "wrong": {
+          "B": "The force that pulls things down is gravity.",
+          "C": "Thrust is a push, not a way to keep oxygen.",
+          "D": "A stage falls away when it runs out of fuel."
+        }
+      },
+      {
+        "stem": "How is a rocket like a balloon that is let go?",
+        "options": [
+          "Both have a stage that drops off in the air.",
+          "Both must carry their own oxygen in a tank.",
+          "Both are pushed by gas rushing out the back.",
+          "Both stay in orbit around the Earth for years."
+        ],
+        "answer": "C",
+        "skill": "compare",
+        "why": "The text says the balloon zooms as air rushes out of the back, and a rocket works on the same idea.",
+        "wrong": {
+          "A": "Only large rockets are built in stages.",
+          "B": "Only the rocket needs to carry oxygen in space.",
+          "D": "A balloon does not go into orbit."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "About how often does the International Space Station complete one orbit?",
+        "options": [
+          "Every ten minutes",
+          "Every three hours",
+          "Every ninety minutes",
+          "Every day"
+        ],
+        "answer": "C",
+        "skill": "detail",
+        "why": "The text says the station completes one orbit roughly every ninety minutes.",
+        "wrong": {
+          "A": "Ten minutes is much too quick.",
+          "B": "Three hours is longer than the text says.",
+          "D": "One day is much longer than the text says."
+        }
+      },
+      {
+        "stem": "Why must a rocket carry its oxidizer with it?",
+        "options": [
+          "There is no air in space for the fuel to burn.",
+          "The engines are not strong enough on Earth.",
+          "The nozzle cannot work without an oxidizer.",
+          "The rocket is too light to leave the pad."
+        ],
+        "answer": "A",
+        "skill": "cause-effect",
+        "why": "The text says there is no air in space, so the rocket carries its oxidizer to keep the engines firing.",
+        "wrong": {
+          "B": "The text does not say that the engines are weak.",
+          "C": "The nozzle is the part where the gas blasts out.",
+          "D": "The text says a rocket is heavy at liftoff because of its propellant."
+        }
+      },
+      {
+        "stem": "In the text, what does the word accelerate mean?",
+        "options": [
+          "To fall back",
+          "To stand still",
+          "To land again",
+          "To speed up"
+        ],
+        "answer": "D",
+        "skill": "vocabulary",
+        "why": "A stage falls away so the remaining rocket is lighter, which lets it go faster, so accelerate means to speed up.",
+        "wrong": {
+          "A": "Falling back is the opposite of going up.",
+          "B": "Standing still is not what a rocket does after a stage falls away.",
+          "C": "Landing is what some boosters do much later."
+        }
+      },
+      {
+        "stem": "Why does the author start with a balloon and Newton's third law?",
+        "options": [
+          "To teach how to build a balloon",
+          "To explain the idea that makes rockets work",
+          "To show that balloons can fly into space",
+          "To prove that rockets are safe for all people"
+        ],
+        "answer": "B",
+        "skill": "author-purpose",
+        "why": "The text says a rocket operates on the same principle as the balloon, which Newton described as equal and opposite reactions.",
+        "wrong": {
+          "A": "The article is not about building balloons.",
+          "C": "A balloon only zooms around the room.",
+          "D": "Safety is not the point of the opening."
+        }
+      }
+    ]
   }
 }

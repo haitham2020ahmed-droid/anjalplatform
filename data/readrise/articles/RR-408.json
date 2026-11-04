@@ -614,5 +614,217 @@
       ],
       "modelAnswer": "I agree that practicing something many times is one of the best ways to improve, even if it is not always the only way. Robo's algorithm became dramatically better at the maze after its diagnostic routine simulated thousands of iterations overnight, discarding paths that had repeatedly failed. This mirrors how a person improves at a skill through steady, repeated practice. Someone might argue that unlike Robo, people also need rest and cannot run endless simulations in their heads, but the story still shows that repetition, whether by an algorithm or a person, reliably leads to real improvement over time."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "What was Robo's job?",
+        "options": [
+          "To find a way through a maze",
+          "To carry boxes to Lina's room",
+          "To draw a map of the school",
+          "To race other robots outside"
+        ],
+        "answer": "A",
+        "skill": "detail",
+        "why": "The text says Robo's job was to find a way through a maze.",
+        "wrong": {
+          "B": "Robo never carries boxes in the story.",
+          "C": "Robo does not draw maps.",
+          "D": "The story has no race with other robots."
+        }
+      },
+      {
+        "stem": "In the story, the word practice means —",
+        "options": [
+          "a long sleep at night",
+          "a gift for a friend",
+          "trying again and again",
+          "a loud sound in the dark"
+        ],
+        "answer": "C",
+        "skill": "vocabulary",
+        "why": "The text says Robo tried the maze again and again all night, and calls this practice.",
+        "wrong": {
+          "A": "Robo did not sleep; it kept trying the maze.",
+          "B": "Practice is not a gift in the story.",
+          "D": "Practice is about trying, not about sound."
+        }
+      },
+      {
+        "stem": "What did Lina mean when she said Robo did not really dream?",
+        "options": [
+          "Robo was too tired",
+          "Robo broke in the night",
+          "Lina did not like her robot",
+          "It only ran the maze often"
+        ],
+        "answer": "D",
+        "skill": "inference",
+        "why": "Lina explains that the program just tried a lot, which is machine learning and not dreaming.",
+        "wrong": {
+          "A": "Robo kept trying all night.",
+          "B": "Robo was not broken; it ran fast next day.",
+          "C": "Lina is happy with her robot at the end."
+        }
+      },
+      {
+        "stem": "What did Robo's lights do in the dark?",
+        "options": [
+          "They blinked",
+          "They stayed off",
+          "They turned red",
+          "They got very hot"
+        ],
+        "answer": "A",
+        "skill": "detail",
+        "why": "The text says its lights blinked in the dark.",
+        "wrong": {
+          "B": "The lights were on, not off.",
+          "C": "The story gives no color for the lights.",
+          "D": "The story never says the lights got hot."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "What did the program store as it tested one path after another?",
+        "options": [
+          "Photos of the team",
+          "Data about the turns",
+          "Songs for the fair",
+          "Names of other robots"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The text says it stored data about which choices worked and which led to dead ends.",
+        "wrong": {
+          "A": "Photos of the team are not mentioned.",
+          "C": "Songs are not mentioned.",
+          "D": "Other robots are not mentioned."
+        }
+      },
+      {
+        "stem": "In the story, the word tricky in \"a tricky maze\" means —",
+        "options": [
+          "very small",
+          "hard to solve",
+          "bright and shiny",
+          "easy to finish"
+        ],
+        "answer": "B",
+        "skill": "vocabulary",
+        "why": "Robo kept bumping into walls and moved slowly, so the maze was hard to solve.",
+        "wrong": {
+          "A": "The text does not say the maze was small.",
+          "C": "The words bright and shiny do not fit a maze.",
+          "D": "Robo had trouble at first, so it was not easy."
+        }
+      },
+      {
+        "stem": "Why was everyone amazed the next morning?",
+        "options": [
+          "Robo could talk to them",
+          "Robo zoomed through fast",
+          "Lina built a new robot",
+          "The maze was made bigger"
+        ],
+        "answer": "B",
+        "skill": "cause-effect",
+        "why": "Robo had bumped into walls on day one, so its quick, smooth run was a big change.",
+        "wrong": {
+          "A": "Robo does not talk in the story.",
+          "C": "Lina built only one robot.",
+          "D": "The maze did not change."
+        }
+      },
+      {
+        "stem": "What does the ending say about how people learn?",
+        "options": [
+          "Most skills are learned in one night",
+          "Only robots can get better at things",
+          "Steady practice can help them improve",
+          "People should never repeat a task"
+        ],
+        "answer": "C",
+        "skill": "inference",
+        "why": "The ending says people can improve almost any skill through steady, repeated practice, as Robo did.",
+        "wrong": {
+          "A": "The ending talks about repeated practice, not one night.",
+          "B": "The ending says people can improve too.",
+          "D": "The ending says repeating helps."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "Why did Robo's first test go badly?",
+        "options": [
+          "Its camera was left switched off",
+          "Its battery ran out of charge",
+          "Its sensors misjudged distance",
+          "Its wheels got stuck in mud"
+        ],
+        "answer": "C",
+        "skill": "cause-effect",
+        "why": "The text says the sensors kept misjudging the distance to the walls, so Robo collided with them.",
+        "wrong": {
+          "A": "The text says Robo had a camera, but not that it was off.",
+          "B": "A weak battery is not mentioned.",
+          "D": "Mud is not mentioned."
+        }
+      },
+      {
+        "stem": "In the story, the word simulate most nearly means —",
+        "options": [
+          "to build a robot",
+          "to copy a task in a model",
+          "to turn off the lights",
+          "to race a clock"
+        ],
+        "answer": "B",
+        "skill": "vocabulary",
+        "why": "The program ran the maze inside its memory with no physical movement, so it copied the run without doing it.",
+        "wrong": {
+          "A": "Nothing new is built during the simulation.",
+          "C": "The lights are not what simulate describes.",
+          "D": "The simulation had no clock race."
+        }
+      },
+      {
+        "stem": "What did the algorithm do with paths that failed again and again?",
+        "options": [
+          "It chose them as the best route",
+          "It gave them to Lina to study",
+          "It saved them for the next morning",
+          "It threw them out of its plan"
+        ],
+        "answer": "D",
+        "skill": "detail",
+        "why": "The text says the algorithm optimized the route by discarding paths that had repeatedly failed.",
+        "wrong": {
+          "A": "Failed paths were dropped, not chosen.",
+          "B": "The text never says it gave paths to Lina.",
+          "C": "It dropped them instead of saving them."
+        }
+      },
+      {
+        "stem": "Why was Robo able to zoom through the maze the next morning?",
+        "options": [
+          "Lina carried it to the finish line",
+          "It practiced the maze in its memory",
+          "The maze walls had been taken away",
+          "It got a much bigger motor"
+        ],
+        "answer": "B",
+        "skill": "inference",
+        "why": "Overnight, Robo's program ran the maze thousands of times in its memory and learned the fastest route.",
+        "wrong": {
+          "A": "Robo ran the maze by itself.",
+          "C": "The maze was the same.",
+          "D": "No new motor is mentioned."
+        }
+      }
+    ]
   }
 }

@@ -614,5 +614,217 @@
       ],
       "modelAnswer": "I believe the benefits of virtual reality outweigh its limitations. The immersive nature of VR lets surgeons rehearse dangerous operations and lets therapists help a patient face a phobia gradually and safely, which can truly change lives for the better. However, VR does have real limitations, since the headsets are often heavy and costly, and many users feel dizzy because their eyes sense motion their body does not. Because of risks like these, sensible regulations and shorter sessions for younger children make sense, but with those precautions in place, the practical benefits of VR are clearly worth it."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "What should you do if VR makes you feel sick?",
+        "options": [
+          "Rest and shut your eyes",
+          "Turn your head faster",
+          "Hold the controllers tight",
+          "Look at the screens longer"
+        ],
+        "answer": "A",
+        "skill": "detail",
+        "why": "The text says to rest, take a break, and shut your eyes.",
+        "wrong": {
+          "B": "Turning your head is what moves the view, and it would not help.",
+          "C": "The controllers are for touching things in VR, not for feeling better.",
+          "D": "Looking longer would not give you a rest."
+        }
+      },
+      {
+        "stem": "Why does the view turn when you turn your head?",
+        "options": [
+          "The screens are very big",
+          "The pictures are old ones",
+          "The doctor turns the view",
+          "The headset senses your head"
+        ],
+        "answer": "D",
+        "skill": "cause-effect",
+        "why": "The text says the headset can sense your head, so the view turns, too.",
+        "wrong": {
+          "A": "The text says the screens are small.",
+          "B": "The text does not say the pictures are old.",
+          "C": "A doctor is not part of this process."
+        }
+      },
+      {
+        "stem": "In the article, what does the word sense mean?",
+        "options": [
+          "To hide something",
+          "To notice something",
+          "To break something",
+          "To sell something"
+        ],
+        "answer": "B",
+        "skill": "vocabulary",
+        "why": "The headset notices when your head moves, so the view can turn.",
+        "wrong": {
+          "A": "The headset does not hide your head.",
+          "C": "Nothing is broken in the text.",
+          "D": "Selling is not part of the text."
+        }
+      },
+      {
+        "stem": "What can kids see with VR at school?",
+        "options": [
+          "Only their own homes",
+          "Old lands and the moon",
+          "Doctors and pilots at work",
+          "A very long conveyor belt"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The text says kids can see old lands and even the moon.",
+        "wrong": {
+          "A": "The text says VR takes you out of your room.",
+          "C": "Doctors and pilots use VR to learn and train, but kids do not see them there.",
+          "D": "A belt is not mentioned in this text."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "How can an architect use VR?",
+        "options": [
+          "To operate on a real patient",
+          "To fly a real plane in the sky",
+          "To show a client a new building",
+          "To climb a tall real mountain"
+        ],
+        "answer": "C",
+        "skill": "detail",
+        "why": "The text says an architect can use VR to walk a client through a building before it is built.",
+        "wrong": {
+          "A": "A surgeon practices on a simulation, not an architect.",
+          "B": "A pilot practices flying without danger.",
+          "D": "The mountain is only a scene shown in the first paragraph."
+        }
+      },
+      {
+        "stem": "What does the word realistic mean in the article?",
+        "options": [
+          "Like real life",
+          "Very small",
+          "Hard to see",
+          "Made of glass"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "A realistic simulation seems like real life, as if you are standing on a mountain.",
+        "wrong": {
+          "B": "Small describes the screens, not realistic.",
+          "C": "The pictures are easy to see.",
+          "D": "Glass is not mentioned."
+        }
+      },
+      {
+        "stem": "Why does the picture change the moment you tilt your head?",
+        "options": [
+          "Each screen shows the same picture",
+          "The controllers move the picture",
+          "A doctor tells it to change",
+          "Sensors detect every head movement"
+        ],
+        "answer": "D",
+        "skill": "cause-effect",
+        "why": "The text says tiny sensors detect every movement of your head, so the picture changes.",
+        "wrong": {
+          "A": "The text says each screen shows a slightly different picture.",
+          "B": "Controllers are for your hands.",
+          "C": "A doctor is not part of this process."
+        }
+      },
+      {
+        "stem": "Why does the author name a rainforest, the pyramids, and the human body?",
+        "options": [
+          "To say that VR is only for games",
+          "To show that VR can take a class far",
+          "To warn that VR is unsafe at school",
+          "To explain how a headset is built"
+        ],
+        "answer": "B",
+        "skill": "author-purpose",
+        "why": "These places show that a class can travel to many different places with VR.",
+        "wrong": {
+          "A": "The text says VR is useful for far more than games.",
+          "C": "The warning about dizziness is in a different paragraph.",
+          "D": "The headset parts are described earlier."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "How can a therapist use VR to help a patient with a phobia?",
+        "options": [
+          "By giving the patient some heavy gloves",
+          "By building a brand new school for them",
+          "By removing all of the headset's screens",
+          "By helping the patient face a fear safely"
+        ],
+        "answer": "D",
+        "skill": "detail",
+        "why": "The text says the patient can face the fear slowly and safely, one small step at a time.",
+        "wrong": {
+          "A": "Gloves are described as a way to feel weight, not to treat a phobia.",
+          "B": "Schools use VR to teach, not therapists.",
+          "C": "The screens are the main part of the headset."
+        }
+      },
+      {
+        "stem": "What does the word immersive mean in \"immersive experience\"?",
+        "options": [
+          "Very quiet and calm",
+          "Feeling as if you are inside",
+          "Easy to take apart quickly",
+          "Cheap for most people to buy"
+        ],
+        "answer": "B",
+        "skill": "vocabulary",
+        "why": "The text says VR is built to feel as real as possible, so you seem to be inside it.",
+        "wrong": {
+          "A": "The text does not say VR is quiet.",
+          "C": "Taking things apart is not mentioned.",
+          "D": "The text says headsets are costly."
+        }
+      },
+      {
+        "stem": "Why would haptic gloves make an object feel more real?",
+        "options": [
+          "They press gently on the fingers",
+          "They show two different pictures",
+          "They track the wearer's head",
+          "They make the headset lighter"
+        ],
+        "answer": "A",
+        "skill": "cause-effect",
+        "why": "The text says haptic feedback presses on the fingers so an object feels like it has real weight.",
+        "wrong": {
+          "B": "The two pictures come from the screens in the headset.",
+          "C": "Sensors in the headset track the head.",
+          "D": "The text says headsets remain heavy."
+        }
+      },
+      {
+        "stem": "Why might a school not buy a headset for every student?",
+        "options": [
+          "Students may not use screens",
+          "Headsets can only show mountains",
+          "Headsets are heavy and costly",
+          "Headsets are used only by pilots"
+        ],
+        "answer": "C",
+        "skill": "inference",
+        "why": "The text says headsets remain heavy and costly, which would make buying many of them hard.",
+        "wrong": {
+          "A": "The text says schools are using VR as a teaching tool.",
+          "B": "The text says VR can show many places.",
+          "D": "The text says many professions and schools use VR."
+        }
+      }
+    ]
   }
 }

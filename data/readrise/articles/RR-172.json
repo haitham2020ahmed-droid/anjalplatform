@@ -614,5 +614,217 @@
       ],
       "modelAnswer": "When I inhale, air travels down my windpipe, which splits into bronchi that branch again and again inside each lung until they reach tiny air sacs called alveoli. At the alveoli, oxygen passes into the blood through thin-walled capillaries that wrap around them, and the blood then carries that oxygen throughout my body. At the same time, carbon dioxide moves from the capillaries back into the alveoli, and I release it when I exhale, showing how this branching structure is perfectly built for exchanging gases with my blood."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "Which gas does your body need from the air?",
+        "options": [
+          "Smoke",
+          "Dust",
+          "Steam",
+          "Oxygen"
+        ],
+        "answer": "D",
+        "skill": "detail",
+        "why": "The text says your body needs oxygen and that oxygen is in the air.",
+        "wrong": {
+          "A": "Smoke is bad for your lungs.",
+          "B": "Dust is bad for your lungs.",
+          "C": "Steam is not mentioned in the article."
+        }
+      },
+      {
+        "stem": "Why do you breathe out?",
+        "options": [
+          "To push a waste gas out of your body",
+          "To keep your nose hairs nice and clean",
+          "To make your ribs grow bigger",
+          "To help your blood stay cold"
+        ],
+        "answer": "A",
+        "skill": "cause-effect",
+        "why": "The text says your body makes a waste gas and your lungs push it out when you breathe out.",
+        "wrong": {
+          "B": "The nose hairs catch dust; breathing out does not clean them.",
+          "C": "The text does not say breathing out makes ribs grow.",
+          "D": "The text does not say that breathing cools blood."
+        }
+      },
+      {
+        "stem": "The text says your body makes a waste gas. What is a waste gas?",
+        "options": [
+          "A gas that smells like smoke",
+          "A gas the body does not need",
+          "A gas that comes from a mask",
+          "A gas that is found in dust"
+        ],
+        "answer": "B",
+        "skill": "vocabulary",
+        "why": "The body makes the gas and the lungs push it out, so it is a gas the body does not need.",
+        "wrong": {
+          "A": "The text does not say it smells like smoke.",
+          "C": "Masks do not make gas.",
+          "D": "The waste gas is made by the body, not found in dust."
+        }
+      },
+      {
+        "stem": "Why does the author begin by asking you to take a deep breath?",
+        "options": [
+          "To tell you to stay inside all day",
+          "To show you how lungs are used",
+          "To explain how dust hurts your lungs",
+          "To teach you how to run fast"
+        ],
+        "answer": "B",
+        "skill": "author-purpose",
+        "why": "The author wants you to feel your chest get big and see that you are using your lungs.",
+        "wrong": {
+          "A": "Staying in is advice for dust storm days at the end.",
+          "C": "Dust is explained later in the article.",
+          "D": "The article says you breathe fast when you run, but that is not the reason for the opening."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "After oxygen moves into your blood, what pumps the blood around your body?",
+        "options": [
+          "Your ribs",
+          "Your windpipe",
+          "Your diaphragm",
+          "Your heart"
+        ],
+        "answer": "D",
+        "skill": "detail",
+        "why": "The text says your heart pumps the blood all over your body.",
+        "wrong": {
+          "A": "The ribs protect the lungs like a cage.",
+          "B": "The windpipe carries air to the lungs.",
+          "C": "The diaphragm helps with breathing."
+        }
+      },
+      {
+        "stem": "The text says tiny hairs and mucus trap dust. What does trap mean?",
+        "options": [
+          "Catch and hold",
+          "Throw far away",
+          "Make bigger",
+          "Turn into air"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "The hairs and mucus stop the dust before it reaches the lungs, so trap means catch and hold.",
+        "wrong": {
+          "B": "Trapped dust stays in the nose; it is not thrown away.",
+          "C": "The text does not say dust gets bigger.",
+          "D": "The text does not say dust turns into air."
+        }
+      },
+      {
+        "stem": "Why must your lungs push air out each time you breathe out?",
+        "options": [
+          "To make room for more dust",
+          "To keep the diaphragm hot",
+          "To get rid of carbon dioxide",
+          "To help the ribs curve"
+        ],
+        "answer": "C",
+        "skill": "cause-effect",
+        "why": "The blood carries carbon dioxide, a waste gas, back to the lungs, and you get rid of it when you breathe out.",
+        "wrong": {
+          "A": "Dust is trapped by the nose, not pushed out to make room.",
+          "B": "The text does not say the diaphragm gets hot.",
+          "D": "The ribs curve around the lungs on their own."
+        }
+      },
+      {
+        "stem": "Why does the author begin by asking you to hold a deep breath?",
+        "options": [
+          "To warn you that holding a breath is unsafe",
+          "To tell you to breathe through your mouth",
+          "To let you feel your lungs at work",
+          "To teach you how to swim well"
+        ],
+        "answer": "C",
+        "skill": "author-purpose",
+        "why": "Holding a breath lets the reader feel the chest grow and so notice the lungs working.",
+        "wrong": {
+          "A": "The article does not warn that holding a breath is unsafe.",
+          "B": "The text says air comes in through the nose or mouth, not that you should pick one.",
+          "D": "The article is not about swimming."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "About how many times does an adult at rest breathe each minute?",
+        "options": [
+          "Six to ten times",
+          "Twelve to twenty times",
+          "Thirty to forty times",
+          "Fifty to sixty times"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The article says an adult at rest breathes roughly twelve to twenty times each minute.",
+        "wrong": {
+          "A": "That is slower than the article says.",
+          "C": "That is faster than the article says.",
+          "D": "That is much faster than the article says."
+        }
+      },
+      {
+        "stem": "In the text, what does the word delicate mean?",
+        "options": [
+          "Very large",
+          "Very hot",
+          "Very old",
+          "Easily harmed"
+        ],
+        "answer": "D",
+        "skill": "vocabulary",
+        "why": "The sentence says dust and smoke can damage it, so delicate means easily harmed.",
+        "wrong": {
+          "A": "The text compares lungs to large balloons but says nothing of delicate meaning large.",
+          "B": "The text does not say the tissue is hot.",
+          "C": "The text does not say the tissue is old."
+        }
+      },
+      {
+        "stem": "Why does smoking make every breath more difficult?",
+        "options": [
+          "It damages the delicate tissue of the lungs",
+          "It makes the diaphragm flatten too much",
+          "It fills the alveoli with blood",
+          "It makes the ribs close around the lungs"
+        ],
+        "answer": "A",
+        "skill": "cause-effect",
+        "why": "The article says smoking damages the delicate tissue of the lungs and makes every breath more difficult.",
+        "wrong": {
+          "B": "The text does not say that smoking changes the diaphragm.",
+          "C": "Alveoli are wrapped in capillaries; the text does not say they fill with blood.",
+          "D": "The ribs form a protective cage and are not changed by smoking."
+        }
+      },
+      {
+        "stem": "How does the article compare regular exercise with smoking?",
+        "options": [
+          "Both of them make the diaphragm weaker over time",
+          "Exercise strengthens muscles, but smoking harms the lungs",
+          "Smoking helps the lungs grow, but exercise does not help",
+          "Exercise and smoking have no effect on breathing at all"
+        ],
+        "answer": "B",
+        "skill": "compare",
+        "why": "The article says exercise strengthens the breathing muscles, whereas smoking damages lung tissue.",
+        "wrong": {
+          "A": "Exercise strengthens the diaphragm; it does not weaken it.",
+          "C": "Smoking damages the lungs; it does not help them grow.",
+          "D": "Both have effects, as the article says."
+        }
+      }
+    ]
   }
 }

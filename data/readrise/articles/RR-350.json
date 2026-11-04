@@ -614,5 +614,217 @@
       ],
       "modelAnswer": "Islands in an archipelago often have endemic species because each island is isolated from the others by open water, with little contact between separate populations of plants and animals. The article explains that this isolation allows unique traits to develop over many generations, since species cannot easily travel between islands to mix with others. Because so many separate islands can each develop their own distinct species, archipelagos like Indonesia and the Philippines often have remarkable biodiversity packed into a fairly small area of land."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "What do people on the islands do in the sea?",
+        "options": [
+          "They dig for oil",
+          "They fish",
+          "They build volcanoes",
+          "They make coral"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The text says people live there and fish in the sea.",
+        "wrong": {
+          "A": "Oil is not mentioned in the text.",
+          "C": "Volcanoes form from hot rock, not from people.",
+          "D": "Tiny sea animals make coral."
+        }
+      },
+      {
+        "stem": "Why do people in an island chain use boats?",
+        "options": [
+          "To go from one island to the next",
+          "To dig up hot rock from the sea",
+          "To search for a new nation far away",
+          "To catch the wind for the island"
+        ],
+        "answer": "A",
+        "skill": "inference",
+        "why": "The text says boats cross the sea from one spot to the next.",
+        "wrong": {
+          "B": "Hot rock makes islands; boats do not dig it.",
+          "C": "The text does not say people look for a new nation.",
+          "D": "Catching wind is not mentioned in the text."
+        }
+      },
+      {
+        "stem": "In the text, a chain of islands means islands that —",
+        "options": [
+          "are made of heavy iron",
+          "are very far apart",
+          "sit close in the sea",
+          "float in the sky above"
+        ],
+        "answer": "C",
+        "skill": "vocabulary",
+        "why": "The text says a group of islands sits close in the sea.",
+        "wrong": {
+          "A": "Iron is not mentioned.",
+          "B": "The text says the islands are close.",
+          "D": "Islands do not float in the sky."
+        }
+      },
+      {
+        "stem": "Why does an island nation have no one big land?",
+        "options": [
+          "A big volcano broke it up",
+          "It is made of many small bits",
+          "The sea took the big land away",
+          "Its people all moved away"
+        ],
+        "answer": "B",
+        "skill": "cause-effect",
+        "why": "The text says lots of islands can make one nation with many small bits of land.",
+        "wrong": {
+          "A": "The text does not say a volcano broke the land up.",
+          "C": "The text does not say the sea took the land.",
+          "D": "The text says people live there."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "How many islands does Indonesia have?",
+        "options": [
+          "About seven thousand islands",
+          "Just a few small islands",
+          "More than seventeen thousand",
+          "About seven hundred islands"
+        ],
+        "answer": "C",
+        "skill": "detail",
+        "why": "The article says Indonesia has more than seventeen thousand islands.",
+        "wrong": {
+          "A": "Seven thousand is the number for the Philippines.",
+          "B": "Just a few islands is not true for Indonesia.",
+          "D": "Seven hundred is far too low."
+        }
+      },
+      {
+        "stem": "Why do people in archipelago nations travel by boat or plane?",
+        "options": [
+          "Roads are not allowed",
+          "There is no single mainland with roads",
+          "Boats are cheaper than cars",
+          "Planes are the oldest way to travel"
+        ],
+        "answer": "B",
+        "skill": "cause-effect",
+        "why": "The article says with no single mainland, people travel between islands by boat or plane, not by road.",
+        "wrong": {
+          "A": "The article does not talk about rules.",
+          "C": "The article does not talk about cost.",
+          "D": "The article does not talk about old ways of travel."
+        }
+      },
+      {
+        "stem": "Why have the plants and animals on far apart islands grown in their own ways?",
+        "options": [
+          "The islands sit far apart",
+          "The islands are all volcanoes",
+          "Coral feeds them",
+          "People move them often"
+        ],
+        "answer": "A",
+        "skill": "cause-effect",
+        "why": "The article says many islands sit far apart, so plants and animals have grown in their own ways.",
+        "wrong": {
+          "B": "Volcanoes are one way islands form, not the reason given.",
+          "C": "The article says coral is built by sea animals.",
+          "D": "The article does not say people move them."
+        }
+      },
+      {
+        "stem": "The article says the new island finally reaches the surface of the sea. This means the island —",
+        "options": [
+          "falls under the sea floor",
+          "comes up above the water",
+          "turns into coral",
+          "drifts past a hotspot"
+        ],
+        "answer": "B",
+        "skill": "vocabulary",
+        "why": "The magma piles up in time and breaks the surface, so the island rises above the water.",
+        "wrong": {
+          "A": "The island rises; it does not fall.",
+          "C": "This sentence is about magma, not coral.",
+          "D": "A hotspot is a different idea in the article."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "According to the article, what is the Pacific Ring of Fire?",
+        "options": [
+          "A belt with many volcanoes and earthquakes",
+          "A long chain of coral reefs in warm seas",
+          "A line of islands near the town of Jazan",
+          "A pipe that carries hot water to cities"
+        ],
+        "answer": "A",
+        "skill": "detail",
+        "why": "The article calls it a long belt of frequent volcanic and earthquake activity.",
+        "wrong": {
+          "B": "Coral reefs are mentioned for other reasons.",
+          "C": "Jazan is linked to the Farasan Islands.",
+          "D": "The article does not mention pipes."
+        }
+      },
+      {
+        "stem": "In the article, the phrase \"breaches the surface\" means the new island —",
+        "options": [
+          "sinks below the waves",
+          "stops growing",
+          "breaks through the water",
+          "turns into a peninsula"
+        ],
+        "answer": "C",
+        "skill": "vocabulary",
+        "why": "Magma builds up until it breaches the surface, which means it breaks through to the top.",
+        "wrong": {
+          "A": "Breaching means coming up, not sinking.",
+          "B": "The magma keeps building until it breaks through.",
+          "D": "A peninsula is a different kind of land."
+        }
+      },
+      {
+        "stem": "Why can a hotspot produce a long line of volcanic islands?",
+        "options": [
+          "The sea floor is very flat and wide",
+          "The plate above it slowly drifts",
+          "Coral grows over it for centuries",
+          "Many nations share it together"
+        ],
+        "answer": "B",
+        "skill": "cause-effect",
+        "why": "The article says a hotspot beneath a slowly drifting plate can produce a long line of islands.",
+        "wrong": {
+          "A": "The article does not say flat sea floor does this.",
+          "C": "Coral forms a different kind of island.",
+          "D": "Sharing among nations is not part of the cause."
+        }
+      },
+      {
+        "stem": "Why does the author end with the Farasan Islands?",
+        "options": [
+          "To show a nearby example of an archipelago",
+          "To warn readers about danger from volcanoes",
+          "To explain how subduction works under islands",
+          "To list the biggest island nations on Earth"
+        ],
+        "answer": "A",
+        "skill": "author-purpose",
+        "why": "The Farasan Islands are a Saudi archipelago with coral reefs, a local example of the topic.",
+        "wrong": {
+          "B": "The Farasan paragraph talks about coral reefs, not volcano danger.",
+          "C": "Subduction is explained earlier in the article.",
+          "D": "Indonesia and the Philippines are the large examples."
+        }
+      }
+    ]
   }
 }

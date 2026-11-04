@@ -614,5 +614,217 @@
       ],
       "modelAnswer": "Both the Hubble Space Telescope and the James Webb Space Telescope are alike in that they orbit above Earth's atmosphere, which keeps the blurring and twinkling caused by moving air from ruining their images. However, they differ in two important ways: Hubble launched in 1990, whereas Webb did not launch until 2021, three decades later with far more advanced technology. They also differ in what they can detect, since Webb's mirror, made of 18 gold-coated segments arranged like a honeycomb, is built to capture infrared light, a kind of heat energy invisible to human eyes, which Hubble was never designed to observe in the same way."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "What did Galileo see on the Moon?",
+        "options": [
+          "Four small moons",
+          "Dark sand land",
+          "Hills",
+          "A gold mirror"
+        ],
+        "answer": "C",
+        "skill": "detail",
+        "why": "The text says Galileo looked at the Moon and saw hills on it.",
+        "wrong": {
+          "A": "The four small moons went round Jupiter, not the Moon.",
+          "B": "Dark sand land is in Saudi Arabia, not on the Moon.",
+          "D": "The gold mirror belongs to the Webb telescope."
+        }
+      },
+      {
+        "stem": "Why does a big mirror help us see dim things?",
+        "options": [
+          "It catches a lot of light.",
+          "It makes the air clean.",
+          "It moves the star closer.",
+          "It makes the stars hot."
+        ],
+        "answer": "A",
+        "skill": "cause-effect",
+        "why": "The text says a big mirror can catch a lot of light, and more light lets us see dim things.",
+        "wrong": {
+          "B": "The mirror does not clean the air.",
+          "C": "A mirror does not move stars.",
+          "D": "The mirror does not make stars hot."
+        }
+      },
+      {
+        "stem": "What is a galaxy?",
+        "options": [
+          "A kind of glass",
+          "A path round Earth",
+          "A small gold mirror",
+          "A huge group of stars"
+        ],
+        "answer": "D",
+        "skill": "vocabulary",
+        "why": "The text says a galaxy is a huge group of stars.",
+        "wrong": {
+          "A": "A lens is the clear glass.",
+          "B": "That is an orbit.",
+          "C": "The gold mirror is part of Webb."
+        }
+      },
+      {
+        "stem": "Why is the dark sand land in Saudi Arabia a great place to look up?",
+        "options": [
+          "It has many very tall hills.",
+          "It has no wind and no air.",
+          "Dark skies help us see stars.",
+          "It is very close to Jupiter."
+        ],
+        "answer": "C",
+        "skill": "inference",
+        "why": "The text calls the dark land a great place to look up, so a dark sky must help us see stars.",
+        "wrong": {
+          "A": "The text does not say the sand land has tall hills.",
+          "B": "Air is everywhere on Earth.",
+          "D": "Saudi Arabia is not close to Jupiter."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "How many gold-covered pieces make up the mirror of the James Webb Space Telescope?",
+        "options": [
+          "4",
+          "18",
+          "90",
+          "1609"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The text says Webb's mirror is made of 18 gold-covered pieces.",
+        "wrong": {
+          "A": "Four is the number of moons Galileo saw around Jupiter.",
+          "C": "The text gives no such number for the mirror.",
+          "D": "1609 is the year Galileo used his telescope."
+        }
+      },
+      {
+        "stem": "According to the article, what makes stars twinkle?",
+        "options": [
+          "The moving air around Earth",
+          "Light from the Moon",
+          "The hot gold mirrors",
+          "City lights on the ground"
+        ],
+        "answer": "A",
+        "skill": "cause-effect",
+        "why": "The text says the air in the atmosphere is always moving, so it makes stars twinkle.",
+        "wrong": {
+          "B": "The Moon is not given as the cause.",
+          "C": "Gold mirrors are on Webb and do not cause twinkling.",
+          "D": "City lights are a reason to build telescopes far away, not the cause of twinkling."
+        }
+      },
+      {
+        "stem": "The article says distant objects are \"so faint\" that we cannot see them. What does faint mean?",
+        "options": [
+          "very fast",
+          "very large",
+          "very close",
+          "very dim"
+        ],
+        "answer": "D",
+        "skill": "vocabulary",
+        "why": "Objects that look like tiny dots or cannot be seen are very dim.",
+        "wrong": {
+          "A": "Speed is not what the sentence is about.",
+          "B": "The objects look like tiny dots, so they are not seen as large.",
+          "C": "The text says they are far away."
+        }
+      },
+      {
+        "stem": "Why are the dark desert skies of Saudi Arabia good for stargazing?",
+        "options": [
+          "The desert has high mountains.",
+          "Few city lights hide the stars.",
+          "Telescopes work only in sand.",
+          "The desert air is always moving."
+        ],
+        "answer": "B",
+        "skill": "inference",
+        "why": "The text says telescopes are built far from city lights, so dark skies help us see stars better.",
+        "wrong": {
+          "A": "The text does not say the desert has high mountains.",
+          "C": "Telescopes work in many places, such as mountains and space.",
+          "D": "Moving air blurs what a telescope sees, so it would not be a good thing."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "About how far from Earth does the James Webb Space Telescope operate?",
+        "options": [
+          "2.4 meters",
+          "18 segments",
+          "1990 kilometers",
+          "1.5 million kilometers"
+        ],
+        "answer": "D",
+        "skill": "detail",
+        "why": "The text says Webb operates approximately one and a half million kilometers from Earth.",
+        "wrong": {
+          "A": "2.4 meters is the width of Hubble's mirror.",
+          "B": "Eighteen is the number of mirror segments.",
+          "C": "1990 is the year Hubble was launched."
+        }
+      },
+      {
+        "stem": "What did Galileo's discovery of four moons orbiting Jupiter show?",
+        "options": [
+          "That Jupiter was the largest planet",
+          "That some things do not circle Earth",
+          "That the Moon has no craters",
+          "That telescopes need gold mirrors"
+        ],
+        "answer": "B",
+        "skill": "cause-effect",
+        "why": "The text says the moons around Jupiter showed that not every celestial body circles Earth.",
+        "wrong": {
+          "A": "The text does not compare the size of planets.",
+          "C": "Galileo found craters on the Moon.",
+          "D": "Gold mirrors were not part of his simple telescope."
+        }
+      },
+      {
+        "stem": "The article says moving air can \"distort\" telescope images. What does distort mean?",
+        "options": [
+          "to make it much larger",
+          "to make it much brighter",
+          "to twist out of shape",
+          "to make it much colder"
+        ],
+        "answer": "C",
+        "skill": "vocabulary",
+        "why": "Shifting air causes stars to twinkle and makes the images less clear, so distort means to twist out of shape.",
+        "wrong": {
+          "A": "Air blurs images and does not make them larger.",
+          "B": "The air does not make images brighter.",
+          "D": "Temperature is not what the sentence is about."
+        }
+      },
+      {
+        "stem": "Webb's mirror is about 6.5 meters across and Hubble's is about 2.4 meters. Which telescope can show fainter objects?",
+        "options": [
+          "Webb, because its wider mirror catches more light",
+          "Hubble, because it has been in space longer",
+          "Neither, because both see the same objects",
+          "Webb, because it is closer to Earth than Hubble"
+        ],
+        "answer": "A",
+        "skill": "compare",
+        "why": "The text says the wider the mirror, the more light it captures and the fainter the objects it can reveal.",
+        "wrong": {
+          "B": "Time in space does not matter; mirror width does.",
+          "C": "The wider mirror reveals fainter objects.",
+          "D": "Webb is about one and a half million kilometers away, so it is not closer than Hubble."
+        }
+      }
+    ]
   }
 }

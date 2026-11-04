@@ -614,5 +614,217 @@
       ],
       "modelAnswer": "I think Hind and Sara made a good decision to walk home. They knew the road well, the village was only about three kilometers away, and they supported each other the entire way, which shows real perseverance. They were also fortunate to meet Abu Khalid, whose hospitality gave them water and rest exactly when they needed it most. Someone might argue that walking alone in desert heat is risky and that waiting for help would have been safer, and that is a fair point. However, because the girls knew the route, stayed together, and found help along the way, their choice turned out to be both reasonable and successful."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "What does the bus driver say about the bus?",
+        "options": [
+          "\"It is a fast bus.\"",
+          "\"This will take time.\"",
+          "\"We are close to home.\"",
+          "\"Please get on the bus.\""
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The driver looks at the bus and says, \"This will take time.\"",
+        "wrong": {
+          "A": "The bus is stopped, so he does not say it is fast.",
+          "C": "Hind is the one who says the village is not far.",
+          "D": "The girls get off the bus."
+        }
+      },
+      {
+        "stem": "Why does Sara need to rest?",
+        "options": [
+          "She is tired and thirsty",
+          "She has lost her bag",
+          "She is afraid of the farm",
+          "She wants to read a book"
+        ],
+        "answer": "A",
+        "skill": "cause-effect",
+        "why": "The sun is hot, and Sara is tired and thirsty.",
+        "wrong": {
+          "B": "Her bag is not mentioned.",
+          "C": "She is not afraid of the farm.",
+          "D": "Reading is not mentioned."
+        }
+      },
+      {
+        "stem": "What happens right after the farmer gives the girls water?",
+        "options": [
+          "They go back to the stopped bus",
+          "They run into the farm to play",
+          "They walk on, feeling better",
+          "They sit and fall asleep there"
+        ],
+        "answer": "C",
+        "skill": "sequence",
+        "why": "After the water, the girls walk on and feel better.",
+        "wrong": {
+          "A": "They keep walking toward the village.",
+          "B": "The text does not say they play on the farm.",
+          "D": "The text does not say they sleep."
+        }
+      },
+      {
+        "stem": "In the story, what does it mean when Sara \"nods\"?",
+        "options": [
+          "She says no out loud",
+          "She falls fast asleep",
+          "She waves a long goodbye",
+          "She moves her head for yes"
+        ],
+        "answer": "D",
+        "skill": "vocabulary",
+        "why": "Hind says they can walk, and Sara nods and gets off the bus, so she is saying yes.",
+        "wrong": {
+          "A": "Sara gets off the bus, so she did not say no.",
+          "B": "She is awake and walking.",
+          "C": "She is not leaving; she is agreeing."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "What food did the farmer give the girls with the water?",
+        "options": [
+          "Fresh dates",
+          "Warm bread",
+          "Sweet rice",
+          "Dried fish"
+        ],
+        "answer": "A",
+        "skill": "detail",
+        "why": "The story says he gave them water and some fresh dates.",
+        "wrong": {
+          "B": "Bread is not mentioned.",
+          "C": "Rice is not mentioned.",
+          "D": "Fish is not mentioned."
+        }
+      },
+      {
+        "stem": "In the story, the word hesitated means Sara —",
+        "options": [
+          "jumped up with great joy",
+          "ran ahead of the others",
+          "paused, feeling unsure",
+          "fell asleep in the heat"
+        ],
+        "answer": "C",
+        "skill": "vocabulary",
+        "why": "Sara hesitated and then nodded, which shows she paused before she agreed.",
+        "wrong": {
+          "A": "She nodded, but she did not jump for joy.",
+          "B": "The girls walk side by side.",
+          "D": "She is awake and then walks."
+        }
+      },
+      {
+        "stem": "Why did the girls feel stronger after the short rest?",
+        "options": [
+          "The bus came to pick them up",
+          "They had water and dates",
+          "The sun went away at last",
+          "Their bags became lighter"
+        ],
+        "answer": "B",
+        "skill": "cause-effect",
+        "why": "The farmer gave them cool water and dates to eat in the shade.",
+        "wrong": {
+          "A": "The bus never comes in the story.",
+          "C": "The sun stays hot.",
+          "D": "Their bags are not mentioned."
+        }
+      },
+      {
+        "stem": "The girls ran the last steps, \"laughing with relief.\" What does this show?",
+        "options": [
+          "They were still very afraid",
+          "They wanted to go back",
+          "They were angry at Hind",
+          "They were glad to be home"
+        ],
+        "answer": "D",
+        "skill": "inference",
+        "why": "Laughing with relief shows the girls were happy their hard walk was over.",
+        "wrong": {
+          "A": "Relief means the fear is gone.",
+          "B": "They run toward their village.",
+          "C": "Nothing in the story shows anger."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "Where did Abu Khalid insist the girls rest?",
+        "options": [
+          "In his shaded grove",
+          "Inside the stopped bus",
+          "Beside the dusty road",
+          "On top of a hill"
+        ],
+        "answer": "A",
+        "skill": "detail",
+        "why": "The story says he insisted the girls rest a while in his shaded grove.",
+        "wrong": {
+          "B": "The bus was far back on the road.",
+          "C": "The farmer led them to the shade, away from the road.",
+          "D": "No hill is mentioned."
+        }
+      },
+      {
+        "stem": "In the story, the word parched most nearly means —",
+        "options": [
+          "very wet",
+          "very dry",
+          "very loud",
+          "very green"
+        ],
+        "answer": "B",
+        "skill": "vocabulary",
+        "why": "The landscape is parched and Sara feels parched from the heat, so it means very dry.",
+        "wrong": {
+          "A": "The road and desert are dry, not wet.",
+          "C": "Parched does not describe sound.",
+          "D": "The desert is dry, not green."
+        }
+      },
+      {
+        "stem": "Why did Hind promise to walk more slowly?",
+        "options": [
+          "She wanted to see the farm",
+          "The road was very short",
+          "Sara was exhausted",
+          "The bus was close behind"
+        ],
+        "answer": "C",
+        "skill": "cause-effect",
+        "why": "Sara felt exhausted and parched, so Hind promised they would go more slowly together.",
+        "wrong": {
+          "A": "The farm appears later.",
+          "B": "The village was about three kilometers away.",
+          "D": "The bus stayed stranded."
+        }
+      },
+      {
+        "stem": "The girls named landmarks they usually saw only from the bus window. What does this suggest?",
+        "options": [
+          "They had walked this road many times",
+          "They had never seen these places at all",
+          "They had a map to guide them",
+          "Walking this road was new for them"
+        ],
+        "answer": "D",
+        "skill": "inference",
+        "why": "They normally saw the landmarks only through the bus window, so walking the road on foot was a new experience.",
+        "wrong": {
+          "A": "They usually rode the bus, so they had not walked it often.",
+          "B": "They recognized the landmarks, so they had seen them before.",
+          "C": "The story does not mention a map."
+        }
+      }
+    ]
   }
 }

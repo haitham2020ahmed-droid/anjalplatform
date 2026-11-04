@@ -614,5 +614,217 @@
       ],
       "modelAnswer": "I support the claim that a fortification's design reflects a deliberate strategic architecture of defense. Builders chose elevated, strategic positions so defenders could detect an invader early and gain time to prepare. They also placed towers at the corners with narrow openings, letting defenders observe and respond while remaining protected. Because each feature, from the walls to the single guarded entrance, served a clear defensive purpose, a fortification like Masmak Fort was never built by accident but carefully designed for defense."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "How long does a guard watch the gate?",
+        "options": [
+          "Only in the rain",
+          "All day and night",
+          "Only when the moat is full",
+          "Just at lunch time"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The text says a guard watches the gate all day and night.",
+        "wrong": {
+          "A": "Rain is not mentioned.",
+          "C": "The moat has nothing to do with the guard's hours.",
+          "D": "The text does not limit the guard to lunch time."
+        }
+      },
+      {
+        "stem": "Why does a ditch around a fort help keep it safe?",
+        "options": [
+          "It holds the fort's food stores",
+          "It makes the fort hard to enter",
+          "It lets the guard climb up there",
+          "It makes the thick walls thinner"
+        ],
+        "answer": "B",
+        "skill": "cause-effect",
+        "why": "The text says the ditch, called a moat, makes the fort even hard to get in.",
+        "wrong": {
+          "A": "The ditch is not used to store food.",
+          "C": "The guard stands in the tower, not in the ditch.",
+          "D": "The walls stay thick."
+        }
+      },
+      {
+        "stem": "The text says some forts have a ditch all around them. What is a ditch?",
+        "options": [
+          "a tall stone tower",
+          "a thick mud wall",
+          "a long deep hole",
+          "a big wooden gate"
+        ],
+        "answer": "C",
+        "skill": "vocabulary",
+        "why": "A ditch is dug all around a fort, so it is a long, deep hole in the ground.",
+        "wrong": {
+          "A": "A tower rises up; a ditch goes down.",
+          "B": "A wall is built up, not dug.",
+          "D": "A gate is a way in, not a hole."
+        }
+      },
+      {
+        "stem": "What is the Masmak fort in Riyadh made with?",
+        "options": [
+          "Thick clay walls and towers",
+          "Thin cloth walls and a flat roof",
+          "Gold bars and sheets of glass",
+          "Wood boards tied with ropes"
+        ],
+        "answer": "A",
+        "skill": "detail",
+        "why": "The text says Masmak has thick clay walls and tall towers.",
+        "wrong": {
+          "B": "A fort has thick walls, not thin cloth ones.",
+          "C": "Gold and glass are not mentioned.",
+          "D": "Ropes are not mentioned for the fort."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "Where does a fort have its towers?",
+        "options": [
+          "Under the ground",
+          "At its corners",
+          "Beside the moat",
+          "Inside the gate"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The text says a fort has towers at its corners.",
+        "wrong": {
+          "A": "The text does not put towers under the ground.",
+          "C": "The text does not say towers are beside the moat.",
+          "D": "The towers are at the corners, not inside the gate."
+        }
+      },
+      {
+        "stem": "What does the word raiders mean in the article?",
+        "options": [
+          "Guards who watch a gate",
+          "Builders who make thick walls",
+          "Travelers who visit museums",
+          "People who attack to steal"
+        ],
+        "answer": "D",
+        "skill": "vocabulary",
+        "why": "The text says forts were built to fight off raiders who tried to break in or climb over the walls.",
+        "wrong": {
+          "A": "Guards defend the fort.",
+          "B": "Builders make the fort.",
+          "C": "Museums are mentioned only today."
+        }
+      },
+      {
+        "stem": "Why can a guard in a tower spot trouble early?",
+        "options": [
+          "He can watch every way at once",
+          "He can sit inside the moat",
+          "He can use a heavy gate",
+          "He can walk far from the fort"
+        ],
+        "answer": "A",
+        "skill": "cause-effect",
+        "why": "The text says a guard in a tower can watch every way at once and spot trouble long before it reaches the walls.",
+        "wrong": {
+          "B": "The moat is a ditch around the fort.",
+          "C": "The gate is the entrance, not a way to watch.",
+          "D": "The text says the guard is in the tower."
+        }
+      },
+      {
+        "stem": "Why do forts still matter today?",
+        "options": [
+          "Armies use them every day",
+          "They give homes to raiders",
+          "They show how people built for defense",
+          "They are the only place with a moat"
+        ],
+        "answer": "C",
+        "skill": "inference",
+        "why": "The text says many forts stand as museums that show how people once built spots for defense.",
+        "wrong": {
+          "A": "The text says armies rarely use them now.",
+          "B": "Raiders are the people forts were built against.",
+          "D": "Only some forts have a moat, and the text does not say it is rare today."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "What were the walls often made of?",
+        "options": [
+          "Glass and iron bars",
+          "Wood and cloth strips",
+          "Rope and loose sand",
+          "Local clay or stone"
+        ],
+        "answer": "D",
+        "skill": "detail",
+        "why": "The text says walls were often made of local clay or stone, whatever the builders had close at hand.",
+        "wrong": {
+          "A": "Glass and iron are not mentioned.",
+          "B": "The text says the gate was wood, but not the walls.",
+          "C": "Rope is not mentioned for walls."
+        }
+      },
+      {
+        "stem": "In the article, what does the word repel mean?",
+        "options": [
+          "To drive back",
+          "To welcome in",
+          "To feed well",
+          "To count slowly"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "Fortifications were built to defend against attack, so they were made to drive invaders back.",
+        "wrong": {
+          "B": "A fortification is built to keep invaders out, not welcome them.",
+          "C": "Feeding is not part of the sentence.",
+          "D": "Counting is not mentioned."
+        }
+      },
+      {
+        "stem": "How did a moat help the defenders?",
+        "options": [
+          "It gave them water to drink",
+          "It made the walls much taller",
+          "It kept heavy tools far back",
+          "It hid the only gate from view"
+        ],
+        "answer": "C",
+        "skill": "cause-effect",
+        "why": "The text says a moat made it hard for invaders to bring heavy tools close to the wall.",
+        "wrong": {
+          "A": "Drinking water is not mentioned.",
+          "B": "The moat is a ditch, so it does not change wall height.",
+          "D": "The gate was guarded, not hidden."
+        }
+      },
+      {
+        "stem": "Why might Masmak have thick clay walls?",
+        "options": [
+          "Builders used nearby materials",
+          "Clay is rare and very special",
+          "Wood was not strong enough",
+          "Stone could not be used there"
+        ],
+        "answer": "A",
+        "skill": "inference",
+        "why": "The text says walls were often made of local clay or stone, whatever builders had close at hand.",
+        "wrong": {
+          "B": "The text does not say clay is rare.",
+          "C": "The gate of Masmak was made of heavy wood.",
+          "D": "The text says stone was often used."
+        }
+      }
+    ]
   }
 }

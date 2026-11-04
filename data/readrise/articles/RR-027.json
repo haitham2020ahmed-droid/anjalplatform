@@ -614,5 +614,217 @@
       ],
       "modelAnswer": "Newton realized that gravity is simply the attraction between any two objects that have mass, so the same force that pulls an apple to the ground also pulls on the Moon. The article explains that every object with mass attracts every other object, and Earth's enormous mass gives it a powerful pull that bends the Moon's path into an orbit instead of letting it fly off in a straight line. The apple falls a short distance because it is close to Earth, while the Moon keeps circling because it is far away and moving fast, but in both cases it is the exact same gravitational attraction at work."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "What is a force, according to the article?",
+        "options": [
+          "A kind of ball",
+          "A push or a pull",
+          "A path in the sky",
+          "A big round rock"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The text says a force is a push or a pull.",
+        "wrong": {
+          "A": "A ball falls because of a force, but it is not a force.",
+          "C": "The path of the Moon is an orbit.",
+          "D": "The Moon and Earth are big rocks, but they are not forces."
+        }
+      },
+      {
+        "stem": "Why do we stay on the ground?",
+        "options": [
+          "The air above us pushes us down hard",
+          "The sun pulls us down toward Earth",
+          "Earth is very big, so it pulls us down",
+          "The Moon holds us down on the sand"
+        ],
+        "answer": "C",
+        "skill": "cause-effect",
+        "why": "The text says big things pull hard and Earth is very big, so it pulls us down.",
+        "wrong": {
+          "A": "The text says it is a pull from Earth, not the air.",
+          "B": "The text does not say the Sun holds us down.",
+          "D": "The Moon is small and pulls less."
+        }
+      },
+      {
+        "stem": "If Earth had no gravity, what would most likely happen to a ball you let go of?",
+        "options": [
+          "It would not fall down",
+          "It would fall faster",
+          "It would break in two",
+          "It would fall into the sea"
+        ],
+        "answer": "A",
+        "skill": "inference",
+        "why": "The text says gravity is the pull that makes a ball fall, so with no gravity nothing would pull it down.",
+        "wrong": {
+          "B": "With no pull, it would not fall faster.",
+          "C": "The text does not say a ball breaks.",
+          "D": "Nothing would pull it down toward the sea."
+        }
+      },
+      {
+        "stem": "In the article, the word tide means —",
+        "options": [
+          "a long path that goes around the Sun",
+          "a pull that makes an apple drop down",
+          "a big round rock far out in space",
+          "the sea going up and down each day"
+        ],
+        "answer": "D",
+        "skill": "vocabulary",
+        "why": "The text says the sea goes up and down each day, and this is the tide.",
+        "wrong": {
+          "A": "A path around the Sun is an orbit.",
+          "B": "A pull that drops an apple is gravity.",
+          "C": "The tide is a movement of the sea, not a rock."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "What happens to the pull between two objects when they move farther apart?",
+        "options": [
+          "The pull gets stronger",
+          "The pull stays the same",
+          "The pull turns into weight",
+          "The pull gets weaker"
+        ],
+        "answer": "D",
+        "skill": "detail",
+        "why": "The article says the farther apart two objects are, the weaker the pull between them.",
+        "wrong": {
+          "A": "The pull gets weaker with distance, not stronger.",
+          "B": "Distance does matter to the pull.",
+          "C": "Weight is how hard gravity pulls on your mass."
+        }
+      },
+      {
+        "stem": "In the article, the word tugs in \"gravity tugs on Earth's oceans\" means —",
+        "options": [
+          "pulls",
+          "paints",
+          "burns",
+          "covers"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "Gravity is a pull, and the Moon's pull helps cause the tides.",
+        "wrong": {
+          "B": "Gravity does not paint the oceans.",
+          "C": "Gravity does not burn the oceans.",
+          "D": "Gravity does not cover the oceans."
+        }
+      },
+      {
+        "stem": "What helps cause the tides?",
+        "options": [
+          "The strong wind blowing on the beach",
+          "The Sun's heat on the warm beach sand",
+          "The Moon's gravity pulling on the oceans",
+          "The football falling back to the ground"
+        ],
+        "answer": "C",
+        "skill": "cause-effect",
+        "why": "The article says the Moon's gravity tugs on Earth's oceans and this helps cause the tides.",
+        "wrong": {
+          "A": "The article does not name wind as a cause of tides.",
+          "B": "The article does not name the Sun's heat as the cause.",
+          "D": "A football falls because of Earth's gravity."
+        }
+      },
+      {
+        "stem": "Why do people all around the world feel that \"down\" is under their feet?",
+        "options": [
+          "Gravity pulls everything toward Earth's center",
+          "Earth spins fast enough to push things down",
+          "The Moon pulls all people toward the ground",
+          "Air presses down on people from above them"
+        ],
+        "answer": "A",
+        "skill": "cause-effect",
+        "why": "The article says Earth pulls everything toward its center, so down is under everyone's feet.",
+        "wrong": {
+          "B": "The article gives gravity, not spinning, as the cause.",
+          "C": "The Moon has much less mass than Earth.",
+          "D": "The article does not mention air pressing down."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "According to the article, on what two factors does the attraction between objects depend?",
+        "options": [
+          "Mass and distance",
+          "Speed and color",
+          "Air and weight",
+          "Size and temperature"
+        ],
+        "answer": "A",
+        "skill": "detail",
+        "why": "The article says objects with greater mass pull more strongly and the pull weakens as distance increases.",
+        "wrong": {
+          "B": "Speed and color are not mentioned as factors.",
+          "C": "The article says weight is a measure of the pull.",
+          "D": "Temperature is not mentioned as a factor."
+        }
+      },
+      {
+        "stem": "In the article, the word inevitably in \"inevitably return to the ground\" most nearly means —",
+        "options": [
+          "slowly",
+          "sometimes",
+          "never",
+          "certainly"
+        ],
+        "answer": "D",
+        "skill": "vocabulary",
+        "why": "The football always comes back down, so inevitably means it will certainly happen.",
+        "wrong": {
+          "A": "The sentence is not about speed.",
+          "B": "The sentence says it returns every time.",
+          "C": "The football does return."
+        }
+      },
+      {
+        "stem": "Why does an astronaut weigh only about one sixth as much on the Moon?",
+        "options": [
+          "The Moon has no air around its surface",
+          "The Moon moves very fast around Earth",
+          "The Moon has much less mass than Earth",
+          "The Moon is much farther from the Sun"
+        ],
+        "answer": "C",
+        "skill": "cause-effect",
+        "why": "The article says the Moon has considerably less mass than Earth, so its gravity pulls less.",
+        "wrong": {
+          "A": "Air does not change an astronaut's weight.",
+          "B": "Speed is not given as the reason.",
+          "D": "The Sun's distance is not the reason."
+        }
+      },
+      {
+        "stem": "How is mass different from weight?",
+        "options": [
+          "Mass changes on the Moon, but weight stays just the same",
+          "Mass is the pull of the Moon, and weight is the pull of Earth",
+          "Mass is the amount of matter, and weight is gravity's pull on it",
+          "Mass is a measure of distance, and weight is a measure of air"
+        ],
+        "answer": "C",
+        "skill": "compare",
+        "why": "The article says mass is the amount of matter and weight measures how strongly gravity pulls on it.",
+        "wrong": {
+          "A": "This is reversed; mass stays constant and weight changes.",
+          "B": "Neither word means the pull of one body only.",
+          "D": "Neither one is measured as distance or air."
+        }
+      }
+    ]
   }
 }

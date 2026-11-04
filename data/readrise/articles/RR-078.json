@@ -614,5 +614,217 @@
       ],
       "modelAnswer": "Two major turning points in the history of writing were the invention of the alphabet and Gutenberg's printing press. The alphabet, used by the Phoenicians about 3,000 years ago, replaced hundreds of complicated symbols with a small set of letters, so ordinary people no longer needed years of training as a scribe to become literate. Centuries later, Gutenberg's press used movable metal letters to print books quickly and cheaply, which let more families than ever own a manuscript of their own instead of relying on handwritten copies. Together, these two changes transformed literacy from a skill reserved for royalty and scribes into something available to many more people."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "What did the people in Egypt write on?",
+        "options": [
+          "Flat tablets made of clay",
+          "Thin sheets made from a plant",
+          "Big rocks near the Nile",
+          "Paper from far away in China"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The text says they wrote on thin sheets made from a plant.",
+        "wrong": {
+          "A": "Clay tablets were used in the land we now call Iraq.",
+          "C": "The text does not say they wrote on rocks.",
+          "D": "Paper was first made in China and came later."
+        }
+      },
+      {
+        "stem": "Why was paper a good way to write?",
+        "options": [
+          "It was thick and very strong to hold",
+          "It was made from soft wet clay mud",
+          "It came from the city of Baghdad",
+          "It was light and did not cost much"
+        ],
+        "answer": "D",
+        "skill": "cause-effect",
+        "why": "The text says paper was light and did not cost much.",
+        "wrong": {
+          "A": "The text says paper was light, not thick and heavy.",
+          "B": "Clay was used for the tablets, not paper.",
+          "C": "Paper was first made in China; it later went to Baghdad."
+        }
+      },
+      {
+        "stem": "What do the birds and eyes tell you about Egyptian writing?",
+        "options": [
+          "Some signs were small pictures",
+          "Egyptians liked to hunt birds",
+          "The signs stood for one sound",
+          "The writing was done in clay"
+        ],
+        "answer": "A",
+        "skill": "inference",
+        "why": "Signs that looked like birds and eyes were small pictures.",
+        "wrong": {
+          "B": "The text does not say they hunted birds.",
+          "C": "One sign for one sound is an alphabet, which came next.",
+          "D": "Egyptians wrote on sheets made from a plant."
+        }
+      },
+      {
+        "stem": "In the article, what came right after paper?",
+        "options": [
+          "Marks on clay tablets",
+          "Signs like birds and eyes",
+          "A big press for books",
+          "An alphabet with one sign per sound"
+        ],
+        "answer": "C",
+        "skill": "sequence",
+        "why": "The text says that next came a big press that could print lots of books fast.",
+        "wrong": {
+          "A": "Clay tablets were the first kind of writing.",
+          "B": "Egyptian signs came before paper.",
+          "D": "The alphabet came before paper."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "What was papyrus made from?",
+        "options": [
+          "Damp clay pressed into tablets",
+          "Metal pieces made in Germany",
+          "A tall reed that grew by the Nile",
+          "Cloth that traders brought from China"
+        ],
+        "answer": "C",
+        "skill": "detail",
+        "why": "The text says papyrus was made from a tall reed that grew along the Nile River.",
+        "wrong": {
+          "A": "Damp clay was used for Sumerian tablets.",
+          "B": "Metal letters were used in Gutenberg's press.",
+          "D": "Paper, not cloth, came from China."
+        }
+      },
+      {
+        "stem": "According to the article, why did writing help people more than speaking alone?",
+        "options": [
+          "Written words could last longer than a voice",
+          "Written words were always shorter to say",
+          "Written words could be learned in a day",
+          "Written words did not need any signs"
+        ],
+        "answer": "A",
+        "skill": "cause-effect",
+        "why": "The text says writing let words last much longer than a voice.",
+        "wrong": {
+          "B": "The text does not say written words are shorter.",
+          "C": "Learning to write took years for scribes.",
+          "D": "Writing always used signs or letters."
+        }
+      },
+      {
+        "stem": "What can you infer about the keyboard on a modern computer?",
+        "options": [
+          "It uses the same signs as the cuneiform",
+          "Its layout comes from the old typewriter",
+          "Gutenberg designed it around 1450",
+          "It was first made in Baghdad"
+        ],
+        "answer": "B",
+        "skill": "inference",
+        "why": "The text says the typewriter's keyboard layout is still used today.",
+        "wrong": {
+          "A": "Cuneiform used wedge-shaped marks, not these keys.",
+          "C": "Gutenberg built a printing press, not a keyboard.",
+          "D": "Baghdad is linked to paper mills, not keyboards."
+        }
+      },
+      {
+        "stem": "The article says Sumerians found a way to record facts. What does record mean here?",
+        "options": [
+          "to say them out loud",
+          "to forget them slowly",
+          "to move them to a new town",
+          "to write them down to keep"
+        ],
+        "answer": "D",
+        "skill": "vocabulary",
+        "why": "Writing let facts last, so record means to write them down to keep.",
+        "wrong": {
+          "A": "Speaking is what people did before writing.",
+          "B": "Writing helped people not forget.",
+          "C": "Nothing in the text is about moving facts to a town."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "What was cuneiform first used to record?",
+        "options": [
+          "How much grain and livestock people owned",
+          "Stories and laws from family histories",
+          "Songs and poems about the Nile River",
+          "Letters sent to traders in faraway lands"
+        ],
+        "answer": "A",
+        "skill": "detail",
+        "why": "The text says it was first used to record grain, livestock, and trade goods.",
+        "wrong": {
+          "B": "Stories and laws were first passed on by speech.",
+          "C": "The text does not say it recorded songs or poems.",
+          "D": "Letters are not named as an early use."
+        }
+      },
+      {
+        "stem": "According to the article, why did the alphabet spread so quickly?",
+        "options": [
+          "Kings ordered every town to use the new letters",
+          "Printing presses copied it in many cities",
+          "It was far easier to learn than many symbols",
+          "Paper made it cheap to write in Baghdad"
+        ],
+        "answer": "C",
+        "skill": "cause-effect",
+        "why": "The text says an alphabet was far easier to learn than hundreds of symbols, so it spread.",
+        "wrong": {
+          "A": "The text does not mention kings ordering it.",
+          "B": "The printing press came much later.",
+          "D": "Paper mills in Baghdad came long after the alphabet."
+        }
+      },
+      {
+        "stem": "Why does the author mention the inscriptions at Hegra?",
+        "options": [
+          "To show that the Phoenicians built a city there",
+          "To prove that paper was made near AlUla",
+          "To explain how the typewriter came to Arabia",
+          "To show where Nabataean writing can still be seen"
+        ],
+        "answer": "D",
+        "skill": "author-purpose",
+        "why": "The text says the Arabic script developed from Nabataean writing, whose inscriptions can still be seen at Hegra.",
+        "wrong": {
+          "A": "Phoenicians are linked to the alphabet, not to Hegra.",
+          "B": "Paper is said to come from China.",
+          "C": "The typewriter is not linked to Hegra."
+        }
+      },
+      {
+        "stem": "In the article, the word flourished most nearly means —",
+        "options": [
+          "dried up",
+          "grew well",
+          "was cut down",
+          "was carried away"
+        ],
+        "answer": "B",
+        "skill": "vocabulary",
+        "why": "A reed that flourished along the Nile grew well there, which is why papyrus could be made.",
+        "wrong": {
+          "A": "If it dried up, there would be no papyrus.",
+          "C": "Nothing says the reed was cut down.",
+          "D": "The reed grew along the river; it was not carried off."
+        }
+      }
+    ]
   }
 }

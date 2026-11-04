@@ -614,5 +614,217 @@
       ],
       "modelAnswer": "Money works because people trust it, and the history of money in the article shows this trust growing stronger over time. At first, people used shells as money only because a whole community agreed they were valuable, even though shells have no real use on their own. Later, coins made of electrum carried a stamped mark showing their value, so traders crossing the desert in camel caravans could trust the coin's worth without weighing the metal themselves. Finally, when China introduced paper money, people had to trust an even lighter object with no precious metal at all, proving that money's value depends entirely on shared belief rather than the material itself."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "How can people in Saudi Arabia pay today?",
+        "options": [
+          "Only with shells or salt",
+          "Only with dates or wool",
+          "With notes, cards, or phones",
+          "Only with gold and silver"
+        ],
+        "answer": "C",
+        "skill": "detail",
+        "why": "The text says the riyal comes in coins and paper notes, and some people pay with cards or phones.",
+        "wrong": {
+          "A": "Shells and salt were used long ago.",
+          "B": "Dates and wool were things people traded long ago.",
+          "D": "Gold and silver were the first coins, not the only way today."
+        }
+      },
+      {
+        "stem": "In this article, what does worth mean?",
+        "options": [
+          "How much a coin can buy",
+          "How heavy a coin is",
+          "Where a coin was made",
+          "How old a coin is"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "Each coin had a mark that showed what it was worth, so worth is how much it can buy.",
+        "wrong": {
+          "B": "The mark did not show weight.",
+          "C": "The mark did not show where it was made.",
+          "D": "The mark did not show age."
+        }
+      },
+      {
+        "stem": "Why did each coin have a mark?",
+        "options": [
+          "To make the coin look old",
+          "To show who made the coin",
+          "To make the coin heavier",
+          "To show what it was worth"
+        ],
+        "answer": "D",
+        "skill": "cause-effect",
+        "why": "The text says each coin had a mark that showed what the coin was worth.",
+        "wrong": {
+          "A": "The text does not say marks made coins look old.",
+          "B": "The mark showed the worth, not the maker.",
+          "C": "A mark does not add weight."
+        }
+      },
+      {
+        "stem": "Why did China make paper money, do you think?",
+        "options": [
+          "Coins were too small to count",
+          "Paper was lighter than coins",
+          "People did not like gold",
+          "Salt cost too much"
+        ],
+        "answer": "B",
+        "skill": "inference",
+        "why": "The text says paper money was light to carry, which suggests coins were heavier.",
+        "wrong": {
+          "A": "The text says coins were easy to count.",
+          "C": "The text does not say people disliked gold.",
+          "D": "Salt is not linked to paper money."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "What did traders on camel caravans carry across the Arabian Peninsula?",
+        "options": [
+          "Wool and dates only",
+          "Paper money from China",
+          "Shells and salt",
+          "Gold and silver coins"
+        ],
+        "answer": "D",
+        "skill": "detail",
+        "why": "The text says traders carried gold and silver coins that markets along the way accepted.",
+        "wrong": {
+          "A": "Wool and dates are goods from the bartering example.",
+          "B": "Paper money is described later and in China.",
+          "C": "Shells and salt were used as money in some places, not on these caravans."
+        }
+      },
+      {
+        "stem": "In the article, the word valued means —",
+        "options": [
+          "carried to markets",
+          "seen as worth having",
+          "turned into a coin",
+          "counted one by one"
+        ],
+        "answer": "B",
+        "skill": "vocabulary",
+        "why": "People used objects that almost everyone valued, meaning everyone saw them as worth having.",
+        "wrong": {
+          "A": "The word is about worth, not carrying.",
+          "C": "Shells, salt, and grain were not turned into coins.",
+          "D": "Counting is not what valued means."
+        }
+      },
+      {
+        "stem": "What happened if the merchant with wool did not want dates?",
+        "options": [
+          "No deal could happen.",
+          "The farmer paid with a coin.",
+          "They traded shells instead.",
+          "The merchant took the dates anyway."
+        ],
+        "answer": "A",
+        "skill": "cause-effect",
+        "why": "The text says no deal could happen and both people went home without what they needed.",
+        "wrong": {
+          "B": "Coins came later, after this problem.",
+          "C": "Shells were a later fix for the problem.",
+          "D": "The merchant did not want the dates, so no trade was made."
+        }
+      },
+      {
+        "stem": "Why does the author open by asking if you have a coin in your pocket?",
+        "options": [
+          "To ask readers to buy coins",
+          "To say coins are not used now",
+          "To link money to the reader's life",
+          "To begin a list of safety rules"
+        ],
+        "answer": "C",
+        "skill": "author-purpose",
+        "why": "The question makes money feel close to the reader before the history begins.",
+        "wrong": {
+          "A": "The author never tries to sell coins.",
+          "B": "The article says coins are still used today.",
+          "D": "The article has no safety rules."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "Who issues the notes and coins used in Saudi Arabia today?",
+        "options": [
+          "A kingdom in Turkey",
+          "The Saudi Central Bank",
+          "A merchants' caravan",
+          "The bank in China"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The text says Saudi Arabia's notes and coins are issued by the Saudi Central Bank.",
+        "wrong": {
+          "A": "Lydia, in what is now Turkey, made the earliest coins long ago.",
+          "C": "Caravans carried coins; they did not issue them.",
+          "D": "China began using paper money, but it does not issue the riyal."
+        }
+      },
+      {
+        "stem": "In the article, the word honor means —",
+        "options": [
+          "keep hidden away",
+          "make a copy of",
+          "refuse to take",
+          "accept as promised"
+        ],
+        "answer": "D",
+        "skill": "vocabulary",
+        "why": "Paper money is valuable because a government or bank promises to accept it as payment.",
+        "wrong": {
+          "A": "Honoring is about accepting, not hiding.",
+          "B": "Copying is not what the promise is about.",
+          "C": "Refusing would make the money worthless."
+        }
+      },
+      {
+        "stem": "Why did trading become considerably simpler once coins appeared?",
+        "options": [
+          "Coins were made of paper, which was light",
+          "Everyone traded with shells instead of goods",
+          "Coins were small, durable, and easy to count",
+          "Governments stopped all bartering at once"
+        ],
+        "answer": "C",
+        "skill": "cause-effect",
+        "why": "The text says coins were small, durable, and easy to count, so trading became simpler.",
+        "wrong": {
+          "A": "Early coins were made of electrum, not paper.",
+          "B": "Shells came before coins, not after.",
+          "D": "The text does not say governments stopped bartering."
+        }
+      },
+      {
+        "stem": "How is the article mostly organized?",
+        "options": [
+          "In time order, from barter to digital money",
+          "By comparing money in two countries",
+          "By listing reasons to stop using coins",
+          "By telling one trader's life story"
+        ],
+        "answer": "A",
+        "skill": "text-structure",
+        "why": "The article moves from bartering to shells, coins, paper money, and digital numbers.",
+        "wrong": {
+          "B": "It does not compare two countries.",
+          "C": "It does not argue against coins.",
+          "D": "It does not follow one trader."
+        }
+      }
+    ]
   }
 }

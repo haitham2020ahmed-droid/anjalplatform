@@ -171,7 +171,9 @@ describe("⚡ ReadRise lists reuse the article catalog", () => {
     const ids = (await repo.findMany("RRArticle", {}, { select: ["id"] })).map((a) => String(a.id));
     const { repo: c, n } = counting(repo);
     const k1 = await questionKeys(c, ids);
-    assert.equal(k1.get(ids[0])?.length, 24);
+    // 24 band questions (+ the article's stretch sets, round 5, when its file has them)
+    assert.equal(k1.get(ids[0])?.length, await repo.count("RRQuestion", { articleId: ids[0] }));
+    assert.equal(k1.get(ids[0])!.filter((q) => !q.band.startsWith("S-")).length, 24);
     n.all = 0;
     await questionKeys(c, ids);
     assert.equal(n.all, 0);

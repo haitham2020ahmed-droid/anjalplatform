@@ -614,5 +614,217 @@
       ],
       "modelAnswer": "The Arctic, in the Northern Hemisphere, and the Antarctic, in the Southern Hemisphere, are alike in that both regions are extremely cold because sunlight hits them at a low angle all year. However, they differ greatly in structure and in who lives there: the Arctic is mostly a frozen ocean surrounded by land where people have lived for thousands of years, while the Antarctic is a dry continent with almost no precipitation and no permanent human population, visited only by scientists at research stations. This difference is part of why international agreements like a treaty govern how the Antarctic can be used, since no single nation lives there permanently."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "Which place is the coldest of all?",
+        "options": [
+          "The Arctic Sea",
+          "The Antarctic",
+          "A hot desert",
+          "A sea with ships"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The text says the south end is land and it is the coldest place of all.",
+        "wrong": {
+          "A": "The Arctic is cold, but the Antarctic is the coldest.",
+          "C": "A hot desert is not cold.",
+          "D": "The text does not call a sea with ships the coldest."
+        }
+      },
+      {
+        "stem": "The text says the south end is land. It is a big continent. What is a continent?",
+        "options": [
+          "A very small island",
+          "A pool of frozen water",
+          "A very large area of land",
+          "A cold wind from the sea"
+        ],
+        "answer": "C",
+        "skill": "vocabulary",
+        "why": "The text says the south end is land and it is big, so a continent is a very large area of land.",
+        "wrong": {
+          "A": "The text calls it big, not small.",
+          "B": "The text says the south end is land, not a pool.",
+          "D": "A continent is land, not wind."
+        }
+      },
+      {
+        "stem": "What would you see in the sky in the cold months at the poles?",
+        "options": [
+          "A bright sun all day",
+          "A sun that sets at noon",
+          "A sun high above your head",
+          "No sun, only dark"
+        ],
+        "answer": "D",
+        "skill": "inference",
+        "why": "The text says that in the cold months it is dark all day, so there is no sunlight.",
+        "wrong": {
+          "A": "A bright sun all day happens in the hot months.",
+          "B": "The text does not say the sun sets at noon.",
+          "C": "The text says the sun is low in the sky at the poles."
+        }
+      },
+      {
+        "stem": "Why do teams check the ice at the poles now?",
+        "options": [
+          "The ice is melting as the world gets warm",
+          "The ice is growing and blocking the ships",
+          "The ice is hiding the bears and penguins",
+          "The ice is turning into a hot desert"
+        ],
+        "answer": "A",
+        "skill": "cause-effect",
+        "why": "The text says the ice melts because the world is warm, so teams check the ice.",
+        "wrong": {
+          "B": "The text says the ice melts, not that it grows.",
+          "C": "The text does not say the ice hides animals.",
+          "D": "The Antarctic is called a cold desert, not a hot one."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "What do polar bears hunt on the ice?",
+        "options": [
+          "Fish",
+          "Penguins",
+          "Seals",
+          "Whales"
+        ],
+        "answer": "C",
+        "skill": "detail",
+        "why": "The text says polar bears live in the Arctic and hunt seals on the ice.",
+        "wrong": {
+          "A": "The text does not say fish.",
+          "B": "Penguins live in the far south, so bears never meet them.",
+          "D": "The text does not say whales."
+        }
+      },
+      {
+        "stem": "In the text, what does the word surrounds mean?",
+        "options": [
+          "Melts under it",
+          "Goes all around it",
+          "Hides far below it",
+          "Pulls away from it"
+        ],
+        "answer": "B",
+        "skill": "vocabulary",
+        "why": "The Arctic is an ocean and land is on many sides of it, so surrounds means goes all around.",
+        "wrong": {
+          "A": "The text does not say land melts under the ocean.",
+          "C": "The land is next to the ocean, not hidden below it.",
+          "D": "The text says the land is around it, not away from it."
+        }
+      },
+      {
+        "stem": "Why do scientists measure the polar ice closely?",
+        "options": [
+          "The ice is shrinking as Earth grows warmer",
+          "The ice is the only home of the penguins",
+          "The ice is needed to build research stations",
+          "The ice is hotter than the nearby sea"
+        ],
+        "answer": "A",
+        "skill": "cause-effect",
+        "why": "The article says polar ice is shrinking as Earth grows warmer, and scientists measure it closely.",
+        "wrong": {
+          "B": "The text does not give this reason.",
+          "C": "The text does not say the ice is used to build stations.",
+          "D": "The poles are very cold, not hot."
+        }
+      },
+      {
+        "stem": "No one lives in the Antarctic all year. What does this suggest about the Antarctic?",
+        "options": [
+          "It has too many animals for people",
+          "It is a hard place for people to live",
+          "It has no ice at all",
+          "It is warm enough for visitors only"
+        ],
+        "answer": "B",
+        "skill": "inference",
+        "why": "It is the coldest place on Earth and only scientists visit, which suggests it is hard to live in.",
+        "wrong": {
+          "A": "The text does not say that animals crowd out people.",
+          "C": "A thick ice sheet covers almost all of the Antarctic.",
+          "D": "The Antarctic is the coldest place on Earth."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "What is the lowest temperature scientists have recorded in the Antarctic, according to the article?",
+        "options": [
+          "About minus 17 degrees Celsius",
+          "About minus 89 degrees Celsius",
+          "About minus 4 degrees Celsius",
+          "About minus 120 degrees Celsius"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The article says scientists once recorded about minus 89 degrees Celsius in the Antarctic.",
+        "wrong": {
+          "A": "That is not the number in the article.",
+          "C": "That is not the number in the article.",
+          "D": "That is not the number in the article."
+        }
+      },
+      {
+        "stem": "The article says Indigenous peoples have lived in the Arctic for thousands of years. What does Indigenous mean?",
+        "options": [
+          "visiting there for only a short time",
+          "living there for thousands of years",
+          "studying the ice and the sea",
+          "moving far south each winter"
+        ],
+        "answer": "B",
+        "skill": "vocabulary",
+        "why": "These peoples have lived and hunted in the Arctic for thousands of years, so Indigenous means first and long-time people of a place.",
+        "wrong": {
+          "A": "They have lived there for thousands of years, not a short time.",
+          "C": "Scientists study the ice; that is not the meaning.",
+          "D": "The article does not say they move south."
+        }
+      },
+      {
+        "stem": "Why does sunlight deliver less heat at the poles than near the equator?",
+        "options": [
+          "The poles are covered with deep, cold water",
+          "It arrives at a low angle and spreads out",
+          "It is blocked by the research stations there",
+          "The sun is much smaller when seen at the poles"
+        ],
+        "answer": "B",
+        "skill": "cause-effect",
+        "why": "The article says sunlight arrives at a low angle, spreading its energy over a wide area.",
+        "wrong": {
+          "A": "The text says the Antarctic is land and the Arctic is mostly ocean; water depth is not the reason.",
+          "C": "The text does not mention stations blocking the sun.",
+          "D": "The text does not say the sun looks smaller."
+        }
+      },
+      {
+        "stem": "The article says the Antarctic ice sheet holds most of the fresh water on the planet. What does this suggest?",
+        "options": [
+          "Most fresh water is frozen in a place where nobody lives",
+          "Most people drink water from the Antarctic",
+          "The Arctic has more fresh water than any other place",
+          "Deserts in Saudi Arabia hold the most fresh water"
+        ],
+        "answer": "A",
+        "skill": "inference",
+        "why": "The Antarctic is frozen and has no permanent residents, so most fresh water is locked in ice there.",
+        "wrong": {
+          "B": "The text does not say people drink water from the Antarctic.",
+          "C": "The article says the Antarctic holds most of the fresh water.",
+          "D": "The Saudi deserts are described as scorching and sandy."
+        }
+      }
+    ]
   }
 }

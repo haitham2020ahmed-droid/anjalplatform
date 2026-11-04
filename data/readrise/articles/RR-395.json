@@ -614,5 +614,217 @@
       ],
       "modelAnswer": "I believe classrooms benefit most from offering both lively discussion and quiet time, rather than choosing only one. The passage shows that Faisal, who struggled during the usual noisy routine, became far more productive once the room was immersed in silence, finishing his book before any classmate. At the same time, several of his classmates also acknowledged that the silence helped their own concentration, suggesting that quiet time serves many students well. Someone might argue that constant silence would make a classroom feel lifeless, but the passage never claims silence must replace discussion entirely; it simply shows that offering quiet time alongside normal class activities lets students like Faisal discover what truly helps them succeed."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "What does Omar say about the silent reading plan?",
+        "options": [
+          "That it will be dull",
+          "That it will be fun",
+          "That it will be too short",
+          "That it will be easy"
+        ],
+        "answer": "A",
+        "skill": "detail",
+        "why": "Omar says, \"That will be dull!\"",
+        "wrong": {
+          "B": "Omar does not think it will be fun.",
+          "C": "He does not say anything about length.",
+          "D": "He does not say it will be easy."
+        }
+      },
+      {
+        "stem": "What do the chairs do in the noisy classroom?",
+        "options": [
+          "They break on the floor",
+          "They fall over often",
+          "They scrape the floor",
+          "They move by themselves"
+        ],
+        "answer": "C",
+        "skill": "detail",
+        "why": "The text says, \"Chairs scrape the floor.\"",
+        "wrong": {
+          "A": "The chairs do not break.",
+          "B": "The chairs do not fall over.",
+          "D": "The chairs do not move on their own."
+        }
+      },
+      {
+        "stem": "In the story, what does \"focus\" mean?",
+        "options": [
+          "To run very fast outside",
+          "To think about one thing",
+          "To tell a very funny joke",
+          "To clean the whole room"
+        ],
+        "answer": "B",
+        "skill": "vocabulary",
+        "why": "Faisal has a hard time with focus in the noise, but in quiet he reads each word well.",
+        "wrong": {
+          "A": "Running does not fit reading in class.",
+          "C": "Jokes do not fit the sentence.",
+          "D": "Cleaning does not fit the sentence."
+        }
+      },
+      {
+        "stem": "Why does the class have quiet time each week after that day?",
+        "options": [
+          "The teacher is tired of all the noise",
+          "The kids want to sleep at school",
+          "The class has no more books",
+          "Some kids work best in quiet"
+        ],
+        "answer": "D",
+        "skill": "cause-effect",
+        "why": "Faisal reads best in quiet and does his best work then, so the class keeps quiet time.",
+        "wrong": {
+          "A": "The text does not say the teacher is tired.",
+          "B": "The kids read in quiet time, they do not sleep.",
+          "C": "The kids read books during quiet time."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "What did Faisal not need to do while reading in the silent room?",
+        "options": [
+          "Turn the pages",
+          "Read the book",
+          "Reread confusing lines",
+          "Sit in his chair"
+        ],
+        "answer": "C",
+        "skill": "detail",
+        "why": "The text says there was no need to reread confusing lines.",
+        "wrong": {
+          "A": "He still turned pages and finished his book.",
+          "B": "He read the whole book.",
+          "D": "The text does not say he left his chair."
+        }
+      },
+      {
+        "stem": "In the story, the word \"routine\" means —",
+        "options": [
+          "something done the same way each day",
+          "a surprise that happens once",
+          "a loud game with friends",
+          "a hard test at the end of the year"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "The noise was part of the daily routine, so routine means what happens the same way each day.",
+        "wrong": {
+          "B": "The noise happened every day, not once.",
+          "C": "A routine is not a game.",
+          "D": "A routine is not a test."
+        }
+      },
+      {
+        "stem": "Why did Omar complain about the silent reading plan?",
+        "options": [
+          "He had lost his book",
+          "He wanted to talk to Faisal",
+          "He was afraid of the teacher",
+          "He thought the plan sounded dull"
+        ],
+        "answer": "D",
+        "skill": "cause-effect",
+        "why": "Omar complained that the plan sounded unbearably dull.",
+        "wrong": {
+          "A": "The text does not say he lost his book.",
+          "B": "He did not say he wanted to talk to Faisal.",
+          "C": "He complained loudly, so he was not afraid."
+        }
+      },
+      {
+        "stem": "Why does the author say that hardly anyone noticed the noise, except Faisal?",
+        "options": [
+          "To show that Faisal liked all the noise",
+          "To show the noise bothered Faisal most",
+          "To show the room was really quiet then",
+          "To show that Faisal was the teacher"
+        ],
+        "answer": "B",
+        "skill": "author-purpose",
+        "why": "Faisal quietly struggled to concentrate through the noise, so it affected him more than others.",
+        "wrong": {
+          "A": "He struggled with the noise, so he did not like it.",
+          "C": "The room was noisy.",
+          "D": "Faisal is a student."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "How did Faisal's reading compare with his classmates' at the end of the silent period?",
+        "options": [
+          "He finished last",
+          "He finished at the same time",
+          "He finished before any of them",
+          "He did not finish"
+        ],
+        "answer": "C",
+        "skill": "detail",
+        "why": "He finished his book before a single classmate had turned to the final page.",
+        "wrong": {
+          "A": "He did not finish last.",
+          "B": "He finished earlier than the others.",
+          "D": "He finished the entire book."
+        }
+      },
+      {
+        "stem": "In the passage, the word \"immersed\" most nearly means —",
+        "options": [
+          "completely tired out",
+          "gladly left behind",
+          "very angry at it",
+          "fully surrounded by"
+        ],
+        "answer": "D",
+        "skill": "vocabulary",
+        "why": "The class spent the period fully immersed in silence, so they were surrounded by it.",
+        "wrong": {
+          "A": "Silence did not make him tired.",
+          "B": "He finished first, so he was not left behind.",
+          "C": "He was amazed, not angry."
+        }
+      },
+      {
+        "stem": "Why did Faisal struggle to concentrate each day?",
+        "options": [
+          "The noise made it hard to focus",
+          "His books were far too hard to read",
+          "He did not like his own teacher",
+          "He came to class late each day"
+        ],
+        "answer": "A",
+        "skill": "cause-effect",
+        "why": "The room buzzed with talking, scraping chairs, and tapping pencils, and Faisal struggled to concentrate through all of it.",
+        "wrong": {
+          "B": "He read well once the room was quiet, so the books were not the problem.",
+          "C": "The teacher is kind to him in the passage.",
+          "D": "Being late is never mentioned."
+        }
+      },
+      {
+        "stem": "What is the main job of the first paragraph?",
+        "options": [
+          "To show exactly how the story ends",
+          "To teach readers how to read faster",
+          "To describe the noisy room and Faisal's problem",
+          "To introduce the teacher's new reading plan"
+        ],
+        "answer": "C",
+        "skill": "text-structure",
+        "why": "The first paragraph sets up the noisy classroom and Faisal's struggle before the teacher's plan appears.",
+        "wrong": {
+          "A": "The ending comes in the last paragraph.",
+          "B": "The passage is not a how-to for fast reading.",
+          "D": "The teacher's plan starts in the second paragraph."
+        }
+      }
+    ]
   }
 }

@@ -614,5 +614,217 @@
       ],
       "modelAnswer": "I agree that GPS is one of the most important inventions of modern times. About thirty satellites carry extremely precise atomic clocks that let a receiver calculate its exact distance from each one, and by comparing signals from at least four satellites at once, a simple phone can pinpoint a location almost anywhere on Earth. This technology now guides cars, ships, and airplanes, and it is especially valuable in places like the desert, where dunes can look the same in every direction, which shows how deeply GPS has changed everyday navigation."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "What does the signal from a satellite say?",
+        "options": [
+          "\"Here I am. This is the time.\"",
+          "\"Turn left at the next road.\"",
+          "\"Call me back right now.\"",
+          "\"The sand looks the same.\""
+        ],
+        "answer": "A",
+        "skill": "detail",
+        "why": "The text says each signal is like a call that says, \"Here I am. This is the time.\"",
+        "wrong": {
+          "B": "The signal does not give road directions.",
+          "C": "The text says the phone does not call back.",
+          "D": "This is a fact about the desert, not the signal."
+        }
+      },
+      {
+        "stem": "What does the phone do after it hears four or more satellites?",
+        "options": [
+          "It calls them all back",
+          "It turns the map off",
+          "It shows a dot on the map",
+          "It sends a note to Dad"
+        ],
+        "answer": "C",
+        "skill": "cause-effect",
+        "why": "The text says the phone then knows where you are and puts the dot on the map.",
+        "wrong": {
+          "A": "The phone does not call back.",
+          "B": "The map stays on to show the dot.",
+          "D": "The text does not say it sends notes."
+        }
+      },
+      {
+        "stem": "What is true about the clock on each satellite?",
+        "options": [
+          "It runs very slow",
+          "It is not quite sure",
+          "It keeps exact time",
+          "It runs a bit early"
+        ],
+        "answer": "C",
+        "skill": "detail",
+        "why": "The text says each satellite has a very good, exact clock that keeps the time right.",
+        "wrong": {
+          "A": "The clock is not slow.",
+          "B": "The clock is very exact, not unsure.",
+          "D": "The clock keeps the right time, not early time."
+        }
+      },
+      {
+        "stem": "The phone does not call back to the satellite. What does it do?",
+        "options": [
+          "It only hears the signals",
+          "It sends its own map",
+          "It makes the clock run",
+          "It builds a satellite"
+        ],
+        "answer": "A",
+        "skill": "detail",
+        "why": "The text says the phone does not call back and it just hears.",
+        "wrong": {
+          "B": "The phone does not send a map.",
+          "C": "The satellite has the clock.",
+          "D": "The phone does not build satellites."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "About how many satellites circle Earth as part of GPS?",
+        "options": [
+          "Three",
+          "About thirty",
+          "About three hundred",
+          "Three thousand"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The article says about thirty satellites circle high above Earth.",
+        "wrong": {
+          "A": "Three is far too few.",
+          "C": "The article says thirty, not three hundred.",
+          "D": "Three thousand is far too many."
+        }
+      },
+      {
+        "stem": "What is a satellite, according to the article?",
+        "options": [
+          "A machine that travels around Earth",
+          "A clock that sits in your phone",
+          "A map shown on a screen",
+          "A road in the desert"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "The article says a satellite is a machine that travels around our planet.",
+        "wrong": {
+          "B": "The clocks are carried by the satellites.",
+          "C": "The map is shown by the phone.",
+          "D": "The desert is a place where GPS helps."
+        }
+      },
+      {
+        "stem": "Why is GPS very useful in the desert?",
+        "options": [
+          "The desert has many roads",
+          "The sand looks the same in every direction",
+          "The desert is closer to the satellites",
+          "Phones work only in sand"
+        ],
+        "answer": "B",
+        "skill": "cause-effect",
+        "why": "The sand can look the same everywhere, so people cannot tell where they are without GPS.",
+        "wrong": {
+          "A": "The article does not say the desert has many roads.",
+          "C": "The article does not say that.",
+          "D": "Phones work in many places."
+        }
+      },
+      {
+        "stem": "Why does the author begin with a family driving to a city they have never visited?",
+        "options": [
+          "To teach about city traffic",
+          "To describe a family trip fully",
+          "To show a real use of GPS",
+          "To warn people about getting lost"
+        ],
+        "answer": "C",
+        "skill": "author-purpose",
+        "why": "The opening shows a map on a phone, a common GPS use, and asks how the phone knows.",
+        "wrong": {
+          "A": "Traffic is not the topic.",
+          "B": "The family trip is only an example.",
+          "D": "The article does not warn about getting lost."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "For whom did the United States originally develop GPS?",
+        "options": [
+          "Farmers",
+          "Ambulance drivers",
+          "Its military",
+          "Ship builders"
+        ],
+        "answer": "C",
+        "skill": "detail",
+        "why": "The article says GPS was originally developed for the United States military.",
+        "wrong": {
+          "A": "Farmers use GPS today, but it was not developed for them.",
+          "B": "Ambulances use GPS today.",
+          "D": "Ships use GPS, but it was not developed for builders."
+        }
+      },
+      {
+        "stem": "How often does each GPS satellite go around the planet?",
+        "options": [
+          "Twice a day",
+          "Once a week",
+          "Once every hour",
+          "Twice a year"
+        ],
+        "answer": "A",
+        "skill": "detail",
+        "why": "The article says each satellite completes a journey around the planet twice a day.",
+        "wrong": {
+          "B": "A week is too long.",
+          "C": "An hour is too short.",
+          "D": "A year is far too long."
+        }
+      },
+      {
+        "stem": "Why can millions of people use GPS at the same time?",
+        "options": [
+          "Satellites move very fast",
+          "Atomic clocks never stop",
+          "Signals are strong by the time they land",
+          "Phones only listen to the satellites"
+        ],
+        "answer": "D",
+        "skill": "cause-effect",
+        "why": "The article says phones transmit nothing back, which is why millions can use GPS at once.",
+        "wrong": {
+          "A": "Speed is not given as the reason.",
+          "B": "Clocks keep time but do not allow many users.",
+          "C": "The article says the signals are weak by the time they reach the ground."
+        }
+      },
+      {
+        "stem": "In the article, what does the word transmits mean?",
+        "options": [
+          "Receives and stores",
+          "Sends out",
+          "Holds back",
+          "Counts up"
+        ],
+        "answer": "B",
+        "skill": "vocabulary",
+        "why": "Each satellite transmits a radio signal that your phone collects, so it sends the signal out.",
+        "wrong": {
+          "A": "The phone receives the signal.",
+          "C": "The satellite does not hold the signal back.",
+          "D": "Counting is not the meaning."
+        }
+      }
+    ]
   }
 }

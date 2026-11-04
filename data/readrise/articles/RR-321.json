@@ -1,543 +1,830 @@
 {
-  "code": "RR-321",
-  "title": "Deserts of the World",
-  "topic": "Geography",
-  "summary": "A world tour of deserts, from the hot Sahara to the cold Gobi, and how plants, animals, and people survive in them.",
-  "poll": "Deserts are empty places with nothing worth studying.",
-  "versions": [
-    {
-      "level": 300,
-      "title": "Deserts of the World",
-      "text": "A desert is dry. It gets no rain.\n\nNot all deserts are hot. Some are cold. The Sahara is hot. The Gobi is cold. Both get no rain.\n\nThe Sahara has sand. Wind blows the sand. It makes hills. A hill of sand is a dune. Some dunes are tall.\n\nSome deserts have rock, not sand. The ground there is hard.\n\nA camel can live in a desert. It needs little water. Few plants grow there. But some still do.\n\nA green spot with water is an oasis. Trees grow there. People rest there.\n\nLong ago, traders used camels. They carried goods to sell. Today, people still live near deserts."
-    },
-    {
-      "level": 400,
-      "title": "Deserts of the World",
-      "text": "A desert is a dry place. It gets almost no rain.\n\nNot every desert is hot. The Sahara is hot. It is in Africa. The Gobi is a cold desert. It is in Asia. Both get little rain.\n\nThe Sahara is covered in sand. Wind blows the sand into hills. A hill of sand is a dune. The Arabian Desert has big dunes too.\n\nSome deserts are rock, not sand. The ground is hard and dry.\n\nA camel can live well in a desert. It can go a long time with no water. Few plants can grow there, but some do.\n\nA green spot with water is an oasis. Trees grow there. People stop to rest.\n\nLong ago, traders crossed deserts on camels. They carried goods to sell. Today, many people live near deserts."
-    },
-    {
-      "level": 500,
-      "title": "Deserts of the World",
-      "text": "A desert gets almost no rain all year. That lack of rain is what makes it a desert.\n\nNot every desert is hot. The Sahara is a hot desert in northern Africa. The Gobi is a cold desert in Asia with cold winters. Both deserts get very little rain.\n\nMuch of the Sahara is covered in soft sand. Strong winds blow the sand into tall hills. A hill of sand is called a dune. The Arabian Desert has huge dunes too.\n\nOther deserts, like parts of the Gobi, are mostly rock, not sand. The ground is hard and often cracked.\n\nA camel can live well in this dry land. It can go a long time with no water. Few plants can survive, but small bushes still grow.\n\nA green spot with water is called an oasis. Trees grow around it, and people stop there to rest and drink.\n\nLong ago, traders crossed deserts with camels to sell goods. Today, many people still live near deserts around the world."
-    },
-    {
-      "level": 600,
-      "title": "Deserts of the World",
-      "text": "A desert gets almost no rain, year after year. That lack of rain, not heat, is what truly makes it a desert.\n\nNot every desert is hot. The Sahara is an enormous hot desert in northern Africa. The Gobi, on the other hand, is a cold desert in Asia with bitterly cold winters. Both deserts still get very little rain each year.\n\nMuch of the Sahara is covered in soft, fine sand. Strong winds blow the loose sand into tall, curving hills. A hill of sand is called a dune. The Arabian Desert, across the Middle East, also has huge rolling dunes.\n\nOther deserts, like large parts of the Gobi, are mostly rock, not sand. The ground is hard, dry, and often cracked by heat and cold.\n\nA camel can live surprisingly well in this dry land. It can go a long time with no drink of water. Few plants can survive, but small thorny bushes still grow.\n\nA green spot with water in a desert is called an oasis. Trees grow around it, and people and animals stop there to rest and drink.\n\nLong ago, traders crossed deserts with long lines of camels, carrying goods to sell between far cities. Today, many people still live near deserts all around the world."
-    },
-    {
-      "level": 700,
-      "title": "Deserts of the World",
-      "text": "Deserts look very different from each other. Some are covered in golden sand. Others are flat and covered in gray rock.\n\nYet every desert shares one thing. It gets very little rain. That is the real meaning of a dry, or arid, climate.\n\nDeserts are found on every continent except Europe. The Sahara, in Africa, is the largest hot desert on Earth. The Arabian Desert covers much of the Middle East. The Gobi, in Asia, is a cold desert. Its winters can bring snow. So a desert does not have to be hot.\n\nIn sandy deserts like the Sahara, wind piles loose sand into huge dunes. The dunes slowly shift and change shape. In rocky deserts, wind and rare water wear down stone instead. This slow process is called erosion. It carves the rock into strange shapes.\n\nEven in such harsh places, vegetation still grows. Thorny bushes and tough grasses can survive with little water. A camel can go for days without drinking. It stores fat that its body slowly turns into water.\n\nAn oasis is a spot where underground water reaches the surface. Trees and crops can grow there. For centuries, oases let traders rest safely as they crossed the sand.\n\nToday, deserts are far from empty. Mines, farms, and growing cities depend on the resources found within them."
-    },
-    {
-      "level": 800,
-      "title": "Deserts of the World",
-      "text": "Deserts look very different from each other across the world. Some are covered in golden sand that stretches for miles. Others are flat and covered in gray rock and gravel instead.\n\nYet every desert shares one true feature. It gets very little rainfall all year. That lack of rain, not heat, is the real meaning of a dry, or arid, climate.\n\nDeserts are found on every continent except Europe. The Sahara, spread across northern Africa, is the largest hot desert on Earth. The Arabian Desert covers much of the Middle East, including large parts of Saudi Arabia. The Gobi, in Asia, is a cold desert, where winters bring freezing cold and even snow. So a desert does not have to be hot at all.\n\nIn sandy deserts like the Sahara, strong winds pile loose sand into huge dunes. The dunes slowly shift and change shape over time. In rocky deserts like parts of the Gobi, wind and rare water wear down stone instead. This slow process is called erosion. It carves the hard rock into strange, jagged shapes.\n\nEven in such harsh places, vegetation still grows. Thorny bushes and tough grasses have learned to survive with very little water. A camel can go for many days without drinking. It stores fat that its body slowly turns into water when needed.\n\nAn oasis is a spot where underground water naturally reaches the surface. Trees and crops can grow there, and small towns can form nearby. For centuries, oases let traders and travelers rest safely as they crossed wide stretches of sand and rock.\n\nToday, deserts are far from empty, lifeless places. Mines, farms near oases, and growing cities all depend on the resources found within these dry lands."
-    },
-    {
-      "level": 900,
-      "title": "Deserts of the World",
-      "text": "Deserts look very different from each other across the world. Some are covered in golden sand that stretches for miles. Others are flat and covered in gray rock and loose gravel instead.\n\nYet every desert shares one true feature. It gets very little rainfall all year. That lack of rain, not heat, is the real meaning of a dry, or arid, climate.\n\nDeserts are found on every continent except Europe. The Sahara, spread across northern Africa, is the largest hot desert on Earth, almost as big as the whole United States. The Arabian Desert covers much of the Middle East, including large parts of Saudi Arabia. The Gobi, in Asia, is a cold desert, where winters bring freezing cold and even snow. Far away in South America, the Atacama is thought to be the driest desert of all, since parts of it can go for years with no rain. So a desert does not have to be hot.\n\nIn sandy deserts like the Sahara, strong winds pile loose sand into huge dunes. The dunes slowly shift and change shape over time. In rocky deserts like parts of the Gobi and the Atacama, wind and rare water wear down stone instead. This slow process is called erosion. It carves the hard rock into strange, jagged shapes.\n\nEven in such harsh places, vegetation still grows. Thorny bushes and tough grasses have learned to survive with very little water. A camel can go for many days without drinking. It stores fat that its body slowly turns into water when needed.\n\nAn oasis is a spot where underground water naturally reaches the surface. Trees and crops can grow there, and small towns can form nearby. For centuries, oases let traders and travelers rest safely as they crossed wide stretches of sand and rock, carrying goods between faraway cities.\n\nToday, deserts are far from empty, lifeless places. Mines, farms near oases, and growing cities all depend on the resources found within these dry lands."
-    },
-    {
-      "level": 1000,
-      "title": "Deserts of the World",
-      "text": "Deserts look very different from one another across the whole world. Some are covered in golden sand that stretches for many miles. Others are flat and covered in gray rock and loose gravel instead.\n\nYet every desert shares one true feature. It receives very little rainfall all year long, and that lack of rain, far more than heat, is the real meaning of a dry, or arid, climate.\n\nDeserts are found on every continent except Europe. The Sahara, spread across northern Africa, is the largest hot desert on Earth, almost as large as the entire United States. The Arabian Desert covers much of the Middle East, including large parts of Saudi Arabia, and has shaped the region's trade for thousands of years. The Gobi, in Asia, is a cold desert where winters bring freezing cold and even snow across its gravel plains. Far away in South America, the Atacama is thought to be the driest desert of all, since parts of it can go for years with no measurable rain. So a desert does not need to be hot; it only needs to be dry.\n\nIn sandy deserts like the Sahara, strong winds pile loose sand into huge dunes that slowly shift and change shape over months and years. In rocky deserts like parts of the Gobi and the Atacama, wind and rare water wear down stone instead through a slow process called erosion. It carves the hard rock into strange, jagged shapes.\n\nEven in such harsh places, vegetation still grows. Thorny bushes and tough grasses have slowly adapted to survive with very little water. A camel can go for many days without drinking, because it stores fat that its body slowly turns into water when needed.\n\nAn oasis is a spot where underground water naturally reaches the surface, letting trees and crops grow there while small towns form nearby. For centuries, merchants on routes like the Silk Road relied on these oases to rest safely while carrying goods between faraway cities.\n\nToday, deserts are far from empty, lifeless places. Mines, farms near oases, and fast-growing cities all depend on the resources found within these dry, remarkable lands."
-    },
-    {
-      "level": 1100,
-      "title": "Deserts of the World: A Global Survey",
-      "text": "Deserts look remarkably different from one another. One might be covered in golden sand, while another is flat gray rock. Yet geographers define a desert by one shared feature: an arid climate, meaning a region that receives extremely little precipitation each year, usually less than 250 millimeters.\n\nDeserts exist on every continent except Europe. The Sahara, in northern Africa, is the largest hot desert on Earth. The Arabian Desert covers much of the Middle East, including large parts of Saudi Arabia, and has shaped trade there for thousands of years. The Gobi, in Asia, is a cold desert; its high elevation and distance from the sea keep its winters freezing. The Atacama, in South America, is the driest nonpolar desert on Earth, since a cold ocean current along its coast blocks the moist air that might bring rain.\n\nIn sandy deserts like the Sahara, winds pile loose sand into huge dunes that slowly shift over time. In rocky deserts like parts of the Gobi and Atacama, wind and rare water wear down stone through erosion instead, carving the ground into jagged shapes.\n\nDespite the harsh conditions, deserts support real biodiversity. Thorny bushes, tough grasses, and small animals such as foxes and lizards have evolved traits that let them survive on very little water. Camels can go many days without drinking, storing fat that their bodies slowly convert into water.\n\nMany desert peoples have traditionally lived a nomadic life, moving with their herds in search of grazing land, rather than settling in one place. An oasis forms where an aquifer, a layer of water-holding rock underground, brings water close enough to the surface for crops to grow. For centuries, merchants on routes like the Silk Road relied on these oases to rest safely.\n\nToday, deserts are far from empty. Mines, farms near oases, and growing cities all depend on the resources found within these dry lands."
-    },
-    {
-      "level": 1200,
-      "title": "Deserts of the World: A Global Survey",
-      "text": "Deserts look remarkably different from one another across the globe. One might be covered in golden sand, while another is flat gray rock and gravel. Yet geographers define a desert by one shared feature: an arid climate, meaning a region that receives extremely little precipitation each year, typically less than 250 millimeters.\n\nDeserts exist on every continent except Europe. The Sahara, in northern Africa, is the largest hot desert on Earth, nearly as large as the whole United States. The Arabian Desert covers much of the Middle East, including large parts of Saudi Arabia, and has shaped trade there for thousands of years. The Gobi, in Asia, is a cold desert; its high elevation and distance from any ocean keep its winters consistently freezing. The Atacama, in South America, is the driest nonpolar desert on Earth, since a cold ocean current along its coast blocks much of the moist air that might bring rain inland.\n\nIn sandy deserts like the Sahara, winds pile loose sand into huge dunes that slowly shift and change shape as conditions change. In rocky deserts like parts of the Gobi and Atacama, wind and rare water wear down stone through erosion instead, gradually carving the ground into jagged shapes over long stretches of time.\n\nDespite the harsh conditions, deserts support real biodiversity. Thorny bushes, tough grasses, and small animals such as foxes and lizards have evolved traits that let them survive on very little available water. Camels can go many days without drinking at all, storing fat that their bodies slowly convert into water when needed.\n\nMany desert peoples have traditionally lived a nomadic life, moving with their herds from place to place in search of grazing land and water, rather than settling permanently. An oasis forms where an aquifer, a layer of water-holding rock underground, brings water close enough to the surface for crops to grow nearby. For centuries, merchants on routes like the Silk Road relied on these oases to rest safely on their journeys.\n\nToday, deserts are far from empty, lifeless places. Mines, farms near oases, and rapidly growing cities all depend heavily on the resources found within these dry, remarkable lands."
-    },
-    {
-      "level": 1300,
-      "title": "Deserts of the World: A Global Survey",
-      "text": "Deserts look remarkably different from one another across the entire globe. One region might be covered in golden sand, while another is flat gray rock and gravel. Yet geographers define a desert by one shared feature rather than temperature: an arid climate, meaning a region that receives extremely little precipitation each year, typically less than 250 millimeters annually.\n\nDeserts exist on every continent except Europe. The Sahara, in northern Africa, is the largest hot desert on Earth, nearly as large as the entire United States. The Arabian Desert covers much of the Middle East, including large parts of Saudi Arabia, and has shaped regional trade for thousands of years. The Gobi, in Asia, is a cold desert; its considerable elevation and distance from any ocean keep its winters consistently freezing throughout the year. The Atacama, in South America, is the driest nonpolar desert on Earth, since a persistent cold ocean current along its coast blocks much of the moist air that might otherwise bring rain inland.\n\nIn sandy deserts like the Sahara, winds pile loose sand into enormous dunes that slowly shift and change shape as conditions change over time. In rocky deserts like parts of the Gobi and Atacama, wind and rare water wear down exposed stone through erosion instead, gradually carving the ground into jagged shapes over long stretches of geological time.\n\nDespite the harsh conditions, deserts support real and surprising biodiversity. Thorny bushes, tough grasses, and small animals such as foxes and lizards have evolved physical traits that let them survive on remarkably little available water. Camels can travel many days without drinking at all, storing fat that their bodies slowly convert into water whenever it becomes necessary.\n\nMany desert peoples have traditionally pursued a nomadic life, migrating with their herds from place to place in search of grazing land and water, rather than settling permanently in one fixed location. An oasis forms where an aquifer, a layer of water-holding rock underground, brings groundwater close enough to the surface for crops and small communities to grow nearby. For centuries, merchants on routes like the Silk Road relied on these scattered oases to rest safely on their long journeys.\n\nToday, deserts are far from empty, lifeless places. Mines, farms near oases, and rapidly expanding cities all depend heavily on the mineral resources found within these dry, remarkable lands."
-    },
-    {
-      "level": 1400,
-      "title": "Deserts of the World: A Global Survey",
-      "text": "Deserts look remarkably different from one another across the entire globe, since one region might be covered in golden sand while another is flat gray rock and loose gravel instead. Yet geographers define a desert by one shared feature rather than temperature alone: an arid climate, meaning a region that receives extremely little precipitation each year, typically less than 250 millimeters annually.\n\nDeserts exist on every continent except Europe. The Sahara, in northern Africa, is the largest hot desert on Earth, nearly as large as the entire United States, and it has long shaped the lives of the people living along its edges. The Arabian Desert covers much of the Middle East, including large parts of Saudi Arabia, and has shaped regional trade and history for thousands of years. The Gobi, in Asia, is a cold desert whose considerable elevation and distance from any ocean keep its winters consistently freezing throughout the entire year. The Atacama, in South America, is the driest nonpolar desert on Earth, since a persistent cold ocean current along its coast blocks much of the moist air that might otherwise bring rain inland toward its interior.\n\nIn sandy deserts like the Sahara, prevailing winds pile loose sand into enormous dunes that slowly shift and change shape as atmospheric conditions change over months and years. In rocky deserts like parts of the Gobi and Atacama, wind and rare water instead wear down exposed stone through erosion, gradually carving the ground into jagged shapes over long stretches of geological time.\n\nDespite the harsh conditions, deserts support real and surprising biodiversity, since thorny bushes, tough grasses, and small animals such as foxes and lizards have evolved physical traits that let them survive on remarkably little available water. Camels can travel many days without drinking at all, storing fat that their bodies slowly convert into water whenever it becomes physiologically necessary for survival.\n\nMany desert peoples have traditionally pursued a nomadic life, migrating with their herds from place to place in search of grazing land and reliable water, rather than settling permanently in one fixed location. An oasis forms where an aquifer, a layer of water-holding rock underground, brings groundwater close enough to the surface for crops and small communities to flourish nearby. For centuries, merchants on famous routes like the Silk Road relied on these scattered oases to rest safely on their long, difficult journeys across the sand.\n\nToday, deserts are far from empty, lifeless places, since mines, farms near oases, and rapidly expanding cities all depend heavily on the mineral resources found within these dry, remarkable lands, which continue to shape where people settle."
-    },
-    {
-      "level": 1500,
-      "title": "Deserts of the World: A Global Survey",
-      "text": "Deserts occupy nearly a third of Earth's entire land surface, yet they differ enormously from one another in appearance, climate, and the life they support across every inhabited continent except Europe. Geographers unite them under a single defining characteristic rather than temperature: an arid climate, one that receives extremely little precipitation annually, typically under 250 millimeters, regardless of whether the surrounding air feels scorching or bitterly cold throughout the changing seasons.\n\nThe Sahara, spanning northern Africa, stands as the largest hot desert on the planet, nearly as large as the entire United States, its sand dunes shaped continuously by prevailing winds into shifting, ever-changing formations across the generations. The Arabian Desert, covering much of the Middle East including substantial portions of Saudi Arabia, has influenced regional history and overland trade for untold millennia. The Gobi, by contrast, exemplifies a cold desert: its considerable elevation and remoteness from any ocean produce freezing winters despite minimal annual rainfall throughout the entire calendar year. Meanwhile, the Atacama Desert along South America's Pacific coast remains the driest nonpolar place on Earth, a persistent cold ocean current suppressing the evaporation that would otherwise generate rain-bearing clouds capable of drifting inland.\n\nErosion sculpts rocky deserts like portions of the Gobi and Atacama into jagged, wind-carved formations over immense stretches of geological time, while sandy deserts like the Sahara instead pile loose grains into dunes that migrate gradually across the landscape over decades and centuries. Despite such severe conditions, remarkable biodiversity persists throughout these environments: thorny vegetation, resilient grasses, and specially adapted animals such as foxes and lizards have evolved physical traits enabling survival with minimal available water. Camels exemplify this adaptation especially well, storing fat that their bodies metabolize into water precisely when hydration becomes necessary for continued survival.\n\nHistorically, many desert-dwelling peoples adopted nomadic lifestyles, migrating seasonally with livestock herds in pursuit of grazing land and dependable water rather than establishing permanent settlements in any single location. Oases emerge wherever underground aquifers, water-bearing rock layers lying beneath the dry surface, bring groundwater sufficiently close to sustain trees, crops, and small enduring communities nearby. For centuries, merchants traversing historic routes such as the Silk Road depended on these scattered havens to rest safely while transporting valuable goods between distant, prosperous cities spanning multiple continents and cultures.\n\nFar from being empty or lifeless, deserts today sustain mines, oasis-adjacent farms, and rapidly expanding cities, all of which depend heavily on the mineral and groundwater resources concealed within these extraordinary, often misunderstood landscapes that continue to shape human settlement across the modern world."
-    },
-    {
-      "level": 1600,
-      "title": "Deserts of the World: A Global Survey",
-      "text": "Deserts occupy nearly a third of Earth's total land surface, yet they differ enormously from one another in appearance, climate, and the life forms they sustain, appearing on every inhabited continent except Europe. Geographers unite these varied landscapes under a single defining characteristic rather than temperature alone: an arid climate, one that receives extremely little precipitation annually, typically under 250 millimeters, regardless of whether the surrounding air feels scorching hot or bitterly cold throughout the changing seasons of the year.\n\nThe Sahara, spanning the entirety of northern Africa, stands as the largest hot desert on the planet, nearly as large as the entire United States, its countless sand dunes continuously reshaped by prevailing winds into shifting, ever-changing formations across generations of travelers. The Arabian Desert, covering much of the Middle East including substantial portions of Saudi Arabia, has profoundly influenced regional history and overland trade for untold millennia. The Gobi, by striking contrast, exemplifies a cold desert: its considerable elevation and remoteness from any ocean produce consistently freezing winters despite minimal annual rainfall throughout the entire calendar year. Meanwhile, the Atacama Desert along South America's Pacific coast remains the driest nonpolar place on Earth, a persistent cold ocean current suppressing the evaporation that would otherwise generate rain-bearing clouds capable of reaching the arid interior.\n\nErosion gradually sculpts rocky deserts like portions of the Gobi and Atacama into jagged, wind-carved formations over immense stretches of geological time, while sandy deserts like the Sahara instead accumulate loose grains into dunes that migrate slowly across the landscape over decades and even centuries. Despite such severe and unforgiving conditions, remarkable biodiversity persists throughout these environments: thorny vegetation, resilient grasses, and specially adapted animals such as foxes and lizards have evolved distinctive physical traits enabling survival with strikingly minimal available water. Camels exemplify this adaptation especially well, storing fat that their bodies metabolize gradually into water precisely when hydration becomes physiologically necessary for their continued survival.\n\nHistorically, many desert-dwelling peoples adopted nomadic lifestyles, migrating seasonally alongside livestock herds in pursuit of grazing land and dependable water rather than establishing permanent settlements in any single fixed location. Oases emerge wherever underground aquifers, water-bearing rock layers lying beneath the parched surface, bring groundwater sufficiently close to sustain trees, crops, and small enduring communities nearby. For centuries, merchants traversing historic routes such as the Silk Road depended entirely on these scattered havens to rest safely while transporting valuable goods between distant, prosperous cities spanning multiple continents and cultures.\n\nFar from being empty or lifeless wastelands, deserts today sustain mines, oasis-adjacent farms, and rapidly expanding cities, all of which depend heavily on the mineral and groundwater resources concealed within these extraordinary, often profoundly misunderstood landscapes that continue to shape patterns of human settlement across the modern world."
-    }
-  ],
-  "bands": {
-    "LOW": {
-      "keyWords": [
-        { "word": "desert", "partOfSpeech": "noun", "definition": "a place that gets almost no rain", "example": "No plants grew in the dry desert near the old road." },
-        { "word": "dry", "partOfSpeech": "adjective", "definition": "having little or no water", "example": "The towel felt dry after a day in the sun." },
-        { "word": "sand", "partOfSpeech": "noun", "definition": "tiny bits of rock that cover many deserts and beaches", "example": "The wind blew sand across the empty road." },
-        { "word": "dune", "partOfSpeech": "noun", "definition": "a hill of sand made by the wind", "example": "We climbed to the top of a tall dune to look around." },
-        { "word": "camel", "partOfSpeech": "noun", "definition": "a desert animal that can go a long time without water", "example": "The camel carried heavy bags across the sand." }
-      ],
-      "questions": [
-        {
-          "stem": "What is this article mostly about?",
-          "options": [
-            "How to grow plants in a garden during the summer months",
-            "Different deserts around the world and how life survives there",
-            "Why it rains so much in Africa during the wet season",
-            "How to build a wooden boat for sailing on rivers and lakes"
-          ],
-          "answer": "B",
-          "skill": "central-idea",
-          "why": "The article describes several deserts, such as the Sahara and the Gobi, and how plants, animals, and people live in them.",
-          "wrong": {
-            "A": "The article is about deserts, not gardens.",
-            "C": "The article says deserts get very little rain.",
-            "D": "The article does not talk about boats."
-          }
-        },
-        {
-          "stem": "What makes a place a desert?",
-          "options": [
-            "It is always hot",
-            "It gets almost no rain",
-            "It has no animals at all",
-            "It is covered in snow"
-          ],
-          "answer": "B",
-          "skill": "detail",
-          "why": "The article says both hot and cold deserts get very little rain, and that is what makes them deserts.",
-          "wrong": {
-            "A": "The article says the Gobi is a cold desert.",
-            "C": "The article names animals like camels that live in deserts.",
-            "D": "Snow is only mentioned for the cold Gobi desert, not all deserts."
-          }
-        },
-        {
-          "stem": "What makes a dune?",
-          "options": [
-            "Rain falling on rocks",
-            "Camels walking over the ground",
-            "Wind blowing sand into hills",
-            "Trees growing near an oasis"
-          ],
-          "answer": "C",
-          "skill": "detail",
-          "why": "The article says wind blows sand into tall hills called dunes.",
-          "wrong": {
-            "A": "The article says deserts get very little rain.",
-            "B": "Camels do not make dunes.",
-            "D": "An oasis has trees, but dunes are made of sand and wind."
-          }
-        },
-        {
-          "stem": "In the article, an oasis is —",
-          "options": [
-            "a hill made of sand",
-            "a green spot with water in a desert",
-            "a kind of desert animal with humps",
-            "a cold desert in Asia"
-          ],
-          "answer": "B",
-          "skill": "vocabulary",
-          "why": "The article says an oasis is a green spot with water where trees grow and people and animals can rest.",
-          "wrong": {
-            "A": "A hill of sand is a dune, not an oasis.",
-            "C": "A camel is an animal, not an oasis.",
-            "D": "The Gobi is a cold desert, not an oasis."
-          }
-        },
-        {
-          "stem": "Why can a camel live in the desert?",
-          "options": [
-            "It can go a long time without a drink",
-            "It only eats sand and tiny pebbles",
-            "It sleeps inside an oasis all day",
-            "It never gets too hot or too cold"
-          ],
-          "answer": "A",
-          "skill": "inference",
-          "why": "Deserts have very little water, so an animal that can go a long time without drinking can survive there.",
-          "wrong": {
-            "B": "The article does not say camels eat sand.",
-            "C": "Camels do not sleep inside an oasis all day.",
-            "D": "The article does not say camels never get hot."
-          }
-        },
-        {
-          "stem": "What can you tell about the Sahara and the Gobi from the article?",
-          "options": [
-            "Both are exactly the same temperature",
-            "Deserts can be very different, even though both get little rain",
-            "Only the Sahara gets any rain",
-            "The Gobi actually contains noticeably more loose, fine sand than the dry Sahara does"
-          ],
-          "answer": "B",
-          "skill": "inference",
-          "why": "The Sahara is hot and sandy while the Gobi is cold, showing that deserts can look and feel very different.",
-          "wrong": {
-            "A": "The Sahara is hot and the Gobi is cold.",
-            "C": "Both deserts get very little rain.",
-            "D": "The article does not say the Gobi has more sand."
-          }
-        },
-        {
-          "stem": "Why did traders use camels to cross deserts long ago?",
-          "options": [
-            "Camels could carry goods and go a long time without water",
-            "Camels could fly high over the sand dunes easily",
-            "Camels liked to swim and play in the cool oases for fun",
-            "Camels were much faster at running than old cars"
-          ],
-          "answer": "A",
-          "skill": "cause-effect",
-          "why": "The article says traders crossed deserts on camels to carry and sell goods, and camels can go a long time without water.",
-          "wrong": {
-            "B": "Camels cannot fly.",
-            "C": "The article does not mention camels swimming.",
-            "D": "Cars are not mentioned in the article."
-          }
-        },
-        {
-          "stem": "Why does the author begin by asking you to think of a place with almost no rain?",
-          "options": [
-            "To help you understand what makes a desert",
-            "To teach you how to make it rain",
-            "To describe a cold, snowy rainforest far away",
-            "To explain carefully how boats and ships float"
-          ],
-          "answer": "A",
-          "skill": "author-purpose",
-          "why": "Starting with 'almost no rain' sets up the article's main point: that lack of rain, not heat, is what defines a desert.",
-          "wrong": {
-            "B": "The article does not teach how to make rain.",
-            "C": "The article is about deserts, not rainforests.",
-            "D": "The article does not talk about boats."
-          }
-        }
-      ],
-      "prompt": "Would you like to visit a desert like the Sahara or the Gobi? Explain why or why not, using at least two facts from the article.",
-      "checklist": [
-        "I clearly said what I think.",
-        "I used at least two facts from the article.",
-        "I wrote complete sentences with capital letters and periods."
-      ],
-      "modelAnswer": "I would like to visit a desert. I would want to see the tall dunes that the wind makes out of sand in the Sahara. I would also like to see a camel up close, because it can go a long time without a drink. I know the Gobi can be very cold, but I think visiting an oasis to rest would still be fun."
-    },
-    "MID": {
-      "keyWords": [
-        { "word": "continent", "partOfSpeech": "noun", "definition": "one of the seven huge areas of land on Earth, like Africa or Asia", "example": "Africa is a continent with many different kinds of land." },
-        { "word": "climate", "partOfSpeech": "noun", "definition": "the usual weather a place has over a long time", "example": "A rainy climate helps rice fields grow well." },
-        { "word": "vegetation", "partOfSpeech": "noun", "definition": "the plants that grow in a certain area", "example": "Thick vegetation covered the sides of the valley." },
-        { "word": "erosion", "partOfSpeech": "noun", "definition": "the slow wearing away of rock or soil by wind or water", "example": "Years of erosion carved deep lines into the cliff." },
-        { "word": "oasis", "partOfSpeech": "noun", "definition": "a place in a desert where water lets plants grow", "example": "Travelers filled their water bottles at the oasis." }
-      ],
-      "questions": [
-        {
-          "stem": "Which sentence best states the central idea of the article?",
-          "options": [
-            "Deserts around the world differ greatly, but all share a very dry climate and support surprising life.",
-            "Every desert on Earth is covered entirely in sand.",
-            "Deserts receive more rain than rainforests do.",
-            "Only camels, and no other living creatures or plants whatsoever, are able to survive anywhere within a desert environment."
-          ],
-          "answer": "A",
-          "skill": "central-idea",
-          "why": "The article compares several deserts and shows that despite their differences, all are defined by very little rain, yet still support plants, animals, and people.",
-          "wrong": {
-            "B": "The article says some deserts are mostly rock and gravel, not sand.",
-            "C": "The article says deserts get very little rain.",
-            "D": "The article also mentions foxes, lizards, and hardy plants."
-          }
-        },
-        {
-          "stem": "On how many continents does the article say deserts exist?",
-          "options": [
-            "Every continent on Earth",
-            "Only two of the seven continents",
-            "Every continent except Europe",
-            "Only Africa and Asia, nowhere else"
-          ],
-          "answer": "C",
-          "skill": "detail",
-          "why": "The article states that deserts are found on every continent except Europe.",
-          "wrong": {
-            "A": "The article excludes Europe.",
-            "B": "The article names more than two continents, including Africa, Asia, and South America.",
-            "D": "The article also mentions South America, home to the Atacama Desert."
-          }
-        },
-        {
-          "stem": "According to the article, what makes the Gobi cold in winter?",
-          "options": [
-            "It is located very close to the warm ocean",
-            "It is at a very low elevation near sea level",
-            "It is covered entirely in soft, fine sand dunes",
-            "It is far from the sea and in a different climate zone"
-          ],
-          "answer": "D",
-          "skill": "detail",
-          "why": "The article explains that the Gobi is a cold desert with bitterly cold winters, unlike the hot Sahara.",
-          "wrong": {
-            "A": "The article does not say it is close to the ocean.",
-            "B": "The article does not describe the Gobi as low.",
-            "C": "The article says parts of the Gobi are rock and gravel, not sand."
-          }
-        },
-        {
-          "stem": "What causes erosion in rocky deserts?",
-          "options": [
-            "Camels slowly digging in the ground",
-            "Wind and occasional water wearing down stone",
-            "Traders slowly building brand-new roads",
-            "Trees simply growing much too tall"
-          ],
-          "answer": "B",
-          "skill": "cause-effect",
-          "why": "The article says wind and occasional water wear down stone through erosion, carving the hard ground into strange shapes.",
-          "wrong": {
-            "A": "The article does not say camels dig the ground.",
-            "C": "Road building is not mentioned.",
-            "D": "The article does not connect trees to erosion."
-          }
-        },
-        {
-          "stem": "In the article, the word vegetation means —",
-          "options": [
-            "the plants that grow in an area",
-            "a kind of desert animal",
-            "a hill made of sand",
-            "a route traders used to sell goods"
-          ],
-          "answer": "A",
-          "skill": "vocabulary",
-          "why": "The article says vegetation such as thorny bushes and tough grasses still exists in deserts, meaning the plants that grow there.",
-          "wrong": {
-            "B": "Camels and foxes are animals, not vegetation.",
-            "C": "A dune is a sand hill, not vegetation.",
-            "D": "Trade routes are not vegetation."
-          }
-        },
-        {
-          "stem": "Why can a camel survive for many days without drinking?",
-          "options": [
-            "It stores fat that its body can turn into water",
-            "It only drinks water once every year, in the rainy season",
-            "It somehow gets all its water from the hot sand",
-            "It does not need any water at all, ever, in any weather"
-          ],
-          "answer": "A",
-          "skill": "inference",
-          "why": "The article explains that camels store fat that their bodies slowly convert into water when needed.",
-          "wrong": {
-            "B": "The article does not give an exact schedule for drinking.",
-            "C": "Sand does not contain drinkable water.",
-            "D": "The article implies camels still need water eventually, just less often."
-          }
-        },
-        {
-          "stem": "Why were oases important to traders crossing deserts?",
-          "options": [
-            "Oases let traders rest and gather water on long journeys",
-            "Oases were the only cities in the desert",
-            "Oases actually produced sand for building new dunes",
-            "Oases were simply where camels were born and raised"
-          ],
-          "answer": "A",
-          "skill": "inference",
-          "why": "The article explains that oases let traders and travelers rest safely as they crossed vast stretches of sand and rock.",
-          "wrong": {
-            "B": "The article does not call oases cities.",
-            "C": "Oases do not produce sand.",
-            "D": "The article does not discuss where camels are born."
-          }
-        },
-        {
-          "stem": "How does the author organize this article?",
-          "options": [
-            "By telling a long story about just one single trader from childhood all the way to old age",
-            "By comparing different deserts, then explaining their land, life, and importance to people",
-            "By listing, one by one, all the steps needed to cross a desert safely",
-            "By describing in great detail only how sand dunes alone are formed over time"
-          ],
-          "answer": "B",
-          "skill": "text-structure",
-          "why": "The article moves from comparing deserts around the world to their landforms, plants and animals, and finally their importance to people past and present.",
-          "wrong": {
-            "A": "The article is not a story about one trader.",
-            "C": "The article does not give step-by-step crossing instructions.",
-            "D": "Dune formation is only one part of the article."
-          }
-        }
-      ],
-      "prompt": "Explain how deserts can be both hot and cold, yet still be called deserts. Use at least two details from the article.",
-      "checklist": [
-        "I explained what truly makes a place a desert.",
-        "I used at least two details from the article.",
-        "I organized my ideas in a clear order."
-      ],
-      "modelAnswer": "A place does not have to be hot to be a desert. The article says a desert is defined by how little rain it gets, not its temperature. The Sahara is a hot desert in Africa, while the Gobi in Asia is a cold desert with freezing winters. Both deserts, however, get very little rain each year, which is the real reason both are called deserts."
-    },
-    "HIGH": {
-      "keyWords": [
-        { "word": "arid", "partOfSpeech": "adjective", "definition": "extremely dry, with very little rainfall", "example": "Only a few tough plants grow in the arid valley." },
-        { "word": "biodiversity", "partOfSpeech": "noun", "definition": "the wide variety of living things found in a place", "example": "The coral reef is known for its rich biodiversity." },
-        { "word": "aquifer", "partOfSpeech": "noun", "definition": "a layer of underground rock that holds water", "example": "The town's wells draw fresh water from a deep aquifer." },
-        { "word": "nomadic", "partOfSpeech": "adjective", "definition": "moving from place to place rather than living in one fixed location", "example": "The nomadic family moved their tents every few months." },
-        { "word": "precipitation", "partOfSpeech": "noun", "definition": "water that falls from the sky, such as rain or snow", "example": "Scientists measure yearly precipitation to study a region's climate." }
-      ],
-      "questions": [
-        {
-          "stem": "Which statement best expresses the central idea of the article?",
-          "options": [
-            "No life of any kind can survive in a true desert.",
-            "Deserts form only through strong winds blowing sand.",
-            "Geographers define deserts by their aridity rather than temperature, and despite harsh conditions, these varied landscapes support notable biodiversity and human life.",
-            "Every desert on Earth, in every region and on every continent without a single exception anywhere, was at some point in its ancient geological history entirely and completely covered by a deep ocean."
-          ],
-          "answer": "C",
-          "skill": "central-idea",
-          "why": "The article explains that aridity, not heat, defines a desert, and describes the plants, animals, and nomadic peoples that have adapted to desert conditions.",
-          "wrong": {
-            "A": "The article describes foxes, lizards, bushes, and grasses living in deserts.",
-            "B": "Wind forms dunes in sandy deserts, but erosion and cold also shape other deserts.",
-            "D": "The article does not claim deserts were once oceans."
-          }
-        },
-        {
-          "stem": "According to the article, what is the key requirement for a region to be classified as arid?",
-          "options": [
-            "A yearly average temperature above 40 degrees Celsius",
-            "Receiving extremely little precipitation annually, typically under 250 millimeters",
-            "Having no plants or animals whatsoever",
-            "Being located on more than one single continent at the same time, which many large deserts actually are"
-          ],
-          "answer": "B",
-          "skill": "detail",
-          "why": "The article defines an arid climate as one receiving extremely little precipitation annually, typically less than 250 millimeters.",
-          "wrong": {
-            "A": "The article does not set a temperature requirement; cold deserts like the Gobi also qualify.",
-            "C": "The article describes biodiversity living in deserts.",
-            "D": "Classification does not depend on the number of continents."
-          }
-        },
-        {
-          "stem": "Why does the Atacama Desert receive so little rain, according to the article?",
-          "options": [
-            "A cold ocean current blocks moist air that might otherwise bring rain",
-            "It is located at a very high elevation far from any coast",
-            "It lies directly beneath the equator, where the sun's heat is strongest all year round",
-            "Strong winds constantly blow all the rain clouds inland"
-          ],
-          "answer": "A",
-          "skill": "detail",
-          "why": "The article explains that a cold ocean current along the coast blocks the moist air that might otherwise produce rain in the Atacama.",
-          "wrong": {
-            "B": "This explanation is given for the Gobi's cold climate, not the Atacama's dryness.",
-            "C": "The article does not mention the equator in relation to the Atacama.",
-            "D": "The article does not describe wind pushing rain clouds inland there."
-          }
-        },
-        {
-          "stem": "In the article, the word nomadic most nearly means —",
-          "options": [
-            "living permanently in a large city",
-            "moving from place to place rather than settling in one location",
-            "traveling only by camel caravan",
-            "farming crops and raising many animals near a small desert oasis community"
-          ],
-          "answer": "B",
-          "skill": "vocabulary",
-          "why": "The article describes nomadic desert peoples as moving with their herds from place to place rather than settling permanently.",
-          "wrong": {
-            "A": "Nomadic peoples specifically do not settle permanently in cities.",
-            "C": "Camel travel is one example, but nomadic life is not limited to that method.",
-            "D": "Farming near an oasis describes settled life, not nomadic life."
-          }
-        },
-        {
-          "stem": "Based on the article, why would an aquifer be essential to the formation of an oasis?",
-          "options": [
-            "It brings underground water close enough to the surface for plants to grow",
-            "It blocks wind from forming sand dunes nearby",
-            "It somehow attracts cold ocean currents from far away out at sea to the desert",
-            "It causes erosion that carves rock into odd shapes"
-          ],
-          "answer": "A",
-          "skill": "inference",
-          "why": "The article explains that an oasis forms where an aquifer brings groundwater close enough to the surface to sustain trees and crops.",
-          "wrong": {
-            "B": "Aquifers are not described as blocking wind.",
-            "C": "Ocean currents relate to the Atacama's dryness, not aquifers.",
-            "D": "Erosion is caused by wind and water, not aquifers."
-          }
-        },
-        {
-          "stem": "What can be inferred about why traders historically depended on oases along desert routes?",
-          "options": [
-            "Oases offered the only reliable sources of water across otherwise dry, dangerous stretches of land",
-            "Oases were required stops to pay taxes to desert rulers",
-            "Oases were the final destinations of every trade route",
-            "Oases themselves somehow produced all of the valuable goods that traders carried along their routes to sell"
-          ],
-          "answer": "A",
-          "skill": "inference",
-          "why": "Since deserts receive almost no precipitation, oases supplied by aquifers were crucial, reliable sources of water for travelers crossing long, dry distances.",
-          "wrong": {
-            "B": "The article does not mention taxes.",
-            "C": "Oases were rest points along routes, not final destinations.",
-            "D": "The article describes traders carrying goods between cities, not goods produced at oases."
-          }
-        },
-        {
-          "stem": "Which sequence correctly reflects how a sand dune forms and changes, based on the article?",
-          "options": [
-            "Rain falls steadily, the sand gradually hardens into solid rock, and then slow erosion wears all of it away",
-            "An aquifer rises, plants grow, wind blows the plants into a pile",
-            "Wind picks up loose sand, piles it into a dune, and the dune gradually shifts shape over time",
-            "A camel digs a hole, sand fills it, and a dune instantly appears"
-          ],
-          "answer": "C",
-          "skill": "sequence",
-          "why": "The article explains that winds pile loose sand into dunes, which then slowly shift and change shape over months and years.",
-          "wrong": {
-            "A": "The article associates erosion with rock, not sand hardening into rock.",
-            "B": "Aquifers relate to oases, not dune formation.",
-            "D": "Dunes are not formed instantly by camels digging."
-          }
-        },
-        {
-          "stem": "Why does the author likely include the comparison between sandy deserts and rocky deserts?",
-          "options": [
-            "To argue that sandy deserts are more dangerous than rocky ones",
-            "To show that the word 'desert' describes a range of landscapes shaped by dryness, not one single appearance",
-            "To explain in careful, step-by-step detail exactly how workers mine valuable minerals from solid underground rock",
-            "To prove that only rocky deserts support biodiversity"
-          ],
-          "answer": "B",
-          "skill": "author-purpose",
-          "why": "By contrasting sandy deserts like the Sahara with rocky deserts like parts of the Gobi and Atacama, the author shows that aridity, not appearance, defines a desert.",
-          "wrong": {
-            "A": "The article does not compare danger levels.",
-            "C": "Mining is mentioned briefly but not as mining instructions.",
-            "D": "The article describes biodiversity in both sandy and rocky deserts."
-          }
-        }
-      ],
-      "prompt": "The poll says deserts are empty places with nothing worth studying. Do you agree or disagree? Support your argument with evidence from the article about desert climate, biodiversity, and human history.",
-      "checklist": [
-        "I stated a clear position on the poll statement.",
-        "I supported my position with specific evidence from the article.",
-        "I addressed at least one point someone might make against my view."
-      ],
-      "modelAnswer": "I disagree that deserts are empty places with nothing worth studying. Deserts around the world, from the hot Sahara to the cold Gobi and the extremely dry Atacama, show that aridity rather than temperature truly defines a desert, which is itself a fascinating scientific idea. Deserts also support real biodiversity, including hardy vegetation and animals like foxes, lizards, and camels that have evolved clever adaptations to survive with very little water. Someone might argue that deserts are lifeless because few people live there, but oases fed by underground aquifers have supported nomadic peoples and merchant trade routes like the Silk Road for centuries, proving that deserts have shaped human history in important ways."
-    }
+ "code": "RR-321",
+ "title": "Deserts of the World",
+ "topic": "Geography",
+ "summary": "A world tour of deserts, from the hot Sahara to the cold Gobi, and how plants, animals, and people survive in them.",
+ "poll": "Deserts are empty places with nothing worth studying.",
+ "versions": [
+  {
+   "level": 300,
+   "title": "Deserts of the World",
+   "text": "A desert is dry. It gets no rain.\n\nNot all deserts are hot. Some are cold. The Sahara is hot. The Gobi is cold. Both get no rain.\n\nThe Sahara has sand. Wind blows the sand. It makes hills. A hill of sand is a dune. Some dunes are tall.\n\nSome deserts have rock, not sand. The ground there is hard.\n\nA camel can live in a desert. It needs little water. Few plants grow there. But some still do.\n\nA green spot with water is an oasis. Trees grow there. People rest there.\n\nLong ago, traders used camels. They carried goods to sell. Today, people still live near deserts."
+  },
+  {
+   "level": 400,
+   "title": "Deserts of the World",
+   "text": "A desert is a dry place. It gets almost no rain.\n\nNot every desert is hot. The Sahara is hot. It is in Africa. The Gobi is a cold desert. It is in Asia. Both get little rain.\n\nThe Sahara is covered in sand. Wind blows the sand into hills. A hill of sand is a dune. The Arabian Desert has big dunes too.\n\nSome deserts are rock, not sand. The ground is hard and dry.\n\nA camel can live well in a desert. It can go a long time with no water. Few plants can grow there, but some do.\n\nA green spot with water is an oasis. Trees grow there. People stop to rest.\n\nLong ago, traders crossed deserts on camels. They carried goods to sell. Today, many people live near deserts."
+  },
+  {
+   "level": 500,
+   "title": "Deserts of the World",
+   "text": "A desert gets almost no rain all year. That lack of rain is what makes it a desert.\n\nNot every desert is hot. The Sahara is a hot desert in northern Africa. The Gobi is a cold desert in Asia with cold winters. Both deserts get very little rain.\n\nMuch of the Sahara is covered in soft sand. Strong winds blow the sand into tall hills. A hill of sand is called a dune. The Arabian Desert has huge dunes too.\n\nOther deserts, like parts of the Gobi, are mostly rock, not sand. The ground is hard and often cracked.\n\nA camel can live well in this dry land. It can go a long time with no water. Few plants can survive, but small bushes still grow.\n\nA green spot with water is called an oasis. Trees grow around it, and people stop there to rest and drink.\n\nLong ago, traders crossed deserts with camels to sell goods. Today, many people still live near deserts around the world."
+  },
+  {
+   "level": 600,
+   "title": "Deserts of the World",
+   "text": "A desert gets almost no rain, year after year. That lack of rain, not heat, is what truly makes it a desert.\n\nNot every desert is hot. The Sahara is an enormous hot desert in northern Africa. The Gobi, on the other hand, is a cold desert in Asia with bitterly cold winters. Both deserts still get very little rain each year.\n\nMuch of the Sahara is covered in soft, fine sand. Strong winds blow the loose sand into tall, curving hills. A hill of sand is called a dune. The Arabian Desert, across the Middle East, also has huge rolling dunes.\n\nOther deserts, like large parts of the Gobi, are mostly rock, not sand. The ground is hard, dry, and often cracked by heat and cold.\n\nA camel can live surprisingly well in this dry land. It can go a long time with no drink of water. Few plants can survive, but small thorny bushes still grow.\n\nA green spot with water in a desert is called an oasis. Trees grow around it, and people and animals stop there to rest and drink.\n\nLong ago, traders crossed deserts with long lines of camels, carrying goods to sell between far cities. Today, many people still live near deserts all around the world."
+  },
+  {
+   "level": 700,
+   "title": "Deserts of the World",
+   "text": "Deserts look very different from each other. Some are covered in golden sand. Others are flat and covered in gray rock.\n\nYet every desert shares one thing. It gets very little rain. That is the real meaning of a dry, or arid, climate.\n\nDeserts are found on every continent except Europe. The Sahara, in Africa, is the largest hot desert on Earth. The Arabian Desert covers much of the Middle East. The Gobi, in Asia, is a cold desert. Its winters can bring snow. So a desert does not have to be hot.\n\nIn sandy deserts like the Sahara, wind piles loose sand into huge dunes. The dunes slowly shift and change shape. In rocky deserts, wind and rare water wear down stone instead. This slow process is called erosion. It carves the rock into strange shapes.\n\nEven in such harsh places, vegetation still grows. Thorny bushes and tough grasses can survive with little water. A camel can go for days without drinking. It stores fat that its body slowly turns into water.\n\nAn oasis is a spot where underground water reaches the surface. Trees and crops can grow there. For centuries, oases let traders rest safely as they crossed the sand.\n\nToday, deserts are far from empty. Mines, farms, and growing cities depend on the resources found within them."
+  },
+  {
+   "level": 800,
+   "title": "Deserts of the World",
+   "text": "Deserts look very different from each other across the world. Some are covered in golden sand that stretches for miles. Others are flat and covered in gray rock and gravel instead.\n\nYet every desert shares one true feature. It gets very little rainfall all year. That lack of rain, not heat, is the real meaning of a dry, or arid, climate.\n\nDeserts are found on every continent except Europe. The Sahara, spread across northern Africa, is the largest hot desert on Earth. The Arabian Desert covers much of the Middle East, including large parts of Saudi Arabia. The Gobi, in Asia, is a cold desert, where winters bring freezing cold and even snow. So a desert does not have to be hot at all.\n\nIn sandy deserts like the Sahara, strong winds pile loose sand into huge dunes. The dunes slowly shift and change shape over time. In rocky deserts like parts of the Gobi, wind and rare water wear down stone instead. This slow process is called erosion. It carves the hard rock into strange, jagged shapes.\n\nEven in such harsh places, vegetation still grows. Thorny bushes and tough grasses have learned to survive with very little water. A camel can go for many days without drinking. It stores fat that its body slowly turns into water when needed.\n\nAn oasis is a spot where underground water naturally reaches the surface. Trees and crops can grow there, and small towns can form nearby. For centuries, oases let traders and travelers rest safely as they crossed wide stretches of sand and rock.\n\nToday, deserts are far from empty, lifeless places. Mines, farms near oases, and growing cities all depend on the resources found within these dry lands."
+  },
+  {
+   "level": 900,
+   "title": "Deserts of the World",
+   "text": "Deserts look very different from each other across the world. Some are covered in golden sand that stretches for miles. Others are flat and covered in gray rock and loose gravel instead.\n\nYet every desert shares one true feature. It gets very little rainfall all year. That lack of rain, not heat, is the real meaning of a dry, or arid, climate.\n\nDeserts are found on every continent except Europe. The Sahara, spread across northern Africa, is the largest hot desert on Earth, almost as big as the whole United States. The Arabian Desert covers much of the Middle East, including large parts of Saudi Arabia. The Gobi, in Asia, is a cold desert, where winters bring freezing cold and even snow. Far away in South America, the Atacama is thought to be the driest desert of all, since parts of it can go for years with no rain. So a desert does not have to be hot.\n\nIn sandy deserts like the Sahara, strong winds pile loose sand into huge dunes. The dunes slowly shift and change shape over time. In rocky deserts like parts of the Gobi and the Atacama, wind and rare water wear down stone instead. This slow process is called erosion. It carves the hard rock into strange, jagged shapes.\n\nEven in such harsh places, vegetation still grows. Thorny bushes and tough grasses have learned to survive with very little water. A camel can go for many days without drinking. It stores fat that its body slowly turns into water when needed.\n\nAn oasis is a spot where underground water naturally reaches the surface. Trees and crops can grow there, and small towns can form nearby. For centuries, oases let traders and travelers rest safely as they crossed wide stretches of sand and rock, carrying goods between faraway cities.\n\nToday, deserts are far from empty, lifeless places. Mines, farms near oases, and growing cities all depend on the resources found within these dry lands."
+  },
+  {
+   "level": 1000,
+   "title": "Deserts of the World",
+   "text": "Deserts look very different from one another across the whole world. Some are covered in golden sand that stretches for many miles. Others are flat and covered in gray rock and loose gravel instead.\n\nYet every desert shares one true feature. It receives very little rainfall all year long, and that lack of rain, far more than heat, is the real meaning of a dry, or arid, climate.\n\nDeserts are found on every continent except Europe. The Sahara, spread across northern Africa, is the largest hot desert on Earth, almost as large as the entire United States. The Arabian Desert covers much of the Middle East, including large parts of Saudi Arabia, and has shaped the region's trade for thousands of years. The Gobi, in Asia, is a cold desert where winters bring freezing cold and even snow across its gravel plains. Far away in South America, the Atacama is thought to be the driest desert of all, since parts of it can go for years with no measurable rain. So a desert does not need to be hot; it only needs to be dry.\n\nIn sandy deserts like the Sahara, strong winds pile loose sand into huge dunes that slowly shift and change shape over months and years. In rocky deserts like parts of the Gobi and the Atacama, wind and rare water wear down stone instead through a slow process called erosion. It carves the hard rock into strange, jagged shapes.\n\nEven in such harsh places, vegetation still grows. Thorny bushes and tough grasses have slowly adapted to survive with very little water. A camel can go for many days without drinking, because it stores fat that its body slowly turns into water when needed.\n\nAn oasis is a spot where underground water naturally reaches the surface, letting trees and crops grow there while small towns form nearby. For centuries, merchants on routes like the Silk Road relied on these oases to rest safely while carrying goods between faraway cities.\n\nToday, deserts are far from empty, lifeless places. Mines, farms near oases, and fast-growing cities all depend on the resources found within these dry, remarkable lands."
+  },
+  {
+   "level": 1100,
+   "title": "Deserts of the World: A Global Survey",
+   "text": "Deserts look remarkably different from one another. One might be covered in golden sand, while another is flat gray rock. Yet geographers define a desert by one shared feature: an arid climate, meaning a region that receives extremely little precipitation each year, usually less than 250 millimeters.\n\nDeserts exist on every continent except Europe. The Sahara, in northern Africa, is the largest hot desert on Earth. The Arabian Desert covers much of the Middle East, including large parts of Saudi Arabia, and has shaped trade there for thousands of years. The Gobi, in Asia, is a cold desert; its high elevation and distance from the sea keep its winters freezing. The Atacama, in South America, is the driest nonpolar desert on Earth, since a cold ocean current along its coast blocks the moist air that might bring rain.\n\nIn sandy deserts like the Sahara, winds pile loose sand into huge dunes that slowly shift over time. In rocky deserts like parts of the Gobi and Atacama, wind and rare water wear down stone through erosion instead, carving the ground into jagged shapes.\n\nDespite the harsh conditions, deserts support real biodiversity. Thorny bushes, tough grasses, and small animals such as foxes and lizards have evolved traits that let them survive on very little water. Camels can go many days without drinking, storing fat that their bodies slowly convert into water.\n\nMany desert peoples have traditionally lived a nomadic life, moving with their herds in search of grazing land, rather than settling in one place. An oasis forms where an aquifer, a layer of water-holding rock underground, brings water close enough to the surface for crops to grow. For centuries, merchants on routes like the Silk Road relied on these oases to rest safely.\n\nToday, deserts are far from empty. Mines, farms near oases, and growing cities all depend on the resources found within these dry lands."
+  },
+  {
+   "level": 1200,
+   "title": "Deserts of the World: A Global Survey",
+   "text": "Deserts look remarkably different from one another across the globe. One might be covered in golden sand, while another is flat gray rock and gravel. Yet geographers define a desert by one shared feature: an arid climate, meaning a region that receives extremely little precipitation each year, typically less than 250 millimeters.\n\nDeserts exist on every continent except Europe. The Sahara, in northern Africa, is the largest hot desert on Earth, nearly as large as the whole United States. The Arabian Desert covers much of the Middle East, including large parts of Saudi Arabia, and has shaped trade there for thousands of years. The Gobi, in Asia, is a cold desert; its high elevation and distance from any ocean keep its winters consistently freezing. The Atacama, in South America, is the driest nonpolar desert on Earth, since a cold ocean current along its coast blocks much of the moist air that might bring rain inland.\n\nIn sandy deserts like the Sahara, winds pile loose sand into huge dunes that slowly shift and change shape as conditions change. In rocky deserts like parts of the Gobi and Atacama, wind and rare water wear down stone through erosion instead, gradually carving the ground into jagged shapes over long stretches of time.\n\nDespite the harsh conditions, deserts support real biodiversity. Thorny bushes, tough grasses, and small animals such as foxes and lizards have evolved traits that let them survive on very little available water. Camels can go many days without drinking at all, storing fat that their bodies slowly convert into water when needed.\n\nMany desert peoples have traditionally lived a nomadic life, moving with their herds from place to place in search of grazing land and water, rather than settling permanently. An oasis forms where an aquifer, a layer of water-holding rock underground, brings water close enough to the surface for crops to grow nearby. For centuries, merchants on routes like the Silk Road relied on these oases to rest safely on their journeys.\n\nToday, deserts are far from empty, lifeless places. Mines, farms near oases, and rapidly growing cities all depend heavily on the resources found within these dry, remarkable lands."
+  },
+  {
+   "level": 1300,
+   "title": "Deserts of the World: A Global Survey",
+   "text": "Deserts look remarkably different from one another across the entire globe. One region might be covered in golden sand, while another is flat gray rock and gravel. Yet geographers define a desert by one shared feature rather than temperature: an arid climate, meaning a region that receives extremely little precipitation each year, typically less than 250 millimeters annually.\n\nDeserts exist on every continent except Europe. The Sahara, in northern Africa, is the largest hot desert on Earth, nearly as large as the entire United States. The Arabian Desert covers much of the Middle East, including large parts of Saudi Arabia, and has shaped regional trade for thousands of years. The Gobi, in Asia, is a cold desert; its considerable elevation and distance from any ocean keep its winters consistently freezing throughout the year. The Atacama, in South America, is the driest nonpolar desert on Earth, since a persistent cold ocean current along its coast blocks much of the moist air that might otherwise bring rain inland.\n\nIn sandy deserts like the Sahara, winds pile loose sand into enormous dunes that slowly shift and change shape as conditions change over time. In rocky deserts like parts of the Gobi and Atacama, wind and rare water wear down exposed stone through erosion instead, gradually carving the ground into jagged shapes over long stretches of geological time.\n\nDespite the harsh conditions, deserts support real and surprising biodiversity. Thorny bushes, tough grasses, and small animals such as foxes and lizards have evolved physical traits that let them survive on remarkably little available water. Camels can travel many days without drinking at all, storing fat that their bodies slowly convert into water whenever it becomes necessary.\n\nMany desert peoples have traditionally pursued a nomadic life, migrating with their herds from place to place in search of grazing land and water, rather than settling permanently in one fixed location. An oasis forms where an aquifer, a layer of water-holding rock underground, brings groundwater close enough to the surface for crops and small communities to grow nearby. For centuries, merchants on routes like the Silk Road relied on these scattered oases to rest safely on their long journeys.\n\nToday, deserts are far from empty, lifeless places. Mines, farms near oases, and rapidly expanding cities all depend heavily on the mineral resources found within these dry, remarkable lands."
+  },
+  {
+   "level": 1400,
+   "title": "Deserts of the World: A Global Survey",
+   "text": "Deserts look remarkably different from one another across the entire globe, since one region might be covered in golden sand while another is flat gray rock and loose gravel instead. Yet geographers define a desert by one shared feature rather than temperature alone: an arid climate, meaning a region that receives extremely little precipitation each year, typically less than 250 millimeters annually.\n\nDeserts exist on every continent except Europe. The Sahara, in northern Africa, is the largest hot desert on Earth, nearly as large as the entire United States, and it has long shaped the lives of the people living along its edges. The Arabian Desert covers much of the Middle East, including large parts of Saudi Arabia, and has shaped regional trade and history for thousands of years. The Gobi, in Asia, is a cold desert whose considerable elevation and distance from any ocean keep its winters consistently freezing throughout the entire year. The Atacama, in South America, is the driest nonpolar desert on Earth, since a persistent cold ocean current along its coast blocks much of the moist air that might otherwise bring rain inland toward its interior.\n\nIn sandy deserts like the Sahara, prevailing winds pile loose sand into enormous dunes that slowly shift and change shape as atmospheric conditions change over months and years. In rocky deserts like parts of the Gobi and Atacama, wind and rare water instead wear down exposed stone through erosion, gradually carving the ground into jagged shapes over long stretches of geological time.\n\nDespite the harsh conditions, deserts support real and surprising biodiversity, since thorny bushes, tough grasses, and small animals such as foxes and lizards have evolved physical traits that let them survive on remarkably little available water. Camels can travel many days without drinking at all, storing fat that their bodies slowly convert into water whenever it becomes physiologically necessary for survival.\n\nMany desert peoples have traditionally pursued a nomadic life, migrating with their herds from place to place in search of grazing land and reliable water, rather than settling permanently in one fixed location. An oasis forms where an aquifer, a layer of water-holding rock underground, brings groundwater close enough to the surface for crops and small communities to flourish nearby. For centuries, merchants on famous routes like the Silk Road relied on these scattered oases to rest safely on their long, difficult journeys across the sand.\n\nToday, deserts are far from empty, lifeless places, since mines, farms near oases, and rapidly expanding cities all depend heavily on the mineral resources found within these dry, remarkable lands, which continue to shape where people settle."
+  },
+  {
+   "level": 1500,
+   "title": "Deserts of the World: A Global Survey",
+   "text": "Deserts occupy nearly a third of Earth's entire land surface, yet they differ enormously from one another in appearance, climate, and the life they support across every inhabited continent except Europe. Geographers unite them under a single defining characteristic rather than temperature: an arid climate, one that receives extremely little precipitation annually, typically under 250 millimeters, regardless of whether the surrounding air feels scorching or bitterly cold throughout the changing seasons.\n\nThe Sahara, spanning northern Africa, stands as the largest hot desert on the planet, nearly as large as the entire United States, its sand dunes shaped continuously by prevailing winds into shifting, ever-changing formations across the generations. The Arabian Desert, covering much of the Middle East including substantial portions of Saudi Arabia, has influenced regional history and overland trade for untold millennia. The Gobi, by contrast, exemplifies a cold desert: its considerable elevation and remoteness from any ocean produce freezing winters despite minimal annual rainfall throughout the entire calendar year. Meanwhile, the Atacama Desert along South America's Pacific coast remains the driest nonpolar place on Earth, a persistent cold ocean current suppressing the evaporation that would otherwise generate rain-bearing clouds capable of drifting inland.\n\nErosion sculpts rocky deserts like portions of the Gobi and Atacama into jagged, wind-carved formations over immense stretches of geological time, while sandy deserts like the Sahara instead pile loose grains into dunes that migrate gradually across the landscape over decades and centuries. Despite such severe conditions, remarkable biodiversity persists throughout these environments: thorny vegetation, resilient grasses, and specially adapted animals such as foxes and lizards have evolved physical traits enabling survival with minimal available water. Camels exemplify this adaptation especially well, storing fat that their bodies metabolize into water precisely when hydration becomes necessary for continued survival.\n\nHistorically, many desert-dwelling peoples adopted nomadic lifestyles, migrating seasonally with livestock herds in pursuit of grazing land and dependable water rather than establishing permanent settlements in any single location. Oases emerge wherever underground aquifers, water-bearing rock layers lying beneath the dry surface, bring groundwater sufficiently close to sustain trees, crops, and small enduring communities nearby. For centuries, merchants traversing historic routes such as the Silk Road depended on these scattered havens to rest safely while transporting valuable goods between distant, prosperous cities spanning multiple continents and cultures.\n\nFar from being empty or lifeless, deserts today sustain mines, oasis-adjacent farms, and rapidly expanding cities, all of which depend heavily on the mineral and groundwater resources concealed within these extraordinary, often misunderstood landscapes that continue to shape human settlement across the modern world."
+  },
+  {
+   "level": 1600,
+   "title": "Deserts of the World: A Global Survey",
+   "text": "Deserts occupy nearly a third of Earth's total land surface, yet they differ enormously from one another in appearance, climate, and the life forms they sustain, appearing on every inhabited continent except Europe. Geographers unite these varied landscapes under a single defining characteristic rather than temperature alone: an arid climate, one that receives extremely little precipitation annually, typically under 250 millimeters, regardless of whether the surrounding air feels scorching hot or bitterly cold throughout the changing seasons of the year.\n\nThe Sahara, spanning the entirety of northern Africa, stands as the largest hot desert on the planet, nearly as large as the entire United States, its countless sand dunes continuously reshaped by prevailing winds into shifting, ever-changing formations across generations of travelers. The Arabian Desert, covering much of the Middle East including substantial portions of Saudi Arabia, has profoundly influenced regional history and overland trade for untold millennia. The Gobi, by striking contrast, exemplifies a cold desert: its considerable elevation and remoteness from any ocean produce consistently freezing winters despite minimal annual rainfall throughout the entire calendar year. Meanwhile, the Atacama Desert along South America's Pacific coast remains the driest nonpolar place on Earth, a persistent cold ocean current suppressing the evaporation that would otherwise generate rain-bearing clouds capable of reaching the arid interior.\n\nErosion gradually sculpts rocky deserts like portions of the Gobi and Atacama into jagged, wind-carved formations over immense stretches of geological time, while sandy deserts like the Sahara instead accumulate loose grains into dunes that migrate slowly across the landscape over decades and even centuries. Despite such severe and unforgiving conditions, remarkable biodiversity persists throughout these environments: thorny vegetation, resilient grasses, and specially adapted animals such as foxes and lizards have evolved distinctive physical traits enabling survival with strikingly minimal available water. Camels exemplify this adaptation especially well, storing fat that their bodies metabolize gradually into water precisely when hydration becomes physiologically necessary for their continued survival.\n\nHistorically, many desert-dwelling peoples adopted nomadic lifestyles, migrating seasonally alongside livestock herds in pursuit of grazing land and dependable water rather than establishing permanent settlements in any single fixed location. Oases emerge wherever underground aquifers, water-bearing rock layers lying beneath the parched surface, bring groundwater sufficiently close to sustain trees, crops, and small enduring communities nearby. For centuries, merchants traversing historic routes such as the Silk Road depended entirely on these scattered havens to rest safely while transporting valuable goods between distant, prosperous cities spanning multiple continents and cultures.\n\nFar from being empty or lifeless wastelands, deserts today sustain mines, oasis-adjacent farms, and rapidly expanding cities, all of which depend heavily on the mineral and groundwater resources concealed within these extraordinary, often profoundly misunderstood landscapes that continue to shape patterns of human settlement across the modern world."
   }
+ ],
+ "bands": {
+  "LOW": {
+   "keyWords": [
+    {
+     "word": "desert",
+     "partOfSpeech": "noun",
+     "definition": "a place that gets almost no rain",
+     "example": "No plants grew in the dry desert near the old road."
+    },
+    {
+     "word": "dry",
+     "partOfSpeech": "adjective",
+     "definition": "having little or no water",
+     "example": "The towel felt dry after a day in the sun."
+    },
+    {
+     "word": "sand",
+     "partOfSpeech": "noun",
+     "definition": "tiny bits of rock that cover many deserts and beaches",
+     "example": "The wind blew sand across the empty road."
+    },
+    {
+     "word": "dune",
+     "partOfSpeech": "noun",
+     "definition": "a hill of sand made by the wind",
+     "example": "We climbed to the top of a tall dune to look around."
+    },
+    {
+     "word": "camel",
+     "partOfSpeech": "noun",
+     "definition": "a desert animal that can go a long time without water",
+     "example": "The camel carried heavy bags across the sand."
+    }
+   ],
+   "questions": [
+    {
+     "stem": "What is this article mostly about?",
+     "options": [
+      "How to grow plants in a garden during the summer months",
+      "Different deserts around the world and how life survives there",
+      "Why it rains so much in Africa during the wet season",
+      "How to build a wooden boat for sailing on rivers and lakes"
+     ],
+     "answer": "B",
+     "skill": "central-idea",
+     "why": "The article describes several deserts, such as the Sahara and the Gobi, and how plants, animals, and people live in them.",
+     "wrong": {
+      "A": "The article is about deserts, not gardens.",
+      "C": "The article says deserts get very little rain.",
+      "D": "The article does not talk about boats."
+     }
+    },
+    {
+     "stem": "What makes a place a desert?",
+     "options": [
+      "It is always hot",
+      "It gets almost no rain",
+      "It has no animals at all",
+      "It is covered in snow"
+     ],
+     "answer": "B",
+     "skill": "detail",
+     "why": "The article says both hot and cold deserts get very little rain, and that is what makes them deserts.",
+     "wrong": {
+      "A": "The article says the Gobi is a cold desert.",
+      "C": "The article names animals like camels that live in deserts.",
+      "D": "Snow is only mentioned for the cold Gobi desert, not all deserts."
+     }
+    },
+    {
+     "stem": "What makes a dune?",
+     "options": [
+      "Rain falling on rocks",
+      "Camels walking over the ground",
+      "Wind blowing sand into hills",
+      "Trees growing near an oasis"
+     ],
+     "answer": "C",
+     "skill": "detail",
+     "why": "The article says wind blows sand into tall hills called dunes.",
+     "wrong": {
+      "A": "The article says deserts get very little rain.",
+      "B": "Camels do not make dunes.",
+      "D": "An oasis has trees, but dunes are made of sand and wind."
+     }
+    },
+    {
+     "stem": "In the article, an oasis is —",
+     "options": [
+      "a hill made of sand",
+      "a green spot with water in a desert",
+      "a kind of desert animal with humps",
+      "a cold desert in Asia"
+     ],
+     "answer": "B",
+     "skill": "vocabulary",
+     "why": "The article says an oasis is a green spot with water where trees grow and people and animals can rest.",
+     "wrong": {
+      "A": "A hill of sand is a dune, not an oasis.",
+      "C": "A camel is an animal, not an oasis.",
+      "D": "The Gobi is a cold desert, not an oasis."
+     }
+    },
+    {
+     "stem": "Why can a camel live in the desert?",
+     "options": [
+      "It can go a long time without a drink",
+      "It only eats sand and tiny pebbles",
+      "It sleeps inside an oasis all day",
+      "It never gets too hot or too cold"
+     ],
+     "answer": "A",
+     "skill": "inference",
+     "why": "Deserts have very little water, so an animal that can go a long time without drinking can survive there.",
+     "wrong": {
+      "B": "The article does not say camels eat sand.",
+      "C": "Camels do not sleep inside an oasis all day.",
+      "D": "The article does not say camels never get hot."
+     }
+    },
+    {
+     "stem": "What can you tell about the Sahara and the Gobi from the article?",
+     "options": [
+      "Both are exactly the same temperature",
+      "Deserts can be very different, even though both get little rain",
+      "Only the Sahara gets any rain",
+      "The Gobi actually contains noticeably more loose, fine sand than the dry Sahara does"
+     ],
+     "answer": "B",
+     "skill": "inference",
+     "why": "The Sahara is hot and sandy while the Gobi is cold, showing that deserts can look and feel very different.",
+     "wrong": {
+      "A": "The Sahara is hot and the Gobi is cold.",
+      "C": "Both deserts get very little rain.",
+      "D": "The article does not say the Gobi has more sand."
+     }
+    },
+    {
+     "stem": "Why did traders use camels to cross deserts long ago?",
+     "options": [
+      "Camels could carry goods and go a long time without water",
+      "Camels could fly high over the sand dunes easily",
+      "Camels liked to swim and play in the cool oases for fun",
+      "Camels were much faster at running than old cars"
+     ],
+     "answer": "A",
+     "skill": "cause-effect",
+     "why": "The article says traders crossed deserts on camels to carry and sell goods, and camels can go a long time without water.",
+     "wrong": {
+      "B": "Camels cannot fly.",
+      "C": "The article does not mention camels swimming.",
+      "D": "Cars are not mentioned in the article."
+     }
+    },
+    {
+     "stem": "Why does the author begin by asking you to think of a place with almost no rain?",
+     "options": [
+      "To help you understand what makes a desert",
+      "To teach you how to make it rain",
+      "To describe a cold, snowy rainforest far away",
+      "To explain carefully how boats and ships float"
+     ],
+     "answer": "A",
+     "skill": "author-purpose",
+     "why": "Starting with 'almost no rain' sets up the article's main point: that lack of rain, not heat, is what defines a desert.",
+     "wrong": {
+      "B": "The article does not teach how to make rain.",
+      "C": "The article is about deserts, not rainforests.",
+      "D": "The article does not talk about boats."
+     }
+    }
+   ],
+   "prompt": "Would you like to visit a desert like the Sahara or the Gobi? Explain why or why not, using at least two facts from the article.",
+   "checklist": [
+    "I clearly said what I think.",
+    "I used at least two facts from the article.",
+    "I wrote complete sentences with capital letters and periods."
+   ],
+   "modelAnswer": "I would like to visit a desert. I would want to see the tall dunes that the wind makes out of sand in the Sahara. I would also like to see a camel up close, because it can go a long time without a drink. I know the Gobi can be very cold, but I think visiting an oasis to rest would still be fun."
+  },
+  "MID": {
+   "keyWords": [
+    {
+     "word": "continent",
+     "partOfSpeech": "noun",
+     "definition": "one of the seven huge areas of land on Earth, like Africa or Asia",
+     "example": "Africa is a continent with many different kinds of land."
+    },
+    {
+     "word": "climate",
+     "partOfSpeech": "noun",
+     "definition": "the usual weather a place has over a long time",
+     "example": "A rainy climate helps rice fields grow well."
+    },
+    {
+     "word": "vegetation",
+     "partOfSpeech": "noun",
+     "definition": "the plants that grow in a certain area",
+     "example": "Thick vegetation covered the sides of the valley."
+    },
+    {
+     "word": "erosion",
+     "partOfSpeech": "noun",
+     "definition": "the slow wearing away of rock or soil by wind or water",
+     "example": "Years of erosion carved deep lines into the cliff."
+    },
+    {
+     "word": "oasis",
+     "partOfSpeech": "noun",
+     "definition": "a place in a desert where water lets plants grow",
+     "example": "Travelers filled their water bottles at the oasis."
+    }
+   ],
+   "questions": [
+    {
+     "stem": "Which sentence best states the central idea of the article?",
+     "options": [
+      "Deserts around the world differ greatly, but all share a very dry climate and support surprising life.",
+      "Every desert on Earth is covered entirely in sand.",
+      "Deserts receive more rain than rainforests do.",
+      "Only camels, and no other living creatures or plants whatsoever, are able to survive anywhere within a desert environment."
+     ],
+     "answer": "A",
+     "skill": "central-idea",
+     "why": "The article compares several deserts and shows that despite their differences, all are defined by very little rain, yet still support plants, animals, and people.",
+     "wrong": {
+      "B": "The article says some deserts are mostly rock and gravel, not sand.",
+      "C": "The article says deserts get very little rain.",
+      "D": "The article also mentions foxes, lizards, and hardy plants."
+     }
+    },
+    {
+     "stem": "On how many continents does the article say deserts exist?",
+     "options": [
+      "Every continent on Earth",
+      "Only two of the seven continents",
+      "Every continent except Europe",
+      "Only Africa and Asia, nowhere else"
+     ],
+     "answer": "C",
+     "skill": "detail",
+     "why": "The article states that deserts are found on every continent except Europe.",
+     "wrong": {
+      "A": "The article excludes Europe.",
+      "B": "The article names more than two continents, including Africa, Asia, and South America.",
+      "D": "The article also mentions South America, home to the Atacama Desert."
+     }
+    },
+    {
+     "stem": "According to the article, what makes the Gobi cold in winter?",
+     "options": [
+      "It is located very close to the warm ocean",
+      "It is at a very low elevation near sea level",
+      "It is covered entirely in soft, fine sand dunes",
+      "It is far from the sea and in a different climate zone"
+     ],
+     "answer": "D",
+     "skill": "detail",
+     "why": "The article explains that the Gobi is a cold desert with bitterly cold winters, unlike the hot Sahara.",
+     "wrong": {
+      "A": "The article does not say it is close to the ocean.",
+      "B": "The article does not describe the Gobi as low.",
+      "C": "The article says parts of the Gobi are rock and gravel, not sand."
+     }
+    },
+    {
+     "stem": "What causes erosion in rocky deserts?",
+     "options": [
+      "Camels slowly digging in the ground",
+      "Wind and occasional water wearing down stone",
+      "Traders slowly building brand-new roads",
+      "Trees simply growing much too tall"
+     ],
+     "answer": "B",
+     "skill": "cause-effect",
+     "why": "The article says wind and occasional water wear down stone through erosion, carving the hard ground into strange shapes.",
+     "wrong": {
+      "A": "The article does not say camels dig the ground.",
+      "C": "Road building is not mentioned.",
+      "D": "The article does not connect trees to erosion."
+     }
+    },
+    {
+     "stem": "In the article, the word vegetation means —",
+     "options": [
+      "the plants that grow in an area",
+      "a kind of desert animal",
+      "a hill made of sand",
+      "a route traders used to sell goods"
+     ],
+     "answer": "A",
+     "skill": "vocabulary",
+     "why": "The article says vegetation such as thorny bushes and tough grasses still exists in deserts, meaning the plants that grow there.",
+     "wrong": {
+      "B": "Camels and foxes are animals, not vegetation.",
+      "C": "A dune is a sand hill, not vegetation.",
+      "D": "Trade routes are not vegetation."
+     }
+    },
+    {
+     "stem": "Why can a camel survive for many days without drinking?",
+     "options": [
+      "It stores fat that its body can turn into water",
+      "It only drinks water once every year, in the rainy season",
+      "It somehow gets all its water from the hot sand",
+      "It does not need any water at all, ever, in any weather"
+     ],
+     "answer": "A",
+     "skill": "inference",
+     "why": "The article explains that camels store fat that their bodies slowly convert into water when needed.",
+     "wrong": {
+      "B": "The article does not give an exact schedule for drinking.",
+      "C": "Sand does not contain drinkable water.",
+      "D": "The article implies camels still need water eventually, just less often."
+     }
+    },
+    {
+     "stem": "Why were oases important to traders crossing deserts?",
+     "options": [
+      "Oases let traders rest and gather water on long journeys",
+      "Oases were the only cities in the desert",
+      "Oases actually produced sand for building new dunes",
+      "Oases were simply where camels were born and raised"
+     ],
+     "answer": "A",
+     "skill": "inference",
+     "why": "The article explains that oases let traders and travelers rest safely as they crossed vast stretches of sand and rock.",
+     "wrong": {
+      "B": "The article does not call oases cities.",
+      "C": "Oases do not produce sand.",
+      "D": "The article does not discuss where camels are born."
+     }
+    },
+    {
+     "stem": "How does the author organize this article?",
+     "options": [
+      "By telling a long story about just one single trader from childhood all the way to old age",
+      "By comparing different deserts, then explaining their land, life, and importance to people",
+      "By listing, one by one, all the steps needed to cross a desert safely",
+      "By describing in great detail only how sand dunes alone are formed over time"
+     ],
+     "answer": "B",
+     "skill": "text-structure",
+     "why": "The article moves from comparing deserts around the world to their landforms, plants and animals, and finally their importance to people past and present.",
+     "wrong": {
+      "A": "The article is not a story about one trader.",
+      "C": "The article does not give step-by-step crossing instructions.",
+      "D": "Dune formation is only one part of the article."
+     }
+    }
+   ],
+   "prompt": "Explain how deserts can be both hot and cold, yet still be called deserts. Use at least two details from the article.",
+   "checklist": [
+    "I explained what truly makes a place a desert.",
+    "I used at least two details from the article.",
+    "I organized my ideas in a clear order."
+   ],
+   "modelAnswer": "A place does not have to be hot to be a desert. The article says a desert is defined by how little rain it gets, not its temperature. The Sahara is a hot desert in Africa, while the Gobi in Asia is a cold desert with freezing winters. Both deserts, however, get very little rain each year, which is the real reason both are called deserts."
+  },
+  "HIGH": {
+   "keyWords": [
+    {
+     "word": "arid",
+     "partOfSpeech": "adjective",
+     "definition": "extremely dry, with very little rainfall",
+     "example": "Only a few tough plants grow in the arid valley."
+    },
+    {
+     "word": "biodiversity",
+     "partOfSpeech": "noun",
+     "definition": "the wide variety of living things found in a place",
+     "example": "The coral reef is known for its rich biodiversity."
+    },
+    {
+     "word": "aquifer",
+     "partOfSpeech": "noun",
+     "definition": "a layer of underground rock that holds water",
+     "example": "The town's wells draw fresh water from a deep aquifer."
+    },
+    {
+     "word": "nomadic",
+     "partOfSpeech": "adjective",
+     "definition": "moving from place to place rather than living in one fixed location",
+     "example": "The nomadic family moved their tents every few months."
+    },
+    {
+     "word": "precipitation",
+     "partOfSpeech": "noun",
+     "definition": "water that falls from the sky, such as rain or snow",
+     "example": "Scientists measure yearly precipitation to study a region's climate."
+    }
+   ],
+   "questions": [
+    {
+     "stem": "Which statement best expresses the central idea of the article?",
+     "options": [
+      "No life of any kind can survive in a true desert.",
+      "Deserts form only through strong winds blowing sand.",
+      "Geographers define deserts by their aridity rather than temperature, and despite harsh conditions, these varied landscapes support notable biodiversity and human life.",
+      "Every desert on Earth, in every region and on every continent without a single exception anywhere, was at some point in its ancient geological history entirely and completely covered by a deep ocean."
+     ],
+     "answer": "C",
+     "skill": "central-idea",
+     "why": "The article explains that aridity, not heat, defines a desert, and describes the plants, animals, and nomadic peoples that have adapted to desert conditions.",
+     "wrong": {
+      "A": "The article describes foxes, lizards, bushes, and grasses living in deserts.",
+      "B": "Wind forms dunes in sandy deserts, but erosion and cold also shape other deserts.",
+      "D": "The article does not claim deserts were once oceans."
+     }
+    },
+    {
+     "stem": "According to the article, what is the key requirement for a region to be classified as arid?",
+     "options": [
+      "A yearly average temperature above 40 degrees Celsius",
+      "Receiving extremely little precipitation annually, typically under 250 millimeters",
+      "Having no plants or animals whatsoever",
+      "Being located on more than one single continent at the same time, which many large deserts actually are"
+     ],
+     "answer": "B",
+     "skill": "detail",
+     "why": "The article defines an arid climate as one receiving extremely little precipitation annually, typically less than 250 millimeters.",
+     "wrong": {
+      "A": "The article does not set a temperature requirement; cold deserts like the Gobi also qualify.",
+      "C": "The article describes biodiversity living in deserts.",
+      "D": "Classification does not depend on the number of continents."
+     }
+    },
+    {
+     "stem": "Why does the Atacama Desert receive so little rain, according to the article?",
+     "options": [
+      "A cold ocean current blocks moist air that might otherwise bring rain",
+      "It is located at a very high elevation far from any coast",
+      "It lies directly beneath the equator, where the sun's heat is strongest all year round",
+      "Strong winds constantly blow all the rain clouds inland"
+     ],
+     "answer": "A",
+     "skill": "detail",
+     "why": "The article explains that a cold ocean current along the coast blocks the moist air that might otherwise produce rain in the Atacama.",
+     "wrong": {
+      "B": "This explanation is given for the Gobi's cold climate, not the Atacama's dryness.",
+      "C": "The article does not mention the equator in relation to the Atacama.",
+      "D": "The article does not describe wind pushing rain clouds inland there."
+     }
+    },
+    {
+     "stem": "In the article, the word nomadic most nearly means —",
+     "options": [
+      "living permanently in a large city",
+      "moving from place to place rather than settling in one location",
+      "traveling only by camel caravan",
+      "farming crops and raising many animals near a small desert oasis community"
+     ],
+     "answer": "B",
+     "skill": "vocabulary",
+     "why": "The article describes nomadic desert peoples as moving with their herds from place to place rather than settling permanently.",
+     "wrong": {
+      "A": "Nomadic peoples specifically do not settle permanently in cities.",
+      "C": "Camel travel is one example, but nomadic life is not limited to that method.",
+      "D": "Farming near an oasis describes settled life, not nomadic life."
+     }
+    },
+    {
+     "stem": "Based on the article, why would an aquifer be essential to the formation of an oasis?",
+     "options": [
+      "It brings underground water close enough to the surface for plants to grow",
+      "It blocks wind from forming sand dunes nearby",
+      "It somehow attracts cold ocean currents from far away out at sea to the desert",
+      "It causes erosion that carves rock into odd shapes"
+     ],
+     "answer": "A",
+     "skill": "inference",
+     "why": "The article explains that an oasis forms where an aquifer brings groundwater close enough to the surface to sustain trees and crops.",
+     "wrong": {
+      "B": "Aquifers are not described as blocking wind.",
+      "C": "Ocean currents relate to the Atacama's dryness, not aquifers.",
+      "D": "Erosion is caused by wind and water, not aquifers."
+     }
+    },
+    {
+     "stem": "What can be inferred about why traders historically depended on oases along desert routes?",
+     "options": [
+      "Oases offered the only reliable sources of water across otherwise dry, dangerous stretches of land",
+      "Oases were required stops to pay taxes to desert rulers",
+      "Oases were the final destinations of every trade route",
+      "Oases themselves somehow produced all of the valuable goods that traders carried along their routes to sell"
+     ],
+     "answer": "A",
+     "skill": "inference",
+     "why": "Since deserts receive almost no precipitation, oases supplied by aquifers were crucial, reliable sources of water for travelers crossing long, dry distances.",
+     "wrong": {
+      "B": "The article does not mention taxes.",
+      "C": "Oases were rest points along routes, not final destinations.",
+      "D": "The article describes traders carrying goods between cities, not goods produced at oases."
+     }
+    },
+    {
+     "stem": "Which sequence correctly reflects how a sand dune forms and changes, based on the article?",
+     "options": [
+      "Rain falls steadily, the sand gradually hardens into solid rock, and then slow erosion wears all of it away",
+      "An aquifer rises, plants grow, wind blows the plants into a pile",
+      "Wind picks up loose sand, piles it into a dune, and the dune gradually shifts shape over time",
+      "A camel digs a hole, sand fills it, and a dune instantly appears"
+     ],
+     "answer": "C",
+     "skill": "sequence",
+     "why": "The article explains that winds pile loose sand into dunes, which then slowly shift and change shape over months and years.",
+     "wrong": {
+      "A": "The article associates erosion with rock, not sand hardening into rock.",
+      "B": "Aquifers relate to oases, not dune formation.",
+      "D": "Dunes are not formed instantly by camels digging."
+     }
+    },
+    {
+     "stem": "Why does the author likely include the comparison between sandy deserts and rocky deserts?",
+     "options": [
+      "To argue that sandy deserts are more dangerous than rocky ones",
+      "To show that the word 'desert' describes a range of landscapes shaped by dryness, not one single appearance",
+      "To explain in careful, step-by-step detail exactly how workers mine valuable minerals from solid underground rock",
+      "To prove that only rocky deserts support biodiversity"
+     ],
+     "answer": "B",
+     "skill": "author-purpose",
+     "why": "By contrasting sandy deserts like the Sahara with rocky deserts like parts of the Gobi and Atacama, the author shows that aridity, not appearance, defines a desert.",
+     "wrong": {
+      "A": "The article does not compare danger levels.",
+      "C": "Mining is mentioned briefly but not as mining instructions.",
+      "D": "The article describes biodiversity in both sandy and rocky deserts."
+     }
+    }
+   ],
+   "prompt": "The poll says deserts are empty places with nothing worth studying. Do you agree or disagree? Support your argument with evidence from the article about desert climate, biodiversity, and human history.",
+   "checklist": [
+    "I stated a clear position on the poll statement.",
+    "I supported my position with specific evidence from the article.",
+    "I addressed at least one point someone might make against my view."
+   ],
+   "modelAnswer": "I disagree that deserts are empty places with nothing worth studying. Deserts around the world, from the hot Sahara to the cold Gobi and the extremely dry Atacama, show that aridity rather than temperature truly defines a desert, which is itself a fascinating scientific idea. Deserts also support real biodiversity, including hardy vegetation and animals like foxes, lizards, and camels that have evolved clever adaptations to survive with very little water. Someone might argue that deserts are lifeless because few people live there, but oases fed by underground aquifers have supported nomadic peoples and merchant trade routes like the Silk Road for centuries, proving that deserts have shaped human history in important ways."
+  }
+ },
+ "stretch": {
+  "LOW": [
+   {
+    "stem": "What is the ground like in some deserts?",
+    "options": [
+     "Hard and made of rock",
+     "Soft and full of water",
+     "Green and full of trees",
+     "Deep and full of snow"
+    ],
+    "answer": "A",
+    "skill": "detail",
+    "why": "The text says some deserts have rock, not sand, and the ground there is hard.",
+    "wrong": {
+     "B": "A desert gets no rain, so the ground is not full of water.",
+     "C": "Few plants grow in a desert.",
+     "D": "The text does not say the ground is full of snow."
+    }
+   },
+   {
+    "stem": "Why do you think people rest at an oasis?",
+    "options": [
+     "It is a very hot place",
+     "It has a lot of sand",
+     "It has trees and water",
+     "It is a large city"
+    ],
+    "answer": "C",
+    "skill": "inference",
+    "why": "The text says an oasis is a green spot with water and trees, so it is a good place to rest.",
+    "wrong": {
+     "A": "Heat would not be a reason to rest there.",
+     "B": "Sand is found all over the Sahara, not only at an oasis.",
+     "D": "The text says an oasis is a small green spot."
+    }
+   },
+   {
+    "stem": "The text says they carried goods to sell. What are goods?",
+    "options": [
+     "Dry hills of sand",
+     "Things people sell",
+     "Camels that rest",
+     "People who walk"
+    ],
+    "answer": "B",
+    "skill": "vocabulary",
+    "why": "The traders carried goods to sell, so goods are things that people sell.",
+    "wrong": {
+     "A": "Hills of sand are called dunes.",
+     "C": "The camels carried the goods.",
+     "D": "The traders were the people who walked."
+    }
+   },
+   {
+    "stem": "What do people still do near deserts today?",
+    "options": [
+     "They hide from the wind",
+     "They only ride on camels",
+     "They leave the land empty",
+     "They live there"
+    ],
+    "answer": "D",
+    "skill": "detail",
+    "why": "The last line says people still live near deserts today.",
+    "wrong": {
+     "A": "The text does not say people hide from the wind.",
+     "B": "The text says long ago traders used camels.",
+     "C": "The text says people still live near deserts."
+    }
+   }
+  ],
+  "MID": [
+   {
+    "stem": "Which desert covers much of the Middle East?",
+    "options": [
+     "The Gobi Desert",
+     "The Sahara Desert",
+     "The Arabian Desert",
+     "The Atacama Desert"
+    ],
+    "answer": "C",
+    "skill": "detail",
+    "why": "The text says the Arabian Desert covers much of the Middle East.",
+    "wrong": {
+     "A": "The Gobi is in Asia and is a cold desert.",
+     "B": "The Sahara is in Africa.",
+     "D": "The Atacama is not named in this text."
+    }
+   },
+   {
+    "stem": "Read: \"a dry, or arid, climate.\" What does arid mean?",
+    "options": [
+     "Very dry",
+     "Very wet",
+     "Very cold",
+     "Very green"
+    ],
+    "answer": "A",
+    "skill": "vocabulary",
+    "why": "The text says a dry, or arid, climate, so arid means dry.",
+    "wrong": {
+     "B": "A desert gets very little rain.",
+     "C": "The text says not every desert is cold.",
+     "D": "Few plants grow in a desert."
+    }
+   },
+   {
+    "stem": "Why does the author say, \"Today, deserts are far from empty\"?",
+    "options": [
+     "To say deserts get a lot of rain",
+     "To say only camels live there",
+     "To say no one visits deserts",
+     "To show people use what deserts hold"
+    ],
+    "answer": "D",
+    "skill": "author-purpose",
+    "why": "The next sentence says mines, farms, and cities depend on the resources found in deserts.",
+    "wrong": {
+     "A": "The text says deserts get very little rain.",
+     "B": "The text names bushes, grasses, and people too.",
+     "C": "Mines, farms, and cities show that people use deserts."
+    }
+   },
+   {
+    "stem": "What happens to loose sand when wind blows in the Sahara?",
+    "options": [
+     "It turns into rock",
+     "It makes huge dunes",
+     "It becomes a river",
+     "It turns into grass"
+    ],
+    "answer": "B",
+    "skill": "cause-effect",
+    "why": "The text says wind piles loose sand into huge dunes that slowly shift.",
+    "wrong": {
+     "A": "Rocky deserts are a different kind of desert.",
+     "C": "A desert gets very little water, so no river forms.",
+     "D": "Only tough grasses grow, and not from sand."
+    }
+   }
+  ],
+  "HIGH": [
+   {
+    "stem": "Why are winters in the Gobi Desert freezing?",
+    "options": [
+     "A cold current runs along its coast",
+     "It sits high up and far from the sea",
+     "Snow falls on it all year long",
+     "It has no rock to hold heat"
+    ],
+    "answer": "B",
+    "skill": "cause-effect",
+    "why": "The article says its high elevation and distance from the sea keep its winters freezing.",
+    "wrong": {
+     "A": "The cold ocean current is the reason given for the Atacama.",
+     "C": "The article does not say snow falls all year.",
+     "D": "The article does not link winter cold to a lack of rock."
+    }
+   },
+   {
+    "stem": "The article says an aquifer brings water close to the surface. What is an aquifer?",
+    "options": [
+     "A thorny bush found in deserts",
+     "A dry layer of loose desert sand",
+     "A path used by desert merchants",
+     "Water-holding rock underground"
+    ],
+    "answer": "D",
+    "skill": "vocabulary",
+    "why": "The article defines an aquifer as a layer of water-holding rock underground.",
+    "wrong": {
+     "A": "Thorny bushes are plants that grow in deserts.",
+     "B": "An aquifer holds water, so it is not dry.",
+     "C": "Merchants used oases on their routes, not aquifers."
+    }
+   },
+   {
+    "stem": "Why might many desert peoples have lived a nomadic life?",
+    "options": [
+     "They needed grazing land",
+     "They did not like to be near oases",
+     "They wanted to live near the sea",
+     "They moved to find new mines"
+    ],
+    "answer": "A",
+    "skill": "inference",
+    "why": "The article says nomads move with their herds in search of grazing land, which is scarce in a dry land.",
+    "wrong": {
+     "B": "Oases gave people water and a place to rest.",
+     "C": "The article does not say they wanted to be near the sea.",
+     "D": "Mines are named as a use of deserts today, not a reason to move."
+    }
+   },
+   {
+    "stem": "Which desert animals does the article say have evolved traits to survive on little water?",
+    "options": [
+     "Birds and fish",
+     "Foxes and lizards",
+     "Horses and goats",
+     "Frogs and snakes"
+    ],
+    "answer": "B",
+    "skill": "detail",
+    "why": "The article names small animals such as foxes and lizards.",
+    "wrong": {
+     "A": "The article does not name birds or fish.",
+     "C": "The article does not name horses or goats.",
+     "D": "The article does not name frogs or snakes."
+    }
+   }
+  ]
+ }
 }

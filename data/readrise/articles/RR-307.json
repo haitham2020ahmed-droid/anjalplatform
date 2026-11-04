@@ -614,5 +614,217 @@
       ],
       "modelAnswer": "I believe mud-brick architecture still holds valuable, sustainable lessons today. First, its thermal design is remarkably effective: the thick walls create natural insulation, keeping homes comfortable through both scorching days and cold desert nights without any machine. Second, the geometric triangle motifs carved by skilled hands show that this craft was never merely practical; it was also an artistic tradition worth preserving. Third, the fact that the technique is passed from craftsman to apprentice shows a living heritage, not an outdated relic, which is why architects today still study its principles for sustainable design."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "Which city is in Najd?",
+        "options": [
+          "Jeddah",
+          "Makkah",
+          "Riyadh",
+          "Tabuk"
+        ],
+        "answer": "C",
+        "skill": "detail",
+        "why": "The text says Riyadh is in Najd.",
+        "wrong": {
+          "A": "Jeddah is not named in the text.",
+          "B": "Makkah is not named in the text.",
+          "D": "Tabuk is not named in the text."
+        }
+      },
+      {
+        "stem": "Why did some walls have small triangle holes near the top?",
+        "options": [
+          "So that light could come in",
+          "So that rain could come in",
+          "So that birds could build nests",
+          "So that the sun could dry the clay"
+        ],
+        "answer": "A",
+        "skill": "cause-effect",
+        "why": "The text says some walls had small triangle holes near the top and light came in.",
+        "wrong": {
+          "B": "The text says the land is hot and dry and does not mention rain.",
+          "C": "Birds and nests are not in the text.",
+          "D": "The sun dried the clay in the open before it was a wall."
+        }
+      },
+      {
+        "stem": "When did builders cut small shapes into the clay?",
+        "options": [
+          "After the home was torn down",
+          "Before the clay was mixed",
+          "On the night of a feast",
+          "While the clay was still wet"
+        ],
+        "answer": "D",
+        "skill": "sequence",
+        "why": "The text says they cut small shapes in the wet clay.",
+        "wrong": {
+          "A": "The text does not say they cut shapes after a home is torn down.",
+          "B": "The clay must be mixed first so there is clay to carve.",
+          "C": "A feast is not mentioned in the text."
+        }
+      },
+      {
+        "stem": "Why does the author end by saying the old way used clay, water, and straw from the land?",
+        "options": [
+          "To say that the things were hard to find",
+          "To show it used things found nearby",
+          "To say that the things came from far away",
+          "To say that the old way was not good enough"
+        ],
+        "answer": "B",
+        "skill": "author-purpose",
+        "why": "The author shows that the builders used materials from the land and that it worked well for a long time.",
+        "wrong": {
+          "A": "The text says it worked well, not that materials were hard to find.",
+          "C": "The materials came from the land, not from far away.",
+          "D": "The text says it worked well for a long time."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "Which city sits within the region of Najd?",
+        "options": [
+          "Riyadh",
+          "Jeddah",
+          "Medina",
+          "Abha"
+        ],
+        "answer": "A",
+        "skill": "detail",
+        "why": "The article says the city of Riyadh sits within Najd.",
+        "wrong": {
+          "B": "Jeddah is not named in the article.",
+          "C": "Medina is not named in the article.",
+          "D": "Abha is not named in the article."
+        }
+      },
+      {
+        "stem": "The article says an older craftsman teaches a \"technique\" to a younger helper. What does technique mean here?",
+        "options": [
+          "A very heavy kind of tool",
+          "A special type of clay",
+          "A new town in the region",
+          "A way of doing a craft"
+        ],
+        "answer": "D",
+        "skill": "vocabulary",
+        "why": "The craftsman teaches how to build and carve, so technique means a way of doing the work.",
+        "wrong": {
+          "A": "The article does not say he teaches a tool.",
+          "B": "Clay is a material, and the craftsman teaches how to work with it.",
+          "C": "A town is a place and is not taught."
+        }
+      },
+      {
+        "stem": "Why are very few new homes built only from mud brick today?",
+        "options": [
+          "The sun is no longer strong",
+          "Clay can no longer be found",
+          "Other materials are now more common",
+          "Builders have forgotten the craft"
+        ],
+        "answer": "C",
+        "skill": "cause-effect",
+        "why": "The article says few new homes use only mud brick since other materials are now more common.",
+        "wrong": {
+          "A": "The article says the desert sun is still strong.",
+          "B": "The article does not say clay has run out.",
+          "D": "The article says the skill passes down and is never lost."
+        }
+      },
+      {
+        "stem": "What does the article suggest about how the skill is passed on?",
+        "options": [
+          "Older workers teach younger ones step by step",
+          "Builders learn it only from written books",
+          "Only the town leaders are allowed to learn it",
+          "Each builder invents it alone each year"
+        ],
+        "answer": "A",
+        "skill": "inference",
+        "why": "The article says the older craftsman teaches a younger helper step by step so the skill is never lost.",
+        "wrong": {
+          "B": "The article describes teaching by a craftsman, not books.",
+          "C": "The article does not limit it to leaders.",
+          "D": "The skill passes down through each family, so it is not invented each year."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "According to the article, how is the full technique mostly learned by each new generation?",
+        "options": [
+          "By reading a long guide",
+          "By watching closely over time",
+          "By taking a short written test",
+          "By using a machine to copy it"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The article says the technique is rarely written down and is learned mostly by watching closely.",
+        "wrong": {
+          "A": "The article says it is rarely written down.",
+          "C": "A test is not mentioned.",
+          "D": "The article says no machine is needed for this craft."
+        }
+      },
+      {
+        "stem": "The article calls Najd a large and \"arid\" region. What does arid mean?",
+        "options": [
+          "Full of tall trees",
+          "Close to the sea",
+          "Very dry",
+          "Always cold"
+        ],
+        "answer": "C",
+        "skill": "vocabulary",
+        "why": "The article describes strong desert sun and the need for walls against heat, so arid means very dry.",
+        "wrong": {
+          "A": "Tall trees do not fit a desert region.",
+          "B": "The article describes a desert region at the center of the country.",
+          "D": "The article says the days are scorching hot."
+        }
+      },
+      {
+        "stem": "According to the article, why are very few new homes built entirely from mud brick today?",
+        "options": [
+          "Concrete and imported materials are more convenient",
+          "The sun no longer gets hot enough to dry the bricks",
+          "Clay and straw are now too costly for builders to buy",
+          "Builders now think mud walls are not decorative"
+        ],
+        "answer": "A",
+        "skill": "cause-effect",
+        "why": "The article says reinforced concrete and imported materials have become far more common and convenient.",
+        "wrong": {
+          "B": "The article says the strong desert sun dries the block.",
+          "C": "The article says the materials are taken from the nearby land.",
+          "D": "The article says builders carve decorative patterns into the walls."
+        }
+      },
+      {
+        "stem": "Why does the author say the craft ships nothing in and wastes almost nothing?",
+        "options": [
+          "To show that the craft was too hard to learn",
+          "To say that all of the homes were very small",
+          "To say that the builders were never paid for it",
+          "To show the craft is local and sustainable"
+        ],
+        "answer": "D",
+        "skill": "author-purpose",
+        "why": "The author stresses that it depends on clay, water, and straw from nearby land, which shows it is a local, sustainable craft.",
+        "wrong": {
+          "A": "The comment is about materials, not how hard it is to learn.",
+          "B": "The article does not describe the size of the homes.",
+          "C": "The article does not talk about pay."
+        }
+      }
+    ]
   }
 }

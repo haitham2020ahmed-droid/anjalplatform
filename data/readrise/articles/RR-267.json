@@ -1,315 +1,830 @@
 {
-  "code": "RR-267",
-  "title": "Food Waste: Why It Matters",
-  "topic": "Environment",
-  "summary": "How much food never gets eaten on its way from farm to table, the water, land, and fuel wasted along with it, and simple ways families and stores can waste less.",
-  "poll": "Families and stores should work harder to waste less food.",
-  "versions": [
-    {
-      "level": 300,
-      "title": "Food Waste: Why It Matters",
-      "text": "Think about an apple growing on a farm. Not every apple gets eaten. Some fall and stay on the ground. Some go to a store but never get sold. Some sit in a kitchen too long and go bad. All of this food becomes waste.\n\nFood waste happens in many places. It happens on a farm. It happens in a store. It happens in a home, too.\n\nFood waste is a big problem. A farm uses water to grow food. A farm uses land, too. Trucks use fuel to bring food to a store. When food is wasted, we waste water, land, and fuel, too.\n\nWasted food can cause another problem. It gets thrown in a dump. There, it slowly rots. It can make a bad gas. That gas can trap heat.\n\nYou can help at home. Buy only what you need. Store fruit so it stays fresh. Eat your leftover food. Do not throw it out.\n\nStores can help, too. They can sell fruit that looks odd. They can give extra food to people in need. That way, less food goes to waste."
-    },
-    {
-      "level": 400,
-      "title": "Food Waste: Why It Matters",
-      "text": "Think about an apple growing on a farm. Not every apple gets eaten. Some apples fall. They stay on the ground. Some travel to a store. They never get sold. Some sit in a kitchen too long. They go bad. All of this food becomes waste.\n\nFood waste happens in many places. It happens on a farm. It happens in a store. It happens in a home, too.\n\nFood waste is a serious problem. A farm needs water to grow food. It needs land, too. Trucks need fuel to bring food to stores. When food is wasted, we waste water. We waste land and fuel, too.\n\nWasted food can cause another problem. It gets thrown into a dump. There, it slowly rots. As it rots, it makes a gas. That gas traps heat in the air.\n\nYou can help cut food waste at home. Buy only the food you need. Store your fruit so it stays fresh. Eat your leftover food. Do not throw it away.\n\nStores can help, too. They can sell fruit that looks a little odd. They can give extra food to people who need it. That way, less food goes to waste."
-    },
-    {
-      "level": 500,
-      "title": "Food Waste: Why It Matters",
-      "text": "What happens to food that people never eat? Think about an apple growing on a farm. Not every apple gets eaten. Some apples fall and stay on the ground. Some travel to a store but are never sold. Some sit in a kitchen too long and go bad. All of this uneaten food becomes waste. Food waste is a real problem.\n\nFood waste can happen in many places. It can happen on a farm. It can happen in a store. It can happen right in someone's home. Each place adds to the problem.\n\nGrowing food takes a lot of resources. A farm needs water to grow crops. It needs land, too. Trucks need fuel to bring food from farms to stores. So when food is wasted, we waste water, land, and fuel, too.\n\nWasted food can cause another problem. When it is thrown into a dump, it slowly rots there. As it rots, it releases a gas. That gas can trap heat in the air.\n\nFamilies can help cut down on food waste. Buying only the food you truly need is a smart first step. Storing fruit so it stays fresh longer also helps a lot. Eating leftover food keeps good food from going to waste.\n\nStores help, too. They sell odd-looking fruit. They give extra food to people who need it. In this way, less food gets wasted."
-    },
-    {
-      "level": 600,
-      "title": "Food Waste: Why It Matters",
-      "text": "What happens to food that people never eat? Think about an apple growing on a farm. Not every apple that grows will end up on a plate. Some apples fall from the tree and are left behind after the harvest. Some travel all the way to a store but are never bought. Some sit in a kitchen too long and quietly go bad. All of this uneaten food becomes waste, and food waste is a real problem in almost every country.\n\nFood waste can happen at several different points. It can happen on a farm, in a store, or right in someone's home. Each of these points adds to the overall problem.\n\nGrowing food takes many valuable resources. A farm needs water to grow crops, and it needs land to plant them in. Trucks and ships need fuel to carry food from farms to stores. So when food is wasted, every bit of that water, land, and fuel is wasted right along with it.\n\nWasted food can cause another problem, too. When it is thrown into a dump, it slowly rots there. As it rots, it releases a gas that can trap heat in the air.\n\nFamilies can take simple steps to cut down on food waste. Buying only the food they truly need, instead of more than they can eat, is a smart first step. Storing fruit and vegetables properly so they stay fresh longer also helps a great deal. Eating leftover food, rather than tossing it out, keeps good food from going to waste.\n\nStores help too, by selling odd-looking fruit at a lower price and by giving any surplus food to people who need it. In this way, less food across the whole country ends up being wasted."
-    },
-    {
-      "level": 700,
-      "title": "Food Waste: Why It Matters",
-      "text": "What happens to food that is grown but never eaten? Around the world, a surprising amount of food never makes it from the farm to a plate. Some crops are left behind after the harvest because they look odd or are slightly damaged, even though they are still safe to eat. Some food spoils on the long trip to a store. Some sits on a shelf past its sell-by date and is eventually discarded. Some is bought by a family but never eaten before it spoils at home. All of this uneaten food is called food waste. Experts think close to a third of all food grown on Earth is wasted somewhere along the way.\n\nFood waste matters because growing food uses a lot of resources. A farm needs water to irrigate its fields, and it needs land to plant its crops. Trucks, ships, and planes burn fuel carrying food over long distances. When food is wasted, those resources are wasted too, since no one gets to eat the food they helped produce.\n\nThere is a second cost as well. When wasted food is buried in a landfill, it slowly rots and gives off a gas that traps heat in the air.\n\nFamilies can waste less food by planning their meals ahead, storing food that spoils quickly the right way, and eating leftovers instead of discarding them. Stores can help by discounting food when its sell-by date is near, and by donating surplus food to people who need it. Small choices like these can add up to real savings of water, land, and energy."
-    },
-    {
-      "level": 800,
-      "title": "Food Waste: Why It Matters",
-      "text": "What happens to food that farmers grow but that never gets eaten? Around the world, a surprisingly large amount of food never makes it from the farm to the table. Some crops are left behind after the harvest. They look odd or are slightly damaged, even though they remain safe to eat. Some food spoils during the long trip from a farm to a store. Some sits on a shelf past its sell-by date and is eventually discarded. Some is bought by a family but is never eaten before it spoils at home. All of this is known as food waste. Experts estimate that close to one-third of all food grown on Earth is wasted somewhere along the way.\n\nFood waste matters because growing food uses a lot of resources. Farmers need water to irrigate their fields. They need land on which to plant their crops. Trucks, ships, and planes burn fuel carrying food over long distances. When food is wasted, all of these resources are wasted too, since nobody benefits from food that took so much effort to produce.\n\nThere is a second cost to consider. When wasted food is buried in a landfill, it slowly decays. It releases a gas that traps heat in the atmosphere.\n\nFamilies can reduce food waste by planning meals ahead of time. They can store food that spoils quickly in the correct way. They can eat leftovers instead of discarding them. Stores can help by discounting food when its sell-by date is near, and by donating surplus food to people who need it. These small choices, repeated by millions of people, add up to genuine savings of water, land, and energy."
-    },
-    {
-      "level": 900,
-      "title": "Food Waste: Why It Matters",
-      "text": "What happens to food that farmers grow but that never gets eaten? Around the world, a surprisingly large amount of food never makes it from the farm to the table. Some crops are left behind after the harvest. They look odd or are slightly damaged, even though they remain safe to consume. Some food spoils during the trip from a farm to a store. Some sits on a shelf past its sell-by date and is eventually discarded. Some is purchased by a household but is never consumed before it spoils at home. All of this is known as food waste. Experts estimate that close to one-third of all food produced on Earth is wasted this way.\n\nFood waste matters because producing food uses considerable resources. Farmers need water to irrigate their fields. They need land on which to cultivate their crops. Trucks, ships, and airplanes burn fuel carrying food over long distances. When food is wasted, all of these resources are squandered too, since nobody benefits from food that required so much effort to produce.\n\nThere is a second environmental cost worth considering. When wasted food is buried in a landfill, it slowly decays. It releases a gas that traps heat in the atmosphere.\n\nHouseholds can reduce food waste by planning meals ahead of time. They can store perishable items the correct way. They can consume leftovers instead of discarding them. Stores can help by discounting food when its sell-by date is near, and by donating surplus food to people experiencing hunger. These small choices, repeated by millions of people, add up to genuine savings of water, land, and energy."
-    },
-    {
-      "level": 1000,
-      "title": "Food Waste: Why It Matters",
-      "text": "What happens to food that farmers cultivate but that never actually gets eaten? Around the world, a surprisingly substantial proportion of food never makes it successfully from the farm to the table. Some crops are left behind after the harvest simply because they look odd or are slightly damaged, even though they remain perfectly safe to consume. Some food spoils during the lengthy trip from a farm to a distribution center or store. Some remains on a shelf past its sell-by date and is eventually discarded. Some is purchased by a household but is never consumed before it spoils at home. All of this uneaten food is classified as food waste, and experts estimate that close to one-third of all food produced on Earth is wasted somewhere along the way.\n\nFood waste matters greatly because producing food uses substantial resources. Farmers need water to irrigate their fields, and they need land on which to cultivate their crops. Trucks, ships, and airplanes burn substantial fuel carrying food over considerable distances. When food is wasted, all of these resources, the water, the land, and the fuel, are squandered too, since nobody ever benefits from food that required so much effort and energy to produce.\n\nThere is a second environmental cost worth considering. When wasted food is buried in a landfill, it gradually decays and releases a gas that traps heat in the atmosphere.\n\nHouseholds can reduce food waste by planning meals ahead of time, storing perishable items in the correct way, and consuming leftovers instead of discarding them unnecessarily. Stores can help by discounting food when its sell-by date is near, and by donating surplus food to organizations that help people experiencing hunger. Small choices like these, repeated by millions of people across the globe, can add up to genuine, measurable savings of water, land, and energy."
-    },
-    {
-      "level": 1100,
-      "title": "Food Waste: Why It Matters",
-      "text": "What happens to food that farmers grow but that never reaches a dinner plate? Around the world, a surprisingly large share of food never travels successfully from the farm to the table. This gap between production and consumption is one of agriculture's most persistent problems. Some crops are left behind after the harvest because they look oddly shaped or slightly damaged, even though they remain safe to consume. Some food spoils during the journey from a farm to a store, and some remains on a shelf past its sell-by date and is eventually discarded. Some is purchased by a household but never consumed before it spoils in the kitchen. All of this uneaten food is classified as food waste, and experts estimate that close to one-third of all food produced on Earth is wasted somewhere along this long and complicated journey.\n\nFood waste matters because producing food consumes natural resources. Farmers need water to irrigate their fields and land on which to cultivate their crops. Trucks, ships, and airplanes consume fuel transporting food across long distances. When food is wasted, these resources are squandered too, since nobody benefits from food that required so much effort to produce.\n\nThere is a second environmental cost worth considering: wasted food that is buried in a landfill decomposes without oxygen and releases a gas that traps heat in the atmosphere, slowly affecting the whole planet.\n\nHouseholds can mitigate food waste by planning meals in advance, storing perishable items correctly, and consuming leftovers instead of discarding them unnecessarily. Stores contribute to more sustainable consumption by discounting food nearing its sell-by date and donating surplus food to people experiencing hunger. Small choices, repeated by millions of people around the world, accumulate into genuine, measurable savings of water, land, and energy, savings that matter more every single year."
-    },
-    {
-      "level": 1200,
-      "title": "Food Waste: Why It Matters",
-      "text": "What happens to food that farmers cultivate but that never actually gets eaten? Around the world, a surprisingly substantial proportion of food never makes it successfully from the farm to the table, and this gap between production and consumption is one of agriculture's most persistent and significant problems. Some crops are left behind after the harvest simply because they look odd or are slightly damaged, even though they remain perfectly safe to consume. Some food spoils during the journey from a farm to a distribution center or store. Some remains on a shelf past its sell-by date and is eventually discarded, and some is purchased by a household but never consumed before it spoils at home. All of this uneaten food is classified as food waste, and experts estimate that close to one-third of all food produced on Earth is wasted somewhere along this journey from farm to table.\n\nFood waste matters greatly because producing food uses substantial natural resources, resources that are themselves often scarce. Farmers need water to irrigate their fields and land on which to cultivate their crops, while trucks, ships, and airplanes burn considerable fuel carrying food over long distances. When food is wasted, all of these resources, the water, the land, and the fuel, are squandered too, since nobody ever benefits from food that required so much effort and energy to produce.\n\nThere is a second environmental cost worth considering: wasted food that is buried in a landfill gradually decays and releases a gas that traps heat in the atmosphere, contributing to a warming planet.\n\nHouseholds can mitigate food waste by planning meals ahead of time, storing perishable items correctly, and consuming leftovers instead of discarding them unnecessarily. Stores contribute to more sustainable consumption by discounting food nearing its sell-by date and donating surplus food to organizations that help people experiencing hunger. Small choices like these, repeated by millions of people across the globe, add up to genuine, measurable savings of water, land, and energy, savings that matter even more where resources are already limited."
-    },
-    {
-      "level": 1300,
-      "title": "Food Waste: Why It Matters",
-      "text": "What happens to food that farmers cultivate but that never actually gets eaten? Around the world, a surprisingly substantial proportion of food never makes it successfully from the farm to the table, and this gap between production and consumption is one of agriculture's most persistent and significant problems. Some crops are left behind after the harvest simply because they look odd or are slightly damaged, even though they remain perfectly safe to consume. Some food spoils during the journey from a farm to a distribution center or store. Some remains on a shelf past its sell-by date and is eventually discarded, and some is purchased by a household but never consumed before it spoils at home. All of this uneaten food is classified as food waste, and experts estimate that close to one-third of all food produced on Earth is wasted somewhere along this journey from farm to table.\n\nFood waste matters greatly because producing food uses substantial natural resources, resources that are themselves often scarce. Farmers need water to irrigate their fields and land on which to cultivate their crops, while trucks, ships, and airplanes burn considerable fuel carrying food over long distances. When food is wasted, all of these resources, the water, the land, and the fuel, are squandered too, since nobody ever benefits from food that required so much effort and energy to produce.\n\nThere is a second environmental cost worth considering: wasted food that is buried in a landfill gradually decays and releases a gas that traps heat in the atmosphere, contributing to a warming planet.\n\nHouseholds can mitigate food waste by planning meals ahead of time, storing perishable items correctly, and consuming leftovers instead of discarding them unnecessarily. Stores contribute to more sustainable consumption by discounting food nearing its sell-by date and donating surplus food to organizations that help people experiencing hunger. Small choices like these, repeated by millions of people across the globe, add up to genuine, measurable savings of water, land, and energy, savings that matter even more where resources are already limited.\n\nConcern about food waste is not new. Long before refrigerators existed, people relied on drying, salting, and underground storage pits to preserve their harvests and keep them from spoiling, showing that preventing food waste has mattered to farmers for thousands of years."
-    },
-    {
-      "level": 1400,
-      "title": "Food Waste: Why It Matters",
-      "text": "What happens to food that farmers cultivate but that never actually gets eaten? Around the world, a surprisingly substantial proportion of food never makes it successfully from the farm to the table, and this gap between production and consumption is one of agriculture's most persistent and significant problems. Some crops are left behind after the harvest simply because they look odd or are slightly damaged, even though they remain perfectly safe to consume. Some food spoils during the journey from a farm to a distribution center or store. Some remains on a shelf past its sell-by date and is eventually discarded, and some is purchased by a household but never consumed before it spoils at home. All of this uneaten food is classified as food waste, and experts estimate that close to one-third of all food produced on Earth is wasted somewhere along this journey from farm to table, a proportion that surprises many people.\n\nFood waste matters greatly because producing food uses substantial natural resources, resources that are themselves often scarce and unevenly spread around the world. Farmers need water to irrigate their fields and land on which to cultivate their crops, while trucks, ships, and airplanes burn considerable fuel carrying food over long distances. When food is wasted, all of these resources, the water, the land, and the fuel, are squandered too, since nobody ever benefits from food that required so much effort and energy to produce.\n\nThere is a second environmental cost worth considering: wasted food that is buried in a landfill gradually decays and releases a gas that traps heat in the atmosphere, contributing to a warming planet and to broader climate concerns.\n\nHouseholds can mitigate food waste by planning meals ahead of time, storing perishable items correctly, and consuming leftovers instead of discarding them unnecessarily. Stores contribute to more sustainable consumption by discounting food nearing its sell-by date and donating surplus food to organizations that help people experiencing hunger. Small choices like these, repeated by millions of people across the globe, add up to genuine, measurable savings of water, land, and energy, savings that matter even more where resources are already limited.\n\nConcern about food waste is not new. Long before refrigerators existed, people relied on drying, salting, and underground storage pits to preserve their harvests and keep them from spoiling, showing that preventing food waste has mattered to farmers for thousands of years, across many different climates and cultures."
-    },
-    {
-      "level": 1500,
-      "title": "Food Waste: Why It Matters",
-      "text": "Food waste represents one of the most significant and solvable inefficiencies in global agriculture; a surprisingly substantial proportion of food produced worldwide never actually travels successfully from farm to table, leaving a persistent gap between what is produced and what is ultimately consumed.\n\nThis gap opens at multiple points along the journey from farm to plate. Some crops are left behind after the harvest simply because they appear oddly shaped or slightly damaged, even though they remain perfectly safe to consume. Additional food spoils during the lengthy journey from a farm to a distribution center or store, while other food remains on a shelf past its sell-by date and is eventually discarded. Still more food is purchased by a household but never consumed before it spoils in the kitchen. Researchers estimate that close to one-third of all the food produced on Earth is wasted somewhere along this journey, a proportion that surprises many people who assume waste happens mainly in the home.\n\nFood waste matters tremendously because producing food consumes substantial natural resources that are themselves often scarce and unevenly distributed around the world. Farmers require water to irrigate their fields and land on which to cultivate their crops, while trucks, ships, and airplanes consume considerable fuel transporting food across vast distances to reach distant markets. When food is wasted, every one of these resources, the water, the land, and the fuel, is squandered as well, since nobody ultimately benefits from food that required so much effort and energy to produce in the first place.\n\nA second significant environmental cost deserves consideration: wasted food that is buried in a landfill gradually decomposes without oxygen and releases gases that trap heat within the atmosphere, contributing measurably to a warming planet and to broader concerns about overall consumption of the planet's resources.\n\nFortunately, households and businesses alike can meaningfully mitigate food waste by adopting more sustainable habits. Families can plan meals in advance, store perishable items correctly, and consume leftovers rather than discarding them unnecessarily. Stores contribute to more sustainable consumption patterns by discounting food nearing its sell-by date and donating surplus food to organizations that assist people experiencing hunger. Small individual choices, repeated by millions of people across the globe, accumulate into genuine and measurable savings of water, land, and energy, savings that matter even more in regions where these resources are already severely limited.\n\nConcern about food waste is hardly a modern phenomenon. Long before refrigerators existed, ancient societies relied on drying, salting, and underground storage pits to preserve harvests and prevent them from spoiling before they could be consumed, demonstrating that preventing food waste has mattered to farming communities for thousands of years, across vastly different climates, economies, and cultures."
-    },
-    {
-      "level": 1600,
-      "title": "Food Waste: Why It Matters",
-      "text": "Food waste constitutes one of the most significant, persistent, and arguably most solvable inefficiencies within global agriculture; a surprisingly substantial proportion of all food produced worldwide never actually travels successfully from farm to table, leaving an enduring and economically costly gap between what is produced and what is ultimately consumed by people.\n\nThis troubling gap opens at multiple distinct points along the extended journey from farm to plate. Some crops are deliberately left behind after the harvest simply because they appear oddly shaped or slightly damaged, even though they remain perfectly safe and nutritious to consume. Additional quantities of food spoil during the often lengthy journey from a farm to a distribution center or retail store, while other food remains sitting on a shelf past its printed sell-by date and is eventually discarded without ever being purchased. Still further quantities of food are purchased by an ordinary household but are never actually consumed before spoiling quietly in the kitchen. Researchers estimate that close to one-third of all the food produced on Earth each year is wasted somewhere along this extended journey, a strikingly large proportion that surprises many people who mistakenly assume that most waste happens only in the home.\n\nFood waste matters tremendously because producing food in the first place consumes substantial natural resources that are themselves frequently scarce and unevenly distributed around the globe. Farmers require considerable water to irrigate their fields and valuable land on which to cultivate their crops, while trucks, cargo ships, and airplanes consume enormous quantities of fuel transporting food across vast distances to reach distant and often unfamiliar markets. When food is ultimately wasted, every single one of these resources, the water, the land, and the fuel, is squandered as well, since nobody ever benefits from food that required so much cumulative effort and energy to produce in the first place.\n\nA second, equally significant environmental cost deserves careful consideration: wasted food that is buried deep within a landfill gradually decomposes without access to oxygen and consequently releases methane and other gases that trap considerable heat within Earth's atmosphere, contributing measurably to a warming planet and to broader concerns about sustainable consumption of the planet's limited resources.\n\nFortunately, households and businesses alike can meaningfully mitigate this widespread problem through more sustainable habits. Families can plan their meals carefully in advance, store perishable items correctly, and consistently consume leftovers rather than needlessly discarding them. Stores, for their part, contribute to considerably more sustainable patterns of consumption by discounting food that is nearing its sell-by date and by donating genuinely surplus food to organizations that assist people experiencing hunger. Small individual choices, faithfully repeated by millions of people across the globe, ultimately accumulate into genuine and measurable savings of water, land, and energy, savings that matter even more urgently in regions where these particular resources are already severely limited.\n\nConcern about food waste is hardly a distinctly modern phenomenon. Long before mechanical refrigerators ever existed, ancient societies across many different continents relied extensively on drying, salting, and underground storage pits to preserve their hard-won harvests and prevent them from spoiling before they could eventually be consumed, clearly demonstrating that preventing food waste has mattered profoundly to farming communities for many thousands of years, across vastly different climates, economies, and cultures."
-    }
-  ],
-  "bands": {
-    "LOW": {
-      "keyWords": [
-        { "word": "waste", "partOfSpeech": "noun", "definition": "food or other things that are thrown away because people do not use them", "example": "Our class tries to put less waste in the trash can." },
-        { "word": "farm", "partOfSpeech": "noun", "definition": "a place where people grow crops or raise animals for food", "example": "My uncle grows wheat on his farm." },
-        { "word": "water", "partOfSpeech": "noun", "definition": "the clear liquid that plants, animals, and people need to live", "example": "The gardener poured water on the young plants." },
-        { "word": "store", "partOfSpeech": "noun", "definition": "a place where people buy food and other things they need", "example": "We walked to the store to buy bread and milk." },
-        { "word": "leftover", "partOfSpeech": "adjective", "definition": "describing food that is left after a meal is finished", "example": "I packed the leftover rice for lunch the next day." }
-      ],
-      "questions": [
-        {
-          "stem": "What is this article mostly about?",
-          "options": ["How farmers grow apples in an orchard", "Why food gets wasted and why it matters", "How to build a food store in a town", "Why trucks need fuel to carry goods"],
-          "answer": "B",
-          "skill": "central-idea",
-          "why": "The article explains that food gets wasted at the farm, the store, and the home, and why that waste matters.",
-          "wrong": { "A": "Apples are only used as an example, not the main topic.", "C": "The article does not explain how to build a store.", "D": "Fuel is mentioned, but it is not the main topic." }
-        },
-        {
-          "stem": "Where does food waste happen, according to the article?",
-          "options": ["Only on farms, nowhere else at all", "Only in stores, nowhere else at all", "Only in kitchens, nowhere else at all", "On farms, in stores, and in kitchens"],
-          "answer": "D",
-          "skill": "detail",
-          "why": "The article says apples fall on farms, sit unsold in stores, and go bad in kitchens.",
-          "wrong": { "A": "Farms are only one place waste happens.", "B": "Stores are only one place waste happens.", "C": "Kitchens are only one place waste happens." }
-        },
-        {
-          "stem": "What do farmers need to grow food?",
-          "options": ["Water and land", "Paint and glue", "Ice and snow", "Sand and rocks"],
-          "answer": "A",
-          "skill": "detail",
-          "why": "The article says farmers need water and land to grow food.",
-          "wrong": { "B": "Paint and glue are not mentioned.", "C": "Ice and snow are not needed to grow food in the article.", "D": "Sand and rocks are not what farmers use to grow food." }
-        },
-        {
-          "stem": "The article talks about eating leftover food. What is leftover food?",
-          "options": ["Food that is thrown in the trash", "Food that farmers grow", "Food that is left after a meal", "Food that stores sell"],
-          "answer": "C",
-          "skill": "vocabulary",
-          "why": "Leftover food is food that remains after a meal, and the article says eating it stops waste.",
-          "wrong": { "A": "Leftover food is meant to be eaten, not thrown away.", "B": "This describes food on the farm, not leftovers.", "D": "This describes food in a store, not leftovers." }
-        },
-        {
-          "stem": "Why might storing fruit properly help stop food waste?",
-          "options": ["It keeps fruit fresh longer so it gets eaten", "It makes fruit taste much sweeter than before", "It makes fruit noticeably heavier than usual", "It changes the natural color of the fruit"],
-          "answer": "A",
-          "skill": "inference",
-          "why": "The article says storing fruit so it stays fresh helps it get eaten instead of going bad.",
-          "wrong": { "B": "The article does not say storing fruit changes its taste.", "C": "The article does not say storing fruit changes its weight.", "D": "The article does not say storing fruit changes its color." }
-        },
-        {
-          "stem": "A store sells odd-looking fruit at a lower price. Why would a store do this?",
-          "options": ["To make the fruit grow much faster than usual", "To stop people from buying any fruit at all", "To make the fruit taste completely different", "To get rid of fruit instead of wasting it"],
-          "answer": "D",
-          "skill": "inference",
-          "why": "The article says stores sell odd-looking fruit so it gets used instead of thrown away.",
-          "wrong": { "A": "Selling fruit does not make it grow faster.", "B": "A lower price is meant to help people buy it, not stop them.", "C": "The price does not change how the fruit tastes." }
-        },
-        {
-          "stem": "Why does wasting food also waste water and fuel?",
-          "options": ["Because water and fuel are found inside food", "Because they were used to grow and move it", "Because delivery trucks only ever carry water", "Because farms do not actually need any water"],
-          "answer": "B",
-          "skill": "cause-effect",
-          "why": "The article says water, land, and fuel were used to grow and carry the food, so wasting food wastes them too.",
-          "wrong": { "A": "Water and fuel are used to make food, not found inside it.", "C": "Trucks carry food, not only water.", "D": "The article says farms do use water." }
-        },
-        {
-          "stem": "Why does the author end the article by talking about the whole planet?",
-          "options": ["To explain in detail how planets actually form", "To describe a completely different country's farms", "To show that wasting less food helps everyone", "To list many more foods that can spoil"],
-          "answer": "C",
-          "skill": "author-purpose",
-          "why": "The ending connects saving water and land at home to helping the whole planet, showing the bigger benefit.",
-          "wrong": { "A": "The article does not explain how planets form.", "B": "No other country's farms are described.", "D": "The ending does not list more foods." }
-        }
-      ],
-      "prompt": "Do you think your family could waste less food? Explain why, using at least two facts from the article.",
-      "checklist": ["I clearly said what I think.", "I used at least two facts from the article.", "I wrote complete sentences with capital letters and periods."],
-      "modelAnswer": "Yes, my family could waste less food by only buying what we need and eating our leftovers. The article says that wasting food also wastes the water and fuel that were used to grow and move it, so wasting less food helps save those things too."
-    },
-    "MID": {
-      "keyWords": [
-        { "word": "resource", "partOfSpeech": "noun", "definition": "something useful, like water or land, that people need to make or grow things", "example": "Clean water is an important resource for every city." },
-        { "word": "harvest", "partOfSpeech": "noun", "definition": "the time when crops are gathered from the fields", "example": "Farmers worked long hours during the wheat harvest." },
-        { "word": "discard", "partOfSpeech": "verb", "definition": "to throw something away because it is no longer wanted", "example": "Please do not discard batteries in the regular trash." },
-        { "word": "donate", "partOfSpeech": "verb", "definition": "to give something, such as food or money, to help other people", "example": "Our school decided to donate extra books to a nearby library." },
-        { "word": "surplus", "partOfSpeech": "noun", "definition": "an amount of something that is more than what is needed", "example": "The bakery gave its surplus bread to a local shelter." }
-      ],
-      "questions": [
-        {
-          "stem": "Which sentence best states the central idea of the article?",
-          "options": ["Only stores are responsible for food waste, and families and farms never waste any.", "Food waste happens from farm to table and wastes valuable resources.", "Farmers should stop growing more food than needed, and then waste would end at once.", "Leftover food should always be thrown away, because it is never safe to eat."],
-          "answer": "B",
-          "skill": "central-idea",
-          "why": "The article explains that waste happens at many stages and wastes the water, land, and fuel used to produce the food.",
-          "wrong": { "A": "The article shows waste happens on farms and in homes too, not only stores.", "C": "The article focuses on reducing waste, not on farmers growing less.", "D": "The article says eating leftovers helps prevent waste." }
-        },
-        {
-          "stem": "About how much of the food grown on Earth is wasted, according to the article?",
-          "options": ["Almost all of it", "Less than one percent", "Close to one-third", "Exactly one-half"],
-          "answer": "C",
-          "skill": "detail",
-          "why": "The article says researchers estimate close to one-third of all food grown is wasted.",
-          "wrong": { "A": "The article does not say almost all food is wasted.", "B": "One-third is much more than one percent.", "D": "The article says close to one-third, not one-half." }
-        },
-        {
-          "stem": "Which resource do farmers use to irrigate their fields?",
-          "options": ["Water", "Paint", "Glass", "Metal"],
-          "answer": "A",
-          "skill": "detail",
-          "why": "The article says farmers need water to irrigate their fields.",
-          "wrong": { "B": "Paint is not mentioned as something farmers use.", "C": "Glass is not mentioned as something farmers use.", "D": "Metal is not mentioned as something farmers use." }
-        },
-        {
-          "stem": "In the article, discarded food means food that is _____.",
-          "options": ["eaten quickly", "grown again", "sold for more money", "thrown away"],
-          "answer": "D",
-          "skill": "vocabulary",
-          "why": "The article uses discarded to describe food that is thrown away after its sell-by date.",
-          "wrong": { "A": "Discarded food is not eaten; it is thrown out.", "B": "Discarded food is not grown again.", "C": "The article does not say discarded food is sold for more." }
-        },
-        {
-          "stem": "Why would a store donate surplus food instead of throwing it away?",
-          "options": ["To help people who need food instead of wasting it", "To make the food spoil faster in the store, so it is gone", "To avoid selling any food at all this week in the shop", "To make room for more customers to walk in the store"],
-          "answer": "A",
-          "skill": "inference",
-          "why": "The article says stores donate surplus food to people experiencing hunger instead of discarding it.",
-          "wrong": { "B": "Donating food does not make it spoil faster.", "C": "Stores still sell food; donating is only for extra food.", "D": "The article does not connect donating food to customer space." }
-        },
-        {
-          "stem": "A family throws away food that spoiled in their kitchen before they could eat it. What is the most likely reason?",
-          "options": ["They grew the food themselves in a garden at home", "They bought more food than they could use in time", "They donated the food to a store near their house", "They stored the food in a landfill behind the house"],
-          "answer": "B",
-          "skill": "inference",
-          "why": "The article says food purchased by a household can spoil before it is eaten, often because too much was bought.",
-          "wrong": { "A": "Growing food themselves is not mentioned as a cause of spoiling.", "C": "Families donate to others, not to stores.", "D": "Families store food in kitchens, not landfills." }
-        },
-        {
-          "stem": "Why does wasted food in a landfill add gases to the air?",
-          "options": ["Because trucks burn it", "Because stores add chemicals to it", "Because it rots without air and releases gas", "Because sunlight turns it into gas instantly"],
-          "answer": "C",
-          "skill": "cause-effect",
-          "why": "The article says wasted food buried in a landfill decomposes and releases gases that trap heat.",
-          "wrong": { "A": "The article does not say trucks burn the food.", "B": "The article does not mention stores adding chemicals.", "D": "The article does not describe sunlight causing instant change." }
-        },
-        {
-          "stem": "How does the author organize the article?",
-          "options": ["By comparing two kinds of farms and the crops each one grows", "By listing the countries with the most farms in the world and their size", "By telling a story about one apple on its long journey to the shop", "By explaining where waste happens, why it matters, and how to reduce it"],
-          "answer": "D",
-          "skill": "text-structure",
-          "why": "The article moves from where food waste happens, to why it matters, to ways to reduce it.",
-          "wrong": { "A": "The article does not compare two kinds of farms.", "B": "The article does not list countries by number of farms.", "C": "The apple is only a brief example, not the whole structure." }
-        }
-      ],
-      "prompt": "Explain two ways people can reduce food waste and why each way helps. Use at least two details from the article.",
-      "checklist": ["I explained at least two ways to reduce food waste.", "I used details from the article to show why each way helps.", "I used linking words such as first, next, and because."],
-      "modelAnswer": "First, families can plan their meals and store perishable food correctly, because this keeps fruit, vegetables, and other food fresh long enough to be eaten instead of thrown away. Next, stores can donate surplus food to people who need it instead of discarding it, because that way food does not go to waste just because its sell-by date is near. These steps matter because they both save the water, land, and fuel that were used to grow and transport the food in the first place."
-    },
-    "HIGH": {
-      "keyWords": [
-        { "word": "consumption", "partOfSpeech": "noun", "definition": "the act of using up food, energy, or other resources", "example": "Turning off lights saves energy and lowers electricity consumption." },
-        { "word": "sustainable", "partOfSpeech": "adjective", "definition": "able to continue for a long time without running out or causing serious harm", "example": "Planting a new tree for every one that is cut down is a sustainable practice." },
-        { "word": "mitigate", "partOfSpeech": "verb", "definition": "to make a problem less serious or severe", "example": "Wearing a helmet can mitigate injuries while cycling." },
-        { "word": "perishable", "partOfSpeech": "adjective", "definition": "likely to spoil or decay quickly", "example": "Milk and fish are perishable foods that must be kept cold." },
-        { "word": "landfill", "partOfSpeech": "noun", "definition": "a large area of land where garbage is buried", "example": "The city built a new landfill outside of town for its trash." }
-      ],
-      "questions": [
-        {
-          "stem": "Which statement best expresses the central idea of the article?",
-          "options": ["Farms produce too much food and should grow less of it, so farmers must plant fewer crops.", "Food waste squanders resources used to produce food and harms the environment.", "Only wealthy countries waste food in their homes and stores, and poorer ones waste nothing.", "Stores should never sell discounted food, because it makes people throw away more."],
-          "answer": "B",
-          "skill": "central-idea",
-          "why": "The article explains that wasted food squanders water, land, and fuel, and contributes to landfill gases.",
-          "wrong": { "A": "The article focuses on reducing waste, not reducing what farms grow.", "C": "The article discusses the problem as global, not limited to wealthy countries.", "D": "The article says discounting food nearing its sell-by date helps reduce waste." }
-        },
-        {
-          "stem": "Roughly what share of food produced on Earth is wasted, according to the article?",
-          "options": ["About one-tenth", "About two-thirds", "Nearly all of it", "About one-third"],
-          "answer": "D",
-          "skill": "detail",
-          "why": "The article states that researchers estimate close to one-third of food produced is wasted.",
-          "wrong": { "A": "One-tenth is much lower than the article's estimate.", "B": "Two-thirds is higher than the article's estimate.", "C": "The article does not claim nearly all food is wasted." }
-        },
-        {
-          "stem": "Besides water and land, what other resource does the article say is wasted along with uneaten food?",
-          "options": ["Sand", "Glass", "Fuel", "Paint"],
-          "answer": "C",
-          "skill": "detail",
-          "why": "The article says fuel used to transport food is also wasted when food is wasted.",
-          "wrong": { "A": "Sand is not mentioned as a wasted resource.", "B": "Glass is not mentioned as a wasted resource.", "D": "Paint is not mentioned as a wasted resource." }
-        },
-        {
-          "stem": "\"Households can mitigate food waste.\" What does mitigate mean here?",
-          "options": ["Lessen", "Increase", "Ignore", "Celebrate"],
-          "answer": "A",
-          "skill": "vocabulary",
-          "why": "Mitigate means to make something less severe, and the article describes ways to lessen food waste.",
-          "wrong": { "B": "Mitigate does not mean to increase a problem.", "C": "Mitigate means addressing a problem, not ignoring it.", "D": "Mitigate has nothing to do with celebrating." }
-        },
-        {
-          "stem": "Why does the article mention that resources used to grow food are \"unevenly distributed\"?",
-          "options": ["To argue that farms should be built only in rich countries", "To explain why some farms are much bigger than others in the same country", "To suggest that food never spoils in dry regions, so nobody there needs to save it", "To show that wasting food can hurt regions where resources are already scarce"],
-          "answer": "D",
-          "skill": "inference",
-          "why": "Because some regions already have limited water and land, wasting food there has a bigger impact.",
-          "wrong": { "A": "The article does not argue farms should only exist in rich countries.", "B": "Farm size is not discussed.", "C": "The article does not claim food never spoils in dry regions." }
-        },
-        {
-          "stem": "Why might a landfill produce more heat-trapping gas than a farm field would?",
-          "options": ["Because landfills receive more sunlight than fields", "Because buried food decomposes without oxygen there", "Because landfills are colder than farm fields", "Because landfill food is never organic"],
-          "answer": "B",
-          "skill": "inference",
-          "why": "The article explains that buried food decomposes without oxygen in a landfill, releasing heat-trapping gases.",
-          "wrong": { "A": "Sunlight in a landfill is not discussed.", "C": "Temperature differences are not discussed.", "D": "Landfill food, including spoiled produce, is organic." }
-        },
-        {
-          "stem": "Why do researchers consider the gap between food production and consumption a serious problem?",
-          "options": ["Because it means farmers grow too little food for people", "Because it causes food prices to drop sharply every year", "Because it means resources used to grow food go to waste", "Because it stops trucks from carrying any food to stores"],
-          "answer": "C",
-          "skill": "cause-effect",
-          "why": "When food produced is not eaten, the resources that went into producing it are wasted too.",
-          "wrong": { "A": "The gap is about food not being eaten, not about too little being grown.", "B": "Food prices are not discussed.", "D": "Trucks still carry food; the gap is about what happens after." }
-        },
-        {
-          "stem": "Why does the author describe ancient methods of preserving food, such as drying and salting?",
-          "options": ["To show that preventing food waste is a long-standing human concern", "To prove that refrigerators are a modern invention made in the last century", "To argue that old food-storage methods were unsafe for the families who used them", "To explain how salt is mined from the ground and sea"],
-          "answer": "A",
-          "skill": "author-purpose",
-          "why": "The article uses this history to show that people have long worked to prevent food from spoiling and being wasted.",
-          "wrong": { "B": "Refrigerators are mentioned, but not as the article's main point.", "C": "The article does not call these methods unsafe.", "D": "Mining salt is not discussed." }
-        }
-      ],
-      "prompt": "Should schools and stores be required to donate surplus food instead of discarding it? Take a position and support it with evidence from the article.",
-      "checklist": ["I stated a clear position.", "I supported it with at least two pieces of evidence from the article.", "I explained how my evidence supports my position."],
-      "modelAnswer": "I believe schools and stores should be required to donate surplus food instead of discarding it. One piece of evidence is that producing food uses significant resources, such as water, land, and fuel, and throwing away edible food wastes all of those resources for nothing. Another piece of evidence is that food buried in a landfill decomposes without oxygen and releases gases that trap heat in the atmosphere, so donating surplus food instead of discarding it would reduce this environmental cost while also helping people who are experiencing hunger."
-    }
+ "code": "RR-267",
+ "title": "Food Waste: Why It Matters",
+ "topic": "Environment",
+ "summary": "How much food never gets eaten on its way from farm to table, the water, land, and fuel wasted along with it, and simple ways families and stores can waste less.",
+ "poll": "Families and stores should work harder to waste less food.",
+ "versions": [
+  {
+   "level": 300,
+   "title": "Food Waste: Why It Matters",
+   "text": "Think about an apple growing on a farm. Not every apple gets eaten. Some fall and stay on the ground. Some go to a store but never get sold. Some sit in a kitchen too long and go bad. All of this food becomes waste.\n\nFood waste happens in many places. It happens on a farm. It happens in a store. It happens in a home, too.\n\nFood waste is a big problem. A farm uses water to grow food. A farm uses land, too. Trucks use fuel to bring food to a store. When food is wasted, we waste water, land, and fuel, too.\n\nWasted food can cause another problem. It gets thrown in a dump. There, it slowly rots. It can make a bad gas. That gas can trap heat.\n\nYou can help at home. Buy only what you need. Store fruit so it stays fresh. Eat your leftover food. Do not throw it out.\n\nStores can help, too. They can sell fruit that looks odd. They can give extra food to people in need. That way, less food goes to waste."
+  },
+  {
+   "level": 400,
+   "title": "Food Waste: Why It Matters",
+   "text": "Think about an apple growing on a farm. Not every apple gets eaten. Some apples fall. They stay on the ground. Some travel to a store. They never get sold. Some sit in a kitchen too long. They go bad. All of this food becomes waste.\n\nFood waste happens in many places. It happens on a farm. It happens in a store. It happens in a home, too.\n\nFood waste is a serious problem. A farm needs water to grow food. It needs land, too. Trucks need fuel to bring food to stores. When food is wasted, we waste water. We waste land and fuel, too.\n\nWasted food can cause another problem. It gets thrown into a dump. There, it slowly rots. As it rots, it makes a gas. That gas traps heat in the air.\n\nYou can help cut food waste at home. Buy only the food you need. Store your fruit so it stays fresh. Eat your leftover food. Do not throw it away.\n\nStores can help, too. They can sell fruit that looks a little odd. They can give extra food to people who need it. That way, less food goes to waste."
+  },
+  {
+   "level": 500,
+   "title": "Food Waste: Why It Matters",
+   "text": "What happens to food that people never eat? Think about an apple growing on a farm. Not every apple gets eaten. Some apples fall and stay on the ground. Some travel to a store but are never sold. Some sit in a kitchen too long and go bad. All of this uneaten food becomes waste. Food waste is a real problem.\n\nFood waste can happen in many places. It can happen on a farm. It can happen in a store. It can happen right in someone's home. Each place adds to the problem.\n\nGrowing food takes a lot of resources. A farm needs water to grow crops. It needs land, too. Trucks need fuel to bring food from farms to stores. So when food is wasted, we waste water, land, and fuel, too.\n\nWasted food can cause another problem. When it is thrown into a dump, it slowly rots there. As it rots, it releases a gas. That gas can trap heat in the air.\n\nFamilies can help cut down on food waste. Buying only the food you truly need is a smart first step. Storing fruit so it stays fresh longer also helps a lot. Eating leftover food keeps good food from going to waste.\n\nStores help, too. They sell odd-looking fruit. They give extra food to people who need it. In this way, less food gets wasted."
+  },
+  {
+   "level": 600,
+   "title": "Food Waste: Why It Matters",
+   "text": "What happens to food that people never eat? Think about an apple growing on a farm. Not every apple that grows will end up on a plate. Some apples fall from the tree and are left behind after the harvest. Some travel all the way to a store but are never bought. Some sit in a kitchen too long and quietly go bad. All of this uneaten food becomes waste, and food waste is a real problem in almost every country.\n\nFood waste can happen at several different points. It can happen on a farm, in a store, or right in someone's home. Each of these points adds to the overall problem.\n\nGrowing food takes many valuable resources. A farm needs water to grow crops, and it needs land to plant them in. Trucks and ships need fuel to carry food from farms to stores. So when food is wasted, every bit of that water, land, and fuel is wasted right along with it.\n\nWasted food can cause another problem, too. When it is thrown into a dump, it slowly rots there. As it rots, it releases a gas that can trap heat in the air.\n\nFamilies can take simple steps to cut down on food waste. Buying only the food they truly need, instead of more than they can eat, is a smart first step. Storing fruit and vegetables properly so they stay fresh longer also helps a great deal. Eating leftover food, rather than tossing it out, keeps good food from going to waste.\n\nStores help too, by selling odd-looking fruit at a lower price and by giving any surplus food to people who need it. In this way, less food across the whole country ends up being wasted."
+  },
+  {
+   "level": 700,
+   "title": "Food Waste: Why It Matters",
+   "text": "What happens to food that is grown but never eaten? Around the world, a surprising amount of food never makes it from the farm to a plate. Some crops are left behind after the harvest because they look odd or are slightly damaged, even though they are still safe to eat. Some food spoils on the long trip to a store. Some sits on a shelf past its sell-by date and is eventually discarded. Some is bought by a family but never eaten before it spoils at home. All of this uneaten food is called food waste. Experts think close to a third of all food grown on Earth is wasted somewhere along the way.\n\nFood waste matters because growing food uses a lot of resources. A farm needs water to irrigate its fields, and it needs land to plant its crops. Trucks, ships, and planes burn fuel carrying food over long distances. When food is wasted, those resources are wasted too, since no one gets to eat the food they helped produce.\n\nThere is a second cost as well. When wasted food is buried in a landfill, it slowly rots and gives off a gas that traps heat in the air.\n\nFamilies can waste less food by planning their meals ahead, storing food that spoils quickly the right way, and eating leftovers instead of discarding them. Stores can help by discounting food when its sell-by date is near, and by donating surplus food to people who need it. Small choices like these can add up to real savings of water, land, and energy."
+  },
+  {
+   "level": 800,
+   "title": "Food Waste: Why It Matters",
+   "text": "What happens to food that farmers grow but that never gets eaten? Around the world, a surprisingly large amount of food never makes it from the farm to the table. Some crops are left behind after the harvest. They look odd or are slightly damaged, even though they remain safe to eat. Some food spoils during the long trip from a farm to a store. Some sits on a shelf past its sell-by date and is eventually discarded. Some is bought by a family but is never eaten before it spoils at home. All of this is known as food waste. Experts estimate that close to one-third of all food grown on Earth is wasted somewhere along the way.\n\nFood waste matters because growing food uses a lot of resources. Farmers need water to irrigate their fields. They need land on which to plant their crops. Trucks, ships, and planes burn fuel carrying food over long distances. When food is wasted, all of these resources are wasted too, since nobody benefits from food that took so much effort to produce.\n\nThere is a second cost to consider. When wasted food is buried in a landfill, it slowly decays. It releases a gas that traps heat in the atmosphere.\n\nFamilies can reduce food waste by planning meals ahead of time. They can store food that spoils quickly in the correct way. They can eat leftovers instead of discarding them. Stores can help by discounting food when its sell-by date is near, and by donating surplus food to people who need it. These small choices, repeated by millions of people, add up to genuine savings of water, land, and energy."
+  },
+  {
+   "level": 900,
+   "title": "Food Waste: Why It Matters",
+   "text": "What happens to food that farmers grow but that never gets eaten? Around the world, a surprisingly large amount of food never makes it from the farm to the table. Some crops are left behind after the harvest. They look odd or are slightly damaged, even though they remain safe to consume. Some food spoils during the trip from a farm to a store. Some sits on a shelf past its sell-by date and is eventually discarded. Some is purchased by a household but is never consumed before it spoils at home. All of this is known as food waste. Experts estimate that close to one-third of all food produced on Earth is wasted this way.\n\nFood waste matters because producing food uses considerable resources. Farmers need water to irrigate their fields. They need land on which to cultivate their crops. Trucks, ships, and airplanes burn fuel carrying food over long distances. When food is wasted, all of these resources are squandered too, since nobody benefits from food that required so much effort to produce.\n\nThere is a second environmental cost worth considering. When wasted food is buried in a landfill, it slowly decays. It releases a gas that traps heat in the atmosphere.\n\nHouseholds can reduce food waste by planning meals ahead of time. They can store perishable items the correct way. They can consume leftovers instead of discarding them. Stores can help by discounting food when its sell-by date is near, and by donating surplus food to people experiencing hunger. These small choices, repeated by millions of people, add up to genuine savings of water, land, and energy."
+  },
+  {
+   "level": 1000,
+   "title": "Food Waste: Why It Matters",
+   "text": "What happens to food that farmers cultivate but that never actually gets eaten? Around the world, a surprisingly substantial proportion of food never makes it successfully from the farm to the table. Some crops are left behind after the harvest simply because they look odd or are slightly damaged, even though they remain perfectly safe to consume. Some food spoils during the lengthy trip from a farm to a distribution center or store. Some remains on a shelf past its sell-by date and is eventually discarded. Some is purchased by a household but is never consumed before it spoils at home. All of this uneaten food is classified as food waste, and experts estimate that close to one-third of all food produced on Earth is wasted somewhere along the way.\n\nFood waste matters greatly because producing food uses substantial resources. Farmers need water to irrigate their fields, and they need land on which to cultivate their crops. Trucks, ships, and airplanes burn substantial fuel carrying food over considerable distances. When food is wasted, all of these resources, the water, the land, and the fuel, are squandered too, since nobody ever benefits from food that required so much effort and energy to produce.\n\nThere is a second environmental cost worth considering. When wasted food is buried in a landfill, it gradually decays and releases a gas that traps heat in the atmosphere.\n\nHouseholds can reduce food waste by planning meals ahead of time, storing perishable items in the correct way, and consuming leftovers instead of discarding them unnecessarily. Stores can help by discounting food when its sell-by date is near, and by donating surplus food to organizations that help people experiencing hunger. Small choices like these, repeated by millions of people across the globe, can add up to genuine, measurable savings of water, land, and energy."
+  },
+  {
+   "level": 1100,
+   "title": "Food Waste: Why It Matters",
+   "text": "What happens to food that farmers grow but that never reaches a dinner plate? Around the world, a surprisingly large share of food never travels successfully from the farm to the table. This gap between production and consumption is one of agriculture's most persistent problems. Some crops are left behind after the harvest because they look oddly shaped or slightly damaged, even though they remain safe to consume. Some food spoils during the journey from a farm to a store, and some remains on a shelf past its sell-by date and is eventually discarded. Some is purchased by a household but never consumed before it spoils in the kitchen. All of this uneaten food is classified as food waste, and experts estimate that close to one-third of all food produced on Earth is wasted somewhere along this long and complicated journey.\n\nFood waste matters because producing food consumes natural resources. Farmers need water to irrigate their fields and land on which to cultivate their crops. Trucks, ships, and airplanes consume fuel transporting food across long distances. When food is wasted, these resources are squandered too, since nobody benefits from food that required so much effort to produce.\n\nThere is a second environmental cost worth considering: wasted food that is buried in a landfill decomposes without oxygen and releases a gas that traps heat in the atmosphere, slowly affecting the whole planet.\n\nHouseholds can mitigate food waste by planning meals in advance, storing perishable items correctly, and consuming leftovers instead of discarding them unnecessarily. Stores contribute to more sustainable consumption by discounting food nearing its sell-by date and donating surplus food to people experiencing hunger. Small choices, repeated by millions of people around the world, accumulate into genuine, measurable savings of water, land, and energy, savings that matter more every single year."
+  },
+  {
+   "level": 1200,
+   "title": "Food Waste: Why It Matters",
+   "text": "What happens to food that farmers cultivate but that never actually gets eaten? Around the world, a surprisingly substantial proportion of food never makes it successfully from the farm to the table, and this gap between production and consumption is one of agriculture's most persistent and significant problems. Some crops are left behind after the harvest simply because they look odd or are slightly damaged, even though they remain perfectly safe to consume. Some food spoils during the journey from a farm to a distribution center or store. Some remains on a shelf past its sell-by date and is eventually discarded, and some is purchased by a household but never consumed before it spoils at home. All of this uneaten food is classified as food waste, and experts estimate that close to one-third of all food produced on Earth is wasted somewhere along this journey from farm to table.\n\nFood waste matters greatly because producing food uses substantial natural resources, resources that are themselves often scarce. Farmers need water to irrigate their fields and land on which to cultivate their crops, while trucks, ships, and airplanes burn considerable fuel carrying food over long distances. When food is wasted, all of these resources, the water, the land, and the fuel, are squandered too, since nobody ever benefits from food that required so much effort and energy to produce.\n\nThere is a second environmental cost worth considering: wasted food that is buried in a landfill gradually decays and releases a gas that traps heat in the atmosphere, contributing to a warming planet.\n\nHouseholds can mitigate food waste by planning meals ahead of time, storing perishable items correctly, and consuming leftovers instead of discarding them unnecessarily. Stores contribute to more sustainable consumption by discounting food nearing its sell-by date and donating surplus food to organizations that help people experiencing hunger. Small choices like these, repeated by millions of people across the globe, add up to genuine, measurable savings of water, land, and energy, savings that matter even more where resources are already limited."
+  },
+  {
+   "level": 1300,
+   "title": "Food Waste: Why It Matters",
+   "text": "What happens to food that farmers cultivate but that never actually gets eaten? Around the world, a surprisingly substantial proportion of food never makes it successfully from the farm to the table, and this gap between production and consumption is one of agriculture's most persistent and significant problems. Some crops are left behind after the harvest simply because they look odd or are slightly damaged, even though they remain perfectly safe to consume. Some food spoils during the journey from a farm to a distribution center or store. Some remains on a shelf past its sell-by date and is eventually discarded, and some is purchased by a household but never consumed before it spoils at home. All of this uneaten food is classified as food waste, and experts estimate that close to one-third of all food produced on Earth is wasted somewhere along this journey from farm to table.\n\nFood waste matters greatly because producing food uses substantial natural resources, resources that are themselves often scarce. Farmers need water to irrigate their fields and land on which to cultivate their crops, while trucks, ships, and airplanes burn considerable fuel carrying food over long distances. When food is wasted, all of these resources, the water, the land, and the fuel, are squandered too, since nobody ever benefits from food that required so much effort and energy to produce.\n\nThere is a second environmental cost worth considering: wasted food that is buried in a landfill gradually decays and releases a gas that traps heat in the atmosphere, contributing to a warming planet.\n\nHouseholds can mitigate food waste by planning meals ahead of time, storing perishable items correctly, and consuming leftovers instead of discarding them unnecessarily. Stores contribute to more sustainable consumption by discounting food nearing its sell-by date and donating surplus food to organizations that help people experiencing hunger. Small choices like these, repeated by millions of people across the globe, add up to genuine, measurable savings of water, land, and energy, savings that matter even more where resources are already limited.\n\nConcern about food waste is not new. Long before refrigerators existed, people relied on drying, salting, and underground storage pits to preserve their harvests and keep them from spoiling, showing that preventing food waste has mattered to farmers for thousands of years."
+  },
+  {
+   "level": 1400,
+   "title": "Food Waste: Why It Matters",
+   "text": "What happens to food that farmers cultivate but that never actually gets eaten? Around the world, a surprisingly substantial proportion of food never makes it successfully from the farm to the table, and this gap between production and consumption is one of agriculture's most persistent and significant problems. Some crops are left behind after the harvest simply because they look odd or are slightly damaged, even though they remain perfectly safe to consume. Some food spoils during the journey from a farm to a distribution center or store. Some remains on a shelf past its sell-by date and is eventually discarded, and some is purchased by a household but never consumed before it spoils at home. All of this uneaten food is classified as food waste, and experts estimate that close to one-third of all food produced on Earth is wasted somewhere along this journey from farm to table, a proportion that surprises many people.\n\nFood waste matters greatly because producing food uses substantial natural resources, resources that are themselves often scarce and unevenly spread around the world. Farmers need water to irrigate their fields and land on which to cultivate their crops, while trucks, ships, and airplanes burn considerable fuel carrying food over long distances. When food is wasted, all of these resources, the water, the land, and the fuel, are squandered too, since nobody ever benefits from food that required so much effort and energy to produce.\n\nThere is a second environmental cost worth considering: wasted food that is buried in a landfill gradually decays and releases a gas that traps heat in the atmosphere, contributing to a warming planet and to broader climate concerns.\n\nHouseholds can mitigate food waste by planning meals ahead of time, storing perishable items correctly, and consuming leftovers instead of discarding them unnecessarily. Stores contribute to more sustainable consumption by discounting food nearing its sell-by date and donating surplus food to organizations that help people experiencing hunger. Small choices like these, repeated by millions of people across the globe, add up to genuine, measurable savings of water, land, and energy, savings that matter even more where resources are already limited.\n\nConcern about food waste is not new. Long before refrigerators existed, people relied on drying, salting, and underground storage pits to preserve their harvests and keep them from spoiling, showing that preventing food waste has mattered to farmers for thousands of years, across many different climates and cultures."
+  },
+  {
+   "level": 1500,
+   "title": "Food Waste: Why It Matters",
+   "text": "Food waste represents one of the most significant and solvable inefficiencies in global agriculture; a surprisingly substantial proportion of food produced worldwide never actually travels successfully from farm to table, leaving a persistent gap between what is produced and what is ultimately consumed.\n\nThis gap opens at multiple points along the journey from farm to plate. Some crops are left behind after the harvest simply because they appear oddly shaped or slightly damaged, even though they remain perfectly safe to consume. Additional food spoils during the lengthy journey from a farm to a distribution center or store, while other food remains on a shelf past its sell-by date and is eventually discarded. Still more food is purchased by a household but never consumed before it spoils in the kitchen. Researchers estimate that close to one-third of all the food produced on Earth is wasted somewhere along this journey, a proportion that surprises many people who assume waste happens mainly in the home.\n\nFood waste matters tremendously because producing food consumes substantial natural resources that are themselves often scarce and unevenly distributed around the world. Farmers require water to irrigate their fields and land on which to cultivate their crops, while trucks, ships, and airplanes consume considerable fuel transporting food across vast distances to reach distant markets. When food is wasted, every one of these resources, the water, the land, and the fuel, is squandered as well, since nobody ultimately benefits from food that required so much effort and energy to produce in the first place.\n\nA second significant environmental cost deserves consideration: wasted food that is buried in a landfill gradually decomposes without oxygen and releases gases that trap heat within the atmosphere, contributing measurably to a warming planet and to broader concerns about overall consumption of the planet's resources.\n\nFortunately, households and businesses alike can meaningfully mitigate food waste by adopting more sustainable habits. Families can plan meals in advance, store perishable items correctly, and consume leftovers rather than discarding them unnecessarily. Stores contribute to more sustainable consumption patterns by discounting food nearing its sell-by date and donating surplus food to organizations that assist people experiencing hunger. Small individual choices, repeated by millions of people across the globe, accumulate into genuine and measurable savings of water, land, and energy, savings that matter even more in regions where these resources are already severely limited.\n\nConcern about food waste is hardly a modern phenomenon. Long before refrigerators existed, ancient societies relied on drying, salting, and underground storage pits to preserve harvests and prevent them from spoiling before they could be consumed, demonstrating that preventing food waste has mattered to farming communities for thousands of years, across vastly different climates, economies, and cultures."
+  },
+  {
+   "level": 1600,
+   "title": "Food Waste: Why It Matters",
+   "text": "Food waste constitutes one of the most significant, persistent, and arguably most solvable inefficiencies within global agriculture; a surprisingly substantial proportion of all food produced worldwide never actually travels successfully from farm to table, leaving an enduring and economically costly gap between what is produced and what is ultimately consumed by people.\n\nThis troubling gap opens at multiple distinct points along the extended journey from farm to plate. Some crops are deliberately left behind after the harvest simply because they appear oddly shaped or slightly damaged, even though they remain perfectly safe and nutritious to consume. Additional quantities of food spoil during the often lengthy journey from a farm to a distribution center or retail store, while other food remains sitting on a shelf past its printed sell-by date and is eventually discarded without ever being purchased. Still further quantities of food are purchased by an ordinary household but are never actually consumed before spoiling quietly in the kitchen. Researchers estimate that close to one-third of all the food produced on Earth each year is wasted somewhere along this extended journey, a strikingly large proportion that surprises many people who mistakenly assume that most waste happens only in the home.\n\nFood waste matters tremendously because producing food in the first place consumes substantial natural resources that are themselves frequently scarce and unevenly distributed around the globe. Farmers require considerable water to irrigate their fields and valuable land on which to cultivate their crops, while trucks, cargo ships, and airplanes consume enormous quantities of fuel transporting food across vast distances to reach distant and often unfamiliar markets. When food is ultimately wasted, every single one of these resources, the water, the land, and the fuel, is squandered as well, since nobody ever benefits from food that required so much cumulative effort and energy to produce in the first place.\n\nA second, equally significant environmental cost deserves careful consideration: wasted food that is buried deep within a landfill gradually decomposes without access to oxygen and consequently releases methane and other gases that trap considerable heat within Earth's atmosphere, contributing measurably to a warming planet and to broader concerns about sustainable consumption of the planet's limited resources.\n\nFortunately, households and businesses alike can meaningfully mitigate this widespread problem through more sustainable habits. Families can plan their meals carefully in advance, store perishable items correctly, and consistently consume leftovers rather than needlessly discarding them. Stores, for their part, contribute to considerably more sustainable patterns of consumption by discounting food that is nearing its sell-by date and by donating genuinely surplus food to organizations that assist people experiencing hunger. Small individual choices, faithfully repeated by millions of people across the globe, ultimately accumulate into genuine and measurable savings of water, land, and energy, savings that matter even more urgently in regions where these particular resources are already severely limited.\n\nConcern about food waste is hardly a distinctly modern phenomenon. Long before mechanical refrigerators ever existed, ancient societies across many different continents relied extensively on drying, salting, and underground storage pits to preserve their hard-won harvests and prevent them from spoiling before they could eventually be consumed, clearly demonstrating that preventing food waste has mattered profoundly to farming communities for many thousands of years, across vastly different climates, economies, and cultures."
   }
+ ],
+ "bands": {
+  "LOW": {
+   "keyWords": [
+    {
+     "word": "waste",
+     "partOfSpeech": "noun",
+     "definition": "food or other things that are thrown away because people do not use them",
+     "example": "Our class tries to put less waste in the trash can."
+    },
+    {
+     "word": "farm",
+     "partOfSpeech": "noun",
+     "definition": "a place where people grow crops or raise animals for food",
+     "example": "My uncle grows wheat on his farm."
+    },
+    {
+     "word": "water",
+     "partOfSpeech": "noun",
+     "definition": "the clear liquid that plants, animals, and people need to live",
+     "example": "The gardener poured water on the young plants."
+    },
+    {
+     "word": "store",
+     "partOfSpeech": "noun",
+     "definition": "a place where people buy food and other things they need",
+     "example": "We walked to the store to buy bread and milk."
+    },
+    {
+     "word": "leftover",
+     "partOfSpeech": "adjective",
+     "definition": "describing food that is left after a meal is finished",
+     "example": "I packed the leftover rice for lunch the next day."
+    }
+   ],
+   "questions": [
+    {
+     "stem": "What is this article mostly about?",
+     "options": [
+      "How farmers grow apples in an orchard",
+      "Why food gets wasted and why it matters",
+      "How to build a food store in a town",
+      "Why trucks need fuel to carry goods"
+     ],
+     "answer": "B",
+     "skill": "central-idea",
+     "why": "The article explains that food gets wasted at the farm, the store, and the home, and why that waste matters.",
+     "wrong": {
+      "A": "Apples are only used as an example, not the main topic.",
+      "C": "The article does not explain how to build a store.",
+      "D": "Fuel is mentioned, but it is not the main topic."
+     }
+    },
+    {
+     "stem": "Where does food waste happen, according to the article?",
+     "options": [
+      "Only on farms, nowhere else at all",
+      "Only in stores, nowhere else at all",
+      "Only in kitchens, nowhere else at all",
+      "On farms, in stores, and in kitchens"
+     ],
+     "answer": "D",
+     "skill": "detail",
+     "why": "The article says apples fall on farms, sit unsold in stores, and go bad in kitchens.",
+     "wrong": {
+      "A": "Farms are only one place waste happens.",
+      "B": "Stores are only one place waste happens.",
+      "C": "Kitchens are only one place waste happens."
+     }
+    },
+    {
+     "stem": "What do farmers need to grow food?",
+     "options": [
+      "Water and land",
+      "Paint and glue",
+      "Ice and snow",
+      "Sand and rocks"
+     ],
+     "answer": "A",
+     "skill": "detail",
+     "why": "The article says farmers need water and land to grow food.",
+     "wrong": {
+      "B": "Paint and glue are not mentioned.",
+      "C": "Ice and snow are not needed to grow food in the article.",
+      "D": "Sand and rocks are not what farmers use to grow food."
+     }
+    },
+    {
+     "stem": "The article talks about eating leftover food. What is leftover food?",
+     "options": [
+      "Food that is thrown in the trash",
+      "Food that farmers grow",
+      "Food that is left after a meal",
+      "Food that stores sell"
+     ],
+     "answer": "C",
+     "skill": "vocabulary",
+     "why": "Leftover food is food that remains after a meal, and the article says eating it stops waste.",
+     "wrong": {
+      "A": "Leftover food is meant to be eaten, not thrown away.",
+      "B": "This describes food on the farm, not leftovers.",
+      "D": "This describes food in a store, not leftovers."
+     }
+    },
+    {
+     "stem": "Why might storing fruit properly help stop food waste?",
+     "options": [
+      "It keeps fruit fresh longer so it gets eaten",
+      "It makes fruit taste much sweeter than before",
+      "It makes fruit noticeably heavier than usual",
+      "It changes the natural color of the fruit"
+     ],
+     "answer": "A",
+     "skill": "inference",
+     "why": "The article says storing fruit so it stays fresh helps it get eaten instead of going bad.",
+     "wrong": {
+      "B": "The article does not say storing fruit changes its taste.",
+      "C": "The article does not say storing fruit changes its weight.",
+      "D": "The article does not say storing fruit changes its color."
+     }
+    },
+    {
+     "stem": "A store sells odd-looking fruit at a lower price. Why would a store do this?",
+     "options": [
+      "To make the fruit grow much faster than usual",
+      "To stop people from buying any fruit at all",
+      "To make the fruit taste completely different",
+      "To get rid of fruit instead of wasting it"
+     ],
+     "answer": "D",
+     "skill": "inference",
+     "why": "The article says stores sell odd-looking fruit so it gets used instead of thrown away.",
+     "wrong": {
+      "A": "Selling fruit does not make it grow faster.",
+      "B": "A lower price is meant to help people buy it, not stop them.",
+      "C": "The price does not change how the fruit tastes."
+     }
+    },
+    {
+     "stem": "Why does wasting food also waste water and fuel?",
+     "options": [
+      "Because water and fuel are found inside food",
+      "Because they were used to grow and move it",
+      "Because delivery trucks only ever carry water",
+      "Because farms do not actually need any water"
+     ],
+     "answer": "B",
+     "skill": "cause-effect",
+     "why": "The article says water, land, and fuel were used to grow and carry the food, so wasting food wastes them too.",
+     "wrong": {
+      "A": "Water and fuel are used to make food, not found inside it.",
+      "C": "Trucks carry food, not only water.",
+      "D": "The article says farms do use water."
+     }
+    },
+    {
+     "stem": "Why does the author end the article by talking about the whole planet?",
+     "options": [
+      "To explain in detail how planets actually form",
+      "To describe a completely different country's farms",
+      "To show that wasting less food helps everyone",
+      "To list many more foods that can spoil"
+     ],
+     "answer": "C",
+     "skill": "author-purpose",
+     "why": "The ending connects saving water and land at home to helping the whole planet, showing the bigger benefit.",
+     "wrong": {
+      "A": "The article does not explain how planets form.",
+      "B": "No other country's farms are described.",
+      "D": "The ending does not list more foods."
+     }
+    }
+   ],
+   "prompt": "Do you think your family could waste less food? Explain why, using at least two facts from the article.",
+   "checklist": [
+    "I clearly said what I think.",
+    "I used at least two facts from the article.",
+    "I wrote complete sentences with capital letters and periods."
+   ],
+   "modelAnswer": "Yes, my family could waste less food by only buying what we need and eating our leftovers. The article says that wasting food also wastes the water and fuel that were used to grow and move it, so wasting less food helps save those things too."
+  },
+  "MID": {
+   "keyWords": [
+    {
+     "word": "resource",
+     "partOfSpeech": "noun",
+     "definition": "something useful, like water or land, that people need to make or grow things",
+     "example": "Clean water is an important resource for every city."
+    },
+    {
+     "word": "harvest",
+     "partOfSpeech": "noun",
+     "definition": "the time when crops are gathered from the fields",
+     "example": "Farmers worked long hours during the wheat harvest."
+    },
+    {
+     "word": "discard",
+     "partOfSpeech": "verb",
+     "definition": "to throw something away because it is no longer wanted",
+     "example": "Please do not discard batteries in the regular trash."
+    },
+    {
+     "word": "donate",
+     "partOfSpeech": "verb",
+     "definition": "to give something, such as food or money, to help other people",
+     "example": "Our school decided to donate extra books to a nearby library."
+    },
+    {
+     "word": "surplus",
+     "partOfSpeech": "noun",
+     "definition": "an amount of something that is more than what is needed",
+     "example": "The bakery gave its surplus bread to a local shelter."
+    }
+   ],
+   "questions": [
+    {
+     "stem": "Which sentence best states the central idea of the article?",
+     "options": [
+      "Only stores are responsible for food waste, and families and farms never waste any.",
+      "Food waste happens from farm to table and wastes valuable resources.",
+      "Farmers should stop growing more food than needed, and then waste would end at once.",
+      "Leftover food should always be thrown away, because it is never safe to eat."
+     ],
+     "answer": "B",
+     "skill": "central-idea",
+     "why": "The article explains that waste happens at many stages and wastes the water, land, and fuel used to produce the food.",
+     "wrong": {
+      "A": "The article shows waste happens on farms and in homes too, not only stores.",
+      "C": "The article focuses on reducing waste, not on farmers growing less.",
+      "D": "The article says eating leftovers helps prevent waste."
+     }
+    },
+    {
+     "stem": "About how much of the food grown on Earth is wasted, according to the article?",
+     "options": [
+      "Almost all of it",
+      "Less than one percent",
+      "Close to one-third",
+      "Exactly one-half"
+     ],
+     "answer": "C",
+     "skill": "detail",
+     "why": "The article says researchers estimate close to one-third of all food grown is wasted.",
+     "wrong": {
+      "A": "The article does not say almost all food is wasted.",
+      "B": "One-third is much more than one percent.",
+      "D": "The article says close to one-third, not one-half."
+     }
+    },
+    {
+     "stem": "Which resource do farmers use to irrigate their fields?",
+     "options": [
+      "Water",
+      "Paint",
+      "Glass",
+      "Metal"
+     ],
+     "answer": "A",
+     "skill": "detail",
+     "why": "The article says farmers need water to irrigate their fields.",
+     "wrong": {
+      "B": "Paint is not mentioned as something farmers use.",
+      "C": "Glass is not mentioned as something farmers use.",
+      "D": "Metal is not mentioned as something farmers use."
+     }
+    },
+    {
+     "stem": "In the article, discarded food means food that is _____.",
+     "options": [
+      "eaten quickly",
+      "grown again",
+      "sold for more money",
+      "thrown away"
+     ],
+     "answer": "D",
+     "skill": "vocabulary",
+     "why": "The article uses discarded to describe food that is thrown away after its sell-by date.",
+     "wrong": {
+      "A": "Discarded food is not eaten; it is thrown out.",
+      "B": "Discarded food is not grown again.",
+      "C": "The article does not say discarded food is sold for more."
+     }
+    },
+    {
+     "stem": "Why would a store donate surplus food instead of throwing it away?",
+     "options": [
+      "To help people who need food instead of wasting it",
+      "To make the food spoil faster in the store, so it is gone",
+      "To avoid selling any food at all this week in the shop",
+      "To make room for more customers to walk in the store"
+     ],
+     "answer": "A",
+     "skill": "inference",
+     "why": "The article says stores donate surplus food to people experiencing hunger instead of discarding it.",
+     "wrong": {
+      "B": "Donating food does not make it spoil faster.",
+      "C": "Stores still sell food; donating is only for extra food.",
+      "D": "The article does not connect donating food to customer space."
+     }
+    },
+    {
+     "stem": "A family throws away food that spoiled in their kitchen before they could eat it. What is the most likely reason?",
+     "options": [
+      "They grew the food themselves in a garden at home",
+      "They bought more food than they could use in time",
+      "They donated the food to a store near their house",
+      "They stored the food in a landfill behind the house"
+     ],
+     "answer": "B",
+     "skill": "inference",
+     "why": "The article says food purchased by a household can spoil before it is eaten, often because too much was bought.",
+     "wrong": {
+      "A": "Growing food themselves is not mentioned as a cause of spoiling.",
+      "C": "Families donate to others, not to stores.",
+      "D": "Families store food in kitchens, not landfills."
+     }
+    },
+    {
+     "stem": "Why does wasted food in a landfill add gases to the air?",
+     "options": [
+      "Because trucks burn it",
+      "Because stores add chemicals to it",
+      "Because it rots without air and releases gas",
+      "Because sunlight turns it into gas instantly"
+     ],
+     "answer": "C",
+     "skill": "cause-effect",
+     "why": "The article says wasted food buried in a landfill decomposes and releases gases that trap heat.",
+     "wrong": {
+      "A": "The article does not say trucks burn the food.",
+      "B": "The article does not mention stores adding chemicals.",
+      "D": "The article does not describe sunlight causing instant change."
+     }
+    },
+    {
+     "stem": "How does the author organize the article?",
+     "options": [
+      "By comparing two kinds of farms and the crops each one grows",
+      "By listing the countries with the most farms in the world and their size",
+      "By telling a story about one apple on its long journey to the shop",
+      "By explaining where waste happens, why it matters, and how to reduce it"
+     ],
+     "answer": "D",
+     "skill": "text-structure",
+     "why": "The article moves from where food waste happens, to why it matters, to ways to reduce it.",
+     "wrong": {
+      "A": "The article does not compare two kinds of farms.",
+      "B": "The article does not list countries by number of farms.",
+      "C": "The apple is only a brief example, not the whole structure."
+     }
+    }
+   ],
+   "prompt": "Explain two ways people can reduce food waste and why each way helps. Use at least two details from the article.",
+   "checklist": [
+    "I explained at least two ways to reduce food waste.",
+    "I used details from the article to show why each way helps.",
+    "I used linking words such as first, next, and because."
+   ],
+   "modelAnswer": "First, families can plan their meals and store perishable food correctly, because this keeps fruit, vegetables, and other food fresh long enough to be eaten instead of thrown away. Next, stores can donate surplus food to people who need it instead of discarding it, because that way food does not go to waste just because its sell-by date is near. These steps matter because they both save the water, land, and fuel that were used to grow and transport the food in the first place."
+  },
+  "HIGH": {
+   "keyWords": [
+    {
+     "word": "consumption",
+     "partOfSpeech": "noun",
+     "definition": "the act of using up food, energy, or other resources",
+     "example": "Turning off lights saves energy and lowers electricity consumption."
+    },
+    {
+     "word": "sustainable",
+     "partOfSpeech": "adjective",
+     "definition": "able to continue for a long time without running out or causing serious harm",
+     "example": "Planting a new tree for every one that is cut down is a sustainable practice."
+    },
+    {
+     "word": "mitigate",
+     "partOfSpeech": "verb",
+     "definition": "to make a problem less serious or severe",
+     "example": "Wearing a helmet can mitigate injuries while cycling."
+    },
+    {
+     "word": "perishable",
+     "partOfSpeech": "adjective",
+     "definition": "likely to spoil or decay quickly",
+     "example": "Milk and fish are perishable foods that must be kept cold."
+    },
+    {
+     "word": "landfill",
+     "partOfSpeech": "noun",
+     "definition": "a large area of land where garbage is buried",
+     "example": "The city built a new landfill outside of town for its trash."
+    }
+   ],
+   "questions": [
+    {
+     "stem": "Which statement best expresses the central idea of the article?",
+     "options": [
+      "Farms produce too much food and should grow less of it, so farmers must plant fewer crops.",
+      "Food waste squanders resources used to produce food and harms the environment.",
+      "Only wealthy countries waste food in their homes and stores, and poorer ones waste nothing.",
+      "Stores should never sell discounted food, because it makes people throw away more."
+     ],
+     "answer": "B",
+     "skill": "central-idea",
+     "why": "The article explains that wasted food squanders water, land, and fuel, and contributes to landfill gases.",
+     "wrong": {
+      "A": "The article focuses on reducing waste, not reducing what farms grow.",
+      "C": "The article discusses the problem as global, not limited to wealthy countries.",
+      "D": "The article says discounting food nearing its sell-by date helps reduce waste."
+     }
+    },
+    {
+     "stem": "Roughly what share of food produced on Earth is wasted, according to the article?",
+     "options": [
+      "About one-tenth",
+      "About two-thirds",
+      "Nearly all of it",
+      "About one-third"
+     ],
+     "answer": "D",
+     "skill": "detail",
+     "why": "The article states that researchers estimate close to one-third of food produced is wasted.",
+     "wrong": {
+      "A": "One-tenth is much lower than the article's estimate.",
+      "B": "Two-thirds is higher than the article's estimate.",
+      "C": "The article does not claim nearly all food is wasted."
+     }
+    },
+    {
+     "stem": "Besides water and land, what other resource does the article say is wasted along with uneaten food?",
+     "options": [
+      "Sand",
+      "Glass",
+      "Fuel",
+      "Paint"
+     ],
+     "answer": "C",
+     "skill": "detail",
+     "why": "The article says fuel used to transport food is also wasted when food is wasted.",
+     "wrong": {
+      "A": "Sand is not mentioned as a wasted resource.",
+      "B": "Glass is not mentioned as a wasted resource.",
+      "D": "Paint is not mentioned as a wasted resource."
+     }
+    },
+    {
+     "stem": "\"Households can mitigate food waste.\" What does mitigate mean here?",
+     "options": [
+      "Lessen",
+      "Increase",
+      "Ignore",
+      "Celebrate"
+     ],
+     "answer": "A",
+     "skill": "vocabulary",
+     "why": "Mitigate means to make something less severe, and the article describes ways to lessen food waste.",
+     "wrong": {
+      "B": "Mitigate does not mean to increase a problem.",
+      "C": "Mitigate means addressing a problem, not ignoring it.",
+      "D": "Mitigate has nothing to do with celebrating."
+     }
+    },
+    {
+     "stem": "Why does the article mention that resources used to grow food are \"unevenly distributed\"?",
+     "options": [
+      "To argue that farms should be built only in rich countries",
+      "To explain why some farms are much bigger than others in the same country",
+      "To suggest that food never spoils in dry regions, so nobody there needs to save it",
+      "To show that wasting food can hurt regions where resources are already scarce"
+     ],
+     "answer": "D",
+     "skill": "inference",
+     "why": "Because some regions already have limited water and land, wasting food there has a bigger impact.",
+     "wrong": {
+      "A": "The article does not argue farms should only exist in rich countries.",
+      "B": "Farm size is not discussed.",
+      "C": "The article does not claim food never spoils in dry regions."
+     }
+    },
+    {
+     "stem": "Why might a landfill produce more heat-trapping gas than a farm field would?",
+     "options": [
+      "Because landfills receive more sunlight than fields",
+      "Because buried food decomposes without oxygen there",
+      "Because landfills are colder than farm fields",
+      "Because landfill food is never organic"
+     ],
+     "answer": "B",
+     "skill": "inference",
+     "why": "The article explains that buried food decomposes without oxygen in a landfill, releasing heat-trapping gases.",
+     "wrong": {
+      "A": "Sunlight in a landfill is not discussed.",
+      "C": "Temperature differences are not discussed.",
+      "D": "Landfill food, including spoiled produce, is organic."
+     }
+    },
+    {
+     "stem": "Why do researchers consider the gap between food production and consumption a serious problem?",
+     "options": [
+      "Because it means farmers grow too little food for people",
+      "Because it causes food prices to drop sharply every year",
+      "Because it means resources used to grow food go to waste",
+      "Because it stops trucks from carrying any food to stores"
+     ],
+     "answer": "C",
+     "skill": "cause-effect",
+     "why": "When food produced is not eaten, the resources that went into producing it are wasted too.",
+     "wrong": {
+      "A": "The gap is about food not being eaten, not about too little being grown.",
+      "B": "Food prices are not discussed.",
+      "D": "Trucks still carry food; the gap is about what happens after."
+     }
+    },
+    {
+     "stem": "Why does the author describe ancient methods of preserving food, such as drying and salting?",
+     "options": [
+      "To show that preventing food waste is a long-standing human concern",
+      "To prove that refrigerators are a modern invention made in the last century",
+      "To argue that old food-storage methods were unsafe for the families who used them",
+      "To explain how salt is mined from the ground and sea"
+     ],
+     "answer": "A",
+     "skill": "author-purpose",
+     "why": "The article uses this history to show that people have long worked to prevent food from spoiling and being wasted.",
+     "wrong": {
+      "B": "Refrigerators are mentioned, but not as the article's main point.",
+      "C": "The article does not call these methods unsafe.",
+      "D": "Mining salt is not discussed."
+     }
+    }
+   ],
+   "prompt": "Should schools and stores be required to donate surplus food instead of discarding it? Take a position and support it with evidence from the article.",
+   "checklist": [
+    "I stated a clear position.",
+    "I supported it with at least two pieces of evidence from the article.",
+    "I explained how my evidence supports my position."
+   ],
+   "modelAnswer": "I believe schools and stores should be required to donate surplus food instead of discarding it. One piece of evidence is that producing food uses significant resources, such as water, land, and fuel, and throwing away edible food wastes all of those resources for nothing. Another piece of evidence is that food buried in a landfill decomposes without oxygen and releases gases that trap heat in the atmosphere, so donating surplus food instead of discarding it would reduce this environmental cost while also helping people who are experiencing hunger."
+  }
+ },
+ "stretch": {
+  "LOW": [
+   {
+    "stem": "What do trucks use to bring food to a store?",
+    "options": [
+     "Wind",
+     "Sand",
+     "Fuel",
+     "Snow"
+    ],
+    "answer": "C",
+    "skill": "detail",
+    "why": "The text says trucks use fuel to bring food to a store.",
+    "wrong": {
+     "A": "Wind is not named.",
+     "B": "Sand is not named.",
+     "D": "Snow is not named."
+    }
+   },
+   {
+    "stem": "What can happen when food rots in a dump?",
+    "options": [
+     "It gives off a bad gas",
+     "It turns into fresh fruit",
+     "It grows into a new farm",
+     "It cools the air"
+    ],
+    "answer": "A",
+    "skill": "cause-effect",
+    "why": "The text says rotting food can make a bad gas that traps heat.",
+    "wrong": {
+     "B": "Rotting food does not become fresh.",
+     "C": "A farm is not mentioned in this way.",
+     "D": "The gas traps heat, so it does not cool the air."
+    }
+   },
+   {
+    "stem": "The text says stores can sell fruit that looks odd. What does odd mean here?",
+    "options": [
+     "Very sweet",
+     "Very small",
+     "Strange or unusual",
+     "Rotten inside"
+    ],
+    "answer": "C",
+    "skill": "vocabulary",
+    "why": "Stores can sell fruit that looks odd, which means fruit that looks strange but is still fine to eat.",
+    "wrong": {
+     "A": "Taste is not the point.",
+     "B": "Size is not the point.",
+     "D": "Odd-looking fruit is not described as rotten."
+    }
+   },
+   {
+    "stem": "A family buys much more fruit than it can eat. What will most likely happen?",
+    "options": [
+     "The fruit will grow bigger",
+     "Some fruit may go bad and be wasted",
+     "The fruit will turn into trash cans",
+     "The farm will use less water"
+    ],
+    "answer": "B",
+    "skill": "inference",
+    "why": "The text says food that sits in a kitchen too long goes bad and becomes waste.",
+    "wrong": {
+     "A": "Picked fruit does not grow.",
+     "C": "This makes no sense.",
+     "D": "Wasting food wastes the water used to grow it."
+    }
+   }
+  ],
+  "MID": [
+   {
+    "stem": "Why are some crops left behind after the harvest?",
+    "options": [
+     "They are not safe to eat",
+     "They look odd or are damaged",
+     "They grew in the wrong season",
+     "They are too heavy to lift"
+    ],
+    "answer": "B",
+    "skill": "detail",
+    "why": "The text says some crops look odd or are slightly damaged, even though they are safe to eat.",
+    "wrong": {
+     "A": "The text says they are still safe to eat.",
+     "C": "Seasons are not mentioned.",
+     "D": "Weight is not mentioned."
+    }
+   },
+   {
+    "stem": "In the article, what does the word \"surplus\" mean?",
+    "options": [
+     "Extra, more than is needed",
+     "Dirty, covered in mud",
+     "Empty, with nothing inside",
+     "Late, past its time"
+    ],
+    "answer": "A",
+    "skill": "vocabulary",
+    "why": "Stores donate surplus food to people who need it, which means the extra food they cannot sell.",
+    "wrong": {
+     "B": "Mud is not mentioned.",
+     "C": "Surplus food is not empty.",
+     "D": "Late is not the meaning."
+    }
+   },
+   {
+    "stem": "Why does wasting food also waste water and land?",
+    "options": [
+     "Water is poured on every plate",
+     "Farms used them to grow that food",
+     "Trucks drink the water",
+     "Land is sold with the food"
+    ],
+    "answer": "B",
+    "skill": "cause-effect",
+    "why": "A farm uses water and land to grow food, so wasted food means those resources were wasted too.",
+    "wrong": {
+     "A": "Water is not poured on plates.",
+     "C": "Trucks burn fuel, not water.",
+     "D": "Selling land is not mentioned."
+    }
+   },
+   {
+    "stem": "Why might a store lower the price of food near its sell-by date?",
+    "options": [
+     "To hide the food away",
+     "To help it get sold",
+     "To make it last longer",
+     "To give it to farms"
+    ],
+    "answer": "B",
+    "skill": "inference",
+    "why": "Discounting food helps it sell before it has to be thrown away.",
+    "wrong": {
+     "A": "Lowering the price does not hide food.",
+     "C": "A price does not change how long food lasts.",
+     "D": "Farms are not part of this step."
+    }
+   }
+  ],
+  "HIGH": [
+   {
+    "stem": "Why are some crops left behind after the harvest?",
+    "options": [
+     "They are not safe to eat",
+     "They look odd or are damaged",
+     "They are bought by households",
+     "They are carried far by ships"
+    ],
+    "answer": "B",
+    "skill": "detail",
+    "why": "The text says they look oddly shaped or slightly damaged even though they remain safe to consume.",
+    "wrong": {
+     "A": "The text says they remain safe to consume.",
+     "C": "Households buy food that is not left behind.",
+     "D": "Ships carry food during transport, not crops left behind."
+    }
+   },
+   {
+    "stem": "In the second paragraph, what does the word \"squandered\" mean?",
+    "options": [
+     "Carefully saved",
+     "Wasted foolishly",
+     "Sold for money",
+     "Counted again"
+    ],
+    "answer": "B",
+    "skill": "vocabulary",
+    "why": "When food is wasted, resources are squandered too, so the word means wasted.",
+    "wrong": {
+     "A": "Resources are lost, not saved.",
+     "C": "Selling is not mentioned.",
+     "D": "Counting is not mentioned."
+    }
+   },
+   {
+    "stem": "Why does the author describe a second environmental cost of wasted food?",
+    "options": [
+     "It is a further harm",
+     "It is cheaper than water",
+     "It happens only on farms",
+     "It helps the atmosphere"
+    ],
+    "answer": "A",
+    "skill": "author-purpose",
+    "why": "The first cost is wasted resources; the gas from landfills is a further harm to the environment.",
+    "wrong": {
+     "B": "The word cost means harm here, not money.",
+     "C": "The gas comes from landfills.",
+     "D": "The text says it traps heat in the atmosphere."
+    }
+   },
+   {
+    "stem": "According to the article, what is the result of millions of people making small choices?",
+    "options": [
+     "Savings of water and land",
+     "Fewer farms around the world",
+     "More food spoiling on shelves",
+     "Longer trips for trucks"
+    ],
+    "answer": "A",
+    "skill": "cause-effect",
+    "why": "The text says small choices add up to measurable savings of water, land, and energy.",
+    "wrong": {
+     "B": "Fewer farms is not mentioned.",
+     "C": "Less spoiling is the aim, not more.",
+     "D": "Truck trips are not discussed here."
+    }
+   }
+  ]
+ }
 }

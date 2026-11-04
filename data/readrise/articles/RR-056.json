@@ -614,5 +614,217 @@
       ],
       "modelAnswer": "Calling cave formations 'records written in stone' means that each ring of calcite left behind as water drips preserves a small piece of history, much like rings in a tree. Rainwater absorbs gas and becomes a weak acid that can dissolve limestone, and the dissolved calcite it carries is slowly deposited, layer by layer, to build stalactites and stalagmites. Because caves beneath Saudi Arabia's Summan Plateau contain formations that grew when the region's climate was much wetter, scientists can study these layers to learn exactly how rainfall has changed over time."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "Which stone point grows up from the cave floor?",
+        "options": [
+          "A stalactite",
+          "A stalagmite",
+          "A column",
+          "An icicle"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The text says stalactites hang down, and the ones that grow up from the floor are stalagmites.",
+        "wrong": {
+          "A": "A stalactite hangs down from the roof.",
+          "C": "A column forms when the two meet.",
+          "D": "The stone points only look like icicles."
+        }
+      },
+      {
+        "stem": "What turns rain into a weak acid?",
+        "options": [
+          "Oil from people's hands",
+          "The light of a flashlight",
+          "Hot rocks in the cave",
+          "A gas from the air and dirt"
+        ],
+        "answer": "D",
+        "skill": "cause-effect",
+        "why": "The text says rain picks up a gas from the air and dirt, and the gas makes the rain a weak acid.",
+        "wrong": {
+          "A": "Oil from hands can stop the stone points growing, but it does not make acid.",
+          "B": "The text uses a light only to look at the roof.",
+          "C": "The text does not mention hot rocks."
+        }
+      },
+      {
+        "stem": "The text says that bit by bit, rain eats the rock. What does bit by bit mean?",
+        "options": [
+          "a little at a time",
+          "all at once",
+          "very, very fast",
+          "with a loud noise"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "The text says it takes a long time, so bit by bit means a little at a time.",
+        "wrong": {
+          "B": "It does not happen all at once.",
+          "C": "The text says it takes a long time.",
+          "D": "The text says nothing about noise."
+        }
+      },
+      {
+        "stem": "Why should visitors not touch the stone points?",
+        "options": [
+          "They are much too hot.",
+          "They will fall down and break.",
+          "Hand oil can stop them growing.",
+          "They make the cave bright."
+        ],
+        "answer": "C",
+        "skill": "cause-effect",
+        "why": "The text says oil from your hands can stop them, so they cannot grow.",
+        "wrong": {
+          "A": "The cave is dark and cool.",
+          "B": "The text does not say they fall when touched.",
+          "D": "The cave is dark, and the stone points do not make light."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "Where does rain pick up carbon dioxide?",
+        "options": [
+          "From the beam of a flashlight",
+          "From deep inside the limestone",
+          "From the water in a column",
+          "From the air and the soil"
+        ],
+        "answer": "D",
+        "skill": "detail",
+        "why": "The text says the rain picks up the gas from the air and the soil.",
+        "wrong": {
+          "A": "The flashlight is used only to see the ceiling.",
+          "B": "The gas is picked up before the water sinks into the rock.",
+          "C": "A column is made of stone and does not hold the water."
+        }
+      },
+      {
+        "stem": "Why can touching a formation stop it from growing?",
+        "options": [
+          "It makes the formation too heavy.",
+          "Skin oil can stop its growth.",
+          "The heat from a hand melts it.",
+          "The touch turns it into a column."
+        ],
+        "answer": "B",
+        "skill": "cause-effect",
+        "why": "The text says the natural oil on human skin can stop the formations from growing.",
+        "wrong": {
+          "A": "The text does not say weight is the problem.",
+          "C": "The text does not say that heat melts the stone.",
+          "D": "A column forms only when a stalactite and a stalagmite meet."
+        }
+      },
+      {
+        "stem": "The article says water continues to seep through the ceiling of a cave. What does seep mean?",
+        "options": [
+          "falling very fast",
+          "freezing solid",
+          "leaking in slowly",
+          "shining brightly"
+        ],
+        "answer": "C",
+        "skill": "vocabulary",
+        "why": "Water carries tiny bits of calcite through the ceiling a drop at a time, so seeping means leaking in slowly.",
+        "wrong": {
+          "A": "The drops hang and fall slowly.",
+          "B": "The cave is cool, but the text does not say the water freezes.",
+          "D": "Shining has nothing to do with water."
+        }
+      },
+      {
+        "stem": "The Summan formations grew when Arabia was much wetter. What can you infer about Arabia today?",
+        "options": [
+          "It is drier than it was long ago.",
+          "It has more caves than ever.",
+          "It gets more rain each year.",
+          "Its stalactites grow very fast."
+        ],
+        "answer": "A",
+        "skill": "inference",
+        "why": "The text says Arabia was much wetter when those formations grew, so it must be drier now.",
+        "wrong": {
+          "B": "The text does not say how many caves there are today.",
+          "C": "It was wetter in the past, not today.",
+          "D": "The text says they grow very slowly."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "Where are many of the caves in Saudi Arabia located?",
+        "options": [
+          "Beneath the Red Sea coast",
+          "Under a rainy mountain top",
+          "Beneath the As-Summan Plateau",
+          "Inside the Empty Quarter dunes"
+        ],
+        "answer": "C",
+        "skill": "detail",
+        "why": "The text says many caves lie beneath the dry As-Summan Plateau, northeast of Riyadh.",
+        "wrong": {
+          "A": "The text does not place the caves on the Red Sea coast.",
+          "B": "The caves lie under a dry plateau.",
+          "D": "The Empty Quarter is not mentioned in this article."
+        }
+      },
+      {
+        "stem": "What makes the cracks in limestone widen into tunnels?",
+        "options": [
+          "Weak acid water eats the rock",
+          "Strong wind blows through them",
+          "Heat rising from the floor",
+          "Flashlights shining inside them"
+        ],
+        "answer": "A",
+        "skill": "cause-effect",
+        "why": "The slightly acidic water trickles into cracks and gradually dissolves the limestone, widening them.",
+        "wrong": {
+          "B": "The text does not say wind widens the cracks.",
+          "C": "The text does not say heat does this.",
+          "D": "A flashlight only lights up the ceiling."
+        }
+      },
+      {
+        "stem": "The article warns visitors not to touch the delicate formations. What does delicate mean?",
+        "options": [
+          "growing very quickly",
+          "already broken apart",
+          "covered in deep water",
+          "easily harmed"
+        ],
+        "answer": "D",
+        "skill": "vocabulary",
+        "why": "Even the oils from a touch can stop the formations from growing, so delicate means easily harmed.",
+        "wrong": {
+          "A": "The formations grow very slowly, over centuries.",
+          "B": "The formations are whole, not broken.",
+          "C": "The word is about being easy to harm, not about water."
+        }
+      },
+      {
+        "stem": "Why does the author include the trick about c for ceiling and g for ground?",
+        "options": [
+          "To show that they grow at one speed",
+          "To help readers remember the names",
+          "To explain how calcite is made",
+          "To warn readers not to touch them"
+        ],
+        "answer": "B",
+        "skill": "author-purpose",
+        "why": "The author says many people mix up the two names, so the trick helps readers remember them.",
+        "wrong": {
+          "A": "The trick is not about how fast they grow.",
+          "C": "The trick is about letters, not about calcite.",
+          "D": "The warning about touching comes in the last paragraph."
+        }
+      }
+    ]
   }
 }

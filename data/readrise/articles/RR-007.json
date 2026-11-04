@@ -614,5 +614,217 @@
       ],
       "modelAnswer": "Two adaptations that solve real problems of desert life are the camel's hump and its padded feet. The hump is an adaptation that stores fat instead of water, so the camel's body can conserve energy efficiently and slowly convert that fat into fuel when food becomes scarce during a long journey. Its broad, padded feet spread out with every step, solving the problem of sinking into loose sand by letting the camel walk efficiently across the surface instead. Because these adaptations let domesticated camels travel for days with little food or water, they became essential for carrying trade goods and pilgrims across Arabia, which is why the camel remains such an important part of the region's heritage today."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "What can a camel do to keep sand out of its nose?",
+        "options": [
+          "It can shut its nostrils.",
+          "It can dig a deep hole.",
+          "It can run very fast.",
+          "It can drink a lot."
+        ],
+        "answer": "A",
+        "skill": "detail",
+        "why": "The text says a camel can shut its nostrils.",
+        "wrong": {
+          "B": "Digging a hole is not mentioned.",
+          "C": "Running fast is not said to keep sand out.",
+          "D": "Drinking does not keep sand out of the nose."
+        }
+      },
+      {
+        "stem": "Why can a camel walk for days with just a bit of food?",
+        "options": [
+          "It eats sand along the way.",
+          "It stores fat in its hump.",
+          "It drinks from the hump.",
+          "It sleeps all day long."
+        ],
+        "answer": "B",
+        "skill": "inference",
+        "why": "The hump stores fat as food for a time of need, so the camel can use it when there is no food.",
+        "wrong": {
+          "A": "The text does not say camels eat sand.",
+          "C": "The hump stores fat, not water.",
+          "D": "Sleeping is not mentioned."
+        }
+      },
+      {
+        "stem": "In this article, what does the word goods mean?",
+        "options": [
+          "Good camels",
+          "Things to trade",
+          "Long deserts",
+          "Quick races"
+        ],
+        "answer": "B",
+        "skill": "vocabulary",
+        "why": "Caravans took goods and men far, so goods are things that were carried and traded.",
+        "wrong": {
+          "A": "Goods are not a kind of camel.",
+          "C": "Deserts are the land, not the load.",
+          "D": "Races are a sport today."
+        }
+      },
+      {
+        "stem": "How do people enjoy camels today?",
+        "options": [
+          "They ride them to a big school.",
+          "They paint them red and blue.",
+          "They build big ships from them.",
+          "They drink milk and race them."
+        ],
+        "answer": "D",
+        "skill": "detail",
+        "why": "The last paragraph says we drink camel milk and race camels.",
+        "wrong": {
+          "A": "Riding to school is not mentioned.",
+          "B": "Painting camels is not mentioned.",
+          "C": "Ships are only a nickname for camels."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "What does the thick hair inside a camel's ears do?",
+        "options": [
+          "It keeps the ears warm.",
+          "It helps the camel hear.",
+          "It keeps sand out.",
+          "It stores the fat."
+        ],
+        "answer": "C",
+        "skill": "detail",
+        "why": "The article says thick hair inside its ears helps keep sand out.",
+        "wrong": {
+          "A": "Warmth is not mentioned.",
+          "B": "The text does not say it helps hearing.",
+          "D": "Fat is stored in the hump."
+        }
+      },
+      {
+        "stem": "The article says the idea about water in the hump is a myth. What is a myth?",
+        "options": [
+          "A fact that all scientists know",
+          "An idea that is not true",
+          "A rule from a long time ago",
+          "A kind of camel in Arabia"
+        ],
+        "answer": "B",
+        "skill": "vocabulary",
+        "why": "The article says many people believe the hump is full of water, but that is a myth because the hump stores fat.",
+        "wrong": {
+          "A": "The idea is not a fact.",
+          "C": "The word does not mean a rule.",
+          "D": "A myth is not a type of camel."
+        }
+      },
+      {
+        "stem": "The article says the eyelashes work like a screen. What does this suggest?",
+        "options": [
+          "They keep sand out of the eyes.",
+          "They make the camel look big.",
+          "They let the camel sleep deep.",
+          "They hold a lot of water."
+        ],
+        "answer": "A",
+        "skill": "inference",
+        "why": "A screen blocks things, so the lashes block stinging sand from the camel's eyes.",
+        "wrong": {
+          "B": "Nothing is said about size.",
+          "C": "Sleep is not mentioned there.",
+          "D": "The lashes are for protection, not water."
+        }
+      },
+      {
+        "stem": "What did camel caravans carry across the desert?",
+        "options": [
+          "Fish, rice and fresh fruit",
+          "Spices, cloth and incense",
+          "Sand, stones and old bricks",
+          "Wood, nails and iron tools"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The article says caravans carried trade goods such as spices, cloth and incense.",
+        "wrong": {
+          "A": "Fish and rice are not named.",
+          "C": "Sand and stones are not named.",
+          "D": "Wood and nails are not named."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "The article says camels became indispensable partners. What does indispensable mean?",
+        "options": [
+          "Easy to forget after a day",
+          "Hard to see in the sand",
+          "Too costly for most to buy",
+          "Too important to be without"
+        ],
+        "answer": "D",
+        "skill": "vocabulary",
+        "why": "Camels carried goods and pilgrims across the desert, so people could not do without them.",
+        "wrong": {
+          "A": "The text says camels were valuable, not forgettable.",
+          "B": "Seeing camels was not the problem.",
+          "C": "Cost is not the point of the sentence."
+        }
+      },
+      {
+        "stem": "Where do Bactrian camels live, according to the article?",
+        "options": [
+          "In the cold deserts of Central Asia",
+          "In the hot sands of southern Arabia",
+          "On large farms across North Africa",
+          "On ships that sail on the great sea"
+        ],
+        "answer": "A",
+        "skill": "detail",
+        "why": "The article says Bactrian camels are native to the cold deserts of Central Asia.",
+        "wrong": {
+          "B": "Dromedaries are the camels of Arabia.",
+          "C": "Dromedaries also live in North Africa.",
+          "D": "Ships are only a nickname."
+        }
+      },
+      {
+        "stem": "What can you infer from the fact that camels soon became indispensable in Arabia?",
+        "options": [
+          "People there could not use camels.",
+          "People there needed camels to travel.",
+          "People there kept camels only for fun.",
+          "People there did not live near towns."
+        ],
+        "answer": "B",
+        "skill": "inference",
+        "why": "If camels were indispensable and carried goods between towns, people depended on them for travel and trade.",
+        "wrong": {
+          "A": "The article says they were valuable partners.",
+          "C": "Camels carried goods and pilgrims, not only for fun.",
+          "D": "Caravans connected distant towns and markets."
+        }
+      },
+      {
+        "stem": "How do a camel's wide, cushioned feet stop it from sinking in sand?",
+        "options": [
+          "They stick tightly to the sand.",
+          "They dig deep into the sand.",
+          "They keep the legs very cool.",
+          "They spread out its weight."
+        ],
+        "answer": "D",
+        "skill": "cause-effect",
+        "why": "The article says the feet spread across the ground and distribute the animal's weight, so it walks on top of the sand.",
+        "wrong": {
+          "A": "Sticking to the sand is not mentioned.",
+          "B": "Digging in would make the camel sink.",
+          "C": "Cooling the legs is not mentioned."
+        }
+      }
+    ]
   }
 }

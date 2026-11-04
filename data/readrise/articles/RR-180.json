@@ -614,5 +614,217 @@
       ],
       "modelAnswer": "Drip irrigation and soil sensors work together to conserve water in the desert, since the sensor's data tells a computer exactly when the soil is dry, and the irrigation pipes then drip water straight onto the roots instead of spraying it where it can evaporate in the heat. I believe these smart farming technologies are important for Saudi Arabia's future, because the article shows that hot summers, little rain, and poor sandy soil make growing food difficult, yet methods like hydroponics, which reuses water for roots growing without soil, prove that deserts can still produce millions of dates and greenhouses full of tomatoes and cucumbers."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "The text says roots are the part of the plant in the ground. Where does a drip pipe put the water?",
+        "options": [
+          "On the leaves",
+          "On the roots",
+          "On the sand",
+          "On the fans"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The text says the drip pipe drips water on the roots, the part of the plant in the ground.",
+        "wrong": {
+          "A": "The text says water drips on the roots, not the leaves.",
+          "C": "The text says no water is lost on the sand.",
+          "D": "Fans are used in the greenhouse."
+        }
+      },
+      {
+        "stem": "What do some plants grow in when they do not use soil?",
+        "options": [
+          "Water with plant food in it",
+          "Sand with dry leaves in it",
+          "Shade made by solar panels",
+          "Ice from a sensor"
+        ],
+        "answer": "A",
+        "skill": "detail",
+        "why": "The text says the roots sit in water that has plant food in it.",
+        "wrong": {
+          "B": "The text says the sand is dry and poor for plants.",
+          "C": "Solar panels make power, not a place for roots.",
+          "D": "The text does not mention ice."
+        }
+      },
+      {
+        "stem": "Why does a drip pipe save water?",
+        "options": [
+          "It cools the air with big fans",
+          "It makes the sun hotter on the sand",
+          "It sends a note to the phone",
+          "It puts water on the roots, not the sand"
+        ],
+        "answer": "D",
+        "skill": "cause-effect",
+        "why": "The text says the water drips on the roots, so no water is lost on the sand.",
+        "wrong": {
+          "A": "Fans are used in the greenhouse.",
+          "B": "The text does not say that.",
+          "C": "The sensor sends the note, not the drip pipe."
+        }
+      },
+      {
+        "stem": "Why might a farm in Saudi Arabia grow tomatoes in a greenhouse?",
+        "options": [
+          "Tomatoes need cool places in a hot desert",
+          "Tomatoes like to grow in the open sun",
+          "Tomatoes cannot grow in water",
+          "Tomatoes make power for the fans"
+        ],
+        "answer": "A",
+        "skill": "inference",
+        "why": "A greenhouse has fans and shade that keep plants cool in the hot desert.",
+        "wrong": {
+          "B": "The desert is hot, and the greenhouse keeps plants cool.",
+          "C": "The text says some plants grow in water.",
+          "D": "The solar panels make power, not the tomatoes."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "What do the solar panels power on a smart farm?",
+        "options": [
+          "The pumps, fans, and sensors",
+          "The cattle and the trucks",
+          "The roads and the tall towers",
+          "The clouds and the rainfall"
+        ],
+        "answer": "A",
+        "skill": "detail",
+        "why": "The article says solar panels turn sunlight into power for the pumps, fans, and sensors.",
+        "wrong": {
+          "B": "The article does not mention cattle or trucks.",
+          "C": "The article does not mention roads or towers.",
+          "D": "Solar panels cannot make rain."
+        }
+      },
+      {
+        "stem": "Read this: \"Some crops grow inside a greenhouse.\" What is a greenhouse?",
+        "options": [
+          "A pipe that drips onto roots",
+          "A device that measures soil",
+          "A pad that holds a lot of water",
+          "A building designed for plants"
+        ],
+        "answer": "D",
+        "skill": "vocabulary",
+        "why": "The article says a greenhouse is a building designed for plants.",
+        "wrong": {
+          "A": "That describes drip irrigation.",
+          "B": "That describes a sensor.",
+          "C": "Wet pads help cool the greenhouse; they are not the greenhouse."
+        }
+      },
+      {
+        "stem": "Why is very little water lost with drip irrigation?",
+        "options": [
+          "Water goes exactly where it is needed",
+          "Water is kept inside the sensor",
+          "Water is cooled by shade cloth",
+          "Water is sent through the computer"
+        ],
+        "answer": "A",
+        "skill": "cause-effect",
+        "why": "The article says the water goes right onto the roots, so very little is lost to the sun or sand.",
+        "wrong": {
+          "B": "The sensor only measures the soil.",
+          "C": "The shade cloth cools greenhouse air.",
+          "D": "The computer turns the water on and off; the water does not flow through it."
+        }
+      },
+      {
+        "stem": "In hydroponics, the water is used again and again. Why is this helpful in the desert?",
+        "options": [
+          "It makes the plants grow in the sun",
+          "It saves water in a dry place",
+          "It helps the roots find the soil",
+          "It keeps the greenhouse from heating up"
+        ],
+        "answer": "B",
+        "skill": "inference",
+        "why": "The desert has little rain, so using the same water again and again saves water.",
+        "wrong": {
+          "A": "The article says the plants grow without soil, not that sun is the reason.",
+          "C": "Hydroponic plants grow without soil.",
+          "D": "Fans and wet pads cool the greenhouse."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "What do solar panels convert into electricity, according to the article?",
+        "options": [
+          "Wind blowing across the sand",
+          "Heat from the damp pads",
+          "Abundant desert sunlight",
+          "Water from the sensors"
+        ],
+        "answer": "C",
+        "skill": "detail",
+        "why": "The article says solar panels convert abundant desert sunlight into electricity.",
+        "wrong": {
+          "A": "The article does not mention wind.",
+          "B": "The pads cool the air; they do not make electricity.",
+          "D": "Sensors measure moisture and do not supply water."
+        }
+      },
+      {
+        "stem": "In the text, what does the word enriched mean?",
+        "options": [
+          "Made poorer by taking things out",
+          "Made cooler by adding shade",
+          "Made richer by adding something",
+          "Made dirtier by adding sand"
+        ],
+        "answer": "C",
+        "skill": "vocabulary",
+        "why": "The water has nutrients added, so enriched means made richer by adding something.",
+        "wrong": {
+          "A": "Nutrients are added, not taken out.",
+          "B": "The sentence is about nutrients, not temperature.",
+          "D": "The nutrients help plants; they are not dirt."
+        }
+      },
+      {
+        "stem": "According to the article, why is sandy desert soil a problem for plants?",
+        "options": [
+          "It holds too much rainwater",
+          "It contains very few nutrients",
+          "It is too cold at night",
+          "It blocks the sun from the roots"
+        ],
+        "answer": "B",
+        "skill": "cause-effect",
+        "why": "The article says the sandy soil contains very few of the nutrients that plants require to grow.",
+        "wrong": {
+          "A": "The article says rainfall is rare.",
+          "C": "The article talks about extreme summer heat.",
+          "D": "The article does not say that the soil blocks the sun."
+        }
+      },
+      {
+        "stem": "Why does the author begin by raising the problem of growing fresh food in a desert?",
+        "options": [
+          "To introduce the problem that smart farms solve",
+          "To prove that deserts are always bad for farms",
+          "To list the types of fruit grown in Saudi Arabia",
+          "To explain how solar panels power the farm pumps"
+        ],
+        "answer": "A",
+        "skill": "author-purpose",
+        "why": "The question introduces the problem, and the rest of the article shows how smart farms meet it.",
+        "wrong": {
+          "B": "The article shows ways that desert farming can succeed.",
+          "C": "Crops are mentioned at the end, not in the opening.",
+          "D": "Solar panels come later in the article."
+        }
+      }
+    ]
   }
 }

@@ -614,5 +614,217 @@
       ],
       "modelAnswer": "Both a change in technology and a change in the economy ended the pearling era. In Japan, people discovered how to grow cultured pearls, and because the irritant that forms the pearl's layers of nacre could now be placed inside oysters on farms, these cheaper pearls flooded the market and lowered prices for natural pearls. At the same time, the economy changed when oil was discovered in Saudi Arabia in 1938, giving men a new livelihood in the oil industry instead of risking their lives diving. Even though the industry declined, people still value this heritage today because it represents the courage and skill of the divers who once depended on the sea."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "How long did one dive take?",
+        "options": [
+          "About one whole hour",
+          "Almost a whole day",
+          "One or two minutes",
+          "Close to ten minutes"
+        ],
+        "answer": "C",
+        "skill": "detail",
+        "why": "The text says a dive took a minute or two.",
+        "wrong": {
+          "A": "A diver took one breath, so a dive could not last an hour.",
+          "B": "A dive was only a minute or two.",
+          "D": "A dive was only a minute or two."
+        }
+      },
+      {
+        "stem": "The text says one pearl could be worth a lot. What does worth a lot mean?",
+        "options": [
+          "sold for much money",
+          "very small in size",
+          "very hot to touch",
+          "very loud to hear"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "A good pearl could be sold for a lot of money, so worth a lot means it had a high price.",
+        "wrong": {
+          "B": "The words are about price, not size.",
+          "C": "The words are not about heat.",
+          "D": "The words are not about sound."
+        }
+      },
+      {
+        "stem": "Why did each man dive a lot?",
+        "options": [
+          "The sea was very cold",
+          "The boat was very small",
+          "The rope was too long",
+          "Few oysters had a pearl"
+        ],
+        "answer": "D",
+        "skill": "inference",
+        "why": "Most oysters had no pearl, so a man had to dive many times to find one.",
+        "wrong": {
+          "A": "The sea was warm in summer.",
+          "B": "The text does not say the boat was small.",
+          "C": "The text does not say the rope was too long."
+        }
+      },
+      {
+        "stem": "Why does the author end by saying people still remember the divers?",
+        "options": [
+          "To say the divers will return",
+          "To show we still remember them",
+          "To tell how pearls are found",
+          "To say the oil is gone"
+        ],
+        "answer": "B",
+        "skill": "author-purpose",
+        "why": "Telling tales today shows that people still remember the divers.",
+        "wrong": {
+          "A": "The men went to work in oil, so the sentence is not about returning.",
+          "C": "The sentence is about tales, not how pearls are found.",
+          "D": "The text does not say the oil is gone."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "What was the heavy stone tied to a rope used for?",
+        "options": [
+          "To catch the oysters",
+          "To pull him down fast",
+          "To hold the dhow still",
+          "To open the shells"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The text says a heavy stone tied to a rope pulled the diver down quickly.",
+        "wrong": {
+          "A": "The diver filled a basket with oysters.",
+          "C": "The stone was tied to the diver's rope.",
+          "D": "The crew opened the oysters the next morning."
+        }
+      },
+      {
+        "stem": "Why did the dhows sail out in summer?",
+        "options": [
+          "The water was warm",
+          "The oysters were asleep",
+          "Oil was found then",
+          "Pearls were cheaper then"
+        ],
+        "answer": "A",
+        "skill": "cause-effect",
+        "why": "The text says the boats sailed out every summer when the water was warm.",
+        "wrong": {
+          "B": "The text does not say this.",
+          "C": "Oil was found in 1938, much later.",
+          "D": "Pearl prices are not the reason."
+        }
+      },
+      {
+        "stem": "The article says a puller \"hauled\" the diver up. What does hauled mean?",
+        "options": [
+          "pushed far away",
+          "let go quickly",
+          "kept very still",
+          "pulled up hard"
+        ],
+        "answer": "D",
+        "skill": "vocabulary",
+        "why": "The diver tugged the rope and the puller pulled him up from the sea.",
+        "wrong": {
+          "A": "The puller brought him to the dhow, not away.",
+          "B": "The puller held the rope.",
+          "C": "The diver was being moved up."
+        }
+      },
+      {
+        "stem": "One perfect pearl could be worth a fortune. What does this suggest about the divers?",
+        "options": [
+          "They liked being on the dhow",
+          "They wanted to learn to farm pearls",
+          "They hoped to find a valuable pearl",
+          "They needed to find oil"
+        ],
+        "answer": "C",
+        "skill": "inference",
+        "why": "Since a perfect pearl could be worth a fortune, divers kept diving in the hope of finding one.",
+        "wrong": {
+          "A": "The text does not say they liked the dhow.",
+          "B": "Pearl farming started in Japan, much later.",
+          "D": "Oil was found in 1938, after pearl diving began to decline."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "What did the singer do on a pearling dhow?",
+        "options": [
+          "Counted all of the oysters",
+          "Steered the dhow to land",
+          "Warned divers about storms",
+          "Set the pace with songs"
+        ],
+        "answer": "D",
+        "skill": "detail",
+        "why": "The text says the singer's traditional songs set the rhythm of the work.",
+        "wrong": {
+          "A": "The text does not say he counted oysters.",
+          "B": "The captain is named separately.",
+          "C": "The text does not say this."
+        }
+      },
+      {
+        "stem": "In the fifth paragraph, the word \"flawless\" means",
+        "options": [
+          "quite small and dull",
+          "large and very old",
+          "perfect and clean",
+          "covered in shell"
+        ],
+        "answer": "C",
+        "skill": "vocabulary",
+        "why": "Only a pearl with no faults, a perfect one, could be worth a fortune.",
+        "wrong": {
+          "A": "A dull pearl would not be worth a fortune.",
+          "B": "Age is not what the word means.",
+          "D": "Flawless describes the pearl, not a shell."
+        }
+      },
+      {
+        "stem": "Why did oil work attract men away from the sea?",
+        "options": [
+          "It gave steadier work",
+          "It was done on a dhow",
+          "It needed fewer men",
+          "It was found in Japan"
+        ],
+        "answer": "A",
+        "skill": "cause-effect",
+        "why": "The article says oil offered steadier employment than diving.",
+        "wrong": {
+          "B": "Oil work was not done on a dhow.",
+          "C": "The text says nothing about fewer men.",
+          "D": "Oil was found in Saudi Arabia."
+        }
+      },
+      {
+        "stem": "The article calls the divers' work an exhausting routine. What does this suggest?",
+        "options": [
+          "It took very little effort",
+          "It demanded great effort",
+          "It was done once a week",
+          "It was done only at night"
+        ],
+        "answer": "B",
+        "skill": "inference",
+        "why": "Divers repeated the dive dozens of times a day, so the work demanded great effort.",
+        "wrong": {
+          "A": "Exhausting means very tiring.",
+          "C": "Divers repeated it dozens of times a day.",
+          "D": "The text does not say it was at night."
+        }
+      }
+    ]
   }
 }

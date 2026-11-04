@@ -10,6 +10,9 @@
  *   startReadRiseLibraryLoad(...)   for pages: starts that check in the BACKGROUND and returns at once — a page never
  *                                   waits for a load (the page shows the articles that are already there).
  *   readRiseLibraryStatus(...)      what the admin page shows: loading?, how many new articles, files that failed.
+ *   syncStretchChunk(...)           ⬆ round 5: adds the STRETCH question sets ("stretch" key of the files) that are
+ *                                   missing for articles already in the database — one short chunk of files per
+ *                                   call (the admin "Load stretch questions" button loops), resumable, idempotent.
  *
  * Never called by the demo / test school seed.
  */
@@ -17,7 +20,7 @@ import { closeSync, existsSync, openSync, readdirSync, readFileSync, readSync } 
 import { join } from "node:path";
 import type { Repo } from "../seeding/repo";
 import { log } from "../monitoring/log";
-import { importArticleJson } from "./import";
+import { BANDS, STRETCH_BAND, importArticleJson, parseStretchSets, questionRow } from "./import";
 import { estimateLevel } from "./level";
 
 export interface LibrarySeedReport { files: number; created: number; updated: number; skipped: { file: string; problems: string[] }[] }
@@ -186,4 +189,69 @@ export async function cacheMeasuredLevels(repo: Repo, pageSize = 200): Promise<n
     done += rows.length;
     if (rows.length < pageSize) return done;
   }
+}
+
+// ------------------------------------------------------------------ ⬆ round 5: stretch question sets
+
+export interface StretchSyncChunk {
+  /** the file index to continue from (null = finished) */
+  next: number | null;
+  /** article files in the folder */
+  total: number;
+  /** files looked at in this chunk */
+  scanned: number;
+  /** stretch questions added in this chunk */
+  added: number;
+  /** articles that got at least one new stretch question in this chunk */
+  articles: number;
+  /** files whose stretch sets could not be used (with why) */
+  problems: { file: string; problems: string[] }[];
+}
+export const STRETCH_SYNC_CHUNK = 20;
+
+/**
+ * Adds the stretch questions (RRQuestion band "S-L" / "S-M" / "S-H") of the article files [start, start + size) that
+ * the platform library (schoolId null) does not have yet. Existing rows are never changed (idempotent: a second run
+ * adds nothing); an article not in the database yet is skipped (the library load imports it with its sets). Small
+ * reads only: the chunk's files, one question read and at most one insert per article.
+ */
+export async function syncStretchChunk(repo: Repo, root: string = process.cwd(), start = 0, size = STRETCH_SYNC_CHUNK): Promise<StretchSyncChunk> {
+  const dir = articleDir(root);
+  const files = articleFiles(dir);
+  const from = Math.max(0, Math.floor(Number(start) || 0)), part = files.slice(from, from + Math.max(1, Math.min(100, size)));
+  const out: StretchSyncChunk = { next: from + part.length < files.length ? from + part.length : null, total: files.length, scanned: part.length, added: 0, articles: 0, problems: [] };
+  for (const f of part) {
+    let json: Record<string, unknown>;
+    try { json = JSON.parse(readFileSync(join(dir, f), "utf8")) as Record<string, unknown>; }
+    catch (e) { out.problems.push({ file: f, problems: [`not valid JSON: ${(e as Error).message}`] }); continue; }
+    if (!json || json.stretch === undefined || json.stretch === null) continue;
+    const errs: string[] = [];
+    const bad = new Set<string>(); // the stretch bands ("S-L" …) with any error: never inserted
+    const sets = parseStretchSets(json.stretch, (where, m) => {
+      errs.push(`${where}: ${m}`);
+      const band = /^(?:q|band):(S-[LMH])\b/.exec(where)?.[1];
+      if (band) bad.add(band); else for (const b of Object.values(STRETCH_BAND)) bad.add(b); // a malformed stretch key
+    }, () => undefined);
+    if (errs.length) out.problems.push({ file: f, problems: errs.slice(0, 5) });
+    if (sets) for (const b of BANDS) if (bad.has(STRETCH_BAND[b])) delete sets[b];
+    if (!sets || !Object.keys(sets).length) continue;
+    const code = String(json.code ?? "").trim();
+    if (!code) continue;
+    const art = (await repo.findMany("RRArticle", { schoolId: null, code, deletedAt: null }, { select: ["id"], take: 1 }))[0];
+    if (!art) continue;
+    const id = String(art.id);
+    const have = new Set((await repo.findMany("RRQuestion", { articleId: id, band: { in: Object.values(STRETCH_BAND) } }, { select: ["band", "number"] })).map((q) => `${q.band}|${Number(q.number)}`));
+    const rows = BANDS.flatMap((b) => (sets[b] ?? []).map((q, i) => questionRow(id, STRETCH_BAND[b], i + 1, q))).filter((r) => !have.has(`${r.band}|${r.number}`));
+    if (!rows.length) continue;
+    await repo.createMany("RRQuestion", rows);
+    out.added += rows.length; out.articles++;
+  }
+  return out;
+}
+
+/** How many stretch questions the library holds per stretch band (the admin page). */
+export async function stretchQuestionCounts(repo: Repo): Promise<Record<string, number>> {
+  const out: Record<string, number> = {};
+  await Promise.all(Object.values(STRETCH_BAND).map(async (b) => { out[b] = await repo.count("RRQuestion", { band: b }); }));
+  return out;
 }

@@ -614,5 +614,217 @@
       ],
       "modelAnswer": "Craftsmanship cannot be rushed or faked because it depends on slow, careful skill built over many years. An apprentice spends years working beside an older silversmith before mastering techniques like filigree and engraving, and each region's heritage shapes its own distinct patterns that take real practice to reproduce. A quick, mass-produced copy cannot capture the patient skill and regional heritage behind an authentic, handmade piece."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "What does the craftsman twist to make shapes?",
+        "options": [
+          "Thin rope",
+          "Wire",
+          "Glass",
+          "Cloth"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The text says he twists wire and makes shapes, and some look like flowers.",
+        "wrong": {
+          "A": "Rope is not named in the text.",
+          "C": "Glass is not named in the text.",
+          "D": "Cloth is not named in the text."
+        }
+      },
+      {
+        "stem": "The text says each place has its style. What does style mean here?",
+        "options": [
+          "A price to pay",
+          "A kind of silver",
+          "A place to sit",
+          "A way it looks"
+        ],
+        "answer": "D",
+        "skill": "vocabulary",
+        "why": "The text says a necklace looks new in each place and folks can tell, so style means the way it looks.",
+        "wrong": {
+          "A": "Price is not about how a necklace looks.",
+          "B": "Silver is the metal, and style is not a kind of silver.",
+          "C": "A place to sit has nothing to do with the necklace."
+        }
+      },
+      {
+        "stem": "A grandmother gave her jewelry to her daughter. What does this tell you?",
+        "options": [
+          "Jewelry was sold each year",
+          "Jewelry was passed down in families",
+          "Jewelry was made by young girls",
+          "Jewelry was always made of gold"
+        ],
+        "answer": "B",
+        "skill": "inference",
+        "why": "The text says a mother gave jewelry to her girl, who later gave it to her own girl, so it was passed down.",
+        "wrong": {
+          "A": "The jewelry was kept and given, not sold.",
+          "C": "A craftsman made the jewelry.",
+          "D": "The text says most was silver, because gold cost a lot."
+        }
+      },
+      {
+        "stem": "How can folks tell where a necklace comes from?",
+        "options": [
+          "By how heavy the necklace is",
+          "By the day that it was made",
+          "By its style from that place",
+          "By who is wearing the necklace"
+        ],
+        "answer": "C",
+        "skill": "cause-effect",
+        "why": "The text says each place has its style, and folks can tell from a necklace that looks new.",
+        "wrong": {
+          "A": "The text does not mention weight.",
+          "B": "The text does not mention the day it was made.",
+          "D": "The text does not say who wears it tells the place."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "The article calls a person who makes silver jewelry a \"silversmith.\" What is a silversmith?",
+        "options": [
+          "A craftsman who makes silver jewelry",
+          "A person who sells gold at markets",
+          "A family member who gets the jewelry",
+          "A teacher in a museum"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "The article says a craftsman who makes silver jewelry is a silversmith.",
+        "wrong": {
+          "B": "The article does not say silversmiths sell gold.",
+          "C": "The family receives the jewelry, but the silversmith makes it.",
+          "D": "Museums only display the pieces."
+        }
+      },
+      {
+        "stem": "Why did people choose silver instead of gold?",
+        "options": [
+          "Silver was much heavier than gold was",
+          "Silver was brought in from far away",
+          "Silver was only ever worn late at night",
+          "Silver cost less and still looked nice"
+        ],
+        "answer": "D",
+        "skill": "cause-effect",
+        "why": "The article says gold cost a lot, while silver cost less and still looked nice and lasted.",
+        "wrong": {
+          "A": "The article does not compare weight.",
+          "B": "The article does not say where silver came from.",
+          "C": "The article does not say it was only worn at night."
+        }
+      },
+      {
+        "stem": "When did women long ago wear silver necklaces and bracelets?",
+        "options": [
+          "Only when they went to markets",
+          "Mostly at weddings and happy days",
+          "Only during the long summer",
+          "Every day while working at home"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The article says women wore them mostly at weddings and happy days.",
+        "wrong": {
+          "A": "Markets are not mentioned as an occasion.",
+          "C": "The article does not name a season.",
+          "D": "The article says they wore it mostly for special days."
+        }
+      },
+      {
+        "stem": "What can you infer from jewelry passing from grandmother to daughter to granddaughter?",
+        "options": [
+          "Jewelry was thrown away every year",
+          "Each family made new silver each year",
+          "It linked each generation of the family",
+          "Only the oldest daughter got jewelry"
+        ],
+        "answer": "C",
+        "skill": "inference",
+        "why": "The jewelry stayed in the family for many years, so it linked each generation to the one before.",
+        "wrong": {
+          "A": "The jewelry was kept and passed down.",
+          "B": "The article says old pieces were passed down.",
+          "D": "The article says a grandmother gave it to her daughter, not only the oldest."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "According to the article, how many generations might wear a single necklace?",
+        "options": [
+          "Only one",
+          "About ten",
+          "Three or four",
+          "More than twenty"
+        ],
+        "answer": "C",
+        "skill": "detail",
+        "why": "The article says a single necklace might be worn by three or four generations.",
+        "wrong": {
+          "A": "The article says it was passed on, so more than one.",
+          "B": "Ten is not mentioned.",
+          "D": "More than twenty is not mentioned."
+        }
+      },
+      {
+        "stem": "Why was gold less common among most families?",
+        "options": [
+          "It was costly and hard to afford",
+          "It lost its shine too quickly",
+          "It was only found in museums",
+          "It was too heavy to wear"
+        ],
+        "answer": "A",
+        "skill": "cause-effect",
+        "why": "The article says gold was costly and hard for most families to afford.",
+        "wrong": {
+          "B": "The article says silver lasted without losing its shine, not that gold lost its.",
+          "C": "The article does not say gold was only found in museums.",
+          "D": "The article says pieces were often heavy, but does not blame that on gold."
+        }
+      },
+      {
+        "stem": "The article says silver still looked elegant. What does elegant mean?",
+        "options": [
+          "Very dull and gray",
+          "Hard to find in shops",
+          "Heavy and hard to wear",
+          "Graceful and stylish"
+        ],
+        "answer": "D",
+        "skill": "vocabulary",
+        "why": "The article gives elegant as a good quality of silver, so it means graceful and stylish.",
+        "wrong": {
+          "A": "The article praises silver, so it is not dull.",
+          "B": "The article says silver was easier to find.",
+          "C": "Heavy is a different description from elegant."
+        }
+      },
+      {
+        "stem": "According to the article, what shaped the style of each region's jewelry?",
+        "options": [
+          "The rules set by the museums",
+          "Local taste, materials, and trade routes",
+          "The price of gold in each year",
+          "The wishes of the modern jewelry stores"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The article says each region's style was shaped by local taste, materials, and old trade routes.",
+        "wrong": {
+          "A": "Museums display pieces but do not shape the style.",
+          "C": "The article does not link the price of gold to regional style.",
+          "D": "The article says this long happened before modern stores existed."
+        }
+      }
+    ]
   }
 }

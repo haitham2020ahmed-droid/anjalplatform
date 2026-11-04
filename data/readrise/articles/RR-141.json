@@ -614,5 +614,217 @@
       ],
       "modelAnswer": "A pioneer is someone who dares to try something completely new, even when others doubt it will work. Zaha Hadid was a pioneer because of both her persistence and her unconventional ideas. She kept designing bold, curving buildings for years even though few of her early plans were ever built and critics said her fluid designs were too strange, yet she refused to give up until her fire station in Germany was finally completed in 1993. Her innovative use of geometry, with walls that bend like waves and roofs that sweep like dunes, changed what architecture could look like, and becoming the first woman to win the Pritzker Prize cemented her legacy as one of the most influential architects in history."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "Where did Zaha go to school to learn how to plan a building?",
+        "options": [
+          "Baku",
+          "London",
+          "Riyadh",
+          "Baghdad"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The text says she went to school in London and learned how to plan a building.",
+        "wrong": {
+          "A": "Baku is where she made a big hall.",
+          "C": "Riyadh is where her team made a glass-like place.",
+          "D": "Baghdad is where she was born."
+        }
+      },
+      {
+        "stem": "The text says Zaha kept on making new plans. What does this tell you about Zaha?",
+        "options": [
+          "She liked to stop early",
+          "She wanted flat walls",
+          "She kept trying",
+          "She was afraid of London"
+        ],
+        "answer": "C",
+        "skill": "inference",
+        "why": "Even when people said her plans were too hard, she kept at it.",
+        "wrong": {
+          "A": "She kept working, so she did not stop early.",
+          "B": "She liked curves, not flat walls.",
+          "D": "The text does not say she was afraid."
+        }
+      },
+      {
+        "stem": "The article says her roofs swept like sand on a dune. What is a dune?",
+        "options": [
+          "a hill of sand",
+          "a pool of water",
+          "a tall stone wall",
+          "a bright glass gem"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "The text compares the roofs to sand on a dune, so a dune is a hill of sand.",
+        "wrong": {
+          "B": "A pool is where people swim, not sand.",
+          "C": "A dune is made of sand, not a wall.",
+          "D": "Glass gems are the Riyadh place, not a dune."
+        }
+      },
+      {
+        "stem": "What does the place that her team made in Riyadh look like?",
+        "options": [
+          "Like a white wave",
+          "Like a flat square wall",
+          "Like a pool with a roof",
+          "Like a pile of glass gems"
+        ],
+        "answer": "D",
+        "skill": "detail",
+        "why": "The text says the Riyadh place looks like a pile of glass gems.",
+        "wrong": {
+          "A": "The white wave is the big hall in Baku.",
+          "B": "Zaha did not like flat walls.",
+          "C": "The pool with a roof is in London."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "Where did Zaha open her own company in 1980?",
+        "options": [
+          "Beirut",
+          "Baku",
+          "London",
+          "Riyadh"
+        ],
+        "answer": "C",
+        "skill": "detail",
+        "why": "The text says she moved to London and opened her own company there in 1980.",
+        "wrong": {
+          "A": "She studied math in Beirut.",
+          "B": "Baku is where her cultural center stands.",
+          "D": "Riyadh is where her team built a research center."
+        }
+      },
+      {
+        "stem": "The article says Zaha's designs were \"innovative.\" What does innovative mean?",
+        "options": [
+          "new and different",
+          "old and plain",
+          "small and cheap",
+          "square and flat"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "Her buildings looked like nothing people had seen before, so they were new and different.",
+        "wrong": {
+          "B": "Her buildings were not plain.",
+          "C": "The text does not say they were cheap.",
+          "D": "She wanted curves instead of flat walls."
+        }
+      },
+      {
+        "stem": "Why could Zaha's buildings seem to move?",
+        "options": [
+          "They stood on wheels",
+          "They had no walls",
+          "They were built on water",
+          "Curved walls and roofs"
+        ],
+        "answer": "D",
+        "skill": "cause-effect",
+        "why": "Walls bend like waves and roofs sweep like dunes, which makes a building seem to move.",
+        "wrong": {
+          "A": "The buildings stood still.",
+          "B": "Her buildings had walls that bend.",
+          "C": "The text does not say they were built on water."
+        }
+      },
+      {
+        "stem": "Which of these happened first?",
+        "options": [
+          "She won the Pritzker Prize",
+          "She opened her own company",
+          "Her fire station was finished",
+          "Her Olympic pool was designed"
+        ],
+        "answer": "B",
+        "skill": "sequence",
+        "why": "She opened her company in 1980, before the other events in the text.",
+        "wrong": {
+          "A": "She won the Pritzker Prize in 2004.",
+          "C": "The fire station was finished in 1993.",
+          "D": "The Olympic pool was for the 2012 Games."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "In Riyadh, what do the connected rooms of the energy research center resemble?",
+        "options": [
+          "Folded sheets of paper",
+          "Waves in a pool",
+          "Sand dunes in the wind",
+          "Crystals in the desert"
+        ],
+        "answer": "D",
+        "skill": "detail",
+        "why": "The text says the rooms resemble crystals emerging from the desert.",
+        "wrong": {
+          "A": "The folded sheet describes the center in Baku.",
+          "B": "The wave is the roof of the Olympic aquatics center.",
+          "C": "Dunes are used to describe roofs in general."
+        }
+      },
+      {
+        "stem": "In the third paragraph, the word \"unconventional\" means",
+        "options": [
+          "copied from the past",
+          "cheap and quick to make",
+          "unlike what is usual",
+          "easy for anyone to copy"
+        ],
+        "answer": "C",
+        "skill": "vocabulary",
+        "why": "Most buildings use flat walls, and she imagined something different, so her designs were unlike what is usual.",
+        "wrong": {
+          "A": "Her designs were new, not copied.",
+          "B": "Complicated shapes were not quick to make.",
+          "D": "Her shapes were complicated, so they were not easy to copy."
+        }
+      },
+      {
+        "stem": "Why does the author name a museum in Rome and a school in London?",
+        "options": [
+          "To show her range of work",
+          "To say she lived in Rome",
+          "To teach about old museums",
+          "To compare two schools"
+        ],
+        "answer": "A",
+        "skill": "author-purpose",
+        "why": "The two buildings are very different, and each won a prize, which shows the range of her work.",
+        "wrong": {
+          "B": "The text does not say she lived in Rome.",
+          "C": "The buildings are modern and named for her prizes.",
+          "D": "Only one of them is a school."
+        }
+      },
+      {
+        "stem": "Why is Zaha remembered as a pioneer?",
+        "options": [
+          "She built the first fire station",
+          "She changed how buildings could look",
+          "She was born in Baghdad",
+          "She lived in Rome"
+        ],
+        "answer": "B",
+        "skill": "cause-effect",
+        "why": "The article calls her a pioneer who changed what buildings could look like.",
+        "wrong": {
+          "A": "Her fire station was her first major building, not the first ever.",
+          "C": "Where she was born does not make her a pioneer.",
+          "D": "The text does not say she lived in Rome."
+        }
+      }
+    ]
   }
 }

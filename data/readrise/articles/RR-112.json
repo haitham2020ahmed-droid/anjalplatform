@@ -614,5 +614,217 @@
       ],
       "modelAnswer": "Bats deserve far more protection than people usually give them. First, many species of bats are incredibly helpful predators that eat hundreds of insects in a single night, including pests that would otherwise damage farmers' crops. Second, bats use ultrasonic sound at a frequency to navigate and hunt in complete darkness through echolocation, an ability so remarkable that humans copied it to invent sonar for finding objects underwater. Third, some bats pollinate flowers and scatter seeds that grow into new trees, which means they quietly help forests and farms regrow. Bats are not the frightening creatures of scary stories; they are intelligent, essential animals that deserve our protection, not our fear."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "What are a bat's wings made of?",
+        "options": [
+          "Soft fur and feathers",
+          "Hard shells on bones",
+          "Thick wool on bones",
+          "Thin skin on long bones"
+        ],
+        "answer": "D",
+        "skill": "detail",
+        "why": "The text says a bat's wings are thin skin on long bones.",
+        "wrong": {
+          "A": "Bats have fur on the body, but the wings are not feathers.",
+          "B": "The wings are thin skin, not shells.",
+          "C": "The wings are thin skin, not wool."
+        }
+      },
+      {
+        "stem": "Why do new trees grow because of fruit bats?",
+        "options": [
+          "They drink the water from the caves.",
+          "They drop seeds when they fly.",
+          "They eat the bugs on the leaves.",
+          "They hide the fruit in old homes."
+        ],
+        "answer": "B",
+        "skill": "cause-effect",
+        "why": "The text says fruit bats drop seeds, and then new trees grow.",
+        "wrong": {
+          "A": "Water from caves is not mentioned.",
+          "C": "Bugs are eaten by small bats, not for growing trees.",
+          "D": "The text does not say that bats hide fruit."
+        }
+      },
+      {
+        "stem": "Bats hide in caves in the day and fly out at night. What can you tell?",
+        "options": [
+          "Bats are active at night.",
+          "Bats are afraid of fruit.",
+          "Bats cannot see at all.",
+          "Bats live only in old homes."
+        ],
+        "answer": "A",
+        "skill": "inference",
+        "why": "The text says bats hide in the day and fly out when it is night to eat, so they are active at night.",
+        "wrong": {
+          "B": "The text says some bats eat fruit.",
+          "C": "The text says all bats can see.",
+          "D": "The text says they hide in caves and old homes."
+        }
+      },
+      {
+        "stem": "The text says bats are not blind. What does blind mean?",
+        "options": [
+          "Not able to fly",
+          "Not able to hear",
+          "Not able to see",
+          "Not able to sleep"
+        ],
+        "answer": "C",
+        "skill": "vocabulary",
+        "why": "The text says bats are not blind because all bats can see, so blind means not able to see.",
+        "wrong": {
+          "A": "Bats can fly; blind is about seeing.",
+          "B": "Hearing is a different sense.",
+          "D": "Sleep is not what blind means."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "What do many large fruit bats use most to find their food?",
+        "options": [
+          "Their eyes and sense of smell",
+          "Their echoes and long finger bones",
+          "Their fur and loud calls",
+          "Their wings and sense of touch"
+        ],
+        "answer": "A",
+        "skill": "detail",
+        "why": "The text says many large fruit bats find food mostly with their eyes and their sense of smell.",
+        "wrong": {
+          "B": "Echolocation is used by many other bats to find prey.",
+          "C": "The calls are too high to hear and are not used by fruit bats here.",
+          "D": "The text does not say that touch is used."
+        }
+      },
+      {
+        "stem": "Why are fruit bats helpful for forests?",
+        "options": [
+          "They eat the pests that harm the crops.",
+          "They give shade for the plants to grow.",
+          "They spread seeds that grow into new trees.",
+          "They clean the caves where the plants live."
+        ],
+        "answer": "C",
+        "skill": "cause-effect",
+        "why": "The text says fruit bats spread seeds that grow into new trees.",
+        "wrong": {
+          "A": "Eating pests is something small bats do for crops.",
+          "B": "The text does not say that bats give shade.",
+          "D": "Cleaning caves is not mentioned."
+        }
+      },
+      {
+        "stem": "Why does the author say bats are mammals, just like camels and cats?",
+        "options": [
+          "To show that bats can run like cats",
+          "To show that bats also have fur and milk",
+          "To show that bats live in Saudi Arabia",
+          "To show that bats cannot see at night"
+        ],
+        "answer": "B",
+        "skill": "author-purpose",
+        "why": "The text says bats are mammals because they have fur and feed their babies milk, as camels and cats do.",
+        "wrong": {
+          "A": "Running is not mentioned.",
+          "C": "The camel is a Saudi animal but this comparison is about being a mammal.",
+          "D": "The text says all bats can see."
+        }
+      },
+      {
+        "stem": "The first paragraph asks how bats catch tiny insects in the dark. How does the article answer it?",
+        "options": [
+          "By listing all the kinds of bats in Saudi Arabia",
+          "By telling a story about a farmer and his crops",
+          "By comparing bats with cats and camels",
+          "By explaining how echolocation works"
+        ],
+        "answer": "D",
+        "skill": "text-structure",
+        "why": "The article begins with a question and then explains echolocation, the skill bats use to find prey.",
+        "wrong": {
+          "A": "The kinds of bats are not listed.",
+          "B": "There is no story about a farmer.",
+          "C": "The comparison with cats and camels explains mammals, not how they hunt."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "According to the article, where do bats in Saudi Arabia shelter during the day?",
+        "options": [
+          "In tall palm trees and in large tents on farms",
+          "In caves, rocky valleys, and abandoned buildings",
+          "In holes at the very bottom of the deep sea",
+          "In ships that use sonar to find the schools of fish"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The text says the bats shelter in caves, rocky valleys, and abandoned buildings during the day.",
+        "wrong": {
+          "A": "Palm trees and tents are not mentioned.",
+          "C": "Bats are land mammals; the sea is not mentioned for shelter.",
+          "D": "Ships use sonar but are not a bat shelter."
+        }
+      },
+      {
+        "stem": "In the text, what does the word minuscule mean?",
+        "options": [
+          "Very loud and noisy",
+          "Bright and colorful",
+          "Slow and heavy",
+          "Extremely small"
+        ],
+        "answer": "D",
+        "skill": "vocabulary",
+        "why": "The article asks how bats catch the insects in a dark evening, which makes sense if the insects are extremely small.",
+        "wrong": {
+          "A": "Noise is not how the insects are described.",
+          "B": "Color does not fit with the dark evening.",
+          "C": "Insects that were slow and heavy would be easy to catch."
+        }
+      },
+      {
+        "stem": "How is a ship's sonar like a bat's echolocation?",
+        "options": [
+          "Both send out sound and listen for echoes.",
+          "Both use bright light to find their way.",
+          "Both need fruit and flowers to work well.",
+          "Both make sounds that people can hear."
+        ],
+        "answer": "A",
+        "skill": "compare",
+        "why": "The text says sonar sends sound through water and listens for echoes, as bats do with their calls.",
+        "wrong": {
+          "B": "Neither of them uses light in the text.",
+          "C": "Fruit and flowers have nothing to do with sonar.",
+          "D": "Most bat calls are ultrasonic and cannot be heard."
+        }
+      },
+      {
+        "stem": "Why are bats valuable to farmers, according to the article?",
+        "options": [
+          "They scatter seeds across all of the fields.",
+          "They keep moths from using their own clicks.",
+          "They eat insects that damage agricultural crops.",
+          "They carry food from the caves to the farms."
+        ],
+        "answer": "C",
+        "skill": "cause-effect",
+        "why": "The text says a single small bat can consume hundreds of insects, including pests that damage agricultural crops.",
+        "wrong": {
+          "A": "Seed scattering is done by fruit bats, but it is not what helps crops.",
+          "B": "Clicks are made by moths, not by bats.",
+          "D": "The text does not say that bats carry food."
+        }
+      }
+    ]
   }
 }

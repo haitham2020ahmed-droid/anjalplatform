@@ -61,13 +61,15 @@ describe("🚀 ReadRise growth evidence (pure)", () => {
     // when every text measures at its target, the choice is exactly the old rule
     const exact = RR_LEVELS.map((l) => ({ level: l, estLevel: l }));
     for (let lvl = 100; lvl <= 1500; lvl += 10) assert.equal(chooseVersion(lvl, exact), versionFor(lvl, [...RR_LEVELS]), `level ${lvl}`);
-    // texts that read 120 harder: a student at 850 gets the 800 version (measures 920) instead of 900 (measures 1020)
+    // round 5 (owner): another version only within ±50 of the nominal pick — with 100-point versions the card is
+    // always the student's own version, however the texts measure
     const hard = RR_LEVELS.map((l) => ({ level: l, estLevel: l + 120 }));
-    assert.equal(chooseVersion(850, hard), 800);
-    // texts that read 120 easier: the student at 850 gets 1000 (measures 880) instead of 900 (measures 780)
-    assert.equal(chooseVersion(850, RR_LEVELS.map((l) => ({ level: l, estLevel: l - 120 }))), 1000);
-    // never more than one version from the nominal pick, even with a wild estimate
-    assert.equal(chooseVersion(850, RR_LEVELS.map((l) => ({ level: l, estLevel: l === 400 ? 850 : l + 400 }))), 800);
+    assert.equal(chooseVersion(850, hard), 800 + 100);
+    assert.equal(chooseVersion(850, RR_LEVELS.map((l) => ({ level: l, estLevel: l - 120 }))), 900);
+    // a version within ±50 (an unusual 950 version) is still chosen by its measure
+    assert.equal(chooseVersion(850, [{ level: 900, estLevel: 1020 }, { level: 950, estLevel: 860 }]), 950);
+    // never another version than the nominal pick (±50), even with a wild estimate
+    assert.equal(chooseVersion(850, RR_LEVELS.map((l) => ({ level: l, estLevel: l === 400 ? 850 : l + 400 }))), 900);
     assert.equal(stretchAbove(800, [...RR_LEVELS]), 900);
     assert.equal(stretchAbove(1400, [...RR_LEVELS]), null);
   });
@@ -197,16 +199,17 @@ describe("🚀 ReadRise growth reports (demo school)", () => {
 
   test("the version is chosen by the text's measured level, and the teacher sees its fit", async () => {
     const v = await startRun(repo, A, hardArt, {}, at(16));
-    // A is at 900 now: nominal 900 measures 1020 (too hard) → 800 (measures 920)
+    // A is at 900 now: round 5 (owner) — chooseVersion only takes another version within ±50, so the card is the
+    // student's own level: nominal 900 (it measures 1020: the teacher sees it as a stretch text)
     assert.equal(Number((await repo.findUnique("RRStudent", { studentId: A.studentId! }))!.level), 900);
-    assert.equal(v.versionLevel, 800);
+    assert.equal(v.versionLevel, 900);
     assert.equal(v.band, "MID");
     await submitPrePoll(repo, A, v.runId, 1, at(16));
     await finishReading(repo, A, v.runId, {}, at(16));
     await submitActivity(repo, A, v.runId, answers(5), at(16)); // 63%: the level holds
     const g = await studentGrowthReport(repo, admin, classId, A.studentId!, at(17));
     const last = g.recent[0];
-    assert.deepEqual([last.versionLevel, last.textLevel, last.studentLevel, last.fit], [800, 920, 900, "EXACT"]);
+    assert.deepEqual([last.versionLevel, last.textLevel, last.studentLevel, last.fit], [900, 1020, 900, "STRETCH"]);
     assert.ok(g.recent.slice(1).every((r) => r.fit === "EXACT"), "the other texts measure at their target");
   });
 
@@ -283,7 +286,7 @@ describe("🚀 ReadRise growth reports (demo school)", () => {
     const tableIds = (d: typeof oneFile.doc) => d.sections.flatMap((x) => (x.type === "table" ? [x.id] : []));
     assert.deepEqual(tableIds(oneFile.doc), ["history", "trend", "skills", "readings"]);
     const readings = oneFile.doc.sections.find((x) => x.type === "table" && x.id === "readings");
-    assert.ok(readings && readings.type === "table" && readings.rows.some((r) => r.text === 920 && r.student === 900 && r.fit === "exact"));
+    assert.ok(readings && readings.type === "table" && readings.rows.some((r) => r.text === 1020 && r.student === 900 && r.fit === "stretch"));
     const clsFile = await exp(admin, { classId });
     assert.match(Buffer.from(clsFile.bytes).toString("utf8").split("\n")[0], /Growth this term,Confirmed by \(readings\),Projected end of year \(range\)/);
     assert.deepEqual(tableIds(clsFile.doc), ["students", "distribution", "notreading", "skills", "checks", "types", "unreliable", "weak"], "owner r69: reading checks, question types and unreliable readings");

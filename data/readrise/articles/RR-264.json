@@ -614,5 +614,217 @@
       ],
       "modelAnswer": "I disagree that planting new trees can fully make up for forests lost through deforestation, because the article shows that a tree's ability to offset emissions depends on it actually standing and growing over time, not simply existing somewhere on a list. One piece of evidence is that trees absorb carbon dioxide through photosynthesis only while they are alive, so a newly planted sapling takes many years to absorb anywhere near as much as a mature tree that was part of an established canopy. A second piece of evidence is that forests also trap pollutants like dust and smoke across their bark and branches, a filtering ability tied to the size and density of the whole ecosystem, which a few scattered new trees cannot immediately replace. Because the benefits described in the article depend on time, scale, and a connected ecosystem, newly planted trees can help but cannot instantly offset what a mature forest provided."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "What does the sun give to each leaf?",
+        "options": [
+          "Dust",
+          "Water",
+          "Power",
+          "Bark"
+        ],
+        "answer": "C",
+        "skill": "detail",
+        "why": "The text says the sun gives each leaf power.",
+        "wrong": {
+          "A": "Dust sticks to leaves, but the sun does not give it.",
+          "B": "Water comes from the roots, not the sun.",
+          "D": "Bark is on the tree, not a gift from the sun."
+        }
+      },
+      {
+        "stem": "In the article, what does it mean for a forest to \"trap\" dust?",
+        "options": [
+          "To catch and hold",
+          "To make it bigger",
+          "To throw it away",
+          "To paint it green"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "The text says dust sticks to leaves and bark, so the forest catches and holds it.",
+        "wrong": {
+          "B": "Dust does not grow in the forest.",
+          "C": "The dust stays on the leaves and bark.",
+          "D": "Painting is not mentioned."
+        }
+      },
+      {
+        "stem": "People breathe out the same gas that trees take in. What does this show?",
+        "options": [
+          "Trees are bad for people",
+          "Trees and people help",
+          "People do not need trees",
+          "Trees do not need water"
+        ],
+        "answer": "B",
+        "skill": "inference",
+        "why": "Trees use the gas we breathe out and give back oxygen that we need.",
+        "wrong": {
+          "A": "The text says trees help clean the air.",
+          "C": "People need the oxygen that trees make.",
+          "D": "The text says trees use water."
+        }
+      },
+      {
+        "stem": "What do trees do after they use the gas, water, and sun?",
+        "options": [
+          "They let out oxygen",
+          "They let out dust",
+          "They fall down",
+          "They make paper"
+        ],
+        "answer": "A",
+        "skill": "sequence",
+        "why": "The text says trees use the gas, water, and sun to grow, then let out a new gas called oxygen.",
+        "wrong": {
+          "B": "Dust sticks to trees; trees do not let it out.",
+          "C": "Falling is not mentioned.",
+          "D": "People use trees for paper, but trees do not make it."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "Where does dirt from the air stick in a forest?",
+        "options": [
+          "On the roots only",
+          "In the water only",
+          "On the soil only",
+          "On leaves and bark"
+        ],
+        "answer": "D",
+        "skill": "detail",
+        "why": "The text says the dirt sticks to leaves, branches, and the rough bark of each trunk.",
+        "wrong": {
+          "A": "The roots are not named.",
+          "B": "Water is not named as a place where dirt sticks.",
+          "C": "Soil is not named."
+        }
+      },
+      {
+        "stem": "In the article, what does the word \"deforestation\" mean?",
+        "options": [
+          "Planting new trees",
+          "Cutting down many forests",
+          "Counting all of the leaves",
+          "Cleaning the air"
+        ],
+        "answer": "B",
+        "skill": "vocabulary",
+        "why": "The text says people cut down many forests through an act called deforestation.",
+        "wrong": {
+          "A": "Planting is the opposite.",
+          "C": "Counting leaves is not mentioned.",
+          "D": "Deforestation reduces air cleaning."
+        }
+      },
+      {
+        "stem": "Which would likely clean more air each day?",
+        "options": [
+          "A single small tree",
+          "A large, healthy forest",
+          "A bare field of soil",
+          "A pile of paper"
+        ],
+        "answer": "B",
+        "skill": "inference",
+        "why": "The text says a large, healthy forest can clean a tremendous amount of air every day.",
+        "wrong": {
+          "A": "One small tree cleans much less than a forest.",
+          "C": "A bare field has no leaves to clean the air.",
+          "D": "Paper does not clean air."
+        }
+      },
+      {
+        "stem": "Why does the author say every living thing needs oxygen in each breath?",
+        "options": [
+          "To show trees matter to all life",
+          "To show only people need air",
+          "To show leaves are heavy",
+          "To show forests are far away"
+        ],
+        "answer": "A",
+        "skill": "author-purpose",
+        "why": "Trees release oxygen, so the sentence shows why trees matter to everything that lives.",
+        "wrong": {
+          "B": "The text says every living thing needs oxygen.",
+          "C": "Weight is not discussed.",
+          "D": "Distance is not discussed."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "According to the article, where does the water that a leaf uses come from?",
+        "options": [
+          "Water drawn up through the roots",
+          "Water falling from the clouds",
+          "Water that sticks to the bark",
+          "Water inside the sunlight"
+        ],
+        "answer": "A",
+        "skill": "detail",
+        "why": "The text says the leaf uses water drawn up through the roots.",
+        "wrong": {
+          "B": "Rain is not named as the leaf's source.",
+          "C": "Bark traps dust, not water.",
+          "D": "Sunlight supplies energy, not water."
+        }
+      },
+      {
+        "stem": "In the article, what does the word deforestation mean?",
+        "options": [
+          "the cutting down of forests",
+          "the planting of new seeds",
+          "the cleaning of dirty air",
+          "the growing of tall trees"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "The article warns that cutting down forests, called deforestation, removes trees that absorb carbon dioxide.",
+        "wrong": {
+          "B": "Planting is the opposite of deforestation.",
+          "C": "Trees clean the air, but deforestation removes them.",
+          "D": "Deforestation removes trees; it does not grow them."
+        }
+      },
+      {
+        "stem": "According to the article, what puts harmful gas into the air that trees help offset?",
+        "options": [
+          "Roots and soil",
+          "Leaves and bark",
+          "Rain and wind",
+          "Factories and cars"
+        ],
+        "answer": "D",
+        "skill": "cause-effect",
+        "why": "The text says factories and cars emit the harmful gas that trees help absorb.",
+        "wrong": {
+          "A": "Roots and soil are not named as the source.",
+          "B": "Leaves and bark take in the gas.",
+          "C": "Rain and wind are not named."
+        }
+      },
+      {
+        "stem": "How is a tree's use of carbon dioxide different from its use of oxygen?",
+        "options": [
+          "It releases carbon dioxide and absorbs oxygen",
+          "It absorbs carbon dioxide and releases oxygen",
+          "It absorbs both gases",
+          "It releases both gases"
+        ],
+        "answer": "B",
+        "skill": "compare",
+        "why": "The text says trees absorb carbon dioxide and release oxygen.",
+        "wrong": {
+          "A": "This reverses what the text says.",
+          "C": "Trees release oxygen, not absorb it.",
+          "D": "Trees take in carbon dioxide."
+        }
+      }
+    ]
   }
 }

@@ -614,5 +614,217 @@
       ],
       "modelAnswer": "After a bookbinder sewed and covered a manuscript, skilled craftsmen could gild its leather cover by pressing real gold into ornate tooled patterns, and illuminators could decorate its inside pages with gold leaf and geometric designs. These skills took years to learn, since an apprentice had to train closely with an experienced master before being trusted with such valuable materials, which is why a finished illuminated manuscript represented so much patient, careful labor."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "Why did books need to be bound?",
+        "options": [
+          "Loose pages were heavy to carry",
+          "Loose pages could get lost or torn",
+          "Binders wanted to use gold",
+          "Paper was too hard to fold"
+        ],
+        "answer": "B",
+        "skill": "cause-effect",
+        "why": "The text says loose pages could get lost or torn, so books needed to be bound.",
+        "wrong": {
+          "A": "The text does not say the pages were heavy.",
+          "C": "Gold was used later, to make covers nice.",
+          "D": "The binders folded the paper to make sections."
+        }
+      },
+      {
+        "stem": "What did the binder use to sew the sections?",
+        "options": [
+          "A brush and paint",
+          "Glue and sticks",
+          "A hammer and nails",
+          "A needle and thread"
+        ],
+        "answer": "D",
+        "skill": "detail",
+        "why": "The text says a needle and thread did the sewing.",
+        "wrong": {
+          "A": "Paint was used on some pages, not to sew.",
+          "B": "The text does not say glue was used to sew.",
+          "C": "The text does not mention a hammer or nails."
+        }
+      },
+      {
+        "stem": "The text says this made a small set of pages. We call this set a section. What is a section?",
+        "options": [
+          "A small set of pages",
+          "A cover made of leather",
+          "A thread that is used to sew",
+          "A city that has many binders"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "The text says folding each sheet made a small set of pages, called a section.",
+        "wrong": {
+          "B": "The cover is made after the sections are sewn.",
+          "C": "The thread sews the sections, it is not one.",
+          "D": "Cities are where binders worked, not a set of pages."
+        }
+      },
+      {
+        "stem": "Why do you think people keep old painted books safe today?",
+        "options": [
+          "They are made of plain paper",
+          "They are easy to read",
+          "They are old and special",
+          "They have no covers"
+        ],
+        "answer": "C",
+        "skill": "inference",
+        "why": "The text says the painted books used gold and bright colors, so they are special and worth keeping.",
+        "wrong": {
+          "A": "The text says the pages had gold and bright paint.",
+          "B": "The text does not say they are easy to read.",
+          "D": "The text says many books had covers."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "How long could it take to make one book by hand?",
+        "options": [
+          "A single hour",
+          "A few minutes",
+          "Weeks or even months",
+          "Many hundreds of years"
+        ],
+        "answer": "C",
+        "skill": "detail",
+        "why": "The text says making a book by hand could take weeks or even months.",
+        "wrong": {
+          "A": "The work was too slow for one hour.",
+          "B": "The text says it took steady work, not minutes.",
+          "D": "The text says weeks or months, not hundreds of years."
+        }
+      },
+      {
+        "stem": "The text says many began as a young apprentice to an older craftsman. What is an apprentice?",
+        "options": [
+          "A young person learning a job",
+          "A tool used to sew pages together",
+          "A rich person who buys many books",
+          "A type of leather book cover"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "The text says becoming a skilled binder took years of training with an older craftsman.",
+        "wrong": {
+          "B": "The tool used to sew was a needle and thread.",
+          "C": "The text does not say an apprentice buys books.",
+          "D": "Covers were made of leather, but an apprentice is a person."
+        }
+      },
+      {
+        "stem": "What did a durable, well-made cover do for a book?",
+        "options": [
+          "It made the book lighter to carry",
+          "It helped the book get printed",
+          "It showed the book was new",
+          "It protected the pages for centuries"
+        ],
+        "answer": "D",
+        "skill": "cause-effect",
+        "why": "The text says a durable, well-made cover could protect the pages for centuries.",
+        "wrong": {
+          "A": "The text does not say covers made books lighter.",
+          "B": "Printing presses did not exist then.",
+          "C": "The text says covers protected the old pages."
+        }
+      },
+      {
+        "stem": "What does the last paragraph mean when it says a book served two purposes at once?",
+        "options": [
+          "It was read twice a day",
+          "It was owned by two people at once",
+          "It was sewn two times",
+          "It protected words and was also art"
+        ],
+        "answer": "D",
+        "skill": "central-idea",
+        "why": "The paragraph says the book protected important words and also stood as a true work of art.",
+        "wrong": {
+          "A": "The text does not talk about how often it was read.",
+          "B": "The text does not say the book was owned by two people.",
+          "C": "The sewing is a step in making the book, not one of the two jobs."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "The article calls bookbinding an \"exacting process.\" What does exacting mean?",
+        "options": [
+          "Needing great care and skill",
+          "Needing very little skill or care",
+          "Being quick and easy to finish",
+          "Being done by large machines"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "The article says the work took weeks of patient labor and years of training, so it needed great care.",
+        "wrong": {
+          "B": "The article says it took years of training.",
+          "C": "The article says it took weeks or months.",
+          "D": "The article says every book was made by hand."
+        }
+      },
+      {
+        "stem": "What did guilds do for bookbinders?",
+        "options": [
+          "Sold books in far-away cities",
+          "Taught the Quran to young children",
+          "Set standards for the craft",
+          "Made the gold leaf for the pages"
+        ],
+        "answer": "C",
+        "skill": "detail",
+        "why": "The article says guilds set standards for the craft and supervised the training of new apprentices.",
+        "wrong": {
+          "A": "Selling books is not mentioned for guilds.",
+          "B": "Teaching the Quran is not the job of guilds here.",
+          "D": "Gold leaf is used by artists, and guilds are not said to make it."
+        }
+      },
+      {
+        "stem": "Why was the careful, repetitive stitching so important?",
+        "options": [
+          "It made the leather cover shine",
+          "It saved a lot of time for the binder",
+          "It kept the pages in place",
+          "It added gold to every single page"
+        ],
+        "answer": "C",
+        "skill": "cause-effect",
+        "why": "The article says the stitching held every page firmly in place and created the spine.",
+        "wrong": {
+          "A": "The cover is attached after the sewing.",
+          "B": "The article says the work was slow and patient.",
+          "D": "Gold was added to covers and pages in other steps."
+        }
+      },
+      {
+        "stem": "What does the article suggest about a book that was both bound and illuminated?",
+        "options": [
+          "It was cheaper than a plain book",
+          "It was useful and beautiful at once",
+          "It was made without any training",
+          "It was made quickly by machine"
+        ],
+        "answer": "B",
+        "skill": "inference",
+        "why": "The article says such a book preserved words and was also a genuine work of art.",
+        "wrong": {
+          "A": "The article says such books were valuable.",
+          "C": "The article says the craft needed years of training.",
+          "D": "The article says every book was made by hand."
+        }
+      }
+    ]
   }
 }

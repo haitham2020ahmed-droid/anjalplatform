@@ -59,6 +59,8 @@ function CompactCard({ r, t }: { r: Row; t: TFn }) {
           {r.overdue && r.status !== "Done" && <span className="rounded-full bg-red-50 px-2 py-0.5 font-semibold text-red-700 ring-1 ring-red-200">{t("Late")}</span>}
           {r.dueAt && r.status !== "Done" && !r.overdue && <span className="text-slate-600">📅 {t("Due {date}", { date: day(r.dueAt) })}</span>}
           {r.awaitingReview && <span className="rounded-full bg-amber-50 px-2 py-0.5 font-semibold text-amber-800 ring-1 ring-amber-200">{t("Sent, waiting for the score")}</span>}
+          {/* round 5: ReadRise uses the library's status words — the activity is scored, steps 4–5 are still open */}
+          {r.kind === "READRISE" && r.note && r.status !== "Done" && <span data-testid="rr-work-note" className="rounded-full bg-amber-50 px-2 py-0.5 font-semibold text-amber-900 ring-1 ring-amber-200">{t(r.note)}</span>}
         </div>
       </div>
       <Link prefetch={false} href={r.href} className="shrink-0 rounded-lg px-3 py-1.5 text-sm font-semibold text-brand-navy ring-1 ring-slate-300 hover:ring-brand-teal">{t(r.action)}</Link>

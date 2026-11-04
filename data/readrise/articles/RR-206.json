@@ -614,5 +614,217 @@
       ],
       "modelAnswer": "The Mohs scale, created by Friedrich Mohs in 1812, ranks minerals from softest, talc at one, to hardest, diamond at ten, and geologists use simple tools like a fingernail or coin to test where an unknown mineral falls on this scale. Combined with luster, which describes how a mineral's surface reflects light, and streak, the color of the powder a mineral leaves on a ceramic plate, this gives geologists several properties to compare. Because each property can be tested with everyday objects rather than laboratory equipment, geologists can classify a mineral's composition and crystalline structure directly out in the field."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "What does quartz often look like?",
+        "options": [
+          "Clear or white",
+          "Red and soft",
+          "Black and bumpy",
+          "Green and dull"
+        ],
+        "answer": "A",
+        "skill": "detail",
+        "why": "The text says quartz is often clear or white.",
+        "wrong": {
+          "B": "The text says quartz is very hard, not soft.",
+          "C": "The text does not say quartz is black.",
+          "D": "The text does not say quartz is green."
+        }
+      },
+      {
+        "stem": "The text says some are shiny. Some are dull. What does dull mean?",
+        "options": [
+          "very bright",
+          "very hard",
+          "not shiny",
+          "very big"
+        ],
+        "answer": "C",
+        "skill": "vocabulary",
+        "why": "Dull is the opposite of shiny.",
+        "wrong": {
+          "A": "Bright is close to shiny, so it is the opposite of dull.",
+          "B": "Hard is a different trait, which the text names separately.",
+          "D": "The text does not link dull to size."
+        }
+      },
+      {
+        "stem": "Why does the author name quartz, halite, and gypsum?",
+        "options": [
+          "To show how crystals are made",
+          "To tell where deserts are",
+          "To say which minerals are alive",
+          "To give examples of minerals"
+        ],
+        "answer": "D",
+        "skill": "author-purpose",
+        "why": "The author names three common kinds of minerals as examples.",
+        "wrong": {
+          "A": "The author does not explain how crystals are made.",
+          "B": "The paragraph is about minerals, not about where deserts are.",
+          "C": "The text says minerals are not alive."
+        }
+      },
+      {
+        "stem": "Why would someone scratch a mineral with a nail?",
+        "options": [
+          "To make it shiny",
+          "To test how hard it is",
+          "To turn it into salt",
+          "To find out its age"
+        ],
+        "answer": "B",
+        "skill": "inference",
+        "why": "The text says you can test how hard a mineral is by trying to scratch it with a nail.",
+        "wrong": {
+          "A": "The text does not say scratching makes a mineral shiny.",
+          "C": "Scratching does not change a mineral into salt.",
+          "D": "The text does not say scratching shows age."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "In the article, luster is",
+        "options": [
+          "the color of its powder",
+          "how it reflects light",
+          "how hard a mineral is",
+          "the way it breaks in half"
+        ],
+        "answer": "B",
+        "skill": "vocabulary",
+        "why": "The text says luster is how a mineral's surface reflects light.",
+        "wrong": {
+          "A": "The color of the powder is called streak.",
+          "C": "How hard a mineral is is called hardness.",
+          "D": "The text does not say luster is about breaking."
+        }
+      },
+      {
+        "stem": "What is gypsum used to make?",
+        "options": [
+          "glass and watches",
+          "food and salt",
+          "gold coins",
+          "chalk and plaster"
+        ],
+        "answer": "D",
+        "skill": "detail",
+        "why": "The text says gypsum is ground up to make chalk, plaster, and drywall.",
+        "wrong": {
+          "A": "Quartz is used in glass and watches.",
+          "B": "Halite is used in food.",
+          "C": "Gold is a different mineral mined in the desert."
+        }
+      },
+      {
+        "stem": "Why might a scientist check a mineral's streak and not only its surface color?",
+        "options": [
+          "Powder color may differ from surface color",
+          "A mineral's surface color never changes",
+          "The powder tells how hard it is",
+          "The powder makes the rock glow"
+        ],
+        "answer": "A",
+        "skill": "cause-effect",
+        "why": "The text says the streak color can differ from the mineral's own surface color.",
+        "wrong": {
+          "B": "The text says streak color can differ from surface color.",
+          "C": "Hardness is tested by scratching, not by powder.",
+          "D": "The text does not say powder glows."
+        }
+      },
+      {
+        "stem": "Why does the author end by saying scientists can tell where a rock formed?",
+        "options": [
+          "To show that minerals are alive",
+          "To explain how coins are made",
+          "To show why this work is useful",
+          "To list tools for scratching"
+        ],
+        "answer": "C",
+        "skill": "author-purpose",
+        "why": "The ending shows that identifying minerals helps scientists learn how and where a rock formed.",
+        "wrong": {
+          "A": "Minerals are not alive.",
+          "B": "Coins are used as a hardness test, not made in this paragraph.",
+          "D": "The tools for scratching are listed earlier."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "Which mineral is used in glass, watches, and electronics?",
+        "options": [
+          "Talc",
+          "Halite",
+          "Gypsum",
+          "Quartz"
+        ],
+        "answer": "D",
+        "skill": "detail",
+        "why": "The text says manufacturers use quartz in glass, watches, and electronics.",
+        "wrong": {
+          "A": "Talc is the softest mineral on the Mohs scale.",
+          "B": "Halite is rock salt.",
+          "C": "Gypsum is ground into chalk, plaster, and drywall."
+        }
+      },
+      {
+        "stem": "Scientists classify minerals by their observable properties. What are properties?",
+        "options": [
+          "features that describe a material",
+          "places where minerals are dug",
+          "tools for cutting rock",
+          "prices of rare stones"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "Properties like hardness and luster are features that help describe and identify a mineral.",
+        "wrong": {
+          "B": "Places are not properties.",
+          "C": "Tools are used in tests, but they are not properties.",
+          "D": "Price is not one of the properties named."
+        }
+      },
+      {
+        "stem": "Why do scientists classify the minerals in a rock?",
+        "options": [
+          "To make the rock harder",
+          "To learn how it was formed",
+          "To find its price at once",
+          "To turn it into a crystal"
+        ],
+        "answer": "B",
+        "skill": "cause-effect",
+        "why": "The text says classifying the mixture of minerals can tell how and where the rock formed long ago.",
+        "wrong": {
+          "A": "Classifying does not change the rock.",
+          "C": "The text does not say classifying finds the price.",
+          "D": "Classifying does not turn a rock into a crystal."
+        }
+      },
+      {
+        "stem": "A halite sample is left outside in heavy rain. What would most likely happen?",
+        "options": [
+          "It would become much harder",
+          "It would turn into quartz",
+          "It would slowly dissolve",
+          "It would grow into a crystal"
+        ],
+        "answer": "C",
+        "skill": "inference",
+        "why": "The text says halite dissolves easily in water, so rain would wear it away.",
+        "wrong": {
+          "A": "Water would not make it harder.",
+          "B": "A mineral does not turn into another mineral in the rain.",
+          "D": "The text says it dissolves in water, so it would not grow."
+        }
+      }
+    ]
   }
 }

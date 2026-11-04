@@ -614,5 +614,217 @@
       ],
       "modelAnswer": "I believe careful, detailed work is just as important as the original discoveries themselves. The article shows that even though the Greek manuscript contained valuable ideas about geometry and the stars, that knowledge nearly stayed lost inside the library simply because of a shelving mistake. Someone might argue that the ideas inside the manuscript matter more than where it sits on a shelf. However, without Yusuf's meticulous knowledge of the archive's catalog system, the manuscript might never have been translated and copied before the merchant's deadline, meaning the ideas themselves could have been lost to later generations entirely."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "Where did the rare scroll come from?",
+        "options": [
+          "From Egypt",
+          "From Greece",
+          "From China",
+          "From Spain"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The text says the scroll came from Greece long ago.",
+        "wrong": {
+          "A": "The story does not say Egypt.",
+          "C": "The story does not say China.",
+          "D": "The story does not say Spain."
+        }
+      },
+      {
+        "stem": "In the story, the word rare means —",
+        "options": [
+          "very noisy",
+          "very heavy",
+          "very wet",
+          "hard to find"
+        ],
+        "answer": "D",
+        "skill": "vocabulary",
+        "why": "The scroll is old and special, and it must go back to its owner, so rare means hard to find.",
+        "wrong": {
+          "A": "A scroll makes no noise.",
+          "B": "The story does not say it is heavy.",
+          "C": "Nothing says the scroll is wet."
+        }
+      },
+      {
+        "stem": "Why was Nasir sad?",
+        "options": [
+          "The scroll was not on the shelf",
+          "He lost the key to the room",
+          "The library was closing",
+          "Yusuf was late for work"
+        ],
+        "answer": "A",
+        "skill": "cause-effect",
+        "why": "Nasir looked on the shelf and the scroll was not there, so he was sad.",
+        "wrong": {
+          "B": "A key is not mentioned.",
+          "C": "The library is not closing.",
+          "D": "Yusuf is not late."
+        }
+      },
+      {
+        "stem": "Why did Yusuf look at the shelf next to the star shelf?",
+        "options": [
+          "He was tired of walking",
+          "He wanted a new scroll",
+          "The shelves are close",
+          "Nasir told him to go there"
+        ],
+        "answer": "C",
+        "skill": "inference",
+        "why": "The star and body shelves are next to each other, so a scroll could be put on the wrong one by mistake.",
+        "wrong": {
+          "A": "The story does not say he was tired.",
+          "B": "He wanted the missing scroll, not a new one.",
+          "D": "Yusuf thought of it himself."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "What do the scholars at the House of Wisdom translate?",
+        "options": [
+          "Arabic into Greek",
+          "Greek into Arabic",
+          "Greek into French",
+          "Arabic into Spanish"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The text says scholars translate old texts from Greek into Arabic.",
+        "wrong": {
+          "A": "They go from Greek to Arabic, not the other way.",
+          "C": "French is not mentioned.",
+          "D": "Spanish is not mentioned."
+        }
+      },
+      {
+        "stem": "In the article, the word crisis means —",
+        "options": [
+          "a time of trouble",
+          "a quiet time to rest",
+          "a plan to build",
+          "a time to celebrate"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "A rare scroll is missing and time is short, so it is a time of serious trouble.",
+        "wrong": {
+          "B": "The morning was tense, not restful.",
+          "C": "A crisis is not a plan.",
+          "D": "Nobody is celebrating yet."
+        }
+      },
+      {
+        "stem": "Why must the scroll be translated within three days?",
+        "options": [
+          "The library will be closed",
+          "The merchant will go away",
+          "Nasir plans to travel",
+          "The scroll will fall apart"
+        ],
+        "answer": "B",
+        "skill": "cause-effect",
+        "why": "The merchant who lent the scroll plans to leave Baghdad in three days.",
+        "wrong": {
+          "A": "The library is not closing.",
+          "C": "Nasir's travel is not mentioned.",
+          "D": "The scroll is not falling apart."
+        }
+      },
+      {
+        "stem": "Why could Yusuf guess where the scroll might be?",
+        "options": [
+          "He had seen it on the medicine shelf",
+          "He knew two shelves had similar tags",
+          "He asked the merchant for help",
+          "He found it in the ledger"
+        ],
+        "answer": "B",
+        "skill": "inference",
+        "why": "He had learned the catalog system and remembered the astronomy and medicine tags were a similar color.",
+        "wrong": {
+          "A": "He found the scroll later; he had not seen it yet.",
+          "C": "The merchant is not part of the search.",
+          "D": "The ledger said it was returned, not where it was."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "Who lent the manuscript to the library?",
+        "options": [
+          "A young apprentice",
+          "A visiting king",
+          "A traveling merchant",
+          "A Persian scholar"
+        ],
+        "answer": "C",
+        "skill": "detail",
+        "why": "The text says the manuscript was lent by a traveling merchant.",
+        "wrong": {
+          "A": "The apprentice Yusuf only searches for it.",
+          "B": "A king is not mentioned.",
+          "D": "The text says scholars gathered there, but a merchant lent it."
+        }
+      },
+      {
+        "stem": "In the article, the word hastily most nearly means —",
+        "options": [
+          "very slowly",
+          "in a rush",
+          "with great joy",
+          "in secret"
+        ],
+        "answer": "B",
+        "skill": "vocabulary",
+        "why": "The apprentice set it down in haste while reshelving a stack of texts, so hastily means in a rush.",
+        "wrong": {
+          "A": "Slowly is the opposite of hastily.",
+          "C": "Joy is not mentioned.",
+          "D": "Nothing was done in secret."
+        }
+      },
+      {
+        "stem": "What does Yusuf's offer to search show about him?",
+        "options": [
+          "He wants to avoid his work",
+          "He wants to impress the merchant",
+          "He acts and trusts his skills",
+          "He thinks Nasir cannot search"
+        ],
+        "answer": "C",
+        "skill": "inference",
+        "why": "He offers to search rather than wait anxiously, using what he learned about the catalog system.",
+        "wrong": {
+          "A": "He takes on more work.",
+          "B": "The merchant is not part of the search.",
+          "D": "Nothing says he thinks Nasir cannot search."
+        }
+      },
+      {
+        "stem": "Why does the first paragraph name Persia, India, and the Byzantine world?",
+        "options": [
+          "To say Baghdad was a small town",
+          "To list the cities the merchant visited",
+          "To show scholars came from many lands",
+          "To explain where paper is made"
+        ],
+        "answer": "C",
+        "skill": "author-purpose",
+        "why": "The names show the House of Wisdom drew scholars from many places to study and translate.",
+        "wrong": {
+          "A": "Baghdad is shown as a center of learning.",
+          "B": "The merchant's travels are not listed.",
+          "D": "The paragraph does not talk about making paper."
+        }
+      }
+    ]
   }
 }

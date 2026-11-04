@@ -614,5 +614,217 @@
       ],
       "modelAnswer": "I disagree that population distribution depends mainly on one single factor, because the article shows several factors working together instead. Access to water shapes early settlement, since rivers, lakes, and coastlines supply drinking water, support farming, and enable trade, which is why so many towns first grew up along them. At the same time, climate and fertile farmland determine how many people a region can comfortably sustain, as mild climates and rich soil support dense, lasting populations, while extremely arid or polar regions support very few people regardless of other advantages. Employment and infrastructure add yet another layer, drawing migration toward cities even in regions that are not especially fertile. Because removing any one of these factors changes the picture, population distribution clearly results from several combined causes rather than a single dominant one."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "Why do few folks live on rough land?",
+        "options": [
+          "It grows little food.",
+          "It has too many jobs.",
+          "It is too close to water.",
+          "It is full of big towns."
+        ],
+        "answer": "A",
+        "skill": "cause-effect",
+        "why": "The text says rough land grows little food, so few folks live there.",
+        "wrong": {
+          "B": "Jobs are found in big towns, not on rough land.",
+          "C": "The text says water draws folks.",
+          "D": "Big towns are crowded, not rough land."
+        }
+      },
+      {
+        "stem": "Which spots have few folks because life is hard there?",
+        "options": [
+          "Spots beside a stream",
+          "Spots with rich farmland",
+          "Hot, dry and cold spots",
+          "Spots with many shops"
+        ],
+        "answer": "C",
+        "skill": "detail",
+        "why": "The text says hot, dry spots and cold spots have few folks because life is hard there.",
+        "wrong": {
+          "A": "A stream draws many folks.",
+          "B": "Rich farmland can feed many folks.",
+          "D": "Many shops mean many jobs and a crowded town."
+        }
+      },
+      {
+        "stem": "In the article, the word empty means —",
+        "options": [
+          "full of towns",
+          "with few folks",
+          "very hot",
+          "good for crops"
+        ],
+        "answer": "B",
+        "skill": "vocabulary",
+        "why": "The text says some spots are crowded and some are empty, so empty means few folks live there.",
+        "wrong": {
+          "A": "Crowded spots are the full ones.",
+          "C": "Empty is not about heat.",
+          "D": "Empty is not about crops."
+        }
+      },
+      {
+        "stem": "Why does the author start with the words Look at a map?",
+        "options": [
+          "To show where all streams go",
+          "To say maps are hard to read",
+          "To tell how to draw a map",
+          "To show crowded and empty spots"
+        ],
+        "answer": "D",
+        "skill": "author-purpose",
+        "why": "The map is used to show that some spots are crowded and some are empty.",
+        "wrong": {
+          "A": "The map is not about where streams go.",
+          "B": "The text does not say maps are hard.",
+          "C": "The article does not teach map drawing."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "What does the article say towns bring together?",
+        "options": [
+          "Rivers, lakes, coasts, and hills",
+          "Mountains, deserts, and poles",
+          "Farms, boats, rocks, and crops",
+          "Shops, factories, offices, schools"
+        ],
+        "answer": "D",
+        "skill": "detail",
+        "why": "The text says towns bring together shops, factories, offices, and schools.",
+        "wrong": {
+          "A": "Rivers, lakes, and coasts are places where towns grew, not what towns bring together.",
+          "B": "Deserts and poles have few people.",
+          "C": "These are farm items, not what towns gather."
+        }
+      },
+      {
+        "stem": "In the article, the word migration means —",
+        "options": [
+          "a map of the poles",
+          "the growth of crops",
+          "a flow of fresh water",
+          "people moving to towns"
+        ],
+        "answer": "D",
+        "skill": "vocabulary",
+        "why": "The text says the move toward urban towns is called migration.",
+        "wrong": {
+          "A": "Migration is about people, not a map.",
+          "B": "Crop growth is not migration.",
+          "C": "Fresh water is not called migration."
+        }
+      },
+      {
+        "stem": "Why do dry deserts have far fewer people?",
+        "options": [
+          "Too many factories are there",
+          "Boats cannot reach the sand",
+          "Food and water are hard to find",
+          "The soil is too rich to farm"
+        ],
+        "answer": "C",
+        "skill": "cause-effect",
+        "why": "The text says finding food and water in deserts takes much more effort.",
+        "wrong": {
+          "A": "Deserts are not described as having factories.",
+          "B": "Boats are not the reason given.",
+          "D": "Rich soil is a reason people settle, not leave."
+        }
+      },
+      {
+        "stem": "Why does the author say readers will notice something odd?",
+        "options": [
+          "To make readers curious about the map",
+          "To warn that maps are often wrong",
+          "To say all regions have the same people",
+          "To show that the poles are crowded"
+        ],
+        "answer": "A",
+        "skill": "author-purpose",
+        "why": "The odd pattern, crowded and empty regions, makes readers want to learn why.",
+        "wrong": {
+          "B": "The article does not say maps are wrong.",
+          "C": "The article says people are not spread evenly.",
+          "D": "The article says cold regions near the poles have few people."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "Why do farmers need fresh water, according to the article?",
+        "options": [
+          "To fill factories and schools",
+          "To water crops and animals",
+          "To make the soil rocky and dry",
+          "To cool down mountain towns"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The text says farmers need fresh water to irrigate crops and raise animals.",
+        "wrong": {
+          "A": "Factories and schools are not the farmers' use of water.",
+          "C": "Water would not make soil rocky and dry.",
+          "D": "Cooling mountain towns is not mentioned."
+        }
+      },
+      {
+        "stem": "In the article, the word irrigate most nearly means —",
+        "options": [
+          "to give water to",
+          "to pick and sell",
+          "to store in boxes",
+          "to carry away"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "Farmers need fresh water to irrigate crops, so irrigate means to give water to them.",
+        "wrong": {
+          "B": "Picking and selling is not what fresh water does.",
+          "C": "Storing in boxes does not fit.",
+          "D": "Carrying away would not help crops grow."
+        }
+      },
+      {
+        "stem": "Why did many towns grow up beside rivers, lakes, and coasts?",
+        "options": [
+          "Cold weather drew people there",
+          "Factories were built there first",
+          "Rocky land was found beside them",
+          "They offered water and trade routes"
+        ],
+        "answer": "D",
+        "skill": "cause-effect",
+        "why": "People need water, and boats on these waters help trade grow between places.",
+        "wrong": {
+          "A": "The text says a mild climate draws people, not cold weather.",
+          "B": "Factories are linked to towns and jobs, not to early settlement.",
+          "C": "Rocky land offers little farmland."
+        }
+      },
+      {
+        "stem": "In the fourth paragraph, what does the phrase on the other hand show?",
+        "options": [
+          "A list of reasons for fertile soil",
+          "A contrast between rich and rocky land",
+          "A story about a mountain town",
+          "A date when farms were built"
+        ],
+        "answer": "B",
+        "skill": "text-structure",
+        "why": "The phrase turns from fertile flat land to rocky land and steep mountains, which is the opposite case.",
+        "wrong": {
+          "A": "The phrase introduces an opposite, not a list.",
+          "C": "There is no story in the paragraph.",
+          "D": "No dates are given."
+        }
+      }
+    ]
   }
 }

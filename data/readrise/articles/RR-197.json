@@ -614,5 +614,217 @@
       ],
       "modelAnswer": "Science helps cyclists in many ways, starting with the bicycle's design. The chain-driven safety bicycle, with two equal-sized wheels, is far more stable and efficient than the old high-wheeled bikes, and air-filled, or pneumatic, tires make the ride smoother by absorbing bumps. Gears also use science, letting a rider choose a low gear that makes climbing hills easier or a high gear that lets them ride faster on flat ground. Professional racers in events like the Tour de France or the desert races near AlUla also rely on aerodynamic positions and careful training to build endurance over thousands of kilometers, showing that science shapes cycling from the machine itself to the rider's body."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "Where is one big bike race that lasts three weeks?",
+        "options": [
+          "Saudi Arabia",
+          "France",
+          "England",
+          "Italy"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The text says one big race in France lasts three weeks.",
+        "wrong": {
+          "A": "Saudi Arabia is named for riding safely in the heat, not for this race.",
+          "C": "England is not named in the text.",
+          "D": "Italy is not named in the text."
+        }
+      },
+      {
+        "stem": "Why is it easier to balance a bike once it is moving?",
+        "options": [
+          "The wheels get smaller",
+          "The pedals stop turning",
+          "You can steer to stay up",
+          "The chain gets longer"
+        ],
+        "answer": "C",
+        "skill": "cause-effect",
+        "why": "The text says that once the bike moves, you steer to stay up.",
+        "wrong": {
+          "A": "The text says nothing about the wheels getting smaller.",
+          "B": "The pedals do not stop; they turn the chain.",
+          "D": "The chain does not get longer."
+        }
+      },
+      {
+        "stem": "The text says to wear a helmet. What is a helmet?",
+        "options": [
+          "a hard hat to keep your head safe",
+          "a bottle that holds cold water",
+          "a soft seat on top of the bike",
+          "a small light for riding at night"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "The text tells riders to wear a helmet to stay safe, and a helmet is a hard hat that protects the head.",
+        "wrong": {
+          "B": "Water is something to drink, not a helmet.",
+          "C": "The seat is part of the bike.",
+          "D": "A light is not a helmet."
+        }
+      },
+      {
+        "stem": "How does riding a bike help your body?",
+        "options": [
+          "It makes your legs strong",
+          "It makes your eyes see more",
+          "It keeps your helmet clean",
+          "It makes the sun less hot"
+        ],
+        "answer": "A",
+        "skill": "detail",
+        "why": "The text says riding makes your heart and legs strong.",
+        "wrong": {
+          "B": "The text does not say riding helps your eyes.",
+          "C": "A helmet keeps your head safe; riding does not clean it.",
+          "D": "Riding does not change the sun."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "Where was the first bicycle built?",
+        "options": [
+          "Italy",
+          "England",
+          "Germany",
+          "Saudi Arabia"
+        ],
+        "answer": "C",
+        "skill": "detail",
+        "why": "The text says the first bicycle was built in 1817 in Germany.",
+        "wrong": {
+          "A": "Italy is not named in the text.",
+          "B": "England is not named in the text.",
+          "D": "The text mentions Saudi Arabia only for modern races."
+        }
+      },
+      {
+        "stem": "Why does balancing get easier once a bike is moving?",
+        "options": [
+          "The wheels get much bigger",
+          "The rider can steer in small ways",
+          "The pedals turn the gears alone",
+          "The tires fill up with air"
+        ],
+        "answer": "B",
+        "skill": "cause-effect",
+        "why": "The text says a moving rider can make small steering changes to stay upright.",
+        "wrong": {
+          "A": "The wheels do not change size while riding.",
+          "C": "Pedals do not balance the bike by themselves.",
+          "D": "Air tires make the ride comfortable but do not help balance."
+        }
+      },
+      {
+        "stem": "In the text, what does the word endurance mean?",
+        "options": [
+          "strength to keep going",
+          "a prize for winning",
+          "a type of racing bike",
+          "a very high gear"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "Racers must keep going for three weeks, so endurance means being able to keep going for a long time.",
+        "wrong": {
+          "B": "A prize is not tested by racing.",
+          "C": "Endurance is not a kind of bike.",
+          "D": "Gears are parts of a bike, not endurance."
+        }
+      },
+      {
+        "stem": "A town wants cleaner air. What would the article most likely suggest?",
+        "options": [
+          "Build more gas stations",
+          "Make bikes with giant wheels",
+          "Ride only in the desert",
+          "Have more people ride bikes"
+        ],
+        "answer": "D",
+        "skill": "inference",
+        "why": "The text says a bike needs no fuel and does not pollute the air.",
+        "wrong": {
+          "A": "Gas stations are for fuel, and bikes need none.",
+          "B": "Giant wheels were unsteady and have nothing to do with clean air.",
+          "C": "Where people ride does not change the air."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "How does a low gear differ from a high gear?",
+        "options": [
+          "Low is harder but faster; high is easier but slower",
+          "Low is easier but slower; high is harder but faster",
+          "Low is for racing only; high is for climbing only",
+          "Both make a bicycle go the same speed"
+        ],
+        "answer": "B",
+        "skill": "compare",
+        "why": "The text says a low gear makes hills easier but slower, while a high gear takes more effort and gives more speed on flat ground.",
+        "wrong": {
+          "A": "This swaps the two gears.",
+          "C": "The text does not limit gears to racing or climbing.",
+          "D": "The text says the gears give different speeds."
+        }
+      },
+      {
+        "stem": "Why does balancing become easier once a bicycle is moving?",
+        "options": [
+          "The tires press harder against the road",
+          "The chain holds the wheels together",
+          "The pedals lock the front wheel still",
+          "The rider can steer in small ways"
+        ],
+        "answer": "D",
+        "skill": "cause-effect",
+        "why": "The text says the rider can make small steering adjustments to remain upright once the bicycle moves.",
+        "wrong": {
+          "A": "The text does not say tire pressure helps balance.",
+          "B": "The chain moves power to the back wheel; it does not hold the wheels together.",
+          "C": "The pedals do not lock any wheel."
+        }
+      },
+      {
+        "stem": "Where are professional races held in Saudi Arabia?",
+        "options": [
+          "In the desert near AlUla",
+          "On the coast near Jeddah",
+          "In the city streets of Riyadh",
+          "On the mountains near Abha"
+        ],
+        "answer": "A",
+        "skill": "detail",
+        "why": "The text says professional races are held in the desert near AlUla.",
+        "wrong": {
+          "B": "Jeddah is not named in the text.",
+          "C": "Riyadh is not named in the text.",
+          "D": "Abha is not named in the text."
+        }
+      },
+      {
+        "stem": "Why does the author give the distance and length of the Tour de France?",
+        "options": [
+          "To show that racing is dangerous",
+          "To explain how gears work",
+          "To show how much endurance racing demands",
+          "To prove the race is older than the bicycle"
+        ],
+        "answer": "C",
+        "skill": "author-purpose",
+        "why": "The author says racing demands tremendous endurance, then gives about 3,500 kilometers in three weeks as proof.",
+        "wrong": {
+          "A": "The numbers describe distance and time, not danger.",
+          "B": "Gears are explained in a different paragraph.",
+          "D": "The race began in 1903, long after the first bicycle."
+        }
+      }
+    ]
   }
 }

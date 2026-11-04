@@ -614,5 +614,217 @@
       ],
       "modelAnswer": "Frequency and amplitude are two different properties of a sound wave, and each one changes something different about what we hear. Frequency measures how many times the wave's compression repeats each second as it is transmitted through the air, and a higher frequency produces a higher pitch, like a bird's chirp, while a lower frequency produces a lower pitch, like a deep drum. Amplitude, on the other hand, describes how large the wave itself is, which determines loudness measured in decibels, so a gentle whisper has low amplitude while a shouting crowd has very high amplitude. Once these vibrations reach the cochlea inside the ear, the brain interprets frequency as pitch and amplitude as volume, allowing us to tell a quiet high note apart from a loud low one."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "What do you hear when a sound bounces off a cliff?",
+        "options": [
+          "An echo, so you hear it two times",
+          "A drum, so you hear it louder",
+          "A storm, so you hear thunder",
+          "A wave, so you hear nothing"
+        ],
+        "answer": "A",
+        "skill": "detail",
+        "why": "The text says sound can bounce off a cliff and you hear it two times, which is an echo.",
+        "wrong": {
+          "B": "The text does not say it turns into a drum sound.",
+          "C": "Thunder comes from a storm, not a cliff.",
+          "D": "You do hear the sound twice."
+        }
+      },
+      {
+        "stem": "Two divers are under the water. One hits a rock on another rock. Can the other diver hear it?",
+        "options": [
+          "No, sound cannot move in water",
+          "No, only air can carry a sound",
+          "Yes, sound can move through water",
+          "Yes, but only if the rock is wet"
+        ],
+        "answer": "C",
+        "skill": "inference",
+        "why": "The text says sound can move through water, so the other diver can hear it.",
+        "wrong": {
+          "A": "The text says sound moves in water, and fast.",
+          "B": "Sound also moves through water and hard things.",
+          "D": "Being wet does not matter in the text."
+        }
+      },
+      {
+        "stem": "What happens to your eardrum when a sound wave goes in your ear?",
+        "options": [
+          "It stops moving",
+          "It shakes, too",
+          "It turns into air",
+          "It grows very big"
+        ],
+        "answer": "B",
+        "skill": "cause-effect",
+        "why": "The text says the wave hits the eardrum and it shakes, too.",
+        "wrong": {
+          "A": "The wave makes it shake, not stop.",
+          "C": "The text does not say it turns into air.",
+          "D": "The text does not say it grows."
+        }
+      },
+      {
+        "stem": "In the article, the word vibrates means —",
+        "options": [
+          "to go away very far",
+          "to become very hot",
+          "to stop making any sound",
+          "to shake back and forth"
+        ],
+        "answer": "D",
+        "skill": "vocabulary",
+        "why": "The text says the drum moves back and forth fast and calls it vibrating.",
+        "wrong": {
+          "A": "Vibrating is about shaking, not going away.",
+          "B": "The text does not say it gets hot.",
+          "C": "A vibrating drum makes a sound."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "According to the article, what happens inside your throat when you talk?",
+        "options": [
+          "Air particles inside it turn into a vacuum",
+          "Small folds vibrate as air goes past",
+          "Your eardrum pushes the air out of it",
+          "A tiny needle inside it points north"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The article says small folds in the throat vibrate as air from the lungs passes over them.",
+        "wrong": {
+          "A": "A vacuum is found in outer space.",
+          "C": "The eardrum is in the ear and receives sound.",
+          "D": "A needle that points north belongs to a compass, not a throat."
+        }
+      },
+      {
+        "stem": "In the article, a medium is —",
+        "options": [
+          "a sound that is neither loud nor soft",
+          "a pitch that is neither high nor low",
+          "a kind of echo from a hard cliff wall",
+          "the material a sound wave moves through"
+        ],
+        "answer": "D",
+        "skill": "vocabulary",
+        "why": "The article says the material a sound wave travels through is called a medium.",
+        "wrong": {
+          "A": "A medium is a material, not a loudness.",
+          "B": "A medium is not a pitch.",
+          "C": "An echo is a bounced sound, not a medium."
+        }
+      },
+      {
+        "stem": "Why do you see lightning before you hear thunder?",
+        "options": [
+          "Light travels much faster than sound",
+          "Sound travels much faster than light",
+          "Thunder happens before the lightning",
+          "Air stops light from moving"
+        ],
+        "answer": "A",
+        "skill": "cause-effect",
+        "why": "The article says light travels far faster than sound, so the flash reaches you first.",
+        "wrong": {
+          "B": "This is backwards, since light is faster.",
+          "C": "The article does not say thunder comes first.",
+          "D": "Light is not stopped by air."
+        }
+      },
+      {
+        "stem": "A diver under the sea hears a boat engine. What does this show?",
+        "options": [
+          "Water is a vacuum",
+          "Water cannot carry vibrations",
+          "Only air can carry sound",
+          "Water is a medium for sound"
+        ],
+        "answer": "D",
+        "skill": "inference",
+        "why": "The article says water works as a medium, so sound waves can travel through it.",
+        "wrong": {
+          "A": "A vacuum has no particles to pass sound along.",
+          "B": "The article says sound moves faster in water.",
+          "C": "Water and solids work as well as air."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "What does echolocation help bats and dolphins do?",
+        "options": [
+          "Make their own sound louder",
+          "Fly or swim faster",
+          "Find their food",
+          "Hear a vibration in space"
+        ],
+        "answer": "C",
+        "skill": "detail",
+        "why": "The article says the returning echoes help them locate food, an ability known as echolocation.",
+        "wrong": {
+          "A": "The article does not link echoes to loudness.",
+          "B": "Echoes help them find food, not move quickly.",
+          "D": "The article says sound cannot travel in space."
+        }
+      },
+      {
+        "stem": "In the article, the word transmit most nearly means —",
+        "options": [
+          "carry along",
+          "hide away",
+          "slow down",
+          "break apart"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "The article says water and solids can pass a sound wave along, so transmit means carry along.",
+        "wrong": {
+          "B": "Sound is not hidden by these materials.",
+          "C": "The article says sound goes faster in them.",
+          "D": "The materials do not break the sound apart."
+        }
+      },
+      {
+        "stem": "A guitarist tightens a string so it vibrates more times each second. What will the listener most likely notice?",
+        "options": [
+          "The sound gets lower and rumbles",
+          "The sound gets quieter",
+          "The sound stops completely",
+          "The sound gets higher in pitch"
+        ],
+        "answer": "D",
+        "skill": "inference",
+        "why": "The article says a higher frequency, or more vibrations each second, makes a higher pitch.",
+        "wrong": {
+          "A": "A low rumbling pitch comes from a low frequency.",
+          "B": "Loudness depends on amplitude, not frequency.",
+          "C": "A vibrating string keeps making sound."
+        }
+      },
+      {
+        "stem": "How is frequency different from amplitude?",
+        "options": [
+          "Frequency sets the loudness, and amplitude sets the echo",
+          "Frequency sets the pitch, and amplitude sets the loudness",
+          "Frequency sets the speed, and amplitude sets the medium",
+          "Frequency sets the echo, and amplitude sets the pitch"
+        ],
+        "answer": "B",
+        "skill": "compare",
+        "why": "The article says frequency determines pitch and amplitude determines loudness.",
+        "wrong": {
+          "A": "This swaps the two ideas.",
+          "C": "The article does not say that either one sets the medium.",
+          "D": "Neither one sets an echo."
+        }
+      }
+    ]
   }
 }

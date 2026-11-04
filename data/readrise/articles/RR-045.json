@@ -614,5 +614,217 @@
       ],
       "modelAnswer": "Over four hundred years, better and better tools have completely transformed our observation and understanding of Saturn. When Galileo first looked at Saturn through a simple telescope about four hundred years ago, he could only see that something odd was attached to its sides, and he mistakenly guessed the planet had two large ears. Centuries later, far more powerful telescopes let other scientists finally confirm that these were actually rings made of ice and rock. Then, from 2004 to 2017, the Cassini spacecraft flew directly to Saturn and sent back thousands of detailed pictures and measurements, revealing facts no telescope on Earth could ever have captured, such as the true size of its moon Titan. In conclusion, each new tool, from Galileo's telescope to the Cassini spacecraft, has let scientists see Saturn more clearly and accurately than the tool before it."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "Which planet is bigger than Saturn?",
+        "options": [
+          "Earth",
+          "Mercury",
+          "Titan",
+          "Jupiter"
+        ],
+        "answer": "D",
+        "skill": "detail",
+        "why": "The text says only Jupiter is bigger than Saturn.",
+        "wrong": {
+          "A": "Earth is smaller than Saturn.",
+          "B": "Mercury is much smaller than Saturn.",
+          "C": "Titan is a moon, not a planet."
+        }
+      },
+      {
+        "stem": "In the article, huge means —",
+        "options": [
+          "very small and dim",
+          "very big in size",
+          "very light and thin",
+          "very cold and dark"
+        ],
+        "answer": "B",
+        "skill": "vocabulary",
+        "why": "The text says Saturn is huge and only Jupiter is bigger.",
+        "wrong": {
+          "A": "Saturn is big, not small.",
+          "C": "Saturn is light, but huge is about size.",
+          "D": "The word is about size, not cold."
+        }
+      },
+      {
+        "stem": "How does Titan compare with the planet Mercury?",
+        "options": [
+          "Titan is bigger.",
+          "Titan is smaller.",
+          "Titan is the same size.",
+          "Titan is hotter."
+        ],
+        "answer": "A",
+        "skill": "compare",
+        "why": "The text says Titan is bigger than the planet Mercury.",
+        "wrong": {
+          "B": "Titan is not smaller than Mercury.",
+          "C": "Titan is bigger, not the same size.",
+          "D": "The text does not compare how hot they are."
+        }
+      },
+      {
+        "stem": "Why would a tub need to be so big for Saturn to float?",
+        "options": [
+          "Because Saturn is so cold",
+          "Because Saturn has so many moons",
+          "Because Saturn is so huge",
+          "Because Saturn has thin rings"
+        ],
+        "answer": "C",
+        "skill": "inference",
+        "why": "Saturn is light enough to float, but it is huge, so the tub would have to be very big.",
+        "wrong": {
+          "A": "Cold does not decide how big the tub must be.",
+          "B": "Moons are not part of the planet's size.",
+          "D": "The rings are thin, which would not need a bigger tub."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "In the article, a gas giant is —",
+        "options": [
+          "a spaceship that circles a planet",
+          "a very large moon with a hazy sky",
+          "a huge planet made mostly of gas",
+          "a bright star that shines steadily"
+        ],
+        "answer": "C",
+        "skill": "vocabulary",
+        "why": "The text says a gas giant is a planet made mostly of gas.",
+        "wrong": {
+          "A": "A spaceship is not a planet.",
+          "B": "Titan is a moon with a hazy sky.",
+          "D": "Saturn is a planet, not a star."
+        }
+      },
+      {
+        "stem": "How long does Saturn take to orbit the sun once?",
+        "options": [
+          "About twenty-nine Earth years",
+          "About ten and a half hours",
+          "About four hundred years",
+          "About thirteen years"
+        ],
+        "answer": "A",
+        "skill": "detail",
+        "why": "The text says Saturn takes about twenty-nine Earth years to orbit the sun once.",
+        "wrong": {
+          "B": "Ten and a half hours is how long a day lasts.",
+          "C": "Four hundred years ago is when Galileo looked at Saturn.",
+          "D": "The text says twenty-nine years, not thirteen."
+        }
+      },
+      {
+        "stem": "Why would a spaceship never touch solid ground on Saturn?",
+        "options": [
+          "Because its rings block the way",
+          "Because Titan's hazy sky pushes it away",
+          "Because it spins too fast to land",
+          "Because Saturn has no rocky surface"
+        ],
+        "answer": "D",
+        "skill": "cause-effect",
+        "why": "Saturn is a gas giant with no rocky surface, so a spaceship would sink into thick clouds.",
+        "wrong": {
+          "A": "The rings are wide but thin and do not block landing.",
+          "B": "Titan is a moon with its own sky.",
+          "C": "Spinning is why a day is short, not why landing is impossible."
+        }
+      },
+      {
+        "stem": "How does Saturn's distance from the sun compare with Earth's?",
+        "options": [
+          "Saturn is about the same distance",
+          "Saturn is about ten times farther",
+          "Saturn is about ten times closer",
+          "Saturn is about twice as far"
+        ],
+        "answer": "B",
+        "skill": "compare",
+        "why": "The text says Saturn is about ten times farther from the sun than Earth is.",
+        "wrong": {
+          "A": "Saturn is much farther than Earth.",
+          "C": "Saturn is farther, not closer.",
+          "D": "The text says about ten times, not twice."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "The article says Saturn is composed mostly of hydrogen and helium. What does composed mean?",
+        "options": [
+          "made up of",
+          "found next to",
+          "circled around",
+          "covered by"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "Saturn is a gas giant whose material is mostly hydrogen and helium, so composed means made up of.",
+        "wrong": {
+          "B": "The gases are what Saturn is made of, not next to it.",
+          "C": "Moons circle Saturn; that is not what composed means.",
+          "D": "Saturn is mostly these gases, not just covered by them."
+        }
+      },
+      {
+        "stem": "What did Cassini send back to Earth?",
+        "options": [
+          "Samples of ice from Saturn's rings",
+          "Rocks collected from the moon Titan",
+          "Photos and scientific measurements",
+          "A new telescope built for Galileo"
+        ],
+        "answer": "C",
+        "skill": "detail",
+        "why": "The text says Cassini transmitted thousands of photographs and scientific measurements to Earth.",
+        "wrong": {
+          "A": "The text does not say it sent back ice samples.",
+          "B": "The text does not say it collected rocks.",
+          "D": "Galileo lived about four hundred years ago."
+        }
+      },
+      {
+        "stem": "Why is a day on Saturn so short?",
+        "options": [
+          "The planet orbits the sun very quickly",
+          "The planet rotates very rapidly",
+          "The planet has so many moons",
+          "The planet is covered by thin rings"
+        ],
+        "answer": "B",
+        "skill": "cause-effect",
+        "why": "The text says the planet rotates very rapidly, so a day lasts about ten and a half hours.",
+        "wrong": {
+          "A": "Saturn takes about twenty-nine years to orbit the sun.",
+          "C": "Moons do not set the length of a day.",
+          "D": "Rings do not set the length of a day."
+        }
+      },
+      {
+        "stem": "What can the reader infer about how the rings were identified?",
+        "options": [
+          "Galileo's simple telescope showed them clearly",
+          "Cassini was the first to see them",
+          "Scientists guessed without any telescopes",
+          "Stronger telescopes made the shapes clearer"
+        ],
+        "answer": "D",
+        "skill": "inference",
+        "why": "Galileo could not identify the shapes, but decades later scientists with more powerful telescopes could.",
+        "wrong": {
+          "A": "Galileo could not identify what he saw.",
+          "B": "Cassini came much later, in 2004.",
+          "C": "The scientists used more powerful telescopes."
+        }
+      }
+    ]
   }
 }

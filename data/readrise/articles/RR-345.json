@@ -614,5 +614,217 @@
       ],
       "modelAnswer": "A landlocked country can reduce its dependence on a single neighbor by building strong transport links, such as a dedicated railway or road, that connect it reliably to a particular port, as Ethiopia has done with its railway to the port of Djibouti. It can also use more than one route rather than relying on only one path to the sea, the way Switzerland moves cargo along the Rhine River while also using roads and railways through several neighboring countries. Finally, joining a regional trade organization gives a landlocked country a guaranteed, predictable right to move goods through member territory, which is far more secure than depending entirely on the goodwill of one sovereign neighbor and the fees or delays it might choose to impose."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "What moves the goods the rest of the way?",
+        "options": [
+          "Trucks and trains",
+          "Small planes",
+          "Camels and carts",
+          "Big sailing ships"
+        ],
+        "answer": "A",
+        "skill": "detail",
+        "why": "The text says trucks and trains move the goods the rest of the way.",
+        "wrong": {
+          "B": "Planes are not mentioned.",
+          "C": "Camels and carts are not mentioned.",
+          "D": "Ships come at the end, when the goods reach a port."
+        }
+      },
+      {
+        "stem": "In the article, the word deal means —",
+        "options": [
+          "a loud fight",
+          "a card game",
+          "an agreement",
+          "a free gift"
+        ],
+        "answer": "C",
+        "skill": "vocabulary",
+        "why": "Landlocked lands make a deal with a friend land so goods can pass through its port, so a deal is an agreement.",
+        "wrong": {
+          "A": "The lands are friends, not fighting.",
+          "B": "A game does not fit the sentence.",
+          "D": "The text does not say the port use is a gift."
+        }
+      },
+      {
+        "stem": "Why does a landlocked land have no port by the sea?",
+        "options": [
+          "Its ports are too small.",
+          "Land is all around it.",
+          "Ships are not allowed.",
+          "The sea is too far north."
+        ],
+        "answer": "B",
+        "skill": "cause-effect",
+        "why": "The text says land sits all around a landlocked country, so it has no coastline or port.",
+        "wrong": {
+          "A": "It has no ports at all, not small ones.",
+          "C": "The text does not mention a rule about ships.",
+          "D": "Direction is not mentioned."
+        }
+      },
+      {
+        "stem": "What does the last paragraph tell you?",
+        "options": [
+          "Trade is not possible at all.",
+          "Only coastal lands can trade.",
+          "Landlocked lands are very rare.",
+          "They can still trade."
+        ],
+        "answer": "D",
+        "skill": "inference",
+        "why": "The last paragraph says trade can still work even with no coastline.",
+        "wrong": {
+          "A": "The text says trade can still work.",
+          "B": "Landlocked lands can trade too.",
+          "C": "The text says lands like this live all over the world."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "Which pair of countries is landlocked in South America?",
+        "options": [
+          "Switzerland and Austria",
+          "Bolivia and Paraguay",
+          "Chad and Niger",
+          "Mongolia and Austria"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The text says Bolivia and Paraguay are landlocked in South America.",
+        "wrong": {
+          "A": "Switzerland and Austria are in Europe.",
+          "C": "Chad and Niger are in Africa.",
+          "D": "Mongolia is in Asia and Austria is in Europe."
+        }
+      },
+      {
+        "stem": "In the article, the word surround means —",
+        "options": [
+          "to sail right past",
+          "to build high up",
+          "to take it away",
+          "to be all around"
+        ],
+        "answer": "D",
+        "skill": "vocabulary",
+        "why": "Land surrounds a landlocked country on every side, so surround means to be all around it.",
+        "wrong": {
+          "A": "Sailing past does not fit.",
+          "B": "Building high does not fit.",
+          "C": "The land does not take the country away."
+        }
+      },
+      {
+        "stem": "Why must a landlocked country move goods over land first?",
+        "options": [
+          "Its ships are too small to use",
+          "Roads are always faster there",
+          "It has no port of its own",
+          "Trains cannot cross a border"
+        ],
+        "answer": "C",
+        "skill": "cause-effect",
+        "why": "The text says it has no port of its own by the sea, so goods must go over land to reach a port.",
+        "wrong": {
+          "A": "The problem is that it has no port, not small ships.",
+          "B": "Speed of roads is not mentioned.",
+          "D": "Trucks, trains, and boats cross the border in the text."
+        }
+      },
+      {
+        "stem": "What does it show that landlocked countries are on every continent except one?",
+        "options": [
+          "This situation is widespread",
+          "They are only in cold places",
+          "They are all found in Africa",
+          "They are found only in Europe"
+        ],
+        "answer": "A",
+        "skill": "inference",
+        "why": "Being found on nearly every continent shows that being landlocked happens in many parts of the world.",
+        "wrong": {
+          "B": "The text does not link landlocked countries to cold places.",
+          "C": "Examples are named on several continents.",
+          "D": "Examples are named in South America, Asia, and Africa too."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "Which country relies on a railway to reach a port on the Red Sea?",
+        "options": [
+          "Switzerland",
+          "Mongolia",
+          "Ethiopia",
+          "Bolivia"
+        ],
+        "answer": "C",
+        "skill": "detail",
+        "why": "The text says Ethiopia relies on a railway to reach a port on the Red Sea.",
+        "wrong": {
+          "A": "Switzerland ships cargo along the Rhine River.",
+          "B": "Mongolia is described as lying between two neighbors.",
+          "D": "Bolivia is landlocked in South America."
+        }
+      },
+      {
+        "stem": "In the article, the word wedged most nearly means —",
+        "options": [
+          "squeezed in tightly",
+          "spread out widely",
+          "sailing past slowly",
+          "lifted up high"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "Mongolia is wedged between two enormous neighbors, so it is squeezed tightly between them.",
+        "wrong": {
+          "B": "Being between neighbors is the opposite of spread out.",
+          "C": "Sailing does not fit a landlocked country.",
+          "D": "Being lifted up is not the idea of the sentence."
+        }
+      },
+      {
+        "stem": "Why does being landlocked add time and cost to trade?",
+        "options": [
+          "Neighbors charge nothing for trade",
+          "Cargo ships must cross mountains",
+          "Ports close for the whole summer",
+          "Goods must cross a neighbor's land"
+        ],
+        "answer": "D",
+        "skill": "cause-effect",
+        "why": "The text says every item must cross a neighbor's territory first, adding both time and extra cost.",
+        "wrong": {
+          "A": "The text says it adds cost, not that trade is free.",
+          "B": "Cargo ships are not said to cross mountains.",
+          "C": "Summer closures are not mentioned."
+        }
+      },
+      {
+        "stem": "What can be inferred from the words hundreds of kilometers from any ocean?",
+        "options": [
+          "These countries have large ports",
+          "Their goods travel far over land",
+          "Ships can sail right up to them",
+          "They sit close to the Atlantic"
+        ],
+        "answer": "B",
+        "skill": "inference",
+        "why": "Countries far from any ocean must send goods a long way over land to reach a port.",
+        "wrong": {
+          "A": "Landlocked countries have no port of their own.",
+          "C": "Cargo ships can never sail directly to them.",
+          "D": "They are far from any ocean."
+        }
+      }
+    ]
   }
 }

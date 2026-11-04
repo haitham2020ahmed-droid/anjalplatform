@@ -614,5 +614,217 @@
       ],
       "modelAnswer": "Chess changed from an ancient game into a modern sport over many centuries and places. It began in India about 1,500 years ago, then spread to Persia and across the Arab world, where players wrote books of challenging puzzles that required players to calculate and anticipate their opponent's moves. Later the game traveled to Europe and the rest of the world, and today chess is recognized as a sport with clubs, coaches, and competitive tournaments that test concentration under a ticking clock. In 2017, Riyadh hosted an international championship for the world's best fast players, showing how far chess had traveled from its ancient origins in India."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "How many pieces does each side have?",
+        "options": [
+          "8",
+          "64",
+          "32",
+          "16"
+        ],
+        "answer": "D",
+        "skill": "detail",
+        "why": "The text says each side has 16 pieces.",
+        "wrong": {
+          "A": "Each side has 16, not 8.",
+          "B": "The board has 64 squares, not 64 pieces.",
+          "C": "Each side has 16, not 32."
+        }
+      },
+      {
+        "stem": "In the article, what is checkmate?",
+        "options": [
+          "a move a pawn makes first",
+          "when the king is trapped for good",
+          "a square in the middle of the board",
+          "a clock that counts the time"
+        ],
+        "answer": "B",
+        "skill": "vocabulary",
+        "why": "The text says when the king is trapped and cannot escape, it is called checkmate, and the game ends.",
+        "wrong": {
+          "A": "Pawn moves are not called checkmate.",
+          "C": "Checkmate is not a square.",
+          "D": "A clock is not checkmate."
+        }
+      },
+      {
+        "stem": "What do you need to play chess?",
+        "options": [
+          "A ball and a net",
+          "A clock and a coach",
+          "A board and a friend",
+          "A big grass field"
+        ],
+        "answer": "C",
+        "skill": "detail",
+        "why": "The last line says all you need is a board and a friend.",
+        "wrong": {
+          "A": "Chess is not played with a ball.",
+          "B": "Only some games use a clock, and you do not need a coach.",
+          "D": "Chess is played on a board."
+        }
+      },
+      {
+        "stem": "The kids do not run, but they work hard. What kind of work are they doing?",
+        "options": [
+          "Thinking hard about moves",
+          "Running around the board",
+          "Kicking a ball very hard",
+          "Lifting heavy boards"
+        ],
+        "answer": "A",
+        "skill": "inference",
+        "why": "The kids sit still, but they must plan and think ahead, so their work is thinking.",
+        "wrong": {
+          "B": "The text says they do not run.",
+          "C": "The text says they do not kick a ball.",
+          "D": "Nothing is lifted in the text."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "How many pawns does each player begin with?",
+        "options": [
+          "Two",
+          "Sixteen",
+          "Eight",
+          "Four"
+        ],
+        "answer": "C",
+        "skill": "detail",
+        "why": "The text lists eight pawns among each player's 16 pieces.",
+        "wrong": {
+          "A": "There are two rooks, bishops, and knights, but eight pawns.",
+          "B": "Sixteen is the total number of pieces.",
+          "D": "The text says eight pawns."
+        }
+      },
+      {
+        "stem": "When does a chess game end in checkmate?",
+        "options": [
+          "When a king cannot escape",
+          "When a player takes a rook",
+          "When both players agree",
+          "When a clock runs out"
+        ],
+        "answer": "A",
+        "skill": "cause-effect",
+        "why": "The text says that when the king is attacked and cannot escape, the game ends in checkmate.",
+        "wrong": {
+          "B": "Taking a piece does not end the game.",
+          "C": "Checkmate does not depend on agreement.",
+          "D": "The clock is for thinking quickly, not for checkmate."
+        }
+      },
+      {
+        "stem": "The article says a player can capture an \"opponent's\" piece. Who is an opponent?",
+        "options": [
+          "a coach who helps you",
+          "a friend on your team",
+          "a judge of the game",
+          "the other player"
+        ],
+        "answer": "D",
+        "skill": "vocabulary",
+        "why": "The opponent is the player on the other side who owns the pieces you capture.",
+        "wrong": {
+          "A": "A coach helps you; an opponent plays against you.",
+          "B": "You do not capture a teammate's pieces.",
+          "C": "A judge is not mentioned."
+        }
+      },
+      {
+        "stem": "Why does the author write, \"Best of all, anyone can begin\"?",
+        "options": [
+          "To warn that chess is hard",
+          "To encourage readers to try chess",
+          "To say chess is only for teachers",
+          "To list the chess pieces"
+        ],
+        "answer": "B",
+        "skill": "author-purpose",
+        "why": "The sentence is a cheerful ending that tells readers all they need is a board and a friend.",
+        "wrong": {
+          "A": "The sentence says anyone can begin.",
+          "C": "The sentence says anyone can play.",
+          "D": "The pieces are listed earlier."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "How many positions can computer programs check every second?",
+        "options": [
+          "Only a few",
+          "Millions",
+          "About sixty-four",
+          "Exactly sixteen"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The text says powerful programs can evaluate millions of positions every second.",
+        "wrong": {
+          "A": "The text says millions.",
+          "C": "Sixty-four is the number of squares on the board.",
+          "D": "Sixteen is the number of pieces each player starts with."
+        }
+      },
+      {
+        "stem": "Experienced players try to anticipate their opponent's moves. What does anticipate mean?",
+        "options": [
+          "to ignore",
+          "to copy",
+          "to forget",
+          "to predict"
+        ],
+        "answer": "D",
+        "skill": "vocabulary",
+        "why": "Players think many moves ahead to prepare a response, so anticipate means to predict what the opponent will do.",
+        "wrong": {
+          "A": "Players pay close attention; they do not ignore the opponent.",
+          "B": "They plan a response, not a copy.",
+          "C": "Forgetting would not help them prepare."
+        }
+      },
+      {
+        "stem": "Why do human players still need memory, intuition, and patience?",
+        "options": [
+          "No one can calculate all moves",
+          "Computers cannot be used in games",
+          "The clock does not allow help",
+          "The board has too many squares"
+        ],
+        "answer": "A",
+        "skill": "cause-effect",
+        "why": "The text says no player can calculate every possible continuation during a game.",
+        "wrong": {
+          "B": "The text does not say computers are banned; players train with them.",
+          "C": "The clock is not given as a reason.",
+          "D": "The number of squares is not the reason."
+        }
+      },
+      {
+        "stem": "In the paragraph about computers, \"Nevertheless\" tells the reader that the next idea is",
+        "options": [
+          "more proof that computers win",
+          "a new rule about chess clocks",
+          "a contrast with computer power",
+          "a list of the chess pieces"
+        ],
+        "answer": "C",
+        "skill": "text-structure",
+        "why": "After describing powerful computers, Nevertheless introduces a contrast: humans still rely on memory, intuition, and patience.",
+        "wrong": {
+          "A": "The next idea is about human players.",
+          "B": "Clocks are discussed in another paragraph.",
+          "D": "The pieces are listed earlier."
+        }
+      }
+    ]
   }
 }

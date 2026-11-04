@@ -614,5 +614,217 @@
       ],
       "modelAnswer": "I agree that small, careful work matters just as much as big, exciting work. Omar's task of copying the manuscript seemed quiet and unglamorous compared to the king's grand commission, yet his meticulous checking caught an error that could have sent real sailors toward the wrong shore. Someone might argue that Master Hassan's overall design mattered more than one apprentice's double-checking, but without Omar's careful verification, even the finest manuscript would have carried a hidden, dangerous mistake on its voyage to the king's court."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "Who wants the big map?",
+        "options": [
+          "A teacher",
+          "A sailor",
+          "A king",
+          "A farmer"
+        ],
+        "answer": "C",
+        "skill": "detail",
+        "why": "The text says a king wants the map.",
+        "wrong": {
+          "A": "A teacher is not in the story.",
+          "B": "A sailor is not named as the one who wants it.",
+          "D": "A farmer is not in the story."
+        }
+      },
+      {
+        "stem": "In the story, the word odd means —",
+        "options": [
+          "strange",
+          "happy",
+          "quick",
+          "heavy"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "Omar sees that the harbor looks wrong, so odd means strange.",
+        "wrong": {
+          "B": "Odd does not mean happy.",
+          "C": "Odd does not mean quick.",
+          "D": "Odd does not mean heavy."
+        }
+      },
+      {
+        "stem": "Why did Omar run to Hassan?",
+        "options": [
+          "He was late for work",
+          "He wanted to eat lunch",
+          "He had a new idea for a map",
+          "He found the harbor wrong"
+        ],
+        "answer": "D",
+        "skill": "cause-effect",
+        "why": "Omar saw that the harbor was in the wrong spot, so he ran to tell Hassan.",
+        "wrong": {
+          "A": "Being late is not mentioned.",
+          "B": "Lunch is not mentioned.",
+          "C": "He found a mistake; he had no new idea."
+        }
+      },
+      {
+        "stem": "What did Hassan and Omar do after Hassan praised Omar's sharp eyes?",
+        "options": [
+          "They sent the map back",
+          "They fixed the spot",
+          "They drew a new map",
+          "They went to see the king"
+        ],
+        "answer": "B",
+        "skill": "sequence",
+        "why": "The text says they fix the spot after Hassan says, \"Good eyes.\"",
+        "wrong": {
+          "A": "They did not send the map back.",
+          "C": "They fixed this map and did not draw a new one.",
+          "D": "They fix the map first; only then can it go to the king."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "What did Hassan's huge map show?",
+        "options": [
+          "Deserts and mountains only",
+          "The sky and the stars",
+          "Streets of one small town",
+          "Coasts, towns, and rivers"
+        ],
+        "answer": "D",
+        "skill": "detail",
+        "why": "The text says the map showed the coastline, towns, rivers, and harbors of many lands.",
+        "wrong": {
+          "A": "The map shows more than deserts and mountains.",
+          "B": "The sky and stars are not mentioned.",
+          "C": "It shows many lands, not one town."
+        }
+      },
+      {
+        "stem": "In the story, an apprentice is someone who —",
+        "options": [
+          "learns a skill from an expert",
+          "buys maps for the king",
+          "sails ships across the sea",
+          "sells paper in the market"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "Omar is learning to make maps from Hassan, so he is an apprentice.",
+        "wrong": {
+          "B": "The king asked for the map; Omar does not buy maps.",
+          "C": "Omar does not sail ships.",
+          "D": "Omar does not sell paper."
+        }
+      },
+      {
+        "stem": "What made Omar notice the mistake?",
+        "options": [
+          "Hassan told him where to look",
+          "His copy did not match the notes",
+          "A sailor pointed it out",
+          "The ink began to run"
+        ],
+        "answer": "B",
+        "skill": "cause-effect",
+        "why": "The harbor on his copy did not match the harbor's true spot in Hassan's old notes.",
+        "wrong": {
+          "A": "Hassan was busy and did not point it out.",
+          "C": "No sailor is in the story.",
+          "D": "Running ink is not mentioned."
+        }
+      },
+      {
+        "stem": "Why did Omar hurry to find Hassan before the map was packed?",
+        "options": [
+          "He wanted to leave early",
+          "He wanted the king to see it",
+          "He wanted to fix it in time",
+          "He was afraid of the sea"
+        ],
+        "answer": "C",
+        "skill": "inference",
+        "why": "Once the map was packed away the mistake could not be fixed, so he hurried.",
+        "wrong": {
+          "A": "Leaving early is not mentioned.",
+          "B": "The king should only see a correct map.",
+          "D": "Fear of the sea is not mentioned."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "Where does the story take place?",
+        "options": [
+          "In a desert town in Egypt",
+          "In the port city of Palermo",
+          "In a mountain village in Persia",
+          "On a ship in the Mediterranean"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The text says Omar was learning mapmaking in the port city of Palermo, in Sicily.",
+        "wrong": {
+          "A": "Egypt is not named as the setting.",
+          "C": "Persia is not named as the setting.",
+          "D": "The story happens on land, not on a ship."
+        }
+      },
+      {
+        "stem": "In the story, a \"faithful copy\" is one that is —",
+        "options": [
+          "smaller than the original",
+          "exactly like the original",
+          "much prettier than the original",
+          "missing a few small parts"
+        ],
+        "answer": "B",
+        "skill": "vocabulary",
+        "why": "Omar must check every line so that his copy matches the original exactly.",
+        "wrong": {
+          "A": "Size is not the point.",
+          "C": "The copy must match the original, not improve it.",
+          "D": "A copy missing parts would not be faithful."
+        }
+      },
+      {
+        "stem": "Why did Hassan tell Omar to examine every symbol with great care?",
+        "options": [
+          "A tiny mistake could mislead a ship",
+          "The parchment cost a lot of money",
+          "The king liked long maps",
+          "Omar was slow at drawing"
+        ],
+        "answer": "A",
+        "skill": "cause-effect",
+        "why": "Hassan says even the smallest mistake could send a ship toward the wrong shore.",
+        "wrong": {
+          "B": "The cost of parchment is not mentioned.",
+          "C": "The length of the map is not the reason.",
+          "D": "Omar's speed is not the reason."
+        }
+      },
+      {
+        "stem": "Why does Hassan tell Omar that a mapmaker must verify every detail?",
+        "options": [
+          "To say Omar is not allowed to rest",
+          "To warn that sailors may blame Omar",
+          "To tell Omar to draw more quickly",
+          "To teach why careful checking matters"
+        ],
+        "answer": "D",
+        "skill": "inference",
+        "why": "His warning about leading sailors into danger teaches Omar why checking each detail matters.",
+        "wrong": {
+          "A": "He praises Omar and says nothing about rest.",
+          "B": "Blame is not mentioned.",
+          "C": "He wants care, not speed."
+        }
+      }
+    ]
   }
 }

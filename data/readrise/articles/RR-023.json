@@ -614,5 +614,217 @@
       ],
       "modelAnswer": "I agree that microbes are valuable partners rather than enemies, because evidence from several paragraphs of the article shows how essential these tiny microorganisms truly are. In the human gut, bacteria digest food we cannot break down ourselves and produce helpful vitamins, while fermentation by yeast and other bacteria gives us risen bread, yogurt, and drinks like laban. In the soil, decomposer microbes break down dead plants and animals, returning nutrients such as nitrogen back into the ground so new life can grow, and Alexander Fleming's discovery of a mold that killed bacteria eventually led to penicillin, a medicine that has saved millions of lives. Even so, the article warns that overusing antibiotic medicine can be dangerous, because it can destroy helpful bacteria along with harmful ones and allow stronger germs to survive, which is why people should use antibiotics carefully rather than relying on them too often."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "What do the bacteria in your gut help do to food?",
+        "options": [
+          "Turn it into bread",
+          "Break it down",
+          "Keep it in a jar",
+          "Make it very hot"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The text says bacteria in your gut help break down food.",
+        "wrong": {
+          "A": "Yeast helps make bread, not gut bacteria.",
+          "C": "The text does not say they store food.",
+          "D": "The text does not say they heat food."
+        }
+      },
+      {
+        "stem": "What happens to milk when bacteria help make yogurt?",
+        "options": [
+          "It turns into bread dough",
+          "It turns into dark soil",
+          "It turns into a gas",
+          "It turns thick and sour"
+        ],
+        "answer": "D",
+        "skill": "cause-effect",
+        "why": "The text says bacteria turn milk thick and sour.",
+        "wrong": {
+          "A": "Bread is made with yeast.",
+          "B": "Soil is helped by microbes, but milk does not become soil.",
+          "C": "The gas is made by yeast in bread, not in yogurt."
+        }
+      },
+      {
+        "stem": "In the article, the word microbe means —",
+        "options": [
+          "life that is too small to see",
+          "a drug that kills bad germs",
+          "a kind of soil for plants",
+          "a kind of food made from milk"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "The text says a microbe is life that is too small to see.",
+        "wrong": {
+          "B": "The drug came from a mold, which is a microbe.",
+          "C": "Microbes live in soil, but are not soil.",
+          "D": "Yogurt is made with microbes, but is not a microbe."
+        }
+      },
+      {
+        "stem": "A sick person takes the drug that came from a mold. What will it most likely do?",
+        "options": [
+          "Make more bad germs",
+          "Make bread rise",
+          "Kill bad germs",
+          "Turn milk thick"
+        ],
+        "answer": "C",
+        "skill": "inference",
+        "why": "The text says the mold gave us a drug that kills bad germs.",
+        "wrong": {
+          "A": "The drug kills germs, not makes them.",
+          "B": "Yeast is the microbe that makes bread rise.",
+          "D": "Bacteria in yogurt do that, not the drug."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "What kind of living thing is yeast?",
+        "options": [
+          "A kind of bacteria",
+          "A kind of vitamin",
+          "A kind of plant seed",
+          "A tiny fungus"
+        ],
+        "answer": "D",
+        "skill": "detail",
+        "why": "The article says yeast is a tiny fungus that bakers mix into bread dough.",
+        "wrong": {
+          "A": "The article names yeast as a fungus, not bacteria.",
+          "B": "Vitamins are made by gut bacteria, not yeast.",
+          "C": "Yeast is a microbe, not a seed."
+        }
+      },
+      {
+        "stem": "In the article, the word harmless means —",
+        "options": [
+          "very big and heavy",
+          "not able to hurt you",
+          "hard to find in water",
+          "always making you sick"
+        ],
+        "answer": "B",
+        "skill": "vocabulary",
+        "why": "The article says some microbes can make people sick but most are harmless, so they do not hurt us.",
+        "wrong": {
+          "A": "Microbes are tiny.",
+          "C": "The sentence is about harm, not about finding them.",
+          "D": "Harmless is the opposite of making people sick."
+        }
+      },
+      {
+        "stem": "What does the acid made by bacteria do to milk?",
+        "options": [
+          "It turns it thick and a little sour",
+          "It turns it into soft bread dough",
+          "It turns it into clear fresh water",
+          "It makes it rise up with gas bubbles"
+        ],
+        "answer": "A",
+        "skill": "cause-effect",
+        "why": "The article says the acid turns the milk thick and a little sour.",
+        "wrong": {
+          "B": "Dough is made with yeast and flour.",
+          "C": "The milk becomes thick, not clear.",
+          "D": "Rising with gas happens with yeast in dough."
+        }
+      },
+      {
+        "stem": "Why did Antonie van Leeuwenhoek need to build his own lenses?",
+        "options": [
+          "He wanted to make a new medicine",
+          "He wanted to dig deep in the soil",
+          "Microbes are too small to see alone",
+          "He wanted to bake bread for a shop"
+        ],
+        "answer": "C",
+        "skill": "inference",
+        "why": "The article says microbes are so small that you need a microscope, so he built lenses to see them.",
+        "wrong": {
+          "A": "Medicine came later from Fleming's discovery.",
+          "B": "Lenses are not used for digging.",
+          "D": "Lenses are not used for baking."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "According to the article, what do gut bacteria help you digest?",
+        "options": [
+          "Fiber and other food your body cannot break down",
+          "Vitamin K and other medicines made in the lab",
+          "Milk and cheese that people make from yogurt",
+          "Carbon dioxide and other gases from the air"
+        ],
+        "answer": "A",
+        "skill": "detail",
+        "why": "The article says gut bacteria help you digest fiber and other food parts your body cannot break down by itself.",
+        "wrong": {
+          "B": "Vitamin K is something bacteria produce, not something they digest.",
+          "C": "Yogurt and cheese are foods made with bacteria.",
+          "D": "Carbon dioxide is released by yeast, not digested."
+        }
+      },
+      {
+        "stem": "In the article, the word consume in \"bacteria consume the natural sugar\" most nearly means —",
+        "options": [
+          "throw away",
+          "grow bigger than",
+          "eat or use up",
+          "keep for later"
+        ],
+        "answer": "C",
+        "skill": "vocabulary",
+        "why": "The bacteria feed on the sugar in milk and make acid, so consume means eat or use up.",
+        "wrong": {
+          "A": "They use the sugar, not throw it away.",
+          "B": "The sentence is not about size.",
+          "D": "They turn the sugar into acid right away."
+        }
+      },
+      {
+        "stem": "Why does yogurt have a slightly sour flavor?",
+        "options": [
+          "Yeast gives off carbon dioxide gas",
+          "The milk has gone bad in the sun",
+          "Bacteria make acid from milk sugar",
+          "Doctors add a medicine to the milk"
+        ],
+        "answer": "C",
+        "skill": "cause-effect",
+        "why": "The article says bacteria consume the sugar in milk and produce an acid that gives it a sour flavor.",
+        "wrong": {
+          "A": "Carbon dioxide from yeast makes bread rise.",
+          "B": "The article does not say yogurt is spoiled milk.",
+          "D": "The article does not say doctors add medicine to yogurt."
+        }
+      },
+      {
+        "stem": "How are decomposers different from the bacteria on bean and pea roots?",
+        "options": [
+          "Decomposers make vitamins, and root bacteria make antibiotics",
+          "Decomposers recycle dead things, and root bacteria change nitrogen from air",
+          "Decomposers live only in air, and root bacteria live only in milk",
+          "Decomposers kill all bacteria, and root bacteria are food for yeast"
+        ],
+        "answer": "B",
+        "skill": "compare",
+        "why": "The article says decomposers break down dead things and return nutrients, while root bacteria turn nitrogen from the air into a form plants can use.",
+        "wrong": {
+          "A": "Gut bacteria make vitamins, and a mold gave penicillin.",
+          "C": "Decomposers live in the soil, not only in air.",
+          "D": "The article does not describe either group this way."
+        }
+      }
+    ]
   }
 }

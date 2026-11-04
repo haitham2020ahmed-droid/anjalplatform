@@ -614,5 +614,217 @@
       ],
       "modelAnswer": "Transpiration is the process in which water evaporates out through the stomata, the tiny holes in a leaf, and escaping this way pulls on the water molecules behind it. Because water molecules stick together through cohesion, that single tug is enough to drag an entire column of water up the xylem from the roots to the leaves. The article explains that once the water arrives, it supplies the plant with the moisture needed for photosynthesis, which shows how transpiration and cohesion work as one continuous pulling system."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "What does each root have that helps it drink?",
+        "options": [
+          "Tiny holes",
+          "Thin tubes",
+          "Tiny hairs",
+          "Big leaves"
+        ],
+        "answer": "C",
+        "skill": "detail",
+        "why": "The text says each root has tiny hairs and the hairs help a lot.",
+        "wrong": {
+          "A": "Tiny holes are in the leaves.",
+          "B": "Thin tubes are in the stem.",
+          "D": "Leaves are not part of the roots."
+        }
+      },
+      {
+        "stem": "What happens when some water goes out of the leaves into the air?",
+        "options": [
+          "The leaves all fall off.",
+          "The roots dry out.",
+          "The stem gets thin.",
+          "More water is pulled up."
+        ],
+        "answer": "D",
+        "skill": "cause-effect",
+        "why": "The text says the water that goes out of the leaves pulls more water up.",
+        "wrong": {
+          "A": "The text does not say leaves fall off.",
+          "B": "More water is pulled in, so the roots do not dry out.",
+          "C": "The stem does not change."
+        }
+      },
+      {
+        "stem": "What does water do for a plant besides help it make food?",
+        "options": [
+          "It keeps the plant firm.",
+          "It makes the plant sing.",
+          "It makes the sun hot.",
+          "It digs the soil."
+        ],
+        "answer": "A",
+        "skill": "detail",
+        "why": "The text says water keeps the plant firm.",
+        "wrong": {
+          "B": "The text never says this.",
+          "C": "Water does not change the sun.",
+          "D": "The roots take in water; they do not need water to dig."
+        }
+      },
+      {
+        "stem": "In the article, the word droops means —",
+        "options": [
+          "grows tall",
+          "hangs down",
+          "smells sweet",
+          "turns green"
+        ],
+        "answer": "B",
+        "skill": "vocabulary",
+        "why": "A plant that wilts droops, and after a drink it stands up again, so droops means hangs down.",
+        "wrong": {
+          "A": "The plant stands up after water, so droops is the opposite of growing tall.",
+          "C": "Smell is not mentioned.",
+          "D": "The text does not talk about color."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "Besides helping make food, what does the water in a plant carry?",
+        "options": [
+          "Sunlight",
+          "Minerals from the soil",
+          "Vapor from the leaves",
+          "Dirt from the roots"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The text says the water also carries minerals from the soil.",
+        "wrong": {
+          "A": "Sunlight is used to make food, but water does not carry it.",
+          "C": "Vapor leaves the plant through the leaves.",
+          "D": "The text says minerals, not dirt."
+        }
+      },
+      {
+        "stem": "Where does water turn into vapor and escape from a plant?",
+        "options": [
+          "Through the tiny root hairs",
+          "Through the xylem",
+          "Through tiny holes in the leaves",
+          "Through the soil in the ground"
+        ],
+        "answer": "C",
+        "skill": "detail",
+        "why": "The text says water in the leaf turns into vapor and escapes through tiny holes.",
+        "wrong": {
+          "A": "Root hairs take water in.",
+          "B": "The xylem carries water up.",
+          "D": "The soil holds water; it is not part of the plant."
+        }
+      },
+      {
+        "stem": "In the article, the word tugs means —",
+        "options": [
+          "pulls",
+          "pours",
+          "shakes",
+          "dries"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "Evaporating water tugs on the water behind it, so more water rises; tugs means pulls.",
+        "wrong": {
+          "B": "Water is pulled up, not poured.",
+          "C": "Shaking is not described.",
+          "D": "Water leaving the leaf is evaporation, not tugging."
+        }
+      },
+      {
+        "stem": "A gardener cuts off most of a plant's leaves. Why might the plant take up water more slowly?",
+        "options": [
+          "The roots will grow too many tiny hairs.",
+          "The soil will get too wet.",
+          "The xylem will turn into straws.",
+          "Less water will evaporate to pull water up."
+        ],
+        "answer": "D",
+        "skill": "inference",
+        "why": "Evaporation from the leaves tugs water up the stem, so fewer leaves means less pulling.",
+        "wrong": {
+          "A": "Root hairs are not changed by cutting leaves.",
+          "B": "Wet soil is not linked to the leaves.",
+          "C": "The xylem only works like straws; it is not changed."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "According to the article, what is cohesion?",
+        "options": [
+          "The way roots spread through soil",
+          "The way water molecules cling to one another",
+          "The way leaves use sunlight to make food",
+          "The way a plant droops when it is dry"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The text says water molecules cling tightly to one another, a property called cohesion.",
+        "wrong": {
+          "A": "Roots spreading is not called cohesion.",
+          "C": "That process is photosynthesis.",
+          "D": "Drooping is wilting."
+        }
+      },
+      {
+        "stem": "How do the root hairs help a plant gather water?",
+        "options": [
+          "They pull water up against the force of gravity.",
+          "They carry minerals to the leaves.",
+          "They add a lot of surface for taking in water.",
+          "They store water for dry weeks."
+        ],
+        "answer": "C",
+        "skill": "cause-effect",
+        "why": "Root hairs give an enormous amount of additional surface, so the plant gathers far more water.",
+        "wrong": {
+          "A": "The pull comes from the leaves.",
+          "B": "Minerals travel in the water in the xylem.",
+          "D": "The text does not say they store water."
+        }
+      },
+      {
+        "stem": "In the article, cohesion is the way that water molecules —",
+        "options": [
+          "cling tightly to one another",
+          "fall from clouds as rain",
+          "dissolve salt and sugar fast",
+          "rise up through roots"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "The article says water molecules cling tightly to one another, a property called cohesion.",
+        "wrong": {
+          "B": "Rain is part of the water cycle, not cohesion.",
+          "C": "Dissolving is a different property of water.",
+          "D": "Rising through roots uses cohesion but is not what the word means."
+        }
+      },
+      {
+        "stem": "Which list shows the path of water through a plant in the correct order?",
+        "options": [
+          "Leaves, xylem, roots, air",
+          "Stomata, stem, soil, roots",
+          "Xylem, soil, leaves, roots",
+          "Roots, xylem, leaves, stomata"
+        ],
+        "answer": "D",
+        "skill": "sequence",
+        "why": "Water enters the roots, climbs the xylem in the stem, reaches the leaves, and escapes through the stomata.",
+        "wrong": {
+          "A": "Water does not start in the leaves.",
+          "B": "Water cannot start at the stomata.",
+          "C": "Water does not start in the xylem."
+        }
+      }
+    ]
   }
 }

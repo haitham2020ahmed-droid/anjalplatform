@@ -614,5 +614,217 @@
       ],
       "modelAnswer": "I disagree that recycling alone is enough to solve the plastic bottle problem, because the evidence shows plastic causes damage even before and after it reaches a recycling center. Plastic bottles are made from petroleum, a fossil fuel formed into a long-chain polymer that is intentionally durable and strong, which is exactly why it does not easily degrade once it becomes trash; a single bottle may persist for hundreds of years, slowly breaking into harmful microplastics rather than disappearing. In addition, many bottles never reach a recycling center at all, instead becoming litter that washes into rivers and oceans, so recycling programs cannot address plastic that was never collected in the first place. Because durability makes plastic both useful and dangerous, I believe reducing and reusing bottles matters just as much as recycling them."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "What happens right after the beads melt?",
+        "options": [
+          "They are sent to the sea.",
+          "A machine blows air in.",
+          "They turn back into oil.",
+          "A truck picks them up."
+        ],
+        "answer": "B",
+        "skill": "sequence",
+        "why": "The text says the beads melt and then a machine blows air in, and the bottle pops out.",
+        "wrong": {
+          "A": "The sea is where litter may end up, not melted beads.",
+          "C": "The beads never turn back into oil.",
+          "D": "Trucks pick up bottles for recycling later."
+        }
+      },
+      {
+        "stem": "How can a bottle that is litter get to the sea?",
+        "options": [
+          "Birds drop it in the sea.",
+          "Fish swim to the land.",
+          "Wind and rain can take it.",
+          "A truck drives it there."
+        ],
+        "answer": "C",
+        "skill": "cause-effect",
+        "why": "The text says wind and rain can take litter to the sea.",
+        "wrong": {
+          "A": "The text does not say birds drop it.",
+          "B": "Fish stay in the sea.",
+          "D": "Trucks pick up bottles to be recycled, not litter."
+        }
+      },
+      {
+        "stem": "In this article, what does the word recycle mean?",
+        "options": [
+          "To throw it away in the deep sea",
+          "To use it only one time and stop",
+          "To bury it in a big pit in soil",
+          "To make old things into new things"
+        ],
+        "answer": "D",
+        "skill": "vocabulary",
+        "why": "Recycled bottles are cleaned, cut up, melted and made into new things, like a shirt.",
+        "wrong": {
+          "A": "Throwing it in the sea makes litter.",
+          "B": "Recycling means using the material again.",
+          "C": "Burying a bottle in a pit is a different path."
+        }
+      },
+      {
+        "stem": "What can recycled bottles be made into?",
+        "options": [
+          "A shirt",
+          "A bigger factory",
+          "Oil and gas",
+          "Wind and rain"
+        ],
+        "answer": "A",
+        "skill": "detail",
+        "why": "The text says the melted bottles are made into new things, one of which is a shirt.",
+        "wrong": {
+          "B": "A factory is not made from bottles.",
+          "C": "Oil and gas are where plastic comes from.",
+          "D": "Wind and rain are weather."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "In this article, what is a landfill?",
+        "options": [
+          "A pit where trash is buried",
+          "A place where bottles are made",
+          "A river that flows to the sea",
+          "A truck that collects bottles"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "The article calls a landfill a huge pit where trash is dumped and covered with soil.",
+        "wrong": {
+          "B": "Bottles are made in a factory.",
+          "C": "Rivers carry litter, but a landfill is not a river.",
+          "D": "Trucks collect bottles for recycling."
+        }
+      },
+      {
+        "stem": "What are pellets, according to the article?",
+        "options": [
+          "Large pieces of old trash",
+          "Tiny beads of plastic",
+          "Drops of water in a bottle",
+          "Flakes of old clothing"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The article says chemicals are linked into chains and formed into tiny beads called pellets.",
+        "wrong": {
+          "A": "Pellets are tiny, not large.",
+          "C": "Pellets are plastic, not water.",
+          "D": "Flakes come from chopped bottles in recycling."
+        }
+      },
+      {
+        "stem": "Why does litter often end up in the sea?",
+        "options": [
+          "The sea needs more plastic.",
+          "Birds carry it there.",
+          "Rain and rivers carry it there.",
+          "Trucks take it there."
+        ],
+        "answer": "C",
+        "skill": "cause-effect",
+        "why": "The article says wind and rain wash litter into rivers, which carry it to the ocean.",
+        "wrong": {
+          "A": "The sea does not need plastic.",
+          "B": "Birds are not said to carry litter there.",
+          "D": "Trucks take bottles to recycling or a landfill."
+        }
+      },
+      {
+        "stem": "Why does the author begin with a cold bottle on a hot afternoon?",
+        "options": [
+          "To teach how to keep water cold at home",
+          "To start with something readers know",
+          "To tell exactly how hot the weather is",
+          "To sell readers a new bottle of water"
+        ],
+        "answer": "B",
+        "skill": "author-purpose",
+        "why": "A cold bottle is something most readers know, and it leads into the question of where the bottle comes from.",
+        "wrong": {
+          "A": "The article does not give tips on cold water.",
+          "C": "The weather is not the topic.",
+          "D": "The article is not an advertisement."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "What do the tiny PET pellets look like, according to the article?",
+        "options": [
+          "Grains of rice",
+          "Drops of oil",
+          "Pieces of glass",
+          "Flakes of snow"
+        ],
+        "answer": "A",
+        "skill": "detail",
+        "why": "The article says the pellets resemble grains of rice.",
+        "wrong": {
+          "B": "Oil is the starting material, not what the pellets look like.",
+          "C": "Glass is not mentioned.",
+          "D": "Flakes are made later when bottles are shredded."
+        }
+      },
+      {
+        "stem": "The article says a bottle may persist for hundreds of years. What does persist mean?",
+        "options": [
+          "Break down quickly",
+          "Float on the sea",
+          "Keep on existing",
+          "Be put in a mold"
+        ],
+        "answer": "C",
+        "skill": "vocabulary",
+        "why": "Bacteria cannot easily break plastic down, so a bottle can keep on existing for hundreds of years.",
+        "wrong": {
+          "A": "The bottle does not break down quickly.",
+          "B": "Floating is not what persist means.",
+          "D": "Molds are used when the bottle is made."
+        }
+      },
+      {
+        "stem": "The journey of a bottle can continue longer than a human lifetime. What explains this?",
+        "options": [
+          "Plastic lasts for hundreds of years.",
+          "Bottles are made very slowly.",
+          "People never use plastic bottles.",
+          "Factories are very far away."
+        ],
+        "answer": "A",
+        "skill": "inference",
+        "why": "The article says a single bottle may last for hundreds of years, which is longer than a person lives.",
+        "wrong": {
+          "B": "A bottle is made in seconds.",
+          "C": "People use bottles every day.",
+          "D": "Distance is not the reason."
+        }
+      },
+      {
+        "stem": "Right after explaining how recycling gives bottles a second life, the author says only a small share of plastic has been recycled. What does this do?",
+        "options": [
+          "It repeats how bottles are washed.",
+          "It shows a problem after the good news.",
+          "It begins a new set of steps.",
+          "It names a new kind of bottle."
+        ],
+        "answer": "B",
+        "skill": "text-structure",
+        "why": "The paragraph explains how recycling works, then However adds that only a small portion of plastic has been recycled.",
+        "wrong": {
+          "A": "The washing step comes earlier in the paragraph.",
+          "C": "The steps come before the word However.",
+          "D": "No new kind of bottle is named."
+        }
+      }
+    ]
   }
 }

@@ -614,5 +614,217 @@
       ],
       "modelAnswer": "People in China discovered that a freely suspended lodestone always aligns toward north because of its natural magnetism, and sailors learned to transfer that magnetism into a thin iron needle by rubbing the two together. At first they floated this needle on straw in a bowl of water, but navigators in the Islamic world and across the Mediterranean later refined the design, mounting the needle on a pivot inside a protective box marked with a compass rose. This maritime innovation mattered enormously for long-distance travel because, unlike the stars or the sun, it continued to orient sailors reliably day or night and through rain, clouds, or fog, letting them navigate confidently far from any coastline."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "What did sailors put the needle on so it could float in water?",
+        "options": [
+          "A flat rock",
+          "A little boat",
+          "A bit of straw",
+          "A piece of glass"
+        ],
+        "answer": "C",
+        "skill": "detail",
+        "why": "The text says sailors set the needle on a bit of straw and let it float in a bowl of water.",
+        "wrong": {
+          "A": "The rock is the lodestone used to rub the needle.",
+          "B": "A boat is not mentioned.",
+          "D": "Glass is not mentioned."
+        }
+      },
+      {
+        "stem": "Why could ships sail far out and still find their way home?",
+        "options": [
+          "A compass works day or night",
+          "The sea has many roads",
+          "Sailors had a map of the sea",
+          "Ships could float on straw"
+        ],
+        "answer": "A",
+        "skill": "cause-effect",
+        "why": "The text says a compass works day or night, in rain or fog, so ships could find their way home.",
+        "wrong": {
+          "B": "The text says the sea has no roads.",
+          "C": "The text says sailors had no map.",
+          "D": "The straw was used to float the needle, not the ship."
+        }
+      },
+      {
+        "stem": "What does point mean in \"point north\"?",
+        "options": [
+          "To cut with a sharp tool",
+          "To make a small dot",
+          "To pull on iron",
+          "To show a direction"
+        ],
+        "answer": "D",
+        "skill": "vocabulary",
+        "why": "The needle points north, which means it shows the way north.",
+        "wrong": {
+          "A": "The needle does not cut anything.",
+          "B": "A dot is not what the needle makes.",
+          "C": "Pulling on iron describes a magnet, not the word point."
+        }
+      },
+      {
+        "stem": "What came right before the needle was set on a pin in a box?",
+        "options": [
+          "It floated in a bowl of water",
+          "It was rubbed on a lodestone twice",
+          "It was sent to Europe",
+          "It hung free in the air"
+        ],
+        "answer": "A",
+        "skill": "sequence",
+        "why": "Sailors first floated the needle on straw in a bowl of water, and later set it on a pin in a box.",
+        "wrong": {
+          "B": "The text does not say the needle was rubbed twice.",
+          "C": "The text does not say the needle was sent to Europe.",
+          "D": "The rock, not the needle, hung free."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "Where did merchants carry the compass idea along trade routes?",
+        "options": [
+          "Into the Islamic world and the Mediterranean",
+          "Into the cold lands far to the north of China",
+          "Into the deep deserts far to the south of it",
+          "Into the high mountains near the sea in China"
+        ],
+        "answer": "A",
+        "skill": "detail",
+        "why": "The text says merchants carried the idea into the Islamic world and the Mediterranean Sea.",
+        "wrong": {
+          "B": "The cold north is not mentioned.",
+          "C": "The text does not mention deserts.",
+          "D": "The idea started in China, so it did not travel into its mountains."
+        }
+      },
+      {
+        "stem": "What does the word magnetize mean in the article?",
+        "options": [
+          "To make a needle shine",
+          "To give it pulling power",
+          "To hang it in the air",
+          "To break it in two"
+        ],
+        "answer": "B",
+        "skill": "vocabulary",
+        "why": "The text says rubbing the needle on a lodestone gave it the same pulling power.",
+        "wrong": {
+          "A": "Nothing in the text says the needle shines.",
+          "C": "Hanging free is what the lodestone does.",
+          "D": "The needle is not broken."
+        }
+      },
+      {
+        "stem": "Why does a compass work in thick fog when the stars cannot be seen?",
+        "options": [
+          "The box makes all of the fog thin",
+          "The sailors can still see the sun",
+          "The needle points north on its own",
+          "The water gets very warm at sea"
+        ],
+        "answer": "C",
+        "skill": "inference",
+        "why": "The needle points north on its own, so a compass does not need a view of the sky.",
+        "wrong": {
+          "A": "The text does not say the box changes fog.",
+          "B": "The fog would hide the sun as well.",
+          "D": "Warm water is not mentioned."
+        }
+      },
+      {
+        "stem": "Why does the author begin with a hard problem at sea?",
+        "options": [
+          "To tell how to build a boat",
+          "To say that roads are better than ships",
+          "To explain how to find the stars",
+          "To show why sailors needed a compass"
+        ],
+        "answer": "D",
+        "skill": "author-purpose",
+        "why": "The opening problem of finding the way with no roads or signs sets up why the compass was so useful.",
+        "wrong": {
+          "A": "The text does not teach boat building.",
+          "B": "The text does not compare roads with ships.",
+          "C": "The text does not teach how to find stars."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "Where is the compass still used today, according to the article?",
+        "options": [
+          "Only on very old wooden ships",
+          "Only in a few big museums",
+          "Only in some far-off cities",
+          "On ships, planes, and phones"
+        ],
+        "answer": "D",
+        "skill": "detail",
+        "why": "The last paragraph says it is still used on ships, in planes, and inside phones.",
+        "wrong": {
+          "A": "The text says it is used in more places than old ships.",
+          "B": "The text says it is still a basic tool.",
+          "C": "Far cities are not mentioned in that way."
+        }
+      },
+      {
+        "stem": "What does the word orient mean in \"orient toward north\"?",
+        "options": [
+          "To turn and face a direction",
+          "To sink into the water",
+          "To lose its pulling power",
+          "To move away from the box"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "The needle could face north on its own, so orient means to turn toward a direction.",
+        "wrong": {
+          "B": "The needle floats and does not sink.",
+          "C": "The needle keeps its pulling power.",
+          "D": "The needle sits inside the box."
+        }
+      },
+      {
+        "stem": "Why could the needle find north without touching the stone again?",
+        "options": [
+          "The sailors held it with their hands",
+          "The bowl rocked on the waves",
+          "Cloud covered the night sky",
+          "The stone passed pulling power on"
+        ],
+        "answer": "D",
+        "skill": "cause-effect",
+        "why": "Rubbing passed some of the stone's pulling power into the metal, so the needle became a magnet itself.",
+        "wrong": {
+          "A": "The text says it turned on its own.",
+          "B": "The waves rocked the bowl, but the needle still found north.",
+          "C": "The compass works even when clouds cover the sky, but this is not what gave it power."
+        }
+      },
+      {
+        "stem": "Why does the author end with planes and phones?",
+        "options": [
+          "To say that sailors are no longer needed",
+          "To show a good way to build a phone",
+          "To show the idea still matters today",
+          "To explain why planes use fog"
+        ],
+        "answer": "C",
+        "skill": "author-purpose",
+        "why": "The ending shows that the compass idea is still used today, so its history was important.",
+        "wrong": {
+          "A": "The text does not say sailors are not needed.",
+          "B": "The text does not tell how to build a phone.",
+          "D": "Planes and fog are not linked in the text."
+        }
+      }
+    ]
   }
 }

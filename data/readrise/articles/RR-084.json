@@ -614,5 +614,217 @@
       ],
       "modelAnswer": "Al-Idrisi, a careful cartographer, refused to trust a single traveler's account; instead, he gathered reports from many sailors and merchants and only recorded a fact once several independent sources agreed on it. I could use this same method to verify a surprising claim I read online today by searching for two or three other trustworthy websites and checking whether they report the same information. If only one source makes the claim and nothing else confirms it, I would treat it the way al-Idrisi treated an unconfirmed story, as something not yet proven. Just as his caution kept errors out of the manuscripts that preserved his work, cross-checking several sources today helps keep false information out of what I believe."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "What did King Roger want from al-Idrisi?",
+        "options": [
+          "A new ship for Sicily",
+          "A silver cup for his court",
+          "A map of the world",
+          "A book about Spain"
+        ],
+        "answer": "C",
+        "skill": "detail",
+        "why": "The text says the king wanted a map of the world.",
+        "wrong": {
+          "A": "A ship is not mentioned.",
+          "B": "The silver was used for the map, not a cup.",
+          "D": "The book came from the map project; the king asked for a map."
+        }
+      },
+      {
+        "stem": "How many small maps were in al-Idrisi's book?",
+        "options": [
+          "Seventy small maps",
+          "Fifteen small maps",
+          "Ten small maps",
+          "Two hundred small maps"
+        ],
+        "answer": "A",
+        "skill": "detail",
+        "why": "The text says his book had 70 small maps.",
+        "wrong": {
+          "B": "Fifteen is how many years the work took.",
+          "C": "Ten is not in the text.",
+          "D": "Two hundred is not in the text."
+        }
+      },
+      {
+        "stem": "His map shows Makkah and Madinah. What does this tell you?",
+        "options": [
+          "He lived in the city of Makkah for years",
+          "He learned about places far from Sicily",
+          "He drew the whole map in the city of Madinah",
+          "King Roger traveled to Arabia many times"
+        ],
+        "answer": "B",
+        "skill": "inference",
+        "why": "He worked in Sicily but learned from travelers and sailors, so he knew about faraway lands.",
+        "wrong": {
+          "A": "The text says he worked for the king of Sicily.",
+          "C": "The map was made for King Roger in Sicily.",
+          "D": "The text does not say the king went to Arabia."
+        }
+      },
+      {
+        "stem": "In the article, the word scholar means —",
+        "options": [
+          "a man who sails big ships",
+          "a king who rules a land",
+          "a man who sells maps",
+          "a person who loves to learn"
+        ],
+        "answer": "D",
+        "skill": "vocabulary",
+        "why": "Al-Idrisi was a scholar, a man who loved to learn and studied the world.",
+        "wrong": {
+          "A": "Sailors sailed the ships; a scholar studies.",
+          "B": "The king was Roger; a scholar is not a king.",
+          "C": "A scholar learns and studies; the text does not say he sold maps."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "About how long did al-Idrisi's project take?",
+        "options": [
+          "About 5 years",
+          "About 50 years",
+          "About 15 years",
+          "About 9 years"
+        ],
+        "answer": "C",
+        "skill": "detail",
+        "why": "The text says the project took about 15 years.",
+        "wrong": {
+          "A": "Five years is too short.",
+          "B": "Fifty years is too long.",
+          "D": "Nine years is too short."
+        }
+      },
+      {
+        "stem": "In the article, a geographer is a person who —",
+        "options": [
+          "studies the Earth's lands and places",
+          "builds large ships for long sea trips",
+          "writes long books about the stars",
+          "teaches young students in Cordoba"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "The text defines a geographer as a person who studies the Earth's lands and places.",
+        "wrong": {
+          "B": "Ship builders are not called geographers in the text.",
+          "C": "Writing about stars is not what a geographer does here.",
+          "D": "Al-Idrisi studied in Cordoba but did not teach there."
+        }
+      },
+      {
+        "stem": "Why does his map look upside down to us?",
+        "options": [
+          "It was drawn on a round disc",
+          "It was copied by hand many times",
+          "The silver turned over with age",
+          "South is at the top of the map"
+        ],
+        "answer": "D",
+        "skill": "cause-effect",
+        "why": "The text says the map looks upside down because south is at the top.",
+        "wrong": {
+          "A": "The disc shape is not the reason.",
+          "B": "Copying was done to the book, not the reason for direction.",
+          "C": "Nothing says the silver turned over."
+        }
+      },
+      {
+        "stem": "Why were the busy ports a good place for al-Idrisi's work?",
+        "options": [
+          "He could buy fine silver there for the disc",
+          "Travelers from many lands brought reports",
+          "King Roger kept all the old maps there",
+          "The ships there were free for him to use"
+        ],
+        "answer": "B",
+        "skill": "inference",
+        "why": "He talked with travelers, sailors, and merchants who came to the ports, so he got reports from many lands.",
+        "wrong": {
+          "A": "Buying silver is not mentioned.",
+          "C": "He did not just copy old maps.",
+          "D": "The text does not say he used the ships."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "Why did King Roger invite al-Idrisi to his court?",
+        "options": [
+          "He wanted a long book about Spanish kings",
+          "He wanted a detailed map of the world",
+          "He wanted to learn how to sail on the sea",
+          "He wanted a silver crown for the island"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The text says the king wanted a map that displayed every region of the known world in detail.",
+        "wrong": {
+          "A": "The king asked for a map, not a book about kings.",
+          "C": "Sailing lessons are not mentioned.",
+          "D": "The silver was used for the map, not a crown."
+        }
+      },
+      {
+        "stem": "In the article, the word excluded most nearly means —",
+        "options": [
+          "praised",
+          "copied",
+          "left out",
+          "measured"
+        ],
+        "answer": "C",
+        "skill": "vocabulary",
+        "why": "Descriptions that contradicted each other were not kept, so they were left out.",
+        "wrong": {
+          "A": "Contradicting reports were not praised.",
+          "B": "Copying is what he did not do with old maps.",
+          "D": "The reports were not measured."
+        }
+      },
+      {
+        "stem": "The article says al-Idrisi talked with travelers and sailors rather than just copying older maps. What does this suggest about him?",
+        "options": [
+          "He valued new, firsthand information",
+          "He was not able to read older maps",
+          "He disliked all travelers and sailors",
+          "He copied maps without any changes"
+        ],
+        "answer": "A",
+        "skill": "inference",
+        "why": "He interviewed travelers and sailors instead of copying, so he valued new information.",
+        "wrong": {
+          "B": "Nothing says he could not read maps.",
+          "C": "He interviewed travelers and sailors, so he did not dislike them.",
+          "D": "The sentence says he did not simply copy maps."
+        }
+      },
+      {
+        "stem": "Which event came after the project was completed in 1154?",
+        "options": [
+          "He studied in Cordoba",
+          "Roger invited him to court",
+          "He traveled to many lands",
+          "The silver map disappeared"
+        ],
+        "answer": "D",
+        "skill": "sequence",
+        "why": "The text says the project was completed in 1154, and later the silver map disappeared.",
+        "wrong": {
+          "A": "He studied in Cordoba as a young man.",
+          "B": "The king invited him before the project began.",
+          "C": "He traveled as a young man, before the project."
+        }
+      }
+    ]
   }
 }

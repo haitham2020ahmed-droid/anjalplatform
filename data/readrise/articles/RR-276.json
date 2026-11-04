@@ -614,5 +614,217 @@
       ],
       "modelAnswer": "I agree that gymnastics transforms athletic ability into artistry. The article explains that a gymnast's strength becomes momentum on the vault, carrying them through a sprint, a springboard launch, and a twisting flight before a controlled landing, which shows raw power turned into a precise skill. The article also says that years of discipline and dedication build the confidence and precision gymnasts need, which is what eventually turns difficult technique into something that looks like art rather than just strength."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "What does the coach show a gymnast?",
+        "options": [
+          "Where to buy mats",
+          "How to cook food",
+          "New moves",
+          "Which bar is tall"
+        ],
+        "answer": "C",
+        "skill": "detail",
+        "why": "The text says the coach shows new moves.",
+        "wrong": {
+          "A": "Buying mats is not mentioned.",
+          "B": "Cooking is not mentioned.",
+          "D": "Bar height is not mentioned."
+        }
+      },
+      {
+        "stem": "How is gymnastics today different from long ago?",
+        "options": [
+          "Today it is not fun.",
+          "Today people do it only at home.",
+          "Today it has no coaches.",
+          "Today there are big gyms."
+        ],
+        "answer": "D",
+        "skill": "compare",
+        "why": "Long ago people did gymnastics just for fun, and now there are big gyms with mats, bars, and beams.",
+        "wrong": {
+          "A": "The text says it is fun to watch.",
+          "B": "The text says there are big gyms.",
+          "C": "The text says a coach helps a gymnast train."
+        }
+      },
+      {
+        "stem": "In this article, what does the phrase with ease mean?",
+        "options": [
+          "Without much trouble",
+          "With a loud noise",
+          "In a short time",
+          "On a high bar"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "Stretching helps a gymnast move with ease, which means move without much trouble.",
+        "wrong": {
+          "B": "Noise is not mentioned.",
+          "C": "Ease is about how easy the move is, not how long it takes.",
+          "D": "A high bar is not the meaning of ease."
+        }
+      },
+      {
+        "stem": "Why does a gymnast train most days?",
+        "options": [
+          "She has no other work to do.",
+          "The coach lives very far away.",
+          "Balance and strength take time.",
+          "The gym is closed on some days."
+        ],
+        "answer": "C",
+        "skill": "inference",
+        "why": "The text says balance can take a long time to learn and strength is needed, so she trains most days to build them.",
+        "wrong": {
+          "A": "The text does not talk about other work.",
+          "B": "The coach's home is not mentioned.",
+          "D": "The text does not say the gym is closed."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "Which list names pieces of apparatus in the article?",
+        "options": [
+          "Floor, beam, vault, and bars",
+          "Mat, rope, ring, and pole",
+          "Ball, net, floor, and bat",
+          "Bars, track, pool, and ramp"
+        ],
+        "answer": "A",
+        "skill": "detail",
+        "why": "The text says the apparatus include the floor, the beam, the vault, and the bars.",
+        "wrong": {
+          "B": "Rope, ring, and pole are not named in the text.",
+          "C": "Ball, net, and bat are not named in the text.",
+          "D": "Track, pool, and ramp are not named in the text."
+        }
+      },
+      {
+        "stem": "How do gymnasts build their strength?",
+        "options": [
+          "By sleeping for many hours",
+          "By eating special food",
+          "By hours of muscle training",
+          "By watching other gymnasts"
+        ],
+        "answer": "C",
+        "skill": "cause-effect",
+        "why": "The text says strength is built through hours of muscle training.",
+        "wrong": {
+          "A": "Sleep is not given as a way to build strength.",
+          "B": "Food is not mentioned.",
+          "D": "Watching others is not mentioned."
+        }
+      },
+      {
+        "stem": "In the article, the word precision means —",
+        "options": [
+          "doing things very exactly",
+          "moving a very long way",
+          "being very loud and noisy",
+          "working very slowly"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "A coach breaks a hard trick into small steps that build precision, which means doing it exactly right.",
+        "wrong": {
+          "B": "The word describes exactness, not the distance of a move.",
+          "C": "Loudness is not mentioned.",
+          "D": "Small steps help exactness, not slowness."
+        }
+      },
+      {
+        "stem": "Why is gymnastics hard to master quickly?",
+        "options": [
+          "There are no coaches to help her.",
+          "The routines are very long.",
+          "The Olympic Games are far away.",
+          "Balance and strength take years."
+        ],
+        "answer": "D",
+        "skill": "inference",
+        "why": "The text says good balance can take years of practice and strength comes from hours of training, so mastering it takes time.",
+        "wrong": {
+          "A": "The text says a coach guides each gymnast.",
+          "B": "The text says a routine is short.",
+          "C": "The Olympics are not given as a reason."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "What did young athletes in ancient Greece train for?",
+        "options": [
+          "Strength, grace, and endurance",
+          "Speed, music, and great fame",
+          "Wealth, power, and far travel",
+          "Humor, color, and loud noise"
+        ],
+        "answer": "A",
+        "skill": "detail",
+        "why": "The text says young athletes in ancient Greece trained for strength, grace, and endurance.",
+        "wrong": {
+          "B": "Music and fame are not named in the text.",
+          "C": "Wealth and travel are not named in the text.",
+          "D": "Humor and noise are not named in the text."
+        }
+      },
+      {
+        "stem": "Why must a gymnast learn all the apparatus?",
+        "options": [
+          "The coach picks a new one each day.",
+          "The judges choose one at random.",
+          "The gym only has one.",
+          "Each one needs its own technique."
+        ],
+        "answer": "D",
+        "skill": "cause-effect",
+        "why": "The text says each apparatus demands its own distinct technique, so a gymnast must master them all.",
+        "wrong": {
+          "A": "The text does not say the coach picks a new one daily.",
+          "B": "Random choice by judges is not mentioned.",
+          "C": "The text lists four apparatus, not one."
+        }
+      },
+      {
+        "stem": "In the article, the word endurance most nearly means —",
+        "options": [
+          "the power to keep going",
+          "the skill of singing well",
+          "the habit of sleeping late",
+          "the chance of winning"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "Young athletes trained for endurance in daily life as a physical quality, which means the power to keep going.",
+        "wrong": {
+          "B": "Singing is not part of the training in the text.",
+          "C": "Sleeping late is not a physical quality in the text.",
+          "D": "Winning is a result, not a quality athletes train for in this sentence."
+        }
+      },
+      {
+        "stem": "The article says a gymnast makes the whole performance look effortless. What does this suggest?",
+        "options": [
+          "Gymnasts do not need to practice.",
+          "Hard moves are made to look easy.",
+          "The routines are simple to do.",
+          "Gymnasts only perform in secret."
+        ],
+        "answer": "B",
+        "skill": "inference",
+        "why": "The text says the sport demands remarkable skill, so looking effortless means making hard moves seem easy.",
+        "wrong": {
+          "A": "The text says it takes years of practice.",
+          "C": "The text says the skills are demanding, not simple.",
+          "D": "The performances are watched closely by judges."
+        }
+      }
+    ]
   }
 }

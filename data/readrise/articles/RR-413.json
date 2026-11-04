@@ -1,543 +1,830 @@
 {
-  "code": "RR-413",
-  "title": "The Robot Gardener",
-  "topic": "Fiction",
-  "summary": "A community garden gets an experimental robot that at first cannot tell weeds from vegetables, until the kids who tend the garden teach it to see the difference.",
-  "poll": "A machine that makes mistakes at first should be given a second chance to learn.",
-  "versions": [
-    {
-      "level": 300,
-      "title": "The Robot Gardener",
-      "text": "Lina and Yousef help in a garden. Rows of carrots and tomatoes grow there. We call them vegetables.\n\nOne day, a man comes to help. His name is Mr. Faisal. He brings a new robot. Its name is Sprout. Sprout can give the plants water. It can pull up weeds too.\n\nBut Sprout makes a mistake. It can not tell a weed from a plant. It pulls up a carrot. Then it pulls up a tomato too!\n\nThe kids feel sad. They go tell the man. He wants to help right away. They want to teach Sprout.\n\nThey show Sprout some cards. One card has a weed. One card has a carrot plant. The man helps Sprout learn from them. Soon Sprout can look at a leaf and know what it is.\n\nSprout stops pulling up the wrong plants. It only pulls real weeds now. The garden looks neat again. Lina, Yousef, and Sprout are now a team."
-    },
-    {
-      "level": 400,
-      "title": "The Robot Gardener",
-      "text": "Lina and Yousef help in a garden near their homes. Many people share the garden. Rows of carrots and tomatoes grow there. People call these plants vegetables.\n\nOne day, a man visits the garden. His name is Mr. Faisal. He brings a new robot. Its name is Sprout. Sprout can water the plants by itself. It can also pull up weeds.\n\nBut Sprout soon makes a big mistake. It cannot tell a weed from a young plant. One morning, it pulls up a carrot plant! A little later, it pulls up a tomato plant too.\n\nThe kids feel upset about this. They go tell Mr. Faisal right away. He wants to fix the problem fast. The kids want to teach Sprout how to tell the plants apart.\n\nThey show Sprout many cards. One card shows a weed. Another card shows a carrot plant. Mr. Faisal works with Sprout so it can learn. Soon Sprout can look at a leaf and know what it is.\n\nAfter that, Sprout stops pulling up the wrong plants. It only pulls up real weeds now. The garden looks neat and healthy again. Lina, Yousef, and Sprout now work as a team."
-    },
-    {
-      "level": 500,
-      "title": "The Robot Gardener",
-      "text": "Lina and Yousef spend many days helping in a garden near their homes. Many people share this garden. Rows of carrots and tomatoes grow there. Carrots and tomatoes are vegetables.\n\nOne day, a man named Mr. Faisal visits the garden. He brings something new. It is a robot called Sprout. Sprout can water the plants on its own. It can also pull up weeds.\n\nAt first, though, Sprout makes a serious mistake. It cannot tell a weed from a young vegetable plant. One morning, it pulls up a healthy carrot plant! A short time later, it pulls up a tomato plant too.\n\nLina and Yousef feel upset when they find the pulled-up plants. They tell Mr. Faisal what happened. He wants to fix the problem right away. The kids want to help teach Sprout.\n\nThen, they show Sprout many cards. Some cards show weeds. Other cards show young carrot and tomato plants. Mr. Faisal works with Sprout so it can learn. Little by little, Sprout learns to look at a leaf first.\n\nAfter a few weeks, Sprout stops pulling up the wrong plants. It only pulls up real weeds now. The garden looks neat and healthy again. Lina, Yousef, and Sprout are now a true team."
-    },
-    {
-      "level": 600,
-      "title": "The Robot Gardener",
-      "text": "Lina and Yousef spend many days helping in a garden near their homes. Many people grow vegetables there. Long rows of carrots and tomatoes fill the garden. These vegetables need lots of water and weeding.\n\nOne day, a man named Mr. Faisal visits the garden. He carries something new with him. It is a small robot called Sprout. Sprout can water the plants by itself. It moves slowly along the rows. It can also pull up weeds without being told.\n\nAt first, though, Sprout makes a big mistake. It cannot yet tell a weed from a young vegetable plant. One morning, it pulls up a healthy carrot plant! A short while later, it pulls up a tomato plant too, and thinks the leaves are a weed.\n\nLina and Yousef feel upset when they find the pulled-up plants in the dirt. They hurry to tell Mr. Faisal what happened. He wants to fix the problem soon. The kids offer to help teach Sprout how to tell the plants apart.\n\nTogether, they show Sprout many cards. Some cards show common weeds. Other cards show young carrot and tomato plants. Mr. Faisal works with Sprout so it can learn something new each time. Little by little, Sprout learns to look at a leaf's shape before it acts.\n\nAfter many weeks of practice, Sprout stops pulling up the wrong plants. It now pulls up only real weeds. Every vegetable plant stays untouched. The garden looks neat and full of life again, and Lina, Yousef, and Sprout have truly become a team."
-    },
-    {
-      "level": 700,
-      "title": "The Robot Gardener",
-      "text": "Lina and Yousef spend many afternoons helping in a garden near their homes. Several families grow vegetables there side by side. Long, careful rows of carrots and tomatoes fill the garden. These vegetables need steady watering and regular weeding.\n\nOne afternoon, an engineer named Mr. Faisal arrives at the garden. He brings a small robot called Sprout. He built it to help with the garden's chores. Sprout can water the plants on its own. It rolls slowly along each row. It can also pull up weeds without being asked.\n\nAt first, however, Sprout makes a serious mistake. Its camera cannot yet recognize the difference between a stubborn weed and a young vegetable plant. One morning, it pulls up a healthy carrot plant, roots and all! A short while later, it pulls up a tomato seedling too, and thinks the leaves are a weed.\n\nLina and Yousef feel upset when they find the pulled-up plants lying in the dirt. They hurry to tell Mr. Faisal what has happened. He wants to fix the problem quickly. The two children offer to become his partners in teaching Sprout how to tell the plants apart.\n\nThen, they show Sprout dozens of careful pictures. Some pictures show common weeds. Other pictures show young carrot and tomato plants at every stage of growth. Mr. Faisal adjusts Sprout's program so the robot can learn something useful from each picture. Little by little, Sprout learns to look at the shape and color of a leaf before it acts.\n\nAfter many weeks of steady practice, Sprout stops pulling up the wrong plants. It now pulls up only real weeds, leaving every vegetable plant untouched. The garden looks neat and full of life once again, and Lina, Yousef, and Sprout have truly become a trusted garden team."
-    },
-    {
-      "level": 800,
-      "title": "The Robot Gardener",
-      "text": "Lina and Yousef spend many afternoons helping in a busy garden near their homes, where several families grow vegetables side by side. Long, careful rows of carrots and tomatoes fill the garden. These vegetables need steady watering and regular weeding all season.\n\nOne afternoon, an engineer named Mr. Faisal arrives at the garden carrying something new. He brings a small robot called Sprout, which he built to help with the garden's many chores. Sprout can water the plants on its own, rolling slowly along each row. It can also pull up weeds without being asked twice.\n\nAt first, however, Sprout makes a serious mistake. Its camera cannot yet recognize the difference between a stubborn weed and a young vegetable plant. One morning, it pulls up a healthy carrot plant, roots and all! A short while later, it pulls up a tender tomato seedling too, and thinks the leaves are a weed.\n\nLina and Yousef feel upset when they find the pulled-up plants lying in the dirt. They hurry to tell Mr. Faisal what has happened to their plants. He wants to fix the problem as quickly as possible. The two children offer to become his partners in teaching Sprout how to tell the plants apart.\n\nWorking as a small team, they show Sprout dozens of careful pictures. Some pictures show common weeds. Other pictures show young carrot and tomato plants at every stage of growth. Mr. Faisal adjusts Sprout's program so the robot can learn something useful from each new picture. Little by little, Sprout learns to look at the exact shape and color of a leaf before deciding what to do.\n\nAfter several weeks of steady, patient practice, Sprout finally stops pulling up the wrong plants. It now pulls up only real weeds, leaving every vegetable plant untouched and healthy. The garden looks neat and full of life once again. Lina, Yousef, and Sprout have truly become a trusted garden team."
-    },
-    {
-      "level": 900,
-      "title": "The Robot Gardener",
-      "text": "Lina and Yousef spend many afternoons helping in a busy garden near their homes, where several families grow vegetables side by side in shared plots. Long, careful rows of carrots and tomatoes fill the garden. These vegetables need steady watering and regular weeding all season long.\n\nOne afternoon, an engineer named Mr. Faisal arrives at the garden carrying something new and rather exciting. He brings a small robot called Sprout, which he built to help with the garden's many repetitive chores. Sprout can water the plants on its own, rolling slowly along each row while sensors check the soil. It can also pull up weeds without being asked twice.\n\nAt first, however, Sprout makes a fairly serious mistake, because its camera cannot yet recognize the difference between a stubborn weed and a young vegetable plant. One morning, it pulls up a healthy carrot plant, roots and all, simply because the leaves look somewhat similar to a weed. A short while later, it pulls up a tender tomato seedling too, again thinking the leaves are an ordinary weed.\n\nLina and Yousef feel upset when they find the pulled-up plants lying scattered in the dirt. They hurry to tell Mr. Faisal exactly what has happened to their carefully grown plants. He wants to fix the problem as quickly as possible. The two children offer to become his partners in the project, teaching Sprout how to tell the plants apart.\n\nWorking together as a small team, they show Sprout dozens of careful pictures: pictures of common weeds, and pictures of young carrot and tomato plants at every stage of growth. Mr. Faisal patiently adjusts Sprout's program so the robot can learn something useful from each new picture it studies, slowly building a clearer picture of what each plant looks like. Little by little, Sprout learns to examine the exact shape, size, and color of a leaf before deciding what to do.\n\nAfter several weeks of steady, patient practice, Sprout finally stops pulling up the wrong plants altogether. The mistakes become fewer each day. It now pulls up only real weeds, leaving every vegetable plant untouched and healthy as it grows. The garden looks neat and full of life once again, and Lina, Yousef, and Sprout have truly become a trusted garden team that neighbors now rely on."
-    },
-    {
-      "level": 1000,
-      "title": "The Robot Gardener",
-      "text": "Lina and Yousef spend many afternoons helping in a busy garden near their homes, where several families cultivate vegetables side by side in shared plots. Long, careful rows of carrots and tomatoes fill the garden. These vegetables require steady watering and regular weeding all season long.\n\nOne afternoon, an engineer named Mr. Faisal arrives at the garden carrying something new and rather exciting to demonstrate. He brings a small robot called Sprout, which he designed to help with the garden's many repetitive chores. Sprout can water the plants on its own, rolling slowly along each row while sensors check the moisture in the soil. It can also pull up weeds without being asked twice.\n\nAt first, however, Sprout makes a significant mistake, because its camera cannot yet recognize the difference between a stubborn weed and a young, delicate vegetable plant. One morning, it pulls up a healthy carrot plant, roots and all, simply because the leaves look somewhat similar to a weed. A short while later, it pulls up a tender tomato seedling as well, again thinking the leaves are an ordinary weed.\n\nLina and Yousef feel genuinely upset when they find the pulled-up plants lying scattered in the dirt. They hurry to tell Mr. Faisal exactly what has happened to their carefully grown plants. He wants to resolve the problem as quickly as possible, and the two children offer to become his partners in the project, teaching Sprout how to tell the different kinds of plants apart.\n\nWorking together as a small team, they show Sprout dozens of careful pictures: pictures of common weeds, and pictures of young carrot and tomato plants at every stage of growth. Mr. Faisal patiently adjusts Sprout's program so the robot can learn something useful from each new picture it studies, slowly building a clearer picture of what each type of plant looks like. Little by little, Sprout learns to examine the exact shape, size, and color of a leaf before deciding what to do.\n\nAfter several weeks of steady, patient practice, Sprout finally stops pulling up the wrong plants altogether, and the mistakes grow fewer and fewer with each passing day. It now pulls up only real weeds, leaving every vegetable plant untouched and healthy as it continues to grow. The garden looks neat and full of life once again, and Lina, Yousef, and Sprout have truly become a trusted garden team that the whole neighborhood now depends on."
-    },
-    {
-      "level": 1100,
-      "title": "The Robot Gardener",
-      "text": "Lina and Yousef spend many afternoons volunteering in a busy community garden near their homes, where several neighborhood families cultivate vegetables side by side. Long, carefully tended rows of carrots and tomatoes fill the garden, and these vegetables require steady watering and regular weeding to thrive.\n\nOne afternoon, an engineer named Mr. Faisal arrives at the garden carrying an experimental machine he is eager to demonstrate. He introduces a small robot called Sprout, designed specifically to assist with the garden's many repetitive chores. Sprout can water the plants entirely on its own, rolling slowly along each row while its built-in sensors check the moisture in the soil. It can also pull up weeds without anyone needing to ask it twice.\n\nAt first, however, Sprout makes a significant mistake, because its onboard camera cannot yet distinguish between a stubborn weed and a young, delicate vegetable plant. One morning, it reaches down and pulls up a perfectly healthy carrot plant, roots and all, simply because the leaves resemble a common weed. A short while later, it pulls up a tender tomato seedling as well, mistaking its soft leaves for an ordinary weed.\n\nLina and Yousef feel genuinely upset when they discover the pulled-up plants scattered across the dirt path. They hurry to tell Mr. Faisal exactly what has happened to their vegetables. He wants to resolve the problem as quickly as possible. The two children offer to collaborate with him, teaching Sprout how to tell the different plants apart.\n\nWorking together as a small team, they show Sprout dozens of carefully chosen photographs: images of common weeds, and images of young carrot and tomato plants at every stage of growth. Mr. Faisal patiently calibrates Sprout's sensors and adjusts its program so the robot can learn something useful from each new photograph. Little by little, Sprout learns to examine the exact shape, size, and color of a leaf before deciding whether or not to pull it.\n\nAfter several weeks of steady, patient practice, Sprout adapts completely and stops pulling up the wrong plants altogether. It now pulls up only genuine weeds, leaving every vegetable plant untouched and healthy. The garden looks neat and full of life once again, and Lina, Yousef, and Sprout have truly become a reliable, trusted gardening team that the whole neighborhood now depends on."
-    },
-    {
-      "level": 1200,
-      "title": "The Robot Gardener",
-      "text": "Lina and Yousef spend many afternoons volunteering in a busy community garden near their homes, where several neighborhood families cultivate vegetables side by side in neat, shared plots. Long, carefully tended rows of carrots and tomatoes fill the garden, and these vegetables require steady watering and regular weeding to thrive throughout the season.\n\nOne afternoon, an engineer named Mr. Faisal arrives at the garden carrying an experimental machine he is eager to demonstrate to the children. He introduces a small robot called Sprout, designed specifically to assist with the garden's many repetitive chores, from watering to weeding. Sprout can water the plants entirely on its own, rolling slowly along each row while its built-in sensors measure the moisture level in the soil. It can also pull up weeds without anyone needing to ask it twice.\n\nAt first, however, Sprout makes a significant mistake, because its onboard camera cannot yet reliably distinguish between a stubborn weed and a young, delicate vegetable plant growing nearby. One morning, it reaches down and pulls up a perfectly healthy carrot plant, roots and all, simply because the leaves happen to resemble the shape of a common weed. A short while later, it pulls up a tender tomato seedling as well, mistaking its soft leaves for an ordinary garden weed.\n\nLina and Yousef feel genuinely upset when they discover the pulled-up plants scattered across the dirt path between the rows. They hurry to tell Mr. Faisal exactly what has happened to their carefully grown plants. He wants to resolve the problem as quickly as possible, so the two children offer to collaborate with him directly, helping to teach Sprout how to tell the plants apart.\n\nWorking together as a small, dedicated team, they show Sprout dozens of carefully chosen photographs: images of common weeds found around the garden, and images of young carrot and tomato plants at every stage of their growth. Mr. Faisal patiently calibrates Sprout's sensors and adjusts its program so the robot can learn something useful from each new photograph it studies. Little by little, Sprout learns to examine the exact shape, size, and color of a leaf before deciding whether or not to pull it from the ground.\n\nAfter several weeks of steady, patient practice, Sprout adapts completely and stops pulling up the wrong plants altogether, its mistakes growing fewer with each passing day. It now pulls up only genuine weeds, leaving every vegetable plant untouched and healthy as it continues to grow. The garden looks neat and full of life once again, and Lina, Yousef, and Sprout have truly become a reliable, trusted gardening team that the whole neighborhood now depends on."
-    },
-    {
-      "level": 1300,
-      "title": "The Robot Gardener",
-      "text": "Lina and Yousef spend countless afternoons volunteering in a busy community garden near their homes, where several neighborhood families cultivate vegetables side by side in neat, shared plots that the entire community helps to maintain. Long, carefully tended rows of carrots and tomatoes fill the garden, and these vegetables require steady watering and regular weeding to thrive throughout the entire growing season.\n\nOne afternoon, an engineer named Mr. Faisal arrives at the garden carrying an experimental machine that he is eager to demonstrate to the children who faithfully tend the plots. He introduces a small robot called Sprout, designed specifically to assist with the garden's many repetitive chores, from watering each row methodically to weeding between the plants. Sprout can water the plants entirely on its own, rolling slowly along each row while its built-in sensors measure the moisture level in the soil. It can also pull up weeds without anyone needing to ask it twice.\n\nAt first, however, Sprout makes a significant and rather embarrassing mistake, because its onboard camera cannot yet reliably distinguish between a stubborn weed and a young, delicate vegetable plant growing nearby. One morning, it reaches down and pulls up a perfectly healthy carrot plant, roots and all, simply because the leaves happen to resemble the general shape of a common weed. A short while later, it pulls up a tender tomato seedling as well, mistaking its soft leaves for an ordinary garden weed rather than a valuable crop.\n\nLina and Yousef feel genuinely upset when they discover the pulled-up plants scattered across the dirt path between the rows of vegetables, worried that more damage might follow. They hurry to tell Mr. Faisal exactly what has happened to their carefully grown plants. He wants to resolve the problem as quickly as possible, so the two children offer to collaborate with him directly, helping to teach Sprout methodically how to tell the different kinds of plants apart.\n\nWorking together as a small, dedicated team, they show Sprout dozens of carefully chosen photographs: images of common weeds found around the garden, and images of young carrot and tomato plants at every stage of their growth, from tiny seedlings to fuller, more mature plants. Mr. Faisal patiently calibrates Sprout's sensors and adjusts its program line by line so the robot can learn something useful from each new photograph it studies, gradually building a clearer internal picture of what each type of plant actually looks like. Little by little, Sprout learns to examine the exact shape, size, and color of a leaf before deciding whether or not to pull it from the ground.\n\nAfter several weeks of steady, patient practice, Sprout adapts completely and stops pulling up the wrong plants altogether, its mistakes growing fewer with each passing day until they disappear entirely. It now pulls up only genuine weeds, leaving every vegetable plant untouched and healthy as it continues to grow toward a successful harvest. The garden looks neat and full of life once again, and Lina, Yousef, and Sprout have truly become a reliable, trusted gardening team that the whole neighborhood now depends on every single season."
-    },
-    {
-      "level": 1400,
-      "title": "The Robot Gardener",
-      "text": "Lina and Yousef spend countless afternoons volunteering in a busy community garden near their homes, where several neighborhood families cultivate vegetables side by side in neat, shared plots that the entire community helps to maintain throughout the year. Long, carefully tended rows of carrots and tomatoes fill the garden, and these vegetables require steady watering and regular weeding to thrive throughout the entire growing season, from the earliest seedlings to the final harvest.\n\nOne afternoon, an engineer named Mr. Faisal arrives at the garden carrying an experimental machine that he is eager to demonstrate to the children who faithfully tend the plots. He introduces a small robot called Sprout, designed specifically to assist with the garden's many repetitive chores, from watering each row methodically to weeding carefully between the plants. Sprout can water the plants entirely on its own, rolling slowly along each row while its built-in sensors measure the moisture level in the soil. It can also pull up weeds without anyone needing to ask it twice.\n\nAt first, however, Sprout makes a significant and rather embarrassing mistake, because its onboard camera cannot yet reliably distinguish between a stubborn weed and a young, delicate vegetable plant growing nearby. One morning, it reaches down and pulls up a perfectly healthy carrot plant, roots and all, simply because the leaves happen to resemble the general shape of a common weed. A short while later, it pulls up a tender tomato seedling as well, mistaking its soft leaves for an ordinary garden weed rather than a valuable crop worth protecting.\n\nLina and Yousef feel genuinely upset when they discover the pulled-up plants scattered across the dirt path between the rows of vegetables, worried that further damage might follow if nothing changes soon. They hurry to tell Mr. Faisal exactly what has happened to their carefully grown plants. He wants to resolve the problem as quickly as possible, so the two children offer to collaborate with him directly, helping to teach Sprout methodically how to tell the different kinds of plants apart.\n\nWorking together as a small, dedicated team, they show Sprout dozens of carefully chosen photographs: images of common weeds found around the garden, and images of young carrot and tomato plants at every stage of their growth, from tiny seedlings to fuller, more mature plants ready for harvest. Mr. Faisal patiently calibrates Sprout's sensors and adjusts its program line by line so the robot can learn something useful from each new photograph it studies, gradually building a clearer internal picture of what each type of plant actually looks like up close. Little by little, Sprout learns to examine the exact shape, size, and color of a leaf before deciding whether or not to pull it from the ground.\n\nAfter several weeks of steady, patient practice, Sprout adapts completely and stops pulling up the wrong plants altogether, its mistakes growing fewer with each passing day until they disappear entirely from its daily routine. It now pulls up only genuine weeds, leaving every vegetable plant untouched and healthy as it continues to grow toward a successful harvest. The garden looks neat and full of life once again, and Lina, Yousef, and Sprout have truly become a reliable, trusted gardening team that the whole neighborhood now depends on every single season.\n\nThe experience teaches Lina and Yousef an important lesson about patience and collaboration: even a carefully engineered machine can make mistakes at first, but with consistent teaching and thoughtful adjustment, it can eventually become a dependable partner rather than a source of frustration."
-    },
-    {
-      "level": 1500,
-      "title": "The Robot Gardener",
-      "text": "Lina and Yousef devote countless afternoons to volunteering in a bustling community garden near their homes, where several neighborhood families cultivate vegetables side by side in neat, shared plots that the entire community works together to maintain throughout the year. Long, meticulously tended rows of carrots and tomatoes fill the garden, and these vegetables require steady watering and regular weeding if they are to thrive throughout the entire growing season, from the earliest seedlings to the final, bountiful harvest.\n\nOne afternoon, an engineer named Mr. Faisal arrives at the garden carrying an experimental machine that he is eager to demonstrate to the children who faithfully tend the plots day after day. He introduces a small robot called Sprout, designed specifically to assist with the garden's many repetitive chores, watering each row methodically and weeding carefully between the plants without complaint. Sprout can water the plants entirely on its own, rolling slowly along each row while its built-in sensors measure the moisture level in the soil, and it can likewise pull up weeds without anyone needing to ask it twice.\n\nAt first, however, Sprout makes a significant and rather embarrassing mistake, since its rudimentary onboard camera cannot yet reliably distinguish between a stubborn weed and a young, delicate vegetable plant growing just beside it. One morning, it reaches down and pulls up a perfectly healthy carrot plant, roots and all, simply because the leaves happen to resemble the general shape of a common weed. A short while later, it pulls up a tender tomato seedling as well, mistaking its soft leaves for an ordinary garden weed rather than a valuable crop worth protecting carefully.\n\nLina and Yousef feel genuinely upset when they discover the pulled-up plants scattered across the dirt path between the rows of vegetables, their hard work seemingly undone in a single morning. They hurry to tell Mr. Faisal exactly what has happened to their carefully grown plants, worried that further damage might follow if nothing changes soon. He wants to resolve the problem as quickly as possible, so the two children offer to collaborate with him directly, helping to teach Sprout methodically how to distinguish the different kinds of plants from one another.\n\nWorking together as a small, dedicated team, they show Sprout dozens of carefully chosen photographs: images of common weeds found throughout the garden, and images of young carrot and tomato plants at every stage of their growth, from tiny seedlings to fuller, more mature plants ready for harvest. Mr. Faisal patiently calibrates Sprout's sensors and adjusts its program line by line so the robot can extract something useful from each new photograph it studies, gradually building a clearer internal picture of precisely what each type of plant actually looks like up close. Little by little, Sprout learns to examine the exact shape, size, and color of a leaf before ever deciding whether or not to pull it from the ground.\n\nAfter several weeks of steady, patient practice, Sprout adapts completely and stops pulling up the wrong plants altogether, its mistakes growing fewer with each passing day until they disappear entirely from its daily routine. It now pulls up only genuine weeds, leaving every vegetable plant untouched and flourishing as it continues to grow toward a successful harvest. The garden looks neat and full of life once again, and Lina, Yousef, and Sprout have truly become a reliable, trusted gardening team that the whole neighborhood now depends on every single season.\n\nThe experience teaches Lina and Yousef a profound lesson about patience and collaboration: even a carefully engineered machine can make mistakes at first, but with consistent teaching and thoughtful adjustment, it can eventually become an invaluable partner rather than a persistent source of frustration, a lesson the two children carry with them well beyond the garden itself."
-    },
-    {
-      "level": 1600,
-      "title": "The Robot Gardener",
-      "text": "Lina and Yousef devote countless afternoons to volunteering in a bustling community garden near their homes, where several neighborhood families cultivate vegetables side by side in neat, shared plots that the entire community collaboratively works to maintain throughout the year, tending long, meticulously kept rows of carrots and tomatoes that require steady watering and regular weeding if they are to thrive throughout the entire growing season, from the earliest, fragile seedlings to the final, bountiful harvest.\n\nOne afternoon, an engineer named Mr. Faisal arrives at the garden carrying an experimental machine that he is eager to demonstrate to the children who faithfully tend the plots day after day, rain or shine, introducing a small robot called Sprout, designed specifically to assist with the garden's many repetitive chores by watering each row methodically and weeding carefully between the plants without complaint or hesitation, rolling autonomously along each row while its built-in sensors measure the moisture level in the soil, and pulling up weeds without anyone needing to request it twice.\n\nAt first, however, Sprout makes a significant and rather embarrassing mistake, since its rudimentary onboard camera cannot yet reliably distinguish between a stubborn weed and a young, delicate vegetable plant growing just beside it, and one morning it reaches down and pulls up a perfectly healthy carrot plant, roots and all, simply because the leaves happen to resemble the general silhouette of a common weed, before pulling up a tender tomato seedling as well a short while later, mistaking its soft leaves for an ordinary garden weed rather than a valuable crop deserving careful protection.\n\nLina and Yousef feel genuinely distressed when they discover the pulled-up plants scattered across the dirt path between the rows of vegetables, their hard work seemingly undone within a single morning, and they hurry to inform Mr. Faisal exactly what has happened to their carefully cultivated plants, worried that further damage might follow if nothing changes soon; he wants to resolve the problem as expediently as possible, so the two children offer to collaborate with him directly, helping to teach Sprout methodically how to distinguish the different kinds of plants from one another with confidence.\n\nWorking together as a small, dedicated team, they show Sprout dozens of carefully chosen photographs, images of common weeds found throughout the garden alongside images of young carrot and tomato plants at every stage of their growth, from tiny seedlings to fuller, more mature plants ready for harvest, while Mr. Faisal patiently calibrates Sprout's sensors and adjusts its program line by line so the robot can extract something meaningful from each new photograph it studies, gradually constructing a clearer internal representation of precisely what each type of plant actually looks like up close, until little by little Sprout learns to examine the exact shape, size, and color of a leaf before ever deciding whether or not to pull it from the ground.\n\nAfter several weeks of steady, patient practice, Sprout adapts completely and ceases pulling up the wrong plants altogether, its mistakes growing fewer with each passing day until they vanish entirely from its daily routine, and it now extracts only genuine weeds, leaving every vegetable plant untouched and flourishing as it continues to grow toward a successful harvest; the garden looks neat and full of life once again, and Lina, Yousef, and Sprout have truly become a reliable, trusted gardening team that the whole neighborhood now depends upon every single season.\n\nThe experience teaches Lina and Yousef a profound lesson about patience and collaboration: even a carefully engineered machine can make mistakes initially, but with consistent teaching and thoughtful recalibration, it can eventually become an invaluable partner rather than a persistent source of frustration, a lesson the two children carry with them well beyond the boundaries of the garden itself."
-    }
-  ],
-  "bands": {
-    "LOW": {
-      "keyWords": [
-        { "word": "robot", "partOfSpeech": "noun", "definition": "a machine that can do jobs by itself", "example": "The robot in the factory moved boxes all day." },
-        { "word": "garden", "partOfSpeech": "noun", "definition": "a piece of land where people grow plants", "example": "My grandmother keeps roses in her garden." },
-        { "word": "weed", "partOfSpeech": "noun", "definition": "a wild plant that grows where people do not want it", "example": "Dad pulled a tall weed out of the flower bed." },
-        { "word": "vegetable", "partOfSpeech": "noun", "definition": "a plant, or part of a plant, that people eat", "example": "Onions and spinach are vegetables we eat at dinner." },
-        { "word": "teach", "partOfSpeech": "verb", "definition": "to help someone or something learn", "example": "My older sister likes to teach me new card games." }
-      ],
-      "questions": [
-        {
-          "stem": "What is this story mostly about?",
-          "options": [
-            "A trip the children take to a farm far away",
-            "A game two children play after school",
-            "A robot that learns to tell weeds from vegetables",
-            "How to build a robot from a kit"
-          ],
-          "answer": "C",
-          "skill": "central-idea",
-          "why": "The story follows Sprout the robot as it makes a mistake with the plants and then learns to tell weeds from vegetables.",
-          "wrong": {
-            "A": "The story happens in a community garden, not on a trip to a farm.",
-            "B": "The story is not about a game the children play.",
-            "D": "The story does not explain how to build a robot."
-          }
-        },
-        {
-          "stem": "What is Sprout's job in the garden?",
-          "options": [
-            "To plant new trees",
-            "To water plants and pull weeds",
-            "To paint the garden fence",
-            "To sell vegetables at a market"
-          ],
-          "answer": "B",
-          "skill": "detail",
-          "why": "The story says Sprout can water the plants and can also pull up weeds.",
-          "wrong": {
-            "A": "The story does not mention planting trees.",
-            "C": "The story does not mention painting a fence.",
-            "D": "The story does not say Sprout sells anything."
-          }
-        },
-        {
-          "stem": "What mistake does Sprout make at first?",
-          "options": [
-            "It pulls up good plants by mistake",
-            "It waters the garden much too often",
-            "It breaks part of the garden fence",
-            "It forgets to turn itself on some mornings"
-          ],
-          "answer": "A",
-          "skill": "detail",
-          "why": "The story says Sprout pulls up a carrot plant and a tomato plant, thinking they are weeds.",
-          "wrong": {
-            "B": "The story does not say Sprout waters too much.",
-            "C": "The story does not mention a fence.",
-            "D": "Sprout is working, not off, when it makes its mistake."
-          }
-        },
-        {
-          "stem": "Why do Lina and Yousef feel sad when they find the pulled-up plants?",
-          "options": [
-            "They do not like gardens at all, even in the spring",
-            "They wanted Sprout to water less on hot afternoons",
-            "They worked hard to grow those vegetables",
-            "They were hoping for rain all week for the new seeds"
-          ],
-          "answer": "C",
-          "skill": "inference",
-          "why": "Lina and Yousef help in the garden, so losing the carrot and tomato plants they cared for makes them upset.",
-          "wrong": {
-            "A": "They clearly like the garden, since they spend afternoons helping there.",
-            "B": "The story is not about how much Sprout waters.",
-            "D": "The story does not mention hoping for rain."
-          }
-        },
-        {
-          "stem": "Why does Mr. Faisal want to fix Sprout's mistake quickly?",
-          "options": [
-            "So he can sell Sprout to someone else",
-            "So the robot does not pull up more good plants",
-            "So the children will stop visiting the garden",
-            "So the robot can leave the garden forever"
-          ],
-          "answer": "B",
-          "skill": "inference",
-          "why": "Since Sprout already pulled up healthy plants by mistake, fixing the problem quickly keeps the rest of the garden safe.",
-          "wrong": {
-            "A": "The story does not mention selling Sprout.",
-            "C": "The children want to stay and help, not leave.",
-            "D": "Mr. Faisal wants to fix Sprout, not remove it."
-          }
-        },
-        {
-          "stem": "In the story, the word teach means —",
-          "options": [
-            "to water a plant every day",
-            "to help someone or something learn",
-            "to pull a weed out of the ground",
-            "to build a brand-new kind of gardening robot"
-          ],
-          "answer": "B",
-          "skill": "vocabulary",
-          "why": "The children teach Sprout by showing it pictures so it can learn to tell plants apart.",
-          "wrong": {
-            "A": "Watering is something Sprout already does, not what teach means.",
-            "C": "Pulling a weed is an action, not what teach means.",
-            "D": "The story does not say anyone builds a new robot."
-          }
-        },
-        {
-          "stem": "Why does Sprout stop pulling up the vegetables?",
-          "options": [
-            "Because it starts to rain every day",
-            "Because Mr. Faisal turns Sprout off",
-            "Because the vegetables grow too tall to reach",
-            "Because the kids teach it to tell plants apart"
-          ],
-          "answer": "D",
-          "skill": "cause-effect",
-          "why": "The story says the kids show Sprout pictures and Mr. Faisal fixes its program, so it learns to know a leaf before pulling it.",
-          "wrong": {
-            "A": "The story does not mention daily rain.",
-            "B": "Sprout keeps working in the garden, so it is not turned off.",
-            "C": "The story does not say the vegetables grow out of reach."
-          }
-        },
-        {
-          "stem": "Why does the author show Sprout's mistake before showing how it learns?",
-          "options": [
-            "To make the robot seem scary to readers",
-            "To explain the steps for growing carrots",
-            "To show that robots never make any mistakes",
-            "To show the problem before the fix"
-          ],
-          "answer": "D",
-          "skill": "author-purpose",
-          "why": "Showing the mistake first helps readers understand why the kids and Mr. Faisal needed to teach Sprout.",
-          "wrong": {
-            "A": "Sprout is not shown as scary anywhere in the story.",
-            "B": "The story is not a guide to growing carrots.",
-            "C": "The story shows that Sprout does make a mistake at first."
-          }
-        }
-      ],
-      "prompt": "Do you think Lina and Yousef were right to help teach Sprout instead of asking Mr. Faisal to take the robot away? Explain your answer using at least two facts from the story.",
-      "checklist": [
-        "I clearly said what I think.",
-        "I used at least two facts from the story.",
-        "I wrote complete sentences with capital letters and periods."
-      ],
-      "modelAnswer": "I think Lina and Yousef were right to help teach Sprout. At first, Sprout pulled up a carrot plant and a tomato plant by mistake, which was a problem. But the kids showed Sprout pictures of weeds and vegetables, and Mr. Faisal fixed its program. Because they helped instead of giving up, Sprout became a good helper in the garden."
-    },
-    "MID": {
-      "keyWords": [
-        { "word": "engineer", "partOfSpeech": "noun", "definition": "a person who designs and builds machines or structures", "example": "The engineer checked every part of the bridge before it opened." },
-        { "word": "program", "partOfSpeech": "noun", "definition": "a set of instructions that tells a machine what to do", "example": "The new program let the toy robot dance to music." },
-        { "word": "recognize", "partOfSpeech": "verb", "definition": "to notice and correctly identify someone or something", "example": "I can recognize my cousin's voice on the phone right away." },
-        { "word": "careful", "partOfSpeech": "adjective", "definition": "paying close attention to avoid mistakes or harm", "example": "Be careful when you carry the glass bowl to the table." },
-        { "word": "partner", "partOfSpeech": "noun", "definition": "a person who works together with someone else on a task", "example": "My partner and I built the model bridge for science class." }
-      ],
-      "questions": [
-        {
-          "stem": "Which sentence best states the central idea of the story?",
-          "options": [
-            "Robots can never learn new skills, no matter how hard people try.",
-            "Carrots and tomatoes are the only vegetables worth growing.",
-            "Community gardens are too much work for children to help with.",
-            "A robot makes mistakes but learns to tell plants apart correctly."
-          ],
-          "answer": "D",
-          "skill": "central-idea",
-          "why": "The story follows Sprout from its early mistakes to becoming a reliable gardening partner after the children and Mr. Faisal teach it.",
-          "wrong": {
-            "A": "Sprout does learn, so this is the opposite of what happens.",
-            "B": "The story focuses on the robot's learning, not on ranking vegetables.",
-            "C": "The story shows children happily helping in the garden."
-          }
-        },
-        {
-          "stem": "Which two plants does Sprout mistakenly pull up?",
-          "options": [
-            "A carrot plant and a tomato plant",
-            "A rose bush and a weed from the yard",
-            "A tree seedling and a flower",
-            "Two different kinds of weeds"
-          ],
-          "answer": "A",
-          "skill": "detail",
-          "why": "The story explains that Sprout pulls up a healthy carrot plant and then a tomato plant, mistaking both for weeds.",
-          "wrong": {
-            "B": "Roses are not mentioned in the story.",
-            "C": "The story names carrots and tomatoes, not trees or flowers.",
-            "D": "Sprout's mistake is pulling up vegetables, not weeds."
-          }
-        },
-        {
-          "stem": "How does Sprout water the garden?",
-          "options": [
-            "By carrying water in a bucket",
-            "By asking the children to water for it",
-            "By rolling along each row on its own",
-            "By spraying water from far away"
-          ],
-          "answer": "C",
-          "skill": "detail",
-          "why": "The story says Sprout waters the plants entirely on its own, rolling slowly along each row.",
-          "wrong": {
-            "A": "The story does not describe Sprout carrying a bucket.",
-            "B": "Sprout waters by itself, not by asking the children.",
-            "D": "The story does not describe spraying water from far away."
-          }
-        },
-        {
-          "stem": "Why do the children and Mr. Faisal show Sprout many photographs?",
-          "options": [
-            "To decorate the garden shed and pathways",
-            "To help Sprout's program learn plant shapes",
-            "To sell the photographs at a market downtown",
-            "To test whether Sprout can take its own pictures"
-          ],
-          "answer": "B",
-          "skill": "inference",
-          "why": "The photographs give Sprout examples so its program can learn the differences between weeds and young vegetable plants.",
-          "wrong": {
-            "A": "The story does not mention decorating anything.",
-            "C": "The story does not describe selling photographs.",
-            "D": "The photographs are shown to Sprout, not taken by it."
-          }
-        },
-        {
-          "stem": "What can you infer about Mr. Faisal from how he reacts to Sprout's mistake?",
-          "options": [
-            "He does not care at all whether Sprout works correctly.",
-            "He plans to take Sprout away from the garden forever and ever.",
-            "He blames Lina and Yousef for the whole mistake entirely.",
-            "He wants to solve the problem and will work with the children."
-          ],
-          "answer": "D",
-          "skill": "inference",
-          "why": "Mr. Faisal wants to fix the problem as soon as possible and lets the children become his partners in teaching Sprout.",
-          "wrong": {
-            "A": "His quick action shows that he does care.",
-            "B": "He stays to fix Sprout rather than remove it.",
-            "C": "The story never shows him blaming the children."
-          }
-        },
-        {
-          "stem": "In the story, the word recognize means —",
-          "options": [
-            "to notice and correctly identify something",
-            "to water a plant carefully every day",
-            "to pull a plant out of the ground completely",
-            "to build a brand-new kind of machine"
-          ],
-          "answer": "A",
-          "skill": "vocabulary",
-          "why": "Sprout's camera must recognize the difference between a weed and a vegetable plant, meaning it must notice and correctly tell them apart.",
-          "wrong": {
-            "B": "Watering is a separate action Sprout already does.",
-            "C": "Pulling a plant is an action, not what recognize means.",
-            "D": "The story does not involve building a new machine."
-          }
-        },
-        {
-          "stem": "How does the author organize this story?",
-          "options": [
-            "By comparing two different gardens in every paragraph",
-            "By listing steps for building a robot from scratch",
-            "By introducing the garden and robot, then solving the problem",
-            "By telling the story backward, starting with the ending"
-          ],
-          "answer": "C",
-          "skill": "text-structure",
-          "why": "The story first introduces the garden and Sprout, then shows the mistake, and finally shows the teaching that solves the problem.",
-          "wrong": {
-            "A": "Only one garden is described in the story.",
-            "B": "The story is not a set of building instructions.",
-            "D": "The story is told in the order the events happened, not backward."
-          }
-        },
-        {
-          "stem": "What causes Sprout's mistakes to disappear over time?",
-          "options": [
-            "The weather gets much cooler in the garden overnight",
-            "Steady practice with pictures and a fixed program",
-            "The carrot and tomato plants simply stop growing",
-            "Mr. Faisal buys a brand-new robot instead"
-          ],
-          "answer": "B",
-          "skill": "cause-effect",
-          "why": "The story explains that after weeks of practice with photographs and an adjusted program, Sprout's mistakes grow fewer and fewer.",
-          "wrong": {
-            "A": "The weather is not mentioned as a cause.",
-            "C": "The vegetables keep growing throughout the story.",
-            "D": "Mr. Faisal fixes Sprout; he does not buy a new robot."
-          }
-        }
-      ],
-      "prompt": "Explain how Lina, Yousef, and Mr. Faisal worked together to solve the problem with Sprout. Use at least two details from the story.",
-      "checklist": [
-        "I explained how the children and Mr. Faisal worked together.",
-        "I used at least two details from the story.",
-        "I organized my ideas in a clear order."
-      ],
-      "modelAnswer": "Lina, Yousef, and Mr. Faisal worked as a team to fix Sprout's mistake. First, the children noticed that Sprout had pulled up a carrot plant and a tomato plant, and they told Mr. Faisal right away. Then they all showed Sprout many photographs of weeds and young vegetable plants while Mr. Faisal adjusted its program. Because everyone worked together, Sprout learned to recognize plants correctly and became a trusted partner in the garden."
-    },
-    "HIGH": {
-      "keyWords": [
-        { "word": "calibrate", "partOfSpeech": "verb", "definition": "to carefully adjust an instrument or machine so it works accurately", "example": "The lab assistant had to calibrate the scale before weighing the samples." },
-        { "word": "distinguish", "partOfSpeech": "verb", "definition": "to notice or show the difference between two similar things", "example": "It can be hard to distinguish identical twins at first glance." },
-        { "word": "experimental", "partOfSpeech": "adjective", "definition": "newly tried out and not yet fully tested or proven", "example": "The scientists tested an experimental fuel in the small rocket." },
-        { "word": "collaborate", "partOfSpeech": "verb", "definition": "to work together with someone else toward a shared goal", "example": "The two classes decided to collaborate on a mural for the hallway." },
-        { "word": "adapt", "partOfSpeech": "verb", "definition": "to change in order to deal with new conditions successfully", "example": "Desert plants adapt to survive with very little water." }
-      ],
-      "questions": [
-        {
-          "stem": "Which statement best expresses the central idea of the story?",
-          "options": [
-            "Community gardens should never use any robots for chores at all.",
-            "Mr. Faisal regrets building Sprout and plans to dismantle it completely.",
-            "Carrots and tomatoes cannot ever grow in the same garden together.",
-            "An experimental robot struggles but adapts through collaboration."
-          ],
-          "answer": "D",
-          "skill": "central-idea",
-          "why": "The story traces Sprout's early failures and shows how patient collaboration between the children and Mr. Faisal allows the robot to adapt and succeed.",
-          "wrong": {
-            "A": "The story shows a robot becoming a valuable helper, not an argument against using one.",
-            "B": "Mr. Faisal works to fix Sprout rather than get rid of it.",
-            "C": "Both vegetables grow together in the same garden throughout the story."
-          }
-        },
-        {
-          "stem": "What does Mr. Faisal do to help Sprout stop making mistakes?",
-          "options": [
-            "He calibrates Sprout's sensors and adjusts its program",
-            "He replaces Sprout's camera with a new one",
-            "He removes Sprout from the garden completely",
-            "He waters the plants himself instead of using Sprout"
-          ],
-          "answer": "A",
-          "skill": "detail",
-          "why": "The story describes Mr. Faisal patiently calibrating Sprout's sensors and adjusting its program as it studies the photographs.",
-          "wrong": {
-            "B": "The story does not mention replacing the camera.",
-            "C": "Sprout stays in the garden and is improved, not removed.",
-            "D": "Sprout continues to water the plants itself throughout the story."
-          }
-        },
-        {
-          "stem": "What does Sprout learn to examine on a leaf before deciding whether to pull it up?",
-          "options": [
-            "Only how tall the plant has grown",
-            "The leaf's shape, size, and color",
-            "Whether the leaf feels wet or dry",
-            "How many leaves are on the whole plant"
-          ],
-          "answer": "B",
-          "skill": "detail",
-          "why": "The story says Sprout learns to examine the exact shape, size, and color of a leaf before deciding whether to pull it.",
-          "wrong": {
-            "A": "Height is not mentioned as something Sprout checks.",
-            "C": "Wetness is not mentioned as something Sprout checks.",
-            "D": "The number of leaves is not mentioned as something Sprout checks."
-          }
-        },
-        {
-          "stem": "Why might an experimental robot like Sprout especially need this kind of careful teaching?",
-          "options": [
-            "Because experimental machines are never tested before use",
-            "Because experimental robots cannot be fixed once they make a mistake",
-            "Because its abilities are not yet fully proven",
-            "Because the garden requires no watering or weeding at all"
-          ],
-          "answer": "C",
-          "skill": "inference",
-          "why": "Since Sprout is an experimental machine, its abilities are still being developed, which explains why it initially fails to distinguish weeds from vegetables.",
-          "wrong": {
-            "A": "Sprout is being tested in the garden, which is part of why it is called experimental.",
-            "B": "The story shows that Sprout can be fixed through calibration and adjustment.",
-            "D": "The garden clearly needs watering and weeding, which is why Sprout is there."
-          }
-        },
-        {
-          "stem": "What does the ending of the story suggest about the relationship between human effort and machine learning?",
-          "options": [
-            "Machines learn complex tasks instantly, without any human help.",
-            "Machines eventually stop needing any adjustment once they are built.",
-            "Humans and machines cannot successfully work on the same task.",
-            "Careful human guidance can help a machine adapt and improve over time."
-          ],
-          "answer": "D",
-          "skill": "inference",
-          "why": "Sprout only becomes reliable after the children and Mr. Faisal collaborate patiently, showing that human guidance helps a machine adapt.",
-          "wrong": {
-            "A": "Sprout needs weeks of practice, not instant learning.",
-            "B": "Mr. Faisal makes ongoing adjustments to Sprout's program.",
-            "C": "The story shows humans and a machine working successfully together."
-          }
-        },
-        {
-          "stem": "In the story, the word distinguish means —",
-          "options": [
-            "to tell apart two similar things",
-            "to water a plant on a regular daily schedule",
-            "to plant a brand-new seed in the soil",
-            "to roll slowly along a row of young plants"
-          ],
-          "answer": "A",
-          "skill": "vocabulary",
-          "why": "Sprout's camera cannot yet distinguish between a weed and a vegetable plant, meaning it cannot tell the difference between them.",
-          "wrong": {
-            "B": "Watering is a separate task Sprout already performs.",
-            "C": "Planting seeds is not mentioned in the story.",
-            "D": "Rolling along a row describes movement, not telling things apart."
-          }
-        },
-        {
-          "stem": "Why does the author end the story with a reflection on patience and collaboration?",
-          "options": [
-            "To suggest that machines should always be trusted without question",
-            "To highlight that mistakes can lead to improvement",
-            "To explain the exact steps for programming a robot",
-            "To argue that children should not be allowed near machines"
-          ],
-          "answer": "B",
-          "skill": "author-purpose",
-          "why": "The closing reflection emphasizes that Sprout's initial mistakes were turned into success through patient teaching and teamwork.",
-          "wrong": {
-            "A": "The story shows Sprout needed correction, not blind trust.",
-            "C": "The story does not provide technical programming steps.",
-            "D": "The children are shown helping successfully with the robot."
-          }
-        },
-        {
-          "stem": "In what order do these events happen in the story?",
-          "options": [
-            "Sprout adapts completely, the mistake happens, the photographs are shown",
-            "The photographs are shown, Sprout adapts, the mistake happens",
-            "The mistake happens, Mr. Faisal is told, photographs are shown, Sprout adapts",
-            "Mr. Faisal calibrates Sprout, the mistake happens, the children tell him"
-          ],
-          "answer": "C",
-          "skill": "sequence",
-          "why": "Sprout first makes its mistake, the children report it to Mr. Faisal, they show it photographs, and only then does Sprout adapt and stop making mistakes.",
-          "wrong": {
-            "A": "Sprout cannot adapt before the mistake and the teaching that follows it.",
-            "B": "The mistake happens before the photographs are shown, not after Sprout adapts.",
-            "D": "Mr. Faisal calibrates Sprout after learning about the mistake, not before it happens."
-          }
-        }
-      ],
-      "prompt": "The poll says a machine that makes mistakes at first should be given a second chance to learn. Do you agree or disagree? Support your argument with evidence from the story about Sprout's mistakes and how it improved.",
-      "checklist": [
-        "I stated a clear position on the poll statement.",
-        "I supported my position with specific evidence from the story.",
-        "I addressed at least one point someone might make against my view."
-      ],
-      "modelAnswer": "I agree that a machine making mistakes at first should get a second chance to learn. Sprout pulled up healthy carrot and tomato plants because its camera could not yet distinguish them from weeds, but that early failure did not mean it was useless. Once Mr. Faisal calibrated its sensors and the children collaborated by showing it photographs, Sprout adapted and became a dependable partner in the garden. Someone might argue that a machine causing damage should simply be removed, but Sprout's story shows that patient correction can turn an experimental failure into a valuable success."
-    }
+ "code": "RR-413",
+ "title": "The Robot Gardener",
+ "topic": "Fiction",
+ "summary": "A community garden gets an experimental robot that at first cannot tell weeds from vegetables, until the kids who tend the garden teach it to see the difference.",
+ "poll": "A machine that makes mistakes at first should be given a second chance to learn.",
+ "versions": [
+  {
+   "level": 300,
+   "title": "The Robot Gardener",
+   "text": "Lina and Yousef help in a garden. Rows of carrots and tomatoes grow there. We call them vegetables.\n\nOne day, a man comes to help. His name is Mr. Faisal. He brings a new robot. Its name is Sprout. Sprout can give the plants water. It can pull up weeds too.\n\nBut Sprout makes a mistake. It can not tell a weed from a plant. It pulls up a carrot. Then it pulls up a tomato too!\n\nThe kids feel sad. They go tell the man. He wants to help right away. They want to teach Sprout.\n\nThey show Sprout some cards. One card has a weed. One card has a carrot plant. The man helps Sprout learn from them. Soon Sprout can look at a leaf and know what it is.\n\nSprout stops pulling up the wrong plants. It only pulls real weeds now. The garden looks neat again. Lina, Yousef, and Sprout are now a team."
+  },
+  {
+   "level": 400,
+   "title": "The Robot Gardener",
+   "text": "Lina and Yousef help in a garden near their homes. Many people share the garden. Rows of carrots and tomatoes grow there. People call these plants vegetables.\n\nOne day, a man visits the garden. His name is Mr. Faisal. He brings a new robot. Its name is Sprout. Sprout can water the plants by itself. It can also pull up weeds.\n\nBut Sprout soon makes a big mistake. It cannot tell a weed from a young plant. One morning, it pulls up a carrot plant! A little later, it pulls up a tomato plant too.\n\nThe kids feel upset about this. They go tell Mr. Faisal right away. He wants to fix the problem fast. The kids want to teach Sprout how to tell the plants apart.\n\nThey show Sprout many cards. One card shows a weed. Another card shows a carrot plant. Mr. Faisal works with Sprout so it can learn. Soon Sprout can look at a leaf and know what it is.\n\nAfter that, Sprout stops pulling up the wrong plants. It only pulls up real weeds now. The garden looks neat and healthy again. Lina, Yousef, and Sprout now work as a team."
+  },
+  {
+   "level": 500,
+   "title": "The Robot Gardener",
+   "text": "Lina and Yousef spend many days helping in a garden near their homes. Many people share this garden. Rows of carrots and tomatoes grow there. Carrots and tomatoes are vegetables.\n\nOne day, a man named Mr. Faisal visits the garden. He brings something new. It is a robot called Sprout. Sprout can water the plants on its own. It can also pull up weeds.\n\nAt first, though, Sprout makes a serious mistake. It cannot tell a weed from a young vegetable plant. One morning, it pulls up a healthy carrot plant! A short time later, it pulls up a tomato plant too.\n\nLina and Yousef feel upset when they find the pulled-up plants. They tell Mr. Faisal what happened. He wants to fix the problem right away. The kids want to help teach Sprout.\n\nThen, they show Sprout many cards. Some cards show weeds. Other cards show young carrot and tomato plants. Mr. Faisal works with Sprout so it can learn. Little by little, Sprout learns to look at a leaf first.\n\nAfter a few weeks, Sprout stops pulling up the wrong plants. It only pulls up real weeds now. The garden looks neat and healthy again. Lina, Yousef, and Sprout are now a true team."
+  },
+  {
+   "level": 600,
+   "title": "The Robot Gardener",
+   "text": "Lina and Yousef spend many days helping in a garden near their homes. Many people grow vegetables there. Long rows of carrots and tomatoes fill the garden. These vegetables need lots of water and weeding.\n\nOne day, a man named Mr. Faisal visits the garden. He carries something new with him. It is a small robot called Sprout. Sprout can water the plants by itself. It moves slowly along the rows. It can also pull up weeds without being told.\n\nAt first, though, Sprout makes a big mistake. It cannot yet tell a weed from a young vegetable plant. One morning, it pulls up a healthy carrot plant! A short while later, it pulls up a tomato plant too, and thinks the leaves are a weed.\n\nLina and Yousef feel upset when they find the pulled-up plants in the dirt. They hurry to tell Mr. Faisal what happened. He wants to fix the problem soon. The kids offer to help teach Sprout how to tell the plants apart.\n\nTogether, they show Sprout many cards. Some cards show common weeds. Other cards show young carrot and tomato plants. Mr. Faisal works with Sprout so it can learn something new each time. Little by little, Sprout learns to look at a leaf's shape before it acts.\n\nAfter many weeks of practice, Sprout stops pulling up the wrong plants. It now pulls up only real weeds. Every vegetable plant stays untouched. The garden looks neat and full of life again, and Lina, Yousef, and Sprout have truly become a team."
+  },
+  {
+   "level": 700,
+   "title": "The Robot Gardener",
+   "text": "Lina and Yousef spend many afternoons helping in a garden near their homes. Several families grow vegetables there side by side. Long, careful rows of carrots and tomatoes fill the garden. These vegetables need steady watering and regular weeding.\n\nOne afternoon, an engineer named Mr. Faisal arrives at the garden. He brings a small robot called Sprout. He built it to help with the garden's chores. Sprout can water the plants on its own. It rolls slowly along each row. It can also pull up weeds without being asked.\n\nAt first, however, Sprout makes a serious mistake. Its camera cannot yet recognize the difference between a stubborn weed and a young vegetable plant. One morning, it pulls up a healthy carrot plant, roots and all! A short while later, it pulls up a tomato seedling too, and thinks the leaves are a weed.\n\nLina and Yousef feel upset when they find the pulled-up plants lying in the dirt. They hurry to tell Mr. Faisal what has happened. He wants to fix the problem quickly. The two children offer to become his partners in teaching Sprout how to tell the plants apart.\n\nThen, they show Sprout dozens of careful pictures. Some pictures show common weeds. Other pictures show young carrot and tomato plants at every stage of growth. Mr. Faisal adjusts Sprout's program so the robot can learn something useful from each picture. Little by little, Sprout learns to look at the shape and color of a leaf before it acts.\n\nAfter many weeks of steady practice, Sprout stops pulling up the wrong plants. It now pulls up only real weeds, leaving every vegetable plant untouched. The garden looks neat and full of life once again, and Lina, Yousef, and Sprout have truly become a trusted garden team."
+  },
+  {
+   "level": 800,
+   "title": "The Robot Gardener",
+   "text": "Lina and Yousef spend many afternoons helping in a busy garden near their homes, where several families grow vegetables side by side. Long, careful rows of carrots and tomatoes fill the garden. These vegetables need steady watering and regular weeding all season.\n\nOne afternoon, an engineer named Mr. Faisal arrives at the garden carrying something new. He brings a small robot called Sprout, which he built to help with the garden's many chores. Sprout can water the plants on its own, rolling slowly along each row. It can also pull up weeds without being asked twice.\n\nAt first, however, Sprout makes a serious mistake. Its camera cannot yet recognize the difference between a stubborn weed and a young vegetable plant. One morning, it pulls up a healthy carrot plant, roots and all! A short while later, it pulls up a tender tomato seedling too, and thinks the leaves are a weed.\n\nLina and Yousef feel upset when they find the pulled-up plants lying in the dirt. They hurry to tell Mr. Faisal what has happened to their plants. He wants to fix the problem as quickly as possible. The two children offer to become his partners in teaching Sprout how to tell the plants apart.\n\nWorking as a small team, they show Sprout dozens of careful pictures. Some pictures show common weeds. Other pictures show young carrot and tomato plants at every stage of growth. Mr. Faisal adjusts Sprout's program so the robot can learn something useful from each new picture. Little by little, Sprout learns to look at the exact shape and color of a leaf before deciding what to do.\n\nAfter several weeks of steady, patient practice, Sprout finally stops pulling up the wrong plants. It now pulls up only real weeds, leaving every vegetable plant untouched and healthy. The garden looks neat and full of life once again. Lina, Yousef, and Sprout have truly become a trusted garden team."
+  },
+  {
+   "level": 900,
+   "title": "The Robot Gardener",
+   "text": "Lina and Yousef spend many afternoons helping in a busy garden near their homes, where several families grow vegetables side by side in shared plots. Long, careful rows of carrots and tomatoes fill the garden. These vegetables need steady watering and regular weeding all season long.\n\nOne afternoon, an engineer named Mr. Faisal arrives at the garden carrying something new and rather exciting. He brings a small robot called Sprout, which he built to help with the garden's many repetitive chores. Sprout can water the plants on its own, rolling slowly along each row while sensors check the soil. It can also pull up weeds without being asked twice.\n\nAt first, however, Sprout makes a fairly serious mistake, because its camera cannot yet recognize the difference between a stubborn weed and a young vegetable plant. One morning, it pulls up a healthy carrot plant, roots and all, simply because the leaves look somewhat similar to a weed. A short while later, it pulls up a tender tomato seedling too, again thinking the leaves are an ordinary weed.\n\nLina and Yousef feel upset when they find the pulled-up plants lying scattered in the dirt. They hurry to tell Mr. Faisal exactly what has happened to their carefully grown plants. He wants to fix the problem as quickly as possible. The two children offer to become his partners in the project, teaching Sprout how to tell the plants apart.\n\nWorking together as a small team, they show Sprout dozens of careful pictures: pictures of common weeds, and pictures of young carrot and tomato plants at every stage of growth. Mr. Faisal patiently adjusts Sprout's program so the robot can learn something useful from each new picture it studies, slowly building a clearer picture of what each plant looks like. Little by little, Sprout learns to examine the exact shape, size, and color of a leaf before deciding what to do.\n\nAfter several weeks of steady, patient practice, Sprout finally stops pulling up the wrong plants altogether. The mistakes become fewer each day. It now pulls up only real weeds, leaving every vegetable plant untouched and healthy as it grows. The garden looks neat and full of life once again, and Lina, Yousef, and Sprout have truly become a trusted garden team that neighbors now rely on."
+  },
+  {
+   "level": 1000,
+   "title": "The Robot Gardener",
+   "text": "Lina and Yousef spend many afternoons helping in a busy garden near their homes, where several families cultivate vegetables side by side in shared plots. Long, careful rows of carrots and tomatoes fill the garden. These vegetables require steady watering and regular weeding all season long.\n\nOne afternoon, an engineer named Mr. Faisal arrives at the garden carrying something new and rather exciting to demonstrate. He brings a small robot called Sprout, which he designed to help with the garden's many repetitive chores. Sprout can water the plants on its own, rolling slowly along each row while sensors check the moisture in the soil. It can also pull up weeds without being asked twice.\n\nAt first, however, Sprout makes a significant mistake, because its camera cannot yet recognize the difference between a stubborn weed and a young, delicate vegetable plant. One morning, it pulls up a healthy carrot plant, roots and all, simply because the leaves look somewhat similar to a weed. A short while later, it pulls up a tender tomato seedling as well, again thinking the leaves are an ordinary weed.\n\nLina and Yousef feel genuinely upset when they find the pulled-up plants lying scattered in the dirt. They hurry to tell Mr. Faisal exactly what has happened to their carefully grown plants. He wants to resolve the problem as quickly as possible, and the two children offer to become his partners in the project, teaching Sprout how to tell the different kinds of plants apart.\n\nWorking together as a small team, they show Sprout dozens of careful pictures: pictures of common weeds, and pictures of young carrot and tomato plants at every stage of growth. Mr. Faisal patiently adjusts Sprout's program so the robot can learn something useful from each new picture it studies, slowly building a clearer picture of what each type of plant looks like. Little by little, Sprout learns to examine the exact shape, size, and color of a leaf before deciding what to do.\n\nAfter several weeks of steady, patient practice, Sprout finally stops pulling up the wrong plants altogether, and the mistakes grow fewer and fewer with each passing day. It now pulls up only real weeds, leaving every vegetable plant untouched and healthy as it continues to grow. The garden looks neat and full of life once again, and Lina, Yousef, and Sprout have truly become a trusted garden team that the whole neighborhood now depends on."
+  },
+  {
+   "level": 1100,
+   "title": "The Robot Gardener",
+   "text": "Lina and Yousef spend many afternoons volunteering in a busy community garden near their homes, where several neighborhood families cultivate vegetables side by side. Long, carefully tended rows of carrots and tomatoes fill the garden, and these vegetables require steady watering and regular weeding to thrive.\n\nOne afternoon, an engineer named Mr. Faisal arrives at the garden carrying an experimental machine he is eager to demonstrate. He introduces a small robot called Sprout, designed specifically to assist with the garden's many repetitive chores. Sprout can water the plants entirely on its own, rolling slowly along each row while its built-in sensors check the moisture in the soil. It can also pull up weeds without anyone needing to ask it twice.\n\nAt first, however, Sprout makes a significant mistake, because its onboard camera cannot yet distinguish between a stubborn weed and a young, delicate vegetable plant. One morning, it reaches down and pulls up a perfectly healthy carrot plant, roots and all, simply because the leaves resemble a common weed. A short while later, it pulls up a tender tomato seedling as well, mistaking its soft leaves for an ordinary weed.\n\nLina and Yousef feel genuinely upset when they discover the pulled-up plants scattered across the dirt path. They hurry to tell Mr. Faisal exactly what has happened to their vegetables. He wants to resolve the problem as quickly as possible. The two children offer to collaborate with him, teaching Sprout how to tell the different plants apart.\n\nWorking together as a small team, they show Sprout dozens of carefully chosen photographs: images of common weeds, and images of young carrot and tomato plants at every stage of growth. Mr. Faisal patiently calibrates Sprout's sensors and adjusts its program so the robot can learn something useful from each new photograph. Little by little, Sprout learns to examine the exact shape, size, and color of a leaf before deciding whether or not to pull it.\n\nAfter several weeks of steady, patient practice, Sprout adapts completely and stops pulling up the wrong plants altogether. It now pulls up only genuine weeds, leaving every vegetable plant untouched and healthy. The garden looks neat and full of life once again, and Lina, Yousef, and Sprout have truly become a reliable, trusted gardening team that the whole neighborhood now depends on."
+  },
+  {
+   "level": 1200,
+   "title": "The Robot Gardener",
+   "text": "Lina and Yousef spend many afternoons volunteering in a busy community garden near their homes, where several neighborhood families cultivate vegetables side by side in neat, shared plots. Long, carefully tended rows of carrots and tomatoes fill the garden, and these vegetables require steady watering and regular weeding to thrive throughout the season.\n\nOne afternoon, an engineer named Mr. Faisal arrives at the garden carrying an experimental machine he is eager to demonstrate to the children. He introduces a small robot called Sprout, designed specifically to assist with the garden's many repetitive chores, from watering to weeding. Sprout can water the plants entirely on its own, rolling slowly along each row while its built-in sensors measure the moisture level in the soil. It can also pull up weeds without anyone needing to ask it twice.\n\nAt first, however, Sprout makes a significant mistake, because its onboard camera cannot yet reliably distinguish between a stubborn weed and a young, delicate vegetable plant growing nearby. One morning, it reaches down and pulls up a perfectly healthy carrot plant, roots and all, simply because the leaves happen to resemble the shape of a common weed. A short while later, it pulls up a tender tomato seedling as well, mistaking its soft leaves for an ordinary garden weed.\n\nLina and Yousef feel genuinely upset when they discover the pulled-up plants scattered across the dirt path between the rows. They hurry to tell Mr. Faisal exactly what has happened to their carefully grown plants. He wants to resolve the problem as quickly as possible, so the two children offer to collaborate with him directly, helping to teach Sprout how to tell the plants apart.\n\nWorking together as a small, dedicated team, they show Sprout dozens of carefully chosen photographs: images of common weeds found around the garden, and images of young carrot and tomato plants at every stage of their growth. Mr. Faisal patiently calibrates Sprout's sensors and adjusts its program so the robot can learn something useful from each new photograph it studies. Little by little, Sprout learns to examine the exact shape, size, and color of a leaf before deciding whether or not to pull it from the ground.\n\nAfter several weeks of steady, patient practice, Sprout adapts completely and stops pulling up the wrong plants altogether, its mistakes growing fewer with each passing day. It now pulls up only genuine weeds, leaving every vegetable plant untouched and healthy as it continues to grow. The garden looks neat and full of life once again, and Lina, Yousef, and Sprout have truly become a reliable, trusted gardening team that the whole neighborhood now depends on."
+  },
+  {
+   "level": 1300,
+   "title": "The Robot Gardener",
+   "text": "Lina and Yousef spend countless afternoons volunteering in a busy community garden near their homes, where several neighborhood families cultivate vegetables side by side in neat, shared plots that the entire community helps to maintain. Long, carefully tended rows of carrots and tomatoes fill the garden, and these vegetables require steady watering and regular weeding to thrive throughout the entire growing season.\n\nOne afternoon, an engineer named Mr. Faisal arrives at the garden carrying an experimental machine that he is eager to demonstrate to the children who faithfully tend the plots. He introduces a small robot called Sprout, designed specifically to assist with the garden's many repetitive chores, from watering each row methodically to weeding between the plants. Sprout can water the plants entirely on its own, rolling slowly along each row while its built-in sensors measure the moisture level in the soil. It can also pull up weeds without anyone needing to ask it twice.\n\nAt first, however, Sprout makes a significant and rather embarrassing mistake, because its onboard camera cannot yet reliably distinguish between a stubborn weed and a young, delicate vegetable plant growing nearby. One morning, it reaches down and pulls up a perfectly healthy carrot plant, roots and all, simply because the leaves happen to resemble the general shape of a common weed. A short while later, it pulls up a tender tomato seedling as well, mistaking its soft leaves for an ordinary garden weed rather than a valuable crop.\n\nLina and Yousef feel genuinely upset when they discover the pulled-up plants scattered across the dirt path between the rows of vegetables, worried that more damage might follow. They hurry to tell Mr. Faisal exactly what has happened to their carefully grown plants. He wants to resolve the problem as quickly as possible, so the two children offer to collaborate with him directly, helping to teach Sprout methodically how to tell the different kinds of plants apart.\n\nWorking together as a small, dedicated team, they show Sprout dozens of carefully chosen photographs: images of common weeds found around the garden, and images of young carrot and tomato plants at every stage of their growth, from tiny seedlings to fuller, more mature plants. Mr. Faisal patiently calibrates Sprout's sensors and adjusts its program line by line so the robot can learn something useful from each new photograph it studies, gradually building a clearer internal picture of what each type of plant actually looks like. Little by little, Sprout learns to examine the exact shape, size, and color of a leaf before deciding whether or not to pull it from the ground.\n\nAfter several weeks of steady, patient practice, Sprout adapts completely and stops pulling up the wrong plants altogether, its mistakes growing fewer with each passing day until they disappear entirely. It now pulls up only genuine weeds, leaving every vegetable plant untouched and healthy as it continues to grow toward a successful harvest. The garden looks neat and full of life once again, and Lina, Yousef, and Sprout have truly become a reliable, trusted gardening team that the whole neighborhood now depends on every single season."
+  },
+  {
+   "level": 1400,
+   "title": "The Robot Gardener",
+   "text": "Lina and Yousef spend countless afternoons volunteering in a busy community garden near their homes, where several neighborhood families cultivate vegetables side by side in neat, shared plots that the entire community helps to maintain throughout the year. Long, carefully tended rows of carrots and tomatoes fill the garden, and these vegetables require steady watering and regular weeding to thrive throughout the entire growing season, from the earliest seedlings to the final harvest.\n\nOne afternoon, an engineer named Mr. Faisal arrives at the garden carrying an experimental machine that he is eager to demonstrate to the children who faithfully tend the plots. He introduces a small robot called Sprout, designed specifically to assist with the garden's many repetitive chores, from watering each row methodically to weeding carefully between the plants. Sprout can water the plants entirely on its own, rolling slowly along each row while its built-in sensors measure the moisture level in the soil. It can also pull up weeds without anyone needing to ask it twice.\n\nAt first, however, Sprout makes a significant and rather embarrassing mistake, because its onboard camera cannot yet reliably distinguish between a stubborn weed and a young, delicate vegetable plant growing nearby. One morning, it reaches down and pulls up a perfectly healthy carrot plant, roots and all, simply because the leaves happen to resemble the general shape of a common weed. A short while later, it pulls up a tender tomato seedling as well, mistaking its soft leaves for an ordinary garden weed rather than a valuable crop worth protecting.\n\nLina and Yousef feel genuinely upset when they discover the pulled-up plants scattered across the dirt path between the rows of vegetables, worried that further damage might follow if nothing changes soon. They hurry to tell Mr. Faisal exactly what has happened to their carefully grown plants. He wants to resolve the problem as quickly as possible, so the two children offer to collaborate with him directly, helping to teach Sprout methodically how to tell the different kinds of plants apart.\n\nWorking together as a small, dedicated team, they show Sprout dozens of carefully chosen photographs: images of common weeds found around the garden, and images of young carrot and tomato plants at every stage of their growth, from tiny seedlings to fuller, more mature plants ready for harvest. Mr. Faisal patiently calibrates Sprout's sensors and adjusts its program line by line so the robot can learn something useful from each new photograph it studies, gradually building a clearer internal picture of what each type of plant actually looks like up close. Little by little, Sprout learns to examine the exact shape, size, and color of a leaf before deciding whether or not to pull it from the ground.\n\nAfter several weeks of steady, patient practice, Sprout adapts completely and stops pulling up the wrong plants altogether, its mistakes growing fewer with each passing day until they disappear entirely from its daily routine. It now pulls up only genuine weeds, leaving every vegetable plant untouched and healthy as it continues to grow toward a successful harvest. The garden looks neat and full of life once again, and Lina, Yousef, and Sprout have truly become a reliable, trusted gardening team that the whole neighborhood now depends on every single season.\n\nThe experience teaches Lina and Yousef an important lesson about patience and collaboration: even a carefully engineered machine can make mistakes at first, but with consistent teaching and thoughtful adjustment, it can eventually become a dependable partner rather than a source of frustration."
+  },
+  {
+   "level": 1500,
+   "title": "The Robot Gardener",
+   "text": "Lina and Yousef devote countless afternoons to volunteering in a bustling community garden near their homes, where several neighborhood families cultivate vegetables side by side in neat, shared plots that the entire community works together to maintain throughout the year. Long, meticulously tended rows of carrots and tomatoes fill the garden, and these vegetables require steady watering and regular weeding if they are to thrive throughout the entire growing season, from the earliest seedlings to the final, bountiful harvest.\n\nOne afternoon, an engineer named Mr. Faisal arrives at the garden carrying an experimental machine that he is eager to demonstrate to the children who faithfully tend the plots day after day. He introduces a small robot called Sprout, designed specifically to assist with the garden's many repetitive chores, watering each row methodically and weeding carefully between the plants without complaint. Sprout can water the plants entirely on its own, rolling slowly along each row while its built-in sensors measure the moisture level in the soil, and it can likewise pull up weeds without anyone needing to ask it twice.\n\nAt first, however, Sprout makes a significant and rather embarrassing mistake, since its rudimentary onboard camera cannot yet reliably distinguish between a stubborn weed and a young, delicate vegetable plant growing just beside it. One morning, it reaches down and pulls up a perfectly healthy carrot plant, roots and all, simply because the leaves happen to resemble the general shape of a common weed. A short while later, it pulls up a tender tomato seedling as well, mistaking its soft leaves for an ordinary garden weed rather than a valuable crop worth protecting carefully.\n\nLina and Yousef feel genuinely upset when they discover the pulled-up plants scattered across the dirt path between the rows of vegetables, their hard work seemingly undone in a single morning. They hurry to tell Mr. Faisal exactly what has happened to their carefully grown plants, worried that further damage might follow if nothing changes soon. He wants to resolve the problem as quickly as possible, so the two children offer to collaborate with him directly, helping to teach Sprout methodically how to distinguish the different kinds of plants from one another.\n\nWorking together as a small, dedicated team, they show Sprout dozens of carefully chosen photographs: images of common weeds found throughout the garden, and images of young carrot and tomato plants at every stage of their growth, from tiny seedlings to fuller, more mature plants ready for harvest. Mr. Faisal patiently calibrates Sprout's sensors and adjusts its program line by line so the robot can extract something useful from each new photograph it studies, gradually building a clearer internal picture of precisely what each type of plant actually looks like up close. Little by little, Sprout learns to examine the exact shape, size, and color of a leaf before ever deciding whether or not to pull it from the ground.\n\nAfter several weeks of steady, patient practice, Sprout adapts completely and stops pulling up the wrong plants altogether, its mistakes growing fewer with each passing day until they disappear entirely from its daily routine. It now pulls up only genuine weeds, leaving every vegetable plant untouched and flourishing as it continues to grow toward a successful harvest. The garden looks neat and full of life once again, and Lina, Yousef, and Sprout have truly become a reliable, trusted gardening team that the whole neighborhood now depends on every single season.\n\nThe experience teaches Lina and Yousef a profound lesson about patience and collaboration: even a carefully engineered machine can make mistakes at first, but with consistent teaching and thoughtful adjustment, it can eventually become an invaluable partner rather than a persistent source of frustration, a lesson the two children carry with them well beyond the garden itself."
+  },
+  {
+   "level": 1600,
+   "title": "The Robot Gardener",
+   "text": "Lina and Yousef devote countless afternoons to volunteering in a bustling community garden near their homes, where several neighborhood families cultivate vegetables side by side in neat, shared plots that the entire community collaboratively works to maintain throughout the year, tending long, meticulously kept rows of carrots and tomatoes that require steady watering and regular weeding if they are to thrive throughout the entire growing season, from the earliest, fragile seedlings to the final, bountiful harvest.\n\nOne afternoon, an engineer named Mr. Faisal arrives at the garden carrying an experimental machine that he is eager to demonstrate to the children who faithfully tend the plots day after day, rain or shine, introducing a small robot called Sprout, designed specifically to assist with the garden's many repetitive chores by watering each row methodically and weeding carefully between the plants without complaint or hesitation, rolling autonomously along each row while its built-in sensors measure the moisture level in the soil, and pulling up weeds without anyone needing to request it twice.\n\nAt first, however, Sprout makes a significant and rather embarrassing mistake, since its rudimentary onboard camera cannot yet reliably distinguish between a stubborn weed and a young, delicate vegetable plant growing just beside it, and one morning it reaches down and pulls up a perfectly healthy carrot plant, roots and all, simply because the leaves happen to resemble the general silhouette of a common weed, before pulling up a tender tomato seedling as well a short while later, mistaking its soft leaves for an ordinary garden weed rather than a valuable crop deserving careful protection.\n\nLina and Yousef feel genuinely distressed when they discover the pulled-up plants scattered across the dirt path between the rows of vegetables, their hard work seemingly undone within a single morning, and they hurry to inform Mr. Faisal exactly what has happened to their carefully cultivated plants, worried that further damage might follow if nothing changes soon; he wants to resolve the problem as expediently as possible, so the two children offer to collaborate with him directly, helping to teach Sprout methodically how to distinguish the different kinds of plants from one another with confidence.\n\nWorking together as a small, dedicated team, they show Sprout dozens of carefully chosen photographs, images of common weeds found throughout the garden alongside images of young carrot and tomato plants at every stage of their growth, from tiny seedlings to fuller, more mature plants ready for harvest, while Mr. Faisal patiently calibrates Sprout's sensors and adjusts its program line by line so the robot can extract something meaningful from each new photograph it studies, gradually constructing a clearer internal representation of precisely what each type of plant actually looks like up close, until little by little Sprout learns to examine the exact shape, size, and color of a leaf before ever deciding whether or not to pull it from the ground.\n\nAfter several weeks of steady, patient practice, Sprout adapts completely and ceases pulling up the wrong plants altogether, its mistakes growing fewer with each passing day until they vanish entirely from its daily routine, and it now extracts only genuine weeds, leaving every vegetable plant untouched and flourishing as it continues to grow toward a successful harvest; the garden looks neat and full of life once again, and Lina, Yousef, and Sprout have truly become a reliable, trusted gardening team that the whole neighborhood now depends upon every single season.\n\nThe experience teaches Lina and Yousef a profound lesson about patience and collaboration: even a carefully engineered machine can make mistakes initially, but with consistent teaching and thoughtful recalibration, it can eventually become an invaluable partner rather than a persistent source of frustration, a lesson the two children carry with them well beyond the boundaries of the garden itself."
   }
+ ],
+ "bands": {
+  "LOW": {
+   "keyWords": [
+    {
+     "word": "robot",
+     "partOfSpeech": "noun",
+     "definition": "a machine that can do jobs by itself",
+     "example": "The robot in the factory moved boxes all day."
+    },
+    {
+     "word": "garden",
+     "partOfSpeech": "noun",
+     "definition": "a piece of land where people grow plants",
+     "example": "My grandmother keeps roses in her garden."
+    },
+    {
+     "word": "weed",
+     "partOfSpeech": "noun",
+     "definition": "a wild plant that grows where people do not want it",
+     "example": "Dad pulled a tall weed out of the flower bed."
+    },
+    {
+     "word": "vegetable",
+     "partOfSpeech": "noun",
+     "definition": "a plant, or part of a plant, that people eat",
+     "example": "Onions and spinach are vegetables we eat at dinner."
+    },
+    {
+     "word": "teach",
+     "partOfSpeech": "verb",
+     "definition": "to help someone or something learn",
+     "example": "My older sister likes to teach me new card games."
+    }
+   ],
+   "questions": [
+    {
+     "stem": "What is this story mostly about?",
+     "options": [
+      "A trip the children take to a farm far away",
+      "A game two children play after school",
+      "A robot that learns to tell weeds from vegetables",
+      "How to build a robot from a kit"
+     ],
+     "answer": "C",
+     "skill": "central-idea",
+     "why": "The story follows Sprout the robot as it makes a mistake with the plants and then learns to tell weeds from vegetables.",
+     "wrong": {
+      "A": "The story happens in a community garden, not on a trip to a farm.",
+      "B": "The story is not about a game the children play.",
+      "D": "The story does not explain how to build a robot."
+     }
+    },
+    {
+     "stem": "What is Sprout's job in the garden?",
+     "options": [
+      "To plant new trees",
+      "To water plants and pull weeds",
+      "To paint the garden fence",
+      "To sell vegetables at a market"
+     ],
+     "answer": "B",
+     "skill": "detail",
+     "why": "The story says Sprout can water the plants and can also pull up weeds.",
+     "wrong": {
+      "A": "The story does not mention planting trees.",
+      "C": "The story does not mention painting a fence.",
+      "D": "The story does not say Sprout sells anything."
+     }
+    },
+    {
+     "stem": "What mistake does Sprout make at first?",
+     "options": [
+      "It pulls up good plants by mistake",
+      "It waters the garden much too often",
+      "It breaks part of the garden fence",
+      "It forgets to turn itself on some mornings"
+     ],
+     "answer": "A",
+     "skill": "detail",
+     "why": "The story says Sprout pulls up a carrot plant and a tomato plant, thinking they are weeds.",
+     "wrong": {
+      "B": "The story does not say Sprout waters too much.",
+      "C": "The story does not mention a fence.",
+      "D": "Sprout is working, not off, when it makes its mistake."
+     }
+    },
+    {
+     "stem": "Why do Lina and Yousef feel sad when they find the pulled-up plants?",
+     "options": [
+      "They do not like gardens at all, even in the spring",
+      "They wanted Sprout to water less on hot afternoons",
+      "They worked hard to grow those vegetables",
+      "They were hoping for rain all week for the new seeds"
+     ],
+     "answer": "C",
+     "skill": "inference",
+     "why": "Lina and Yousef help in the garden, so losing the carrot and tomato plants they cared for makes them upset.",
+     "wrong": {
+      "A": "They clearly like the garden, since they spend afternoons helping there.",
+      "B": "The story is not about how much Sprout waters.",
+      "D": "The story does not mention hoping for rain."
+     }
+    },
+    {
+     "stem": "Why does Mr. Faisal want to fix Sprout's mistake quickly?",
+     "options": [
+      "So he can sell Sprout to someone else",
+      "So the robot does not pull up more good plants",
+      "So the children will stop visiting the garden",
+      "So the robot can leave the garden forever"
+     ],
+     "answer": "B",
+     "skill": "inference",
+     "why": "Since Sprout already pulled up healthy plants by mistake, fixing the problem quickly keeps the rest of the garden safe.",
+     "wrong": {
+      "A": "The story does not mention selling Sprout.",
+      "C": "The children want to stay and help, not leave.",
+      "D": "Mr. Faisal wants to fix Sprout, not remove it."
+     }
+    },
+    {
+     "stem": "In the story, the word teach means —",
+     "options": [
+      "to water a plant every day",
+      "to help someone or something learn",
+      "to pull a weed out of the ground",
+      "to build a brand-new kind of gardening robot"
+     ],
+     "answer": "B",
+     "skill": "vocabulary",
+     "why": "The children teach Sprout by showing it pictures so it can learn to tell plants apart.",
+     "wrong": {
+      "A": "Watering is something Sprout already does, not what teach means.",
+      "C": "Pulling a weed is an action, not what teach means.",
+      "D": "The story does not say anyone builds a new robot."
+     }
+    },
+    {
+     "stem": "Why does Sprout stop pulling up the vegetables?",
+     "options": [
+      "Because it starts to rain every day",
+      "Because Mr. Faisal turns Sprout off",
+      "Because the vegetables grow too tall to reach",
+      "Because the kids teach it to tell plants apart"
+     ],
+     "answer": "D",
+     "skill": "cause-effect",
+     "why": "The story says the kids show Sprout pictures and Mr. Faisal fixes its program, so it learns to know a leaf before pulling it.",
+     "wrong": {
+      "A": "The story does not mention daily rain.",
+      "B": "Sprout keeps working in the garden, so it is not turned off.",
+      "C": "The story does not say the vegetables grow out of reach."
+     }
+    },
+    {
+     "stem": "Why does the author show Sprout's mistake before showing how it learns?",
+     "options": [
+      "To make the robot seem scary to readers",
+      "To explain the steps for growing carrots",
+      "To show that robots never make any mistakes",
+      "To show the problem before the fix"
+     ],
+     "answer": "D",
+     "skill": "author-purpose",
+     "why": "Showing the mistake first helps readers understand why the kids and Mr. Faisal needed to teach Sprout.",
+     "wrong": {
+      "A": "Sprout is not shown as scary anywhere in the story.",
+      "B": "The story is not a guide to growing carrots.",
+      "C": "The story shows that Sprout does make a mistake at first."
+     }
+    }
+   ],
+   "prompt": "Do you think Lina and Yousef were right to help teach Sprout instead of asking Mr. Faisal to take the robot away? Explain your answer using at least two facts from the story.",
+   "checklist": [
+    "I clearly said what I think.",
+    "I used at least two facts from the story.",
+    "I wrote complete sentences with capital letters and periods."
+   ],
+   "modelAnswer": "I think Lina and Yousef were right to help teach Sprout. At first, Sprout pulled up a carrot plant and a tomato plant by mistake, which was a problem. But the kids showed Sprout pictures of weeds and vegetables, and Mr. Faisal fixed its program. Because they helped instead of giving up, Sprout became a good helper in the garden."
+  },
+  "MID": {
+   "keyWords": [
+    {
+     "word": "engineer",
+     "partOfSpeech": "noun",
+     "definition": "a person who designs and builds machines or structures",
+     "example": "The engineer checked every part of the bridge before it opened."
+    },
+    {
+     "word": "program",
+     "partOfSpeech": "noun",
+     "definition": "a set of instructions that tells a machine what to do",
+     "example": "The new program let the toy robot dance to music."
+    },
+    {
+     "word": "recognize",
+     "partOfSpeech": "verb",
+     "definition": "to notice and correctly identify someone or something",
+     "example": "I can recognize my cousin's voice on the phone right away."
+    },
+    {
+     "word": "careful",
+     "partOfSpeech": "adjective",
+     "definition": "paying close attention to avoid mistakes or harm",
+     "example": "Be careful when you carry the glass bowl to the table."
+    },
+    {
+     "word": "partner",
+     "partOfSpeech": "noun",
+     "definition": "a person who works together with someone else on a task",
+     "example": "My partner and I built the model bridge for science class."
+    }
+   ],
+   "questions": [
+    {
+     "stem": "Which sentence best states the central idea of the story?",
+     "options": [
+      "Robots can never learn new skills, no matter how hard people try.",
+      "Carrots and tomatoes are the only vegetables worth growing.",
+      "Community gardens are too much work for children to help with.",
+      "A robot makes mistakes but learns to tell plants apart correctly."
+     ],
+     "answer": "D",
+     "skill": "central-idea",
+     "why": "The story follows Sprout from its early mistakes to becoming a reliable gardening partner after the children and Mr. Faisal teach it.",
+     "wrong": {
+      "A": "Sprout does learn, so this is the opposite of what happens.",
+      "B": "The story focuses on the robot's learning, not on ranking vegetables.",
+      "C": "The story shows children happily helping in the garden."
+     }
+    },
+    {
+     "stem": "Which two plants does Sprout mistakenly pull up?",
+     "options": [
+      "A carrot plant and a tomato plant",
+      "A rose bush and a weed from the yard",
+      "A tree seedling and a flower",
+      "Two different kinds of weeds"
+     ],
+     "answer": "A",
+     "skill": "detail",
+     "why": "The story explains that Sprout pulls up a healthy carrot plant and then a tomato plant, mistaking both for weeds.",
+     "wrong": {
+      "B": "Roses are not mentioned in the story.",
+      "C": "The story names carrots and tomatoes, not trees or flowers.",
+      "D": "Sprout's mistake is pulling up vegetables, not weeds."
+     }
+    },
+    {
+     "stem": "How does Sprout water the garden?",
+     "options": [
+      "By carrying water in a bucket",
+      "By asking the children to water for it",
+      "By rolling along each row on its own",
+      "By spraying water from far away"
+     ],
+     "answer": "C",
+     "skill": "detail",
+     "why": "The story says Sprout waters the plants entirely on its own, rolling slowly along each row.",
+     "wrong": {
+      "A": "The story does not describe Sprout carrying a bucket.",
+      "B": "Sprout waters by itself, not by asking the children.",
+      "D": "The story does not describe spraying water from far away."
+     }
+    },
+    {
+     "stem": "Why do the children and Mr. Faisal show Sprout many photographs?",
+     "options": [
+      "To decorate the garden shed and pathways",
+      "To help Sprout's program learn plant shapes",
+      "To sell the photographs at a market downtown",
+      "To test whether Sprout can take its own pictures"
+     ],
+     "answer": "B",
+     "skill": "inference",
+     "why": "The photographs give Sprout examples so its program can learn the differences between weeds and young vegetable plants.",
+     "wrong": {
+      "A": "The story does not mention decorating anything.",
+      "C": "The story does not describe selling photographs.",
+      "D": "The photographs are shown to Sprout, not taken by it."
+     }
+    },
+    {
+     "stem": "What can you infer about Mr. Faisal from how he reacts to Sprout's mistake?",
+     "options": [
+      "He does not care at all whether Sprout works correctly.",
+      "He plans to take Sprout away from the garden forever and ever.",
+      "He blames Lina and Yousef for the whole mistake entirely.",
+      "He wants to solve the problem and will work with the children."
+     ],
+     "answer": "D",
+     "skill": "inference",
+     "why": "Mr. Faisal wants to fix the problem as soon as possible and lets the children become his partners in teaching Sprout.",
+     "wrong": {
+      "A": "His quick action shows that he does care.",
+      "B": "He stays to fix Sprout rather than remove it.",
+      "C": "The story never shows him blaming the children."
+     }
+    },
+    {
+     "stem": "In the story, the word recognize means —",
+     "options": [
+      "to notice and correctly identify something",
+      "to water a plant carefully every day",
+      "to pull a plant out of the ground completely",
+      "to build a brand-new kind of machine"
+     ],
+     "answer": "A",
+     "skill": "vocabulary",
+     "why": "Sprout's camera must recognize the difference between a weed and a vegetable plant, meaning it must notice and correctly tell them apart.",
+     "wrong": {
+      "B": "Watering is a separate action Sprout already does.",
+      "C": "Pulling a plant is an action, not what recognize means.",
+      "D": "The story does not involve building a new machine."
+     }
+    },
+    {
+     "stem": "How does the author organize this story?",
+     "options": [
+      "By comparing two different gardens in every paragraph",
+      "By listing steps for building a robot from scratch",
+      "By introducing the garden and robot, then solving the problem",
+      "By telling the story backward, starting with the ending"
+     ],
+     "answer": "C",
+     "skill": "text-structure",
+     "why": "The story first introduces the garden and Sprout, then shows the mistake, and finally shows the teaching that solves the problem.",
+     "wrong": {
+      "A": "Only one garden is described in the story.",
+      "B": "The story is not a set of building instructions.",
+      "D": "The story is told in the order the events happened, not backward."
+     }
+    },
+    {
+     "stem": "What causes Sprout's mistakes to disappear over time?",
+     "options": [
+      "The weather gets much cooler in the garden overnight",
+      "Steady practice with pictures and a fixed program",
+      "The carrot and tomato plants simply stop growing",
+      "Mr. Faisal buys a brand-new robot instead"
+     ],
+     "answer": "B",
+     "skill": "cause-effect",
+     "why": "The story explains that after weeks of practice with photographs and an adjusted program, Sprout's mistakes grow fewer and fewer.",
+     "wrong": {
+      "A": "The weather is not mentioned as a cause.",
+      "C": "The vegetables keep growing throughout the story.",
+      "D": "Mr. Faisal fixes Sprout; he does not buy a new robot."
+     }
+    }
+   ],
+   "prompt": "Explain how Lina, Yousef, and Mr. Faisal worked together to solve the problem with Sprout. Use at least two details from the story.",
+   "checklist": [
+    "I explained how the children and Mr. Faisal worked together.",
+    "I used at least two details from the story.",
+    "I organized my ideas in a clear order."
+   ],
+   "modelAnswer": "Lina, Yousef, and Mr. Faisal worked as a team to fix Sprout's mistake. First, the children noticed that Sprout had pulled up a carrot plant and a tomato plant, and they told Mr. Faisal right away. Then they all showed Sprout many photographs of weeds and young vegetable plants while Mr. Faisal adjusted its program. Because everyone worked together, Sprout learned to recognize plants correctly and became a trusted partner in the garden."
+  },
+  "HIGH": {
+   "keyWords": [
+    {
+     "word": "calibrate",
+     "partOfSpeech": "verb",
+     "definition": "to carefully adjust an instrument or machine so it works accurately",
+     "example": "The lab assistant had to calibrate the scale before weighing the samples."
+    },
+    {
+     "word": "distinguish",
+     "partOfSpeech": "verb",
+     "definition": "to notice or show the difference between two similar things",
+     "example": "It can be hard to distinguish identical twins at first glance."
+    },
+    {
+     "word": "experimental",
+     "partOfSpeech": "adjective",
+     "definition": "newly tried out and not yet fully tested or proven",
+     "example": "The scientists tested an experimental fuel in the small rocket."
+    },
+    {
+     "word": "collaborate",
+     "partOfSpeech": "verb",
+     "definition": "to work together with someone else toward a shared goal",
+     "example": "The two classes decided to collaborate on a mural for the hallway."
+    },
+    {
+     "word": "adapt",
+     "partOfSpeech": "verb",
+     "definition": "to change in order to deal with new conditions successfully",
+     "example": "Desert plants adapt to survive with very little water."
+    }
+   ],
+   "questions": [
+    {
+     "stem": "Which statement best expresses the central idea of the story?",
+     "options": [
+      "Community gardens should never use any robots for chores at all.",
+      "Mr. Faisal regrets building Sprout and plans to dismantle it completely.",
+      "Carrots and tomatoes cannot ever grow in the same garden together.",
+      "An experimental robot struggles but adapts through collaboration."
+     ],
+     "answer": "D",
+     "skill": "central-idea",
+     "why": "The story traces Sprout's early failures and shows how patient collaboration between the children and Mr. Faisal allows the robot to adapt and succeed.",
+     "wrong": {
+      "A": "The story shows a robot becoming a valuable helper, not an argument against using one.",
+      "B": "Mr. Faisal works to fix Sprout rather than get rid of it.",
+      "C": "Both vegetables grow together in the same garden throughout the story."
+     }
+    },
+    {
+     "stem": "What does Mr. Faisal do to help Sprout stop making mistakes?",
+     "options": [
+      "He calibrates Sprout's sensors and adjusts its program",
+      "He replaces Sprout's camera with a new one",
+      "He removes Sprout from the garden completely",
+      "He waters the plants himself instead of using Sprout"
+     ],
+     "answer": "A",
+     "skill": "detail",
+     "why": "The story describes Mr. Faisal patiently calibrating Sprout's sensors and adjusting its program as it studies the photographs.",
+     "wrong": {
+      "B": "The story does not mention replacing the camera.",
+      "C": "Sprout stays in the garden and is improved, not removed.",
+      "D": "Sprout continues to water the plants itself throughout the story."
+     }
+    },
+    {
+     "stem": "What does Sprout learn to examine on a leaf before deciding whether to pull it up?",
+     "options": [
+      "Only how tall the plant has grown",
+      "The leaf's shape, size, and color",
+      "Whether the leaf feels wet or dry",
+      "How many leaves are on the whole plant"
+     ],
+     "answer": "B",
+     "skill": "detail",
+     "why": "The story says Sprout learns to examine the exact shape, size, and color of a leaf before deciding whether to pull it.",
+     "wrong": {
+      "A": "Height is not mentioned as something Sprout checks.",
+      "C": "Wetness is not mentioned as something Sprout checks.",
+      "D": "The number of leaves is not mentioned as something Sprout checks."
+     }
+    },
+    {
+     "stem": "Why might an experimental robot like Sprout especially need this kind of careful teaching?",
+     "options": [
+      "Because experimental machines are never tested before use",
+      "Because experimental robots cannot be fixed once they make a mistake",
+      "Because its abilities are not yet fully proven",
+      "Because the garden requires no watering or weeding at all"
+     ],
+     "answer": "C",
+     "skill": "inference",
+     "why": "Since Sprout is an experimental machine, its abilities are still being developed, which explains why it initially fails to distinguish weeds from vegetables.",
+     "wrong": {
+      "A": "Sprout is being tested in the garden, which is part of why it is called experimental.",
+      "B": "The story shows that Sprout can be fixed through calibration and adjustment.",
+      "D": "The garden clearly needs watering and weeding, which is why Sprout is there."
+     }
+    },
+    {
+     "stem": "What does the ending of the story suggest about the relationship between human effort and machine learning?",
+     "options": [
+      "Machines learn complex tasks instantly, without any human help.",
+      "Machines eventually stop needing any adjustment once they are built.",
+      "Humans and machines cannot successfully work on the same task.",
+      "Careful human guidance can help a machine adapt and improve over time."
+     ],
+     "answer": "D",
+     "skill": "inference",
+     "why": "Sprout only becomes reliable after the children and Mr. Faisal collaborate patiently, showing that human guidance helps a machine adapt.",
+     "wrong": {
+      "A": "Sprout needs weeks of practice, not instant learning.",
+      "B": "Mr. Faisal makes ongoing adjustments to Sprout's program.",
+      "C": "The story shows humans and a machine working successfully together."
+     }
+    },
+    {
+     "stem": "In the story, the word distinguish means —",
+     "options": [
+      "to tell apart two similar things",
+      "to water a plant on a regular daily schedule",
+      "to plant a brand-new seed in the soil",
+      "to roll slowly along a row of young plants"
+     ],
+     "answer": "A",
+     "skill": "vocabulary",
+     "why": "Sprout's camera cannot yet distinguish between a weed and a vegetable plant, meaning it cannot tell the difference between them.",
+     "wrong": {
+      "B": "Watering is a separate task Sprout already performs.",
+      "C": "Planting seeds is not mentioned in the story.",
+      "D": "Rolling along a row describes movement, not telling things apart."
+     }
+    },
+    {
+     "stem": "Why does the author end the story with a reflection on patience and collaboration?",
+     "options": [
+      "To suggest that machines should always be trusted without question",
+      "To highlight that mistakes can lead to improvement",
+      "To explain the exact steps for programming a robot",
+      "To argue that children should not be allowed near machines"
+     ],
+     "answer": "B",
+     "skill": "author-purpose",
+     "why": "The closing reflection emphasizes that Sprout's initial mistakes were turned into success through patient teaching and teamwork.",
+     "wrong": {
+      "A": "The story shows Sprout needed correction, not blind trust.",
+      "C": "The story does not provide technical programming steps.",
+      "D": "The children are shown helping successfully with the robot."
+     }
+    },
+    {
+     "stem": "In what order do these events happen in the story?",
+     "options": [
+      "Sprout adapts completely, the mistake happens, the photographs are shown",
+      "The photographs are shown, Sprout adapts, the mistake happens",
+      "The mistake happens, Mr. Faisal is told, photographs are shown, Sprout adapts",
+      "Mr. Faisal calibrates Sprout, the mistake happens, the children tell him"
+     ],
+     "answer": "C",
+     "skill": "sequence",
+     "why": "Sprout first makes its mistake, the children report it to Mr. Faisal, they show it photographs, and only then does Sprout adapt and stop making mistakes.",
+     "wrong": {
+      "A": "Sprout cannot adapt before the mistake and the teaching that follows it.",
+      "B": "The mistake happens before the photographs are shown, not after Sprout adapts.",
+      "D": "Mr. Faisal calibrates Sprout after learning about the mistake, not before it happens."
+     }
+    }
+   ],
+   "prompt": "The poll says a machine that makes mistakes at first should be given a second chance to learn. Do you agree or disagree? Support your argument with evidence from the story about Sprout's mistakes and how it improved.",
+   "checklist": [
+    "I stated a clear position on the poll statement.",
+    "I supported my position with specific evidence from the story.",
+    "I addressed at least one point someone might make against my view."
+   ],
+   "modelAnswer": "I agree that a machine making mistakes at first should get a second chance to learn. Sprout pulled up healthy carrot and tomato plants because its camera could not yet distinguish them from weeds, but that early failure did not mean it was useless. Once Mr. Faisal calibrated its sensors and the children collaborated by showing it photographs, Sprout adapted and became a dependable partner in the garden. Someone might argue that a machine causing damage should simply be removed, but Sprout's story shows that patient correction can turn an experimental failure into a valuable success."
+  }
+ },
+ "stretch": {
+  "LOW": [
+   {
+    "stem": "What was on the cards the kids showed Sprout?",
+    "options": [
+     "Two big tomatoes",
+     "Two tall trees",
+     "A rock and a leaf",
+     "A weed and a carrot"
+    ],
+    "answer": "D",
+    "skill": "detail",
+    "why": "The text says one card has a weed and one card has a carrot plant.",
+    "wrong": {
+     "A": "The cards show a weed and a carrot plant, not two tomatoes.",
+     "B": "Trees are not in the story.",
+     "C": "A rock is not on the cards."
+    }
+   },
+   {
+    "stem": "In the story, a weed is a plant that —",
+    "options": [
+     "is not wanted here",
+     "gives the best fruit",
+     "grows only in a pot",
+     "needs the most water"
+    ],
+    "answer": "A",
+    "skill": "vocabulary",
+    "why": "Sprout is supposed to pull up weeds so the garden stays neat for the vegetables.",
+    "wrong": {
+     "B": "Weeds are pulled up, so they do not give the best fruit.",
+     "C": "The story does not say weeds grow in pots.",
+     "D": "The story does not say weeds need water."
+    }
+   },
+   {
+    "stem": "Why did Sprout pull up a carrot plant at first?",
+    "options": [
+     "It was told to by Lina",
+     "It wanted to play",
+     "It thought it was a weed",
+     "It was out of water"
+    ],
+    "answer": "C",
+    "skill": "cause-effect",
+    "why": "The text says Sprout can not tell a weed from a plant, so it pulled up a carrot.",
+    "wrong": {
+     "A": "Lina did not tell it to.",
+     "B": "Sprout does not play in the story.",
+     "D": "Water is not the reason for the mistake."
+    }
+   },
+   {
+    "stem": "What does the word \"team\" at the end show?",
+    "options": [
+     "The kids sent Sprout away",
+     "They all work well together",
+     "Sprout does most of the work",
+     "The man works alone now"
+    ],
+    "answer": "B",
+    "skill": "inference",
+    "why": "Lina, Yousef, and Sprout became a team, which shows they work well together.",
+    "wrong": {
+     "A": "Sprout stays in the garden.",
+     "C": "The kids helped Sprout learn, so it is not working alone.",
+     "D": "The man is not described working alone."
+    }
+   }
+  ],
+  "MID": [
+   {
+    "stem": "Who built Sprout?",
+    "options": [
+     "Mr. Faisal",
+     "Lina",
+     "Yousef",
+     "A garden family"
+    ],
+    "answer": "A",
+    "skill": "detail",
+    "why": "The text says Mr. Faisal, an engineer, built the small robot called Sprout.",
+    "wrong": {
+     "B": "Lina helps teach Sprout but did not build it.",
+     "C": "Yousef helps teach Sprout but did not build it.",
+     "D": "The families only grow vegetables there."
+    }
+   },
+   {
+    "stem": "In the story, the word stubborn describes a weed that —",
+    "options": [
+     "is easy to pull up",
+     "is hard to get rid of",
+     "grows very tall and wide",
+     "has bright red flowers"
+    ],
+    "answer": "B",
+    "skill": "vocabulary",
+    "why": "A stubborn weed does not give up easily, so it is hard to get rid of.",
+    "wrong": {
+     "A": "Easy is the opposite of stubborn.",
+     "C": "The story does not talk about the weed's height.",
+     "D": "Flowers are not mentioned."
+    }
+   },
+   {
+    "stem": "Why did Sprout pull up a tomato seedling?",
+    "options": [
+     "It was told to by Yousef",
+     "It thought the leaves were a weed",
+     "The seedling was already dead",
+     "It wanted to plant a carrot"
+    ],
+    "answer": "B",
+    "skill": "cause-effect",
+    "why": "The text says Sprout pulled up the tomato seedling because it thought the leaves were a weed.",
+    "wrong": {
+     "A": "Yousef was upset by the mistake.",
+     "C": "The seedling was young, not dead.",
+     "D": "Planting is not Sprout's job in the story."
+    }
+   },
+   {
+    "stem": "Why do Lina and Yousef offer to teach Sprout?",
+    "options": [
+     "They want to get a prize",
+     "They want to leave the garden",
+     "They want to own the robot",
+     "They care about the garden"
+    ],
+    "answer": "D",
+    "skill": "inference",
+    "why": "They felt upset about the ruined plants and wanted to help fix the problem.",
+    "wrong": {
+     "A": "No prize is mentioned.",
+     "B": "They stay and work in the garden.",
+     "C": "The robot belongs to Mr. Faisal."
+    }
+   }
+  ],
+  "HIGH": [
+   {
+    "stem": "How does Sprout check whether the plants need water?",
+    "options": [
+     "It asks the children",
+     "It reads a chart",
+     "Its soil sensors",
+     "It tastes the leaves"
+    ],
+    "answer": "C",
+    "skill": "detail",
+    "why": "The text says built-in sensors check the moisture in the soil as it rolls along each row.",
+    "wrong": {
+     "A": "Sprout works on its own.",
+     "B": "A chart is not mentioned.",
+     "D": "Sprout does not taste leaves."
+    }
+   },
+   {
+    "stem": "In the story, the word calibrates most nearly means —",
+    "options": [
+     "throws out old parts",
+     "paints over the lid",
+     "sells at a store",
+     "adjusts to work right"
+    ],
+    "answer": "D",
+    "skill": "vocabulary",
+    "why": "Mr. Faisal adjusts Sprout's sensors so the robot can learn from the photographs.",
+    "wrong": {
+     "A": "He does not throw the sensors away.",
+     "B": "Painting is not mentioned.",
+     "C": "Nothing is sold."
+    }
+   },
+   {
+    "stem": "Why did Sprout pull up the healthy carrot plant?",
+    "options": [
+     "The leaves looked like a weed",
+     "The carrot was growing too tall",
+     "The soil around it was very dry",
+     "Mr. Faisal told it to"
+    ],
+    "answer": "A",
+    "skill": "cause-effect",
+    "why": "The text says the carrot's leaves resembled a common weed, so Sprout pulled it up.",
+    "wrong": {
+     "B": "Height is not mentioned.",
+     "C": "Dry soil is not the reason.",
+     "D": "Mr. Faisal wanted to fix the problem and had not asked for it."
+    }
+   },
+   {
+    "stem": "Why does the author say the whole neighborhood now depends on the team?",
+    "options": [
+     "To show the team is useful",
+     "To say the garden is too large",
+     "To explain how weeds grow",
+     "To show Sprout is still learning"
+    ],
+    "answer": "A",
+    "skill": "author-purpose",
+    "why": "The detail shows that the team became reliable enough for everyone nearby to count on.",
+    "wrong": {
+     "B": "The size of the garden is not the point.",
+     "C": "The sentence does not explain how weeds grow.",
+     "D": "By the end, Sprout has finished learning to tell plants apart."
+    }
+   }
+  ]
+ }
 }

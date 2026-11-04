@@ -614,5 +614,217 @@
       ],
       "modelAnswer": "I think habitat loss is the hardest threat to solve for endangered animals. The article explains that when people cut down forests, drain wetlands, or build cities on wild land, many species lose the home they need for food, water, and shelter, which pushes them closer to extinction. Unlike hunting, which can be stopped by laws, lost habitat is very difficult to bring back once cities and farms have replaced it. Even successful efforts to reintroduce a species, like returning the Arabian oryx to reserves, cannot work unless enough wild habitat is left for them to live in."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "What could the dodo not do?",
+        "options": [
+          "Walk",
+          "Eat",
+          "Fly",
+          "See"
+        ],
+        "answer": "C",
+        "skill": "detail",
+        "why": "The text says the dodo was a big bird that could not fly.",
+        "wrong": {
+          "A": "The text does not say the dodo could not walk.",
+          "B": "The text does not say the dodo could not eat.",
+          "D": "The text does not say the dodo could not see."
+        }
+      },
+      {
+        "stem": "The article says we can protect animals. What does protect mean?",
+        "options": [
+          "keep safe from harm",
+          "take away from home",
+          "hide from people",
+          "feed every day"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "The oryx story shows that keeping a few safe let them have young, so protect means keep safe from harm.",
+        "wrong": {
+          "B": "Taking animals from home is what hurts them.",
+          "C": "The oryx did not hide; they run free.",
+          "D": "The text does not say they were fed every day."
+        }
+      },
+      {
+        "stem": "Where does the oryx live now?",
+        "options": [
+          "Only in a small zoo",
+          "Deep in the sea",
+          "High up in trees",
+          "In Saudi Arabia"
+        ],
+        "answer": "D",
+        "skill": "detail",
+        "why": "The text says the oryx lives in Saudi Arabia and now runs free once more.",
+        "wrong": {
+          "A": "The oryx now runs free.",
+          "B": "The oryx is a beast with long horns, not a sea animal.",
+          "C": "The oryx runs on the land."
+        }
+      },
+      {
+        "stem": "What can happen if a sea turtle eats a bag?",
+        "options": [
+          "It will grow big",
+          "It can get sick",
+          "It will swim faster",
+          "It will lay more eggs"
+        ],
+        "answer": "B",
+        "skill": "cause-effect",
+        "why": "The text says eating the bag can make the turtle sick.",
+        "wrong": {
+          "A": "The text does not say it grows big.",
+          "C": "The text does not say it swims faster.",
+          "D": "The text does not say it lays more eggs."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "When did the dodo become extinct?",
+        "options": [
+          "Just last year",
+          "Over 300 years ago",
+          "About ten years ago",
+          "Around 200 years ago"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The text says the dodo became extinct more than three hundred years ago.",
+        "wrong": {
+          "A": "It was extinct long before last year.",
+          "C": "It was extinct long before ten years ago.",
+          "D": "The text says more than three hundred years ago."
+        }
+      },
+      {
+        "stem": "In the article, the word extinct means",
+        "options": [
+          "grown much larger",
+          "moved away slowly",
+          "hidden from hunters",
+          "gone forever"
+        ],
+        "answer": "D",
+        "skill": "vocabulary",
+        "why": "The article says when every animal of a kind has died, it is extinct, like the dodo.",
+        "wrong": {
+          "A": "Extinct animals no longer exist; they do not grow larger.",
+          "B": "Moving away is not the same as being gone forever.",
+          "C": "Hiding animals still exist."
+        }
+      },
+      {
+        "stem": "Why do many animals have no place left to live?",
+        "options": [
+          "People clear wild land",
+          "Rain washes away homes",
+          "Other animals build cities",
+          "Jellyfish take their homes"
+        ],
+        "answer": "A",
+        "skill": "cause-effect",
+        "why": "People cut down forests, drain wetlands, and build cities on wild land.",
+        "wrong": {
+          "B": "The text does not blame rain.",
+          "C": "People build cities, not animals.",
+          "D": "Jellyfish are mentioned only as what a turtle mistakes a bag for."
+        }
+      },
+      {
+        "stem": "Why does the author say sea turtles swallow bags because they look like jellyfish?",
+        "options": [
+          "To show turtles hunt jellyfish",
+          "To explain how reserves work",
+          "To give an example of pollution",
+          "To tell where turtles nest"
+        ],
+        "answer": "C",
+        "skill": "author-purpose",
+        "why": "The sentence follows the word pollution and gives an example of how it harms animals.",
+        "wrong": {
+          "A": "The sentence is about a mistake caused by plastic.",
+          "B": "Reserves are in a later paragraph.",
+          "D": "Nesting is not discussed."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "Where did the dodo live?",
+        "options": [
+          "A hot desert in Arabia",
+          "A cold forest in Europe",
+          "A mountain in Oman",
+          "An Indian Ocean island"
+        ],
+        "answer": "D",
+        "skill": "detail",
+        "why": "The text says the dodo was a flightless bird from an island in the Indian Ocean.",
+        "wrong": {
+          "A": "The desert is not mentioned for the dodo.",
+          "B": "A forest in Europe is not mentioned.",
+          "C": "Oman is mentioned for the oryx."
+        }
+      },
+      {
+        "stem": "In the third paragraph, the word \"vulnerable\" means",
+        "options": [
+          "well protected",
+          "easily harmed",
+          "very common",
+          "far from people"
+        ],
+        "answer": "B",
+        "skill": "vocabulary",
+        "why": "Animals living in one small area can be wiped out easily, so they are easily harmed.",
+        "wrong": {
+          "A": "The paragraph says they are at risk.",
+          "C": "Animals in only one small area are not common.",
+          "D": "The paragraph is about losing habitat to people."
+        }
+      },
+      {
+        "stem": "Why does hunting too many animals make a population keep shrinking?",
+        "options": [
+          "Hunters teach the animals to hide",
+          "Young animals prefer to travel",
+          "Too few adults remain to raise young",
+          "Adults move to larger reserves"
+        ],
+        "answer": "C",
+        "skill": "cause-effect",
+        "why": "The text says not enough adults remain to raise young, so the population keeps shrinking.",
+        "wrong": {
+          "A": "The text does not say this.",
+          "B": "The text does not say this.",
+          "D": "Reserves are safe places, not where hunted adults go."
+        }
+      },
+      {
+        "stem": "How does the Arabian oryx differ from the Arabian leopard, according to the article?",
+        "options": [
+          "The oryx has recovered more",
+          "The oryx lives only in zoos",
+          "The leopard is already extinct",
+          "The leopard lives in the sea"
+        ],
+        "answer": "A",
+        "skill": "compare",
+        "why": "The oryx is no longer listed as endangered, while the leopard is still critically endangered.",
+        "wrong": {
+          "B": "More than a thousand oryx live in the wild.",
+          "C": "The leopard is critically endangered, not extinct.",
+          "D": "The text does not say the leopard lives in the sea."
+        }
+      }
+    ]
   }
 }

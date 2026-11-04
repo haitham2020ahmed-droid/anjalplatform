@@ -614,5 +614,217 @@
       ],
       "modelAnswer": "I believe Hooke's discovery of cells was more important because it revealed the basic unit that makes up every living organism, a foundation that the rest of biology still rests on. Hooke was the first to examine a specimen of cork and notice the tiny compartments he named cells, and scientists later learned that even the bacteria Leeuwenhoek found are themselves made of a single cell. Leeuwenhoek's work was remarkable because it showed that living organisms too small to see could cause illness, but understanding what those organisms actually were still depended on Hooke's idea of the cell. For that reason, Hooke's breakthrough provided the broader concept on which later microscopic science, including today's compound and electron microscopes, was built."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "What did Antonie van Leeuwenhoek sell?",
+        "options": [
+          "Fish",
+          "Glass",
+          "Cloth",
+          "Books"
+        ],
+        "answer": "C",
+        "skill": "detail",
+        "why": "The text says a man in Holland sold cloth, and that man was Leeuwenhoek.",
+        "wrong": {
+          "A": "Fish are not mentioned.",
+          "B": "He made lenses but did not sell glass.",
+          "D": "Books are not mentioned."
+        }
+      },
+      {
+        "stem": "In the article, what are cells?",
+        "options": [
+          "The small boxes in all living things",
+          "The bits of glass in a microscope",
+          "The drops of clear water in a big pond",
+          "The germs that make people very sick"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "Hooke saw small boxes in cork and called them cells, and all living things are made of cells.",
+        "wrong": {
+          "B": "Bits of glass are lenses.",
+          "C": "Drops of water are not cells.",
+          "D": "Germs are a kind of small living thing, but cells are the small boxes."
+        }
+      },
+      {
+        "stem": "Why do doctors use a microscope to look for germs?",
+        "options": [
+          "To make the germs grow",
+          "To clean the glass lens",
+          "To sell cloth to patients",
+          "To know what is wrong"
+        ],
+        "answer": "D",
+        "skill": "cause-effect",
+        "why": "The text says that after doctors look for germs with a microscope, they know what is wrong.",
+        "wrong": {
+          "A": "The text does not say doctors grow germs.",
+          "B": "Cleaning glass is not mentioned.",
+          "C": "Cloth is part of Leeuwenhoek's story."
+        }
+      },
+      {
+        "stem": "How much bigger can some new microscopes make things look?",
+        "options": [
+          "Ten times as big",
+          "A million times as big",
+          "Twice as big",
+          "A hundred times as big"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The text says some new ones make things look a million times as big.",
+        "wrong": {
+          "A": "Ten times is far too small.",
+          "C": "Twice is far too small.",
+          "D": "A hundred times is far too small."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "Who was the first person to see bacteria?",
+        "options": [
+          "Robert Hooke",
+          "Antonie van Leeuwenhoek",
+          "A school teacher",
+          "A doctor in blood tests"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The text says Leeuwenhoek was the first person to see bacteria.",
+        "wrong": {
+          "A": "Hooke saw cells in cork.",
+          "C": "A teacher is not mentioned.",
+          "D": "Doctors use microscopes today, but they were not the first."
+        }
+      },
+      {
+        "stem": "In the article, the word darting means —",
+        "options": [
+          "sleeping quietly",
+          "moving very fast",
+          "growing very large",
+          "sinking slowly"
+        ],
+        "answer": "B",
+        "skill": "vocabulary",
+        "why": "Leeuwenhoek saw little creatures darting about in water, so they were moving quickly here and there.",
+        "wrong": {
+          "A": "Sleeping is the opposite.",
+          "C": "Growing is not the idea.",
+          "D": "Sinking slowly is not the idea."
+        }
+      },
+      {
+        "stem": "Why do doctors use a microscope to look at blood?",
+        "options": [
+          "To make the blood flow faster in veins",
+          "To count the cells found in old cork",
+          "To look for bacteria that cause sickness",
+          "To change the color of the blood cells"
+        ],
+        "answer": "C",
+        "skill": "cause-effect",
+        "why": "The text says some bacteria are germs that cause sickness, so doctors look for them in blood.",
+        "wrong": {
+          "A": "The text does not say microscopes change blood flow.",
+          "B": "Cork was used by Hooke, not by doctors.",
+          "D": "Color change is not mentioned."
+        }
+      },
+      {
+        "stem": "How are the newest microscopes different from school microscopes?",
+        "options": [
+          "They use electrons and magnify much more",
+          "They use more glass and magnify less",
+          "They use water instead of light",
+          "They are made only for pond water"
+        ],
+        "answer": "A",
+        "skill": "compare",
+        "why": "Newer microscopes use electrons instead of light and magnify more than a million times, while school ones magnify about 400 times.",
+        "wrong": {
+          "B": "They magnify more, not less.",
+          "C": "They use electrons, not water.",
+          "D": "They are used for many things."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "Why did Hooke name the compartments cells?",
+        "options": [
+          "They looked like drops of water",
+          "They were found only in prisons",
+          "They reminded him of small rooms",
+          "They were made of clear glass"
+        ],
+        "answer": "C",
+        "skill": "cause-effect",
+        "why": "The text says he named them cells because they reminded him of small rooms.",
+        "wrong": {
+          "A": "Drops of water are not mentioned for this.",
+          "B": "Prisons are not mentioned.",
+          "D": "The cork cells were not glass."
+        }
+      },
+      {
+        "stem": "In the article, the word magnification means —",
+        "options": [
+          "how much a thing is enlarged",
+          "how heavy a lens is",
+          "how bright a lamp is",
+          "how old a microscope is today"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "The article says the degree to which a tiny object is enlarged is called its magnification.",
+        "wrong": {
+          "B": "Weight is not what the word means.",
+          "C": "Brightness is not what the word means.",
+          "D": "Age is not what the word means."
+        }
+      },
+      {
+        "stem": "What do workers at water treatment plants use microscopes to do?",
+        "options": [
+          "To make the water taste better and cooler",
+          "To check that water has no harmful organisms",
+          "To find new places to dig wells in the desert",
+          "To study the wings of insects and bees"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The text says they use microscopes to confirm that drinking water is free of harmful organisms.",
+        "wrong": {
+          "A": "Taste is not mentioned.",
+          "C": "Wells are not mentioned.",
+          "D": "Entomologists study insect wings."
+        }
+      },
+      {
+        "stem": "Why does the author include the last paragraph about insects, water plants, and classrooms?",
+        "options": [
+          "To show that microscopes are hard to buy",
+          "To say that only scientists use them",
+          "To explain how electron beams work",
+          "To show how many uses microscopes have"
+        ],
+        "answer": "D",
+        "skill": "author-purpose",
+        "why": "The paragraph gives different examples to show that microscopes are used in many fields.",
+        "wrong": {
+          "A": "Cost is not mentioned.",
+          "B": "Students and workers use them too.",
+          "C": "Electron beams were explained in an earlier paragraph."
+        }
+      }
+    ]
   }
 }

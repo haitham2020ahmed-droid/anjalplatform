@@ -614,5 +614,217 @@
       ],
       "modelAnswer": "I disagree that a winning racing camel is simply born fast. In the article, Najma actually performed worse when Lama pushed her hard for speed alone, losing her appetite and endurance. Only after Lama adopted a disciplined, meticulous routine of grooming, feeding, and rest did Najma regain her strength and perform excellently at the race. Someone might argue that natural speed still matters, and the article does not deny that, but it shows clearly that patient, proper care was what finally allowed Najma's ability to show itself on race day."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "What did Lama want to win?",
+        "options": [
+          "A race",
+          "A prize cow",
+          "A camel show",
+          "A school game"
+        ],
+        "answer": "A",
+        "skill": "detail",
+        "why": "The text says Lama wanted to win a race.",
+        "wrong": {
+          "B": "A cow is not mentioned.",
+          "C": "A show is not mentioned.",
+          "D": "A school game is not mentioned."
+        }
+      },
+      {
+        "stem": "What happened because Lama did not let Najma rest?",
+        "options": [
+          "Najma ran faster.",
+          "Najma got tired.",
+          "Najma ate more food.",
+          "Najma went away."
+        ],
+        "answer": "B",
+        "skill": "cause-effect",
+        "why": "The text says that after hard days with no rest, Najma got tired.",
+        "wrong": {
+          "A": "She did not run better; she lost her wish to run.",
+          "C": "She did not eat well.",
+          "D": "She stayed with Lama."
+        }
+      },
+      {
+        "stem": "In the article, the word champion means —",
+        "options": [
+          "a baby camel",
+          "a farm worker",
+          "a loud noise",
+          "a top winner"
+        ],
+        "answer": "D",
+        "skill": "vocabulary",
+        "why": "Lama wanted to win, and the grandpa said a champion needs patience and care, so a champion is a top winner.",
+        "wrong": {
+          "A": "Najma is a young camel, but that is not what champion means.",
+          "B": "A farm worker is not meant.",
+          "C": "A noise is not meant."
+        }
+      },
+      {
+        "stem": "Why did Najma like Lama more after the change?",
+        "options": [
+          "Lama ran faster than Najma.",
+          "Lama stopped all her training.",
+          "Lama was kind and gave good care.",
+          "Lama gave her a new name."
+        ],
+        "answer": "C",
+        "skill": "inference",
+        "why": "Lama gave Najma good food, rest, and kind care, so Najma liked her more.",
+        "wrong": {
+          "A": "Lama did not run the race.",
+          "B": "Training went on, but more gently.",
+          "D": "A new name is not mentioned."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "What did Lama hope Najma would win?",
+        "options": [
+          "A small school race",
+          "The region's top race",
+          "A prize for the best food",
+          "A show for camels"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The text says she hoped Najma would win the region's biggest traditional race.",
+        "wrong": {
+          "A": "The race was not a small school race.",
+          "C": "No food prize is mentioned.",
+          "D": "A show is not mentioned."
+        }
+      },
+      {
+        "stem": "In the article, the word traditional means —",
+        "options": [
+          "very new and modern",
+          "very fast and strong",
+          "hard to find or reach",
+          "handed down"
+        ],
+        "answer": "D",
+        "skill": "vocabulary",
+        "why": "The family followed traditional ways passed down from her grandpa, so traditional means passed down from the past.",
+        "wrong": {
+          "A": "Traditional is the opposite of very new.",
+          "B": "Speed is not what the word means.",
+          "C": "Finding things is not meant."
+        }
+      },
+      {
+        "stem": "Why did Najma no longer want to run?",
+        "options": [
+          "The hard training wore her out.",
+          "She was afraid of the crowd.",
+          "She wanted to eat grass.",
+          "The track was too long."
+        ],
+        "answer": "A",
+        "skill": "cause-effect",
+        "why": "The text says all the hard training wore Najma out, and she lost stamina and stopped wanting to run.",
+        "wrong": {
+          "B": "A crowd is not mentioned at that point.",
+          "C": "Eating grass is not mentioned.",
+          "D": "The track length is not mentioned."
+        }
+      },
+      {
+        "stem": "Why did Grandpa Saleh sit beside Lama to talk?",
+        "options": [
+          "He wanted to buy Najma.",
+          "He was tired of camels.",
+          "He saw Najma struggling.",
+          "He planned to race Najma."
+        ],
+        "answer": "C",
+        "skill": "inference",
+        "why": "He noticed Najma's trouble and gently explained that she needed patience, rest, and care.",
+        "wrong": {
+          "A": "Buying Najma is not mentioned.",
+          "B": "He trained camels most of his life.",
+          "D": "He did not plan to race her."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "Where did Lama train Najma every afternoon?",
+        "options": [
+          "On a stone road",
+          "Near the village school",
+          "On open sand near the farm",
+          "Inside a large barn"
+        ],
+        "answer": "C",
+        "skill": "detail",
+        "why": "The text says Lama trained Najma on the open sand near her family's farm.",
+        "wrong": {
+          "A": "A stone road is not mentioned.",
+          "B": "She trained after school, not near the school.",
+          "D": "A barn is not mentioned."
+        }
+      },
+      {
+        "stem": "In the article, the word relentless means —",
+        "options": [
+          "never easing up",
+          "slow and quiet",
+          "kind and soft",
+          "short and simple"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "The relentless training had no rest and wore Najma out completely, so it never eased.",
+        "wrong": {
+          "B": "The training was fast and hard.",
+          "C": "The training was not gentle.",
+          "D": "The training was long and hard."
+        }
+      },
+      {
+        "stem": "Why did Lama push Najma without much rest?",
+        "options": [
+          "Her grandpa told her to do so.",
+          "Najma asked to run more often.",
+          "The race was the very next day.",
+          "She thought speed was all."
+        ],
+        "answer": "D",
+        "skill": "cause-effect",
+        "why": "Lama firmly believed raw speed was the only thing that mattered for a future champion.",
+        "wrong": {
+          "A": "Her grandpa later told her to rest her camel.",
+          "B": "Najma wanted to stop running.",
+          "C": "The race was still far off."
+        }
+      },
+      {
+        "stem": "Why does the author mention family and neighbors gathered at the race?",
+        "options": [
+          "To show the track was crowded with camels",
+          "To show the race mattered to the community",
+          "To show Lama felt too nervous to run",
+          "To show the race was held at night"
+        ],
+        "answer": "B",
+        "skill": "author-purpose",
+        "why": "Family and neighbors came to watch the race, which shows it was an important event for the community.",
+        "wrong": {
+          "A": "The detail is about people, not camels.",
+          "C": "Lama does not run; Najma does.",
+          "D": "Night is not mentioned."
+        }
+      }
+    ]
   }
 }

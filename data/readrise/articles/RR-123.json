@@ -614,5 +614,217 @@
       ],
       "modelAnswer": "I believe cities in arid regions should still spend money on flood protection, even though precipitation is rare, because when rain finally does fall, it can arrive as a sudden and violent torrent with almost no warning. The article explains that because little vegetation grows in these dry regions to slow the water down, runoff rushes straight into a wadi and can turn a quiet valley into a flash flood within minutes, a danger that has nothing to do with how often it normally rains. At the same time, that same rare rainfall is precious, since it can recharge the underground aquifer and bring seeds buried in the sand back to life, so protection measures like dams actually capture a valuable resource rather than simply holding back a threat. Because a single flash flood can sweep away cars and endanger lives in minutes, the infrequency of rain in an arid city is exactly why preparation matters, not a reason to ignore it."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "According to the article, what is most of Saudi Arabia?",
+        "options": [
+          "A green park",
+          "A big lake",
+          "A flooded valley",
+          "A desert"
+        ],
+        "answer": "D",
+        "skill": "detail",
+        "why": "The first paragraph says most of Saudi Arabia is desert.",
+        "wrong": {
+          "A": "The text does not call Saudi Arabia a park.",
+          "B": "The text does not call it a lake.",
+          "C": "A flood is rare and only in a wadi."
+        }
+      },
+      {
+        "stem": "In the article, what is a flash flood?",
+        "options": [
+          "a slow and gentle rain",
+          "a sudden rush of water",
+          "a bright flash in the sky",
+          "a long dry time with no rain"
+        ],
+        "answer": "B",
+        "skill": "vocabulary",
+        "why": "The text says water rushes fast into the dry valley, and this sudden rush of water is a flash flood.",
+        "wrong": {
+          "A": "A flash flood is fast, not slow and gentle.",
+          "C": "A flash of lightning is not a flood.",
+          "D": "A dry time is the opposite of a flood."
+        }
+      },
+      {
+        "stem": "Why is high ground safer than a wadi when a flood comes?",
+        "options": [
+          "The flood water runs down into the wadi",
+          "Storms never come to high places at all",
+          "The sun dries the ground there fast",
+          "Wells on high ground hold the flood"
+        ],
+        "answer": "A",
+        "skill": "inference",
+        "why": "The text says rain runs to the wadi, so higher ground is away from the fast water.",
+        "wrong": {
+          "B": "The text does not say storms avoid high places.",
+          "C": "The text does not say the sun dries the ground quickly.",
+          "D": "The text does not say wells stop floods."
+        }
+      },
+      {
+        "stem": "What happens right after the dark clouds come?",
+        "options": [
+          "The wadi dries up in the sun",
+          "Seeds wake up in the dry sand",
+          "A big storm comes with hard rain",
+          "The ground soaks up all the rain"
+        ],
+        "answer": "C",
+        "skill": "sequence",
+        "why": "The text says dark clouds come, then a big storm comes with hard, fast rain.",
+        "wrong": {
+          "A": "The wadi fills with water after the storm.",
+          "B": "Seeds wake up after the rain has fallen.",
+          "D": "The ground is too hard to soak up the rain."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "What does the fast, muddy water in the wadi carry?",
+        "options": [
+          "Fish and shells",
+          "Cars and small boats",
+          "Rocks and branches",
+          "Plants and flowers"
+        ],
+        "answer": "C",
+        "skill": "detail",
+        "why": "The text says the wadi fills with muddy water that carries rocks and branches.",
+        "wrong": {
+          "A": "Fish and shells are not mentioned.",
+          "B": "Cars can be swept away, but the water is said to carry rocks and branches.",
+          "D": "Plants and flowers come later, when seeds sprout."
+        }
+      },
+      {
+        "stem": "In the article, the word absorb means —",
+        "options": [
+          "soak up",
+          "push away",
+          "wash over",
+          "dry out"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "The ground cannot absorb the rain, so the water flows across the surface instead of soaking in.",
+        "wrong": {
+          "B": "The ground does not push rain away on purpose.",
+          "C": "Washing over is what the runoff does.",
+          "D": "Absorbing is taking water in, not drying it."
+        }
+      },
+      {
+        "stem": "Why does rain water rush so fast across the desert surface?",
+        "options": [
+          "Many tall trees push it along fast",
+          "Wells under the sand pull it downhill",
+          "Dams send it rushing across the sand",
+          "Hard ground and few plants do not slow it"
+        ],
+        "answer": "D",
+        "skill": "cause-effect",
+        "why": "The text says the ground is baked hard and few plants grow there to slow the water.",
+        "wrong": {
+          "A": "The text says few plants grow, not many trees.",
+          "B": "Wells fill later, after the flood.",
+          "C": "Dams catch flood water; they do not make it rush."
+        }
+      },
+      {
+        "stem": "Why should people follow weather warnings even when their own sky is clear?",
+        "options": [
+          "Blue skies make the ground hot and hard",
+          "Rain far away can still send a flash flood",
+          "Warnings tell people when seeds will sprout",
+          "Dams can only be used on cloudy days"
+        ],
+        "answer": "B",
+        "skill": "inference",
+        "why": "The text says a flash flood can strike far from the storm, even when the sky is blue where you stand.",
+        "wrong": {
+          "A": "Hot ground is not the reason for warnings.",
+          "C": "Warnings are about danger, not seeds.",
+          "D": "The text does not say dams work only on cloudy days."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "According to the article, how do engineers watch for approaching storms?",
+        "options": [
+          "With tall dams",
+          "With drainage channels",
+          "With radar",
+          "With aquifers"
+        ],
+        "answer": "C",
+        "skill": "detail",
+        "why": "The text says engineers monitor approaching storms with radar.",
+        "wrong": {
+          "A": "Dams capture floodwater; they do not watch storms.",
+          "B": "Drainage channels carry water away.",
+          "D": "An aquifer is a layer of rock that stores water."
+        }
+      },
+      {
+        "stem": "In the article, the phrase sparse vegetation means —",
+        "options": [
+          "plants that bloom after floods",
+          "few plants spread far apart",
+          "thick forests near the water",
+          "plants that grow underground"
+        ],
+        "answer": "B",
+        "skill": "vocabulary",
+        "why": "The text says the sparse vegetation can do little to slow the water, which fits a few scattered plants.",
+        "wrong": {
+          "A": "The phrase describes the ground before the storm.",
+          "C": "Thick forests would slow the water more.",
+          "D": "The text does not say the plants grow underground."
+        }
+      },
+      {
+        "stem": "Why does the author describe what engineers have done?",
+        "options": [
+          "To prove that radar cannot find desert storms",
+          "To explain how wadis were first formed long ago",
+          "To show that floods no longer happen in Jeddah",
+          "To show people are working to cut flood danger"
+        ],
+        "answer": "D",
+        "skill": "author-purpose",
+        "why": "The paragraph lists channels, radar, and risk checks that respond to the danger of flash floods.",
+        "wrong": {
+          "A": "The text says radar is used to monitor storms.",
+          "B": "Wadi formation is not discussed in that paragraph.",
+          "C": "The text does not say floods have stopped."
+        }
+      },
+      {
+        "stem": "If a desert had many more plants, what would most likely happen to runoff?",
+        "options": [
+          "It would be slowed down by the plants",
+          "It would rush even faster downhill",
+          "It would turn into an aquifer at once",
+          "It would stop forming in every storm"
+        ],
+        "answer": "A",
+        "skill": "inference",
+        "why": "The text says sparse plants do little to slow the water, so more plants would slow it more.",
+        "wrong": {
+          "B": "More plants would slow the water, not speed it up.",
+          "C": "The text says water seeps down slowly to refill an aquifer.",
+          "D": "The text does not say plants stop runoff from forming."
+        }
+      }
+    ]
   }
 }

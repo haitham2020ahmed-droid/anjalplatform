@@ -614,5 +614,217 @@
       ],
       "modelAnswer": "The pressure layer is an airtight garment that must continuously regulate internal pressure, because the unprotected human body cannot survive direct exposure to the vacuum of space. Surrounding that layer, the outer thermal and micrometeoroid garment adds insulation against extreme temperature swings and protects against micrometeoroids, the tiny, fast-moving particles of rock or debris that could otherwise puncture the suit. Together, the regulated pressure layer and the protective outer garment let an astronaut safely undertake extravehicular activity, since losing either layer's protection could quickly turn a routine spacewalk into a life-threatening emergency."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "What do the thick gloves let a person do?",
+        "options": [
+          "Fly through space fast",
+          "See in the dark",
+          "Use their hands",
+          "Hear sounds clearly"
+        ],
+        "answer": "C",
+        "skill": "detail",
+        "why": "The text says the thick gloves let a person use their hands.",
+        "wrong": {
+          "A": "The text does not say gloves help a person fly.",
+          "B": "Gloves are not linked to seeing in the dark.",
+          "D": "Gloves are not linked to hearing."
+        }
+      },
+      {
+        "stem": "Why does the suit need to keep the body at a safe heat?",
+        "options": [
+          "Space can be very hot and very cold",
+          "Space is always the same warm heat",
+          "The helmet gets too heavy to hold",
+          "The gloves are made of thick metal"
+        ],
+        "answer": "A",
+        "skill": "cause-effect",
+        "why": "The text says space can get very hot and very cold, so the suit keeps the body at a safe heat.",
+        "wrong": {
+          "B": "The text says space changes from hot to cold.",
+          "C": "Weight of the helmet is not the reason given.",
+          "D": "The text does not say the gloves are made of metal."
+        }
+      },
+      {
+        "stem": "The text says it blocks bright light. What does blocks mean here?",
+        "options": [
+          "Lets in more of",
+          "Makes much louder",
+          "Paints bright colors on",
+          "Stops from getting through"
+        ],
+        "answer": "D",
+        "skill": "vocabulary",
+        "why": "The visor keeps bright light out so the person can see.",
+        "wrong": {
+          "A": "The visor protects the eyes, so it does not let more light in.",
+          "B": "The sentence is about light, not sound.",
+          "C": "Nothing is painted on the visor."
+        }
+      },
+      {
+        "stem": "What is the last paragraph mostly about?",
+        "options": [
+          "How to make a new space helmet at home",
+          "Why a suit is needed to live in space",
+          "Where to buy a space suit for a trip",
+          "How gloves keep hands safe and warm"
+        ],
+        "answer": "B",
+        "skill": "central-idea",
+        "why": "It says that without a suit a person could not live in space, and that the suit is like a tiny home.",
+        "wrong": {
+          "A": "The paragraph does not talk about making a helmet.",
+          "C": "Buying suits is never mentioned.",
+          "D": "Gloves are in an earlier paragraph."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "What harmful thing from the Sun and deep space fills space?",
+        "options": [
+          "Radiation",
+          "Heavy rain",
+          "Strong wind",
+          "Thick smoke"
+        ],
+        "answer": "A",
+        "skill": "detail",
+        "why": "The text says space is full of harmful radiation from the Sun and from deep space.",
+        "wrong": {
+          "B": "Space has no rain.",
+          "C": "Space has no air, so it has no wind.",
+          "D": "The text does not mention smoke."
+        }
+      },
+      {
+        "stem": "Why does the suit have tubes of cooling water next to the skin?",
+        "options": [
+          "To help the astronaut float around",
+          "To keep the helmet clean and clear",
+          "To carry away body heat during hard work",
+          "To make the suit look bright and shiny"
+        ],
+        "answer": "C",
+        "skill": "cause-effect",
+        "why": "The text says the tubes carry away body heat during hard work.",
+        "wrong": {
+          "A": "Floating is not linked to the water tubes.",
+          "B": "The tubes are not about the helmet.",
+          "D": "Looks are not mentioned."
+        }
+      },
+      {
+        "stem": "Read: \"a tough, airtight layer.\" What does airtight most likely mean?",
+        "options": [
+          "Made of thin cloth",
+          "Full of cold water",
+          "Made to be very light",
+          "Letting no air in or out"
+        ],
+        "answer": "D",
+        "skill": "vocabulary",
+        "why": "This layer keeps the suit under steady pressure, so air must not get in or out.",
+        "wrong": {
+          "A": "The layer is described as tough, not thin.",
+          "B": "The water tubes are in a different layer.",
+          "C": "Weight is not the point of the word."
+        }
+      },
+      {
+        "stem": "What does the backpack remove from the air inside the suit?",
+        "options": [
+          "Oxygen",
+          "Carbon dioxide",
+          "Water",
+          "Heat"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The text says the backpack removes the carbon dioxide breathed out.",
+        "wrong": {
+          "A": "The backpack supplies oxygen, it does not remove it.",
+          "C": "Water is used in the cooling tubes.",
+          "D": "Cooling is done by the tubes, not by removing air."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "What is the commonly used name for \"extravehicular activity\"?",
+        "options": [
+          "A launch",
+          "A landing",
+          "A spacewalk",
+          "A docking"
+        ],
+        "answer": "C",
+        "skill": "detail",
+        "why": "The text says extravehicular activity is commonly called a spacewalk.",
+        "wrong": {
+          "A": "A launch is the start of a flight.",
+          "B": "A landing is the end of a flight.",
+          "D": "Docking is joining two spacecraft."
+        }
+      },
+      {
+        "stem": "Read: \"extreme and hostile conditions.\" What does hostile mean here?",
+        "options": [
+          "Dangerous and unfriendly",
+          "Warm and welcoming",
+          "Quiet and calm",
+          "Bright and colorful"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "Space has no air and harmful radiation, so its conditions are dangerous.",
+        "wrong": {
+          "B": "Welcoming is the opposite of the text.",
+          "C": "Space is not described as calm.",
+          "D": "Colors are not the point of the sentence."
+        }
+      },
+      {
+        "stem": "Why could even a tiny gap in a suit's seal put an astronaut's life at risk?",
+        "options": [
+          "The suit would become too heavy",
+          "The astronaut would lose the visor",
+          "The cooling water would turn to ice",
+          "Space has almost no pressure or air"
+        ],
+        "answer": "D",
+        "skill": "cause-effect",
+        "why": "The text says space has almost no pressure and no air, so a gap would let the suit's air out.",
+        "wrong": {
+          "A": "Weight is not the problem.",
+          "B": "The visor is not linked to the seal.",
+          "C": "The text does not say the water would freeze."
+        }
+      },
+      {
+        "stem": "Why do engineers test the suit's backpack many times?",
+        "options": [
+          "So it never fails during a mission",
+          "So it looks bright in space",
+          "So it can be sold after the mission",
+          "So it becomes lighter each time"
+        ],
+        "answer": "A",
+        "skill": "inference",
+        "why": "The article says engineers test the backpack many times to make sure it never fails, because an astronaut needs it to stay outside.",
+        "wrong": {
+          "B": "Color is not the reason for testing.",
+          "C": "Selling the backpack is not mentioned.",
+          "D": "Testing does not make it lighter."
+        }
+      }
+    ]
   }
 }

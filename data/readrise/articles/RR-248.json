@@ -614,5 +614,217 @@
       ],
       "modelAnswer": "The pituitary gland releases growth hormone, which travels through the bloodstream and signals bone tissue to keep growing, and it releases considerably more of this hormone during deep sleep than during the day. As a result, consistent sleep supports healthy growth, while good nutrition supplies nutrients such as protein and calcium that the body needs to build new bone. Hereditary factors inherited from a child's parents also regulate a general range for height, so because none of these three factors can fully replace the others, all of them must work together until growth plates eventually close through ossification."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "Which foods does the article say help build new bone?",
+        "options": [
+          "Candy, chips, and soda",
+          "Rice, salt, and tea",
+          "Bread, jam, and juice",
+          "Milk, eggs, and meat"
+        ],
+        "answer": "D",
+        "skill": "detail",
+        "why": "The article says milk, eggs, and meat help build new bone.",
+        "wrong": {
+          "A": "These foods are not mentioned.",
+          "B": "These foods are not mentioned.",
+          "C": "These foods are not mentioned."
+        }
+      },
+      {
+        "stem": "In the article, a hormone is something that —",
+        "options": [
+          "tells the body to grow",
+          "holds the bones up",
+          "makes a bone hard",
+          "gives the body water"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "The article says the hormone tells your body to grow.",
+        "wrong": {
+          "B": "Bones, not hormones, hold you up.",
+          "C": "Bones turn hard when growth plates close.",
+          "D": "Water is not the job of the hormone."
+        }
+      },
+      {
+        "stem": "What do genes from your mom and dad do?",
+        "options": [
+          "They make you sleep more",
+          "They help set your height",
+          "They make milk for your bones",
+          "They close the growth plates"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The article says genes help set how tall you may grow.",
+        "wrong": {
+          "A": "Sleep is not linked to genes in the article.",
+          "C": "Food, not genes, helps build bone.",
+          "D": "Growth plates close when you are older."
+        }
+      },
+      {
+        "stem": "What would probably happen if a growth plate could not make new bone?",
+        "options": [
+          "The bone would grow faster",
+          "The bone would turn to milk",
+          "The bone would not get longer",
+          "The bone would wake up"
+        ],
+        "answer": "C",
+        "skill": "inference",
+        "why": "The article says the growth plate makes new bone, which makes the bone longer.",
+        "wrong": {
+          "A": "Without new bone it could not grow faster.",
+          "B": "Bones do not turn to milk.",
+          "D": "Waking up is not related to bone."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "Why does the body need protein and calcium?",
+        "options": [
+          "To make growth hormone sleepy",
+          "To build new bone",
+          "To close the growth plates",
+          "To pass down genes"
+        ],
+        "answer": "B",
+        "skill": "cause-effect",
+        "why": "The article says nutrients such as protein and calcium help the body build new bone.",
+        "wrong": {
+          "A": "Hormone and sleepiness are not linked this way.",
+          "C": "Growth plates close because of age.",
+          "D": "Genes are inherited from parents, not built from food."
+        }
+      },
+      {
+        "stem": "In the article, the word inherited means —",
+        "options": [
+          "found in many foods",
+          "made while you sleep",
+          "taken from a doctor",
+          "given by your parents"
+        ],
+        "answer": "D",
+        "skill": "vocabulary",
+        "why": "Genes inherited from a child's parents come from the parents.",
+        "wrong": {
+          "A": "Genes are not found in food.",
+          "B": "Genes are not made during sleep.",
+          "C": "Doctors are not mentioned."
+        }
+      },
+      {
+        "stem": "How does growth hormone travel through the body?",
+        "options": [
+          "In the blood",
+          "Through the skin",
+          "Along the bones",
+          "Through the air"
+        ],
+        "answer": "A",
+        "skill": "detail",
+        "why": "The article says the hormone travels in the blood.",
+        "wrong": {
+          "B": "Skin is not mentioned.",
+          "C": "The hormone is not said to move along bones.",
+          "D": "Air carries smell, not hormones."
+        }
+      },
+      {
+        "stem": "Why does the author say the growth plate builds bone bit by bit, over months and years?",
+        "options": [
+          "To show a bone breaks easily",
+          "To show growth is very fast",
+          "To show growth is slow",
+          "To show bones are soft"
+        ],
+        "answer": "C",
+        "skill": "inference",
+        "why": "Phrases like bit by bit and months and years show that growing takes a long time.",
+        "wrong": {
+          "A": "Breaking is not mentioned.",
+          "B": "Months and years are not fast.",
+          "D": "Only the growth plate is soft."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "In the article, the word deficiency means —",
+        "options": [
+          "a strong signal",
+          "a long delay",
+          "not enough of something",
+          "too much of something"
+        ],
+        "answer": "C",
+        "skill": "vocabulary",
+        "why": "A growth hormone deficiency happens when the gland does not make enough hormone.",
+        "wrong": {
+          "A": "A signal is what the hormone sends.",
+          "B": "Time delay is not the meaning.",
+          "D": "The problem is too little, not too much."
+        }
+      },
+      {
+        "stem": "What is the growth plate made of?",
+        "options": [
+          "Cartilage",
+          "Solid bone",
+          "Calcium only",
+          "Blood"
+        ],
+        "answer": "A",
+        "skill": "detail",
+        "why": "The article says the growth plate is made of flexible cartilage.",
+        "wrong": {
+          "B": "It is softer than hard bone.",
+          "C": "Calcium is a nutrient, not the material of the plate.",
+          "D": "The plate is tissue, and blood only carries hormones."
+        }
+      },
+      {
+        "stem": "What does ossification do to the growth plates?",
+        "options": [
+          "It makes them grow bigger",
+          "It turns them into solid bone",
+          "It makes them release hormone",
+          "It makes them flexible again"
+        ],
+        "answer": "B",
+        "skill": "cause-effect",
+        "why": "Ossification hardens growth plates into solid bone, and then a person stops growing taller.",
+        "wrong": {
+          "A": "They stop working, not grow bigger.",
+          "C": "The pituitary gland releases hormone.",
+          "D": "They become hard, not flexible."
+        }
+      },
+      {
+        "stem": "Why does the author say none of the three factors can fully replace the others?",
+        "options": [
+          "Sleep matters more than food",
+          "Doctors can fix all problems",
+          "Genes are the only real cause",
+          "Each factor does its own job"
+        ],
+        "answer": "D",
+        "skill": "inference",
+        "why": "The article says sleep, nutrition, and heredity work together, so each one is needed.",
+        "wrong": {
+          "A": "The article does not rank them.",
+          "B": "Doctors treat only some conditions.",
+          "C": "Genes are one of three factors."
+        }
+      }
+    ]
   }
 }

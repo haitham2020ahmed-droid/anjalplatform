@@ -614,5 +614,217 @@
       ],
       "modelAnswer": "Ibn al-Nafis used evidence about the septum, the thick wall of muscle between the heart's two sides, to challenge Galen's ancient theory that blood passed through invisible holes in that wall. He argued that because the septum has no such holes, blood must instead travel from the right ventricle to the lungs, where it absorbs oxygen, before returning to the left side of the heart in what we now call pulmonary circulation. Although his explanation was correct, it was not recognized for centuries because few people read his manuscript, and only in 1924 did an Egyptian doctor discover it in a library in Berlin, finally proving that Ibn al-Nafis had described this path long before European doctors did."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "What did Ibn al-Nafis do in Cairo?",
+        "options": [
+          "He sold books",
+          "He fixed old walls",
+          "He ran a big hospital",
+          "He found a manuscript"
+        ],
+        "answer": "C",
+        "skill": "detail",
+        "why": "The text says he went to work in Cairo and ran a big hospital there.",
+        "wrong": {
+          "A": "The text does not say he sold books.",
+          "B": "The wall in the text is in the heart.",
+          "D": "A doctor found his book in 1924, long after."
+        }
+      },
+      {
+        "stem": "Why do we know Ibn al-Nafis was first?",
+        "options": [
+          "His book was found in 1924",
+          "Many doctors read his books",
+          "He lived to be very old",
+          "The wall had many holes"
+        ],
+        "answer": "A",
+        "skill": "cause-effect",
+        "why": "A doctor found one of his books in 1924, so we now know he was first.",
+        "wrong": {
+          "B": "His books were lost for a long time.",
+          "C": "The text does not say how old he was.",
+          "D": "He said the wall has no holes."
+        }
+      },
+      {
+        "stem": "Ibn al-Nafis said the wall in the heart is thick. What does thick mean?",
+        "options": [
+          "very thin",
+          "full of holes",
+          "very wet",
+          "wide and solid"
+        ],
+        "answer": "D",
+        "skill": "vocabulary",
+        "why": "He said the wall is thick and has no holes, so blood cannot pass through it; thick means wide and solid.",
+        "wrong": {
+          "A": "Thin is the opposite of thick.",
+          "B": "He said the wall has no holes.",
+          "C": "Thick is not about being wet."
+        }
+      },
+      {
+        "stem": "In Ibn al-Nafis's idea, where does blood go after it leaves the lungs?",
+        "options": [
+          "Into the wall",
+          "Back to the heart",
+          "To the hospital",
+          "Out of the body"
+        ],
+        "answer": "B",
+        "skill": "sequence",
+        "why": "The text says that after it mixes with air in the lungs, it goes back to the heart.",
+        "wrong": {
+          "A": "He said the wall has no holes.",
+          "C": "Blood stays inside the body.",
+          "D": "Blood goes back to the heart."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "What runs down the middle of the heart?",
+        "options": [
+          "A tube filled with air",
+          "A row of tiny holes",
+          "A long, hard bone",
+          "A thick muscle wall"
+        ],
+        "answer": "D",
+        "skill": "detail",
+        "why": "The text says a thick wall of muscle runs down the middle of the heart.",
+        "wrong": {
+          "A": "The text does not mention a tube of air.",
+          "B": "Galen believed in holes, but Ibn al-Nafis said there are none.",
+          "C": "The text does not mention a bone."
+        }
+      },
+      {
+        "stem": "The article says Ibn al-Nafis became a skilled \"physician.\" What is a physician?",
+        "options": [
+          "a builder of homes",
+          "a medical doctor",
+          "a keeper of libraries",
+          "a writer of poems"
+        ],
+        "answer": "B",
+        "skill": "vocabulary",
+        "why": "He studied medicine at a hospital, so a physician is a medical doctor.",
+        "wrong": {
+          "A": "He studied medicine, not building.",
+          "C": "He left a library to a hospital, but that is not what a physician is.",
+          "D": "He wrote books about medicine, not poems."
+        }
+      },
+      {
+        "stem": "Ibn al-Nafis disagreed with Galen, a famous doctor. What does this show about him?",
+        "options": [
+          "He questioned a famous idea",
+          "He did not like hospitals",
+          "He was Galen's student",
+          "He lived at the same time"
+        ],
+        "answer": "A",
+        "skill": "inference",
+        "why": "He said the famous theory was wrong, so he was willing to question it.",
+        "wrong": {
+          "B": "He led a large hospital.",
+          "C": "Galen lived about a thousand years earlier.",
+          "D": "Galen lived about a thousand years earlier."
+        }
+      },
+      {
+        "stem": "How were Ibn al-Nafis and the doctors in Europe alike?",
+        "options": [
+          "Both lived in Damascus",
+          "Both followed Galen's holes",
+          "Both described the blood path",
+          "Both led hospitals in Cairo"
+        ],
+        "answer": "C",
+        "skill": "compare",
+        "why": "Doctors in Europe described the same path about 300 years later that Ibn al-Nafis had explained.",
+        "wrong": {
+          "A": "Only Ibn al-Nafis was born in Damascus.",
+          "B": "Ibn al-Nafis rejected Galen's holes.",
+          "D": "Only Ibn al-Nafis led a hospital in Cairo."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "What do the two lower chambers of the heart do?",
+        "options": [
+          "Receive blood",
+          "Mix blood with air",
+          "Pump blood out",
+          "Hold the septum"
+        ],
+        "answer": "C",
+        "skill": "detail",
+        "why": "The text says the two lower chambers, the ventricles, pump blood out.",
+        "wrong": {
+          "A": "The upper chambers receive blood.",
+          "B": "Blood mixes with air in the lungs.",
+          "D": "The septum is a wall between the two sides, not held by a chamber."
+        }
+      },
+      {
+        "stem": "In the fifth paragraph, the word \"rejected\" means",
+        "options": [
+          "did not accept",
+          "fully agreed with",
+          "carefully copied",
+          "quickly forgot"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "He said the pores do not exist, so he did not accept Galen's idea.",
+        "wrong": {
+          "B": "He disagreed with Galen.",
+          "C": "He wrote a different idea.",
+          "D": "He argued against the idea, so he did not forget it."
+        }
+      },
+      {
+        "stem": "Why did Ibn al-Nafis leave his house and library to a hospital in Cairo?",
+        "options": [
+          "So the hospital could sell the books",
+          "So his students could pay for school",
+          "So Galen's theory could be taught",
+          "So future doctors could keep learning"
+        ],
+        "answer": "D",
+        "skill": "cause-effect",
+        "why": "The text says he left them so that future doctors could keep learning from his work.",
+        "wrong": {
+          "A": "The text gives learning as the reason.",
+          "B": "The text does not mention school fees.",
+          "C": "He rejected Galen's theory."
+        }
+      },
+      {
+        "stem": "How was Harvey's work different from Ibn al-Nafis's?",
+        "options": [
+          "Harvey studied only the lungs",
+          "Harvey covered the whole body",
+          "Harvey lived before Galen",
+          "Harvey wrote in Damascus"
+        ],
+        "answer": "B",
+        "skill": "compare",
+        "why": "Harvey explained how blood circulates through the entire body, while Ibn al-Nafis described the loop between the heart and lungs.",
+        "wrong": {
+          "A": "Ibn al-Nafis described the heart and lungs.",
+          "C": "Harvey lived in 1628, long after Galen.",
+          "D": "Ibn al-Nafis was born in Damascus; Harvey was English."
+        }
+      }
+    ]
   }
 }

@@ -614,5 +614,217 @@
       ],
       "modelAnswer": "If my local hospital could buy only one kind of robot, I would choose the surgical robot. The evidence from the article shows that a team in Riyadh used this kind of robot to perform the first operation of its kind in the world, giving a teenage patient a new heart, and its tiny incisions help patients feel less pain and recover sooner. However, this robot still cannot do everything without people, because it is not autonomous: the surgeon sitting at the console must control every movement, since the robot never decides anything on its own."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "Where does the surgeon sit while the robot works?",
+        "options": [
+          "Inside the robot's long arm",
+          "At a desk",
+          "On the bed next to the patient",
+          "In a room far across the city"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The text says the surgeon sits at a desk and moves her hands.",
+        "wrong": {
+          "A": "The surgeon is a person who sits at a desk, not inside the arm.",
+          "C": "The text does not say she sits on the bed.",
+          "D": "The text says a doctor far away uses a screen robot, not the surgery robot."
+        }
+      },
+      {
+        "stem": "Why might a hospital use a robot to bring food to each room?",
+        "options": [
+          "The robots need to learn to cook",
+          "Food tastes better when it rolls",
+          "Nurses are not allowed in halls",
+          "Nurses have more time to care"
+        ],
+        "answer": "D",
+        "skill": "inference",
+        "why": "The text says robots bring things, and that nurses and doctors still care for us, so the robots free people for care.",
+        "wrong": {
+          "A": "The text does not say robots cook.",
+          "B": "The text does not say food tastes better.",
+          "C": "The text does not say nurses are kept out of halls."
+        }
+      },
+      {
+        "stem": "In the article, the word heal means —",
+        "options": [
+          "get well again",
+          "get very hot",
+          "get much bigger",
+          "get taken away"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "The text says small cuts can heal fast and robots help the sick get well.",
+        "wrong": {
+          "B": "Heal is not about heat.",
+          "C": "Heal is not about size.",
+          "D": "Heal is not about taking something away."
+        }
+      },
+      {
+        "stem": "What does the strong light do in a room?",
+        "options": [
+          "It helps the surgeon see better",
+          "It makes the room warm and dry",
+          "It kills the germs in the room",
+          "It talks to the sick child"
+        ],
+        "answer": "C",
+        "skill": "cause-effect",
+        "why": "The text says the robot shines a strong light in a room and the light kills the germs.",
+        "wrong": {
+          "A": "The light is for germs, not for surgery.",
+          "B": "The text does not say it warms the room.",
+          "D": "The robot with a screen talks, not the light."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "What do the surgeon robot's thin arms hold?",
+        "options": [
+          "Meals, medicine, and supplies",
+          "A viewer and a small desk",
+          "Tiny tools and a camera",
+          "A strong light for germs"
+        ],
+        "answer": "C",
+        "skill": "detail",
+        "why": "The text says the thin arms hold tiny tools and a camera.",
+        "wrong": {
+          "A": "Delivery robots carry meals and supplies.",
+          "B": "The surgeon uses the viewer and desk.",
+          "D": "A different robot shines the light."
+        }
+      },
+      {
+        "stem": "Why can't robots take the place of nurses and doctors?",
+        "options": [
+          "They cannot listen or comfort people",
+          "They cannot move through the halls",
+          "They cannot work during the night",
+          "They cannot copy the surgeon's hands"
+        ],
+        "answer": "A",
+        "skill": "inference",
+        "why": "The last paragraph says robots cannot replace the people who listen, comfort, and make big choices.",
+        "wrong": {
+          "B": "The text says robots move through the halls on their own.",
+          "C": "The text does not say robots stop at night.",
+          "D": "The text says the robot arms copy the surgeon's moves."
+        }
+      },
+      {
+        "stem": "In the article, the word disinfect means —",
+        "options": [
+          "to deliver supplies to",
+          "to clean away germs",
+          "to copy the moves of",
+          "to look inside the body of"
+        ],
+        "answer": "B",
+        "skill": "vocabulary",
+        "why": "The robot shines a strong light around the empty room to kill germs, so disinfect means to clean away germs.",
+        "wrong": {
+          "A": "Delivering is a different job.",
+          "C": "Copying moves is what the surgery robot does.",
+          "D": "Looking inside the body is done with the camera."
+        }
+      },
+      {
+        "stem": "What can you infer about the delivery robots?",
+        "options": [
+          "They are controlled by a surgeon",
+          "They can only work in operating rooms",
+          "They need a person to push them",
+          "They can find their way without help"
+        ],
+        "answer": "D",
+        "skill": "inference",
+        "why": "The text says the robots move through the halls on their own and even ride the elevators.",
+        "wrong": {
+          "A": "The surgeon controls the surgery robot, not the delivery robots.",
+          "B": "They work in halls and elevators.",
+          "C": "The text says they move on their own."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "What do robots in hospital pharmacies do each day?",
+        "options": [
+          "Sort and count thousands of pills",
+          "Deliver meals to each patient's room",
+          "Shine ultraviolet light in the rooms",
+          "Help surgeons look at the body"
+        ],
+        "answer": "A",
+        "skill": "detail",
+        "why": "The text says pharmacy robots sort and count thousands of pills each day.",
+        "wrong": {
+          "B": "Delivery robots carry meals.",
+          "C": "Disinfection robots use ultraviolet light.",
+          "D": "Surgical robots help surgeons."
+        }
+      },
+      {
+        "stem": "In the article, rehabilitation is the process of —",
+        "options": [
+          "building a bigger hospital wing",
+          "counting medicines by their color",
+          "regaining strength after an injury",
+          "learning how to build robots"
+        ],
+        "answer": "C",
+        "skill": "vocabulary",
+        "why": "The text defines rehabilitation as recovering strength and skills after an injury or illness.",
+        "wrong": {
+          "A": "Rehabilitation is about patients, not buildings.",
+          "B": "Counting medicines is a pharmacy robot's job.",
+          "D": "The process is for patients, not for building robots."
+        }
+      },
+      {
+        "stem": "How do barcodes help hospital pharmacy robots?",
+        "options": [
+          "They let the robots ride elevators",
+          "They tell the robots where the beds are",
+          "They make the pills taste better",
+          "They let the robots check each medicine"
+        ],
+        "answer": "D",
+        "skill": "cause-effect",
+        "why": "The text says the robots read barcodes to check each medicine, which helps prevent mistakes.",
+        "wrong": {
+          "A": "Elevators are used by delivery robots with sensors and maps.",
+          "B": "The text does not link barcodes to beds.",
+          "C": "Barcodes have nothing to do with taste."
+        }
+      },
+      {
+        "stem": "Why do delivery robots most likely need sensors and digital maps?",
+        "options": [
+          "To shine light on empty rooms",
+          "To find their way around hallways",
+          "To count the pills in a pharmacy",
+          "To help the surgeon move her hands"
+        ],
+        "answer": "B",
+        "skill": "inference",
+        "why": "The text says autonomous robots use sensors and maps to move without a person steering, so they can find their way.",
+        "wrong": {
+          "A": "Disinfection robots shine the light.",
+          "C": "Pharmacy robots count the pills.",
+          "D": "Surgical robots work with the surgeon, not delivery robots."
+        }
+      }
+    ]
   }
 }

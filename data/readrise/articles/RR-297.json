@@ -614,5 +614,217 @@
       ],
       "modelAnswer": "Traditional Saudi clothing, such as the thobe and the abaya, is cut loose so that ventilation can keep the wearer cool in the desert heat. Skilled craftsmanship, such as hand-stitched embroidery on an abaya or fine trim on a bisht, shows the careful work passed down through generations. Because patterns and styles differ by region, these garments also express local identity and carry forward a shared heritage."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "What does the ghutra cover?",
+        "options": [
+          "The feet and legs",
+          "The hands",
+          "The whole body",
+          "The head and neck"
+        ],
+        "answer": "D",
+        "skill": "detail",
+        "why": "The text says the ghutra covers the head and neck.",
+        "wrong": {
+          "A": "The thobe goes down to the feet.",
+          "B": "The text does not say the ghutra covers the hands.",
+          "C": "The ghutra covers only the head and neck."
+        }
+      },
+      {
+        "stem": "What holds the ghutra on the head?",
+        "options": [
+          "A black cord",
+          "A long robe",
+          "A pair of shoes",
+          "A big stone"
+        ],
+        "answer": "A",
+        "skill": "detail",
+        "why": "The text says a black cord, called an agal, holds the ghutra.",
+        "wrong": {
+          "B": "A long robe is the thobe, which is worn on the body.",
+          "C": "Shoes are not mentioned.",
+          "D": "A stone is not mentioned."
+        }
+      },
+      {
+        "stem": "In the article, what does the word loose mean?",
+        "options": [
+          "Short and not very long",
+          "Heavy and very thick",
+          "Bright and very shiny",
+          "Not tight on the body"
+        ],
+        "answer": "D",
+        "skill": "vocabulary",
+        "why": "The text says loose cloth lets air move under it, so loose means not tight.",
+        "wrong": {
+          "A": "The thobe is long, not short.",
+          "B": "The text calls the cloth light, not heavy.",
+          "C": "The text does not talk about shine."
+        }
+      },
+      {
+        "stem": "A man walks in a sandy desert wind. Which clothing helps most?",
+        "options": [
+          "A bare head",
+          "A ghutra",
+          "A short shirt",
+          "A heavy coat"
+        ],
+        "answer": "B",
+        "skill": "inference",
+        "why": "The ghutra covers the head and neck and stops sun and sand.",
+        "wrong": {
+          "A": "A bare head has no cover from sun and sand.",
+          "C": "A short shirt does not protect the head and neck.",
+          "D": "A heavy coat would be too hot in a hot land."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "When might a man wear a bisht?",
+        "options": [
+          "On the hottest days",
+          "While sleeping",
+          "While playing sports",
+          "On formal days"
+        ],
+        "answer": "D",
+        "skill": "detail",
+        "why": "The article says a man may wear a bisht on formal days.",
+        "wrong": {
+          "A": "The thobe is the clothing for hot days; a bisht is a cloak.",
+          "B": "The article does not mention sleeping.",
+          "C": "The article does not mention sports."
+        }
+      },
+      {
+        "stem": "What does the word modesty mean in the article?",
+        "options": [
+          "Showing off bright colors",
+          "Dressing in a respectful way",
+          "Wearing as little as possible",
+          "Spending a lot of money"
+        ],
+        "answer": "B",
+        "skill": "vocabulary",
+        "why": "The article says clothing balances comfort with modesty and respect for custom.",
+        "wrong": {
+          "A": "Showing off is the opposite of modesty.",
+          "C": "These clothes are long and loose, not small.",
+          "D": "The article does not talk about money."
+        }
+      },
+      {
+        "stem": "Why does the loose cut of a thobe keep the wearer cooler?",
+        "options": [
+          "It blocks the wind completely",
+          "It keeps the cotton very warm",
+          "Air can move near the skin",
+          "It makes the cloth shiny"
+        ],
+        "answer": "C",
+        "skill": "cause-effect",
+        "why": "The article says the loose cut lets air move close to the skin, which keeps the wearer cooler.",
+        "wrong": {
+          "A": "Blocking the wind would make the wearer hotter.",
+          "B": "Warm cloth would not cool anyone.",
+          "D": "Shine is not mentioned."
+        }
+      },
+      {
+        "stem": "Why does the author say the clothing marks special days?",
+        "options": [
+          "To show clothes have more meanings",
+          "To say people dress alike daily",
+          "To explain how cotton is grown",
+          "To compare weddings and Eid"
+        ],
+        "answer": "A",
+        "skill": "author-purpose",
+        "why": "The author shows the clothes are about more than comfort: they mark weddings and Eid and show where a person comes from.",
+        "wrong": {
+          "B": "The article says styles differ from region to region.",
+          "C": "Cotton growing is not explained.",
+          "D": "The article does not compare the two days."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "Why are thobes dyed white or another pale shade?",
+        "options": [
+          "Dark dye costs too much",
+          "Light colors reflect sunlight",
+          "White cloth holds more heat",
+          "Pale cloth wears out slower"
+        ],
+        "answer": "B",
+        "skill": "cause-effect",
+        "why": "The article says light colors reflect sunlight rather than absorbing it.",
+        "wrong": {
+          "A": "The article does not mention cost.",
+          "C": "White cloth reflects sunlight, so it does not hold more heat.",
+          "D": "The article does not say pale cloth lasts longer."
+        }
+      },
+      {
+        "stem": "What does the word ventilation mean in the article?",
+        "options": [
+          "Dyeing of cloth",
+          "Stitching by hand",
+          "Weaving of wool",
+          "Movement of air"
+        ],
+        "answer": "D",
+        "skill": "vocabulary",
+        "why": "The article defines ventilation as the movement of air close to the skin.",
+        "wrong": {
+          "A": "Dyeing is how the cloth gets its color.",
+          "B": "Hand stitching is part of the embroidery.",
+          "C": "The bisht may be woven from wool, but that is not ventilation."
+        }
+      },
+      {
+        "stem": "When are shemaghs more common, according to the article?",
+        "options": [
+          "In cooler seasons",
+          "During the hottest months",
+          "Only at weddings",
+          "At night only"
+        ],
+        "answer": "A",
+        "skill": "detail",
+        "why": "The article says the red-and-white shemagh is more common in cooler seasons.",
+        "wrong": {
+          "B": "A plain white ghutra is favored in the hottest months.",
+          "C": "The article does not limit shemaghs to weddings.",
+          "D": "The article does not mention night."
+        }
+      },
+      {
+        "stem": "Why do garments vary from region to region?",
+        "options": [
+          "Tailors refuse to share ideas",
+          "Cotton grows in only one region",
+          "Local weather and custom differ",
+          "Every region has the same weather"
+        ],
+        "answer": "C",
+        "skill": "cause-effect",
+        "why": "The article says garments vary by region since local weather and local custom differ from place to place.",
+        "wrong": {
+          "A": "The article does not say tailors refuse to share ideas.",
+          "B": "The article does not say where cotton grows.",
+          "D": "The article says the weather differs by place."
+        }
+      }
+    ]
   }
 }

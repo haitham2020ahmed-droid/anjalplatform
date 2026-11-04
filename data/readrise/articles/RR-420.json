@@ -611,5 +611,217 @@
         "I addressed at least one point someone might make against my view."
       ]
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "What is the pyramid made of?",
+        "options": [
+          "Bricks of clay",
+          "Pieces of wood",
+          "Big stone blocks",
+          "Sheets of metal"
+        ],
+        "answer": "C",
+        "skill": "detail",
+        "why": "The text says the pyramid was made of big stone blocks.",
+        "wrong": {
+          "A": "Clay bricks are not mentioned.",
+          "B": "Wood is not mentioned.",
+          "D": "Metal is not mentioned."
+        }
+      },
+      {
+        "stem": "In the story, the word ancient means —",
+        "options": [
+          "very old",
+          "very new",
+          "very small",
+          "very loud"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "The pyramid was built long ago, so ancient means very old.",
+        "wrong": {
+          "B": "The pyramid is old, not new.",
+          "C": "The pyramid is big, not small.",
+          "D": "Ancient has nothing to do with sound."
+        }
+      },
+      {
+        "stem": "Why did Mona write facts in her book?",
+        "options": [
+          "It was a game for her class",
+          "Her teacher asked her to",
+          "She wanted to sell the book",
+          "She wanted to remember"
+        ],
+        "answer": "D",
+        "skill": "inference",
+        "why": "Mona wanted to learn more signs, so she wrote the facts to remember them.",
+        "wrong": {
+          "A": "The story does not call it a game.",
+          "B": "The story does not say her teacher asked.",
+          "C": "Selling the book is not mentioned."
+        }
+      },
+      {
+        "stem": "How did men move the blocks up the pyramid?",
+        "options": [
+          "With big trucks",
+          "On ramps",
+          "With flying machines",
+          "In small boats"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "Hana says the men moved the blocks up ramps.",
+        "wrong": {
+          "A": "Trucks did not exist then.",
+          "C": "Flying machines are not mentioned.",
+          "D": "Boats are not mentioned."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "Where did the workers cut the huge stone blocks?",
+        "options": [
+          "From distant quarries",
+          "From the nearby river",
+          "From the sea floor",
+          "From the pyramid's top"
+        ],
+        "answer": "A",
+        "skill": "detail",
+        "why": "Dr. Hana says workers cut the blocks from distant quarries.",
+        "wrong": {
+          "B": "A river is not mentioned.",
+          "C": "The sea floor is not mentioned.",
+          "D": "The blocks were cut before they reached the pyramid."
+        }
+      },
+      {
+        "stem": "In the story, the word massive means —",
+        "options": [
+          "very light",
+          "very old",
+          "very large",
+          "very bright"
+        ],
+        "answer": "C",
+        "skill": "vocabulary",
+        "why": "Mona could hardly believe how huge the pyramid was, so massive means very big.",
+        "wrong": {
+          "A": "Massive is the opposite of light.",
+          "B": "Old is a different idea from massive.",
+          "D": "Brightness is not the point."
+        }
+      },
+      {
+        "stem": "What does Mona's notebook show about her?",
+        "options": [
+          "She wants to draw maps",
+          "She is eager to learn",
+          "She dislikes the trip",
+          "She is too shy to talk"
+        ],
+        "answer": "B",
+        "skill": "inference",
+        "why": "She carefully records facts and wants to learn more hieroglyphs, so she is eager to learn.",
+        "wrong": {
+          "A": "Maps are not mentioned.",
+          "C": "She is thrilled about the trip.",
+          "D": "She asks many questions."
+        }
+      },
+      {
+        "stem": "Why was Mona thrilled at the start of the trip?",
+        "options": [
+          "She got to meet a king",
+          "She was going to win a prize",
+          "She was done with school",
+          "She could see the pyramids"
+        ],
+        "answer": "D",
+        "skill": "cause-effect",
+        "why": "She had only read about the pyramids and now she could see them.",
+        "wrong": {
+          "A": "No king is in the story.",
+          "B": "No prize is in the story.",
+          "C": "She is on a school trip with her class."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "According to Dr. Hana, how can a bird sign and a water sign form a word?",
+        "options": [
+          "They are spoken aloud",
+          "They are drawn smaller",
+          "They are put in a set order",
+          "They are written in red ink"
+        ],
+        "answer": "C",
+        "skill": "detail",
+        "why": "Dr. Hana says the signs can be combined in a specific order to form a whole word.",
+        "wrong": {
+          "A": "Speaking aloud is not mentioned.",
+          "B": "Size is not mentioned.",
+          "D": "Ink color is not mentioned."
+        }
+      },
+      {
+        "stem": "In the story, the word colossal most nearly means —",
+        "options": [
+          "tiny",
+          "gigantic",
+          "ordinary",
+          "fragile"
+        ],
+        "answer": "B",
+        "skill": "vocabulary",
+        "why": "Each block towered above Mona, so colossal means gigantic.",
+        "wrong": {
+          "A": "Tiny is the opposite of colossal.",
+          "C": "The pyramid is not ordinary.",
+          "D": "A pyramid of stone is not fragile."
+        }
+      },
+      {
+        "stem": "Why does the author compare reading hieroglyphs to solving a puzzle?",
+        "options": [
+          "To show that signs must be pieced together",
+          "To say the signs are a game for children",
+          "To show that no one can read them",
+          "To say the stone was found in a box"
+        ],
+        "answer": "A",
+        "skill": "author-purpose",
+        "why": "Like puzzle pieces, the signs must be combined in the right order to make meaning.",
+        "wrong": {
+          "B": "The text treats the work as serious science.",
+          "C": "The text says scholars can read many signs.",
+          "D": "No box is mentioned."
+        }
+      },
+      {
+        "stem": "How is the story mostly told?",
+        "options": [
+          "Through a list of dates",
+          "Through a long speech by Mona",
+          "Through a diary kept by Dr. Hana",
+          "Through questions and answers"
+        ],
+        "answer": "D",
+        "skill": "text-structure",
+        "why": "Mona keeps asking questions, and Dr. Hana answers each one in turn.",
+        "wrong": {
+          "A": "No list of dates is given.",
+          "B": "Mona asks questions; she does not give a long speech.",
+          "C": "Mona writes in the notebook, not Dr. Hana."
+        }
+      }
+    ]
   }
 }

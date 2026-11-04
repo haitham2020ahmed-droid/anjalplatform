@@ -614,5 +614,217 @@
       ],
       "modelAnswer": "I agree that Al-Kindi deserves to be called one of the most important early scientists in history, because his intellectual breadth and his pioneering insight were both remarkable for his time. He wrote more than two hundred treatises on subjects ranging from mathematics and medicine to philosophy and music, earning him the title the Philosopher of the Arabs. Perhaps even more significantly, he noticed that letters appear with a distinctly different frequency in ordinary writing, and he used this insight to analyze and decipher secret ciphers that no one before him had managed to break. Because his pioneering method in cryptography is still studied by scholars today, his breadth of knowledge and his lasting influence make him a truly important figure in early science."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "Who paid people to learn in the town where Al-Kindi lived?",
+        "options": [
+          "A teacher",
+          "The king",
+          "A farmer",
+          "A soldier"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The text says the town's king paid people to learn.",
+        "wrong": {
+          "A": "The text does not say a teacher paid people.",
+          "C": "A farmer is not mentioned as paying anyone.",
+          "D": "A soldier is not mentioned as paying anyone."
+        }
+      },
+      {
+        "stem": "The article says people still use Al-Kindi's trick today. What does this tell us?",
+        "options": [
+          "His trick was too hard to use",
+          "His trick was not very new",
+          "His trick was only for kings",
+          "His trick is still a smart one"
+        ],
+        "answer": "D",
+        "skill": "inference",
+        "why": "If people still use the trick after so long, it must be a smart idea that lasts.",
+        "wrong": {
+          "A": "The text calls it a smart way, not a too-hard one.",
+          "B": "A trick people still use today cannot be unimportant.",
+          "C": "The text does not say the trick was only for kings."
+        }
+      },
+      {
+        "stem": "In the article, what does it mean to \"crack\" a code?",
+        "options": [
+          "To solve it and read it",
+          "To write it down again",
+          "To hide it much better",
+          "To sell it to a king"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "The text says codes hide words, and cracking a code means finding the hidden words.",
+        "wrong": {
+          "B": "Writing a code down does not reveal its words.",
+          "C": "Cracking a code is the opposite of hiding it.",
+          "D": "The text never talks about selling codes."
+        }
+      },
+      {
+        "stem": "Which topic did Al-Kindi write about?",
+        "options": [
+          "Boats",
+          "Horses",
+          "Stars",
+          "Cooking"
+        ],
+        "answer": "C",
+        "skill": "detail",
+        "why": "The text says he wrote about math, stars, and sound.",
+        "wrong": {
+          "A": "Boats are not named in the text.",
+          "B": "Horses are not named in the text.",
+          "D": "Cooking is not named in the text."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "In which city did Al-Kindi live about 1,200 years ago?",
+        "options": [
+          "Cairo",
+          "Baghdad",
+          "Damascus",
+          "Makkah"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The first paragraph says he lived in Baghdad.",
+        "wrong": {
+          "A": "Cairo is not named in the text.",
+          "C": "Damascus is not named in the text.",
+          "D": "Makkah is not named in the text."
+        }
+      },
+      {
+        "stem": "What can you infer about the kings of Baghdad from the article?",
+        "options": [
+          "They cared little about books",
+          "They wanted to keep codes secret",
+          "They valued learning and knowledge",
+          "They only liked math"
+        ],
+        "answer": "C",
+        "skill": "inference",
+        "why": "The kings paid scholars to study and built a great house of wisdom, so they valued learning.",
+        "wrong": {
+          "A": "They paid for books to be translated, so they cared about them.",
+          "B": "The article does not say this was their main goal.",
+          "D": "They supported many subjects, not only math."
+        }
+      },
+      {
+        "stem": "In the article, what does the word \"analyze\" mean?",
+        "options": [
+          "To look at closely",
+          "To copy it quickly",
+          "To hide it carefully",
+          "To sell it for money"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "Al-Kindi looked closely at the pattern of letters to understand what they stood for.",
+        "wrong": {
+          "B": "He did not copy the letters quickly.",
+          "C": "He was finding hidden letters, not hiding them.",
+          "D": "Nothing is sold in this part of the text."
+        }
+      },
+      {
+        "stem": "Why does the author say that for a long time no one knew how to crack a cipher without its key?",
+        "options": [
+          "To show Al-Kindi's idea was a big step",
+          "To show ciphers were easy to make",
+          "To show kings did not like ciphers",
+          "To show Greek books were hard to read"
+        ],
+        "answer": "A",
+        "skill": "author-purpose",
+        "why": "The author wants readers to see that Al-Kindi changed something no one else could do.",
+        "wrong": {
+          "B": "The sentence is about breaking ciphers, not making them.",
+          "C": "The text does not say kings disliked ciphers.",
+          "D": "This sentence is not about Greek books."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "About how many works did Al-Kindi write in all?",
+        "options": [
+          "Only about ten works",
+          "Around fifty works",
+          "Nearly one hundred works",
+          "More than two hundred"
+        ],
+        "answer": "D",
+        "skill": "detail",
+        "why": "The text says he wrote more than two hundred works on a wide range of topics.",
+        "wrong": {
+          "A": "Ten is far fewer than the text says.",
+          "B": "Fifty is far fewer than the text says.",
+          "C": "One hundred is fewer than the text says."
+        }
+      },
+      {
+        "stem": "In the last paragraph, what does the word pioneering mean?",
+        "options": [
+          "A way that copies old ideas",
+          "A way that tries new ideas first",
+          "A way that only kings can use",
+          "A way that is very slow"
+        ],
+        "answer": "B",
+        "skill": "vocabulary",
+        "why": "The text calls him a pioneer because he was among the first to find a new way to break ciphers.",
+        "wrong": {
+          "A": "His method was new, not copied.",
+          "C": "The text does not limit his method to kings.",
+          "D": "Nothing says his method was slow."
+        }
+      },
+      {
+        "stem": "What can you infer about why Al-Kindi's discovery mattered to rulers and generals?",
+        "options": [
+          "It made all ciphers harder to use",
+          "It showed a secret message could be cracked",
+          "It helped them write longer letters",
+          "It stopped people from writing in secret"
+        ],
+        "answer": "B",
+        "skill": "inference",
+        "why": "Rulers relied on ciphers for safety, and Al-Kindi showed a cipher could be broken by studying letter patterns.",
+        "wrong": {
+          "A": "His method broke ciphers; it did not make them harder.",
+          "C": "Letter length is not discussed in the text.",
+          "D": "People still used ciphers; his work did not stop them."
+        }
+      },
+      {
+        "stem": "Which fact made Al-Kindi's method of counting letters possible?",
+        "options": [
+          "Rulers wrote many letters each day",
+          "Every letter shows up the same number of times",
+          "Some letters show up far more often than others",
+          "Scholars in Baghdad spoke Greek"
+        ],
+        "answer": "C",
+        "skill": "cause-effect",
+        "why": "The text says letters appear with different frequency, which let him match common symbols to common letters.",
+        "wrong": {
+          "A": "The text does not link his method to how many letters rulers wrote.",
+          "B": "The text says the opposite: letters show up at different rates.",
+          "D": "Speaking Greek is not what made counting letters work."
+        }
+      }
+    ]
   }
 }

@@ -614,5 +614,217 @@
       ],
       "modelAnswer": "Franklin's kite experiment shows that even a reasonable hypothesis needs empirical evidence before it can be fully trusted. His idea that lightning was simply a natural form of electricity remained only a hypothesis until he built a kite with a pointed wire and a metal key and flew it into a storm. When he observed a real spark leap from the dampened string to the key, this direct, observable evidence, not mere reasoning, confirmed that storm clouds truly carried an electrical charge. This careful testing is what allowed Franklin to move from an untested idea to a scientifically supported conclusion, which he then applied to invent the lightning rod."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "What did Franklin tie to the string of the kite?",
+        "options": [
+          "A key",
+          "A bell",
+          "A stone",
+          "A shoe"
+        ],
+        "answer": "A",
+        "skill": "detail",
+        "why": "The text says he tied a key to the string.",
+        "wrong": {
+          "B": "A bell is not mentioned.",
+          "C": "A stone is not mentioned.",
+          "D": "A shoe is not mentioned."
+        }
+      },
+      {
+        "stem": "Why did Franklin stand under a shed?",
+        "options": [
+          "To hide from the people",
+          "To stay dry and safe",
+          "To fix his glasses",
+          "To look for his key"
+        ],
+        "answer": "B",
+        "skill": "cause-effect",
+        "why": "The text says he stood under a shed and stayed dry and safe.",
+        "wrong": {
+          "A": "The text does not say he was hiding.",
+          "C": "The glasses came later.",
+          "D": "The key was tied to the string."
+        }
+      },
+      {
+        "stem": "In the article, what does the word curious mean?",
+        "options": [
+          "afraid of big storms",
+          "wanting to know things",
+          "very tired and sleepy",
+          "very angry and loud"
+        ],
+        "answer": "B",
+        "skill": "vocabulary",
+        "why": "Franklin loved to ask questions about the world, so curious means wanting to know things.",
+        "wrong": {
+          "A": "He studied storms; he was not afraid of them.",
+          "C": "Tired is not what curious means.",
+          "D": "Angry is not what curious means."
+        }
+      },
+      {
+        "stem": "What do the glasses Franklin made help people do?",
+        "options": [
+          "Hear soft sounds",
+          "See far and near",
+          "Stay dry in storms",
+          "Fly a kite"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The text says the glasses let people see far and near.",
+        "wrong": {
+          "A": "Hearing is not mentioned.",
+          "C": "The shed helped him stay dry, not the glasses.",
+          "D": "The glasses are not for flying a kite."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "In which year did Franklin build his kite?",
+        "options": [
+          "1700",
+          "1752",
+          "1776",
+          "1805"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The text says that in 1752 he built a basic kite.",
+        "wrong": {
+          "A": "1700 is not in the text.",
+          "C": "1776 is not in the text.",
+          "D": "1805 is not in the text."
+        }
+      },
+      {
+        "stem": "In the article, what is a \"hypothesis\"?",
+        "options": [
+          "A storm with strong wind",
+          "A tool made of metal",
+          "An idea that can be tested",
+          "A shed that keeps you dry"
+        ],
+        "answer": "C",
+        "skill": "vocabulary",
+        "why": "Franklin had an idea about lightning and then tested it with a kite.",
+        "wrong": {
+          "A": "A storm is the weather, not the idea.",
+          "B": "The key is a tool, not the hypothesis.",
+          "D": "The shed is a place, not an idea."
+        }
+      },
+      {
+        "stem": "Why did people in Franklin's time believe lightning was magic?",
+        "options": [
+          "They had seen it with a kite",
+          "They did not yet know what it was",
+          "They had read it in a book",
+          "They had felt small sparks indoors"
+        ],
+        "answer": "B",
+        "skill": "cause-effect",
+        "why": "The text says people did not yet know what lightning was, so many thought it was magic.",
+        "wrong": {
+          "A": "Franklin used the kite, not most people.",
+          "C": "Books are not mentioned.",
+          "D": "Franklin compared lightning to sparks; that is his idea."
+        }
+      },
+      {
+        "stem": "What do bifocal glasses have?",
+        "options": [
+          "A long thin metal rod",
+          "Two lenses in one pair",
+          "A long piece of string",
+          "A key and a long wire"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The text says bifocal glasses have two lenses in one pair.",
+        "wrong": {
+          "A": "The metal rod is the lightning rod.",
+          "C": "The string was part of the kite.",
+          "D": "The key and wire were part of the kite."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "Where did Benjamin Franklin live?",
+        "options": [
+          "Colonial Philadelphia",
+          "Modern London",
+          "Ancient Rome",
+          "Early Baghdad"
+        ],
+        "answer": "A",
+        "skill": "detail",
+        "why": "The text says he lived in colonial Philadelphia in the eighteenth century.",
+        "wrong": {
+          "B": "London is not named.",
+          "C": "Rome is not named.",
+          "D": "Baghdad is not named."
+        }
+      },
+      {
+        "stem": "In the second paragraph, what does the word \"mundane\" mean?",
+        "options": [
+          "Dangerous and strange",
+          "Magical and rare",
+          "Ordinary and plain",
+          "Loud and bright"
+        ],
+        "answer": "C",
+        "skill": "vocabulary",
+        "why": "Franklin suspected lightning was ordinary electricity, not magic, so mundane means ordinary.",
+        "wrong": {
+          "A": "The text contrasts mundane with magic.",
+          "B": "Magic is what others believed, the opposite of mundane.",
+          "D": "Loud and bright describe lightning, not the word."
+        }
+      },
+      {
+        "stem": "Why was the lightning rod useful for wooden buildings?",
+        "options": [
+          "It made the buildings taller",
+          "It kept the rain out of rooms",
+          "It sends charge into the ground",
+          "It made the wood much stronger"
+        ],
+        "answer": "C",
+        "skill": "cause-effect",
+        "why": "The rod channels charge down a wire into the ground, which protects buildings from fire.",
+        "wrong": {
+          "A": "Height is not the purpose.",
+          "B": "It is not a roof cover for rain.",
+          "D": "The wood is not changed."
+        }
+      },
+      {
+        "stem": "What do bifocal eyeglasses let a wearer do?",
+        "options": [
+          "See clearly in the dark",
+          "Look right at the bright sun",
+          "See far and near in one pair",
+          "Hear sounds from far away"
+        ],
+        "answer": "C",
+        "skill": "detail",
+        "why": "The text says two lenses in one pair let a wearer view far and near objects without switching pairs.",
+        "wrong": {
+          "A": "Night vision is not mentioned.",
+          "B": "Looking at the sun is not mentioned.",
+          "D": "Hearing is not mentioned."
+        }
+      }
+    ]
   }
 }

@@ -614,5 +614,217 @@
       ],
       "modelAnswer": "Hearing loss caused by loud noise is often irreversible because of what happens to the hair cells inside the cochlea. According to the article, very loud sound, such as a blasting siren or loud music played for a long time, can damage these delicate hair cells, sometimes permanently and without any warning pain at all.\n\nUnlike skin cells, which can heal and regenerate after an injury, the article explains that these hair cells generally do not regenerate once they are damaged. Since the hair cells are responsible for converting vibrations into the electrical signals the auditory nerve carries to the brain, damaged hair cells mean fewer or weaker signals reach the brain, resulting in permanent hearing loss that cannot be reversed."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "What is special about the tiny bones in the ear?",
+        "options": [
+          "They are very long",
+          "They turn sound into music",
+          "They are made of skin",
+          "They are very small bones"
+        ],
+        "answer": "D",
+        "skill": "detail",
+        "why": "The article says they are some of the smallest bones in your body.",
+        "wrong": {
+          "A": "The bones are called tiny, not long.",
+          "B": "They pass along the shake, not make music.",
+          "C": "The bones are not made of skin."
+        }
+      },
+      {
+        "stem": "In the article, the word catches means —",
+        "options": [
+          "takes in",
+          "throws away",
+          "hides",
+          "makes louder"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "The outer ear takes in the sound so it can go into the ear.",
+        "wrong": {
+          "B": "The ear does not throw sound away.",
+          "C": "The outer ear can be seen and does not hide sound.",
+          "D": "The outer ear does not make sound louder."
+        }
+      },
+      {
+        "stem": "What happens right after the eardrum shakes?",
+        "options": [
+          "Your brain reads the signal",
+          "The sound leaves your ear",
+          "Tiny bones pass the shake along",
+          "The outer ear catches sound"
+        ],
+        "answer": "C",
+        "skill": "sequence",
+        "why": "The article says tiny bones pass the shake along after the eardrum shakes.",
+        "wrong": {
+          "A": "The brain reads the signal near the end.",
+          "B": "The sound does not leave the ear.",
+          "D": "The outer ear catches sound before the eardrum."
+        }
+      },
+      {
+        "stem": "Why does the author compare the eardrum to a drum?",
+        "options": [
+          "It is big and round",
+          "It shakes fast when hit",
+          "It makes a loud beat",
+          "It is made of wood"
+        ],
+        "answer": "B",
+        "skill": "inference",
+        "why": "The eardrum shakes fast when sound hits it, the way a drum shakes.",
+        "wrong": {
+          "A": "Size is not the comparison.",
+          "C": "The eardrum does not make a beat.",
+          "D": "The eardrum is thin, not wooden."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "What is the cochlea shaped like?",
+        "options": [
+          "A bird's wing",
+          "A drum with a stick",
+          "A short passage",
+          "A snail's shell"
+        ],
+        "answer": "D",
+        "skill": "detail",
+        "why": "The article says the cochlea is shaped like a snail's shell.",
+        "wrong": {
+          "A": "A wing is never mentioned.",
+          "B": "The drum is compared to the eardrum, not the cochlea.",
+          "C": "The short passage is the ear canal."
+        }
+      },
+      {
+        "stem": "In the article, the word membrane means —",
+        "options": [
+          "a loud noise",
+          "a thin layer",
+          "a hard bone",
+          "a long nerve"
+        ],
+        "answer": "B",
+        "skill": "vocabulary",
+        "why": "The eardrum is called a thin membrane that vibrates.",
+        "wrong": {
+          "A": "A membrane is not a noise.",
+          "C": "The article says the eardrum is thin, not a hard bone.",
+          "D": "The nerve is a different part."
+        }
+      },
+      {
+        "stem": "Why do doctors say to rest your ears often?",
+        "options": [
+          "Loud sound can harm hair cells",
+          "Ears get tired of small sounds",
+          "Rest makes the eardrum bigger",
+          "Quiet helps the bones grow"
+        ],
+        "answer": "A",
+        "skill": "cause-effect",
+        "why": "Loud sound can damage hair cells, sometimes without any warning pain.",
+        "wrong": {
+          "B": "Small sounds are not said to tire the ears.",
+          "C": "The eardrum size does not change.",
+          "D": "The bones do not grow from quiet."
+        }
+      },
+      {
+        "stem": "Why does the author begin with a bird singing?",
+        "options": [
+          "To teach how birds can hear",
+          "To warn about very loud birds",
+          "To prove that ears are small",
+          "To give an easy sound example"
+        ],
+        "answer": "D",
+        "skill": "author-purpose",
+        "why": "The bird is an everyday sound that makes the question of how we hear easy to picture.",
+        "wrong": {
+          "A": "The article is about human hearing.",
+          "B": "The loud sound example is a siren.",
+          "C": "Ear size is not the point."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "In the article, the word converts means —",
+        "options": [
+          "changes into another form",
+          "stays exactly the same",
+          "carries very slowly",
+          "hides from view"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "A chain of events changes sound into something the brain can interpret.",
+        "wrong": {
+          "B": "Converting means changing, not keeping the same.",
+          "C": "Speed is not the point of the word.",
+          "D": "The word does not mean hiding."
+        }
+      },
+      {
+        "stem": "What kind of space is the middle ear?",
+        "options": [
+          "A snail-shaped space",
+          "A small air-filled space",
+          "A large fluid-filled space",
+          "A long narrow passage"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The article calls the middle ear a small air-filled space.",
+        "wrong": {
+          "A": "The snail-shaped part is the cochlea.",
+          "C": "The fluid is in the cochlea.",
+          "D": "The long passage is the ear canal."
+        }
+      },
+      {
+        "stem": "What makes the hair cells in the cochlea bend?",
+        "options": [
+          "The pull of the auditory nerve",
+          "The visible part of the ear",
+          "The tapping of the eardrum",
+          "Vibrations rippling through fluid"
+        ],
+        "answer": "D",
+        "skill": "cause-effect",
+        "why": "As vibrations ripple through the fluid, the hair cells bend.",
+        "wrong": {
+          "A": "The nerve carries signals afterward.",
+          "B": "The outer ear only funnels sound inward.",
+          "C": "The eardrum vibrates but does not touch hair cells."
+        }
+      },
+      {
+        "stem": "How are hair cells different from skin cells, according to the article?",
+        "options": [
+          "They are much larger",
+          "They are found on the scalp",
+          "They usually do not regrow",
+          "They turn light into signals"
+        ],
+        "answer": "C",
+        "skill": "compare",
+        "why": "Unlike skin cells, hair cells generally do not regenerate once damaged.",
+        "wrong": {
+          "A": "Size is not compared.",
+          "B": "These hair cells are inside the cochlea.",
+          "D": "They respond to sound, not light."
+        }
+      }
+    ]
   }
 }

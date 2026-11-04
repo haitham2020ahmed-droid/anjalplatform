@@ -614,5 +614,217 @@
       ],
       "modelAnswer": "I agree that learning a practical skill by watching someone work can be just as valuable as learning it in school. Omar never took a class in mechanics, yet years of attentively watching his uncle repair machines gave him enough real knowledge to inspect the broken pump, help diagnose the stuck valve, and even improvise when the ideal tool was not available. Someone might argue that a classroom offers more structured, organized instruction than simply observing, but Omar's resourceful, hands-on repair shows that patient observation of real work can build genuine, usable skill just as effectively."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "What was wrong with the old pump?",
+        "options": [
+          "The water in the well was dirty and brown",
+          "The well was full of big rocks",
+          "A small part was stuck and worn out",
+          "The pump was too big for the well"
+        ],
+        "answer": "C",
+        "skill": "detail",
+        "why": "Omar saw that a small part was stuck, old, and worn out.",
+        "wrong": {
+          "A": "The water came out clean after the repair, and none came out before.",
+          "B": "Rocks are not mentioned.",
+          "D": "The size of the pump is not the problem."
+        }
+      },
+      {
+        "stem": "In the story, the words worn out mean —",
+        "options": [
+          "old and used too much to work well",
+          "new and ready to use right now",
+          "very big and very heavy",
+          "painted a bright new color"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "The part was old and worn out, so it no longer worked and had to be replaced with a new part.",
+        "wrong": {
+          "B": "A new part was needed because this one was not new.",
+          "C": "Size is not what the words mean.",
+          "D": "Color is not mentioned."
+        }
+      },
+      {
+        "stem": "Why did no one have to walk far for water after the repair?",
+        "options": [
+          "The village moved away",
+          "The pump worked again",
+          "It rained for many days",
+          "Omar carried the water"
+        ],
+        "answer": "B",
+        "skill": "cause-effect",
+        "why": "Once the pump moved again, clean water came out at the well.",
+        "wrong": {
+          "A": "The village did not move.",
+          "C": "Rain is not mentioned.",
+          "D": "The pump gave water, Omar did not carry it."
+        }
+      },
+      {
+        "stem": "What does it show that the work took a long time but Omar kept going?",
+        "options": [
+          "He did not like his uncle",
+          "He wanted to go home",
+          "He did not know the plan",
+          "He did not give up easily"
+        ],
+        "answer": "D",
+        "skill": "inference",
+        "why": "Omar and his uncle kept working through a long job until the pump moved, which shows he did not give up.",
+        "wrong": {
+          "A": "Omar liked to watch his uncle.",
+          "B": "He stayed until the job was done.",
+          "C": "The story says Omar had a plan."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "Where did Omar and his uncle find the replacement part?",
+        "options": [
+          "At the old village well",
+          "In a garden near his home",
+          "At a shop in the next town",
+          "On the hills near the village"
+        ],
+        "answer": "C",
+        "skill": "detail",
+        "why": "The article says they found the part at a shop in the next town.",
+        "wrong": {
+          "A": "The well is where they worked, not where they found the part.",
+          "B": "A garden is not mentioned.",
+          "D": "The hills were far from the other water source."
+        }
+      },
+      {
+        "stem": "In the article, the word grateful means —",
+        "options": [
+          "tired of work",
+          "feeling thankful",
+          "afraid of water",
+          "unsure of a plan"
+        ],
+        "answer": "B",
+        "skill": "vocabulary",
+        "why": "The villagers thanked Omar again and again, so grateful means thankful.",
+        "wrong": {
+          "A": "Thanking him shows thanks, not tiredness.",
+          "C": "Nobody feared the water.",
+          "D": "The villagers knew the pump worked."
+        }
+      },
+      {
+        "stem": "What was likely stopping the water from flowing?",
+        "options": [
+          "A small valve that was stuck and worn",
+          "A wall built around the old well",
+          "A shop that was closed that day",
+          "A lack of rain in the hills nearby"
+        ],
+        "answer": "A",
+        "skill": "cause-effect",
+        "why": "Omar noticed a small valve was stuck and badly worn, which was likely stopping the water.",
+        "wrong": {
+          "B": "No wall is mentioned.",
+          "C": "The shop only sold the part.",
+          "D": "Rain is not mentioned in the article."
+        }
+      },
+      {
+        "stem": "What does the article show when it says neither of them wanted to give up?",
+        "options": [
+          "The job was easy to finish in minutes",
+          "The pump was almost brand new",
+          "Omar's uncle did not want to help",
+          "The repair was hard and they kept trying"
+        ],
+        "answer": "D",
+        "skill": "inference",
+        "why": "Because the repair took a long time, not giving up shows they were determined.",
+        "wrong": {
+          "A": "An easy job would not take hours.",
+          "B": "The pump was old and broken.",
+          "C": "His uncle helped him."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "Where did Omar's uncle Saleh repair machines?",
+        "options": [
+          "In a small shop nearby",
+          "Beside the village well",
+          "In the next town",
+          "At his own home"
+        ],
+        "answer": "A",
+        "skill": "detail",
+        "why": "The article says Saleh repaired machines in a small shop nearby.",
+        "wrong": {
+          "B": "The well is where the broken pump was.",
+          "C": "The next town is where they bought the part.",
+          "D": "The article does not say he worked at home."
+        }
+      },
+      {
+        "stem": "In the article, the word ingenuity most nearly means —",
+        "options": [
+          "great strength in his arms",
+          "a loud voice and a big smile",
+          "clever and inventive thinking",
+          "a sense of humor and fun"
+        ],
+        "answer": "C",
+        "skill": "vocabulary",
+        "why": "Omar solved the problem by observing and improvising, so the villagers praised his clever thinking.",
+        "wrong": {
+          "A": "The praise is for his thinking, not his muscles.",
+          "B": "A voice is not mentioned.",
+          "D": "Humor is not mentioned."
+        }
+      },
+      {
+        "stem": "How did Omar know to examine each part of the pump one by one?",
+        "options": [
+          "His older sister told him how",
+          "He had seen his uncle do it many times",
+          "He read a book at the shop",
+          "The village council told him what to do"
+        ],
+        "answer": "B",
+        "skill": "cause-effect",
+        "why": "The article says he inspected the pump as he had watched his uncle do countless times.",
+        "wrong": {
+          "A": "His sister is not mentioned.",
+          "C": "A book is not mentioned.",
+          "D": "The council is not mentioned."
+        }
+      },
+      {
+        "stem": "Why does the author say they cared deeply about the village?",
+        "options": [
+          "To show that Saleh owned the village",
+          "To explain how the pump was built",
+          "To show that the village was very large",
+          "To show why they kept working so long"
+        ],
+        "answer": "D",
+        "skill": "author-purpose",
+        "why": "Their care for the village explains why they refused to abandon the long repair.",
+        "wrong": {
+          "A": "Nobody is said to own the village.",
+          "B": "The text does not explain how the pump was built.",
+          "C": "The size of the village is not the point."
+        }
+      }
+    ]
   }
 }

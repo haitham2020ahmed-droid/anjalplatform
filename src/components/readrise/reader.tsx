@@ -2,6 +2,8 @@
 import Link from "next/link";
 import { useCallback, useEffect, useMemo, useRef, useState, type RefObject } from "react";
 import type { ArticlePage, Review, RunView } from "@/server/readrise/student";
+import type { RecommendReason } from "@/server/readrise/recommend";
+import type { WarmupQ } from "@/server/readrise/words-carry";
 import {
   finishReadingAction, postPollAction, practiceAction, prePollAction, saveReadingAction, saveWritingAction, startRunAction,
   submitActivityAction, submitWritingAction, type Result,
@@ -93,7 +95,8 @@ function StartCard({ page, busy, onStart }: { page: ArticlePage; busy: boolean; 
   return (
     <section className="mt-4 rounded-2xl bg-white p-5 ring-1 ring-slate-200">
       <p className="text-slate-700">{page.summary}</p>
-      <p className="mt-2 text-sm text-slate-600">{tr("About {n} min · version {level} · 5 steps: poll, read, activity, thought question, poll again.", { n: page.minutes, level: page.versionLevel })}</p>
+      <p className="mt-2 text-sm text-slate-600">{tr("About {n} min · 5 steps: poll, read, activity, thought question, poll again.", { n: page.minutes })}</p>
+      {page.textLevel ? <p className="mt-1 text-xs text-slate-500">{tr("text ≈{n}", { n: page.textLevel })}</p> : null}
       <button type="button" disabled={busy} onClick={onStart} className="mt-4 rounded-xl bg-brand-navy px-5 py-2.5 font-semibold text-white hover:bg-brand-purple disabled:opacity-60">{tr("Start ▶")}</button>
     </section>
   );
@@ -116,19 +119,43 @@ function Stepper({ step, stretch, level }: { step: RunView["step"]; stretch: boo
   );
 }
 
+/** recommend.ts reasonLabel for the browser (that module is server-only): every template is in the UI strings. */
+function reasonText(r: RecommendReason | null | undefined, tr: ReturnType<typeof useT>): string {
+  if (!r) return "";
+  switch (r.kind) {
+    case "TEACHER": return tr("📌 From your teacher");
+    case "SKILL": { const name = r.label.replace(/^🎯\s*Practise:\s*/, ""); return tr("🎯 Practise: {skill}", { skill: tr(name) }); }
+    case "INTEREST": return tr("❤️ You like: {topic}", { topic: tr(r.topic ?? "") });
+    case "NEW_TOPIC": return r.label.startsWith("🌍") ? tr("🌍 New topic for you") : tr("📚 A good read for you");
+    case "STRETCH": return tr("⬆ Great! Try it one level up");
+    default: return tr("💪 Another one to build your skill");
+  }
+}
+
 function DoneCard({ view, busy, onStretch, onReread, headRef }: { view: RunView; busy: boolean; onStretch: () => void; onReread: () => void; headRef: RefObject<HTMLHeadingElement | null> }) {
   const tr = useT();
   const d = view.done!;
   const moved = d.levelAfter - d.levelBefore;
+  const kind = d.kind ?? (d.stretch ? "STRETCH" : d.firstTry ? "FIRST" : "REREAD");
+  // round 5: the heading says which reading this was
+  const heading = kind === "STRETCH" ? `⬆ ${tr("Stretch done")}` : kind === "REREAD" ? `🔁 ${tr("Practice re-read done")}` : `🎉 ${tr("All 5 steps done!")}`;
+  const counted = !d.tooFast && !d.readTooFast;
+  const almost = kind === "FIRST" && counted && d.score !== null && d.score >= 50 && d.score < 75;
+  const next = d.readNext ?? null;
+  const nextIsStretch = !!next && next.stretch && next.articleId === view.articleId && d.canStretch;
   return (
-    <section className="mt-4 rounded-2xl bg-gradient-to-br from-emerald-50 to-white p-5 ring-1 ring-emerald-200">
-      <h2 ref={headRef} tabIndex={-1} className="text-2xl font-bold text-brand-navy outline-none">🎉 {tr("All 5 steps done!")}</h2>
+    <section data-testid="rr-done" data-kind={kind} className="mt-4 rounded-2xl bg-gradient-to-br from-emerald-50 to-white p-5 ring-1 ring-emerald-200">
+      <h2 ref={headRef} tabIndex={-1} className="text-2xl font-bold text-brand-navy outline-none">{heading}</h2>
+      {d.readTooFast && <p data-testid="rr-read-too-fast" role="status" className="mt-2 rounded-xl bg-amber-50 px-3 py-2 text-sm font-semibold text-amber-900 ring-1 ring-amber-200">⏳ {tr("You read this very fast, so it did not count. Read carefully next time.")}</p>}
       <div className="mt-4 grid gap-4 sm:grid-cols-3">
         <div className="rounded-xl bg-white p-4 ring-1 ring-slate-200">
           <p className="text-sm text-slate-600">{tr(d.stretch ? "Stretch score" : d.firstTry ? "First-try score" : "Re-read score (practice)")}</p>
           <p className="text-3xl font-bold text-brand-navy">{d.score ?? "—"}%</p>
           {!d.firstTry && <p className="text-xs text-slate-500">{tr("Only your first reading of an article counts. A re-read is practice: it never changes your level, your weekly goal or your stars.")}</p>}
+          {d.stretch && d.stretchCounted === "FULL" && <p className="text-xs text-slate-500">{tr("New questions: this stretch counts like a first try (75%+ can help you move up).")}</p>}
+          {d.stretch && d.stretchCounted === "PRACTICE" && <p data-testid="rr-stretch-practice" className="text-xs text-slate-500">{tr("This stretch used the same questions, so it is practice: it can count for your weekly goal only.")}</p>}
           {d.tooFast && <p data-testid="rr-too-fast" className="mt-1 text-xs font-semibold text-amber-800">⏳ {tr("Some answers came very fast, so this reading did not change your level. Take your time with each question next time.")}</p>}
+          {almost && <p data-testid="rr-almost" className="mt-1 text-xs font-semibold text-indigo-800">💪 {tr("Score 75% on the next one so it counts toward moving up.")}</p>}
         </div>
         <div className="rounded-xl bg-white p-4 ring-1 ring-slate-200">
           <p className="text-sm text-slate-600">{tr("My ReadRise Level")}</p>
@@ -139,9 +166,11 @@ function DoneCard({ view, busy, onStretch, onReread, headRef }: { view: RunView;
         </div>
         <div className="rounded-xl bg-white p-4 ring-1 ring-slate-200">
           <GoalRing done={d.goal.thisWeek} goal={d.goal.goal} size={84} />
+          {d.goal.met && <p data-testid="rr-goal-met" className="mt-2 text-sm font-bold text-emerald-800">🏆 {tr("Goal met! One more?")}</p>}
           {d.goal.streak > 0 && <p className="mt-2 text-sm font-semibold text-amber-800">🔥 {tr("{n}-week streak", { n: d.goal.streak })}</p>}
         </div>
       </div>
+      {(d.wordsSaved ?? 0) > 0 && <p data-testid="rr-words-saved" className="mt-4 text-slate-700">🗂 {tr("{n} new words saved to My Words", { n: d.wordsSaved! })}</p>}
       {d.prePoll !== null && d.postPoll !== null && (
         <p className="mt-4 text-slate-700">{tr("Your opinion:")} <strong>{tr(POLL_LABELS[d.prePoll])}</strong> → <strong>{tr(POLL_LABELS[d.postPoll])}</strong>{d.prePoll !== d.postPoll ? ` — ${tr("reading changed your mind!")}` : ""}</p>
       )}
@@ -154,16 +183,29 @@ function DoneCard({ view, busy, onStretch, onReread, headRef }: { view: RunView;
           <p className="mt-2 whitespace-pre-line text-slate-800"><RichInline text={view.modelAnswer} /></p>
         </details>
       )}
+      {/* 📖 round 5: what to read next (recommend.ts readNext), with its reason */}
+      {next && (
+        <div data-testid="rr-read-next" className="mt-5 flex flex-wrap items-center justify-between gap-3 rounded-xl bg-white p-4 ring-1 ring-indigo-200">
+          <div className="min-w-0">
+            <p className="text-xs font-bold uppercase tracking-wide text-indigo-700">📖 {tr("Read next")}</p>
+            <p lang="en" className="font-bold text-brand-navy">{next.title}</p>
+            <p className="text-sm text-slate-600">{reasonText(next.reason, tr)}</p>
+          </div>
+          {nextIsStretch
+            ? <button type="button" disabled={busy} onClick={onStretch} className="rounded-xl bg-brand-navy px-4 py-2 font-semibold text-white hover:bg-brand-purple disabled:opacity-60">{tr("Start ▶")}</button>
+            : <Link href={`/student/readrise/${encodeURIComponent(next.articleId)}`} className="rounded-xl bg-brand-navy px-4 py-2 font-semibold text-white hover:bg-brand-purple">{tr("Start ▶")}</Link>}
+        </div>
+      )}
       <div className="mt-5 flex flex-wrap gap-2">
         {d.canStretch && (
-          <button type="button" disabled={busy} onClick={onStretch} className="rounded-xl bg-brand-purple px-4 py-2 font-semibold text-white hover:bg-brand-navy disabled:opacity-60" aria-describedby="stretch-help">⬆ {tr("Stretch it")}</button>
+          <button type="button" disabled={busy} onClick={onStretch} data-testid="rr-stretch" className="rounded-xl bg-brand-purple px-4 py-2 font-semibold text-white hover:bg-brand-navy disabled:opacity-60" aria-describedby="stretch-help">⬆ {tr("Stretch it")}</button>
         )}
-        {/* round 4: no stretch (same questions, a low or unreliable first try, already stretched …): a NEW article instead */}
-        {!d.canStretch && <Link href="/student/readrise" data-testid="rr-new-article" className="rounded-xl bg-brand-navy px-4 py-2 font-semibold text-white hover:bg-brand-purple">📚 {tr("Try a new article")}</Link>}
         <Link href="/student/readrise" className="rounded-xl bg-white px-4 py-2 font-semibold text-brand-navy ring-1 ring-slate-300 hover:ring-brand-teal">{tr("Back to ReadRise")}</Link>
         <button type="button" disabled={busy} onClick={onReread} className="rounded-xl bg-white px-4 py-2 font-semibold text-slate-700 ring-1 ring-slate-300 hover:ring-brand-teal disabled:opacity-60">🔁 {tr("Read it again (practice)")}</button>
       </div>
-      {d.canStretch && <p id="stretch-help" className="mt-2 text-xs text-slate-600">{tr("Read the same article one level higher, with new questions. 75%+ counts toward your goal and can help you move up. It never lowers your level.")}</p>}
+      {d.canStretch && <p id="stretch-help" className="mt-2 text-xs text-slate-600">{tr(d.stretchMode === "PRACTICE"
+        ? "Read the same article one level higher. The questions are the same ones, so it is practice: it can count for your weekly goal only, not your level or stars."
+        : "Read the same article one level higher, with new questions. 75%+ counts toward your goal and can help you move up. It never lowers your level.")}</p>}
       {!d.canStretch && d.stretchWhy && !d.stretch && <p className="mt-2 text-xs text-slate-600">{tr(d.stretchWhy)}</p>}
     </section>
   );
@@ -192,6 +234,46 @@ function Poll({ statement, busy, onSubmit }: { statement: string; busy: boolean;
 }
 
 // ------------------------------------------------------------------ step 2: key words + reading
+
+/**
+ * 🔤 Round 5: an optional word warm-up before reading (words-carry.ts wordWarmup: words from the last article) —
+ * 2 quick questions, never scored, never sent anywhere; Skip hides it.
+ */
+function WordWarmup({ items }: { items: WarmupQ[] }) {
+  const tr = useT();
+  const [skip, setSkip] = useState(false);
+  const [picked, setPicked] = useState<Record<number, number>>({});
+  if (skip || !items.length) return null;
+  return (
+    <div data-testid="rr-warmup" className="mt-3 rounded-xl bg-white p-4 ring-1 ring-amber-200">
+      <div className="flex flex-wrap items-center justify-between gap-2">
+        <p className="font-semibold text-brand-navy">🔤 {tr("Word warm-up (optional)")}</p>
+        <button type="button" onClick={() => setSkip(true)} className="text-sm text-brand-teal underline">{tr("Skip")}</button>
+      </div>
+      <ol className="mt-2 space-y-3">
+        {items.slice(0, 2).map((q, i) => {
+          const chosen = picked[i];
+          return (
+            <li key={`${q.word}-${i}`}>
+              <p className="text-sm text-slate-800">{tr("Which word means:")} <em lang="en">{q.definition}</em></p>
+              <div role="group" className="mt-1 flex flex-wrap gap-2">
+                {q.options.map((o, k) => {
+                  const shown = chosen !== undefined;
+                  const right = k === q.answer;
+                  return (
+                    <button key={`${o}-${k}`} type="button" lang="en" disabled={shown} onClick={() => setPicked((p) => ({ ...p, [i]: k }))}
+                      className={`rounded-full px-3 py-1 text-sm font-semibold ring-1 ${shown && right ? "bg-emerald-100 text-emerald-900 ring-emerald-300" : shown && chosen === k ? "bg-rose-100 text-rose-900 ring-rose-300" : "bg-white text-brand-navy ring-slate-300"}`}>{o}</button>
+                  );
+                })}
+              </div>
+              {chosen !== undefined && <p role="status" className="mt-1 text-xs text-slate-600">{chosen === q.answer ? tr("Yes! 🎉") : tr("The answer is “{w}”.", { w: q.options[q.answer] ?? q.word })}</p>}
+            </li>
+          );
+        })}
+      </ol>
+    </div>
+  );
+}
 
 function KeyWordCards({ words }: { words: KeyWord[] }) {
   const tr = useT();
@@ -337,6 +419,7 @@ function ReadStep({ view, busy, onDone }: { view: RunView; busy: boolean; onDone
         <section className="rounded-2xl bg-gradient-to-br from-amber-50 to-white p-5 ring-1 ring-amber-200" aria-labelledby="kw-h">
           <h3 id="kw-h" className="text-lg font-bold text-brand-navy">🔑 {tr("Key words — learn these first")}</h3>
           <p className="mt-1 text-sm text-slate-600">{tr("These words are in the article. They are underlined there: tap one to see its meaning again.")}</p>
+          {(view.warmup?.length ?? 0) > 0 && <WordWarmup items={view.warmup!} />}
           <div className="mt-3"><KeyWordCards words={view.keyWords} /></div>
           <button type="button" onClick={() => setShowWords(false)} className="mt-4 rounded-xl bg-brand-navy px-5 py-2 font-semibold text-white hover:bg-brand-purple">{tr("I know these words — read the article ▶")}</button>
         </section>

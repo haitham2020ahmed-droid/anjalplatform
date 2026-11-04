@@ -614,5 +614,217 @@
       ],
       "modelAnswer": "I agree that the benefits of football's new technology are worth the interruptions it sometimes causes, even though I understand the controversy some fans feel about reviews slowing the game down. Goal-line cameras transmit a signal to the referee's watch in about one second once the ball fully crosses the line, giving referees a level of precision no human eye could match on its own. VAR allows a team of officials to monitor replays from multiple angles and correct a clear mistake on penalties or red cards, decisions that can completely change the outcome of a match. While some supporters argue that these pauses interrupt the excitement of the game, I believe the extra minutes are a fair trade for decisions that are accurate and that treat every team equally."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "How long does it take for the ref's watch to buzz after a goal?",
+        "options": [
+          "Ten minutes",
+          "One hour",
+          "One second",
+          "One day"
+        ],
+        "answer": "C",
+        "skill": "detail",
+        "why": "The text says that in one second, a watch on the ref's arm buzzes.",
+        "wrong": {
+          "A": "That is much too slow.",
+          "B": "That is much too slow.",
+          "D": "That is much too slow."
+        }
+      },
+      {
+        "stem": "Who watches the replay on big screens?",
+        "options": [
+          "The fans in the stands",
+          "A team of refs in a room",
+          "The coaches on the bench",
+          "The players on the pitch"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The text says a team of refs sits in a room and watches a replay on big screens.",
+        "wrong": {
+          "A": "Fans are not said to watch the replays here.",
+          "C": "Coaches use the vest data instead.",
+          "D": "Players are on the pitch."
+        }
+      },
+      {
+        "stem": "In the article, the word fair means —",
+        "options": [
+          "the same rules for both teams",
+          "very fast and loud for fans",
+          "not costing any money to fans",
+          "good for only the home team"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "Fans want a fair game, so the referee must make the right call for both teams.",
+        "wrong": {
+          "B": "Speed and noise are not the idea.",
+          "C": "Cost is not the idea.",
+          "D": "Fair does not mean helping one team."
+        }
+      },
+      {
+        "stem": "Why might the ref look at a screen by the pitch?",
+        "options": [
+          "To check the time of the game",
+          "To read the names of players",
+          "To watch the fans",
+          "To see a replay of a hard call"
+        ],
+        "answer": "D",
+        "skill": "inference",
+        "why": "Some calls are still hard, so the ref can look at a replay on the screen.",
+        "wrong": {
+          "A": "Time is not the reason given.",
+          "B": "Names are not mentioned.",
+          "C": "The screen shows the play, not the fans."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "About how fast does the signal reach the referee's watch?",
+        "options": [
+          "In about ten seconds",
+          "In about one second",
+          "In about one minute",
+          "In about ten minutes"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The text says a signal goes to the referee's watch in about one second.",
+        "wrong": {
+          "A": "Ten seconds is too slow.",
+          "C": "One minute is too slow.",
+          "D": "Ten minutes is too slow."
+        }
+      },
+      {
+        "stem": "Why does football now use technology to help the referee?",
+        "options": [
+          "Players have stopped running",
+          "The ball has become slower",
+          "No one person can see everything",
+          "Fans do not like referees"
+        ],
+        "answer": "C",
+        "skill": "cause-effect",
+        "why": "The text says no one person can see it all, so football uses technology.",
+        "wrong": {
+          "A": "The text says players run, turn, and crowd together.",
+          "B": "The text says the ball moves very fast.",
+          "D": "The text says fans want fair matches."
+        }
+      },
+      {
+        "stem": "In the article, the word trackers means —",
+        "options": [
+          "fans who follow a team all year long",
+          "special shoes made for running fast",
+          "devices that measure what a player does",
+          "big screens for fans in the stands"
+        ],
+        "answer": "C",
+        "skill": "vocabulary",
+        "why": "The trackers in vests show how far and how fast a player runs.",
+        "wrong": {
+          "A": "Fans are not the trackers.",
+          "B": "Shoes are not mentioned.",
+          "D": "Trackers are worn by players."
+        }
+      },
+      {
+        "stem": "How is VAR different from goal-line technology?",
+        "options": [
+          "VAR is only used in the Red Sea",
+          "VAR uses a team that checks replays",
+          "VAR uses a sensor in the ball",
+          "VAR is used by only one team"
+        ],
+        "answer": "B",
+        "skill": "compare",
+        "why": "VAR is a team of referees checking replays, while goal-line technology uses cameras to follow the ball.",
+        "wrong": {
+          "A": "The Red Sea is not mentioned.",
+          "C": "The sensor in the ball was used at the 2022 World Cup.",
+          "D": "VAR is used for the whole match."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "How many cameras were mounted beneath the roof at the 2022 World Cup?",
+        "options": [
+          "Two",
+          "Five",
+          "Twenty",
+          "Twelve"
+        ],
+        "answer": "D",
+        "skill": "detail",
+        "why": "The text says twelve cameras were mounted beneath the stadium roof.",
+        "wrong": {
+          "A": "Two is too few.",
+          "B": "Five is too few.",
+          "C": "Twenty-nine is the number of points tracked on each player, not cameras."
+        }
+      },
+      {
+        "stem": "In the article, the word precision means —",
+        "options": [
+          "great speed",
+          "great noise",
+          "exactness",
+          "great size"
+        ],
+        "answer": "C",
+        "skill": "vocabulary",
+        "why": "The technology works out the ball's exact position, so it is very exact.",
+        "wrong": {
+          "A": "The signal is fast, but precision means exactness.",
+          "B": "Noise is not mentioned.",
+          "D": "Size is not mentioned."
+        }
+      },
+      {
+        "stem": "Why do coaches analyze the data from player trackers?",
+        "options": [
+          "To pick new referees",
+          "To prevent injuries",
+          "To make the pitch longer",
+          "To pick the match ball"
+        ],
+        "answer": "B",
+        "skill": "cause-effect",
+        "why": "The text says coaches analyze this data in order to prevent injuries.",
+        "wrong": {
+          "A": "Referees are not picked from this data.",
+          "C": "The pitch size is not mentioned.",
+          "D": "The match ball is not mentioned."
+        }
+      },
+      {
+        "stem": "Why does the author write \"Nevertheless\" in the last paragraph?",
+        "options": [
+          "To show most people still say it is fairer",
+          "To show that supporters love long reviews",
+          "To show that technology is not used any more",
+          "To show that referees are no longer needed"
+        ],
+        "answer": "A",
+        "skill": "author-purpose",
+        "why": "The word turns from the complaints to the view that most people agree technology is fairer.",
+        "wrong": {
+          "B": "The supporters complain about long reviews.",
+          "C": "The text says technology is still used.",
+          "D": "Referees still make the decisions."
+        }
+      }
+    ]
   }
 }

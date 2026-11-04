@@ -614,5 +614,217 @@
       ],
       "modelAnswer": "Ilya Mechnikov's discovery connects directly to what scientists understand about the immune system today, because he was the first to observe cells surrounding and swallowing foreign particles under a microscope, back in the 1880s. He named these cells phagocytes, and the article explains that his discovery helped later scientists understand precisely how white blood cells defend the body against invaders of every kind. This matters because phagocytes remain a central part of the immune system's first response to an unfamiliar pathogen, working alongside the skin, fever, and inflammation. Mechnikov's work was significant enough that he shared the Nobel Prize in Physiology or Medicine in 1908, showing that a careful observation of tiny sea creatures could still shape immunity research more than a century later."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "Why can you not see germs?",
+        "options": [
+          "They are so small",
+          "They hide in the dark",
+          "They live inside the sun",
+          "They move too fast to see"
+        ],
+        "answer": "A",
+        "skill": "detail",
+        "why": "The text says germs are so small that you can not see them.",
+        "wrong": {
+          "B": "The text does not say they hide in the dark.",
+          "C": "The text never mentions the sun.",
+          "D": "The text says they are small, not fast."
+        }
+      },
+      {
+        "stem": "The text says it has two main guards. What does guards mean here?",
+        "options": [
+          "Loud alarms that ring",
+          "Pieces of strong metal",
+          "Walls built by hand",
+          "Helpers that protect"
+        ],
+        "answer": "D",
+        "skill": "vocabulary",
+        "why": "The skin and the blood cells protect the body from germs, like guards.",
+        "wrong": {
+          "A": "Nothing in the text rings like an alarm.",
+          "B": "Skin and blood cells are not metal.",
+          "C": "The guards are parts of the body, not built walls."
+        }
+      },
+      {
+        "stem": "How does a fever help your body?",
+        "options": [
+          "It makes your skin cold",
+          "It makes you sleep all day",
+          "It makes it hard for germs to grow",
+          "It makes your cuts heal at once"
+        ],
+        "answer": "C",
+        "skill": "cause-effect",
+        "why": "The text says a fever makes your body warmer, and the extra heat makes it harder for germs to grow.",
+        "wrong": {
+          "A": "A fever makes the body warmer, not cold.",
+          "B": "The text does not say a fever makes you sleep all day.",
+          "D": "The text does not say cuts heal at once."
+        }
+      },
+      {
+        "stem": "What happens the first time a germ gets into your body?",
+        "options": [
+          "Your blood cells are fast and you stay well",
+          "Your blood cells are slow and you may get sick",
+          "Your skin turns into a germ",
+          "Your body stops making a fever"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The text says that the first time, your blood cells are slow and you may get sick.",
+        "wrong": {
+          "A": "The blood cells are fast the next time.",
+          "C": "Skin does not turn into a germ.",
+          "D": "The text says a fever can help the body."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "What does the article say about most germs?",
+        "options": [
+          "They are hard to avoid",
+          "They are harmless",
+          "They are very dangerous",
+          "They live in the blood"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The text says most germs are harmless and some even help you.",
+        "wrong": {
+          "A": "The text does not say how hard they are to avoid.",
+          "C": "Only a few kinds can make people sick.",
+          "D": "The text says germs live on hands, in the air, and on things you touch."
+        }
+      },
+      {
+        "stem": "The article says white blood cells search for invaders. What are invaders here?",
+        "options": [
+          "Harmless dust in the air",
+          "Cells that help the bones grow",
+          "Foods that make you strong",
+          "Harmful germs inside the body"
+        ],
+        "answer": "D",
+        "skill": "vocabulary",
+        "why": "White blood cells search for harmful germs that enter the body.",
+        "wrong": {
+          "A": "The cells hunt harmful germs, not dust.",
+          "B": "Bones are not mentioned.",
+          "C": "Food is mentioned later for staying strong."
+        }
+      },
+      {
+        "stem": "Why does a fever help the body fight germs?",
+        "options": [
+          "It makes the skin thicker",
+          "It makes germs slow down",
+          "It makes memory cells leave",
+          "It makes you sleep all day"
+        ],
+        "answer": "B",
+        "skill": "cause-effect",
+        "why": "The text says a fever makes the body warmer, which can slow germs down.",
+        "wrong": {
+          "A": "The text does not say skin gets thicker.",
+          "C": "Memory cells stay in the body.",
+          "D": "Sleep is not given as the reason."
+        }
+      },
+      {
+        "stem": "Why does the author open by saying you meet millions of germs every day?",
+        "options": [
+          "To show germs are all around you",
+          "To prove all germs are harmful",
+          "To say you cannot stay well",
+          "To show germs are easy to see"
+        ],
+        "answer": "A",
+        "skill": "author-purpose",
+        "why": "The opening shows that germs are everywhere, so the body needs strong defenses.",
+        "wrong": {
+          "B": "The text says most germs are harmless.",
+          "C": "The article explains how your body stays well.",
+          "D": "Germs are too small to see in the text."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "What does the article say about most germs?",
+        "options": [
+          "They are all very dangerous to us",
+          "Most are harmless, some are helpful",
+          "They only live in the air around us",
+          "They die when they touch the skin"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The text says most germs are harmless and many are even beneficial.",
+        "wrong": {
+          "A": "Only certain bacteria and viruses cause illness.",
+          "C": "They are on hands, in the air, and on objects.",
+          "D": "The skin only blocks most pathogens; it does not kill all germs."
+        }
+      },
+      {
+        "stem": "In the article, what is a pathogen?",
+        "options": [
+          "A cell that fights off germs",
+          "A thin outer layer of skin",
+          "A strong kind of fever",
+          "A germ that can make you ill"
+        ],
+        "answer": "D",
+        "skill": "vocabulary",
+        "why": "The text says pathogens are the bacteria and viruses that can cause infections.",
+        "wrong": {
+          "A": "That describes a phagocyte.",
+          "B": "Skin is the first line of defense.",
+          "C": "A fever is a body response."
+        }
+      },
+      {
+        "stem": "What does inflammation do to help fight an infection?",
+        "options": [
+          "It brings extra phagocytes there",
+          "It raises the heat of the body",
+          "It makes memory cells vanish",
+          "It blocks the skin from germs"
+        ],
+        "answer": "A",
+        "skill": "detail",
+        "why": "The text says inflammation brings extra phagocytes directly to a hurt or infected spot.",
+        "wrong": {
+          "B": "Raising body heat is what a fever does.",
+          "C": "Memory cells help the body remember germs.",
+          "D": "Skin blocks germs without inflammation."
+        }
+      },
+      {
+        "stem": "Why did Mechnikov name these cells with a Greek word meaning \"devouring cells\"?",
+        "options": [
+          "They were found in the sea water",
+          "They were very large cells",
+          "They swallow foreign particles",
+          "They make a fever start up"
+        ],
+        "answer": "C",
+        "skill": "cause-effect",
+        "why": "He saw the cells surround and swallow foreign particles, so the name fits what they do.",
+        "wrong": {
+          "A": "Where he found them does not explain the name.",
+          "B": "Size is not mentioned.",
+          "D": "Fever is a different part of the body's response."
+        }
+      }
+    ]
   }
 }

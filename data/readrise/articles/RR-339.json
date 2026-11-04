@@ -614,5 +614,217 @@
       ],
       "modelAnswer": "I disagree that no one should try to live in a place as harsh as the Sahara. Indigenous communities such as the Tuareg have inhabited this arid region for thousands of years, moving with their herds to find fresh grazing land before each dry season. The long history of camel caravans carrying salt and gold across the desert also shows that people built successful lives and trade routes there. Someone might argue that temperatures above 50 degrees Celsius and almost no rainfall make survival impossible, but generations of accumulated knowledge about hidden wells and oases prove that careful, well-prepared living in the Sahara has always been possible."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "What is much of the land in the Sahara like?",
+        "options": [
+          "Soft green grass",
+          "Flat rock",
+          "Thick forest",
+          "Cold ice"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The text says much of the land is flat rock.",
+        "wrong": {
+          "A": "Not much grows in the Sahara.",
+          "C": "A thick forest does not grow in the desert.",
+          "D": "The Sahara is hot, not icy."
+        }
+      },
+      {
+        "stem": "In the article, the word huge means —",
+        "options": [
+          "very cold",
+          "quite quiet",
+          "rather old",
+          "very big"
+        ],
+        "answer": "D",
+        "skill": "vocabulary",
+        "why": "The Sahara is described as a very big desert, so huge means very big.",
+        "wrong": {
+          "A": "The days are hot, so huge does not mean cold.",
+          "B": "Quiet is a different idea in the text.",
+          "C": "Age is not the idea of the sentence."
+        }
+      },
+      {
+        "stem": "Why can palm trees grow at an oasis?",
+        "options": [
+          "Water comes up from the ground there.",
+          "Wind piles sand around them there.",
+          "The sun is much cooler there.",
+          "Nomads plant them each night."
+        ],
+        "answer": "A",
+        "skill": "cause-effect",
+        "why": "The text says water comes up from the ground at an oasis, and palm trees can grow there.",
+        "wrong": {
+          "B": "Wind piles sand into dunes, which does not help trees.",
+          "C": "The text does not say the sun is cooler at an oasis.",
+          "D": "The text does not say nomads plant them."
+        }
+      },
+      {
+        "stem": "Why does not much grow in the Sahara?",
+        "options": [
+          "Wind blows all the plants away.",
+          "Camels eat every plant.",
+          "Rain almost never falls.",
+          "The sand is too cold."
+        ],
+        "answer": "C",
+        "skill": "inference",
+        "why": "Rain almost never falls in the Sahara, so there is little water for plants.",
+        "wrong": {
+          "A": "The text says wind moves sand, not plants.",
+          "B": "Camels eating every plant is not stated.",
+          "D": "The days are hot, not the sand cold."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "Between which two bodies of water does the Sahara reach?",
+        "options": [
+          "The Atlantic Ocean to the Red Sea",
+          "The Red Sea to the Arctic Ocean",
+          "The Pacific Ocean to the Red Sea",
+          "The Indian Ocean to the Atlantic"
+        ],
+        "answer": "A",
+        "skill": "detail",
+        "why": "The text says the Sahara reaches from the Atlantic Ocean to the Red Sea.",
+        "wrong": {
+          "B": "The Arctic Ocean is not mentioned.",
+          "C": "The Pacific Ocean is not mentioned.",
+          "D": "The Indian Ocean is not mentioned."
+        }
+      },
+      {
+        "stem": "In the article, the word extreme most nearly means —",
+        "options": [
+          "very small",
+          "quite pleasant",
+          "very great",
+          "slightly cool"
+        ],
+        "answer": "C",
+        "skill": "vocabulary",
+        "why": "Temperatures above 50 degrees are called an extreme amount of heat, meaning a very great amount.",
+        "wrong": {
+          "A": "Small does not fit a very high heat.",
+          "B": "Heat above 50 degrees is not pleasant.",
+          "D": "The sentence is about strong heat."
+        }
+      },
+      {
+        "stem": "What shapes the sand into tall dunes?",
+        "options": [
+          "Rain falling all year",
+          "Camel caravans crossing",
+          "Rivers of water",
+          "Strong winds"
+        ],
+        "answer": "D",
+        "skill": "cause-effect",
+        "why": "The text says strong winds pile sand into tall dunes.",
+        "wrong": {
+          "A": "Rain almost never falls in the Sahara.",
+          "B": "Caravans are traders, not a force that makes dunes.",
+          "C": "The Sahara is a dry region."
+        }
+      },
+      {
+        "stem": "Why did towns grow up around oases along old trade routes?",
+        "options": [
+          "Traders had no need for water",
+          "Travelers needed the water there",
+          "Oases were far from the routes",
+          "Towns are always built in sand"
+        ],
+        "answer": "B",
+        "skill": "inference",
+        "why": "An oasis is where water reaches the surface, and people crossing the desert needed that water.",
+        "wrong": {
+          "A": "Traders in a dry desert needed water.",
+          "C": "The towns grew along the old trade routes.",
+          "D": "The text says towns grew where there was water."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "Which country is the Sahara's size compared to?",
+        "options": [
+          "The country of Egypt",
+          "The country of Spain",
+          "The United States",
+          "The country of Japan"
+        ],
+        "answer": "C",
+        "skill": "detail",
+        "why": "The text says the Sahara is nearly as large as the United States.",
+        "wrong": {
+          "A": "Egypt is not used for the comparison.",
+          "B": "Spain is not used for the comparison.",
+          "D": "Japan is not used for the comparison."
+        }
+      },
+      {
+        "stem": "In the article, the word arid most nearly means —",
+        "options": [
+          "very dry",
+          "very windy",
+          "very rocky",
+          "very cold"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "The Sahara is called arid because rain almost never falls there, so arid means very dry.",
+        "wrong": {
+          "B": "The text describes wind elsewhere, not as arid.",
+          "C": "Rocky describes the land, not the word arid.",
+          "D": "The days are very hot."
+        }
+      },
+      {
+        "stem": "Why can the Sahara turn cold at night?",
+        "options": [
+          "Rain falls every evening.",
+          "The sand holds heat all night.",
+          "Strong winds blow in from the sea.",
+          "The dry air loses heat quickly."
+        ],
+        "answer": "D",
+        "skill": "cause-effect",
+        "why": "The text says at night the dry air loses heat quickly and can turn surprisingly cold.",
+        "wrong": {
+          "A": "Rain almost never falls.",
+          "B": "The sand losing heat is the reverse of holding it.",
+          "C": "Winds from the sea are not mentioned."
+        }
+      },
+      {
+        "stem": "What does before each dry season returns suggest about the Tuareg's travels?",
+        "options": [
+          "They stay in one place all year",
+          "They follow a pattern each year",
+          "They only travel in the dark",
+          "They stop moving in winter"
+        ],
+        "answer": "B",
+        "skill": "inference",
+        "why": "If dry seasons return and the Tuareg move before each one, their travel follows a yearly pattern.",
+        "wrong": {
+          "A": "The text says they travel constantly.",
+          "C": "Nothing is said about traveling in the dark.",
+          "D": "Winter is not mentioned."
+        }
+      }
+    ]
   }
 }

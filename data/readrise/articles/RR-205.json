@@ -614,5 +614,217 @@
       ],
       "modelAnswer": "Scientists first provided the evidence by discovering, in 1985, an enormous hole in the ozone layer above Antarctica caused by CFC molecules releasing chlorine atoms that destroyed ozone in the stratosphere. International cooperation followed quickly, as nearly every country signed the Montreal Protocol treaty in 1987, agreeing to stop producing CFCs. Together, this scientific evidence and global agreement allowed the ozone layer to begin recovering, showing how nations can repair serious environmental radiation damage when they act on reliable research."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "What can harmful UV light hurt?",
+        "options": [
+          "Our hair and teeth",
+          "Our skin and eyes",
+          "Our shoes and bags",
+          "Our hands and feet"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The text says UV light can hurt our skin and our eyes.",
+        "wrong": {
+          "A": "The text does not say UV light hurts hair or teeth.",
+          "C": "Shoes and bags are not mentioned.",
+          "D": "The text names skin and eyes, not hands and feet."
+        }
+      },
+      {
+        "stem": "What does the author mean by \"It works like a big sunscreen\"?",
+        "options": [
+          "It makes the sky look blue",
+          "It makes the sun look bright",
+          "It makes the air feel cool",
+          "It keeps harmful light away"
+        ],
+        "answer": "D",
+        "skill": "vocabulary",
+        "why": "The ozone layer blocks the harmful rays, as a sunscreen protects skin.",
+        "wrong": {
+          "A": "The text does not talk about the color of the sky.",
+          "B": "The layer blocks harmful rays and does not make the sun brighter.",
+          "C": "The text does not say the layer cools the air."
+        }
+      },
+      {
+        "stem": "Where did people use the old gas long ago?",
+        "options": [
+          "In fridges and spray cans",
+          "In cars and city buses",
+          "In shoes and school bags",
+          "In pens and paper books"
+        ],
+        "answer": "A",
+        "skill": "detail",
+        "why": "The text says people used the gas in old fridges and spray cans.",
+        "wrong": {
+          "B": "Cars and buses are not mentioned.",
+          "C": "Shoes and bags are not mentioned.",
+          "D": "Pens and books are not mentioned."
+        }
+      },
+      {
+        "stem": "Why did people get worried in the 1980s?",
+        "options": [
+          "The sun was getting colder",
+          "The old fridges stopped working",
+          "They found a hole in the layer",
+          "The spray cans ran out of gas"
+        ],
+        "answer": "C",
+        "skill": "cause-effect",
+        "why": "The text says people found a big hole in the ozone layer in the 1980s and then got worried.",
+        "wrong": {
+          "A": "The text does not say the sun got colder.",
+          "B": "The fridges are mentioned only because their gas harmed the layer.",
+          "D": "The text does not say the cans ran out of gas."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "About how fast can a person get sunburned in strong sun?",
+        "options": [
+          "In about two long days",
+          "In about one whole week",
+          "In about two full hours",
+          "In under thirty minutes"
+        ],
+        "answer": "D",
+        "skill": "detail",
+        "why": "The text says a person can get sunburned in under thirty minutes in strong sun.",
+        "wrong": {
+          "A": "Two days is far too long.",
+          "B": "A week is far too long.",
+          "C": "Two hours is longer than the text says."
+        }
+      },
+      {
+        "stem": "The article says nations fixed harm that once seemed permanent. What does permanent mean?",
+        "options": [
+          "lasting forever",
+          "very small",
+          "easy to see",
+          "quick to fix"
+        ],
+        "answer": "A",
+        "skill": "vocabulary",
+        "why": "The harm to the ozone layer seemed like it would last forever, but nations acted to fix it.",
+        "wrong": {
+          "B": "The harm was large, not small.",
+          "C": "The word is not about seeing.",
+          "D": "Quick to fix is the opposite of permanent."
+        }
+      },
+      {
+        "stem": "Why did people use CFCs for many years?",
+        "options": [
+          "They wanted a bigger hole",
+          "They had no other fridges",
+          "They did not know the harm",
+          "A treaty told them to"
+        ],
+        "answer": "C",
+        "skill": "cause-effect",
+        "why": "The text says people did not know that CFCs were harming the ozone layer.",
+        "wrong": {
+          "A": "No one wanted to make a hole.",
+          "B": "The text does not say there were no other fridges.",
+          "D": "The treaty told them to stop making CFCs."
+        }
+      },
+      {
+        "stem": "Why does the author end with a lesson about nations acting together?",
+        "options": [
+          "To say the hole is bigger today",
+          "To show teamwork can fix harm",
+          "To explain how ozone is made",
+          "To list the uses of spray cans"
+        ],
+        "answer": "B",
+        "skill": "author-purpose",
+        "why": "The ending says that when nations act together on good evidence, they can fix harm that seemed permanent.",
+        "wrong": {
+          "A": "The text says the ozone layer is slowly getting better.",
+          "C": "How ozone forms is explained earlier.",
+          "D": "Spray cans are only mentioned as one use of CFCs."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "How did researchers track the size of the ozone hole?",
+        "options": [
+          "By measuring shadows at midday",
+          "By counting sunburned beachgoers",
+          "Using satellites and balloons",
+          "By testing the water in the sea"
+        ],
+        "answer": "C",
+        "skill": "detail",
+        "why": "The text says researchers used instruments carried on satellites and weather balloons.",
+        "wrong": {
+          "A": "Shadows are not mentioned.",
+          "B": "The text does not say they counted sunburned people.",
+          "D": "The sea is not mentioned."
+        }
+      },
+      {
+        "stem": "In 1987, nearly every country signed a treaty. What is a treaty?",
+        "options": [
+          "a kind of chemical",
+          "a tool for measuring the air",
+          "an agreement between nations",
+          "a layer of the sky"
+        ],
+        "answer": "C",
+        "skill": "vocabulary",
+        "why": "Countries signed the Montreal Protocol, agreeing to stop making the harmful chemicals, so a treaty is an agreement between nations.",
+        "wrong": {
+          "A": "The chemicals are what the treaty stopped.",
+          "B": "Instruments measure the air, not treaties.",
+          "D": "The stratosphere is a layer; a treaty is not."
+        }
+      },
+      {
+        "stem": "What did measurements show after nearly every country agreed to stop making CFCs?",
+        "options": [
+          "The ozone layer is slowly recovering",
+          "The ozone hole quickly doubled in size",
+          "No change happened anywhere at all",
+          "The stratosphere disappeared entirely"
+        ],
+        "answer": "A",
+        "skill": "cause-effect",
+        "why": "The text says the treaty proved successful and measurements show the ozone layer is slowly recovering.",
+        "wrong": {
+          "B": "The text says the layer is recovering, not getting worse.",
+          "C": "The text says the layer is recovering, so there was a change.",
+          "D": "The stratosphere did not disappear."
+        }
+      },
+      {
+        "stem": "The article says the ozone layer is only slowly recovering. What does this suggest about the repair?",
+        "options": [
+          "It was finished in one year",
+          "It takes a long time to heal",
+          "It can never be repaired",
+          "It needs no more care"
+        ],
+        "answer": "B",
+        "skill": "inference",
+        "why": "Even after the chemicals were stopped, the ozone layer recovers only slowly, so the repair takes a long time.",
+        "wrong": {
+          "A": "Slow recovery means it was not finished quickly.",
+          "C": "The layer is recovering, so it can be repaired.",
+          "D": "Slow recovery shows care and patience are still needed."
+        }
+      }
+    ]
   }
 }

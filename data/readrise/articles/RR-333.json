@@ -614,5 +614,217 @@
       ],
       "modelAnswer": "I agree that controlling a chokepoint can give a country outsized power. The article explains that a country bordering a major strait, such as the Strait of Hormuz, can hold considerable geopolitical influence, since the ability to affect traffic through a chokepoint shapes relationships between distant nations. The article also notes that disrupting a strait can create a bottleneck that delays cargo across entire supply chains, showing how a small stretch of water can carry strategic weight far beyond its size."
     }
+  },
+  "stretch": {
+    "LOW": [
+      {
+        "stem": "In the article, the word goods means —",
+        "options": [
+          "ships that float",
+          "things to send",
+          "narrow water",
+          "lines on maps"
+        ],
+        "answer": "B",
+        "skill": "vocabulary",
+        "why": "The text says to trade is to send goods, such as oil and food, so goods are things that are sent.",
+        "wrong": {
+          "A": "Ships carry the goods; they are not the goods.",
+          "C": "Narrow water describes a strait.",
+          "D": "Lines on maps are not goods."
+        }
+      },
+      {
+        "stem": "Which two things do ships carry through a strait?",
+        "options": [
+          "Oil and food",
+          "Sand and ice",
+          "Wood and rocks",
+          "Paper and glass"
+        ],
+        "answer": "A",
+        "skill": "detail",
+        "why": "The text says ships carry oil and food, and other things too.",
+        "wrong": {
+          "B": "Sand and ice are not named in the text.",
+          "C": "Wood and rocks are not named in the text.",
+          "D": "Paper and glass are not named in the text."
+        }
+      },
+      {
+        "stem": "A ship must go the long way because a strait is shut. What is likely true?",
+        "options": [
+          "The trip takes less time.",
+          "The trip costs less.",
+          "The trip takes more time.",
+          "The ship carries less oil."
+        ],
+        "answer": "C",
+        "skill": "inference",
+        "why": "A strait saves time, so going a long way around means the trip takes more time.",
+        "wrong": {
+          "A": "A strait saves time, so shutting it adds time.",
+          "B": "The text says costs can go up.",
+          "D": "The text does not say the load changes."
+        }
+      },
+      {
+        "stem": "Why does the author say a strait is not a road?",
+        "options": [
+          "To say ships cannot use it",
+          "To show roads are narrow",
+          "To say it is a busy city",
+          "To show it is made of water"
+        ],
+        "answer": "D",
+        "skill": "author-purpose",
+        "why": "The author says a strait is not a road but a strip of water, so readers know it is water.",
+        "wrong": {
+          "A": "The text says ships do use straits.",
+          "B": "The text does not talk about roads being narrow.",
+          "C": "A strait is a strip of water, not a city."
+        }
+      }
+    ],
+    "MID": [
+      {
+        "stem": "Which two bodies of water does the Strait of Hormuz link?",
+        "options": [
+          "The Red Sea and the Bosphorus",
+          "Malaysia and Indonesia",
+          "The Arabian Gulf and the Red Sea",
+          "The Arabian Gulf and the Arabian Sea"
+        ],
+        "answer": "D",
+        "skill": "detail",
+        "why": "The text says the Strait of Hormuz links the Arabian Gulf to the Arabian Sea.",
+        "wrong": {
+          "A": "The Bosphorus is a different strait in Turkey.",
+          "B": "Malaysia and Indonesia are on either side of the Strait of Malacca.",
+          "C": "Bab-el-Mandeb is the strait that is linked with the Red Sea."
+        }
+      },
+      {
+        "stem": "In the article, the word cargo most nearly means —",
+        "options": [
+          "stormy weather at sea",
+          "goods carried by ship",
+          "the crew of a ship",
+          "the fuel for engines"
+        ],
+        "answer": "B",
+        "skill": "vocabulary",
+        "why": "The text says cargo ships carry oil, clothes, and other goods, so cargo is goods carried by ship.",
+        "wrong": {
+          "A": "Weather is not what the ships carry.",
+          "C": "The crew sails the ship; it is not the cargo.",
+          "D": "Cargo includes oil and other goods, not only fuel."
+        }
+      },
+      {
+        "stem": "Why can storms sometimes close straits?",
+        "options": [
+          "Because the strait is so narrow",
+          "Because the strait is too deep",
+          "Because the strait is very long",
+          "Because the strait has no ships"
+        ],
+        "answer": "A",
+        "skill": "cause-effect",
+        "why": "The text says that because straits are so narrow, storms can sometimes close them.",
+        "wrong": {
+          "B": "Depth is not given as the reason.",
+          "C": "Length is not given as the reason.",
+          "D": "The text says straits are very busy."
+        }
+      },
+      {
+        "stem": "Why does the author say straits look small on a map?",
+        "options": [
+          "To say ships should avoid them",
+          "To show they are not needed",
+          "To show small places matter a lot",
+          "To explain how maps are drawn"
+        ],
+        "answer": "C",
+        "skill": "author-purpose",
+        "why": "The author says straits look small but carry a huge share of world trade.",
+        "wrong": {
+          "A": "The text says ships depend on straits.",
+          "B": "The text says straits are vital to the economy.",
+          "D": "The text does not explain how maps are drawn."
+        }
+      }
+    ],
+    "HIGH": [
+      {
+        "stem": "Where is the Strait of Malacca located?",
+        "options": [
+          "Between Turkey and the Red Sea",
+          "Between Malaysia and Indonesia",
+          "At the end of the Arabian Gulf",
+          "Next to the Red Sea coast"
+        ],
+        "answer": "B",
+        "skill": "detail",
+        "why": "The text says the Strait of Malacca lies between Malaysia and Indonesia.",
+        "wrong": {
+          "A": "The Bosphorus is in Turkey, not Malacca.",
+          "C": "The Strait of Hormuz is linked to the Arabian Gulf.",
+          "D": "Bab-el-Mandeb is linked to the Red Sea."
+        }
+      },
+      {
+        "stem": "In the article, the word disruption most nearly means —",
+        "options": [
+          "a safe path",
+          "a large cargo",
+          "a sudden stop",
+          "a new route"
+        ],
+        "answer": "C",
+        "skill": "vocabulary",
+        "why": "A brief disruption can delay cargo, so it means an interruption or sudden stop.",
+        "wrong": {
+          "A": "A safe path would not delay cargo.",
+          "B": "A large cargo does not cause delays by itself.",
+          "D": "A new route is not the idea in the sentence."
+        }
+      },
+      {
+        "stem": "Why do nations depend on steady cargo through straits?",
+        "options": [
+          "It lets them close their ports to ships",
+          "It helps them control the weather there",
+          "It stops storms from reaching their coasts",
+          "It keeps factories and fuel prices steady"
+        ],
+        "answer": "D",
+        "skill": "cause-effect",
+        "why": "The text says steady cargo keeps factories operating and fuel prices stable.",
+        "wrong": {
+          "A": "The text does not say nations want to close ports.",
+          "B": "Cargo has nothing to do with weather control.",
+          "C": "Cargo does not stop storms."
+        }
+      },
+      {
+        "stem": "What can be inferred from the phrase through the heart of a major city?",
+        "options": [
+          "Ships there sail close to many people",
+          "The Bosphorus is a very wide sea",
+          "Ships cannot use it at night",
+          "The city is smaller than the strait"
+        ],
+        "answer": "A",
+        "skill": "inference",
+        "why": "If a strait runs through the heart of a city, ships pass right beside the people who live there.",
+        "wrong": {
+          "B": "The text calls straits narrow waterways.",
+          "C": "Night travel is not mentioned.",
+          "D": "A major city is not smaller than a strait."
+        }
+      }
+    ]
   }
 }
