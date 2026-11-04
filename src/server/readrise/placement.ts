@@ -2,7 +2,8 @@
  * 🚀 ReadRise placement (LevelSet-like): a short adaptive test of passages, 3 questions each.
  *
  *  Start   latest MAP Lexile (clamped 300–1600 → nearest version level), else the grade's default level.
- *  Step    3/3 → +200 · 2/3 → +100 · 1/3 → −100 · 0/3 → −200 (clamped 300–1600). After the first reversal
+ *  Step    3/3 → +200 · 2/3 → +100 · 1/3 → −100 · 0/3 → −200 (clamped 300–1600); from 1200 up a 2/3 is not a pass and stays at the same level
+ *          for another passage (4 Nov 2026). After the first reversal
  *          (the direction changes) every move is ±100. A passage is never shown twice.
  *  Stop    after 8 passages, or after two reversals once at least 5 passages were read.
  *  Result  the highest level read with a PASS (passBar below) that is not above a level failed twice; rounded to
@@ -36,6 +37,7 @@ import { firstAnswerThresholdMs } from "./accuracy";
 import { dueCheck, loadReadRiseWindows, periodOf, RR_PERIOD_NAME, type RRPeriod } from "./windows";
 import { alertMapGap } from "./accuracy";
 import { runAfterResponse } from "../lib/after-response";
+import { ADMIN_RESET_TAG } from "./placement-reset";
 
 export { setLevelByTeacher } from "./engine";
 
@@ -91,10 +93,16 @@ export function placementPlan(startLevel: number, steps: PlacementStep[], passag
   // round 4: a rapid passage does not count (no move); its passage is still never shown again
   const counted = steps.filter((x) => !x.rapid);
   for (const st of counted) {
-    const big = BIG[Math.max(0, Math.min(3, st.correct))];
+    // 🐛 fix (owner, 4 Nov 2026): from TOP_TIER up a 2 of 3 is NOT a pass (passBar), so it must not move the test UP
+    // either (it used to: +100/+200, pushing a weak reader higher before the result logic caught it). It now stays
+    // at the same level for another passage (a second 2 of 3 there = failed twice = the ceiling); not a reversal.
+    const soft = st.correct >= 2 && st.correct < passBar(st.level);
+    const big = soft ? 0 : BIG[Math.max(0, Math.min(3, st.correct))];
     const sign = Math.sign(big);
-    if (lastSign && sign !== lastSign) reversals++;
-    lastSign = sign;
+    if (sign !== 0) {
+      if (lastSign && sign !== lastSign) reversals++;
+      lastSign = sign;
+    }
     level = clampP(st.level + (reversals > 0 ? sign * 100 : big));
   }
   if (counted.length >= PLACEMENT.maxPassages || (reversals >= PLACEMENT.reversals && counted.length >= PLACEMENT.minPassages)) return { done: true, nextLevel: null, passage: null, reversals };
@@ -284,12 +292,16 @@ async function finishPlacement(repo: Repo, p: Row, now: Date): Promise<{ level: 
   const { level, note } = blendWithMap(raw, await latestMapLexile(repo, studentId));
   const [windows, earlier] = await Promise.all([
     loadReadRiseWindows(repo, s(p.schoolId), now),
-    repo.findMany("RRPlacement", { studentId, completedAt: { not: null }, result: { not: null } }, { select: ["id"] }),
+    repo.findMany("RRPlacement", { studentId, completedAt: { not: null }, result: { not: null } }, { select: ["id", "completedAt"] }),
   ]);
   const period = periodOf(windows, now);
+  // 🔄 an admin reset (placement-reset.ts) after the last finished test: the old result was wrong, so the new one
+  // replaces the year's start level too (a fresh start, not a "check")
+  const prevDone = Math.max(0, ...earlier.filter((r) => s(r.id) !== s(p.id)).map((r) => toDate(r.completedAt).getTime()));
+  const adminReset = (await repo.findMany("RRLevelChange", { studentId }, { select: ["reason", "createdAt"] })).some((c) => s(c.reason).includes(ADMIN_RESET_TAG) && toDate(c.createdAt).getTime() > prevDone);
   // 🗓️ a middle / end of year check keeps the year's start (growth start → middle → end); the first test (or a
   // retake at the start of the year) sets the start
-  const recheck = earlier.some((r) => s(r.id) !== s(p.id)) && period !== "BOY";
+  const recheck = !adminReset && earlier.some((r) => s(r.id) !== s(p.id)) && period !== "BOY";
   await repo.updateMany("RRPlacement", { id: p.id }, { result: level, completedAt: now, period });
   const rr = await ensureRRStudent(repo, studentId, now);
   await repo.updateMany("RRStudent", { studentId }, recheck ? { level, source: "PLACEMENT" } : { level, startLevel: level, source: "PLACEMENT", placedAt: now });
@@ -324,7 +336,8 @@ export async function teacherResetPlacement(repo: Repo, actor: Actor, studentId:
   const terms = year ? await repo.findMany("Term", { academicYearId: s(year.id) }) : [];
   const term = terms.find((t) => toDate(t.startDate).getTime() <= now.getTime() && toDate(t.endDate).getTime() >= now.getTime());
   const from = term ? toDate(term.startDate).getTime() : now.getTime() - 120 * 86_400_000;
-  const used = (await repo.findMany("RRLevelChange", { studentId })).some((c) => s(c.reason).startsWith(RETAKE_REASON) && toDate(c.createdAt).getTime() >= from);
+  // an admin reset (placement-reset.ts) never uses up the teacher's retake of the term
+  const used = (await repo.findMany("RRLevelChange", { studentId })).some((c) => s(c.reason).startsWith(RETAKE_REASON) && !s(c.reason).includes(ADMIN_RESET_TAG) && toDate(c.createdAt).getTime() >= from);
   if (used) throw new ValidationError("A placement retake was already allowed this term.");
   const rr = await ensureRRStudent(repo, studentId, now);
   await recordLevelChange(repo, { studentId, schoolId: s(st.schoolId), from: Number(rr.level), to: Number(rr.level), reason: `${RETAKE_REASON} by a teacher${reason.trim() ? `: ${reason.trim()}` : ""}`, now });

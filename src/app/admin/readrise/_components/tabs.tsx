@@ -16,6 +16,7 @@ export const ADMIN_TABS = [
   { href: "/admin/readrise", label: "📚 Library" },
   { href: "/admin/readrise/import", label: "📥 Import" },
   { href: "/admin/readrise/dashboard", label: "📈 Dashboard" },
+  { href: "/admin/readrise/reset", label: "🔄 Reset placement" },
 ];
 export const TEACHER_TABS = [
   { href: "/teacher/readrise", label: "📈 My class" },

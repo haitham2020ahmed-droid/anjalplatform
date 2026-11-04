@@ -7,6 +7,7 @@ import { ValidationError } from "@/server/curriculum-admin";
 import { importArticleJson, previewArticleFile, type Issue, type VersionCheck } from "@/server/readrise/import";
 import { deleteArticle, setArticleHidden, setArticleStatus, setOfficialLexile } from "@/server/readrise/library";
 import { syncStretchChunk, type StretchSyncChunk } from "@/server/readrise/seed";
+import { adminResetPlacements } from "@/server/readrise/placement-reset";
 
 const STAFF = { roles: ["TEACHER", "SCHOOL_ADMIN", "SUPER_ADMIN"] as ("TEACHER" | "SCHOOL_ADMIN" | "SUPER_ADMIN")[], permission: "questions:edit" as const };
 const MAX_FILE = 5 * 1024 * 1024;
@@ -110,4 +111,18 @@ export async function stretchChunkAction(start: number): Promise<{ ok: true; dat
   await requireActor({ roles: ["SCHOOL_ADMIN", "SUPER_ADMIN"], permission: "questions:edit" });
   try { return { ok: true, data: await syncStretchChunk(repo, process.cwd(), Number.isFinite(Number(start)) ? Number(start) : 0) }; }
   catch (e) { console.error("readrise.stretch_sync", e); return { ok: false, error: "This part could not be done. Press the button again to go on from here." }; }
+}
+
+/** 🔄 Admin: the chosen students take the ReadRise placement again (placement-reset.ts). Admins only. */
+export async function resetPlacementsAction(f: FormData): Promise<void> {
+  const actor = await requireActor({ roles: ["SCHOOL_ADMIN", "SUPER_ADMIN"], permission: "questions:read" });
+  const back = `/admin/readrise/reset?${new URLSearchParams(Object.fromEntries(["grade", "class", "q", "doubtful"].map((k) => [k, String(f.get(`f_${k}`) ?? "")]).filter(([, v]) => v))).toString()}`;
+  if (String(f.get("confirm") ?? "") !== "on") go(back, "Tick “I understand” to confirm the reset.");
+  let msg: string;
+  try {
+    const r = await adminResetPlacements(repo, actor, f.getAll("studentId").map(String), String(f.get("reason") ?? ""));
+    msg = `Done: ${r.reset} student(s) will take the placement again${r.restarted ? `, ${r.restarted} open test(s) restarted from the first passage` : ""}${r.skipped ? `, ${r.skipped} skipped (a retake already waiting, or not placed yet)` : ""}.`;
+  } catch (e) { msg = msgOf(e); }
+  revalidatePath("/admin/readrise/reset");
+  go(back, msg);
 }
