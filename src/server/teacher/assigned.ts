@@ -493,6 +493,22 @@ export async function assignedWorkOfClasses(repo: Repo, schoolId: string, classI
   return liveOf(raw, cancels);
 }
 
+/** One assigned thing exactly as the Assigned page collects it, BEFORE the cancels are applied (cancelled ones included). */
+export type AssignedRaw = Raw;
+
+/**
+ * 🔍 "Why can't a student see their work?" (src/server/admin/work-visibility.ts): the raw rows of these classes, every
+ * teacher's, read by the SAME collect the Assigned page uses — cancelled ones included (no cancel applied), so the
+ * check lists exactly what the Assigned page lists for those classes.
+ */
+export async function assignedRawOfClasses(repo: Repo, schoolId: string, classIds: readonly string[], opts: { kinds?: readonly AssignedKind[] } = {}): Promise<AssignedRaw[]> {
+  const ids = [...new Set(classIds.map(s).filter(Boolean))];
+  if (!schoolId || !ids.length) return [];
+  const classes = await repo.findMany("Class", { id: { in: ids }, schoolId }, { select: ["id", "name", "gradeId", "schoolId"] });
+  if (!classes.length) return [];
+  return collect(repo, { schoolId, admin: true, classes, mine: [] }, { kinds: new Set(opts.kinds ?? ASSIGNED_KINDS), creators: null });
+}
+
 /** The teacher's live assigned work in one class they can see (the Assigned page's rows of that class). */
 export async function teacherAssignedWork(repo: Repo, actor: Actor, classId: string, opts: { kinds?: readonly AssignedKind[] } = {}): Promise<LiveAssigned[]> {
   const sc = await scopeOf(repo, actor);
