@@ -12,16 +12,21 @@
  *                    as more distinct pages are first visited and never comes back down — eventually crossing the
  *                    512 MB container limit and getting OOM-killed by Render mid-request (the "retry home page
  *                    twice" symptom a teacher/student sees). Rather than upgrade the plan or split the app into
- *                    several services, the server restarts ITSELF while nobody is using it, before that happens:
+ *                    several services, the server restarts ITSELF before that happens, in three layers:
  *                      1) a guaranteed restart once a day at RESTART_RIYADH_HOUR (4 AM Riyadh), only if idle;
  *                      2) a safety-net restart at ANY time if RSS crosses RESTART_RSS_MB (420), only if idle;
- *                      3) "idle" = no real page request for RESTART_IDLE_MS (10 min) — reusing notePath()'s
- *                         timestamps below, which only ever fire from a real signed-in page/action (src/server/
- *                         auth/next.ts), never from Render's own /api/health pings (that route never calls
- *                         getActor()), so a steady stream of health checks never looks like "someone is using it".
+ *                      3) an emergency restart at ANY time, busy or not, if RSS crosses EMERGENCY_RSS_MB (480) — added
+ *                         after a live incident where opening a handful of admin pages back to back pushed RSS from
+ *                         ~400 to 516 MB (over the 512 MB limit) in under a minute while the server was in active
+ *                         use, so layer 2's idle requirement never got a chance to fire before the real OOM-kill;
+ *                      4) "idle" (layers 1 and 2 only) = no real page request for RESTART_IDLE_MS (10 min) — reusing
+ *                         notePath()'s timestamps below, which only ever fire from a real signed-in page/action
+ *                         (src/server/auth/next.ts), never from Render's own /api/health pings (that route never
+ *                         calls getActor()), so a steady stream of health checks never looks like "someone is using it".
  *                    A clean `process.exit(0)` is safe here: Render's own orchestration restarts the web service
- *                    automatically (the same restart already seen after the real OOM-kill), and nothing is ever
- *                    in flight because this only fires when idle.
+ *                    automatically (the same restart already seen after the real OOM-kill), and even the emergency
+ *                    layer (which does not wait for idle) only costs the one in-flight request a retry — far
+ *                    cheaper than every request on the server failing when a real OOM-kill hits.
  */
 import { log } from "./log";
 import { cacheSizes } from "../cache/idle";
@@ -90,8 +95,17 @@ export function idleMs(now = Date.now()): number {
 
 /** Minutes of no real request required before either restart layer is allowed to fire (owner-approved: 10). */
 export const RESTART_IDLE_MS = (Number(process.env.RESTART_IDLE_MIN) || 10) * 60_000;
-/** RSS (MB) that triggers the safety-net restart at any time of day (owner-approved: 420 — a margin under the 512 MB container limit, large enough to catch even a fast spike). */
+/** RSS (MB) that triggers the safety-net restart at any time of day, but ONLY while idle (owner-approved: 420 — a margin under the 512 MB container limit, large enough to catch even a fast spike). */
 export const RESTART_RSS_MB = Number(process.env.RESTART_RSS_MB) || 420;
+/**
+ * r## emergency layer (Nov 2026, live incident): the safety-net above still waits for "idle", so a fast RSS jump
+ * WHILE someone is actively using the server (a few admin pages opened back to back — the live incident went
+ * 400ish → 516 MB in under a minute) can cross the 512 MB container limit before the server is ever seen as idle,
+ * and Render OOM-kills it for real. This layer does not wait for idle at all: once RSS crosses EMERGENCY_RSS_MB, the
+ * server restarts itself immediately, busy or not — a one-request hiccup is far cheaper than a hard crash for
+ * everyone on the server at that moment.
+ */
+export const EMERGENCY_RSS_MB = Number(process.env.EMERGENCY_RSS_MB) || 480;
 /** Riyadh hour of the guaranteed daily restart (owner-approved: 4 AM — quiet for a school). Riyadh is UTC+3, no DST. */
 export const RESTART_RIYADH_HOUR = Number(process.env.RESTART_RIYADH_HOUR) || 4;
 /** How wide the guaranteed-restart hour is before giving up for the day (so a 60 s check interval cannot miss it). */
@@ -105,10 +119,14 @@ export const MIN_UPTIME_BEFORE_RESTART_MS = 5 * 60_000;
 /** Pure decision (easy to unit-test without real timers/clocks): which restart, if any, applies right now. */
 export function selfRestartReason(
   c: { nowUtc: Date; rssMB: number; idleMs: number; uptimeMs: number },
-  opts: { idleMinMs?: number; rssLimitMb?: number; riyadhHour?: number; guaranteedMinUptimeMs?: number } = {},
-): "guaranteed" | "safety_net" | null {
+  opts: { idleMinMs?: number; rssLimitMb?: number; riyadhHour?: number; guaranteedMinUptimeMs?: number; emergencyRssLimitMb?: number } = {},
+): "guaranteed" | "safety_net" | "emergency" | null {
+  if (c.uptimeMs < MIN_UPTIME_BEFORE_RESTART_MS) return null;
+  // emergency: no idle requirement at all — a fast jump while busy must not be allowed to reach the hard 512 MB limit
+  const emergencyRssLimitMb = opts.emergencyRssLimitMb ?? EMERGENCY_RSS_MB;
+  if (c.rssMB >= emergencyRssLimitMb) return "emergency";
   const idleMinMs = opts.idleMinMs ?? RESTART_IDLE_MS;
-  if (c.idleMs < idleMinMs || c.uptimeMs < MIN_UPTIME_BEFORE_RESTART_MS) return null;
+  if (c.idleMs < idleMinMs) return null;
   const riyadhHour = opts.riyadhHour ?? RESTART_RIYADH_HOUR;
   const utcHour = (riyadhHour - 3 + 24) % 24;
   const inGuaranteedWindow = c.nowUtc.getUTCHours() === utcHour && c.nowUtc.getUTCMinutes() < GUARANTEED_RESTART_WINDOW_MIN;
@@ -120,10 +138,11 @@ export function selfRestartReason(
 }
 
 /**
- * Starts the self-restart check (once per process): every 60 s, see the file-top comment. SELF_RESTART=off (env)
- * is an escape hatch that switches this whole mechanism off without a code change, if it is ever needed.
+ * Starts the self-restart check (once per process): every 20 s (shortened from 60 s, Nov 2026, so a fast RSS jump
+ * is caught within seconds instead of up to a minute), see the file-top comment. SELF_RESTART=off (env) is an
+ * escape hatch that switches this whole mechanism off without a code change, if it is ever needed.
  */
-export function startSelfRestart(checkEveryMs = 60_000): void {
+export function startSelfRestart(checkEveryMs = 20_000): void {
   if (G.__selfRestart) return;
   G.__selfRestart = setInterval(() => {
     if (process.env.NODE_ENV !== "production") return;

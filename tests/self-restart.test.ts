@@ -5,7 +5,11 @@
  *
  *   - a guaranteed restart once a day at 4 AM Riyadh (1 AM UTC), only if idle for the required window;
  *   - a safety-net restart at ANY time if RSS crosses 420 MB, only if idle;
- *   - "idle" reuses notePath()'s timestamps, which only ever fire from a real signed-in page (never a health check).
+ *   - an emergency restart at ANY time, busy or not, if RSS crosses 480 MB — added after a live incident where a
+ *     handful of admin pages opened back to back pushed RSS from ~400 to 516 MB (over the 512 MB limit) in under a
+ *     minute while the server was actively in use, so the idle-only safety net above never got a chance to fire;
+ *   - "idle" (guaranteed + safety-net only) reuses notePath()'s timestamps, which only ever fire from a real
+ *     signed-in page (never a health check).
  */
 import { describe, test } from "node:test";
 import assert from "node:assert/strict";
@@ -35,10 +39,10 @@ describe("self-restart: idleMs()", () => {
 });
 
 describe("self-restart: selfRestartReason() — pure decision, no timers", () => {
-  test("never restarts while busy (idle below the 10-minute floor), whatever the clock or RSS says", async () => {
+  test("never restarts via the guaranteed/safety-net layers while busy (idle below the 10-minute floor), below the emergency line", async () => {
     const m = await import("../src/server/monitoring/memory");
     const nowUtc = new Date("2026-11-05T01:05:00Z"); // inside the 4 AM Riyadh window
-    assert.equal(m.selfRestartReason({ nowUtc, rssMB: 500, idleMs: 9 * 60_000, uptimeMs: 30 * 60 * 60_000 }), null);
+    assert.equal(m.selfRestartReason({ nowUtc, rssMB: 450, idleMs: 9 * 60_000, uptimeMs: 30 * 60 * 60_000 }), null);
   });
 
   test("never restarts in the first 5 minutes after boot, even if otherwise qualified", async () => {
@@ -72,10 +76,34 @@ describe("self-restart: selfRestartReason() — pure decision, no timers", () =>
     assert.equal(m.selfRestartReason({ nowUtc, rssMB: 419, idleMs: 10 * 60_000, uptimeMs: 6 * 60 * 60_000 }), null, "just under the threshold: not yet");
   });
 
-  test("safety net: never fires while busy, however high RSS climbs", async () => {
+  test("safety net: never fires while busy and below the emergency line, however high within that range", async () => {
     const m = await import("../src/server/monitoring/memory");
     const nowUtc = new Date("2026-11-05T14:30:00Z");
-    assert.equal(m.selfRestartReason({ nowUtc, rssMB: 505, idleMs: 60_000, uptimeMs: 6 * 60 * 60_000 }), null);
+    assert.equal(m.selfRestartReason({ nowUtc, rssMB: 450, idleMs: 60_000, uptimeMs: 6 * 60 * 60_000 }), null, "450 MB, busy, below the 480 MB emergency line: waits for idle");
+  });
+});
+
+describe("self-restart: selfRestartReason() — emergency layer (live incident, Nov 2026)", () => {
+  test("fires at any hour, busy or not, once RSS crosses 480 MB", async () => {
+    const m = await import("../src/server/monitoring/memory");
+    const nowUtc = new Date("2026-11-05T14:30:00Z"); // nowhere near the guaranteed window
+    assert.equal(m.selfRestartReason({ nowUtc, rssMB: 480, idleMs: 0, uptimeMs: 6 * 60 * 60_000 }), "emergency", "busy (idleMs: 0) and not in the guaranteed window: emergency still fires");
+    assert.equal(m.selfRestartReason({ nowUtc, rssMB: 479, idleMs: 0, uptimeMs: 6 * 60 * 60_000 }), null, "just under the emergency line: not yet (and busy, so no other layer fires either)");
+  });
+
+  test("reproduces the live incident: ~400 MB idle baseline, then a fast jump to 516 MB while busy", async () => {
+    const m = await import("../src/server/monitoring/memory");
+    const nowUtc = new Date("2026-11-05T03:50:18Z"); // the actual incident timestamp (UTC)
+    // before the incident: busy is irrelevant since RSS was still under the emergency line
+    assert.equal(m.selfRestartReason({ nowUtc, rssMB: 400, idleMs: 0, uptimeMs: 9 * 60 * 60_000 }), null);
+    // the moment RSS crossed 480 while a few admin pages were opened back to back (idleMs: 0 = busy)
+    assert.equal(m.selfRestartReason({ nowUtc, rssMB: 516, idleMs: 0, uptimeMs: 9 * 60 * 60_000 }), "emergency", "this is exactly the gap the emergency layer closes: the old code returned null here (busy, and the hour didn't match the guaranteed window), letting RSS run all the way to a real OOM-kill at 516 MB");
+  });
+
+  test("still respects the post-boot settling window (no restart loop right after a fresh start)", async () => {
+    const m = await import("../src/server/monitoring/memory");
+    const nowUtc = new Date("2026-11-05T14:30:00Z");
+    assert.equal(m.selfRestartReason({ nowUtc, rssMB: 600, idleMs: 0, uptimeMs: 60_000 }), null, "1 minute old process: even emergency waits out the 5-minute settling window");
   });
 });
 
