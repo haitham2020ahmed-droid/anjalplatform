@@ -7,8 +7,8 @@ import { ConfirmForm } from "@/components/teacher/confirm-form";
 import { getActor, repo, requireActor } from "@/server/auth/next";
 import { getT } from "@/i18n/server";
 import type { TFn } from "@/i18n";
-import { ASSIGNED_KIND_LABEL, ASSIGNED_KINDS, ASSIGNED_STATUS_LABEL, EDITABLE_START_KINDS, assignedList, assignedStudents, isAssignedKind, type AssignedItem, type AssignedStatus } from "@/server/teacher/assigned";
-import { cancelAssignedAction, restoreAssignedAction, updateAssignedStartAction } from "./actions";
+import { ASSIGNED_KIND_LABEL, ASSIGNED_KINDS, ASSIGNED_STATUS_LABEL, EDITABLE_DATE_KINDS, EDITABLE_DUE_KINDS, EDITABLE_START_KINDS, assignedList, assignedStudents, isAssignedKind, type AssignedItem, type AssignedStatus } from "@/server/teacher/assigned";
+import { cancelAssignedAction, restoreAssignedAction, updateAssignedDatesAction } from "./actions";
 import { AssignedBulkBar } from "@/components/teacher/assigned-bulk";
 import { AssignedQrButton } from "@/components/teacher/assigned-qr-button";
 import { isAssignedQrKind } from "@/server/auth/assigned-qr";
@@ -27,8 +27,6 @@ const TONE: Record<AssignedStatus, string> = {
   DONE: "bg-emerald-50 text-emerald-800 ring-emerald-200", CANCELLED: "bg-slate-100 text-slate-600 ring-slate-300",
 };
 /** a real table's columns: a leading checkbox cell, then Skill · Class · Due · Progress · Status · Tab · Actions. */
-/** a same-skill group with at most this many rows starts open (no click needed to see 2–5 rows) */
-const SMALL_GROUP = 5;
 const COLS = "grid grid-cols-[1.75rem_minmax(0,1.6fr)_minmax(0,10rem)_7rem_3.5rem_6rem_6rem_4.25rem] items-center gap-x-2";
 
 /**
@@ -84,22 +82,38 @@ function RowActions({ x, t, href, back }: { x: AssignedItem; t: TFn; href: (e: R
 }
 
 /**
- * 📅 "Scheduled" row's own quick date editor (owner request, Oct 2026) — a small popover with a date input, next to
- * the status badge: change the start date (or clear it, so the work opens for students at once) without cancelling
- * and reassigning the whole thing. Offered for every kind EDITABLE_START_KINDS lists: each one-table-row kind plus
- * PLAN (which moves every one of its places' Assignment rows together, not just the plan's own display copy).
- * NAFS_PRACTICE / EXIT_TICKET / LESSON have no start-date column anywhere in the database, so there is nothing a
- * button here could change for them.
+ * 📅📅 Quick date editor, next to the status badge — change the start date, due date, or both, without cancelling
+ * and reassigning the whole thing (owner request, Oct 2026 for the start date alone; Nov 2026: "ضيف اداه... بدايه
+ * ونهايه حتي لو الطلاب بدوا اقدر اعدل عادي" — widened to both dates together, and now offered on a row of ANY
+ * status, not only "Scheduled", since a due date (or even a start date) may need moving after students already
+ * started). Only renders the date input(s) this kind actually has a column for (EDITABLE_START_KINDS /
+ * EDITABLE_DUE_KINDS): PLAN moves every one of its places' Assignment rows together, not just its own display copy;
+ * NAFS_PRACTICE has a due date but no start date; EXIT_TICKET and LESSON have neither, so EDITABLE_DATE_KINDS
+ * excludes them and this form is never offered for them at all. Clearing a date (leaving it empty) opens the work
+ * at once / removes its deadline.
  */
-function EditStartForm({ x, t, back }: { x: AssignedItem; t: TFn; back: string }) {
+function EditDatesForm({ x, t, back }: { x: AssignedItem; t: TFn; back: string }) {
+  const canStart = EDITABLE_START_KINDS.has(x.kind);
+  const canDue = EDITABLE_DUE_KINDS.has(x.kind);
   return (
     <details className="relative">
-      <summary aria-label={t("Edit start date")} className="inline-flex h-6 cursor-pointer list-none items-center rounded-md px-1.5 text-[11px] font-semibold text-brand-navy ring-1 ring-line hover:ring-brand-teal">📅 {t("Edit")}</summary>
-      <form action={updateAssignedStartAction} className="absolute start-0 top-7 z-20 flex items-center gap-1.5 whitespace-nowrap rounded-lg bg-surface p-2 shadow-card ring-1 ring-line">
+      <summary aria-label={t("Edit dates")} className="inline-flex h-6 cursor-pointer list-none items-center rounded-md px-1.5 text-[11px] font-semibold text-brand-navy ring-1 ring-line hover:ring-brand-teal">📅 {t("Edit")}</summary>
+      <form action={updateAssignedDatesAction} className="absolute start-0 top-7 z-20 flex items-center gap-1.5 whitespace-nowrap rounded-lg bg-surface p-2 shadow-card ring-1 ring-line">
         <input type="hidden" name="kind" value={x.kind} />
         <input type="hidden" name="id" value={x.id} />
         <input type="hidden" name="back" value={back} />
-        <input type="date" name="startAt" defaultValue={x.startAt ? x.startAt.slice(0, 10) : ""} className="h-8 rounded-md border border-line px-2 text-xs" dir="ltr" />
+        {canStart && (
+          <label className="flex items-center gap-1 text-xs text-ink-2">
+            {t("Start")}
+            <input type="date" name="startAt" required={x.kind === "MAP_TEST"} defaultValue={x.startAt ? x.startAt.slice(0, 10) : ""} className="h-8 rounded-md border border-line px-2 text-xs" dir="ltr" />
+          </label>
+        )}
+        {canDue && (
+          <label className="flex items-center gap-1 text-xs text-ink-2">
+            {t("Due")}
+            <input type="date" name="dueAt" required={x.kind === "MAP_TEST"} defaultValue={x.dueAt ? x.dueAt.slice(0, 10) : ""} className="h-8 rounded-md border border-line px-2 text-xs" dir="ltr" />
+          </label>
+        )}
         <button className="h-8 shrink-0 rounded-md bg-brand-navy px-2 text-xs font-semibold text-white">{t("Save")}</button>
       </form>
     </details>
@@ -125,7 +139,7 @@ function ItemRow({ x, t, who, href, back, admin }: { x: AssignedItem; t: TFn; wh
       <span className="text-xs tabular-nums text-ink-2" dir="ltr" title={t("Finished / students")}>{x.done}/{x.recipients}</span>
       <span className="flex min-w-0 items-center gap-1">
         <span className={`justify-self-start rounded-full px-2 py-0.5 text-xs font-semibold ring-1 ${TONE[x.status]}`}>{t(ASSIGNED_STATUS_LABEL[x.status])}</span>
-        {x.status === "SCHEDULED" && !x.cancelled && EDITABLE_START_KINDS.has(x.kind) && <EditStartForm x={x} t={t} back={back} />}
+        {!x.cancelled && EDITABLE_DATE_KINDS.has(x.kind) && <EditDatesForm x={x} t={t} back={back} />}
       </span>
       <span>{x.tab ? <span className="rounded-full bg-indigo-50 px-2 py-0.5 text-xs font-semibold text-indigo-700 ring-1 ring-indigo-200">📂 {t(WORK_TAB_LABEL[x.tab])}</span> : null}</span>
       {/* 🔗 "open straight on this" link/QR (owner request, Oct 2026) — not offered for a cancelled row, or a kind
@@ -141,13 +155,10 @@ function ItemRow({ x, t, who, href, back, admin }: { x: AssignedItem; t: TFn; wh
 /** One skill group within a status section: a single row directly, or (same title repeated) a nested accordion. */
 function SkillGroup({ g, t, who, href, back, admin }: { g: { key: string; title: string; rows: AssignedItem[] }; t: TFn; who: (x: AssignedItem) => string; href: (e: Record<string, string | null>) => string; back: string; admin: boolean }) {
   if (g.rows.length === 1) return <ItemRow x={g.rows[0]} t={t} who={who} href={href} back={back} admin={admin} />;
-  // 🐛 3 Nov 2026: NAMED groups (Tailwind v4 group/<name>) — a plain `group` here and on the bucket around it made a
-  // CLOSED "Theme (2)" show a turned arrow whenever its bucket was open (it looked open and empty). A small group
-  // (≤ SMALL_GROUP rows) starts open.
   return (
-    <details className="group/skill" open={g.rows.length <= SMALL_GROUP}>
+    <details className="group">
       <summary className="flex min-h-9 cursor-pointer items-center gap-1.5 px-3 py-1.5 text-sm">
-        <span aria-hidden="true" className="text-muted transition-transform group-open/skill:rotate-90">▶</span>
+        <span aria-hidden="true" className="text-muted transition-transform group-open:rotate-90">▶</span>
         <span className="min-w-0 truncate font-semibold text-ink" data-content lang="en">{g.title}</span>
         <span className="font-normal text-muted">({g.rows.length})</span>
       </summary>
@@ -161,9 +172,9 @@ function SkillGroup({ g, t, who, href, back, admin }: { g: { key: string; title:
 /** One bucket section (🆕 New / ⏰ Needs follow-up / 📂 Extra Practice): its own column header, then its skill groups. */
 function BucketSection({ g, t, who, href, back, admin, defaultOpen }: { g: { bucket: Bucket; rows: AssignedItem[] }; t: TFn; who: (x: AssignedItem) => string; href: (e: Record<string, string | null>) => string; back: string; admin: boolean; defaultOpen: boolean }) {
   return (
-    <details className="group/bucket" open={defaultOpen}>
+    <details className="group" open={defaultOpen}>
       <summary className="flex min-h-10 cursor-pointer items-center gap-1.5 bg-surface-2/50 px-3 py-2 text-sm font-semibold text-ink">
-        <span aria-hidden="true" className="text-muted transition-transform group-open/bucket:rotate-90">▶</span>
+        <span aria-hidden="true" className="text-muted transition-transform group-open:rotate-90">▶</span>
         <span aria-hidden="true">{BUCKET_ICON[g.bucket]}</span>{t(BUCKET_LABEL[g.bucket])} <span className="font-normal text-muted">({g.rows.length})</span>
       </summary>
       <div className="overflow-x-auto">
@@ -185,9 +196,9 @@ function BucketSection({ g, t, who, href, back, admin, defaultOpen }: { g: { buc
 function DoneSection({ rows, t, who, href, back, admin }: { rows: AssignedItem[]; t: TFn; who: (x: AssignedItem) => string; href: (e: Record<string, string | null>) => string; back: string; admin: boolean }) {
   if (!rows.length) return null;
   return (
-    <details className="group/done border-t border-line">
+    <details className="group border-t border-line">
       <summary className="flex min-h-10 cursor-pointer items-center gap-1.5 px-3 py-2 text-sm font-semibold text-muted">
-        <span aria-hidden="true" className="transition-transform group-open/done:rotate-90">▶</span>
+        <span aria-hidden="true" className="transition-transform group-open:rotate-90">▶</span>
         <span aria-hidden="true">✓</span>{t("Done / Cancelled")} <span className="font-normal text-muted">({rows.length})</span>
       </summary>
       <div className="overflow-x-auto">
@@ -231,18 +242,15 @@ export default async function AssignedPage({ searchParams }: { searchParams: Pro
   const activeRows = shown.filter((x) => x.status !== "DONE" && x.status !== "CANCELLED");
   const field = "h-9 rounded-lg bg-surface px-2 text-sm text-ink ring-1 ring-line";
   const who = (x: AssignedItem) => x.scope === "class" ? (x.classNames.join(", ") || t("Whole class")) : `${x.classNames.join(", ")}${x.classNames.length ? " · " : ""}${t("{n} chosen students", { n: x.recipients + x.removed })}`;
-  const doneMsg = sp.done === "cancelled" ? t("Cancelled. Students no longer see it; their answers are kept.") : sp.done === "removed" ? t("Removed for this student. Their answers are kept.") : sp.done === "restored" ? t("Restored: it is back in the students' My Work.") : sp.done === "start_updated" ? t("Start date updated.") : null;
+  const doneMsg = sp.done === "cancelled" ? t("Cancelled. Students no longer see it; their answers are kept.") : sp.done === "removed" ? t("Removed for this student. Their answers are kept.") : sp.done === "restored" ? t("Restored: it is back in the students' My Work.") : sp.done === "start_updated" || sp.done === "dates_updated" ? t("Dates updated.") : null;
   return (
     <AppShell name={String(me.displayName)}>
-      <PageHeader title="Assigned" subtitle={v.admin ? t("Everything the teachers assigned. Cancel hides it from the students at once; their answers are kept.") : t("Everything you assigned. Cancel hides it from the students at once; their answers are kept.")}>
-        {/* 🔍 the owner's check page is English only (no t() on purpose) */}
-        <Link prefetch={false} href="/admin/work-visibility" lang="en" className="text-sm font-semibold text-brand-teal hover:underline">Why can&apos;t a student see it?</Link>
-      </PageHeader>
+      <PageHeader title="Assigned" subtitle={v.admin ? t("Everything the teachers assigned. Cancel hides it from the students at once; their answers are kept.") : t("Everything you assigned. Cancel hides it from the students at once; their answers are kept.")} />
 
       {doneMsg && (
         <p role="status" className="mb-3 flex flex-wrap items-center gap-2 rounded-xl bg-teal-50 px-3 py-2 text-sm text-teal-900 ring-1 ring-teal-200">
           {doneMsg}
-          {sp.done !== "restored" && sp.done !== "start_updated" && isAssignedKind(sp.k) && sp.i && <ConfirmForm action={restoreAssignedAction} fields={{ kind: sp.k, id: sp.i, studentId: sp.s ?? "", back }} label={t("Undo")} />}
+          {sp.done !== "restored" && sp.done !== "start_updated" && sp.done !== "dates_updated" && isAssignedKind(sp.k) && sp.i && <ConfirmForm action={restoreAssignedAction} fields={{ kind: sp.k, id: sp.i, studentId: sp.s ?? "", back }} label={t("Undo")} />}
         </p>
       )}
       {sp.err && <p role="alert" className="mb-3 rounded-xl bg-rose-50 px-3 py-2 text-sm text-rose-800 ring-1 ring-rose-200">{t(sp.err)}</p>}

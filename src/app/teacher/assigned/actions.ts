@@ -4,7 +4,7 @@ import { revalidatePath } from "next/cache";
 import { repo, requireActor } from "@/server/auth/next";
 import { ForbiddenError } from "@/server/auth/rbac";
 import { ValidationError } from "@/server/curriculum-admin";
-import { cancelAssignment, cancelMany, isAssignedKind, parseBulkRefs, restoreAssignment, restoreMany, setTabMany, updateAssignedStart } from "@/server/teacher/assigned";
+import { cancelAssignment, cancelMany, isAssignedKind, parseBulkRefs, restoreAssignment, restoreMany, setTabMany, updateAssignedDates } from "@/server/teacher/assigned";
 import { assignedQrForItem } from "@/server/auth/assigned-qr";
 import { appOrigin } from "@/lib/plan-links";
 import { parseWorkTab } from "@/lib/work-tab";
@@ -86,18 +86,23 @@ export async function getAssignedQrLinkAction(kind: string, id: string, classId:
 }
 
 /**
- * 📅 Change a "Scheduled" row's own start date (owner request, Oct 2026) — a date string (YYYY-MM-DD) or empty to
- * clear it (the work opens for students at once).
+ * 📅📅 Change a row's start date, due date, or both together (owner request, Nov 2026: "ضيف اداه... بدايه ونهايه
+ * حتي لو الطلاب بدوا" — works on a row of ANY status, start included even once students have already started).
+ * Only the field(s) the form actually sent are changed — the page only renders the inputs a kind supports
+ * (EDITABLE_START_KINDS / EDITABLE_DUE_KINDS), so a kind missing one date simply never submits that key. Each
+ * date is a YYYY-MM-DD string, or empty to clear it (no start/due at all).
  */
-export async function updateAssignedStartAction(f: FormData): Promise<void> {
+export async function updateAssignedDatesAction(f: FormData): Promise<void> {
   const actor = await requireActor({ roles: [...STAFF], permission: "assignments:create" });
   const kind = String(f.get("kind") ?? ""), id = String(f.get("id") ?? "");
-  const raw = String(f.get("startAt") ?? "").trim();
   if (!isAssignedKind(kind)) back(f, { err: "Unknown kind of work." });
-  const startAt = raw && /^\d{4}-\d{2}-\d{2}$/.test(raw) ? new Date(`${raw}T00:00:00`) : null;
-  try { await updateAssignedStart(repo, actor, kind, id, startAt); }
+  const parse = (raw: string) => (raw && /^\d{4}-\d{2}-\d{2}$/.test(raw) ? new Date(`${raw}T00:00:00`) : null);
+  const patch: { startAt?: Date | null; dueAt?: Date | null } = {};
+  if (f.has("startAt")) patch.startAt = parse(String(f.get("startAt") ?? "").trim());
+  if (f.has("dueAt")) patch.dueAt = parse(String(f.get("dueAt") ?? "").trim());
+  try { await updateAssignedDates(repo, actor, kind, id, patch); }
   catch (e) { if (known(e)) back(f, { err: (e as Error).message.slice(0, 200) }); throw e; }
-  back(f, { done: "start_updated", k: kind, i: id });
+  back(f, { done: "dates_updated", k: kind, i: id });
 }
 
 /** ↩ Undo: the work is back in the students' My Work, with their answers as they were. */

@@ -493,22 +493,6 @@ export async function assignedWorkOfClasses(repo: Repo, schoolId: string, classI
   return liveOf(raw, cancels);
 }
 
-/** One assigned thing exactly as the Assigned page collects it, BEFORE the cancels are applied (cancelled ones included). */
-export type AssignedRaw = Raw;
-
-/**
- * 🔍 "Why can't a student see their work?" (src/server/admin/work-visibility.ts): the raw rows of these classes, every
- * teacher's, read by the SAME collect the Assigned page uses — cancelled ones included (no cancel applied), so the
- * check lists exactly what the Assigned page lists for those classes.
- */
-export async function assignedRawOfClasses(repo: Repo, schoolId: string, classIds: readonly string[], opts: { kinds?: readonly AssignedKind[] } = {}): Promise<AssignedRaw[]> {
-  const ids = [...new Set(classIds.map(s).filter(Boolean))];
-  if (!schoolId || !ids.length) return [];
-  const classes = await repo.findMany("Class", { id: { in: ids }, schoolId }, { select: ["id", "name", "gradeId", "schoolId"] });
-  if (!classes.length) return [];
-  return collect(repo, { schoolId, admin: true, classes, mine: [] }, { kinds: new Set(opts.kinds ?? ASSIGNED_KINDS), creators: null });
-}
-
 /** The teacher's live assigned work in one class they can see (the Assigned page's rows of that class). */
 export async function teacherAssignedWork(repo: Repo, actor: Actor, classId: string, opts: { kinds?: readonly AssignedKind[] } = {}): Promise<LiveAssigned[]> {
   const sc = await scopeOf(repo, actor);
@@ -634,25 +618,77 @@ const ONE_ROW_START: Partial<Record<AssignedKind, { table: string; field: string
   WRITING: { table: "WritingTask", field: "startAt" }, FLUENCY: { table: "WritingTask", field: "startAt" },
   RESPOND: { table: "RespondAssignment", field: "startAt" },
 };
-/** Which kinds the page's 📅 Edit-start-date control should offer (ONE_ROW_START's keys, plus PLAN which is handled on its own below). */
+/** Which kinds the page's 📅 date editor can change a START date for (ONE_ROW_START's keys, plus PLAN below). */
 export const EDITABLE_START_KINDS = new Set<AssignedKind>([...Object.keys(ONE_ROW_START), "PLAN"] as AssignedKind[]);
-export async function updateAssignedStart(repo: Repo, actor: Actor, kind: AssignedKind, id: string, startAt: Date | null, now = new Date()): Promise<{ startAt: string | null }> {
+
+/**
+ * 📅📅 Due-date counterpart of ONE_ROW_START (owner request, Nov 2026: "ضيف اداه... بدايه ونهايه حتي لو الطلاب بدوا"
+ * — edit the START and DUE date together, from one tool, even once students have already started). Same one row =
+ * one item.id idea. NAFS_PRACTICE has its own due date (unlike its missing start date, see ONE_ROW_START above) so
+ * it is due-only here. EXIT_TICKET and LESSON still have no date column of either kind anywhere in the schema
+ * (assignedList hands them a hardcoded dueAt: null above) — nothing a button here could ever change for them.
+ */
+const ONE_ROW_DUE: Partial<Record<AssignedKind, { table: string; field: string }>> = {
+  SKILL: { table: "Assignment", field: "dueAt" }, PROGRESS_CHECK: { table: "Assignment", field: "dueAt" },
+  TEST: { table: "TeacherTest", field: "dueAt" }, MAP_TEST: { table: "MapSimWindow", field: "closesAt" },
+  NAFS_TEST: { table: "NafsTestClass", field: "dueAt" }, NAFS_PRACTICE: { table: "NafsPractice", field: "dueAt" },
+  LEARN: { table: "LearnAssign", field: "dueAt" }, WORDS: { table: "LearnAssign", field: "dueAt" },
+  READRISE: { table: "RRClassArticle", field: "dueAt" }, WRITING: { table: "WritingTask", field: "dueAt" },
+  FLUENCY: { table: "WritingTask", field: "dueAt" }, RESPOND: { table: "RespondAssignment", field: "dueAt" },
+};
+/** Which kinds the page's 📅 date editor can change a DUE date for (ONE_ROW_DUE's keys, plus PLAN below). */
+export const EDITABLE_DUE_KINDS = new Set<AssignedKind>([...Object.keys(ONE_ROW_DUE), "PLAN"] as AssignedKind[]);
+/** Either date is editable — the page shows its 📅 tool whenever this is true, on a row of ANY status (owner, Nov
+ * 2026: "حتي لو الطلاب بدوا اقدر اعدل عادي" — must work even after students already started, so this no longer
+ * checks x.status === "SCHEDULED" the way the old start-only control did). */
+export const EDITABLE_DATE_KINDS = new Set<AssignedKind>([...EDITABLE_START_KINDS, ...EDITABLE_DUE_KINDS]);
+
+export interface AssignedDatesPatch { startAt?: Date | null; dueAt?: Date | null }
+/**
+ * 📅📅 Change a row's start date, due date, or both — in ONE update, so the two dates are never briefly out of order
+ * between two separate saves (owner request, Nov 2026). Works on an item of any status, including one students
+ * already started: moving a date after work has begun (a snow day, a sick class, a miscounted week) is an everyday
+ * correction, not something that should force the heavier cancel-and-reassign path. Pass only the key(s) that
+ * actually changed; an omitted key keeps its current value (used only for the start-before-due check below) — pass
+ * null to clear that date. PLAN fans the due date out exactly like updateAssignedStart already fans out the start
+ * date: SkillPlan.dueAt is only the display copy (src/server/plans/editor.ts, src/server/plans/send.ts) — the real
+ * per-student gate is each PLACE's own Assignment.dueAt, so only the plan's own column would just repaint this page.
+ */
+export async function updateAssignedDates(repo: Repo, actor: Actor, kind: AssignedKind, id: string, patch: AssignedDatesPatch, now = new Date()): Promise<{ startAt: string | null; dueAt: string | null }> {
   assertCan(actor, "assignments:create");
-  const where = ONE_ROW_START[kind];
-  if (!where && kind !== "PLAN") throw new ValidationError("This item has no single start date to change.");
+  const changeStart = Object.prototype.hasOwnProperty.call(patch, "startAt");
+  const changeDue = Object.prototype.hasOwnProperty.call(patch, "dueAt");
+  if (!changeStart && !changeDue) throw new ValidationError("Nothing to change.");
+  if (changeStart && !ONE_ROW_START[kind] && kind !== "PLAN") throw new ValidationError("This item has no start date to change.");
+  if (changeDue && !ONE_ROW_DUE[kind] && kind !== "PLAN") throw new ValidationError("This item has no due date to change.");
   const { sc, item } = await manageable(repo, actor, kind, id);
-  if (item.dueAt && startAt && Date.parse(item.dueAt) <= startAt.getTime()) throw new ValidationError("The start date must be before the due date.");
+  const startAt = changeStart ? (patch.startAt ?? null) : (item.startAt ? new Date(item.startAt) : null);
+  const dueAt = changeDue ? (patch.dueAt ?? null) : (item.dueAt ? new Date(item.dueAt) : null);
+  // MAP_TEST's opensAt/closesAt are NOT NULL columns (prisma/schema.prisma MapSimWindow) — unlike every other kind
+  // here, clearing either one is not "no date at all", it is a write the database would reject.
+  if (kind === "MAP_TEST" && (!startAt || !dueAt)) throw new ValidationError("A MAP Test needs both an opening and a closing date.");
+  if (startAt && dueAt && dueAt.getTime() <= startAt.getTime()) throw new ValidationError("The start date must be before the due date.");
   if (kind === "PLAN") {
     const places = item.aids ?? [];
     if (!places.length) throw new ValidationError("This plan has no places to move.");
-    await repo.updateMany("SkillPlan", { id: item.id }, { startAt });
-    await repo.updateMany("Assignment", { id: { in: places } }, { startAt }); // the real per-student gate (mergeWorkItems)
+    const planPatch: Record<string, unknown> = {};
+    if (changeStart) planPatch.startAt = startAt;
+    if (changeDue) planPatch.dueAt = dueAt;
+    await repo.updateMany("SkillPlan", { id: item.id }, planPatch);
+    await repo.updateMany("Assignment", { id: { in: places } }, planPatch); // the real per-student gate (mergeWorkItems)
   } else {
-    await repo.updateMany(where!.table, { id: item.id }, { [where!.field]: startAt });
+    if (changeStart) await repo.updateMany(ONE_ROW_START[kind]!.table, { id: item.id }, { [ONE_ROW_START[kind]!.field]: startAt });
+    if (changeDue) await repo.updateMany(ONE_ROW_DUE[kind]!.table, { id: item.id }, { [ONE_ROW_DUE[kind]!.field]: dueAt });
   }
-  await audit(repo, { actorId: actor.userId, action: "assignment.update_start", entityType: kind, entityId: item.id, before: { startAt: item.startAt ?? null }, after: { startAt: startAt ? startAt.toISOString() : null }, at: now }).catch(() => undefined);
+  await audit(repo, { actorId: actor.userId, action: "assignment.update_dates", entityType: kind, entityId: item.id, before: { startAt: item.startAt ?? null, dueAt: item.dueAt ?? null }, after: { startAt: startAt ? startAt.toISOString() : null, dueAt: dueAt ? dueAt.toISOString() : null }, at: now }).catch(() => undefined);
   await forgetCachedReports(repo, sc.schoolId);
-  return { startAt: startAt ? startAt.toISOString() : null };
+  return { startAt: startAt ? startAt.toISOString() : null, dueAt: dueAt ? dueAt.toISOString() : null };
+}
+
+/** Kept for any other caller: the start-only path, now a thin wrapper over updateAssignedDates. */
+export async function updateAssignedStart(repo: Repo, actor: Actor, kind: AssignedKind, id: string, startAt: Date | null, now = new Date()): Promise<{ startAt: string | null }> {
+  const r = await updateAssignedDates(repo, actor, kind, id, { startAt }, now);
+  return { startAt: r.startAt };
 }
 
 // ------------------------------------------------------------------ several at once (owner r68 §8 / §E)
