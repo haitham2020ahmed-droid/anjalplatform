@@ -28,18 +28,51 @@ export interface LibrarySeedReport { files: number; created: number; updated: nu
 const articleDir = (root: string) => join(root, "data", "readrise", "articles");
 const articleFiles = (dir: string) => (existsSync(dir) ? readdirSync(dir).filter((n) => n.endsWith(".json")).sort() : []);
 
-/** Imports one file (null → imported; else the problems). */
+/**
+ * A dropped/closed remote connection, not a problem with the file or the data (Prisma's P1001/P1008/P1017/P2024,
+ * or a raw socket error) — worth a short wait and another try. Anything else (bad JSON, a validation error) is
+ * certain to fail again immediately, so it is reported at once instead of wasting slow retries on it.
+ */
+function isTransientDbError(e: unknown): boolean {
+  const code = (e as { code?: string })?.code;
+  if (code && ["P1001", "P1008", "P1017", "P2024"].includes(code)) return true;
+  const msg = String((e as Error)?.message ?? "");
+  return /closed the connection|can't reach database|ECONNRESET|ETIMEDOUT|EPIPE|connection.*(lost|reset|refused)/i.test(msg);
+}
+const sleep = (ms: number) => new Promise((res) => setTimeout(res, ms));
+
+/**
+ * Imports one file (null → imported; else the problems). 🚀 (Nov 2026, owner: a long seed run over a remote
+ * connection kept getting cut mid-run, forcing a full manual restart from the first file every time) a dropped
+ * connection on THIS file gets up to 2 automatic retries (short backoff: 3s, then 10s) before it is given up on and
+ * reported — the run itself never stops for it, and importArticleJson's own content-diff skip (./import.ts) means
+ * every file already fully written earlier in this same run, or in an earlier run that got cut, costs almost
+ * nothing to pass over again.
+ */
 async function importFile(repo: Repo, dir: string, f: string, rep: LibrarySeedReport, log: (m: string) => void): Promise<void> {
   let json: unknown;
   try { json = JSON.parse(readFileSync(join(dir, f), "utf8")); }
   catch (e) { rep.skipped.push({ file: f, problems: [`not valid JSON: ${(e as Error).message}`] }); log(`  ReadRise: skipped ${f} (not valid JSON)`); return; }
-  const r = await importArticleJson(repo, null, json, { schoolId: null, publish: true });
-  if (!r.ok) {
-    rep.skipped.push({ file: f, problems: r.errors.map((e) => `${e.where}: ${e.message}`) });
-    log(`  ReadRise: skipped ${f} (${r.errors.length} problem${r.errors.length === 1 ? "" : "s"}: ${r.errors.slice(0, 2).map((e) => `${e.where}: ${e.message}`).join("; ")})`);
-    return;
+  const BACKOFF_MS = [3000, 10000];
+  for (let attempt = 0; ; attempt++) {
+    try {
+      const r = await importArticleJson(repo, null, json, { schoolId: null, publish: true });
+      if (!r.ok) {
+        rep.skipped.push({ file: f, problems: r.errors.map((e) => `${e.where}: ${e.message}`) });
+        log(`  ReadRise: skipped ${f} (${r.errors.length} problem${r.errors.length === 1 ? "" : "s"}: ${r.errors.slice(0, 2).map((e) => `${e.where}: ${e.message}`).join("; ")})`);
+        return;
+      }
+      if (r.created) rep.created++; else rep.updated++;
+      return;
+    } catch (e) {
+      if (!isTransientDbError(e) || attempt >= BACKOFF_MS.length) {
+        if (isTransientDbError(e)) { rep.skipped.push({ file: f, problems: [`database connection kept dropping: ${(e as Error).message}`] }); log(`  ReadRise: skipped ${f} for now (connection kept dropping; safe to run the seed again later)`); return; }
+        throw e; // not a connection issue — a real bug, let it surface instead of hiding it
+      }
+      log(`  ReadRise: ${f} — connection dropped, retrying in ${Math.round(BACKOFF_MS[attempt] / 1000)}s …`);
+      await sleep(BACKOFF_MS[attempt]);
+    }
   }
-  if (r.created) rep.created++; else rep.updated++;
 }
 
 /** The full seed: every article file (unchanged behaviour of `npx tsx prisma/seed/readrise.ts`). */
