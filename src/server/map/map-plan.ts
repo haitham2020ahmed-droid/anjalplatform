@@ -8,7 +8,11 @@
  *   - status per area: FOCUS (Lo / LoAvg, or 3+ RIT under the student's overall), EXTEND (HiAvg / Hi and 3+ over),
  *     MAINTAIN otherwise.
  * A plan practises each chosen area with questions of the student's band and the band above (estimated RIT of
- * every question, recalibrated from real answers). Plans are DRAFT until the teacher reviews, edits and sends.
+ * every question, recalibrated from real answers).
+ * 🆕 (owner decision, Nov 2026): a plan is sent to the student the moment it is made — no separate "Send" click.
+ * ensureDrafts() still builds the DRAFT row first (so a plan sendPlans truly can't fill, e.g. too few questions in
+ * that area yet, is simply left as a DRAFT and still shows up on the old "Drafts ready to review" screen for the
+ * teacher to handle by hand), then sends it right away in the normal case.
  */
 import { scoringParams } from "../practice/scoring-params";
 import type { Repo, Row } from "../seeding/repo";
@@ -351,7 +355,12 @@ async function planRows(repo: Repo, classId: string, subject: Subject): Promise<
   return repo.findMany("MapPlan", { classId, subject });
 }
 
-/** Makes (or refreshes) the DRAFT plan of every student of the class who has MAP scores for this subject. Sent plans are kept. */
+/**
+ * Makes the plan of every student of the class who has MAP scores for this subject and sends it to them at once
+ * (🆕 Nov 2026 — see the file header). Sent plans are kept; a term that already has a plan (draft or sent) is
+ * skipped. Returns how many plans actually reached a student (a plan left in DRAFT because its area truly has no
+ * questions yet does not count — it is still waiting, on the "Drafts ready to review" screen).
+ */
 export async function ensureDrafts(repo: Repo, actor: Actor, classId: string, subject: Subject, now = new Date()): Promise<number> {
   assertCan(actor, "assignments:create");
   const klass = await assertClassAccess(repo, actor, classId);
@@ -362,7 +371,7 @@ export async function ensureDrafts(repo: Repo, actor: Actor, classId: string, su
   const { pools } = await groupPools(repo, actor.schoolId!, grade);
   const mastery = ids.length ? await repo.findMany("StudentSkillMastery", { studentId: { in: ids } }, { select: ["studentId", "skillId", "score"] }) : [];
   const existing = await planRows(repo, classId, subject);
-  let n = 0;
+  const created: string[] = [];
   for (const id of ids) {
     const p = profiles.get(id)!;
     if (!p.term) continue;
@@ -373,10 +382,12 @@ export async function ensureDrafts(repo: Repo, actor: Actor, classId: string, su
     const skillsByGroup = new Map<GroupKey, string[]>(GROUPS.map((g) => { const ids = [...new Set((pools.get(g.key) ?? []).map((q) => q.skillId))]; return [g.key, ids.some((k) => m.has(k)) ? ids.sort((a, b) => (m.get(a) ?? -1) - (m.get(b) ?? -1)) : []]; }));
     const items = autoItems(p, skillsByGroup, bands);
     if (!items.length) continue;
-    await repo.create("MapPlan", { schoolId: actor.schoolId!, classId, studentId: id, subject, term: p.term, status: "DRAFT", items, note: null, dueAt: null, assignmentIds: null, createdById: actor.userId, createdAt: now, updatedAt: now, sentAt: null });
-    n++;
+    const row = await repo.create("MapPlan", { schoolId: actor.schoolId!, classId, studentId: id, subject, term: p.term, status: "DRAFT", items, note: null, dueAt: null, assignmentIds: null, createdById: actor.userId, createdAt: now, updatedAt: now, sentAt: null });
+    created.push(s(row.id));
   }
-  return n;
+  if (!created.length) return 0;
+  const { sent } = await sendPlans(repo, actor, created, now, "MAP");
+  return sent;
 }
 
 export async function classPlans(repo: Repo, actor: Actor, classId: string, subject: Subject): Promise<{ className: string; grade: number; plans: PlanView[]; noScores: { id: string; name: string }[]; canEdit: boolean }> {

@@ -1,7 +1,9 @@
 /**
- * 🗺️ MAP plan drafts made when MAP scores are imported (map-auto.ts → ensureDrafts: one MapPlan DRAFT per student and
- * subject) shown on the MAP page's plan tab as "Drafts ready to review": Preview → Send, or Dismiss. Nothing is
- * ever sent automatically: a draft goes to the student only when the teacher presses Send (sendPlans, unchanged).
+ * 🗺️ MAP plan drafts (map-auto.ts → ensureDrafts: one MapPlan per student and subject). 🆕 (Nov 2026): ensureDrafts
+ * now sends a plan to the student the moment it is made, so almost nothing lands here any more. A row still shows
+ * up on the MAP page's plan tab as "Drafts ready to review" — Preview → Send, or Dismiss — ONLY in the one case
+ * sendPlans could not actually fill it (e.g. that area truly has no questions yet): that plan is left in DRAFT so
+ * the teacher can still see it and send it by hand once it can be filled, or dismiss it.
  * Dismiss keeps the row (status DISMISSED) so the same term's draft is not made again; new scores make a new one.
  *
  * Access: the class must be the teacher's own (assertClassAccess; a school admin any class of the school).

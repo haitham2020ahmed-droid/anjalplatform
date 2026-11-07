@@ -1,7 +1,8 @@
 /**
  * 📋 New MAP scores → plans at once: after an import or typed scores, every class of those students gets its
- * individual plan drafts (Reading and Language Usage) without opening the plans page first, and the class
- * teachers are told when someone else (the admin) imported them.
+ * individual MAP plan (Reading and Language Usage), sent to the student right away — no separate "Send" click
+ * (🆕 Nov 2026, see map-plan.ts#ensureDrafts) — without opening the plans page first; the class teachers are told
+ * when someone else (the admin) imported the scores.
  * A draft nobody has edited yet is made again from the new scores; edited or sent plans are kept.
  */
 import type { Repo } from "../seeding/repo";
@@ -31,7 +32,7 @@ export async function draftPlansFor(repo: Repo, actor: Actor, studentIds: string
     if (n && actor.role !== "TEACHER") {
       const teachers = await repo.findMany("ClassTeacher", { classId }, { select: ["teacherId"] });
       const tRows = teachers.length ? await repo.findMany("Teacher", { id: { in: teachers.map((t) => t.teacherId) } }, { select: ["userId"] }) : [];
-      if (tRows.length) await repo.createMany("Notification", tRows.map((t) => ({ userId: t.userId, type: "PARENT_PROGRESS", title: `🗺️ MAP plans ready · ${s(klass.name)}`, body: `New MAP scores: ${n} individual plan draft(s) are ready, and the 3-level group plan (Personalized plan) to check and send.`, link: `/teacher/map-plans?classId=${classId}&tab=plans`, readAt: null, createdAt: now })));
+      if (tRows.length) await repo.createMany("Notification", tRows.map((t) => ({ userId: t.userId, type: "PARENT_PROGRESS", title: `🗺️ MAP plans sent · ${s(klass.name)}`, body: `New MAP scores: ${n} individual plan(s) were sent to students automatically. The 3-level group plan (Personalized plan) still needs your review and Send.`, link: `/teacher/map-plans?classId=${classId}&tab=plans`, readAt: null, createdAt: now })));
     }
   }
   out.classes.sort((a, b) => a.name.localeCompare(b.name));

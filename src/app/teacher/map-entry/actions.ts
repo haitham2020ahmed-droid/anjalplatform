@@ -21,7 +21,7 @@ export async function saveMapEntryAction(f: FormData): Promise<void> {
       classId, subject, season, year,
       rows: ids.map((id) => ({ studentId: id, rit: val(`rit:${id}`), percentile: val(`pct:${id}`), projection: val(`proj:${id}`), lexile: val(`lex:${id}`), goals: Object.fromEntries(goalCodes.map((c) => [c, val(`g:${c}:${id}`)])) })),
     });
-    msg = `${r.imported} student(s) saved for ${r.term}.${r.plans?.plans ? ` 📋 ${r.plans.plans} MAP plan draft(s) ready in MAP plans.` : ""}${r.errors.length ? ` ⚠️ ${r.errors.map((e) => e.message).join(" · ")}` : ""}`;
+    msg = `${r.imported} student(s) saved for ${r.term}.${r.plans?.plans ? ` 📋 ${r.plans.plans} MAP plan(s) sent to students.` : ""}${r.errors.length ? ` ⚠️ ${r.errors.map((e) => e.message).join(" · ")}` : ""}`;
   } catch (e) { if (isNextControl(e)) throw e; msg = await failureMessage(e, "map", "saveMapEntry", "/teacher/map-entry"); } // r79: never a white page
   redirect(`/teacher/map-entry?${new URLSearchParams({ classId, subject, season, year: String(year), msg })}`);
 }
