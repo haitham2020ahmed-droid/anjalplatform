@@ -1,0 +1,40 @@
+{
+  "code": "RR-048",
+  "summary": "This article explains how comets travel around the Sun, grow glowing tails, and leave dust that lights up the night sky as shooting stars.",
+  "strategy": "Vocabulary Building",
+  "introduce": "Show the three key terms on the board and ask students to rate each one: “I know it,” “I have seen it,” or “It is new.” Tell them to watch for these words in “Comets and Shooting Stars” and use clues around them to understand their meaning.",
+  "keyTerms": [
+    {
+      "term": "orbit",
+      "def": "the path one thing takes around another thing in space"
+    },
+    {
+      "term": "debris",
+      "def": "small broken pieces left behind by something"
+    },
+    {
+      "term": "atmosphere",
+      "def": "the layer of air that surrounds a planet"
+    }
+  ],
+  "challengeTerms": [
+    {
+      "term": "nucleus",
+      "def": "the solid center or core of something"
+    },
+    {
+      "term": "sublimation",
+      "def": "the change of a solid straight into a gas without becoming a liquid first"
+    },
+    {
+      "term": "compress",
+      "def": "to squeeze something into a smaller space"
+    }
+  ],
+  "discussion": [
+    "Do you agree or disagree that shooting stars are more exciting to watch than comets? Use evidence from the article to explain.",
+    "Explain the difference between a comet, a meteor, and a meteorite."
+  ],
+  "struggling": "Pre-teach orbit, debris, and atmosphere with pictures or gestures, then let weak readers draw a quick picture for each term and use it in a short spoken sentence.",
+  "gifted": "Challenge advanced readers to use nucleus, sublimation, and compress in a short paragraph that teaches the class one of the terms with their own example."
+}

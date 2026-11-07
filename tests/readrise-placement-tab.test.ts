@@ -47,7 +47,8 @@ describe("🎯 ReadRise: the Placement test tab and the first-visit window", () 
     assert.deepEqual(loadPlacementPassages(empty), [], "a test's own empty folder: nothing (as before)");
     const src = read("src/server/readrise/content-loader.ts");
     assert.match(src, /import bundledPlacement from "\.\.\/\.\.\/\.\.\/data\/readrise\/placement\.json"/, "the file is bundled with the code");
-    assert.match(src, /return root === process\.cwd\(\) \? bundled\(\) : \[\]/, "a missing file falls back to the bundled copy");
+    // round 6: the loader also reads placement-extra.json; the fallback line is now an assignment
+    assert.match(src, /root === process\.cwd\(\) \? bundled\(\) : \[\]/, "a missing file falls back to the bundled copy");
   });
 
   test("never placed: NEED + locked (the window and the card show); the tab says Take the test", async () => {

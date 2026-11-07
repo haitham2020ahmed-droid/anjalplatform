@@ -4,17 +4,22 @@
  *  Library   published articles of the platform library (schoolId null) + the student's own school, minus the
  *            school's hidden list (SchoolSetting "readrise.hidden"). Teacher-assigned (RRClassArticle of the
  *            student's classes) first, then "Recommended for you" (topics not read lately, a variety of topics).
- *  Routine   one RRRun per reading: PREPOLL → READ → QUIZ → WRITE → POSTPOLL → DONE, strictly in order, resumable.
+ *  Routine   one RRRun per reading, strictly in order, resumable. Round 6 (owner, "exactly like Achieve3000"): the steps
+ *            are Ready → Read → Respond → Reflect → Write = PREPOLL → READ → QUIZ → POSTPOLL → WRITE → DONE (a run
+ *            left in WRITE/POSTPOLL by the old order finishes the old way). Respond is ONE question per screen with a
+ *            second try (answerQuestion); the SCORE is the first tries only (RRRun.answers), the second tries go to
+ *            RRRun.annotations.secondTry. A version below 400 shows 4 of the band's 8 questions (question-type.ts
+ *            pickShownQuestions). Ready / Reflect explanations, the Article Rating, drafts and notes live in
+ *            RRRun.annotations (text.ts readAnnotations / withRunExtras: { marks, …extras }).
  *            The version is chooseVersion(level, versions): the version whose MEASURED level (official measure, else
  *            the cached estimate RRVersion.estLevel) best fits the student's level; its question band is bandOf(version).
  *  Scoring   on the server. FIRST-TRY rule: only the first scored reading of an article counts (score, level,
  *            goals); later re-reads have firstTry = false. After submitting, every answer's "why" is shown and a
  *            practice pass is allowed that never changes the score.
- *  Stretch   the same article one version higher (stretch = true): never lowers the level. Round 4 (owner): ONLY the
- *            first try counts — a re-read is practice (never the level, goal, window or stars). Round 5 (owner): after a
- *            RELIABLE first try of 75%+ a stretch is ALWAYS offered while a higher version exists (stretchOffer below):
- *            with the article's stretch set ("S-L/M/H", 4 new questions) or in a new band it counts fully; in the same
- *            band without a set it is practice (weekly goal only — one credit per article).
+ *  Stretch   round 6: the same article at the GRADE-LEVEL version (benchmarks.ts gradeLevelVersion; the next version up
+ *            when that is not above the student's), steps Stretch Read → Stretch Respond only, PRACTICE ONLY (never the
+ *            level, the goal, the window, the stars): offered after a RELIABLE first try of 75%+ (stretchOffer below).
+ *            Round 4: ONLY the first try counts — a re-read is practice.
  *  Status    ONE article status (first-try.ts articleStatus): New / In progress / Finish steps 4–5 / Done.
  *  completedAt = when the activity (step 3) was scored — the moment the reading "counts". step = DONE when all
  *  5 steps are finished.
@@ -34,7 +39,10 @@ import { ForbiddenError, type Actor } from "../auth/rbac";
 import { ValidationError } from "../curriculum-admin";
 import { LIBRARY_LEVELS, bandOf, chooseVersion, measuredLevel, stretchAbove, type MeasuredVersion, type RRBand } from "./level";
 import { ENGINE, applyFirstTryScore, ensureRRStudent, goalDates, goalStats, levelHistory, levelWindow, readRisePlaced, readsToMoveUp, s, studentReadRiseSummary, toDate, yearEndFor, type GoalStats, type ReadRiseSummary } from "./engine";
-import { articleStatus, baseBand, firstTryRun, isFirst, isStretch, isUnreliableRun, rapidRead, stretchCountsFully, stretchSetBand, type ArticleStatus } from "./first-try";
+import { articleStatus, baseBand, firstTryRun, isFirst, isStretch, isUnreliableRun, rapidRead, stretchSetBand, type ArticleStatus } from "./first-try";
+import { QUESTION_TYPE_NAME, pickShownQuestions, questionTypeOf } from "./question-type";
+import { gradeLevelVersion } from "./benchmarks";
+import { POINTS, TEACHER_BADGES, celebrationsOn, earnsActivityPoints, forgetStudentPoints, scoreBonus, teacherBadgesOf, writingPoints as writingPointsFor } from "./points";
 import { activeCancels } from "../student/cancelled-work";
 import { readNext, recommendFor, type RecommendReason } from "./recommend";
 import { getInterests } from "./interests";
@@ -43,11 +51,13 @@ import { placementStatus } from "./placement";
 import { loadPlacementPassages, type PlacementPassage } from "./content-loader";
 import { modelVersion } from "../cache/bank-version";
 import { remember } from "../cache/lru";
-import { cleanAnnotations, keyWordFor, minutesFor, tokenize, type Annotation, type KeyWord } from "../../components/readrise/text";
+import { cleanAnnotations, keyWordFor, minutesFor, pollSide, readAnnotations, tokenize, withRunExtras, type Annotation, type KeyWord, type RunExtras } from "../../components/readrise/text";
 import { sweptWeakMap } from "../cache/idle";
 import { startedBy } from "../../lib/assign-dates";
 
-export const STEPS = ["PREPOLL", "READ", "QUIZ", "WRITE", "POSTPOLL", "DONE"] as const;
+/** round 6: the Achieve order — Ready, Read, Respond, Reflect, Write (the values are the stored RRRun.step words) */
+export const STEPS = ["PREPOLL", "READ", "QUIZ", "POSTPOLL", "WRITE", "DONE"] as const;
+export const STEP_TITLE: Record<Exclude<RunStep, "DONE">, string> = { PREPOLL: "Ready", READ: "Read", QUIZ: "Respond", POSTPOLL: "Reflect", WRITE: "Write" };
 export type RunStep = (typeof STEPS)[number];
 export const MIN_WRITING_WORDS = 30;
 const LETTERS = ["A", "B", "C", "D"];
@@ -277,7 +287,42 @@ export function recommend(unread: ArticleCard[], runs: Row[], arts: Row[], now: 
 // ------------------------------------------------------------------ the routine
 
 export interface QuestionView { number: number; stem: string; options: string[]; skill: string }
-export interface Review { number: number; chosen: string | null; answer: string; correct: boolean; why: string; wrongWhy: string | null }
+export interface Review {
+  number: number; chosen: string | null; answer: string; correct: boolean; why: string; wrongWhy: string | null;
+  /** round 6: the question type's name ("Main idea" …) for the Results Table */
+  skillName?: string;
+  /** round 6: the second try (only after a wrong first try), null when there was none */
+  second?: string | null; secondCorrect?: boolean | null;
+}
+/** Round 6 (Achieve, points.ts POINTS): 2 points for a right first try, 1 for a right second try. */
+export const RR_POINTS = { first: POINTS.firstTryRight, second: POINTS.secondTryRight } as const;
+/** The Respond step's points from its review (first + second tries) and the first-try score's bonus (points.ts scoreBonus). */
+export function activityPoints(review: readonly Review[], score: number | null): { earned: number; bonus: number; secondPct: number } {
+  const earned = review.reduce((n, r) => n + (r.correct ? RR_POINTS.first : r.secondCorrect ? RR_POINTS.second : 0), 0);
+  const right = review.filter((r) => r.correct || r.secondCorrect).length;
+  return { earned, bonus: score !== null ? scoreBonus(score) : 0, secondPct: review.length ? Math.round((100 * right) / review.length) : 0 };
+}
+/**
+ * annotations.secondTry (the shape points.ts secondTryRight reads): question number → { letter, correct }. Older
+ * shapes (a bare letter) are read too.
+ */
+export type SecondTries = Record<string, { letter: string; correct: boolean }>;
+function secondLetters(v: unknown): Record<string, string> {
+  const out: Record<string, string> = {};
+  if (v && typeof v === "object" && !Array.isArray(v)) for (const [k, x] of Object.entries(v as Record<string, unknown>)) {
+    const l = typeof x === "string" ? x : x && typeof x === "object" ? (x as { letter?: unknown }).letter : null;
+    if (typeof l === "string" && l) out[k] = l.toUpperCase();
+  }
+  return out;
+}
+/** One question's state while Respond is open (the answer is only given once the question is finished). */
+export interface QuizProgress { number: number; first: string | null; firstCorrect: boolean | null; second: string | null; secondCorrect: boolean | null; done: boolean; answer: string | null }
+/** What answerQuestion returns: the feedback for the try just made. */
+export interface QuestionFeedback { number: number; try: 1 | 2; correct: boolean; points: number; done: boolean; answer: string | null; why: string | null; allDone: boolean }
+/** The Reflect results: % Agree / Disagree before and after reading across ALL the platform's students (this article). */
+export interface PollStats { before: { agree: number; disagree: number; n: number }; after: { agree: number; disagree: number; n: number } }
+/** One classmate's Reflect explanation (initials only). */
+export interface FeedItem { initials: string; why: string; side: "AGREE" | "DISAGREE" | null; at: string; mine: boolean }
 export interface DoneView {
   score: number | null; firstTry: boolean; stretch: boolean; levelBefore: number; levelAfter: number; goal: GoalStats; canStretch: boolean; prePoll: number | null; postPoll: number | null;
   /** owner r69: some answers were too fast to be read, so this reading did not count (a gentle "take your time") */
@@ -310,6 +355,29 @@ export interface RunView {
   done: DoneView | null;
   /** round 5: an optional, unscored word warm-up (2 quick questions) before reading — only on the key-words step */
   warmup?: WarmupQ[];
+  // ---------------------------------------------------------------- round 6 (Achieve-like steps)
+  /** Ready / Reflect: the vote (0–3 scale) and the explanation */
+  ready?: { vote: number; why: string } | null;
+  reflect?: { vote: number; why: string } | null;
+  /** the Article Rating popup's answer (null = not asked yet) */
+  rating?: RunExtras["rating"] | null;
+  /** Respond in progress: each shown question's state (null outside the QUIZ step) */
+  quiz?: QuizProgress[] | null;
+  /** Reflect results: platform-wide % before / after (from the Reflect step on) */
+  pollStats?: PollStats | null;
+  /** classmates' Reflect explanations (initials only); null = the class feed is off or not open yet */
+  feed?: FeedItem[] | null;
+  /** Write: the drafts and the open one; the Notes tab text */
+  drafts?: string[]; draft?: number; notesText?: string;
+  /** after scoring: points earned (first + second tries), the bonus and the second-try % */
+  points?: { earned: number; bonus: number; secondPct: number } | null;
+  /** the student's own ReadRise level (may be below 300: "BR120L" / "95L" while reading the 300 version) */
+  level?: number;
+  /** points.ts celebrationsOn: false when a class of the student turned celebrations off (no "Great work!" popup) */
+  celebrate?: boolean;
+  /** the Grading Center: badges the teacher gave this writing (names + points) and the writing's points */
+  teacherBadges?: { name: string; points: number }[];
+  writingPoints?: number | null;
 }
 
 const asKeyWords = (v: unknown): KeyWord[] => (Array.isArray(v) ? v : []).filter((k) => k && typeof k === "object" && (k as KeyWord).word).map((k) => ({ word: s((k as KeyWord).word), partOfSpeech: s((k as KeyWord).partOfSpeech), definition: s((k as KeyWord).definition), example: s((k as KeyWord).example) }));
@@ -327,6 +395,34 @@ export async function keyWordsFor(repo: Repo, articleId: string, band: string, b
 async function questionsOf(repo: Repo, articleId: string, band: string): Promise<Row[]> {
   return (await repo.findMany("RRQuestion", { articleId, band })).sort((a, b) => Number(a.number) - Number(b.number));
 }
+/** Round 6: the questions a run SHOWS (and scores): 4 below the 400 version, else all (question-type.ts). */
+/**
+ * The questions a run shows: pickShownQuestions (4 below the 400 version, else all) — but a scored run keeps the
+ * questions it was scored on: an older run (scored on 8 before the 4-question rule) still shows its 8 stored answers.
+ */
+export function runQuestions<T extends Record<string, unknown>>(all: readonly T[], run: Row): T[] {
+  const shown = pickShownQuestions(all, Number(run.versionLevel));
+  const raw = run.score !== null && run.score !== undefined ? run.answers : null;
+  let a: unknown = raw;
+  if (typeof a === "string") { try { a = JSON.parse(a); } catch { a = null; } }
+  const keys = a && typeof a === "object" && !Array.isArray(a) ? new Set(Object.keys(a as Record<string, unknown>)) : null;
+  if (!keys || keys.size <= shown.length) return shown;
+  const stored = [...all].filter((q) => keys.has(String(q.number))).sort((x, y) => Number(x.number) - Number(y.number));
+  return stored.length > shown.length ? stored : shown;
+}
+
+async function shownQuestionsOf(repo: Repo, run: Row): Promise<Row[]> {
+  return runQuestions(await questionsOf(repo, s(run.articleId), s(run.band)), run);
+}
+const LETTER_OK = (v: unknown) => { const l = String(v ?? "").trim().toUpperCase(); return LETTERS.includes(l) ? l : null; };
+const extrasOf = (run: Row): RunExtras => readAnnotations(run.annotations).extras;
+const asNote = (v: unknown): { vote: number; why: string } | null => {
+  if (!v || typeof v !== "object") return null;
+  const o = v as Record<string, unknown>;
+  const vote = Number(o.vote);
+  return Number.isInteger(vote) ? { vote, why: s(o.why) } : null;
+};
+const cleanWhy = (t: unknown) => String(t ?? "").replace(/\r\n/g, "\n").trim().slice(0, 1500);
 
 function explain(q: Row, chosen: string | null): { why: string; wrongWhy: string | null } {
   const r = (q.rationale && typeof q.rationale === "object" ? q.rationale : {}) as Record<string, unknown>;
@@ -337,12 +433,13 @@ function explain(q: Row, chosen: string | null): { why: string; wrongWhy: string
   return { why, wrongWhy };
 }
 
-/** Scores answers on the server (questions in number order). */
-export function scoreAnswers(questions: Row[], answers: Record<string, string>): { correct: number; total: number; pct: number; review: Review[] } {
+/** Scores answers on the server (questions in number order). `second` = the second tries (round 6, never scored). */
+export function scoreAnswers(questions: Row[], answers: Record<string, string>, second: Record<string, string> = {}): { correct: number; total: number; pct: number; review: Review[] } {
   const review = questions.map((q) => {
     const chosen = answers[String(q.number)] ? String(answers[String(q.number)]).toUpperCase() : null;
     const ok = chosen === s(q.answer);
-    return { number: Number(q.number), chosen, answer: s(q.answer), correct: ok, ...explain(q, chosen) };
+    const sec = !ok && second[String(q.number)] ? String(second[String(q.number)]).toUpperCase() : null;
+    return { number: Number(q.number), chosen, answer: s(q.answer), correct: ok, ...explain(q, chosen), skillName: QUESTION_TYPE_NAME[questionTypeOf(q)], second: sec, secondCorrect: sec === null ? null : sec === s(q.answer) };
   });
   const correct = review.filter((r) => r.correct).length;
   return { correct, total: questions.length, pct: questions.length ? Math.round((100 * correct) / questions.length) : 0, review };
@@ -387,17 +484,17 @@ export interface StretchOfferResult {
 }
 
 /**
- * 🎯 Round 5 (owner): may this article be stretched now? The same rule for the library card, the article page, the
- * done screen and the server (startRun). After a RELIABLE first try (not a re-read, not Unreliable) of 75%+, once,
- * a stretch is ALWAYS offered when a higher version exists. How it counts:
- *   - the article has a stretch set for the higher version's band (`stretchBands` holds "S-L" / "S-M" / "S-H") →
- *     the stretch uses those 4 NEW questions and counts fully (level window, weekly goal, stars);
- *   - else a band different from the first read's → that band's questions, counts fully (the round 4 rule);
- *   - else (same band, no set) → the band's questions again, as PRACTICE: the weekly goal only (one credit per
- *     article: first-try.ts goalRuns), never the level or the stars.
+ * 🎯 May this article be stretched now? The same rule for the library card, the article page, the done screen and the
+ * server (startRun). After a RELIABLE first try (not a re-read, not Unreliable) of 75%+, once, while a higher version
+ * exists. Round 6 (owner, like Achieve3000): the Stretch text is the GRADE-LEVEL version for the student's `grade`
+ * (benchmarks.ts gradeLevelVersion); when that is not above the version the student reads (or read), the next version
+ * up. It is PRACTICE ONLY (mode always "PRACTICE": never the level, the goal, the window or the stars). Its questions:
+ *   - a band different from the first read's → that band's questions (8 new questions);
+ *   - else the article's stretch set for the band (`stretchBands` holds "S-L" / "S-M" / "S-H": 4 new questions);
+ *   - else the band's questions again.
  * `runs` = the student's runs of this article (columns: band, versionLevel, step, score, firstTry, stretch, unreliable).
  */
-export function stretchOffer(runs: readonly Row[], level: number, versions: MeasuredVersion[], stretchBands: ReadonlySet<string> = new Set()): StretchOfferResult {
+export function stretchOffer(runs: readonly Row[], level: number, versions: MeasuredVersion[], stretchBands: ReadonlySet<string> = new Set(), grade: number | null = null): StretchOfferResult {
   const no = (why: string): StretchOfferResult => ({ ok: false, up: null, why, band: null, mode: null });
   if (runs.some((r) => isStretch(r))) return no("You already stretched this article.");
   const first = firstTryRun(runs);
@@ -408,11 +505,82 @@ export function stretchOffer(runs: readonly Row[], level: number, versions: Meas
   // drop, today's version may be lower: a "stretch" must never be the same or an easier text)
   const read = Number(first.versionLevel);
   const base = Math.max(chooseVersion(level, versions), Number.isFinite(read) && read > 0 ? read : 0);
-  const up = stretchAbove(base, versions.map((v) => Number(v.level)));
+  const nums = versions.map((v) => Number(v.level));
+  const gl = grade !== null && Number.isFinite(Number(grade)) && Number(grade) > 0 ? gradeLevelVersion(Number(grade), nums) : null;
+  const up = gl !== null && gl > base ? gl : stretchAbove(base, nums);
   if (up === null) return no("There is no higher version of this article.");
   const vb = bandOf(up), set = stretchSetBand(vb);
-  if (stretchBands.has(set)) return { ok: true, up, why: null, band: set, mode: "FULL" };
-  return { ok: true, up, why: null, band: vb, mode: stretchCountsFully(s(first.band), vb) ? "FULL" : "PRACTICE" };
+  const band = s(first.band) && s(first.band) !== vb ? vb : stretchBands.has(set) ? set : vb;
+  return { ok: true, up, why: null, band, mode: "PRACTICE" };
+}
+
+/** The student's grade number (Student.gradeId → Grade.level), null when unknown. */
+export async function studentGrade(repo: Repo, studentId: string): Promise<number | null> {
+  const st = await repo.findUnique("Student", { id: studentId });
+  const g = st?.gradeId ? await repo.findUnique("Grade", { id: s(st.gradeId) }) : null;
+  const n = Number(g?.level);
+  return Number.isFinite(n) && n > 0 ? n : null;
+}
+
+// ------------------------------------------------------------------ Reflect: platform-wide poll results + class feed
+
+/** % Agree / Disagree before and after reading, across every student of the platform who answered (this article). */
+export async function pollStatsFor(repo: Repo, articleId: string): Promise<PollStats> {
+  const [ba, bd, aa, ad] = await Promise.all([
+    repo.count("RRRun", { articleId, prePoll: { in: [0, 1] } }), repo.count("RRRun", { articleId, prePoll: { in: [2, 3] } }),
+    repo.count("RRRun", { articleId, postPoll: { in: [0, 1] } }), repo.count("RRRun", { articleId, postPoll: { in: [2, 3] } }),
+  ]);
+  const pct = (a: number, d: number) => { const n = a + d; return { agree: n ? Math.round((100 * a) / n) : 0, disagree: n ? 100 - Math.round((100 * a) / n) : 0, n }; };
+  return { before: pct(ba, bd), after: pct(aa, ad) };
+}
+
+/** The SchoolSetting key that turns a class's Reflect comment feed off (value "1"; the teacher's toggle). */
+export const feedOffKey = (classId: string) => `readrise.feedOff:${classId}`;
+/** A class toggle's stored value is on: "1" / 1 / true / "true" / { on: true } (teacher.ts classSettings writes the last). */
+const isOn = (v: unknown): boolean => {
+  let x = v;
+  if (typeof x === "string") { try { x = JSON.parse(x); } catch { /* plain text */ } }
+  if (x && typeof x === "object") return (x as { on?: unknown }).on === true;
+  return x === "1" || x === 1 || x === true || x === "true";
+};
+/** The badgesOff key (teacher.ts classSettingKey("badgesOff", classId)): no celebration messages for that class. */
+const badgesOffKey = (classId: string) => `readrise.badgesOff:${classId}`;
+
+/** The student's classes and their ReadRise toggles (the Reflect feed, the celebrations). */
+export async function classToggles(repo: Repo, studentId: string, schoolId: string): Promise<{ classIds: string[]; feedOff: Set<string>; badgesOff: boolean }> {
+  const mine = await repo.findMany("ClassMembership", { studentId, leftAt: null }, { select: ["classId"] });
+  const classIds = [...new Set(mine.map((m) => s(m.classId)))].slice(0, 20);
+  if (!classIds.length) return { classIds, feedOff: new Set(), badgesOff: false };
+  const rows = await repo.findMany("SchoolSetting", { schoolId, key: { in: [...classIds.map(feedOffKey), ...classIds.map(badgesOffKey)] } }, { select: ["key", "value"] });
+  const on = new Set(rows.filter((r) => isOn(r.value)).map((r) => s(r.key)));
+  return { classIds, feedOff: new Set(classIds.filter((c) => on.has(feedOffKey(c)))), badgesOff: classIds.some((c) => on.has(badgesOffKey(c))) };
+}
+/** "Jana Ahmed" → "J.A." (at most two letters). */
+export const initialsOf = (name: string): string => s(name).trim().split(/\s+/).filter(Boolean).slice(0, 2).map((w) => `${Array.from(w)[0]?.toUpperCase() ?? ""}.`).join("") || "?";
+export const FEED_MAX = 30;
+
+/**
+ * 💬 The class comment feed: the Reflect explanations of this article by students of the reader's classes (initials
+ * only, newest first, at most FEED_MAX). A class whose teacher turned the feed off (feedOffKey = "1") is left out;
+ * null when every class of the student has it off (or the student is in no class).
+ */
+export async function classFeed(repo: Repo, studentId: string, schoolId: string, articleId: string): Promise<FeedItem[] | null> {
+  const { classIds, feedOff } = await classToggles(repo, studentId, schoolId);
+  if (!classIds.length) return null;
+  const open = classIds.filter((c) => !feedOff.has(c));
+  if (!open.length) return null;
+  const mates = [...new Set((await repo.findMany("ClassMembership", { classId: { in: open }, leftAt: null }, { select: ["studentId"] })).map((m) => s(m.studentId)))].slice(0, 400);
+  if (!mates.length) return [];
+  const runs = (await repo.findMany("RRRun", { articleId, studentId: { in: mates }, postPoll: { not: null } }, { select: ["studentId", "annotations", "postPoll", "startedAt"] }))
+    .map((r) => ({ r, note: asNote(readAnnotations(r.annotations).extras.reflect), at: s((readAnnotations(r.annotations).extras.reflect as { at?: unknown } | undefined)?.at) }))
+    .filter((x) => x.note && x.note.why.trim())
+    .sort((a, b) => b.at.localeCompare(a.at)).slice(0, FEED_MAX);
+  if (!runs.length) return [];
+  const ids = [...new Set(runs.map((x) => s(x.r.studentId)))];
+  const studs = await repo.findMany("Student", { id: { in: ids } }, { select: ["id", "userId"] });
+  const users = studs.length ? await repo.findMany("User", { id: { in: studs.map((x) => s(x.userId)) } }, { select: ["id", "displayName"] }) : [];
+  const nameOf = new Map(studs.map((x) => [s(x.id), s(users.find((u) => s(u.id) === s(x.userId))?.displayName)]));
+  return runs.map((x) => ({ initials: initialsOf(nameOf.get(s(x.r.studentId)) ?? ""), why: x.note!.why.slice(0, 600), side: pollSide(x.note!.vote), at: x.at, mine: s(x.r.studentId) === studentId }));
 }
 
 /** The stretch-set bands ("S-L" / "S-M" / "S-H") an article has questions for. */
@@ -435,16 +603,24 @@ export async function runView(repo: Repo, actor: Actor, runId: string, now = new
   // round 5: a stretch run may use the article's stretch set ("S-H" …): its questions by the run's band, its prompt
   // and key words by the band it belongs to (first-try.ts baseBand)
   const band = baseBand(run.band);
-  const [art, ver, prompt, qs] = await Promise.all([
+  const step = s(run.step) as RunStep;
+  const [art, ver, prompt, allQs, rr] = await Promise.all([
     repo.findUnique("RRArticle", { id: articleId }),
     repo.findUnique("RRVersion", { articleId, level: Number(run.versionLevel) }),
     repo.findUnique("RRPrompt", { articleId, band }),
     questionsOf(repo, articleId, s(run.band)),
+    repo.findUnique("RRStudent", { studentId: s(run.studentId) }),
   ]);
+  // round 6: only the questions this version SHOWS (4 below the 400 version, else all)
+  const qs = runQuestions(allQs, run); // an old run keeps the questions it was scored on
   const version = ver, pr = prompt;
   const body = s(version?.body);
+  const ex = extrasOf(run);
   const scored = run.score !== null && run.score !== undefined;
-  const answers = scored && run.answers && typeof run.answers === "object" ? (run.answers as Record<string, string>) : null;
+  const stored = scored && run.answers && typeof run.answers === "object" ? (run.answers as Record<string, string>) : null;
+  const answers = stored;
+  const second = secondLetters(ex.secondTry);
+  const review = answers ? scoreAnswers(qs, answers, second).review : null;
   let done: DoneView | null = null;
   const keyWords = keyWordsFor(repo, articleId, band, body); // read alongside the rest
   keyWords.catch(() => undefined); // (awaited below; never an unhandled rejection meanwhile)
@@ -452,18 +628,23 @@ export async function runView(repo: Repo, actor: Actor, runId: string, now = new
   const warmup: Promise<WarmupQ[]> = run.step === "READ" && !Number(run.readSeconds ?? 0)
     ? wordWarmup(repo, s(run.studentId), now).then((w) => (Array.isArray(w) ? w.slice(0, 2) : [])).catch(() => [])
     : Promise.resolve([]);
+  // 🗳 round 6: Reflect results (platform-wide %) and the class feed — once the student has voted after reading
+  const reflected = run.postPoll !== null && run.postPoll !== undefined && run.stretch !== true;
+  const stats: Promise<PollStats | null> = reflected ? pollStatsFor(repo, articleId).catch(() => null) : Promise.resolve(null);
+  const feed: Promise<FeedItem[] | null> = reflected ? classFeed(repo, s(run.studentId), s(run.schoolId), articleId).catch(() => null) : Promise.resolve(null);
+  stats.catch(() => undefined); feed.catch(() => undefined);
   if (run.step === "DONE") {
     const studentId = s(run.studentId);
-    const [vers, rr, mine, goal, sets] = await Promise.all([
+    const [vers, rrow, mine, goal, sets, grade] = await Promise.all([
       repo.findMany("RRVersion", { articleId }, { select: MEASURE_COLS }),
       ensureRRStudent(repo, studentId, now),
       repo.findMany("RRRun", { studentId, articleId }, { select: ["id", "band", "versionLevel", "step", "score", "firstTry", "stretch", "unreliable", "startedAt"] }),
       goalFor(repo, studentId, now),
       stretchBandsOf(repo, articleId),
+      studentGrade(repo, studentId).catch(() => null),
     ]);
     const isStretchRun = run.stretch === true;
-    const offer: StretchOfferResult = isStretchRun ? { ok: false, up: null, why: null } : stretchOffer(mine, Number(rr.level), asMeasured(vers), sets);
-    const firstBand = mine.find((r) => isFirst(r) && !isStretch(r))?.band;
+    const offer: StretchOfferResult = isStretchRun ? { ok: false, up: null, why: null } : stretchOffer(mine, Number(rrow.level), asMeasured(vers), sets, grade);
     const kind: DoneView["kind"] = isStretchRun ? "STRETCH" : run.firstTry === true ? "FIRST" : "REREAD";
     let next: DoneView["readNext"] = null;
     try {
@@ -473,29 +654,68 @@ export async function runView(repo: Repo, actor: Actor, runId: string, now = new
     done = {
       score: scored ? Number(run.score) : null, firstTry: run.firstTry === true, stretch: isStretchRun,
       levelBefore: Number(run.levelBefore), levelAfter: Number(run.levelAfter ?? run.levelBefore), goal,
-      // ⬆ round 5: the one stretch rule (stretchOffer): a reliable first try of 75%+ → always, while a higher version exists
+      // ⬆ the one stretch rule (stretchOffer): a reliable first try of 75%+ → always, while a higher version exists
       canStretch: offer.ok, stretchWhy: offer.ok ? null : offer.why, stretchMode: offer.ok ? offer.mode ?? null : null,
-      stretchCounted: isStretchRun ? (stretchCountsFully(firstBand ? s(firstBand) : null, s(run.band)) ? "FULL" : "PRACTICE") : null,
+      // round 6: a stretch is always practice
+      stretchCounted: isStretchRun ? "PRACTICE" : null,
       prePoll: run.prePoll === null || run.prePoll === undefined ? null : Number(run.prePoll), postPoll: run.postPoll === null || run.postPoll === undefined ? null : Number(run.postPoll),
       tooFast: run.unreliable === true || run.unreliable === 1,
       kind, readTooFast: rapidRead(run), readNext: next, wordsSaved: extra.wordsSaved ?? null,
     };
   }
+  // ✍️ Write: the drafts (Draft 1, Draft 2 …); an old run's draft is its writing
+  const drafts = Array.isArray(ex.drafts) ? (ex.drafts as unknown[]).map((x) => s(x).slice(0, 6000)).slice(0, MAX_DRAFTS) : [];
+  const draft = Math.min(Math.max(0, Math.floor(Number(ex.draft) || 0)), Math.max(0, drafts.length - 1));
+  // submitted = the run moved past Write with a text (new order: WRITE → DONE; old order: WRITE → POSTPOLL → DONE)
+  const submitted = s(run.writing).trim().length > 0 && (step === "DONE" || step === "POSTPOLL");
+  // 🎯 Respond in progress: each shown question's state (the answer only once the question is finished)
+  let quiz: QuizProgress[] | null = null;
+  if (step === "QUIZ") {
+    const q0 = ex.quiz ?? { first: {}, second: {}, at: {} };
+    quiz = qs.map((q) => {
+      const n = String(q.number), f = q0.first?.[n] ?? null, sc = q0.second?.[n] ?? null;
+      const fc = f === null ? null : f === s(q.answer), scc = sc === null ? null : sc === s(q.answer);
+      const fin = fc === true || sc !== null;
+      return { number: Number(q.number), first: f, firstCorrect: fc, second: sc, secondCorrect: scc, done: fin, answer: fin ? s(q.answer) : null };
+    });
+  }
   return {
-    runId: s(run.id), articleId, step: s(run.step) as RunStep, stretch: run.stretch === true, firstTry: run.firstTry === true,
+    runId: s(run.id), articleId, step, stretch: run.stretch === true, firstTry: run.firstTry === true,
     versionLevel: Number(run.versionLevel), band: s(run.band) as RRBand, title: s(version?.title) || s(art?.title), topic: s(art?.topic), poll: s(art?.pollStatement),
     prePoll: run.prePoll === null || run.prePoll === undefined ? null : Number(run.prePoll), postPoll: run.postPoll === null || run.postPoll === undefined ? null : Number(run.postPoll),
     body, keyWords: await keyWords, annotations: cleanAnnotations(run.annotations, tokenize(body).flat().length),
     readSeconds: Number(run.readSeconds ?? 0), listened: run.listened === true,
     questions: qs.map((q) => ({ number: Number(q.number), stem: s(q.stem), options: Array.isArray(q.options) ? (q.options as unknown[]).map(String) : [], skill: s(q.skill) })),
-    score: scored ? Number(run.score) : null, answers, review: answers ? scoreAnswers(qs, answers).review : null,
+    score: scored ? Number(run.score) : null, answers, review,
     prompt: s(pr?.prompt), checklist: Array.isArray(pr?.checklist) ? (pr!.checklist as unknown[]).map(String) : [],
-    writing: s(run.writing), writingScore: run.writingScore === null || run.writingScore === undefined ? null : Number(run.writingScore), writingComment: run.writingComment ? s(run.writingComment) : null,
-    // ✍️ only once the student submitted their OWN writing (run.writing is set) — never before, so it cannot be copied
-    modelAnswer: s(run.writing).trim() && pr?.modelAnswer ? s(pr.modelAnswer) : null,
+    writing: step === "WRITE" && drafts.length ? drafts[draft] ?? "" : s(run.writing),
+    writingScore: run.writingScore === null || run.writingScore === undefined ? null : Number(run.writingScore), writingComment: run.writingComment ? s(run.writingComment) : null,
+    // ✍️ only once the student submitted their OWN writing — never before, so it cannot be copied
+    modelAnswer: submitted && pr?.modelAnswer ? s(pr.modelAnswer) : null,
     done, warmup: await warmup,
+    ready: asNote(ex.ready), reflect: asNote(ex.reflect), rating: ex.rating ?? null, quiz,
+    pollStats: await stats, feed: await feed,
+    drafts, draft, notesText: s(ex.notesText),
+    // the ONE points rule (points.ts earnsActivityPoints — the total and the school board use it too): a first try,
+    // a Stretch first try included, reliable and read carefully; else 0 points (the second-try % is still shown)
+    points: review ? (earnsActivityPoints(run) ? activityPoints(review, scored ? Number(run.score) : null) : { ...activityPoints(review, null), earned: 0 }) : null,
+    celebrate: scored ? await celebrateFor(repo, s(run.studentId), s(run.schoolId)) : true,
+    teacherBadges: teacherBadgesOf(run.annotations).map((b) => TEACHER_BADGES.find((x) => x.code === b.code)).filter((b): b is { code: string; name: string; points: number } => !!b).map((b) => ({ name: b.name, points: b.points })),
+    writingPoints: Number.isFinite(Number((ex as { writingPoints?: unknown }).writingPoints)) && (ex as { writingPoints?: unknown }).writingPoints !== null && (ex as { writingPoints?: unknown }).writingPoints !== undefined
+      ? Number((ex as { writingPoints?: unknown }).writingPoints)
+      : run.writingScore === null || run.writingScore === undefined ? null : writingPointsFor(run.writingScore),
+    level: rr ? Number(rr.level) : undefined,
   };
 }
+/** Celebrations on: points.ts celebrationsOn and no class of the student with badgesOff on (either storage form). */
+async function celebrateFor(repo: Repo, studentId: string, schoolId: string): Promise<boolean> {
+  try {
+    const [p, mine] = await Promise.all([celebrationsOn(repo, studentId, schoolId), classToggles(repo, studentId, schoolId)]);
+    return p && !mine.badgesOff;
+  } catch { return true; }
+}
+/** Write: at most this many drafts. */
+export const MAX_DRAFTS = 5;
 
 export interface ArticlePage {
   articleId: string; title: string; topic: string; summary: string; minutes: number; versionLevel: number; run: RunView | null; canStretch: boolean; hasRead: boolean; level: number;
@@ -573,14 +793,15 @@ export async function startRun(repo: Repo, actor: Actor, articleId: string, opts
       // ⬆ round 5: the server's copy of the one stretch rule (never trust the button being hidden client-side): a
       // reliable first try of 75%+, once, while a higher version exists. The run's band = the questions it uses: the
       // article's stretch set ("S-H" …) when it has one for that band, else the version's band
-      const offer = stretchOffer(runs, level, levels, await stretchBandsOf(tx, articleId));
+      const offer = stretchOffer(runs, level, levels, await stretchBandsOf(tx, articleId), await studentGrade(tx, studentId).catch(() => null));
       if (!offer.ok || offer.up === null) throw new ValidationError(offer.why ?? "This article cannot be stretched.");
       versionLevel = offer.up;
       band = offer.band ?? bandOf(versionLevel);
     } else { versionLevel = chooseVersion(level, levels); band = bandOf(versionLevel); }
     const firstTry = !runs.some((r) => (r.stretch === true) === Boolean(opts.stretch));
+    // round 6: a stretch has only Stretch Read → Stretch Respond (no Ready / Reflect / Write)
     const row = await tx.create("RRRun", {
-      studentId, schoolId, articleId, versionLevel, band, step: "PREPOLL", levelBefore: level,
+      studentId, schoolId, articleId, versionLevel, band, step: opts.stretch ? "READ" : "PREPOLL", levelBefore: level,
       firstTry, stretch: Boolean(opts.stretch), listened: false, startedAt: now,
     });
     return s(row.id);
@@ -590,89 +811,194 @@ export async function startRun(repo: Repo, actor: Actor, articleId: string, opts
 
 const pollValue = (v: unknown) => { const n = Number(v); if (!Number.isInteger(n) || n < 0 || n > 3) throw new ValidationError("Choose one answer."); return n; };
 
-/** Step 1: the before-reading poll. */
-export async function submitPrePoll(repo: Repo, actor: Actor, runId: string, value: number, now = new Date()): Promise<RunView> {
-  const run = await ownRun(repo, actor, runId);
-  expectStep(run, "PREPOLL");
-  await repo.updateMany("RRRun", { id: runId, step: "PREPOLL" }, { prePoll: pollValue(value), step: "READ" });
+/** Step 1 · Ready: the before-reading vote (Agree / Disagree) and "Explain why you voted the way you did". */
+export async function submitPrePoll(repo: Repo, actor: Actor, runId: string, value: number, now = new Date(), why = ""): Promise<RunView> {
+  const vote = pollValue(value);
+  const run = await lockedRun(repo, actor, runId, async (tx, r) => {
+    expectStep(r, "PREPOLL");
+    await tx.updateMany("RRRun", { id: runId, step: "PREPOLL" }, { prePoll: vote, step: "READ", annotations: withRunExtras(r.annotations, { ready: { vote, why: cleanWhy(why), at: now.toISOString() } }) });
+    return r;
+  });
+  forgetStudentPoints(repo, s(run.studentId)); // a vote earns points (points.ts)
   return runView(repo, actor, runId, now);
 }
 
-export interface ReadingProgress { readSeconds?: number; listened?: boolean; annotations?: unknown }
+export interface ReadingProgress { readSeconds?: number; listened?: boolean; annotations?: unknown; /** round 6: the Notes tab text */ notesText?: string }
 
 async function readingPatch(repo: Repo, run: Row, p: ReadingProgress): Promise<Row> {
   const patch: Row = {};
   if (p.readSeconds !== undefined) patch.readSeconds = Math.max(Number(run.readSeconds ?? 0), Math.min(3 * 3600, Math.max(0, Math.round(Number(p.readSeconds) || 0))));
   if (p.listened) patch.listened = true;
+  let marks: unknown[] | undefined;
   if (p.annotations !== undefined) {
     const ver = await repo.findUnique("RRVersion", { articleId: s(run.articleId), level: Number(run.versionLevel) });
-    patch.annotations = cleanAnnotations(p.annotations, tokenize(s(ver?.body)).flat().length);
+    marks = cleanAnnotations(p.annotations, tokenize(s(ver?.body)).flat().length);
+  }
+  // round 6: the highlights live in annotations.marks beside the step data (an old array becomes { marks })
+  // the notes are dropped once the writing is sent (submitWriting): a late autosave never stores them again
+  const notes = p.notesText !== undefined && !s(run.writing).trim();
+  if (marks !== undefined || notes) {
+    patch.annotations = withRunExtras(run.annotations, notes ? { notesText: String(p.notesText ?? "").slice(0, 4000) } : {}, marks);
   }
   return patch;
 }
 
 /** Saves highlights/notes, reading time and read-aloud use (any step before DONE). */
 export async function saveReading(repo: Repo, actor: Actor, runId: string, p: ReadingProgress): Promise<{ ok: true }> {
-  const run = await ownRun(repo, actor, runId);
-  if (run.step === "PREPOLL" || run.step === "DONE") throw new ValidationError("Reading is not open.");
-  const patch = await readingPatch(repo, run, p);
-  if (Object.keys(patch).length) await repo.updateMany("RRRun", { id: runId }, patch);
+  await lockedRun(repo, actor, runId, async (tx, run) => {
+    if (run.step === "PREPOLL" || run.step === "DONE") throw new ValidationError("Reading is not open.");
+    const patch = await readingPatch(tx, run, p);
+    if (Object.keys(patch).length) await tx.updateMany("RRRun", { id: runId }, patch);
+  });
   return { ok: true };
+}
+
+/**
+ * 🔒 Round 6: RRRun.annotations is one JSON value written by several steps (notes autosave, a Respond answer, the
+ * rating, drafts) — every read-modify-write runs here: the FIRST statement locks the run's row (a no-op update), then
+ * the row is read again, so two requests never overwrite each other's keys.
+ */
+async function lockedRun<T>(repo: Repo, actor: Actor, runId: string, fn: (tx: Repo, run: Row) => Promise<T>): Promise<T> {
+  const { studentId } = studentOf(actor);
+  return repo.transaction(async (tx) => {
+    const locked = await tx.updateMany("RRRun", { id: runId, studentId }, { studentId });
+    if (!locked) throw new ForbiddenError("Reading not found.");
+    return fn(tx, await ownRun(tx, actor, runId));
+  });
 }
 
 /** Step 2 done: on to the activity. */
 export async function finishReading(repo: Repo, actor: Actor, runId: string, p: ReadingProgress, now = new Date()): Promise<RunView> {
-  const run = await ownRun(repo, actor, runId);
-  expectStep(run, "READ");
-  // quizAt: when the questions opened (the server's clock for the answer times, accuracy.ts)
-  await repo.updateMany("RRRun", { id: runId, step: "READ" }, { ...(await readingPatch(repo, run, p)), step: "QUIZ", quizAt: now });
+  await lockedRun(repo, actor, runId, async (tx, run) => {
+    expectStep(run, "READ");
+    // quizAt: when the questions opened (the server's clock for the answer times, accuracy.ts)
+    await tx.updateMany("RRRun", { id: runId, step: "READ" }, { ...(await readingPatch(tx, run, p)), step: "QUIZ", quizAt: now });
+  });
   return runView(repo, actor, runId, now);
+}
+
+/** Round 6 · the Article Rating popup after Read (1–4 stars + how the student got the article; skippable). */
+export async function rateArticle(repo: Repo, actor: Actor, runId: string, input: { stars?: number | null; access?: string | null; skipped?: boolean }, now = new Date()): Promise<{ ok: true }> {
+  await lockedRun(repo, actor, runId, async (tx, run) => {
+    if (run.step === "PREPOLL" || run.step === "READ") throw new ValidationError("Read the article first.");
+    const n = Number(input?.stars);
+    const stars = Number.isInteger(n) && n >= 1 && n <= 4 ? n : null;
+    const access = input?.access === "SELF" || input?.access === "TEACHER" ? input.access : null;
+    const skipped = Boolean(input?.skipped) || (stars === null && access === null);
+    await tx.updateMany("RRRun", { id: runId }, { annotations: withRunExtras(run.annotations, { rating: { stars, access, ...(skipped ? { skipped: true } : {}), at: now.toISOString() } }) });
+  });
+  return { ok: true };
+}
+
+/**
+ * Round 6 · Respond, ONE question at a time: the first try (right → 2 points, the question is done; wrong → a second
+ * try), then the second try (right → 1 point; wrong → the right answer is shown and the student moves on). Only the
+ * FIRST tries make the score (submitActivity). The first try's time is worked out on the SERVER (the rapid-guess rule,
+ * accuracy.ts, uses the first answers only): the time since the previous first answer was saved (annotations.quiz.ts),
+ * else since the questions opened (RRRun.quizAt). `ms` = the page's time for this question (since it opened the
+ * question or saved the previous answer) — it can only make the server's time SMALLER, never larger (a reload or a
+ * wrong page clock can never make answers look slower, nor — the server's own clock — faster than they were).
+ */
+export async function answerQuestion(repo: Repo, actor: Actor, runId: string, number: number, letter: string, ms?: number | null, now = new Date()): Promise<QuestionFeedback> {
+  return lockedRun(repo, actor, runId, async (tx, run) => {
+    expectStep(run, "QUIZ");
+    const qs = await shownQuestionsOf(tx, run);
+    const q = qs.find((x) => Number(x.number) === Number(number));
+    if (!q) throw new ValidationError("This question is not in the activity.");
+    const l = LETTER_OK(letter);
+    if (!l) throw new ValidationError("Choose one answer.");
+    const ex = extrasOf(run);
+    const quiz = { first: { ...(ex.quiz?.first ?? {}) }, second: { ...(ex.quiz?.second ?? {}) }, at: { ...(ex.quiz?.at ?? {}) }, ts: { ...(ex.quiz?.ts ?? {}) } };
+    const n = String(q.number), right = s(q.answer);
+    let fb: Omit<QuestionFeedback, "allDone">;
+    if (quiz.first[n] === undefined) {
+      quiz.first[n] = l;
+      const timed = answerTime({ quizAt: run.quizAt, ts: quiz.ts, at: quiz.at, now: now.getTime(), ms });
+      quiz.ts[n] = now.getTime();
+      if (timed !== null) quiz.at[n] = timed;
+      const ok = l === right;
+      fb = { number: Number(n), try: 1, correct: ok, points: ok ? RR_POINTS.first : 0, done: ok, answer: ok ? right : null, why: ok ? explain(q, l).why || null : null };
+    } else if (quiz.first[n] !== right && quiz.second[n] === undefined) {
+      quiz.second[n] = l;
+      const ok = l === right;
+      fb = { number: Number(n), try: 2, correct: ok, points: ok ? RR_POINTS.second : 0, done: true, answer: right, why: explain(q, l).why || null };
+    } else throw new ValidationError("You already answered this question.");
+    await tx.updateMany("RRRun", { id: runId, step: "QUIZ" }, { annotations: withRunExtras(run.annotations, { quiz }) });
+    const allDone = qs.every((x) => { const k = String(x.number); return quiz.first[k] !== undefined && (quiz.first[k] === s(x.answer) || quiz.second[k] !== undefined); });
+    return { ...fb, allDone };
+  });
+}
+
+/**
+ * 🎯 The server's time of a first answer (pure): ms after the questions opened, as the previous first answer's time +
+ * the gap since it was saved (else since RRRun.quizAt). The page's `ms` (its own gap for this question) only makes the
+ * gap smaller. null when neither clock is known.
+ */
+export function answerTime(i: { quizAt: unknown; ts: Record<string, unknown>; at: Record<string, unknown>; now: number; ms?: number | null }): number | null {
+  const nums = (o: Record<string, unknown>) => Object.values(o).map(Number).filter((x) => Number.isFinite(x) && x >= 0);
+  const q0 = i.quizAt ? toDate(i.quizAt).getTime() : NaN;
+  const prevTs = Math.max(...nums(i.ts), Number.isFinite(q0) ? q0 : -Infinity);
+  const prevAt = Math.max(0, ...nums(i.at));
+  const server = Number.isFinite(prevTs) && i.now >= prevTs ? i.now - prevTs : null;
+  const c = Number(i.ms);
+  const client = i.ms !== null && i.ms !== undefined && Number.isFinite(c) && c >= 0 ? c : null;
+  const gap = server === null ? client : client === null ? server : Math.min(server, client);
+  return gap === null ? null : Math.round(prevAt + gap);
 }
 
 /** The reader's answer times: question number → ms after the questions opened when it was first answered. */
 export interface ActivityTiming { at?: Record<string, unknown> | null }
 
 /**
- * Step 3: scores the 8 questions on the server. The first scored reading of an article moves the level — unless 2+
- * answers were rapid guesses (an Unreliable run: accuracy.ts), which never moves it.
+ * Step 3 · Respond: scores the SHOWN questions (8, or 4 below the 400 version) on the server — the FIRST tries only.
+ * Round 6: the first tries given one by one (answerQuestion, stored in annotations.quiz) win over `raw` (an older page
+ * sends every answer at once in `raw`); the second tries go to annotations.secondTry. The first scored reading of an
+ * article moves the level — unless 2+ answers were rapid guesses (an Unreliable run: accuracy.ts), which never moves
+ * it. A stretch is practice: it never moves the level and ends the run (Stretch Read → Stretch Respond → done).
  */
 export async function submitActivity(repo: Repo, actor: Actor, runId: string, raw: Record<string, unknown>, now = new Date(), timing: ActivityTiming = {}): Promise<RunView> {
   let moved = false, studentId = "";
   await repo.transaction(async (tx) => {
+    // 🔒 lock the run's row first (annotations.quiz is written by answerQuestion)
+    await tx.updateMany("RRRun", { id: runId, step: "QUIZ" }, { step: "QUIZ" });
     const run = await ownRun(tx, actor, runId);
     expectStep(run, "QUIZ");
     studentId = s(run.studentId);
     const [qs, ver] = await Promise.all([
-      questionsOf(tx, s(run.articleId), s(run.band)),
+      shownQuestionsOf(tx, run),
       tx.findMany("RRVersion", { articleId: s(run.articleId), level: Number(run.versionLevel) }, { select: ["wordCount"], take: 1 }).then((r) => r[0]),
     ]);
     if (!qs.length) throw new ValidationError("This article has no questions yet.");
-    const answers = cleanAnswers(raw, qs);
+    const quiz = extrasOf(run).quiz;
+    const answers = cleanAnswers({ ...(raw ?? {}), ...(quiz?.first ?? {}) }, qs);
     const { pct } = scoreAnswers(qs, answers);
-    // 🎯 rapid guesses (the practice rules): the first answer against the text's reading time, the others under 3 s
+    const second: SecondTries = {};
+    for (const q of qs) { const v = LETTER_OK(quiz?.second?.[String(q.number)]); if (v && answers[String(q.number)] !== s(q.answer)) second[String(q.number)] = { letter: v, correct: v === s(q.answer) }; }
+    // 🎯 rapid guesses (the practice rules): the first answer against the text's reading time, the others under 3 s —
+    // the FIRST answers' times (answerQuestion's, else the page's)
+    // one clock only: the server's times of the one-by-one answers (answerQuestion), else an older page's own times
+    const at: Record<string, unknown> = quiz?.at && Object.keys(quiz.at).length ? { ...quiz.at } : { ...(timing?.at ?? {}) };
     const quizAt = run.quizAt ? toDate(run.quizAt).getTime() : NaN;
     const words = Number(ver?.wordCount) || 0;
-    const fast = rapidAnswers({ at: timing?.at ?? null, numbers: qs.map((q) => Number(q.number)), readSeconds: Number(run.readSeconds ?? 0), words, serverMs: Number.isFinite(quizAt) ? now.getTime() - quizAt : null });
+    const fast = rapidAnswers({ at: Object.keys(at).length ? at : null, numbers: qs.map((q) => Number(q.number)), readSeconds: Number(run.readSeconds ?? 0), words, serverMs: Number.isFinite(quizAt) ? now.getTime() - quizAt : null });
     const changed = await tx.updateMany("RRRun", { id: runId, step: "QUIZ" }, {
-      answers, score: pct, completedAt: now, step: "WRITE",
+      // round 6: Respond → Reflect (a stretch ends here)
+      answers, score: pct, completedAt: now, step: run.stretch === true ? "DONE" : "POSTPOLL",
       answerMs: { ms: fast.ms, rapid: fast.rapid }, rapidCount: fast.rapid.length, unreliable: fast.unreliable,
+      annotations: withRunExtras(run.annotations, { quiz: undefined, secondTry: second }),
     });
     if (!changed) throw new ValidationError("Already submitted. Reload the page.");
     const rr = await ensureRRStudent(tx, s(run.studentId), now);
     let before = Number(rr.level), after = before;
-    // first try counts; a stretch below 75% is ignored by the level (never lowers it); an Unreliable run never counts.
-    // Round 4: a re-read never counts; a run read faster than RR_MIN_READ_SECONDS never counts (the skill-evidence
-    // rule). Round 5: a stretch counts for the level only with NEW questions — its stretch set ("S-…") or a band
-    // different from the first read's (first-try.ts stretchCountsFully); a same-band practice stretch: weekly goal only
-    let counts = run.firstTry === true && !fast.unreliable && !rapidRead(run) && (run.stretch !== true || pct >= ENGINE.up);
-    if (counts && run.stretch === true) {
-      const base = (await tx.findMany("RRRun", { studentId: s(run.studentId), articleId: s(run.articleId), stretch: false, firstTry: true }, { select: ["band"], take: 1 }))[0];
-      counts = stretchCountsFully(base ? s(base.band) : null, s(run.band));
-    }
+    // first try counts; an Unreliable run never counts. Round 4: a re-read never counts; a run read faster than
+    // RR_MIN_READ_SECONDS never counts (the skill-evidence rule). Round 6 (owner): a stretch NEVER counts (practice +
+    // points only — first-try.ts stretchCountsFully is always false)
+    const counts = run.firstTry === true && run.stretch !== true && !fast.unreliable && !rapidRead(run);
     if (counts) ({ levelBefore: before, levelAfter: after } = await applyFirstTryScore(tx, { ...run, score: pct, completedAt: now, unreliable: false }, now));
     moved = after !== before;
     await tx.updateMany("RRRun", { id: runId }, { levelBefore: before, levelAfter: after });
   });
+  forgetStudentPoints(repo, studentId); // points.ts: the student's points cache is stale now
   // 🔗 the careful answers also feed the skills they measure (main idea, inference, vocabulary in context …) and then
   // the skill stars through the skill-status hook — all after the response: the score and level are saved above
   runAfterResponse("readrise.skill_feed", () => safeFeed("readrise", async () => {
@@ -691,31 +1017,53 @@ export async function submitActivity(repo: Repo, actor: Actor, runId: string, ra
 export async function practiceActivity(repo: Repo, actor: Actor, runId: string, raw: Record<string, unknown>): Promise<{ correct: number; total: number; review: Review[] }> {
   const run = await ownRun(repo, actor, runId);
   if (run.score === null || run.score === undefined) throw new ValidationError("Submit the activity first.");
-  const qs = await questionsOf(repo, s(run.articleId), s(run.band));
+  const qs = await shownQuestionsOf(repo, run);
   const { correct, total, review } = scoreAnswers(qs, cleanAnswers(raw, qs));
   return { correct, total, review };
 }
 
 const cleanWriting = (t: string) => String(t ?? "").replace(/\r\n/g, "\n").slice(0, 6000);
 
-/** Step 4 autosave. */
-export async function saveWritingDraft(repo: Repo, actor: Actor, runId: string, text: string): Promise<{ ok: true }> {
-  const run = await ownRun(repo, actor, runId);
-  expectStep(run, "WRITE");
-  await repo.updateMany("RRRun", { id: runId, step: "WRITE" }, { writing: cleanWriting(text) });
+/**
+ * Step 5 · Write autosave / "Save for later". Round 6: the drafts (Draft 1, Draft 2 …, at most MAX_DRAFTS) are kept in
+ * RRRun.annotations.drafts — RRRun.writing is only set when the student submits (so the teacher's queue never shows
+ * an unsent draft). `text` is the open draft's text; `opts` may send every draft and the open one.
+ */
+export async function saveWritingDraft(repo: Repo, actor: Actor, runId: string, text: string, opts: { drafts?: string[]; draft?: number } = {}): Promise<{ ok: true }> {
+  await lockedRun(repo, actor, runId, async (tx, run) => {
+    expectStep(run, "WRITE");
+    const ex = extrasOf(run);
+    const drafts = (Array.isArray(opts.drafts) ? opts.drafts : Array.isArray(ex.drafts) ? (ex.drafts as unknown[]) : []).map((d) => cleanWriting(String(d ?? ""))).slice(0, MAX_DRAFTS);
+    const i = Math.min(MAX_DRAFTS - 1, Math.max(0, Math.floor(Number(opts.draft ?? ex.draft ?? 0) || 0)));
+    while (drafts.length <= i) drafts.push("");
+    drafts[i] = cleanWriting(text);
+    await tx.updateMany("RRRun", { id: runId, step: "WRITE" }, { annotations: withRunExtras(run.annotations, { drafts, draft: i }) });
+  });
   return { ok: true };
 }
 
-/** Step 4: the thought question (at least 30 words), sent to the teacher for a 0–4 score. */
+/**
+ * Step 5 · Write: the thought question (at least 30 words), sent to the teacher for a 0–4 score. Round 6: Write is the
+ * LAST step (→ DONE); a run left by the old order (Write before the after-poll) goes on to POSTPOLL.
+ */
 export async function submitWriting(repo: Repo, actor: Actor, runId: string, text: string, now = new Date()): Promise<RunView> {
-  const run = await ownRun(repo, actor, runId);
-  expectStep(run, "WRITE");
   const t = cleanWriting(text).trim();
   if (words(t) < MIN_WRITING_WORDS) throw new ValidationError(`Write at least ${MIN_WRITING_WORDS} words (you have ${words(t)}).`);
-  // round 4: check-and-set — only the request that moves the run from WRITE wins; a second, concurrent submit gets
-  // "Already submitted" and never queues a second AI draft
-  const changed = await repo.updateMany("RRRun", { id: runId, step: "WRITE" }, { writing: t, step: "POSTPOLL" });
-  if (!changed) throw new ValidationError("Already submitted. Reload the page.");
+  // 🔒 the row lock (lockedRun) + check-and-set: only the request that moves the run from WRITE wins; a second,
+  // concurrent submit gets an error and never queues a second AI draft. The drafts and the Notes text are dropped
+  // from annotations now (the sent text is RRRun.writing) — the run row stays small for the points and the reports
+  const run = await lockedRun(repo, actor, runId, async (tx, r) => {
+    expectStep(r, "WRITE");
+    const oldOrder = r.postPoll === null || r.postPoll === undefined;
+    const changed = await tx.updateMany("RRRun", { id: runId, step: "WRITE" }, {
+      writing: t, step: oldOrder ? "POSTPOLL" : "DONE",
+      annotations: withRunExtras(r.annotations, { drafts: undefined, draft: undefined, notesText: undefined }),
+    });
+    if (!changed) throw new ValidationError("Already submitted. Reload the page.");
+    return r;
+  });
+  const oldOrder = run.postPoll === null || run.postPoll === undefined;
+  forgetStudentPoints(repo, s(run.studentId)); // a sent writing is an achievement step (points.ts)
   // 🤖 draft an AI score + comment for the teacher's scoring screen (never shown to the student) — after the
   // response, so the student is never kept waiting on an AI call; silently skipped if AI is off/limited/fails.
   // Round 4: only for a first try (a re-read is practice: no AI draft is spent on it)
@@ -725,19 +1073,33 @@ export async function submitWriting(repo: Repo, actor: Actor, runId: string, tex
       repo, { schoolId: s(run.schoolId), runId, prompt: s(pr?.prompt), checklist: (pr?.checklist ?? []) as string[], text: t }, aiEnv(),
     ).catch(() => undefined);
   }, { key: `readrise.writing_ai|${runId}` });
-  return runView(repo, actor, runId, now);
+  return runView(repo, actor, runId, now, { wordsSaved: oldOrder ? null : await finishedWords(repo, run, now) });
 }
 
-/** Step 5: the after-reading poll → DONE. */
-export async function submitPostPoll(repo: Repo, actor: Actor, runId: string, value: number, now = new Date()): Promise<RunView> {
-  const run = await ownRun(repo, actor, runId);
-  expectStep(run, "POSTPOLL");
-  const changed = await repo.updateMany("RRRun", { id: runId, step: "POSTPOLL" }, { postPoll: pollValue(value), step: "DONE" });
-  // 🗂 round 5: a reliable, careful first try finished all 5 steps → its key words go to My Words (words-carry.ts)
-  let wordsSaved: number | null = null;
-  if (changed && run.firstTry === true && run.stretch !== true && !isUnreliableRun(run) && !rapidRead(run) && run.score !== null && run.score !== undefined) {
-    try { wordsSaved = Number(await carryKeyWords(repo, s(run.studentId), s(run.articleId), baseBand(run.band), now)) || 0; } catch { wordsSaved = null; }
-  }
+/** 🗂 round 5: a reliable, careful first try finished every step → its key words go to My Words (words-carry.ts). */
+async function finishedWords(repo: Repo, run: Row, now: Date): Promise<number | null> {
+  if (run.firstTry !== true || run.stretch === true || isUnreliableRun(run) || rapidRead(run) || run.score === null || run.score === undefined) return null;
+  try { return Number(await carryKeyWords(repo, s(run.studentId), s(run.articleId), baseBand(run.band), now)) || 0; } catch { return null; }
+}
+
+/**
+ * Step 4 · Reflect: the after-reading vote and its explanation (→ Write). The view then carries the Before / After
+ * results, the platform-wide % and the class feed. A run left by the old order (Write already done) ends here.
+ */
+export async function submitPostPoll(repo: Repo, actor: Actor, runId: string, value: number, now = new Date(), why = ""): Promise<RunView> {
+  const vote = pollValue(value);
+  // 🔒 annotations is read-modify-written under the row lock (lockedRun), like every other writer
+  const { run, changed } = await lockedRun(repo, actor, runId, async (tx, r) => {
+    expectStep(r, "POSTPOLL");
+    const n = await tx.updateMany("RRRun", { id: runId, step: "POSTPOLL" }, {
+      postPoll: vote, step: s(r.writing).trim().length > 0 ? "DONE" : "WRITE",
+      annotations: withRunExtras(r.annotations, { reflect: { vote, why: cleanWhy(why), at: now.toISOString() } }),
+    });
+    return { run: r, changed: n };
+  });
+  const oldOrder = s(run.writing).trim().length > 0;
+  forgetStudentPoints(repo, s(run.studentId)); // a vote earns points (points.ts)
+  const wordsSaved = changed && oldOrder ? await finishedWords(repo, run, now) : null;
   return runView(repo, actor, runId, now, { wordsSaved });
 }
 

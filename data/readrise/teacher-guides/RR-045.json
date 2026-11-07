@@ -1,0 +1,40 @@
+{
+  "code": "RR-045",
+  "summary": "This article explains what Saturn is made of, what its famous rings are, how Galileo first saw them, and facts about its moons, days, and years.",
+  "strategy": "Vocabulary Building",
+  "introduce": "Write the key term “orbit” on the board and give pairs thirty seconds to guess what it means. Share a few guesses, then tell students to find the word in “Saturn and Its Rings” and check whether they were right.",
+  "keyTerms": [
+    {
+      "term": "orbit",
+      "def": "to travel around something in a curved path"
+    },
+    {
+      "term": "float",
+      "def": "to rest on top of water or air without sinking"
+    },
+    {
+      "term": "astronomer",
+      "def": "a scientist who studies stars, planets, and space"
+    }
+  ],
+  "challengeTerms": [
+    {
+      "term": "density",
+      "def": "how much matter is packed into a certain amount of space"
+    },
+    {
+      "term": "hydrogen",
+      "def": "the lightest gas, which is found in water and in stars"
+    },
+    {
+      "term": "fragments",
+      "def": "small pieces broken off something larger"
+    }
+  ],
+  "discussion": [
+    "Do you agree or disagree that Saturn is the most interesting planet in our solar system? Use evidence from the article to explain.",
+    "Imagine you are a scientist working with the Cassini spacecraft. Write a short report about three things you would tell people about Saturn."
+  ],
+  "struggling": "Read the first part of the article aloud together, review orbit, float, and astronomer, and let weak readers draw a quick picture for each term and use it in a short spoken sentence.",
+  "gifted": "Ask strong readers to read a challenging version and write a short paragraph that uses density, hydrogen, and fragments to teach the class one of the terms with their own example."
+}

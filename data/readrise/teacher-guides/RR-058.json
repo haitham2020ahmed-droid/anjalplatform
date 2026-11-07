@@ -1,0 +1,40 @@
+{
+  "code": "RR-058",
+  "summary": "This article explains how tropical cyclones form over warm oceans, why they spin, what the eye and eyewall are, why they are dangerous, and how scientists warn people.",
+  "strategy": "Problem/Solution",
+  "introduce": "Ask students to share a small problem they solved this week and how they solved it, and write two examples in a Problem | Solution chart on the board. Tell them that “Tropical Cyclones” also has a problem and a solution to find.",
+  "keyTerms": [
+    {
+      "term": "evaporate",
+      "def": "to change from a liquid into a gas"
+    },
+    {
+      "term": "condense",
+      "def": "to change from a gas into a liquid, usually when it cools"
+    },
+    {
+      "term": "eyewall",
+      "def": "the ring of tall clouds around the calm eye of a cyclone, with the strongest winds"
+    }
+  ],
+  "challengeTerms": [
+    {
+      "term": "rotation",
+      "def": "the act of turning around a center point"
+    },
+    {
+      "term": "hemisphere",
+      "def": "one half of the Earth, such as the half north of the equator"
+    },
+    {
+      "term": "intensify",
+      "def": "to become stronger or more extreme"
+    }
+  ],
+  "discussion": [
+    "Do you agree or disagree that scientists can do a lot to keep people safe from big storms? Use evidence from the article to explain.",
+    "Explain, step by step, how warm ocean water becomes the fuel for a tropical cyclone."
+  ],
+  "struggling": "Read the first part of the article aloud together, review evaporate, condense, and eyewall, and let weak readers fill in a simple Problem | Solution chart with sentence starters.",
+  "gifted": "Ask strong readers to read a challenging version and write a short paragraph that uses rotation, hemisphere, and intensify to suggest a second solution to the problem and judge which works better."
+}

@@ -1,0 +1,40 @@
+{
+  "code": "RR-249",
+  "summary": "This article covers the story of Rosalind Franklin, whose precise X-ray crystallography revealed DNA's double-helix shape, work whose importance to science took years to be fully recognized.",
+  "strategy": "Author's Purpose",
+  "introduce": "Ask students why someone might write “Rosalind Franklin and the Shape of DNA”: to inform, to persuade, or to entertain? Take a quick hand vote, then tell students to look for clues about the writer's purpose as they read.",
+  "keyTerms": [
+    {
+      "term": "crystallography",
+      "def": "the scientific method of studying the structure of crystals using X-rays"
+    },
+    {
+      "term": "diffraction",
+      "def": "the way waves, like X-rays, spread out or scatter when they pass through or around something"
+    },
+    {
+      "term": "molecule",
+      "def": "a group of atoms joined together that makes up a substance"
+    }
+  ],
+  "challengeTerms": [
+    {
+      "term": "helix",
+      "def": "a shape that winds around a center like a spiral staircase or a corkscrew"
+    },
+    {
+      "term": "meticulous",
+      "def": "extremely careful about small details"
+    },
+    {
+      "term": "contribution",
+      "def": "something a person gives or adds to help achieve something"
+    }
+  ],
+  "discussion": [
+    "Do you agree or disagree that getting credit for your work matters more than doing the work itself? Use evidence from the article to explain.",
+    "Rosalind Franklin used the same careful, precise methods to study three very different things: coal, DNA, and viruses."
+  ],
+  "struggling": "Pre-teach crystallography, diffraction, and molecule with pictures or gestures, then let weak readers underline sentences that inform and circle any that persuade.",
+  "gifted": "Ask strong readers to read a challenging version and write a short paragraph that uses helix, meticulous, and contribution to explain the writer's purpose and how the details support it."
+}

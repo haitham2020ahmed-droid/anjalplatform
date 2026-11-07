@@ -1,0 +1,40 @@
+{
+  "code": "RR-004",
+  "summary": "Coral reefs in the Red Sea are living homes for sea creatures, and they need protection from heat and pollution.",
+  "strategy": "Problem/Solution",
+  "introduce": "Write “Problem” and “Solution” on the board and give pairs thirty seconds to think of a problem people face in daily life and one way to fix it. Explain that as they read “Coral Reefs of the Red Sea”, they will look for the main problem and how it is solved.",
+  "keyTerms": [
+    {
+      "term": "polyp",
+      "def": "one single coral animal, with a soft body shaped like a small tube"
+    },
+    {
+      "term": "skeleton",
+      "def": "the hard frame that supports or protects a living thing's body"
+    },
+    {
+      "term": "algae",
+      "def": "tiny living things, a bit like plants, that use sunlight to make food"
+    }
+  ],
+  "challengeTerms": [
+    {
+      "term": "symbiosis",
+      "def": "a close relationship between two different living things in which both of them benefit"
+    },
+    {
+      "term": "limestone",
+      "def": "a hard rock made mostly from the remains of shells and skeletons of sea creatures"
+    },
+    {
+      "term": "tolerate",
+      "def": "to be able to stand or survive something difficult without being harmed"
+    }
+  ],
+  "discussion": [
+    "Do you agree or disagree that protecting coral reefs is a job for everyone, not only for scientists? Use evidence from the article to explain.",
+    "Explain how corals and algae depend on each other, and how bleaching breaks this partnership."
+  ],
+  "struggling": "Pre-teach polyp, skeleton, and algae with pictures or gestures, then let weak readers fill in a simple Problem | Solution chart with sentence starters.",
+  "gifted": "Challenge advanced readers to use symbiosis, limestone, and tolerate in a short paragraph that suggests a second solution to the problem and judge which works better."
+}

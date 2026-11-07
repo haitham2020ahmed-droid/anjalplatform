@@ -7,7 +7,7 @@
  *      one first-try score ≤ 25%                   → −100 at once
  *      two first-try scores in a row < 50%         → −100
  *      3 of the last 4 ≥ 75% and the latest ≥ 75%  → +50 (unchanged)
- *    never below 200 or above 1700; the reason is written in plain words (RRLevelChange) for the teacher.
+ *    never below RR_FLOOR (−400, "BR400L": round 6) or above 1700; the reason is written in plain words (RRLevelChange) for the teacher.
  *  - An UNRELIABLE run (2+ rapid answers, accuracy.ts) never takes part: no level move, no goal, no skill evidence.
  *  - A STRETCH reading (one version higher) joins the window only when it scored ≥ 75% AND used new questions (a
  *    stretch set "S-…" or a new band, first-try.ts): it can help a student move up but never lowers the level. A
@@ -20,7 +20,7 @@
 import type { Repo, Row } from "../seeding/repo";
 import { ForbiddenError, type Actor } from "../auth/rbac";
 import { ValidationError } from "../curriculum-admin";
-import { RR_LEVELS, RR_MAX, RR_MIN, defaultLevel } from "./level";
+import { RR_FLOOR, RR_LEVELS, RR_MAX, RR_MIN, defaultLevel } from "./level";
 import { articleRuns, countedTries, goalRuns, isUnreliableRun, rapidRead } from "./first-try";
 
 export const s = (v: unknown) => String(v ?? "");
@@ -29,15 +29,22 @@ export const toDate = (v: unknown) => (v instanceof Date ? v : new Date(s(v)));
 // when RR_MAX was 1400) so ordinary reading-growth adjustments have room to move a student past the nearest version
 // level without clamping — now that RR_MAX is 1600 (level.ts), this had to move too, or a student placed at 1600
 // would get silently pulled back down to 1500 by the very next level-change calculation.
-export const ENGINE = { up: 75, down: 50, step: 50, max: 1700, min: 200, /** one score at or under this → down at once */ floor: 25, /** a step down */ downStep: 100 } as const;
+// Round 6 (owner): `min` is RR_FLOOR (−400, "BR400L") — a weak reader's level can go below the lowest version (300);
+// they read the 300 version (level.ts).
+export const ENGINE = { up: 75, down: 50, step: 50, max: 1700, min: RR_FLOOR, /** one score at or under this → down at once */ floor: 25, /** a step down */ downStep: 100 } as const;
 /** RRLevelChange rows with this reason prefix only record a teacher's retake permission (no level change). */
 export const RETAKE_REASON = "Placement retake allowed";
 const DAY = 86_400_000, WEEK = 7 * DAY, RIYADH = 3 * 3_600_000;
 
-/** Round to 10 and keep inside the engine's range (200–1700). */
+/** Round to 10 and keep inside the engine's range (RR_FLOOR −400 … 1700). */
 export const clampEngine = (l: number) => Math.min(ENGINE.max, Math.max(ENGINE.min, Math.round(l / 10) * 10));
-/** The nearest of the 14 version levels to a measure (clamped to 300–1600). */
+/**
+ * The nearest of the 14 version levels to a measure (clamped to 300–1600). Round 6: a measure below 250 (e.g. a MAP
+ * Lexile of 95 or BR150) is no longer pushed up to 300 — it is rounded to 10 and kept at or above RR_FLOOR.
+ */
 export function nearestLevel(x: number): number {
+  if (!Number.isFinite(x)) return RR_MIN;
+  if (x < RR_MIN - 50) return Math.max(RR_FLOOR, Math.round(x / 10) * 10);
   const c = Math.min(RR_MAX, Math.max(RR_MIN, x));
   return (RR_LEVELS as readonly number[]).reduce((best, l) => (Math.abs(l - c) < Math.abs(best - c) ? l : best), RR_MIN);
 }
@@ -46,10 +53,25 @@ export function nearestLevel(x: number): number {
 
 /** The most recent MAP Lexile (any subject row that carries one), or null. */
 export async function latestMapLexile(repo: Repo, studentId: string): Promise<number | null> {
+  return (await latestMap(repo, studentId))?.lexile ?? null;
+}
+
+/** The most recent MAP Lexile with its test date, or null. */
+export async function latestMap(repo: Repo, studentId: string): Promise<{ lexile: number; testDate: Date } | null> {
   const rows = (await repo.findMany("MapResult", { studentId, lexile: { not: null } }, { select: ["lexile", "testDate"] }))
     .sort((a, b) => toDate(b.testDate).getTime() - toDate(a.testDate).getTime());
   const v = rows.length ? Number(rows[0].lexile) : NaN;
-  return Number.isFinite(v) ? v : null;
+  return Number.isFinite(v) ? { lexile: v, testDate: toDate(rows[0].testDate) } : null;
+}
+
+/** Round 6: a MAP Lexile counts as a placement start / check only when it is this recent. */
+export const MAP_RECENT_DAYS = 183;
+/** The latest MAP Lexile when it is from the last 6 months (MAP_RECENT_DAYS), else null. */
+export async function recentMapLexile(repo: Repo, studentId: string, now = new Date()): Promise<number | null> {
+  const m = await latestMap(repo, studentId);
+  if (!m) return null;
+  const age = now.getTime() - m.testDate.getTime();
+  return Number.isFinite(age) && age <= MAP_RECENT_DAYS * DAY ? m.lexile : null;
 }
 
 async function studentGrade(repo: Repo, student: Row): Promise<number> {
@@ -164,7 +186,7 @@ const unreliableRun = (r: Row) => isUnreliableRun(r);
  * (first-try.ts) never counts for the level either. A stretch must also be in a NEW question band: callers that have
  * the student's runs use countedTries (first-try.ts) before this.
  */
-export const countsForLevel = (r: Row) => r.firstTry === true && r.score !== null && r.score !== undefined && !unreliableRun(r) && !rapidRead(r) && (r.stretch !== true || Number(r.score) >= ENGINE.up);
+export const countsForLevel = (r: Row) => r.firstTry === true && r.score !== null && r.score !== undefined && !unreliableRun(r) && !rapidRead(r) && r.stretch !== true; // round 6: a Stretch (grade-level text) is practice — never in the level window
 
 /**
  * The completion dates that count toward the weekly goal (round 5, first-try.ts goalRuns): ONE credit per article —
@@ -214,6 +236,8 @@ export async function levelWindow(repo: Repo, studentId: string): Promise<number
 const CONCURRENT_RETRIES = 3;
 export async function applyFirstTryScore(repo: Repo, run: Row, now: Date): Promise<{ levelBefore: number; levelAfter: number; reason: string | null }> {
   const studentId = s(run.studentId);
+  // round 6 (Achieve3000-like): a Stretch is a grade-level practice text — it never moves the level
+  if (run.stretch === true) { const lv = Number((await ensureRRStudent(repo, studentId, now)).level); return { levelBefore: lv, levelAfter: lv, reason: null }; }
   for (let attempt = 0; ; attempt++) {
     const rr = await ensureRRStudent(repo, studentId, now);
     const before = Number(rr.level);
@@ -357,13 +381,13 @@ export const PROJECTION_MIN_RUNS = 4, PROJECTION_MIN_DAYS = 14;
 
 /**
  * The end-of-year estimate (readiness I-21): only with PROJECTION_MIN_RUNS first-try runs over PROJECTION_MIN_DAYS
- * days, and always on the ReadRise scale (RR_MIN–RR_MAX) — never “about 200”.
+ * days, and always on the ReadRise scale. Round 6: a level below 300 is real now (RR_FLOOR…RR_MAX).
  */
 export async function readRiseProjection(repo: Repo, firstTry: Row[], points: LevelPoint[], schoolId: string, now: Date): Promise<number | null> {
   const at = firstTry.map((r) => (r.completedAt ? toDate(r.completedAt).getTime() : 0)).filter((t) => t > 0).sort((a, b) => a - b);
   if (at.length < PROJECTION_MIN_RUNS || at[at.length - 1] - at[0] < PROJECTION_MIN_DAYS * DAY) return null;
   const p = projectLevel(points, now, await yearEndFor(repo, schoolId, now));
-  return p === null ? null : Math.min(RR_MAX, Math.max(RR_MIN, p));
+  return p === null ? null : Math.min(RR_MAX, Math.max(RR_FLOOR, p));
 }
 
 /** One student's ReadRise numbers (null before the student ever opened ReadRise). */

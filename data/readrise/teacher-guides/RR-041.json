@@ -1,0 +1,40 @@
+{
+  "code": "RR-041",
+  "summary": "This article explains how a butterfly changes from an egg to a caterpillar, a chrysalis, and a winged adult, and how butterflies feed, travel, and stay safe.",
+  "strategy": "Sequence",
+  "introduce": "Write First, Next, Then, and Finally on the board and ask a volunteer to use them to describe how they get ready for school. Tell students to watch for the order of events as they read “From Caterpillar to Butterfly”.",
+  "keyTerms": [
+    {
+      "term": "larva",
+      "def": "the young, worm-like stage of an insect, such as a caterpillar"
+    },
+    {
+      "term": "molt",
+      "def": "to shed an old outer skin so a bigger one can take its place"
+    },
+    {
+      "term": "pupa",
+      "def": "the resting stage of an insect when it changes into an adult"
+    }
+  ],
+  "challengeTerms": [
+    {
+      "term": "metamorphosis",
+      "def": "a complete change in the form of an animal as it grows into an adult"
+    },
+    {
+      "term": "dissolve",
+      "def": "to break down until it mixes into a liquid"
+    },
+    {
+      "term": "pollinate",
+      "def": "to carry pollen from one flower to another so the plant can make seeds"
+    }
+  ],
+  "discussion": [
+    "Do you agree or disagree that a caterpillar and a butterfly are really the same animal? Use evidence from the article to explain.",
+    "Explain what happens inside the chrysalis. Why do you think scientists find this stage so amazing?"
+  ],
+  "struggling": "Read the first part of the article aloud together, review larva, molt, and pupa, and let weak readers put sentence strips of the main events in order before writing.",
+  "gifted": "Challenge advanced readers to use metamorphosis, dissolve, and pollinate in a short paragraph that summarizes the key events in order and explain which step matters most."
+}

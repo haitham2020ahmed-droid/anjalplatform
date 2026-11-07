@@ -1,0 +1,40 @@
+{
+  "code": "RR-157",
+  "summary": "This article explains how hummingbirds hover on fast-beating wings, feed on nectar, save energy at night, carry pollen between flowers, build tiny nests, and make long trips.",
+  "strategy": "Problem/Solution",
+  "introduce": "Ask students to share a small problem they solved this week and how they solved it, and write two examples in a Problem | Solution chart on the board. Tell them that “Hummingbirds: Tiny Fliers” also has a problem and a solution to find.",
+  "keyTerms": [
+    {
+      "term": "species",
+      "def": "one kind of living thing"
+    },
+    {
+      "term": "hover",
+      "def": "to stay in one place in the air"
+    },
+    {
+      "term": "migrate",
+      "def": "to travel a long way from one area to another, often each season"
+    }
+  ],
+  "challengeTerms": [
+    {
+      "term": "metabolism",
+      "def": "all the chemical processes a body uses to turn food into energy"
+    },
+    {
+      "term": "migration",
+      "def": "a regular journey that animals make from one region to another"
+    },
+    {
+      "term": "pollinator",
+      "def": "an animal that carries pollen between flowers, helping plants produce seeds"
+    }
+  ],
+  "discussion": [
+    "Do you agree or disagree that a tiny animal can do things that big animals cannot? Use evidence from the article to explain.",
+    "Explain two ways a hummingbird's body or habits help it deal with."
+  ],
+  "struggling": "Read the first part of the article aloud together, review species, hover, and migrate, and let weak readers fill in a simple Problem | Solution chart with sentence starters.",
+  "gifted": "Ask strong readers to read a challenging version and write a short paragraph that uses metabolism, migration, and pollinator to suggest a second solution to the problem and judge which works better."
+}

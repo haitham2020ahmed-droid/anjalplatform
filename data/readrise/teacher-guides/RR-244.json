@@ -1,0 +1,40 @@
+{
+  "code": "RR-244",
+  "summary": "This article explains how the outer, middle, and inner ear work together to turn sound into something your brain can understand, and why loud noise can harm hearing.",
+  "strategy": "Cause/Effect",
+  "introduce": "Draw a simple cause → effect arrow on the board and ask students for an everyday example, such as “I did not sleep, so I felt tired.” Tell them that while reading “How Hearing Works” they will find at least two cause-and-effect links.",
+  "keyTerms": [
+    {
+      "term": "eardrum",
+      "def": "a thin, tightly stretched part inside the ear that vibrates when sound hits it"
+    },
+    {
+      "term": "vibrate",
+      "def": "to shake very quickly back and forth"
+    },
+    {
+      "term": "cochlea",
+      "def": "the small, spiral-shaped, fluid-filled part of the inner ear that turns vibrations into signals for the brain"
+    }
+  ],
+  "challengeTerms": [
+    {
+      "term": "pinna",
+      "def": "the formal name for the visible, flap-shaped outer part of the ear"
+    },
+    {
+      "term": "tympanic",
+      "def": "relating to the eardrum, as in the tympanic membrane"
+    },
+    {
+      "term": "auditory",
+      "def": "relating to hearing or to the sense of sound"
+    }
+  ],
+  "discussion": [
+    "Do you agree or disagree that listening to loud music through headphones can damage your hearing? Use evidence from the article to explain.",
+    "Explain what happens to a vibration as it travels from the eardrum to the cochlea."
+  ],
+  "struggling": "Read the first part of the article aloud together, review eardrum, vibrate, and cochlea, and let weak readers match cause cards to effect cards from the article with a partner.",
+  "gifted": "Challenge advanced readers to use pinna, tympanic, and auditory in a short paragraph that explains one important cause-and-effect chain from the article."
+}

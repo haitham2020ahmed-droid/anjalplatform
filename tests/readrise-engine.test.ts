@@ -41,11 +41,12 @@ const WRITING = Array.from({ length: 32 }, (_, i) => `word${i}`).join(" ");
 /** Full routine; returns the run view after the post-poll. */
 async function readArticle(repo: SqliteRepo, s: Actor, articleId: string, right: number, now: Date, stretch = false) {
   const v = await startRun(repo, s, articleId, { stretch }, now);
-  await submitPrePoll(repo, s, v.runId, 1, now);
+  if (!stretch) await submitPrePoll(repo, s, v.runId, 1, now); // round 6: a stretch is Stretch Read → Stretch Respond only
   await finishReading(repo, s, v.runId, { readSeconds: 120, listened: true, annotations: [{ start: 0, end: 2, color: "yellow", note: "first" }] }, now);
   const q = await submitActivity(repo, s, v.runId, answers(right), now);
-  await submitWriting(repo, s, v.runId, WRITING, now);
-  const done = await submitPostPoll(repo, s, v.runId, 2, now);
+  if (stretch) return { start: v, quiz: q, done: q };
+  await submitPostPoll(repo, s, v.runId, 2, now); // round 6: Reflect before Write
+  const done = await submitWriting(repo, s, v.runId, WRITING, now);
   return { start: v, quiz: q, done };
 }
 
@@ -77,7 +78,8 @@ describe("🚀 ReadRise: placement, the 5-step routine, the level engine and goa
     assert.equal(versionFor(100, [...RR_LEVELS]), 300);
     assert.equal(versionFor(1700, [...RR_LEVELS]), 1600, "above the top: the top version (1600 since Oct 2026)");
     assert.deepEqual([bandOf(300), bandOf(600), bandOf(700), bandOf(1000), bandOf(1100), bandOf(1400)], ["LOW", "LOW", "MID", "MID", "HIGH", "HIGH"]);
-    assert.deepEqual([nearestLevel(120), nearestLevel(740), nearestLevel(760), nearestLevel(1650)], [300, 700, 800, 1600]);
+    // round 6: a measure under 250 is kept (rounded to 10, ≥ RR_FLOOR) — a 120 reader is no longer pushed to 300
+    assert.deepEqual([nearestLevel(120), nearestLevel(-900), nearestLevel(260), nearestLevel(740), nearestLevel(760), nearestLevel(1650)], [120, -400, 300, 700, 800, 1600]);
   });
 
   test("placement path: +200/+100/−100/−200, ±100 after the first reversal, no repeats, stop rules", () => {
@@ -94,17 +96,21 @@ describe("🚀 ReadRise: placement, the 5-step routine, the level engine and goa
     const a = run(700, [3, 2, 0, 3, 1, 2, 1, 2, 3, 3]);
     assert.deepEqual(a.steps.map((x) => x.level).slice(0, 4), [700, 900, 1000, 900]);
     assert.ok(a.steps.every((x, i) => i === 0 || Math.abs(x.level - a.steps[i - 1].level) <= 200));
-    assert.ok(a.steps.slice(3).every((x, i) => Math.abs(x.level - a.steps[i + 2].level) === 100), "±100 after the first reversal");
+    // (only 3 passages per level here: once a level's passages are used up the nearest free level is taken)
+    assert.ok(a.steps.slice(3, 7).every((x, i) => Math.abs(x.level - a.steps[i + 2].level) === 100), "±100 after the first reversal");
     assert.equal(new Set(a.steps.map((x) => x.passageId)).size, a.steps.length, "no passage twice");
-    assert.ok(a.plan.done && a.steps.length <= 8);
-    // two reversals but fewer than 5 passages → keep going; then stop at 5
-    const b = run(800, [3, 0, 3, 3, 3, 3, 3, 3]);
-    assert.ok(b.steps.length >= 5 && b.plan.done);
-    // never more than 8
+    // round 6 (LevelSet-like): at least 8 passages, at most 13, three reversals end it (was 5 / 8 / 2)
+    assert.ok(a.plan.done && a.steps.length >= 8 && a.steps.length <= 13);
+    const b = run(800, [3, 0, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3]);
+    assert.ok(b.steps.length >= 8 && b.plan.done);
+    // never more than 13
+    const zig = run(800, Array.from({ length: 20 }, (_, i) => (i % 2 ? 1 : 2)));
+    assert.ok(zig.plan.done && zig.steps.length >= 8 && zig.steps.length <= 13);
+    // from 300 all right: climbs to the top; passing the top level (1600) twice ends the test (nothing higher)
     const c = run(300, [3, 3, 3, 3, 3, 3, 3, 3, 3, 3]);
-    assert.equal(c.steps.length, 8);
-    assert.ok(c.steps.every((x) => x.level <= 1600), "never above the top level (1600)");
-    assert.equal(new Set(c.steps.map((x) => x.passageId)).size, 8, "at the top it uses other passages, never a repeat");
+    assert.deepEqual(c.steps.map((x) => x.level), [300, 500, 700, 900, 1100, 1300, 1500, 1600, 1600]);
+    assert.ok(c.plan.done && c.steps.every((x) => x.level <= 1600), "never above the top level (1600)");
+    assert.equal(new Set(c.steps.map((x) => x.passageId)).size, c.steps.length, "at the top it uses other passages, never a repeat");
   });
 
   test("placement result: highest 2+/3 level not above a level failed twice; MAP blend over 250", () => {
@@ -112,7 +118,9 @@ describe("🚀 ReadRise: placement, the 5-step routine, the level engine and goa
     assert.equal(placementResult([st(700, 3), st(900, 2), st(1000, 1), st(900, 3, 2), st(1000, 0, 2)], 700), 900);
     // a pass above a level failed twice does not count
     assert.equal(placementResult([st(800, 1), st(800, 0, 2), st(900, 2), st(700, 3)], 800), 700);
-    assert.equal(placementResult([st(500, 0), st(300, 1)], 500), 300, "floor 300");
+    // round 6: below 300 is real — nothing passed: one step under the lowest level read (floor RR_FLOOR)
+    assert.equal(placementResult([st(500, 0), st(300, 1)], 500), 200, "one step under 300");
+    assert.equal(placementResult([st(-200, 0), st(-200, 1, 2)], 300), -300, "BR300L");
     assert.deepEqual(blendWithMap(900, 1000), { level: 900, note: null });
     const b = blendWithMap(600, 1000);
     assert.equal(b.level, 800);
@@ -137,7 +145,7 @@ describe("🚀 ReadRise: placement, the 5-step routine, the level engine and goa
       res = await answerPlacement(repo, s, pid, v.passage!.id, pAns(n % 2 ? 1 : 3), PASSAGES, at(0, n));
       n++;
     } while (!res.done);
-    assert.ok(n >= 5 && n <= 8);
+    assert.ok(n >= 8 && n <= 13, `round 6: 8–13 passages (was 5–8), got ${n}`);
     const rr = (await repo.findUnique("RRStudent", { studentId: s.studentId }))!;
     assert.deepEqual([rr.source, Number(rr.level), Number(rr.startLevel)], ["PLACEMENT", res.result, res.result]);
     const ch = await repo.findMany("RRLevelChange", { studentId: s.studentId });
@@ -248,18 +256,18 @@ describe("🚀 ReadRise: placement, the 5-step routine, the level engine and goa
     await assert.rejects(submitActivity(repo, s, v.runId, { 1: "A" }, at(0, 2)), /every question/);
     const q = await submitActivity(repo, s, v.runId, answers(6), at(0, 2));
     assert.equal(q.score, 75);
-    assert.equal(q.step, "WRITE");
+    assert.equal(q.step, "POSTPOLL", "round 6: Respond → Reflect → Write");
     assert.equal(q.review!.length, 8);
     assert.equal(q.review![7].wrongWhy, "B is wrong");
     await assert.rejects(submitActivity(repo, s, v.runId, answers(8), at(0, 2)), /in order/);
     const p = await practiceActivity(repo, s, v.runId, answers(8));
     assert.equal(p.correct, 8);
     assert.equal(Number((await repo.findUnique("RRRun", { id: v.runId }))!.score), 75, "practice never changes the score");
+    await submitPostPoll(repo, s, v.runId, 3, at(0, 3)); // round 6: Reflect before Write
     await saveWritingDraft(repo, s, v.runId, "draft words");
     assert.equal((await runView(repo, s, v.runId)).writing, "draft words");
     await assert.rejects(submitWriting(repo, s, v.runId, "too short", at(0, 3)), /at least 30/);
-    await submitWriting(repo, s, v.runId, WRITING, at(0, 3));
-    const done = await submitPostPoll(repo, s, v.runId, 3, at(0, 3));
+    const done = await submitWriting(repo, s, v.runId, WRITING, at(0, 3));
     assert.equal(done.step, "DONE");
     assert.deepEqual([done.done!.prePoll, done.done!.postPoll, done.done!.score, done.done!.firstTry], [0, 3, 75, true]);
     assert.ok(done.done!.canStretch);
@@ -321,7 +329,7 @@ describe("🚀 ReadRise: placement, the 5-step routine, the level engine and goa
     // cap / floor
     await setLevelByTeacher(repo, teacher, s.studentId!, 5000, "", at(4));
     assert.equal(await lvl(), ENGINE.max);
-    await setLevelByTeacher(repo, teacher, s.studentId!, 10, "", at(4, 1));
+    await setLevelByTeacher(repo, teacher, s.studentId!, -5000, "", at(4, 1)); // round 6: the floor is RR_FLOOR (−400)
     assert.equal(await lvl(), ENGINE.min);
   });
 

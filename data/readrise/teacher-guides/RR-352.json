@@ -1,0 +1,40 @@
+{
+  "code": "RR-352",
+  "summary": "In this story, a merchant's young apprentice sails across the Red Sea for the first time and learns how an experienced crew's skill and teamwork can get a ship safely through a sudden storm.",
+  "strategy": "Sequence",
+  "introduce": "Give pairs four mixed-up steps of a simple task, such as making tea, and ask them to put the steps in order. Explain that “A Voyage Across the Red Sea” also follows an order, and good readers notice signal words like first, after, and finally.",
+  "keyTerms": [
+    {
+      "term": "merchant",
+      "def": "a person who buys and sells goods to make a living"
+    },
+    {
+      "term": "cargo",
+      "def": "goods carried by a ship, truck, or plane"
+    },
+    {
+      "term": "crew",
+      "def": "a group of people who work together on a ship or aircraft"
+    }
+  ],
+  "challengeTerms": [
+    {
+      "term": "veteran",
+      "def": "having a great deal of experience in a particular activity"
+    },
+    {
+      "term": "maritime",
+      "def": "relating to the sea, ships, or sailing"
+    },
+    {
+      "term": "apprehensive",
+      "def": "feeling worried or nervous about something that might happen"
+    }
+  ],
+  "discussion": [
+    "Do you agree or disagree that experience matters more than courage when facing danger? Use evidence from the story to explain.",
+    "Explain how the experienced crew's teamwork helped the ship survive the storm."
+  ],
+  "struggling": "Read the first part of the story aloud together, review merchant, cargo, and crew, and let weak readers put sentence strips of the main events in order before writing.",
+  "gifted": "Challenge advanced readers to use veteran, maritime, and apprehensive in a short paragraph that summarizes the key events in order and explain which step matters most."
+}

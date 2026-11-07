@@ -1,0 +1,40 @@
+{
+  "code": "RR-219",
+  "summary": "This article explains how paper was invented in ancient China, how the craft of papermaking was made, and how it slowly traveled west to the Islamic world and on to Europe.",
+  "strategy": "Sequence",
+  "introduce": "Give pairs four mixed-up steps of a simple task, such as making tea, and ask them to put the steps in order. Explain that “The Invention of Paper” also follows an order, and good readers notice signal words like first, after, and finally.",
+  "keyTerms": [
+    {
+      "term": "fiber",
+      "def": "a thin, thread-like piece of material, such as from a plant or cloth"
+    },
+    {
+      "term": "refine",
+      "def": "to make something purer or better by removing unwanted parts"
+    },
+    {
+      "term": "workshop",
+      "def": "a room or building where people make or fix things by hand"
+    }
+  ],
+  "challengeTerms": [
+    {
+      "term": "technique",
+      "def": "a particular way of doing something skillfully"
+    },
+    {
+      "term": "adapt",
+      "def": "to change something slightly so it works well in a new situation"
+    },
+    {
+      "term": "innovation",
+      "def": "a new idea, method, or invention"
+    }
+  ],
+  "discussion": [
+    "Do you agree or disagree that learning how to make something is just as important as inventing it in the first place? Use evidence from the article to explain.",
+    "Explain how the craft of papermaking changed as it spread from China to new lands."
+  ],
+  "struggling": "Pre-teach fiber, refine, and workshop with pictures or gestures, then let weak readers put sentence strips of the main events in order before writing.",
+  "gifted": "Challenge advanced readers to use technique, adapt, and innovation in a short paragraph that summarizes the key events in order and explain which step matters most."
+}

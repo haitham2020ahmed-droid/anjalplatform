@@ -1,0 +1,40 @@
+{
+  "code": "RR-348",
+  "summary": "This article explains why some parts of the world get heavy rain while others, like much of the Arabian Peninsula, stay dry, and how wind, oceans, and mountains decide where rain falls.",
+  "strategy": "Cause/Effect",
+  "introduce": "Drop a pencil and ask, “What was the cause? What was the effect?” to model the idea quickly. Then show the title “Why Some Places Are Wet and Some Are Dry” and tell students to look for things in the article that make other things happen.",
+  "keyTerms": [
+    {
+      "term": "evaporation",
+      "def": "the process of water turning into vapor, a gas, and rising into the air"
+    },
+    {
+      "term": "vapor",
+      "def": "tiny drops of water in the air, too small to see, that can later form rain"
+    },
+    {
+      "term": "condense",
+      "def": "to change from a gas into tiny drops of liquid, usually as it cools"
+    }
+  ],
+  "challengeTerms": [
+    {
+      "term": "precipitation",
+      "def": "water that falls from the sky, such as rain, snow, or hail"
+    },
+    {
+      "term": "windward",
+      "def": "describing the side of something, such as a mountain, that directly faces the oncoming wind"
+    },
+    {
+      "term": "leeward",
+      "def": "describing the side of something, such as a mountain, that is sheltered from the oncoming wind"
+    }
+  ],
+  "discussion": [
+    "Do you agree or disagree that mountains have more effect on rainfall than oceans do? Use evidence from the article to explain.",
+    "Explain, step by step, how water travels from the ocean to becoming rain on a mountain's windward side."
+  ],
+  "struggling": "Pre-teach evaporation, vapor, and condense with pictures or gestures, then let weak readers match cause cards to effect cards from the article with a partner.",
+  "gifted": "Ask strong readers to read a challenging version and write a short paragraph that uses precipitation, windward, and leeward to explain one important cause-and-effect chain from the article."
+}

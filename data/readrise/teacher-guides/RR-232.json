@@ -1,0 +1,40 @@
+{
+  "code": "RR-232",
+  "summary": "This article covers the true story of how the Apollo 11 mission carried three astronauts to the Moon in 1969, let two of them become the first humans to walk on its surface, and brought all three safely home.",
+  "strategy": "Vocabulary Building",
+  "introduce": "Write the key term “module” on the board and give pairs thirty seconds to guess what it means. Share a few guesses, then tell students to find the word in “The Moon Landing: Humanity's First Steps” and check whether they were right.",
+  "keyTerms": [
+    {
+      "term": "module",
+      "def": "one connected part of a spacecraft that has its own special job"
+    },
+    {
+      "term": "mission",
+      "def": "an important job or trip that a group is sent to do"
+    },
+    {
+      "term": "gravity",
+      "def": "the force that pulls objects toward each other, like the pull of Earth"
+    }
+  ],
+  "challengeTerms": [
+    {
+      "term": "trajectory",
+      "def": "the planned path an object follows as it moves through space"
+    },
+    {
+      "term": "lunar",
+      "def": "relating to the Moon"
+    },
+    {
+      "term": "descent",
+      "def": "the act of moving downward from a higher place"
+    }
+  ],
+  "discussion": [
+    "Do you agree or disagree that landing on the Moon is one of the greatest achievements in human history? Use evidence from the article to explain.",
+    "Explain two problems the Apollo 11 crew had to deal with and how they solved each one."
+  ],
+  "struggling": "Pre-teach module, mission, and gravity with pictures or gestures, then let weak readers draw a quick picture for each term and use it in a short spoken sentence.",
+  "gifted": "Ask strong readers to read a challenging version and write a short paragraph that uses trajectory, lunar, and descent to teach the class one of the terms with their own example."
+}

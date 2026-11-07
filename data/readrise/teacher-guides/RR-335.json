@@ -1,0 +1,40 @@
+{
+  "code": "RR-335",
+  "summary": "This article explains why people are spread unevenly across Earth, with water, climate, farmland, and jobs drawing large numbers to some places and leaving others nearly empty.",
+  "strategy": "Cause/Effect",
+  "introduce": "Drop a pencil and ask, “What was the cause? What was the effect?” to model the idea quickly. Then show the title “Population: Where People Live and Why” and tell students to look for things in the article that make other things happen.",
+  "keyTerms": [
+    {
+      "term": "density",
+      "def": "how packed together something is, like people in a place"
+    },
+    {
+      "term": "climate",
+      "def": "the usual weather pattern of a place over a long time"
+    },
+    {
+      "term": "fertile",
+      "def": "able to grow a lot of healthy plants"
+    }
+  ],
+  "challengeTerms": [
+    {
+      "term": "distribution",
+      "def": "the way something, such as people, is spread out across a place"
+    },
+    {
+      "term": "arid",
+      "def": "extremely dry, with little rainfall"
+    },
+    {
+      "term": "infrastructure",
+      "def": "the roads, power lines, water systems, and other structures a place needs to function"
+    }
+  ],
+  "discussion": [
+    "Do you agree or disagree that where people choose to live is mostly just an accident, with no real reason behind it? Use evidence from the article to explain.",
+    "Explain how climate and farmland each affect where people choose to live."
+  ],
+  "struggling": "Pre-teach density, climate, and fertile with pictures or gestures, then let weak readers match cause cards to effect cards from the article with a partner.",
+  "gifted": "Challenge advanced readers to use distribution, arid, and infrastructure in a short paragraph that explains one important cause-and-effect chain from the article."
+}

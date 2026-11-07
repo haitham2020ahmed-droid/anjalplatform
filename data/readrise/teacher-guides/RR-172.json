@@ -1,0 +1,40 @@
+{
+  "code": "RR-172",
+  "summary": "This article explains how the lungs and diaphragm move air in and out, how oxygen enters the blood and carbon dioxide leaves it, and how to protect your lungs.",
+  "strategy": "Problem/Solution",
+  "introduce": "Write “Problem” and “Solution” on the board and give pairs thirty seconds to think of a problem people face in daily life and one way to fix it. Explain that as they read “How Your Lungs Work”, they will look for the main problem and how it is solved.",
+  "keyTerms": [
+    {
+      "term": "windpipe",
+      "def": "the tube in your throat that carries air to your lungs"
+    },
+    {
+      "term": "diaphragm",
+      "def": "a dome-shaped muscle under the lungs that helps you breathe"
+    },
+    {
+      "term": "carbon dioxide",
+      "def": "a gas that your body makes as waste and breathes out"
+    }
+  ],
+  "challengeTerms": [
+    {
+      "term": "inhale",
+      "def": "to breathe in"
+    },
+    {
+      "term": "exhale",
+      "def": "to breathe out"
+    },
+    {
+      "term": "bronchi",
+      "def": "the two large tubes that carry air from the windpipe into the lungs"
+    }
+  ],
+  "discussion": [
+    "Do you agree or disagree that breathing is the most important job the body does? Use evidence from the article to explain.",
+    "Describe the path that air takes when you breathe in, and explain what happens to the oxygen and the carbon dioxide."
+  ],
+  "struggling": "Read the first part of the article aloud together, review windpipe, diaphragm, and carbon dioxide, and let weak readers fill in a simple Problem | Solution chart with sentence starters.",
+  "gifted": "Challenge advanced readers to use inhale, exhale, and bronchi in a short paragraph that suggests a second solution to the problem and judge which works better."
+}

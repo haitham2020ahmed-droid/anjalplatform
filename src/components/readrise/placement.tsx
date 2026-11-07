@@ -5,7 +5,8 @@ import { useEffect, useRef, useState, useTransition } from "react";
 import type { PlacementView } from "@/server/readrise/placement";
 import { answerPlacementAction, startPlacementAction } from "@/app/student/readrise/actions";
 import { paragraphsOf } from "./text";
-import { LevelBadge } from "./widgets";
+import { formatLevel } from "@/server/readrise/level";
+import { BAND_LABEL, gradeBand } from "@/server/readrise/benchmarks";
 import { RichInline } from "@/components/rich-inline";
 import { useT } from "@/i18n/client";
 
@@ -15,7 +16,22 @@ import { useT } from "@/i18n/client";
  * Round 4: the time on each passage is sent (the server keeps its own clock too) — 2+ passages answered faster than
  * they can be read make the test "Not valid — retake" (the level is not changed). Every label goes through t();
  * the passages and questions stay English.
+ * Round 6: like LevelSet (about 40 questions, about 30 minutes); the result is shown as a Lexile-style level
+ * (formatLevel: "95L", "BR120L") with where it stands against the grade's end-of-year range (benchmarks.ts).
  */
+
+/** The result: the level ("650L", "BR120L") and, when the grade is known, its grade band. */
+function ResultLevel({ level, grade }: { level: number; grade: number | null | undefined }) {
+  const t = useT();
+  const band = grade ? gradeBand(grade, level) : null;
+  const tone = band === "EXCEEDS" || band === "MEETS" ? "bg-emerald-100 text-emerald-900 ring-emerald-300" : band === "APPROACHES" ? "bg-amber-100 text-amber-900 ring-amber-300" : "bg-sky-100 text-sky-900 ring-sky-300";
+  return (
+    <span className="inline-flex flex-wrap items-center gap-2">
+      <span data-testid="rr-placement-level" className="inline-flex items-baseline rounded-xl bg-brand-navy px-3 py-1 text-xl font-bold text-white">{formatLevel(level)}</span>
+      {band && grade && <span data-testid="rr-placement-band" className={`rounded-full px-3 py-1 text-sm font-semibold ring-1 ${tone}`}>{t("Grade {g}: {band}", { g: grade, band: t(BAND_LABEL[band]) })}</span>}
+    </span>
+  );
+}
 export function PlacementRunner({ view, level }: { view: PlacementView; level: number | null }) {
   const t = useT();
   const router = useRouter();
@@ -45,10 +61,10 @@ export function PlacementRunner({ view, level }: { view: PlacementView; level: n
       <section className="rounded-3xl bg-gradient-to-br from-emerald-50 to-white p-6 ring-1 ring-emerald-200" aria-live="polite">
         <h2 className="text-2xl font-bold text-brand-navy">🎉 {t(finished ? "You finished the placement!" : "Your placement is done")}</h2>
         {result !== null && result !== undefined && (
-          <p className="mt-3 flex flex-wrap items-center gap-2 text-lg text-slate-800">{t(view.retake ? "My ReadRise Level" : "My starting ReadRise Level")}: <LevelBadge level={Number(result)} /></p>
+          <p className="mt-3 flex flex-wrap items-center gap-2 text-lg text-slate-800">{t(view.retake ? "My ReadRise Level" : "My starting ReadRise Level")}: <ResultLevel level={Number(result)} grade={view.grade} /></p>
         )}
         {finished?.note && <p className="mt-2 text-sm text-slate-600">{t("We also looked at your MAP reading result to make this fair.")}</p>}
-        {level !== null && result !== null && Number(result) !== level && <p className="mt-2 text-sm text-slate-600">{t("Your level now is {level} — it has changed as you read.", { level })}</p>}
+        {level !== null && result !== null && Number(result) !== level && <p className="mt-2 text-sm text-slate-600">{t("Your level now is {level} — it has changed as you read.", { level: formatLevel(level) })}</p>}
         <p className="mt-3 text-slate-700">{t("Every article will now be written at a level that is just right for you. Read, score 75% or more, and watch your level rise!")}</p>
         {!finished && <p className="mt-2 text-sm text-slate-500">{t("You can take the placement again only when your teacher allows it.")}</p>}
         <Link href="/student/readrise" className="mt-5 inline-block rounded-xl bg-brand-navy px-5 py-2.5 font-semibold text-white hover:bg-brand-purple">{t("Start reading ▶")}</Link>
@@ -75,7 +91,7 @@ export function PlacementRunner({ view, level }: { view: PlacementView; level: n
         <ul className="mt-3 space-y-2 text-slate-700">
           <li>📖 {t("Read a short passage, then answer 3 questions.")}</li>
           <li>🔀 {t("The next passage gets harder or easier depending on your answers.")}</li>
-          <li>⏱ {t("Up to {n} passages, about 15–20 minutes. Your answers are saved — you can stop and come back.", { n: view.maxSteps })}</li>
+          <li>⏱ {t("Up to {n} passages (about 40 questions), about 30 minutes. Your answers are saved — you can stop and come back.", { n: view.maxSteps })}</li>
           <li>💡 {t("There is no pass or fail. Just do your best, on your own.")}</li>
           <li>🐢 {t("Read each passage carefully: answers that come faster than the passage can be read do not count.")}</li>
         </ul>

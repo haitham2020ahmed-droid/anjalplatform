@@ -1,0 +1,40 @@
+{
+  "code": "RR-266",
+  "summary": "This article explains why some birds fly huge distances with the changing seasons, how they find their way, and how routes near the Arabian Peninsula connect three continents.",
+  "strategy": "Cause/Effect",
+  "introduce": "Draw a simple cause → effect arrow on the board and ask students for an everyday example, such as “I did not sleep, so I felt tired.” Tell them that while reading “Migratory Birds: Travelers of the Sky” they will find at least two cause-and-effect links.",
+  "keyTerms": [
+    {
+      "term": "species",
+      "def": "a group of living things that are alike and can have young together"
+    },
+    {
+      "term": "territory",
+      "def": "an area of land that an animal lives in and often defends"
+    },
+    {
+      "term": "landmark",
+      "def": "an object or feature that is easy to recognize and helps someone find their way"
+    }
+  ],
+  "challengeTerms": [
+    {
+      "term": "flyway",
+      "def": "a regular route that migrating birds follow between their breeding and non-breeding areas"
+    },
+    {
+      "term": "corridor",
+      "def": "a narrow strip of land or space that connects two areas and is used as a passage"
+    },
+    {
+      "term": "magnetic",
+      "def": "relating to a force, like the one from Earth, that can be sensed and used to find direction"
+    }
+  ],
+  "discussion": [
+    "Do you agree or disagree that animals can find their way across huge distances without any map or GPS? Use evidence from the article to explain.",
+    "Explain why the Arabian Peninsula is important to migratory birds."
+  ],
+  "struggling": "Read the first part of the article aloud together, review species, territory, and landmark, and let weak readers match cause cards to effect cards from the article with a partner.",
+  "gifted": "Ask strong readers to read a challenging version and write a short paragraph that uses flyway, corridor, and magnetic to explain one important cause-and-effect chain from the article."
+}

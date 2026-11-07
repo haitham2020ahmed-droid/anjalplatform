@@ -1,0 +1,40 @@
+{
+  "code": "RR-016",
+  "summary": "This article explains how magnets attract iron and steel, how their poles attract and repel, how Earth's magnetic field guides a compass, and how people use lodestone and electromagnets.",
+  "strategy": "Vocabulary Building",
+  "introduce": "Write the key term “force” on the board and give pairs thirty seconds to guess what it means. Share a few guesses, then tell students to find the word in “Magnets: The Invisible Pull” and check whether they were right.",
+  "keyTerms": [
+    {
+      "term": "force",
+      "def": "a push or a pull that can make something move"
+    },
+    {
+      "term": "field",
+      "def": "the space around a magnet where its pull can be felt"
+    },
+    {
+      "term": "attract",
+      "def": "to pull something closer"
+    }
+  ],
+  "challengeTerms": [
+    {
+      "term": "lodestone",
+      "def": "a natural rock that acts as a magnet and attracts iron"
+    },
+    {
+      "term": "navigate",
+      "def": "to find and follow the right way from one place to another"
+    },
+    {
+      "term": "current",
+      "def": "a flow of electricity through a wire"
+    }
+  ],
+  "discussion": [
+    "Do you agree or disagree that magnets are more useful to people today than they were long ago? Use evidence from the article to explain.",
+    "Explain the difference between an ordinary magnet and an electromagnet."
+  ],
+  "struggling": "Pre-teach force, field, and attract with pictures or gestures, then let weak readers draw a quick picture for each term and use it in a short spoken sentence.",
+  "gifted": "Ask strong readers to read a challenging version and write a short paragraph that uses lodestone, navigate, and current to teach the class one of the terms with their own example."
+}

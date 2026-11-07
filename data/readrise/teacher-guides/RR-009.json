@@ -1,0 +1,40 @@
+{
+  "code": "RR-009",
+  "summary": "This article explains how the medieval scholar Ibn al-Haytham used dark-room experiments to study light and vision, and why he is called an early experimental scientist.",
+  "strategy": "Author's Purpose",
+  "introduce": "Ask students why someone might write “Ibn al-Haytham and the Science of Light”: to inform, to persuade, or to entertain? Take a quick hand vote, then tell students to look for clues about the writer's purpose as they read.",
+  "keyTerms": [
+    {
+      "term": "theory",
+      "def": "an idea that tries to explain how or why something happens"
+    },
+    {
+      "term": "evidence",
+      "def": "facts or signs that show whether something is true"
+    },
+    {
+      "term": "conclusion",
+      "def": "a decision you make after thinking about the facts"
+    }
+  ],
+  "challengeTerms": [
+    {
+      "term": "optics",
+      "def": "the science that studies light and how we see"
+    },
+    {
+      "term": "authority",
+      "def": "a person or source that people accept as an expert"
+    },
+    {
+      "term": "refraction",
+      "def": "the bending of light as it passes from one material into another"
+    }
+  ],
+  "discussion": [
+    "Do you agree or disagree that testing an idea yourself is better than trusting what a famous book says? Use evidence from the article to explain.",
+    "Explain how the dark-room experiments helped Ibn al-Haytham learn about light."
+  ],
+  "struggling": "Read the first part of the article aloud together, review theory, evidence, and conclusion, and let weak readers underline sentences that inform and circle any that persuade.",
+  "gifted": "Ask strong readers to read a challenging version and write a short paragraph that uses optics, authority, and refraction to explain the writer's purpose and how the details support it."
+}

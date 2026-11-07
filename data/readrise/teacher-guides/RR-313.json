@@ -1,0 +1,40 @@
+{
+  "code": "RR-313",
+  "summary": "This article explains how animation creates the illusion of movement from many still pictures shown quickly, from hand-drawn frames to modern computer animation, and the teamwork it takes to make an animated film.",
+  "strategy": "Sequence",
+  "introduce": "Write First, Next, Then, and Finally on the board and ask a volunteer to use them to describe how they get ready for school. Tell students to watch for the order of events as they read “Animation: Bringing Drawings to Life”.",
+  "keyTerms": [
+    {
+      "term": "animator",
+      "def": "a person whose job is to create the drawings or models that make a character move"
+    },
+    {
+      "term": "frame",
+      "def": "one single picture in a moving film"
+    },
+    {
+      "term": "illusion",
+      "def": "something that looks real or true but is not"
+    }
+  ],
+  "challengeTerms": [
+    {
+      "term": "render",
+      "def": "to use a computer to turn a plain 3D model into a finished, colored picture"
+    },
+    {
+      "term": "rig",
+      "def": "a digital skeleton of movable joints inside a 3D character model, used to pose and move it"
+    },
+    {
+      "term": "synchronize",
+      "def": "to match two things so they happen at exactly the same time"
+    }
+  ],
+  "discussion": [
+    "Do you agree or disagree that making an animated movie is harder than drawing one picture? Use evidence from the article to explain.",
+    "Explain what a storyboard is and why a studio makes one before drawing the finished pictures for a movie."
+  ],
+  "struggling": "Pre-teach animator, frame, and illusion with pictures or gestures, then let weak readers put sentence strips of the main events in order before writing.",
+  "gifted": "Ask strong readers to read a challenging version and write a short paragraph that uses render, rig, and synchronize to summarize the key events in order and explain which step matters most."
+}

@@ -1,0 +1,40 @@
+{
+  "code": "RR-446",
+  "summary": "In this story, inspired by a school lesson, a boy plants one tree at a time on a barren hillside, and over the years his small effort grows into a real community forest.",
+  "strategy": "Sequence",
+  "introduce": "Give pairs four mixed-up steps of a simple task, such as making tea, and ask them to put the steps in order. Explain that “The Boy Who Planted a Forest” also follows an order, and good readers notice signal words like first, after, and finally.",
+  "keyTerms": [
+    {
+      "term": "native",
+      "def": "naturally belonging to a certain place"
+    },
+    {
+      "term": "seedling",
+      "def": "a very young plant grown from a seed"
+    },
+    {
+      "term": "barren",
+      "def": "having no plants growing, empty and bare"
+    }
+  ],
+  "challengeTerms": [
+    {
+      "term": "cultivate",
+      "def": "to care for and help something grow"
+    },
+    {
+      "term": "erosion",
+      "def": "the gradual wearing away of soil or rock, often by wind or water"
+    },
+    {
+      "term": "biodiversity",
+      "def": "the wide variety of living things found in a particular area"
+    }
+  ],
+  "discussion": [
+    "Do you agree or disagree that one person's small effort, kept up over many years, can grow into something much bigger than they imagined? Use evidence from the story to explain.",
+    "Explain how Saeed's small effort of planting one seedling eventually grew into a shared community forest."
+  ],
+  "struggling": "Read the first part of the story aloud together, review native, seedling, and barren, and let weak readers put sentence strips of the main events in order before writing.",
+  "gifted": "Ask strong readers to read a challenging version and write a short paragraph that uses cultivate, erosion, and biodiversity to summarize the key events in order and explain which step matters most."
+}

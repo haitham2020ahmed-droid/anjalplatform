@@ -1,0 +1,40 @@
+{
+  "code": "RR-321",
+  "summary": "This article covers a world tour of deserts, from the hot Sahara to the cold Gobi, and how plants, animals, and people survive in them.",
+  "strategy": "Sequence",
+  "introduce": "Give pairs four mixed-up steps of a simple task, such as making tea, and ask them to put the steps in order. Explain that “Deserts of the World” also follows an order, and good readers notice signal words like first, after, and finally.",
+  "keyTerms": [
+    {
+      "term": "continent",
+      "def": "one of the seven huge areas of land on Earth, like Africa or Asia"
+    },
+    {
+      "term": "climate",
+      "def": "the usual weather a place has over a long time"
+    },
+    {
+      "term": "vegetation",
+      "def": "the plants that grow in a certain area"
+    }
+  ],
+  "challengeTerms": [
+    {
+      "term": "arid",
+      "def": "extremely dry, with very little rainfall"
+    },
+    {
+      "term": "biodiversity",
+      "def": "the wide variety of living things found in a place"
+    },
+    {
+      "term": "aquifer",
+      "def": "a layer of underground rock that holds water"
+    }
+  ],
+  "discussion": [
+    "Do you agree or disagree that deserts are empty places with nothing worth studying? Use evidence from the article to explain.",
+    "Explain how deserts can be both hot and cold, yet still be called deserts."
+  ],
+  "struggling": "Read the first part of the article aloud together, review continent, climate, and vegetation, and let weak readers put sentence strips of the main events in order before writing.",
+  "gifted": "Challenge advanced readers to use arid, biodiversity, and aquifer in a short paragraph that summarizes the key events in order and explain which step matters most."
+}

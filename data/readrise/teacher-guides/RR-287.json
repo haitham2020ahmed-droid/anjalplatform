@@ -1,0 +1,40 @@
+{
+  "code": "RR-287",
+  "summary": "This article explains how wind forms ocean waves, how a board's buoyancy and balance let a surfer catch and ride them, and how surfers read wave patterns to find the best wave.",
+  "strategy": "Accessing Prior Knowledge",
+  "introduce": "Show the title “Surfing: Riding the Waves” and give pairs one minute to list everything they already know about this topic. Share a few ideas on the board, then tell students to check which ideas the article confirms.",
+  "keyTerms": [
+    {
+      "term": "swell",
+      "def": "a group of waves that travel together across the open sea"
+    },
+    {
+      "term": "buoyancy",
+      "def": "the upward push of water that helps objects float"
+    },
+    {
+      "term": "current",
+      "def": "a steady flow of water moving in one direction"
+    }
+  ],
+  "challengeTerms": [
+    {
+      "term": "momentum",
+      "def": "the force an object has because it is moving, which depends on its speed and mass"
+    },
+    {
+      "term": "gravity",
+      "def": "the force that pulls objects toward the Earth"
+    },
+    {
+      "term": "friction",
+      "def": "a force that slows an object when it rubs against another surface"
+    }
+  ],
+  "discussion": [
+    "Do you agree or disagree that reading the ocean well is just as important to surfing as standing on the board? Use evidence from the article to explain.",
+    "Imagine you are explaining surfing to a beginner. Describe how a swell becomes a wave a surfer can ride."
+  ],
+  "struggling": "Read the first part of the article aloud together, review swell, buoyancy, and current, and let weak readers use a K-W-L chart and read the article with a partner.",
+  "gifted": "Challenge advanced readers to use momentum, gravity, and friction in a short paragraph that connects the article to something they learned in another subject."
+}

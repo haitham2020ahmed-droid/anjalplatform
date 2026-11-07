@@ -1,0 +1,40 @@
+{
+  "code": "RR-047",
+  "summary": "This article explains how telescopes gather light with lenses and mirrors, why some are built on mountains or sent into space, and how they let us look far away and back in time.",
+  "strategy": "Vocabulary Building",
+  "introduce": "Write the key term “astronomer” on the board and give pairs thirty seconds to guess what it means. Share a few guesses, then tell students to find the word in “Telescopes That See Far Into Space” and check whether they were right.",
+  "keyTerms": [
+    {
+      "term": "astronomer",
+      "def": "a scientist who studies stars, planets, and other things in space"
+    },
+    {
+      "term": "distant",
+      "def": "far away"
+    },
+    {
+      "term": "magnify",
+      "def": "to make something look bigger than it really is"
+    }
+  ],
+  "challengeTerms": [
+    {
+      "term": "observatory",
+      "def": "a building or instrument designed for studying the sky and space"
+    },
+    {
+      "term": "segment",
+      "def": "one of several parts that fit together to make a whole"
+    },
+    {
+      "term": "distort",
+      "def": "to change the shape or look of something so it is no longer accurate"
+    }
+  ],
+  "discussion": [
+    "Do you agree or disagree that sending telescopes into space is worth the high cost? Use evidence from the article to explain.",
+    "Explain two reasons why some telescopes are sent into space instead of being built on Earth."
+  ],
+  "struggling": "Pre-teach astronomer, distant, and magnify with pictures or gestures, then let weak readers draw a quick picture for each term and use it in a short spoken sentence.",
+  "gifted": "Challenge advanced readers to use observatory, segment, and distort in a short paragraph that teaches the class one of the terms with their own example."
+}

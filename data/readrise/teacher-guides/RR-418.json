@@ -1,0 +1,40 @@
+{
+  "code": "RR-418",
+  "summary": "In this story, a merchant's son joins his father's trading caravan for the first time, learning how travelers navigated by the stars, managed their water with great care, and depended on trust between fellow merchants to cross the desert safely.",
+  "strategy": "Sequence",
+  "introduce": "Write First, Next, Then, and Finally on the board and ask a volunteer to use them to describe how they get ready for school. Tell students to watch for the order of events as they read “The Caravan's Long Journey”.",
+  "keyTerms": [
+    {
+      "term": "merchant",
+      "def": "a person who buys and sells goods to earn a living"
+    },
+    {
+      "term": "oasis",
+      "def": "a place in a desert where water can be found, often with plants growing around it"
+    },
+    {
+      "term": "landmark",
+      "def": "an object or feature in a place that helps people recognize where they are"
+    }
+  ],
+  "challengeTerms": [
+    {
+      "term": "navigate",
+      "def": "to find and follow a safe way from one place to another"
+    },
+    {
+      "term": "frankincense",
+      "def": "a sweet-smelling resin from certain trees, long valued and traded across Arabia"
+    },
+    {
+      "term": "essential",
+      "def": "absolutely necessary; something you cannot do without"
+    }
+  ],
+  "discussion": [
+    "Do you agree or disagree that trusting other people is more important than being strong or clever when facing a hard journey? Use evidence from the story to explain.",
+    "Explain how skill and trust both helped the caravan survive its journey."
+  ],
+  "struggling": "Read the first part of the story aloud together, review merchant, oasis, and landmark, and let weak readers put sentence strips of the main events in order before writing.",
+  "gifted": "Ask strong readers to read a challenging version and write a short paragraph that uses navigate, frankincense, and essential to summarize the key events in order and explain which step matters most."
+}

@@ -5,7 +5,10 @@ import { getActor, repo, requireActor } from "@/server/auth/next";
 import { schoolDashboard, type GroupStats } from "@/server/readrise/dashboards";
 import { ADMIN_TABS, ReadRiseTabs } from "../_components/tabs";
 import { ExportLinks } from "@/components/reports/report-ui";
-import { fmt, LevelHistogram, RR_NOTE, ScaledLineChart, signed, Stat } from "../_components/ui";
+import { fmt, RR_NOTE, ScaledLineChart, signed, Stat } from "../_components/ui";
+import { LevelBars } from "@/app/teacher/readrise/_components/data-center";
+import { formatLevel } from "@/server/readrise/level";
+import { getT } from "@/i18n/server";
 
 export const metadata = { title: "ReadRise dashboard" };
 
@@ -17,7 +20,7 @@ function MedianCell({ g }: { g: GroupStats }) {
   const below = g.medianLevel < g.band.low, above = g.medianLevel > g.band.high;
   return (
     <span className={`font-semibold tabular-nums ${below ? "text-red-700" : above ? "text-emerald-700" : "text-teal-800"}`} title={`Expected ${g.band.low}–${g.band.high}`}>
-      {g.medianLevel} <span className="text-xs font-normal text-slate-500">{below ? "below" : above ? "above" : "in"} {g.band.low}–{g.band.high}</span>
+      {formatLevel(g.medianLevel)} <span className="text-xs font-normal text-slate-500">{below ? "below" : above ? "above" : "in"} {g.band.low}–{g.band.high}</span>
     </span>
   );
 }
@@ -37,7 +40,7 @@ export default async function ReadRiseDashboard({ searchParams }: { searchParams
   const actor = await requireActor({ roles: ["SCHOOL_ADMIN", "SUPER_ADMIN"], permission: "analytics:school" });
   const me = (await getActor())!.user;
   const sp = await searchParams;
-  const d = await schoolDashboard(repo, actor);
+  const [d, { t }] = await Promise.all([schoolDashboard(repo, actor), getT()]);
   const grade = d.grades.some((g) => g.grade === Number(sp.grade)) ? Number(sp.grade) : null;
   const total = d.grades.reduce((a, g) => ({ students: a.students + g.students, placed: a.placed + g.placed }), { students: 0, placed: 0 });
   const goalWeighted = d.grades.filter((g) => g.goalPct !== null);
@@ -79,7 +82,7 @@ export default async function ReadRiseDashboard({ searchParams }: { searchParams
               <ScaledLineChart labels={d.weeks} series={usageSeries} title="Articles per student per week" min={0} max={uMax} ticks={uTicks} />
             </Section>
             <Section title="Level distribution" icon="📊" hint={gradeRow ? `Grade ${grade} · expected band ${gradeRow.band.low}–${gradeRow.band.high}` : "All placed students (choose a grade to see its expected band)."}>
-              <LevelHistogram buckets={gradeRow ? gradeRow.distribution : d.distribution} title="Students by ReadRise Level" />
+              <LevelBars buckets={gradeRow ? gradeRow.distribution : d.distribution} title={t("Students by ReadRise Level")} t={t} />
             </Section>
           </div>
 

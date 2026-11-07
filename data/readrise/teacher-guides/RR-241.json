@@ -1,0 +1,40 @@
+{
+  "code": "RR-241",
+  "summary": "This article explains how the heart, arteries, veins, and capillaries work together to move blood, oxygen, and nutrients through your body.",
+  "strategy": "Cause/Effect",
+  "introduce": "Drop a pencil and ask, “What was the cause? What was the effect?” to model the idea quickly. Then show the title “How Blood Travels Through Your Body” and tell students to look for things in the article that make other things happen.",
+  "keyTerms": [
+    {
+      "term": "circulate",
+      "def": "to move around in a loop and come back to the start"
+    },
+    {
+      "term": "oxygen",
+      "def": "a gas in the air that people and animals need to breathe and stay alive"
+    },
+    {
+      "term": "nutrient",
+      "def": "something in food that the body uses to grow and stay healthy"
+    }
+  ],
+  "challengeTerms": [
+    {
+      "term": "cardiovascular",
+      "def": "having to do with the heart and the blood vessels"
+    },
+    {
+      "term": "contract",
+      "def": "to squeeze or tighten, becoming smaller"
+    },
+    {
+      "term": "hemoglobin",
+      "def": "a protein in red blood cells that carries oxygen"
+    }
+  ],
+  "discussion": [
+    "Do you agree or disagree that the heart and blood vessels are the body's hardest workers? Use evidence from the article to explain.",
+    "Explain how blood circulates through your body."
+  ],
+  "struggling": "Pre-teach circulate, oxygen, and nutrient with pictures or gestures, then let weak readers match cause cards to effect cards from the article with a partner.",
+  "gifted": "Ask strong readers to read a challenging version and write a short paragraph that uses cardiovascular, contract, and hemoglobin to explain one important cause-and-effect chain from the article."
+}

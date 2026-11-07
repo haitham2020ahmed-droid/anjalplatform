@@ -2,12 +2,15 @@
  * 🚀 ReadRise display pieces (server-safe, no client JS): the level badge, the weekly-goal ring and the growth chart.
  * "ReadRise Level" is an ESTIMATE on a Lexile-like scale — never called a Lexile here.
  */
+import { formatLevel } from "../../server/readrise/level";
+/** round 6: levels are shown with level.ts formatLevel ("BR120L" / "95L"); re-exported for the reader */
+export { formatLevel };
+
 export function LevelBadge({ level, size = "md" }: { level: number; size?: "sm" | "md" | "lg" }) {
   const cls = size === "lg" ? "px-4 py-2 text-3xl" : size === "sm" ? "px-2 py-0.5 text-sm" : "px-3 py-1 text-xl";
   return (
     <span className={`inline-flex items-baseline gap-1.5 rounded-xl bg-brand-navy font-bold text-white ${cls}`} title="ReadRise Level (the platform's own reading-level estimate)">
-      <span>{level}</span>
-      <span className="text-[0.55em] font-semibold uppercase tracking-wide text-teal-100">RR</span>
+      <span>{formatLevel(level)}</span>
     </span>
   );
 }
@@ -60,7 +63,7 @@ export function GrowthChart({ points, projected, yearEnd }: { points: GrowthPoin
   const last = pts[pts.length - 1];
   return (
     <figure>
-      <svg viewBox={`0 0 ${W} ${H}`} className="h-auto w-full" role="img" aria-label={`ReadRise Level from ${pts[0].level} to ${last.level}${projected !== null ? `, projected ${projected} by the end of the year` : ""}`}>
+      <svg viewBox={`0 0 ${W} ${H}`} className="h-auto w-full" role="img" aria-label={`ReadRise Level from ${formatLevel(pts[0].level)} to ${formatLevel(last.level)}${projected !== null ? `, projected ${formatLevel(projected)} by the end of the year` : ""}`}>
         {ticks.map((v) => (
           <g key={v}>
             <line x1={L} x2={W - R} y1={y(v)} y2={y(v)} stroke="#e2e8f0" strokeWidth="1" />
@@ -73,21 +76,21 @@ export function GrowthChart({ points, projected, yearEnd }: { points: GrowthPoin
         <path d={d} fill="none" stroke="#1fa3a3" strokeWidth="2" strokeLinejoin="round" />
         {pts.map((p, i) => (
           <circle key={i} cx={x(p.t)} cy={y(p.level)} r="5" fill="#1fa3a3" stroke="#fff" strokeWidth="2">
-            <title>{`${fmt(p.t)}: ${p.level}`}</title>
+            <title>{`${fmt(p.t)}: ${formatLevel(p.level)}`}</title>
           </circle>
         ))}
         {projected !== null && (
           <g>
-            <circle cx={x(endT)} cy={y(projected)} r="5" fill="#fff" stroke="#5b3fa0" strokeWidth="2"><title>{`Projected (estimate): ${projected}`}</title></circle>
-            <text x={x(endT) - 8} y={y(projected) - 9} textAnchor="end" fontSize="11" className="fill-slate-700">{`Projected ${projected} (estimate)`}</text>
+            <circle cx={x(endT)} cy={y(projected)} r="5" fill="#fff" stroke="#5b3fa0" strokeWidth="2"><title>{`Projected (estimate): ${formatLevel(projected)}`}</title></circle>
+            <text x={x(endT) - 8} y={y(projected) - 9} textAnchor="end" fontSize="11" className="fill-slate-700">{`Projected ${formatLevel(projected)} (estimate)`}</text>
           </g>
         )}
-        <text x={x(lastT) + 4} y={y(last.level) - 8} fontSize="12" fontWeight="700" className="fill-slate-900">{last.level}</text>
+        <text x={x(lastT) + 4} y={y(last.level) - 8} fontSize="12" fontWeight="700" className="fill-slate-900">{formatLevel(last.level)}</text>
       </svg>
       <table className="sr-only">
         <caption>ReadRise Level over time</caption>
         <thead><tr><th>Date</th><th>Level</th></tr></thead>
-        <tbody>{pts.map((p, i) => <tr key={i}><td>{fmt(p.t)}</td><td>{p.level}</td></tr>)}{projected !== null && <tr><td>End of year (projected estimate)</td><td>{projected}</td></tr>}</tbody>
+        <tbody>{pts.map((p, i) => <tr key={i}><td>{fmt(p.t)}</td><td>{formatLevel(p.level)}</td></tr>)}{projected !== null && <tr><td>End of year (projected estimate)</td><td>{formatLevel(projected)}</td></tr>}</tbody>
       </table>
     </figure>
   );

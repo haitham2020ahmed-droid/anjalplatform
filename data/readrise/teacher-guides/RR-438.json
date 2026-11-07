@@ -1,0 +1,40 @@
+{
+  "code": "RR-438",
+  "summary": "In this story, an underdog school handball team loses every game early in the season, but by practicing hard and supporting each other instead of giving up, they finally pull off a surprising win against the league's strongest team.",
+  "strategy": "Sequence",
+  "introduce": "Write First, Next, Then, and Finally on the board and ask a volunteer to use them to describe how they get ready for school. Tell students to watch for the order of events as they read “The Team That Never Quit”.",
+  "keyTerms": [
+    {
+      "term": "teamwork",
+      "def": "the combined effort of a group working well together"
+    },
+    {
+      "term": "support",
+      "def": "to help or encourage someone"
+    },
+    {
+      "term": "effort",
+      "def": "the energy and work put into trying to do something"
+    }
+  ],
+  "challengeTerms": [
+    {
+      "term": "perseverance",
+      "def": "continued effort to do or achieve something despite difficulty"
+    },
+    {
+      "term": "underdog",
+      "def": "a competitor who is expected to lose, with little chance of winning"
+    },
+    {
+      "term": "resilience",
+      "def": "the ability to recover quickly from difficulty and keep going"
+    }
+  ],
+  "discussion": [
+    "Do you agree or disagree that a team that never gives up will eventually succeed, no matter how many times it loses? Use evidence from the story to explain.",
+    "Explain how the Falcons' teamwork and effort changed from the start of the season to the final game."
+  ],
+  "struggling": "Pre-teach teamwork, support, and effort with pictures or gestures, then let weak readers put sentence strips of the main events in order before writing.",
+  "gifted": "Ask strong readers to read a challenging version and write a short paragraph that uses perseverance, underdog, and resilience to summarize the key events in order and explain which step matters most."
+}

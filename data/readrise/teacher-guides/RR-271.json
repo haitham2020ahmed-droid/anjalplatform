@@ -1,0 +1,40 @@
+{
+  "code": "RR-271",
+  "summary": "This article explains why catching too many fish too fast harms ocean populations and ecosystems, what sustainable fishing practices like size limits, seasons, and quotas look like, and why this matters for coastal communities along the Red Sea and the Gulf.",
+  "strategy": "Cause/Effect",
+  "introduce": "Draw a simple cause → effect arrow on the board and ask students for an everyday example, such as “I did not sleep, so I felt tired.” Tell them that while reading “Overfishing and Sustainable Fishing” they will find at least two cause-and-effect links.",
+  "keyTerms": [
+    {
+      "term": "quota",
+      "def": "a limit on how much of something a person or group may take"
+    },
+    {
+      "term": "species",
+      "def": "a group of animals that share features and can breed together"
+    },
+    {
+      "term": "livelihood",
+      "def": "the way a person earns money to live"
+    }
+  ],
+  "challengeTerms": [
+    {
+      "term": "depletion",
+      "def": "the state of being used up or reduced in amount"
+    },
+    {
+      "term": "replenish",
+      "def": "to fill something up again or restore its supply"
+    },
+    {
+      "term": "bycatch",
+      "def": "sea creatures caught by accident while fishing for something else"
+    }
+  ],
+  "discussion": [
+    "Do you agree or disagree that catching as many fish as possible today matters more than saving fish for the future? Use evidence from the article to explain.",
+    "Explain how overfishing can affect both fish populations and the livelihoods of coastal communities."
+  ],
+  "struggling": "Read the first part of the article aloud together, review quota, species, and livelihood, and let weak readers match cause cards to effect cards from the article with a partner.",
+  "gifted": "Challenge advanced readers to use depletion, replenish, and bycatch in a short paragraph that explains one important cause-and-effect chain from the article."
+}

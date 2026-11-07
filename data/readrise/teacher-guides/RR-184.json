@@ -1,0 +1,40 @@
+{
+  "code": "RR-184",
+  "summary": "This article explains how Arab sailors used the stars, the monsoon winds, and simple tools like the kamal to cross the Indian Ocean, and how their knowledge lives on in star names.",
+  "strategy": "Sequence",
+  "introduce": "Write First, Next, Then, and Finally on the board and ask a volunteer to use them to describe how they get ready for school. Tell students to watch for the order of events as they read “Arab Navigators and the Stars”.",
+  "keyTerms": [
+    {
+      "term": "monsoon",
+      "def": "a strong seasonal wind that changes direction during the year"
+    },
+    {
+      "term": "kamal",
+      "def": "a simple tool of wood and knotted string that sailors used to measure a star's height"
+    },
+    {
+      "term": "dhow",
+      "def": "a wooden sailing ship with a large, three-sided sail"
+    }
+  ],
+  "challengeTerms": [
+    {
+      "term": "celestial",
+      "def": "having to do with the sky or outer space"
+    },
+    {
+      "term": "astrolabe",
+      "def": "an old instrument used to measure the positions of the Sun and stars"
+    },
+    {
+      "term": "treatise",
+      "def": "a long, careful piece of writing about one subject"
+    }
+  ],
+  "discussion": [
+    "Do you agree or disagree that people long ago were just as clever as people today? Use evidence from the article to explain.",
+    "Explain how a navigator used the kamal and the North Star to find a ship's latitude."
+  ],
+  "struggling": "Read the first part of the article aloud together, review monsoon, kamal, and dhow, and let weak readers put sentence strips of the main events in order before writing.",
+  "gifted": "Ask strong readers to read a challenging version and write a short paragraph that uses celestial, astrolabe, and treatise to summarize the key events in order and explain which step matters most."
+}

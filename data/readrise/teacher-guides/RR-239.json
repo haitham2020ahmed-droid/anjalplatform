@@ -1,0 +1,40 @@
+{
+  "code": "RR-239",
+  "summary": "This article explains how the body's own natural defenses, from skin to white blood cells, keep out germs, fight the ones that get in, and remember them for next time.",
+  "strategy": "Problem/Solution",
+  "introduce": "Write “Problem” and “Solution” on the board and give pairs thirty seconds to think of a problem people face in daily life and one way to fix it. Explain that as they read “How Your Immune System Fights Germs”, they will look for the main problem and how it is solved.",
+  "keyTerms": [
+    {
+      "term": "invader",
+      "def": "something that enters a place where it does not belong"
+    },
+    {
+      "term": "inflammation",
+      "def": "redness, warmth, and swelling around a hurt or sick spot on the body"
+    },
+    {
+      "term": "multiply",
+      "def": "to grow quickly in number"
+    }
+  ],
+  "challengeTerms": [
+    {
+      "term": "pathogen",
+      "def": "a germ, such as a bacterium or virus, that can cause disease"
+    },
+    {
+      "term": "phagocyte",
+      "def": "a type of white blood cell that surrounds and swallows harmful invaders"
+    },
+    {
+      "term": "coordination",
+      "def": "when different parts work together smoothly toward one goal"
+    }
+  ],
+  "discussion": [
+    "Do you agree or disagree that feeling a little sick, like a fever, can actually be a sign that your body is winning a fight? Use evidence from the article to explain.",
+    "Explain how fever and inflammation both help your body fight germs."
+  ],
+  "struggling": "Read the first part of the article aloud together, review invader, inflammation, and multiply, and let weak readers fill in a simple Problem | Solution chart with sentence starters.",
+  "gifted": "Ask strong readers to read a challenging version and write a short paragraph that uses pathogen, phagocyte, and coordination to suggest a second solution to the problem and judge which works better."
+}

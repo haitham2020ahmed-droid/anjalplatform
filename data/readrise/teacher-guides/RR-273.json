@@ -1,0 +1,40 @@
+{
+  "code": "RR-273",
+  "summary": "This article explains how modern buildings are designed with shade, insulation, natural airflow, solar panels, and efficient lighting to use far less energy and water.",
+  "strategy": "Problem/Solution",
+  "introduce": "Write “Problem” and “Solution” on the board and give pairs thirty seconds to think of a problem people face in daily life and one way to fix it. Explain that as they read “Eco-Friendly Buildings: Green Architecture”, they will look for the main problem and how it is solved.",
+  "keyTerms": [
+    {
+      "term": "material",
+      "def": "the substance something is made of"
+    },
+    {
+      "term": "reflect",
+      "def": "to send light, heat, or sound back instead of absorbing it"
+    },
+    {
+      "term": "efficient",
+      "def": "doing something well without wasting time, effort, or energy"
+    }
+  ],
+  "challengeTerms": [
+    {
+      "term": "insulation",
+      "def": "material that slows heat from moving in or out"
+    },
+    {
+      "term": "sustainable",
+      "def": "able to continue for a long time without running out or causing harm"
+    },
+    {
+      "term": "renewable",
+      "def": "able to be replaced naturally and not used up, like sunlight or wind"
+    }
+  ],
+  "discussion": [
+    "Do you agree or disagree that new buildings should be required to save energy, even if they cost more to build? Use evidence from the article to explain.",
+    "Explain two ways a green building uses less energy, and describe one way builders must plan carefully."
+  ],
+  "struggling": "Pre-teach material, reflect, and efficient with pictures or gestures, then let weak readers fill in a simple Problem | Solution chart with sentence starters.",
+  "gifted": "Challenge advanced readers to use insulation, sustainable, and renewable in a short paragraph that suggests a second solution to the problem and judge which works better."
+}

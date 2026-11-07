@@ -1,0 +1,40 @@
+{
+  "code": "RR-236",
+  "summary": "This article explains why kilometers are too small a unit for space, what a light-year really measures, and why looking at a distant star means looking into the past.",
+  "strategy": "Cause/Effect",
+  "introduce": "Drop a pencil and ask, “What was the cause? What was the effect?” to model the idea quickly. Then show the title “Light-Years: Measuring the Vastness of Space” and tell students to look for things in the article that make other things happen.",
+  "keyTerms": [
+    {
+      "term": "instantaneous",
+      "def": "happening immediately, with no delay at all"
+    },
+    {
+      "term": "delay",
+      "def": "the amount of time before something happens or arrives"
+    },
+    {
+      "term": "trillion",
+      "def": "a very large number: a thousand billion"
+    }
+  ],
+  "challengeTerms": [
+    {
+      "term": "finite",
+      "def": "having a limit or an end, not endless"
+    },
+    {
+      "term": "constant",
+      "def": "a fixed value that always stays the same"
+    },
+    {
+      "term": "parallax",
+      "def": "a method of measuring distance by comparing an object's apparent position from two different viewpoints"
+    }
+  ],
+  "discussion": [
+    "Do you agree or disagree that when we look at a star, we are really looking at the past? Use evidence from the article to explain.",
+    "Explain why a light-year is a unit of distance and not a unit of time."
+  ],
+  "struggling": "Pre-teach instantaneous, delay, and trillion with pictures or gestures, then let weak readers match cause cards to effect cards from the article with a partner.",
+  "gifted": "Challenge advanced readers to use finite, constant, and parallax in a short paragraph that explains one important cause-and-effect chain from the article."
+}

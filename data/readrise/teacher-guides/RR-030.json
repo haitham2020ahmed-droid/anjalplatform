@@ -1,0 +1,40 @@
+{
+  "code": "RR-030",
+  "summary": "This article explains how sea turtles travel across the ocean back to the beach where they hatched, lay their eggs, and face dangers that people can help reduce.",
+  "strategy": "Problem/Solution",
+  "introduce": "Ask students to share a small problem they solved this week and how they solved it, and write two examples in a Problem | Solution chart on the board. Tell them that “Sea Turtles: Long Journeys Home” also has a problem and a solution to find.",
+  "keyTerms": [
+    {
+      "term": "migrate",
+      "def": "to move from one place to another far away, often at certain times"
+    },
+    {
+      "term": "navigate",
+      "def": "to find the way to get somewhere"
+    },
+    {
+      "term": "magnetic",
+      "def": "having the pull of a magnet, which can attract some metals or point a compass"
+    }
+  ],
+  "challengeTerms": [
+    {
+      "term": "instinct",
+      "def": "a way of acting that an animal is born knowing, without being taught"
+    },
+    {
+      "term": "navigation",
+      "def": "the skill or act of finding a route from one place to another"
+    },
+    {
+      "term": "incubate",
+      "def": "to keep eggs warm so they can develop and hatch"
+    }
+  ],
+  "discussion": [
+    "Do you agree or disagree that people should keep beaches dark at night to help sea turtles? Use evidence from the article to explain.",
+    "Explain two dangers that hatchlings face and how people can help reduce one of them."
+  ],
+  "struggling": "Pre-teach migrate, navigate, and magnetic with pictures or gestures, then let weak readers fill in a simple Problem | Solution chart with sentence starters.",
+  "gifted": "Ask strong readers to read a challenging version and write a short paragraph that uses instinct, navigation, and incubate to suggest a second solution to the problem and judge which works better."
+}

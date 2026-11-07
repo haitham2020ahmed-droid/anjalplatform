@@ -1,0 +1,40 @@
+{
+  "code": "RR-128",
+  "summary": "This article covers simple first aid steps for cuts, burns, nosebleeds, and heat illness, and when to call for help.",
+  "strategy": "Sequence",
+  "introduce": "Write First, Next, Then, and Finally on the board and ask a volunteer to use them to describe how they get ready for school. Tell students to watch for the order of events as they read “First Aid Basics”.",
+  "keyTerms": [
+    {
+      "term": "injury",
+      "def": "harm done to the body, such as a cut or a broken bone"
+    },
+    {
+      "term": "pressure",
+      "def": "the force of pushing on something"
+    },
+    {
+      "term": "rinse",
+      "def": "to wash something quickly with clean water"
+    }
+  ],
+  "challengeTerms": [
+    {
+      "term": "priority",
+      "def": "the thing that is most important and must be done first"
+    },
+    {
+      "term": "assess",
+      "def": "to look at something carefully to judge it"
+    },
+    {
+      "term": "infection",
+      "def": "a sickness caused by germs getting into the body"
+    }
+  ],
+  "discussion": [
+    "Do you agree or disagree that every student should learn first aid at school? Use evidence from the article to explain.",
+    "Explain what you would do, step by step, if a classmate became dizzy on a very hot day."
+  ],
+  "struggling": "Pre-teach injury, pressure, and rinse with pictures or gestures, then let weak readers put sentence strips of the main events in order before writing.",
+  "gifted": "Challenge advanced readers to use priority, assess, and infection in a short paragraph that summarizes the key events in order and explain which step matters most."
+}

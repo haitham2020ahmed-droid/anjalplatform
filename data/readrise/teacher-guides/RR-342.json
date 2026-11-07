@@ -1,0 +1,40 @@
+{
+  "code": "RR-342",
+  "summary": "The Great Barrier Reef off Australia is the world's largest coral reef system, so big it can be seen from space.",
+  "strategy": "Main Idea",
+  "introduce": "Show the title “The Great Barrier Reef” and give pairs one minute to predict, in one sentence, what the whole article is mostly about. Write three predictions on the board and tell students they will check which one is closest to the main idea after reading.",
+  "keyTerms": [
+    {
+      "term": "ecosystem",
+      "def": "a community of living things along with the environment they live in, all connected together"
+    },
+    {
+      "term": "species",
+      "def": "a particular kind or type of living thing"
+    },
+    {
+      "term": "structure",
+      "def": "something that has been built or formed, often with many connected parts"
+    }
+  ],
+  "challengeTerms": [
+    {
+      "term": "biodiversity",
+      "def": "the wide variety of different living things found in a particular place"
+    },
+    {
+      "term": "formation",
+      "def": "something that has been formed or built, or the process by which it was formed"
+    },
+    {
+      "term": "vulnerable",
+      "def": "easily harmed, damaged, or affected by something"
+    }
+  ],
+  "discussion": [
+    "Do you agree or disagree that a place that is home to thousands of different kinds of sea life deserves special protection? Use evidence from the article to explain.",
+    "Explain what makes the Great Barrier Reef such a unique ecosystem, and why it now faces danger."
+  ],
+  "struggling": "Read the first part of the article aloud together, review ecosystem, species, and structure, and let weak readers complete a main-idea-and-details web with a partner.",
+  "gifted": "Ask strong readers to read a challenging version and write a short paragraph that uses biodiversity, formation, and vulnerable to state the main idea of the article in their own words."
+}

@@ -1,0 +1,40 @@
+{
+  "code": "RR-227",
+  "summary": "This article explains what asteroids are, why most of them orbit in a belt between Mars and Jupiter, how they differ from icy comets, and how scientists track the ones that pass near Earth.",
+  "strategy": "Compare/Contrast",
+  "introduce": "Draw two overlapping circles on the board and quickly compare two familiar things, such as a cat and a dog, with the class. Tell students that while reading “Asteroids: Rocky Leftovers of the Solar System” they will look for ways things are alike and different.",
+  "keyTerms": [
+    {
+      "term": "orbit",
+      "def": "to travel around something in a curved path"
+    },
+    {
+      "term": "fragment",
+      "def": "a small piece broken off from something larger"
+    },
+    {
+      "term": "gravity",
+      "def": "the force that pulls objects toward each other"
+    }
+  ],
+  "challengeTerms": [
+    {
+      "term": "coalesce",
+      "def": "to come together and combine into one larger mass or whole"
+    },
+    {
+      "term": "celestial",
+      "def": "relating to the sky or outer space"
+    },
+    {
+      "term": "gravitational",
+      "def": "relating to the force that pulls objects toward each other"
+    }
+  ],
+  "discussion": [
+    "Do you agree or disagree that scientists should spend a lot of money tracking asteroids that pass near Earth? Use evidence from the article to explain.",
+    "Imagine you are an astronomer explaining asteroids to a younger student. Write a short explanation of three facts that show how asteroids are different from comets."
+  ],
+  "struggling": "Pre-teach orbit, fragment, and gravity with pictures or gestures, then let weak readers fill in a T-chart of alike and different with sentence starters.",
+  "gifted": "Challenge advanced readers to use coalesce, celestial, and gravitational in a short paragraph that compares two ideas from the article and explain which difference matters most."
+}

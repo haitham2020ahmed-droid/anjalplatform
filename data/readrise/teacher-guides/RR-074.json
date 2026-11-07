@@ -1,0 +1,40 @@
+{
+  "code": "RR-074",
+  "summary": "This article explains how bridges carry heavy loads by balancing pushing and pulling forces, and how beam, arch, and suspension bridges each solve the problem in a different way.",
+  "strategy": "Compare/Contrast",
+  "introduce": "Draw two overlapping circles on the board and quickly compare two familiar things, such as a cat and a dog, with the class. Tell students that while reading “How Bridges Stay Up” they will look for ways things are alike and different.",
+  "keyTerms": [
+    {
+      "term": "compression",
+      "def": "a pushing force that squeezes something together"
+    },
+    {
+      "term": "tension",
+      "def": "a pulling force that stretches something"
+    },
+    {
+      "term": "span",
+      "def": "the distance between two supports of a bridge"
+    }
+  ],
+  "challengeTerms": [
+    {
+      "term": "load",
+      "def": "the weight or force that a structure must carry"
+    },
+    {
+      "term": "abutment",
+      "def": "a solid support at the end of a bridge or arch that takes its push"
+    },
+    {
+      "term": "reinforced",
+      "def": "made stronger by adding another material or part"
+    }
+  ],
+  "discussion": [
+    "Do you agree or disagree that the shape of a bridge matters more than the material it is made from? Use evidence from the article to explain.",
+    "Explain how compression and tension act on a bridge."
+  ],
+  "struggling": "Pre-teach compression, tension, and span with pictures or gestures, then let weak readers fill in a T-chart of alike and different with sentence starters.",
+  "gifted": "Challenge advanced readers to use load, abutment, and reinforced in a short paragraph that compares two ideas from the article and explain which difference matters most."
+}

@@ -1,0 +1,40 @@
+{
+  "code": "RR-225",
+  "summary": "This article explains how ancient and traditional sailors built wooden ships, such as the Arabian dhow with its triangular lateen sail, and used the wind to carry goods across the seas.",
+  "strategy": "Sequence",
+  "introduce": "Write First, Next, Then, and Finally on the board and ask a volunteer to use them to describe how they get ready for school. Tell students to watch for the order of events as they read “Ancient Shipbuilding: Wood and Wind”.",
+  "keyTerms": [
+    {
+      "term": "dhow",
+      "def": "a traditional wooden sailing ship used in Arabia and the Indian Ocean"
+    },
+    {
+      "term": "lateen",
+      "def": "describing a triangular sail that can catch wind from many directions"
+    },
+    {
+      "term": "keel",
+      "def": "a long wooden beam along the bottom of a ship that keeps it steady"
+    }
+  ],
+  "challengeTerms": [
+    {
+      "term": "maneuver",
+      "def": "to move or steer something skillfully, often in a tricky situation"
+    },
+    {
+      "term": "monsoon",
+      "def": "a seasonal wind that blows steadily in one direction for part of the year and then reverses"
+    },
+    {
+      "term": "caulk",
+      "def": "to seal the seams or gaps of something, such as a boat's hull, to keep water out"
+    }
+  ],
+  "discussion": [
+    "Do you agree or disagree that ancient sailors were just as skilled as modern engineers? Use evidence from the article to explain.",
+    "Which part of the dhow do you think mattered most for a long voyage: the hull, the keel, or the lateen sail?"
+  ],
+  "struggling": "Read the first part of the article aloud together, review dhow, lateen, and keel, and let weak readers put sentence strips of the main events in order before writing.",
+  "gifted": "Ask strong readers to read a challenging version and write a short paragraph that uses maneuver, monsoon, and caulk to summarize the key events in order and explain which step matters most."
+}

@@ -1,0 +1,40 @@
+{
+  "code": "RR-178",
+  "summary": "This article explains how a camera lets in reflected light, focuses it with a lens, times it with a shutter, and records it on film or a sensor.",
+  "strategy": "Main Idea",
+  "introduce": "Read the title “How Cameras Capture Light” aloud and ask each student to write one question they hope the article will answer. Collect a few questions, then explain that today they will find the one big idea that ties all the details together.",
+  "keyTerms": [
+    {
+      "term": "reflect",
+      "def": "to bounce back light, heat, or sound"
+    },
+    {
+      "term": "aperture",
+      "def": "the opening that lets light into a camera"
+    },
+    {
+      "term": "film",
+      "def": "a thin strip with chemicals on it that changes when light hits it, used in old cameras"
+    }
+  ],
+  "challengeTerms": [
+    {
+      "term": "refract",
+      "def": "to bend light as it passes from one material into another"
+    },
+    {
+      "term": "inverted",
+      "def": "turned upside down"
+    },
+    {
+      "term": "exposure",
+      "def": "the amount of time light is allowed to reach a camera's film or sensor"
+    }
+  ],
+  "discussion": [
+    "Do you agree or disagree that taking a good photo depends more on light than on the camera? Use evidence from the article to explain.",
+    "Compare a camera and the human eye."
+  ],
+  "struggling": "Pre-teach reflect, aperture, and film with pictures or gestures, then let weak readers complete a main-idea-and-details web with a partner.",
+  "gifted": "Challenge advanced readers to use refract, inverted, and exposure in a short paragraph that states the main idea of the article in their own words."
+}

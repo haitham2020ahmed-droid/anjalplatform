@@ -1,0 +1,40 @@
+{
+  "code": "RR-243",
+  "summary": "This article explains how the body turns a bite of food into energy, step by step from the mouth to the stomach to the intestines.",
+  "strategy": "Sequence",
+  "introduce": "Write First, Next, Then, and Finally on the board and ask a volunteer to use them to describe how they get ready for school. Tell students to watch for the order of events as they read “The Digestive System: From Bite to Energy”.",
+  "keyTerms": [
+    {
+      "term": "esophagus",
+      "def": "the long tube that carries food from your mouth down to your stomach"
+    },
+    {
+      "term": "intestine",
+      "def": "a long, winding tube inside the body where food is broken down further and nutrients are taken in"
+    },
+    {
+      "term": "nutrient",
+      "def": "a part of food that the body uses for energy, growth, or repair"
+    }
+  ],
+  "challengeTerms": [
+    {
+      "term": "peristalsis",
+      "def": "the wave-like squeezing motion that pushes food through the digestive tract"
+    },
+    {
+      "term": "villi",
+      "def": "tiny, finger-like structures lining the small intestine that help absorb nutrients"
+    },
+    {
+      "term": "secrete",
+      "def": "to release a liquid substance, such as a juice or fluid, from a gland or cell"
+    }
+  ],
+  "discussion": [
+    "Do you agree or disagree that chewing your food well is one of the most important parts of digestion? Use evidence from the article to explain.",
+    "Explain how food travels from your mouth to your small intestine."
+  ],
+  "struggling": "Read the first part of the article aloud together, review esophagus, intestine, and nutrient, and let weak readers put sentence strips of the main events in order before writing.",
+  "gifted": "Ask strong readers to read a challenging version and write a short paragraph that uses peristalsis, villi, and secrete to summarize the key events in order and explain which step matters most."
+}

@@ -1,0 +1,40 @@
+{
+  "code": "RR-156",
+  "summary": "This article explains how water evaporates into the air as invisible water vapor, why warm air holds more of it, how cooling makes dew and clouds, and why humid days feel hotter.",
+  "strategy": "Vocabulary Building",
+  "introduce": "Show the three key terms on the board and ask students to rate each one: “I know it,” “I have seen it,” or “It is new.” Tell them to watch for these words in “Humidity: Water in the Air” and use clues around them to understand their meaning.",
+  "keyTerms": [
+    {
+      "term": "humidity",
+      "def": "the amount of water vapor in the air"
+    },
+    {
+      "term": "evaporate",
+      "def": "to change from a liquid into a gas"
+    },
+    {
+      "term": "condense",
+      "def": "to change from a gas back into a liquid, often when it gets cooler"
+    }
+  ],
+  "challengeTerms": [
+    {
+      "term": "molecules",
+      "def": "the tiniest bits of a substance that are still that substance"
+    },
+    {
+      "term": "condensation",
+      "def": "the change of a gas into a liquid, usually as it cools"
+    },
+    {
+      "term": "saturated",
+      "def": "so full of something that it cannot take in any more"
+    }
+  ],
+  "discussion": [
+    "Do you agree or disagree that a humid day is harder to bear than a dry day of the same heat? Use evidence from the article to explain.",
+    "Explain how a puddle on the ground could later become part of a cloud."
+  ],
+  "struggling": "Pre-teach humidity, evaporate, and condense with pictures or gestures, then let weak readers draw a quick picture for each term and use it in a short spoken sentence.",
+  "gifted": "Challenge advanced readers to use molecules, condensation, and saturated in a short paragraph that teaches the class one of the terms with their own example."
+}

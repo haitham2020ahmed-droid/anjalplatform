@@ -1,0 +1,40 @@
+{
+  "code": "RR-081",
+  "summary": "This article explains how great hospitals in cities such as Baghdad, Damascus, and Cairo gave free care, sorted patients into wards, trained doctors, and shaped the hospitals we use today.",
+  "strategy": "Sequence",
+  "introduce": "Write First, Next, Then, and Finally on the board and ask a volunteer to use them to describe how they get ready for school. Tell students to watch for the order of events as they read “Hospitals of the Islamic Golden Age”.",
+  "keyTerms": [
+    {
+      "term": "bimaristan",
+      "def": "a hospital in the Islamic world long ago; the word means \"place for the sick\""
+    },
+    {
+      "term": "pharmacy",
+      "def": "a place where medicines are prepared or sold"
+    },
+    {
+      "term": "physician",
+      "def": "a medical doctor"
+    }
+  ],
+  "challengeTerms": [
+    {
+      "term": "institution",
+      "def": "an important organization, such as a school or hospital, that serves the public"
+    },
+    {
+      "term": "diagnose",
+      "def": "to find out what illness a person has by studying the signs"
+    },
+    {
+      "term": "symptom",
+      "def": "a sign in the body that shows a person may have an illness"
+    }
+  ],
+  "discussion": [
+    "Do you agree or disagree that hospitals from a thousand years ago have nothing to teach us today? Use evidence from the article to explain.",
+    "Imagine you are a patient arriving at a bimaristan in Cairo. Describe what happens to you."
+  ],
+  "struggling": "Read the first part of the article aloud together, review bimaristan, pharmacy, and physician, and let weak readers put sentence strips of the main events in order before writing.",
+  "gifted": "Ask strong readers to read a challenging version and write a short paragraph that uses institution, diagnose, and symptom to summarize the key events in order and explain which step matters most."
+}

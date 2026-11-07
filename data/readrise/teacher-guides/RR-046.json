@@ -1,0 +1,40 @@
+{
+  "code": "RR-046",
+  "summary": "This article explains what black holes are, how they form when giant stars collapse, and how scientists find and even photograph something that gives off no light.",
+  "strategy": "Vocabulary Building",
+  "introduce": "Show the three key terms on the board and ask students to rate each one: “I know it,” “I have seen it,” or “It is new.” Tell them to watch for these words in “Black Holes” and use clues around them to understand their meaning.",
+  "keyTerms": [
+    {
+      "term": "massive",
+      "def": "very big and heavy"
+    },
+    {
+      "term": "collapse",
+      "def": "to fall down or fall inward suddenly"
+    },
+    {
+      "term": "horizon",
+      "def": "an edge or line you cannot see past"
+    }
+  ],
+  "challengeTerms": [
+    {
+      "term": "supernova",
+      "def": "a giant explosion that happens when a very large star dies"
+    },
+    {
+      "term": "dense",
+      "def": "having a lot of matter packed tightly into a small space"
+    },
+    {
+      "term": "supermassive",
+      "def": "extremely large in mass, millions or billions of times more than the Sun"
+    }
+  ],
+  "discussion": [
+    "Do you agree or disagree that black holes are the most interesting things in space? Use evidence from the article to explain.",
+    "Describe, step by step, how a massive star becomes a black hole."
+  ],
+  "struggling": "Read the first part of the article aloud together, review massive, collapse, and horizon, and let weak readers draw a quick picture for each term and use it in a short spoken sentence.",
+  "gifted": "Challenge advanced readers to use supernova, dense, and supermassive in a short paragraph that teaches the class one of the terms with their own example."
+}

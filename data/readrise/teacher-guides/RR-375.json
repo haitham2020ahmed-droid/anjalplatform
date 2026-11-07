@@ -1,0 +1,40 @@
+{
+  "code": "RR-375",
+  "summary": "In this story, a young shepherd who jokes that a wolf is attacking his flock learns that lying costs him people's trust, especially on the evening a real wolf finally appears.",
+  "strategy": "Sequence",
+  "introduce": "Write First, Next, Then, and Finally on the board and ask a volunteer to use them to describe how they get ready for school. Tell students to watch for the order of events as they read “The Shepherd and the Wolf”.",
+  "keyTerms": [
+    {
+      "term": "ignore",
+      "def": "to choose not to pay attention to something"
+    },
+    {
+      "term": "warn",
+      "def": "to tell someone about a danger before it happens"
+    },
+    {
+      "term": "panic",
+      "def": "a sudden feeling of fear that makes people act without thinking clearly"
+    }
+  ],
+  "challengeTerms": [
+    {
+      "term": "skeptical",
+      "def": "doubtful about whether something is true or will happen"
+    },
+    {
+      "term": "mislead",
+      "def": "to give someone false or incorrect information on purpose"
+    },
+    {
+      "term": "vigilant",
+      "def": "watchful and alert, always paying close attention to possible danger"
+    }
+  ],
+  "discussion": [
+    "Do you agree or disagree that it is okay to tell a lie as a joke, even if it worries other people? Use evidence from the story to explain.",
+    "Explain why the villagers stopped trusting Samir, and how he eventually earned their trust back."
+  ],
+  "struggling": "Pre-teach ignore, warn, and panic with pictures or gestures, then let weak readers put sentence strips of the main events in order before writing.",
+  "gifted": "Ask strong readers to read a challenging version and write a short paragraph that uses skeptical, mislead, and vigilant to summarize the key events in order and explain which step matters most."
+}

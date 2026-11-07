@@ -1,0 +1,40 @@
+{
+  "code": "RR-027",
+  "summary": "This article explains how gravity pulls objects together, keeps us on the ground, sets our weight, holds the Moon and planets in orbit, and causes tides.",
+  "strategy": "Cause/Effect",
+  "introduce": "Drop a pencil and ask, “What was the cause? What was the effect?” to model the idea quickly. Then show the title “Gravity: What Keeps Us on the Ground” and tell students to look for things in the article that make other things happen.",
+  "keyTerms": [
+    {
+      "term": "mass",
+      "def": "the amount of matter, or stuff, in something"
+    },
+    {
+      "term": "attract",
+      "def": "to pull something toward itself"
+    },
+    {
+      "term": "orbit",
+      "def": "the path one thing takes as it goes around and around another thing"
+    }
+  ],
+  "challengeTerms": [
+    {
+      "term": "attraction",
+      "def": "a force that pulls two things toward each other"
+    },
+    {
+      "term": "theory",
+      "def": "a scientific explanation, supported by evidence, of how something in nature works"
+    },
+    {
+      "term": "vacuum",
+      "def": "a space that contains almost no air or other matter"
+    }
+  ],
+  "discussion": [
+    "Do you agree or disagree that gravity is the most important force in our everyday lives? Use evidence from the article to explain.",
+    "Explain how gravity affects both the Moon and Earth's oceans."
+  ],
+  "struggling": "Read the first part of the article aloud together, review mass, attract, and orbit, and let weak readers match cause cards to effect cards from the article with a partner.",
+  "gifted": "Ask strong readers to read a challenging version and write a short paragraph that uses attraction, theory, and vacuum to explain one important cause-and-effect chain from the article."
+}

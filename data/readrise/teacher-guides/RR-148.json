@@ -1,0 +1,40 @@
+{
+  "code": "RR-148",
+  "summary": "This article explains how the old Arabian tradition of camel racing works today, why child jockeys were banned, and how remote-controlled robot jockeys took their place.",
+  "strategy": "Accessing Prior Knowledge",
+  "introduce": "Show the title “Camel Racing and Robot Jockeys” and give pairs one minute to list everything they already know about this topic. Share a few ideas on the board, then tell students to check which ideas the article confirms.",
+  "keyTerms": [
+    {
+      "term": "tradition",
+      "def": "a custom or activity passed down from older people to younger people"
+    },
+    {
+      "term": "jockey",
+      "def": "a person or machine that rides an animal in a race"
+    },
+    {
+      "term": "robot",
+      "def": "a machine that can do jobs, often controlled by a computer"
+    }
+  ],
+  "challengeTerms": [
+    {
+      "term": "heritage",
+      "def": "traditions, customs, and history passed down through generations"
+    },
+    {
+      "term": "lightweight",
+      "def": "weighing very little"
+    },
+    {
+      "term": "remote",
+      "def": "a device used to control a machine from a distance (short for remote control)"
+    }
+  ],
+  "discussion": [
+    "Do you agree or disagree that robots are a good way to keep old sports alive? Use evidence from the article to explain.",
+    "Explain the problem that led to robot jockeys and how robots solved it."
+  ],
+  "struggling": "Read the first part of the article aloud together, review tradition, jockey, and robot, and let weak readers use a K-W-L chart and read the article with a partner.",
+  "gifted": "Ask strong readers to read a challenging version and write a short paragraph that uses heritage, lightweight, and remote to connect the article to something they learned in another subject."
+}

@@ -1,0 +1,40 @@
+{
+  "code": "RR-023",
+  "summary": "This article explains how tiny living things called microbes help people digest food, make bread and yogurt, enrich the soil, and fight disease.",
+  "strategy": "Problem/Solution",
+  "introduce": "Ask students to share a small problem they solved this week and how they solved it, and write two examples in a Problem | Solution chart on the board. Tell them that “Helpful Microbes” also has a problem and a solution to find.",
+  "keyTerms": [
+    {
+      "term": "microscope",
+      "def": "a tool that makes very small things look much bigger"
+    },
+    {
+      "term": "harmless",
+      "def": "not able to hurt anyone"
+    },
+    {
+      "term": "digest",
+      "def": "to break down food in the body so it can be used"
+    }
+  ],
+  "challengeTerms": [
+    {
+      "term": "microorganism",
+      "def": "a living thing so small it can only be seen with a microscope"
+    },
+    {
+      "term": "fermentation",
+      "def": "a process in which microbes change sugars into other things, such as gas or acid"
+    },
+    {
+      "term": "nitrogen",
+      "def": "a gas that makes up most of the air; plants need it in a form they can absorb"
+    }
+  ],
+  "discussion": [
+    "Do you agree or disagree that most germs and microbes are bad for people? Use evidence from the article to explain.",
+    "Explain how microbes help both people and plants."
+  ],
+  "struggling": "Read the first part of the article aloud together, review microscope, harmless, and digest, and let weak readers fill in a simple Problem | Solution chart with sentence starters.",
+  "gifted": "Challenge advanced readers to use microorganism, fermentation, and nitrogen in a short paragraph that suggests a second solution to the problem and judge which works better."
+}

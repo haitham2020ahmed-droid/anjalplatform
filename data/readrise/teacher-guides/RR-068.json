@@ -1,0 +1,40 @@
+{
+  "code": "RR-068",
+  "summary": "This article explains how satellites, exact clocks, and fast radio signals let a GPS receiver work out where it is on Earth.",
+  "strategy": "Main Idea",
+  "introduce": "Read the title “How GPS Knows Where You Are” aloud and ask each student to write one question they hope the article will answer. Collect a few questions, then explain that today they will find the one big idea that ties all the details together.",
+  "keyTerms": [
+    {
+      "term": "satellite",
+      "def": "a machine sent into space to go around Earth"
+    },
+    {
+      "term": "signal",
+      "def": "a message sent from one place to another"
+    },
+    {
+      "term": "receiver",
+      "def": "a device that picks up signals"
+    }
+  ],
+  "challengeTerms": [
+    {
+      "term": "atomic",
+      "def": "related to atoms, the tiny particles that make up everything"
+    },
+    {
+      "term": "calculate",
+      "def": "to work out an answer using numbers"
+    },
+    {
+      "term": "precise",
+      "def": "exact and carefully measured"
+    }
+  ],
+  "discussion": [
+    "Do you agree or disagree that people today depend too much on GPS to find their way? Use evidence from the article to explain.",
+    "Explain why exact time is so important for GPS."
+  ],
+  "struggling": "Read the first part of the article aloud together, review satellite, signal, and receiver, and let weak readers complete a main-idea-and-details web with a partner.",
+  "gifted": "Ask strong readers to read a challenging version and write a short paragraph that uses atomic, calculate, and precise to state the main idea of the article in their own words."
+}

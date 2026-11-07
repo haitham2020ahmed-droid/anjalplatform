@@ -1,0 +1,40 @@
+{
+  "code": "RR-275",
+  "summary": "This article explains why the light, small ball in table tennis makes it one of the fastest reaction-time sports, and how spin and paddle angle control its path.",
+  "strategy": "Cause/Effect",
+  "introduce": "Draw a simple cause → effect arrow on the board and ask students for an everyday example, such as “I did not sleep, so I felt tired.” Tell them that while reading “Table Tennis: Fast Reflexes” they will find at least two cause-and-effect links.",
+  "keyTerms": [
+    {
+      "term": "reaction",
+      "def": "how quickly a person responds to something that happens"
+    },
+    {
+      "term": "spin",
+      "def": "a fast turning movement given to an object"
+    },
+    {
+      "term": "angle",
+      "def": "the direction or slant at which something moves or meets something else"
+    }
+  ],
+  "challengeTerms": [
+    {
+      "term": "velocity",
+      "def": "the speed of something in a certain direction"
+    },
+    {
+      "term": "rotation",
+      "def": "a turning movement around a center point"
+    },
+    {
+      "term": "reflex",
+      "def": "a very fast, automatic response to something"
+    }
+  ],
+  "discussion": [
+    "Do you agree or disagree that reaction time matters more than strength in most sports? Use evidence from the article to explain.",
+    "Explain how two different science ideas from the article help a player win a rally."
+  ],
+  "struggling": "Read the first part of the article aloud together, review reaction, spin, and angle, and let weak readers match cause cards to effect cards from the article with a partner.",
+  "gifted": "Ask strong readers to read a challenging version and write a short paragraph that uses velocity, rotation, and reflex to explain one important cause-and-effect chain from the article."
+}

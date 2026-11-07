@@ -1,0 +1,40 @@
+{
+  "code": "RR-024",
+  "summary": "This article explains how green plants use sunlight, water, and carbon dioxide to make their own sugary food in their leaves, giving off the oxygen that people and animals breathe.",
+  "strategy": "Vocabulary Building",
+  "introduce": "Show the three key terms on the board and ask students to rate each one: “I know it,” “I have seen it,” or “It is new.” Tell them to watch for these words in “Photosynthesis: How Plants Make Food” and use clues around them to understand their meaning.",
+  "keyTerms": [
+    {
+      "term": "photosynthesis",
+      "def": "the way green plants use sunlight to make their own food"
+    },
+    {
+      "term": "chlorophyll",
+      "def": "the green material in leaves that catches light from the sun"
+    },
+    {
+      "term": "carbon dioxide",
+      "def": "a gas in the air that people and animals breathe out"
+    }
+  ],
+  "challengeTerms": [
+    {
+      "term": "chloroplast",
+      "def": "a tiny part inside a plant cell where photosynthesis takes place"
+    },
+    {
+      "term": "producer",
+      "def": "a living thing, such as a plant, that makes its own food"
+    },
+    {
+      "term": "stomata",
+      "def": "tiny openings on a leaf that let gases in and out"
+    }
+  ],
+  "discussion": [
+    "Do you agree or disagree that plants are the most important living things on Earth? Use evidence from the article to explain.",
+    "Explain why people and animals depend on photosynthesis."
+  ],
+  "struggling": "Read the first part of the article aloud together, review photosynthesis, chlorophyll, and carbon dioxide, and let weak readers draw a quick picture for each term and use it in a short spoken sentence.",
+  "gifted": "Challenge advanced readers to use chloroplast, producer, and stomata in a short paragraph that teaches the class one of the terms with their own example."
+}

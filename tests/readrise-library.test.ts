@@ -280,7 +280,7 @@ describe("teacher actions", () => {
   test("teacher override is recorded (source TEACHER + a level change with the reason)", async () => {
     await assert.rejects(setStudentLevel(repo, t4a, s1, 800, "", NOW), /reason/);
     await assert.rejects(setStudentLevel(repo, t4a, s4, 800, "MAP test", NOW), ForbiddenError);
-    await assert.rejects(setStudentLevel(repo, t4a, s1, 5000, "MAP test", NOW), /from 200 to 1700/);
+    await assert.rejects(setStudentLevel(repo, t4a, s1, 5000, "MAP test", NOW), /BR400L.*1700/); // round 6: ENGINE.min is RR_FLOOR (−400)
     const r = await setStudentLevel(repo, t4a, s1, 820, "MAP Lexile 820 in winter", NOW);
     assert.equal(r.to, 820);
     const st = (await repo.findUnique("RRStudent", { studentId: s1 }))!;

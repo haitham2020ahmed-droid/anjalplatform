@@ -1,0 +1,40 @@
+{
+  "code": "RR-065",
+  "summary": "This article explains what germs are, how they spread from hands to bodies, how soap and water remove them, and how and when to wash your hands.",
+  "strategy": "Sequence",
+  "introduce": "Write First, Next, Then, and Finally on the board and ask a volunteer to use them to describe how they get ready for school. Tell students to watch for the order of events as they read “Germs and Handwashing”.",
+  "keyTerms": [
+    {
+      "term": "microscope",
+      "def": "a tool that makes very tiny things look much bigger"
+    },
+    {
+      "term": "bacteria",
+      "def": "very tiny living things; some are helpful and some cause illness"
+    },
+    {
+      "term": "virus",
+      "def": "a very tiny germ that can make people or animals sick"
+    }
+  ],
+  "challengeTerms": [
+    {
+      "term": "microorganism",
+      "def": "a living thing too small to see without a microscope"
+    },
+    {
+      "term": "transmission",
+      "def": "the passing of something from one person or place to another"
+    },
+    {
+      "term": "infection",
+      "def": "an illness caused by germs getting into the body"
+    }
+  ],
+  "discussion": [
+    "Do you agree or disagree that washing your hands is the most important thing you can do to stay healthy? Use evidence from the article to explain.",
+    "Make a poster message for your school bathroom."
+  ],
+  "struggling": "Pre-teach microscope, bacteria, and virus with pictures or gestures, then let weak readers put sentence strips of the main events in order before writing.",
+  "gifted": "Challenge advanced readers to use microorganism, transmission, and infection in a short paragraph that summarizes the key events in order and explain which step matters most."
+}

@@ -1,0 +1,40 @@
+{
+  "code": "RR-059",
+  "summary": "This article explains how igneous, sedimentary, and metamorphic rocks form and slowly change from one type into another in the never-ending rock cycle.",
+  "strategy": "Main Idea",
+  "introduce": "Read the title “The Rock Cycle” aloud and ask each student to write one question they hope the article will answer. Collect a few questions, then explain that today they will find the one big idea that ties all the details together.",
+  "keyTerms": [
+    {
+      "term": "igneous",
+      "def": "formed when hot, melted rock cools and hardens"
+    },
+    {
+      "term": "sedimentary",
+      "def": "formed from layers of sand, mud, or shells pressed together over time"
+    },
+    {
+      "term": "metamorphic",
+      "def": "formed when heat and pressure change one kind of rock into another"
+    }
+  ],
+  "challengeTerms": [
+    {
+      "term": "weathering",
+      "def": "the slow breaking down of rock by wind, water, ice, and changes in temperature"
+    },
+    {
+      "term": "pressure",
+      "def": "the force of something pressing on something else"
+    },
+    {
+      "term": "crystal",
+      "def": "a solid with a regular shape made of tiny parts arranged in a pattern"
+    }
+  ],
+  "discussion": [
+    "Do you agree or disagree that rocks are one thing in nature that never really changes? Use evidence from the article to explain.",
+    "Imagine you are a grain of sand. Describe your journey through the rock cycle."
+  ],
+  "struggling": "Read the first part of the article aloud together, review igneous, sedimentary, and metamorphic, and let weak readers complete a main-idea-and-details web with a partner.",
+  "gifted": "Ask strong readers to read a challenging version and write a short paragraph that uses weathering, pressure, and crystal to state the main idea of the article in their own words."
+}

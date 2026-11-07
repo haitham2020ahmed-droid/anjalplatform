@@ -1,0 +1,40 @@
+{
+  "code": "RR-072",
+  "summary": "This article explains how almost all internet data between countries travels as light through glass fibers in cables on the ocean floor, how the cables are protected, laid, and repaired, and how they link Saudi Arabia to the world.",
+  "strategy": "Problem/Solution",
+  "introduce": "Ask students to share a small problem they solved this week and how they solved it, and write two examples in a Problem | Solution chart on the board. Tell them that “Cables Under the Sea: How the Internet Travels” also has a problem and a solution to find.",
+  "keyTerms": [
+    {
+      "term": "fiber",
+      "def": "a very thin thread or strand"
+    },
+    {
+      "term": "signal",
+      "def": "a sign or message sent from one place to another"
+    },
+    {
+      "term": "repeater",
+      "def": "a device that makes a weak signal strong again so it can go farther"
+    }
+  ],
+  "challengeTerms": [
+    {
+      "term": "optical",
+      "def": "having to do with light or seeing"
+    },
+    {
+      "term": "transmit",
+      "def": "to send something from one place or person to another"
+    },
+    {
+      "term": "splice",
+      "def": "to join two ends of something so they become one piece"
+    }
+  ],
+  "discussion": [
+    "Do you agree or disagree that most of the internet travels through space? Use evidence from the article to explain.",
+    "Describe the journey of a message through an undersea cable."
+  ],
+  "struggling": "Read the first part of the article aloud together, review fiber, signal, and repeater, and let weak readers fill in a simple Problem | Solution chart with sentence starters.",
+  "gifted": "Ask strong readers to read a challenging version and write a short paragraph that uses optical, transmit, and splice to suggest a second solution to the problem and judge which works better."
+}

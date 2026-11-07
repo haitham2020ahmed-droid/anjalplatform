@@ -4,8 +4,8 @@ import { ForbiddenError } from "@/server/auth/rbac";
 import { ValidationError } from "@/server/curriculum-admin";
 import { answerPlacement, startPlacement, type PlacementAnswer } from "@/server/readrise/placement";
 import {
-  finishReading, practiceActivity, readRiseAccess, saveReading, saveWritingDraft, startRun, submitActivity, submitPostPoll, submitPrePoll, submitWriting,
-  type ReadingProgress, type Review, type RunView,
+  answerQuestion, finishReading, practiceActivity, rateArticle, readRiseAccess, saveReading, saveWritingDraft, startRun, submitActivity, submitPostPoll, submitPrePoll, submitWriting,
+  type QuestionFeedback, type ReadingProgress, type Review, type RunView,
 } from "@/server/readrise/student";
 
 export type Result<T> = { ok: true; data: T } | { ok: false; error: string };
@@ -24,14 +24,27 @@ export async function startRunAction(articleId: string, stretch: boolean): Promi
   });
 }
 
-export async function prePollAction(runId: string, value: number): Promise<Result<RunView>> {
+export async function prePollAction(runId: string, value: number, why?: string): Promise<Result<RunView>> {
   const actor = await requireActor({ roles: ["STUDENT"] });
-  return guard(() => submitPrePoll(repo, actor, String(runId), Number(value)));
+  return guard(() => submitPrePoll(repo, actor, String(runId), Number(value), new Date(), String(why ?? "")));
+}
+
+/** Round 6 · Respond: one question's try (first or second) → its feedback. */
+export async function answerQuestionAction(runId: string, number: number, letter: string, ms?: number | null): Promise<Result<QuestionFeedback>> {
+  const actor = await requireActor({ roles: ["STUDENT"] });
+  return guard(() => answerQuestion(repo, actor, String(runId), Number(number), String(letter ?? ""), ms === null || ms === undefined ? null : Number(ms)));
+}
+
+/** Round 6 · the Article Rating popup (skippable). */
+export async function rateArticleAction(runId: string, stars: number | null, access: string | null, skipped = false): Promise<Result<{ ok: true }>> {
+  const actor = await requireActor({ roles: ["STUDENT"] });
+  return guard(() => rateArticle(repo, actor, String(runId), { stars: stars === null ? null : Number(stars), access: access === null ? null : String(access), skipped: Boolean(skipped) }));
 }
 
 export async function saveReadingAction(runId: string, p: ReadingProgress): Promise<Result<{ ok: true }>> {
   const actor = await requireActor({ roles: ["STUDENT"] });
-  return guard(() => saveReading(repo, actor, String(runId), p ?? {}));
+  const q = p ?? {};
+  return guard(() => saveReading(repo, actor, String(runId), { ...q, ...(q.notesText !== undefined ? { notesText: String(q.notesText).slice(0, 4000) } : {}) }));
 }
 
 export async function finishReadingAction(runId: string, p: ReadingProgress): Promise<Result<RunView>> {
@@ -51,9 +64,11 @@ export async function practiceAction(runId: string, answers: Record<string, stri
   return guard(() => practiceActivity(repo, actor, String(runId), answers ?? {}));
 }
 
-export async function saveWritingAction(runId: string, text: string): Promise<Result<{ ok: true }>> {
+export async function saveWritingAction(runId: string, text: string, drafts?: string[], draft?: number): Promise<Result<{ ok: true }>> {
   const actor = await requireActor({ roles: ["STUDENT"] });
-  return guard(() => saveWritingDraft(repo, actor, String(runId), String(text ?? "")));
+  return guard(() => saveWritingDraft(repo, actor, String(runId), String(text ?? ""), {
+    drafts: Array.isArray(drafts) ? drafts.slice(0, 10).map((d) => String(d ?? "")) : undefined, draft: draft === undefined ? undefined : Number(draft),
+  }));
 }
 
 export async function submitWritingAction(runId: string, text: string): Promise<Result<RunView>> {
@@ -61,9 +76,9 @@ export async function submitWritingAction(runId: string, text: string): Promise<
   return guard(() => submitWriting(repo, actor, String(runId), String(text ?? "")));
 }
 
-export async function postPollAction(runId: string, value: number): Promise<Result<RunView>> {
+export async function postPollAction(runId: string, value: number, why?: string): Promise<Result<RunView>> {
   const actor = await requireActor({ roles: ["STUDENT"] });
-  return guard(() => submitPostPoll(repo, actor, String(runId), Number(value)));
+  return guard(() => submitPostPoll(repo, actor, String(runId), Number(value), new Date(), String(why ?? "")));
 }
 
 export async function startPlacementAction(): Promise<Result<string>> {

@@ -1,0 +1,40 @@
+{
+  "code": "RR-011",
+  "summary": "This article explains how robots sense, think, and act, where they work today, and why they still depend on people.",
+  "strategy": "Main Idea",
+  "introduce": "Read the title “Robots Around Us” aloud and ask each student to write one question they hope the article will answer. Collect a few questions, then explain that today they will find the one big idea that ties all the details together.",
+  "keyTerms": [
+    {
+      "term": "repetitive",
+      "def": "done the same way again and again"
+    },
+    {
+      "term": "precise",
+      "def": "exact and careful, with no mistakes"
+    },
+    {
+      "term": "surgeon",
+      "def": "a doctor who does operations to fix problems inside the body"
+    }
+  ],
+  "challengeTerms": [
+    {
+      "term": "actuator",
+      "def": "the part of a machine, often a motor, that makes it move"
+    },
+    {
+      "term": "algorithm",
+      "def": "a set of step-by-step instructions for solving a problem or doing a task"
+    },
+    {
+      "term": "autonomous",
+      "def": "able to act or make decisions on its own, without someone controlling it"
+    }
+  ],
+  "discussion": [
+    "Do you agree or disagree that robots will one day do most of the jobs that people do today? Use evidence from the article to explain.",
+    "Robots are very good at some jobs but still need people."
+  ],
+  "struggling": "Read the first part of the article aloud together, review repetitive, precise, and surgeon, and let weak readers complete a main-idea-and-details web with a partner.",
+  "gifted": "Ask strong readers to read a challenging version and write a short paragraph that uses actuator, algorithm, and autonomous to state the main idea of the article in their own words."
+}

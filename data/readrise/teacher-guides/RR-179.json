@@ -1,0 +1,40 @@
+{
+  "code": "RR-179",
+  "summary": "This article explains how tiny decomposers, worms, air, and water turn food scraps and dry leaves into rich compost that feeds plants and keeps food out of landfills.",
+  "strategy": "Problem/Solution",
+  "introduce": "Ask students to share a small problem they solved this week and how they solved it, and write two examples in a Problem | Solution chart on the board. Tell them that “Composting: Turning Waste into Soil” also has a problem and a solution to find.",
+  "keyTerms": [
+    {
+      "term": "nutrient",
+      "def": "a substance that living things need to grow and stay healthy"
+    },
+    {
+      "term": "moist",
+      "def": "slightly wet"
+    },
+    {
+      "term": "landfill",
+      "def": "a large place where garbage is buried under the ground"
+    }
+  ],
+  "challengeTerms": [
+    {
+      "term": "decomposer",
+      "def": "an organism that breaks down dead plants and animals into simpler substances"
+    },
+    {
+      "term": "methane",
+      "def": "a colorless gas that traps heat in the atmosphere and can burn"
+    },
+    {
+      "term": "microorganism",
+      "def": "a living thing so small that it can be seen only with a microscope"
+    }
+  ],
+  "discussion": [
+    "Do you agree or disagree that every home should compost its food scraps? Use evidence from the article to explain.",
+    "Explain how to make good compost and why each step matters."
+  ],
+  "struggling": "Read the first part of the article aloud together, review nutrient, moist, and landfill, and let weak readers fill in a simple Problem | Solution chart with sentence starters.",
+  "gifted": "Challenge advanced readers to use decomposer, methane, and microorganism in a short paragraph that suggests a second solution to the problem and judge which works better."
+}

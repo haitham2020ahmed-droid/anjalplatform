@@ -1,0 +1,40 @@
+{
+  "code": "RR-158",
+  "summary": "This article explains how a battery keeps energy in chemicals, sends an electric current around a circuit, runs out, and can sometimes be recharged.",
+  "strategy": "Vocabulary Building",
+  "introduce": "Show the three key terms on the board and ask students to rate each one: “I know it,” “I have seen it,” or “It is new.” Tell them to watch for these words in “How Batteries Store Energy” and use clues around them to understand their meaning.",
+  "keyTerms": [
+    {
+      "term": "terminal",
+      "def": "one of the two ends of a battery where wires connect"
+    },
+    {
+      "term": "electrolyte",
+      "def": "a paste or liquid inside a battery that lets the reaction keep going"
+    },
+    {
+      "term": "reaction",
+      "def": "a change that happens when materials act on each other"
+    }
+  ],
+  "challengeTerms": [
+    {
+      "term": "electrode",
+      "def": "a material inside a battery, joined to a terminal, where the reaction gives off or takes in electrons"
+    },
+    {
+      "term": "ions",
+      "def": "tiny particles that carry an electric charge"
+    },
+    {
+      "term": "lithium",
+      "def": "a very light metal used in many modern batteries"
+    }
+  ],
+  "discussion": [
+    "Do you agree or disagree that batteries are one of the most useful inventions in our homes? Use evidence from the article to explain.",
+    "Describe the path that electrons take when a battery lights a lamp, and explain what makes the battery stop working."
+  ],
+  "struggling": "Read the first part of the article aloud together, review terminal, electrolyte, and reaction, and let weak readers draw a quick picture for each term and use it in a short spoken sentence.",
+  "gifted": "Ask strong readers to read a challenging version and write a short paragraph that uses electrode, ions, and lithium to teach the class one of the terms with their own example."
+}

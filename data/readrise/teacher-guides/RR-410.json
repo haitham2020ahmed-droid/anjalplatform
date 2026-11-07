@@ -1,0 +1,40 @@
+{
+  "code": "RR-410",
+  "summary": "In this story, a boy who is curious about the night sky builds his own telescope with his father's help, and seeing the moon's craters and Saturn's rings for the first time makes him want to learn all about astronomy.",
+  "strategy": "Sequence",
+  "introduce": "Write First, Next, Then, and Finally on the board and ask a volunteer to use them to describe how they get ready for school. Tell students to watch for the order of events as they read “The Boy Who Built a Telescope”.",
+  "keyTerms": [
+    {
+      "term": "astronomy",
+      "def": "the scientific study of stars, planets, and space"
+    },
+    {
+      "term": "assemble",
+      "def": "to put the parts of something together"
+    },
+    {
+      "term": "surface",
+      "def": "the outside or top layer of something"
+    }
+  ],
+  "challengeTerms": [
+    {
+      "term": "magnify",
+      "def": "to make something look bigger than it really is"
+    },
+    {
+      "term": "celestial",
+      "def": "relating to the sky or outer space"
+    },
+    {
+      "term": "meticulous",
+      "def": "extremely careful and paying close attention to detail"
+    }
+  ],
+  "discussion": [
+    "Do you agree or disagree that building something yourself makes it more exciting to use? Use evidence from the story to explain.",
+    "Explain what Yusuf saw through his telescope and why it made him want to learn more about astronomy."
+  ],
+  "struggling": "Read the first part of the story aloud together, review astronomy, assemble, and surface, and let weak readers put sentence strips of the main events in order before writing.",
+  "gifted": "Challenge advanced readers to use magnify, celestial, and meticulous in a short paragraph that summarizes the key events in order and explain which step matters most."
+}

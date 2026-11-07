@@ -1,0 +1,40 @@
+{
+  "code": "RR-034",
+  "summary": "This article explains how an ant colony shares its work, uses scent trails to find food, grows food, survives in the desert, and helps the soil.",
+  "strategy": "Main Idea",
+  "introduce": "Show the title “Ant Colonies: Teamwork in Tiny Bodies” and give pairs one minute to predict, in one sentence, what the whole article is mostly about. Write three predictions on the board and tell students they will check which one is closest to the main idea after reading.",
+  "keyTerms": [
+    {
+      "term": "colony",
+      "def": "a big group of the same kind of animal that live together"
+    },
+    {
+      "term": "antennae",
+      "def": "the two long feelers on an insect's head that it uses to touch and smell"
+    },
+    {
+      "term": "pheromone",
+      "def": "a chemical smell an animal gives off to send a message to others of its kind"
+    }
+  ],
+  "challengeTerms": [
+    {
+      "term": "cooperation",
+      "def": "the act of working together toward a shared goal"
+    },
+    {
+      "term": "navigate",
+      "def": "to find your way from one place to another"
+    },
+    {
+      "term": "aerate",
+      "def": "to let air into something, such as soil or water"
+    }
+  ],
+  "discussion": [
+    "Do you agree or disagree that a team with no boss can still work well? Use evidence from the article to explain.",
+    "Explain how ants share information with one another."
+  ],
+  "struggling": "Pre-teach colony, antennae, and pheromone with pictures or gestures, then let weak readers complete a main-idea-and-details web with a partner.",
+  "gifted": "Ask strong readers to read a challenging version and write a short paragraph that uses cooperation, navigate, and aerate to state the main idea of the article in their own words."
+}

@@ -1,0 +1,40 @@
+{
+  "code": "RR-102",
+  "summary": "This article explains how sunlight is made of many colors, why tiny bits of air scatter blue light the most, and why sunsets, clouds, dusty days, and space look different.",
+  "strategy": "Compare/Contrast",
+  "introduce": "Draw two overlapping circles on the board and quickly compare two familiar things, such as a cat and a dog, with the class. Tell students that while reading “Why the Sky Is Blue” they will look for ways things are alike and different.",
+  "keyTerms": [
+    {
+      "term": "atmosphere",
+      "def": "the layer of air that surrounds Earth"
+    },
+    {
+      "term": "molecule",
+      "def": "the smallest bit of a substance, too small to see"
+    },
+    {
+      "term": "wavelength",
+      "def": "the distance from the top of one wave to the top of the next"
+    }
+  ],
+  "challengeTerms": [
+    {
+      "term": "scattering",
+      "def": "the process of light being sent off in many directions when it hits small particles"
+    },
+    {
+      "term": "particle",
+      "def": "a very small piece of something"
+    },
+    {
+      "term": "droplet",
+      "def": "a very small drop of liquid"
+    }
+  ],
+  "discussion": [
+    "Do you agree or disagree that anyone can explain why the sky is blue without being a scientist? Use evidence from the article to explain.",
+    "Explain why the same sky can look blue at noon and red at sunset."
+  ],
+  "struggling": "Pre-teach atmosphere, molecule, and wavelength with pictures or gestures, then let weak readers fill in a T-chart of alike and different with sentence starters.",
+  "gifted": "Ask strong readers to read a challenging version and write a short paragraph that uses scattering, particle, and droplet to compare two ideas from the article and explain which difference matters most."
+}

@@ -1,0 +1,40 @@
+{
+  "code": "RR-329",
+  "summary": "This article explains why clocks show different times in different countries, and how Earth's rotation and lines of longitude create the world's time zones.",
+  "strategy": "Compare/Contrast",
+  "introduce": "Write “Alike” and “Different” at the top of a T-chart on the board and ask students to compare two school subjects in one minute. Explain that “Time Zones: Why the World Has Different Times” asks them to make the same kind of comparison.",
+  "keyTerms": [
+    {
+      "term": "axis",
+      "def": "an imaginary straight line through the middle of an object that it spins around"
+    },
+    {
+      "term": "international",
+      "def": "involving two or more countries"
+    },
+    {
+      "term": "offset",
+      "def": "the amount by which one thing differs from another, such as two clock times"
+    }
+  ],
+  "challengeTerms": [
+    {
+      "term": "coordinate",
+      "def": "to make different parts work together properly"
+    },
+    {
+      "term": "convention",
+      "def": "an agreement that most people or countries follow, even without a law forcing it"
+    },
+    {
+      "term": "synchronize",
+      "def": "to make two or more things happen or match at the same time"
+    }
+  ],
+  "discussion": [
+    "Do you agree or disagree that every country in the world should use the exact same clock time, no matter what time the Sun rises or sets there? Use evidence from the article to explain.",
+    "Explain why two places on Earth can show completely different clock times at the very same moment."
+  ],
+  "struggling": "Read the first part of the article aloud together, review axis, international, and offset, and let weak readers fill in a T-chart of alike and different with sentence starters.",
+  "gifted": "Ask strong readers to read a challenging version and write a short paragraph that uses coordinate, convention, and synchronize to compare two ideas from the article and explain which difference matters most."
+}

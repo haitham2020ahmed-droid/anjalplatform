@@ -1,0 +1,40 @@
+{
+  "code": "RR-028",
+  "summary": "This article explains how flour, water, salt, and yeast turn into a loaf of bread, from kneading and rising to baking in a hot oven.",
+  "strategy": "Sequence",
+  "introduce": "Give pairs four mixed-up steps of a simple task, such as making tea, and ask them to put the steps in order. Explain that “The Science of Baking Bread” also follows an order, and good readers notice signal words like first, after, and finally.",
+  "keyTerms": [
+    {
+      "term": "gluten",
+      "def": "a stretchy material that forms when wheat flour is mixed with water"
+    },
+    {
+      "term": "ferment",
+      "def": "to change slowly as tiny living things break down sugars"
+    },
+    {
+      "term": "carbon dioxide",
+      "def": "a gas with no color or smell that living things give off"
+    }
+  ],
+  "challengeTerms": [
+    {
+      "term": "microorganism",
+      "def": "a living thing so small it can only be seen with a microscope"
+    },
+    {
+      "term": "fermentation",
+      "def": "a process in which tiny living things break down sugars and give off gas or other substances"
+    },
+    {
+      "term": "enzyme",
+      "def": "a natural substance in living things that speeds up a chemical change"
+    }
+  ],
+  "discussion": [
+    "Do you agree or disagree that baking bread is more science than cooking? Use evidence from the article to explain.",
+    "Explain why a loaf of bread is soft and full of holes inside."
+  ],
+  "struggling": "Read the first part of the article aloud together, review gluten, ferment, and carbon dioxide, and let weak readers put sentence strips of the main events in order before writing.",
+  "gifted": "Challenge advanced readers to use microorganism, fermentation, and enzyme in a short paragraph that summarizes the key events in order and explain which step matters most."
+}

@@ -1,0 +1,40 @@
+{
+  "code": "RR-240",
+  "summary": "This article explains how skin protects the body, keeps it at the right temperature, senses touch, and heals itself after a small cut.",
+  "strategy": "Problem/Solution",
+  "introduce": "Write “Problem” and “Solution” on the board and give pairs thirty seconds to think of a problem people face in daily life and one way to fix it. Explain that as they read “Skin: Your Body's Shield”, they will look for the main problem and how it is solved.",
+  "keyTerms": [
+    {
+      "term": "receptor",
+      "def": "a tiny part in the skin that picks up feelings like pressure or heat"
+    },
+    {
+      "term": "hydrated",
+      "def": "having enough water inside to work properly"
+    },
+    {
+      "term": "evaporate",
+      "def": "to change from a liquid into a gas and disappear into the air"
+    }
+  ],
+  "challengeTerms": [
+    {
+      "term": "epidermis",
+      "def": "the thin outer layer of the skin"
+    },
+    {
+      "term": "dermis",
+      "def": "the thicker layer of skin beneath the epidermis, where nerves and sweat glands are found"
+    },
+    {
+      "term": "regenerate",
+      "def": "to grow back or form again after being damaged"
+    }
+  ],
+  "discussion": [
+    "Do you agree or disagree that skin does more jobs for the body than most people realize? Use evidence from the article to explain.",
+    "Explain how skin helps regulate body temperature when a person is too hot and when a person is too cold."
+  ],
+  "struggling": "Read the first part of the article aloud together, review receptor, hydrated, and evaporate, and let weak readers fill in a simple Problem | Solution chart with sentence starters.",
+  "gifted": "Challenge advanced readers to use epidermis, dermis, and regenerate in a short paragraph that suggests a second solution to the problem and judge which works better."
+}

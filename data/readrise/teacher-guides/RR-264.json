@@ -1,0 +1,40 @@
+{
+  "code": "RR-264",
+  "summary": "This article explains how trees absorb carbon dioxide and release oxygen through photosynthesis, filter pollutants from the air, and why deforestation matters.",
+  "strategy": "Problem/Solution",
+  "introduce": "Write “Problem” and “Solution” on the board and give pairs thirty seconds to think of a problem people face in daily life and one way to fix it. Explain that as they read “How Forests Clean the Air”, they will look for the main problem and how it is solved.",
+  "keyTerms": [
+    {
+      "term": "photosynthesis",
+      "def": "the process plants use to turn sunlight, water, and a gas from the air into food"
+    },
+    {
+      "term": "deforestation",
+      "def": "the cutting down or clearing away of a large area of forest"
+    },
+    {
+      "term": "absorb",
+      "def": "to take something in, such as a gas or liquid"
+    }
+  ],
+  "challengeTerms": [
+    {
+      "term": "ecosystem",
+      "def": "a community of living things and their environment, all connected together"
+    },
+    {
+      "term": "emission",
+      "def": "a gas or other substance that is released into the air"
+    },
+    {
+      "term": "canopy",
+      "def": "the layer formed by the leaves and branches at the top of trees in a forest"
+    }
+  ],
+  "discussion": [
+    "Do you agree or disagree that planting new trees can completely make up for the forests we lose to deforestation? Use evidence from the article to explain.",
+    "Explain how cutting down forests, or deforestation, can lead to dirtier air."
+  ],
+  "struggling": "Pre-teach photosynthesis, deforestation, and absorb with pictures or gestures, then let weak readers fill in a simple Problem | Solution chart with sentence starters.",
+  "gifted": "Challenge advanced readers to use ecosystem, emission, and canopy in a short paragraph that suggests a second solution to the problem and judge which works better."
+}

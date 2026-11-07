@@ -1,0 +1,40 @@
+{
+  "code": "RR-173",
+  "summary": "This article explains how to read the serving size, nutrients, ingredients, allergy warnings, and dates on a food label to make healthier choices.",
+  "strategy": "Cause/Effect",
+  "introduce": "Drop a pencil and ask, “What was the cause? What was the effect?” to model the idea quickly. Then show the title “Reading Food Labels” and tell students to look for things in the article that make other things happen.",
+  "keyTerms": [
+    {
+      "term": "calories",
+      "def": "units that measure how much energy food gives your body"
+    },
+    {
+      "term": "nutrients",
+      "def": "things in food, like protein and fiber, that your body uses to grow and stay healthy"
+    },
+    {
+      "term": "sodium",
+      "def": "the part of salt that is listed on food labels"
+    }
+  ],
+  "challengeTerms": [
+    {
+      "term": "misleading",
+      "def": "giving the wrong idea, even if it is not exactly false"
+    },
+    {
+      "term": "moderation",
+      "def": "having a reasonable amount, not too much"
+    },
+    {
+      "term": "descending",
+      "def": "going from the highest or largest to the lowest or smallest"
+    }
+  ],
+  "discussion": [
+    "Do you agree or disagree that the pictures on the front of a food package tell you enough to choose a healthy snack? Use evidence from the article to explain.",
+    "Your friend wants to choose a healthier snack."
+  ],
+  "struggling": "Pre-teach calories, nutrients, and sodium with pictures or gestures, then let weak readers match cause cards to effect cards from the article with a partner.",
+  "gifted": "Challenge advanced readers to use misleading, moderation, and descending in a short paragraph that explains one important cause-and-effect chain from the article."
+}

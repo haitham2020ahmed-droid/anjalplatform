@@ -1,0 +1,40 @@
+{
+  "code": "RR-169",
+  "summary": "This article explains why lakes can shrink or vanish, from seasonal desert lakes and a lake that drains through a hole to the Aral Sea, and how a damaged lake can recover.",
+  "strategy": "Cause/Effect",
+  "introduce": "Draw a simple cause → effect arrow on the board and ask students for an everyday example, such as “I did not sleep, so I felt tired.” Tell them that while reading “Lakes That Disappear” they will find at least two cause-and-effect links.",
+  "keyTerms": [
+    {
+      "term": "evaporation",
+      "def": "the change of a liquid, such as water, into a gas"
+    },
+    {
+      "term": "irrigation",
+      "def": "bringing water to fields through pipes or channels so crops can grow"
+    },
+    {
+      "term": "seasonal",
+      "def": "happening or existing only at certain times of the year"
+    }
+  ],
+  "challengeTerms": [
+    {
+      "term": "divert",
+      "def": "to change the direction or use of something"
+    },
+    {
+      "term": "consequence",
+      "def": "a result or effect of an action, often an important one"
+    },
+    {
+      "term": "sustainable",
+      "def": "able to continue for a long time without harming the environment"
+    }
+  ],
+  "discussion": [
+    "Do you agree or disagree that people are the main reason that lakes disappear? Use evidence from the article to explain.",
+    "Explain two different reasons a lake can disappear."
+  ],
+  "struggling": "Pre-teach evaporation, irrigation, and seasonal with pictures or gestures, then let weak readers match cause cards to effect cards from the article with a partner.",
+  "gifted": "Challenge advanced readers to use divert, consequence, and sustainable in a short paragraph that explains one important cause-and-effect chain from the article."
+}

@@ -1,0 +1,40 @@
+{
+  "code": "RR-018",
+  "summary": "This article explains how vibrations make sound, how sound waves move through air, water, and solids but not through space, and how pitch, echoes, and our ears work.",
+  "strategy": "Vocabulary Building",
+  "introduce": "Write the key term “particle” on the board and give pairs thirty seconds to guess what it means. Share a few guesses, then tell students to find the word in “How Sound Travels” and check whether they were right.",
+  "keyTerms": [
+    {
+      "term": "particle",
+      "def": "a very tiny bit of something"
+    },
+    {
+      "term": "medium",
+      "def": "the material that something, like sound, travels through"
+    },
+    {
+      "term": "vacuum",
+      "def": "a space with almost nothing in it, not even air"
+    }
+  ],
+  "challengeTerms": [
+    {
+      "term": "compression",
+      "def": "a place where something is squeezed closer together"
+    },
+    {
+      "term": "transmit",
+      "def": "to pass something, like a signal or sound, from one place to another"
+    },
+    {
+      "term": "amplitude",
+      "def": "the size or strength of a wave or vibration"
+    }
+  ],
+  "discussion": [
+    "Do you agree or disagree that sound can travel anywhere, even through outer space? Use evidence from the article to explain.",
+    "Explain why you see lightning before you hear thunder, and why there is no sound in space."
+  ],
+  "struggling": "Read the first part of the article aloud together, review particle, medium, and vacuum, and let weak readers draw a quick picture for each term and use it in a short spoken sentence.",
+  "gifted": "Ask strong readers to read a challenging version and write a short paragraph that uses compression, transmit, and amplitude to teach the class one of the terms with their own example."
+}

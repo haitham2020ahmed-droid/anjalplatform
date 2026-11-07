@@ -1,0 +1,40 @@
+{
+  "code": "RR-230",
+  "summary": "This article explains what space junk is, why even tiny pieces are dangerous at orbital speed, and how space agencies track it and try to clean it up.",
+  "strategy": "Problem/Solution",
+  "introduce": "Ask students to share a small problem they solved this week and how they solved it, and write two examples in a Problem | Solution chart on the board. Tell them that “Space Junk: Debris Around Earth” also has a problem and a solution to find.",
+  "keyTerms": [
+    {
+      "term": "collision",
+      "def": "a crash between two moving objects"
+    },
+    {
+      "term": "fragment",
+      "def": "a small broken piece of something larger"
+    },
+    {
+      "term": "shield",
+      "def": "to protect something from harm or damage"
+    }
+  ],
+  "challengeTerms": [
+    {
+      "term": "velocity",
+      "def": "the speed of something moving in a certain direction"
+    },
+    {
+      "term": "hazard",
+      "def": "something that could cause harm or danger"
+    },
+    {
+      "term": "surveillance",
+      "def": "the careful watching of something over time"
+    }
+  ],
+  "discussion": [
+    "Do you agree or disagree that space junk is a serious problem that people on Earth should worry about? Use evidence from the article to explain.",
+    "Explain why the speed of space junk makes it dangerous, even for small fragments."
+  ],
+  "struggling": "Read the first part of the article aloud together, review collision, fragment, and shield, and let weak readers fill in a simple Problem | Solution chart with sentence starters.",
+  "gifted": "Challenge advanced readers to use velocity, hazard, and surveillance in a short paragraph that suggests a second solution to the problem and judge which works better."
+}

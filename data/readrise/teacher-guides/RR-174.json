@@ -1,0 +1,40 @@
+{
+  "code": "RR-174",
+  "summary": "This article explains what a fever is, how the brain raises body temperature to help fight germs, why we shiver and sweat, and how to care for someone with a fever.",
+  "strategy": "Problem/Solution",
+  "introduce": "Write “Problem” and “Solution” on the board and give pairs thirty seconds to think of a problem people face in daily life and one way to fix it. Explain that as they read “What Is a Fever?”, they will look for the main problem and how it is solved.",
+  "keyTerms": [
+    {
+      "term": "temperature",
+      "def": "how hot or cold something is"
+    },
+    {
+      "term": "immune system",
+      "def": "the parts of your body that work together to fight germs"
+    },
+    {
+      "term": "infection",
+      "def": "a sickness caused by germs that get into the body"
+    }
+  ],
+  "challengeTerms": [
+    {
+      "term": "hypothalamus",
+      "def": "a small part of the brain that controls body temperature, hunger, and thirst"
+    },
+    {
+      "term": "thermostat",
+      "def": "a device that keeps a room or machine at a chosen temperature"
+    },
+    {
+      "term": "multiply",
+      "def": "to grow quickly in number"
+    }
+  ],
+  "discussion": [
+    "Do you agree or disagree that a fever is always a bad thing? Use evidence from the article to explain.",
+    "Explain how a fever helps the body fight an infection."
+  ],
+  "struggling": "Pre-teach temperature, immune system, and infection with pictures or gestures, then let weak readers fill in a simple Problem | Solution chart with sentence starters.",
+  "gifted": "Challenge advanced readers to use hypothalamus, thermostat, and multiply in a short paragraph that suggests a second solution to the problem and judge which works better."
+}

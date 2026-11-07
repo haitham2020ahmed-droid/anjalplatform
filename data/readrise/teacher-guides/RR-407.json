@@ -1,0 +1,40 @@
+{
+  "code": "RR-407",
+  "summary": "In this story, a fictional astronaut's diary entries describe daily life on a space station, a small equipment problem she solves with a crewmate, and what she misses about home.",
+  "strategy": "Problem/Solution",
+  "introduce": "Ask students to share a small problem they solved this week and how they solved it, and write two examples in a Problem | Solution chart on the board. Tell them that “The Astronaut's Diary” also has a problem and a solution to find.",
+  "keyTerms": [
+    {
+      "term": "orbit",
+      "def": "the curved path something travels around a planet or star"
+    },
+    {
+      "term": "module",
+      "def": "one connected section or room of a spacecraft or space station"
+    },
+    {
+      "term": "routine",
+      "def": "a set of actions done the same way, again and again"
+    }
+  ],
+  "challengeTerms": [
+    {
+      "term": "microgravity",
+      "def": "a condition with very little gravity, so things float instead of falling"
+    },
+    {
+      "term": "malfunction",
+      "def": "a failure of a machine or part to work correctly"
+    },
+    {
+      "term": "circadian",
+      "def": "having to do with the body's natural twenty-four-hour clock"
+    }
+  ],
+  "discussion": [
+    "Do you agree or disagree that living on a space station for months would be more exciting than hard? Use evidence from the story to explain.",
+    "Explain how the astronaut and her crewmate solved the filter problem, and why working as a team mattered."
+  ],
+  "struggling": "Pre-teach orbit, module, and routine with pictures or gestures, then let weak readers fill in a simple Problem | Solution chart with sentence starters.",
+  "gifted": "Challenge advanced readers to use microgravity, malfunction, and circadian in a short paragraph that suggests a second solution to the problem and judge which works better."
+}

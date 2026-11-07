@@ -1,0 +1,40 @@
+{
+  "code": "RR-248",
+  "summary": "This article explains how growth plates near the ends of bones build new bone, how growth hormone from a small brain gland drives this, and how sleep, nutrition, and genes all shape how a child grows.",
+  "strategy": "Cause/Effect",
+  "introduce": "Draw a simple cause → effect arrow on the board and ask students for an everyday example, such as “I did not sleep, so I felt tired.” Tell them that while reading “Growing Taller: How Kids' Bodies Grow” they will find at least two cause-and-effect links.",
+  "keyTerms": [
+    {
+      "term": "hormone",
+      "def": "a chemical made in the body that carries a message to tell it to do something"
+    },
+    {
+      "term": "gland",
+      "def": "a body part that makes and releases a substance the body uses"
+    },
+    {
+      "term": "nutrient",
+      "def": "something in food that the body needs to work and grow well"
+    }
+  ],
+  "challengeTerms": [
+    {
+      "term": "pituitary",
+      "def": "describing a small gland at the base of the brain that releases growth hormone and other hormones"
+    },
+    {
+      "term": "ossification",
+      "def": "the process by which soft tissue, such as cartilage, hardens into bone"
+    },
+    {
+      "term": "hereditary",
+      "def": "passed down from parents to their children through genes"
+    }
+  ],
+  "discussion": [
+    "Do you agree or disagree that sleep matters just as much as food for growing taller? Use evidence from the article to explain.",
+    "Explain how growth hormone, sleep, and nutrition work together to help a child grow."
+  ],
+  "struggling": "Read the first part of the article aloud together, review hormone, gland, and nutrient, and let weak readers match cause cards to effect cards from the article with a partner.",
+  "gifted": "Ask strong readers to read a challenging version and write a short paragraph that uses pituitary, ossification, and hereditary to explain one important cause-and-effect chain from the article."
+}

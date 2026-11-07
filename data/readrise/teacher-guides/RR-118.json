@@ -1,0 +1,40 @@
+{
+  "code": "RR-118",
+  "summary": "This article explains how a rocket uses hot gas, thrust, stages, and great speed to escape the pull of gravity and reach orbit, and how Saudi astronauts have traveled to space.",
+  "strategy": "Sequence",
+  "introduce": "Give pairs four mixed-up steps of a simple task, such as making tea, and ask them to put the steps in order. Explain that “How Rockets Reach Space” also follows an order, and good readers notice signal words like first, after, and finally.",
+  "keyTerms": [
+    {
+      "term": "thrust",
+      "def": "a strong push that moves something forward or upward"
+    },
+    {
+      "term": "oxygen",
+      "def": "a gas in the air that people breathe and that fire needs to burn"
+    },
+    {
+      "term": "nozzle",
+      "def": "a narrow opening at the end of a pipe or engine that directs a flow of liquid or gas"
+    }
+  ],
+  "challengeTerms": [
+    {
+      "term": "propellant",
+      "def": "the fuel and other material burned in a rocket engine to push it forward"
+    },
+    {
+      "term": "oxidizer",
+      "def": "a substance that supplies oxygen so that a fuel can burn"
+    },
+    {
+      "term": "velocity",
+      "def": "the speed of something in a particular direction"
+    }
+  ],
+  "discussion": [
+    "Do you agree or disagree that going to space is the hardest job a machine can do? Use evidence from the article to explain.",
+    "Explain two problems a rocket must solve to reach space and how it solves each one."
+  ],
+  "struggling": "Read the first part of the article aloud together, review thrust, oxygen, and nozzle, and let weak readers put sentence strips of the main events in order before writing.",
+  "gifted": "Challenge advanced readers to use propellant, oxidizer, and velocity in a short paragraph that summarizes the key events in order and explain which step matters most."
+}

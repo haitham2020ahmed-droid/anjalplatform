@@ -1,0 +1,40 @@
+{
+  "code": "RR-426",
+  "summary": "In this story, a boy named Yusuf, apprenticed to a master dhow-builder on the Red Sea coast, helps solve a tricky design problem when an unusual commission makes the usual boat shape unsafe.",
+  "strategy": "Problem/Solution",
+  "introduce": "Write “Problem” and “Solution” on the board and give pairs thirty seconds to think of a problem people face in daily life and one way to fix it. Explain that as they read “The Shipbuilder's Apprentice”, they will look for the main problem and how it is solved.",
+  "keyTerms": [
+    {
+      "term": "hull",
+      "def": "the main body of a boat or ship that sits in the water"
+    },
+    {
+      "term": "plank",
+      "def": "a long, flat piece of wood used in building"
+    },
+    {
+      "term": "balance",
+      "def": "a steady position in which nothing tips over"
+    }
+  ],
+  "challengeTerms": [
+    {
+      "term": "buoyancy",
+      "def": "the ability of an object to float and resist sinking in a liquid"
+    },
+    {
+      "term": "keel",
+      "def": "the long, central piece along the bottom of a boat that gives it strength and shape"
+    },
+    {
+      "term": "stability",
+      "def": "the quality of being steady and not easily tipped over or upset"
+    }
+  ],
+  "discussion": [
+    "Do you agree or disagree that a master craftsperson should always stick to tried-and-true methods instead of trying new ideas? Use evidence from the story to explain.",
+    "Explain how Yusuf's observation and the test model helped Hamid solve the design problem."
+  ],
+  "struggling": "Pre-teach hull, plank, and balance with pictures or gestures, then let weak readers fill in a simple Problem | Solution chart with sentence starters.",
+  "gifted": "Challenge advanced readers to use buoyancy, keel, and stability in a short paragraph that suggests a second solution to the problem and judge which works better."
+}

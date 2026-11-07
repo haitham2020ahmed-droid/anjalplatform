@@ -1,0 +1,40 @@
+{
+  "code": "RR-212",
+  "summary": "This article explains how tiny patterns of black lines and squares let machines read prices and information in an instant, and who invented them.",
+  "strategy": "Main Idea",
+  "introduce": "Show the title “Barcodes and QR Codes” and give pairs one minute to predict, in one sentence, what the whole article is mostly about. Write three predictions on the board and tell students they will check which one is closest to the main idea after reading.",
+  "keyTerms": [
+    {
+      "term": "information",
+      "def": "facts or details about something"
+    },
+    {
+      "term": "universal",
+      "def": "able to be used by everyone or in every case"
+    },
+    {
+      "term": "laser",
+      "def": "a strong, narrow beam of light"
+    }
+  ],
+  "challengeTerms": [
+    {
+      "term": "patent",
+      "def": "an official document that gives a person the only right to make or sell their invention"
+    },
+    {
+      "term": "orientation",
+      "def": "the direction something is facing or turned"
+    },
+    {
+      "term": "retailer",
+      "def": "a business that sells goods directly to shoppers"
+    }
+  ],
+  "discussion": [
+    "Do you agree or disagree that shopping would be slower and less accurate without barcodes and QR codes? Use evidence from the article to explain.",
+    "Explain how a barcode gets scanned and turned into a price."
+  ],
+  "struggling": "Read the first part of the article aloud together, review information, universal, and laser, and let weak readers complete a main-idea-and-details web with a partner.",
+  "gifted": "Challenge advanced readers to use patent, orientation, and retailer in a short paragraph that states the main idea of the article in their own words."
+}

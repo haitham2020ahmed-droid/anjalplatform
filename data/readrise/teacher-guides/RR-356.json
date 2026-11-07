@@ -1,0 +1,40 @@
+{
+  "code": "RR-356",
+  "summary": "In this story, two friends hiking in the mountains take a wrong turn, get separated from their group, and use problem-solving and hiking skills to find their way back safely.",
+  "strategy": "Problem/Solution",
+  "introduce": "Write “Problem” and “Solution” on the board and give pairs thirty seconds to think of a problem people face in daily life and one way to fix it. Explain that as they read “Lost in the Mountains”, they will look for the main problem and how it is solved.",
+  "keyTerms": [
+    {
+      "term": "landmark",
+      "def": "something easy to notice that helps you know where you are"
+    },
+    {
+      "term": "disoriented",
+      "def": "confused about where you are or which way to go"
+    },
+    {
+      "term": "signal",
+      "def": "to send a message using a sound, light, or movement"
+    }
+  ],
+  "challengeTerms": [
+    {
+      "term": "navigate",
+      "def": "to find your way from one place to another"
+    },
+    {
+      "term": "composure",
+      "def": "the ability to stay calm, especially under pressure"
+    },
+    {
+      "term": "methodical",
+      "def": "done carefully and in a planned, orderly way"
+    }
+  ],
+  "discussion": [
+    "Do you agree or disagree that staying calm is more important than being strong when something goes wrong outdoors? Use evidence from the story to explain.",
+    "Explain how Yusuf and Khalid worked together to solve the problem of being lost."
+  ],
+  "struggling": "Read the first part of the story aloud together, review landmark, disoriented, and signal, and let weak readers fill in a simple Problem | Solution chart with sentence starters.",
+  "gifted": "Ask strong readers to read a challenging version and write a short paragraph that uses navigate, composure, and methodical to suggest a second solution to the problem and judge which works better."
+}

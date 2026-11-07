@@ -1,0 +1,40 @@
+{
+  "code": "RR-354",
+  "summary": "In this story, a class of students on a desert field trip is caught in a sudden sandstorm and must use their safety training to find shelter and stay calm until help arrives.",
+  "strategy": "Sequence",
+  "introduce": "Give pairs four mixed-up steps of a simple task, such as making tea, and ask them to put the steps in order. Explain that “The Great Sandstorm” also follows an order, and good readers notice signal words like first, after, and finally.",
+  "keyTerms": [
+    {
+      "term": "remain",
+      "def": "to stay in a place or in a certain condition"
+    },
+    {
+      "term": "panic",
+      "def": "a sudden, strong feeling of fear that makes people act without thinking"
+    },
+    {
+      "term": "visibility",
+      "def": "how far or how clearly you can see"
+    }
+  ],
+  "challengeTerms": [
+    {
+      "term": "composure",
+      "def": "a calm, controlled state of mind, especially under pressure"
+    },
+    {
+      "term": "coordinate",
+      "def": "to organize different people or actions so they work well together"
+    },
+    {
+      "term": "meteorological",
+      "def": "relating to the weather and the science that studies it"
+    }
+  ],
+  "discussion": [
+    "Do you agree or disagree that in an emergency, staying calm matters more than anything else you can do? Use evidence from the story to explain.",
+    "Explain how the class worked together to stay safe during the sandstorm."
+  ],
+  "struggling": "Pre-teach remain, panic, and visibility with pictures or gestures, then let weak readers put sentence strips of the main events in order before writing.",
+  "gifted": "Challenge advanced readers to use composure, coordinate, and meteorological in a short paragraph that summarizes the key events in order and explain which step matters most."
+}

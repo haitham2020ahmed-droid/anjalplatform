@@ -1,0 +1,40 @@
+{
+  "code": "RR-215",
+  "summary": "This article explains how robotic arms, cameras, and magnets at a recycling center sort plastic, paper, metal, and glass faster and more accurately than people can.",
+  "strategy": "Main Idea",
+  "introduce": "Read the title “Recycling Robots That Sort Our Trash” aloud and ask each student to write one question they hope the article will answer. Collect a few questions, then explain that today they will find the one big idea that ties all the details together.",
+  "keyTerms": [
+    {
+      "term": "sensor",
+      "def": "a device that notices things like light, heat, or movement"
+    },
+    {
+      "term": "facility",
+      "def": "a building or place built for a certain purpose"
+    },
+    {
+      "term": "contaminate",
+      "def": "to make something dirty or mixed with the wrong material"
+    }
+  ],
+  "challengeTerms": [
+    {
+      "term": "infrared",
+      "def": "related to a kind of light that humans cannot see but that carries heat"
+    },
+    {
+      "term": "algorithm",
+      "def": "a precise set of steps a computer follows to solve a problem or make a decision"
+    },
+    {
+      "term": "sustainable",
+      "def": "able to continue for a long time without running out or causing lasting harm"
+    }
+  ],
+  "discussion": [
+    "Do you agree or disagree that robots will soon do most of the work of sorting our trash? Use evidence from the article to explain.",
+    "Explain how a robot identifies and sorts an item, and describe one limit of the system."
+  ],
+  "struggling": "Pre-teach sensor, facility, and contaminate with pictures or gestures, then let weak readers complete a main-idea-and-details web with a partner.",
+  "gifted": "Ask strong readers to read a challenging version and write a short paragraph that uses infrared, algorithm, and sustainable to state the main idea of the article in their own words."
+}

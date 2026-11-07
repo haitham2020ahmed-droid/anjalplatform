@@ -1,0 +1,40 @@
+{
+  "code": "RR-124",
+  "summary": "This article explains what soil is made of, how it forms from rock over a very long time, the living things that keep it healthy, its layers and types, and why people must protect it.",
+  "strategy": "Problem/Solution",
+  "introduce": "Ask students to share a small problem they solved this week and how they solved it, and write two examples in a Problem | Solution chart on the board. Tell them that “Soil: The Living Ground” also has a problem and a solution to find.",
+  "keyTerms": [
+    {
+      "term": "mineral",
+      "def": "a natural solid material, like the tiny bits of rock found in soil"
+    },
+    {
+      "term": "decompose",
+      "def": "to rot and break down into smaller parts"
+    },
+    {
+      "term": "nutrient",
+      "def": "something in food or soil that living things need to grow and stay healthy"
+    }
+  ],
+  "challengeTerms": [
+    {
+      "term": "weathering",
+      "def": "the slow breaking of rock into smaller pieces by heat, cold, water, wind, ice, or roots"
+    },
+    {
+      "term": "organism",
+      "def": "any living thing, such as a plant, animal, or germ"
+    },
+    {
+      "term": "decomposer",
+      "def": "a living thing, such as a fungus or bacterium, that breaks down dead material"
+    }
+  ],
+  "discussion": [
+    "Do you agree or disagree that soil is just dirt, so it is not worth protecting? Use evidence from the article to explain.",
+    "Explain how living things help keep soil healthy."
+  ],
+  "struggling": "Pre-teach mineral, decompose, and nutrient with pictures or gestures, then let weak readers fill in a simple Problem | Solution chart with sentence starters.",
+  "gifted": "Ask strong readers to read a challenging version and write a short paragraph that uses weathering, organism, and decomposer to suggest a second solution to the problem and judge which works better."
+}

@@ -1,0 +1,40 @@
+{
+  "code": "RR-085",
+  "summary": "This article explains how the Baghdad scholar Al-Khwarizmi wrote step-by-step methods that gave us algebra, spread the numbers we use today, and lent his name to the word algorithm.",
+  "strategy": "Author's Purpose",
+  "introduce": "Ask students why someone might write “Al-Khwarizmi: The Father of Algebra”: to inform, to persuade, or to entertain? Take a quick hand vote, then tell students to look for clues about the writer's purpose as they read.",
+  "keyTerms": [
+    {
+      "term": "algebra",
+      "def": "a kind of math that uses letters or signs to find missing numbers"
+    },
+    {
+      "term": "equation",
+      "def": "a math sentence that shows two amounts are equal"
+    },
+    {
+      "term": "algorithm",
+      "def": "a set of steps for solving a problem or doing a task"
+    }
+  ],
+  "challengeTerms": [
+    {
+      "term": "systematic",
+      "def": "done by following a careful, organized plan"
+    },
+    {
+      "term": "numeral",
+      "def": "a written sign that stands for a number"
+    },
+    {
+      "term": "influential",
+      "def": "having a strong effect on people or ideas"
+    }
+  ],
+  "discussion": [
+    "Do you agree or disagree that ideas from long ago still matter in our lives today? Use evidence from the article to explain.",
+    "Explain why Al-Khwarizmi is called the father of algebra."
+  ],
+  "struggling": "Read the first part of the article aloud together, review algebra, equation, and algorithm, and let weak readers underline sentences that inform and circle any that persuade.",
+  "gifted": "Ask strong readers to read a challenging version and write a short paragraph that uses systematic, numeral, and influential to explain the writer's purpose and how the details support it."
+}

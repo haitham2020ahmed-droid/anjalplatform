@@ -1,0 +1,40 @@
+{
+  "code": "RR-228",
+  "summary": "Astronauts in space are not really weightless; they float because they and their spacecraft are constantly falling together around Earth, and this changes their bodies and daily routines.",
+  "strategy": "Vocabulary Building",
+  "introduce": "Show the three key terms on the board and ask students to rate each one: “I know it,” “I have seen it,” or “It is new.” Tell them to watch for these words in “Zero Gravity: Why Astronauts Float” and use clues around them to understand their meaning.",
+  "keyTerms": [
+    {
+      "term": "orbit",
+      "def": "the curving path a spacecraft or planet follows as it travels around another object"
+    },
+    {
+      "term": "microgravity",
+      "def": "a condition in which gravity is still present but people and objects feel almost weightless"
+    },
+    {
+      "term": "fluid",
+      "def": "a liquid, such as blood or water, that can flow or shift from one place to another"
+    }
+  ],
+  "challengeTerms": [
+    {
+      "term": "continuous",
+      "def": "happening all the time without stopping"
+    },
+    {
+      "term": "vestibular",
+      "def": "relating to the inner-ear system that helps the body sense balance"
+    },
+    {
+      "term": "buoyancy",
+      "def": "the upward force that makes an object float or feel lighter in water"
+    }
+  ],
+  "discussion": [
+    "Do you agree or disagree that astronauts in space feel no gravity at all? Use evidence from the article to explain.",
+    "Choose one way that microgravity changes the human body."
+  ],
+  "struggling": "Pre-teach orbit, microgravity, and fluid with pictures or gestures, then let weak readers draw a quick picture for each term and use it in a short spoken sentence.",
+  "gifted": "Challenge advanced readers to use continuous, vestibular, and buoyancy in a short paragraph that teaches the class one of the terms with their own example."
+}

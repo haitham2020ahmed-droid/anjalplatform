@@ -135,8 +135,8 @@ describe("🎯 ReadRise accuracy", () => {
       await finishReading(repo, s, v.runId, { readSeconds: 150 }, now);
       const quizEnd = new Date(now.getTime() + 5 * 60_000);
       const q = await submitActivity(repo, s, v.runId, answers(right), quizEnd, { at: times });
-      await submitWriting(repo, s, v.runId, WRITING, quizEnd);
-      const d = await submitPostPoll(repo, s, v.runId, 2, quizEnd);
+      await submitPostPoll(repo, s, v.runId, 2, quizEnd); // round 6: Reflect before Write
+      const d = await submitWriting(repo, s, v.runId, WRITING, quizEnd);
       return { runId: v.runId, quiz: q, done: d };
     }
 

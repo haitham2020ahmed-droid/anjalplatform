@@ -1,0 +1,40 @@
+{
+  "code": "RR-220",
+  "summary": "This article explains how a magnetized needle, first discovered in China and later improved by sailors in the Islamic world and the Mediterranean, became the compass and let ships find their way in any weather.",
+  "strategy": "Sequence",
+  "introduce": "Give pairs four mixed-up steps of a simple task, such as making tea, and ask them to put the steps in order. Explain that “The Compass: Guiding Sailors Across Oceans” also follows an order, and good readers notice signal words like first, after, and finally.",
+  "keyTerms": [
+    {
+      "term": "lodestone",
+      "def": "a natural rock that acts like a magnet and can pull on iron"
+    },
+    {
+      "term": "device",
+      "def": "a tool or machine made for a certain job"
+    },
+    {
+      "term": "merchant",
+      "def": "a person who buys and sells goods, often by traveling to other places"
+    }
+  ],
+  "challengeTerms": [
+    {
+      "term": "magnetism",
+      "def": "the natural force that lets certain materials, like iron, pull toward or push away from each other"
+    },
+    {
+      "term": "maritime",
+      "def": "having to do with the sea or sailing"
+    },
+    {
+      "term": "innovation",
+      "def": "a new idea, method, or device that improves how something is done"
+    }
+  ],
+  "discussion": [
+    "Do you agree or disagree that a simple tool can be just as important as a big, complicated machine? Use evidence from the article to explain.",
+    "Explain how sailors turned an ordinary iron needle into a working compass."
+  ],
+  "struggling": "Pre-teach lodestone, device, and merchant with pictures or gestures, then let weak readers put sentence strips of the main events in order before writing.",
+  "gifted": "Challenge advanced readers to use magnetism, maritime, and innovation in a short paragraph that summarizes the key events in order and explain which step matters most."
+}

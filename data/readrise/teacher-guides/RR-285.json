@@ -1,0 +1,40 @@
+{
+  "code": "RR-285",
+  "summary": "This article explains why golf rewards careful, accurate shots instead of raw power, how scoring and clubs work, and why fewer strokes always wins.",
+  "strategy": "Cause/Effect",
+  "introduce": "Drop a pencil and ask, “What was the cause? What was the effect?” to model the idea quickly. Then show the title “Golf: Precision Over Distance” and tell students to look for things in the article that make other things happen.",
+  "keyTerms": [
+    {
+      "term": "stroke",
+      "def": "one hit of the ball in golf"
+    },
+    {
+      "term": "fairway",
+      "def": "the long, mowed strip of grass between the start and the hole"
+    },
+    {
+      "term": "accuracy",
+      "def": "the quality of being exact and correct"
+    }
+  ],
+  "challengeTerms": [
+    {
+      "term": "precision",
+      "def": "the quality of being very exact and accurate"
+    },
+    {
+      "term": "control",
+      "def": "the ability to direct or manage something exactly as intended"
+    },
+    {
+      "term": "strategy",
+      "def": "a careful plan for reaching a goal"
+    }
+  ],
+  "discussion": [
+    "Do you agree or disagree that hitting the ball far matters more in golf than hitting it accurately? Use evidence from the article to explain.",
+    "Do you agree that accuracy matters more than distance in golf?"
+  ],
+  "struggling": "Pre-teach stroke, fairway, and accuracy with pictures or gestures, then let weak readers match cause cards to effect cards from the article with a partner.",
+  "gifted": "Ask strong readers to read a challenging version and write a short paragraph that uses precision, control, and strategy to explain one important cause-and-effect chain from the article."
+}

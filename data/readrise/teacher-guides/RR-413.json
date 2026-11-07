@@ -1,0 +1,40 @@
+{
+  "code": "RR-413",
+  "summary": "In this story, a community garden gets an experimental robot that at first cannot tell weeds from vegetables, until the kids who tend the garden teach it to see the difference.",
+  "strategy": "Sequence",
+  "introduce": "Give pairs four mixed-up steps of a simple task, such as making tea, and ask them to put the steps in order. Explain that “The Robot Gardener” also follows an order, and good readers notice signal words like first, after, and finally.",
+  "keyTerms": [
+    {
+      "term": "engineer",
+      "def": "a person who designs and builds machines or structures"
+    },
+    {
+      "term": "program",
+      "def": "a set of instructions that tells a machine what to do"
+    },
+    {
+      "term": "recognize",
+      "def": "to notice and correctly identify someone or something"
+    }
+  ],
+  "challengeTerms": [
+    {
+      "term": "calibrate",
+      "def": "to carefully adjust an instrument or machine so it works accurately"
+    },
+    {
+      "term": "distinguish",
+      "def": "to notice or show the difference between two similar things"
+    },
+    {
+      "term": "experimental",
+      "def": "newly tried out and not yet fully tested or proven"
+    }
+  ],
+  "discussion": [
+    "Do you agree or disagree that a machine that makes mistakes at first should be given a second chance to learn? Use evidence from the story to explain.",
+    "Explain how Lina, Yousef, and Mr."
+  ],
+  "struggling": "Pre-teach engineer, program, and recognize with pictures or gestures, then let weak readers put sentence strips of the main events in order before writing.",
+  "gifted": "Ask strong readers to read a challenging version and write a short paragraph that uses calibrate, distinguish, and experimental to summarize the key events in order and explain which step matters most."
+}

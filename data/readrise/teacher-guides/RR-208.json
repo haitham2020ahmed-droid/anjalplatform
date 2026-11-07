@@ -1,0 +1,40 @@
+{
+  "code": "RR-208",
+  "summary": "This article explains how wind turbines turn moving air into electricity, why Saudi Arabia is building wind farms on land and planning for the future, and the challenge of wind that does not always blow.",
+  "strategy": "Problem/Solution",
+  "introduce": "Write “Problem” and “Solution” on the board and give pairs thirty seconds to think of a problem people face in daily life and one way to fix it. Explain that as they read “Wind Turbines: Catching the Wind”, they will look for the main problem and how it is solved.",
+  "keyTerms": [
+    {
+      "term": "generate",
+      "def": "to make or produce something, such as power"
+    },
+    {
+      "term": "renewable",
+      "def": "able to be used again and again without running out"
+    },
+    {
+      "term": "maintenance",
+      "def": "the regular work needed to keep something running well"
+    }
+  ],
+  "challengeTerms": [
+    {
+      "term": "kinetic",
+      "def": "having to do with motion or movement"
+    },
+    {
+      "term": "aerodynamic",
+      "def": "shaped to move smoothly through air with little resistance"
+    },
+    {
+      "term": "infrastructure",
+      "def": "the basic systems, like roads and cables, that a place needs in order to work"
+    }
+  ],
+  "discussion": [
+    "Do you agree or disagree that countries with strong, steady winds should build many wind turbines? Use evidence from the article to explain.",
+    "Explain why wind is a renewable source of energy, and describe one challenge that keeps turbines from always working at full capacity."
+  ],
+  "struggling": "Read the first part of the article aloud together, review generate, renewable, and maintenance, and let weak readers fill in a simple Problem | Solution chart with sentence starters.",
+  "gifted": "Challenge advanced readers to use kinetic, aerodynamic, and infrastructure in a short paragraph that suggests a second solution to the problem and judge which works better."
+}

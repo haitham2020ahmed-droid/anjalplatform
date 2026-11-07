@@ -1,0 +1,40 @@
+{
+  "code": "RR-005",
+  "summary": "Astronauts from many countries live and work on the International Space Station, adapting to floating in space while doing science.",
+  "strategy": "Vocabulary Building",
+  "introduce": "Write the key term “orbit” on the board and give pairs thirty seconds to guess what it means. Share a few guesses, then tell students to find the word in “Living in Space: The International Space Station” and check whether they were right.",
+  "keyTerms": [
+    {
+      "term": "orbit",
+      "def": "the curved path an object follows as it travels around a planet, moon, or star"
+    },
+    {
+      "term": "microgravity",
+      "def": "a condition in space where people and things feel almost weightless and float"
+    },
+    {
+      "term": "recycle",
+      "def": "to clean or change something that has been used so it can be used again"
+    }
+  ],
+  "challengeTerms": [
+    {
+      "term": "module",
+      "def": "one section of a larger structure that can be joined to other sections"
+    },
+    {
+      "term": "dehydrated",
+      "def": "having had the water removed, often to make food last longer"
+    },
+    {
+      "term": "continuously",
+      "def": "without stopping or being interrupted"
+    }
+  ],
+  "discussion": [
+    "Do you agree or disagree that living on a space station would be more exciting than difficult? Use evidence from the article to explain.",
+    "Choose one challenge of living in microgravity."
+  ],
+  "struggling": "Read the first part of the article aloud together, review orbit, microgravity, and recycle, and let weak readers draw a quick picture for each term and use it in a short spoken sentence.",
+  "gifted": "Challenge advanced readers to use module, dehydrated, and continuously in a short paragraph that teaches the class one of the terms with their own example."
+}

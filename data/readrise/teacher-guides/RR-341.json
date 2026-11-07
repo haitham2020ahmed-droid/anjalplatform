@@ -1,0 +1,40 @@
+{
+  "code": "RR-341",
+  "summary": "The Himalayas are the tallest mountain range on Earth, formed by colliding tectonic plates and home to Mount Everest.",
+  "strategy": "Main Idea",
+  "introduce": "Read the title “The Himalayas: Roof of the World” aloud and ask each student to write one question they hope the article will answer. Collect a few questions, then explain that today they will find the one big idea that ties all the details together.",
+  "keyTerms": [
+    {
+      "term": "altitude",
+      "def": "the height of something above sea level"
+    },
+    {
+      "term": "plate",
+      "def": "one of the huge pieces of rock that make up the Earth's outer layer and slowly move"
+    },
+    {
+      "term": "collide",
+      "def": "to crash into something with great force"
+    }
+  ],
+  "challengeTerms": [
+    {
+      "term": "tectonic",
+      "def": "relating to the huge moving plates that make up the Earth's crust"
+    },
+    {
+      "term": "elevation",
+      "def": "the height of a place above sea level"
+    },
+    {
+      "term": "expedition",
+      "def": "a long, carefully organized journey made for a specific and often difficult purpose"
+    }
+  ],
+  "discussion": [
+    "Do you agree or disagree that mountains that are still growing are more interesting than mountains that stay the same? Use evidence from the article to explain.",
+    "Explain how the Himalayas formed and why melting glaciers matter for people far from the mountains."
+  ],
+  "struggling": "Pre-teach altitude, plate, and collide with pictures or gestures, then let weak readers complete a main-idea-and-details web with a partner.",
+  "gifted": "Ask strong readers to read a challenging version and write a short paragraph that uses tectonic, elevation, and expedition to state the main idea of the article in their own words."
+}

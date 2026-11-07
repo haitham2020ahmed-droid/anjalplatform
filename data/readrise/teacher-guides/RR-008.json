@@ -1,0 +1,40 @@
+{
+  "code": "RR-008",
+  "summary": "This article explains how solar panels turn sunlight into electricity, why sunny countries like Saudi Arabia are building solar farms, and the challenges of dust, heat, and darkness.",
+  "strategy": "Problem/Solution",
+  "introduce": "Write “Problem” and “Solution” on the board and give pairs thirty seconds to think of a problem people face in daily life and one way to fix it. Explain that as they read “Power from the Sun”, they will look for the main problem and how it is solved.",
+  "keyTerms": [
+    {
+      "term": "convert",
+      "def": "to change something into a different form"
+    },
+    {
+      "term": "renewable",
+      "def": "able to be made again or used again without running out"
+    },
+    {
+      "term": "pollution",
+      "def": "dirt or harmful things in the air, water, or land"
+    }
+  ],
+  "challengeTerms": [
+    {
+      "term": "photovoltaic",
+      "def": "changing light directly into electricity"
+    },
+    {
+      "term": "abundant",
+      "def": "more than enough; in large amounts"
+    },
+    {
+      "term": "accumulate",
+      "def": "to slowly gather or pile up over time"
+    }
+  ],
+  "discussion": [
+    "Do you agree or disagree that sunny countries should get most of their electricity from the sun? Use evidence from the article to explain.",
+    "Explain two challenges of solar power in the desert."
+  ],
+  "struggling": "Pre-teach convert, renewable, and pollution with pictures or gestures, then let weak readers fill in a simple Problem | Solution chart with sentence starters.",
+  "gifted": "Ask strong readers to read a challenging version and write a short paragraph that uses photovoltaic, abundant, and accumulate to suggest a second solution to the problem and judge which works better."
+}

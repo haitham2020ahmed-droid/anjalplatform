@@ -1,0 +1,40 @@
+{
+  "code": "RR-229",
+  "summary": "Food scientists design and package space food so it stays safe, tasty, and crumb-free when astronauts eat it in a floating spacecraft.",
+  "strategy": "Vocabulary Building",
+  "introduce": "Write the key term “dehydrated” on the board and give pairs thirty seconds to guess what it means. Share a few guesses, then tell students to find the word in “Space Food: Eating Without Gravity” and check whether they were right.",
+  "keyTerms": [
+    {
+      "term": "dehydrated",
+      "def": "having had almost all the water removed, often to make food last longer"
+    },
+    {
+      "term": "pouch",
+      "def": "a small, flexible bag used to hold and protect something"
+    },
+    {
+      "term": "dissolve",
+      "def": "to mix completely into a liquid until it disappears as a solid"
+    }
+  ],
+  "challengeTerms": [
+    {
+      "term": "thermostabilized",
+      "def": "describing food that has been cooked and sealed using heat so it stays safe without refrigeration"
+    },
+    {
+      "term": "perishable",
+      "def": "likely to spoil or decay quickly unless eaten or stored carefully"
+    },
+    {
+      "term": "nutrient",
+      "def": "a substance in food that the body needs to stay healthy and grow"
+    }
+  ],
+  "discussion": [
+    "Do you agree or disagree that eating food in space is harder than eating it on Earth? Use evidence from the article to explain.",
+    "Choose one method used to prepare or package space food."
+  ],
+  "struggling": "Read the first part of the article aloud together, review dehydrated, pouch, and dissolve, and let weak readers draw a quick picture for each term and use it in a short spoken sentence.",
+  "gifted": "Ask strong readers to read a challenging version and write a short paragraph that uses thermostabilized, perishable, and nutrient to teach the class one of the terms with their own example."
+}

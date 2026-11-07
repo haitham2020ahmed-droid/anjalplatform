@@ -63,8 +63,8 @@ describe("📋 ReadRise teacher report", () => {
       await finishReading(repo, s, v.runId, { readSeconds: 150 }, now);
       const end = new Date(now.getTime() + 5 * 60_000);
       await submitActivity(repo, s, v.runId, answers(right), end, { at: times });
+      await submitPostPoll(repo, s, v.runId, 2, end); // round 6: Reflect before Write
       await submitWriting(repo, s, v.runId, WRITING, end);
-      await submitPostPoll(repo, s, v.runId, 2, end);
     }
 
     before(async () => {

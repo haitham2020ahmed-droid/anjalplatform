@@ -1,0 +1,40 @@
+{
+  "code": "RR-405",
+  "summary": "In this story, a school robotics team must find and fix a bug in their robot's code the night before a robot-soccer match.",
+  "strategy": "Problem/Solution",
+  "introduce": "Ask students to share a small problem they solved this week and how they solved it, and write two examples in a Problem | Solution chart on the board. Tell them that “The Robot Soccer Team” also has a problem and a solution to find.",
+  "keyTerms": [
+    {
+      "term": "program",
+      "def": "a set of coded instructions that controls what a computer or robot does"
+    },
+    {
+      "term": "debug",
+      "def": "to find and fix mistakes in a computer program"
+    },
+    {
+      "term": "sensor",
+      "def": "a part of a machine that detects things like light, distance, or touch"
+    }
+  ],
+  "challengeTerms": [
+    {
+      "term": "algorithm",
+      "def": "a sequence of exact steps or instructions used to solve a problem or complete a task"
+    },
+    {
+      "term": "calibrate",
+      "def": "to carefully adjust an instrument or machine so it works accurately"
+    },
+    {
+      "term": "variable",
+      "def": "in a computer program, a named value that can change or be stored while the program runs"
+    }
+  ],
+  "discussion": [
+    "Do you agree or disagree that finding a small mistake is often harder than building the whole project? Use evidence from the story to explain.",
+    "Explain the problem the robotics team faced and how Omar solved it."
+  ],
+  "struggling": "Read the first part of the story aloud together, review program, debug, and sensor, and let weak readers fill in a simple Problem | Solution chart with sentence starters.",
+  "gifted": "Ask strong readers to read a challenging version and write a short paragraph that uses algorithm, calibrate, and variable to suggest a second solution to the problem and judge which works better."
+}

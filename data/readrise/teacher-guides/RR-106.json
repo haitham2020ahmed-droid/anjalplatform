@@ -1,0 +1,40 @@
+{
+  "code": "RR-106",
+  "summary": "This article explains how electricity is made, how it flows through circuits, wires and switches in a home, how to stay safe around it, and how families can save it.",
+  "strategy": "Problem/Solution",
+  "introduce": "Ask students to share a small problem they solved this week and how they solved it, and write two examples in a Problem | Solution chart on the board. Tell them that “Electricity at Home” also has a problem and a solution to find.",
+  "keyTerms": [
+    {
+      "term": "conductor",
+      "def": "a material that lets electricity pass through it easily"
+    },
+    {
+      "term": "insulator",
+      "def": "a material that blocks electricity or heat from passing through"
+    },
+    {
+      "term": "appliance",
+      "def": "a machine used in the home, such as a fridge or washing machine"
+    }
+  ],
+  "challengeTerms": [
+    {
+      "term": "electron",
+      "def": "a tiny particle with a charge; moving electrons carry electricity"
+    },
+    {
+      "term": "insulation",
+      "def": "a covering that stops electricity, heat, or sound from passing through"
+    },
+    {
+      "term": "overload",
+      "def": "to put more on something than it can safely handle"
+    }
+  ],
+  "discussion": [
+    "Do you agree or disagree that saving electricity at home makes a real difference? Use evidence from the article to explain.",
+    "Explain the difference between a conductor and an insulator, and tell how a household wire uses both."
+  ],
+  "struggling": "Pre-teach conductor, insulator, and appliance with pictures or gestures, then let weak readers fill in a simple Problem | Solution chart with sentence starters.",
+  "gifted": "Ask strong readers to read a challenging version and write a short paragraph that uses electron, insulation, and overload to suggest a second solution to the problem and judge which works better."
+}

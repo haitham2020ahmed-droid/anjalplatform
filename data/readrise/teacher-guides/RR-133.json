@@ -1,0 +1,40 @@
+{
+  "code": "RR-133",
+  "summary": "This article explains how teams of designers, artists, programmers, sound makers, and testers build a video game step by step, from a simple test version to a finished game.",
+  "strategy": "Sequence",
+  "introduce": "Write First, Next, Then, and Finally on the board and ask a volunteer to use them to describe how they get ready for school. Tell students to watch for the order of events as they read “Video Games: How They Are Made”.",
+  "keyTerms": [
+    {
+      "term": "designer",
+      "def": "a person who plans how something will look or work"
+    },
+    {
+      "term": "programmer",
+      "def": "a person who writes code for computers"
+    },
+    {
+      "term": "engine",
+      "def": "in games, a set of software tools that runs the pictures, sounds, and movement"
+    }
+  ],
+  "challengeTerms": [
+    {
+      "term": "collaborate",
+      "def": "to work together with others to reach a goal"
+    },
+    {
+      "term": "interactive",
+      "def": "responding to what a person does"
+    },
+    {
+      "term": "render",
+      "def": "to create a picture on a screen using a computer"
+    }
+  ],
+  "discussion": [
+    "Do you agree or disagree that making a video game is harder than playing one? Use evidence from the article to explain.",
+    "Explain why making a prototype and getting feedback are important steps in making a game."
+  ],
+  "struggling": "Pre-teach designer, programmer, and engine with pictures or gestures, then let weak readers put sentence strips of the main events in order before writing.",
+  "gifted": "Ask strong readers to read a challenging version and write a short paragraph that uses collaborate, interactive, and render to summarize the key events in order and explain which step matters most."
+}

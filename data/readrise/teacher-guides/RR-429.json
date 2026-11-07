@@ -1,0 +1,40 @@
+{
+  "code": "RR-429",
+  "summary": "In this story, a young apprentice in old Damascus must figure out why a grand clock keeps jamming before an important deadline, solving the puzzle through careful observation.",
+  "strategy": "Problem/Solution",
+  "introduce": "Ask students to share a small problem they solved this week and how they solved it, and write two examples in a Problem | Solution chart on the board. Tell them that “The Clockmaker's Puzzle” also has a problem and a solution to find.",
+  "keyTerms": [
+    {
+      "term": "commission",
+      "def": "a job that someone is asked and paid to do, often something made especially for the person who asked"
+    },
+    {
+      "term": "mechanism",
+      "def": "the parts inside a machine that work together to make it run"
+    },
+    {
+      "term": "observe",
+      "def": "to watch something closely and carefully"
+    }
+  ],
+  "challengeTerms": [
+    {
+      "term": "intricate",
+      "def": "having many small parts put together in a complicated way"
+    },
+    {
+      "term": "engineer",
+      "def": "a person who designs or builds machines, structures, or systems"
+    },
+    {
+      "term": "meticulous",
+      "def": "extremely careful about small details"
+    }
+  ],
+  "discussion": [
+    "Do you agree or disagree that careful observation is more useful than quick guessing when solving a hard problem? Use evidence from the story to explain.",
+    "Explain how Yusuf solved the problem with the clock."
+  ],
+  "struggling": "Pre-teach commission, mechanism, and observe with pictures or gestures, then let weak readers fill in a simple Problem | Solution chart with sentence starters.",
+  "gifted": "Ask strong readers to read a challenging version and write a short paragraph that uses intricate, engineer, and meticulous to suggest a second solution to the problem and judge which works better."
+}

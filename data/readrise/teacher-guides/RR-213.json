@@ -1,0 +1,40 @@
+{
+  "code": "RR-213",
+  "summary": "This article explains how a plane's curved wings, its engines, and the pilot's controls work together to lift a heavy aircraft into the sky and keep it there.",
+  "strategy": "Main Idea",
+  "introduce": "Read the title “How Airplanes Fly” aloud and ask each student to write one question they hope the article will answer. Collect a few questions, then explain that today they will find the one big idea that ties all the details together.",
+  "keyTerms": [
+    {
+      "term": "thrust",
+      "def": "a strong forward push made by an engine"
+    },
+    {
+      "term": "drag",
+      "def": "a force that slows something down as it moves through air or water"
+    },
+    {
+      "term": "altitude",
+      "def": "how high something is above the ground or sea level"
+    }
+  ],
+  "challengeTerms": [
+    {
+      "term": "aileron",
+      "def": "a movable part near a wing's tip that helps tilt a plane left or right"
+    },
+    {
+      "term": "composite",
+      "def": "a strong material made by combining two or more different materials"
+    },
+    {
+      "term": "atmosphere",
+      "def": "the layer of gases that surrounds a planet"
+    }
+  ],
+  "discussion": [
+    "Do you agree or disagree that flying in an airplane is one of the safest ways to travel? Use evidence from the article to explain.",
+    "Explain how the four forces of flight work together to keep a plane in the air."
+  ],
+  "struggling": "Read the first part of the article aloud together, review thrust, drag, and altitude, and let weak readers complete a main-idea-and-details web with a partner.",
+  "gifted": "Challenge advanced readers to use aileron, composite, and atmosphere in a short paragraph that states the main idea of the article in their own words."
+}

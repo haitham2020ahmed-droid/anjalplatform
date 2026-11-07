@@ -1,0 +1,40 @@
+{
+  "code": "RR-216",
+  "summary": "This article explains how ancient builders dug long underground tunnels called qanats to carry water by gravity from the hills to dry farms and towns, and how some of these tunnels still bring water today.",
+  "strategy": "Sequence",
+  "introduce": "Write First, Next, Then, and Finally on the board and ask a volunteer to use them to describe how they get ready for school. Tell students to watch for the order of events as they read “Qanat: Ancient Underground Water Channels”.",
+  "keyTerms": [
+    {
+      "term": "aquifer",
+      "def": "a layer of rock or soil underground that holds water"
+    },
+    {
+      "term": "gravity",
+      "def": "the force that pulls things down toward the ground"
+    },
+    {
+      "term": "irrigation",
+      "def": "supplying water to crops or land through channels or pipes"
+    }
+  ],
+  "challengeTerms": [
+    {
+      "term": "arid",
+      "def": "very dry, with little rainfall"
+    },
+    {
+      "term": "sustainable",
+      "def": "able to continue for a long time without running out or causing harm"
+    },
+    {
+      "term": "ingenious",
+      "def": "very clever and original, usually in solving a problem"
+    }
+  ],
+  "discussion": [
+    "Do you agree or disagree that moving water underground through a tunnel is smarter than carrying it above the ground? Use evidence from the article to explain.",
+    "Explain how gravity and the sloped tunnel worked together to move water through a qanat, without any pump."
+  ],
+  "struggling": "Read the first part of the article aloud together, review aquifer, gravity, and irrigation, and let weak readers put sentence strips of the main events in order before writing.",
+  "gifted": "Ask strong readers to read a challenging version and write a short paragraph that uses arid, sustainable, and ingenious to summarize the key events in order and explain which step matters most."
+}

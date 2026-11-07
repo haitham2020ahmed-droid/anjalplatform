@@ -1,0 +1,40 @@
+{
+  "code": "RR-064",
+  "summary": "This article explains how to build a balanced plate with vegetables and fruit, grains, protein, and dairy, and why each food group matters for a healthy body.",
+  "strategy": "Cause/Effect",
+  "introduce": "Draw a simple cause → effect arrow on the board and ask students for an everyday example, such as “I did not sleep, so I felt tired.” Tell them that while reading “A Balanced Plate” they will find at least two cause-and-effect links.",
+  "keyTerms": [
+    {
+      "term": "nutrient",
+      "def": "a useful substance in food that helps the body live and grow"
+    },
+    {
+      "term": "portion",
+      "def": "the amount of a food that one person eats"
+    },
+    {
+      "term": "fiber",
+      "def": "a part of plant foods that helps the body digest food"
+    }
+  ],
+  "challengeTerms": [
+    {
+      "term": "vitamins",
+      "def": "natural substances in food that the body needs in small amounts to stay healthy"
+    },
+    {
+      "term": "minerals",
+      "def": "natural substances, such as iron and calcium, that the body needs from food"
+    },
+    {
+      "term": "digest",
+      "def": "to break down food in the body so it can be used"
+    }
+  ],
+  "discussion": [
+    "Do you agree or disagree that it is fine to eat sweets every day if you also eat vegetables? Use evidence from the article to explain.",
+    "Plan a balanced dinner for your family."
+  ],
+  "struggling": "Read the first part of the article aloud together, review nutrient, portion, and fiber, and let weak readers match cause cards to effect cards from the article with a partner.",
+  "gifted": "Challenge advanced readers to use vitamins, minerals, and digest in a short paragraph that explains one important cause-and-effect chain from the article."
+}

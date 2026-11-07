@@ -1,0 +1,40 @@
+{
+  "code": "RR-073",
+  "summary": "This article explains how drones fly without a pilot on board, the jobs they do on farms, in rescues, and in deliveries, and the rules that keep them safe.",
+  "strategy": "Main Idea",
+  "introduce": "Read the title “Drones at Work” aloud and ask each student to write one question they hope the article will answer. Collect a few questions, then explain that today they will find the one big idea that ties all the details together.",
+  "keyTerms": [
+    {
+      "term": "propeller",
+      "def": "a part with spinning blades that pushes air or water to move a machine"
+    },
+    {
+      "term": "sensor",
+      "def": "a device that notices things like heat, light, or movement"
+    },
+    {
+      "term": "deliver",
+      "def": "to take something to a person or place"
+    }
+  ],
+  "challengeTerms": [
+    {
+      "term": "navigate",
+      "def": "to find the way from one place to another"
+    },
+    {
+      "term": "satellite",
+      "def": "a machine that circles Earth in space and sends signals"
+    },
+    {
+      "term": "thermal",
+      "def": "related to heat"
+    }
+  ],
+  "discussion": [
+    "Do you agree or disagree that drones do more good than harm? Use evidence from the article to explain.",
+    "Explain how a drone flies and describe two jobs it can do."
+  ],
+  "struggling": "Read the first part of the article aloud together, review propeller, sensor, and deliver, and let weak readers complete a main-idea-and-details web with a partner.",
+  "gifted": "Challenge advanced readers to use navigate, satellite, and thermal in a short paragraph that states the main idea of the article in their own words."
+}

@@ -1,0 +1,40 @@
+{
+  "code": "RR-100",
+  "summary": "This article explains how goal-line cameras, VAR, offside tracking, and player trackers help football referees and coaches make the game fairer and safer.",
+  "strategy": "Accessing Prior Knowledge",
+  "introduce": "Show the title “Technology on the Football Pitch” and give pairs one minute to list everything they already know about this topic. Share a few ideas on the board, then tell students to check which ideas the article confirms.",
+  "keyTerms": [
+    {
+      "term": "technology",
+      "def": "machines and tools made using science"
+    },
+    {
+      "term": "decision",
+      "def": "a choice you make after thinking"
+    },
+    {
+      "term": "offside",
+      "def": "in football, being in a place on the pitch that is not allowed when the ball is passed"
+    }
+  ],
+  "challengeTerms": [
+    {
+      "term": "controversy",
+      "def": "a strong public disagreement about something"
+    },
+    {
+      "term": "precision",
+      "def": "the quality of being very exact"
+    },
+    {
+      "term": "monitor",
+      "def": "a screen that shows pictures or information"
+    }
+  ],
+  "discussion": [
+    "Do you agree or disagree that technology makes football better to watch? Use evidence from the article to explain.",
+    "Which tool in the article do you think helps football the most?"
+  ],
+  "struggling": "Read the first part of the article aloud together, review technology, decision, and offside, and let weak readers use a K-W-L chart and read the article with a partner.",
+  "gifted": "Ask strong readers to read a challenging version and write a short paragraph that uses controversy, precision, and monitor to connect the article to something they learned in another subject."
+}

@@ -1,0 +1,40 @@
+{
+  "code": "RR-131",
+  "summary": "This article explains how weather satellites orbit Earth, what their sensors measure, and how forecasters use their information to predict the weather and warn people.",
+  "strategy": "Main Idea",
+  "introduce": "Show the title “Satellites That Watch the Weather” and give pairs one minute to predict, in one sentence, what the whole article is mostly about. Write three predictions on the board and tell students they will check which one is closest to the main idea after reading.",
+  "keyTerms": [
+    {
+      "term": "orbit",
+      "def": "the path something takes as it goes around and around a planet or star"
+    },
+    {
+      "term": "equator",
+      "def": "an imaginary line around the middle of Earth, halfway between the North and South Poles"
+    },
+    {
+      "term": "infrared",
+      "def": "a kind of light that people cannot see but can feel as heat"
+    }
+  ],
+  "challengeTerms": [
+    {
+      "term": "geostationary",
+      "def": "staying above the same spot on Earth by orbiting at the same speed that Earth rotates"
+    },
+    {
+      "term": "atmosphere",
+      "def": "the layer of gases surrounding Earth"
+    },
+    {
+      "term": "sensor",
+      "def": "a device that notices and measures things such as light, heat, or movement"
+    }
+  ],
+  "discussion": [
+    "Do you agree or disagree that weather satellites are the most important tool for keeping people safe from storms? Use evidence from the article to explain.",
+    "Compare the two main kinds of weather satellites."
+  ],
+  "struggling": "Read the first part of the article aloud together, review orbit, equator, and infrared, and let weak readers complete a main-idea-and-details web with a partner.",
+  "gifted": "Challenge advanced readers to use geostationary, atmosphere, and sensor in a short paragraph that states the main idea of the article in their own words."
+}

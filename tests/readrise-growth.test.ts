@@ -45,8 +45,8 @@ async function read(repo: SqliteRepo, s: Actor, articleId: string, right: number
   await submitPrePoll(repo, s, v.runId, 1, now);
   await finishReading(repo, s, v.runId, { readSeconds: 120 }, now);
   await submitActivity(repo, s, v.runId, answers(right), now);
+  await submitPostPoll(repo, s, v.runId, 2, now); // round 6: Reflect before Write
   await submitWriting(repo, s, v.runId, WRITING, now);
-  await submitPostPoll(repo, s, v.runId, 2, now);
   return v;
 }
 

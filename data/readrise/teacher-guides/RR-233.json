@@ -1,0 +1,40 @@
+{
+  "code": "RR-233",
+  "summary": "This article explains how a spacesuit's layers supply oxygen, hold pressure, control temperature, and shield an astronaut from radiation and micrometeoroids during a spacewalk.",
+  "strategy": "Vocabulary Building",
+  "introduce": "Show the three key terms on the board and ask students to rate each one: “I know it,” “I have seen it,” or “It is new.” Tell them to watch for these words in “Spacesuits: Protection in the Void” and use clues around them to understand their meaning.",
+  "keyTerms": [
+    {
+      "term": "pressure",
+      "def": "a steady force pushing on something, such as air pushing on a body"
+    },
+    {
+      "term": "insulation",
+      "def": "material that keeps heat or cold from passing through easily"
+    },
+    {
+      "term": "radiation",
+      "def": "energy that travels outward from a source, such as the Sun, and can be harmful in large amounts"
+    }
+  ],
+  "challengeTerms": [
+    {
+      "term": "micrometeoroid",
+      "def": "a very tiny piece of rock or space debris that can travel fast enough to damage a spacecraft or suit"
+    },
+    {
+      "term": "ventilation",
+      "def": "the movement of air or fluid through a space to control temperature or supply fresh air"
+    },
+    {
+      "term": "extravehicular",
+      "def": "taking place outside a spacecraft"
+    }
+  ],
+  "discussion": [
+    "Do you agree or disagree that a spacesuit is really just a tiny personal spacecraft? Use evidence from the article to explain.",
+    "Explain two dangers of space and how the spacesuit protects an astronaut from each one."
+  ],
+  "struggling": "Pre-teach pressure, insulation, and radiation with pictures or gestures, then let weak readers draw a quick picture for each term and use it in a short spoken sentence.",
+  "gifted": "Ask strong readers to read a challenging version and write a short paragraph that uses micrometeoroid, ventilation, and extravehicular to teach the class one of the terms with their own example."
+}

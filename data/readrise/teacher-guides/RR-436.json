@@ -1,0 +1,40 @@
+{
+  "code": "RR-436",
+  "summary": "In this story, a school basketball team that has lost many close games all season finally plays its best, most unified game in the last match of the season, as the coach's lesson about teamwork finally comes together for the players.",
+  "strategy": "Problem/Solution",
+  "introduce": "Ask students to share a small problem they solved this week and how they solved it, and write two examples in a Problem | Solution chart on the board. Tell them that “The Final Match of the Season” also has a problem and a solution to find.",
+  "keyTerms": [
+    {
+      "term": "teamwork",
+      "def": "the act of people working well together toward a shared goal"
+    },
+    {
+      "term": "strategy",
+      "def": "a careful plan for reaching a goal"
+    },
+    {
+      "term": "defense",
+      "def": "the effort a team makes to stop the other team from scoring"
+    }
+  ],
+  "challengeTerms": [
+    {
+      "term": "cohesion",
+      "def": "the state of sticking together closely as a group, working as one"
+    },
+    {
+      "term": "resilience",
+      "def": "the ability to recover quickly from difficulty and keep going"
+    },
+    {
+      "term": "momentum",
+      "def": "the force or energy that keeps something moving forward, often building as a team succeeds"
+    }
+  ],
+  "discussion": [
+    "Do you agree or disagree that a team that plays together can achieve more than a team of individual stars? Use evidence from the story to explain.",
+    "Explain how the Hawks changed the way they played in the final game compared to earlier in the season."
+  ],
+  "struggling": "Read the first part of the story aloud together, review teamwork, strategy, and defense, and let weak readers fill in a simple Problem | Solution chart with sentence starters.",
+  "gifted": "Ask strong readers to read a challenging version and write a short paragraph that uses cohesion, resilience, and momentum to suggest a second solution to the problem and judge which works better."
+}

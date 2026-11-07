@@ -1,0 +1,40 @@
+{
+  "code": "RR-002",
+  "summary": "This article explains how the sun moves Earth's water through evaporation, condensation, precipitation, and collection, and why the water cycle matters in a dry country like Saudi Arabia.",
+  "strategy": "Main Idea",
+  "introduce": "Read the title “The Water Cycle” aloud and ask each student to write one question they hope the article will answer. Collect a few questions, then explain that today they will find the one big idea that ties all the details together.",
+  "keyTerms": [
+    {
+      "term": "vapor",
+      "def": "water that has turned into a gas you cannot see"
+    },
+    {
+      "term": "condense",
+      "def": "to change from a gas into a liquid when cooled"
+    },
+    {
+      "term": "precipitation",
+      "def": "water that falls from clouds, such as rain, snow, or hail"
+    }
+  ],
+  "challengeTerms": [
+    {
+      "term": "transpiration",
+      "def": "the release of water vapor from plants through small openings in their leaves"
+    },
+    {
+      "term": "aquifer",
+      "def": "an underground layer of rock or sand that holds water"
+    },
+    {
+      "term": "condensation",
+      "def": "when a gas cools and turns back into drops of liquid"
+    }
+  ],
+  "discussion": [
+    "Do you agree or disagree that saving water is important even in a country that can make fresh water from the sea? Use evidence from the article to explain.",
+    "Saudi Arabia gets very little rain."
+  ],
+  "struggling": "Read the first part of the article aloud together, review vapor, condense, and precipitation, and let weak readers complete a main-idea-and-details web with a partner.",
+  "gifted": "Ask strong readers to read a challenging version and write a short paragraph that uses transpiration, aquifer, and condensation to state the main idea of the article in their own words."
+}

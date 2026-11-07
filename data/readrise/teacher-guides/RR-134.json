@@ -1,0 +1,40 @@
+{
+  "code": "RR-134",
+  "summary": "This article explains how the House of Wisdom in Baghdad gathered books and scholars from many lands, translated them into Arabic, and produced new ideas in math, science, and astronomy that later spread across the world.",
+  "strategy": "Sequence",
+  "introduce": "Give pairs four mixed-up steps of a simple task, such as making tea, and ask them to put the steps in order. Explain that “The House of Wisdom in Baghdad” also follows an order, and good readers notice signal words like first, after, and finally.",
+  "keyTerms": [
+    {
+      "term": "manuscript",
+      "def": "a book or paper written by hand"
+    },
+    {
+      "term": "algebra",
+      "def": "a kind of math that uses letters and symbols to stand for numbers"
+    },
+    {
+      "term": "caliph",
+      "def": "a title for a ruler in the history of the Islamic world"
+    }
+  ],
+  "challengeTerms": [
+    {
+      "term": "Abbasid",
+      "def": "belonging to the family of caliphs who ruled from Baghdad starting in the 700s"
+    },
+    {
+      "term": "preserve",
+      "def": "to keep something safe so that it lasts"
+    },
+    {
+      "term": "observatory",
+      "def": "a building with tools for studying the stars and planets"
+    }
+  ],
+  "discussion": [
+    "Do you agree or disagree that sharing knowledge between countries makes the whole world smarter? Use evidence from the article to explain.",
+    "Explain how paper and translation together helped knowledge spread from Baghdad to the rest of the world."
+  ],
+  "struggling": "Pre-teach manuscript, algebra, and caliph with pictures or gestures, then let weak readers put sentence strips of the main events in order before writing.",
+  "gifted": "Ask strong readers to read a challenging version and write a short paragraph that uses Abbasid, preserve, and observatory to summarize the key events in order and explain which step matters most."
+}

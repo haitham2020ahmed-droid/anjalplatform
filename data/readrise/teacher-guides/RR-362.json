@@ -1,0 +1,40 @@
+{
+  "code": "RR-362",
+  "summary": "In this story, a family nearly misses their holiday train, but the children help solve the problem by reading the schedule and asking the station staff.",
+  "strategy": "Problem/Solution",
+  "introduce": "Ask students to share a small problem they solved this week and how they solved it, and write two examples in a Problem | Solution chart on the board. Tell them that “The Last Train to the Coast” also has a problem and a solution to find.",
+  "keyTerms": [
+    {
+      "term": "platform",
+      "def": "the raised area at a station where people wait to get on a train"
+    },
+    {
+      "term": "traffic",
+      "def": "the cars and other vehicles moving along a road"
+    },
+    {
+      "term": "phone",
+      "def": "a device used to call or message other people"
+    }
+  ],
+  "challengeTerms": [
+    {
+      "term": "delay",
+      "def": "a period of time when something is made later than planned"
+    },
+    {
+      "term": "panic",
+      "def": "a sudden feeling of strong fear or worry that makes it hard to think clearly"
+    },
+    {
+      "term": "schedule",
+      "def": "a list that shows the planned times for something, like trains or classes"
+    }
+  ],
+  "discussion": [
+    "Do you agree or disagree that children can help solve a family problem just as well as adults can? Use evidence from the story to explain.",
+    "Explain how the family's yearly habit of checking train times helped them, even though neither parent remembered to check it that day."
+  ],
+  "struggling": "Pre-teach platform, traffic, and phone with pictures or gestures, then let weak readers fill in a simple Problem | Solution chart with sentence starters.",
+  "gifted": "Challenge advanced readers to use delay, panic, and schedule in a short paragraph that suggests a second solution to the problem and judge which works better."
+}

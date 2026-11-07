@@ -1,0 +1,40 @@
+{
+  "code": "RR-211",
+  "summary": "This article explains how desalination plants remove salt from seawater to make fresh drinking water, and why this matters so much for a dry country like Saudi Arabia.",
+  "strategy": "Sequence",
+  "introduce": "Give pairs four mixed-up steps of a simple task, such as making tea, and ask them to put the steps in order. Explain that “Desalination: Turning Seawater into Drinking Water” also follows an order, and good readers notice signal words like first, after, and finally.",
+  "keyTerms": [
+    {
+      "term": "desalination",
+      "def": "the process of removing salt from sea water to make it safe to drink"
+    },
+    {
+      "term": "distillation",
+      "def": "a method that uses heat to turn a liquid into steam and then cool it back into liquid"
+    },
+    {
+      "term": "evaporate",
+      "def": "to change from a liquid into a gas, usually because of heat"
+    }
+  ],
+  "challengeTerms": [
+    {
+      "term": "reverse osmosis",
+      "def": "a method of desalination that pushes seawater through a membrane at high pressure so water passes through but salt does not"
+    },
+    {
+      "term": "brine",
+      "def": "leftover water that contains the salt removed during desalination"
+    },
+    {
+      "term": "pore",
+      "def": "a tiny hole or opening in a material"
+    }
+  ],
+  "discussion": [
+    "Do you agree or disagree that turning seawater into drinking water is one of the most important inventions for desert countries? Use evidence from the article to explain.",
+    "Explain how reverse osmosis is different from distillation."
+  ],
+  "struggling": "Pre-teach desalination, distillation, and evaporate with pictures or gestures, then let weak readers put sentence strips of the main events in order before writing.",
+  "gifted": "Challenge advanced readers to use reverse osmosis, brine, and pore in a short paragraph that summarizes the key events in order and explain which step matters most."
+}

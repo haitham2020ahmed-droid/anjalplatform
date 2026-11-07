@@ -1,0 +1,40 @@
+{
+  "code": "RR-083",
+  "summary": "This article explains how people measured time through history, from the Sun and sundials to water clocks, hourglasses, gear and pendulum clocks, and today's atomic clocks.",
+  "strategy": "Sequence",
+  "introduce": "Write First, Next, Then, and Finally on the board and ask a volunteer to use them to describe how they get ready for school. Tell students to watch for the order of events as they read “Telling Time: From Sundials to Atomic Clocks”.",
+  "keyTerms": [
+    {
+      "term": "sundial",
+      "def": "an old kind of clock that uses the Sun and a shadow to show the time"
+    },
+    {
+      "term": "invent",
+      "def": "to make or think of something new that did not exist before"
+    },
+    {
+      "term": "mechanical",
+      "def": "working with moving machine parts such as wheels and springs"
+    }
+  ],
+  "challengeTerms": [
+    {
+      "term": "engineer",
+      "def": "a person who designs and builds machines, buildings, or systems"
+    },
+    {
+      "term": "precise",
+      "def": "exact and carefully correct in every detail"
+    },
+    {
+      "term": "quartz",
+      "def": "a hard crystal found in rocks, used in many watches and clocks"
+    }
+  ],
+  "discussion": [
+    "Do you agree or disagree that the invention of clocks changed people's lives more than the invention of the phone? Use evidence from the article to explain.",
+    "Choose two clocks from the article."
+  ],
+  "struggling": "Pre-teach sundial, invent, and mechanical with pictures or gestures, then let weak readers put sentence strips of the main events in order before writing.",
+  "gifted": "Challenge advanced readers to use engineer, precise, and quartz in a short paragraph that summarizes the key events in order and explain which step matters most."
+}

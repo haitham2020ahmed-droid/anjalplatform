@@ -1,0 +1,40 @@
+{
+  "code": "RR-105",
+  "summary": "This article explains how sound vibrations travel through the outer, middle, and inner ear, how hair cells in the cochlea send signals to the brain, and why loud noise can harm hearing for good.",
+  "strategy": "Vocabulary Building",
+  "introduce": "Show the three key terms on the board and ask students to rate each one: “I know it,” “I have seen it,” or “It is new.” Tell them to watch for these words in “Hearing: How Ears Work” and use clues around them to understand their meaning.",
+  "keyTerms": [
+    {
+      "term": "vibration",
+      "def": "a fast shaking movement back and forth"
+    },
+    {
+      "term": "canal",
+      "def": "a narrow tube or passage inside the body; the ear canal leads from the outer ear to the eardrum"
+    },
+    {
+      "term": "cochlea",
+      "def": "a part deep inside the ear, shaped like a snail shell, that helps turn sound into signals"
+    }
+  ],
+  "challengeTerms": [
+    {
+      "term": "auditory",
+      "def": "having to do with hearing"
+    },
+    {
+      "term": "membrane",
+      "def": "a thin, flexible layer of tissue that covers or separates parts of the body"
+    },
+    {
+      "term": "fluid",
+      "def": "a liquid; something that flows"
+    }
+  ],
+  "discussion": [
+    "Do you agree or disagree that listening to music very loudly is not a big problem for young people's ears? Use evidence from the article to explain.",
+    "Imagine you are explaining hearing to a younger student. Describe what happens after a sound wave reaches the eardrum, and give one way to protect your ears."
+  ],
+  "struggling": "Read the first part of the article aloud together, review vibration, canal, and cochlea, and let weak readers draw a quick picture for each term and use it in a short spoken sentence.",
+  "gifted": "Challenge advanced readers to use auditory, membrane, and fluid in a short paragraph that teaches the class one of the terms with their own example."
+}

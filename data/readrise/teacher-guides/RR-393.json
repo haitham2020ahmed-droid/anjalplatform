@@ -1,0 +1,40 @@
+{
+  "code": "RR-393",
+  "summary": "In this story, a shy girl who loves to draw finally shares her art at her school's talent show and discovers that her classmates truly admire it.",
+  "strategy": "Sequence",
+  "introduce": "Write First, Next, Then, and Finally on the board and ask a volunteer to use them to describe how they get ready for school. Tell students to watch for the order of events as they read “The Hidden Talent Show”.",
+  "keyTerms": [
+    {
+      "term": "audience",
+      "def": "a group of people who gather to watch or listen to a performance"
+    },
+    {
+      "term": "nervous",
+      "def": "feeling worried or uneasy about something that is about to happen"
+    },
+    {
+      "term": "encourage",
+      "def": "to give someone confidence or support to try something"
+    }
+  ],
+  "challengeTerms": [
+    {
+      "term": "hesitant",
+      "def": "unsure or unwilling to do something because of fear or doubt"
+    },
+    {
+      "term": "admiration",
+      "def": "a strong feeling of respect and liking for someone or something impressive"
+    },
+    {
+      "term": "spotlight",
+      "def": "the strong light aimed at a performer on stage, or the attention of being watched"
+    }
+  ],
+  "discussion": [
+    "Do you agree or disagree that everyone should be brave enough to share their talents with others, even if it feels scary? Use evidence from the story to explain.",
+    "Explain how Noor helps Lama become confident enough to perform."
+  ],
+  "struggling": "Pre-teach audience, nervous, and encourage with pictures or gestures, then let weak readers put sentence strips of the main events in order before writing.",
+  "gifted": "Ask strong readers to read a challenging version and write a short paragraph that uses hesitant, admiration, and spotlight to summarize the key events in order and explain which step matters most."
+}

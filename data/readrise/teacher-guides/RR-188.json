@@ -1,0 +1,40 @@
+{
+  "code": "RR-188",
+  "summary": "This article explains how Ada Lovelace, a math-loving girl from London, wrote step-by-step instructions for Charles Babbage's machine and became known as the first computer programmer.",
+  "strategy": "Author's Purpose",
+  "introduce": "Ask students why someone might write “Ada Lovelace: The First Programmer”: to inform, to persuade, or to entertain? Take a quick hand vote, then tell students to look for clues about the writer's purpose as they read.",
+  "keyTerms": [
+    {
+      "term": "calculate",
+      "def": "to work out an answer using numbers"
+    },
+    {
+      "term": "engine",
+      "def": "a machine that does a job; in this article, Babbage's planned math machine"
+    },
+    {
+      "term": "translate",
+      "def": "to change words from one language into another"
+    }
+  ],
+  "challengeTerms": [
+    {
+      "term": "analytical",
+      "def": "able to examine things closely and work them out step by step"
+    },
+    {
+      "term": "punched",
+      "def": "having holes pressed into it"
+    },
+    {
+      "term": "published",
+      "def": "printed and shared so the public can read it"
+    }
+  ],
+  "discussion": [
+    "Do you agree or disagree that imagination is just as important as math for inventing new technology? Use evidence from the article to explain.",
+    "Explain how Ada Lovelace's work went beyond simply translating an article."
+  ],
+  "struggling": "Read the first part of the article aloud together, review calculate, engine, and translate, and let weak readers underline sentences that inform and circle any that persuade.",
+  "gifted": "Challenge advanced readers to use analytical, punched, and published in a short paragraph that explains the writer's purpose and how the details support it."
+}

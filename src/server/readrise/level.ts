@@ -19,6 +19,19 @@ export const RR_LEVELS = [300, 400, 500, 600, 700, 800, 900, 1000, 1100, 1200, 1
 export type RRBand = "LOW" | "MID" | "HIGH";
 export const RR_MIN = 300, RR_MAX = 1600;
 /**
+ * 📉 Round 6 (owner, after the school's real Achieve3000 data: a Grade 7 class pre-test average of 281L, range
+ * BR220L…820L, one student at 95L): a student's LEVEL can go below the lowest version, down to RR_FLOOR = −400
+ * ("BR400L", Beginning Reader). RR_MIN (300) stays the lowest VERSION: every level below 300 reads the 300 version
+ * (versionFor / chooseVersion). Levels below 0 are shown as "BR…L" (formatLevel).
+ */
+export const RR_FLOOR = -400;
+/** A level as people read it: below 0 → "BR{abs}L" (Beginning Reader, e.g. −120 → "BR120L"), else "{n}L" (95 → "95L"). */
+export function formatLevel(n: number): string {
+  const v = Math.round(Number(n));
+  if (!Number.isFinite(v)) return "";
+  return v < 0 ? `BR${Math.abs(v)}L` : `${v}L`;
+}
+/**
  * The levels a full ReadRise ARTICLE (the daily reading library, imported via the Excel template in import.ts) is
  * written for. ✨ (decision, Oct 2026): extended to the full 300…1600 scale, matching the placement-test fix above —
  * every article is now written 14 times, not 12, and all 200 existing articles got new 1500/1600 versions written
@@ -39,13 +52,15 @@ export function estimateLevel(text: string): number {
   // above it, matching import.ts's LEVEL_TOLERANCE). Left at 1500 after RR_MAX became 1600, a genuinely advanced
   // 1600-level text would have measured as "only" 1500, 100 points below its own target — right at the edge of
   // import.ts's tolerance rather than comfortably inside it. The cap now tracks RR_MAX the same way.
-  return Math.round(Math.min(RR_MAX + 100, Math.max(100, lvl)) / 10) * 10;
+  // round 6: the floor follows RR_FLOOR (the formula itself never goes below ≈ 140 for prose)
+  return Math.round(Math.min(RR_MAX + 100, Math.max(RR_FLOOR, lvl)) / 10) * 10;
 }
 
 /** The question band of a version level. */
 export const bandOf = (level: number): RRBand => (level <= 600 ? "LOW" : level <= 1000 ? "MID" : "HIGH");
 
-/** The version to show a student: the highest version at or below level + 50 (never below the lowest version). */
+/** The version to show a student: the highest version at or below level + 50 (never below the lowest version: a
+ * level below 300 — round 6 — reads the lowest version). */
 export function versionFor(studentLevel: number, available: number[]): number {
   const sorted = [...available].sort((a, b) => a - b);
   if (!sorted.length) return RR_MIN;
@@ -55,7 +70,10 @@ export function versionFor(studentLevel: number, available: number[]): number {
 }
 
 /**
- * A sensible start when there is no placement or MAP Lexile yet: the middle of the grade's band.
+ * The working start of a never-placed student's RRStudent row (never shown as a level: readRisePlaced, engine.ts).
+ * Round 6: it is NO LONGER the placement test's start — every placement starts low (300, or a recent MAP Lexile),
+ * see placementStartLevel (placement.ts).
+ * Before: a sensible start when there is no placement or MAP Lexile yet: the middle of the grade's band.
  * 🐛 fix (audit finding, Oct 2026): grades 9–12 all started at the SAME 1050, regardless of grade — well under their
  * real published Lexile bands (Gr9–10 ≈ 1050–1335, Gr11–12 ≈ 1185–1385), so an 11th/12th grader's placement test
  * started far below their likely true level, making the 1400-ceiling problem (see placement.ts) worse for exactly
@@ -67,11 +85,12 @@ export function defaultLevel(grade: number): number {
 
 /** Target words per version (shorter for low levels). */
 export function targetWords(level: number): { min: number; max: number } {
+  level = Math.max(RR_MIN, level); // round 6: a level below 300 reads the 300 version
   const min = Math.round(110 + (level - 300) * 0.3), max = Math.round(170 + (level - 300) * 0.38);
   return { min, max };
 }
 
-export const clampLevel = (l: number) => Math.min(RR_MAX + 100, Math.max(RR_MIN - 100, Math.round(l / 10) * 10));
+export const clampLevel = (l: number) => Math.min(RR_MAX + 100, Math.max(RR_FLOOR, Math.round(l / 10) * 10));
 
 // ------------------------------------------------------------------ measured level and fit (version precision)
 
@@ -112,6 +131,8 @@ export const CHOOSE_WINDOW = 50;
  */
 export function chooseVersion(studentLevel: number, versions: MeasuredVersion[]): number {
   if (!versions.length) return RR_MIN;
+  // round 6: a level below 300 (down to RR_FLOOR) always reads the lowest version (the 300 one)
+  if (studentLevel < RR_MIN) return Math.min(...versions.map((v) => Number(v.level)));
   const nominal = versionFor(studentLevel, versions.map((v) => Number(v.level)));
   const cost = (v: MeasuredVersion) => { const m = measuredLevel(v), d = m - studentLevel; return d > 50 ? d * 1.5 : Math.abs(d); };
   let best = versions.find((v) => Number(v.level) === nominal)!, bestCost = cost(best);

@@ -1,0 +1,40 @@
+{
+  "code": "RR-166",
+  "summary": "This article explains what people would need to live on the Moon: air, protection from heat, cold, dust, and radiation, and water from ice hidden near the south pole.",
+  "strategy": "Problem/Solution",
+  "introduce": "Ask students to share a small problem they solved this week and how they solved it, and write two examples in a Problem | Solution chart on the board. Tell them that “Living on the Moon” also has a problem and a solution to find.",
+  "keyTerms": [
+    {
+      "term": "oxygen",
+      "def": "a gas in the air that people and animals need to breathe"
+    },
+    {
+      "term": "spacesuit",
+      "def": "special clothing that keeps an astronaut safe in space"
+    },
+    {
+      "term": "temperature",
+      "def": "how hot or cold something is"
+    }
+  ],
+  "challengeTerms": [
+    {
+      "term": "regolith",
+      "def": "the loose layer of dust and broken rock that covers the Moon"
+    },
+    {
+      "term": "shield",
+      "def": "to protect something by covering it or blocking danger"
+    },
+    {
+      "term": "resources",
+      "def": "useful supplies, such as water or materials, that people can use"
+    }
+  ],
+  "discussion": [
+    "Do you agree or disagree that people will live on the Moon in my lifetime? Use evidence from the article to explain.",
+    "Choose the two biggest dangers of living on the Moon."
+  ],
+  "struggling": "Read the first part of the article aloud together, review oxygen, spacesuit, and temperature, and let weak readers fill in a simple Problem | Solution chart with sentence starters.",
+  "gifted": "Ask strong readers to read a challenging version and write a short paragraph that uses regolith, shield, and resources to suggest a second solution to the problem and judge which works better."
+}

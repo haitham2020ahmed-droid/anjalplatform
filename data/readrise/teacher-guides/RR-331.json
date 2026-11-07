@@ -1,0 +1,40 @@
+{
+  "code": "RR-331",
+  "summary": "This article explains how an invisible grid of latitude and longitude lines lets anyone give any spot on Earth its own exact set of numbers, and how GPS uses that grid today.",
+  "strategy": "Main Idea",
+  "introduce": "Show the title “Latitude and Longitude: Finding Places on Earth” and give pairs one minute to predict, in one sentence, what the whole article is mostly about. Write three predictions on the board and tell students they will check which one is closest to the main idea after reading.",
+  "keyTerms": [
+    {
+      "term": "coordinate",
+      "def": "one of a pair of numbers that shows an exact position"
+    },
+    {
+      "term": "degree",
+      "def": "a unit used to measure latitude and longitude, or an angle"
+    },
+    {
+      "term": "satellite",
+      "def": "an object that circles Earth in space and sends or receives signals"
+    }
+  ],
+  "challengeTerms": [
+    {
+      "term": "meridian",
+      "def": "a line of longitude running from pole to pole"
+    },
+    {
+      "term": "chronometer",
+      "def": "a very accurate clock, especially one used for navigation at sea"
+    },
+    {
+      "term": "precision",
+      "def": "the quality of being very exact and accurate"
+    }
+  ],
+  "discussion": [
+    "Do you agree or disagree that I could find my own city on a globe using only latitude and longitude numbers? Use evidence from the article to explain.",
+    "Explain how a GPS receiver finds an exact location."
+  ],
+  "struggling": "Pre-teach coordinate, degree, and satellite with pictures or gestures, then let weak readers complete a main-idea-and-details web with a partner.",
+  "gifted": "Ask strong readers to read a challenging version and write a short paragraph that uses meridian, chronometer, and precision to state the main idea of the article in their own words."
+}

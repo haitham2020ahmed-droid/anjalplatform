@@ -1,0 +1,40 @@
+{
+  "code": "RR-052",
+  "summary": "This article explains how moving plates in the Earth's crust get stuck and suddenly slip, how scientists measure earthquakes, why the Red Sea is growing wider, and how people stay safe.",
+  "strategy": "Main Idea",
+  "introduce": "Show the title “Earthquakes: When the Ground Shakes” and give pairs one minute to predict, in one sentence, what the whole article is mostly about. Write three predictions on the board and tell students they will check which one is closest to the main idea after reading.",
+  "keyTerms": [
+    {
+      "term": "tectonic",
+      "def": "about the giant moving plates that make up the Earth's outer layer"
+    },
+    {
+      "term": "seismometer",
+      "def": "a machine that senses and records how the ground shakes"
+    },
+    {
+      "term": "magnitude",
+      "def": "a number that tells how big and strong an earthquake is"
+    }
+  ],
+  "challengeTerms": [
+    {
+      "term": "friction",
+      "def": "the force that slows or stops two surfaces from sliding past each other"
+    },
+    {
+      "term": "seismic",
+      "def": "related to earthquakes or the shaking of the Earth"
+    },
+    {
+      "term": "fault",
+      "def": "a long crack in the Earth's rock where the two sides can move"
+    }
+  ],
+  "discussion": [
+    "Do you agree or disagree that getting ready for an earthquake is more useful than trying to guess when one will happen? Use evidence from the article to explain.",
+    "Explain how an earthquake happens, from moving plates to shaking ground."
+  ],
+  "struggling": "Pre-teach tectonic, seismometer, and magnitude with pictures or gestures, then let weak readers complete a main-idea-and-details web with a partner.",
+  "gifted": "Ask strong readers to read a challenging version and write a short paragraph that uses friction, seismic, and fault to state the main idea of the article in their own words."
+}

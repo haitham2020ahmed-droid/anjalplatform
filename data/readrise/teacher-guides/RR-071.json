@@ -1,0 +1,40 @@
+{
+  "code": "RR-071",
+  "summary": "This article explains how electric cars use batteries and motors instead of gasoline, how they are charged, and what their benefits and challenges are.",
+  "strategy": "Problem/Solution",
+  "introduce": "Write “Problem” and “Solution” on the board and give pairs thirty seconds to think of a problem people face in daily life and one way to fix it. Explain that as they read “Electric Cars”, they will look for the main problem and how it is solved.",
+  "keyTerms": [
+    {
+      "term": "engine",
+      "def": "a machine that burns fuel to make something move"
+    },
+    {
+      "term": "station",
+      "def": "a place built for a special service, such as filling or charging cars"
+    },
+    {
+      "term": "range",
+      "def": "how far a vehicle can travel before it needs more fuel or power"
+    }
+  ],
+  "challengeTerms": [
+    {
+      "term": "combustion",
+      "def": "the process of burning something to release energy"
+    },
+    {
+      "term": "lithium",
+      "def": "a very light, soft metal used to make rechargeable batteries"
+    },
+    {
+      "term": "regenerative",
+      "def": "able to recover or produce again something that would otherwise be lost"
+    }
+  ],
+  "discussion": [
+    "Do you agree or disagree that everyone should drive an electric car instead of a gasoline car? Use evidence from the article to explain.",
+    "Explain two benefits and one challenge of electric cars."
+  ],
+  "struggling": "Pre-teach engine, station, and range with pictures or gestures, then let weak readers fill in a simple Problem | Solution chart with sentence starters.",
+  "gifted": "Ask strong readers to read a challenging version and write a short paragraph that uses combustion, lithium, and regenerative to suggest a second solution to the problem and judge which works better."
+}

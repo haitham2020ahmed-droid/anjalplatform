@@ -1,0 +1,40 @@
+{
+  "code": "RR-263",
+  "summary": "This article explains why the three Rs work best in order: reduce first, then reuse, and recycle only as a last resort.",
+  "strategy": "Problem/Solution",
+  "introduce": "Ask students to share a small problem they solved this week and how they solved it, and write two examples in a Problem | Solution chart on the board. Tell them that “The Three Rs: Reduce, Reuse, Recycle” also has a problem and a solution to find.",
+  "keyTerms": [
+    {
+      "term": "hierarchy",
+      "def": "a list of things in order, from most important to least important"
+    },
+    {
+      "term": "consumer",
+      "def": "a person who buys and uses things"
+    },
+    {
+      "term": "durable",
+      "def": "able to last a long time without breaking"
+    }
+  ],
+  "challengeTerms": [
+    {
+      "term": "sustainable",
+      "def": "able to continue for a long time without running out or causing harm"
+    },
+    {
+      "term": "finite",
+      "def": "having a limit; not endless"
+    },
+    {
+      "term": "extraction",
+      "def": "the process of removing a resource, such as metal or oil, from the ground"
+    }
+  ],
+  "discussion": [
+    "Do you agree or disagree that recycling is the most important of the three Rs? Use evidence from the article to explain.",
+    "Explain why reducing is considered more helpful than recycling, according to the article."
+  ],
+  "struggling": "Pre-teach hierarchy, consumer, and durable with pictures or gestures, then let weak readers fill in a simple Problem | Solution chart with sentence starters.",
+  "gifted": "Challenge advanced readers to use sustainable, finite, and extraction in a short paragraph that suggests a second solution to the problem and judge which works better."
+}

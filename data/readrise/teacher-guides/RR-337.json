@@ -1,0 +1,40 @@
+{
+  "code": "RR-337",
+  "summary": "This article explains why people move from the countryside to cities over time, what draws them there, and how Riyadh's growth shows this change happening around the world.",
+  "strategy": "Sequence",
+  "introduce": "Write First, Next, Then, and Finally on the board and ask a volunteer to use them to describe how they get ready for school. Tell students to watch for the order of events as they read “Urbanization: Why Cities Grow”.",
+  "keyTerms": [
+    {
+      "term": "urbanization",
+      "def": "the process in which more and more people move from the countryside into cities"
+    },
+    {
+      "term": "migrate",
+      "def": "to move from one place to live in another place"
+    },
+    {
+      "term": "opportunity",
+      "def": "a chance to do something that can improve your life"
+    }
+  ],
+  "challengeTerms": [
+    {
+      "term": "demographic",
+      "def": "relating to the number and features of people living in a place, such as their age or where they live"
+    },
+    {
+      "term": "sustainable",
+      "def": "able to continue for a long time without causing serious harm"
+    },
+    {
+      "term": "megacity",
+      "def": "an extremely large city, usually with more than ten million people"
+    }
+  ],
+  "discussion": [
+    "Do you agree or disagree that living in a big, growing city is better than living in a small rural town? Use evidence from the article to explain.",
+    "Explain how urbanization has changed Riyadh."
+  ],
+  "struggling": "Read the first part of the article aloud together, review urbanization, migrate, and opportunity, and let weak readers put sentence strips of the main events in order before writing.",
+  "gifted": "Ask strong readers to read a challenging version and write a short paragraph that uses demographic, sustainable, and megacity to summarize the key events in order and explain which step matters most."
+}

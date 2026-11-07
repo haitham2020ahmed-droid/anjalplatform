@@ -1,0 +1,40 @@
+{
+  "code": "RR-382",
+  "summary": "In this story, a family's desert trip comes to a sudden stop when their camel refuses to move, until the children patiently discover the small, hidden cause and solve it together.",
+  "strategy": "Problem/Solution",
+  "introduce": "Ask students to share a small problem they solved this week and how they solved it, and write two examples in a Problem | Solution chart on the board. Tell them that “The Camel That Wouldn't Walk” also has a problem and a solution to find.",
+  "keyTerms": [
+    {
+      "term": "stubborn",
+      "def": "refusing to change your mind or do something, even when others want you to"
+    },
+    {
+      "term": "patient",
+      "def": "able to wait calmly without getting upset or giving up"
+    },
+    {
+      "term": "examine",
+      "def": "to look at something closely and carefully"
+    }
+  ],
+  "challengeTerms": [
+    {
+      "term": "observant",
+      "def": "good at noticing small details that other people might miss"
+    },
+    {
+      "term": "perseverance",
+      "def": "continuing to try, even when something is hard or takes a long time"
+    },
+    {
+      "term": "empathy",
+      "def": "the ability to understand and share how another person or creature might feel"
+    }
+  ],
+  "discussion": [
+    "Do you agree or disagree that when an animal suddenly behaves strangely, it is usually just being stubborn, not trying to tell you something? Use evidence from the story to explain.",
+    "Explain how Lama and Yousef solved the mystery of why Saqr stopped walking."
+  ],
+  "struggling": "Read the first part of the story aloud together, review stubborn, patient, and examine, and let weak readers fill in a simple Problem | Solution chart with sentence starters.",
+  "gifted": "Ask strong readers to read a challenging version and write a short paragraph that uses observant, perseverance, and empathy to suggest a second solution to the problem and judge which works better."
+}

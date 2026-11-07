@@ -1,0 +1,40 @@
+{
+  "code": "RR-254",
+  "summary": "This article explains how Louis Pasteur's experiments proved that tiny germs cause disease, leading to safer food and life-saving vaccines.",
+  "strategy": "Problem/Solution",
+  "introduce": "Ask students to share a small problem they solved this week and how they solved it, and write two examples in a Problem | Solution chart on the board. Tell them that “Louis Pasteur and Germ Theory” also has a problem and a solution to find.",
+  "keyTerms": [
+    {
+      "term": "experiment",
+      "def": "a careful test done to find out whether an idea is true"
+    },
+    {
+      "term": "organism",
+      "def": "any living thing, from a tiny germ to a large animal"
+    },
+    {
+      "term": "disease",
+      "def": "an illness that affects the body and makes someone unwell"
+    }
+  ],
+  "challengeTerms": [
+    {
+      "term": "pioneer",
+      "def": "one of the first people to do something new, often opening the way for others"
+    },
+    {
+      "term": "contaminate",
+      "def": "to make something impure or unsafe by adding something harmful"
+    },
+    {
+      "term": "immunity",
+      "def": "the body's ability to resist or fight off a particular disease"
+    }
+  ],
+  "discussion": [
+    "Do you agree or disagree that things too small to see can still have a huge effect on our health? Use evidence from the article to explain.",
+    "Pasteur's careful experiments changed what people believed about disease."
+  ],
+  "struggling": "Pre-teach experiment, organism, and disease with pictures or gestures, then let weak readers fill in a simple Problem | Solution chart with sentence starters.",
+  "gifted": "Challenge advanced readers to use pioneer, contaminate, and immunity in a short paragraph that suggests a second solution to the problem and judge which works better."
+}

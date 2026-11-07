@@ -1,0 +1,40 @@
+{
+  "code": "RR-338",
+  "summary": "This article explains what natural resources are, why they are spread unevenly around the world, and why some countries have more of certain resources than others.",
+  "strategy": "Main Idea",
+  "introduce": "Read the title “Natural Resources and Where They Are Found” aloud and ask each student to write one question they hope the article will answer. Collect a few questions, then explain that today they will find the one big idea that ties all the details together.",
+  "keyTerms": [
+    {
+      "term": "distribute",
+      "def": "to spread something out among different places or people"
+    },
+    {
+      "term": "geology",
+      "def": "the study of rocks and how the Earth was formed"
+    },
+    {
+      "term": "deposit",
+      "def": "a layer of a natural substance, like a mineral, built up in the ground over time"
+    }
+  ],
+  "challengeTerms": [
+    {
+      "term": "scarce",
+      "def": "not enough of something; hard to find or in short supply"
+    },
+    {
+      "term": "extract",
+      "def": "to take something out, especially from the ground"
+    },
+    {
+      "term": "reserve",
+      "def": "an amount of a resource that is available and ready to be used"
+    }
+  ],
+  "discussion": [
+    "Do you agree or disagree that it is fair that some countries have more natural resources than others? Use evidence from the article to explain.",
+    "Explain why natural resources are distributed unevenly around the world."
+  ],
+  "struggling": "Read the first part of the article aloud together, review distribute, geology, and deposit, and let weak readers complete a main-idea-and-details web with a partner.",
+  "gifted": "Ask strong readers to read a challenging version and write a short paragraph that uses scarce, extract, and reserve to state the main idea of the article in their own words."
+}

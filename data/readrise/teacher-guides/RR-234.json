@@ -1,0 +1,40 @@
+{
+  "code": "RR-234",
+  "summary": "Before the International Space Station, the Soviet Union and the United States built and tested earlier space stations, including Salyut, Skylab, and Mir, learning hard lessons along the way.",
+  "strategy": "Vocabulary Building",
+  "introduce": "Write the key term “module” on the board and give pairs thirty seconds to guess what it means. Share a few guesses, then tell students to find the word in “Space Stations Before the ISS” and check whether they were right.",
+  "keyTerms": [
+    {
+      "term": "module",
+      "def": "a separate section that can be joined to other sections to make a larger structure"
+    },
+    {
+      "term": "mission",
+      "def": "a special job or task that a person or team is sent to do"
+    },
+    {
+      "term": "record",
+      "def": "the best or most of something ever achieved"
+    }
+  ],
+  "challengeTerms": [
+    {
+      "term": "duration",
+      "def": "the length of time that something lasts"
+    },
+    {
+      "term": "collision",
+      "def": "a sudden and forceful crash between two moving objects"
+    },
+    {
+      "term": "convert",
+      "def": "to change something from one form or use into another"
+    }
+  ],
+  "discussion": [
+    "Do you agree or disagree that building the very first space station was harder than building the ISS? Use evidence from the article to explain.",
+    "Choose one lesson that engineers learned from an early space station."
+  ],
+  "struggling": "Read the first part of the article aloud together, review module, mission, and record, and let weak readers draw a quick picture for each term and use it in a short spoken sentence.",
+  "gifted": "Ask strong readers to read a challenging version and write a short paragraph that uses duration, collision, and convert to teach the class one of the terms with their own example."
+}

@@ -1,0 +1,40 @@
+{
+  "code": "RR-364",
+  "summary": "In this story, a girl joins her older brother's geography club and learns, through trial and error, how to measure distance and use scale while drawing her first real map of their neighborhood.",
+  "strategy": "Sequence",
+  "introduce": "Write First, Next, Then, and Finally on the board and ask a volunteer to use them to describe how they get ready for school. Tell students to watch for the order of events as they read “The Young Explorer's First Map”.",
+  "keyTerms": [
+    {
+      "term": "landmark",
+      "def": "a building or feature that is easy to recognize and helps people find their way"
+    },
+    {
+      "term": "measure",
+      "def": "to find the exact size, length, or distance of something"
+    },
+    {
+      "term": "legend",
+      "def": "a list on a map that explains what each symbol or mark means"
+    }
+  ],
+  "challengeTerms": [
+    {
+      "term": "cartographer",
+      "def": "a person who makes maps as a skill or profession"
+    },
+    {
+      "term": "proportional",
+      "def": "having a size or distance that correctly matches the relative size of something else"
+    },
+    {
+      "term": "orientation",
+      "def": "the direction something faces, such as north, south, east, or west"
+    }
+  ],
+  "discussion": [
+    "Do you agree or disagree that learning a new skill by making mistakes and trying again is more valuable than getting it right on the first try? Use evidence from the story to explain.",
+    "Explain the process Lina used, through trial and error, to turn her first inaccurate map into an accurate one."
+  ],
+  "struggling": "Read the first part of the story aloud together, review landmark, measure, and legend, and let weak readers put sentence strips of the main events in order before writing.",
+  "gifted": "Ask strong readers to read a challenging version and write a short paragraph that uses cartographer, proportional, and orientation to summarize the key events in order and explain which step matters most."
+}

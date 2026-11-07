@@ -1,0 +1,40 @@
+{
+  "code": "RR-406",
+  "summary": "In this story, a curious girl visiting a toy factory helps the engineers trace a strange software update to one small coding bug that made all the helper robots freeze.",
+  "strategy": "Making Inferences",
+  "introduce": "Act out a short mime, such as checking your watch and tapping your foot, and ask students how you feel and how they know. Explain that in “The Day the Robots Went on Strike” they will use clues in the same way to work out what the writer does not say directly.",
+  "keyTerms": [
+    {
+      "term": "factory",
+      "def": "a building where machines or workers make or prepare products"
+    },
+    {
+      "term": "engineer",
+      "def": "a person who designs, builds, or fixes machines and technical systems"
+    },
+    {
+      "term": "command",
+      "def": "an instruction given to a computer or robot telling it what to do"
+    }
+  ],
+  "challengeTerms": [
+    {
+      "term": "algorithm",
+      "def": "a sequence of exact steps or instructions used to solve a problem or complete a task"
+    },
+    {
+      "term": "malfunction",
+      "def": "a failure of a machine or system to work correctly"
+    },
+    {
+      "term": "diagnose",
+      "def": "to figure out exactly what is causing a problem"
+    }
+  ],
+  "discussion": [
+    "Do you agree or disagree that machines can misbehave, but they can never truly choose to disobey like a person can? Use evidence from the story to explain.",
+    "Explain the problem the factory faced and how Dalia and Ms."
+  ],
+  "struggling": "Read the first part of the story aloud together, review factory, engineer, and command, and let weak readers answer “What clue tells you that?” questions using sentence starters.",
+  "gifted": "Challenge advanced readers to use algorithm, malfunction, and diagnose in a short paragraph that makes an inference that the story does not state and support it with two clues."
+}

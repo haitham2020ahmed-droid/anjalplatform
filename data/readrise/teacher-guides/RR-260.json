@@ -1,0 +1,40 @@
+{
+  "code": "RR-260",
+  "summary": "This article explains how Benjamin Franklin's curiosity about lightning led him to a famous experiment with a kite, and how his inventive mind produced useful tools still used today.",
+  "strategy": "Author's Purpose",
+  "introduce": "Write Inform, Persuade, and Entertain on the board and give a one-line example of each. Tell students to decide, while reading “Benjamin Franklin: Science and Invention”, which purpose the writer had and to find one sentence that proves it.",
+  "keyTerms": [
+    {
+      "term": "hypothesis",
+      "def": "an idea that a person thinks might be true, which can be tested"
+    },
+    {
+      "term": "charge",
+      "def": "the amount of electricity that builds up in or moves through something"
+    },
+    {
+      "term": "conductor",
+      "def": "a material that lets electricity flow through it easily"
+    }
+  ],
+  "challengeTerms": [
+    {
+      "term": "phenomenon",
+      "def": "a fact or event in nature that can be observed, especially one that is unusual or hard to explain"
+    },
+    {
+      "term": "insulated",
+      "def": "protected from electricity, heat, or cold by a material that blocks it from passing through"
+    },
+    {
+      "term": "empirical",
+      "def": "based on evidence gathered through observation or experiment rather than theory alone"
+    }
+  ],
+  "discussion": [
+    "Do you agree or disagree that a good inventor tries to solve everyday problems, not just show off clever ideas? Use evidence from the article to explain.",
+    "Compare what people believed about lightning before Franklin's experiment with what his experiment actually showed."
+  ],
+  "struggling": "Pre-teach hypothesis, charge, and conductor with pictures or gestures, then let weak readers underline sentences that inform and circle any that persuade.",
+  "gifted": "Ask strong readers to read a challenging version and write a short paragraph that uses phenomenon, insulated, and empirical to explain the writer's purpose and how the details support it."
+}

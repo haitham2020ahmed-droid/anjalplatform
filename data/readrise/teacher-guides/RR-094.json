@@ -1,0 +1,40 @@
+{
+  "code": "RR-094",
+  "summary": "This article explains how kicking a football off-center makes it spin, why a spinning ball pushes on the air and bends in flight, and why a ball with no spin wobbles.",
+  "strategy": "Accessing Prior Knowledge",
+  "introduce": "Show the title “The Science of a Curving Football Kick” and give pairs one minute to list everything they already know about this topic. Share a few ideas on the board, then tell students to check which ideas the article confirms.",
+  "keyTerms": [
+    {
+      "term": "force",
+      "def": "a push or a pull"
+    },
+    {
+      "term": "pressure",
+      "def": "how strongly something presses on a surface"
+    },
+    {
+      "term": "deflect",
+      "def": "to make something change direction"
+    }
+  ],
+  "challengeTerms": [
+    {
+      "term": "rotation",
+      "def": "the act of turning around a center point"
+    },
+    {
+      "term": "trajectory",
+      "def": "the curved path an object follows as it moves through the air or space"
+    },
+    {
+      "term": "phenomenon",
+      "def": "something that happens in nature that people can observe and study"
+    }
+  ],
+  "discussion": [
+    "Do you agree or disagree that scoring a great free kick depends more on science than on talent? Use evidence from the article to explain.",
+    "Use the words force and opposite to explain why a spinning football curves."
+  ],
+  "struggling": "Read the first part of the article aloud together, review force, pressure, and deflect, and let weak readers use a K-W-L chart and read the article with a partner.",
+  "gifted": "Ask strong readers to read a challenging version and write a short paragraph that uses rotation, trajectory, and phenomenon to connect the article to something they learned in another subject."
+}

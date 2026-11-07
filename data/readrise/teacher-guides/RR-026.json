@@ -1,0 +1,40 @@
+{
+  "code": "RR-026",
+  "summary": "This article explains how Saudi Arabia removes salt from seawater using heat or a membrane, and the energy and brine challenges this creates.",
+  "strategy": "Problem/Solution",
+  "introduce": "Write “Problem” and “Solution” on the board and give pairs thirty seconds to think of a problem people face in daily life and one way to fix it. Explain that as they read “From Seawater to Drinking Water”, they will look for the main problem and how it is solved.",
+  "keyTerms": [
+    {
+      "term": "desalination",
+      "def": "the process of taking salt out of seawater so people can use it"
+    },
+    {
+      "term": "membrane",
+      "def": "a thin sheet or layer that lets only some things pass through"
+    },
+    {
+      "term": "pressure",
+      "def": "the force made when something presses or pushes hard on something else"
+    }
+  ],
+  "challengeTerms": [
+    {
+      "term": "distillation",
+      "def": "a way of making a liquid pure by boiling it and cooling the vapor"
+    },
+    {
+      "term": "condense",
+      "def": "to change from a gas into a liquid, usually by cooling"
+    },
+    {
+      "term": "osmosis",
+      "def": "the movement of water through a thin layer that blocks some other substances"
+    }
+  ],
+  "discussion": [
+    "Do you agree or disagree that turning seawater into drinking water is worth the energy it costs? Use evidence from the article to explain.",
+    "Compare the heat method and the membrane method. How are they alike, and how are they different?"
+  ],
+  "struggling": "Pre-teach desalination, membrane, and pressure with pictures or gestures, then let weak readers fill in a simple Problem | Solution chart with sentence starters.",
+  "gifted": "Ask strong readers to read a challenging version and write a short paragraph that uses distillation, condense, and osmosis to suggest a second solution to the problem and judge which works better."
+}

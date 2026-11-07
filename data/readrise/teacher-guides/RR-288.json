@@ -1,0 +1,40 @@
+{
+  "code": "RR-288",
+  "summary": "This article explains how sailors use wind angle, sail trim, and tacking to move a boat, even against the wind, and the basic tactics racers use to win.",
+  "strategy": "Accessing Prior Knowledge",
+  "introduce": "Start a K-W-L chart on the board and ask students what they already Know and what they Want to know about the topic of “Sailing: Wind-Powered Racing”. Tell them they will fill in what they Learned after reading.",
+  "keyTerms": [
+    {
+      "term": "keel",
+      "def": "a heavy fin under a boat that stops it tipping and helps it move forward"
+    },
+    {
+      "term": "sheet",
+      "def": "a rope used to control the angle of a sail"
+    },
+    {
+      "term": "crew",
+      "def": "the group of people who work together to sail a boat"
+    }
+  ],
+  "challengeTerms": [
+    {
+      "term": "tactic",
+      "def": "a planned action used to gain an advantage in a contest"
+    },
+    {
+      "term": "momentum",
+      "def": "the force a moving object has that keeps it going"
+    },
+    {
+      "term": "aerodynamic",
+      "def": "shaped so that air flows over it smoothly, creating little resistance or useful force"
+    }
+  ],
+  "discussion": [
+    "Do you agree or disagree that sailing without an engine is harder than driving a motorboat? Use evidence from the article to explain.",
+    "Explain how a sailor moves a boat toward a point upwind, and how trimming the sail helps during a race."
+  ],
+  "struggling": "Read the first part of the article aloud together, review keel, sheet, and crew, and let weak readers use a K-W-L chart and read the article with a partner.",
+  "gifted": "Challenge advanced readers to use tactic, momentum, and aerodynamic in a short paragraph that connects the article to something they learned in another subject."
+}

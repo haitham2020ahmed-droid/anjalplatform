@@ -1,0 +1,40 @@
+{
+  "code": "RR-421",
+  "summary": "In this story, a girl spends months learning a difficult Arabic calligraphy style from a master, and her patience finally produces a piece beautiful enough for a cultural exhibition.",
+  "strategy": "Sequence",
+  "introduce": "Write First, Next, Then, and Finally on the board and ask a volunteer to use them to describe how they get ready for school. Tell students to watch for the order of events as they read “The Young Calligrapher”.",
+  "keyTerms": [
+    {
+      "term": "script",
+      "def": "a particular style of handwriting or lettering"
+    },
+    {
+      "term": "patient",
+      "def": "able to wait calmly without getting upset"
+    },
+    {
+      "term": "technique",
+      "def": "a special way of doing something that takes skill"
+    }
+  ],
+  "challengeTerms": [
+    {
+      "term": "meticulous",
+      "def": "extremely careful about small details"
+    },
+    {
+      "term": "aesthetic",
+      "def": "relating to beauty and artistic design"
+    },
+    {
+      "term": "heritage",
+      "def": "traditions, art, and ways of life passed down from the past"
+    }
+  ],
+  "discussion": [
+    "Do you agree or disagree that mastering a difficult traditional art is worth years of patient practice? Use evidence from the story to explain.",
+    "Explain how practice and feedback helped Maha master a difficult script."
+  ],
+  "struggling": "Pre-teach script, patient, and technique with pictures or gestures, then let weak readers put sentence strips of the main events in order before writing.",
+  "gifted": "Ask strong readers to read a challenging version and write a short paragraph that uses meticulous, aesthetic, and heritage to summarize the key events in order and explain which step matters most."
+}

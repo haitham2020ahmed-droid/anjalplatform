@@ -1,0 +1,40 @@
+{
+  "code": "RR-432",
+  "summary": "In this story, two neighborhood friends organize a friendly bicycle race around their block, and when one friend's chain breaks mid-race, the other stops to help fix it instead of finishing first alone.",
+  "strategy": "Problem/Solution",
+  "introduce": "Ask students to share a small problem they solved this week and how they solved it, and write two examples in a Problem | Solution chart on the board. Tell them that “The Great Bicycle Race” also has a problem and a solution to find.",
+  "keyTerms": [
+    {
+      "term": "decision",
+      "def": "a choice made after thinking about something"
+    },
+    {
+      "term": "victory",
+      "def": "the act of winning a contest or battle"
+    },
+    {
+      "term": "frustrated",
+      "def": "feeling annoyed or upset because something is not working"
+    }
+  ],
+  "challengeTerms": [
+    {
+      "term": "deliberate",
+      "def": "done on purpose, after careful thought"
+    },
+    {
+      "term": "resuming",
+      "def": "starting something again after it stopped"
+    },
+    {
+      "term": "genuine",
+      "def": "real and sincere, not fake or pretended"
+    }
+  ],
+  "discussion": [
+    "Do you agree or disagree that helping a friend matters more than winning a race? Use evidence from the story to explain.",
+    "Explain why Sam's decision to stop and help Nour was an act of good sportsmanship."
+  ],
+  "struggling": "Read the first part of the story aloud together, review decision, victory, and frustrated, and let weak readers fill in a simple Problem | Solution chart with sentence starters.",
+  "gifted": "Ask strong readers to read a challenging version and write a short paragraph that uses deliberate, resuming, and genuine to suggest a second solution to the problem and judge which works better."
+}

@@ -35,3 +35,25 @@ export function inferQuestionType(stem: string): QuestionType {
 /** The stored type of a question, else the type from its stem. */
 export const questionTypeOf = (q: Record<string, unknown>): QuestionType => normalizeQuestionType(q.skill) ?? inferQuestionType(s(q.stem));
 
+
+/**
+ * 🔢 Round 6 (owner, "like Achieve3000"): a version below SHORT_QUIZ_BELOW (the 300 version) shows 4 of the band's
+ * questions; 400+ shows all (8). The 4 are picked by a FIXED rule: one per skill type where possible — main / central
+ * idea, detail, vocabulary in context, inference or cause and effect — each the lowest-numbered question of its type
+ * not taken yet; any gap is filled with the lowest-numbered questions left. Returned in number order. The score is the
+ * % of the questions SHOWN.
+ */
+export const SHORT_QUIZ_BELOW = 400;
+export const SHORT_QUIZ_SIZE = 4;
+const SHORT_QUIZ_PICK: readonly (readonly QuestionType[])[] = [["central-idea"], ["detail"], ["vocabulary"], ["inference", "cause-effect"]];
+export function pickShownQuestions<T extends Record<string, unknown>>(questions: readonly T[], versionLevel: number): T[] {
+  const sorted = [...questions].sort((a, b) => Number(a.number) - Number(b.number));
+  if (!(Number(versionLevel) < SHORT_QUIZ_BELOW) || sorted.length <= SHORT_QUIZ_SIZE) return sorted;
+  const taken = new Set<T>();
+  for (const types of SHORT_QUIZ_PICK) {
+    const q = sorted.find((x) => !taken.has(x) && types.includes(questionTypeOf(x)));
+    if (q) taken.add(q);
+  }
+  for (const q of sorted) { if (taken.size >= SHORT_QUIZ_SIZE) break; taken.add(q); }
+  return sorted.filter((q) => taken.has(q));
+}

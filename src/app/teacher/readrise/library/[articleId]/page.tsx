@@ -5,7 +5,9 @@ import { getActor, repo, requireActor } from "@/server/auth/next";
 import { ForbiddenError } from "@/server/auth/rbac";
 import { ValidationError } from "@/server/curriculum-admin";
 import { articleDetail } from "@/server/readrise/library";
-import { teacherReadRiseClasses } from "@/server/readrise/teacher";
+import { teacherGuide, teacherReadRiseClasses } from "@/server/readrise/teacher";
+import { getT } from "@/i18n/server";
+import { TeacherMaterials } from "../../_components/data-center";
 import { assignReadRiseAction } from "../../actions";
 import { ArticleActions, ArticleView } from "@/app/admin/readrise/_components/article-view";
 import { btn, field, Flash } from "@/app/admin/readrise/_components/ui";
@@ -22,6 +24,9 @@ export default async function ReadRiseArticleTeacher({ params, searchParams }: {
   const sp = await searchParams;
   const classes = (await teacherReadRiseClasses(repo, actor)).filter((c) => c.own);
   const a = await articleDetail(repo, actor, articleId).catch((e) => { if (e instanceof ValidationError || e instanceof ForbiddenError) notFound(); throw e; });
+  // round 6: teacher materials (data/readrise/teacher-guides/RR-NNN.json); no file → no panel
+  const guide = teacherGuide(a.code);
+  const { t } = await getT();
   return (
     <AppShell name={String(me.displayName)}>
       <PageHeader back={{ href: "/teacher/readrise/library", label: "ReadRise Library" }} icon="📰" title={a.title}>
@@ -39,6 +44,7 @@ export default async function ReadRiseArticleTeacher({ params, searchParams }: {
           <button className={btn}>Assign</button>
         </form>
       )}
+      {guide && <TeacherMaterials g={guide} t={t} />}
       <ArticleView a={a} base="/teacher/readrise/library" />
     </AppShell>
   );

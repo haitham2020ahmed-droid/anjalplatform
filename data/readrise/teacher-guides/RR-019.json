@@ -1,0 +1,40 @@
+{
+  "code": "RR-019",
+  "summary": "This article explains how sunlight bends and reflects inside raindrops to split white light into the colors of a rainbow, and when and where to see one.",
+  "strategy": "Vocabulary Building",
+  "introduce": "Show the three key terms on the board and ask students to rate each one: “I know it,” “I have seen it,” or “It is new.” Tell them to watch for these words in “Rainbows and the Colors of Light” and use clues around them to understand their meaning.",
+  "keyTerms": [
+    {
+      "term": "spectrum",
+      "def": "the full range of colors that make up white light"
+    },
+    {
+      "term": "refraction",
+      "def": "the bending of light as it passes from one material into another"
+    },
+    {
+      "term": "reflect",
+      "def": "to bounce back from a surface"
+    }
+  ],
+  "challengeTerms": [
+    {
+      "term": "wavelength",
+      "def": "the distance between the tops of two waves in a row; each color of light has its own"
+    },
+    {
+      "term": "dispersion",
+      "def": "the spreading out of light into its separate colors"
+    },
+    {
+      "term": "phenomenon",
+      "def": "something that happens in nature that people can observe and study"
+    }
+  ],
+  "discussion": [
+    "Do you agree or disagree that rainbows are easy to explain with science? Use evidence from the article to explain.",
+    "Write directions for a friend who wants to see a rainbow."
+  ],
+  "struggling": "Read the first part of the article aloud together, review spectrum, refraction, and reflect, and let weak readers draw a quick picture for each term and use it in a short spoken sentence.",
+  "gifted": "Challenge advanced readers to use wavelength, dispersion, and phenomenon in a short paragraph that teaches the class one of the terms with their own example."
+}

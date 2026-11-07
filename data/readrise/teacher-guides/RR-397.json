@@ -1,0 +1,40 @@
+{
+  "code": "RR-397",
+  "summary": "In this story, a small after-school library club worries that nobody wants to join, until a reading challenge and a book-recommendation wall make the library popular with classmates.",
+  "strategy": "Sequence",
+  "introduce": "Write First, Next, Then, and Finally on the board and ask a volunteer to use them to describe how they get ready for school. Tell students to watch for the order of events as they read “The Library Club's Big Idea”.",
+  "keyTerms": [
+    {
+      "term": "member",
+      "def": "a person who belongs to a group or club"
+    },
+    {
+      "term": "recommend",
+      "def": "to tell someone that something is good and worth trying"
+    },
+    {
+      "term": "challenge",
+      "def": "a task or activity that tests what someone can do"
+    }
+  ],
+  "challengeTerms": [
+    {
+      "term": "initiative",
+      "def": "a new plan or action taken to solve a problem or improve something"
+    },
+    {
+      "term": "incentive",
+      "def": "something that encourages a person to do a particular thing"
+    },
+    {
+      "term": "transform",
+      "def": "to change something completely, often making it much better"
+    }
+  ],
+  "discussion": [
+    "Do you agree or disagree that a small group with a good idea can get a whole school excited about something? Use evidence from the story to explain.",
+    "Explain how Sara, Omar, and Lina solve the club's problem."
+  ],
+  "struggling": "Pre-teach member, recommend, and challenge with pictures or gestures, then let weak readers put sentence strips of the main events in order before writing.",
+  "gifted": "Ask strong readers to read a challenging version and write a short paragraph that uses initiative, incentive, and transform to summarize the key events in order and explain which step matters most."
+}

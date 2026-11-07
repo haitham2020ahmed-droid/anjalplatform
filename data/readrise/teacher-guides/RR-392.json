@@ -1,0 +1,40 @@
+{
+  "code": "RR-392",
+  "summary": "In this story, two friends keep building kites that break during their school's kite-flying day, until they study materials, shape, and wind direction and finally build one that flies.",
+  "strategy": "Sequence",
+  "introduce": "Give pairs four mixed-up steps of a simple task, such as making tea, and ask them to put the steps in order. Explain that “The Unbreakable Kite” also follows an order, and good readers notice signal words like first, after, and finally.",
+  "keyTerms": [
+    {
+      "term": "design",
+      "def": "the plan or shape of how something is made"
+    },
+    {
+      "term": "material",
+      "def": "the substance something is made from"
+    },
+    {
+      "term": "direction",
+      "def": "the way something is pointing or moving toward"
+    }
+  ],
+  "challengeTerms": [
+    {
+      "term": "aerodynamics",
+      "def": "the science of how air moves around and interacts with objects"
+    },
+    {
+      "term": "lift",
+      "def": "the upward force created when moving air pushes against a surface"
+    },
+    {
+      "term": "tension",
+      "def": "the force created when something is pulled or stretched tight"
+    }
+  ],
+  "discussion": [
+    "Do you agree or disagree that trying again after failing is more important than being naturally good at something? Use evidence from the story to explain.",
+    "Explain how Yousef and Khalid solved the problem with their kite."
+  ],
+  "struggling": "Read the first part of the story aloud together, review design, material, and direction, and let weak readers put sentence strips of the main events in order before writing.",
+  "gifted": "Ask strong readers to read a challenging version and write a short paragraph that uses aerodynamics, lift, and tension to summarize the key events in order and explain which step matters most."
+}

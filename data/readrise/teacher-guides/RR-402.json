@@ -1,0 +1,40 @@
+{
+  "code": "RR-402",
+  "summary": "In this story, a girl who loves building things in her garage workshop enters a school invention fair with a clever gadget, and must calmly troubleshoot it when it fails during the first test.",
+  "strategy": "Problem/Solution",
+  "introduce": "Write “Problem” and “Solution” on the board and give pairs thirty seconds to think of a problem people face in daily life and one way to fix it. Explain that as they read “The Young Inventor's Workshop”, they will look for the main problem and how it is solved.",
+  "keyTerms": [
+    {
+      "term": "assemble",
+      "def": "to put the parts of something together to build it"
+    },
+    {
+      "term": "malfunction",
+      "def": "to fail to work the way it is supposed to"
+    },
+    {
+      "term": "inspect",
+      "def": "to look at something closely and carefully"
+    }
+  ],
+  "challengeTerms": [
+    {
+      "term": "diagnose",
+      "def": "to figure out exactly what is causing a problem"
+    },
+    {
+      "term": "composed",
+      "def": "calm and in control of one's feelings, especially under pressure"
+    },
+    {
+      "term": "admiration",
+      "def": "a feeling of respect and approval for someone's skill or achievement"
+    }
+  ],
+  "discussion": [
+    "Do you agree or disagree that if your invention fails in front of judges, it is better to give up than try to fix it on the spot? Use evidence from the story to explain.",
+    "Explain how Maya used calm, careful thinking to turn her gadget's failure at the fair into a success."
+  ],
+  "struggling": "Read the first part of the story aloud together, review assemble, malfunction, and inspect, and let weak readers fill in a simple Problem | Solution chart with sentence starters.",
+  "gifted": "Challenge advanced readers to use diagnose, composed, and admiration in a short paragraph that suggests a second solution to the problem and judge which works better."
+}

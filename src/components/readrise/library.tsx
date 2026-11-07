@@ -67,8 +67,11 @@ function Shelf({ id, title, hint, cards, showLevel, level, t, children }: { id: 
   );
 }
 
-/** showLevel = false before the placement (no level number is shown: readRisePlaced). */
-export function ReadRiseLibrary({ lib, showLevel = true, t = plain }: { lib: Library; showLevel?: boolean; t?: TFn }) {
+/**
+ * showLevel = false before the placement (no level number is shown: readRisePlaced). `panel` (round 6) = the
+ * scoreboard panel, placed after the reading the student has to finish (Continue / From my teacher).
+ */
+export function ReadRiseLibrary({ lib, showLevel = true, t = plain, panel }: { lib: Library; showLevel?: boolean; t?: TFn; panel?: ReactNode }) {
   const filtered = Boolean(lib.query || lib.topic);
   const link = (topic: string, page = 1) => {
     const p = new URLSearchParams();
@@ -83,6 +86,7 @@ export function ReadRiseLibrary({ lib, showLevel = true, t = plain }: { lib: Lib
     <div id="library" className="mt-6">
       <Shelf id="rr-continue" title={`⏳ ${t("Continue reading")}`} cards={lib.continueReading} {...props} />
       <Shelf id="rr-assigned" title={`📌 ${t("From my teacher")}`} cards={lib.assigned} {...props} />
+      {panel}
       {!filtered && <Shelf id="rr-rec" title={`✨ ${t("Recommended for you")}`} cards={lib.recommended} {...props} />}
       <Shelf id="rr-finished" title={`✅ ${t("Finished")}`} cards={lib.finished.slice(0, FINISHED_FIRST)} {...props}>
         {lib.finished.length > FINISHED_FIRST && (

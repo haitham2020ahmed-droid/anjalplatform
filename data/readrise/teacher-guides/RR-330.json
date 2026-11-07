@@ -1,0 +1,40 @@
+{
+  "code": "RR-330",
+  "summary": "This article explains how mapmakers turn the round Earth into flat, useful maps using projections, symbols, legends, scale, and different map types.",
+  "strategy": "Compare/Contrast",
+  "introduce": "Write “Alike” and “Different” at the top of a T-chart on the board and ask students to compare two school subjects in one minute. Explain that “Maps: Representing the World on Paper” asks them to make the same kind of comparison.",
+  "keyTerms": [
+    {
+      "term": "sphere",
+      "def": "a shape that is perfectly round in every direction, like a ball"
+    },
+    {
+      "term": "challenge",
+      "def": "a difficult problem that takes effort or skill to solve"
+    },
+    {
+      "term": "stretch",
+      "def": "to pull something so it becomes longer or more spread out than it was"
+    }
+  ],
+  "challengeTerms": [
+    {
+      "term": "cartographer",
+      "def": "a person whose job is to design and draw maps"
+    },
+    {
+      "term": "projection",
+      "def": "a mathematical method for turning a round surface into a flat map"
+    },
+    {
+      "term": "distortion",
+      "def": "a change that makes something's shape, size, or position slightly inaccurate"
+    }
+  ],
+  "discussion": [
+    "Do you agree or disagree that a map does not need to be perfectly accurate to still be useful? Use evidence from the article to explain.",
+    "Explain why a flat map of the world can never be perfectly accurate."
+  ],
+  "struggling": "Read the first part of the article aloud together, review sphere, challenge, and stretch, and let weak readers fill in a T-chart of alike and different with sentence starters.",
+  "gifted": "Challenge advanced readers to use cartographer, projection, and distortion in a short paragraph that compares two ideas from the article and explain which difference matters most."
+}

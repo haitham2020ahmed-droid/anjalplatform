@@ -1,0 +1,40 @@
+{
+  "code": "RR-015",
+  "summary": "This article explains how the Olympic Games began in ancient Greece, how they were revived, what the rings mean, how the Paralympics began, and why training and fair play matter.",
+  "strategy": "Sequence",
+  "introduce": "Give pairs four mixed-up steps of a simple task, such as making tea, and ask them to put the steps in order. Explain that “The Olympic Games: Then and Now” also follows an order, and good readers notice signal words like first, after, and finally.",
+  "keyTerms": [
+    {
+      "term": "wreath",
+      "def": "a ring made of leaves or flowers"
+    },
+    {
+      "term": "revive",
+      "def": "to bring something back to life or back into use"
+    },
+    {
+      "term": "represent",
+      "def": "to stand for something"
+    }
+  ],
+  "challengeTerms": [
+    {
+      "term": "truce",
+      "def": "an agreement to stop fighting for a period of time"
+    },
+    {
+      "term": "symbolize",
+      "def": "to stand for or represent an idea"
+    },
+    {
+      "term": "rehabilitation",
+      "def": "the process of helping someone recover after an injury or illness"
+    }
+  ],
+  "discussion": [
+    "Do you agree or disagree that playing fairly is more important than winning? Use evidence from the article to explain.",
+    "Explain how the modern Olympic Games are similar to and different from the ancient Games."
+  ],
+  "struggling": "Read the first part of the article aloud together, review wreath, revive, and represent, and let weak readers put sentence strips of the main events in order before writing.",
+  "gifted": "Challenge advanced readers to use truce, symbolize, and rehabilitation in a short paragraph that summarizes the key events in order and explain which step matters most."
+}

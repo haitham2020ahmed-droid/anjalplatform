@@ -1,0 +1,40 @@
+{
+  "code": "RR-206",
+  "summary": "This article explains what minerals are, and how scientists use properties like hardness, luster, and streak to tell different minerals apart.",
+  "strategy": "Compare/Contrast",
+  "introduce": "Write “Alike” and “Different” at the top of a T-chart on the board and ask students to compare two school subjects in one minute. Explain that “Minerals: Building Blocks of Rocks” asks them to make the same kind of comparison.",
+  "keyTerms": [
+    {
+      "term": "hardness",
+      "def": "how well a material resists being scratched"
+    },
+    {
+      "term": "luster",
+      "def": "the way a mineral's surface reflects light, such as looking metallic, glassy, or dull"
+    },
+    {
+      "term": "streak",
+      "def": "the color of the powder left when a mineral is rubbed across a rough plate"
+    }
+  ],
+  "challengeTerms": [
+    {
+      "term": "composition",
+      "def": "the particular substances or chemical elements that make up something"
+    },
+    {
+      "term": "crystalline",
+      "def": "having a structure made of orderly, repeating crystals"
+    },
+    {
+      "term": "classify",
+      "def": "to arrange or group things according to shared characteristics"
+    }
+  ],
+  "discussion": [
+    "Do you agree or disagree that two minerals that look the same color must be the same mineral? Use evidence from the article to explain.",
+    "Explain how hardness, luster, and streak each help scientists identify a mineral."
+  ],
+  "struggling": "Pre-teach hardness, luster, and streak with pictures or gestures, then let weak readers fill in a T-chart of alike and different with sentence starters.",
+  "gifted": "Ask strong readers to read a challenging version and write a short paragraph that uses composition, crystalline, and classify to compare two ideas from the article and explain which difference matters most."
+}

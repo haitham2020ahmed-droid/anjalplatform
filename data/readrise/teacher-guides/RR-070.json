@@ -1,0 +1,40 @@
+{
+  "code": "RR-070",
+  "summary": "This article explains how a 3D printer turns a computer design into a solid object by adding thin layers of melted material, and how doctors, inventors, builders, and astronauts use it.",
+  "strategy": "Main Idea",
+  "introduce": "Show the title “3D Printing: Building Layer by Layer” and give pairs one minute to predict, in one sentence, what the whole article is mostly about. Write three predictions on the board and tell students they will check which one is closest to the main idea after reading.",
+  "keyTerms": [
+    {
+      "term": "nozzle",
+      "def": "a narrow tip at the end of a tube or hose that liquid comes out of"
+    },
+    {
+      "term": "material",
+      "def": "what something is made from, such as wood, metal, or cloth"
+    },
+    {
+      "term": "prototype",
+      "def": "a first model of something, made to test an idea before making more"
+    }
+  ],
+  "challengeTerms": [
+    {
+      "term": "additive",
+      "def": "made by adding parts or material bit by bit, instead of taking away"
+    },
+    {
+      "term": "filament",
+      "def": "a long, thin thread, such as the plastic thread used by many 3D printers"
+    },
+    {
+      "term": "precise",
+      "def": "exact and careful, with no mistakes in the details"
+    }
+  ],
+  "discussion": [
+    "Do you agree or disagree that every school should have a 3D printer? Use evidence from the article to explain.",
+    "Explain how a 3D printer turns a design into a solid object."
+  ],
+  "struggling": "Pre-teach nozzle, material, and prototype with pictures or gestures, then let weak readers complete a main-idea-and-details web with a partner.",
+  "gifted": "Ask strong readers to read a challenging version and write a short paragraph that uses additive, filament, and precise to state the main idea of the article in their own words."
+}

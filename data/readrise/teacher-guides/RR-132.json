@@ -1,0 +1,40 @@
+{
+  "code": "RR-132",
+  "summary": "This article explains how the telephone grew from the telegraph and Alexander Graham Bell's 1876 invention into the mobile phones people carry today.",
+  "strategy": "Sequence",
+  "introduce": "Give pairs four mixed-up steps of a simple task, such as making tea, and ask them to put the steps in order. Explain that “The Story of the Telephone” also follows an order, and good readers notice signal words like first, after, and finally.",
+  "keyTerms": [
+    {
+      "term": "telegraph",
+      "def": "an old machine that sent messages along wires as clicks or beeps"
+    },
+    {
+      "term": "patent",
+      "def": "an official paper that says an invention belongs to the person who made it"
+    },
+    {
+      "term": "vibrate",
+      "def": "to shake back and forth very quickly"
+    }
+  ],
+  "challengeTerms": [
+    {
+      "term": "transmit",
+      "def": "to send something, like a signal or message, from one place to another"
+    },
+    {
+      "term": "electrical",
+      "def": "using or related to electricity"
+    },
+    {
+      "term": "switchboard",
+      "def": "a board where workers once connected phone calls by plugging in cables"
+    }
+  ],
+  "discussion": [
+    "Do you agree or disagree that the telephone is the most important invention of the last two hundred years? Use evidence from the article to explain.",
+    "Explain how a telephone carries your voice to a friend."
+  ],
+  "struggling": "Read the first part of the article aloud together, review telegraph, patent, and vibrate, and let weak readers put sentence strips of the main events in order before writing.",
+  "gifted": "Challenge advanced readers to use transmit, electrical, and switchboard in a short paragraph that summarizes the key events in order and explain which step matters most."
+}

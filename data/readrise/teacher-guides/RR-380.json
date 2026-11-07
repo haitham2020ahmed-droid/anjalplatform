@@ -1,0 +1,40 @@
+{
+  "code": "RR-380",
+  "summary": "In this story, a visiting veterinary student learns patience and responsibility while helping staff at a wildlife rescue center care for an orphaned lion cub until it is strong enough to join other rescued lions.",
+  "strategy": "Sequence",
+  "introduce": "Write First, Next, Then, and Finally on the board and ask a volunteer to use them to describe how they get ready for school. Tell students to watch for the order of events as they read “The Orphaned Lion Cub”.",
+  "keyTerms": [
+    {
+      "term": "veterinary",
+      "def": "relating to the medical care of animals"
+    },
+    {
+      "term": "patience",
+      "def": "the ability to stay calm while waiting or working slowly"
+    },
+    {
+      "term": "responsibility",
+      "def": "a duty to take care of something or someone"
+    }
+  ],
+  "challengeTerms": [
+    {
+      "term": "orphan",
+      "def": "a young animal or person whose parent has died"
+    },
+    {
+      "term": "nutrition",
+      "def": "the food a living thing needs to stay healthy and grow"
+    },
+    {
+      "term": "instinct",
+      "def": "a natural behavior an animal is born with, not taught"
+    }
+  ],
+  "discussion": [
+    "Do you agree or disagree that caring for a sick or orphaned wild animal is worth the time and effort it takes? Use evidence from the story to explain.",
+    "Explain how patience and responsibility both helped the lion cub recover."
+  ],
+  "struggling": "Pre-teach veterinary, patience, and responsibility with pictures or gestures, then let weak readers put sentence strips of the main events in order before writing.",
+  "gifted": "Challenge advanced readers to use orphan, nutrition, and instinct in a short paragraph that summarizes the key events in order and explain which step matters most."
+}

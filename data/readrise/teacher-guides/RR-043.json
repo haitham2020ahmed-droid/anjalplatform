@@ -1,0 +1,40 @@
+{
+  "code": "RR-043",
+  "summary": "This article explains how robot rovers drive across Mars, take orders from faraway Earth, find signs of ancient water, and help people prepare to visit the red planet one day.",
+  "strategy": "Vocabulary Building",
+  "introduce": "Write the key term “mission” on the board and give pairs thirty seconds to guess what it means. Share a few guesses, then tell students to find the word in “Exploring Mars with Robot Rovers” and check whether they were right.",
+  "keyTerms": [
+    {
+      "term": "mission",
+      "def": "a big planned job with a clear goal, often sent to a faraway place"
+    },
+    {
+      "term": "sample",
+      "def": "a small part of something that is taken to be studied"
+    },
+    {
+      "term": "evidence",
+      "def": "facts or signs that show something is true"
+    }
+  ],
+  "challengeTerms": [
+    {
+      "term": "autonomous",
+      "def": "able to act and make decisions without being controlled by someone"
+    },
+    {
+      "term": "instrument",
+      "def": "a tool used for careful scientific measuring or testing"
+    },
+    {
+      "term": "sediment",
+      "def": "sand, mud, or small bits that settle at the bottom of water"
+    }
+  ],
+  "discussion": [
+    "Do you agree or disagree that sending robots to explore Mars is better than sending people? Use evidence from the article to explain.",
+    "Explain why rovers need to make some decisions by themselves."
+  ],
+  "struggling": "Pre-teach mission, sample, and evidence with pictures or gestures, then let weak readers draw a quick picture for each term and use it in a short spoken sentence.",
+  "gifted": "Ask strong readers to read a challenging version and write a short paragraph that uses autonomous, instrument, and sediment to teach the class one of the terms with their own example."
+}

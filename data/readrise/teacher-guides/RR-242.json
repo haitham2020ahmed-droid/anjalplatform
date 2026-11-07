@@ -1,0 +1,40 @@
+{
+  "code": "RR-242",
+  "summary": "This article explains why our bodies make us yawn and hiccup, and what scientists think causes these strange, involuntary habits.",
+  "strategy": "Cause/Effect",
+  "introduce": "Draw a simple cause → effect arrow on the board and ask students for an everyday example, such as “I did not sleep, so I felt tired.” Tell them that while reading “Why We Yawn and Hiccup” they will find at least two cause-and-effect links.",
+  "keyTerms": [
+    {
+      "term": "contagious",
+      "def": "able to spread easily from one person to another"
+    },
+    {
+      "term": "spasm",
+      "def": "a sudden, uncontrolled tightening of a muscle"
+    },
+    {
+      "term": "trigger",
+      "def": "to cause something to start happening"
+    }
+  ],
+  "challengeTerms": [
+    {
+      "term": "involuntary",
+      "def": "happening automatically, without a person choosing or controlling it"
+    },
+    {
+      "term": "reflex",
+      "def": "an automatic action the body performs without conscious thought"
+    },
+    {
+      "term": "hypothesis",
+      "def": "an idea that a scientist proposes and then tests to see if it is correct"
+    }
+  ],
+  "discussion": [
+    "Do you agree or disagree that yawning and hiccups are just silly habits with no real purpose? Use evidence from the article to explain.",
+    "Explain how yawning and hiccups are alike and different."
+  ],
+  "struggling": "Pre-teach contagious, spasm, and trigger with pictures or gestures, then let weak readers match cause cards to effect cards from the article with a partner.",
+  "gifted": "Ask strong readers to read a challenging version and write a short paragraph that uses involuntary, reflex, and hypothesis to explain one important cause-and-effect chain from the article."
+}

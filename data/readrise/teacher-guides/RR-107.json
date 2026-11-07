@@ -1,0 +1,40 @@
+{
+  "code": "RR-107",
+  "summary": "This article explains why some objects float and others sink, how density and the upward push of water decide the result, and how ships, submarines, salty seas, and ice show this science at work.",
+  "strategy": "Cause/Effect",
+  "introduce": "Draw a simple cause → effect arrow on the board and ask students for an everyday example, such as “I did not sleep, so I felt tired.” Tell them that while reading “Floating and Sinking” they will find at least two cause-and-effect links.",
+  "keyTerms": [
+    {
+      "term": "density",
+      "def": "how much matter is packed into a certain space"
+    },
+    {
+      "term": "buoyancy",
+      "def": "the upward push that a liquid gives to something in it"
+    },
+    {
+      "term": "displace",
+      "def": "to push something out of its place"
+    }
+  ],
+  "challengeTerms": [
+    {
+      "term": "displacement",
+      "def": "the act of pushing something, such as water, out of its place"
+    },
+    {
+      "term": "principle",
+      "def": "a basic rule or law that explains how something works"
+    },
+    {
+      "term": "hull",
+      "def": "the main body of a ship, including the bottom and sides"
+    }
+  ],
+  "discussion": [
+    "Do you agree or disagree that heavy things always sink in water? Use evidence from the article to explain.",
+    "Explain how a heavy steel ship can float."
+  ],
+  "struggling": "Pre-teach density, buoyancy, and displace with pictures or gestures, then let weak readers match cause cards to effect cards from the article with a partner.",
+  "gifted": "Ask strong readers to read a challenging version and write a short paragraph that uses displacement, principle, and hull to explain one important cause-and-effect chain from the article."
+}

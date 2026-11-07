@@ -1,0 +1,40 @@
+{
+  "code": "RR-017",
+  "summary": "This article explains how matter exists as solids, liquids and gases, why tiny particles make each state behave differently, and how heating and cooling change one state into another.",
+  "strategy": "Compare/Contrast",
+  "introduce": "Write “Alike” and “Different” at the top of a T-chart on the board and ask students to compare two school subjects in one minute. Explain that “Solids, Liquids and Gases” asks them to make the same kind of comparison.",
+  "keyTerms": [
+    {
+      "term": "particle",
+      "def": "a very tiny piece of something"
+    },
+    {
+      "term": "vibrate",
+      "def": "to shake quickly back and forth in a small space"
+    },
+    {
+      "term": "container",
+      "def": "something that holds things inside it, like a box, jar, or bottle"
+    }
+  ],
+  "challengeTerms": [
+    {
+      "term": "volume",
+      "def": "the amount of space that something takes up"
+    },
+    {
+      "term": "expand",
+      "def": "to become larger or spread out to take up more space"
+    },
+    {
+      "term": "desalination",
+      "def": "the process of removing salt from seawater to make fresh water"
+    }
+  ],
+  "discussion": [
+    "Do you agree or disagree that heating and cooling are the most important ways to change matter? Use evidence from the article to explain.",
+    "Explain what happens to the particles of water as ice melts and then boils."
+  ],
+  "struggling": "Pre-teach particle, vibrate, and container with pictures or gestures, then let weak readers fill in a T-chart of alike and different with sentence starters.",
+  "gifted": "Ask strong readers to read a challenging version and write a short paragraph that uses volume, expand, and desalination to compare two ideas from the article and explain which difference matters most."
+}

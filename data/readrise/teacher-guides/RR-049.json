@@ -1,0 +1,40 @@
+{
+  "code": "RR-049",
+  "summary": "This article explains what the Sun is made of, how fusion in its core makes light and heat, what sunspots and auroras are, and how people use solar energy.",
+  "strategy": "Vocabulary Building",
+  "introduce": "Write the key term “core” on the board and give pairs thirty seconds to guess what it means. Share a few guesses, then tell students to find the word in “Our Sun: A Star Up Close” and check whether they were right.",
+  "keyTerms": [
+    {
+      "term": "core",
+      "def": "the center part of something"
+    },
+    {
+      "term": "fusion",
+      "def": "the joining of two or more things into one; in stars, tiny particles join and give off energy"
+    },
+    {
+      "term": "hydrogen",
+      "def": "the lightest gas; it is the main material that stars are made of"
+    }
+  ],
+  "challengeTerms": [
+    {
+      "term": "photosphere",
+      "def": "the bright, visible surface layer of the Sun"
+    },
+    {
+      "term": "radiation",
+      "def": "energy that travels outward as waves or tiny particles, such as light and heat"
+    },
+    {
+      "term": "aurora",
+      "def": "colorful, glowing lights that sometimes appear in the night sky near the North or South Pole"
+    }
+  ],
+  "discussion": [
+    "Do you agree or disagree that the Sun is the most important object in our sky? Use evidence from the article to explain.",
+    "Explain how the Sun makes its energy and how that energy reaches Earth."
+  ],
+  "struggling": "Read the first part of the article aloud together, review core, fusion, and hydrogen, and let weak readers draw a quick picture for each term and use it in a short spoken sentence.",
+  "gifted": "Ask strong readers to read a challenging version and write a short paragraph that uses photosphere, radiation, and aurora to teach the class one of the terms with their own example."
+}

@@ -19,6 +19,7 @@ import { RR_SKILLS } from "./import";
 import { goalDates, readRisePlaced, weekLabel, weekStart as engineWeekStart } from "./engine";
 import { questionKeys } from "./question-key";
 import { standardOfSkill } from "./growth-words";
+import { RR_FLOOR } from "./level";
 import { articleRuns, baseBand, countedTries, goalRuns, isUnreliableRun, keyRowsLookup, rapidRead, scoredRun, stretchRuns, tallyAnswers, tallyBy, tallyRuns } from "./first-try";
 
 const s = (v: unknown) => String(v ?? "");
@@ -204,19 +205,24 @@ export interface ClassReport {
   students: StudentReportRow[];
   summary: { students: number; placed: number; notPlaced: number; medianLevel: number | null; avgGrowth: number | null; inactive: number; belowBand: number; writingToScore: number; notReading: number; belowGoal: number; missedGoal2w: number };
   history: { weeks: string[]; series: { studentId: string; name: string; points: (number | null)[] }[]; median: (number | null)[] };
-  distribution: { from: number; to: number; count: number; inBand: boolean }[];
+  /** label: "BR" (below 0) · "0" … "1500" · "1600+" */
+  distribution: { from: number; to: number; count: number; inBand: boolean; label: string }[];
 }
 
 // 🐛 fix (audit finding, Oct 2026): was 13 buckets ending "1400+", one catch-all bin for everything at or above
-// 1400 — harmless before (nothing could measure above 1400), but it would have hidden the very distinction this
-// session's placement fix exists to show: two more buckets give the new 1500/1600 levels (level.ts) their own bars.
-export const HIST_BUCKETS = Array.from({ length: 15 }, (_, i) => 200 + i * 100); // 200–299 … 1600+
+// 1400 — two more buckets give the 1500/1600 levels (level.ts) their own bars.
+// Round 6 (owner: levels below 300, shown "BR…L"): the first bucket is "BR" (every level below 0, down to RR_FLOOR),
+// then 0–99, 100–199, 200–299 … 1500–1599 and "1600+" — a level under 300 is no longer hidden in the 200s bar.
+export const HIST_BUCKETS = [RR_FLOOR, ...Array.from({ length: 17 }, (_, i) => i * 100)]; // BR, 0–99 … 1600+
+
+/** A histogram bucket's short label: "BR" (below 0), "0", "100" … "1600+". */
+export const bucketLabel = (from: number, i: number, n = HIST_BUCKETS.length): string => (i === 0 && from < 0 ? "BR" : i === n - 1 ? `${from}+` : String(from));
 
 export function histogram(levels: number[], band?: { low: number; high: number }): ClassReport["distribution"] {
   return HIST_BUCKETS.map((from, i) => {
-    const to = i === HIST_BUCKETS.length - 1 ? 9999 : from + 99;
+    const to = i === HIST_BUCKETS.length - 1 ? 9999 : i === 0 ? HIST_BUCKETS[1] - 1 : from + 99;
     const count = levels.filter((l) => (i === 0 ? l <= to : l >= from && l <= to)).length;
-    return { from, to, count, inBand: !!band && to >= band.low && from <= band.high };
+    return { from, to, count, inBand: !!band && to >= band.low && from <= band.high, label: bucketLabel(from, i) };
   });
 }
 

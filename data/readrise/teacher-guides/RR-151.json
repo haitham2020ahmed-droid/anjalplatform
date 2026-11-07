@@ -1,0 +1,40 @@
+{
+  "code": "RR-151",
+  "summary": "This article explains how rubbing moves tiny charged bits called electrons, why charged things pull or push, why dry air brings more shocks, and how lightning is a giant spark.",
+  "strategy": "Vocabulary Building",
+  "introduce": "Write the key term “atom” on the board and give pairs thirty seconds to guess what it means. Share a few guesses, then tell students to find the word in “Static Electricity: Sparks All Around” and check whether they were right.",
+  "keyTerms": [
+    {
+      "term": "atom",
+      "def": "one of the tiny pieces that everything is made of"
+    },
+    {
+      "term": "electron",
+      "def": "a very small part of an atom that has a negative charge"
+    },
+    {
+      "term": "attract",
+      "def": "to pull something closer"
+    }
+  ],
+  "challengeTerms": [
+    {
+      "term": "proton",
+      "def": "a tiny particle in the center of an atom that has a positive charge"
+    },
+    {
+      "term": "neutral",
+      "def": "not positive or negative; balanced"
+    },
+    {
+      "term": "humidity",
+      "def": "the amount of water vapor in the air"
+    }
+  ],
+  "discussion": [
+    "Do you agree or disagree that static electricity is more useful than it is annoying? Use evidence from the article to explain.",
+    "Explain why a rubbed balloon sticks to a wall but two rubbed hairs push apart."
+  ],
+  "struggling": "Pre-teach atom, electron, and attract with pictures or gestures, then let weak readers draw a quick picture for each term and use it in a short spoken sentence.",
+  "gifted": "Ask strong readers to read a challenging version and write a short paragraph that uses proton, neutral, and humidity to teach the class one of the terms with their own example."
+}

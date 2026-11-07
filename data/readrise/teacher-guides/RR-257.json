@@ -1,0 +1,40 @@
+{
+  "code": "RR-257",
+  "summary": "This article explains how Grace Hopper, a math teacher who joined the Navy, helped build early computers, created tools that let people write programs in plain words, and gave computer science the word \"bug.\"",
+  "strategy": "Author's Purpose",
+  "introduce": "Write Inform, Persuade, and Entertain on the board and give a one-line example of each. Tell students to decide, while reading “Grace Hopper: Pioneer of Computer Programming”, which purpose the writer had and to find one sentence that proves it.",
+  "keyTerms": [
+    {
+      "term": "mathematics",
+      "def": "the study of numbers, shapes, and amounts"
+    },
+    {
+      "term": "professor",
+      "def": "a teacher who works at a college or university"
+    },
+    {
+      "term": "compiler",
+      "def": "a tool that changes written instructions into a form a computer can run"
+    }
+  ],
+  "challengeTerms": [
+    {
+      "term": "electromechanical",
+      "def": "powered by a mix of electricity and moving mechanical parts"
+    },
+    {
+      "term": "innovation",
+      "def": "a new idea, method, or tool that changes how something is done"
+    },
+    {
+      "term": "mechanical",
+      "def": "having to do with machines and their moving parts"
+    }
+  ],
+  "discussion": [
+    "Do you agree or disagree that finding and fixing mistakes is just as important as writing new code? Use evidence from the article to explain.",
+    "Explain how Grace Hopper's compiler changed the way people could write computer programs."
+  ],
+  "struggling": "Read the first part of the article aloud together, review mathematics, professor, and compiler, and let weak readers underline sentences that inform and circle any that persuade.",
+  "gifted": "Ask strong readers to read a challenging version and write a short paragraph that uses electromechanical, innovation, and mechanical to explain the writer's purpose and how the details support it."
+}

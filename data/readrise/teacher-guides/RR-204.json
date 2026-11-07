@@ -1,0 +1,40 @@
+{
+  "code": "RR-204",
+  "summary": "This article explains why the sun's uneven heating of land and sea creates monsoon winds that reverse with the seasons, bringing a wet season and a dry season, and how people prepare for them.",
+  "strategy": "Cause/Effect",
+  "introduce": "Draw a simple cause → effect arrow on the board and ask students for an everyday example, such as “I did not sleep, so I felt tired.” Tell them that while reading “Monsoon Winds and Seasonal Rain” they will find at least two cause-and-effect links.",
+  "keyTerms": [
+    {
+      "term": "monsoon",
+      "def": "a seasonal wind that reverses direction and brings a wet season and a dry season"
+    },
+    {
+      "term": "moisture",
+      "def": "a small amount of water present in the air or in something"
+    },
+    {
+      "term": "reverse",
+      "def": "to turn around and go the opposite way"
+    }
+  ],
+  "challengeTerms": [
+    {
+      "term": "meteorologist",
+      "def": "a scientist who studies weather and tries to predict it"
+    },
+    {
+      "term": "precipitation",
+      "def": "water that falls from the sky as rain, hail, or snow"
+    },
+    {
+      "term": "differential",
+      "def": "showing or based on a difference between two things"
+    }
+  ],
+  "discussion": [
+    "Do you agree or disagree that preparing for a strong monsoon season matters more than trying to guess exactly when the rain will arrive? Use evidence from the article to explain.",
+    "Explain how a monsoon forms, from the sun heating the land to the wind reversing with the seasons."
+  ],
+  "struggling": "Read the first part of the article aloud together, review monsoon, moisture, and reverse, and let weak readers match cause cards to effect cards from the article with a partner.",
+  "gifted": "Challenge advanced readers to use meteorologist, precipitation, and differential in a short paragraph that explains one important cause-and-effect chain from the article."
+}

@@ -7,7 +7,7 @@
  * scale — never called a Lexile.
  */
 import { RR_SKILLS } from "./import";
-import { RR_MAX, RR_MIN } from "./level";
+import { RR_FLOOR, RR_MAX } from "./level";
 import { normalisedSkill, tallyAnswers, type QuestionsOf, type TallyQuestion } from "./first-try";
 import { ENGINE, PROJECTION_MIN_DAYS, PROJECTION_MIN_RUNS, projectLevel, weekStart, type LevelPoint } from "./engine";
 
@@ -164,7 +164,7 @@ export function projectionRange(points: LevelPoint[], readingTimes: number[], no
   if (at.length < PROJECTION_MIN_RUNS || at[at.length - 1] - at[0] < PROJECTION_MIN_DAYS * DAY) return null;
   const p = projectLevel(points, now, yearEnd);
   if (p === null) return null;
-  const mid = Math.min(RR_MAX, Math.max(RR_MIN, p));
+  const mid = Math.min(RR_MAX, Math.max(RR_FLOOR, p)); // round 6: a level may be below 300 (BR)
   // slope standard error from the same weekly samples projectLevel uses
   const xs: number[] = [], ys: number[] = [];
   for (let w = 8; w >= 0; w--) {
@@ -180,7 +180,7 @@ export function projectionRange(points: LevelPoint[], readingTimes: number[], no
   const se = n > 2 && sxx ? Math.sqrt(sse / (n - 2) / sxx) : 0;
   const weeksLeft = Math.max(0, (yearEnd.getTime() - now.getTime()) / WEEK);
   const half = Math.min(400, Math.max(50, round10(1.96 * se * weeksLeft + (50 + 250 / Math.sqrt(at.length)) * Math.min(1, weeksLeft / 20))));
-  const low = Math.max(RR_MIN, round10(mid - half)), high = Math.min(RR_MAX, round10(mid + half));
+  const low = Math.max(RR_FLOOR, round10(mid - half)), high = Math.min(RR_MAX, round10(mid + half));
   return { mid, low: Math.min(low, mid), high: Math.max(high, mid), confidence: half <= 100 ? "HIGH" : half <= 200 ? "MEDIUM" : "LOW", weeksLeft: Math.round(weeksLeft), readings: at.length };
 }
 

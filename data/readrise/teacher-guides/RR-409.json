@@ -1,0 +1,40 @@
+{
+  "code": "RR-409",
+  "summary": "In this story, a family's new helper robot is just called Unit 7 until the youngest child insists it deserves a real name, and picking one together based on its quirks makes it feel like part of the family.",
+  "strategy": "Sequence",
+  "introduce": "Write First, Next, Then, and Finally on the board and ask a volunteer to use them to describe how they get ready for school. Tell students to watch for the order of events as they read “The Robot Who Wanted a Name”.",
+  "keyTerms": [
+    {
+      "term": "personality",
+      "def": "the set of traits that make someone, or something, feel unique"
+    },
+    {
+      "term": "quirk",
+      "def": "a small, unusual habit or detail"
+    },
+    {
+      "term": "suggest",
+      "def": "to offer an idea for someone to consider"
+    }
+  ],
+  "challengeTerms": [
+    {
+      "term": "trait",
+      "def": "a particular quality or characteristic that someone, or something, has"
+    },
+    {
+      "term": "deliberate",
+      "def": "to think about and discuss something carefully before deciding"
+    },
+    {
+      "term": "unanimous",
+      "def": "agreed on by everyone, with no one disagreeing"
+    }
+  ],
+  "discussion": [
+    "Do you agree or disagree that a name can make something feel like part of a family? Use evidence from the story to explain.",
+    "Explain how Unit 7 went from being just 'a number' to feeling like part of the family."
+  ],
+  "struggling": "Read the first part of the story aloud together, review personality, quirk, and suggest, and let weak readers put sentence strips of the main events in order before writing.",
+  "gifted": "Ask strong readers to read a challenging version and write a short paragraph that uses trait, deliberate, and unanimous to summarize the key events in order and explain which step matters most."
+}

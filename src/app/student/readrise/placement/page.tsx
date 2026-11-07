@@ -24,7 +24,7 @@ export default async function ReadRisePlacementPage() {
         <ReadRiseIcon size={48} />
         <div>
           <h1 className="text-3xl font-bold tracking-tight text-brand-navy">{t("Find my ReadRise Level")}</h1>
-          <p className="text-slate-600">{t("Short passages, 3 questions each. They get easier or harder as you go.")}</p>
+          <p className="text-slate-600">{t("Short passages, 3 questions each (about 40 questions, about 30 minutes). They get easier or harder as you go.")}</p>
         </div>
       </header>
       <div className="mx-auto mt-5 max-w-3xl">

@@ -1,0 +1,40 @@
+{
+  "code": "RR-140",
+  "summary": "This article explains how the thirteenth-century physician Ibn al-Nafis challenged an old idea about the heart and was the first to describe how blood travels from the heart to the lungs and back.",
+  "strategy": "Problem/Solution",
+  "introduce": "Ask students to share a small problem they solved this week and how they solved it, and write two examples in a Problem | Solution chart on the board. Tell them that “Ibn al-Nafis and the Heart” also has a problem and a solution to find.",
+  "keyTerms": [
+    {
+      "term": "chamber",
+      "def": "a closed space or room, such as one of the four spaces inside the heart"
+    },
+    {
+      "term": "physician",
+      "def": "a medical doctor"
+    },
+    {
+      "term": "oxygen",
+      "def": "a gas in the air that living things need to stay alive"
+    }
+  ],
+  "challengeTerms": [
+    {
+      "term": "pulmonary",
+      "def": "having to do with the lungs"
+    },
+    {
+      "term": "ventricle",
+      "def": "one of the two lower chambers of the heart that pump blood out"
+    },
+    {
+      "term": "septum",
+      "def": "a wall that divides two spaces in the body, such as the two sides of the heart"
+    }
+  ],
+  "discussion": [
+    "Do you agree or disagree that a scientist should question an idea even when famous experts believe it? Use evidence from the article to explain.",
+    "Explain why Ibn al-Nafis disagreed with Galen. What evidence did he use, and what did he say happens instead?"
+  ],
+  "struggling": "Read the first part of the article aloud together, review chamber, physician, and oxygen, and let weak readers fill in a simple Problem | Solution chart with sentence starters.",
+  "gifted": "Challenge advanced readers to use pulmonary, ventricle, and septum in a short paragraph that suggests a second solution to the problem and judge which works better."
+}

@@ -1,0 +1,40 @@
+{
+  "code": "RR-014",
+  "summary": "This article explains how a plastic bottle is made from oil, where it goes after use, why plastic lasts so long, and how reducing, reusing, and recycling help.",
+  "strategy": "Problem/Solution",
+  "introduce": "Ask students to share a small problem they solved this week and how they solved it, and write two examples in a Problem | Solution chart on the board. Tell them that “The Journey of a Plastic Bottle” also has a problem and a solution to find.",
+  "keyTerms": [
+    {
+      "term": "pellet",
+      "def": "a small, hard ball or bead of a material"
+    },
+    {
+      "term": "landfill",
+      "def": "a large area where trash is buried under the ground"
+    },
+    {
+      "term": "decompose",
+      "def": "to slowly break down into tiny parts, as dead plants do"
+    }
+  ],
+  "challengeTerms": [
+    {
+      "term": "petroleum",
+      "def": "oil that is found underground and used to make fuel and many materials"
+    },
+    {
+      "term": "polymer",
+      "def": "a material made of very long chains of small, repeating molecules"
+    },
+    {
+      "term": "durable",
+      "def": "able to last a long time without breaking or wearing out"
+    }
+  ],
+  "discussion": [
+    "Do you agree or disagree that recycling is the best way to solve the problem of plastic waste? Use evidence from the article to explain.",
+    "Explain why plastic bottles can be a problem for the environment."
+  ],
+  "struggling": "Read the first part of the article aloud together, review pellet, landfill, and decompose, and let weak readers fill in a simple Problem | Solution chart with sentence starters.",
+  "gifted": "Challenge advanced readers to use petroleum, polymer, and durable in a short paragraph that suggests a second solution to the problem and judge which works better."
+}

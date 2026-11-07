@@ -1,0 +1,40 @@
+{
+  "code": "RR-096",
+  "summary": "This article explains how living things such as fireflies, deep-sea fish, squid, and plankton make their own cold light, and how they use it to send signals, catch prey, hide, and escape.",
+  "strategy": "Vocabulary Building",
+  "introduce": "Write the key term “bioluminescence” on the board and give pairs thirty seconds to guess what it means. Share a few guesses, then tell students to find the word in “Bioluminescence: Living Lights” and check whether they were right.",
+  "keyTerms": [
+    {
+      "term": "bioluminescence",
+      "def": "light that is made by a living thing"
+    },
+    {
+      "term": "reaction",
+      "def": "a change that happens when two or more things mix or act on each other"
+    },
+    {
+      "term": "predator",
+      "def": "an animal that hunts and eats other animals"
+    }
+  ],
+  "challengeTerms": [
+    {
+      "term": "luciferin",
+      "def": "a chemical in some living things that gives off light when it joins with oxygen"
+    },
+    {
+      "term": "enzyme",
+      "def": "a substance made by living things that speeds up a chemical change"
+    },
+    {
+      "term": "counterillumination",
+      "def": "a way of hiding by glowing to match the light behind you"
+    }
+  ],
+  "discussion": [
+    "Do you agree or disagree that making light is one of the most useful skills an animal can have? Use evidence from the article to explain.",
+    "Explain how bioluminescence helps animals in the deep sea survive."
+  ],
+  "struggling": "Pre-teach bioluminescence, reaction, and predator with pictures or gestures, then let weak readers draw a quick picture for each term and use it in a short spoken sentence.",
+  "gifted": "Ask strong readers to read a challenging version and write a short paragraph that uses luciferin, enzyme, and counterillumination to teach the class one of the terms with their own example."
+}

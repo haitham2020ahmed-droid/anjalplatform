@@ -1,0 +1,40 @@
+{
+  "code": "RR-412",
+  "summary": "In this story, a curious girl and the community center's engineer track down a strange, steady hum behind a locked door and discover a tired old water-filtration machine that just needs one worn part replaced.",
+  "strategy": "Making Inferences",
+  "introduce": "Show the title “The Mystery of the Humming Machine” and ask, “What do you think will happen in this story, and why?” Explain that good readers use clues in the text together with what they already know to make inferences.",
+  "keyTerms": [
+    {
+      "term": "engineer",
+      "def": "a person trained to design, build, or fix machines and buildings"
+    },
+    {
+      "term": "machine",
+      "def": "a tool with moving or working parts that does a job using power"
+    },
+    {
+      "term": "filter",
+      "def": "to clean a liquid or gas by removing unwanted material from it"
+    }
+  ],
+  "challengeTerms": [
+    {
+      "term": "component",
+      "def": "one of the separate parts that make up a larger machine or system"
+    },
+    {
+      "term": "bearing",
+      "def": "a part that lets another part turn or slide smoothly, reducing friction"
+    },
+    {
+      "term": "persistent",
+      "def": "continuing to happen or exist without stopping"
+    }
+  ],
+  "discussion": [
+    "Do you agree or disagree that a strange sound usually has a plain, ordinary explanation once someone looks closely? Use evidence from the story to explain.",
+    "Why was Noor's mystery not something scary after all?"
+  ],
+  "struggling": "Pre-teach engineer, machine, and filter with pictures or gestures, then let weak readers answer “What clue tells you that?” questions using sentence starters.",
+  "gifted": "Ask strong readers to read a challenging version and write a short paragraph that uses component, bearing, and persistent to make an inference that the story does not state and support it with two clues."
+}

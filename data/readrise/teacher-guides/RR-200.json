@@ -1,0 +1,40 @@
+{
+  "code": "RR-200",
+  "summary": "This article explains what archery is, how a bow, arrows, and target work, the steps of a good shot, and why focus and safety matter.",
+  "strategy": "Sequence",
+  "introduce": "Give pairs four mixed-up steps of a simple task, such as making tea, and ask them to put the steps in order. Explain that “Archery: Aim and Focus” also follows an order, and good readers notice signal words like first, after, and finally.",
+  "keyTerms": [
+    {
+      "term": "archer",
+      "def": "a person who shoots arrows with a bow"
+    },
+    {
+      "term": "target",
+      "def": "the thing you try to hit when you shoot or throw"
+    },
+    {
+      "term": "anchor",
+      "def": "in archery, the same spot on the face where the hand stops before each shot"
+    }
+  ],
+  "challengeTerms": [
+    {
+      "term": "fletching",
+      "def": "the feathers or fins at the back of an arrow that help it fly straight"
+    },
+    {
+      "term": "concentration",
+      "def": "the act of giving all your attention to one task"
+    },
+    {
+      "term": "release",
+      "def": "to let go of something"
+    }
+  ],
+  "discussion": [
+    "Do you agree or disagree that archery takes more skill than strength? Use evidence from the article to explain.",
+    "Describe the steps an archer follows for each shot and explain why focus matters."
+  ],
+  "struggling": "Read the first part of the article aloud together, review archer, target, and anchor, and let weak readers put sentence strips of the main events in order before writing.",
+  "gifted": "Ask strong readers to read a challenging version and write a short paragraph that uses fletching, concentration, and release to summarize the key events in order and explain which step matters most."
+}

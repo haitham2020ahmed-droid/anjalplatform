@@ -1,0 +1,40 @@
+{
+  "code": "RR-235",
+  "summary": "The solar system is organized around the Sun, with four small rocky planets, a belt of asteroids, and four giant gas planets spread across a vast distance.",
+  "strategy": "Vocabulary Building",
+  "introduce": "Show the three key terms on the board and ask students to rate each one: “I know it,” “I have seen it,” or “It is new.” Tell them to watch for these words in “The Solar System: A Family of Planets” and use clues around them to understand their meaning.",
+  "keyTerms": [
+    {
+      "term": "terrestrial",
+      "def": "like Earth; having a solid, rocky surface rather than being made of gas"
+    },
+    {
+      "term": "asteroid",
+      "def": "a small, rocky object that orbits the Sun, smaller than a planet"
+    },
+    {
+      "term": "gravity",
+      "def": "the force that pulls objects toward each other"
+    }
+  ],
+  "challengeTerms": [
+    {
+      "term": "elliptical",
+      "def": "shaped like a slightly flattened circle, or oval"
+    },
+    {
+      "term": "composition",
+      "def": "the different parts or materials that make up something"
+    },
+    {
+      "term": "dominate",
+      "def": "to be the largest, strongest, or most important part of something"
+    }
+  ],
+  "discussion": [
+    "Do you agree or disagree that the Sun is the most important part of the solar system? Use evidence from the article to explain.",
+    "Explain how the asteroid belt divides the solar system into two groups of planets."
+  ],
+  "struggling": "Read the first part of the article aloud together, review terrestrial, asteroid, and gravity, and let weak readers draw a quick picture for each term and use it in a short spoken sentence.",
+  "gifted": "Challenge advanced readers to use elliptical, composition, and dominate in a short paragraph that teaches the class one of the terms with their own example."
+}

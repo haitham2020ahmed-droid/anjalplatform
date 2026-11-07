@@ -7,6 +7,12 @@ const nextConfig: NextConfig = {
   output: "standalone",
   // PDF engine: loaded at runtime from node_modules, never bundled
   serverExternalPackages: ["playwright-core", "pdfjs-dist"],
+  // Round 6 (ReadRise like Achieve3000): files read from disk at run time — the placement passages (placement.json +
+  // placement-extra.json), the article files (seed / stretch loader) and the teacher guides — must ship in the standalone server
+  outputFileTracingIncludes: {
+    "/*": ["./data/readrise/**/*"],
+    "/**/*": ["./data/readrise/**/*"],
+  },
   // Phase 11: logo (≤ 1 MB) and roster files (≤ 3,000 rows) are sent through server actions
   // r71: Render Starter is 512 MB — don't preload every route's server modules at boot; load each on first request instead
   experimental: {

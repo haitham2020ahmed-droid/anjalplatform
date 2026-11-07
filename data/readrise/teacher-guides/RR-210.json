@@ -1,0 +1,40 @@
+{
+  "code": "RR-210",
+  "summary": "This article explains how a touchscreen senses a finger using tiny electric charges, how it differs from an older pressure-based screen, and how it senses many touches at once.",
+  "strategy": "Compare/Contrast",
+  "introduce": "Draw two overlapping circles on the board and quickly compare two familiar things, such as a cat and a dog, with the class. Tell students that while reading “How Touchscreens Work” they will look for ways things are alike and different.",
+  "keyTerms": [
+    {
+      "term": "electrode",
+      "def": "a thin wire or piece of metal that carries electricity in a device"
+    },
+    {
+      "term": "controller",
+      "def": "a small chip inside a device that manages and makes sense of what the device senses"
+    },
+    {
+      "term": "conductor",
+      "def": "a material that lets electricity pass through it easily"
+    }
+  ],
+  "challengeTerms": [
+    {
+      "term": "electrostatic",
+      "def": "relating to electric charges that are still or built up, rather than flowing as a current"
+    },
+    {
+      "term": "transparent",
+      "def": "allowing light to pass through so that objects behind it can be seen clearly"
+    },
+    {
+      "term": "calibrate",
+      "def": "to adjust a device carefully so that its readings stay accurate"
+    }
+  ],
+  "discussion": [
+    "Do you agree or disagree that touchscreens are easier to use than buttons? Use evidence from the article to explain.",
+    "Explain the difference between how a capacitive touchscreen and an older touchscreen sense a touch."
+  ],
+  "struggling": "Pre-teach electrode, controller, and conductor with pictures or gestures, then let weak readers fill in a T-chart of alike and different with sentence starters.",
+  "gifted": "Ask strong readers to read a challenging version and write a short paragraph that uses electrostatic, transparent, and calibrate to compare two ideas from the article and explain which difference matters most."
+}

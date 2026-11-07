@@ -1,0 +1,40 @@
+{
+  "code": "RR-164",
+  "summary": "This article explains what the Milky Way galaxy is, its spiral shape and black hole center, where our Sun sits in it, and why we see it as a band of light in dark skies.",
+  "strategy": "Vocabulary Building",
+  "introduce": "Write the key term “gravity” on the board and give pairs thirty seconds to guess what it means. Share a few guesses, then tell students to find the word in “Our Galaxy, the Milky Way” and check whether they were right.",
+  "keyTerms": [
+    {
+      "term": "gravity",
+      "def": "the force that pulls things toward each other"
+    },
+    {
+      "term": "orbit",
+      "def": "the curved path something takes as it travels around something else"
+    },
+    {
+      "term": "light-year",
+      "def": "the distance light travels in one year, used to measure space"
+    }
+  ],
+  "challengeTerms": [
+    {
+      "term": "supermassive",
+      "def": "extremely heavy, many millions of times heavier than the Sun"
+    },
+    {
+      "term": "light pollution",
+      "def": "too much artificial light at night that hides the stars"
+    },
+    {
+      "term": "estimate",
+      "def": "to make a careful guess about a number or amount"
+    }
+  ],
+  "discussion": [
+    "Do you agree or disagree that everyone should get the chance to see the Milky Way in a dark sky? Use evidence from the article to explain.",
+    "Explain where our Sun is located in the Milky Way and how it moves."
+  ],
+  "struggling": "Pre-teach gravity, orbit, and light-year with pictures or gestures, then let weak readers draw a quick picture for each term and use it in a short spoken sentence.",
+  "gifted": "Challenge advanced readers to use supermassive, light pollution, and estimate in a short paragraph that teaches the class one of the terms with their own example."
+}

@@ -41,7 +41,7 @@ import { tierRows } from "../src/server/tiers/views";
 import { moveStudent } from "../src/server/admin/users";
 import { rosterBackup } from "../src/server/admin/roster-clean";
 import { readRiseProjection } from "../src/server/readrise/engine";
-import { RR_MIN } from "../src/server/readrise/level";
+import { RR_FLOOR, RR_MAX } from "../src/server/readrise/level";
 import { demoDatabase } from "./helpers/db";
 
 const DAY = 86_400_000;
@@ -372,7 +372,8 @@ describe("Update 39A · readiness fixes", () => {
     assert.equal(await readRiseProjection(repo, [run(20), run(10), run(1)], falling, String(admin.schoolId), now), null, "3 runs: no projection yet");
     assert.equal(await readRiseProjection(repo, [run(5), run(4), run(3), run(1)], falling, String(admin.schoolId), now), null, "4 runs in 4 days: no projection yet");
     const p = await readRiseProjection(repo, [run(20), run(15), run(10), run(1)], falling, String(admin.schoolId), now);
-    assert.ok(p !== null && p >= RR_MIN, `on the ReadRise scale, never “about 200” (${p})`);
+    // round 6 (owner): a level below 300 is real now — the projection stays on the scale RR_FLOOR (BR400L) … RR_MAX
+    assert.ok(p !== null && p >= RR_FLOOR && p <= RR_MAX, `on the ReadRise scale (${p})`);
   });
 
   // ------------------------------------------------------------------ styles

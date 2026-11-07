@@ -1,0 +1,40 @@
+{
+  "code": "RR-437",
+  "summary": "In this story, a girl who is afraid of the deep end of the pool works with a patient swim instructor over several weeks, building confidence step by step until she swims a full lap on her own for the first time.",
+  "strategy": "Sequence",
+  "introduce": "Give pairs four mixed-up steps of a simple task, such as making tea, and ask them to put the steps in order. Explain that “The Swimming Lesson” also follows an order, and good readers notice signal words like first, after, and finally.",
+  "keyTerms": [
+    {
+      "term": "confidence",
+      "def": "a feeling of believing you can do something well"
+    },
+    {
+      "term": "patient",
+      "def": "able to stay calm while waiting or helping someone learn"
+    },
+    {
+      "term": "glide",
+      "def": "to move smoothly and easily through air or water"
+    }
+  ],
+  "challengeTerms": [
+    {
+      "term": "persistence",
+      "def": "the quality of continuing to try, even when something is difficult or progress is slow"
+    },
+    {
+      "term": "technique",
+      "def": "a particular way of doing a skilled activity, often learned through practice"
+    },
+    {
+      "term": "gradually",
+      "def": "happening slowly, over a period of time, rather than all at once"
+    }
+  ],
+  "discussion": [
+    "Do you agree or disagree that learning something hard is easier when you practice in small steps? Use evidence from the story to explain.",
+    "Explain how Lama built her confidence in the water over several weeks."
+  ],
+  "struggling": "Read the first part of the story aloud together, review confidence, patient, and glide, and let weak readers put sentence strips of the main events in order before writing.",
+  "gifted": "Ask strong readers to read a challenging version and write a short paragraph that uses persistence, technique, and gradually to summarize the key events in order and explain which step matters most."
+}

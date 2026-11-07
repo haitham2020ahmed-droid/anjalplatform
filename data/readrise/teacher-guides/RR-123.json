@@ -1,0 +1,40 @@
+{
+  "code": "RR-123",
+  "summary": "This article explains why rare, heavy rain in a dry desert can turn a dry wadi into a dangerous flash flood within minutes, how people stay safe, and how floodwater also brings life to the land.",
+  "strategy": "Problem/Solution",
+  "introduce": "Write “Problem” and “Solution” on the board and give pairs thirty seconds to think of a problem people face in daily life and one way to fix it. Explain that as they read “Rain in the Desert: Flash Floods”, they will look for the main problem and how it is solved.",
+  "keyTerms": [
+    {
+      "term": "runoff",
+      "def": "rain water that flows over the ground instead of soaking in"
+    },
+    {
+      "term": "absorb",
+      "def": "to take in or soak up a liquid"
+    },
+    {
+      "term": "sudden",
+      "def": "happening very quickly and without warning"
+    }
+  ],
+  "challengeTerms": [
+    {
+      "term": "arid",
+      "def": "very dry because there is little rain"
+    },
+    {
+      "term": "aquifer",
+      "def": "a layer of rock or sand underground that holds water"
+    },
+    {
+      "term": "precipitation",
+      "def": "water that falls from the sky, such as rain, snow, or hail"
+    }
+  ],
+  "discussion": [
+    "Do you agree or disagree that rain in the desert does more good than harm? Use evidence from the article to explain.",
+    "Explain, step by step, how a storm can turn a dry wadi into a flash flood."
+  ],
+  "struggling": "Read the first part of the article aloud together, review runoff, absorb, and sudden, and let weak readers fill in a simple Problem | Solution chart with sentence starters.",
+  "gifted": "Challenge advanced readers to use arid, aquifer, and precipitation in a short paragraph that suggests a second solution to the problem and judge which works better."
+}

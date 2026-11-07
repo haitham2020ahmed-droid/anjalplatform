@@ -13,7 +13,8 @@ import { AtAGlance } from "@/components/report-kit";
 import type { TFn } from "@/i18n";
 import type { ClassGrowth, StudentGrowthReport } from "@/server/readrise/growth-report";
 import { FIT_LABEL, skillLabel } from "@/server/readrise/growth-words";
-import { LevelHistogram, ScaledLineChart, day, fmt, levelRange, signed } from "@/app/admin/readrise/_components/ui";
+import { ScaledLineChart, day, fmt, levelRange, signed } from "@/app/admin/readrise/_components/ui";
+import { LevelBars } from "./data-center";
 
 const POSITION_TEXT = { BELOW: "Below the grade range", WITHIN: "Within the grade range", ABOVE: "Above the grade range" } as const;
 const FIT_STYLE = { EXACT: "bg-emerald-50 text-emerald-800 ring-emerald-200", STRETCH: "bg-indigo-50 text-indigo-800 ring-indigo-200", EASY: "bg-slate-100 text-slate-700 ring-slate-200" } as const;
@@ -147,7 +148,7 @@ export function ClassGrowthTab({ g, t, studentHref, assignHref }: { g: ClassGrow
       ]} />
       <div className="grid gap-6 xl:grid-cols-2">
         <Section title="Where the class is" icon="📊" hint={t("Expected range for Grade {g}: {lo}–{hi}.", { g: g.grade, lo: g.band.low, hi: g.band.high })}>
-          <LevelHistogram buckets={g.distribution} title={t("Students by ReadRise Level")} />
+          <LevelBars buckets={g.distribution} title={t("Students by ReadRise Level")} t={t} />
         </Section>
         <Section title="Not reading" icon="💤" hint={t("No reading started or finished for 2 weeks.")}>
           {g.notReading.length === 0 ? <p className="text-sm text-slate-600">{t("Everyone read in the last 2 weeks.")}</p> : (

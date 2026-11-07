@@ -1,0 +1,40 @@
+{
+  "code": "RR-075",
+  "summary": "This article explains how code gives a computer exact step-by-step instructions, and how beginners use blocks, loops, conditions, and debugging to build programs and solve problems.",
+  "strategy": "Problem/Solution",
+  "introduce": "Write “Problem” and “Solution” on the board and give pairs thirty seconds to think of a problem people face in daily life and one way to fix it. Explain that as they read “Learning to Code”, they will look for the main problem and how it is solved.",
+  "keyTerms": [
+    {
+      "term": "algorithm",
+      "def": "a set of steps that solves a problem"
+    },
+    {
+      "term": "sequence",
+      "def": "the order in which things happen"
+    },
+    {
+      "term": "condition",
+      "def": "an 'if' rule that decides what happens next"
+    }
+  ],
+  "challengeTerms": [
+    {
+      "term": "syntax",
+      "def": "the exact rules for how words and symbols must be written in a language"
+    },
+    {
+      "term": "logic",
+      "def": "a clear way of thinking where each step follows from the one before"
+    },
+    {
+      "term": "efficient",
+      "def": "doing a job well without wasting time or effort"
+    }
+  ],
+  "discussion": [
+    "Do you agree or disagree that every student should learn to code at school? Use evidence from the article to explain.",
+    "Write an algorithm for a simple game."
+  ],
+  "struggling": "Pre-teach algorithm, sequence, and condition with pictures or gestures, then let weak readers fill in a simple Problem | Solution chart with sentence starters.",
+  "gifted": "Challenge advanced readers to use syntax, logic, and efficient in a short paragraph that suggests a second solution to the problem and judge which works better."
+}

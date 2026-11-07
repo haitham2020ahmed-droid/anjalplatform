@@ -1,0 +1,40 @@
+{
+  "code": "RR-289",
+  "summary": "This article covers an overview of the many events in track and field, from sprints and distance races to hurdles, jumps, and throws, and the different skills each one demands.",
+  "strategy": "Compare/Contrast",
+  "introduce": "Draw two overlapping circles on the board and quickly compare two familiar things, such as a cat and a dog, with the class. Tell students that while reading “Track and Field: Running, Jumping, Throwing” they will look for ways things are alike and different.",
+  "keyTerms": [
+    {
+      "term": "distance",
+      "def": "how far something travels, or a long race"
+    },
+    {
+      "term": "relay",
+      "def": "a race in which team members take turns covering part of the distance"
+    },
+    {
+      "term": "hurdle",
+      "def": "a small barrier that a runner must jump over while racing"
+    }
+  ],
+  "challengeTerms": [
+    {
+      "term": "velocity",
+      "def": "the speed of something in a particular direction"
+    },
+    {
+      "term": "momentum",
+      "def": "the force a moving body has that keeps it moving"
+    },
+    {
+      "term": "trajectory",
+      "def": "the curved path an object follows through the air"
+    }
+  ],
+  "discussion": [
+    "Do you agree or disagree that it is better to specialize in one track and field event than to try many different ones? Use evidence from the article to explain.",
+    "Explain how the skills needed for a sprint are different from the skills needed for a throwing event like the shot put."
+  ],
+  "struggling": "Pre-teach distance, relay, and hurdle with pictures or gestures, then let weak readers fill in a T-chart of alike and different with sentence starters.",
+  "gifted": "Ask strong readers to read a challenging version and write a short paragraph that uses velocity, momentum, and trajectory to compare two ideas from the article and explain which difference matters most."
+}

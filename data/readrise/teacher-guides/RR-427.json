@@ -1,0 +1,40 @@
+{
+  "code": "RR-427",
+  "summary": "In this story, a young apprentice at the historical Samarkand observatory measures star positions night after night, and his careful, patient work helps catch an error in an important star catalog.",
+  "strategy": "Making Inferences",
+  "introduce": "Show the title “The Young Astronomer of Samarkand” and ask, “What do you think will happen in this story, and why?” Explain that good readers use clues in the text together with what they already know to make inferences.",
+  "keyTerms": [
+    {
+      "term": "astronomer",
+      "def": "a person who studies stars, planets, and the sky as a job"
+    },
+    {
+      "term": "instrument",
+      "def": "a tool built for a special purpose, such as measuring something"
+    },
+    {
+      "term": "position",
+      "def": "the exact place where something is located"
+    }
+  ],
+  "challengeTerms": [
+    {
+      "term": "observation",
+      "def": "the careful act of watching or measuring something to learn about it"
+    },
+    {
+      "term": "apprentice",
+      "def": "someone who learns a skilled job by working alongside an experienced person"
+    },
+    {
+      "term": "catalog",
+      "def": "an organized list or collection of information, such as star positions"
+    }
+  ],
+  "discussion": [
+    "Do you agree or disagree that checking your work carefully, over and over, is more important than working fast? Use evidence from the story to explain.",
+    "Explain how Tariq's patient, careful habits helped him catch the error in the star catalog."
+  ],
+  "struggling": "Read the first part of the story aloud together, review astronomer, instrument, and position, and let weak readers answer “What clue tells you that?” questions using sentence starters.",
+  "gifted": "Ask strong readers to read a challenging version and write a short paragraph that uses observation, apprentice, and catalog to make an inference that the story does not state and support it with two clues."
+}

@@ -1,0 +1,40 @@
+{
+  "code": "RR-155",
+  "summary": "This article explains where light comes from, how it travels, which materials let it through, and how shadows form and change during the day.",
+  "strategy": "Vocabulary Building",
+  "introduce": "Write the key term “source” on the board and give pairs thirty seconds to guess what it means. Share a few guesses, then tell students to find the word in “Light and Shadows” and check whether they were right.",
+  "keyTerms": [
+    {
+      "term": "source",
+      "def": "the place or thing something comes from"
+    },
+    {
+      "term": "reflect",
+      "def": "to bounce back light, heat, or sound"
+    },
+    {
+      "term": "transparent",
+      "def": "clear enough that light passes through and you can see through it"
+    }
+  ],
+  "challengeTerms": [
+    {
+      "term": "angle",
+      "def": "the direction from which something comes, measured by how steep or low it is"
+    },
+    {
+      "term": "sundial",
+      "def": "an instrument that shows the time using the shadow of a pointer"
+    },
+    {
+      "term": "translucent",
+      "def": "letting some light through but not clearly enough to see shapes well"
+    }
+  ],
+  "discussion": [
+    "Do you agree or disagree that shadows are more useful than most people think? Use evidence from the article to explain.",
+    "Explain why your shadow changes during one sunny day."
+  ],
+  "struggling": "Pre-teach source, reflect, and transparent with pictures or gestures, then let weak readers draw a quick picture for each term and use it in a short spoken sentence.",
+  "gifted": "Challenge advanced readers to use angle, sundial, and translucent in a short paragraph that teaches the class one of the terms with their own example."
+}

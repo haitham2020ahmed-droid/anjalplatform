@@ -1,0 +1,40 @@
+{
+  "code": "RR-176",
+  "summary": "This article explains how elevators use cables, a motor-driven wheel, and a counterweight (or oil and a piston) to move safely up and down, and why they made skyscrapers possible.",
+  "strategy": "Main Idea",
+  "introduce": "Read the title “How Elevators Work” aloud and ask each student to write one question they hope the article will answer. Collect a few questions, then explain that today they will find the one big idea that ties all the details together.",
+  "keyTerms": [
+    {
+      "term": "pulley",
+      "def": "a wheel with a rope or cable over it, used to lift heavy things"
+    },
+    {
+      "term": "counterweight",
+      "def": "a heavy weight that balances something on the other side"
+    },
+    {
+      "term": "balance",
+      "def": "to make two sides equal so that neither one falls"
+    }
+  ],
+  "challengeTerms": [
+    {
+      "term": "friction",
+      "def": "the force that makes it hard for one surface to slide over another"
+    },
+    {
+      "term": "traction",
+      "def": "the grip that lets something pull or move without slipping"
+    },
+    {
+      "term": "piston",
+      "def": "a part that slides inside a tube when pushed by pressure"
+    }
+  ],
+  "discussion": [
+    "Do you agree or disagree that the elevator is one of the most important inventions in cities? Use evidence from the article to explain.",
+    "Explain how a counterweight and a safety brake each help an elevator."
+  ],
+  "struggling": "Read the first part of the article aloud together, review pulley, counterweight, and balance, and let weak readers complete a main-idea-and-details web with a partner.",
+  "gifted": "Ask strong readers to read a challenging version and write a short paragraph that uses friction, traction, and piston to state the main idea of the article in their own words."
+}

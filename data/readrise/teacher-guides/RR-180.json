@@ -1,0 +1,40 @@
+{
+  "code": "RR-180",
+  "summary": "This article explains how smart farms use drip irrigation, soil sensors, greenhouses, hydroponics, and solar power to grow food in the desert with much less water.",
+  "strategy": "Main Idea",
+  "introduce": "Show the title “Smart Farms in the Desert” and give pairs one minute to predict, in one sentence, what the whole article is mostly about. Write three predictions on the board and tell students they will check which one is closest to the main idea after reading.",
+  "keyTerms": [
+    {
+      "term": "irrigation",
+      "def": "bringing water to crops through pipes or channels"
+    },
+    {
+      "term": "sensor",
+      "def": "a small tool that can tell when something changes, like heat or wetness"
+    },
+    {
+      "term": "data",
+      "def": "facts or numbers that are collected and used to learn something"
+    }
+  ],
+  "challengeTerms": [
+    {
+      "term": "cultivate",
+      "def": "to grow and care for plants or crops"
+    },
+    {
+      "term": "evaporation",
+      "def": "the change of a liquid into a gas, such as water drying into the air"
+    },
+    {
+      "term": "nutrients",
+      "def": "substances that living things need to grow and stay healthy"
+    }
+  ],
+  "discussion": [
+    "Do you agree or disagree that technology is the best way to grow more food in the desert? Use evidence from the article to explain.",
+    "Choose two technologies from the article and explain how each one helps a desert farm save water or grow more food."
+  ],
+  "struggling": "Read the first part of the article aloud together, review irrigation, sensor, and data, and let weak readers complete a main-idea-and-details web with a partner.",
+  "gifted": "Ask strong readers to read a challenging version and write a short paragraph that uses cultivate, evaporation, and nutrients to state the main idea of the article in their own words."
+}

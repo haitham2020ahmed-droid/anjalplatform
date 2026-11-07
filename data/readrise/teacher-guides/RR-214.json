@@ -1,0 +1,40 @@
+{
+  "code": "RR-214",
+  "summary": "This article explains how a virtual reality headset tricks your eyes into seeing a new world, and how doctors, pilots, and students use VR to learn and train.",
+  "strategy": "Main Idea",
+  "introduce": "Show the title “Virtual Reality: A New Way to See” and give pairs one minute to predict, in one sentence, what the whole article is mostly about. Write three predictions on the board and tell students they will check which one is closest to the main idea after reading.",
+  "keyTerms": [
+    {
+      "term": "sensor",
+      "def": "a device that notices things like movement, light, or heat"
+    },
+    {
+      "term": "realistic",
+      "def": "looking or feeling very much like real life"
+    },
+    {
+      "term": "architect",
+      "def": "a person who designs buildings"
+    }
+  ],
+  "challengeTerms": [
+    {
+      "term": "immersive",
+      "def": "making you feel completely surrounded by and part of an experience"
+    },
+    {
+      "term": "phobia",
+      "def": "a strong, often unreasonable fear of something"
+    },
+    {
+      "term": "haptic",
+      "def": "related to the sense of touch, especially using vibration or pressure"
+    }
+  ],
+  "discussion": [
+    "Do you agree or disagree that virtual reality is more useful for learning than it is for fun? Use evidence from the article to explain.",
+    "Explain how a VR headset tricks your eyes and describe two ways people use VR to learn or train."
+  ],
+  "struggling": "Pre-teach sensor, realistic, and architect with pictures or gestures, then let weak readers complete a main-idea-and-details web with a partner.",
+  "gifted": "Ask strong readers to read a challenging version and write a short paragraph that uses immersive, phobia, and haptic to state the main idea of the article in their own words."
+}

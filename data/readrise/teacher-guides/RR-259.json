@@ -1,0 +1,40 @@
+{
+  "code": "RR-259",
+  "summary": "This article explains how the physicist Chien-Shiung Wu designed an extremely precise experiment that proved a long-trusted rule of physics, called parity, could be broken.",
+  "strategy": "Author's Purpose",
+  "introduce": "Write Inform, Persuade, and Entertain on the board and give a one-line example of each. Tell students to decide, while reading “Chien-Shiung Wu: The First Lady of Physics”, which purpose the writer had and to find one sentence that proves it.",
+  "keyTerms": [
+    {
+      "term": "physicist",
+      "def": "a scientist who studies matter, energy, and the forces of the universe"
+    },
+    {
+      "term": "theory",
+      "def": "a carefully reasoned explanation of how or why something happens, based on evidence"
+    },
+    {
+      "term": "symmetry",
+      "def": "when two sides or parts of something match each other exactly"
+    }
+  ],
+  "challengeTerms": [
+    {
+      "term": "parity",
+      "def": "the physics principle that a system should behave the same way whether observed directly or as its mirror image"
+    },
+    {
+      "term": "subatomic",
+      "def": "smaller than an atom, such as a particle inside an atom's nucleus"
+    },
+    {
+      "term": "conservation",
+      "def": "in physics, the principle that a certain quantity stays the same during a process"
+    }
+  ],
+  "discussion": [
+    "Do you agree or disagree that the person who proves an idea with a careful experiment deserves as much credit as the person who first thought of the idea? Use evidence from the article to explain.",
+    "Compare what the rule of parity predicted with what Wu's experiment actually showed."
+  ],
+  "struggling": "Pre-teach physicist, theory, and symmetry with pictures or gestures, then let weak readers underline sentences that inform and circle any that persuade.",
+  "gifted": "Challenge advanced readers to use parity, subatomic, and conservation in a short paragraph that explains the writer's purpose and how the details support it."
+}

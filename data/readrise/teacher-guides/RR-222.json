@@ -1,0 +1,40 @@
+{
+  "code": "RR-222",
+  "summary": "This article explains how people moved from simple tally marks to Roman numerals and finally to the ten digits we use today, with Arab scholars helping carry this number system to Europe.",
+  "strategy": "Sequence",
+  "introduce": "Give pairs four mixed-up steps of a simple task, such as making tea, and ask them to put the steps in order. Explain that “The History of Numbers: From Tally Marks to Digits” also follows an order, and good readers notice signal words like first, after, and finally.",
+  "keyTerms": [
+    {
+      "term": "represent",
+      "def": "to stand for or show something else"
+    },
+    {
+      "term": "merchant",
+      "def": "a person who buys and sells goods for a living, often in large amounts"
+    },
+    {
+      "term": "symbol",
+      "def": "a sign or mark that stands for an idea or a thing"
+    }
+  ],
+  "challengeTerms": [
+    {
+      "term": "positional",
+      "def": "related to the place or position of something"
+    },
+    {
+      "term": "civilization",
+      "def": "a large, organized society with its own culture, cities, and government"
+    },
+    {
+      "term": "arithmetic",
+      "def": "the part of math that deals with adding, subtracting, multiplying, and dividing"
+    }
+  ],
+  "discussion": [
+    "Do you agree or disagree that ideas and inventions from long ago can still shape how we live today? Use evidence from the article to explain.",
+    "Explain how people in different parts of the world helped create the number system we use today."
+  ],
+  "struggling": "Read the first part of the article aloud together, review represent, merchant, and symbol, and let weak readers put sentence strips of the main events in order before writing.",
+  "gifted": "Challenge advanced readers to use positional, civilization, and arithmetic in a short paragraph that summarizes the key events in order and explain which step matters most."
+}

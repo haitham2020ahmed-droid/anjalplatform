@@ -1,0 +1,40 @@
+{
+  "code": "RR-153",
+  "summary": "This article explains how roots take in water, how it rises through the stem to the leaves, and why plants need water to make food and stay firm.",
+  "strategy": "Vocabulary Building",
+  "introduce": "Write the key term “absorb” on the board and give pairs thirty seconds to guess what it means. Share a few guesses, then tell students to find the word in “How Plants Drink Water” and check whether they were right.",
+  "keyTerms": [
+    {
+      "term": "absorb",
+      "def": "to take in or soak up something, like a liquid"
+    },
+    {
+      "term": "xylem",
+      "def": "the thin tubes inside a plant that carry water up from the roots"
+    },
+    {
+      "term": "vapor",
+      "def": "water that has turned into a gas you usually cannot see"
+    }
+  ],
+  "challengeTerms": [
+    {
+      "term": "stomata",
+      "def": "tiny openings in a leaf that let gases and water vapor in and out"
+    },
+    {
+      "term": "transpiration",
+      "def": "the loss of water as vapor from the leaves of a plant"
+    },
+    {
+      "term": "cohesion",
+      "def": "the way particles of the same thing stick together"
+    }
+  ],
+  "discussion": [
+    "Do you agree or disagree that a plant's roots are its most important part? Use evidence from the article to explain.",
+    "Imagine you are a drop of water. Describe your trip through a plant from the soil to the air."
+  ],
+  "struggling": "Read the first part of the article aloud together, review absorb, xylem, and vapor, and let weak readers draw a quick picture for each term and use it in a short spoken sentence.",
+  "gifted": "Ask strong readers to read a challenging version and write a short paragraph that uses stomata, transpiration, and cohesion to teach the class one of the terms with their own example."
+}

@@ -1,0 +1,40 @@
+{
+  "code": "RR-103",
+  "summary": "This article explains how microscopes use lenses to magnify tiny things, how Robert Hooke named cells and Antonie van Leeuwenhoek first saw bacteria, and how doctors and scientists use microscopes today.",
+  "strategy": "Vocabulary Building",
+  "introduce": "Show the three key terms on the board and ask students to rate each one: “I know it,” “I have seen it,” or “It is new.” Tell them to watch for these words in “Microscopes: Seeing the Invisible” and use clues around them to understand their meaning.",
+  "keyTerms": [
+    {
+      "term": "lens",
+      "def": "a curved piece of glass that bends light and changes how big things look"
+    },
+    {
+      "term": "magnify",
+      "def": "to make something look bigger than it really is"
+    },
+    {
+      "term": "specimen",
+      "def": "a small sample of something that is studied closely"
+    }
+  ],
+  "challengeTerms": [
+    {
+      "term": "magnification",
+      "def": "how many times bigger something looks than its real size"
+    },
+    {
+      "term": "compound",
+      "def": "made of two or more parts working together"
+    },
+    {
+      "term": "electron",
+      "def": "an extremely tiny particle, much smaller than an atom, that carries electricity"
+    }
+  ],
+  "discussion": [
+    "Do you agree or disagree that the microscope is one of the most important tools ever invented? Use evidence from the article to explain.",
+    "Explain how the microscope changed what people know about living things."
+  ],
+  "struggling": "Pre-teach lens, magnify, and specimen with pictures or gestures, then let weak readers draw a quick picture for each term and use it in a short spoken sentence.",
+  "gifted": "Challenge advanced readers to use magnification, compound, and electron in a short paragraph that teaches the class one of the terms with their own example."
+}

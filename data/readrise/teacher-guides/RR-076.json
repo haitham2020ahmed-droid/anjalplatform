@@ -1,0 +1,40 @@
+{
+  "code": "RR-076",
+  "summary": "This article explains why weak passwords are easy to guess, how to build strong passwords and passphrases, and how secrecy, two-step verification, and spotting fake messages keep accounts safe.",
+  "strategy": "Sequence",
+  "introduce": "Write First, Next, Then, and Finally on the board and ask a volunteer to use them to describe how they get ready for school. Tell students to watch for the order of events as they read “Strong Passwords and Online Safety”.",
+  "keyTerms": [
+    {
+      "term": "account",
+      "def": "your own space in an app or website, where your things are saved"
+    },
+    {
+      "term": "passphrase",
+      "def": "a password made by joining several words together"
+    },
+    {
+      "term": "symbol",
+      "def": "a mark or sign, such as # or !, that stands for something"
+    }
+  ],
+  "challengeTerms": [
+    {
+      "term": "character",
+      "def": "a single letter, number, or symbol"
+    },
+    {
+      "term": "verification",
+      "def": "the act of proving that something is true or that someone is who they say"
+    },
+    {
+      "term": "phishing",
+      "def": "a trick in which fake messages try to get people to share passwords or private details"
+    }
+  ],
+  "discussion": [
+    "Do you agree or disagree that a long password is more important than a complicated one? Use evidence from the article to explain.",
+    "Explain two ways hackers or scammers try to get into accounts, and what you can do to stop each one."
+  ],
+  "struggling": "Read the first part of the article aloud together, review account, passphrase, and symbol, and let weak readers put sentence strips of the main events in order before writing.",
+  "gifted": "Ask strong readers to read a challenging version and write a short paragraph that uses character, verification, and phishing to summarize the key events in order and explain which step matters most."
+}

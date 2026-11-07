@@ -1,0 +1,40 @@
+{
+  "code": "RR-387",
+  "summary": "In this story, a girl's volcano project fails during a rehearsal the night before the science fair, so she and her brother test the mixture, find the problem, and fix it just in time.",
+  "strategy": "Problem/Solution",
+  "introduce": "Write “Problem” and “Solution” on the board and give pairs thirty seconds to think of a problem people face in daily life and one way to fix it. Explain that as they read “The Science Fair Surprise”, they will look for the main problem and how it is solved.",
+  "keyTerms": [
+    {
+      "term": "ingredient",
+      "def": "one of the things used to make a mixture or recipe"
+    },
+    {
+      "term": "ratio",
+      "def": "the amount of one thing compared to the amount of another"
+    },
+    {
+      "term": "rehearsal",
+      "def": "a practice of something before the real event"
+    }
+  ],
+  "challengeTerms": [
+    {
+      "term": "hypothesis",
+      "def": "an idea that can be tested to explain why something happens"
+    },
+    {
+      "term": "variable",
+      "def": "a part of an experiment that can be changed, or that changes"
+    },
+    {
+      "term": "calculate",
+      "def": "to find an answer using numbers and math"
+    }
+  ],
+  "discussion": [
+    "Do you agree or disagree that making mistakes while working on a project is a bad thing? Use evidence from the story to explain.",
+    "Explain how Layla and Omar figured out what was wrong with the volcano mixture and how they fixed it."
+  ],
+  "struggling": "Read the first part of the story aloud together, review ingredient, ratio, and rehearsal, and let weak readers fill in a simple Problem | Solution chart with sentence starters.",
+  "gifted": "Challenge advanced readers to use hypothesis, variable, and calculate in a short paragraph that suggests a second solution to the problem and judge which works better."
+}

@@ -1,0 +1,40 @@
+{
+  "code": "RR-265",
+  "summary": "This article explains how drip irrigation delivers water slowly and directly to plant roots, cutting the waste of older farming methods and helping crops grow in dry regions.",
+  "strategy": "Problem/Solution",
+  "introduce": "Ask students to share a small problem they solved this week and how they solved it, and write two examples in a Problem | Solution chart on the board. Tell them that “Saving Water in Agriculture: Drip Irrigation” also has a problem and a solution to find.",
+  "keyTerms": [
+    {
+      "term": "irrigation",
+      "def": "the way that water is supplied to crops or land to help them grow"
+    },
+    {
+      "term": "emitter",
+      "def": "a small device on a pipe that lets out a steady, measured amount of water"
+    },
+    {
+      "term": "traditional",
+      "def": "done in the old or usual way for a long time"
+    }
+  ],
+  "challengeTerms": [
+    {
+      "term": "arid",
+      "def": "describing land or a climate that is very dry and gets little rain"
+    },
+    {
+      "term": "precision",
+      "def": "doing something with great accuracy and exact control"
+    },
+    {
+      "term": "infiltrate",
+      "def": "to pass gradually into or through something, such as water moving into soil"
+    }
+  ],
+  "discussion": [
+    "Do you agree or disagree that new farming tools can help solve old problems like water shortages? Use evidence from the article to explain.",
+    "Explain why drip irrigation is more efficient than traditional flood irrigation."
+  ],
+  "struggling": "Read the first part of the article aloud together, review irrigation, emitter, and traditional, and let weak readers fill in a simple Problem | Solution chart with sentence starters.",
+  "gifted": "Ask strong readers to read a challenging version and write a short paragraph that uses arid, precision, and infiltrate to suggest a second solution to the problem and judge which works better."
+}

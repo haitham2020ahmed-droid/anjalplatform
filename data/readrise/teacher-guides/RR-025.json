@@ -1,0 +1,40 @@
+{
+  "code": "RR-025",
+  "summary": "This article explains how storm clouds build up electric charge to make lightning, why lightning causes thunder, how to tell how far away a storm is, and how to stay safe.",
+  "strategy": "Cause/Effect",
+  "introduce": "Drop a pencil and ask, “What was the cause? What was the effect?” to model the idea quickly. Then show the title “Lightning and Thunder” and tell students to look for things in the article that make other things happen.",
+  "keyTerms": [
+    {
+      "term": "charge",
+      "def": "an amount of electricity that something holds"
+    },
+    {
+      "term": "particles",
+      "def": "very small pieces of something"
+    },
+    {
+      "term": "expand",
+      "def": "to get bigger and take up more space"
+    }
+  ],
+  "challengeTerms": [
+    {
+      "term": "discharge",
+      "def": "a sudden release of stored energy, especially electricity"
+    },
+    {
+      "term": "atmosphere",
+      "def": "the air around the Earth, or the feeling of a place"
+    },
+    {
+      "term": "temperature",
+      "def": "how hot or cold something is"
+    }
+  ],
+  "discussion": [
+    "Do you agree or disagree that it is safe to stay outside during a storm as long as it is not raining hard? Use evidence from the article to explain.",
+    "Explain how a storm cloud makes lightning and then thunder."
+  ],
+  "struggling": "Pre-teach charge, particles, and expand with pictures or gestures, then let weak readers match cause cards to effect cards from the article with a partner.",
+  "gifted": "Ask strong readers to read a challenging version and write a short paragraph that uses discharge, atmosphere, and temperature to explain one important cause-and-effect chain from the article."
+}

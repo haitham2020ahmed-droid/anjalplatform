@@ -1,0 +1,40 @@
+{
+  "code": "RR-203",
+  "summary": "This article explains how rain soaks into the ground to fill aquifers, what the water table is, how wells and pumps reach this hidden water, and why people must use it carefully.",
+  "strategy": "Main Idea",
+  "introduce": "Show the title “The Water Table: Hidden Water Underground” and give pairs one minute to predict, in one sentence, what the whole article is mostly about. Write three predictions on the board and tell students they will check which one is closest to the main idea after reading.",
+  "keyTerms": [
+    {
+      "term": "aquifer",
+      "def": "a layer of rock or sand underground that holds water and lets it move through"
+    },
+    {
+      "term": "saturated",
+      "def": "completely filled with water, with no empty space left"
+    },
+    {
+      "term": "permeable",
+      "def": "letting water or another liquid pass through easily"
+    }
+  ],
+  "challengeTerms": [
+    {
+      "term": "porous",
+      "def": "full of tiny holes or spaces that can hold or let through liquid"
+    },
+    {
+      "term": "extraction",
+      "def": "the act of removing or drawing something out, often from the ground"
+    },
+    {
+      "term": "depletion",
+      "def": "a serious reduction in supply caused by using something faster than it is replaced"
+    }
+  ],
+  "discussion": [
+    "Do you agree or disagree that protecting hidden water underground is just as important as saving water we can see? Use evidence from the article to explain.",
+    "Explain how an aquifer gets its water and how people reach it."
+  ],
+  "struggling": "Read the first part of the article aloud together, review aquifer, saturated, and permeable, and let weak readers complete a main-idea-and-details web with a partner.",
+  "gifted": "Challenge advanced readers to use porous, extraction, and depletion in a short paragraph that states the main idea of the article in their own words."
+}

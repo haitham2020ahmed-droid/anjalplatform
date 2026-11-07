@@ -1,0 +1,40 @@
+{
+  "code": "RR-246",
+  "summary": "This article explains what sweat glands do, how sweating cools the body through evaporation, why heat and exercise make you sweat more, and why drinking water matters.",
+  "strategy": "Cause/Effect",
+  "introduce": "Draw a simple cause → effect arrow on the board and ask students for an everyday example, such as “I did not sleep, so I felt tired.” Tell them that while reading “Why We Sweat” they will find at least two cause-and-effect links.",
+  "keyTerms": [
+    {
+      "term": "evaporate",
+      "def": "to change slowly from a liquid into a gas"
+    },
+    {
+      "term": "gland",
+      "def": "a small part of the body that makes and releases a substance, such as sweat or oil"
+    },
+    {
+      "term": "exercise",
+      "def": "activity that works your body and makes it stronger"
+    }
+  ],
+  "challengeTerms": [
+    {
+      "term": "hypothalamus",
+      "def": "a small part of the brain that helps control body temperature, hunger, and thirst"
+    },
+    {
+      "term": "thermoregulation",
+      "def": "the body's process of keeping its internal temperature steady"
+    },
+    {
+      "term": "dehydration",
+      "def": "a harmful lack of water in the body"
+    }
+  ],
+  "discussion": [
+    "Do you agree or disagree that sweating is a sign that something is wrong with your body? Use evidence from the article to explain.",
+    "Write a short explanation for younger students about why athletes need to drink plenty of water."
+  ],
+  "struggling": "Pre-teach evaporate, gland, and exercise with pictures or gestures, then let weak readers match cause cards to effect cards from the article with a partner.",
+  "gifted": "Challenge advanced readers to use hypothalamus, thermoregulation, and dehydration in a short paragraph that explains one important cause-and-effect chain from the article."
+}

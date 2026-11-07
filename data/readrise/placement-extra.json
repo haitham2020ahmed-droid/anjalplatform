@@ -1,0 +1,2382 @@
+{
+  "passages": [
+    {
+      "id": "PX-BR200-1",
+      "level": -200,
+      "title": "My Cat",
+      "text": "I have a cat. Her name is Lulu. She is white. She has soft fur. Lulu likes milk. She drinks it fast. She plays with a ball. Then she is tired. She sleeps on my bed. I pet her. She is happy. I love my cat.",
+      "questions": [
+        {
+          "stem": "What color is Lulu?",
+          "options": [
+            "Black",
+            "White",
+            "Orange",
+            "Brown"
+          ],
+          "answer": "B",
+          "skill": "detail"
+        },
+        {
+          "stem": "What is the text about?",
+          "options": [
+            "A big red ball",
+            "A glass of milk",
+            "A pet cat",
+            "A soft bed"
+          ],
+          "answer": "C",
+          "skill": "central-idea"
+        },
+        {
+          "stem": "Why does Lulu sleep?",
+          "options": [
+            "She is sad.",
+            "She is very cold.",
+            "She is sick.",
+            "She is tired."
+          ],
+          "answer": "D",
+          "skill": "inference"
+        }
+      ]
+    },
+    {
+      "id": "PX-BR200-2",
+      "level": -200,
+      "title": "The Fish",
+      "text": "We have a fish. It is small. It is red. It lives in a tank. The tank has water. The fish can swim. It swims all day. I feed it. It eats a little. Fish food is dry. Mom cleans the tank. Now it is clean. The fish is fine.",
+      "questions": [
+        {
+          "stem": "Where does the fish live?",
+          "options": [
+            "In a tank",
+            "In a big box",
+            "In a bag",
+            "In a cup"
+          ],
+          "answer": "A",
+          "skill": "detail"
+        },
+        {
+          "stem": "What is the text about?",
+          "options": [
+            "A big sea",
+            "A red cup",
+            "A pet fish",
+            "A long day"
+          ],
+          "answer": "C",
+          "skill": "central-idea"
+        },
+        {
+          "stem": "The fish is small. What does small mean?",
+          "options": [
+            "very old",
+            "very fast",
+            "not wet",
+            "not big"
+          ],
+          "answer": "D",
+          "skill": "vocabulary"
+        }
+      ]
+    },
+    {
+      "id": "PX-BR200-3",
+      "level": -200,
+      "title": "Rain",
+      "text": "Look at the sky. It is gray. Rain is here. Drops fall down. They hit the car. The road is wet. I have a coat. I put it on. I stay dry. Plants like rain. They drink it. Then they grow. Rain is good.",
+      "questions": [
+        {
+          "stem": "What color is the sky?",
+          "options": [
+            "Gray",
+            "Blue",
+            "Green",
+            "Yellow"
+          ],
+          "answer": "A",
+          "skill": "detail"
+        },
+        {
+          "stem": "What is the text about?",
+          "options": [
+            "A new coat",
+            "A rainy day",
+            "A fast car",
+            "A big green tree"
+          ],
+          "answer": "B",
+          "skill": "central-idea"
+        },
+        {
+          "stem": "Why does the girl put on a coat?",
+          "options": [
+            "To play",
+            "To get very wet",
+            "To sleep",
+            "To stay dry"
+          ],
+          "answer": "D",
+          "skill": "inference"
+        }
+      ]
+    },
+    {
+      "id": "PX-BR200-4",
+      "level": -200,
+      "title": "Dad's Car",
+      "text": "Dad has a car. It is blue. It has four wheels. We get in. I sit in back. I put on my belt. Dad drives. We go to school. The car stops. I get out. I wave. Dad goes to work.",
+      "questions": [
+        {
+          "stem": "How many wheels does the car have?",
+          "options": [
+            "Four",
+            "Two",
+            "Three",
+            "Six"
+          ],
+          "answer": "A",
+          "skill": "detail"
+        },
+        {
+          "stem": "What is the text about?",
+          "options": [
+            "A long day at work",
+            "A ride to school",
+            "A blue bike",
+            "A new belt"
+          ],
+          "answer": "B",
+          "skill": "central-idea"
+        },
+        {
+          "stem": "The boy puts on his belt. Why?",
+          "options": [
+            "To look nice",
+            "To get warm",
+            "To stay safe",
+            "To go fast"
+          ],
+          "answer": "C",
+          "skill": "inference"
+        }
+      ]
+    },
+    {
+      "id": "PX-0-1",
+      "level": 0,
+      "title": "The Hot Sun",
+      "text": "The sun is up in the sky. It is very hot. It gives us light. It makes the day bright. In summer the sun is strong. We stay in the shade. We drink a lot of water. We wear a hat. At night the sun is gone. The sky is dark. Then we can see the stars.",
+      "questions": [
+        {
+          "stem": "What do we wear in the hot sun?",
+          "options": [
+            "A coat",
+            "A hat",
+            "A scarf",
+            "Big boots"
+          ],
+          "answer": "B",
+          "skill": "detail"
+        },
+        {
+          "stem": "What is the text mostly about?",
+          "options": [
+            "The stars at night",
+            "Water in a cup",
+            "The sun and its heat",
+            "A long trip to the shop"
+          ],
+          "answer": "C",
+          "skill": "central-idea"
+        },
+        {
+          "stem": "We stay in the shade. What is shade?",
+          "options": [
+            "a hot, sunny road",
+            "a big water bottle",
+            "a kind of hat",
+            "a cool, dark spot"
+          ],
+          "answer": "D",
+          "skill": "vocabulary"
+        }
+      ]
+    },
+    {
+      "id": "PX-0-2",
+      "level": 0,
+      "title": "Grandpa's Sheep",
+      "text": "My grandpa has a farm. He has ten sheep. The sheep are white and fat. They eat green grass. They drink from a big bowl. In the morning, I help Grandpa. We give the sheep food. A baby sheep is a lamb. The lamb runs to me. It is soft. I like the farm.",
+      "questions": [
+        {
+          "stem": "How many sheep does Grandpa have?",
+          "options": [
+            "Ten",
+            "Two",
+            "Five",
+            "Seven"
+          ],
+          "answer": "A",
+          "skill": "detail"
+        },
+        {
+          "stem": "What is the text mostly about?",
+          "options": [
+            "A trip to the sea",
+            "A big green bowl",
+            "Sheep on a farm",
+            "A day at school"
+          ],
+          "answer": "C",
+          "skill": "central-idea"
+        },
+        {
+          "stem": "What is a baby sheep called?",
+          "options": [
+            "A calf",
+            "A colt",
+            "A chick",
+            "A lamb"
+          ],
+          "answer": "D",
+          "skill": "vocabulary"
+        }
+      ]
+    },
+    {
+      "id": "PX-0-3",
+      "level": 0,
+      "title": "Our Class",
+      "text": "This is our class. We have twenty desks. Each desk has a chair. Our teacher is kind. She reads us a book. We sit and listen. Then we write. We use a pen. We draw a map too. At the end of the day, we clean up. We put the books on the shelf.",
+      "questions": [
+        {
+          "stem": "How many desks are in the class?",
+          "options": [
+            "Twenty",
+            "Ten",
+            "Fifteen",
+            "Thirty"
+          ],
+          "answer": "A",
+          "skill": "detail"
+        },
+        {
+          "stem": "What is the text mostly about?",
+          "options": [
+            "A big new map",
+            "A day in class",
+            "A trip to a farm",
+            "A kind of chair"
+          ],
+          "answer": "B",
+          "skill": "central-idea"
+        },
+        {
+          "stem": "What do the children do at the end of the day?",
+          "options": [
+            "They eat lunch.",
+            "They go to sleep.",
+            "They draw a dog.",
+            "They clean up."
+          ],
+          "answer": "D",
+          "skill": "detail"
+        }
+      ]
+    },
+    {
+      "id": "PX-0-4",
+      "level": 0,
+      "title": "The Ant",
+      "text": "An ant is a small bug. It has six legs. Ants live in big groups. They dig a home in the ground. Ants are strong. One ant can lift a big crumb. Ants find food. They take it home. They share it. Ants work all day. They help each other.",
+      "questions": [
+        {
+          "stem": "How many legs does an ant have?",
+          "options": [
+            "Six",
+            "Four",
+            "Eight",
+            "Ten"
+          ],
+          "answer": "A",
+          "skill": "detail"
+        },
+        {
+          "stem": "What is the text mostly about?",
+          "options": [
+            "How to dig a hole",
+            "How ants live and work",
+            "Why bugs are bad",
+            "What we like to eat for lunch"
+          ],
+          "answer": "B",
+          "skill": "central-idea"
+        },
+        {
+          "stem": "Ants share food. What does share mean?",
+          "options": [
+            "hide it away",
+            "throw it out",
+            "give some to others",
+            "eat it all very fast"
+          ],
+          "answer": "C",
+          "skill": "vocabulary"
+        }
+      ]
+    },
+    {
+      "id": "PX-100-1",
+      "level": 100,
+      "title": "The Little Turtle",
+      "text": "A turtle has a hard shell on its back. The shell is like a house. Is the turtle scared? It hides in its shell. Turtles move very slowly. Some turtles live in the sea. Some live on land. A sea turtle lays eggs in the sand. The babies come out of the eggs. Then they run to the sea.",
+      "questions": [
+        {
+          "stem": "Where does a sea turtle lay its eggs?",
+          "options": [
+            "In a tree",
+            "In the sand",
+            "On a rock",
+            "In the grass"
+          ],
+          "answer": "B",
+          "skill": "detail"
+        },
+        {
+          "stem": "What is the text mostly about?",
+          "options": [
+            "How fish swim in the sea",
+            "How to build a house",
+            "Turtles and their shells",
+            "Why sand is hot"
+          ],
+          "answer": "C",
+          "skill": "central-idea"
+        },
+        {
+          "stem": "Why does a turtle hide in its shell?",
+          "options": [
+            "It wants to eat.",
+            "It is hot.",
+            "It wants to swim.",
+            "It is scared."
+          ],
+          "answer": "D",
+          "skill": "inference"
+        }
+      ]
+    },
+    {
+      "id": "PX-100-2",
+      "level": 100,
+      "title": "At the Market",
+      "text": "On Friday, we go to the market. The market is very busy. Many people buy food there. We buy red apples and green grapes. We buy fresh bread too. The man at the shop is nice. He gives me a date. It is sweet. Mom pays for the food. Then we carry the bags to the car.",
+      "questions": [
+        {
+          "stem": "What does the man give the child?",
+          "options": [
+            "A date",
+            "An apple",
+            "A grape",
+            "A bag"
+          ],
+          "answer": "A",
+          "skill": "detail"
+        },
+        {
+          "stem": "What is the text mostly about?",
+          "options": [
+            "A hot day at the beach",
+            "How to make bread",
+            "A trip to the market",
+            "A visit to school"
+          ],
+          "answer": "C",
+          "skill": "central-idea"
+        },
+        {
+          "stem": "The bread is fresh. What does fresh mean?",
+          "options": [
+            "old and hard",
+            "very small",
+            "dark brown",
+            "new and good"
+          ],
+          "answer": "D",
+          "skill": "vocabulary"
+        }
+      ]
+    },
+    {
+      "id": "PX-100-3",
+      "level": 100,
+      "title": "The Nurse",
+      "text": "A nurse works in a hospital. She helps sick people. She checks if they are hot. She gives them pills. She talks to them in a kind voice. Some nurses work at night. They help people at all times. A nurse must learn a lot. She goes to school for many years. Nurses help us a lot.",
+      "questions": [
+        {
+          "stem": "Where does a nurse work?",
+          "options": [
+            "In a hospital",
+            "In a big park",
+            "In a shop",
+            "On a farm"
+          ],
+          "answer": "A",
+          "skill": "detail"
+        },
+        {
+          "stem": "What is the text mostly about?",
+          "options": [
+            "How to stay home",
+            "What a nurse does",
+            "Why people get hot",
+            "A long school day"
+          ],
+          "answer": "B",
+          "skill": "central-idea"
+        },
+        {
+          "stem": "Why must a nurse go to school for many years?",
+          "options": [
+            "To play games",
+            "To learn to cook",
+            "To make lots of new friends",
+            "To learn how to help"
+          ],
+          "answer": "D",
+          "skill": "inference"
+        }
+      ]
+    },
+    {
+      "id": "PX-100-4",
+      "level": 100,
+      "title": "Making a Kite",
+      "text": "Omar wants to make a kite. He gets two sticks and some paper. He ties the sticks to make a cross. Then he puts the paper on top. His sister helps him add a long tail. Next, they tie on a string. They go out. The wind is strong. Up goes the kite! It flies high in the sky.",
+      "questions": [
+        {
+          "stem": "What does Omar use to make a cross?",
+          "options": [
+            "Two sticks",
+            "Two pens",
+            "Some string",
+            "Some paper"
+          ],
+          "answer": "A",
+          "skill": "detail"
+        },
+        {
+          "stem": "What is the text mostly about?",
+          "options": [
+            "Why the wind is cold",
+            "How Omar makes a kite",
+            "A walk in the rain",
+            "How to draw a big cross"
+          ],
+          "answer": "B",
+          "skill": "central-idea"
+        },
+        {
+          "stem": "Why does the kite go up high?",
+          "options": [
+            "The sun is hot.",
+            "The paper is bright red.",
+            "The wind is strong.",
+            "The tail is short."
+          ],
+          "answer": "C",
+          "skill": "inference"
+        }
+      ]
+    },
+    {
+      "id": "PX-200-1",
+      "level": 200,
+      "title": "From Egg to Frog",
+      "text": "A frog starts life as a tiny egg. The egg is in a pond. It hatches into a tadpole. A tadpole has a long tail. It swims like a fish. It breathes under the water. Then it grows two back legs. Next, it grows two front legs. Its tail gets short. At last, it is a frog. Now it can hop on land and catch bugs.",
+      "questions": [
+        {
+          "stem": "What does a tadpole have?",
+          "options": [
+            "Wings",
+            "A long tail",
+            "Fur",
+            "A hard shell"
+          ],
+          "answer": "B",
+          "skill": "detail"
+        },
+        {
+          "stem": "What is the text mostly about?",
+          "options": [
+            "How fish swim in ponds",
+            "Why ponds are deep",
+            "How a frog grows up",
+            "What frogs like to eat"
+          ],
+          "answer": "C",
+          "skill": "central-idea"
+        },
+        {
+          "stem": "The egg hatches. What does hatches mean?",
+          "options": [
+            "gets cold",
+            "sinks down",
+            "turns green",
+            "breaks open"
+          ],
+          "answer": "D",
+          "skill": "vocabulary"
+        }
+      ]
+    },
+    {
+      "id": "PX-200-2",
+      "level": 200,
+      "title": "Snow in Tabuk",
+      "text": "Many people think Saudi Arabia is always hot. But in winter, it can snow in some parts! Tabuk is in the north. It has tall mountains. On very cold days, snow falls on the tops. The ground turns white. Families drive there to see it. It is a lot of fun. Kids make small snowmen. They wear warm coats and gloves. The snow melts in a few days.",
+      "questions": [
+        {
+          "stem": "Where in Saudi Arabia can it snow?",
+          "options": [
+            "On mountains in Tabuk",
+            "On the beach near Jeddah",
+            "In every city",
+            "In the desert sand"
+          ],
+          "answer": "A",
+          "skill": "detail"
+        },
+        {
+          "stem": "What is the text mostly about?",
+          "options": [
+            "How to make gloves",
+            "Why summer is hot",
+            "Snow that falls in Tabuk",
+            "A long drive to school each day"
+          ],
+          "answer": "C",
+          "skill": "central-idea"
+        },
+        {
+          "stem": "Why does the snow melt after a few days?",
+          "options": [
+            "Children eat it.",
+            "Families take it home.",
+            "The mountains get taller.",
+            "The days get warmer."
+          ],
+          "answer": "D",
+          "skill": "inference"
+        }
+      ]
+    },
+    {
+      "id": "PX-200-3",
+      "level": 200,
+      "title": "The School Library",
+      "text": "Our school has a big library. It is a quiet room. It is full of books. There are books on animals and space. Some are about people from long ago. Each book has a number. The number tells where the book goes. You can borrow a book for one week. Then you must bring it back. That way, other kids can read it too.",
+      "questions": [
+        {
+          "stem": "How long can you borrow a book?",
+          "options": [
+            "One week",
+            "One day",
+            "One month",
+            "One year"
+          ],
+          "answer": "A",
+          "skill": "detail"
+        },
+        {
+          "stem": "What is the text mostly about?",
+          "options": [
+            "Why space is dark",
+            "How a school library works",
+            "How to write a book",
+            "Animals that lived long ago"
+          ],
+          "answer": "B",
+          "skill": "central-idea"
+        },
+        {
+          "stem": "You can borrow a book. What does borrow mean?",
+          "options": [
+            "buy and keep",
+            "write in it",
+            "tear out all the pages",
+            "take and bring back"
+          ],
+          "answer": "D",
+          "skill": "vocabulary"
+        }
+      ]
+    },
+    {
+      "id": "PX-200-4",
+      "level": 200,
+      "title": "Big Ships at the Port",
+      "text": "A port is a place where ships stop. Jeddah has a big port. It is on the Red Sea. Huge ships come there. They come from far away. They bring big boxes. Some boxes have cars. Some have clothes and food. Tall cranes lift the boxes off the ships. Then trucks take the boxes to shops. Ports bring us the things we use.",
+      "questions": [
+        {
+          "stem": "What lifts the boxes off the ships?",
+          "options": [
+            "Tall cranes",
+            "Small boats",
+            "Fast trains",
+            "Many people"
+          ],
+          "answer": "A",
+          "skill": "detail"
+        },
+        {
+          "stem": "What is the text mostly about?",
+          "options": [
+            "How to drive a truck",
+            "A busy port and its ships",
+            "Fish that swim in the Red Sea",
+            "Why cars are fast"
+          ],
+          "answer": "B",
+          "skill": "central-idea"
+        },
+        {
+          "stem": "Why are ports important?",
+          "options": [
+            "Ships need a place to sleep.",
+            "People swim there in summer.",
+            "They bring us things we use.",
+            "Cranes like to work near the water."
+          ],
+          "answer": "C",
+          "skill": "inference"
+        }
+      ]
+    },
+    {
+      "id": "PX-300-1",
+      "level": 300,
+      "title": "The Owl",
+      "text": "An owl is a bird that is awake at night. It sleeps in the day. Its eyes are big. They help it see in the dark. An owl can turn its head far to look behind it. Its wings make no sound when it flies, and this helps it catch mice. Owls do not chew their food. They swallow it whole. Many owls live in old trees or in holes in rocks.",
+      "questions": [
+        {
+          "stem": "When is an owl awake?",
+          "options": [
+            "In the morning",
+            "At night",
+            "At noon",
+            "All day long"
+          ],
+          "answer": "B",
+          "skill": "detail"
+        },
+        {
+          "stem": "What is the main idea of the text?",
+          "options": [
+            "Owls eat grass and leaves.",
+            "Owls are very loud when they fly at night.",
+            "An owl's body helps it hunt at night.",
+            "Mice like to sleep in trees."
+          ],
+          "answer": "C",
+          "skill": "central-idea"
+        },
+        {
+          "stem": "Owls swallow food whole. What does whole mean?",
+          "options": [
+            "very slowly",
+            "with water",
+            "in the dark of night",
+            "in one piece"
+          ],
+          "answer": "D",
+          "skill": "vocabulary"
+        }
+      ]
+    },
+    {
+      "id": "PX-300-2",
+      "level": 300,
+      "title": "Rain in the Desert",
+      "text": "It does not rain much in the desert. But when it rains, the desert changes fast. Dry seeds have waited in the sand for a long time. Now they get water. In a few days, small green plants come up. Then they grow pretty flowers. Bugs and birds come to eat. The plants make new seeds. Soon the sun dries the land again. The seeds wait for the next rain.",
+      "questions": [
+        {
+          "stem": "Where do the seeds wait?",
+          "options": [
+            "In the sand",
+            "On a tree",
+            "In a river",
+            "Under a rock"
+          ],
+          "answer": "A",
+          "skill": "detail"
+        },
+        {
+          "stem": "What is the main idea of the text?",
+          "options": [
+            "Bugs do not like flowers.",
+            "The desert gets a lot of rain every day.",
+            "Rain makes the desert come to life.",
+            "The sun makes seeds grow wet."
+          ],
+          "answer": "C",
+          "skill": "central-idea"
+        },
+        {
+          "stem": "Why do bugs and birds come after the rain?",
+          "options": [
+            "The sand is cool.",
+            "The sun has gone away.",
+            "They want to drink sand.",
+            "There is food to eat."
+          ],
+          "answer": "D",
+          "skill": "inference"
+        }
+      ]
+    },
+    {
+      "id": "PX-300-3",
+      "level": 300,
+      "title": "Clean Hands",
+      "text": "Your hands touch many things each day, like doors, books, and balls. Tiny germs get on your hands. You can not see them. Some germs can make you sick. That is why you must wash your hands well. Use soap and water. Rub your hands for twenty seconds. Wash between your fingers too, and then dry them. Wash your hands before you eat and after you play.",
+      "questions": [
+        {
+          "stem": "How long should you rub your hands?",
+          "options": [
+            "Twenty seconds",
+            "Five seconds",
+            "Ten seconds",
+            "One whole minute"
+          ],
+          "answer": "A",
+          "skill": "detail"
+        },
+        {
+          "stem": "What is the main idea of the text?",
+          "options": [
+            "Balls and books are always full of soap.",
+            "Washing hands helps keep you well.",
+            "You can see germs on a door.",
+            "Hands should stay wet all day."
+          ],
+          "answer": "B",
+          "skill": "central-idea"
+        },
+        {
+          "stem": "Why should you wash your hands before you eat?",
+          "options": [
+            "So the food tastes more sweet",
+            "So your hands get warm",
+            "So you can eat fast",
+            "So the germs do not go in"
+          ],
+          "answer": "D",
+          "skill": "inference"
+        }
+      ]
+    },
+    {
+      "id": "PX-400-1",
+      "level": 400,
+      "title": "How Bread Is Made",
+      "text": "Bread is one of the oldest foods in the world. To make it, a baker mixes flour, water, salt, and yeast. Yeast is a tiny living thing. It eats sugar in the flour and makes gas. The gas makes small bubbles in the dough. These bubbles help the dough rise and get bigger. Next, the baker shapes the dough and puts it in a hot oven. The heat makes the bread soft inside and brown outside.",
+      "questions": [
+        {
+          "stem": "What does yeast make when it eats sugar?",
+          "options": [
+            "Gas",
+            "Salt",
+            "Water",
+            "Flour"
+          ],
+          "answer": "A",
+          "skill": "detail"
+        },
+        {
+          "stem": "What is the main idea of the text?",
+          "options": [
+            "Bakers do not like hot ovens.",
+            "Bread is made in steps with flour and yeast.",
+            "Yeast is a kind of brown bread.",
+            "Bread was first made by people just last year."
+          ],
+          "answer": "B",
+          "skill": "central-idea"
+        },
+        {
+          "stem": "The dough will rise. What does rise mean here?",
+          "options": [
+            "turn very dark",
+            "become cold",
+            "go up and get bigger",
+            "fall down on the floor"
+          ],
+          "answer": "C",
+          "skill": "vocabulary"
+        }
+      ]
+    },
+    {
+      "id": "PX-400-2",
+      "level": 400,
+      "title": "Stars in the Sky",
+      "text": "On a clear night far from the city, you can see thousands of stars. A star is a huge ball of hot gas. Our sun is a star too. It looks bigger than other stars only because it is much closer to us. The other stars are very, very far away. Long ago, travelers in the desert used the stars to find their way. They knew where certain stars would appear at night.",
+      "questions": [
+        {
+          "stem": "What is a star made of?",
+          "options": [
+            "Cold rock",
+            "Hot gas",
+            "Ice and snow",
+            "Sand and dust"
+          ],
+          "answer": "B",
+          "skill": "detail"
+        },
+        {
+          "stem": "What is the main idea of the text?",
+          "options": [
+            "The sun is the only star in space.",
+            "City lights help us see the stars much better.",
+            "Stars are hot gas, and people have used them.",
+            "Travelers never went out at night."
+          ],
+          "answer": "C",
+          "skill": "central-idea"
+        },
+        {
+          "stem": "Why can people see more stars far from the city?",
+          "options": [
+            "The stars come closer.",
+            "There are never any clouds there.",
+            "The sun shines at night.",
+            "No city lights get in the way."
+          ],
+          "answer": "D",
+          "skill": "inference"
+        }
+      ]
+    },
+    {
+      "id": "PX-400-3",
+      "level": 400,
+      "title": "The Turtle's Shell",
+      "text": "A turtle's shell is not like a coat that it can take off. The shell is part of the turtle's body. It is made of bone, and it grows as the turtle grows. The top part covers the turtle's back. The bottom part covers its belly. Most turtles can pull their head and legs inside when danger comes. The hard shell keeps them safe from many hungry animals.",
+      "questions": [
+        {
+          "stem": "What is a turtle's shell made of?",
+          "options": [
+            "Bone",
+            "Wood",
+            "Skin",
+            "Sand"
+          ],
+          "answer": "A",
+          "skill": "detail"
+        },
+        {
+          "stem": "What is the main idea of the text?",
+          "options": [
+            "Turtles take off and change their shells each year.",
+            "Turtles like to eat other animals.",
+            "The shell is part of the body and keeps it safe.",
+            "A shell is soft like a warm coat."
+          ],
+          "answer": "C",
+          "skill": "central-idea"
+        },
+        {
+          "stem": "What happens to the shell when a young turtle gets older?",
+          "options": [
+            "It falls off.",
+            "It turns soft.",
+            "It changes color.",
+            "It grows bigger."
+          ],
+          "answer": "D",
+          "skill": "inference"
+        }
+      ]
+    },
+    {
+      "id": "PX-500-1",
+      "level": 500,
+      "title": "The Arabian Leopard",
+      "text": "The Arabian leopard is the smallest kind of leopard in the world. It has golden fur covered with dark spots. These spots help it hide among the rocks of the mountains. The leopard hunts at night and rests in caves during the hot day. Today, very few Arabian leopards are left in the wild. People in Saudi Arabia are working hard to protect them and help their numbers grow again.",
+      "questions": [
+        {
+          "stem": "Where does the Arabian leopard rest in the day?",
+          "options": [
+            "In caves",
+            "In trees",
+            "In rivers",
+            "In tall grass"
+          ],
+          "answer": "A",
+          "skill": "detail"
+        },
+        {
+          "stem": "What is the main idea of the text?",
+          "options": [
+            "Leopards are the biggest cats living on Earth.",
+            "This rare leopard is special and needs help.",
+            "Leopards hunt only in the morning.",
+            "Leopards have no spots on their fur."
+          ],
+          "answer": "B",
+          "skill": "central-idea"
+        },
+        {
+          "stem": "People want to protect the leopards. What does protect mean?",
+          "options": [
+            "hunt and catch",
+            "move away",
+            "count again",
+            "keep safe"
+          ],
+          "answer": "D",
+          "skill": "vocabulary"
+        }
+      ]
+    },
+    {
+      "id": "PX-500-2",
+      "level": 500,
+      "title": "Paper from Trees",
+      "text": "Most of the paper we use every day comes from trees. First, workers cut the wood into very small pieces. Then they mix the pieces with water and cook them until they become a soft paste called pulp. The pulp is spread out flat on a screen. As the water drains away, the thin layer dries and becomes paper. Recycling old paper means fewer trees need to be cut down.",
+      "questions": [
+        {
+          "stem": "What is the soft paste called?",
+          "options": [
+            "Pulp",
+            "Bark",
+            "Glue",
+            "Clay"
+          ],
+          "answer": "A",
+          "skill": "detail"
+        },
+        {
+          "stem": "What is the main idea of the text?",
+          "options": [
+            "Trees grow faster when we use more paper.",
+            "Paper is made from wood in several steps.",
+            "Paper cannot be used again.",
+            "Workers make paste to eat."
+          ],
+          "answer": "B",
+          "skill": "central-idea"
+        },
+        {
+          "stem": "Why does recycling paper help trees?",
+          "options": [
+            "Trees need old paper to grow.",
+            "It makes trees grow taller.",
+            "Fewer trees must be cut down.",
+            "It makes the wood softer."
+          ],
+          "answer": "C",
+          "skill": "inference"
+        }
+      ]
+    },
+    {
+      "id": "PX-500-3",
+      "level": 500,
+      "title": "Why Ice Floats",
+      "text": "Most things get smaller and heavier for their size when they freeze. Water is different. When water freezes into ice, it takes up more space. This makes ice lighter than the same amount of water. That is why ice cubes float in a glass. In very cold places, ice forms on top of lakes. The water under the ice stays liquid, so fish can still live there all winter.",
+      "questions": [
+        {
+          "stem": "What happens to water when it freezes?",
+          "options": [
+            "It takes up less space.",
+            "It takes up more space.",
+            "It turns into gas.",
+            "It sinks to the bottom."
+          ],
+          "answer": "B",
+          "skill": "detail"
+        },
+        {
+          "stem": "What is the main idea of the text?",
+          "options": [
+            "Fish cannot live in cold lakes.",
+            "All things get bigger when the weather is cold.",
+            "Ice floats since it is lighter than water.",
+            "Ice cubes melt fast in a glass."
+          ],
+          "answer": "C",
+          "skill": "central-idea"
+        },
+        {
+          "stem": "The water stays liquid. What does liquid mean?",
+          "options": [
+            "hard like rock",
+            "very hot",
+            "full of fish",
+            "able to flow"
+          ],
+          "answer": "D",
+          "skill": "vocabulary"
+        }
+      ]
+    },
+    {
+      "id": "PX-600-1",
+      "level": 600,
+      "title": "A Sea Turtle's Long Journey",
+      "text": "Green sea turtles swim along the coasts of the Red Sea and the Arabian Gulf. When a female is ready to lay eggs, she often returns to the same beach where she hatched. That may be many years later. At night, she crawls onto the sand and digs a deep hole. Then she lays about one hundred eggs. After about two months, the tiny turtles hatch and race toward the bright sea. Scientists still study how the mother finds her way back across such long distances.",
+      "questions": [
+        {
+          "stem": "About how many eggs does the turtle lay?",
+          "options": [
+            "One hundred",
+            "Ten",
+            "Fifty",
+            "One thousand"
+          ],
+          "answer": "A",
+          "skill": "detail"
+        },
+        {
+          "stem": "What is the main idea of the text?",
+          "options": [
+            "Sea turtles live only in rivers.",
+            "Scientists already know everything about sea turtles.",
+            "Females return to one beach to lay eggs.",
+            "Turtle eggs hatch in two days."
+          ],
+          "answer": "C",
+          "skill": "central-idea"
+        },
+        {
+          "stem": "What can you tell about how mother turtles find the beach?",
+          "options": [
+            "They follow a map.",
+            "They ask other turtles.",
+            "They use only the moon to see the way.",
+            "It is still partly a mystery."
+          ],
+          "answer": "D",
+          "skill": "inference"
+        }
+      ]
+    },
+    {
+      "id": "PX-600-2",
+      "level": 600,
+      "title": "Wells in the Desert",
+      "text": "For thousands of years, people in Arabia depended on wells to survive. A well is a deep hole dug into the ground. It reaches water hidden below the surface. Travelers planned their trips so they could stop at wells along the way. Towns and villages often grew up around good wells. In some places, people built stone walls around the top. The walls kept sand out. They also stopped animals from falling in.",
+      "questions": [
+        {
+          "stem": "Why did people build walls around wells?",
+          "options": [
+            "To keep sand out",
+            "To store food",
+            "To hide the water",
+            "To catch rain"
+          ],
+          "answer": "A",
+          "skill": "detail"
+        },
+        {
+          "stem": "What is the main idea of the text?",
+          "options": [
+            "Animals dug the first wells.",
+            "Wells were vital to life in Arabia.",
+            "Travelers never stopped anywhere on their long trips.",
+            "Wells were built to hold sand."
+          ],
+          "answer": "B",
+          "skill": "central-idea"
+        },
+        {
+          "stem": "People depended on wells. What does depended on mean?",
+          "options": [
+            "were afraid of",
+            "walked past",
+            "forgot about",
+            "needed"
+          ],
+          "answer": "D",
+          "skill": "vocabulary"
+        }
+      ]
+    },
+    {
+      "id": "PX-600-3",
+      "level": 600,
+      "title": "The First Aid Kit",
+      "text": "A first aid kit is a small box that holds things to help someone who gets hurt. It usually has bandages, tape, cream for cuts, and gloves. Many homes, schools, and cars keep one ready. If a friend scrapes a knee, you can clean the cut with water. Then you can cover it with a bandage. A serious injury is different. You should call an adult or an ambulance right away instead of trying to fix it alone.",
+      "questions": [
+        {
+          "stem": "What is one thing found in a first aid kit?",
+          "options": [
+            "Bandages",
+            "A pillow",
+            "A toy",
+            "A book"
+          ],
+          "answer": "A",
+          "skill": "detail"
+        },
+        {
+          "stem": "What is the main idea of the text?",
+          "options": [
+            "Only doctors are allowed to open a first aid kit.",
+            "First aid kits help us care for small cuts.",
+            "Cars do not need first aid kits.",
+            "Bandages are used for cooking."
+          ],
+          "answer": "B",
+          "skill": "central-idea"
+        },
+        {
+          "stem": "Why should you call an adult for a serious injury?",
+          "options": [
+            "Adults like to be called.",
+            "Bandages are much too expensive to use.",
+            "The person may need more than a kit.",
+            "The kit is always empty."
+          ],
+          "answer": "C",
+          "skill": "inference"
+        }
+      ]
+    },
+    {
+      "id": "PX-700-1",
+      "level": 700,
+      "title": "Lightning",
+      "text": "Lightning is a giant spark of electricity. It jumps between clouds or between a cloud and the ground. Inside a storm cloud, tiny pieces of ice crash into each other and build up an electric charge. When the charge becomes strong enough, it is released in a bright flash. The flash heats the air so quickly that the air expands with a loud boom. We hear this boom as thunder. Because light travels faster than sound, we see the flash before we hear the noise.",
+      "questions": [
+        {
+          "stem": "What builds up the electric charge in a cloud?",
+          "options": [
+            "Rain drops falling",
+            "Pieces of ice crashing",
+            "Strong wind from the sea",
+            "Heat from the sun"
+          ],
+          "answer": "B",
+          "skill": "detail"
+        },
+        {
+          "stem": "What is the main idea of the text?",
+          "options": [
+            "Thunder is what causes lightning to appear.",
+            "Storms happen only at night.",
+            "Lightning is electricity from storm clouds.",
+            "Sound moves faster than light."
+          ],
+          "answer": "C",
+          "skill": "central-idea"
+        },
+        {
+          "stem": "The air expands. What does expands mean?",
+          "options": [
+            "gets cooler",
+            "turns dark",
+            "stops moving",
+            "gets bigger"
+          ],
+          "answer": "D",
+          "skill": "vocabulary"
+        }
+      ]
+    },
+    {
+      "id": "PX-700-2",
+      "level": 700,
+      "title": "The Pearl Divers",
+      "text": "Before oil was discovered, many families along the Arabian Gulf earned their living from pearls. Each summer, boats carried divers far out to sea. A diver held his breath and tied a stone to his foot. Then he sank to the sea floor to gather oysters into a basket. When he needed air, he tugged a rope, and a partner on the boat pulled him up. The work was dangerous and tiring. Still, a single fine pearl could be worth a great deal of money.",
+      "questions": [
+        {
+          "stem": "Why did a diver tie a stone to his foot?",
+          "options": [
+            "To sink quickly",
+            "To hold the boat",
+            "To break oysters",
+            "To scare fish"
+          ],
+          "answer": "A",
+          "skill": "detail"
+        },
+        {
+          "stem": "What is the main idea of the text?",
+          "options": [
+            "Divers only went out to sea during the cold winter.",
+            "Oysters live on the tops of boats.",
+            "Pearl diving was hard work that fed Gulf families.",
+            "Pearls were found in the desert."
+          ],
+          "answer": "C",
+          "skill": "central-idea"
+        },
+        {
+          "stem": "Why did the diver need a partner on the boat?",
+          "options": [
+            "To cook his lunch",
+            "To sell the pearls in the market",
+            "To find the stones",
+            "To pull him up quickly"
+          ],
+          "answer": "D",
+          "skill": "inference"
+        }
+      ]
+    },
+    {
+      "id": "PX-700-3",
+      "level": 700,
+      "title": "A Second Life for Plastic",
+      "text": "Plastic bottles are light and strong, but they can stay in the environment for hundreds of years. Recycling gives them a second life. First, used bottles are collected and sorted by type. Next, they are washed, cut into small flakes, and melted. The melted plastic can then be shaped into new products, such as park benches, carpets, or even warm jackets. When people recycle, less plastic ends up in the ocean or in large piles of trash.",
+      "questions": [
+        {
+          "stem": "What happens to bottles after they are washed?",
+          "options": [
+            "They are cut into flakes.",
+            "They are buried.",
+            "They are burned.",
+            "They are painted bright colors."
+          ],
+          "answer": "A",
+          "skill": "detail"
+        },
+        {
+          "stem": "What is the main idea of the text?",
+          "options": [
+            "Plastic can never be used again.",
+            "Recycling turns old plastic into new things.",
+            "Plastic bottles break down in one week.",
+            "Warm jackets can only be made from sheep's wool."
+          ],
+          "answer": "B",
+          "skill": "central-idea"
+        },
+        {
+          "stem": "The bottles are sorted by type. What does sorted mean?",
+          "options": [
+            "thrown away",
+            "made smaller",
+            "filled with water",
+            "put into groups"
+          ],
+          "answer": "D",
+          "skill": "vocabulary"
+        }
+      ]
+    },
+    {
+      "id": "PX-800-1",
+      "level": 800,
+      "title": "Bats That See with Sound",
+      "text": "Most bats hunt at night, when it is too dark to see insects clearly. Instead of relying only on their eyes, many bats use a skill called echolocation. A bat sends out very high sounds that people cannot hear. When the sounds hit an object, such as a moth, they bounce back as echoes. By listening carefully to these echoes, the bat can tell how far away the insect is. It can also tell how big the insect is and which direction it is moving.",
+      "questions": [
+        {
+          "stem": "What do the bat's sounds do when they hit an object?",
+          "options": [
+            "They bounce back.",
+            "They stop.",
+            "They get louder.",
+            "They turn to light."
+          ],
+          "answer": "A",
+          "skill": "detail"
+        },
+        {
+          "stem": "What is the main idea of the text?",
+          "options": [
+            "Bats can see well in bright sunlight.",
+            "Bats use echoes to hunt in the dark.",
+            "People can easily hear bats at night.",
+            "Moths make loud sounds to scare bats away."
+          ],
+          "answer": "B",
+          "skill": "central-idea"
+        },
+        {
+          "stem": "What is echolocation?",
+          "options": [
+            "Flying in large groups",
+            "Sleeping upside down in dark caves all day",
+            "Finding things by listening to echoes",
+            "Seeing colors in the dark"
+          ],
+          "answer": "C",
+          "skill": "vocabulary"
+        }
+      ]
+    },
+    {
+      "id": "PX-800-2",
+      "level": 800,
+      "title": "The Printing Press",
+      "text": "Before the 1400s, most books were copied by hand, which took months and made books very expensive. Around 1450, a German metalworker named Johannes Gutenberg built a printing press with small metal letters that could be arranged and reused. Workers covered the letters with ink and pressed paper onto them. Suddenly, hundreds of copies of the same page could be made in a single day. As books became cheaper, more people learned to read, and new ideas spread much faster.",
+      "questions": [
+        {
+          "stem": "How were most books made before the printing press?",
+          "options": [
+            "By machines",
+            "By hand",
+            "On computers",
+            "With stones"
+          ],
+          "answer": "B",
+          "skill": "detail"
+        },
+        {
+          "stem": "What is the main idea of the text?",
+          "options": [
+            "Gutenberg wrote every book by hand.",
+            "Books became much more expensive to buy after 1450.",
+            "The printing press made books faster and cheaper.",
+            "Ink was invented by Gutenberg."
+          ],
+          "answer": "C",
+          "skill": "central-idea"
+        },
+        {
+          "stem": "Why did more people learn to read after the printing press?",
+          "options": [
+            "Schools all closed down for good.",
+            "Ink became free.",
+            "Paper was banned.",
+            "Books were easier to get."
+          ],
+          "answer": "D",
+          "skill": "inference"
+        }
+      ]
+    },
+    {
+      "id": "PX-800-3",
+      "level": 800,
+      "title": "Training the Body to Fight Germs",
+      "text": "When harmful germs enter the body, the immune system fights back by making special proteins called antibodies. The first time the body meets a new germ, this process can take several days, and a person may become quite sick. A vaccine works by showing the immune system a weakened or harmless part of a germ ahead of time. The body learns to recognize it and stores a memory. If the real germ appears later, the defense starts much more quickly.",
+      "questions": [
+        {
+          "stem": "What does the immune system make to fight germs?",
+          "options": [
+            "Antibodies",
+            "Bones",
+            "Vitamins and sugars",
+            "Sugars"
+          ],
+          "answer": "A",
+          "skill": "detail"
+        },
+        {
+          "stem": "What is the main idea of the text?",
+          "options": [
+            "Germs are always harmless to people.",
+            "Antibodies are what make people sick for many days.",
+            "Vaccines prepare the body to fight germs faster.",
+            "The body cannot remember any germs."
+          ],
+          "answer": "C",
+          "skill": "central-idea"
+        },
+        {
+          "stem": "The body learns to recognize the germ. What does recognize mean?",
+          "options": [
+            "forget about",
+            "make more of",
+            "move very far away from it",
+            "know it when seen again"
+          ],
+          "answer": "D",
+          "skill": "vocabulary"
+        }
+      ]
+    },
+    {
+      "id": "PX-900-1",
+      "level": 900,
+      "title": "The Astrolabe",
+      "text": "The astrolabe was one of the most useful scientific instruments of the medieval world, and scholars in Muslim lands greatly improved its design. Made of brass, it combined a flat map of the sky with movable rings and a pointer. By measuring the height of the sun or a bright star above the horizon, a user could work out the time of day. The same instrument helped people find directions and determine the times for prayer. Astronomers, travelers, and teachers relied on it for centuries before modern clocks and compasses became common.",
+      "questions": [
+        {
+          "stem": "What material was the astrolabe made of?",
+          "options": [
+            "Brass",
+            "Wood",
+            "Glass",
+            "Stone"
+          ],
+          "answer": "A",
+          "skill": "detail"
+        },
+        {
+          "stem": "What is the main idea of the text?",
+          "options": [
+            "The astrolabe was used only to play games.",
+            "The astrolabe helped people measure time and direction.",
+            "Modern clocks and compasses were invented long before the astrolabe.",
+            "Scholars refused to use the astrolabe."
+          ],
+          "answer": "B",
+          "skill": "central-idea"
+        },
+        {
+          "stem": "The astrolabe was an instrument. What does instrument mean here?",
+          "options": [
+            "a musical toy",
+            "a kind of map",
+            "a type of shiny metal",
+            "a tool for measuring"
+          ],
+          "answer": "D",
+          "skill": "vocabulary"
+        }
+      ]
+    },
+    {
+      "id": "PX-900-2",
+      "level": 900,
+      "title": "Rivers of Ice",
+      "text": "A glacier is a huge mass of ice that forms over many years as snow piles up, presses down, and slowly turns into solid ice. Although it seems frozen in place, a glacier actually moves. It flows downhill very slowly under its own enormous weight. As it travels, it scrapes the ground beneath it, carving deep valleys and carrying rocks for long distances. Today, many glaciers around the world are shrinking because temperatures are rising, and the melting water adds to the level of the sea.",
+      "questions": [
+        {
+          "stem": "How does a glacier form?",
+          "options": [
+            "From snow piling up over years",
+            "From rain freezing quickly",
+            "From sea water rising",
+            "From rocks melting together underground"
+          ],
+          "answer": "A",
+          "skill": "detail"
+        },
+        {
+          "stem": "What is the main idea of the text?",
+          "options": [
+            "Glaciers never move or change.",
+            "Glaciers are moving ice that shapes the land.",
+            "Glaciers are made of sand and rock.",
+            "Glaciers are growing larger in every part of the world."
+          ],
+          "answer": "B",
+          "skill": "central-idea"
+        },
+        {
+          "stem": "What can you infer about sea levels if glaciers keep melting?",
+          "options": [
+            "They will fall.",
+            "They will stay the same.",
+            "They will rise.",
+            "They will freeze."
+          ],
+          "answer": "C",
+          "skill": "inference"
+        }
+      ]
+    },
+    {
+      "id": "PX-900-3",
+      "level": 900,
+      "title": "Building Strong Bones",
+      "text": "Your skeleton is made of living tissue that is constantly being broken down and rebuilt. To stay strong, bones need minerals, especially calcium, which you can get from milk, yogurt, cheese, and leafy green vegetables. Vitamin D, which the skin makes in sunlight, helps the body absorb that calcium. Exercise matters too, because activities such as running and jumping put healthy pressure on bones and signal them to become denser. The habits you build in childhood affect how strong your bones remain as an adult.",
+      "questions": [
+        {
+          "stem": "What helps the body absorb calcium?",
+          "options": [
+            "Sugar",
+            "Vitamin D",
+            "Salt",
+            "Cold water"
+          ],
+          "answer": "B",
+          "skill": "detail"
+        },
+        {
+          "stem": "What is the main idea of the text?",
+          "options": [
+            "Bones never change after childhood.",
+            "Calcium is found only in leafy green vegetables, not milk.",
+            "Good food, sunlight, and exercise keep bones strong.",
+            "Running makes bones weaker."
+          ],
+          "answer": "C",
+          "skill": "central-idea"
+        },
+        {
+          "stem": "Bones become denser. What does denser mean?",
+          "options": [
+            "longer and thinner",
+            "softer and much lighter",
+            "older and weaker",
+            "thicker and more solid"
+          ],
+          "answer": "D",
+          "skill": "vocabulary"
+        }
+      ]
+    },
+    {
+      "id": "PX-1000-1",
+      "level": 1000,
+      "title": "The House of Wisdom",
+      "text": "In the ninth century, the city of Baghdad became home to a remarkable center of learning often called the House of Wisdom. Scholars there translated important works on mathematics, medicine, and astronomy from Greek, Persian, and Indian languages into Arabic. They did not simply copy these texts; they questioned them, corrected errors, and added discoveries of their own. Thanks to this work, ideas that might have been lost were preserved, and many later reached Europe, where they helped spark a new age of scientific progress.",
+      "questions": [
+        {
+          "stem": "Into which language did scholars translate the works?",
+          "options": [
+            "Arabic",
+            "Greek",
+            "Latin",
+            "Persian"
+          ],
+          "answer": "A",
+          "skill": "detail"
+        },
+        {
+          "stem": "What is the main idea of the text?",
+          "options": [
+            "Scholars in Baghdad refused to read foreign books.",
+            "Baghdad was a small village in the ninth century.",
+            "The House of Wisdom preserved and improved knowledge.",
+            "Europe sent all of its books to Baghdad to be stored."
+          ],
+          "answer": "C",
+          "skill": "central-idea"
+        },
+        {
+          "stem": "Ideas were preserved. What does preserved mean?",
+          "options": [
+            "thrown away",
+            "made smaller",
+            "hidden forever",
+            "kept safe"
+          ],
+          "answer": "D",
+          "skill": "vocabulary"
+        }
+      ]
+    },
+    {
+      "id": "PX-1000-2",
+      "level": 1000,
+      "title": "Hidden Water Beneath the Sand",
+      "text": "Although the Arabian Peninsula receives very little rain, enormous amounts of water lie hidden deep underground in layers of rock called aquifers. Much of this water seeped into the ground thousands of years ago, when the region's climate was far wetter than it is today. For decades, farmers pumped aquifer water to grow wheat and other crops in the desert. However, because the rain that falls now cannot refill these layers quickly, scientists warn that the water is being used faster than nature can replace it.",
+      "questions": [
+        {
+          "stem": "When did much of the aquifer water enter the ground?",
+          "options": [
+            "Thousands of years ago",
+            "Last year",
+            "Ten years ago",
+            "During the last big storm"
+          ],
+          "answer": "A",
+          "skill": "detail"
+        },
+        {
+          "stem": "What is the main idea of the text?",
+          "options": [
+            "The Arabian Peninsula gets very heavy rain during every single year.",
+            "Aquifers hold ancient water that must be used wisely.",
+            "Farmers never used underground water.",
+            "Aquifers refill quickly after each rain."
+          ],
+          "answer": "B",
+          "skill": "central-idea"
+        },
+        {
+          "stem": "What might happen if people keep pumping too much aquifer water?",
+          "options": [
+            "The desert will become a sea.",
+            "It will rain every day.",
+            "Wheat will stop growing everywhere.",
+            "The water could run low."
+          ],
+          "answer": "D",
+          "skill": "inference"
+        }
+      ]
+    },
+    {
+      "id": "PX-1000-3",
+      "level": 1000,
+      "title": "Lights in the Polar Sky",
+      "text": "The sun constantly releases a stream of charged particles known as the solar wind. Most of these particles are deflected by Earth's magnetic field, an invisible shield surrounding the planet. Near the North and South Poles, however, the magnetic field guides some particles down into the upper atmosphere. When they collide with gases such as oxygen and nitrogen, the gases glow, producing shimmering curtains of green, red, and purple light. These displays, called auroras, are most visible during long, dark winter nights far from city lights.",
+      "questions": [
+        {
+          "stem": "What makes the gases in the atmosphere glow?",
+          "options": [
+            "Particles colliding with them",
+            "Moonlight on clouds",
+            "Light shining up from the cities",
+            "Heat from volcanoes"
+          ],
+          "answer": "A",
+          "skill": "detail"
+        },
+        {
+          "stem": "What is the main idea of the text?",
+          "options": [
+            "The sun has no effect on Earth's sky.",
+            "Auroras form when solar particles hit gases.",
+            "Auroras appear only in hot deserts.",
+            "Earth's magnetic field is easy to see with our own eyes."
+          ],
+          "answer": "B",
+          "skill": "central-idea"
+        },
+        {
+          "stem": "Particles are deflected by the magnetic field. What does deflected mean?",
+          "options": [
+            "made larger",
+            "pulled closer",
+            "turned aside",
+            "heated up"
+          ],
+          "answer": "C",
+          "skill": "vocabulary"
+        }
+      ]
+    },
+    {
+      "id": "PX-1100-1",
+      "level": 1100,
+      "title": "When Locusts Swarm",
+      "text": "The desert locust is usually a shy, solitary insect that lives quietly in dry areas of Africa and Arabia. After unusually heavy rains, however, plants spring up and locust numbers can multiply rapidly. When the insects become crowded, touching one another constantly, their bodies and habits change a great deal. They turn brighter in color, become more active, and begin to travel together in enormous groups called swarms. A single swarm may contain billions of locusts and can devour as much food in one day as millions of people. For this reason, governments track weather conditions and monitor breeding areas carefully, hoping to control locust populations before swarms can form and destroy farmers' crops.",
+      "questions": [
+        {
+          "stem": "What causes locusts to change their behavior?",
+          "options": [
+            "Cold winter weather",
+            "Being crowded together",
+            "A lack of sunlight in winter",
+            "Eating too much food"
+          ],
+          "answer": "B",
+          "skill": "detail"
+        },
+        {
+          "stem": "What is the main idea of the text?",
+          "options": [
+            "Locusts are always found in giant groups.",
+            "Locusts only eat the food that is grown by farmers.",
+            "Crowded locusts form swarms that threaten crops.",
+            "Heavy rain kills most desert locusts."
+          ],
+          "answer": "C",
+          "skill": "central-idea"
+        },
+        {
+          "stem": "A swarm can devour a great deal of food. What does devour mean?",
+          "options": [
+            "store carefully",
+            "grow slowly",
+            "carry away",
+            "eat up quickly"
+          ],
+          "answer": "D",
+          "skill": "vocabulary"
+        }
+      ]
+    },
+    {
+      "id": "PX-1100-2",
+      "level": 1100,
+      "title": "Eyes in Orbit",
+      "text": "Weather forecasts have become far more accurate over the past fifty years, largely because of satellites that circle high above the planet. Some satellites remain fixed over one region, constantly photographing the clouds below, while others pass over the poles and gradually scan the entire surface of Earth. Their tools measure not only clouds but also heat, moisture in the air, and wind patterns over the oceans, where few weather stations exist. Computers combine all of this data to predict how storms will develop. As a result, communities can receive warnings days before a dangerous storm arrives, giving people time to prepare and move to safety.",
+      "questions": [
+        {
+          "stem": "Why are satellites especially useful over the oceans?",
+          "options": [
+            "Few weather stations exist there.",
+            "Oceans have no clouds.",
+            "Storms never form over open water.",
+            "Ships carry satellites."
+          ],
+          "answer": "A",
+          "skill": "detail"
+        },
+        {
+          "stem": "What is the main idea of the text?",
+          "options": [
+            "Satellites are mainly used to take photographs of cities.",
+            "Weather forecasts were better fifty years ago.",
+            "Satellites help scientists predict the weather.",
+            "Computers cannot help predict storms."
+          ],
+          "answer": "C",
+          "skill": "central-idea"
+        },
+        {
+          "stem": "What can you infer about weather forecasts before satellites?",
+          "options": [
+            "They were always perfect.",
+            "They used no instruments.",
+            "They covered every ocean.",
+            "They were less reliable."
+          ],
+          "answer": "D",
+          "skill": "inference"
+        }
+      ]
+    },
+    {
+      "id": "PX-1100-3",
+      "level": 1100,
+      "title": "Cool Houses of Najd",
+      "text": "Long before air conditioning existed, builders in the Najd region of central Arabia designed homes that stayed comfortable in extreme heat. They built thick walls from mud bricks mixed with straw, a material that absorbs heat slowly during the day and releases it gradually at night. Houses were arranged around a central open courtyard, which allowed cooler air to settle and provided shade for family activities. Small, high windows reduced direct sunlight while still letting hot air escape near the ceiling. Today, many architects are studying these traditional techniques again, because buildings that stay cool naturally use far less electricity than modern glass towers.",
+      "questions": [
+        {
+          "stem": "What were the walls of Najdi houses made from?",
+          "options": [
+            "Mud bricks and straw",
+            "Glass and polished steel",
+            "Stone and sand",
+            "Wood and clay"
+          ],
+          "answer": "A",
+          "skill": "detail"
+        },
+        {
+          "stem": "What is the main idea of the text?",
+          "options": [
+            "Najdi houses had very large windows.",
+            "Traditional Najdi houses were built to stay cool.",
+            "Air conditioning was first invented in the Najd region.",
+            "Glass towers use less electricity."
+          ],
+          "answer": "B",
+          "skill": "central-idea"
+        },
+        {
+          "stem": "Builders used several techniques. What does techniques mean?",
+          "options": [
+            "kinds of tall modern buildings",
+            "types of weather",
+            "rooms in a house",
+            "ways of doing something"
+          ],
+          "answer": "D",
+          "skill": "vocabulary"
+        }
+      ]
+    },
+    {
+      "id": "PX-1200-1",
+      "level": 1200,
+      "title": "The Canon of Medicine",
+      "text": "Ibn Sina, known in Europe as Avicenna, was a Persian scholar of the eleventh century who wrote on philosophy, astronomy, and many other subjects, but he is best remembered for his work in medicine. His enormous book, The Canon of Medicine, organized the medical knowledge of his time into a clear system, describing hundreds of diseases along with their symptoms and possible treatments. Ibn Sina emphasized careful observation and recommended testing new medicines on patients in controlled ways before trusting them. The Canon was translated into Latin and served as a standard textbook in European universities for roughly six hundred years, which shows how deeply his thinking influenced the development of modern medicine.",
+      "questions": [
+        {
+          "stem": "For about how long was The Canon used in European universities?",
+          "options": [
+            "Six hundred years",
+            "Sixty years",
+            "Two hundred years",
+            "One thousand years"
+          ],
+          "answer": "A",
+          "skill": "detail"
+        },
+        {
+          "stem": "What is the main idea of the text?",
+          "options": [
+            "Ibn Sina wrote only about astronomy.",
+            "Ibn Sina's medical book had a lasting influence.",
+            "European doctors rejected The Canon as soon as it appeared.",
+            "The Canon described only a few diseases."
+          ],
+          "answer": "B",
+          "skill": "central-idea"
+        },
+        {
+          "stem": "The book described the symptoms of diseases. What are symptoms?",
+          "options": [
+            "cures for a disease",
+            "names of doctors",
+            "signs of an illness",
+            "parts of a hospital"
+          ],
+          "answer": "C",
+          "skill": "vocabulary"
+        }
+      ]
+    },
+    {
+      "id": "PX-1200-2",
+      "level": 1200,
+      "title": "How Your Phone Knows Where You Are",
+      "text": "The Global Positioning System, or GPS, relies on a network of about thirty satellites that orbit Earth and continuously broadcast signals containing the exact time and their own position. A receiver in a phone or car picks up signals from several satellites at once and measures how long each signal took to arrive. Because radio waves travel at a known speed, the receiver can calculate its distance from each satellite. By combining the distances from at least four satellites, the device determines its location, often to within a few meters. Since the system depends on extremely precise timing, every satellite carries highly accurate atomic clocks.",
+      "questions": [
+        {
+          "stem": "From at least how many satellites does a receiver need signals?",
+          "options": [
+            "One",
+            "Four",
+            "Two",
+            "Thirty"
+          ],
+          "answer": "B",
+          "skill": "detail"
+        },
+        {
+          "stem": "What is the main idea of the text?",
+          "options": [
+            "Phones send signals to satellites to make calls.",
+            "GPS satellites never move in space.",
+            "GPS finds locations by timing satellite signals.",
+            "Radio waves travel at unknown speeds."
+          ],
+          "answer": "C",
+          "skill": "central-idea"
+        },
+        {
+          "stem": "Why must GPS satellites carry very accurate clocks?",
+          "options": [
+            "Clocks make the satellites lighter.",
+            "People living in space always need to know the exact time.",
+            "Clocks send the radio waves.",
+            "Small timing errors would give wrong locations."
+          ],
+          "answer": "D",
+          "skill": "inference"
+        }
+      ]
+    },
+    {
+      "id": "PX-1200-3",
+      "level": 1200,
+      "title": "Unwelcome Guests",
+      "text": "An invasive species is a plant or animal that people introduce, deliberately or accidentally, into a region where it did not naturally live, and where it then spreads and causes considerable harm. Without the predators and diseases that controlled it in its original habitat, such a species may multiply quickly and crowd out native wildlife. The mesquite tree, for example, was planted in parts of Arabia and Africa to provide shade and prevent sand from drifting, yet in many places it has spread aggressively, consuming scarce groundwater and replacing indigenous vegetation. Preventing new introductions is usually far cheaper and more effective than attempting to remove an invader once it is established.",
+      "questions": [
+        {
+          "stem": "Why was the mesquite tree first planted?",
+          "options": [
+            "To provide shade and stop sand",
+            "To feed camels and goats in winter",
+            "To make paper",
+            "To attract birds"
+          ],
+          "answer": "A",
+          "skill": "detail"
+        },
+        {
+          "stem": "What is the main idea of the text?",
+          "options": [
+            "Invasive species are always planted on purpose.",
+            "Native wildlife always grows faster than any invasive species.",
+            "Species brought to new places can spread and cause harm.",
+            "Mesquite trees are good for every region."
+          ],
+          "answer": "C",
+          "skill": "central-idea"
+        },
+        {
+          "stem": "Mesquite uses scarce groundwater. What does scarce mean?",
+          "options": [
+            "very clean",
+            "very deep",
+            "easy to find everywhere",
+            "in short supply"
+          ],
+          "answer": "D",
+          "skill": "vocabulary"
+        }
+      ]
+    },
+    {
+      "id": "PX-1300-1",
+      "level": 1300,
+      "title": "Supply, Demand, and Price",
+      "text": "In a market economy, the price of a product is largely determined by the relationship between supply, the amount sellers offer, and demand, the amount buyers want to purchase. When demand rises while supply stays the same, buyers compete for limited goods and prices tend to increase; when supply grows faster than demand, sellers must lower prices to attract customers. Seasonal fruit offers a familiar illustration: at the height of the date harvest, markets overflow with fresh dates and prices fall, whereas rare varieties remain expensive throughout the year. Economists use these principles to explain changes in the cost of everything from vegetables to airline tickets, although real markets are also shaped by government rules, transport costs, and consumer expectations.",
+      "questions": [
+        {
+          "stem": "What usually happens to prices when supply grows faster than demand?",
+          "options": [
+            "They fall.",
+            "They rise.",
+            "They double.",
+            "They stay fixed."
+          ],
+          "answer": "A",
+          "skill": "detail"
+        },
+        {
+          "stem": "What is the main idea of the text?",
+          "options": [
+            "Dates are always the most costly fruit.",
+            "Prices depend largely on supply and demand.",
+            "Governments decide every price in a market economy.",
+            "Demand never changes from year to year."
+          ],
+          "answer": "B",
+          "skill": "central-idea"
+        },
+        {
+          "stem": "The text gives dates as an illustration. What does illustration mean here?",
+          "options": [
+            "a colorful drawing",
+            "a rule made by the government for markets",
+            "a kind of fruit market",
+            "an example that explains an idea"
+          ],
+          "answer": "D",
+          "skill": "vocabulary"
+        }
+      ]
+    },
+    {
+      "id": "PX-1300-2",
+      "level": 1300,
+      "title": "Sleep and Memory",
+      "text": "For many years, scientists assumed that the brain simply rested during sleep, but research now suggests that sleep plays an active role in strengthening memories. During the day, new information is stored temporarily in a region called the hippocampus. At night, particularly during deep sleep, the brain appears to replay these experiences and transfer important details to the cortex, where long-term memories are kept. In experiments, students who slept after learning a list of words remembered significantly more the next day than students who stayed awake for the same period. These findings suggest that staying up all night to study before an exam may actually weaken the very memories a student is trying to build.",
+      "questions": [
+        {
+          "stem": "Where is new information stored temporarily during the day?",
+          "options": [
+            "In the hippocampus",
+            "In the cortex",
+            "In the heart",
+            "In the muscles of the legs"
+          ],
+          "answer": "A",
+          "skill": "detail"
+        },
+        {
+          "stem": "What is the main idea of the text?",
+          "options": [
+            "The brain shuts down completely during sleep.",
+            "Sleep helps the brain strengthen and store memories.",
+            "Students should study all night before exams.",
+            "The hippocampus keeps all long-term memories forever."
+          ],
+          "answer": "B",
+          "skill": "central-idea"
+        },
+        {
+          "stem": "What does the text suggest about a student who studies all night?",
+          "options": [
+            "The student will remember everything.",
+            "The student will sleep better.",
+            "The student may remember less.",
+            "The student will need no exam."
+          ],
+          "answer": "C",
+          "skill": "inference"
+        }
+      ]
+    },
+    {
+      "id": "PX-1300-3",
+      "level": 1300,
+      "title": "Capturing Carbon",
+      "text": "Power stations and factories release large amounts of carbon dioxide, a gas that traps heat in the atmosphere and contributes to rising global temperatures. Carbon capture is a group of technologies designed to separate this gas from other emissions before it escapes into the air. Once captured, the carbon dioxide can be compressed into a liquid and transported through pipelines to be stored deep underground in empty oil fields or porous rock layers. Some companies even reuse it to make building materials or fuels. Critics point out that the process is expensive and consumes energy itself, so most experts view carbon capture as one tool among many rather than a complete solution to climate change.",
+      "questions": [
+        {
+          "stem": "Where can captured carbon dioxide be stored?",
+          "options": [
+            "In the ocean surface",
+            "Deep underground",
+            "In the upper atmosphere",
+            "Inside factories"
+          ],
+          "answer": "B",
+          "skill": "detail"
+        },
+        {
+          "stem": "What is the main idea of the text?",
+          "options": [
+            "Carbon dioxide cools the planet.",
+            "Carbon capture completely solves every part of climate change.",
+            "Carbon capture can reduce emissions but has limits.",
+            "Factories release no harmful gases."
+          ],
+          "answer": "C",
+          "skill": "central-idea"
+        },
+        {
+          "stem": "The gas is stored in porous rock. What does porous mean?",
+          "options": [
+            "very hot",
+            "extremely hard and heavy",
+            "shiny and smooth",
+            "full of tiny holes"
+          ],
+          "answer": "D",
+          "skill": "vocabulary"
+        }
+      ]
+    },
+    {
+      "id": "PX-1400-1",
+      "level": 1400,
+      "title": "The Power of Expectation",
+      "text": "In medical research, a placebo is a treatment with no active ingredient, such as a sugar pill, that is given to some participants in a study so that researchers can compare its effects with those of a real medicine. Surprisingly, patients who receive a placebo frequently report genuine improvements, particularly in symptoms such as pain, fatigue, or anxiety, a phenomenon known as the placebo effect. Scientists believe that a patient's expectation of feeling better can trigger real changes in the brain, including the release of natural pain-relieving chemicals. Because this effect can be so powerful, a new drug is generally considered effective only if it produces significantly better results than a placebo in carefully controlled trials, where neither patients nor doctors know who received which treatment.",
+      "questions": [
+        {
+          "stem": "What is a placebo?",
+          "options": [
+            "A treatment with nothing active in it",
+            "A very strong medicine for serious pain",
+            "A kind of surgery",
+            "A test of the brain"
+          ],
+          "answer": "A",
+          "skill": "detail"
+        },
+        {
+          "stem": "What is the main idea of the text?",
+          "options": [
+            "Sugar pills cure every serious disease.",
+            "Doctors in every trial always tell patients exactly which pill they are getting.",
+            "Placebos can have real effects, so drugs are compared with them.",
+            "Expectations have no effect on the body."
+          ],
+          "answer": "C",
+          "skill": "central-idea"
+        },
+        {
+          "stem": "Why do neither patients nor doctors know who received which treatment?",
+          "options": [
+            "So the pills cost much less money to make",
+            "So the trial ends sooner",
+            "So patients feel no pain",
+            "So expectations do not affect the results"
+          ],
+          "answer": "D",
+          "skill": "inference"
+        }
+      ]
+    },
+    {
+      "id": "PX-1400-2",
+      "level": 1400,
+      "title": "Islands of Heat",
+      "text": "Large metropolitan areas are frequently several degrees warmer than the surrounding countryside, a pattern scientists call the urban heat island effect. Dark surfaces such as asphalt roads and rooftops absorb sunlight during the day and release the stored heat slowly at night, while tall buildings trap warm air and block the breezes that might otherwise cool the streets. In addition, vehicles, factories, and air conditioners all release waste heat, intensifying the problem. Planners in hot regions, including cities in the Gulf, are responding by planting trees that provide shade and cool the air through evaporation, by using lighter-colored materials that reflect sunlight, and by designing streets that allow wind to flow more freely between buildings.",
+      "questions": [
+        {
+          "stem": "How do trees help cool a city?",
+          "options": [
+            "They give shade and cool the air.",
+            "They block all wind.",
+            "They absorb the heat given off by cars.",
+            "They make roads darker."
+          ],
+          "answer": "A",
+          "skill": "detail"
+        },
+        {
+          "stem": "What is the main idea of the text?",
+          "options": [
+            "Countryside areas are always hotter than cities.",
+            "Cities are warmer than the countryside, and planners work to cool them.",
+            "Air conditioners are always the best way to cool down busy city streets.",
+            "Dark roads reflect most sunlight."
+          ],
+          "answer": "B",
+          "skill": "central-idea"
+        },
+        {
+          "stem": "Lighter materials reflect sunlight. What does reflect mean?",
+          "options": [
+            "soak up",
+            "make warmer",
+            "break apart",
+            "send back"
+          ],
+          "answer": "D",
+          "skill": "vocabulary"
+        }
+      ]
+    },
+    {
+      "id": "PX-1400-3",
+      "level": 1400,
+      "title": "Ibn Khaldun and the Cycle of States",
+      "text": "In the fourteenth century, the North African scholar Ibn Khaldun wrote the Muqaddimah, an introduction to history in which he argued that historians should not simply record events but should try to understand the social and economic forces behind them. He proposed that dynasties often follow a recognizable cycle: a group united by strong solidarity, which he called asabiyyah, gains power, but over several generations its rulers grow comfortable, their unity weakens, and the state eventually becomes vulnerable to a new, more cohesive group. Because Ibn Khaldun examined patterns in society, trade, and government so systematically, many modern scholars regard him as one of the earliest thinkers to approach history in a way that resembles today's sociology and economics.",
+      "questions": [
+        {
+          "stem": "What did Ibn Khaldun call the strong unity of a group?",
+          "options": [
+            "Asabiyyah",
+            "Muqaddimah",
+            "Dynasty",
+            "Sociology"
+          ],
+          "answer": "A",
+          "skill": "detail"
+        },
+        {
+          "stem": "What is the main idea of the text?",
+          "options": [
+            "Ibn Khaldun only listed dates of battles.",
+            "Ibn Khaldun studied the forces behind the rise and fall of states.",
+            "Dynasties always last forever once they gain power over a large region.",
+            "Ibn Khaldun lived in the twentieth century."
+          ],
+          "answer": "B",
+          "skill": "central-idea"
+        },
+        {
+          "stem": "The state becomes vulnerable. What does vulnerable mean?",
+          "options": [
+            "very rich",
+            "well protected by its army",
+            "easy to attack or harm",
+            "newly built"
+          ],
+          "answer": "C",
+          "skill": "vocabulary"
+        }
+      ]
+    },
+    {
+      "id": "PX-1500-1",
+      "level": 1500,
+      "title": "Herd Immunity",
+      "text": "When a sufficiently large proportion of a population becomes immune to an infectious disease, whether through vaccination or previous infection, the disease struggles to find new hosts, and its spread slows or stops, a phenomenon epidemiologists call herd immunity. The protection extends even to individuals who are not immune themselves, such as newborn infants or people whose medical conditions prevent vaccination, because the chains of transmission that would otherwise reach them are repeatedly broken. The threshold required to achieve this collective protection depends on how contagious a disease is: for an illness in which each infected person typically infects many others, such as measles, roughly ninety-five percent of the population must be immune, whereas less transmissible diseases require a considerably lower proportion. Consequently, public health officials monitor vaccination rates closely, since even a modest decline in coverage can allow outbreaks of highly contagious diseases to return to communities that had been free of them for years.",
+      "questions": [
+        {
+          "stem": "What is the main idea of the passage?",
+          "options": [
+            "Vaccines are only useful for newborn infants who cannot yet be protected.",
+            "When enough people are immune, a disease's spread slows, protecting others too.",
+            "Measles is the least contagious disease known to scientists.",
+            "Herd immunity requires every single person in the world to be vaccinated at once."
+          ],
+          "answer": "B",
+          "skill": "central-idea"
+        },
+        {
+          "stem": "About what share of people must be immune to stop measles?",
+          "options": [
+            "Fifty percent",
+            "Twenty-five percent",
+            "Ninety-five percent",
+            "Ten percent"
+          ],
+          "answer": "C",
+          "skill": "detail"
+        },
+        {
+          "stem": "The passage calls measles highly contagious. What does contagious mean?",
+          "options": [
+            "impossible to treat with any modern medicine",
+            "found only in very young children",
+            "caused by poor diet",
+            "easily spread from person to person"
+          ],
+          "answer": "D",
+          "skill": "vocabulary"
+        }
+      ]
+    },
+    {
+      "id": "PX-1500-2",
+      "level": 1500,
+      "title": "The Hidden Price of Every Choice",
+      "text": "Economists use the term opportunity cost to describe the value of the best alternative that a person gives up when making a decision, and they argue that this hidden cost is just as real as the money that changes hands. A student who spends an evening playing video games, for instance, pays no direct price, yet the opportunity cost may be the improved exam grade that an evening of revision would have produced. Governments face the same logic on a much larger scale: funds devoted to building a new highway cannot simultaneously be spent on hospitals or schools, so every budget reflects a series of trade-offs between competing priorities. Recognizing opportunity costs encourages more deliberate decision-making, because it forces people to compare what they gain with what they sacrifice rather than focusing only on the visible, immediate expense of a choice.",
+      "questions": [
+        {
+          "stem": "What is the main idea of the passage?",
+          "options": [
+            "Every choice has a hidden cost: the best option given up.",
+            "Video games are the most expensive way to spend an evening.",
+            "Governments should always build highways before schools.",
+            "Opportunity cost refers only to money that is spent."
+          ],
+          "answer": "A",
+          "skill": "central-idea"
+        },
+        {
+          "stem": "In the passage's example, what might the student's opportunity cost be?",
+          "options": [
+            "The price of the video game",
+            "The cost of electricity",
+            "A better exam grade",
+            "A new computer"
+          ],
+          "answer": "C",
+          "skill": "detail"
+        },
+        {
+          "stem": "What can you infer from the passage about a government budget?",
+          "options": [
+            "It always satisfies every single priority equally well.",
+            "It contains no trade-offs at all.",
+            "It is decided only by students.",
+            "Choosing one project means giving up others."
+          ],
+          "answer": "D",
+          "skill": "inference"
+        }
+      ]
+    },
+    {
+      "id": "PX-1500-3",
+      "level": 1500,
+      "title": "Where Is Everybody?",
+      "text": "Given that our galaxy contains hundreds of billions of stars, many of which are orbited by planets that may possess conditions suitable for life, the physicist Enrico Fermi reportedly asked a deceptively simple question during a conversation in 1950: if intelligent civilizations are common, why have we found no evidence of them? This puzzle, now known as the Fermi paradox, has generated a remarkable variety of proposed explanations. Some scientists suggest that life itself, or at least intelligent life, may be extraordinarily rare, requiring an unlikely sequence of conditions; others propose that civilizations may exist but are separated by such vast distances that their signals have not yet reached us, or that they communicate in ways we have not learned to detect. Because none of these hypotheses has been confirmed, the paradox continues to motivate research programs that search the sky for unusual radio signals and study the atmospheres of distant planets.",
+      "questions": [
+        {
+          "stem": "What is the main idea of the passage?",
+          "options": [
+            "Scientists still debate why we have found no sign of other civilizations.",
+            "Fermi proved that intelligent life exists on several other planets close to Earth.",
+            "The galaxy contains only a few stars that have any planets.",
+            "Radio signals from space were first received in 1950."
+          ],
+          "answer": "A",
+          "skill": "central-idea"
+        },
+        {
+          "stem": "When did Fermi reportedly ask his question?",
+          "options": [
+            "In 1850",
+            "In 1950",
+            "In 1990",
+            "In 2010"
+          ],
+          "answer": "B",
+          "skill": "detail"
+        },
+        {
+          "stem": "The passage mentions hypotheses that have not been confirmed. What are hypotheses?",
+          "options": [
+            "proven laws of nature",
+            "radio signals sent from deep space",
+            "distant planets",
+            "possible explanations to be tested"
+          ],
+          "answer": "D",
+          "skill": "vocabulary"
+        }
+      ]
+    },
+    {
+      "id": "PX-1600-1",
+      "level": 1600,
+      "title": "Anchoring and the Fragility of Judgment",
+      "text": "Psychologists studying human judgment have documented a systematic tendency known as anchoring, in which an initial number or piece of information, even one that is obviously irrelevant, disproportionately influences the estimates people subsequently make. In one well-known experiment, participants who first watched a wheel of fortune stop at a high number later gave substantially higher estimates for an unrelated factual question than participants whose wheel stopped at a low number, despite knowing that the wheel was entirely random. Researchers interpret such findings as evidence that the mind, rather than evaluating each question independently, begins from whatever reference point is available and then adjusts insufficiently away from it. The consequences extend well beyond the laboratory: opening offers in negotiations, suggested prices displayed beside discounted goods, and even the first figure mentioned in a courtroom discussion of compensation can shape outcomes in ways that the people involved rarely notice, which is why specialists in decision-making recommend deliberately generating independent estimates before encountering any figure supplied by someone with an interest in the result.",
+      "questions": [
+        {
+          "stem": "What is the passage mainly about?",
+          "options": [
+            "How a first number can unfairly influence later estimates and decisions.",
+            "Why wheels of fortune are used to make important business and legal decisions in courts.",
+            "How negotiators always reach fair prices by ignoring all numbers.",
+            "Why courtroom judges are immune to all psychological influences."
+          ],
+          "answer": "A",
+          "skill": "central-idea"
+        },
+        {
+          "stem": "In the experiment, what did participants who saw a high number on the wheel do?",
+          "options": [
+            "They refused to answer the question.",
+            "They gave higher estimates.",
+            "They gave lower estimates.",
+            "They guessed the wheel's next number."
+          ],
+          "answer": "B",
+          "skill": "detail"
+        },
+        {
+          "stem": "Why do specialists recommend making your own estimate before hearing someone else's figure?",
+          "options": [
+            "To make negotiations last longer",
+            "To impress the other side",
+            "To avoid being anchored by a biased figure",
+            "To make sure the wheel always stops at a low number"
+          ],
+          "answer": "C",
+          "skill": "inference"
+        }
+      ]
+    },
+    {
+      "id": "PX-1600-2",
+      "level": 1600,
+      "title": "Emergence: When the Whole Exceeds Its Parts",
+      "text": "Scientists use the term emergence to describe situations in which a system composed of many relatively simple components displays complex, organized behavior that cannot be found in, or easily predicted from, any individual component considered in isolation. A single ant follows a handful of elementary rules, responding to chemical trails and to the encounters it has with nearby nestmates, yet a colony of thousands collectively builds elaborate nests, allocates workers among competing tasks, and discovers efficient routes to food without any central authority directing the process. Similar patterns appear in the synchronized movements of starling flocks, in the traffic jams that form on highways even when no accident has occurred, and, according to many neuroscientists, in the way that thought itself arises from the interactions of billions of neurons, none of which is individually capable of thinking. Emergence therefore challenges a purely reductionist approach to science, suggesting that understanding the parts of a system, however thoroughly, may not be sufficient to explain the behavior of the whole.",
+      "questions": [
+        {
+          "stem": "What is the passage mainly about?",
+          "options": [
+            "How ant colonies are commanded by a single queen who decides every task.",
+            "How simple parts interacting together can produce complex behavior.",
+            "Why traffic jams are always caused by accidents on busy highways.",
+            "How individual neurons are able to think on their own."
+          ],
+          "answer": "B",
+          "skill": "central-idea"
+        },
+        {
+          "stem": "According to the passage, how does a single ant behave?",
+          "options": [
+            "It plans the whole nest alone.",
+            "It gives orders to other ants.",
+            "It follows a few simple rules.",
+            "It ignores chemical trails."
+          ],
+          "answer": "C",
+          "skill": "detail"
+        },
+        {
+          "stem": "The passage says emergence challenges a reductionist approach. A reductionist approach most nearly means",
+          "options": [
+            "ignoring scientific evidence",
+            "building larger and more organized ant colonies in a laboratory",
+            "measuring highway traffic",
+            "explaining a system only by studying its parts"
+          ],
+          "answer": "D",
+          "skill": "vocabulary"
+        }
+      ]
+    },
+    {
+      "id": "PX-1600-3",
+      "level": 1600,
+      "title": "The Tragedy of the Commons",
+      "text": "In 1968 the ecologist Garrett Hardin popularized the phrase \"the tragedy of the commons\" to describe a situation in which individuals, each acting rationally in their own interest, collectively deplete a shared resource that no single person owns, even though this outcome harms everyone in the long run. His central illustration involved herders grazing animals on common pastureland: each herder gains the full benefit of adding one more animal, while the cost of overgrazing is spread across the entire community, so every herder has an incentive to keep expanding the herd until the pasture is ruined. The same logic has been applied to overfishing in international waters, to the depletion of groundwater, and to the pollution of the atmosphere. However, the political economist Elinor Ostrom later demonstrated, through detailed studies of communities around the world, that people frequently avoid this tragedy by developing their own rules, monitoring arrangements, and penalties for overuse, findings that earned her a Nobel Prize and complicated the assumption that only private ownership or government control can protect shared resources.",
+      "questions": [
+        {
+          "stem": "What is the passage mainly about?",
+          "options": [
+            "How shared resources get overused, and how communities can prevent it.",
+            "Why herders should always own the pastures that their animals use for grazing.",
+            "Why groundwater can never be used up by farmers.",
+            "How Hardin won a Nobel Prize for his long study of farm animals and pastures."
+          ],
+          "answer": "A",
+          "skill": "central-idea"
+        },
+        {
+          "stem": "What did Elinor Ostrom show in her studies?",
+          "options": [
+            "Only governments are ever able to protect shared land and water.",
+            "Herders never overgraze the common pastures they share.",
+            "Communities often make their own rules to protect resources.",
+            "Fishing in international waters has no limits."
+          ],
+          "answer": "C",
+          "skill": "detail"
+        },
+        {
+          "stem": "Individuals deplete a shared resource. What does deplete most nearly mean?",
+          "options": [
+            "protect",
+            "divide fairly",
+            "repair",
+            "use up"
+          ],
+          "answer": "D",
+          "skill": "vocabulary"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,40 @@
+{
+  "code": "RR-149",
+  "summary": "This article explains how science explains swimming: why water holds us up, how pushing water back moves us forward, why a long, flat body beats drag, how swimmers breathe, and how to stay safe.",
+  "strategy": "Accessing Prior Knowledge",
+  "introduce": "Start a K-W-L chart on the board and ask students what they already Know and what they Want to know about the topic of “Swimming: Science in the Water”. Tell them they will fill in what they Learned after reading.",
+  "keyTerms": [
+    {
+      "term": "buoyancy",
+      "def": "the upward push of water that helps things float"
+    },
+    {
+      "term": "drag",
+      "def": "a force that slows down something moving through water or air"
+    },
+    {
+      "term": "streamline",
+      "def": "a straight, stretched body position that helps a swimmer move easily through water"
+    }
+  ],
+  "challengeTerms": [
+    {
+      "term": "resistance",
+      "def": "a force that works against something that is moving"
+    },
+    {
+      "term": "propel",
+      "def": "to push or drive something forward"
+    },
+    {
+      "term": "dense",
+      "def": "having a lot of matter packed into a small space; heavy for its size"
+    }
+  ],
+  "discussion": [
+    "Do you agree or disagree that every child should learn to swim, just like every child learns to read? Use evidence from the article to explain.",
+    "Imagine you are a swimming coach. Explain to a new swimmer how to float and how to move faster."
+  ],
+  "struggling": "Read the first part of the article aloud together, review buoyancy, drag, and streamline, and let weak readers use a K-W-L chart and read the article with a partner.",
+  "gifted": "Ask strong readers to read a challenging version and write a short paragraph that uses resistance, propel, and dense to connect the article to something they learned in another subject."
+}

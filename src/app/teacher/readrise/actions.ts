@@ -4,8 +4,9 @@ import { revalidatePath } from "next/cache";
 import { repo, requireActor } from "@/server/auth/next";
 import { ForbiddenError } from "@/server/auth/rbac";
 import { ValidationError } from "@/server/curriculum-admin";
-import { allowPlacementRetake, assertClassWrite, assignArticle, scoreWriting, setStudentLevel, unassignArticle } from "@/server/readrise/teacher";
+import { allowPlacementRetake, assertClassWrite, assignArticle, CLASS_SETTINGS, gradeWriting, scoreWriting, setClassSetting, setStudentLevel, TEACHER_BADGES, unassignArticle, WRITING_RUBRIC, type ClassSettingKey } from "@/server/readrise/teacher";
 import { assignDatesOf } from "@/lib/assign-dates";
+import { formatLevel } from "@/server/readrise/level";
 
 const STAFF = { roles: ["TEACHER", "SCHOOL_ADMIN", "SUPER_ADMIN"] as ("TEACHER" | "SCHOOL_ADMIN" | "SUPER_ADMIN")[] };
 const msgOf = (e: unknown) => { if (e instanceof ValidationError || e instanceof ForbiddenError) return e.message; throw e; };
@@ -77,7 +78,7 @@ export async function setReadRiseLevelAction(f: FormData): Promise<void> {
   let msg: string;
   try {
     const r = await setStudentLevel(repo, actor, id(f, "studentId"), Number(f.get("level")), String(f.get("reason") ?? ""));
-    msg = `ReadRise Level changed: ${r.from} → ${r.to}.`;
+    msg = `ReadRise Level changed: ${formatLevel(r.from)} → ${formatLevel(r.to)}.`;
   } catch (e) { msg = msgOf(e); }
   back(classId, msg);
 }
@@ -91,5 +92,38 @@ export async function allowReadRiseRetakeAction(f: FormData): Promise<void> {
     msg = r.restarted ? "The placement test starts again from the first passage." : "Placement retake allowed: the student sees the placement test next time they open ReadRise.";
   }
   catch (e) { msg = msgOf(e); }
+  back(classId, msg);
+}
+
+/** ✍️ Grading Center submit (round 6): points 5 / 10 / 20, the 4-row rubric (0–3 each), feedback and badges. */
+export async function gradeReadRiseWritingAction(f: FormData): Promise<void> {
+  const actor = await requireActor(STAFF);
+  const classId = id(f, "classId"), studentId = id(f, "studentId");
+  let msg: string;
+  try {
+    const raw = String(f.get("points") ?? "");
+    if (!raw) throw new ValidationError("Choose 5, 10 or 20 points.");
+    const rubric = WRITING_RUBRIC.map((_, i) => Number(f.get(`rubric${i}`) ?? 0));
+    const badges = f.getAll("badges").map(String).filter((b) => (TEACHER_BADGES as readonly string[]).includes(b));
+    await gradeWriting(repo, actor, id(f, "runId"), { points: Number(raw), rubric, comment: String(f.get("comment") ?? ""), badges });
+    revalidatePath("/teacher/readrise/grading");
+    msg = "Saved: the student sees your feedback.";
+  } catch (e) { msg = msgOf(e); }
+  redirect(`/teacher/readrise/grading?class=${encodeURIComponent(classId)}&student=${encodeURIComponent(studentId)}&msg=${encodeURIComponent(msg)}`);
+}
+
+/** ⚙ A class's ReadRise toggle (feed, badges, weekly plan). */
+export async function setReadRiseClassSettingAction(f: FormData): Promise<void> {
+  const actor = await requireActor(STAFF);
+  const classId = id(f, "classId");
+  const key = String(f.get("key") ?? "") as ClassSettingKey;
+  let msg: string;
+  try {
+    if (!(CLASS_SETTINGS as readonly string[]).includes(key)) throw new ValidationError("Unknown setting.");
+    const on = String(f.get("on")) === "1";
+    await setClassSetting(repo, actor, classId, key, on);
+    revalidatePath("/teacher/readrise");
+    msg = on ? "Setting turned on." : "Setting turned off.";
+  } catch (e) { msg = msgOf(e); }
   back(classId, msg);
 }

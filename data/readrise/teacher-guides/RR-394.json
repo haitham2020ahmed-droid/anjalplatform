@@ -1,0 +1,40 @@
+{
+  "code": "RR-394",
+  "summary": "In this story, a boy who just learned chess keeps losing to his older sister, but by studying his mistakes and practicing patiently, he plays a smart, hard-fought game at his school's chess tournament.",
+  "strategy": "Problem/Solution",
+  "introduce": "Write “Problem” and “Solution” on the board and give pairs thirty seconds to think of a problem people face in daily life and one way to fix it. Explain that as they read “The Chess Champion”, they will look for the main problem and how it is solved.",
+  "keyTerms": [
+    {
+      "term": "strategy",
+      "def": "a careful plan used to try to win a game or reach a goal"
+    },
+    {
+      "term": "opponent",
+      "def": "the person you are playing or competing against"
+    },
+    {
+      "term": "mistake",
+      "def": "an action or choice that turns out to be wrong"
+    }
+  ],
+  "challengeTerms": [
+    {
+      "term": "analyze",
+      "def": "to examine something carefully in order to understand it fully"
+    },
+    {
+      "term": "determined",
+      "def": "having made a firm decision to keep trying despite difficulty"
+    },
+    {
+      "term": "strategic",
+      "def": "relating to a careful plan aimed at achieving a long-term goal"
+    }
+  ],
+  "discussion": [
+    "Do you agree or disagree that losing again and again at something new means you should probably give up and try something else instead? Use evidence from the story to explain.",
+    "Explain how studying his mistakes helps Khaled become a better chess player."
+  ],
+  "struggling": "Pre-teach strategy, opponent, and mistake with pictures or gestures, then let weak readers fill in a simple Problem | Solution chart with sentence starters.",
+  "gifted": "Challenge advanced readers to use analyze, determined, and strategic in a short paragraph that suggests a second solution to the problem and judge which works better."
+}

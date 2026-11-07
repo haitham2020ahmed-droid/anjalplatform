@@ -3,10 +3,13 @@
  * — a whole grade, a class, chosen students, or only the "doubtful" results the platform finds:
  *   - placed before the placement fix of 30 Oct 2026 (a weak reader could reach 1400 on lucky 2-of-3 answers);
  *   - the level is more than 250 from the student's latest MAP Lexile;
- *   - the student's own readings say the level is too high (3+ counted first tries, average under 60%).
+ *   - the student's own readings say the level is too high (3+ counted first tries, average under 60%);
+ *   - round 6: placed before the low-start test (PLACEMENT_LOW_START_DATE) and the result is not above the test's
+ *     start (the old test started at the grade's level, e.g. 1050 in Grade 7, so a weak reader ended far too high).
  * A reset is a retake permission (the same marker a teacher's retake uses, tagged "(admin reset)"):
  *   - the level stays until the new test ends (the student keeps reading meanwhile);
- *   - the new test starts from the MAP Lexile / grade start (not from the old result);
+ *   - the new test starts LOW (300) or at a MAP Lexile from the last 6 months (round 6, placement.ts
+ *     placementStartLevel) — never from the old result or the grade;
  *   - its result replaces the level AND the year's start level (the old start was wrong), see placement.ts;
  *   - nothing is deleted (readings, scores, words, the level history stay);
  *   - it never uses up the teacher's "once per term" retake.
@@ -22,6 +25,8 @@ import { countedTries, isUnreliableRun, rapidRead } from "./first-try";
 export const ADMIN_RESET_TAG = "(admin reset)";
 /** Placements finished before this date used the old pass bar (2 of 3 up to 1400). */
 export const PLACEMENT_FIX_DATE = new Date("2026-10-30T00:00:00+03:00");
+/** Round 6: placements finished before this date started at the grade's level (not low). */
+export const PLACEMENT_LOW_START_DATE = new Date("2026-11-08T00:00:00+03:00");
 export const DOUBT = { mapGap: 250, minReads: 3, lowAverage: 60 } as const;
 
 export interface ResetFilter { gradeId?: string; classId?: string; q?: string; doubtful?: boolean }
@@ -56,7 +61,7 @@ export async function resetCandidates(repo: Repo, actor: Actor, f: ResetFilter =
     repo.findMany("Grade", { schoolId }, { select: ["id", "name", "level"] }),
     repo.findMany("Class", { schoolId, deletedAt: null }, { select: ["id", "name"] }),
     repo.findMany("RRStudent", { studentId: { in: ids } }),
-    repo.findMany("RRPlacement", { studentId: { in: ids } }, { select: ["studentId", "result", "startedAt", "completedAt"] }),
+    repo.findMany("RRPlacement", { studentId: { in: ids } }, { select: ["studentId", "result", "startLevel", "startedAt", "completedAt"] }),
     repo.findMany("RRLevelChange", { studentId: { in: ids } }, { select: ["studentId", "reason", "createdAt"] }),
     repo.findMany("MapResult", { studentId: { in: ids }, lexile: { not: null } }, { select: ["studentId", "lexile", "testDate"] }),
     repo.findMany("RRRun", { studentId: { in: ids }, completedAt: { not: null } }, { select: ["studentId", "articleId", "band", "score", "firstTry", "stretch", "completedAt", "startedAt", "unreliable", "readSeconds"] }),
@@ -83,6 +88,7 @@ export async function resetCandidates(repo: Repo, actor: Actor, f: ResetFilter =
     const level = rr ? Number(rr.level) : last ? Number(last.result) : null;
     const reasons: string[] = [];
     if (last && doneAt < PLACEMENT_FIX_DATE.getTime() && s(rr?.source) !== "TEACHER") reasons.push(`Placed on ${toDate(last.completedAt).toISOString().slice(0, 10)}, before the placement fix (30 Oct 2026)`);
+    if (last && doneAt < PLACEMENT_LOW_START_DATE.getTime() && s(rr?.source) !== "TEACHER" && Number(last.result) <= Number(last.startLevel) && Number(last.startLevel) > 300) reasons.push(`The old test started at ${Number(last.startLevel)} (the grade's level) and ended at ${Number(last.result)} — the new test starts low`);
     const map = (mBy.get(id) ?? []).sort((a, b) => toDate(b.testDate).getTime() - toDate(a.testDate).getTime())[0];
     if (map && level !== null && Math.abs(level - Number(map.lexile)) > DOUBT.mapGap) reasons.push(`Level ${level} is ${Math.abs(level - Number(map.lexile))} from the MAP Lexile ${Number(map.lexile)}`);
     const reads = countedTries((rBy.get(id) ?? []).filter((r) => !isUnreliableRun(r) && !rapidRead(r) && r.score !== null && r.score !== undefined));

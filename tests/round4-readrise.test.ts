@@ -49,11 +49,12 @@ const answers = (right: number) => Object.fromEntries(Array.from({ length: 8 }, 
 const WRITING = Array.from({ length: 32 }, (_, i) => `word${i}`).join(" ");
 async function read(repo: SqliteRepo, s: Actor, articleId: string, right: number, now: Date, stretch = false, readSeconds = 120) {
   const v = await startRun(repo, s, articleId, { stretch }, now);
-  await submitPrePoll(repo, s, v.runId, 1, now);
+  if (!stretch) await submitPrePoll(repo, s, v.runId, 1, now); // round 6: a stretch is Stretch Read → Stretch Respond only
   await finishReading(repo, s, v.runId, { readSeconds }, now);
-  await submitActivity(repo, s, v.runId, answers(right), now);
-  await submitWriting(repo, s, v.runId, WRITING, now);
-  return { start: v, done: await submitPostPoll(repo, s, v.runId, 2, now) };
+  const q = await submitActivity(repo, s, v.runId, answers(right), now);
+  if (stretch) return { start: v, done: q };
+  await submitPostPoll(repo, s, v.runId, 2, now); // round 6: Reflect before Write
+  return { start: v, done: await submitWriting(repo, s, v.runId, WRITING, now) };
 }
 const PASSAGES: PlacementPassage[] = parsePlacement({
   passages: RR_LEVELS.flatMap((level) => [1, 2, 3].map((k) => ({ id: `P${level}-${k}`, level, title: `P ${level}/${k}`, text: "Text.", questions: [1, 2, 3].map((n) => ({ stem: `Q${n}`, options: ["a", "b", "c", "d"], answer: "A", skill: "detail" })) }))),
@@ -88,7 +89,7 @@ describe("round 4 — ReadRise", () => {
     const first = await read(repo, s, b, 8, at(2, 1));
     assert.equal(first.done.done!.canStretch, true);
     const sv = await read(repo, s, b, 8, at(2, 2), true);
-    assert.deepEqual([sv.start.versionLevel, sv.start.band, sv.done.done!.stretchCounted], [1100, "HIGH", "FULL"]);
+    assert.deepEqual([sv.start.versionLevel, sv.start.band, sv.done.done!.stretchCounted], [1100, "HIGH", "PRACTICE"], "round 6: a stretch is always practice");
     // a re-read never unlocks a stretch: only the first try does (an Unreliable or low first try → no stretch)
     const pure = stretchOffer([{ stretch: false, firstTry: false, step: "DONE", score: 100, band: "MID" }], 1000, [{ level: 1000 }, { level: 1100 }]);
     assert.equal(pure.ok, false);
@@ -154,7 +155,8 @@ describe("round 4 — ReadRise", () => {
     assert.ok(v.passage && !v.passage.id.startsWith("P1000-") && [900, 1100].includes(PASSAGES.find((p) => p.id === v.passage!.id)!.level), "the nearest unseen passage");
     await repo.deleteMany("RRPlacement", { id: open.id });
     const src = readFileSync("src/server/readrise/placement.ts", "utf8");
-    assert.match(src, /st\.due \? Number\(\(await ensureRRStudent\(repo, studentId, now\)\)\.level\)/, "a check starts from the current level");
+    // round 6: at the nearest passage level to the current level
+    assert.match(src, /st\.due\s*\?\s*nearestPassageLevel\(Number\(\(await ensureRRStudent\(repo, studentId, now\)\)\.level\), passages\)/, "a check starts from the current level");
   });
 
   test("8 · 2+ passages answered too fast → Not valid — retake; the level is not changed; the student can start again", async () => {
@@ -202,11 +204,12 @@ describe("round 4 — ReadRise", () => {
       { studentId: "s", articleId: "c", band: "MID", firstTry: true, stretch: false, completedAt: "x", score: 70 },
       { studentId: "s", articleId: "c", band: "HIGH", firstTry: true, stretch: true, completedAt: "x", score: 75 },
     ];
-    assert.equal(tallyRuns(rows).length, 3);
-    assert.equal(countedTries(rows).length, 4);
+    // round 6: a stretch never counts (practice + points only)
+    assert.equal(tallyRuns(rows).length, 2);
+    assert.equal(countedTries(rows).length, 3);
     assert.equal(isCountedTry(rows[2], "MID"), false);
     // 6 · ONE article definition: reliable non-stretch first tries; stretch on its own line
-    assert.deepEqual([articleRuns(rows).length, stretchRuns(rows).length], [2, 1]);
+    assert.deepEqual([articleRuns(rows).length, stretchRuns(rows).length], [2, 2], "round 6: every reliable scored stretch is on the stretch line");
   });
 
   test("4 · the growth report drops Unreliable runs (trend, articles, skills, stretch)", async () => {
@@ -257,6 +260,7 @@ describe("round 4 — ReadRise", () => {
     await submitPrePoll(repo, s, v.runId, 1, at(3));
     await finishReading(repo, s, v.runId, { readSeconds: 120 }, at(3));
     await submitActivity(repo, s, v.runId, answers(8), at(3));
+    await submitPostPoll(repo, s, v.runId, 2, at(3)); // round 6: Reflect before Write
     const both = await Promise.allSettled([submitWriting(repo, s, v.runId, WRITING, at(3)), submitWriting(repo, s, v.runId, WRITING, at(3))]);
     assert.equal(both.filter((x) => x.status === "fulfilled").length, 1, "check-and-set: one submit wins");
     // ReadRise minutes: the stored per-question time (≤ 5 min)

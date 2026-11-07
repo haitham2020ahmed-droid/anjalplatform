@@ -1,0 +1,40 @@
+{
+  "code": "RR-021",
+  "summary": "This article explains how the six simple machines, such as the lever, pulley, and ramp, make work easier by trading less force for a longer distance.",
+  "strategy": "Vocabulary Building",
+  "introduce": "Write the key term “fulcrum” on the board and give pairs thirty seconds to guess what it means. Share a few guesses, then tell students to find the word in “Simple Machines Make Work Easier” and check whether they were right.",
+  "keyTerms": [
+    {
+      "term": "fulcrum",
+      "def": "the point that a lever turns on"
+    },
+    {
+      "term": "effort",
+      "def": "the force or hard work you put into doing something"
+    },
+    {
+      "term": "inclined",
+      "def": "sloping up or down, not flat"
+    }
+  ],
+  "challengeTerms": [
+    {
+      "term": "exert",
+      "def": "to use force or strength to do something"
+    },
+    {
+      "term": "advantage",
+      "def": "something that helps you or puts you in a better position"
+    },
+    {
+      "term": "thread",
+      "def": "the spiral ridge that winds around a screw or a lid"
+    }
+  ],
+  "discussion": [
+    "Do you agree or disagree that machines make work easier without any cost at all? Use evidence from the article to explain.",
+    "Explain how a lever or an inclined plane makes work easier."
+  ],
+  "struggling": "Pre-teach fulcrum, effort, and inclined with pictures or gestures, then let weak readers draw a quick picture for each term and use it in a short spoken sentence.",
+  "gifted": "Ask strong readers to read a challenging version and write a short paragraph that uses exert, advantage, and thread to teach the class one of the terms with their own example."
+}

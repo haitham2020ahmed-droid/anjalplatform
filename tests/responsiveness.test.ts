@@ -61,7 +61,7 @@ describe("responsiveness", () => {
 
   test("teacher ReadRise: the class summary and the open tab load at the same time; no await inside the JSX", () => {
     const p = read("src/app/teacher/readrise/page.tsx");
-    assert.match(p, /const \[r, growth, skills, polls, writing, assigned, library\] = await Promise\.all\(\[/);
+    assert.match(p, /const \[r, growth, skills, standards, polls, writing, assigned, library, overview, plan\] = await Promise\.all\(\[/);
     assert.ok(!/=\{await /.test(p), "no sequential await in the tabs");
   });
 

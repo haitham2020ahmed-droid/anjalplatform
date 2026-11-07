@@ -45,11 +45,12 @@ const answers = (right: number) => Object.fromEntries(Array.from({ length: 8 }, 
 const WRITING = Array.from({ length: 32 }, (_, i) => `word${i}`).join(" ");
 async function read(repo: SqliteRepo, s: Actor, articleId: string, right: number, now: Date, stretch = false, readSeconds = 120) {
   const v = await startRun(repo, s, articleId, { stretch }, now);
-  await submitPrePoll(repo, s, v.runId, 1, now);
+  if (!stretch) await submitPrePoll(repo, s, v.runId, 1, now); // round 6: a stretch is Stretch Read → Stretch Respond only
   await finishReading(repo, s, v.runId, { readSeconds }, now);
   const scored = await submitActivity(repo, s, v.runId, answers(right), now);
-  await submitWriting(repo, s, v.runId, WRITING, now);
-  return { start: v, scored, done: await submitPostPoll(repo, s, v.runId, 2, now) };
+  if (stretch) return { start: v, scored, done: scored };
+  await submitPostPoll(repo, s, v.runId, 2, now); // round 6: Reflect before Write
+  return { start: v, scored, done: await submitWriting(repo, s, v.runId, WRITING, now) };
 }
 
 describe("round 5 — ReadRise", () => {
@@ -63,7 +64,7 @@ describe("round 5 — ReadRise", () => {
     st = await Promise.all(["001", "002", "003", "004", "005", "006"].map((t) => actorOf(`test.student.${t}`)));
   });
 
-  test("stretch at 1400: always offered; without a set it is practice (goal only), with an S-H set it counts fully", async () => {
+  test("stretch at 1400: always offered; practice only (round 6), with an S-H set it uses the 4 new questions", async () => {
     const s = st[0], sid = s.studentId!;
     await setLevelByTeacher(repo, admin, sid, 1400, "", at(0));
     const a = await makeArticle(repo, "R5-1");
@@ -75,16 +76,17 @@ describe("round 5 — ReadRise", () => {
     assert.deepEqual([sp.start.versionLevel, sp.start.band, sp.done.done!.kind, sp.done.done!.stretchCounted], [1500, "HIGH", "STRETCH", "PRACTICE"]);
     assert.equal((await levelWindow(repo, sid)).length, win, "a practice stretch never joins the level window");
     assert.equal(sp.done.done!.goal.thisWeek, 1, "one goal credit for the article (its first try already earned it)");
-    // an article WITH a stretch set for HIGH: the stretch uses the 4 new questions and counts fully
+    // an article WITH a stretch set for HIGH: the stretch uses the 4 new questions — round 6: still practice only
     const b = await makeArticle(repo, "R5-2", { stretchSet: "S-H" });
     const fb = await read(repo, s, b, 8, at(1, 2));
-    assert.equal(fb.done.done!.stretchMode, "FULL");
+    assert.equal(fb.done.done!.stretchMode, "PRACTICE");
     assert.deepEqual(await levelWindow(repo, sid), [100, 100], "two first tries (the practice stretch is not in it)");
     const sb = await read(repo, s, b, 4, at(1, 3), true);
     assert.deepEqual([sb.start.band, sb.start.questions.length, sb.scored.score], ["S-H", 4, 100]);
-    assert.equal(sb.done.done!.stretchCounted, "FULL");
-    // the stretch-set stretch joined the window: 3 of the last 3 at 75%+ → up 50 (the window starts again)
-    assert.deepEqual([sb.done.done!.levelBefore, sb.done.done!.levelAfter], [1400, 1450], "a stretch-set stretch at 75%+ counts for the level");
+    assert.equal(sb.done.done!.stretchCounted, "PRACTICE");
+    // round 6 (owner): a stretch never moves the level, whatever its questions
+    assert.deepEqual([sb.done.done!.levelBefore, sb.done.done!.levelAfter], [1400, 1400], "a stretch never counts for the level");
+    assert.deepEqual(await levelWindow(repo, sid), [100, 100]);
     assert.equal(sb.done.done!.kind, "STRETCH");
     // the reader shows the band's prompt for a stretch-set run
     assert.equal(sb.start.prompt, "Explain (HIGH).");
@@ -94,13 +96,13 @@ describe("round 5 — ReadRise", () => {
   test("one goal credit per article; a re-read never; isCountedTry / practice stretch (pure)", () => {
     const r = (o: Record<string, unknown>) => ({ studentId: "s", articleId: "a", firstTry: true, stretch: false, band: "HIGH", completedAt: "2026-09-07T08:00:00Z", score: 80, ...o });
     assert.equal(goalRuns([r({}), r({ stretch: true, score: 100, completedAt: "2026-09-07T09:00:00Z" })]).length, 1, "first try + stretch = one credit");
-    assert.equal(goalRuns([r({ readSeconds: 10 }), r({ stretch: true, completedAt: "2026-09-08T09:00:00Z" })])[0].stretch, true, "a too-fast first try earns nothing; its stretch earns the credit");
+    assert.equal(goalRuns([r({ readSeconds: 10 }), r({ stretch: true, completedAt: "2026-09-08T09:00:00Z" })]).length, 0, "round 6: a too-fast first try earns nothing; a stretch never earns the credit");
     assert.equal(goalRuns([r({ score: 60 }), r({ firstTry: false, score: 100 })]).length, 0, "a re-read never");
     assert.equal(goalRuns([r({ unreliable: true }), r({ articleId: "b" })]).length, 1);
-    assert.equal(isCountedTry(r({ stretch: true, band: "S-H" }), "HIGH"), true);
+    assert.equal(isCountedTry(r({ stretch: true, band: "S-H" }), "HIGH"), false, "round 6: a stretch never counts");
     assert.equal(isCountedTry(r({ stretch: true, band: "HIGH" }), "HIGH"), false);
     assert.equal(isPracticeStretch(r({ stretch: true, band: "HIGH" }), "HIGH"), true);
-    assert.equal(countedTries([r({}), r({ stretch: true, band: "S-H" })]).length, 2);
+    assert.equal(countedTries([r({}), r({ stretch: true, band: "S-H" })]).length, 1);
     // the progress strip: strong reads still needed for +50 (3 of the last 4 at 75%+)
     assert.deepEqual([readsToMoveUp([]), readsToMoveUp([80]), readsToMoveUp([80, 90]), readsToMoveUp([40, 80, 90])], [3, 2, 1, 1]);
     // the stretch offer at the top: no higher version
@@ -220,14 +222,14 @@ describe("round 5 — ReadRise", () => {
     const vs = RR_LEVELS.map((level) => ({ level }));
     const first = { firstTry: true, stretch: false, step: "DONE", score: 90, band: "MID", versionLevel: 1000 };
     const o = stretchOffer([first], 800, vs);
-    assert.deepEqual([o.ok, o.up, o.band, o.mode], [true, 1100, "HIGH", "FULL"]);
+    assert.deepEqual([o.ok, o.up, o.band, o.mode], [true, 1100, "HIGH", "PRACTICE"]);
     assert.equal(stretchOffer([{ ...first, versionLevel: 800 }], 800, vs).up, 900);
   });
 
   test("fix 3 · two first-try stretches (a race / old data) count once; startRun never makes two", async () => {
     const r = (o: Record<string, unknown>) => ({ studentId: "s", articleId: "a", firstTry: true, stretch: false, band: "MID", score: 90, completedAt: "2026-09-07T08:00:00Z", startedAt: "2026-09-07T07:00:00Z", ...o });
     const rows = [r({}), r({ stretch: true, band: "HIGH", startedAt: "2026-09-07T09:00:00Z" }), r({ stretch: true, band: "HIGH", startedAt: "2026-09-07T09:00:01Z" }), r({ startedAt: "2026-09-07T07:30:00Z" })];
-    assert.equal(countedTries(rows).length, 2, "the earliest main first try + the earliest stretch");
+    assert.equal(countedTries(rows).length, 1, "the earliest main first try (round 6: a stretch never counts)");
     assert.equal(articleRuns(rows).length, 1);
     const s = st[5], sid = s.studentId!;
     await setLevelByTeacher(repo, admin, sid, 1000, "", at(0));

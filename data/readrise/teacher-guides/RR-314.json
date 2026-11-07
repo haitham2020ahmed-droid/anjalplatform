@@ -1,0 +1,40 @@
+{
+  "code": "RR-314",
+  "summary": "This article explains how cameras capture light to make a picture, basic ideas like framing and lighting, how photography changed from film to digital, and how photography works as both documentation and art.",
+  "strategy": "Compare/Contrast",
+  "introduce": "Write “Alike” and “Different” at the top of a T-chart on the board and ask students to compare two school subjects in one minute. Explain that “Photography: Capturing a Moment” asks them to make the same kind of comparison.",
+  "keyTerms": [
+    {
+      "term": "exposure",
+      "def": "the amount of light that reaches the camera to make a picture"
+    },
+    {
+      "term": "shutter",
+      "def": "the part of a camera that opens and closes to let light in"
+    },
+    {
+      "term": "digital",
+      "def": "using an electronic sensor and computer parts instead of film"
+    }
+  ],
+  "challengeTerms": [
+    {
+      "term": "aperture",
+      "def": "the size of a camera's opening that controls how much light enters and how much of the scene stays in focus"
+    },
+    {
+      "term": "sensor",
+      "def": "the electronic part inside a digital camera that turns light into a picture"
+    },
+    {
+      "term": "document",
+      "def": "to record something exactly as it happened, as proof or a record"
+    }
+  ],
+  "discussion": [
+    "Do you agree or disagree that a photograph can tell a true story all by itself, without any words? Use evidence from the article to explain.",
+    "Explain how exposure and composition each affect the final look of a photograph."
+  ],
+  "struggling": "Pre-teach exposure, shutter, and digital with pictures or gestures, then let weak readers fill in a T-chart of alike and different with sentence starters.",
+  "gifted": "Ask strong readers to read a challenging version and write a short paragraph that uses aperture, sensor, and document to compare two ideas from the article and explain which difference matters most."
+}

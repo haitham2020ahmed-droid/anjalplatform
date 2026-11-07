@@ -1,0 +1,40 @@
+{
+  "code": "RR-408",
+  "summary": "This story is about a lab robot that runs an overnight practice routine its young programmer jokingly calls \"dreaming,\" and solves a maze much faster the next day.",
+  "strategy": "Problem/Solution",
+  "introduce": "Write “Problem” and “Solution” on the board and give pairs thirty seconds to think of a problem people face in daily life and one way to fix it. Explain that as they read “The Robot That Dreamed”, they will look for the main problem and how it is solved.",
+  "keyTerms": [
+    {
+      "term": "sensor",
+      "def": "a part of a machine that detects things like light, distance, or movement"
+    },
+    {
+      "term": "pattern",
+      "def": "a way something repeats or happens that you can notice and predict"
+    },
+    {
+      "term": "programmer",
+      "def": "a person who writes the instructions that make a computer or robot work"
+    }
+  ],
+  "challengeTerms": [
+    {
+      "term": "algorithm",
+      "def": "a set of exact steps a computer follows to solve a problem"
+    },
+    {
+      "term": "iteration",
+      "def": "one single repeated attempt or cycle within a longer repeated process"
+    },
+    {
+      "term": "diagnostic",
+      "def": "having to do with a test or check that looks for problems or measures performance"
+    }
+  ],
+  "discussion": [
+    "Do you agree or disagree that practicing something many times is the best way to get better at it? Use evidence from the story to explain.",
+    "Explain how Robo became so much faster at the maze overnight."
+  ],
+  "struggling": "Pre-teach sensor, pattern, and programmer with pictures or gestures, then let weak readers fill in a simple Problem | Solution chart with sentence starters.",
+  "gifted": "Challenge advanced readers to use algorithm, iteration, and diagnostic in a short paragraph that suggests a second solution to the problem and judge which works better."
+}

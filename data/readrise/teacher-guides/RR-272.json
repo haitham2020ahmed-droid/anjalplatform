@@ -1,0 +1,40 @@
+{
+  "code": "RR-272",
+  "summary": "This article explains how carbon moves between air, plants, animals, oceans, and soil in a natural, repeating cycle, why that balance matters, and how burning fossil fuels adds extra carbon to the air.",
+  "strategy": "Problem/Solution",
+  "introduce": "Ask students to share a small problem they solved this week and how they solved it, and write two examples in a Problem | Solution chart on the board. Tell them that “The Carbon Cycle: Nature's Balance” also has a problem and a solution to find.",
+  "keyTerms": [
+    {
+      "term": "photosynthesis",
+      "def": "the process plants use to turn sunlight, water, and carbon dioxide into food"
+    },
+    {
+      "term": "respiration",
+      "def": "the process living things use to release energy from food, giving off carbon dioxide"
+    },
+    {
+      "term": "decompose",
+      "def": "to break down into simpler parts after dying"
+    }
+  ],
+  "challengeTerms": [
+    {
+      "term": "equilibrium",
+      "def": "a state of balance between different forces or amounts"
+    },
+    {
+      "term": "reservoir",
+      "def": "a place where something, such as water or carbon, is stored and kept"
+    },
+    {
+      "term": "phytoplankton",
+      "def": "tiny plant-like organisms that live in water and make food using sunlight"
+    }
+  ],
+  "discussion": [
+    "Do you agree or disagree that what happens in the ocean and what happens in the forest are closely connected to each other? Use evidence from the article to explain.",
+    "Explain how photosynthesis and respiration are connected parts of the carbon cycle."
+  ],
+  "struggling": "Pre-teach photosynthesis, respiration, and decompose with pictures or gestures, then let weak readers fill in a simple Problem | Solution chart with sentence starters.",
+  "gifted": "Challenge advanced readers to use equilibrium, reservoir, and phytoplankton in a short paragraph that suggests a second solution to the problem and judge which works better."
+}

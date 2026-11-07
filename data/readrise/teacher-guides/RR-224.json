@@ -1,0 +1,40 @@
+{
+  "code": "RR-224",
+  "summary": "This article explains how movable type, invented in East Asia and later rebuilt independently in Europe, made books cheaper and let knowledge spread faster than copying by hand ever could.",
+  "strategy": "Sequence",
+  "introduce": "Give pairs four mixed-up steps of a simple task, such as making tea, and ask them to put the steps in order. Explain that “The Printing Press: Spreading Knowledge Faster” also follows an order, and good readers notice signal words like first, after, and finally.",
+  "keyTerms": [
+    {
+      "term": "scribe",
+      "def": "a person whose job was to copy writing by hand, especially long ago"
+    },
+    {
+      "term": "literacy",
+      "def": "the ability to read and write"
+    },
+    {
+      "term": "alloy",
+      "def": "a mixture of two or more metals, made to be stronger or more useful"
+    }
+  ],
+  "challengeTerms": [
+    {
+      "term": "mechanism",
+      "def": "a machine or a system of parts that work together to do a job"
+    },
+    {
+      "term": "transform",
+      "def": "to change something completely"
+    },
+    {
+      "term": "distribute",
+      "def": "to give or spread something out to many people or places"
+    }
+  ],
+  "discussion": [
+    "Do you agree or disagree that the printing press was the most important invention in the history of writing? Use evidence from the article to explain.",
+    "Which invention described in the article do you think helped the most people learn to read?"
+  ],
+  "struggling": "Pre-teach scribe, literacy, and alloy with pictures or gestures, then let weak readers put sentence strips of the main events in order before writing.",
+  "gifted": "Ask strong readers to read a challenging version and write a short paragraph that uses mechanism, transform, and distribute to summarize the key events in order and explain which step matters most."
+}

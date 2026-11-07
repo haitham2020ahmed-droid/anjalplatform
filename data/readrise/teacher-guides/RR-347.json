@@ -1,0 +1,40 @@
+{
+  "code": "RR-347",
+  "summary": "This article explains how the number of people on Earth has grown over time, why it grew slowly for most of history and then very fast, and why some countries grow faster than others.",
+  "strategy": "Sequence",
+  "introduce": "Give pairs four mixed-up steps of a simple task, such as making tea, and ask them to put the steps in order. Explain that “World Population Growth” also follows an order, and good readers notice signal words like first, after, and finally.",
+  "keyTerms": [
+    {
+      "term": "rate",
+      "def": "a measure of how often something happens over a period of time"
+    },
+    {
+      "term": "decline",
+      "def": "to become smaller, lower, or fewer over time"
+    },
+    {
+      "term": "expectancy",
+      "def": "how long something, such as a person's life, is expected to last on average"
+    }
+  ],
+  "challengeTerms": [
+    {
+      "term": "demographic",
+      "def": "relating to the size, structure, and features of a population of people"
+    },
+    {
+      "term": "fertility",
+      "def": "the average number of children born to each woman over her lifetime, used to describe a population"
+    },
+    {
+      "term": "mortality",
+      "def": "the rate at which people die within a population over a given period"
+    }
+  ],
+  "discussion": [
+    "Do you agree or disagree that the world's population will keep growing forever? Use evidence from the article to explain.",
+    "Explain, step by step, why some countries' populations grow much faster than others."
+  ],
+  "struggling": "Read the first part of the article aloud together, review rate, decline, and expectancy, and let weak readers put sentence strips of the main events in order before writing.",
+  "gifted": "Ask strong readers to read a challenging version and write a short paragraph that uses demographic, fertility, and mortality to summarize the key events in order and explain which step matters most."
+}

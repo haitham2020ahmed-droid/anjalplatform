@@ -1,0 +1,40 @@
+{
+  "code": "RR-142",
+  "summary": "This article explains how the scholar Al-Biruni used a mountain, careful angle measurements, and mathematics to estimate the size of the Earth with remarkable accuracy about a thousand years ago.",
+  "strategy": "Author's Purpose",
+  "introduce": "Ask students why someone might write “Al-Biruni: Measuring the Earth”: to inform, to persuade, or to entertain? Take a quick hand vote, then tell students to look for clues about the writer's purpose as they read.",
+  "keyTerms": [
+    {
+      "term": "scholar",
+      "def": "a person who studies a subject very deeply and knows a lot about it"
+    },
+    {
+      "term": "angle",
+      "def": "the space between two lines that meet at a point, often measured in degrees"
+    },
+    {
+      "term": "horizon",
+      "def": "the line far away where the land or sea seems to meet the sky"
+    }
+  ],
+  "challengeTerms": [
+    {
+      "term": "trigonometry",
+      "def": "a branch of mathematics that studies triangles, their sides, and their angles"
+    },
+    {
+      "term": "astrolabe",
+      "def": "an old instrument used to measure the angles of stars, the sun, and objects above the horizon"
+    },
+    {
+      "term": "observation",
+      "def": "the careful watching and measuring of something to learn about it"
+    }
+  ],
+  "discussion": [
+    "Do you agree or disagree that a single person with a clever idea can solve a problem that a large team cannot? Use evidence from the article to explain.",
+    "Compare the earlier method of measuring the Earth with Al-Biruni's method."
+  ],
+  "struggling": "Pre-teach scholar, angle, and horizon with pictures or gestures, then let weak readers underline sentences that inform and circle any that persuade.",
+  "gifted": "Ask strong readers to read a challenging version and write a short paragraph that uses trigonometry, astrolabe, and observation to explain the writer's purpose and how the details support it."
+}

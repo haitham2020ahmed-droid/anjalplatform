@@ -1,0 +1,40 @@
+{
+  "code": "RR-145",
+  "summary": "This article explains how wind turbines turn moving air into electricity, why wind farms are a clean source of power with some challenges, and how Saudi Arabia has begun using wind energy at Dumat Al Jandal.",
+  "strategy": "Problem/Solution",
+  "introduce": "Write “Problem” and “Solution” on the board and give pairs thirty seconds to think of a problem people face in daily life and one way to fix it. Explain that as they read “Wind Farms: Power from the Air”, they will look for the main problem and how it is solved.",
+  "keyTerms": [
+    {
+      "term": "generator",
+      "def": "a machine that changes motion into electricity"
+    },
+    {
+      "term": "renewable",
+      "def": "able to be used again and again because nature keeps replacing it"
+    },
+    {
+      "term": "electricity",
+      "def": "a form of energy that flows through wires and powers lights and machines"
+    }
+  ],
+  "challengeTerms": [
+    {
+      "term": "kinetic",
+      "def": "having to do with motion; kinetic energy is the energy something has because it is moving"
+    },
+    {
+      "term": "offshore",
+      "def": "located in the sea, away from the coast"
+    },
+    {
+      "term": "intermittent",
+      "def": "stopping and starting again; not steady"
+    }
+  ],
+  "discussion": [
+    "Do you agree or disagree that every country should build more wind farms? Use evidence from the article to explain.",
+    "Explain the advantages and one problem of wind power."
+  ],
+  "struggling": "Read the first part of the article aloud together, review generator, renewable, and electricity, and let weak readers fill in a simple Problem | Solution chart with sentence starters.",
+  "gifted": "Challenge advanced readers to use kinetic, offshore, and intermittent in a short paragraph that suggests a second solution to the problem and judge which works better."
+}

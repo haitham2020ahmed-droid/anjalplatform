@@ -1,0 +1,40 @@
+{
+  "code": "RR-256",
+  "summary": "This article covers the story of Al-Kindi, a 9th-century scholar in Baghdad known as the Philosopher of the Arabs, who wrote on many subjects and pioneered the science of breaking secret codes.",
+  "strategy": "Author's Purpose",
+  "introduce": "Ask students why someone might write “Al-Kindi: A Pioneer of Early Science”: to inform, to persuade, or to entertain? Take a quick hand vote, then tell students to look for clues about the writer's purpose as they read.",
+  "keyTerms": [
+    {
+      "term": "cipher",
+      "def": "a secret code that hides a message by swapping letters or symbols"
+    },
+    {
+      "term": "frequency",
+      "def": "how often something happens or appears"
+    },
+    {
+      "term": "philosopher",
+      "def": "a person who studies deep questions about life, knowledge, and the world"
+    }
+  ],
+  "challengeTerms": [
+    {
+      "term": "cryptography",
+      "def": "the study and practice of writing and breaking secret codes"
+    },
+    {
+      "term": "pioneer",
+      "def": "a person who is among the first to study or do something new"
+    },
+    {
+      "term": "intellectual",
+      "def": "relating to deep thinking, study, and the use of the mind"
+    }
+  ],
+  "discussion": [
+    "Do you agree or disagree that a person can be a true expert in many different subjects at the same time? Use evidence from the article to explain.",
+    "Explain how Al-Kindi's wide learning and his work on ciphers show that he was an important early scholar."
+  ],
+  "struggling": "Read the first part of the article aloud together, review cipher, frequency, and philosopher, and let weak readers underline sentences that inform and circle any that persuade.",
+  "gifted": "Ask strong readers to read a challenging version and write a short paragraph that uses cryptography, pioneer, and intellectual to explain the writer's purpose and how the details support it."
+}

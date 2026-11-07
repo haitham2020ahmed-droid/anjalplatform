@@ -1,0 +1,40 @@
+{
+  "code": "RR-415",
+  "summary": "In this story, a social-helper robot at a children's hospital learns, with help from its engineers and the kids on the ward, to fine-tune the timing of its programmed laugh so it comforts rather than startles.",
+  "strategy": "Making Inferences",
+  "introduce": "Act out a short mime, such as checking your watch and tapping your foot, and ask students how you feel and how they know. Explain that in “The Robot Who Learned to Laugh” they will use clues in the same way to work out what the writer does not say directly.",
+  "keyTerms": [
+    {
+      "term": "engineer",
+      "def": "a person who designs, builds, or fixes machines and other things"
+    },
+    {
+      "term": "adjust",
+      "def": "to change something a little so it works better"
+    },
+    {
+      "term": "sensor",
+      "def": "a part of a machine that notices things like sound, light, or movement"
+    }
+  ],
+  "challengeTerms": [
+    {
+      "term": "calibrate",
+      "def": "to carefully adjust a tool or machine so it measures or works correctly"
+    },
+    {
+      "term": "mechanism",
+      "def": "a part or set of parts in a machine that work together to do a job"
+    },
+    {
+      "term": "algorithm",
+      "def": "a set of exact steps a computer follows to solve a problem or make a decision"
+    }
+  ],
+  "discussion": [
+    "Do you agree or disagree that a robot that makes a programmed laugh sound is just as good at comforting people as someone who really feels happy? Use evidence from the story to explain.",
+    "Explain how the engineers and the kids on the ward worked together to fix Rex's laugh."
+  ],
+  "struggling": "Read the first part of the story aloud together, review engineer, adjust, and sensor, and let weak readers answer “What clue tells you that?” questions using sentence starters.",
+  "gifted": "Challenge advanced readers to use calibrate, mechanism, and algorithm in a short paragraph that makes an inference that the story does not state and support it with two clues."
+}

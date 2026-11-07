@@ -1,0 +1,40 @@
+{
+  "code": "RR-401",
+  "summary": "In this story, a household helper robot keeps making small mistakes while trying to be useful, until his family patiently teaches him, and he finally helps in just the right way during a busy morning.",
+  "strategy": "Problem/Solution",
+  "introduce": "Ask students to share a small problem they solved this week and how they solved it, and write two examples in a Problem | Solution chart on the board. Tell them that “The Robot Who Learned to Help” also has a problem and a solution to find.",
+  "keyTerms": [
+    {
+      "term": "patient",
+      "def": "able to stay calm and wait without getting annoyed, even when something is slow or difficult"
+    },
+    {
+      "term": "soaked",
+      "def": "very wet, as if completely filled with water"
+    },
+    {
+      "term": "setting",
+      "def": "the way a machine is adjusted to work in a certain way"
+    }
+  ],
+  "challengeTerms": [
+    {
+      "term": "overwhelmed",
+      "def": "feeling unable to cope because there is too much happening at once"
+    },
+    {
+      "term": "calibrate",
+      "def": "to adjust a machine or tool carefully so it works correctly"
+    },
+    {
+      "term": "gratitude",
+      "def": "a feeling of being thankful"
+    }
+  ],
+  "discussion": [
+    "Do you agree or disagree that a robot that keeps making mistakes should be sent back instead of given more chances? Use evidence from the story to explain.",
+    "Explain how patient teaching from Mom and Dad helped Robi go from making mistakes to helping in just the right way."
+  ],
+  "struggling": "Read the first part of the story aloud together, review patient, soaked, and setting, and let weak readers fill in a simple Problem | Solution chart with sentence starters.",
+  "gifted": "Challenge advanced readers to use overwhelmed, calibrate, and gratitude in a short paragraph that suggests a second solution to the problem and judge which works better."
+}

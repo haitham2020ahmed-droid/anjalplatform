@@ -1,0 +1,40 @@
+{
+  "code": "RR-442",
+  "summary": "In this story, when a village's well pump breaks, a boy who has been learning mechanics from his uncle studies the problem and helps repair it before the village must haul water from far away.",
+  "strategy": "Problem/Solution",
+  "introduce": "Write “Problem” and “Solution” on the board and give pairs thirty seconds to think of a problem people face in daily life and one way to fix it. Explain that as they read “The Boy Who Fixed the Well”, they will look for the main problem and how it is solved.",
+  "keyTerms": [
+    {
+      "term": "village",
+      "def": "a small group of homes, smaller than a town"
+    },
+    {
+      "term": "mechanic",
+      "def": "a person whose job is to fix machines or engines"
+    },
+    {
+      "term": "repair",
+      "def": "to fix something that is damaged or not working"
+    }
+  ],
+  "challengeTerms": [
+    {
+      "term": "diagnose",
+      "def": "to find the exact cause of a problem by examining it closely"
+    },
+    {
+      "term": "improvise",
+      "def": "to make or do something using whatever is available, without a plan prepared in advance"
+    },
+    {
+      "term": "ingenuity",
+      "def": "cleverness and skill in solving problems or inventing things"
+    }
+  ],
+  "discussion": [
+    "Do you agree or disagree that learning a practical skill by watching someone else work is just as valuable as learning it in school? Use evidence from the story to explain.",
+    "Explain how Omar's earlier habit of watching his uncle work helped him later in the story."
+  ],
+  "struggling": "Read the first part of the story aloud together, review village, mechanic, and repair, and let weak readers fill in a simple Problem | Solution chart with sentence starters.",
+  "gifted": "Challenge advanced readers to use diagnose, improvise, and ingenuity in a short paragraph that suggests a second solution to the problem and judge which works better."
+}

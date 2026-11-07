@@ -1,0 +1,40 @@
+{
+  "code": "RR-400",
+  "summary": "In this story, four classmates nearly ruin their group project by waiting until the night before it is due, but they stay calm, divide the work fairly, and finish together just in time.",
+  "strategy": "Sequence",
+  "introduce": "Give pairs four mixed-up steps of a simple task, such as making tea, and ask them to put the steps in order. Explain that “The Group Project Disaster” also follows an order, and good readers notice signal words like first, after, and finally.",
+  "keyTerms": [
+    {
+      "term": "deadline",
+      "def": "the latest time something must be finished by"
+    },
+    {
+      "term": "divide",
+      "def": "to split something into separate parts"
+    },
+    {
+      "term": "responsibility",
+      "def": "a job or duty that a person must take care of"
+    }
+  ],
+  "challengeTerms": [
+    {
+      "term": "procrastinate",
+      "def": "to delay doing something that needs to be done"
+    },
+    {
+      "term": "delegate",
+      "def": "to give part of a job to someone else to do"
+    },
+    {
+      "term": "accountability",
+      "def": "being responsible for your own actions or tasks"
+    }
+  ],
+  "discussion": [
+    "Do you agree or disagree that it is fine to wait until the last minute on a group project, as long as everyone works hard the night before it is due? Use evidence from the story to explain.",
+    "Explain what went wrong with the group's planning, and how the four friends fixed the problem."
+  ],
+  "struggling": "Pre-teach deadline, divide, and responsibility with pictures or gestures, then let weak readers put sentence strips of the main events in order before writing.",
+  "gifted": "Challenge advanced readers to use procrastinate, delegate, and accountability in a short paragraph that summarizes the key events in order and explain which step matters most."
+}

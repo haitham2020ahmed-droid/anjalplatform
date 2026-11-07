@@ -1,0 +1,40 @@
+{
+  "code": "RR-183",
+  "summary": "This article explains how people moved from trading goods to using shells, coins, paper money, and digital payments, and why money works.",
+  "strategy": "Sequence",
+  "introduce": "Give pairs four mixed-up steps of a simple task, such as making tea, and ask them to put the steps in order. Explain that “The Story of Coins and Money” also follows an order, and good readers notice signal words like first, after, and finally.",
+  "keyTerms": [
+    {
+      "term": "barter",
+      "def": "to trade goods without using money"
+    },
+    {
+      "term": "merchant",
+      "def": "a person who buys and sells goods"
+    },
+    {
+      "term": "value",
+      "def": "how much something is worth"
+    }
+  ],
+  "challengeTerms": [
+    {
+      "term": "electrum",
+      "def": "a natural mixture of gold and silver"
+    },
+    {
+      "term": "durable",
+      "def": "strong and able to last a long time"
+    },
+    {
+      "term": "caravans",
+      "def": "groups of travelers, often with camels, moving together across a desert"
+    }
+  ],
+  "discussion": [
+    "Do you agree or disagree that one day, people will stop using coins and paper money completely? Use evidence from the article to explain.",
+    "Explain how money changed from bartering to the riyal we use today."
+  ],
+  "struggling": "Pre-teach barter, merchant, and value with pictures or gestures, then let weak readers put sentence strips of the main events in order before writing.",
+  "gifted": "Challenge advanced readers to use electrum, durable, and caravans in a short paragraph that summarizes the key events in order and explain which step matters most."
+}

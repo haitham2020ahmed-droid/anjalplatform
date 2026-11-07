@@ -6,8 +6,11 @@ import { can } from "@/server/auth/rbac";
 import { classReport, pollReport, POLL_LABELS, skillsReport, standardsReport, writingQueue, type SkillCell } from "@/server/readrise/dashboards";
 import { standardName } from "@/server/readrise/growth-words";
 import { assignableArticles } from "@/server/readrise/library";
-import { classArticles, teacherReadRiseClasses } from "@/server/readrise/teacher";
+import { classArticles, classSettings, ensureWeeklyPlan, planByWeek, teacherReadRiseClasses } from "@/server/readrise/teacher";
+import { activityTracker, classOverview, levelDetail } from "@/server/readrise/teacher-report";
+import { ActivityTrackerView, ByWeekView, ClassDashboardView, ClassOverviewTable, ClassSettingsCard, LevelBars, LevelDetailView, StudentViewNav } from "./_components/data-center";
 import { ENGINE } from "@/server/readrise/engine";
+import { formatLevel } from "@/server/readrise/level";
 import { exportsOf } from "@/components/reports/report-ui";
 import { AtAGlance, Callout, ReportHeader } from "@/components/report-kit";
 import { getT } from "@/i18n/server";
@@ -15,7 +18,7 @@ import type { TFn } from "@/i18n";
 import { ReadingLevelLabel } from "@/components/reading-level";
 import { skillName } from "@/app/admin/readrise/_components/article-view";
 import { ReadRiseTabs, TEACHER_TABS } from "@/app/admin/readrise/_components/tabs";
-import { btn, day, field, Flash, fmt, LevelHistogram, levelRange, RR_NOTE, ScaledLineChart, signed } from "@/app/admin/readrise/_components/ui";
+import { btn, day, field, Flash, fmt, levelRange, RR_NOTE, ScaledLineChart, signed } from "@/app/admin/readrise/_components/ui";
 import { classGrowth, studentGrowthReport } from "@/server/readrise/growth-report";
 import { ClassGrowthTab, StudentGrowthView } from "./_components/growth";
 import { allowReadRiseRetakeAction, assignReadRiseAction, scoreReadRiseWritingAction, setReadRiseLevelAction, unassignReadRiseAction } from "./actions";
@@ -25,6 +28,10 @@ export const metadata = { title: "ReadRise" };
 
 const TABS = [
   { key: "students", label: "👩‍🎓 Students" },
+  // round 6 (Achieve3000-style Data Center): the Class Overview table, the Class Dashboard and the weekly plan
+  { key: "overview", label: "📋 Overview" },
+  { key: "dashboard", label: "📊 Dashboard" },
+  { key: "plan", label: "📅 By week" },
   { key: "growth", label: "📈 Growth" },
   { key: "skills", label: "🧠 Skills" },
   { key: "standards", label: "📑 Standards" },
@@ -37,7 +44,7 @@ const LINE_COLORS = ["#93c5fd", "#fdba74", "#86efac", "#c4b5fd", "#f9a8d4", "#a5
 const pctTone = (c?: SkillCell) => (!c || c.pct === null ? "text-slate-500" : c.pct >= 75 ? "bg-emerald-50 text-emerald-800" : c.pct >= 50 ? "bg-amber-50 text-amber-900" : "bg-red-50 text-red-800");
 
 /** 🚀 ReadRise (teacher): the class dashboard — levels and growth, skills, polls, writing to score, assignments. */
-export default async function ReadRiseTeacher({ searchParams }: { searchParams: Promise<{ class?: string; tab?: string; msg?: string; student?: string }> }) {
+export default async function ReadRiseTeacher({ searchParams }: { searchParams: Promise<{ class?: string; tab?: string; msg?: string; student?: string; view?: string }> }) {
   const actor = await requireActor({ roles: ["TEACHER", "SCHOOL_ADMIN", "SUPER_ADMIN"], permission: "reports:read" });
   const me = (await getActor())!.user;
   const sp = await searchParams;
@@ -59,13 +66,21 @@ export default async function ReadRiseTeacher({ searchParams }: { searchParams: 
   if (!klass) {
     return <AppShell name={String(me.displayName)}>{header}<p className="rounded-2xl bg-white p-6 text-slate-600 ring-1 ring-slate-200">You have no classes yet.</p></AppShell>;
   }
+  // round 6: the class toggles (one read); the weekly plan, when on, is added lazily when the class is opened — once per week
+  const settings = await classSettings(repo, klass.id, actor.schoolId);
+  if (settings.weeklyAuto) await ensureWeeklyPlan(repo, klass.id).catch(() => null);
   if (studentId) {
+    // round 6: the student's Level detail and Activity tracker beside the growth page
+    const view = sp.view === "detail" || sp.view === "activities" ? sp.view : "growth";
+    const nav = <StudentViewNav classId={klass.id} studentId={studentId} view={view} t={t} />;
+    if (view === "detail") { const d = await levelDetail(repo, actor, klass.id, studentId); return <AppShell name={String(me.displayName)}>{header}{nav}<LevelDetailView d={d} t={t} /></AppShell>; }
+    if (view === "activities") { const a = await activityTracker(repo, actor, klass.id, studentId); return <AppShell name={String(me.displayName)}>{header}{nav}<ActivityTrackerView name={a.name} rows={a.rows} t={t} /></AppShell>; }
     const g = await studentGrowthReport(repo, actor, klass.id, studentId);
-    return <AppShell name={String(me.displayName)}>{header}<StudentGrowthView g={g} t={t} backHref={`/teacher/readrise?class=${klass.id}&tab=growth`} /></AppShell>;
+    return <AppShell name={String(me.displayName)}>{header}{nav}<StudentGrowthView g={g} t={t} backHref={`/teacher/readrise?class=${klass.id}&tab=growth`} /></AppShell>;
   }
   const canWrite = klass.own;
   // ⚡ the class summary and the open tab's data load at the same time (all of them only read)
-  const [r, growth, skills, standards, polls, writing, assigned, library] = await Promise.all([
+  const [r, growth, skills, standards, polls, writing, assigned, library, overview, plan] = await Promise.all([
     classReport(repo, actor, klass.id),
     tab === "growth" ? classGrowth(repo, actor, klass.id) : null,
     tab === "skills" ? skillsReport(repo, actor, klass.id) : null,
@@ -74,6 +89,8 @@ export default async function ReadRiseTeacher({ searchParams }: { searchParams: 
     tab === "writing" ? writingQueue(repo, actor, klass.id, { scored: true }) : null,
     tab === "assign" ? classArticles(repo, actor, klass.id) : null,
     tab === "assign" && canWrite ? assignableArticles(repo, actor) : [],
+    tab === "overview" || tab === "dashboard" ? classOverview(repo, actor, klass.id) : null,
+    tab === "plan" ? planByWeek(repo, actor, klass.id) : null,
   ]);
   const url = (t: Tab) => `/teacher/readrise?class=${klass.id}&tab=${t}`;
   const s = r.summary;
@@ -83,6 +100,7 @@ export default async function ReadRiseTeacher({ searchParams }: { searchParams: 
     <AppShell name={String(me.displayName)}>
       {header}
       <Flash msg={sp.msg} />
+      <ClassSettingsCard classId={klass.id} s={settings} canWrite={canWrite} t={t} />
       <AtAGlance items={[
         { icon: "🧭", label: "Placed", value: `${s.placed} / ${s.students}`, meaning: s.notPlaced ? t("{n} not placed", { n: s.notPlaced }) : "everyone placed", tone: s.notPlaced ? "warn" : "good" },
         { icon: "📊", label: "Median ReadRise Level", value: fmt(s.medianLevel), meaning: t("Grade {g} band {lo}–{hi} (ReadRise Level is an estimate)", { g: r.grade, lo: r.band.low, hi: r.band.high }), tone: medBelow ? "bad" : "info" },
@@ -115,10 +133,14 @@ export default async function ReadRiseTeacher({ searchParams }: { searchParams: 
       </nav>
 
       {tab === "students" && <StudentsTab r={r} canWrite={canWrite} classId={klass.id} t={t} />}
+      {overview && tab === "overview" && <ClassOverviewTable o={overview} classId={klass.id} t={t} />}
+      {overview && tab === "dashboard" && <ClassDashboardView o={overview} distribution={r.distribution} t={t} />}
+      {plan && <ByWeekView weeks={plan} t={t} />}
       {growth && <ClassGrowthTab g={growth} t={t} studentHref={(id) => `/teacher/readrise?class=${klass.id}&student=${id}`} assignHref={url("assign")} />}
       {skills && <SkillsTab data={skills} />}
       {standards && <StandardsTab data={standards} />}
       {polls && <PollsTab rows={polls} />}
+      {writing && <p className="mb-4 text-sm"><Link href={`/teacher/readrise/grading?class=${klass.id}`} className="font-semibold text-brand-teal hover:underline">✍️ {t("Open the Grading Center")} →</Link></p>}
       {writing && <WritingTab q={writing} classId={klass.id} canWrite={canWrite} />}
       {assigned && <AssignTab classId={klass.id} canWrite={canWrite && can(actor, "assignments:create")} assigned={assigned} library={library} classes={classes.filter((c) => c.own)} />}
     </AppShell>
@@ -141,7 +163,7 @@ function StudentsTab({ r, canWrite, classId, t }: { r: Report; canWrite: boolean
             <ScaledLineChart labels={r.history.weeks} series={series} title={`${r.className} ReadRise Level by week`} min={range.min} max={range.max} ticks={range.ticks} band={{ ...r.band, label: `Grade ${r.grade} expected band` }} />}
         </Section>
         <Section title="Where the class is" icon="📊" hint={`Expected band for Grade ${r.grade}: ${r.band.low}–${r.band.high}.`}>
-          <LevelHistogram buckets={r.distribution} title={`${r.className} students by ReadRise Level`} />
+          <LevelBars buckets={r.distribution} title={`${r.className} students by ReadRise Level`} t={t} />
         </Section>
       </div>
 
@@ -159,8 +181,8 @@ function StudentsTab({ r, canWrite, classId, t }: { r: Report; canWrite: boolean
               {r.students.map((x) => (
                 <tr key={x.studentId} className="border-b align-top last:border-0">
                   <td className="p-2 font-semibold text-brand-navy"><Link href={`/teacher/readrise?class=${classId}&student=${x.studentId}`} className="hover:underline">{x.name}</Link></td>
-                  <td className="p-2 font-bold tabular-nums">{x.placed ? <>{fmt(x.level)}{x.source === "TEACHER" && <span className="ms-1 text-xs font-normal text-slate-400" title="Set by a teacher">✎</span>}</> : <span data-testid="rr-no-placement" className="text-xs font-semibold text-amber-800">{x.placementOpen ? t("Placement in progress") : t("No placement yet")}</span>}</td>
-                  <td className="p-2 tabular-nums text-slate-600">{fmt(x.startLevel)}</td>
+                  <td className="p-2 font-bold tabular-nums">{x.placed ? <>{x.level === null ? "—" : formatLevel(x.level)}{x.source === "TEACHER" && <span className="ms-1 text-xs font-normal text-slate-400" title="Set by a teacher">✎</span>}</> : <span data-testid="rr-no-placement" className="text-xs font-semibold text-amber-800">{x.placementOpen ? t("Placement in progress") : t("No placement yet")}</span>}</td>
+                  <td className="p-2 tabular-nums text-slate-600">{x.startLevel === null ? "—" : formatLevel(x.startLevel)}</td>
                   <td className={`p-2 font-semibold tabular-nums ${x.growth === null ? "" : x.growth > 0 ? "text-emerald-700" : x.growth < 0 ? "text-red-700" : "text-slate-600"}`}>{signed(x.growth)}</td>
                   <td className="p-2 tabular-nums text-slate-600">{x.mapLexile === null ? "—" : `${x.mapLexile}L`}</td>
                   <td className="p-2 tabular-nums">{x.weekArticles} / {x.totalArticles}</td>
@@ -185,7 +207,7 @@ function StudentsTab({ r, canWrite, classId, t }: { r: Report; canWrite: boolean
                         <div className="mt-2 w-64 space-y-3 rounded-xl bg-slate-50 p-3 ring-1 ring-slate-200">
                           <form action={setReadRiseLevelAction} className="space-y-1.5">
                             <input type="hidden" name="classId" value={classId} /><input type="hidden" name="studentId" value={x.studentId} />
-                            <label className="block font-semibold">New ReadRise Level<input type="number" name="level" required min={ENGINE.min} max={ENGINE.max} step={10} defaultValue={x.level ?? ""} className={`${field} mt-1 block w-full`} /></label>
+                            <label className="block font-semibold">New ReadRise Level<input type="number" name="level" required min={ENGINE.min} max={ENGINE.max} step={10} defaultValue={x.level ?? ""} className={`${field} mt-1 block w-full`} /><span className="mt-0.5 block text-[11px] font-normal text-slate-500">{t("Below 0 is shown as BR (for example −120 = BR120L).")}</span></label>
                             <label className="block font-semibold">Reason<input name="reason" required minLength={3} maxLength={250} placeholder="e.g. MAP reading 820 in the winter test" className={`${field} mt-1 block w-full`} /></label>
                             <button className="rounded-lg bg-brand-navy px-3 py-1.5 font-semibold text-white">Set level</button>
                           </form>

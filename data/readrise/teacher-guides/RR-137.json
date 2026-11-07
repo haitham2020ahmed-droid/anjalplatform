@@ -1,0 +1,40 @@
+{
+  "code": "RR-137",
+  "summary": "This article explains how people from Babylon, Greece, China, and Persia recorded and mapped the stars, and how that work led to today's maps of billions of stars.",
+  "strategy": "Sequence",
+  "introduce": "Write First, Next, Then, and Finally on the board and ask a volunteer to use them to describe how they get ready for school. Tell students to watch for the order of events as they read “The First Maps of the Stars”.",
+  "keyTerms": [
+    {
+      "term": "constellation",
+      "def": "a group of stars that seems to make a shape or picture"
+    },
+    {
+      "term": "catalog",
+      "def": "a careful list of things, often with details about each one"
+    },
+    {
+      "term": "astronomer",
+      "def": "a scientist who studies the stars, planets, and sky"
+    }
+  ],
+  "challengeTerms": [
+    {
+      "term": "magnitude",
+      "def": "in astronomy, a number that describes how bright a star appears"
+    },
+    {
+      "term": "navigation",
+      "def": "the skill of planning and following a route"
+    },
+    {
+      "term": "galaxy",
+      "def": "a huge system of billions of stars held together by gravity"
+    }
+  ],
+  "discussion": [
+    "Do you agree or disagree that ancient star maps are still important today? Use evidence from the article to explain.",
+    "Explain how people mapped the stars in at least two different times or places."
+  ],
+  "struggling": "Pre-teach constellation, catalog, and astronomer with pictures or gestures, then let weak readers put sentence strips of the main events in order before writing.",
+  "gifted": "Challenge advanced readers to use magnitude, navigation, and galaxy in a short paragraph that summarizes the key events in order and explain which step matters most."
+}

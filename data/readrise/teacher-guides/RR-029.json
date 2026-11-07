@@ -1,0 +1,40 @@
+{
+  "code": "RR-029",
+  "summary": "This article explains how clouds form from water vapor, what different cloud types tell us, how rain falls, and how meteorologists use data to forecast the weather.",
+  "strategy": "Compare/Contrast",
+  "introduce": "Draw two overlapping circles on the board and quickly compare two familiar things, such as a cat and a dog, with the class. Tell students that while reading “Clouds and Weather Forecasts” they will look for ways things are alike and different.",
+  "keyTerms": [
+    {
+      "term": "evaporate",
+      "def": "to change from a liquid into a gas"
+    },
+    {
+      "term": "condense",
+      "def": "to change from a gas into a liquid"
+    },
+    {
+      "term": "cumulus",
+      "def": "a puffy white cloud that often means fair weather"
+    }
+  ],
+  "challengeTerms": [
+    {
+      "term": "atmosphere",
+      "def": "the layer of air that surrounds Earth"
+    },
+    {
+      "term": "humidity",
+      "def": "the amount of water vapor in the air"
+    },
+    {
+      "term": "condensation",
+      "def": "the change of a gas into a liquid"
+    }
+  ],
+  "discussion": [
+    "Do you agree or disagree that weather forecasts are worth checking every day? Use evidence from the article to explain.",
+    "Explain how water from the sea can end up falling as rain."
+  ],
+  "struggling": "Pre-teach evaporate, condense, and cumulus with pictures or gestures, then let weak readers fill in a T-chart of alike and different with sentence starters.",
+  "gifted": "Challenge advanced readers to use atmosphere, humidity, and condensation in a short paragraph that compares two ideas from the article and explain which difference matters most."
+}

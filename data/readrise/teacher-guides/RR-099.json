@@ -1,0 +1,40 @@
+{
+  "code": "RR-099",
+  "summary": "This article explains how water is collected from lakes, wells, and the sea, cleaned in steps, pumped through pipes to homes, and cleaned again after use.",
+  "strategy": "Sequence",
+  "introduce": "Give pairs four mixed-up steps of a simple task, such as making tea, and ask them to put the steps in order. Explain that “How Water Gets to Your Tap” also follows an order, and good readers notice signal words like first, after, and finally.",
+  "keyTerms": [
+    {
+      "term": "treatment",
+      "def": "a set of steps used to clean or fix something"
+    },
+    {
+      "term": "desalination",
+      "def": "taking the salt out of sea water so people can use it"
+    },
+    {
+      "term": "chlorine",
+      "def": "a chemical used in small amounts to kill germs in water"
+    }
+  ],
+  "challengeTerms": [
+    {
+      "term": "aquifer",
+      "def": "an underground layer of rock or sand that holds water"
+    },
+    {
+      "term": "membrane",
+      "def": "a very thin sheet that lets some things pass through but blocks others"
+    },
+    {
+      "term": "contaminants",
+      "def": "unwanted things that make something dirty or unsafe"
+    }
+  ],
+  "discussion": [
+    "Do you agree or disagree that clean tap water is so easy to get that people do not need to worry about wasting it? Use evidence from the article to explain.",
+    "Explain how sea water becomes safe tap water in Saudi Arabia."
+  ],
+  "struggling": "Read the first part of the article aloud together, review treatment, desalination, and chlorine, and let weak readers put sentence strips of the main events in order before writing.",
+  "gifted": "Challenge advanced readers to use aquifer, membrane, and contaminants in a short paragraph that summarizes the key events in order and explain which step matters most."
+}

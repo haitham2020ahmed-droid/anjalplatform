@@ -1,6 +1,16 @@
 /**
- * 🚀 ReadRise placement (LevelSet-like): a short adaptive test of passages, 3 questions each.
+ * 🚀 ReadRise placement (LevelSet-like): an adaptive test of passages, 3 questions each.
  *
+ *  Round 6 (owner, after the school's real Achieve3000 data — a Grade 7 class pre-test average of 281L, range
+ *  BR220L…820L — while ReadRise started every Grade 7 student at 1050, so weak readers ended far too high):
+ *   - every test starts LOW: at 300 (the lowest version) and climbs; the grade no longer decides the start
+ *     (placementStartLevel). Exception: a MAP Lexile from the last 6 months starts at the nearest passage level.
+ *   - like LevelSet (40 questions, ~30 minutes): up to 13 passages (39 questions), at least 8; three reversals end it.
+ *   - below 300: passages at 200, 100, 0 and −200 ("BR200") when the content has them (placement-extra.json); the
+ *     result can be below 300 (a level failed twice at the lowest passage → one step lower), never below RR_FLOOR.
+ *     A student failing the lowest passage level twice, or passing the highest one twice, has nothing left to show:
+ *     the test ends there.
+ *  Before round 6:
  *  Start   latest MAP Lexile (clamped 300–1600 → nearest version level), else the grade's default level.
  *  Step    3/3 → +200 · 2/3 → +100 · 1/3 → −100 · 0/3 → −200 (clamped 300–1600); from 1200 up a 2/3 is not a pass and stays at the same level
  *          for another passage (4 Nov 2026). After the first reversal
@@ -30,9 +40,9 @@
 import type { Repo, Row } from "../seeding/repo";
 import { ForbiddenError, type Actor } from "../auth/rbac";
 import { ValidationError } from "../curriculum-admin";
-import { RR_MAX, RR_MIN } from "./level";
+import { RR_FLOOR, RR_MAX, RR_MIN, formatLevel } from "./level";
 import { loadPlacementPassages, type PlacementPassage } from "./content-loader";
-import { RETAKE_REASON, assertStaffForStudent, ensureRRStudent, initialLevel, latestMapLexile, recordLevelChange, s, toDate } from "./engine";
+import { RETAKE_REASON, assertStaffForStudent, ensureRRStudent, recentMapLexile, recordLevelChange, s, toDate } from "./engine";
 import { firstAnswerThresholdMs } from "./accuracy";
 import { dueCheck, loadReadRiseWindows, periodOf, RR_PERIOD_NAME, type RRPeriod } from "./windows";
 import { alertMapGap } from "./accuracy";
@@ -41,7 +51,13 @@ import { ADMIN_RESET_TAG } from "./placement-reset";
 
 export { setLevelByTeacher } from "./engine";
 
-export const PLACEMENT = { maxPassages: 8, minPassages: 5, reversals: 2, mapGap: 250 } as const;
+// Round 6: LevelSet-like length — up to 13 passages (39 questions, ~30 minutes), at least 8; 3 reversals end it
+// (was 8 / 5 / 2).
+export const PLACEMENT = { maxPassages: 13, minPassages: 8, reversals: 3, mapGap: 250 } as const;
+/** The fewest passages the content must have before the test is offered at all. */
+export const PLACEMENT_MIN_POOL = 5;
+/** Round 6: the test's start without a recent MAP Lexile — the lowest version (the test climbs from there). */
+export const PLACEMENT_START = RR_MIN;
 /**
  * 🐛 fix (audit finding, Oct 2026): a 4-option multiple-choice question has real guessing odds, so the ordinary pass
  * bar (2 of 3 correct) let a student "pass" the TOP level on a lucky guess — and since nothing could out-level the
@@ -80,7 +96,14 @@ export const passageMinMs = (text: string): number => Math.max(PLACEMENT_MIN_MS,
 /** The text shown for a placement test that was not valid. */
 export const PLACEMENT_INVALID_TEXT = "Not valid — retake";
 
-const clampP = (l: number) => Math.min(RR_MAX, Math.max(RR_MIN, l));
+/** A result / measure on the scale: RR_FLOOR…RR_MAX (round 6: below 300 is real). */
+const clampP = (l: number) => Math.min(RR_MAX, Math.max(RR_FLOOR, l));
+/** The level of the passage nearest to a measure (ties: the lower one); the lowest version when there are none. */
+export function nearestPassageLevel(x: number, passages: readonly PlacementPassage[]): number {
+  const levels = [...new Set(passages.map((p) => p.level))].sort((a, b) => a - b);
+  if (!levels.length) return Math.min(RR_MAX, Math.max(RR_MIN, Math.round(x / 100) * 100));
+  return levels.reduce((best, l) => (Math.abs(l - x) < Math.abs(best - x) ? l : best), levels[0]);
+}
 const BIG: Record<number, number> = { 3: 200, 2: 100, 1: -100, 0: -200 };
 
 // ------------------------------------------------------------------ the algorithm (pure)
@@ -89,7 +112,11 @@ export interface PlacementPlan { done: boolean; nextLevel: number | null; passag
 
 /** Where the test goes next from the steps so far (deterministic: the same steps always give the same passage). */
 export function placementPlan(startLevel: number, steps: PlacementStep[], passages: PlacementPassage[]): PlacementPlan {
-  let level = clampP(startLevel), lastSign = 0, reversals = 0;
+  // round 6: the test moves inside the levels the content has (−200 … 1600 with the extra passages, else 300 … 1600)
+  const levels = passages.map((p) => p.level);
+  const lo = levels.length ? Math.min(...levels) : RR_MIN, hi = levels.length ? Math.max(...levels) : RR_MAX;
+  const clampT = (l: number) => Math.min(hi, Math.max(lo, l));
+  let level = clampT(startLevel), lastSign = 0, reversals = 0;
   // round 4: a rapid passage does not count (no move); its passage is still never shown again
   const counted = steps.filter((x) => !x.rapid);
   for (const st of counted) {
@@ -103,9 +130,13 @@ export function placementPlan(startLevel: number, steps: PlacementStep[], passag
       if (lastSign && sign !== lastSign) reversals++;
       lastSign = sign;
     }
-    level = clampP(st.level + (reversals > 0 ? sign * 100 : big));
+    level = clampT(st.level + (reversals > 0 ? sign * 100 : big));
   }
-  if (counted.length >= PLACEMENT.maxPassages || (reversals >= PLACEMENT.reversals && counted.length >= PLACEMENT.minPassages)) return { done: true, nextLevel: null, passage: null, reversals };
+  // round 6: failed twice at the lowest passage level, or passed twice at the highest: nothing left to measure
+  const failsAt = (l: number) => counted.filter((x) => x.level === l && x.correct < passBar(x.level)).length;
+  const passesAt = (l: number) => counted.filter((x) => x.level === l && x.correct >= passBar(x.level)).length;
+  const edge = levels.length > 0 && (failsAt(lo) >= 2 || passesAt(hi) >= 2);
+  if (edge || counted.length >= PLACEMENT.maxPassages || (reversals >= PLACEMENT.reversals && counted.length >= PLACEMENT.minPassages)) return { done: true, nextLevel: null, passage: null, reversals };
   const used = new Set(steps.map((x) => x.passageId));
   const free = passages.filter((p) => !used.has(p.id));
   if (!free.length) return { done: true, nextLevel: null, passage: null, reversals };
@@ -114,7 +145,10 @@ export function placementPlan(startLevel: number, steps: PlacementStep[], passag
   return { done: false, nextLevel: pick.level, passage: pick, reversals };
 }
 
-/** The placement result from the steps (before the MAP check). */
+/**
+ * The placement result from the steps (before the MAP check). Round 6: it can be below 300 — when no level was
+ * passed, one step (100) under the lowest level read, never below RR_FLOOR.
+ */
 export function placementResult(all: PlacementStep[], startLevel: number): number {
   const steps = all.filter((x) => !x.rapid); // round 4: a rapid passage does not count
   if (!steps.length) return clampP(Math.round(startLevel / 10) * 10);
@@ -137,7 +171,19 @@ export function blendWithMap(result: number, mapLexile: number | null): { level:
   const m = clampP(mapLexile);
   if (Math.abs(result - m) <= PLACEMENT.mapGap) return { level: result, note: null };
   const level = Math.round((result + m) / 2 / 10) * 10;
-  return { level, note: `the test result ${result} was more than ${PLACEMENT.mapGap} from the MAP Lexile ${mapLexile}, so both were averaged` };
+  return { level, note: `the test result ${formatLevel(result)} was more than ${PLACEMENT.mapGap} from the MAP Lexile ${formatLevel(mapLexile)}, so both were averaged` };
+}
+
+/**
+ * 🎯 Round 6: where a placement test (first test, retake, admin reset) starts — a MAP Lexile from the last 6 months
+ * at the nearest passage level; else PLACEMENT_START (300, the lowest version: the test climbs). The grade's default
+ * (level.ts defaultLevel) is no longer used: it started a Grade 7 reader at 1050.
+ */
+export async function placementStartLevel(repo: Repo, studentId: string, passages: readonly PlacementPassage[] = loadPlacementPassages(), now = new Date()): Promise<{ level: number; source: "MAP" | "LOW" }> {
+  const map = await recentMapLexile(repo, studentId, now);
+  if (map !== null) return { level: nearestPassageLevel(map, passages), source: "MAP" };
+  const start = passages.length ? nearestPassageLevel(PLACEMENT_START, passages) : PLACEMENT_START;
+  return { level: start, source: "LOW" };
 }
 
 // ------------------------------------------------------------------ state
@@ -202,13 +248,22 @@ export interface PlacementView {
   check?: RRPeriod | null;
   /** round 4: the last test was "Not valid" (too many fast answers) — take it again */
   invalid?: boolean;
+  /** round 6: the student's grade (1–12) for the grade band of the result (benchmarks.ts), null when unknown */
+  grade?: number | null;
+}
+
+async function gradeOfStudent(repo: Repo, studentId: string): Promise<number | null> {
+  const st = await repo.findUnique("Student", { id: studentId });
+  const g = st?.gradeId ? await repo.findUnique("Grade", { id: s(st.gradeId) }) : null;
+  const n = g ? Number(g.level) : NaN;
+  return Number.isFinite(n) && n >= 1 && n <= 12 ? n : null;
 }
 
 /** What the student's placement page shows. Passages are injectable (tests). */
 export async function placementView(repo: Repo, actor: Actor, passages: PlacementPassage[] = loadPlacementPassages(), now = new Date()): Promise<PlacementView> {
   const studentId = student(actor);
   const st = await placementStatus(repo, studentId, now);
-  const base = { placementId: null, stepNumber: 0, maxSteps: PLACEMENT.maxPassages, passage: null, result: st.last ? Number(st.last.result) : null, retake: Boolean(st.last), check: st.due, invalid: Boolean(st.invalid) };
+  const base = { placementId: null, stepNumber: 0, maxSteps: PLACEMENT.maxPassages, passage: null, result: st.last ? Number(st.last.result) : null, retake: Boolean(st.last), check: st.due, invalid: Boolean(st.invalid), grade: await gradeOfStudent(repo, studentId) };
   if (st.open) {
     const steps = stepsOf(st.open);
     const plan = placementPlan(Number(st.open.startLevel), steps, await testPool(repo, st.open, passages));
@@ -224,7 +279,7 @@ export async function placementView(repo: Repo, actor: Actor, passages: Placemen
     const p = plan.passage;
     return { ...base, invalid: false, state: "IN_PROGRESS", placementId: s(st.open.id), stepNumber: steps.length + 1, passage: { id: p.id, title: p.title, text: p.text, questions: p.questions.map((q) => ({ stem: q.stem, options: q.options })) } };
   }
-  if (passages.length < 5) return { ...base, state: "NOT_AVAILABLE" };
+  if (passages.length < PLACEMENT_MIN_POOL) return { ...base, state: "NOT_AVAILABLE" };
   return { ...base, state: st.canStart ? "READY" : "DONE" };
 }
 
@@ -234,8 +289,13 @@ export async function startPlacement(repo: Repo, actor: Actor, now = new Date())
   const st = await placementStatus(repo, studentId, now);
   if (st.open) return s(st.open.id);
   if (!st.canStart) throw new ValidationError("You already have a ReadRise Level. Your teacher can let you take the placement again.");
-  // round 4: a middle / end of year check starts from the CURRENT ReadRise level (the first test: MAP / grade start)
-  const startLevel = st.due ? Number((await ensureRRStudent(repo, studentId, now)).level) : (await initialLevel(repo, studentId)).level;
+  // round 4: a middle / end of year check starts from the CURRENT ReadRise level (at the nearest passage level — round
+  // 6: a level below 300 starts at the nearest low passage). Round 6: the first test, a retake and an admin reset
+  // start LOW (300) or at a MAP Lexile from the last 6 months (placementStartLevel), never at the grade's default.
+  const passages = loadPlacementPassages();
+  const startLevel = st.due
+    ? nearestPassageLevel(Number((await ensureRRStudent(repo, studentId, now)).level), passages)
+    : (await placementStartLevel(repo, studentId, passages, now)).level;
   const row = await repo.create("RRPlacement", { studentId, schoolId: actor.schoolId, startLevel, steps: [], startedAt: now, period: st.due });
   return s(row.id);
 }
@@ -289,7 +349,8 @@ async function finishPlacement(repo: Repo, p: Row, now: Date): Promise<{ level: 
   const steps = stepsOf(p);
   const studentId = s(p.studentId);
   const raw = placementResult(steps, Number(p.startLevel));
-  const { level, note } = blendWithMap(raw, await latestMapLexile(repo, studentId));
+  // round 6: only a MAP Lexile from the last 6 months is compared (an old one says little about the reader now)
+  const { level, note } = blendWithMap(raw, await recentMapLexile(repo, studentId, now));
   const [windows, earlier] = await Promise.all([
     loadReadRiseWindows(repo, s(p.schoolId), now),
     repo.findMany("RRPlacement", { studentId, completedAt: { not: null }, result: { not: null } }, { select: ["id", "completedAt"] }),
@@ -306,7 +367,7 @@ async function finishPlacement(repo: Repo, p: Row, now: Date): Promise<{ level: 
   const rr = await ensureRRStudent(repo, studentId, now);
   await repo.updateMany("RRStudent", { studentId }, recheck ? { level, source: "PLACEMENT" } : { level, startLevel: level, source: "PLACEMENT", placedAt: now });
   const what = recheck ? `Placement (${RR_PERIOD_NAME[period].toLowerCase()} reading check)` : "Placement";
-  await recordLevelChange(repo, { studentId, schoolId: s(rr.schoolId), from: Number(rr.level), to: level, reason: `${what}: ${steps.length} passages, result ${level}${note ? ` (${note})` : ""}`, now });
+  await recordLevelChange(repo, { studentId, schoolId: s(rr.schoolId), from: Number(rr.level), to: level, reason: `${what}: ${steps.length} passages, result ${formatLevel(level)}${note ? ` (${note})` : ""}`, now });
   return { level, note };
 }
 

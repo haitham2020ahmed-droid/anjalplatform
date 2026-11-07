@@ -1,0 +1,40 @@
+{
+  "code": "RR-411",
+  "summary": "In this story, a new helper robot's first day at school goes wrong when it cannot understand a student's own way of asking a math question, until the whole class works together to help it learn.",
+  "strategy": "Sequence",
+  "introduce": "Give pairs four mixed-up steps of a simple task, such as making tea, and ask them to put the steps in order. Explain that “The Robot's First Day at School” also follows an order, and good readers notice signal words like first, after, and finally.",
+  "keyTerms": [
+    {
+      "term": "robot",
+      "def": "a machine that can be programmed to do certain jobs"
+    },
+    {
+      "term": "training",
+      "def": "the examples or lessons used to teach a person or a machine a skill"
+    },
+    {
+      "term": "practice",
+      "def": "to do something again and again in order to get better at it"
+    }
+  ],
+  "challengeTerms": [
+    {
+      "term": "pattern",
+      "def": "something that repeats in a way that can be recognized or predicted"
+    },
+    {
+      "term": "patient",
+      "def": "able to wait calmly without getting upset"
+    },
+    {
+      "term": "phrase",
+      "def": "a small group of words that go together to say something"
+    }
+  ],
+  "discussion": [
+    "Do you agree or disagree that robots can learn from their mistakes, just like people do? Use evidence from the story to explain.",
+    "Explain how Bo's way of learning is similar to how the students learn in Ms."
+  ],
+  "struggling": "Read the first part of the story aloud together, review robot, training, and practice, and let weak readers put sentence strips of the main events in order before writing.",
+  "gifted": "Challenge advanced readers to use pattern, patient, and phrase in a short paragraph that summarizes the key events in order and explain which step matters most."
+}

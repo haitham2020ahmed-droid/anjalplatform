@@ -15,6 +15,10 @@ import { myGrowthStory } from "@/server/readrise/growth-report";
 import { getT } from "@/i18n/server";
 import { PlacementPopup } from "@/components/readrise/placement-popup";
 import { InterestsPicker } from "@/components/readrise/interests-picker";
+import { ReadRiseScoreboard } from "@/components/readrise/scoreboard";
+import { studentScoreboard } from "@/server/readrise/points";
+import { loadReadRiseWindows } from "@/server/readrise/windows";
+import { ensureWeeklyPlansForStudent } from "@/server/readrise/teacher";
 
 export const metadata = { title: "ReadRise" };
 export const dynamic = "force-dynamic";
@@ -25,6 +29,8 @@ export default async function ReadRiseHomePage({ searchParams }: { searchParams:
   startReadRiseLibraryLoad(repo); // new article files of a deploy load in the background — the page never waits for them
   const me = (await getActor())!.user;
   const sp = await searchParams;
+  // 🗓 round 6: the classes' automatic weekly ReadRise plans (teacher.ts; never throws) — before the library is read
+  await ensureWeeklyPlansForStudent(repo, actor.studentId!);
   /** 📊 "My report" tab: my level, weekly goal, reading numbers and growth; 🎯 "Placement test" tab (r68); the default tab is the library */
   const report = sp.tab === "report";
   const placementTab = sp.tab === "placement";
@@ -156,7 +162,12 @@ export default async function ReadRiseHomePage({ searchParams }: { searchParams:
           ) : h.progress ? (
             <p className="mt-2 text-sm"><Link href="/student/readrise?topics=1" data-testid="rr-change-topics" className="text-brand-teal underline">❤️ {t("Change my topics")}</Link></p>
           ) : null}
-          <ReadRiseLibrary lib={h.library} showLevel={h.placed} t={t} />
+          <ReadRiseLibrary lib={h.library} showLevel={h.placed} t={t} panel={
+            /* 🏆 round 6: points, the annual goal, achievements and the school boards stream in after the articles */
+            <Suspense fallback={<div aria-hidden="true" className="mt-6 h-40 animate-pulse rounded-3xl bg-amber-50 motion-reduce:animate-none" />}>
+              <ScorePanel actor={actor} t={t} />
+            </Suspense>
+          } />
         </>
       ))}
     </AppShell>
@@ -199,6 +210,15 @@ function ReadingChecks({ checks, t }: { checks: NonNullable<ReadRiseHome["placem
       </ol>
     </section>
   );
+}
+
+/** 🏆 Round 6: the scoreboard panel (points.ts: computed from the runs, cached; the school board cached 60 s). */
+async function ScorePanel({ actor, t }: { actor: Actor; t: TFn }) {
+  if (!actor.studentId || !actor.schoolId) return null;
+  const board = await loadReadRiseWindows(repo, actor.schoolId)
+    .then((w) => studentScoreboard(repo, actor.studentId!, { schoolId: actor.schoolId!, yearStart: new Date(`${w.yearStart}T00:00:00+03:00`) }))
+    .catch(() => null);
+  return board ? <ReadRiseScoreboard board={board} t={t} /> : null;
 }
 
 /** "My report" tab: the growth story, read after the home data (which creates the reader's ReadRise row on first use). */

@@ -1,0 +1,40 @@
+{
+  "code": "RR-177",
+  "summary": "This article explains how maglev trains use magnets to float above a guideway and glide at high speed, where they run today, and why they are hard to build.",
+  "strategy": "Main Idea",
+  "introduce": "Show the title “Maglev Trains” and give pairs one minute to predict, in one sentence, what the whole article is mostly about. Write three predictions on the board and tell students they will check which one is closest to the main idea after reading.",
+  "keyTerms": [
+    {
+      "term": "magnet",
+      "def": "a piece of metal that can pull or push other magnets and some metals"
+    },
+    {
+      "term": "levitation",
+      "def": "the act of rising and floating in the air without support"
+    },
+    {
+      "term": "friction",
+      "def": "the rubbing of one thing against another, which slows things down"
+    }
+  ],
+  "challengeTerms": [
+    {
+      "term": "propulsion",
+      "def": "the force that pushes or drives something forward"
+    },
+    {
+      "term": "superconductor",
+      "def": "a material that, when cooled to a very low temperature, carries electricity with no resistance"
+    },
+    {
+      "term": "guideway",
+      "def": "a special track that guides and supports a vehicle such as a maglev train"
+    }
+  ],
+  "discussion": [
+    "Do you agree or disagree that trains that float on magnets are the best way to travel in the future? Use evidence from the article to explain.",
+    "Explain how a maglev train floats and moves forward."
+  ],
+  "struggling": "Pre-teach magnet, levitation, and friction with pictures or gestures, then let weak readers complete a main-idea-and-details web with a partner.",
+  "gifted": "Ask strong readers to read a challenging version and write a short paragraph that uses propulsion, superconductor, and guideway to state the main idea of the article in their own words."
+}

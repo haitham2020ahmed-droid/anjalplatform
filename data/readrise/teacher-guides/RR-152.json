@@ -1,0 +1,40 @@
+{
+  "code": "RR-152",
+  "summary": "This article explains how heat and cold change water between ice and liquid, why ice expands and floats, and how other materials melt at their own temperatures.",
+  "strategy": "Vocabulary Building",
+  "introduce": "Show the three key terms on the board and ask students to rate each one: “I know it,” “I have seen it,” or “It is new.” Tell them to watch for these words in “Freezing and Melting” and use clues around them to understand their meaning.",
+  "keyTerms": [
+    {
+      "term": "temperature",
+      "def": "how hot or cold something is"
+    },
+    {
+      "term": "particle",
+      "def": "a very tiny piece of something"
+    },
+    {
+      "term": "reversible",
+      "def": "able to be changed back to how it was before"
+    }
+  ],
+  "challengeTerms": [
+    {
+      "term": "molecule",
+      "def": "the smallest bit of a substance that is still that substance"
+    },
+    {
+      "term": "crystal",
+      "def": "a solid whose tiny parts are arranged in a neat, repeating pattern"
+    },
+    {
+      "term": "absorb",
+      "def": "to take in something, such as heat, light, or liquid"
+    }
+  ],
+  "discussion": [
+    "Do you agree or disagree that water is the most interesting material on Earth? Use evidence from the article to explain.",
+    "Explain what happens to the particles in water when it freezes and when it melts."
+  ],
+  "struggling": "Pre-teach temperature, particle, and reversible with pictures or gestures, then let weak readers draw a quick picture for each term and use it in a short spoken sentence.",
+  "gifted": "Ask strong readers to read a challenging version and write a short paragraph that uses molecule, crystal, and absorb to teach the class one of the terms with their own example."
+}

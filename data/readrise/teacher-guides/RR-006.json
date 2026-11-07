@@ -1,0 +1,40 @@
+{
+  "code": "RR-006",
+  "summary": "This article explains how the immune system fights germs, how vaccines safely teach it to recognize them, and why protecting many people helps keep everyone safer.",
+  "strategy": "Problem/Solution",
+  "introduce": "Write “Problem” and “Solution” on the board and give pairs thirty seconds to think of a problem people face in daily life and one way to fix it. Explain that as they read “How Vaccines Train the Body”, they will look for the main problem and how it is solved.",
+  "keyTerms": [
+    {
+      "term": "infection",
+      "def": "a sickness caused by germs getting into the body"
+    },
+    {
+      "term": "invader",
+      "def": "something that enters a place where it does not belong"
+    },
+    {
+      "term": "multiply",
+      "def": "to grow quickly in number"
+    }
+  ],
+  "challengeTerms": [
+    {
+      "term": "pathogen",
+      "def": "a germ, such as a bacterium or virus, that can cause disease"
+    },
+    {
+      "term": "immunity",
+      "def": "the body's lasting protection against a particular disease"
+    },
+    {
+      "term": "dose",
+      "def": "a measured amount of a medicine taken at one time"
+    }
+  ],
+  "discussion": [
+    "Do you agree or disagree that getting a vaccine helps other people, not just the person who gets it? Use evidence from the article to explain.",
+    "Explain why vaccines protect not only the person who gets one but also the whole community."
+  ],
+  "struggling": "Read the first part of the article aloud together, review infection, invader, and multiply, and let weak readers fill in a simple Problem | Solution chart with sentence starters.",
+  "gifted": "Challenge advanced readers to use pathogen, immunity, and dose in a short paragraph that suggests a second solution to the problem and judge which works better."
+}

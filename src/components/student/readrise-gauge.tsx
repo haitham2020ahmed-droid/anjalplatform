@@ -2,7 +2,10 @@
 /** @jsxImportSource react */
 import type { TFn } from "@/i18n";
 import { ENGINE } from "@/server/readrise/engine";
-import { RR_LEVELS } from "@/server/readrise/level";
+import { RR_LEVELS, formatLevel } from "@/server/readrise/level";
+
+/** The gauge's scale: 0 … the top level (round 6: a level below 0, "BR…L", sits at the left end). */
+export const GAUGE_MIN = 0;
 
 /** A point on the gauge's half circle (centre 100,100, radius 80) at fraction f of the way (0 = left, 1 = right). */
 const at = (f: number) => {
@@ -26,7 +29,9 @@ export function ReadRiseGauge({ t, lang, level, start }: { t: TFn; lang: string;
       </>
     );
   }
-  const f = (level - ENGINE.min) / (ENGINE.max - ENGINE.min);
+  // round 6: ENGINE.min is now RR_FLOOR (−400): the arc runs from 0 so a typical level reads the same as before
+  const f = Math.min(1, Math.max(0, (level - GAUGE_MIN) / (ENGINE.max - GAUGE_MIN)));
+  const shown = formatLevel(level);
   const p = at(f);
   const up = start && level > start.level ? level - start.level : 0;
   // the next ReadRise level above the student's (levels 300 … 1400); none at the top
@@ -36,13 +41,13 @@ export function ReadRiseGauge({ t, lang, level, start }: { t: TFn; lang: string;
   return (
     <>
       <span className="text-[15px] font-semibold text-ink">{t("Your ReadRise level")}</span>
-      <svg viewBox="0 0 200 112" className="h-[104px] w-[186px]" role="img" aria-label={t("ReadRise level {n}", { n: level })}>
+      <svg viewBox="0 0 200 112" className="h-[104px] w-[186px]" role="img" aria-label={t("ReadRise level {n}", { n: shown })}>
         <path d="M20 100 A80 80 0 0 1 180 100" fill="none" stroke="var(--lr-track)" strokeWidth="14" strokeLinecap="round" />
         {f > 0.005 && <path d={`M20 100 A80 80 0 0 1 ${p.x} ${p.y}`} fill="none" stroke="var(--lr-teal)" strokeWidth="14" strokeLinecap="round" />}
         <circle cx={p.x} cy={p.y} r="8.5" fill="var(--lr-accent)" stroke="var(--lr-surface)" strokeWidth="3.5" />
-        <text x="100" y="96" textAnchor="middle" fontSize="38" fill="var(--lr-ink)" style={{ fontFamily: "var(--font-young-serif), 'Young Serif', serif" }}>{level}</text>
+        <text x="100" y="96" textAnchor="middle" fontSize={shown.length > 5 ? 28 : 38} fill="var(--lr-ink)" style={{ fontFamily: "var(--font-young-serif), 'Young Serif', serif" }}>{shown}</text>
       </svg>
-      <span className="text-sm text-ink-2">{next !== null ? t("Next level: {n}", { n: next }) : t("You reached the top ReadRise level")}</span>
+      <span className="text-sm text-ink-2">{next !== null ? t("Next level: {n}", { n: formatLevel(next) }) : t("You reached the top ReadRise level")}</span>
       {up > 0 && <span className="text-sm font-semibold text-teal-ink">{month ? t("Up {n} since {month}", { n: up, month }) : t("Up {n} since you started", { n: up })}</span>}
     </>
   );
