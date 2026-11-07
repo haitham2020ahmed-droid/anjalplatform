@@ -138,7 +138,7 @@
           ],
           "answer": "A",
           "skill": "detail",
-          "why": "The story says Lama's new instructor was Coach Huda.",
+          "why": "In the story, Lama's new instructor was Coach Huda.",
           "wrong": {
             "B": "Lama's mother signs her up for lessons, but she is not the instructor.",
             "C": "No older sister is mentioned in the story.",
@@ -149,13 +149,13 @@
           "stem": "What did Lama hold onto while she practiced kicking?",
           "options": [
             "A rope tied to the ladder",
-            "A kickboard",
+            "A board to kick with",
             "A beach ball",
             "The pool steps"
           ],
           "answer": "B",
           "skill": "detail",
-          "why": "The story says Lama held onto a kickboard and kicked her legs behind her.",
+          "why": "In the story, Lama held a board while she practiced kicking.",
           "wrong": {
             "A": "No rope is mentioned in the story.",
             "C": "A beach ball is never mentioned.",
@@ -317,7 +317,7 @@
           ],
           "answer": "C",
           "skill": "sequence",
-          "why": "The article says Lama first learned to float on her back, and after that she practiced kicking with a kickboard.",
+          "why": "In the story, Lama first learned to float on her back, and after that she practiced kicking.",
           "wrong": {
             "A": "Diving and holding her breath are never mentioned.",
             "B": "Swimming alone comes last, not first.",

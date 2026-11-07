@@ -138,7 +138,7 @@
      ],
      "answer": "A",
      "skill": "detail",
-     "why": "The article says wind blows over the ocean and pushes the water, which makes a wave.",
+     "why": "In the article, wind blows over the ocean and pushes the water, which makes a wave.",
      "wrong": {
       "B": "Fish are not described as making waves.",
       "C": "Boats are not mentioned as a cause of waves.",
@@ -223,7 +223,7 @@
      ],
      "answer": "B",
      "skill": "sequence",
-     "why": "The article says that once the speeds match, the surfer stands up on the board.",
+     "why": "In the article, the surfer stands up on the board once the wave picks it up.",
      "wrong": {
       "A": "Paddling back out happens after a ride, not right after matching speed.",
       "C": "Waves do not simply disappear in the article.",
@@ -351,7 +351,7 @@
      ],
      "answer": "D",
      "skill": "cause-effect",
-     "why": "The article explains that friction slows the base of the wave near the shore while the top keeps racing ahead, which makes the crest curl over and break.",
+     "why": "In the article, friction slows the base of the wave near the shore while the top keeps racing ahead, which makes the crest curl over and break.",
      "wrong": {
       "A": "A reversing current is not the cause given.",
       "B": "A surfer's weight is not described as causing a break.",
@@ -385,7 +385,7 @@
      ],
      "answer": "D",
      "skill": "inference",
-     "why": "The article explains that this balance lets the surfer steer along the open face of the wave.",
+     "why": "In the article, this balance lets the surfer steer along the open face of the wave.",
      "wrong": {
       "A": "Bending the knees is about balance, not sinking the board.",
       "B": "A surfer's stance does not slow an entire swell.",
@@ -496,7 +496,7 @@
      ],
      "answer": "C",
      "skill": "detail",
-     "why": "The article says gravity gives the board momentum that carries it forward along a curving trajectory.",
+     "why": "In the article, gravity gives the board momentum that carries it forward along a curving trajectory.",
      "wrong": {
       "A": "Momentum builds, according to the article, rather than disappearing.",
       "B": "The board keeps moving on its own at this point.",
@@ -513,7 +513,7 @@
      ],
      "answer": "A",
      "skill": "detail",
-     "why": "The article states that surfers anticipate the break point by reading how the wave rises and curls.",
+     "why": "In the article, surfers anticipate the break point by reading how the wave rises and curls.",
      "wrong": {
       "B": "Lifeguards are not described as pointing out breaks.",
       "C": "Waiting for another surfer is not the method described.",
@@ -530,7 +530,7 @@
      ],
      "answer": "D",
      "skill": "cause-effect",
-     "why": "The article explains that friction slows the wave's base while the top keeps racing ahead, which steepens the wave.",
+     "why": "In the article, friction slows the wave's base while the top keeps racing ahead, which steepens the wave.",
      "wrong": {
       "A": "Friction slows, rather than speeds up, part of the wave.",
       "B": "Sideways movement is not described as an effect of friction.",
@@ -661,7 +661,7 @@
     ],
     "answer": "D",
     "skill": "cause-effect",
-    "why": "The text says that near the shore the bottom of the wave slows down.",
+    "why": "In the text, near the shore the bottom of the wave slows down.",
     "wrong": {
      "A": "The top of the wave stays fast, but the bottom slows.",
      "B": "A wave does not turn into wind.",
@@ -748,7 +748,7 @@
     ],
     "answer": "C",
     "skill": "cause-effect",
-    "why": "The text says the water gets shallow near the shore and the base of the wave slows because of the sea floor.",
+    "why": "In the text, the water gets shallow near the shore and the base of the wave slows because of the sea floor.",
     "wrong": {
      "A": "The text does not say the wind blows harder near shore.",
      "B": "The surfer does not slow the base of the wave.",
@@ -767,7 +767,7 @@
     ],
     "answer": "B",
     "skill": "detail",
-    "why": "The text says a swell often travels many miles across deep water before reaching the coast.",
+    "why": "A swell often travels a long way across deep water before it reaches the coast.",
     "wrong": {
      "A": "A few feet is far too short for a swell crossing deep water.",
      "C": "One block is not the distance given in the text.",

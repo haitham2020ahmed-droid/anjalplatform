@@ -176,7 +176,7 @@
           "wrong": {
             "A": "A cloud's shape on the ground is not called a rain shadow.",
             "B": "A rain shadow is a place, not a kind of cloud.",
-            "D": "A puddle is not what the article calls a rain shadow."
+            "D": "A puddle is not a rain shadow."
           }
         },
         {
@@ -189,7 +189,7 @@
           ],
           "answer": "A",
           "skill": "inference",
-          "why": "The article explains that the far side of a mountain, in the rain shadow, gets very little rain.",
+          "why": "The far side of a mountain gets very little rain, so the town probably stays dry.",
           "wrong": {
             "B": "Heavy daily rain does not happen on the dry side of a mountain.",
             "C": "A town cannot be located inside the ocean.",
@@ -206,7 +206,7 @@
           ],
           "answer": "D",
           "skill": "detail",
-          "why": "The article says the wind loses its water long before it gets to places far from the ocean.",
+          "why": "In the article, the wind loses most of its water before it reaches places far away.",
           "wrong": {
             "A": "The article does not say the sun never shines there.",
             "B": "Snow cover is not mentioned for these places.",
@@ -240,7 +240,7 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The article says the wind there does not carry much water and the hot sun dries the land fast.",
+          "why": "In the article, the wind there does not carry much water and the hot sun dries the land fast.",
           "wrong": {
             "A": "The Arabian Peninsula is land, not covered by ocean.",
             "B": "The article does not say there is no wind at all.",
@@ -530,7 +530,7 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The article states that wind crossing warm currents absorbs more moisture, shaping how much rain nearby coastlines receive.",
+          "why": "In the article, wind crossing warm currents absorbs more moisture, shaping how much rain nearby coastlines receive.",
           "wrong": {
             "A": "Currents do not determine mountain height.",
             "B": "The article says cold currents reduce moisture, not eliminate rainfall entirely.",
@@ -581,7 +581,7 @@
           ],
           "answer": "B",
           "skill": "author-purpose",
-          "why": "By explaining several mechanisms, the author shows that dryness in places like the Arabian Peninsula results from overlapping factors, not a single cause.",
+          "why": "By explaining several causes, the author shows that dry places become dry for more than one reason.",
           "wrong": {
             "A": "The article presents several causes, not a single one.",
             "C": "The article explains rainfall through clear scientific mechanisms.",
@@ -644,7 +644,7 @@
         ],
         "answer": "A",
         "skill": "compare",
-        "why": "The text says warm sea water gives wind more water, and cold sea water gives less.",
+        "why": "Warm sea water gives the wind more water than cold sea water does.",
         "wrong": {
           "B": "That describes wind over cold sea water.",
           "C": "The text does not talk about wind speed.",
@@ -661,7 +661,7 @@
         ],
         "answer": "A",
         "skill": "inference",
-        "why": "The text says the air gets cool as it goes up the mountain.",
+        "why": "The air gets cooler as it goes up the mountain.",
         "wrong": {
           "B": "The air cools as it goes up, so it is not warmer.",
           "C": "Sand is not linked to mountain air in the text.",
@@ -731,7 +731,7 @@
         ],
         "answer": "B",
         "skill": "cause-effect",
-        "why": "The text says the hot sun dries out what little water remains.",
+        "why": "In the text, the hot sun dries out what little water remains.",
         "wrong": {
           "A": "The text does not say the sun sends wind.",
           "C": "The sun does not bring rain.",
@@ -767,7 +767,7 @@
         ],
         "answer": "A",
         "skill": "cause-effect",
-        "why": "The article says air cools as it climbs because pressure drops at higher altitude.",
+        "why": "Air cools as it climbs because the pressure is lower higher up.",
         "wrong": {
           "B": "The article does not say the sun is weaker there.",
           "C": "Ocean currents affect coasts, not the climbing air.",
@@ -784,7 +784,7 @@
         ],
         "answer": "B",
         "skill": "detail",
-        "why": "The article says evaporation is driven mostly by the sun's heat on the sea.",
+        "why": "Evaporation from the ocean is driven mostly by the sun's heat.",
         "wrong": {
           "A": "Winds carry the vapor but do not drive evaporation.",
           "C": "Rain is the result of vapor, not the cause of evaporation.",

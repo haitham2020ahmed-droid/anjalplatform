@@ -138,7 +138,7 @@
           ],
           "answer": "A",
           "skill": "detail",
-          "why": "The article says Mariam lived in Aleppo, a city in the country we now call Syria.",
+          "why": "In the article, Mariam lived in Aleppo, in Syria.",
           "wrong": {
             "B": "A workshop is the place where she worked, not the name of a city.",
             "C": "The article does not say she attended a university.",
@@ -317,7 +317,7 @@
           ],
           "answer": "D",
           "skill": "detail",
-          "why": "The article explains that Mariam learned the craft as a young apprentice in her father's busy workshop.",
+          "why": "In the article, Mariam learned the craft as a young apprentice in her father's busy workshop.",
           "wrong": {
             "A": "The article does not mention a book about stars.",
             "B": "The article does not mention a distant university.",
@@ -496,7 +496,7 @@
           ],
           "answer": "B",
           "skill": "detail",
-          "why": "The article states that Sayf al-Dawla, the powerful ruler of Aleppo, invited Mariam to make instruments for his royal court.",
+          "why": "In the article, Sayf al-Dawla, the powerful ruler of Aleppo, invited Mariam to make instruments for his royal court.",
           "wrong": {
             "A": "No foreign astronomer is mentioned extending this invitation.",
             "C": "The historian recorded information about her later; he did not invite her to the court.",
@@ -513,7 +513,7 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The article explains that each plate was meticulously engraved for a different latitude.",
+          "why": "In the article, each plate was meticulously engraved for a different latitude.",
           "wrong": {
             "A": "The article does not describe plates by metal color.",
             "B": "The article discusses prayer times generally, not specific holidays tied to plates.",
@@ -598,7 +598,7 @@
           ],
           "answer": "C",
           "skill": "inference",
-          "why": "The article explains that historians study Mariam's legacy as compelling evidence of women's genuine contributions to science during the Islamic Golden Age.",
+          "why": "Mariam is one of the few women named as an expert in this work, so historians see her as evidence of women's real part in science.",
           "wrong": {
             "A": "Astrolabes already existed before Mariam, since her father was also a maker of them.",
             "B": "Astronomers, sailors, and worshippers, not only rulers, valued these instruments.",
@@ -627,7 +627,7 @@
         ],
         "answer": "B",
         "skill": "detail",
-        "why": "The article says her tools helped find direction and also told the time.",
+        "why": "In the article, her tools helped find direction and also told the time.",
         "wrong": {
           "A": "Weather is not mentioned.",
           "C": "Price is not mentioned.",
@@ -661,7 +661,7 @@
         ],
         "answer": "C",
         "skill": "detail",
-        "why": "The article says a ruler of the city asked her to make fine tools.",
+        "why": "In the article, a ruler of the city asked her to make fine tools.",
         "wrong": {
           "A": "Her father taught her, but he did not ask this.",
           "B": "No sailor is mentioned in this version.",

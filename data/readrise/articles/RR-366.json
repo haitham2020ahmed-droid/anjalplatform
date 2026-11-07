@@ -138,7 +138,7 @@
           ],
           "answer": "A",
           "skill": "detail",
-          "why": "The article says the radio warns that a big storm will hit by evening.",
+          "why": "In the story, the radio warns of a storm.",
           "wrong": {
             "B": "The article does not mention a race.",
             "C": "The article does not mention school.",
@@ -155,7 +155,7 @@
           ],
           "answer": "B",
           "skill": "detail",
-          "why": "The article says Maha's job is to tie strong knots on the ropes that hold the boats.",
+          "why": "In the story, Maha ties good knots on the ropes.",
           "wrong": {
             "A": "The article does not mention cooking.",
             "C": "The article does not mention a truck.",
@@ -240,7 +240,7 @@
           ],
           "answer": "B",
           "skill": "sequence",
-          "why": "The article says they finish just as the storm begins, with howling wind and hard rain.",
+          "why": "In the story, as the boats are tied down, the storm begins with strong wind and hard rain.",
           "wrong": {
             "A": "It is too dangerous to fish once the storm starts.",
             "C": "The article does not mention a market.",
@@ -496,7 +496,7 @@
           ],
           "answer": "A",
           "skill": "detail",
-          "why": "The article explains that the family's small boats remain especially vulnerable once the storm arrives.",
+          "why": "In the article, the family's small boats remain especially vulnerable once the storm arrives.",
           "wrong": {
             "B": "The article never says the boats are too old.",
             "C": "The boats are kept near their home village.",
@@ -513,7 +513,7 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The article says Maha takes on the responsibility of tying strong, careful knots on every single rope.",
+          "why": "In the article, Maha takes on the responsibility of tying strong, careful knots on every single rope.",
           "wrong": {
             "A": "The radio station gives the forecast, not Maha.",
             "B": "The article does not mention repairing a house.",
@@ -547,7 +547,7 @@
           ],
           "answer": "A",
           "skill": "inference",
-          "why": "The article explains that helping one another is an essential, ingrained part of life in their coastal community.",
+          "why": "In the story, helping each other is a normal part of life in their coastal community.",
           "wrong": {
             "B": "The article never mentions any threat.",
             "C": "The article never mentions payment.",
@@ -627,7 +627,7 @@
         ],
         "answer": "C",
         "skill": "detail",
-        "why": "The text says Mom shuts the windows and gets food and a flashlight.",
+        "why": "In the text, Mom shuts the windows and gets food and a flashlight.",
         "wrong": {
           "A": "Dad and the family handle the boats and rope.",
           "B": "Fahad carries the nets, not Mom.",
@@ -767,7 +767,7 @@
         ],
         "answer": "B",
         "skill": "detail",
-        "why": "The text says she gathers them in case the power goes out.",
+        "why": "She gathers them in case the power goes out.",
         "wrong": {
           "A": "The boats are pulled onto the sand, not taken out.",
           "C": "No signaling is mentioned.",
@@ -801,7 +801,7 @@
         ],
         "answer": "A",
         "skill": "cause-effect",
-        "why": "The text says the boats were safe thanks to the forecast's early warning and everyone's hard work.",
+        "why": "In the text, the boats were safe thanks to the forecast's early warning and everyone's hard work.",
         "wrong": {
           "B": "The neighbor does not warn them; Father helps him.",
           "C": "The wind grows stronger later, after the warning.",

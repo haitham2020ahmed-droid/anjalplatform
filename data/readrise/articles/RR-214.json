@@ -138,7 +138,7 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The article says the headset holds two small screens, one in front of each eye.",
+          "why": "In the article, the headset holds two small screens, one in front of each eye.",
           "wrong": {
             "A": "One screen would not match each eye.",
             "B": "The article never mentions three screens.",
@@ -155,7 +155,7 @@
           ],
           "answer": "D",
           "skill": "detail",
-          "why": "The article says the headset can tell when you turn your head, and the picture moves with you.",
+          "why": "In the article, the headset can tell when you turn your head, and the picture moves with you.",
           "wrong": {
             "A": "Turning your head does not switch the headset off.",
             "B": "The controller is not connected to head movement.",
@@ -240,7 +240,7 @@
           ],
           "answer": "D",
           "skill": "detail",
-          "why": "The article says you can use a controller to touch things in the VR world.",
+          "why": "In the article, you can touch things in the VR world with the controllers.",
           "wrong": {
             "A": "VR controllers are for the virtual world, not a real plane.",
             "B": "The article does not connect controllers to charging.",
@@ -317,7 +317,7 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The article says tiny sensors inside the headset detect every movement of your head.",
+          "why": "In the article, tiny sensors inside the headset detect every movement of your head.",
           "wrong": {
             "A": "No outside person moves the headset.",
             "B": "The controller is used for hands, not for head tracking.",
@@ -334,7 +334,7 @@
           ],
           "answer": "D",
           "skill": "detail",
-          "why": "The article says controllers let the wearer reach into the virtual world and pick up, throw, or build things.",
+          "why": "In the article, controllers let the wearer reach into the virtual world and pick up, throw, or build things.",
           "wrong": {
             "A": "Controllers are not used to repair screens.",
             "B": "Recording video is not mentioned.",
@@ -402,7 +402,7 @@
           ],
           "answer": "C",
           "skill": "cause-effect",
-          "why": "The article explains that dizziness happens because the eyes sense motion the body does not actually feel.",
+          "why": "In the article, dizziness happens because the eyes sense motion the body does not actually feel.",
           "wrong": {
             "A": "Controller weight is not linked to dizziness.",
             "B": "Brightness is not the cause given.",
@@ -496,7 +496,7 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The article explains that each screen shows a slightly different image, which tricks the brain into perceiving depth, as our two real eyes already do.",
+          "why": "In the article, each screen shows a slightly different image, which tricks the brain into perceiving depth, as our two real eyes already do.",
           "wrong": {
             "A": "Flashing colors are not described.",
             "B": "Sound is not mentioned as the trick.",
@@ -513,7 +513,7 @@
           ],
           "answer": "D",
           "skill": "detail",
-          "why": "The article states that some newer gloves incorporate haptic feedback, pressing gently against the fingers to simulate weight and texture.",
+          "why": "In the article, some newer gloves incorporate haptic feedback, pressing gently against the fingers to simulate weight and texture.",
           "wrong": {
             "A": "A camera is not mentioned for gloves.",
             "B": "Charging the battery is unrelated to the gloves' purpose.",
@@ -530,7 +530,7 @@
           ],
           "answer": "B",
           "skill": "vocabulary",
-          "why": "The article describes a phobia, such as a fear of heights, as something a patient can confront gradually through VR.",
+          "why": "A phobia, such as a fear of heights, is something a patient can face little by little in VR.",
           "wrong": {
             "A": "Medicine is not what the word means.",
             "C": "A fear of heights is only one example, not the definition.",
@@ -547,7 +547,7 @@
           ],
           "answer": "B",
           "skill": "inference",
-          "why": "The article says therapists use carefully controlled VR scenes so a patient can confront a fear gradually and safely, under supervision.",
+          "why": "In the article, therapists use carefully controlled VR scenes so a patient can confront a fear gradually and safely, under supervision.",
           "wrong": {
             "A": "The article emphasizes VR feels convincing, not weak.",
             "C": "The article does not claim one session removes a phobia forever.",
@@ -581,7 +581,7 @@
           ],
           "answer": "C",
           "skill": "compare",
-          "why": "The article explains that augmented reality overlays digital images onto the real world, while VR replaces the real world entirely.",
+          "why": "In the article, augmented reality overlays digital images onto the real world, while VR replaces the real world entirely.",
           "wrong": {
             "A": "The article does not say AR uses no screens.",
             "B": "The article does not say AR excludes those uses.",
@@ -627,7 +627,7 @@
         ],
         "answer": "A",
         "skill": "detail",
-        "why": "The text says to rest, take a break, and shut your eyes.",
+        "why": "In the text, to rest, take a break, and shut your eyes.",
         "wrong": {
           "B": "Turning your head is what moves the view, and it would not help.",
           "C": "The controllers are for touching things in VR, not for feeling better.",
@@ -680,7 +680,7 @@
         "skill": "detail",
         "why": "The text says kids can see old lands and even the moon.",
         "wrong": {
-          "A": "The text says VR takes you out of your room.",
+          "A": "VR can take you far from your own room.",
           "C": "Doctors and pilots use VR to learn and train, but kids do not see them there.",
           "D": "A belt is not mentioned in this text."
         }
@@ -697,7 +697,7 @@
         ],
         "answer": "C",
         "skill": "detail",
-        "why": "The text says an architect can use VR to walk a client through a building before it is built.",
+        "why": "In the text, an architect can use VR to walk a client through a building before it is built.",
         "wrong": {
           "A": "A surgeon practices on a simulation, not an architect.",
           "B": "A pilot practices flying without danger.",
@@ -731,7 +731,7 @@
         ],
         "answer": "D",
         "skill": "cause-effect",
-        "why": "The text says tiny sensors detect every movement of your head, so the picture changes.",
+        "why": "In the text, tiny sensors detect every movement of your head, so the picture changes.",
         "wrong": {
           "A": "The text says each screen shows a slightly different picture.",
           "B": "Controllers are for your hands.",
@@ -750,7 +750,7 @@
         "skill": "author-purpose",
         "why": "These places show that a class can travel to many different places with VR.",
         "wrong": {
-          "A": "The text says VR is useful for far more than games.",
+          "A": "VR is useful for much more than games.",
           "C": "The warning about dizziness is in a different paragraph.",
           "D": "The headset parts are described earlier."
         }
@@ -767,7 +767,7 @@
         ],
         "answer": "D",
         "skill": "detail",
-        "why": "The text says the patient can face the fear slowly and safely, one small step at a time.",
+        "why": "The patient can face the fear slowly and safely, one small step at a time.",
         "wrong": {
           "A": "Gloves are described as a way to feel weight, not to treat a phobia.",
           "B": "Schools use VR to teach, not therapists.",
@@ -801,7 +801,7 @@
         ],
         "answer": "A",
         "skill": "cause-effect",
-        "why": "The text says haptic feedback presses on the fingers so an object feels like it has real weight.",
+        "why": "In the text, haptic feedback presses on the fingers so an object feels like it has real weight.",
         "wrong": {
           "B": "The two pictures come from the screens in the headset.",
           "C": "Sensors in the headset track the head.",
@@ -820,7 +820,7 @@
         "skill": "inference",
         "why": "The text says headsets remain heavy and costly, which would make buying many of them hard.",
         "wrong": {
-          "A": "The text says schools are using VR as a teaching tool.",
+          "A": "Schools do use VR for teaching, so this is not the reason.",
           "B": "The text says VR can show many places.",
           "D": "The text says many professions and schools use VR."
         }

@@ -214,7 +214,7 @@
           }
         },
         {
-          "stem": "\"Each one was a tomb. A tomb is a place to bury the dead.\" What is a tomb?",
+          "stem": "In the article, what does the word \"tomb\" mean?",
           "options": [
             "A kind of boat that carried stones",
             "A wooden sled",
@@ -317,7 +317,7 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The article says heavy granite was carried by boat from Aswan, far to the south.",
+          "why": "In the article, heavy granite was carried by boat from Aswan, far to the south.",
           "wrong": {
             "A": "Most of the limestone came from the nearby quarry, not the granite.",
             "B": "The article does not mention the Red Sea.",
@@ -334,7 +334,7 @@
           ],
           "answer": "B",
           "skill": "detail",
-          "why": "The article says it was the tallest building in the world for about 3,800 years.",
+          "why": "In the article, it was the tallest building in the world for about 3,800 years.",
           "wrong": {
             "A": "The article says 3,800, not 380.",
             "C": "146 is its original height in meters, not a number of years.",
@@ -355,7 +355,7 @@
           "wrong": {
             "A": "The article does not say this.",
             "B": "The article gives no such reason.",
-            "C": "The article says boats carried granite and white limestone, so they did use boats."
+            "C": "In the article, boats carried granite and white limestone, so they did use boats."
           }
         },
         {
@@ -368,7 +368,7 @@
           ],
           "answer": "A",
           "skill": "inference",
-          "why": "Paying workers and housing them nearby shows that the project was carefully organized, as the article says engineers planned the work.",
+          "why": "Paying workers and housing them nearby shows that the project was carefully organized, as in the article, engineers planned the work.",
           "wrong": {
             "B": "The work took about 20 years, so workers stayed much longer.",
             "C": "The article does not suggest this.",
@@ -376,7 +376,7 @@
           }
         },
         {
-          "stem": "\"It is the only one of the Seven Wonders of the Ancient World that still stands.\" What does wonder mean here?",
+          "stem": "The Great Pyramid is one of the Seven Wonders of the Ancient World. What does wonder mean here?",
           "options": [
             "A question that has no answer at all",
             "A small statue made of gold and stone",
@@ -419,7 +419,7 @@
           ],
           "answer": "D",
           "skill": "sequence",
-          "why": "The article explains that the sledge slid over the wet sand, and then the blocks were dragged up ramps to raise them higher.",
+          "why": "In the article, the sledge slid over the wet sand, and then the blocks were dragged up ramps to raise them higher.",
           "wrong": {
             "A": "The article does not describe carving treasures.",
             "B": "Blocks came from the quarry; they were not sent back.",
@@ -532,7 +532,7 @@
           "skill": "inference",
           "why": "A town where workers lived and were fed supports the article's point that they were paid laborers rather than slaves.",
           "wrong": {
-            "A": "The article says construction took about 20 years.",
+            "A": "In the article, construction took about 20 years.",
             "B": "The town was for workers, not pharaohs.",
             "D": "Bakeries show the workers were fed, which is the opposite."
           }
@@ -598,7 +598,7 @@
           ],
           "answer": "D",
           "skill": "cause-effect",
-          "why": "The article states that damp sand allowed the sledge to slide more easily.",
+          "why": "In the article, damp sand allowed the sledge to slide more easily.",
           "wrong": {
             "A": "Water on the sand does not change the weight of the blocks.",
             "B": "The article does not say the sand turned to stone.",
@@ -644,7 +644,7 @@
         ],
         "answer": "D",
         "skill": "vocabulary",
-        "why": "The text says a ramp is a slope used to pull the blocks up.",
+        "why": "In the text, a ramp is a slope used to pull the blocks up.",
         "wrong": {
           "A": "A sledge, not a ramp, is the big sled.",
           "B": "Boats carried the stones on the Nile, but they are not ramps.",
@@ -678,7 +678,7 @@
         ],
         "answer": "C",
         "skill": "detail",
-        "why": "The text says the men were paid and lived in a town close by.",
+        "why": "The workers were paid and lived in a town nearby.",
         "wrong": {
           "A": "The kings were buried in the tombs, not the builders.",
           "B": "The text does not say the builders were boat makers.",
@@ -714,7 +714,7 @@
         ],
         "answer": "D",
         "skill": "vocabulary",
-        "why": "The article says the tombs were built for the kings of ancient Egypt, who were called pharaohs.",
+        "why": "In the article, the tombs were built for the kings of ancient Egypt, who were called pharaohs.",
         "wrong": {
           "A": "Workers built the pyramids, but they were not pharaohs.",
           "B": "Robbers took the treasures; they were not pharaohs.",
@@ -731,7 +731,7 @@
         ],
         "answer": "A",
         "skill": "cause-effect",
-        "why": "The text says they dragged the blocks up ramps to raise them higher.",
+        "why": "In the text, they dragged the blocks up ramps to raise them higher.",
         "wrong": {
           "B": "They poured water on the sand, not on the ramps.",
           "C": "Blocks were cut at the quarry.",
@@ -750,7 +750,7 @@
         "skill": "inference",
         "why": "The text says robbers took most of the riches long ago, so little remains.",
         "wrong": {
-          "A": "The text says robbers took most of them.",
+          "A": "Robbers took most of the treasures long ago.",
           "C": "The text does not say they were moved to Cairo.",
           "D": "Nothing says workers buried them deeper."
         }

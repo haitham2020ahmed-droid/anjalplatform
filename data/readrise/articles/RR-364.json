@@ -138,7 +138,7 @@
      ],
      "answer": "A",
      "skill": "detail",
-     "why": "The story says the park looked too close to the mosque on Lina's first map.",
+     "why": "In the story, the park looked too close to the mosque on Lina's first map.",
      "wrong": {
       "B": "Lina did draw the shop.",
       "C": "The story does not mention colors.",
@@ -496,7 +496,7 @@
      ],
      "answer": "A",
      "skill": "detail",
-     "why": "The story explains that the task was designed specifically so members could observe for themselves what mistakes occur when distance is only estimated rather than measured.",
+     "why": "In the story, the task was designed specifically so members could observe for themselves what mistakes occur when distance is only estimated rather than measured.",
      "wrong": {
       "B": "Cost is never mentioned as a factor.",
       "C": "Lina's first map becomes a learning tool, not something simply discarded.",
@@ -627,7 +627,7 @@
     ],
     "answer": "B",
     "skill": "detail",
-    "why": "The text says she walks from the mosque to the shop, and then to the park.",
+    "why": "In the text, she walks from the mosque to the shop, and then to the park.",
     "wrong": {
      "A": "Her house is not part of the counting walk.",
      "C": "No school is in the story.",
@@ -678,7 +678,7 @@
     ],
     "answer": "C",
     "skill": "sequence",
-    "why": "After she has the real distance, the text says she picks a scale.",
+    "why": "After she has the real distance, she picks a scale.",
     "wrong": {
      "A": "She joined the club before she drew her first map.",
      "B": "The text does not say she goes home to rest.",
@@ -697,7 +697,7 @@
     ],
     "answer": "C",
     "skill": "detail",
-    "why": "The text says she adds a small legend in the corner to explain her symbols.",
+    "why": "In the text, she adds a small legend in the corner to explain her symbols.",
     "wrong": {
      "A": "A drawing of Fahd is not mentioned.",
      "B": "The text does not say she lists her steps on the map.",

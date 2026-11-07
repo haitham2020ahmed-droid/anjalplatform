@@ -138,7 +138,7 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The article says the trash rides along a long conveyor belt past workers and robots.",
+          "why": "In the article, a conveyor belt carries the trash past robots.",
           "wrong": {
             "A": "A fan is not mentioned.",
             "B": "Trucks bring the trash to the building, but the belt moves it inside.",
@@ -206,7 +206,7 @@
           ],
           "answer": "A",
           "skill": "inference",
-          "why": "The article explains that clean, sorted material can be made into new things, which means less trash goes into the ground.",
+          "why": "In the article, clean, sorted material can be made into new things, which means less trash goes into the ground.",
           "wrong": {
             "B": "Truck speed is not connected to sorting.",
             "C": "Trash is still picked up even when sorted.",
@@ -334,7 +334,7 @@
           ],
           "answer": "D",
           "skill": "detail",
-          "why": "The article explains that a different method uses electric current to push aluminum away from the rest of the trash, since it does not stick to a regular magnet.",
+          "why": "In the article, a different method uses electric current to push aluminum away from the rest of the trash, since it does not stick to a regular magnet.",
           "wrong": {
             "A": "Hand sorting is not described for this step.",
             "B": "The article explains a specific way they are separated, not left mixed in.",
@@ -402,7 +402,7 @@
           ],
           "answer": "C",
           "skill": "cause-effect",
-          "why": "Once the material is identified, the article says a robotic arm reaches down, grabs it, and drops it into the correct bin.",
+          "why": "Once the material is known, a robot arm reaches down, grabs the item, and drops it into the right bin.",
           "wrong": {
             "A": "Items are not sent back to trucks.",
             "B": "The belt keeps moving so new items can be sorted too.",
@@ -513,7 +513,7 @@
           ],
           "answer": "D",
           "skill": "detail",
-          "why": "The article explains that an eddy current separator uses electric current to push non-magnetic aluminum away from everything else.",
+          "why": "In the article, an eddy current separator uses electric current to push non-magnetic aluminum away from everything else.",
           "wrong": {
             "A": "A regular magnet does not attract aluminum; a different method is used.",
             "B": "Melting is not part of this process.",
@@ -602,7 +602,7 @@
           "wrong": {
             "A": "Building instructions are not given.",
             "B": "The article shows many clear benefits of robots.",
-            "C": "The article says robots work alongside human workers."
+            "C": "In the article, robots work alongside human workers."
           }
         }
       ],
@@ -678,7 +678,7 @@
         ],
         "answer": "A",
         "skill": "sequence",
-        "why": "The text says the robot sees the plastic, its arm reaches out and grabs it, then it drops it in the bin.",
+        "why": "In the text, the robot sees the plastic, its arm reaches out and grabs it, then it drops it in the bin.",
         "wrong": {
           "B": "The text does not say the belt is cooled.",
           "C": "Steel is found with a magnet, not by this robot arm.",
@@ -697,7 +697,7 @@
         ],
         "answer": "D",
         "skill": "detail",
-        "why": "The text says a robot arm often uses a soft suction cup.",
+        "why": "In the text, a robot arm often uses a soft suction cup.",
         "wrong": {
           "A": "Scissors are not mentioned.",
           "B": "A magnet pulls steel cans, but it is not what the arm uses.",
@@ -731,7 +731,7 @@
         ],
         "answer": "B",
         "skill": "vocabulary",
-        "why": "The text says dirty items can contaminate a whole batch and make it harder to recycle.",
+        "why": "In the text, dirty items can contaminate a whole batch and make it harder to recycle.",
         "wrong": {
           "A": "Bins are not made bigger in the text.",
           "C": "The belt carries items, but that is not contaminating.",
@@ -767,7 +767,7 @@
         ],
         "answer": "C",
         "skill": "detail",
-        "why": "The text says making a product from recycled metal or plastic uses far less power than starting from scratch.",
+        "why": "In the text, making a product from recycled metal or plastic uses far less power than starting from scratch.",
         "wrong": {
           "A": "Truck space is not mentioned.",
           "B": "The text does not talk about saving worker time.",
@@ -801,7 +801,7 @@
         ],
         "answer": "D",
         "skill": "inference",
-        "why": "The text says a worker checks the bins to make sure nothing important was missed, so robots can make mistakes.",
+        "why": "In the text, a worker checks the bins to make sure nothing important was missed, so robots can make mistakes.",
         "wrong": {
           "A": "The text says robots grab items with suction cups.",
           "B": "The text does not mention the robots' price.",
@@ -818,7 +818,7 @@
         ],
         "answer": "B",
         "skill": "cause-effect",
-        "why": "The text says growing cities invest in these facilities to support a sustainable future.",
+        "why": "Growing cities build these places to support a sustainable future.",
         "wrong": {
           "A": "The text does not say trash can end.",
           "C": "Aluminum weight is not mentioned.",

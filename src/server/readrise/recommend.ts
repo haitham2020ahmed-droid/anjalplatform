@@ -6,10 +6,13 @@
  *                questions in the student's band have that skill most), 2 from the topics they like (interests.ts),
  *                2 from topics not read in the last 30 days; gaps are filled from the rest. The order inside every
  *                group is a DAILY shuffle (seed = student + Riyadh day): the same all day, new the next day.
- *  readNext      after a reading: a teacher's article not done yet (earliest due) → the same article one level up
- *                (75%+ and a stretch is allowed) → a new topic (75%+) → the skill missed most in THIS reading
- *                (50–74%) → a topic they like at their level (< 50%). Never an article already done or open, never a
- *                hidden / unpublished article (student.ts visibleArticles), never a cancelled one (hiddenWorkKeys).
+ *  readNext      after a reading: a teacher's article not done yet (earliest due) → a new topic (75%+) → the skill
+ *                missed most in THIS reading (50–74%) → a topic they like, else the same topic (< 50%). Never an
+ *                article the student already ran (any run: first try, re-read, stretch, open), never a hidden /
+ *                unpublished article (student.ts visibleArticles), never a cancelled one (hiddenWorkKeys).
+ *                Round 7 (owner, live test: "Read next" offered the SAME article under another title with "Great! Try
+ *                it one level up"): the "one level up" step is gone — the Stretch button on the done screen does
+ *                that — and the title is the VERSION title the student will read (their level's version).
  * Bounded reads: the student's own runs (needed columns), the answer keys (cached, question-key.ts), one settings row.
  */
 import { createHash } from "node:crypto";
@@ -21,6 +24,7 @@ import { questionKeys } from "./question-key";
 import { bandOf, RR_MIN } from "./level";
 import { getInterests } from "./interests";
 import { visibleArticles } from "./student";
+import { chooseVersion } from "./level";
 import { hiddenWorkKeys } from "../student/cancelled-work";
 import { startedBy } from "../../lib/assign-dates";
 import type { TFn } from "../../i18n";
@@ -35,7 +39,8 @@ export const WEAK_BELOW = 80;
 export const GOOD_SCORE = 75, OK_SCORE = 50;
 
 export interface RecommendReason {
-  kind: "TEACHER" | "SKILL" | "INTEREST" | "NEW_TOPIC" | "STRETCH" | "EASIER";
+  /** round 7: SAME_TOPIC replaces the old STRETCH ("one level up": the Stretch's job) and EASIER kinds */
+  kind: "TEACHER" | "SKILL" | "INTEREST" | "NEW_TOPIC" | "SAME_TOPIC";
   /** English text with its emoji (translate with reasonLabel) */
   label: string;
   /** SKILL: the question type (central-idea, detail …) */
@@ -59,8 +64,7 @@ export const reasons = {
   interest: (topic: string): RecommendReason => ({ kind: "INTEREST", label: `❤️ You like: ${topic}`, topic }),
   newTopic: (topic: string): RecommendReason => ({ kind: "NEW_TOPIC", label: "🌍 New topic for you", topic }),
   more: (topic: string): RecommendReason => ({ kind: "NEW_TOPIC", label: "📚 A good read for you", topic }),
-  stretch: (): RecommendReason => ({ kind: "STRETCH", label: "⬆ Great! Try it one level up" }),
-  easier: (): RecommendReason => ({ kind: "EASIER", label: "💪 Another one to build your skill" }),
+  sameTopic: (topic: string): RecommendReason => ({ kind: "SAME_TOPIC", label: "📚 More on this topic", topic }),
 };
 
 /** The reason in the reader's language (every template and skill name is in the UI strings). */
@@ -74,8 +78,7 @@ export function reasonLabel(r: RecommendReason, t: TFn): string {
     case "SKILL": return t("🎯 Practise: {skill}", { skill: t(skillName(r.skill ?? "")) });
     case "INTEREST": return t("❤️ You like: {topic}", { topic: t(r.topic ?? "") });
     case "NEW_TOPIC": return r.label.startsWith("🌍") ? t("🌍 New topic for you") : t("📚 A good read for you");
-    case "STRETCH": return t("⬆ Great! Try it one level up");
-    default: return t("💪 Another one to build your skill");
+    default: return t("📚 More on this topic");
   }
 }
 
@@ -216,6 +219,22 @@ export function mostMissed(answers: unknown, questions: readonly { number: numbe
 }
 
 export async function readNext(repo: Repo, studentId: string, schoolId: string, finished: FinishedRun, now = new Date()): Promise<{ articleId: string; title: string; reason: RecommendReason; stretch: boolean } | null> {
+  const pickedRaw = await readNextPick(repo, studentId, schoolId, finished, now);
+  if (!pickedRaw) return null;
+  // round 7: the title of the version the student will read (their level's version), else the article's title
+  const [rr, vers] = await Promise.all([
+    repo.findUnique("RRStudent", { studentId }),
+    repo.findMany("RRVersion", { articleId: pickedRaw.articleId }, { select: ["level", "estLevel", "officialLexile", "title"] }),
+  ]);
+  if (rr && vers.length) {
+    const vl = chooseVersion(Number(rr.level), vers.map((v) => ({ level: Number(v.level), estLevel: v.estLevel, officialLexile: v.officialLexile })));
+    const t = s(vers.find((v) => Number(v.level) === vl)?.title).trim();
+    if (t) return { ...pickedRaw, title: t };
+  }
+  return pickedRaw;
+}
+
+async function readNextPick(repo: Repo, studentId: string, schoolId: string, finished: FinishedRun, now: Date): Promise<{ articleId: string; title: string; reason: RecommendReason; stretch: boolean } | null> {
   const [arts, runs, mems, hidden, interests] = await Promise.all([
     visibleArticles(repo, schoolId),
     repo.findMany("RRRun", { studentId }, { select: RUN_COLS }),
@@ -238,11 +257,7 @@ export async function readNext(repo: Repo, studentId: string, schoolId: string, 
     if (first) return { articleId: first[0], title: titleOf(first[0]), reason: reasons.teacher(Number.isFinite(first[1]) ? new Date(first[1]).toISOString() : null), stretch: false };
   }
   const score = finished.score;
-  // 2. a strong reading: the same article one level up
-  if (score !== null && score >= GOOD_SCORE && finished.canStretch && byId.has(finished.articleId) && !hidden.has(`readrise:${finished.articleId}`)) {
-    const open = runs.some((r) => s(r.articleId) === finished.articleId && r.step !== "DONE");
-    if (!open) return { articleId: finished.articleId, title: titleOf(finished.articleId), reason: reasons.stretch(), stretch: true };
-  }
+  // (round 7: no "the same article one level up" here any more — that is the done screen's Stretch button)
   if (!fresh.length) return null;
   const order = seededOrder(fresh, `${dailySeed(studentId, now)}|${finished.articleId}`);
   const out = (a: Row, reason: RecommendReason) => ({ articleId: s(a.id), title: s(a.title), reason, stretch: false });
@@ -253,9 +268,9 @@ export async function readNext(repo: Repo, studentId: string, schoolId: string, 
     const a = order.find((x) => !recent.has(s(x.topic)) && s(x.topic) !== thisTopic) ?? order.find((x) => s(x.topic) !== thisTopic) ?? order[0];
     return out(a, reasons.newTopic(s(a.topic)));
   };
-  // 3. 75%+ (or no score): a new topic
+  // 2. 75%+ (or no score): a new topic
   if (score === null || score >= GOOD_SCORE) return newTopic();
-  // 4. 50–74%: the skill missed most in THIS reading
+  // 3. 50–74%: the skill missed most in THIS reading
   if (score >= OK_SCORE) {
     const run = runs.filter((r) => s(r.articleId) === finished.articleId && (r.stretch === true) === finished.stretch && r.completedAt)
       .sort((a, b) => toDate(b.completedAt).getTime() - toDate(a.completedAt).getTime())[0];
@@ -269,8 +284,11 @@ export async function readNext(repo: Repo, studentId: string, schoolId: string, 
     }
     return newTopic();
   }
-  // 5. under 50%: a topic they like, at their level (every article is read at the student's own level)
-  const liked = new Set(interests);
-  const a = order.find((x) => liked.has(s(x.topic))) ?? order.find((x) => s(x.topic) === thisTopic) ?? order[0];
-  return out(a, reasons.easier());
+  // 4. under 50%: a topic they like, else more on this topic, else a new topic (every article is read at the
+  // student's own level)
+  const liked = order.find((x) => interests.includes(s(x.topic)));
+  if (liked) return out(liked, reasons.interest(s(liked.topic)));
+  const same = order.find((x) => s(x.topic) === thisTopic && thisTopic);
+  if (same) return out(same, reasons.sameTopic(thisTopic));
+  return newTopic();
 }

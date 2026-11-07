@@ -138,7 +138,7 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The article says the scholars wrote the books again in Arabic, which is to translate.",
+          "why": "In the article, the scholars wrote the books again in Arabic, which is to translate.",
           "wrong": {
             "A": "The article does not say they sold the books.",
             "B": "The article does not say they hid books in the river.",
@@ -172,7 +172,7 @@
           ],
           "answer": "B",
           "skill": "detail",
-          "why": "The article says the math book gave us the word \"algebra.\"",
+          "why": "In the article, the math book gave us the word \"algebra.\"",
           "wrong": {
             "A": "Library is a word in the article, but it did not come from the math book.",
             "C": "Wisdom is part of the name of the library.",
@@ -206,7 +206,7 @@
           ],
           "answer": "C",
           "skill": "inference",
-          "why": "The article says the ideas had already gone far and wide, so they were not lost with the books.",
+          "why": "In the article, the ideas had already spread far and wide, so they were not lost with the books.",
           "wrong": {
             "A": "The article does not say the army wrote books.",
             "B": "Many people read the books, which is how the ideas spread.",
@@ -317,7 +317,7 @@
           ],
           "answer": "B",
           "skill": "detail",
-          "why": "The article says caliphs who valued learning supported scholars, and the House of Wisdom grew.",
+          "why": "In the article, caliphs who valued learning supported scholars, and the House of Wisdom grew.",
           "wrong": {
             "A": "The article does not say European traders built it.",
             "C": "The army destroyed books; it did not help.",
@@ -385,7 +385,7 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The article says the scholars did more than copy old ideas; they made discoveries, such as al-Khwarizmi's algebra.",
+          "why": "In the article, the scholars did more than copy old ideas; they made discoveries, such as al-Khwarizmi's algebra.",
           "wrong": {
             "A": "They read and translated many old books.",
             "B": "They translated books into Arabic.",
@@ -421,7 +421,7 @@
           "skill": "author-purpose",
           "why": "By connecting the past to today, the author shows the lasting importance of the House of Wisdom.",
           "wrong": {
-            "B": "The article says Baghdad was attacked in 1258.",
+            "B": "Baghdad was attacked in 1258.",
             "C": "The ending does not give translating steps.",
             "D": "The ending does not list names."
           }
@@ -496,7 +496,7 @@
           ],
           "answer": "A",
           "skill": "detail",
-          "why": "The article says his book's title gave us \"algebra\" and his name gave us \"algorithm.\"",
+          "why": "In the article, his book's title gave us \"algebra\" and his name gave us \"algorithm.\"",
           "wrong": {
             "B": "These words are linked to studying stars, not to al-Khwarizmi.",
             "C": "These words describe books and places.",
@@ -513,7 +513,7 @@
           ],
           "answer": "D",
           "skill": "detail",
-          "why": "The article states that Hunayn ibn Ishaq translated dozens of works by Galen, which trained doctors for centuries.",
+          "why": "In the article, Hunayn ibn Ishaq translated dozens of works by Galen, which trained doctors for centuries.",
           "wrong": {
             "A": "The article credits astronomers in general with the observatory.",
             "B": "Astronomers, not Hunayn, measured the Earth.",
@@ -530,7 +530,7 @@
           ],
           "answer": "B",
           "skill": "cause-effect",
-          "why": "The article explains that paper was far less expensive, so books became easier to reproduce and distribute.",
+          "why": "Paper cost much less, so books were easier to copy and share.",
           "wrong": {
             "A": "Many books were destroyed in 1258, so paper did not last forever.",
             "C": "The books were still manuscripts copied by hand.",
@@ -627,9 +627,9 @@
         ],
         "answer": "B",
         "skill": "detail",
-        "why": "The text says Baghdad was by a wide river.",
+        "why": "In the text, Baghdad was by a wide river.",
         "wrong": {
-          "A": "The text says the sun was hot.",
+          "A": "Baghdad was beside a wide river, not on a cold hill.",
           "C": "The city was by a river, not on an island.",
           "D": "The text does not mention a forest."
         }
@@ -644,7 +644,7 @@
         ],
         "answer": "D",
         "skill": "detail",
-        "why": "The text says some scholars looked at the stars and made maps of the sky.",
+        "why": "In the text, some scholars looked at the stars and made maps of the sky.",
         "wrong": {
           "A": "Sea maps are not mentioned.",
           "B": "Road maps are not mentioned.",
@@ -697,7 +697,7 @@
         ],
         "answer": "C",
         "skill": "detail",
-        "why": "The text says scholars gathered old books from Greece, Persia, and India.",
+        "why": "In the text, scholars gathered old books from Greece, Persia, and India.",
         "wrong": {
           "A": "Those lands are not named in the text.",
           "B": "Those lands are not named in the text.",
@@ -731,9 +731,9 @@
         ],
         "answer": "D",
         "skill": "cause-effect",
-        "why": "The text says the ideas had already spread far and wide and were later translated again in Europe.",
+        "why": "In the text, the ideas had already spread far and wide and were later translated again in Europe.",
         "wrong": {
-          "A": "The text says we still use the ideas today.",
+          "A": "In the text, we still use the ideas today.",
           "B": "The books were lost, but the ideas had spread.",
           "C": "The ideas had spread far and wide."
         }
@@ -767,7 +767,7 @@
         ],
         "answer": "B",
         "skill": "detail",
-        "why": "The text says Baghdad was founded in 762 as the capital of the Abbasid caliphs.",
+        "why": "In the text, Baghdad was founded in 762 as the capital of the Abbasid caliphs.",
         "wrong": {
           "A": "622 is not in the article.",
           "C": "850 is not in the article.",
@@ -801,9 +801,9 @@
         ],
         "answer": "A",
         "skill": "cause-effect",
-        "why": "The text says the Latin translations helped spark new learning in Europe.",
+        "why": "The Latin translations helped start new learning in Europe.",
         "wrong": {
-          "B": "The text says the legacy continues today.",
+          "B": "The ideas were not lost; they still matter today.",
           "C": "The text does not mention a ban.",
           "D": "The text does not link Latin translation to Abbasid rule."
         }
@@ -820,9 +820,9 @@
         "skill": "inference",
         "why": "The text says the ideas had already traveled widely before 1258 and were later translated in Europe.",
         "wrong": {
-          "A": "The text says the books were destroyed.",
+          "A": "The books were destroyed; soldiers did not keep copies.",
           "B": "The text does not mention a new library.",
-          "D": "The text says countless books were destroyed."
+          "D": "In the text, countless books were destroyed."
         }
       }
     ]

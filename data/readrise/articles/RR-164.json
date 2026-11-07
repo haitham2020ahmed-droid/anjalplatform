@@ -189,10 +189,10 @@
           ],
           "answer": "A",
           "skill": "detail",
-          "why": "The article says Galileo saw that the band was made of lots of stars.",
+          "why": "In the article, Galileo saw that the band was made of lots of stars.",
           "wrong": {
             "B": "The name sounds like milk, but the band is made of stars.",
-            "C": "The article says the Sun is far from the center.",
+            "C": "In the article, the Sun is far from the center.",
             "D": "The band is in space, not a rain cloud."
           }
         },
@@ -206,7 +206,7 @@
           ],
           "answer": "C",
           "skill": "cause-effect",
-          "why": "The article says bright lights in cities and towns hide the Milky Way.",
+          "why": "In the article, bright lights in cities and towns hide the Milky Way.",
           "wrong": {
             "A": "Stars do not sleep.",
             "B": "The article does not say it only shows in summer.",
@@ -334,7 +334,7 @@
           ],
           "answer": "D",
           "skill": "detail",
-          "why": "The article says one orbit takes more than two hundred million years.",
+          "why": "One orbit takes more than two hundred million years.",
           "wrong": {
             "A": "One year is how long Earth takes to go around the Sun.",
             "B": "One hundred thousand years is about how long light takes to cross the galaxy.",
@@ -351,7 +351,7 @@
           ],
           "answer": "B",
           "skill": "cause-effect",
-          "why": "The article explains that light would need about one hundred thousand years to cross the galaxy.",
+          "why": "In the article, light would need about one hundred thousand years to cross the galaxy.",
           "wrong": {
             "A": "The galaxy has more than one hundred billion stars.",
             "C": "A light-year measures distance, not age.",
@@ -419,7 +419,7 @@
           ],
           "answer": "D",
           "skill": "inference",
-          "why": "The article says its gravity pulls on everything nearby, which shows it is very powerful.",
+          "why": "In the article, its gravity pulls on everything nearby, which shows it is very powerful.",
           "wrong": {
             "A": "The article calls it giant.",
             "B": "Our Sun is far from the center.",
@@ -482,7 +482,7 @@
           "why": "The article describes the Milky Way's size, shape, center, and our Sun's place within it.",
           "wrong": {
             "A": "The galaxy is enormous, not small or near the Moon.",
-            "C": "The article says there are billions of other galaxies.",
+            "C": "There are many other galaxies, so the Milky Way is not the only one.",
             "D": "Light pollution hides the galaxy; it does not destroy it."
           }
         },
@@ -496,7 +496,7 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The article says the supermassive black hole is about four million times heavier than the Sun.",
+          "why": "In the article, the supermassive black hole is about four million times heavier than the Sun.",
           "wrong": {
             "A": "It is far heavier than the Sun.",
             "B": "The article compares it to the Sun, not Earth.",
@@ -627,7 +627,7 @@
         ],
         "answer": "B",
         "skill": "detail",
-        "why": "The text says there are more than a hundred billion stars in the Milky Way.",
+        "why": "In the text, there are more than a hundred billion stars in the Milky Way.",
         "wrong": {
           "A": "A hundred is far too few.",
           "C": "A million is far too few.",
@@ -644,7 +644,7 @@
         ],
         "answer": "B",
         "skill": "cause-effect",
-        "why": "The text says the black hole pulls on all things near it.",
+        "why": "In the text, the black hole pulls on all things near it.",
         "wrong": {
           "A": "The text does not say this.",
           "C": "It pulls, not pushes.",
@@ -697,7 +697,7 @@
         ],
         "answer": "C",
         "skill": "detail",
-        "why": "The text says our Sun sits in a small arm, far from the center.",
+        "why": "In the text, our Sun sits in a small arm, far from the center.",
         "wrong": {
           "A": "The black hole is at the center.",
           "B": "The Sun is far from the center.",
@@ -731,7 +731,7 @@
         ],
         "answer": "D",
         "skill": "detail",
-        "why": "The text says Galileo saw that the band was made of countless stars.",
+        "why": "In the text, Galileo saw that the band was made of countless stars.",
         "wrong": {
           "A": "The black hole is at the center of the galaxy.",
           "B": "The pinwheel shape is how it would look from far away.",
@@ -767,7 +767,7 @@
         ],
         "answer": "D",
         "skill": "detail",
-        "why": "The text says its diameter is about 100,000 light-years, so light needs about one hundred thousand years.",
+        "why": "In the text, its diameter is about 100,000 light-years, so light needs about one hundred thousand years.",
         "wrong": {
           "A": "Four hundred years ago is when Galileo looked at the band.",
           "B": "Four million is how many times heavier the black hole is than the Sun.",
@@ -818,7 +818,7 @@
         ],
         "answer": "D",
         "skill": "detail",
-        "why": "The text says the Sun is in a minor arm, roughly halfway between the center and the edge.",
+        "why": "In the text, the Sun is in a minor arm, roughly halfway between the center and the edge.",
         "wrong": {
           "A": "The black hole is at the center.",
           "B": "It is about halfway, not at the edge.",

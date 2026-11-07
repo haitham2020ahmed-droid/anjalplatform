@@ -325,20 +325,20 @@
           }
         },
         {
-          "stem": "Who is named as one of the elderly neighbors who receives vegetables?",
+          "stem": "Who receives most of Saleh's vegetables?",
           "options": [
             "Mira's own grandmother",
             "The building's manager",
-            "Umm Fahd",
+            "The elderly neighbors",
             "Saleh's younger sister"
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "Saleh names Umm Fahd on the second floor as one neighbor who receives vegetables.",
+          "why": "In the story, Saleh gives most of his vegetables to the elderly neighbors in his building.",
           "wrong": {
-            "A": "The story never mentions Mira's grandmother.",
-            "B": "The story never names the building manager.",
-            "D": "The story never says Saleh has a sister."
+            "A": "Mira's grandmother is not the one named.",
+            "B": "The manager is not the one who gets them.",
+            "D": "His sister is not named."
           }
         },
         {
@@ -618,20 +618,20 @@
   "stretch": {
     "LOW": [
       {
-        "stem": "What does Saleh ask for when he gives away his vegetables?",
+        "stem": "Who gets most of Saleh's vegetables?",
         "options": [
-          "No thanks at all",
-          "A little money",
-          "A new garden",
-          "Some help each day"
+          "The elderly",
+          "A shop",
+          "His boss",
+          "The school"
         ],
         "answer": "A",
         "skill": "detail",
-        "why": "The text says Saleh likes to help and asks for no thanks.",
+        "why": "In the story, Saleh gives most of his vegetables to the elderly who live in his building.",
         "wrong": {
-          "B": "Saleh does not ask for money.",
-          "C": "He already has a garden.",
-          "D": "The children help later, but he does not ask for it."
+          "B": "He does not sell them to a shop.",
+          "C": "His boss is not named.",
+          "D": "A school is not named."
         }
       },
       {

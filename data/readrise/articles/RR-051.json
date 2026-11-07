@@ -124,7 +124,7 @@
           "why": "The article tells about the Empty Quarter: its sand, dunes, weather, animals, and what lies under it.",
           "wrong": {
             "A": "The article is not about building houses.",
-            "C": "The article says it hardly ever rains there.",
+            "C": "In the article, it does not rain much there.",
             "D": "The article does not teach how to ride camels."
           }
         },
@@ -155,7 +155,7 @@
           ],
           "answer": "A",
           "skill": "detail",
-          "why": "The article says the wind blows the sand into tall hills called dunes.",
+          "why": "In the article, the wind blows the sand into hills called dunes.",
           "wrong": {
             "B": "It hardly ever rains, and rain does not make the dunes.",
             "C": "The article does not say camels make dunes.",
@@ -172,7 +172,7 @@
           ],
           "answer": "D",
           "skill": "vocabulary",
-          "why": "The article says a hill of sand is called a dune.",
+          "why": "In the article, a hill of sand is called a dune.",
           "wrong": {
             "A": "The article does not call a water hole a dune.",
             "B": "The oryx is a desert animal, but it is not a dune.",
@@ -192,7 +192,7 @@
           "why": "The article says the days are very hot, the nights can be cold, and it hardly ever rains.",
           "wrong": {
             "A": "This is the wrong way around: days are hot and nights can be cold.",
-            "C": "The article says it hardly ever rains.",
+            "C": "In the article, it does not rain much there.",
             "D": "The article does not mention snow."
           }
         },
@@ -226,7 +226,7 @@
           "why": "Lakes need water, so the land must have been wetter long ago than it is today.",
           "wrong": {
             "A": "Lakes long ago show that the land has changed.",
-            "B": "The article says oil, not lakes, is under the sand today.",
+            "B": "In the article, oil, not lakes, is under the sand today.",
             "D": "Animals did not make the lakes."
           }
         },
@@ -317,7 +317,7 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The article says it extends into Oman, the United Arab Emirates, and Yemen.",
+          "why": "In the article, it extends into Oman, the United Arab Emirates, and Yemen.",
           "wrong": {
             "A": "These countries are not named in the article.",
             "B": "These countries are not named in the article.",
@@ -402,7 +402,7 @@
           ],
           "answer": "D",
           "skill": "cause-effect",
-          "why": "The article explains that the wind keeps pushing the dunes, so the land slowly changes.",
+          "why": "In the article, the wind keeps pushing the dunes, so the land slowly changes.",
           "wrong": {
             "A": "There are no rivers mentioned in the desert.",
             "B": "The article does not say people move the dunes.",
@@ -496,7 +496,7 @@
           ],
           "answer": "A",
           "skill": "cause-effect",
-          "why": "The article says many grains carry a thin coating of iron oxide, the substance in rust.",
+          "why": "Many sand grains have a thin coating of iron oxide, the same substance found in rust.",
           "wrong": {
             "B": "The article does not say sunlight changes the color.",
             "C": "The oil is deep beneath the sand.",
@@ -661,7 +661,7 @@
         ],
         "answer": "A",
         "skill": "detail",
-        "why": "The text says the wind blows the sand into hills, and a hill of sand is a dune.",
+        "why": "In the text, the wind blows the sand into hills, and a hill of sand is a dune.",
         "wrong": {
           "B": "Sand does not turn into water.",
           "C": "Sand does not turn into plants.",
@@ -678,7 +678,7 @@
         ],
         "answer": "C",
         "skill": "detail",
-        "why": "The text says there is oil deep down under the sand.",
+        "why": "In the text, there is oil deep down under the sand.",
         "wrong": {
           "A": "The lakes were there long ago, but now there is oil.",
           "B": "The text does not say hippos are under the sand.",
@@ -767,7 +767,7 @@
         ],
         "answer": "C",
         "skill": "detail",
-        "why": "The text says the desert covers roughly 650,000 square kilometers.",
+        "why": "The desert covers about 650,000 square kilometers.",
         "wrong": {
           "A": "The number 200 is the height in meters of some dunes.",
           "B": "The text does not give this number.",
@@ -788,7 +788,7 @@
         "wrong": {
           "B": "A reddish-orange color is not dull.",
           "C": "The color is a feature that is noticed, not hidden.",
-          "D": "The text says the dunes change, not the color."
+          "D": "The color of the sand is not described as changing."
         }
       },
       {
@@ -805,7 +805,7 @@
         "wrong": {
           "A": "Oil is explained in an earlier paragraph.",
           "B": "The paragraph does not compare dunes.",
-          "C": "The text says only that the guides knew where the wells were."
+          "C": "The paragraph does not explain how wells are dug."
         }
       },
       {
@@ -818,7 +818,7 @@
         ],
         "answer": "B",
         "skill": "cause-effect",
-        "why": "The text says the oryx disappeared from the wild in 1972, so programs bred the animals and reintroduced them.",
+        "why": "In the text, the oryx disappeared from the wild in 1972, so programs bred the animals and reintroduced them.",
         "wrong": {
           "A": "The text does not say the oryx grew too large.",
           "C": "Sand is everywhere in the Empty Quarter.",

@@ -138,7 +138,7 @@
           ],
           "answer": "B",
           "skill": "detail",
-          "why": "The story says two players sometimes ran for the same ball at once, and other balls hit the floor because no one moved.",
+          "why": "In the story, sometimes two players ran for the same ball, and other balls hit the floor because no one moved.",
           "wrong": {
             "A": "The story does not say the team was missing players.",
             "C": "Coach Amal was at practice and noticed the problem.",
@@ -530,7 +530,7 @@
           ],
           "answer": "D",
           "skill": "vocabulary",
-          "why": "The story uses 'coordinated' to describe the team moving together across the court without colliding, which depended on clear communication.",
+          "why": "The story uses coordinated to describe the team moving together without crashing into each other, which needed clear communication.",
           "wrong": {
             "A": "Coordination describes how a team plays, not whether it wins every match.",
             "B": "The story credits the whole team's teamwork, not a single star player.",
@@ -784,7 +784,7 @@
         ],
         "answer": "A",
         "skill": "vocabulary",
-        "why": "The article says the communication was deficient and it was costing the team points, so it was lacking.",
+        "why": "In the article, the communication was deficient and it was costing the team points, so it was lacking.",
         "wrong": {
           "B": "Nothing says the team was loud, the problem was silence.",
           "C": "A well planned team would not lose points this way.",

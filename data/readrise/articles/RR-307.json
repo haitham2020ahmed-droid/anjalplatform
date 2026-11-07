@@ -138,7 +138,7 @@
           ],
           "answer": "D",
           "skill": "detail",
-          "why": "The article says a builder mixes clay, water, and straw to make a brick.",
+          "why": "In the article, a builder mixes clay, water, and straw to make a brick.",
           "wrong": {
             "A": "Sand and wood are not named in the article.",
             "C": "Stone and glue are not part of mud brick.",
@@ -206,7 +206,7 @@
           ],
           "answer": "D",
           "skill": "inference",
-          "why": "The article says an older builder teaches a younger one, so the skill passes from person to person and is not lost.",
+          "why": "In the article, an older builder teaches a younger one, so the skill passes on and is not lost.",
           "wrong": {
             "A": "The article says people have built this way for a long time, so it is not new.",
             "C": "The article does not mention schools.",
@@ -231,7 +231,7 @@
           }
         },
         {
-          "stem": "Why does the article say this old way \"shows real skill\"?",
+          "stem": "Why does this old way of building show real skill?",
           "options": [
             "Because it uses expensive machines that make the work fast and neat in a big shop in town",
             "Because it takes careful work with simple things like clay, water, and straw",
@@ -334,7 +334,7 @@
           ],
           "answer": "B",
           "skill": "detail",
-          "why": "The article says the thick walls provide natural insulation, keeping rooms comfortable day and night.",
+          "why": "In the article, the thick walls provide natural insulation, keeping rooms comfortable day and night.",
           "wrong": {
             "A": "Air conditioning is a modern machine, not mentioned here.",
             "C": "Glass roofs are not mentioned.",
@@ -351,7 +351,7 @@
           ],
           "answer": "C",
           "skill": "cause-effect",
-          "why": "The article explains that the small triangle openings let in soft light and a gentle breeze while keeping privacy.",
+          "why": "In the article, the small triangle holes let in soft light and a light breeze.",
           "wrong": {
             "A": "The openings do not make walls collapse.",
             "D": "Openings would not make the brick heavier.",
@@ -627,7 +627,7 @@
         ],
         "answer": "C",
         "skill": "detail",
-        "why": "The text says Riyadh is in Najd.",
+        "why": "Riyadh is a city in Najd.",
         "wrong": {
           "A": "Jeddah is not named in the text.",
           "B": "Makkah is not named in the text.",
@@ -644,7 +644,7 @@
         ],
         "answer": "A",
         "skill": "cause-effect",
-        "why": "The text says some walls had small triangle holes near the top and light came in.",
+        "why": "In the text, some walls had small triangle holes near the top and light came in.",
         "wrong": {
           "B": "The text says the land is hot and dry and does not mention rain.",
           "C": "Birds and nests are not in the text.",
@@ -661,7 +661,7 @@
         ],
         "answer": "D",
         "skill": "sequence",
-        "why": "The text says they cut small shapes in the wet clay.",
+        "why": "In the text, they cut small shapes in the wet clay.",
         "wrong": {
           "A": "The text does not say they cut shapes after a home is torn down.",
           "B": "The clay must be mixed first so there is clay to carve.",
@@ -682,7 +682,7 @@
         "wrong": {
           "A": "The text says it worked well, not that materials were hard to find.",
           "C": "The materials came from the land, not from far away.",
-          "D": "The text says it worked well for a long time."
+          "D": "In the text, it worked well for a long time."
         }
       }
     ],
@@ -697,7 +697,7 @@
         ],
         "answer": "A",
         "skill": "detail",
-        "why": "The article says the city of Riyadh sits within Najd.",
+        "why": "In the article, the city of Riyadh sits within Najd.",
         "wrong": {
           "B": "Jeddah is not named in the article.",
           "C": "Medina is not named in the article.",
@@ -731,11 +731,11 @@
         ],
         "answer": "C",
         "skill": "cause-effect",
-        "why": "The article says few new homes use only mud brick since other materials are now more common.",
+        "why": "In the article, few new homes use only mud brick since other materials are now more common.",
         "wrong": {
           "A": "The article says the desert sun is still strong.",
           "B": "The article does not say clay has run out.",
-          "D": "The article says the skill passes down and is never lost."
+          "D": "The skill is still passed down, so builders have not forgotten it."
         }
       },
       {
@@ -748,7 +748,7 @@
         ],
         "answer": "A",
         "skill": "inference",
-        "why": "The article says the older craftsman teaches a younger helper step by step so the skill is never lost.",
+        "why": "In the article, an older craftsman teaches a younger helper step by step.",
         "wrong": {
           "B": "The article describes teaching by a craftsman, not books.",
           "C": "The article does not limit it to leaders.",
@@ -767,9 +767,9 @@
         ],
         "answer": "B",
         "skill": "detail",
-        "why": "The article says the technique is rarely written down and is learned mostly by watching closely.",
+        "why": "The technique is rarely written down, so it is learned mostly by watching and working closely.",
         "wrong": {
-          "A": "The article says it is rarely written down.",
+          "A": "It is rarely written down.",
           "C": "A test is not mentioned.",
           "D": "The article says no machine is needed for this craft."
         }
@@ -801,11 +801,11 @@
         ],
         "answer": "A",
         "skill": "cause-effect",
-        "why": "The article says reinforced concrete and imported materials have become far more common and convenient.",
+        "why": "In the article, reinforced concrete and imported materials have become far more common and convenient.",
         "wrong": {
-          "B": "The article says the strong desert sun dries the block.",
+          "B": "In the article, the strong desert sun dries the block.",
           "C": "The article says the materials are taken from the nearby land.",
-          "D": "The article says builders carve decorative patterns into the walls."
+          "D": "In the article, builders carve decorative patterns into the walls."
         }
       },
       {

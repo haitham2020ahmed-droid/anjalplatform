@@ -138,7 +138,7 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The article says thick walls are hard to break through or climb.",
+          "why": "In the article, thick walls are hard to break through or climb.",
           "wrong": {
             "A": "Looks are not the reason given in the article.",
             "B": "Thick walls are hard to climb, not easy.",
@@ -155,7 +155,7 @@
           ],
           "answer": "D",
           "skill": "detail",
-          "why": "The article says a fort is often built on a hill, so a guard can see far off.",
+          "why": "In the article, a fort is often built on a hill, so a guard can see far off.",
           "wrong": {
             "A": "A valley is low ground, which would make it harder to see danger.",
             "B": "A forest location is not mentioned in the article.",
@@ -189,7 +189,7 @@
           ],
           "answer": "B",
           "skill": "vocabulary",
-          "why": "The article says a ditch dug all around a fort is called a moat.",
+          "why": "In the article, a ditch dug all around a fort is called a moat.",
           "wrong": {
             "A": "A tower is a different, tall structure.",
             "C": "A gate is a different feature, used for entering a fort.",
@@ -223,7 +223,7 @@
           ],
           "answer": "A",
           "skill": "cause-effect",
-          "why": "The article says that from a hill, a guard can see danger come from far off.",
+          "why": "In the article, from a hill, a guard can see danger come from far off.",
           "wrong": {
             "B": "Temperature is never discussed.",
             "C": "Hills do not reduce the need for walls in the article.",
@@ -304,7 +304,7 @@
           "wrong": {
             "A": "The article only uses Masmak as one example, not the only fort ever built.",
             "C": "Moats are described as a defense feature, not for growing fish.",
-            "D": "The article says modern armies rarely rely on forts built this way."
+            "D": "In the article, modern armies rarely rely on forts built this way."
           }
         },
         {
@@ -317,7 +317,7 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The article says walls were built to stand up to raiders who tried to break in, dig under, or climb over.",
+          "why": "In the article, walls were built to stand up to raiders who tried to break in, dig under, or climb over.",
           "wrong": {
             "A": "Weather is not the threat described in the article.",
             "B": "Color is never discussed.",
@@ -334,7 +334,7 @@
           ],
           "answer": "D",
           "skill": "detail",
-          "why": "The article says narrow slits let a guard look out, or even aim a weapon, while staying mostly safe.",
+          "why": "In the article, narrow slits let a guard look out, or even aim a weapon, while staying mostly safe.",
           "wrong": {
             "A": "Cooking is never mentioned.",
             "B": "Animals entering towers is not described.",
@@ -342,7 +342,7 @@
           }
         },
         {
-          "stem": "Read: \"forts, strong structures made just for defense.\" What does defense mean here?",
+          "stem": "In the article, what does the word \"defense\" mean?",
           "options": [
             "Protecting something from attack",
             "Selling goods and crops for money at a market",
@@ -368,7 +368,7 @@
           ],
           "answer": "B",
           "skill": "cause-effect",
-          "why": "The article explains that high ground let a guard spot an approaching enemy from a good distance away.",
+          "why": "High ground let guards see an enemy coming from far away.",
           "wrong": {
             "A": "High ground does not hide a fort; it helps a guard see out.",
             "C": "Forts are still described as having gates.",
@@ -496,7 +496,7 @@
           ],
           "answer": "B",
           "skill": "detail",
-          "why": "The article says towers offered an important strategic vantage point over the surrounding land.",
+          "why": "The towers were good places to watch the land around the fort.",
           "wrong": {
             "A": "Food storage is not mentioned.",
             "C": "Markets are not described inside towers.",
@@ -513,7 +513,7 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The article says controlling the single entrance mattered even more during a siege, when every way in had to be watched closely.",
+          "why": "Guarding the one entrance mattered even more during a siege, when every way in had to be watched.",
           "wrong": {
             "A": "The article does not say gates were always destroyed.",
             "B": "Decoration is not mentioned.",
@@ -521,7 +521,7 @@
           }
         },
         {
-          "stem": "Read: \"strong structures made to repel an invader.\" What does invader mean here?",
+          "stem": "In the article, what does the word \"invader\" mean?",
           "options": [
             "A merchant selling goods peacefully",
             "A guest invited to a feast",
@@ -547,7 +547,7 @@
           ],
           "answer": "A",
           "skill": "cause-effect",
-          "why": "The article says high ground let defenders detect an invader from a distance, granting them time to prepare.",
+          "why": "In the article, high ground let defenders detect an invader from a distance, granting them time to prepare.",
           "wrong": {
             "B": "High ground does not make a structure invisible.",
             "C": "Fortifications on high ground are still described as having thick walls.",
@@ -598,7 +598,7 @@
           ],
           "answer": "D",
           "skill": "text-structure",
-          "why": "The article explains walls, elevated position, towers, entrances, and moats one at a time, then grounds these ideas in the real example of Masmak Fort.",
+          "why": "The article explains walls, high ground, towers, and entrances one at a time, then gives a real fort as an example.",
           "wrong": {
             "A": "No modern buildings are compared.",
             "B": "No fictional story is told.",
@@ -678,7 +678,7 @@
         ],
         "answer": "A",
         "skill": "detail",
-        "why": "The text says Masmak has thick clay walls and tall towers.",
+        "why": "In the text, Masmak has thick clay walls and tall towers.",
         "wrong": {
           "B": "A fort has thick walls, not thin cloth ones.",
           "C": "Gold and glass are not mentioned.",
@@ -731,7 +731,7 @@
         ],
         "answer": "A",
         "skill": "cause-effect",
-        "why": "The text says a guard in a tower can watch every way at once and spot trouble long before it reaches the walls.",
+        "why": "In the text, a guard in a tower can watch every way at once and spot trouble long before it reaches the walls.",
         "wrong": {
           "B": "The moat is a ditch around the fort.",
           "C": "The gate is the entrance, not a way to watch.",
@@ -748,7 +748,7 @@
         ],
         "answer": "C",
         "skill": "inference",
-        "why": "The text says many forts stand as museums that show how people once built spots for defense.",
+        "why": "In the text, many forts stand as museums that show how people once built spots for defense.",
         "wrong": {
           "A": "The text says armies rarely use them now.",
           "B": "Raiders are the people forts were built against.",
@@ -767,7 +767,7 @@
         ],
         "answer": "D",
         "skill": "detail",
-        "why": "The text says walls were often made of local clay or stone, whatever the builders had close at hand.",
+        "why": "In the text, walls were often made of local clay or stone, whatever the builders had close at hand.",
         "wrong": {
           "A": "Glass and iron are not mentioned.",
           "B": "The text says the gate was wood, but not the walls.",
@@ -801,7 +801,7 @@
         ],
         "answer": "C",
         "skill": "cause-effect",
-        "why": "The text says a moat made it hard for invaders to bring heavy tools close to the wall.",
+        "why": "In the text, a moat made it hard for invaders to bring heavy tools close to the wall.",
         "wrong": {
           "A": "Drinking water is not mentioned.",
           "B": "The moat is a ditch, so it does not change wall height.",
@@ -818,7 +818,7 @@
         ],
         "answer": "A",
         "skill": "inference",
-        "why": "The text says walls were often made of local clay or stone, whatever builders had close at hand.",
+        "why": "In the text, walls were often made of local clay or stone, whatever builders had close at hand.",
         "wrong": {
           "B": "The text does not say clay is rare.",
           "C": "The gate of Masmak was made of heavy wood.",

@@ -138,7 +138,7 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The article says Tesla was born in 1856.",
+          "why": "Tesla was born in 1856.",
           "wrong": {
             "A": "That is when he went to New York.",
             "B": "That is when he died.",
@@ -163,7 +163,7 @@
           }
         },
         {
-          "stem": "Read this: \"He made a motor that ran on it.\" What is a motor?",
+          "stem": "In the article, what does the word \"motor\" mean?",
           "options": [
             "A kind of money to pay with",
             "A big waterfall in the mountains",
@@ -206,7 +206,7 @@
           ],
           "answer": "D",
           "skill": "sequence",
-          "why": "Next, the article tells how a power plant at a big waterfall used Tesla's current.",
+          "why": "Next, a power plant at a big waterfall used Tesla's plan.",
           "wrong": {
             "A": "The article does not say this.",
             "B": "The article does not say this.",
@@ -325,7 +325,7 @@
           }
         },
         {
-          "stem": "Read this: \"A patent is an official document that says an invention belongs to its creator.\" Why would an inventor want a patent?",
+          "stem": "Why would an inventor want a patent?",
           "options": [
             "To show the invention is theirs",
             "To make the invention smaller",
@@ -351,7 +351,7 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The article says Westinghouse purchased Tesla's patents and helped build the new system.",
+          "why": "In the article, Westinghouse purchased Tesla's patents and helped build the new system.",
           "wrong": {
             "A": "Edison used direct current.",
             "B": "The article does not say this.",
@@ -368,7 +368,7 @@
           ],
           "answer": "D",
           "skill": "cause-effect",
-          "why": "The article says direct current lost power quickly, so it could not travel far.",
+          "why": "In the article, direct current could not travel far before it grew weak.",
           "wrong": {
             "A": "Brightness is not mentioned.",
             "B": "The article does not say this.",
@@ -385,7 +385,7 @@
           ],
           "answer": "B",
           "skill": "detail",
-          "why": "The article says a power plant at Niagara Falls used alternating current to send power to a city far away.",
+          "why": "In the article, a power plant at Niagara Falls used alternating current to send power to a city far away.",
           "wrong": {
             "A": "Tesla did not study there.",
             "C": "The article does not say this.",
@@ -496,7 +496,7 @@
           ],
           "answer": "B",
           "skill": "detail",
-          "why": "The article says a transformer, which raises or lowers voltage, let engineers transmit alternating current far.",
+          "why": "In the article, a transformer, which raises or lowers voltage, let engineers transmit alternating current far.",
           "wrong": {
             "A": "That was the problem with direct current.",
             "C": "This was a later project that was never completed.",
@@ -521,7 +521,7 @@
           }
         },
         {
-          "stem": "Read this: \"his legacy is enormous.\" What does legacy mean here?",
+          "stem": "In the article, what does the word \"legacy\" mean?",
           "options": [
             "The money he saved and left in a bank",
             "The machines he sold to Edison",
@@ -627,7 +627,7 @@
         ],
         "answer": "C",
         "skill": "detail",
-        "why": "The text says he had just a bit of cash when he went to New York in 1884.",
+        "why": "In the text, he had very little money when he went to New York in 1884.",
         "wrong": {
           "A": "He did not have much money.",
           "B": "The rich man paid him later, after he made his plan.",
@@ -697,7 +697,7 @@
         ],
         "answer": "A",
         "skill": "detail",
-        "why": "The text says the village is now part of Croatia.",
+        "why": "In the text, the village is now part of Croatia.",
         "wrong": {
           "B": "Egypt is not mentioned.",
           "C": "Canada is not mentioned.",
@@ -714,7 +714,7 @@
         ],
         "answer": "C",
         "skill": "vocabulary",
-        "why": "The text says engineering is the science of making machines.",
+        "why": "Engineering is the science of designing and making machines.",
         "wrong": {
           "A": "That describes a patent.",
           "B": "Direct and alternating are the kinds of current.",
@@ -767,7 +767,7 @@
         ],
         "answer": "C",
         "skill": "detail",
-        "why": "The text says his strong memory let him picture complicated machines in detail.",
+        "why": "His strong memory let him picture complicated machines in detail.",
         "wrong": {
           "A": "Drawings are not mentioned.",
           "B": "A teacher is not mentioned for this.",
@@ -801,7 +801,7 @@
         ],
         "answer": "A",
         "skill": "cause-effect",
-        "why": "The text says he died with little money partly because some of his later projects failed.",
+        "why": "He died with little money partly because some of his later projects failed.",
         "wrong": {
           "B": "Westinghouse bought his patents; Edison did not take them.",
           "C": "The text does not say he gave away his money.",

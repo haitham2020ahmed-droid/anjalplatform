@@ -172,7 +172,7 @@
           ],
           "answer": "B",
           "skill": "vocabulary",
-          "why": "The article says the edge drops down fast, unlike the flat top.",
+          "why": "In the article, the edge drops down fast, unlike the flat top.",
           "wrong": {
             "A": "The flat part is the top, not the edge.",
             "C": "The article does not say the edge is covered in water.",
@@ -223,10 +223,10 @@
           ],
           "answer": "A",
           "skill": "compare",
-          "why": "The article says a plateau is high land, while a valley is low land between hills.",
+          "why": "In the article, a valley is low land, while a plateau is flat, high land.",
           "wrong": {
             "B": "The article does not say plateaus are underwater.",
-            "C": "The article describes a plateau as having a steep edge.",
+            "C": "A plateau does have edges.",
             "D": "The article says plateaus can be small or huge, not always small."
           }
         },
@@ -304,7 +304,7 @@
           "wrong": {
             "B": "The article does not claim the Grand Canyon is the deepest canyon on Earth.",
             "C": "The article describes plateaus reaching a high elevation too.",
-            "D": "The article says rivers can slowly carve canyons into flat land."
+            "D": "In the article, rivers can slowly carve canyons into flat land."
           }
         },
         {
@@ -385,7 +385,7 @@
           ],
           "answer": "B",
           "skill": "compare",
-          "why": "The article says a mountain has a narrow, pointed summit, while a plateau keeps a wide, flat top.",
+          "why": "In the article, a mountain has a narrow, pointed summit, while a plateau keeps a wide, flat top.",
           "wrong": {
             "A": "This reverses the actual shapes described in the article.",
             "C": "The article does not compare the overall size of plateaus and mountains.",
@@ -513,7 +513,7 @@
           ],
           "answer": "B",
           "skill": "cause-effect",
-          "why": "The article explains that each layer of lava cools and hardens before the next layer arrives, so many eruptions are needed to build a thick tableland.",
+          "why": "In the article, each layer of lava cools and hardens before the next layer arrives, so many eruptions are needed to build a thick tableland.",
           "wrong": {
             "A": "A single eruption does produce rock, just not a thick tableland by itself.",
             "C": "The article does not state how often volcanoes erupt.",
@@ -534,7 +534,7 @@
           "wrong": {
             "B": "The article suggests plateaus can be drier, not wetter, than lowlands.",
             "C": "The article describes rivers cutting canyons into plateau surfaces.",
-            "D": "The article says plateaus sit at a higher elevation than the land around them."
+            "D": "In the article, plateaus sit at a higher elevation than the land around them."
           }
         },
         {
@@ -627,7 +627,7 @@
         ],
         "answer": "D",
         "skill": "cause-effect",
-        "why": "The text says the lava cools and makes flat rock.",
+        "why": "The lava cools and makes flat rock.",
         "wrong": {
           "A": "A river, not lava, cuts a canyon.",
           "B": "Lava does not turn into a river.",
@@ -644,7 +644,7 @@
         ],
         "answer": "B",
         "skill": "vocabulary",
-        "why": "The text says a plateau is a big, flat piece of land.",
+        "why": "A plateau is a big, flat area of high land.",
         "wrong": {
           "A": "A plateau is land, not a hole in the sea.",
           "C": "A river is water, not a plateau.",
@@ -661,7 +661,7 @@
         ],
         "answer": "C",
         "skill": "inference",
-        "why": "The text says the top of a plateau is flat and wide and you can walk for miles up there.",
+        "why": "In the text, the top of a plateau is flat and wide and you can walk for miles up there.",
         "wrong": {
           "A": "A peak is sharp, not flat.",
           "B": "A valley is low land.",
@@ -678,7 +678,7 @@
         ],
         "answer": "B",
         "skill": "detail",
-        "why": "The text says flat high land is found all over the world.",
+        "why": "Flat, high land is found all over the world.",
         "wrong": {
           "A": "The text does not limit it to Asia.",
           "C": "Flat high land is not limited to river areas.",
@@ -731,7 +731,7 @@
         ],
         "answer": "D",
         "skill": "cause-effect",
-        "why": "The text says the top of the plateau stays mostly flat and level, which is why people can farm and build there.",
+        "why": "In the text, the top of the plateau stays mostly flat and level, which is why people can farm and build there.",
         "wrong": {
           "A": "The sides are steep, but the top is flat.",
           "B": "Wetness is not mentioned as the reason.",
@@ -748,9 +748,9 @@
         ],
         "answer": "A",
         "skill": "inference",
-        "why": "The text says uplift can take millions of years.",
+        "why": "In the text, uplift can take millions of years.",
         "wrong": {
-          "B": "The text says it can take millions of years.",
+          "B": "In the text, it can take millions of years.",
           "C": "Uplift is slow and does not stop after a week.",
           "D": "The text does not say it is faster than lava."
         }
@@ -801,7 +801,7 @@
         ],
         "answer": "B",
         "skill": "sequence",
-        "why": "The text says each new layer cools and hardens before the next one arrives.",
+        "why": "Each new layer cools and hardens before the next one comes.",
         "wrong": {
           "A": "The layers stay and stack up.",
           "C": "The layers build the tableland instead.",

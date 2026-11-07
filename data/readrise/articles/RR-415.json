@@ -402,7 +402,7 @@
           ],
           "answer": "B",
           "skill": "cause-effect",
-          "why": "After the delay was added, the article says Rex's laugh lands at the right time and gives real comfort.",
+          "why": "After the delay was added, in the article, Rex's laugh lands at the right time and gives real comfort.",
           "wrong": {
             "A": "Rex still tells jokes; only the laugh's timing changed.",
             "C": "The sensor was adjusted, not removed.",
@@ -496,7 +496,7 @@
           ],
           "answer": "A",
           "skill": "detail",
-          "why": "The article says the microphone's sensitivity had never been properly calibrated, causing it to trigger on almost any sound.",
+          "why": "In the article, the microphone's sensitivity had never been properly calibrated, causing it to trigger on almost any sound.",
           "wrong": {
             "B": "The article never mentions shipping damage.",
             "C": "Nobody is described pressing the sensor by accident.",
@@ -530,7 +530,7 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The article explains that the team recalibrated the microphone and programmed a short delay into the mechanism, based on data about real timing.",
+          "why": "In the article, the team recalibrated the microphone and programmed a short delay into the mechanism, based on data about real timing.",
           "wrong": {
             "A": "The microphone stayed connected; it was recalibrated.",
             "B": "The timing was carefully programmed, not random.",
@@ -767,7 +767,7 @@
         ],
         "answer": "D",
         "skill": "detail",
-        "why": "The text says the algorithm now ignores background noise and responds to the rising sound of real laughter.",
+        "why": "In the text, the algorithm now ignores background noise and responds to the rising sound of real laughter.",
         "wrong": {
           "A": "It now ignores ordinary noise.",
           "B": "Monitor beeps are now ignored.",
@@ -818,7 +818,7 @@
         ],
         "answer": "B",
         "skill": "compare",
-        "why": "The text says the delay matches how people naturally react to something funny.",
+        "why": "In the text, the delay matches how people naturally react to something funny.",
         "wrong": {
           "A": "The delay is a pause, not fast talking.",
           "C": "Sleep is not part of the delay.",

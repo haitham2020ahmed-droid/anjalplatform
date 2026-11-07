@@ -155,7 +155,7 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The story says a leader wants the clock and needs it done in three days.",
+          "why": "In the story, a leader wants the clock and needs it done in three days.",
           "wrong": {
             "A": "The story is not about building a house.",
             "B": "No trip to the market is mentioned.",
@@ -627,7 +627,7 @@
         ],
         "answer": "B",
         "skill": "detail",
-        "why": "The text says Hassan made the gears tight and added oil.",
+        "why": "In the text, Hassan made the gears tight and added oil.",
         "wrong": {
           "A": "He kept working on the same clock.",
           "C": "The text does not say he asked the leader.",
@@ -644,9 +644,9 @@
         ],
         "answer": "D",
         "skill": "detail",
-        "why": "The text says the gear with the bent tooth was made of wood.",
+        "why": "In the story, the gear with the bent tooth was made of wood.",
         "wrong": {
-          "A": "The text says the gear was wood.",
+          "A": "The bent tooth was made of wood, not metal.",
           "B": "Glass is not mentioned.",
           "C": "Stone is not mentioned."
         }
@@ -697,7 +697,7 @@
         ],
         "answer": "C",
         "skill": "detail",
-        "why": "The text says a bent tooth on a wooden gear kept hitting the metal gear beside it.",
+        "why": "In the text, a bent tooth on a wooden gear kept hitting the metal gear beside it.",
         "wrong": {
           "A": "Only one gear was metal, and it was not iron.",
           "B": "Glass and stone are not mentioned.",

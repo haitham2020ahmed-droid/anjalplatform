@@ -422,7 +422,7 @@
           "why": "Mentioning Yellowstone shows the historical start of the national park idea that other countries later followed.",
           "wrong": {
             "B": "No travel directions are given.",
-            "C": "The article says nations around the world created parks, not only the United States.",
+            "C": "Nations around the world created parks, not only one country.",
             "D": "Specific Yellowstone animals are not described."
           }
         }
@@ -496,7 +496,7 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The article says biodiversity declined sharply across many regions and continents as settlements and agriculture expanded.",
+          "why": "As towns and farms spread, the variety of living things dropped sharply in many places.",
           "wrong": {
             "A": "The article describes a decline, not an increase.",
             "B": "The article says biodiversity changed significantly, not stayed the same.",
@@ -530,7 +530,7 @@
           ],
           "answer": "B",
           "skill": "cause-effect",
-          "why": "The article says even minor disturbances can accumulate across an entire ecosystem over time.",
+          "why": "Even small disturbances can add up across a whole ecosystem over time.",
           "wrong": {
             "A": "Ranger fatigue is not mentioned.",
             "C": "Fines are not discussed in the article.",
@@ -547,7 +547,7 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The article states that a park's central purpose is conservation, the careful protection and sustainable management of resources.",
+          "why": "A park's main purpose is conservation, the careful protection and wise use of nature.",
           "wrong": {
             "A": "Farming jobs are not described as the park's purpose.",
             "B": "Road building is not mentioned.",
@@ -564,7 +564,7 @@
           ],
           "answer": "D",
           "skill": "inference",
-          "why": "The article explains visitor numbers must be high enough to fund conservation but low enough to avoid degrading the land.",
+          "why": "Visitor numbers must be high enough to pay for conservation but low enough not to harm the land.",
           "wrong": {
             "A": "The article implies responsible visits can be sustainable, not always damaging.",
             "B": "Conservation is described as something that needs funding.",
@@ -581,7 +581,7 @@
           ],
           "answer": "A",
           "skill": "inference",
-          "why": "The article says the merged reserve became one of the largest protected areas in the world, safeguarding regional biodiversity.",
+          "why": "Joining the reserves made one of the largest protected areas in the world, which helps protect the region's wildlife.",
           "wrong": {
             "B": "Ranger staffing reductions are not mentioned.",
             "C": "The article does not say visitors are completely barred.",
@@ -644,7 +644,7 @@
         ],
         "answer": "D",
         "skill": "detail",
-        "why": "The text says a park covers hills, sand, and more.",
+        "why": "A park can cover many kinds of land, such as deserts and hills.",
         "wrong": {
           "A": "Parks are wild land, not roads and towns.",
           "B": "Some parks reach the sea, but they also cover land.",
@@ -661,7 +661,7 @@
         ],
         "answer": "C",
         "skill": "vocabulary",
-        "why": "The article says rangers watch over parks and help keep them safe.",
+        "why": "In the article, rangers watch over parks and help keep them safe.",
         "wrong": {
           "A": "A ranger is a person, not an animal.",
           "B": "A ranger is a person, not a tree.",
@@ -678,11 +678,11 @@
         ],
         "answer": "C",
         "skill": "author-purpose",
-        "why": "Just before this, the text says too many guests can hurt a park, so guests must be kind.",
+        "why": "Just before this, in the text, too many guests can hurt a park, so guests must be kind.",
         "wrong": {
           "A": "Guests can visit, but they must be kind.",
           "B": "The author says everyone must help, not only rangers.",
-          "D": "The text says too many guests can hurt the park."
+          "D": "In the text, too many guests can hurt the park."
         }
       }
     ],
@@ -697,7 +697,7 @@
         ],
         "answer": "B",
         "skill": "detail",
-        "why": "The text says parks are set up where wildlife is rich and rare, such as deserts, hills, and coasts.",
+        "why": "In the text, parks are set up where wildlife is rich and rare, such as deserts, hills, and coasts.",
         "wrong": {
           "A": "Cities are not named as park sites.",
           "C": "Farms are not mentioned.",
@@ -767,7 +767,7 @@
         ],
         "answer": "D",
         "skill": "vocabulary",
-        "why": "The text explains an ecosystem as the living things and land working together as one.",
+        "why": "An ecosystem is the living things and the land working together as one.",
         "wrong": {
           "A": "A posted rule is called a regulation.",
           "B": "An ecosystem is not one animal.",
@@ -775,20 +775,20 @@
         }
       },
       {
-        "stem": "What is true of some reserves, according to the article?",
+        "stem": "How did Saudi Arabia create the King Salman Royal Natural Reserve?",
         "options": [
-          "They only protect one animal",
-          "They connect across borders",
-          "They are closed to all rangers",
-          "They are smaller than a town"
+          "By building a new city",
+          "By merging several smaller reserves",
+          "By closing all of its parks",
+          "By buying land in another country"
         ],
         "answer": "B",
         "skill": "detail",
-        "why": "The text says some reserves are set up to connect across borders.",
+        "why": "Saudi Arabia created it by joining several smaller reserves into one very large one.",
         "wrong": {
-          "A": "Parks protect a variety of living things.",
-          "C": "Rangers watch over parks.",
-          "D": "The text says many parks are larger than a small country."
+          "A": "A reserve protects nature; it is not a city.",
+          "C": "Parks were joined, not closed.",
+          "D": "The reserve is in Saudi Arabia."
         }
       },
       {
@@ -801,11 +801,11 @@
         ],
         "answer": "A",
         "skill": "cause-effect",
-        "why": "The text says careless rules can sometimes harm the very animals they protect.",
+        "why": "Careless rules can sometimes harm the very animals they are meant to protect.",
         "wrong": {
           "B": "Visitors are not given as the reason.",
-          "C": "The text says wildlife is rich and varied.",
-          "D": "The article says rules are needed."
+          "C": "The parks have rich wildlife, not too few animals.",
+          "D": "Rules are needed to protect the park."
         }
       },
       {

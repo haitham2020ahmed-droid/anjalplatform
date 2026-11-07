@@ -138,7 +138,7 @@
           ],
           "answer": "D",
           "skill": "detail",
-          "why": "The article says a lens helps the light come in clearly, so the picture is sharp and not blurry.",
+          "why": "In the article, a lens helps the light come in clearly, so the picture is sharp and not blurry.",
           "wrong": {
             "A": "Cameras do not play music.",
             "B": "Printing is not mentioned.",
@@ -368,7 +368,7 @@
           ],
           "answer": "D",
           "skill": "vocabulary",
-          "why": "The article explains that a digital camera uses an electronic sensor that instantly converts light into a picture.",
+          "why": "In the article, a digital camera uses an electronic sensor that instantly converts light into a picture.",
           "wrong": {
             "A": "Film belongs to older, non-digital cameras.",
             "B": "Digital cameras still use a lens.",
@@ -496,7 +496,7 @@
           ],
           "answer": "D",
           "skill": "detail",
-          "why": "The article says the aperture controls how much light enters the camera and how much of the scene remains in focus.",
+          "why": "In the article, the aperture controls how much light enters the camera and how much of the scene remains in focus.",
           "wrong": {
             "A": "Branding is not discussed.",
             "B": "Shutter sound is not discussed.",
@@ -513,7 +513,7 @@
           ],
           "answer": "A",
           "skill": "detail",
-          "why": "The article says an electronic sensor instantly converts light into a picture.",
+          "why": "A digital camera's sensor changes light into a picture right away.",
           "wrong": {
             "B": "Darkroom development belongs to film cameras.",
             "C": "Printing is a separate step, not part of the sensor's job.",
@@ -530,7 +530,7 @@
           ],
           "answer": "B",
           "skill": "cause-effect",
-          "why": "The article explains that a shorter exposure, a brief time the shutter is open, freezes fast motion sharply in place.",
+          "why": "In the article, a shorter exposure, a brief time the shutter is open, freezes fast motion sharply in place.",
           "wrong": {
             "A": "Full closure is not how aperture works here.",
             "C": "The sensor must stay active to capture the image.",
@@ -697,7 +697,7 @@
         ],
         "answer": "B",
         "skill": "detail",
-        "why": "The article says the lens bends the light so it lands sharply, not as a blurry smear.",
+        "why": "The lens bends the light so it makes a sharp picture, not a blurry one.",
         "wrong": {
           "A": "The article does not say the lens makes light brighter.",
           "C": "Film is a strip coated with chemicals.",
@@ -767,7 +767,7 @@
         ],
         "answer": "A",
         "skill": "detail",
-        "why": "The article says film had to be carefully developed in a dark room.",
+        "why": "Film had to be developed in a dark room before anyone could see the picture.",
         "wrong": {
           "B": "Computers came with digital sensors.",
           "C": "The article does not mention sending film abroad.",

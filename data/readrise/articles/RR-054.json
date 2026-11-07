@@ -155,7 +155,7 @@
           ],
           "answer": "A",
           "skill": "detail",
-          "why": "The article says big chunks break off where glaciers reach the sea, and each chunk is an iceberg.",
+          "why": "In the article, big chunks break off where glaciers reach the sea, and these chunks become icebergs.",
           "wrong": {
             "B": "Ice does not turn back into snow in the article.",
             "C": "The article says the chunks float, not sink.",
@@ -172,7 +172,7 @@
           ],
           "answer": "D",
           "skill": "cause-effect",
-          "why": "The article says a glacier is so big and heavy that it moves down the hill.",
+          "why": "A glacier is so heavy that its own weight pulls it slowly downhill.",
           "wrong": {
             "A": "Wind is not given as the reason a glacier moves.",
             "B": "No animals move glaciers in the article.",
@@ -214,7 +214,7 @@
           }
         },
         {
-          "stem": "Read this: \"As it moves, it scrapes the land.\" What does scrapes mean here?",
+          "stem": "In the article, what does the word \"scrapes\" mean?",
           "options": [
             "Paints in bright colors on a wall",
             "Jumps up and over the top of it",
@@ -317,7 +317,7 @@
           ],
           "answer": "A",
           "skill": "detail",
-          "why": "The article says the change from snow to dense ice can take a century or longer.",
+          "why": "In the article, the change from snow to dense ice can take a century or longer.",
           "wrong": {
             "B": "One winter is far too short; the snow must pile up over many years.",
             "C": "A few weeks is not mentioned and is much too short.",
@@ -334,7 +334,7 @@
           ],
           "answer": "B",
           "skill": "detail",
-          "why": "The article says the weight of new layers compresses the old snow and squeezes out the air.",
+          "why": "In the article, the weight of new layers compresses the old snow and squeezes out the air.",
           "wrong": {
             "A": "The article does not say the air becomes vapor.",
             "C": "Floating bubbles are not described.",
@@ -359,7 +359,7 @@
           }
         },
         {
-          "stem": "Read this: \"a glacier acts like a giant file.\" A file is a tool used to rub and smooth surfaces. What does this comparison suggest?",
+          "stem": "A file is a tool used to rub and smooth surfaces. If a glacier acts like a giant file, what does this comparison suggest?",
           "options": [
             "A glacier slowly grinds and wears down the ground.",
             "A glacier stores papers and records.",
@@ -402,7 +402,7 @@
           ],
           "answer": "B",
           "skill": "inference",
-          "why": "The article says water from shrinking glaciers flows into the sea and raises its level, so more melting means higher seas.",
+          "why": "In the article, water from shrinking glaciers flows into the sea and raises its level, so more melting means higher seas.",
           "wrong": {
             "A": "Adding water makes the sea rise, not fall.",
             "C": "Extra water changes the level.",
@@ -482,25 +482,25 @@
           "why": "This statement covers the main threads of the article: formation and movement, effects on the land, water storage, and melting.",
           "wrong": {
             "A": "The article does not compare the sizes of the two ice sheets.",
-            "C": "Blue ice is a minor detail, and 'valuable' is never claimed.",
+            "C": "Blue ice is a minor detail, and the article does not say glaciers are valuable for their color.",
             "D": "Moraines are one detail, not the central idea."
           }
         },
         {
-          "stem": "According to the article, why does very dense glacial ice often look blue?",
+          "stem": "According to the article, how does a glacier form?",
           "options": [
-            "It contains blue minerals from rocks.",
-            "It reflects the color of the sky above it.",
-            "It absorbs red light and reflects blue light.",
-            "It is colder than other kinds of ice."
+            "Rain freezes on top of a tall mountain in one night",
+            "Snow piles up and is pressed into ice over centuries",
+            "Ocean water freezes solid and then slides onto the land",
+            "Hail falls in one storm and joins together"
           ],
-          "answer": "C",
+          "answer": "B",
           "skill": "detail",
-          "why": "The article explains that dense ice absorbs red light while reflecting blue light.",
+          "why": "Snow builds up over many centuries in one place, and its own weight presses it into dense ice.",
           "wrong": {
-            "A": "Minerals are not given as the cause of the color.",
-            "B": "The sky is not mentioned as the reason.",
-            "D": "Temperature is not linked to the blue color."
+            "A": "A glacier forms over centuries, not overnight.",
+            "C": "Glaciers form from snow on land, not from ocean water.",
+            "D": "One storm is not enough to make a glacier."
           }
         },
         {
@@ -530,7 +530,7 @@
           ],
           "answer": "D",
           "skill": "cause-effect",
-          "why": "The article states that through erosion a glacier can carve a narrow river valley into a broad U shape.",
+          "why": "In the article, a glacier can wear a narrow river valley into a wide U shape.",
           "wrong": {
             "A": "Sea water is not part of this process.",
             "B": "The article does not connect erosion to deserts.",
@@ -551,7 +551,7 @@
           "wrong": {
             "A": "Danger is not what the word suggests.",
             "C": "Glaciers are natural, even though many reservoirs are built by people.",
-            "D": "The article says glaciers hold fresh water."
+            "D": "In the article, glaciers hold fresh water."
           }
         },
         {
@@ -581,7 +581,7 @@
           ],
           "answer": "A",
           "skill": "inference",
-          "why": "The article says glaciers transport rock debris and, where the ice melts, deposit ridges called moraines.",
+          "why": "In the article, glaciers transport rock debris and, where the ice melts, deposit ridges called moraines.",
           "wrong": {
             "B": "Icebergs float in the ocean, not into dry valleys.",
             "C": "Rivers do not carry rocks uphill, and this is not mentioned.",
@@ -678,7 +678,7 @@
         ],
         "answer": "C",
         "skill": "cause-effect",
-        "why": "The text says the world is warm, so lots of glaciers melt fast and get small.",
+        "why": "In the text, the world is warm, so lots of glaciers melt fast and get small.",
         "wrong": {
           "A": "More snow would make a glacier bigger.",
           "B": "The text says ice was once on the land of Saudi Arabia, but glaciers do not slide there now.",
@@ -697,11 +697,11 @@
         ],
         "answer": "C",
         "skill": "detail",
-        "why": "The text says most glaciers creep forward only a few centimeters or meters each day.",
+        "why": "In the text, most glaciers creep forward only a few centimeters or meters each day.",
         "wrong": {
           "A": "That is much too fast for a slow glacier.",
           "B": "The text says only a few meters at most.",
-          "D": "The text says a glacier is always on the move."
+          "D": "In the text, a glacier is always on the move."
         }
       },
       {
@@ -714,7 +714,7 @@
         ],
         "answer": "A",
         "skill": "cause-effect",
-        "why": "The text says that once the ice is thick enough, its own weight pulls it slowly downhill.",
+        "why": "In the text, once the ice is thick enough, its own weight pulls it slowly downhill.",
         "wrong": {
           "B": "The text does not say wind moves a glacier.",
           "C": "The text does not say heat from the ground moves it.",
@@ -748,7 +748,7 @@
         ],
         "answer": "B",
         "skill": "inference",
-        "why": "The text says thick ice once covered land in Saudi Arabia and left scratches on the rocks.",
+        "why": "In the text, thick ice once covered land in Saudi Arabia and left scratches on the rocks.",
         "wrong": {
           "A": "The text does not link the scratches to camels.",
           "C": "The scratches were left by ice, not streams.",
@@ -767,7 +767,7 @@
         ],
         "answer": "B",
         "skill": "detail",
-        "why": "The text says glaciers and ice sheets hold roughly two-thirds of the fresh water on Earth.",
+        "why": "In the text, glaciers and ice sheets hold roughly two-thirds of the fresh water on Earth.",
         "wrong": {
           "A": "That is far less than the text says.",
           "C": "The text says two-thirds, not one-half.",
@@ -818,7 +818,7 @@
         ],
         "answer": "A",
         "skill": "sequence",
-        "why": "The text says that as layers accumulate, their weight compresses the older snow beneath them.",
+        "why": "As snow piles up year after year, the weight of the new layers presses the older snow below.",
         "wrong": {
           "B": "A glacier reaches the ocean much later, if at all.",
           "C": "Dense glacial ice looks blue only after it has formed.",

@@ -155,7 +155,7 @@
           ],
           "answer": "A",
           "skill": "detail",
-          "why": "The article says people first built qanats in ancient Persia, the land we now call Iran.",
+          "why": "In the article, people first built qanats in ancient Persia, the land we now call Iran.",
           "wrong": {
             "B": "Rome is not named as the first place.",
             "C": "China is not named as the first place.",
@@ -206,7 +206,7 @@
           ],
           "answer": "A",
           "skill": "inference",
-          "why": "The article says building the channel underground kept the hot sun from drying it up quickly.",
+          "why": "In the article, the underground tunnel kept the hot sun from drying up the water quickly.",
           "wrong": {
             "B": "An underground tunnel is hidden, not easy to see.",
             "C": "Rain falling in is not mentioned.",
@@ -223,7 +223,7 @@
           ],
           "answer": "A",
           "skill": "detail",
-          "why": "The article says workers dug air holes down to the tunnel to let in fresh air and to help with digging.",
+          "why": "In the article, workers dug air holes down to the tunnel to let in fresh air and to help with digging.",
           "wrong": {
             "B": "Bridges are not mentioned.",
             "C": "Stone walls are not mentioned.",
@@ -317,7 +317,7 @@
           ],
           "answer": "A",
           "skill": "detail",
-          "why": "The article explains that builders dug a mother well into a hill until it reached an aquifer, a water-holding layer underground.",
+          "why": "In the article, builders dug the mother well into a hill until it reached an aquifer, a layer underground that holds water.",
           "wrong": {
             "B": "A mother well is dug deep into a hill, not a shallow hole beside a field.",
             "C": "A mother well is not an animal of any kind.",
@@ -334,7 +334,7 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The article says gravity alone carried the water steadily downward along the tunnel's gentle slope.",
+          "why": "In the article, gravity alone carried the water steadily downward along the tunnel's gentle slope.",
           "wrong": {
             "A": "Carrying buckets by hand is not mentioned in the article.",
             "B": "The article never describes the water as thick or heavy.",
@@ -481,7 +481,7 @@
           "skill": "central-idea",
           "why": "The article traces how ancient builders engineered qanats, how the technique spread, and how some still function sustainably today.",
           "wrong": {
-            "A": "The article says the idea spread to Arabia, North Africa, Spain and Oman.",
+            "A": "The idea spread to many other lands.",
             "B": "The article describes arid regions, which receive very little rain.",
             "C": "Qanats worked without any pump; pumps are not described as earlier."
           }
@@ -513,7 +513,7 @@
           ],
           "answer": "D",
           "skill": "detail",
-          "why": "The article states that in Oman these underground channels are called aflaj and are a UNESCO World Heritage site.",
+          "why": "In Oman these underground channels are called aflaj and are a UNESCO World Heritage site.",
           "wrong": {
             "A": "A caravan is a group of travelers, unrelated to Oman's channels.",
             "B": "An aquifer is the underground water-bearing layer, not the channel.",
@@ -627,7 +627,7 @@
         ],
         "answer": "D",
         "skill": "detail",
-        "why": "The text says the qanat gave water all year to the towns near the hills.",
+        "why": "In the text, the qanat brought water to the towns, so they had enough all year.",
         "wrong": {
           "A": "The text does not say the qanat gave ice.",
           "B": "Bread is not mentioned.",
@@ -644,11 +644,11 @@
         ],
         "answer": "A",
         "skill": "cause-effect",
-        "why": "The text says the work was hard and that a tunnel could fall in.",
+        "why": "In the text, digging a qanat was slow, hard, and risky work.",
         "wrong": {
           "B": "The cool water helped crops and was not a danger.",
           "C": "The text says a qanat has no pump.",
-          "D": "The text says the well sat on a hill."
+          "D": "In the text, the well sat on a hill."
         }
       },
       {
@@ -678,9 +678,9 @@
         ],
         "answer": "B",
         "skill": "detail",
-        "why": "The text says men in Arabia and parts of Africa dug qanats, too.",
+        "why": "In the text, men in Arabia and parts of Africa dug qanats, too.",
         "wrong": {
-          "A": "The text says qanats were dug in dry lands.",
+          "A": "In the text, qanats were dug in dry lands.",
           "C": "Big sea cities are not mentioned.",
           "D": "Qanats were for places with few rivers."
         }

@@ -138,11 +138,11 @@
           ],
           "answer": "B",
           "skill": "detail",
-          "why": "The article says mangroves grow along the Red Sea and along the Gulf.",
+          "why": "In the article, mangroves grow along the Red Sea and along the Gulf.",
           "wrong": {
             "A": "Mangroves need sea water, so they do not grow in the desert.",
             "C": "The article does not say they grow on mountains.",
-            "D": "The article says they grow on the coast."
+            "D": "They do grow on the coast."
           }
         },
         {
@@ -155,7 +155,7 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The article says the leaves push the salt out, and you can see bits of salt on them.",
+          "why": "In the article, the leaves push the salt out, and you can see bits of salt on them.",
           "wrong": {
             "A": "The article does not say rain removes salt.",
             "B": "Dropping seeds is how new trees grow, not how salt leaves.",
@@ -172,7 +172,7 @@
           ],
           "answer": "B",
           "skill": "vocabulary",
-          "why": "The article says mangroves give shelter, and small fish hide in the roots, so shelter means a safe place.",
+          "why": "In the article, mangroves give shelter, and small fish hide in the roots, so shelter means a safe place.",
           "wrong": {
             "A": "Shelter is not food.",
             "C": "Mangroves slow waves; a wave is not shelter.",
@@ -303,7 +303,7 @@
           "why": "The article explains how mangroves handle salt and low oxygen and how they help sea life and coastlines.",
           "wrong": {
             "A": "Mangroves are strong enough to grow in salty water.",
-            "C": "The article says they grow along coasts.",
+            "C": "In the article, they grow along coasts.",
             "D": "Birds are mentioned, but they are not the main idea."
           }
         },
@@ -351,7 +351,7 @@
           ],
           "answer": "A",
           "skill": "cause-effect",
-          "why": "The article says the mud contains very little oxygen, so these roots grow upward to take in air.",
+          "why": "In the article, the mud contains very little oxygen, so these roots grow upward to take in air.",
           "wrong": {
             "B": "The article connects the roots to oxygen, not sunlight.",
             "C": "The tide covers the roots; it does not push them up.",
@@ -368,7 +368,7 @@
           ],
           "answer": "C",
           "skill": "vocabulary",
-          "why": "The article says young fish, crabs, and shrimp hide among the roots until they are big enough for the open sea.",
+          "why": "In the article, young fish, crabs, and shrimp hide among the roots until they are big enough for the open sea.",
           "wrong": {
             "A": "The article uses nursery to describe a place for young sea animals.",
             "B": "The article does not mention children playing there.",
@@ -402,7 +402,7 @@
           ],
           "answer": "D",
           "skill": "inference",
-          "why": "The article says a seedling may float away on the water and take root on a distant shore.",
+          "why": "In the article, a seedling may float away on the water and take root on a distant shore.",
           "wrong": {
             "A": "The article does not say birds carry seedlings.",
             "B": "Roots cannot walk.",
@@ -482,7 +482,7 @@
           "why": "The article explains mangrove adaptations and their many benefits, and it describes efforts to restore them.",
           "wrong": {
             "A": "Birds are only one of many benefits.",
-            "B": "The article says they grow mostly in warm regions near the equator.",
+            "B": "In the article, they grow mostly in warm regions near the equator.",
             "C": "The article says large areas have been cleared, so they do need protection."
           }
         },
@@ -496,7 +496,7 @@
           ],
           "answer": "C",
           "skill": "vocabulary",
-          "why": "The article says the young plant that develops while attached to the parent tree is called a propagule.",
+          "why": "In the article, the young plant that develops while attached to the parent tree is called a propagule.",
           "wrong": {
             "A": "Salt glands are in the leaves; they are not propagules.",
             "B": "The pencil-like roots absorb oxygen; they are not propagules.",
@@ -513,7 +513,7 @@
           ],
           "answer": "A",
           "skill": "detail",
-          "why": "The article says some of the best-known stands surround the Farasan Islands in the Red Sea.",
+          "why": "In the article, some of the best-known stands surround the Farasan Islands in the Red Sea.",
           "wrong": {
             "B": "The article does not mention Al-Ahsa.",
             "C": "The article does not mention rivers in Riyadh.",
@@ -530,7 +530,7 @@
           ],
           "answer": "B",
           "skill": "cause-effect",
-          "why": "The article says the roots trap sediment and hold it in place, which prevents erosion.",
+          "why": "In the article, the roots trap sediment and hold it in place, which prevents erosion.",
           "wrong": {
             "A": "The roots do not change the saltiness of the sea.",
             "C": "The roots slow waves; they do not move the tide.",
@@ -627,7 +627,7 @@
         ],
         "answer": "B",
         "skill": "detail",
-        "why": "The text says birds make nests in the tops.",
+        "why": "In the text, birds build nests up in the trees.",
         "wrong": {
           "A": "The mud is where some roots stick up, not where birds nest.",
           "C": "Birds do not nest in water.",
@@ -663,8 +663,8 @@
         "skill": "author-purpose",
         "why": "Most trees cannot live in the sea, so the author shows that a mangrove is a special tree.",
         "wrong": {
-          "B": "The text says most trees can not live in the sea.",
-          "C": "The text says salt would kill most trees.",
+          "B": "Most trees cannot live in the sea.",
+          "C": "In the text, salt would kill most trees.",
           "D": "The size of the tree is not the point."
         }
       },
@@ -678,7 +678,7 @@
         ],
         "answer": "D",
         "skill": "detail",
-        "why": "The text says crabs and shrimp live among the mangroves.",
+        "why": "In the text, crabs and shrimp live among the mangroves.",
         "wrong": {
           "A": "Camels and goats live on land, not in the mangroves.",
           "B": "Lions and bears are not in the text.",
@@ -714,7 +714,7 @@
         ],
         "answer": "A",
         "skill": "cause-effect",
-        "why": "The text says the roots slow down strong waves during storms.",
+        "why": "In the text, the roots slow down strong waves during storms.",
         "wrong": {
           "B": "The tide is not moved by roots.",
           "C": "Salt is pushed out by the leaves, not by roots.",
@@ -748,7 +748,7 @@
         ],
         "answer": "B",
         "skill": "cause-effect",
-        "why": "The text says people cut down many mangroves to build houses and farms.",
+        "why": "In the text, people cut down many mangroves to make room for buildings and farms.",
         "wrong": {
           "A": "The seeds grow on the trees, so people do not need to cut trees for them.",
           "C": "Mangroves help in storms, so cutting them does not stop storms.",
@@ -767,7 +767,7 @@
         ],
         "answer": "D",
         "skill": "detail",
-        "why": "The text says mangroves grow mostly in warm regions near the equator.",
+        "why": "In the text, mangroves grow mostly in warm regions near the equator.",
         "wrong": {
           "A": "Mangroves live in warm places, not cold ones.",
           "B": "They grow where the land meets the sea, along coasts.",
@@ -822,7 +822,7 @@
         "wrong": {
           "A": "The text names turtles, fish and birds together.",
           "B": "Mangroves also grow along the Gulf.",
-          "D": "The text says the area is protected."
+          "D": "The mangroves there are protected, not all cut down."
         }
       }
     ]

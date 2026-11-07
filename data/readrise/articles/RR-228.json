@@ -163,7 +163,7 @@
      }
     },
     {
-     "stem": "Read the sentence: \"Earth's gravity still pulls on the astronauts.\" What does pulls mean here?",
+     "stem": "In the article, what does the word \"pulls\" mean?",
      "options": [
       "Pushes something away from itself",
       "Uses force to bring something toward it",
@@ -206,7 +206,7 @@
      ],
      "answer": "D",
      "skill": "inference",
-     "why": "The article says loose things float away if not held down, so straps and sticky pads keep tools from drifting off.",
+     "why": "In the article, loose things float away if not held down, so straps and sticky pads keep tools from drifting off.",
      "wrong": {
       "A": "Looks are not the reason given.",
       "B": "Temperature is not mentioned.",
@@ -302,7 +302,7 @@
      "skill": "central-idea",
      "why": "The article explains that gravity is still present, and astronauts float because they and the spacecraft are continually falling together around Earth.",
      "wrong": {
-      "B": "The article says gravity is still almost as strong as on the ground.",
+      "B": "Gravity is still almost as strong up there as on the ground.",
       "C": "Air is not given as the reason for floating.",
       "D": "Astronauts float throughout the whole mission, not just one minute."
      }
@@ -317,15 +317,15 @@
      ],
      "answer": "C",
      "skill": "detail",
-     "why": "The article states that gravity at that altitude is almost as strong as it is at the surface.",
+     "why": "At that height, gravity is almost as strong as it is on the ground.",
      "wrong": {
-      "A": "The article says gravity is nearly as strong as on the ground, not almost gone.",
+      "A": "In the article, gravity is nearly as strong as on the ground, not almost gone.",
       "B": "Half is not the figure given.",
       "D": "The article does not say gravity doubles in orbit."
      }
     },
     {
-     "stem": "Read the sentence: \"On the station, astronauts experience microgravity.\" What does microgravity mean?",
+     "stem": "In the article, what does the word \"microgravity\" mean?",
      "options": [
       "A condition where people and objects feel almost weightless",
       "A tiny machine used to measure gravity in a lab",
@@ -351,7 +351,7 @@
      ],
      "answer": "A",
      "skill": "cause-effect",
-     "why": "The article explains that without gravity pulling fluids downward, they shift toward the head and chest instead.",
+     "why": "In the article, without gravity pulling fluids downward, they shift toward the head and chest instead.",
      "wrong": {
       "B": "Heating is not mentioned as a cause.",
       "C": "Drinking extra water is not discussed.",
@@ -504,7 +504,7 @@
      }
     },
     {
-     "stem": "Read the sentence: \"The vestibular system suddenly receives confusing and contradictory signals.\" What is the vestibular system?",
+     "stem": "In the article, what does the word \"vestibular system\" mean?",
      "options": [
       "The part of the body that controls breathing",
       "The inner-ear structure that helps sense balance",
@@ -627,7 +627,7 @@
     ],
     "answer": "B",
     "skill": "cause-effect",
-    "why": "The text says the ears get mixed up at first, which can make the crew feel sick for a few days.",
+    "why": "In the text, the ears get mixed up at first, which can make the crew feel sick for a few days.",
     "wrong": {
      "A": "The text does not say the crew eat too much.",
      "C": "The text does not give missing home as a reason.",
@@ -714,7 +714,7 @@
     ],
     "answer": "D",
     "skill": "cause-effect",
-    "why": "The text says the spine is no longer squeezed, so it slowly lengthens.",
+    "why": "In the text, the spine is no longer squeezed, so it slowly lengthens.",
     "wrong": {
      "A": "Cold is not mentioned as a cause.",
      "B": "Food is not mentioned as a cause.",
@@ -801,7 +801,7 @@
     ],
     "answer": "B",
     "skill": "cause-effect",
-    "why": "The text says gravity is still present and only appears, from the astronauts' view, to have switched off.",
+    "why": "In the text, gravity is still present and only appears, from the astronauts' view, to have switched off.",
     "wrong": {
      "A": "The text says gravity is nearly as strong, not stronger.",
      "C": "The reason given is accuracy, not that the word is shorter.",

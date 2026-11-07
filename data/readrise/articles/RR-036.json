@@ -155,7 +155,7 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The article says the birds fly south to the warm lands of Africa.",
+          "why": "In the article, the birds fly south to the warm lands of Africa.",
           "wrong": {
             "A": "They leave the north because it is too cold.",
             "B": "The article says nothing about birds living on ships.",
@@ -172,7 +172,7 @@
           ],
           "answer": "D",
           "skill": "detail",
-          "why": "The article says storks glide on warm air that rises up from hot land.",
+          "why": "In the article, storks glide on warm air that rises up from hot land.",
           "wrong": {
             "A": "The article does not say birds sleep while flying.",
             "B": "Birds do not hold on to each other.",
@@ -223,7 +223,7 @@
           ],
           "answer": "C",
           "skill": "inference",
-          "why": "The article says birds stop at wetlands, farms, and green spots to eat and drink on the long trip.",
+          "why": "In the article, birds stop at places like wetlands and farms to rest, eat, and drink on the long trip.",
           "wrong": {
             "A": "The article does not say birds learn to fly there.",
             "B": "These places are rest stops along the way, not the end.",
@@ -334,7 +334,7 @@
           ],
           "answer": "C",
           "skill": "cause-effect",
-          "why": "The article says these birds soar on thermals, which rise from hot ground and do not form over the sea.",
+          "why": "In the article, these birds soar on thermals, which rise from hot ground and do not form over the sea.",
           "wrong": {
             "A": "Cold water is not the reason the article gives.",
             "B": "The article says nothing about fish.",
@@ -368,7 +368,7 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The article says birds use the sun, the stars, Earth's magnetic pull, and coasts and mountains.",
+          "why": "In the article, birds use the sun, the stars, Earth's magnetic pull, and coasts and mountains.",
           "wrong": {
             "A": "Airplanes are not mentioned.",
             "B": "Animals do not give directions in the article.",
@@ -385,7 +385,7 @@
           ],
           "answer": "A",
           "skill": "inference",
-          "why": "The article says small birds eat so much before departing that some become almost twice as heavy, because they flap the whole way.",
+          "why": "In the article, small birds eat so much before departing that some become almost twice as heavy, because they flap the whole way.",
           "wrong": {
             "B": "The article does not connect weight to feathers.",
             "C": "Swallows are about to fly, not stop.",
@@ -496,7 +496,7 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The article says many soaring birds cross at the Bab al-Mandab, a narrow strait between Yemen and Africa.",
+          "why": "In the article, many soaring birds cross at the Bab al-Mandab, a narrow strait between Yemen and Africa.",
           "wrong": {
             "A": "The article does not name a wetland near Riyadh.",
             "B": "Mountains are mentioned as landmarks, not by this name.",
@@ -513,7 +513,7 @@
           ],
           "answer": "A",
           "skill": "cause-effect",
-          "why": "The article says birds fly back north to build nests and raise chicks because the northern summer provides plenty of food.",
+          "why": "In the article, birds fly back north to build nests and raise chicks because the northern summer provides plenty of food.",
           "wrong": {
             "B": "Africa does not become snowy in the article.",
             "C": "Thermals form over hot land in all seasons described.",
@@ -530,7 +530,7 @@
           ],
           "answer": "B",
           "skill": "vocabulary",
-          "why": "The question 'How do birds navigate?' is answered with the sun, stars, magnetic field, and landmarks, all ways of finding the way.",
+          "why": "The article answers how birds navigate with the sun, the stars, and other clues, which are all ways of finding the way.",
           "wrong": {
             "A": "Resting is what a stopover is for.",
             "C": "Gaining weight is part of preparing to fly, not navigating.",
@@ -644,7 +644,7 @@
         ],
         "answer": "A",
         "skill": "detail",
-        "why": "The text says big eagles stay here.",
+        "why": "In the text, big eagles stay here.",
         "wrong": {
           "B": "Swallows are small birds that fly on.",
           "C": "Bugs die in the cold north and are not birds.",
@@ -661,7 +661,7 @@
         ],
         "answer": "D",
         "skill": "vocabulary",
-        "why": "The text says birds migrate when they take a long trip each year.",
+        "why": "In the text, birds migrate when they take a long trip each year.",
         "wrong": {
           "A": "Nests are for laying eggs, not for the trip.",
           "B": "Small birds eat first, but that is not what migrate means.",
@@ -678,7 +678,7 @@
         ],
         "answer": "B",
         "skill": "inference",
-        "why": "The text says lots of birds fly past each fall and spring.",
+        "why": "In the text, many birds fly over the land each fall and spring.",
         "wrong": {
           "A": "Some birds stay all winter.",
           "C": "The birds fly past the land each year.",
@@ -697,7 +697,7 @@
         ],
         "answer": "B",
         "skill": "cause-effect",
-        "why": "The text says they fly north to build nests and raise chicks because summer brings plenty of food.",
+        "why": "They fly north in spring to build nests and raise their chicks, because summer brings plenty of food.",
         "wrong": {
           "A": "The text does not say they leave to escape the sun.",
           "C": "Wetlands are stops during the journey, not the reason for it.",

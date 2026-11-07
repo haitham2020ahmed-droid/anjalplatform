@@ -644,7 +644,7 @@
         ],
         "answer": "D",
         "skill": "cause-effect",
-        "why": "The text says they swim after the fish and do not look back, so the boat is far away.",
+        "why": "In the story, the boys swim after the fish without looking back, so the boat drifts far away.",
         "wrong": {
           "A": "The boys are swimming, not sleeping.",
           "B": "They keep their masks and fins on.",
@@ -697,7 +697,7 @@
         ],
         "answer": "D",
         "skill": "detail",
-        "why": "The text says they spotted the flag as a tiny red speck far away.",
+        "why": "In the text, they spotted the flag as a tiny red speck far away.",
         "wrong": {
           "A": "The flag is far away and small, not wide.",
           "B": "It is a flag on the beach, not a star.",
@@ -714,7 +714,7 @@
         ],
         "answer": "B",
         "skill": "cause-effect",
-        "why": "The text says the current began to help them instead of fight them.",
+        "why": "In the text, the current began to help them instead of fight them.",
         "wrong": {
           "A": "They keep swimming, pausing now and then.",
           "C": "Uncle Khalid is waiting on the beach, not on the boat.",

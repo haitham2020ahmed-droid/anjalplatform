@@ -138,7 +138,7 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The article says to call 997 to bring help fast.",
+          "why": "In the article, calling 997 brings help when someone is badly hurt.",
           "wrong": {
             "A": "555 is not the number in the article.",
             "B": "100 is not the number in the article.",
@@ -155,7 +155,7 @@
           ],
           "answer": "A",
           "skill": "detail",
-          "why": "The article says to hold a burn under cool water for up to twenty minutes.",
+          "why": "In the article, to hold a burn under cool water for up to twenty minutes.",
           "wrong": {
             "B": "The article says do not use ice.",
             "C": "The article says do not put on butter.",
@@ -304,7 +304,7 @@
           "wrong": {
             "A": "The article teaches readers how to give first aid before a doctor comes.",
             "C": "The article does not say which injury is most common.",
-            "D": "The article says to call an ambulance only when someone is seriously hurt."
+            "D": "In the article, to call an ambulance only when someone is seriously hurt."
           }
         },
         {
@@ -334,7 +334,7 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The article says to apply firm pressure with a clean cloth until the bleeding stops.",
+          "why": "In the article, to apply firm pressure with a clean cloth until the bleeding stops.",
           "wrong": {
             "A": "The article says to rinse with clean water, not hot water for an hour.",
             "B": "The article says to press on it and then cover it.",
@@ -342,7 +342,7 @@
           }
         },
         {
-          "stem": "Read this: \"use a clean cloth to put firm pressure on it.\" What does pressure mean?",
+          "stem": "In the article, what does the word \"pressure\" mean?",
           "options": [
             "A cold drink",
             "A pushing force",
@@ -385,7 +385,7 @@
           ],
           "answer": "B",
           "skill": "inference",
-          "why": "The article says that if a person becomes confused or faints, you should call for help immediately.",
+          "why": "In the article, if a person gets confused or faints, you should call for help at once.",
           "wrong": {
             "A": "This is too serious to wait.",
             "C": "A confused person should not walk home alone in the heat.",
@@ -513,7 +513,7 @@
           ],
           "answer": "A",
           "skill": "cause-effect",
-          "why": "The article says rinsing removes dirt that could otherwise cause an infection.",
+          "why": "Rinsing removes dirt that could cause an infection.",
           "wrong": {
             "B": "The article does not mention sticking bandages.",
             "C": "Scars are not discussed.",
@@ -521,7 +521,7 @@
           }
         },
         {
-          "stem": "What could \"create a second victim\" mean in the article?",
+          "stem": "The article warns that a helper who rushes in could become a second victim. What does this mean?",
           "options": [
             "A doctor arriving late to the scene of an accident",
             "A helper getting hurt by rushing into danger",
@@ -547,7 +547,7 @@
           ],
           "answer": "C",
           "skill": "cause-effect",
-          "why": "The article explains that the blister protects the delicate skin underneath from germs.",
+          "why": "The blister protects the skin underneath from germs.",
           "wrong": {
             "A": "Cooling is done with running water, not the blister.",
             "B": "Heatstroke comes from heat, not blisters.",
@@ -598,7 +598,7 @@
           ],
           "answer": "C",
           "skill": "inference",
-          "why": "The article says to cool burns under cool running water for about twenty minutes and never to apply ice.",
+          "why": "In the article, to cool burns under cool running water for about twenty minutes and never to apply ice.",
           "wrong": {
             "A": "The article warns against ice.",
             "B": "The article warns against butter too.",
@@ -678,7 +678,7 @@
         ],
         "answer": "B",
         "skill": "cause-effect",
-        "why": "The text says calling 997 will bring help fast.",
+        "why": "Calling 997 brings an ambulance to help.",
         "wrong": {
           "A": "Calling does not stop bleeding by itself.",
           "C": "The text does not say a kit appears.",
@@ -767,7 +767,7 @@
         ],
         "answer": "D",
         "skill": "detail",
-        "why": "The text says to describe the location and the problem clearly.",
+        "why": "When you call 997, you should describe where you are and what the problem is.",
         "wrong": {
           "A": "The text does not mention weather or time.",
           "B": "The caller does not need doctors' names.",
@@ -820,7 +820,7 @@
         "skill": "inference",
         "why": "First aid is care given right away, so knowing where the supplies are saves time.",
         "wrong": {
-          "A": "The text says everyone should know where it is.",
+          "A": "Everyone should know where the kit is, so it should not be hidden.",
           "C": "Moving the kit would make it harder to find.",
           "D": "The text does not mention counting gloves."
         }

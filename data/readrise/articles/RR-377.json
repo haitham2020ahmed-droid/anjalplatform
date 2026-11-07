@@ -496,7 +496,7 @@
      ],
      "answer": "A",
      "skill": "detail",
-     "why": "The story states that Jaber doubts a camel so small and young has the strength or endurance to survive such a demanding journey.",
+     "why": "In the story, Jaber doubts a camel so small and young has the strength or endurance to survive such a demanding journey.",
      "wrong": {
       "B": "The story never says Amal dislikes the herders.",
       "C": "There is no suggestion Amal fears her mother.",
@@ -627,7 +627,7 @@
     ],
     "answer": "A",
     "skill": "vocabulary",
-    "why": "The text says a caravan is camels and people who cross the desert.",
+    "why": "In the text, a caravan is camels and people who cross the desert.",
     "wrong": {
      "B": "A wind is not a caravan; the storm is separate.",
      "C": "The rocks and dune are places to hide, not the caravan.",
@@ -644,7 +644,7 @@
     ],
     "answer": "C",
     "skill": "detail",
-    "why": "The text says the herders hide by a big dune.",
+    "why": "In the story, the herders look for a safe place to hide from the storm.",
     "wrong": {
      "A": "No cave is in the story.",
      "B": "The herders did not use tents.",
@@ -714,7 +714,7 @@
     ],
     "answer": "C",
     "skill": "detail",
-    "why": "The text says she sniffed the air and then would not take another step.",
+    "why": "In the story, she sniffed the air and then would not move.",
     "wrong": {
      "A": "Amal stopped moving instead of running ahead.",
      "B": "She stayed standing and stubborn, not resting.",

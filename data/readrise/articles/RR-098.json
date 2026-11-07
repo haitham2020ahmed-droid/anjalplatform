@@ -138,7 +138,7 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The article says that a coral is an animal, even though it looks like rock.",
+          "why": "In the article, a coral is an animal, even though it looks like rock.",
           "wrong": {
             "A": "Coral looks like rock, but the article says it is an animal.",
             "B": "The tiny plants are the algae that live inside the coral.",
@@ -172,7 +172,7 @@
           ],
           "answer": "B",
           "skill": "cause-effect",
-          "why": "The article says when the sea stays too hot for weeks, the coral pushes out the algae.",
+          "why": "In the article, when the sea stays too hot for weeks, the coral pushes out the algae.",
           "wrong": {
             "A": "Fish help the reef by eating weeds.",
             "C": "Touching harms coral, but the article says heat causes bleaching.",
@@ -308,20 +308,20 @@
           }
         },
         {
-          "stem": "How much warmer than usual can the water be to cause bleaching if it lasts for several weeks?",
+          "stem": "What does the coral do if the water stays too warm for several weeks?",
           "options": [
-            "A degree or two",
-            "Ten degrees",
-            "Twenty degrees",
-            "Fifty degrees"
+            "It pushes the algae out",
+            "It grows much faster",
+            "It moves to cold water",
+            "It makes more algae"
           ],
           "answer": "A",
           "skill": "detail",
-          "why": "The article says a degree or two warmer than usual for several weeks can cause bleaching.",
+          "why": "If the water stays too warm for weeks, the coral pushes the algae out, and this is bleaching.",
           "wrong": {
-            "B": "The article gives a much smaller number.",
-            "C": "The article gives a much smaller number.",
-            "D": "The article gives a much smaller number."
+            "B": "Warm water harms coral; it does not make it grow faster.",
+            "C": "Coral cannot move to colder water.",
+            "D": "The coral loses its algae; it does not make more."
           }
         },
         {
@@ -334,7 +334,7 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The article says the polyp's soft body is almost clear, so without the colorful algae the white skeleton shows through.",
+          "why": "In the article, the polyp's soft body is almost clear, so without the colorful algae the white skeleton shows through.",
           "wrong": {
             "A": "Corals do not paint themselves.",
             "B": "Salt is not mentioned as a cause.",
@@ -368,7 +368,7 @@
           ],
           "answer": "C",
           "skill": "cause-effect",
-          "why": "The article says parrotfish eat the seaweed that would cover the baby corals, giving them space to grow.",
+          "why": "In the article, parrotfish eat the seaweed that would cover the baby corals, giving them space to grow.",
           "wrong": {
             "A": "The article does not say fish carry algae.",
             "B": "Fish cannot cool the ocean.",
@@ -402,7 +402,7 @@
           ],
           "answer": "C",
           "skill": "inference",
-          "why": "The article says that if the heat lasts too long, the coral can die and seaweed grows over it.",
+          "why": "In the article, if the heat lasts too long, the coral can die and seaweed grows over it.",
           "wrong": {
             "A": "The algae return only if the water cools.",
             "B": "A bleached coral has lost its color.",
@@ -496,7 +496,7 @@
           ],
           "answer": "B",
           "skill": "detail",
-          "why": "The article says the stressed algae produce harmful substances and the coral pushes them out of its body.",
+          "why": "In the article, the stressed algae produce harmful substances and the coral pushes them out of its body.",
           "wrong": {
             "A": "The article does not say the algae grow faster.",
             "C": "The polyps build limestone, not the algae.",
@@ -513,7 +513,7 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The article states that the global event that began in 2023 became the largest or most widespread ever recorded.",
+          "why": "The bleaching event that began in 2023 became the most widespread ever recorded.",
           "wrong": {
             "A": "The article calls it a global event.",
             "B": "The article gives no such length.",
@@ -581,7 +581,7 @@
           ],
           "answer": "A",
           "skill": "compare",
-          "why": "The article says a coral regains color when algae return, while a damaged reef recovers as larvae settle and parrotfish graze seaweed, over ten years or more.",
+          "why": "A coral gets its color back when its algae return, while a damaged reef recovers slowly as young corals settle and fish eat the seaweed, over ten years or more.",
           "wrong": {
             "B": "Reef recovery depends on larvae and fish.",
             "C": "Reef recovery can take ten years or more.",
@@ -627,7 +627,7 @@
         ],
         "answer": "A",
         "skill": "detail",
-        "why": "The text says the algae get a safe home in return.",
+        "why": "In return, the algae get a safe home.",
         "wrong": {
           "B": "The algae give the coral its color.",
           "C": "The coral builds the shell for itself.",
@@ -801,7 +801,7 @@
         ],
         "answer": "D",
         "skill": "cause-effect",
-        "why": "The text says that because the oceans are getting warmer, bleaching is happening more often.",
+        "why": "The oceans are getting warmer, so bleaching is happening more often.",
         "wrong": {
           "A": "Fish eat seaweed, not the algae inside coral.",
           "B": "Reefs growing is not the cause.",

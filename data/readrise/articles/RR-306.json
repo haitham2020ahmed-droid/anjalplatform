@@ -121,7 +121,7 @@
      ],
      "answer": "A",
      "skill": "central-idea",
-     "why": "The article explains an old board game played with seeds and small holes.",
+     "why": "In the article, an old board game played with seeds and small holes.",
      "wrong": {
       "B": "Growing plants is not the topic of the article.",
       "C": "The article says no dice are used.",
@@ -138,7 +138,7 @@
      ],
      "answer": "C",
      "skill": "detail",
-     "why": "The article says seeds or small stones can be used as pieces.",
+     "why": "In the article, seeds or small stones can be used as pieces.",
      "wrong": {
       "A": "Plastic toys are not mentioned.",
       "B": "Paper cutouts are not mentioned.",
@@ -155,7 +155,7 @@
      ],
      "answer": "D",
      "skill": "detail",
-     "why": "The article says players move seeds from hole to hole.",
+     "why": "In the article, players move seeds from hole to hole.",
      "wrong": {
       "A": "No dice are used in this game.",
       "B": "No cards are used.",
@@ -163,7 +163,7 @@
      }
     },
     {
-     "stem": "Read this: \"Each player gets a turn.\" What does player mean here?",
+     "stem": "In the article, what does the word \"player\" mean?",
      "options": [
       "A person taking part in the game",
       "A kind of seed used as a piece",
@@ -189,7 +189,7 @@
      ],
      "answer": "A",
      "skill": "cause-effect",
-     "why": "The article says the goal is to get more seeds than the other player, so thinking ahead helps a player win.",
+     "why": "In the article, the goal is to get more seeds than the other player, so thinking ahead helps a player win.",
      "wrong": {
       "B": "Digging more holes is not the goal.",
       "C": "Ending the game fast is not the goal.",
@@ -227,7 +227,7 @@
      "wrong": {
       "A": "The article says luck is not part of the game.",
       "B": "The article says the game is very old.",
-      "C": "The article describes two players taking turns."
+      "C": "The game is played by more than one person."
      }
     },
     {
@@ -317,7 +317,7 @@
      ],
      "answer": "D",
      "skill": "detail",
-     "why": "The article says a player captures seeds by landing the last seed in a pit with just the right number of seeds.",
+     "why": "In the article, a player captures seeds by landing the last seed in a pit with just the right number of seeds.",
      "wrong": {
       "A": "No dice are used in this game.",
       "B": "Trading is not mentioned in the article.",
@@ -334,7 +334,7 @@
      ],
      "answer": "C",
      "skill": "detail",
-     "why": "The article says seeds, stones, or date pits serve well as playing pieces.",
+     "why": "In the article, seeds, stones, or date pits serve well as playing pieces.",
      "wrong": {
       "A": "Coins are not mentioned in the article.",
       "B": "Plastic figures are not mentioned.",
@@ -342,7 +342,7 @@
      }
     },
     {
-     "stem": "Read this: \"A good player thinks several moves ahead.\" What does this tell you about strategy?",
+     "stem": "A good player thinks several moves ahead. What does this tell you about strategy?",
      "options": [
       "Strategy means guessing without any real plan",
       "Strategy means planning ahead with real care",
@@ -496,7 +496,7 @@
      ],
      "answer": "B",
      "skill": "vocabulary",
-     "why": "The article says using seeds, stones, and holes in the sand or wood makes the game accessible to nearly anyone.",
+     "why": "In the article, using seeds, stones, and holes in the sand or wood makes the game accessible to nearly anyone.",
      "wrong": {
       "A": "Game shops are not mentioned in the article.",
       "C": "The article says no costly board is required.",
@@ -697,7 +697,7 @@
     ],
     "answer": "B",
     "skill": "detail",
-    "why": "The article says a player picks up all the seeds from one pit and drops them one by one into the pits that follow.",
+    "why": "A player picks up all the seeds from one pit and drops them one by one into the next pits.",
     "wrong": {
      "A": "The article says no dice are used.",
      "C": "The holes are made before the game starts.",

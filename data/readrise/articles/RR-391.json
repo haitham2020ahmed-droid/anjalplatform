@@ -172,7 +172,7 @@
      ],
      "answer": "A",
      "skill": "cause-effect",
-     "why": "The story says the metal keeps water from getting inside and ruining the letters.",
+     "why": "In the story, the metal box keeps water out, so the letters will not be ruined.",
      "wrong": {
       "B": "The story does not say the metal is for looks.",
       "C": "The story does not say metal makes it easier to carry.",
@@ -333,7 +333,7 @@
      ],
      "answer": "C",
      "skill": "detail",
-     "why": "The article says people have often sealed time capsules inside the cornerstones of new buildings.",
+     "why": "People have often sealed time capsules inside the cornerstones of new buildings.",
      "wrong": {
       "A": "The article does not mention school libraries for this detail.",
       "B": "The article does not mention rivers or lakes.",
@@ -494,7 +494,7 @@
      ],
      "answer": "B",
      "skill": "cause-effect",
-     "why": "The article explains that people have sealed time capsules in buildings for over a century, which is why workers later find them during construction.",
+     "why": "In the article, people have sealed time capsules in buildings for over a century, which is why workers later find them during construction.",
      "wrong": {
       "A": "The article does not say capsules are built to attract explorers.",
       "C": "The article does not mention any law about burying newspapers.",
@@ -624,7 +624,7 @@
     ],
     "answer": "B",
     "skill": "detail",
-    "why": "The text says, \"We will put it under the big tree.\"",
+    "why": "In the story, the class will bury the time capsule under the big tree.",
     "wrong": {
      "A": "The text never says the box goes in the library.",
      "C": "The box is buried, not put on a roof.",
@@ -641,7 +641,7 @@
     ],
     "answer": "C",
     "skill": "sequence",
-    "why": "After the class talks, the text says, \"We put our letters in the box.\"",
+    "why": "In the story, after they talk about the future, the class puts their letters in the box.",
     "wrong": {
      "A": "Digging up the box will happen in ten years.",
      "B": "The rock goes on top after the box is put under the tree.",
@@ -694,7 +694,7 @@
     ],
     "answer": "C",
     "skill": "detail",
-    "why": "The text says she hopes the school will get new computers and a bigger library.",
+    "why": "In the text, she hopes the school will get new computers and a bigger library.",
     "wrong": {
      "A": "A playground is not mentioned.",
      "B": "The text says nothing about a longer school day.",
@@ -711,7 +711,7 @@
     ],
     "answer": "D",
     "skill": "vocabulary",
-    "why": "The article says, \"Ten years is also called a decade.\"",
+    "why": "In the story, ten years is called a decade.",
     "wrong": {
      "A": "A decade is much longer than one year.",
      "B": "A hundred years is a century, not a decade.",
@@ -764,7 +764,7 @@
     ],
     "answer": "A",
     "skill": "detail",
-    "why": "The text says he told them to bring one small object from home that matters to them.",
+    "why": "In the story, he asked them to bring one small object from home that matters to them.",
     "wrong": {
      "B": "Newspapers are found in old capsules, not asked for by the teacher.",
      "C": "A photograph is placed in the capsule, but the teacher did not ask for a family photo.",

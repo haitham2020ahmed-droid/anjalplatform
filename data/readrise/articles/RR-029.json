@@ -138,7 +138,7 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The article says a cloud is made of tiny drops of water called droplets.",
+          "why": "In the article, a cloud is made of tiny drops of water called droplets.",
           "wrong": {
             "A": "Smoke can help a drop form, but the cloud itself is made of water.",
             "B": "Clouds only look like cotton.",
@@ -155,9 +155,9 @@
           ],
           "answer": "A",
           "skill": "detail",
-          "why": "The article says a satellite in space takes pictures of the clouds.",
+          "why": "Satellites in space take pictures of the clouds.",
           "wrong": {
-            "B": "The article says tools on the ground check the air, not in space.",
+            "B": "In the article, tools on the ground check the air, not in space.",
             "C": "A kettle is not a weather tool in the article.",
             "D": "A valley is a place on the ground, not a tool."
           }
@@ -172,7 +172,7 @@
           ],
           "answer": "B",
           "skill": "vocabulary",
-          "why": "The article says some water turns into a gas called water vapor, and you can not see it.",
+          "why": "In the article, some water turns into a gas called water vapor, and you can not see it.",
           "wrong": {
             "A": "Ice is solid water, not a gas.",
             "C": "A flat gray cloud is one kind of cloud, not vapor.",
@@ -206,7 +206,7 @@
           ],
           "answer": "A",
           "skill": "inference",
-          "why": "The article says a big storm can flood a dry valley fast, so a forecast helps keep people safe.",
+          "why": "In the article, a big storm can flood a dry valley fast, so a forecast helps keep people safe.",
           "wrong": {
             "B": "The article does not say valleys are too hot to visit.",
             "C": "Satellites are in space and look at the whole sky.",
@@ -223,7 +223,7 @@
           ],
           "answer": "C",
           "skill": "inference",
-          "why": "The article says the next few days are easier to forecast and days far away are hard.",
+          "why": "In the article, the next few days are easier to forecast and days far away are hard.",
           "wrong": {
             "A": "A month away is far off, so it is harder to guess.",
             "B": "A year away is very far off.",
@@ -304,7 +304,7 @@
           "wrong": {
             "A": "The article describes cumulus clouds but does not call them the most beautiful.",
             "C": "Satellites photograph clouds everywhere; the article does not say they were made for one country.",
-            "D": "The article says rain is uncommon in Saudi Arabia."
+            "D": "In the article, rain is uncommon in Saudi Arabia."
           }
         },
         {
@@ -317,7 +317,7 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The article says each droplet forms around a tiny speck or particle of dust, sea salt, or smoke.",
+          "why": "In the article, each droplet forms around a tiny speck or particle of dust, sea salt, or smoke.",
           "wrong": {
             "A": "The article does not mention air bubbles.",
             "B": "Ice in clouds forms in the sky; it does not come from space.",
@@ -334,7 +334,7 @@
           ],
           "answer": "A",
           "skill": "detail",
-          "why": "The article says cirrus clouds are thin and feathery and float so high that they are made of ice.",
+          "why": "In the article, cirrus clouds are thin and feathery and float so high that they are made of ice.",
           "wrong": {
             "B": "Cumulus clouds are puffy and white.",
             "C": "Stratus clouds are flat gray layers that bring drizzle.",
@@ -368,7 +368,7 @@
           ],
           "answer": "A",
           "skill": "cause-effect",
-          "why": "The article says warm air is lighter (less dense) than cooler air, so it rises and carries the vapor up.",
+          "why": "In the article, warm air is lighter (less dense) than cooler air, so it rises and carries the vapor up.",
           "wrong": {
             "B": "Satellites only take pictures from space.",
             "C": "Rain falls down; it does not push air up.",
@@ -385,7 +385,7 @@
           ],
           "answer": "B",
           "skill": "inference",
-          "why": "The article says that on hot afternoons cumulus clouds can grow into towering thunderstorm clouds.",
+          "why": "In the article, on hot days cumulus clouds can grow into tall thunderstorm clouds.",
           "wrong": {
             "A": "The article says the icy clouds are thin cirrus clouds, not growing cumulus.",
             "C": "Growing clouds show there is a lot of water in the air.",
@@ -402,7 +402,7 @@
           ],
           "answer": "C",
           "skill": "inference",
-          "why": "The article says predictions for weeks ahead are less reliable; the further ahead, the more the weather can change in ways that are hard to predict.",
+          "why": "In the article, predictions for weeks ahead are less reliable; the further ahead, the more the weather can change in ways that are hard to predict.",
           "wrong": {
             "A": "Meteorologists keep making forecasts every day.",
             "B": "The article does not say computers have a storage limit.",
@@ -483,7 +483,7 @@
           "wrong": {
             "A": "Cirrus clouds are one type described; the article does not rank them as most important.",
             "C": "The article says meteorologists gather data and computers integrate it; people are not replaced.",
-            "D": "The article says rainfall in Saudi Arabia is relatively infrequent."
+            "D": "In the article, rainfall in Saudi Arabia is relatively infrequent."
           }
         },
         {
@@ -547,7 +547,7 @@
           ],
           "answer": "B",
           "skill": "cause-effect",
-          "why": "The article explains that ascending air cools, and because cooler air cannot hold as much vapor as warmer air, the vapor turns into liquid.",
+          "why": "In the article, ascending air cools, and because cooler air cannot hold as much vapor as warmer air, the vapor turns into liquid.",
           "wrong": {
             "A": "Rising air cools; it does not get warmer.",
             "C": "Particles give droplets a surface to form on; the article does not say they freeze vapor.",
@@ -644,7 +644,7 @@
         ],
         "answer": "D",
         "skill": "vocabulary",
-        "why": "The text says a forecast tells us what the sky will do.",
+        "why": "A forecast tells us what the weather will be.",
         "wrong": {
           "A": "A forecast tells about rain; it does not cause it.",
           "B": "A storm can fill a valley, not a forecast.",
@@ -661,7 +661,7 @@
         ],
         "answer": "A",
         "skill": "cause-effect",
-        "why": "The text says high up the air is cold, so the vapor turns back into drops.",
+        "why": "In the text, high up the air is cold, so the vapor turns back into drops.",
         "wrong": {
           "B": "High air is cold, not hot.",
           "C": "The text does not mention the wind here.",
@@ -678,7 +678,7 @@
         ],
         "answer": "C",
         "skill": "detail",
-        "why": "The text says tools on the ground check the air.",
+        "why": "In the text, tools on the ground check the air.",
         "wrong": {
           "A": "A satellite in space does that.",
           "B": "Tools do not make storms.",
@@ -714,7 +714,7 @@
         ],
         "answer": "A",
         "skill": "detail",
-        "why": "The article says cirrus clouds are thin and float very high.",
+        "why": "In the article, cirrus clouds are thin and float very high.",
         "wrong": {
           "B": "Cirrus clouds are not described as heavy.",
           "C": "Clouds are not described as loud.",
@@ -731,7 +731,7 @@
         ],
         "answer": "D",
         "skill": "cause-effect",
-        "why": "The article says the droplets bump, join together, and fall when they are too heavy to stay up.",
+        "why": "In the article, the droplets join together and fall when they get too heavy.",
         "wrong": {
           "A": "Warmth makes water evaporate.",
           "B": "The article does not give wind as the reason.",
@@ -748,7 +748,7 @@
         ],
         "answer": "B",
         "skill": "inference",
-        "why": "The article says stratus clouds are flat gray sheets that can bring drizzle.",
+        "why": "In the article, stratus clouds are flat gray sheets that can bring drizzle.",
         "wrong": {
           "A": "Tall thunderstorm clouds grow from cumulus clouds.",
           "C": "Gray sheets of cloud can bring drizzle.",
@@ -818,7 +818,7 @@
         ],
         "answer": "B",
         "skill": "compare",
-        "why": "The article says stratus clouds are flat gray layers that bring drizzle, while cirrus clouds are feathery, high, and made of ice.",
+        "why": "In the article, stratus clouds are flat gray layers that bring drizzle, while cirrus clouds are feathery, high, and made of ice.",
         "wrong": {
           "A": "This swaps the two kinds of cloud.",
           "C": "Puffy white clouds are cumulus clouds.",

@@ -1207,6 +1207,21 @@ export const UI_STRINGS = [
   "You cannot open this class.", "This student is not in the class.",
   "Only teachers and admins can open the Grading Center.",
   "Below 0 is shown as BR (for example −120 = BR120L).",
+  // ReadRise round 7 fixes (7 Nov 2026)
+  "Up to {n} passages, 3 questions each (about 36–39 questions). About 20–30 minutes — no time limit, you can stop and come back.",
+  "Take the placement test: up to 13 short passages with 3 questions each (about 36–39 questions). About 20–30 minutes — no time limit, you can stop and come back. Then ReadRise gives you articles that are just right for you.",
+  "Up to 13 short passages, 3 questions each (about 36–39 questions). About 20–30 minutes — no time limit, you can stop and come back. They get easier or harder as you go.",
+  "Up to 13 short passages with 3 questions each (about 36–39 questions). About 20–30 minutes — no time limit, you can stop and come back. It finds the articles that are just right for you.",
+  "Grade {g} Meets range: {range} (ReadRise Level is an estimate)",
+  "Grade bands",
+  "Grade {g} Meets range",
+  "Grade {g} Meets range: {range}.",
+  "inside the grade's Meets range",
+  "📚 More on this topic",
+  "Update articles from files",
+  "Copies corrected questions, explanations and new articles from the article files into the library. Run it once after an update. Running it again changes nothing that is already up to date.",
+  "Update articles",
+  "Done: {a} articles checked and updated ({q} new).",
 ] as const;
 
 export type UiString = (typeof UI_STRINGS)[number];

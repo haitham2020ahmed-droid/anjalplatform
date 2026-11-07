@@ -376,20 +376,20 @@
           }
         },
         {
-          "stem": "Why do veterinarians say camels rarely show obvious signs of pain?",
+          "stem": "Why did Saqr refuse to walk even after eating the dates?",
           "options": [
-            "Camels cannot actually feel pain",
-            "Camels are trained not to show feelings",
-            "Camels only feel pain in their ears",
-            "Looking weak in the wild can attract danger"
+            "He was too tired from the sun",
+            "He did not like the family",
+            "A thorn was hurting his foot",
+            "He wanted more sweet dates"
           ],
-          "answer": "D",
+          "answer": "C",
           "skill": "inference",
-          "why": "The story explains that appearing weak could attract danger, so camels hide pain and show it only through small gestures.",
+          "why": "In the story, a small thorn was stuck in Saqr's foot, and he walked happily once it was pulled out.",
           "wrong": {
-            "A": "Camels do feel pain, as shown by the thorn causing discomfort.",
-            "B": "The story does not mention training camels to hide feelings.",
-            "C": "The story does not say pain is limited to the ears."
+            "A": "He walked happily once the thorn was out, so tiredness was not the reason.",
+            "B": "Nothing shows he disliked the family.",
+            "D": "He ate the dates but still would not walk."
           }
         },
         {
@@ -661,7 +661,7 @@
         ],
         "answer": "C",
         "skill": "detail",
-        "why": "The text says the whole family laughed and clapped when Saqr walked again.",
+        "why": "In the text, the whole family laughed and clapped when Saqr walked again.",
         "wrong": {
           "A": "They kept going on their trip.",
           "B": "Saqr ate the food earlier.",

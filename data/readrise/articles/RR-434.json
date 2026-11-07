@@ -627,7 +627,7 @@
         ],
         "answer": "A",
         "skill": "detail",
-        "why": "The text says Lama wanted to win a race.",
+        "why": "In the text, Lama wanted to win a race.",
         "wrong": {
           "B": "A cow is not mentioned.",
           "C": "A show is not mentioned.",
@@ -697,7 +697,7 @@
         ],
         "answer": "B",
         "skill": "detail",
-        "why": "The text says she hoped Najma would win the region's biggest traditional race.",
+        "why": "In the text, she hoped Najma would win the region's biggest traditional race.",
         "wrong": {
           "A": "The race was not a small school race.",
           "C": "No food prize is mentioned.",

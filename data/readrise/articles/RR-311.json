@@ -138,7 +138,7 @@
           ],
           "answer": "D",
           "skill": "detail",
-          "why": "The article says a mural is a large painting made directly on a wall.",
+          "why": "A mural is a large painting made right on a wall.",
           "wrong": {
             "A": "A mural does not hang in a frame; it becomes part of the wall.",
             "B": "A mural is large, not small.",
@@ -155,7 +155,7 @@
           ],
           "answer": "A",
           "skill": "detail",
-          "why": "The article says murals can be found on schools, shops, bridges, and apartment buildings.",
+          "why": "In the article, murals can be found on places like schools and shops.",
           "wrong": {
             "B": "Murals are usually outdoors, not inside museums.",
             "C": "Taxis are not mentioned.",
@@ -163,7 +163,7 @@
           }
         },
         {
-          "stem": "Read: 'Artists use a grid, like boxes, to copy the picture at the right size.' What is a grid?",
+          "stem": "In the article, what does the word \"grid\" mean?",
           "options": [
             "A thick kind of paint used only on tall city walls",
             "A set of boxes that helps copy a picture bigger",
@@ -189,7 +189,7 @@
           ],
           "answer": "D",
           "skill": "cause-effect",
-          "why": "The article says artists use a lift to reach high places safely on very tall walls.",
+          "why": "Artists use a lift to reach high places safely on very tall walls.",
           "wrong": {
             "A": "Sightseeing is not the reason given.",
             "B": "Lifts help artists reach height, not dry paint.",
@@ -317,7 +317,7 @@
           ],
           "answer": "D",
           "skill": "detail",
-          "why": "The article says a city, a school, or a building owner usually invites the artist to paint a blank wall.",
+          "why": "In the article, a city, a school, or a building owner usually invites the artist to paint a blank wall.",
           "wrong": {
             "A": "Strangers are not mentioned.",
             "B": "Family members are not mentioned.",
@@ -334,7 +334,7 @@
           ],
           "answer": "B",
           "skill": "detail",
-          "why": "The article says the artist must receive official permission before painting a wall that belongs to someone else.",
+          "why": "In the article, the artist must get official permission before painting a wall that is not theirs.",
           "wrong": {
             "A": "A test picture at home is not required.",
             "C": "Weather is not the reason for asking first.",
@@ -342,7 +342,7 @@
           }
         },
         {
-          "stem": "The article says artists need 'a reliable method for scaling the design.' What does scaling mean here?",
+          "stem": "Muralists need a reliable way of scaling a small design up to a whole wall. What does scaling mean here?",
           "options": [
             "Weighing the paint carefully on a kitchen scale",
             "Removing the design from the wall and starting again",
@@ -402,7 +402,7 @@
           ],
           "answer": "C",
           "skill": "compare",
-          "why": "The article says a mural becomes a permanent part of the building, unlike a painting that hangs inside a frame.",
+          "why": "In the article, a mural becomes a permanent part of the building, unlike a painting that hangs inside a frame.",
           "wrong": {
             "A": "Murals are often very large, not small.",
             "B": "Night painting is only mentioned as one modern technique, not a rule.",
@@ -496,7 +496,7 @@
           ],
           "answer": "B",
           "skill": "detail",
-          "why": "The article says artists mix durable pigment into paint built to withstand sun, wind, and rain for many years.",
+          "why": "Artists use strong paint that can last for years in sun, wind, and rain.",
           "wrong": {
             "A": "Sand is not mentioned as an ingredient.",
             "C": "Special water is not mentioned.",
@@ -547,7 +547,7 @@
           ],
           "answer": "B",
           "skill": "cause-effect",
-          "why": "The article states that painting someone else's wall without asking is legally considered vandalism, no matter how talented the artist is.",
+          "why": "In the article, painting someone else's wall without asking is legally considered vandalism, no matter how talented the artist is.",
           "wrong": {
             "A": "Cost is not connected to permission in the article.",
             "C": "Wall height is unrelated to permission.",
@@ -564,7 +564,7 @@
           ],
           "answer": "A",
           "skill": "inference",
-          "why": "The article says festivals invite artists from abroad to collaborate with local talent, exchanging techniques and styles.",
+          "why": "In the article, festivals invite artists from abroad to collaborate with local talent, exchanging techniques and styles.",
           "wrong": {
             "B": "Festivals are described as bringing artists together, not dividing them.",
             "C": "Replacing all other art is not suggested.",
@@ -627,9 +627,9 @@
         ],
         "answer": "B",
         "skill": "vocabulary",
-        "why": "The text says the word mural means wall.",
+        "why": "In the text, the word mural means wall.",
         "wrong": {
-          "A": "The text says mural means wall, not paint.",
+          "A": "In the text, mural means wall, not paint.",
           "C": "The text says mural means wall, not color.",
           "D": "The text says mural means wall, not street."
         }
@@ -644,7 +644,7 @@
         ],
         "answer": "D",
         "skill": "detail",
-        "why": "The text says walls get bright in Riyadh and in Jeddah.",
+        "why": "In the text, walls get bright in Riyadh and in Jeddah.",
         "wrong": {
           "A": "Makkah and Medina are not named in the text.",
           "B": "Dammam and Abha are not named in the text.",
@@ -680,7 +680,7 @@
         "skill": "author-purpose",
         "why": "The ending shows that people enjoy the bright murals in the cities.",
         "wrong": {
-          "A": "The text says people like the colors, not that they are too bright.",
+          "A": "People like the colors, so the author does not say they are too bright.",
           "B": "The text does not say artists dislike paint.",
           "D": "The text never talks about cost."
         }
@@ -731,7 +731,7 @@
         ],
         "answer": "D",
         "skill": "detail",
-        "why": "The article says people from the town sometimes help paint smaller parts.",
+        "why": "People from the town sometimes help paint the smaller parts.",
         "wrong": {
           "A": "The owner offers the wall but is not named as a painter.",
           "B": "A city leader is not named as a painter.",
@@ -818,7 +818,7 @@
         ],
         "answer": "C",
         "skill": "compare",
-        "why": "The article says a mural becomes a lasting part of the building itself.",
+        "why": "A mural is painted right on a wall, so it becomes part of the building.",
         "wrong": {
           "A": "A mural is a large-scale painting.",
           "B": "A mural is usually outdoors.",

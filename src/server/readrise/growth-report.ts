@@ -16,6 +16,8 @@ import type { Repo, Row } from "../seeding/repo";
 import { ForbiddenError, type Actor } from "../auth/rbac";
 import { assertClassRead } from "../teacher/coordinators";
 import { fitOf, measuredLevel, type Fit } from "./level";
+import { gradeBand as benchBand, type GradeBand } from "./benchmarks";
+import { readAsTitle } from "./version-title";
 import { RETAKE_REASON, countsForLevel, goalDates, goalStats, readRisePlaced, s, toDate, weekLabel, yearEndFor, type LevelPoint } from "./engine";
 import { articleRuns, countedTries, isUnreliableRun, stretchRuns, tallyRuns } from "./first-try";
 import { GOAL_SCORE, INACTIVE_DAYS, gradeBand, histogram, levelAt as levelAtTime, median, type ClassReport } from "./dashboards";
@@ -121,7 +123,7 @@ export async function loadStudentGrowth(repo: Repo, studentId: string, now = new
   const done = runs.filter((r) => r.completedAt).sort((a, b) => time(a.completedAt) - time(b.completedAt));
   const ids = [...new Set(done.map((r) => s(r.articleId)))];
   const [vers, key, arts, yearEnd] = await Promise.all([
-    ids.length ? repo.findMany("RRVersion", { articleId: { in: ids } }, { select: ["articleId", "level", "wordCount", "estLevel", "officialLexile"] }) : Promise.resolve([] as Row[]),
+    ids.length ? repo.findMany("RRVersion", { articleId: { in: ids } }, { select: ["articleId", "level", "title", "wordCount", "estLevel", "officialLexile"] }) : Promise.resolve([] as Row[]),
     answerKey(repo, ids),
     ids.length ? repo.findMany("RRArticle", { id: { in: ids } }, { select: ["id", "title"] }) : Promise.resolve([] as Row[]),
     yearEndFor(repo, s(rr.schoolId), now),
@@ -157,7 +159,8 @@ export async function loadStudentGrowth(repo: Repo, studentId: string, now = new
       const v = ver.get(`${r.articleId}|${r.versionLevel}`);
       const textLevel = v ? measuredLevel({ level: Number(v.level), estLevel: v.estLevel, officialLexile: v.officialLexile }) : Number(r.versionLevel);
       return {
-        runId: s(r.id), title: title.get(s(r.articleId)) ?? "Article", at: iso(time(r.completedAt)), versionLevel: Number(r.versionLevel), textLevel,
+        // round 7 (staff views): the article title + "(read as: <version title> · 600L)" when the version's title differs
+        runId: s(r.id), title: readAsTitle(title.get(s(r.articleId)) ?? "Article", v ? s(v.title) : null, Number(r.versionLevel)), at: iso(time(r.completedAt)), versionLevel: Number(r.versionLevel), textLevel,
         studentLevel: Number(r.levelBefore), fit: fitOf(textLevel, Number(r.levelBefore)), score: r.score === null || r.score === undefined ? null : Number(r.score), firstTry: isFirst(r), stretch: isStretch(r),
       };
     }),
@@ -166,8 +169,10 @@ export async function loadStudentGrowth(repo: Repo, studentId: string, now = new
 
 export interface StudentGrowthReport extends StudentGrowthData {
   classId: string; className: string; band: { low: number; high: number };
-  /** TEACHER VIEW ONLY: the level against the grade's expected range */
+  /** TEACHER VIEW ONLY: the level against the grade's expected range (the "Meets" range, benchmarks.ts) */
   position: "BELOW" | "WITHIN" | "ABOVE" | null;
+  /** round 7: the ONE grade band of the level now (benchmarks.ts gradeBand), null when not placed */
+  gradeBand: GradeBand | null;
   projectedPosition: "BELOW" | "WITHIN" | "ABOVE" | null;
   /** owner r69: this school year's reading checks — start → middle → end (null = not taken) */
   checks: Record<RRPeriod, { level: number; at: string } | null>;
@@ -190,6 +195,7 @@ export async function studentGrowthReport(repo: Repo, actor: Actor, classId: str
   return {
     ...d, classId, className: s(klass.name), band, checks: placementChecks(windows, placements), unreliableRuns: bad,
     position: d.level === null ? null : gradePosition(d.level, band),
+    gradeBand: d.level === null ? null : benchBand(d.grade, d.level),
     projectedPosition: d.projection ? gradePosition(d.projection.mid, band) : null,
   };
 }
@@ -227,6 +233,8 @@ export async function myGrowthStory(repo: Repo, actor: Actor, now = new Date()):
 export interface StudentEvidence {
   studentId: string; name: string; level: number | null; growthTerm: number | null; confirmedBy: number; against: number; confidence: string;
   projection: ProjectionRange | null; position: "BELOW" | "WITHIN" | "ABOVE" | null; lastActivity: string | null;
+  /** round 7: the ONE grade band (benchmarks.ts), null when not placed */
+  gradeBand?: GradeBand | null;
 }
 export interface SkillWeakness {
   skill: string; cell: SkillCell;
@@ -288,7 +296,7 @@ export async function classGrowth(repo: Repo, actor: Actor, classId: string, now
     const proj = projectionRange(journey.points, articleRuns(mine).map((r) => time(r.completedAt)), now, yearEnd);
     return {
       studentId: id, name: names.get(id) ?? "Student", level, growthTerm: level - atTerm, confirmedBy: conf.readings, against: conf.against, confidence: confidenceText(conf),
-      projection: proj, position: gradePosition(level, band), lastActivity: last ? iso(last) : null,
+      projection: proj, position: gradePosition(level, band), gradeBand: benchBand(grade, level), lastActivity: last ? iso(last) : null,
     };
   }).sort((a, b) => a.name.localeCompare(b.name));
 

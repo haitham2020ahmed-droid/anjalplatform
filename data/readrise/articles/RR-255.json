@@ -210,7 +210,7 @@
           "wrong": {
             "A": "People used candles long before Edison.",
             "B": "He tried many materials, not just one.",
-            "D": "The article says he worked with a team of helpers."
+            "D": "In the article, he worked with a team of helpers."
           }
         },
         {
@@ -223,7 +223,7 @@
           ],
           "answer": "A",
           "skill": "cause-effect",
-          "why": "The article says the carbonized cotton thread filament glowed for more than thirteen hours.",
+          "why": "A filament made of carbonized cotton thread glowed for more than thirteen hours.",
           "wrong": {
             "B": "The article says he invented many other things afterward.",
             "C": "The article does not say he moved away.",
@@ -317,7 +317,7 @@
           ],
           "answer": "B",
           "skill": "detail",
-          "why": "The article states his challenge was discovering a material that would glow steadily without quickly burning away.",
+          "why": "In the article, his challenge was discovering a material that would glow steadily without quickly burning away.",
           "wrong": {
             "A": "Finding helpers is not described as the main challenge.",
             "C": "Edison wanted to replace candles, not collect them.",
@@ -334,7 +334,7 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The article says his team later found that carbonized bamboo fiber made an even more durable filament.",
+          "why": "In the article, his team later found that carbonized bamboo fiber made an even more durable filament.",
           "wrong": {
             "A": "Glass forms the outer bulb, not the filament.",
             "B": "Copper wire is not mentioned as a filament material.",
@@ -351,7 +351,7 @@
           ],
           "answer": "B",
           "skill": "vocabulary",
-          "why": "The article explains that patents are legal documents protecting Edison's many inventions.",
+          "why": "In the article, patents are papers that protect an inventor's rights.",
           "wrong": {
             "A": "That describes the filament.",
             "C": "A laboratory is a building, not a document.",
@@ -368,7 +368,7 @@
           ],
           "answer": "A",
           "skill": "inference",
-          "why": "The article says Edison regarded failed attempts as information that narrowed down what might succeed.",
+          "why": "Edison did not see failed tries as wasted; each one helped him find what might work.",
           "wrong": {
             "B": "The article shows he carefully understood each result.",
             "C": "The article does not suggest he was forced.",
@@ -385,7 +385,7 @@
           ],
           "answer": "D",
           "skill": "cause-effect",
-          "why": "The article says this filament allowed the bulb to glow for well over a thousand hours.",
+          "why": "In the article, this filament allowed the bulb to glow for well over a thousand hours.",
           "wrong": {
             "A": "He continued to invent many other devices.",
             "B": "The article shows electric light slowly replacing gas lamps.",
@@ -496,7 +496,7 @@
           ],
           "answer": "A",
           "skill": "vocabulary",
-          "why": "The article explains that carbonizing a material means slowly burning it until it turns almost entirely to carbon.",
+          "why": "In the article, carbonizing a material means slowly burning it until it turns almost entirely to carbon.",
           "wrong": {
             "B": "Glass forms the bulb's outer casing, unrelated to carbonizing.",
             "C": "Electricity heats the filament, but that is not what carbonized means.",
@@ -513,7 +513,7 @@
           ],
           "answer": "A",
           "skill": "detail",
-          "why": "The article states that this more durable filament allowed the bulb to be sold commercially on a large scale.",
+          "why": "In the article, this more durable filament allowed the bulb to be sold commercially on a large scale.",
           "wrong": {
             "B": "He continued his research at the laboratory.",
             "C": "The article contrasts gas lamps unfavorably with the new bulb.",
@@ -530,7 +530,7 @@
           ],
           "answer": "A",
           "skill": "inference",
-          "why": "The article describes his perseverance, treating each failed attempt as valuable information rather than wasted effort.",
+          "why": "He treated each failed try as useful information, not wasted effort, which shows perseverance.",
           "wrong": {
             "B": "He kept testing well over a thousand materials rather than giving up.",
             "C": "The article does not suggest a one-try rule.",
@@ -661,7 +661,7 @@
         ],
         "answer": "B",
         "skill": "detail",
-        "why": "The article says he made a machine that could play sound.",
+        "why": "In the article, he made a machine that could play sound.",
         "wrong": {
           "A": "Cutting thread is not mentioned.",
           "C": "Growing plants is not mentioned.",
@@ -731,7 +731,7 @@
         ],
         "answer": "D",
         "skill": "cause-effect",
-        "why": "The article says they gave weak light and sometimes started fires.",
+        "why": "In the article, candles and gas lamps gave weak light and sometimes caused fires.",
         "wrong": {
           "A": "The light was weak, not too bright.",
           "B": "Cost is not mentioned.",
@@ -752,7 +752,7 @@
         "wrong": {
           "B": "He made other things too.",
           "C": "He wanted to replace candles.",
-          "D": "The article calls it a large workshop."
+          "D": "The workshop was large, not small."
         }
       }
     ],
@@ -801,7 +801,7 @@
         ],
         "answer": "A",
         "skill": "cause-effect",
-        "why": "The article says candles and gas lamps gave weak light and sometimes caused fires.",
+        "why": "In the article, candles and gas lamps gave weak light and sometimes caused fires.",
         "wrong": {
           "B": "Buying them is not mentioned.",
           "C": "Winter is not mentioned.",
@@ -818,7 +818,7 @@
         ],
         "answer": "C",
         "skill": "inference",
-        "why": "The article says he wanted a dependable light for ordinary homes, not just a curiosity in a laboratory.",
+        "why": "In the article, he wanted a dependable light for ordinary homes, not just a curiosity in a laboratory.",
         "wrong": {
           "A": "The article says he did not want it confined to a laboratory.",
           "B": "He aimed at ordinary homes, not one rich home.",

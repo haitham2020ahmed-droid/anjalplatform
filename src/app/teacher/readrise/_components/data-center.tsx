@@ -10,6 +10,7 @@ import { Section } from "@/components/page-header";
 import type { TFn } from "@/i18n";
 import { formatLevel } from "@/server/readrise/level";
 import type { ActivityRow, ClassOverview, LevelDetail, TrendPoint } from "@/server/readrise/teacher-report";
+import { rateText } from "@/server/readrise/teacher-report";
 import type { ClassSettings, PlanWeek, TeacherGuide } from "@/server/readrise/teacher";
 import { setReadRiseClassSettingAction } from "../actions";
 
@@ -121,7 +122,7 @@ export function LevelBars({ buckets, title, t }: { buckets: { from: number; to: 
         ))}
       </div>
       <div className="mt-1 flex gap-1 border-t border-slate-200 pt-1">{shown.map((x) => <span key={x.from} className="min-w-0 flex-1 truncate text-center text-[10px] text-slate-500">{label(x)}</span>)}</div>
-      <figcaption className="mt-2 flex items-center gap-2 text-xs text-slate-500"><span className="h-3 w-4 rounded bg-teal-500" />{t("inside the expected band")}<span className="ms-3 h-3 w-4 rounded bg-slate-300" />{t("outside")}</figcaption>
+      <figcaption className="mt-2 flex items-center gap-2 text-xs text-slate-500"><span className="h-3 w-4 rounded bg-teal-500" />{t("inside the grade's Meets range")}<span className="ms-3 h-3 w-4 rounded bg-slate-300" />{t("outside")}</figcaption>
       <table className="sr-only"><caption>{title}</caption><tbody>{shown.map((x) => <tr key={x.from}><th scope="row">{label(x)}</th><td>{x.count}</td></tr>)}</tbody></table>
     </figure>
   );
@@ -193,8 +194,8 @@ export function ClassDashboardView({ o, distribution, t }: { o: ClassOverview; d
     <div className="space-y-6" data-testid="rr-class-dashboard">
       <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
         <Tile label={t("Average score per activity (1st try)")} value={pc(x.avgScore)} note={t("N = {n} activities", { n: x.scoreN })} tone={x.avgScore !== null && x.avgScore < 65 ? "red" : (x.avgScore ?? 0) >= 75 ? "teal" : "slate"} />
-        <Tile label={t("Average activities per week")} value={x.avgPerWeek === null ? "—" : String(x.avgPerWeek)} note={t("per student, this school year")} />
-        <Tile label={t("Average activities completed per student")} value={x.avgPerStudent === null ? "—" : String(x.avgPerStudent)} />
+        <Tile label={t("Average activities per week")} value={rateText(x.avgPerWeek)} note={t("per student, this school year")} />
+        <Tile label={t("Average activities completed per student")} value={rateText(x.avgPerStudent)} />
         <Tile label={t("Pre-test average")} value={lv(x.preTestAvg)} />
         <Tile label={t("Current average")} value={lv(x.currentAvg)} tone="teal" />
         <Tile label={t("Initial expected post-test average")} value={lv(x.initialExpectedAvg)} note={t("an estimate")} />

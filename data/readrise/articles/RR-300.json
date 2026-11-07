@@ -138,7 +138,7 @@
           ],
           "answer": "B",
           "skill": "detail",
-          "why": "The article says mosaic pieces can be made of stone, glass, or tile.",
+          "why": "Mosaic pieces can be made of stone, glass, or tile.",
           "wrong": {
             "A": "Paper and glue are not named as mosaic materials.",
             "C": "Cloth and thread are not mentioned.",
@@ -155,7 +155,7 @@
           ],
           "answer": "D",
           "skill": "detail",
-          "why": "The article says the artist makes a plan first, and the plan is called a pattern.",
+          "why": "In the article, the artist plans a pattern before starting the work.",
           "wrong": {
             "A": "A wooden frame is not mentioned.",
             "B": "Inviting visitors is not part of making a mosaic.",
@@ -172,7 +172,7 @@
           ],
           "answer": "C",
           "skill": "sequence",
-          "why": "The article says the artist picks each piece and then sets it in place with care.",
+          "why": "In the article, the artist picks each piece and then sets it in place with care.",
           "wrong": {
             "A": "The article does not say pieces are thrown away.",
             "B": "Selling pieces is not mentioned.",
@@ -351,7 +351,7 @@
           ],
           "answer": "A",
           "skill": "cause-effect",
-          "why": "The article says the border frames the whole picture and keeps every edge neat and even.",
+          "why": "In the article, the border frames the whole picture and keeps its edges neat.",
           "wrong": {
             "B": "Weight is not discussed in the article.",
             "C": "Hiding the mosaic from visitors is not mentioned.",
@@ -368,7 +368,7 @@
           ],
           "answer": "B",
           "skill": "vocabulary",
-          "why": "The article says a design is the plan for how the pattern will look in the end.",
+          "why": "A design is the plan for how the pattern will look in the end.",
           "wrong": {
             "A": "A gluing tool is not what design means here.",
             "C": "Building material is a different idea.",
@@ -564,7 +564,7 @@
           ],
           "answer": "B",
           "skill": "inference",
-          "why": "The article says repeating a motif gives the whole mosaic a strong sense of order and rhythm.",
+          "why": "In the article, repeating a motif gives the whole mosaic a strong sense of order and rhythm.",
           "wrong": {
             "A": "A repeated motif creates order, not a messy look.",
             "C": "A border is still described as part of the finished mosaic.",
@@ -619,20 +619,20 @@
   "stretch": {
     "LOW": [
       {
-        "stem": "How do the pieces of a mosaic fit?",
+        "stem": "What is a mosaic made from?",
         "options": [
-          "On top of each other",
-          "Side by side",
-          "In a circle only",
-          "Far apart"
+          "One big rock",
+          "Many small pieces",
+          "A single sheet of paper",
+          "Wet paint only"
         ],
         "answer": "B",
         "skill": "detail",
-        "why": "The text says the pieces fit side by side.",
+        "why": "In the article, a mosaic is made from many small pieces.",
         "wrong": {
-          "A": "The text says side by side, not on top of each other.",
-          "C": "The text does not say the pieces make only a circle.",
-          "D": "Pieces fit together, not far apart."
+          "A": "A mosaic is not one big rock.",
+          "C": "A mosaic is not one sheet of paper.",
+          "D": "A mosaic is made of pieces, not only paint."
         }
       },
       {
@@ -662,7 +662,7 @@
         ],
         "answer": "A",
         "skill": "vocabulary",
-        "why": "The text says a mosaic is a kind of art made by putting small pieces together.",
+        "why": "In the text, a mosaic is a kind of art made by putting small pieces together.",
         "wrong": {
           "B": "A mosaic is art, not a house.",
           "C": "A mosaic is made of pieces, not paint.",
@@ -679,7 +679,7 @@
         ],
         "answer": "A",
         "skill": "cause-effect",
-        "why": "The text says the maker checks each piece and fits it just right.",
+        "why": "The maker checks each piece so it fits just right.",
         "wrong": {
           "B": "The text does not say the maker counts the pieces.",
           "C": "Nothing is sold in the text.",
@@ -698,7 +698,7 @@
         ],
         "answer": "D",
         "skill": "vocabulary",
-        "why": "The article says to set a piece means to glue or press it into place.",
+        "why": "In the article, to set a piece means to glue or press it into place.",
         "wrong": {
           "A": "Throwing away would ruin the picture.",
           "B": "The craftsman may cut pieces before, but setting is placing them.",
@@ -715,7 +715,7 @@
         ],
         "answer": "A",
         "skill": "detail",
-        "why": "The article says a craftsman may cut stone or glass into smaller bits.",
+        "why": "In the article, a craftsman may cut stone or glass into smaller bits.",
         "wrong": {
           "B": "Melting tile is not mentioned.",
           "C": "Painting stones is not mentioned.",
@@ -732,7 +732,7 @@
         ],
         "answer": "B",
         "skill": "cause-effect",
-        "why": "The article says this planning helps the final picture look balanced.",
+        "why": "In the article, this planning helps the final picture look balanced.",
         "wrong": {
           "A": "Planning does not change the weight of the pieces.",
           "C": "The border is not said to get thicker.",
@@ -749,7 +749,7 @@
         ],
         "answer": "C",
         "skill": "inference",
-        "why": "The article says mosaics take patience and planning and show how careful work can create real beauty.",
+        "why": "Mosaics show how patient, careful work can create real beauty.",
         "wrong": {
           "A": "Mosaics are set slowly, one piece at a time.",
           "B": "Careful work does not make pieces smaller.",
@@ -785,7 +785,7 @@
         ],
         "answer": "C",
         "skill": "cause-effect",
-        "why": "The article says even a small gap or crooked edge can throw off the whole composition.",
+        "why": "In the article, even a small gap or crooked edge can throw off the whole composition.",
         "wrong": {
           "A": "The article does not say a gap makes glass break.",
           "B": "The article does not say stone turns to dust.",

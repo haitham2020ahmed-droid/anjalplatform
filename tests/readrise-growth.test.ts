@@ -147,12 +147,12 @@ describe("🚀 ReadRise growth evidence (pure)", () => {
       assert.doesNotMatch(text, /\b(below|above|tier|rti|band|range|expected|behind|down|lower|dropped|fell)\b/i, text);
     }
     const story = storyLines(cases[0]).map((l) => fillLine(l));
-    assert.ok(story.includes("Your level grew 150 points: from 800 to 950."));
+    assert.ok(story.includes("Your level grew 150 points: from 800L to 950L." /* round 7: formatLevel */));
     assert.ok(story.includes("You met your weekly goal 4 weeks in a row."));
     assert.ok(story.includes("You read 20 articles and 6,400 words."));
     assert.ok(story.includes("Getting stronger: inference."));
     // a lower level is told as building habits, never as a drop
-    assert.ok(storyLines(cases[1]).map((l) => fillLine(l)).includes("You are building strong reading habits at level 700."));
+    assert.ok(storyLines(cases[1]).map((l) => fillLine(l)).includes("You are building strong reading habits at level 700L." /* round 7: formatLevel */));
   });
 
   test("level journey: placement then every change with its reason", () => {
@@ -283,11 +283,11 @@ describe("🚀 ReadRise growth reports (demo school)", () => {
     const oneFile = await exp(admin, { classId, studentId: A.studentId! });
     const one = Buffer.from(oneFile.bytes).toString("utf8");
     assert.match(one, /Date,From,Level,Reason/);
-    assert.match(one, /,850,900,Up 50: 3 of the last 3/);
+    assert.match(one, /,850L,900L,Up 50: 3 of the last 3/); // round 7: levels read with formatLevel
     const tableIds = (d: typeof oneFile.doc) => d.sections.flatMap((x) => (x.type === "table" ? [x.id] : []));
     assert.deepEqual(tableIds(oneFile.doc), ["history", "trend", "skills", "readings"]);
     const readings = oneFile.doc.sections.find((x) => x.type === "table" && x.id === "readings");
-    assert.ok(readings && readings.type === "table" && readings.rows.some((r) => r.text === 1020 && r.student === 900 && r.fit === "stretch"));
+    assert.ok(readings && readings.type === "table" && readings.rows.some((r) => r.text === "1020L" && r.student === "900L" && r.fit === "stretch"));
     const clsFile = await exp(admin, { classId });
     assert.match(Buffer.from(clsFile.bytes).toString("utf8").split("\n")[0], /Growth this term,Confirmed by \(readings\),Projected end of year \(range\)/);
     assert.deepEqual(tableIds(clsFile.doc), ["students", "distribution", "notreading", "skills", "checks", "types", "unreliable", "weak"], "owner r69: reading checks, question types and unreliable readings");

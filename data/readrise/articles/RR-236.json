@@ -317,7 +317,7 @@
           ],
           "answer": "B",
           "skill": "detail",
-          "why": "The article explains that distances in kilometers would grow so long they become clumsy to write or remember.",
+          "why": "In the article, distances in kilometers would grow so long they become clumsy to write or remember.",
           "wrong": {
             "A": "Kilometers can measure distances anywhere, including through space.",
             "C": "The article does not say which unit came first.",
@@ -334,7 +334,7 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The article states that light travels at roughly three hundred thousand kilometers every second.",
+          "why": "In the article, light travels at roughly three hundred thousand kilometers every second.",
           "wrong": {
             "A": "Three hundred kilometers per second is far too slow for light.",
             "B": "Three thousand kilometers per second is still far too slow.",
@@ -530,7 +530,7 @@
           ],
           "answer": "B",
           "skill": "detail",
-          "why": "The article explains that astronomers used parallax, comparing a star's apparent position from two points in Earth's orbit, to measure stellar distances.",
+          "why": "In the article, astronomers used parallax, comparing a star's apparent position from two points in Earth's orbit, to measure stellar distances.",
           "wrong": {
             "A": "No rockets existed in the 1800s capable of reaching stars.",
             "C": "The article does not mention radio signals.",
@@ -748,7 +748,7 @@
         ],
         "answer": "B",
         "skill": "author-purpose",
-        "why": "These examples show kilometers work for short trips, and then the author says space is too big for them.",
+        "why": "These examples show kilometers work for short trips, and then the author explains that the distances to stars are far too huge for them.",
         "wrong": {
           "A": "The article does not teach trip planning.",
           "C": "Cities are not compared to stars.",

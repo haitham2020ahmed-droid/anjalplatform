@@ -138,7 +138,7 @@
           ],
           "answer": "B",
           "skill": "detail",
-          "why": "The article says people need water to drink and farmers need it to grow food.",
+          "why": "In the article, people need water to drink and to grow food.",
           "wrong": {
             "A": "The article does not say water changes the weather.",
             "C": "Water near a city helps it grow, not stops it.",
@@ -155,7 +155,7 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The article says mild weather, not too hot and not too cold, draws more people.",
+          "why": "In the article, mild weather, not too hot and not too cold, draws more people.",
           "wrong": {
             "A": "Very hot deserts have few people.",
             "B": "Very cold lands have few people.",
@@ -189,7 +189,7 @@
           ],
           "answer": "B",
           "skill": "cause-effect",
-          "why": "The article says people move to a city to find work, which makes the city more crowded.",
+          "why": "In the article, people move to a town for work, which makes it crowded.",
           "wrong": {
             "A": "More jobs bring more people, not fewer.",
             "C": "Jobs do not remove farmland in the article.",
@@ -206,7 +206,7 @@
           ],
           "answer": "B",
           "skill": "inference",
-          "why": "The article says good farmland can grow lots of food, which can feed many people.",
+          "why": "In the article, good farmland can grow lots of food, which can feed many people.",
           "wrong": {
             "A": "Good farmland usually supports more people, not fewer.",
             "C": "The article does not say farmland towns cannot have jobs.",
@@ -304,7 +304,7 @@
           "wrong": {
             "A": "The article says population is spread unevenly, not equally.",
             "B": "The article says cities grow as people move there for jobs.",
-            "D": "The article says deserts tend to have far fewer people than fertile valleys."
+            "D": "In the article, deserts tend to have far fewer people than fertile valleys."
           }
         },
         {
@@ -317,7 +317,7 @@
           ],
           "answer": "D",
           "skill": "detail",
-          "why": "The article says the overall pattern people's spread forms is called distribution.",
+          "why": "In the article, the overall pattern people's spread forms is called distribution.",
           "wrong": {
             "A": "Migration is movement between places, not the overall pattern.",
             "B": "Decomposition is not mentioned in this article.",
@@ -334,7 +334,7 @@
           ],
           "answer": "A",
           "skill": "detail",
-          "why": "The article says boats on rivers and coasts carry goods and people and help trade grow.",
+          "why": "In the article, boats on rivers and coasts carry goods and people and help trade grow.",
           "wrong": {
             "B": "Boats do not affect climate in the article.",
             "C": "Boats do not make deserts fertile in the article.",
@@ -351,7 +351,7 @@
           ],
           "answer": "B",
           "skill": "vocabulary",
-          "why": "The article links fertile soil directly to land that \"can grow plenty of food.\"",
+          "why": "The article links fertile soil to land that can grow large amounts of food.",
           "wrong": {
             "A": "This phrase describes harsh climates, not fertile soil.",
             "C": "This phrase is about water access, not fertile soil directly.",
@@ -368,7 +368,7 @@
           ],
           "answer": "C",
           "skill": "cause-effect",
-          "why": "The article says regions with mild climate tend to attract large numbers of people.",
+          "why": "In the article, a mild climate tends to draw more people.",
           "wrong": {
             "A": "Mild climate attracts more people, not fewer.",
             "B": "Climate does not stop farmland from producing food in the article.",
@@ -496,7 +496,7 @@
           ],
           "answer": "D",
           "skill": "detail",
-          "why": "The article says people increasingly move toward urban centers in search of steady employment.",
+          "why": "In the article, people increasingly move toward urban centers in search of steady employment.",
           "wrong": {
             "A": "People tend to avoid harsh climates, not seek them out.",
             "B": "Trade is described as something settlements benefit from, not avoid.",
@@ -547,7 +547,7 @@
           ],
           "answer": "B",
           "skill": "cause-effect",
-          "why": "The article explains that fertile soil produces food surpluses that sustain a dense population across generations.",
+          "why": "Fertile soil grows extra food, and a steady food supply can support many people for a long time.",
           "wrong": {
             "A": "Fertile farmland is linked to flat, rich land, not polar regions.",
             "C": "Fertile farmland does not remove the need for infrastructure.",
@@ -627,7 +627,7 @@
         ],
         "answer": "A",
         "skill": "cause-effect",
-        "why": "The text says rough land grows little food, so few folks live there.",
+        "why": "In the text, rough, rocky land grows little food, so few people live there.",
         "wrong": {
           "B": "Jobs are found in big towns, not on rough land.",
           "C": "The text says water draws folks.",
@@ -644,7 +644,7 @@
         ],
         "answer": "C",
         "skill": "detail",
-        "why": "The text says hot, dry spots and cold spots have few folks because life is hard there.",
+        "why": "In the text, hot, dry spots and cold spots have few folks because life is hard there.",
         "wrong": {
           "A": "A stream draws many folks.",
           "B": "Rich farmland can feed many folks.",
@@ -714,7 +714,7 @@
         ],
         "answer": "D",
         "skill": "vocabulary",
-        "why": "The text says the move toward urban towns is called migration.",
+        "why": "In the text, the move toward urban towns is called migration.",
         "wrong": {
           "A": "Migration is about people, not a map.",
           "B": "Crop growth is not migration.",
@@ -731,7 +731,7 @@
         ],
         "answer": "C",
         "skill": "cause-effect",
-        "why": "The text says finding food and water in deserts takes much more effort.",
+        "why": "In the text, finding food and water in deserts takes much more effort.",
         "wrong": {
           "A": "Deserts are not described as having factories.",
           "B": "Boats are not the reason given.",
@@ -767,7 +767,7 @@
         ],
         "answer": "B",
         "skill": "detail",
-        "why": "The text says farmers need fresh water to irrigate crops and raise animals.",
+        "why": "In the text, farmers need fresh water to irrigate crops and raise animals.",
         "wrong": {
           "A": "Factories and schools are not the farmers' use of water.",
           "C": "Water would not make soil rocky and dry.",
@@ -803,7 +803,7 @@
         "skill": "cause-effect",
         "why": "People need water, and boats on these waters help trade grow between places.",
         "wrong": {
-          "A": "The text says a mild climate draws people, not cold weather.",
+          "A": "In the text, a mild climate draws people, not cold weather.",
           "B": "Factories are linked to towns and jobs, not to early settlement.",
           "C": "Rocky land offers little farmland."
         }

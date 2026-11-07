@@ -138,7 +138,7 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The story says workers installed a new update on the robots the night before.",
+          "why": "In the story, workers installed a new update on the robots the night before.",
           "wrong": {
             "A": "Running out of power is not mentioned.",
             "B": "Extra sorting is not mentioned as happening that night.",
@@ -627,7 +627,7 @@
         ],
         "answer": "B",
         "skill": "detail",
-        "why": "The text says the robots sort toys and pack boxes.",
+        "why": "In the text, the robots sort toys and pack boxes.",
         "wrong": {
           "A": "The robots do not paint or ship toys in the story.",
           "C": "The story never says the robots build toys.",
@@ -644,7 +644,7 @@
         ],
         "answer": "D",
         "skill": "vocabulary",
-        "why": "The text says, \"An update is new code.\"",
+        "why": "In the story, an update is new code for the robots.",
         "wrong": {
           "A": "An update is code, not a toy.",
           "B": "An update is not a person.",
@@ -767,7 +767,7 @@
         ],
         "answer": "D",
         "skill": "detail",
-        "why": "The text says the update was meant to correct minor malfunctions left from the preceding version.",
+        "why": "In the text, the update was meant to correct minor malfunctions left from the preceding version.",
         "wrong": {
           "A": "Speed is not given as the reason.",
           "B": "Teaching a new word is not the goal of the update.",

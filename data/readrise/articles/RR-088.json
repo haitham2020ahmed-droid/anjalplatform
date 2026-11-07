@@ -155,7 +155,7 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The article says he used wood and silk and put lots of feathers on the wings.",
+          "why": "In the article, he made the wings from wood and silk and added feathers.",
           "wrong": {
             "A": "Metal and glass are not named.",
             "B": "Paper and string are not named.",
@@ -319,9 +319,9 @@
           "skill": "detail",
           "why": "The article names the water clock, the crystal-cutting method, and the sky room, but no underwater boat.",
           "wrong": {
-            "A": "The article says he built a clock that used water.",
-            "B": "The article says he found a way to cut crystal.",
-            "C": "The article says he created a room that looked like the night sky."
+            "A": "In the article, he built a clock that used water.",
+            "B": "In the article, he found a way to cut crystal.",
+            "C": "He made a room that looked like the night sky."
           }
         },
         {
@@ -496,7 +496,7 @@
           ],
           "answer": "B",
           "skill": "detail",
-          "why": "The article states that most of what we know comes from the historian al-Maqqari, who wrote centuries later.",
+          "why": "Most of what we know comes from a historian named al-Maqqari, who wrote centuries later.",
           "wrong": {
             "A": "The article does not say Abbas wrote the account.",
             "C": "A crowd watched, but the account comes from al-Maqqari.",
@@ -627,7 +627,7 @@
         ],
         "answer": "B",
         "skill": "detail",
-        "why": "The text says he made a clock that ran on water.",
+        "why": "In the text, he built a clock that used water to keep time.",
         "wrong": {
           "A": "The wings were made of wood, silk, and feathers.",
           "C": "A boat is not mentioned.",
@@ -644,7 +644,7 @@
         ],
         "answer": "D",
         "skill": "vocabulary",
-        "why": "The text says Abbas was an inventor and that he made new things.",
+        "why": "Abbas was an inventor who made new things.",
         "wrong": {
           "A": "He hurt his back once.",
           "B": "Only a crater has his name; he did not live on the Moon.",
@@ -678,7 +678,7 @@
         ],
         "answer": "C",
         "skill": "detail",
-        "why": "The text says he made a room that looked like the sky at night.",
+        "why": "He made a room that looked like the night sky.",
         "wrong": {
           "A": "The hill is where he jumped.",
           "B": "The clock was a different invention.",
@@ -697,7 +697,7 @@
         ],
         "answer": "A",
         "skill": "detail",
-        "why": "The text says he built a light wooden frame, covered it with silk, and attached many feathers.",
+        "why": "He built a light wooden frame, covered it with silk, and added feathers.",
         "wrong": {
           "B": "Crystal was something he learned to cut, not a wing cover.",
           "C": "Clouds were in his sky room.",
@@ -801,7 +801,7 @@
         ],
         "answer": "A",
         "skill": "cause-effect",
-        "why": "The text says his wings allowed him to glide.",
+        "why": "In the text, his wings allowed him to glide.",
         "wrong": {
           "B": "He jumped from a hill, not a mountain.",
           "C": "Wind is not mentioned.",

@@ -206,7 +206,7 @@
           ],
           "answer": "A",
           "skill": "cause-effect",
-          "why": "The article explains that when there is enough lift pushing up on the wings, the plane rises into the sky.",
+          "why": "In the article, lift pushes the plane up, so it rises into the sky.",
           "wrong": {
             "B": "Shouting is not how a plane is controlled.",
             "C": "Engine temperature is not discussed.",
@@ -368,7 +368,7 @@
           ],
           "answer": "B",
           "skill": "cause-effect",
-          "why": "The article explains that drag is a backward force caused by air resistance as the plane moves.",
+          "why": "In the article, drag is a backward force caused by air resistance as the plane moves.",
           "wrong": {
             "A": "Braking is not described as the cause of drag.",
             "C": "Gravity pulls down, not sideways.",
@@ -483,7 +483,7 @@
           "wrong": {
             "B": "The article says modern pilots still use ailerons to control the aircraft.",
             "C": "The original 1903 aircraft is not described as still in use.",
-            "D": "The article says composite materials are strong yet remarkably light, not heavier."
+            "D": "Composite materials are strong and light, not heavy."
           }
         },
         {
@@ -513,7 +513,7 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The article says their fragile frame was constructed mostly of wood and cloth.",
+          "why": "In the article, their fragile frame was constructed mostly of wood and cloth.",
           "wrong": {
             "A": "Aluminum is described as a later, modern material.",
             "B": "Glass and rubber are not mentioned.",
@@ -547,7 +547,7 @@
           ],
           "answer": "A",
           "skill": "cause-effect",
-          "why": "The article explains that cabins are pressurized because the thin outside atmosphere at cruising altitude would otherwise be impossible to breathe safely.",
+          "why": "In the article, cabins are pressurized because the thin outside atmosphere at cruising altitude would otherwise be impossible to breathe safely.",
           "wrong": {
             "B": "The article does not say gravity changes with altitude.",
             "C": "Ailerons are not linked to cabin pressure.",
@@ -581,7 +581,7 @@
           ],
           "answer": "C",
           "skill": "compare",
-          "why": "The article says composite materials combine considerable strength with remarkably low weight, unlike the fragile wood-and-cloth frame of 1903.",
+          "why": "Composite materials are both strong and very light, unlike the weak wood-and-cloth frame of 1903.",
           "wrong": {
             "A": "The article describes composites as light, not heavy.",
             "B": "Cost is not compared in the article.",
@@ -627,7 +627,7 @@
         ],
         "answer": "D",
         "skill": "detail",
-        "why": "The text says the engine pushes the plane and makes it go fast.",
+        "why": "The engine pushes the plane and makes it go fast.",
         "wrong": {
           "A": "The text says the plane has two wings but does not say the engine makes them.",
           "B": "The pilot sits at the front, not the engine.",
@@ -644,7 +644,7 @@
         ],
         "answer": "B",
         "skill": "vocabulary",
-        "why": "The text says the pilot sits at the front and flies the plane.",
+        "why": "In the text, the pilot sits at the front and flies the plane.",
         "wrong": {
           "A": "The text never mentions a bike.",
           "C": "The Wright brothers made a plane, but the pilot flies it.",
@@ -697,7 +697,7 @@
         ],
         "answer": "B",
         "skill": "detail",
-        "why": "The text says the flight was made near Kitty Hawk, North Carolina.",
+        "why": "In the text, the flight was made near Kitty Hawk, North Carolina.",
         "wrong": {
           "A": "Spain is not mentioned.",
           "C": "The text does not say the flight was near an airport.",
@@ -750,9 +750,9 @@
         "skill": "author-purpose",
         "why": "The author calls flight almost magical and then explains that engineers understand the science.",
         "wrong": {
-          "A": "The text says engineers understand the science well.",
+          "A": "In the text, engineers understand the science well.",
           "B": "The article does not teach readers to fly a jet.",
-          "D": "The text says the pilot keeps everyone safe."
+          "D": "The article does not warn that flying is unsafe."
         }
       }
     ],
@@ -801,11 +801,11 @@
         ],
         "answer": "B",
         "skill": "inference",
-        "why": "The text says engineers keep studying flight to make future aircraft lighter, quieter, and more efficient.",
+        "why": "Engineers keep studying flight to make future planes lighter, quieter, and better.",
         "wrong": {
           "A": "The text says engineers keep trying new ideas.",
           "C": "Engineers still hope to make planes lighter.",
-          "D": "The text says there are countless safe flights every day."
+          "D": "Safe flights happen every day, so they are not rare."
         }
       },
       {

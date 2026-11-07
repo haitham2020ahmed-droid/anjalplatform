@@ -138,7 +138,7 @@
           ],
           "answer": "B",
           "skill": "detail",
-          "why": "The story says the wind blew hard and the paper kite tore apart.",
+          "why": "In the story, the wind blew hard and the paper kite tore apart.",
           "wrong": {
             "A": "They did finish building the first kite.",
             "C": "The first kite broke; it did not fly perfectly.",
@@ -180,7 +180,7 @@
           }
         },
         {
-          "stem": "In the story, when something breaks, it \u2014",
+          "stem": "In the story, when something breaks, it —",
           "options": [
             "gets damaged and stops working properly",
             "grows bigger and stronger than before",
@@ -333,7 +333,7 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The article says the boys built their final kite with a strong plastic cover.",
+          "why": "In the article, the boys built their final kite with a strong plastic cover.",
           "wrong": {
             "A": "The article does not mention cloth.",
             "B": "The article does not mention cardboard.",
@@ -358,7 +358,7 @@
           }
         },
         {
-          "stem": "In the story, the word balance means \u2014",
+          "stem": "In the story, the word balance means —",
           "options": [
             "staying steady and not tipping to one side",
             "moving very fast and wildly through the air",
@@ -384,7 +384,7 @@
           ],
           "answer": "B",
           "skill": "cause-effect",
-          "why": "The article explains that a tail helps a kite stay balanced once it catches the wind.",
+          "why": "In the story, the long tail helps the kite stay balanced in the wind.",
           "wrong": {
             "A": "The tail's purpose in the article is balance, not extra weight.",
             "C": "The article gives a functional reason, not just appearance.",
@@ -519,7 +519,7 @@
           }
         },
         {
-          "stem": "In the article, the word persistence means \u2014",
+          "stem": "In the article, the word persistence means —",
           "options": [
             "giving up quickly after one failure at a task",
             "the shape of a kite's frame and its tail",
@@ -624,7 +624,7 @@
         ],
         "answer": "D",
         "skill": "detail",
-        "why": "Ms. Reem said, \"Think about your kite's shape and what it is made of.\"",
+        "why": "In the story, Ms. Reem told the boys to think about the kite's shape and what it is made of.",
         "wrong": {
           "A": "She did not talk about the cost of a kite.",
           "B": "She did not talk about how many friends could fly it.",
@@ -764,7 +764,7 @@
         ],
         "answer": "C",
         "skill": "detail",
-        "why": "The text says thin sticks snap when a frame cannot hold its shape.",
+        "why": "In the text, thin sticks snap when a frame cannot hold its shape.",
         "wrong": {
           "A": "The sticks were thin, not heavy.",
           "B": "Color is never mentioned.",

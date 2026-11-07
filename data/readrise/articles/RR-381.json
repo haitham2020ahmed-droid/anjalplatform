@@ -189,7 +189,7 @@
           ],
           "answer": "D",
           "skill": "inference",
-          "why": "The story says Rakan knew touching the chick himself would not be safe for him or the chick.",
+          "why": "In the story, Rakan knew touching the chick himself would not be safe for him or the chick.",
           "wrong": {
             "A": "The story does not say Rakan was afraid of birds.",
             "B": "Rakan clearly cared about the chick; that is why he ran for help.",
@@ -240,7 +240,7 @@
           ],
           "answer": "B",
           "skill": "cause-effect",
-          "why": "The story says eagles eat small animals like mice and snakes, which keeps nature in balance.",
+          "why": "In the story, eagles eat small animals like mice and snakes, which keeps nature in balance.",
           "wrong": {
             "A": "Eagles do not build nests for other birds.",
             "C": "The story does not say eagles scare the ranger.",
@@ -496,7 +496,7 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The story says Ranger Noura examined the chick's wings, feathers, and talons; wings and talons appear in every version.",
+          "why": "The ranger examined the chick's wings, feathers, and talons; wings and talons appear in every version.",
           "wrong": {
             "A": "The story does not mention checking weight or age.",
             "B": "The story does not mention checking the eyes or beak specifically.",
@@ -513,7 +513,7 @@
           ],
           "answer": "A",
           "skill": "detail",
-          "why": "The story explains that rangers keep careful records of nesting sites and survey them several times a year.",
+          "why": "Rangers keep careful records of eagle nests and check on them.",
           "wrong": {
             "B": "The story does not say nests are moved to zoos.",
             "C": "The story does not say rangers feed eagles daily.",
@@ -627,7 +627,7 @@
         ],
         "answer": "A",
         "skill": "detail",
-        "why": "The text says she looked at the chick and it was not hurt.",
+        "why": "In the text, she looked at the chick and it was not hurt.",
         "wrong": {
           "B": "The text does not say a wing was broken.",
           "C": "Cold is not mentioned.",
@@ -644,7 +644,7 @@
         ],
         "answer": "C",
         "skill": "cause-effect",
-        "why": "The text says the chick could not fly and fell from its nest high on the cliff.",
+        "why": "In the text, the chick could not fly and fell from its nest high on the cliff.",
         "wrong": {
           "A": "The chick could not fly.",
           "B": "Rakan did not touch the chick.",
@@ -678,7 +678,7 @@
         ],
         "answer": "B",
         "skill": "cause-effect",
-        "why": "The text says the mother eagle came back soon after the chick was put back.",
+        "why": "In the text, the mother eagle came back soon after the chick was put back.",
         "wrong": {
           "A": "The chick could not fly.",
           "C": "The nest stayed on the cliff.",
@@ -767,11 +767,11 @@
         ],
         "answer": "A",
         "skill": "detail",
-        "why": "The text says an eagle's eyesight is many times sharper than a human's.",
+        "why": "An eagle's eyesight is many times sharper than a person's.",
         "wrong": {
           "B": "The text does not say it works best at night.",
           "C": "No one can see through rocks in the story.",
-          "D": "The text says it is far sharper."
+          "D": "An eagle's eyesight is much sharper than a person's."
         }
       },
       {

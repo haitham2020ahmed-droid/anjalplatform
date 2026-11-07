@@ -180,7 +180,7 @@
           }
         },
         {
-          "stem": "Read this: \"The Moon can block the Sun.\" What does block mean here?",
+          "stem": "The Moon can get in front of the Sun. What does it mean to block the Sun?",
           "options": [
             "To shine light on the Earth",
             "To cool the Earth",
@@ -317,7 +317,7 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The article says the Sun's thin outer layer, the corona, glows around the Moon when the Sun is fully covered.",
+          "why": "In the article, the Sun's thin outer layer, the corona, glows around the Moon when the Sun is fully covered.",
           "wrong": {
             "A": "Earth's shadow falls on the Moon in a lunar eclipse.",
             "B": "The red glow belongs to a lunar eclipse.",
@@ -342,7 +342,7 @@
           }
         },
         {
-          "stem": "Read this: \"Scientists can predict eclipses many years ahead.\" What does predict mean?",
+          "stem": "In the article, what does the word \"predict\" mean?",
           "options": [
             "To stop something from happening",
             "To forget something",
@@ -372,7 +372,7 @@
           "wrong": {
             "B": "Solar eclipses happen in the daytime.",
             "C": "The Moon, not the Earth, covers the Sun.",
-            "D": "The article says you always need eclipse glasses for the Sun."
+            "D": "In the article, you always need eclipse glasses for the Sun."
           }
         },
         {
@@ -404,7 +404,7 @@
           "skill": "inference",
           "why": "It will be a solar eclipse, and the article says only special eclipse glasses make looking at the Sun safe.",
           "wrong": {
-            "A": "The article says ordinary sunglasses are not safe.",
+            "A": "In the article, ordinary sunglasses are not safe.",
             "B": "Pointing an unfiltered camera at the Sun is not safe advice from the article.",
             "D": "A flashlight does not protect your eyes."
           }
@@ -521,7 +521,7 @@
           }
         },
         {
-          "stem": "Read this: \"Earth's atmosphere refracts sunlight into the shadow.\" What does refracts mean?",
+          "stem": "Earth's air bends sunlight into its shadow. What does refracts mean?",
           "options": [
             "Blocks completely",
             "Bends",
@@ -547,7 +547,7 @@
           ],
           "answer": "B",
           "skill": "cause-effect",
-          "why": "The article explains that when the Moon is near the far point of its orbit, it appears slightly smaller than the Sun.",
+          "why": "In the article, when the Moon is near the far point of its orbit, it appears slightly smaller than the Sun.",
           "wrong": {
             "A": "The article links the ring to the Moon's distance, not the Sun's.",
             "C": "Earth's shadow is involved in lunar eclipses, not annular solar eclipses.",
@@ -581,7 +581,7 @@
           ],
           "answer": "A",
           "skill": "inference",
-          "why": "The article explains that the Moon's dark shadow covers only a narrow strip, so seeing totality requires being in that strip.",
+          "why": "In the article, the Moon's dark shadow covers only a narrow strip, so seeing totality requires being in that strip.",
           "wrong": {
             "B": "The 2027 event is a solar eclipse, and lunar eclipses are seen widely.",
             "C": "Totality lasts only minutes.",
@@ -644,7 +644,7 @@
         ],
         "answer": "A",
         "skill": "cause-effect",
-        "why": "The text says the Moon moves in front of the Sun and blocks it, so the sky gets dark.",
+        "why": "In the text, the Moon moves in front of the Sun and blocks it, so the sky gets dark.",
         "wrong": {
           "B": "The Earth does not move away; the Moon moves in front.",
           "C": "The Sun does not go out; it is blocked.",
@@ -664,7 +664,7 @@
         "why": "The text says you must never look right at the Sun and that eclipse glasses keep your eyes safe.",
         "wrong": {
           "A": "The glasses are for the Sun, not for reading.",
-          "B": "The text says you can look at the Moon with just your eyes.",
+          "B": "In the text, you can look at the Moon with just your eyes.",
           "C": "The glasses are not for keeping warm."
         }
       },
@@ -678,7 +678,7 @@
         ],
         "answer": "B",
         "skill": "vocabulary",
-        "why": "The text says the Earth goes around the Sun and the Moon goes around the Earth, and calls it an orbit.",
+        "why": "In the text, the Earth goes around the Sun and the Moon goes around the Earth, and calls it an orbit.",
         "wrong": {
           "A": "Falling is not the same as going around.",
           "C": "The Earth and Moon move.",
@@ -731,7 +731,7 @@
         ],
         "answer": "A",
         "skill": "vocabulary",
-        "why": "The text says the three bodies are usually not in a straight line, but once in a while they are, so align means to line up.",
+        "why": "In the text, the three bodies are usually not in a straight line, but once in a while they are, so align means to line up.",
         "wrong": {
           "B": "Falling apart does not fit with a straight line.",
           "C": "Turning around does not fit with a straight line.",
@@ -767,7 +767,7 @@
         ],
         "answer": "D",
         "skill": "detail",
-        "why": "The text says the Moon's orbit is tilted about five degrees compared with Earth's orbit.",
+        "why": "In the text, the Moon's orbit is tilted about five degrees compared with Earth's orbit.",
         "wrong": {
           "A": "One degree is too small.",
           "B": "Two degrees is too small.",
@@ -784,7 +784,7 @@
         ],
         "answer": "B",
         "skill": "cause-effect",
-        "why": "The text says the corona is normally invisible in the overwhelming glare of the Sun, so a total eclipse is a chance to study it.",
+        "why": "In the text, the corona is normally invisible in the overwhelming glare of the Sun, so a total eclipse is a chance to study it.",
         "wrong": {
           "A": "The coppery red Moon is seen in a lunar eclipse, which anyone can watch at night.",
           "C": "The text does not say scientists measure this distance during an eclipse.",
@@ -801,7 +801,7 @@
         ],
         "answer": "C",
         "skill": "vocabulary",
-        "why": "The text explains that totality is the brief period when the Sun is completely hidden.",
+        "why": "In the text, totality is the brief period when the Sun is completely hidden.",
         "wrong": {
           "A": "Totality is a short time during the eclipse, not the night after.",
           "B": "The glowing part around the Moon is the corona.",
@@ -818,7 +818,7 @@
         ],
         "answer": "A",
         "skill": "author-purpose",
-        "why": "The text says these astronomers recorded eclipses in detail and improved mathematical methods for calculating the movements of the Sun and Moon.",
+        "why": "In the text, these astronomers recorded eclipses in detail and improved mathematical methods for calculating the movements of the Sun and Moon.",
         "wrong": {
           "B": "Eclipses can be seen in many places.",
           "C": "The fear of people long ago is a different sentence.",

@@ -172,7 +172,7 @@
           ],
           "answer": "B",
           "skill": "vocabulary",
-          "why": "The article explains that people use radar to find space junk and write down where each piece is, which is what track means.",
+          "why": "In the article, people use radar to find space junk and write down where each piece is, which is what track means.",
           "wrong": {
             "A": "Tracking is not about building.",
             "C": "Tracking is not about painting.",
@@ -302,7 +302,7 @@
           "skill": "central-idea",
           "why": "The article explains what space junk is, why its speed makes it dangerous, and how it is tracked and cleaned up.",
           "wrong": {
-            "A": "The article says space junk moves extremely fast, not slowly.",
+            "A": "In the article, space junk moves extremely fast, not slowly.",
             "B": "The article says agencies are still testing ways to clean up junk, not that it is all gone.",
             "C": "The article is written for anyone, not only astronauts."
           }
@@ -368,7 +368,7 @@
           ],
           "answer": "C",
           "skill": "cause-effect",
-          "why": "The article explains that once debris is captured and dragged lower, it burns up in the atmosphere.",
+          "why": "In the article, once the junk is pulled down, it burns up in the atmosphere.",
           "wrong": {
             "A": "Dragging junk down does not turn it into a new satellite.",
             "B": "Debris is pulled away from the station, not kept near it.",
@@ -496,7 +496,7 @@
           ],
           "answer": "B",
           "skill": "detail",
-          "why": "The article states that debris also forms when objects collide or when an aging satellite explodes, scattering fragments.",
+          "why": "Debris also forms when objects crash into each other or when an old satellite explodes.",
           "wrong": {
             "A": "Clouds in the atmosphere are not described as a source of orbital debris.",
             "C": "New stars are unrelated to orbital debris.",
@@ -513,7 +513,7 @@
           ],
           "answer": "B",
           "skill": "detail",
-          "why": "The article explains that agencies test nets, harpoon-like devices, and robotic arms to capture debris and drag it into a lower orbit to burn up.",
+          "why": "Agencies are testing tools like nets and harpoons to catch junk and pull it down so it burns up.",
           "wrong": {
             "A": "Crashing a rocket into debris is not the method described.",
             "C": "Sunlight melting debris is not mentioned.",
@@ -581,7 +581,7 @@
           ],
           "answer": "B",
           "skill": "inference",
-          "why": "The article describes the Kessler syndrome as a cascade in which debris from one collision strikes other objects, generating still more debris.",
+          "why": "When pieces of space junk crash, they make more junk, which can cause even more crashes.",
           "wrong": {
             "A": "The Kessler syndrome concerns many objects, not one lasting satellite.",
             "C": "It describes a risk, not a cleanup method.",
@@ -627,7 +627,7 @@
         ],
         "answer": "B",
         "skill": "detail",
-        "why": "The text says people use radar to find space junk.",
+        "why": "In the text, people use radar to find space junk.",
         "wrong": {
           "A": "Nets are used to grab junk, not to find it.",
           "C": "The text never mentions a flashlight.",
@@ -644,7 +644,7 @@
         ],
         "answer": "C",
         "skill": "sequence",
-        "why": "The text says the junk is pulled down and then it burns up in the air.",
+        "why": "In the text, the junk is pulled down and then it burns up in the air.",
         "wrong": {
           "A": "The text does not say the junk lands on a ship.",
           "B": "The team pulls it out of orbit.",
@@ -731,7 +731,7 @@
         ],
         "answer": "D",
         "skill": "cause-effect",
-        "why": "The text says they are far too small to spot.",
+        "why": "They are too small to spot.",
         "wrong": {
           "A": "The text says agencies track debris closely, so this is wrong.",
           "B": "Clouds are not mentioned.",
@@ -752,7 +752,7 @@
         "wrong": {
           "A": "The text does not say paint is the main cause of junk.",
           "C": "The text does not talk about painting satellites.",
-          "D": "The text says tiny bits are too small to spot."
+          "D": "Tiny bits are too small to spot, so junk is not easy to see."
         }
       }
     ],
@@ -767,7 +767,7 @@
         ],
         "answer": "C",
         "skill": "detail",
-        "why": "The text says debris races along at roughly twenty-eight thousand kilometers per hour.",
+        "why": "In the text, debris races along at roughly twenty-eight thousand kilometers per hour.",
         "wrong": {
           "A": "This is far slower than the text says.",
           "B": "This is still much slower than the text says.",
@@ -801,7 +801,7 @@
         ],
         "answer": "A",
         "skill": "cause-effect",
-        "why": "The text says the fleck carries enough energy at that velocity to shatter a solar panel.",
+        "why": "In the text, the fleck carries enough energy at that velocity to shatter a solar panel.",
         "wrong": {
           "B": "The text calls the fleck tiny and gives no weight.",
           "C": "The text says it is paint, not metal.",

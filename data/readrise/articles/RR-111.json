@@ -138,7 +138,7 @@
           ],
           "answer": "A",
           "skill": "detail",
-          "why": "The article says most owls sleep in the day and hunt at night.",
+          "why": "In the article, most owls sleep in the day and hunt at night.",
           "wrong": {
             "B": "Night is when most owls hunt.",
             "C": "The article does not talk about winter.",
@@ -172,7 +172,7 @@
           ],
           "answer": "D",
           "skill": "detail",
-          "why": "The article says the owl's soft feathers help it fly with no sound.",
+          "why": "In the article, the owl's soft feathers help it fly with no sound.",
           "wrong": {
             "A": "Eyes help it see, not fly quietly.",
             "B": "Claws help it grab prey.",
@@ -189,7 +189,7 @@
           ],
           "answer": "B",
           "skill": "vocabulary",
-          "why": "The article says prey is an animal that is caught and eaten.",
+          "why": "In the article, prey is an animal that is caught and eaten.",
           "wrong": {
             "A": "Prey is not a place.",
             "C": "Prey is not a sound.",
@@ -302,9 +302,9 @@
           "skill": "central-idea",
           "why": "The article explains how owls' eyes, hearing, feathers, and talons help them hunt in the dark.",
           "wrong": {
-            "A": "The article says farmers welcome owls.",
-            "C": "The article says there are about 250 species around the world.",
-            "D": "The article says their eyes help them see in the dark."
+            "A": "In the article, farmers welcome owls.",
+            "C": "Owls live in many parts of the world, not only in Saudi Arabia.",
+            "D": "Owls' big eyes help them see well in the dark."
           }
         },
         {
@@ -334,7 +334,7 @@
           ],
           "answer": "A",
           "skill": "detail",
-          "why": "The article says the face works like a dish that collects sound and sends it to the ears.",
+          "why": "In the article, the face works like a dish that collects sound and sends it to the ears.",
           "wrong": {
             "B": "The article does not say the face keeps owls warm.",
             "C": "The article does not talk about scaring birds.",
@@ -368,7 +368,7 @@
           ],
           "answer": "B",
           "skill": "vocabulary",
-          "why": "The article explains that nocturnal animals sleep during the day and are active at night.",
+          "why": "In the article, nocturnal animals sleep during the day and are active at night.",
           "wrong": {
             "A": "Silent flight is a different feature.",
             "C": "Nocturnal is about time, not place.",
@@ -496,7 +496,7 @@
           ],
           "answer": "D",
           "skill": "detail",
-          "why": "The article says the owl's neck contains fourteen vertebrae, twice as many as a human neck.",
+          "why": "In the article, the owl's neck contains fourteen vertebrae, twice as many as a human neck.",
           "wrong": {
             "A": "Seven is the number in a human neck.",
             "B": "This number is not in the article.",
@@ -530,7 +530,7 @@
           ],
           "answer": "B",
           "skill": "sequence",
-          "why": "The article says owls swallow small prey whole and regurgitate the indigestible parts as a pellet hours later.",
+          "why": "In the article, owls swallow small prey whole and regurgitate the indigestible parts as a pellet hours later.",
           "wrong": {
             "A": "Owls cannot digest bones and fur.",
             "C": "Storing food is not mentioned.",
@@ -547,7 +547,7 @@
           ],
           "answer": "A",
           "skill": "vocabulary",
-          "why": "The article says the mottled brown and grey patterns of feathers provide camouflage while owls rest in trees.",
+          "why": "In the article, the mottled brown and grey patterns of feathers provide camouflage while owls rest in trees.",
           "wrong": {
             "B": "Silent flight is a different adaptation.",
             "C": "The round face is the facial disc.",
@@ -627,7 +627,7 @@
         ],
         "answer": "C",
         "skill": "detail",
-        "why": "The text says owls eat mice, bugs, and small birds.",
+        "why": "In the text, owls eat mice, bugs, and small birds.",
         "wrong": {
           "A": "Grass is not on the owl's food list.",
           "B": "Seeds are not on the owl's food list.",
@@ -644,7 +644,7 @@
         ],
         "answer": "A",
         "skill": "cause-effect",
-        "why": "The text says owls hear well and some can find a mouse by sound.",
+        "why": "In the text, owls hear well and some can find a mouse by sound.",
         "wrong": {
           "B": "Speed is not given as the reason.",
           "C": "A pellet is what an owl spits up after it eats.",
@@ -661,9 +661,9 @@
         ],
         "answer": "D",
         "skill": "sequence",
-        "why": "The text says the owl can not use the bones and fur, so it spits up a small ball called a pellet.",
+        "why": "In the text, the owl can not use the bones and fur, so it spits up a small ball called a pellet.",
         "wrong": {
-          "A": "The text says owls hunt at night and sleep in the day.",
+          "A": "In the text, owls hunt at night and sleep in the day.",
           "B": "Grabbing the prey with claws happens before it eats.",
           "C": "The text does not say that the owl goes to the farm to eat more."
         }
@@ -697,7 +697,7 @@
         ],
         "answer": "B",
         "skill": "detail",
-        "why": "The text says the owl grabs the mouse with its sharp, curved claws, called talons.",
+        "why": "The owl grabs its prey with sharp, curved claws called talons.",
         "wrong": {
           "A": "A pellet is what an owl coughs up.",
           "C": "Species means kinds of owls.",
@@ -714,7 +714,7 @@
         ],
         "answer": "D",
         "skill": "cause-effect",
-        "why": "The text says the soft, fringed edges of the wing feathers quiet the rush of air.",
+        "why": "In the text, the soft, fringed edges of the wing feathers quiet the rush of air.",
         "wrong": {
           "A": "The text does not say that the owl flies high.",
           "B": "The reason given is the owl's quiet wings, not what the mouse is doing.",
@@ -784,7 +784,7 @@
         ],
         "answer": "C",
         "skill": "cause-effect",
-        "why": "The text says the soft, fringed edges of its wing feathers reduce the turbulent noise of rushing air.",
+        "why": "In the text, the soft, fringed edges of its wing feathers reduce the turbulent noise of rushing air.",
         "wrong": {
           "A": "The text does not say it flaps slowly.",
           "B": "Flying high is not given as the reason.",
@@ -818,7 +818,7 @@
         ],
         "answer": "B",
         "skill": "inference",
-        "why": "The text says many owls rest in trees by day, where the patterns of their feathers provide effective camouflage.",
+        "why": "In the text, many owls rest in trees by day, where the patterns of their feathers provide effective camouflage.",
         "wrong": {
           "A": "The text does not link the color to warmth.",
           "C": "Soft, fringed edges, not color, make the flight silent.",

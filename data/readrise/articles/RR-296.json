@@ -138,7 +138,7 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The article says people dry the leaves and grind them into a powder.",
+          "why": "In the article, people dry the leaves and grind them into a powder.",
           "wrong": {
             "A": "Boiling in oil is not mentioned.",
             "B": "Freezing is not mentioned.",
@@ -155,7 +155,7 @@
           ],
           "answer": "A",
           "skill": "detail",
-          "why": "The article says the skin turns a nice red-brown color.",
+          "why": "In the article, the skin turns a nice red-brown color.",
           "wrong": {
             "B": "Blue is not mentioned.",
             "C": "White is not mentioned.",
@@ -324,20 +324,20 @@
           }
         },
         {
-          "stem": "How does a henna artist usually apply the paste to the skin?",
+          "stem": "What color is henna paste before it dries?",
           "options": [
-            "With a paintbrush",
-            "Through a small cone or bottle",
-            "By pressing the paste on using only bare fingers and nothing else at all",
-            "Using a stamp"
+            "Bright blue or white",
+            "Dark green or brown",
+            "Pale pink or yellow",
+            "Shiny silver or gold"
           ],
           "answer": "B",
           "skill": "detail",
-          "why": "The article says the artist pipes the paste through a small cone or plastic bottle.",
+          "why": "The paste looks dark green or brown before it dries on the skin.",
           "wrong": {
-            "A": "A paintbrush is not mentioned.",
-            "C": "Bare fingers are not described.",
-            "D": "A stamp is not mentioned."
+            "A": "Blue and white are not named.",
+            "C": "Pink and yellow are not named.",
+            "D": "Silver and gold are not named."
           }
         },
         {
@@ -511,7 +511,7 @@
           ],
           "answer": "B",
           "skill": "detail",
-          "why": "The article explains that the pigment colors only the outermost layer of skin, which naturally sheds over time.",
+          "why": "In the article, the pigment colors only the outermost layer of skin, which naturally sheds over time.",
           "wrong": {
             "A": "No removal tool is mentioned.",
             "C": "Painting over the design is not described.",
@@ -624,7 +624,7 @@
         ],
         "answer": "B",
         "skill": "sequence",
-        "why": "The text says people dry the leaves and then grind them into a powder.",
+        "why": "In the text, people dry the leaves and then grind them into a powder.",
         "wrong": {
           "A": "The paste goes on the hand after the powder is mixed with water.",
           "C": "The text does not say the leaves are cut into strips.",
@@ -641,7 +641,7 @@
         ],
         "answer": "D",
         "skill": "detail",
-        "why": "The text says they mix the powder with water to make a paste.",
+        "why": "They mix the powder with water to make a paste.",
         "wrong": {
           "A": "Sand is not mentioned.",
           "B": "Milk is not mentioned.",
@@ -694,7 +694,7 @@
         ],
         "answer": "C",
         "skill": "detail",
-        "why": "The article says the paste must stay on the skin long enough to dry, which takes a few hours.",
+        "why": "The paste must stay on the skin long enough to dry, which takes a few hours.",
         "wrong": {
           "A": "A few seconds is much too short.",
           "B": "One year is much too long.",
@@ -815,7 +815,7 @@
         ],
         "answer": "B",
         "skill": "cause-effect",
-        "why": "The article says the paste must stay on long enough to dry completely and set, sometimes for an entire night.",
+        "why": "In the article, the paste must stay on long enough to dry completely and set, sometimes for an entire night.",
         "wrong": {
           "A": "The leaves are already ground into powder.",
           "C": "The paste is not used to wash away skin.",

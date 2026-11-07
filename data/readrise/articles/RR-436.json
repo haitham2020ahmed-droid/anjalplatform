@@ -644,7 +644,7 @@
         ],
         "answer": "C",
         "skill": "cause-effect",
-        "why": "The text says the players pass the ball well and help each other score.",
+        "why": "In the story, the players pass the ball well and help each other score.",
         "wrong": {
           "A": "Nothing in the story says they stop practicing.",
           "B": "The coach smiles at the end, he is not angry.",
@@ -731,7 +731,7 @@
         ],
         "answer": "B",
         "skill": "cause-effect",
-        "why": "The text says that in real games the players try to score on their own instead of following the team's strategy.",
+        "why": "In real games the players try to score on their own instead of following the team's strategy.",
         "wrong": {
           "A": "The team practices every week.",
           "C": "The text never says they cannot hear him.",
@@ -801,7 +801,7 @@
         ],
         "answer": "A",
         "skill": "cause-effect",
-        "why": "The text says that under real pressure the players abandon the advice and try to score independently.",
+        "why": "In the text, under real pressure the players abandon the advice and try to score independently.",
         "wrong": {
           "B": "He repeats the same lesson.",
           "C": "The text does not say they are bored.",

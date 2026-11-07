@@ -282,6 +282,25 @@ export async function syncStretchChunk(repo: Repo, root: string = process.cwd(),
   return out;
 }
 
+/**
+ * 🔄 round 7 (owner, 7 Nov 2026): "Update articles from files" — re-imports the article files [start, start + size)
+ * into the platform library through the normal import (importArticleJson): new articles are created and CHANGED
+ * versions / questions / explanations / stretch sets are updated; unchanged rows cost no writes (content-diff skip).
+ * Needed after a deploy that corrects article content (the seed only adds missing articles). One short chunk per call.
+ */
+export const LIBRARY_SYNC_CHUNK = 10;
+export async function syncLibraryChunk(repo: Repo, root: string = process.cwd(), start = 0, size = LIBRARY_SYNC_CHUNK): Promise<StretchSyncChunk> {
+  const dir = articleDir(root);
+  const files = existsSync(dir) ? articleFiles(dir) : [];
+  const from = Math.max(0, Math.floor(Number(start) || 0)), part = files.slice(from, from + Math.max(1, Math.min(50, size)));
+  const rep: LibrarySeedReport = { files: 0, created: 0, updated: 0, skipped: [] };
+  for (const f of part) { rep.files++; await importFile(repo, dir, f, rep, () => undefined); }
+  return {
+    next: from + part.length < files.length ? from + part.length : null, total: files.length, scanned: part.length,
+    added: rep.created, articles: rep.created + rep.updated, problems: rep.skipped,
+  };
+}
+
 /** How many stretch questions the library holds per stretch band (the admin page). */
 export async function stretchQuestionCounts(repo: Repo): Promise<Record<string, number>> {
   const out: Record<string, number> = {};

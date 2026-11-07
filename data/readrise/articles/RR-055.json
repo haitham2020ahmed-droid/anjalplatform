@@ -138,7 +138,7 @@
           ],
           "answer": "A",
           "skill": "detail",
-          "why": "The article says the Nile runs north and ends at the sea.",
+          "why": "In the article, the Nile runs north and ends at the sea.",
           "wrong": {
             "B": "The rain falls in the south, but the river flows north.",
             "C": "The article does not say it flows east.",
@@ -155,7 +155,7 @@
           ],
           "answer": "D",
           "skill": "detail",
-          "why": "The article says the water left dark mud that made the soil good for crops.",
+          "why": "In the article, the flood water left dark, rich soil that was good for crops.",
           "wrong": {
             "A": "Sand is in the desert. The flood left dark soil.",
             "B": "The article does not talk about rocks.",
@@ -317,7 +317,7 @@
           ],
           "answer": "D",
           "skill": "detail",
-          "why": "The article says the two branches join at the city of Khartoum, in Sudan.",
+          "why": "In the article, the two branches join at the city of Khartoum, in Sudan.",
           "wrong": {
             "A": "The White Nile begins near Lake Victoria; it does not meet the Blue Nile there.",
             "B": "Lake Tana is where the Blue Nile begins.",
@@ -334,7 +334,7 @@
           ],
           "answer": "A",
           "skill": "cause-effect",
-          "why": "The article explains that heavy summer rains fell on the Ethiopian highlands and raised the river.",
+          "why": "In the article, heavy summer rains fell on the Ethiopian highlands and raised the river.",
           "wrong": {
             "B": "The article does not say sea water caused the flood.",
             "C": "There is no snow in the desert in the article.",
@@ -402,7 +402,7 @@
           ],
           "answer": "C",
           "skill": "inference",
-          "why": "The article says the silt stays behind the dam, so the fields no longer get it and farmers must add plant food.",
+          "why": "In the article, the silt stays behind the dam, so the fields no longer get it and farmers must add plant food.",
           "wrong": {
             "A": "The dam ended the floods.",
             "B": "The dam stores water; farmers still have water.",
@@ -496,7 +496,7 @@
           ],
           "answer": "C",
           "skill": "vocabulary",
-          "why": "The article describes networks of smaller streams contributing water to the main channel as tributaries.",
+          "why": "A tributary is a smaller stream that adds its water to a bigger river.",
           "wrong": {
             "A": "That describes a delta.",
             "B": "That describes an irrigation canal.",
@@ -513,7 +513,7 @@
           ],
           "answer": "B",
           "skill": "cause-effect",
-          "why": "The article says canals let water reach fields located farther from the riverbanks.",
+          "why": "Canals carried water to fields that were farther from the river.",
           "wrong": {
             "A": "The canals spread water; they did not empty the river.",
             "C": "Boats used sails and wind to go south, not canals.",
@@ -530,7 +530,7 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The article states that the Aswan High Dam stores water in a reservoir named Lake Nasser.",
+          "why": "In the article, the Aswan High Dam stores water in a reservoir named Lake Nasser.",
           "wrong": {
             "A": "The Blue Nile emerges from Lake Tana.",
             "B": "The article does not place Lake Nasser in the delta.",
@@ -583,7 +583,7 @@
           "skill": "compare",
           "why": "The article lists both the benefits (no floods, hydroelectric power) and the cost (trapped sediment).",
           "wrong": {
-            "A": "The article says the dam eliminated the floods.",
+            "A": "In the article, the dam eliminated the floods.",
             "C": "The article does not say the delta moved.",
             "D": "The branches still flow north to meet at Khartoum."
           }
@@ -627,7 +627,7 @@
         ],
         "answer": "A",
         "skill": "detail",
-        "why": "The text says the Blue Nile starts in the hills.",
+        "why": "In the text, the Blue Nile starts high up in the hills.",
         "wrong": {
           "B": "The White Nile starts near a big lake.",
           "C": "The Nile ends at the sea; it does not start there.",
@@ -644,7 +644,7 @@
         ],
         "answer": "C",
         "skill": "cause-effect",
-        "why": "The text says rain fell far off, so the river rose and spread on the land.",
+        "why": "In the text, rain fell far off, so the river rose and spread on the land.",
         "wrong": {
           "A": "The dark soil was left after the flood, not before.",
           "B": "The text does not say the sea pushed the river back.",
@@ -697,7 +697,7 @@
         ],
         "answer": "B",
         "skill": "detail",
-        "why": "The text says the Blue Nile starts at Lake Tana, high in the mountains of Ethiopia.",
+        "why": "In the text, the Blue Nile starts at Lake Tana, high in the mountains of Ethiopia.",
         "wrong": {
           "A": "The White Nile begins around Lake Victoria.",
           "C": "Khartoum is where the two branches meet.",
@@ -718,7 +718,7 @@
         "wrong": {
           "A": "The text does not say the sea is too cold.",
           "B": "The river is about 6,650 kilometers long.",
-          "C": "The text says boats traveled north and south on the river."
+          "C": "Boats traveled up and down the river."
         }
       },
       {
@@ -767,7 +767,7 @@
         ],
         "answer": "C",
         "skill": "detail",
-        "why": "The text says the two branches unite at the city of Khartoum, in Sudan.",
+        "why": "In the text, the two branches unite at the city of Khartoum, in Sudan.",
         "wrong": {
           "A": "Lake Victoria is where the White Nile begins.",
           "B": "Lake Nasser is the reservoir behind the dam.",
@@ -775,20 +775,20 @@
         }
       },
       {
-        "stem": "What caused the Blue Nile to carry extra water downstream each summer?",
+        "stem": "What made the land along the Nile so good for farming?",
         "options": [
-          "Heavy rains in the highlands",
-          "Water let out from Lake Nasser",
-          "Melting snow in the desert",
-          "Canals that the farmers dug"
+          "Floods left rich sediment on the fields",
+          "Farmers covered fields with desert sand",
+          "Snow melted on the fields each spring",
+          "Wind brought salt from the sea"
         ],
         "answer": "A",
         "skill": "cause-effect",
-        "why": "The text says heavy seasonal rains drenched the Ethiopian highlands and the Blue Nile carried the extra water.",
+        "why": "Each summer the Nile flooded and left a layer of rich sediment, which acted like natural fertilizer.",
         "wrong": {
-          "B": "Lake Nasser was made by the dam, which ended the floods.",
-          "C": "The text says rain is rare in the desert.",
-          "D": "The canals only moved water to the fields."
+          "B": "Desert sand does not make soil rich.",
+          "C": "Snow does not fall on these fields.",
+          "D": "Salt harms crops."
         }
       },
       {
@@ -805,7 +805,7 @@
         "wrong": {
           "A": "The sailors depended on this wind, so it is not rare.",
           "B": "The text does not say the wind is cold or wet.",
-          "C": "The text says only that it blows from the north."
+          "C": "The winds came from the north; prevailing means blowing most of the time, not blowing in from the sea."
         }
       },
       {

@@ -93,19 +93,22 @@ describe("🚀 ReadRise: placement, the 5-step routine, the level engine and goa
       return { steps, plan: placementPlan(start, steps, PASSAGES) };
     };
     // 700 (3/3) → 900 (2/3) → 1000 (0/3, first reversal) → 900 (±100 now) …
-    const a = run(700, [3, 2, 0, 3, 1, 2, 1, 2, 3, 3]);
+    const a = run(700, [3, 2, 0, 3, 1, 2, 1, 2, 3, 3, 1, 2, 2, 3]);
     assert.deepEqual(a.steps.map((x) => x.level).slice(0, 4), [700, 900, 1000, 900]);
-    assert.ok(a.steps.every((x, i) => i === 0 || Math.abs(x.level - a.steps[i - 1].level) <= 200));
+    // (round 7: checked over the first 10 — with only 3 passages per level here, by passage 11 the levels around 900
+    // are used up and the nearest free level can be 300 away; the real content has 6 per level)
+    assert.ok(a.steps.slice(0, 10).every((x, i) => i === 0 || Math.abs(x.level - a.steps[i - 1].level) <= 200));
     // (only 3 passages per level here: once a level's passages are used up the nearest free level is taken)
     assert.ok(a.steps.slice(3, 7).every((x, i) => Math.abs(x.level - a.steps[i + 2].level) === 100), "±100 after the first reversal");
     assert.equal(new Set(a.steps.map((x) => x.passageId)).size, a.steps.length, "no passage twice");
-    // round 6 (LevelSet-like): at least 8 passages, at most 13, three reversals end it (was 5 / 8 / 2)
-    assert.ok(a.plan.done && a.steps.length >= 8 && a.steps.length <= 13);
+    // round 6 (LevelSet-like): at most 13, three reversals end it (was 5 / 8 / 2); round 7: at least 12 (was 8)
+    assert.ok(a.plan.done && a.steps.length >= 12 && a.steps.length <= 13);
     const b = run(800, [3, 0, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3]);
-    assert.ok(b.steps.length >= 8 && b.plan.done);
+    // (round 7: it climbs to the top and passes 1600 twice — nothing higher to show, so it may end before 12)
+    assert.ok(b.plan.done && (b.steps.length >= 12 || b.steps.filter((x) => x.level === 1600 && x.correct === 3).length >= 2));
     // never more than 13
     const zig = run(800, Array.from({ length: 20 }, (_, i) => (i % 2 ? 1 : 2)));
-    assert.ok(zig.plan.done && zig.steps.length >= 8 && zig.steps.length <= 13);
+    assert.ok(zig.plan.done && zig.steps.length >= 12 && zig.steps.length <= 13);
     // from 300 all right: climbs to the top; passing the top level (1600) twice ends the test (nothing higher)
     const c = run(300, [3, 3, 3, 3, 3, 3, 3, 3, 3, 3]);
     assert.deepEqual(c.steps.map((x) => x.level), [300, 500, 700, 900, 1100, 1300, 1500, 1600, 1600]);
@@ -115,9 +118,10 @@ describe("🚀 ReadRise: placement, the 5-step routine, the level engine and goa
 
   test("placement result: highest 2+/3 level not above a level failed twice; MAP blend over 250", () => {
     const st = (level: number, correct: number, k = 1): PlacementStep => ({ level, passageId: `P${level}-${k}`, answers: [], correct });
-    assert.equal(placementResult([st(700, 3), st(900, 2), st(1000, 1), st(900, 3, 2), st(1000, 0, 2)], 700), 900);
-    // a pass above a level failed twice does not count
-    assert.equal(placementResult([st(800, 1), st(800, 0, 2), st(900, 2), st(700, 3)], 800), 700);
+    // round 7: the result is the level that best explains all the answers, within 100 of this rule (900 → 910)
+    assert.equal(placementResult([st(700, 3), st(900, 2), st(1000, 1), st(900, 3, 2), st(1000, 0, 2)], 700), 910);
+    // a pass above a level failed twice does not count (rule 700; round 7 estimate 710)
+    assert.equal(placementResult([st(800, 1), st(800, 0, 2), st(900, 2), st(700, 3)], 800), 710);
     // round 6: below 300 is real — nothing passed: one step under the lowest level read (floor RR_FLOOR)
     assert.equal(placementResult([st(500, 0), st(300, 1)], 500), 200, "one step under 300");
     assert.equal(placementResult([st(-200, 0), st(-200, 1, 2)], 300), -300, "BR300L");
@@ -145,7 +149,7 @@ describe("🚀 ReadRise: placement, the 5-step routine, the level engine and goa
       res = await answerPlacement(repo, s, pid, v.passage!.id, pAns(n % 2 ? 1 : 3), PASSAGES, at(0, n));
       n++;
     } while (!res.done);
-    assert.ok(n >= 8 && n <= 13, `round 6: 8–13 passages (was 5–8), got ${n}`);
+    assert.ok(n >= 12 && n <= 13, `round 7: 12–13 passages (was 8–13), got ${n}`);
     const rr = (await repo.findUnique("RRStudent", { studentId: s.studentId }))!;
     assert.deepEqual([rr.source, Number(rr.level), Number(rr.startLevel)], ["PLACEMENT", res.result, res.result]);
     const ch = await repo.findMany("RRLevelChange", { studentId: s.studentId });

@@ -138,7 +138,7 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The article says a motor turns the wheel.",
+          "why": "In the article, a motor turns the wheel.",
           "wrong": {
             "A": "The cables go over the wheel; they do not turn it.",
             "B": "The block hangs on the cables; it helps, but it does not turn the wheel.",
@@ -155,7 +155,7 @@
           ],
           "answer": "A",
           "skill": "detail",
-          "why": "The article says when the car goes up, the block goes down.",
+          "why": "In the article, when the car goes up, the block goes down.",
           "wrong": {
             "B": "It moves the other way.",
             "C": "It stays on the cables.",
@@ -172,7 +172,7 @@
           ],
           "answer": "D",
           "skill": "cause-effect",
-          "why": "The article says the block helps lift the car, so the motor does less work.",
+          "why": "In the article, the block helps lift the car, so the motor does less work.",
           "wrong": {
             "A": "Doors are not linked to the block.",
             "B": "Lights are not mentioned.",
@@ -180,7 +180,7 @@
           }
         },
         {
-          "stem": "Read this: \"If a cable breaks, the brake grabs the rails.\" What does a brake do?",
+          "stem": "If a cable breaks, a brake grabs the rails. What does a brake do?",
           "options": [
             "It makes the lift move faster between the floors",
             "It turns on the motor",
@@ -244,7 +244,7 @@
           "wrong": {
             "A": "Most lifts have cables.",
             "B": "The article does not say this.",
-            "D": "The article says lifts can be fast."
+            "D": "Lifts can be fast, so slowness is not the reason."
           }
         }
       ],
@@ -317,7 +317,7 @@
           ],
           "answer": "B",
           "skill": "detail",
-          "why": "The article says it weighs about as much as the car plus part of a full load.",
+          "why": "In the article, it weighs about as much as the car plus part of a full load.",
           "wrong": {
             "A": "It is far heavier than one passenger.",
             "C": "It is heavier than the empty car.",
@@ -334,7 +334,7 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The article says a metal rod under the car is pushed up by oil under pressure.",
+          "why": "In the article, a metal rod under the car is pushed up by oil under pressure.",
           "wrong": {
             "A": "Hydraulic elevators do not use cables this way.",
             "B": "No counterweight is described for them.",
@@ -342,7 +342,7 @@
           }
         },
         {
-          "stem": "Read this: \"it helps balance the car.\" What does balance mean here?",
+          "stem": "In the article, what does the word \"balance\" mean?",
           "options": [
             "To paint evenly",
             "To slow down quickly",
@@ -368,7 +368,7 @@
           ],
           "answer": "C",
           "skill": "cause-effect",
-          "why": "The article says the motor needs much less power because the counterweight balances the car.",
+          "why": "In the article, the motor needs much less power because the counterweight balances the car.",
           "wrong": {
             "A": "The cables are still needed.",
             "B": "Doors are not affected.",
@@ -504,7 +504,7 @@
           }
         },
         {
-          "stem": "Read this: \"this grip, known as traction, enables the rotating wheel to raise or lower the car.\" What does traction mean?",
+          "stem": "In the article, what does the word \"traction\" mean?",
           "options": [
             "A grip that prevents slipping",
             "A type of electric motor",
@@ -530,7 +530,7 @@
           ],
           "answer": "C",
           "skill": "cause-effect",
-          "why": "The article says the balanced car needs considerably less energy, which reduces electricity costs and wear.",
+          "why": "The balanced car needs much less energy, which lowers electricity costs and wear.",
           "wrong": {
             "A": "Cooling is not mentioned.",
             "B": "Elevators carry passengers either way.",
@@ -547,7 +547,7 @@
           ],
           "answer": "D",
           "skill": "sequence",
-          "why": "The article says oil under pressure forces a piston upward, which lifts the car.",
+          "why": "In the article, oil under pressure forces a piston upward, which lifts the car.",
           "wrong": {
             "A": "Hydraulic elevators lift from below, not with a sheave.",
             "B": "No counterweight is described for hydraulic elevators.",
@@ -581,7 +581,7 @@
           ],
           "answer": "C",
           "skill": "inference",
-          "why": "The article says they accelerate gradually so passengers remain comfortable and ears can adjust to pressure.",
+          "why": "They speed up slowly so passengers stay comfortable and their ears can adjust.",
           "wrong": {
             "A": "The article says they are very fast.",
             "B": "The article does not mention rules.",
@@ -627,7 +627,7 @@
         ],
         "answer": "A",
         "skill": "vocabulary",
-        "why": "The text says the shaft is like a long tube in the house.",
+        "why": "In the text, the shaft is like a long tube in the house.",
         "wrong": {
           "B": "The big wheel is at the top of the shaft; it is not the shaft.",
           "C": "The cables hang inside the shaft.",
@@ -644,7 +644,7 @@
         ],
         "answer": "B",
         "skill": "detail",
-        "why": "The text says you can stand on a bridge at the top.",
+        "why": "In the text, you can stand on a bridge at the top.",
         "wrong": {
           "A": "The text does not mention a train.",
           "C": "The text does not mention a pool.",
@@ -664,8 +664,8 @@
         "why": "The question shows that very few people would want to climb so many floors, so lifts are needed.",
         "wrong": {
           "A": "The question suggests people would not want to climb.",
-          "B": "The text says lifts make tall towers work.",
-          "D": "The text says lifts made tall towers work."
+          "B": "Lifts make tall towers possible.",
+          "D": "Lifts made tall towers possible."
         }
       },
       {
@@ -767,7 +767,7 @@
         ],
         "answer": "A",
         "skill": "detail",
-        "why": "The article says modern elevators hang from several cables, each strong enough to hold the car alone.",
+        "why": "Modern elevators hang from several cables, and each one is strong enough to hold the car alone.",
         "wrong": {
           "B": "The article says several cables are used.",
           "C": "The cables are not said to be hidden in the rails.",
@@ -801,7 +801,7 @@
         ],
         "answer": "B",
         "skill": "cause-effect",
-        "why": "The article says computers decide which car answers each call so that passengers wait as little as possible.",
+        "why": "In the article, computers decide which car answers each call so that passengers wait as little as possible.",
         "wrong": {
           "A": "Cables are not said to need cooling.",
           "C": "The counterweight is meant to reduce energy use.",

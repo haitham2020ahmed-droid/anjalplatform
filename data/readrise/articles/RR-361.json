@@ -138,7 +138,7 @@
           ],
           "answer": "D",
           "skill": "detail",
-          "why": "The story says he climbs the stairs to check that the light is working properly.",
+          "why": "In the story, he climbs the stairs to check that the light is working properly.",
           "wrong": {
             "A": "The story does not mention dinner.",
             "B": "He is not watching waves for fun; he is worried about ships.",
@@ -155,7 +155,7 @@
           ],
           "answer": "A",
           "skill": "sequence",
-          "why": "The story says his foot slips on a wet step and he falls, hurting his ankle.",
+          "why": "In the story, his father falls and hurts his foot badly.",
           "wrong": {
             "B": "He does not fall asleep; he falls because he slips.",
             "C": "The story does not say he drops the lantern into the sea.",
@@ -334,7 +334,7 @@
           ],
           "answer": "C",
           "skill": "cause-effect",
-          "why": "The story explains ships depend on the steady beam to avoid the hidden rocks near the shore.",
+          "why": "In the story, ships depend on the steady beam to avoid the hidden rocks near the shore.",
           "wrong": {
             "A": "The story is about light, not horns.",
             "B": "Water supply is not mentioned.",
@@ -627,7 +627,7 @@
         ],
         "answer": "A",
         "skill": "detail",
-        "why": "The text says Yusuf checks the lamp and turns a switch, and then the beam spins.",
+        "why": "In the story, Yusuf checks the lamp and flips the switch.",
         "wrong": {
           "B": "The text does not say Yusuf paints anything.",
           "C": "The text does not mention oil.",
@@ -697,7 +697,7 @@
         ],
         "answer": "B",
         "skill": "detail",
-        "why": "The text says he falls halfway up the dark stairway.",
+        "why": "In the text, he falls halfway up the dark stairway.",
         "wrong": {
           "A": "He never reaches the top.",
           "C": "He has already climbed part of the stairs.",
@@ -714,7 +714,7 @@
         ],
         "answer": "A",
         "skill": "cause-effect",
-        "why": "The text says his foot slips on a wet step and he falls against the wall.",
+        "why": "In the text, his foot slips on a wet step and he falls against the wall.",
         "wrong": {
           "B": "The text does not say the lantern goes out.",
           "C": "Waves crash on the rocks far below, not on him.",

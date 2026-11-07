@@ -138,7 +138,7 @@
      ],
      "answer": "B",
      "skill": "detail",
-     "why": "The article says rain fell long ago and sank deep into the ground and rock. It is still there now.",
+     "why": "In the article, rain fell long ago and sank deep into the ground and rock. It is still there now.",
      "wrong": {
       "A": "The article does not say the wind carries sea water.",
       "C": "The article does not talk about snow.",
@@ -317,7 +317,7 @@
      ],
      "answer": "D",
      "skill": "detail",
-     "why": "The article says groundwater collected in layers of rock called an aquifer.",
+     "why": "In the article, groundwater collected in layers of rock called an aquifer.",
      "wrong": {
       "A": "A hole people dig to reach water is a well.",
       "B": "The article does not define an aquifer as a channel.",
@@ -334,7 +334,7 @@
      ],
      "answer": "B",
      "skill": "detail",
-     "why": "The article says fruit trees grow in the palms' shade, and farmers plant vegetables beneath them.",
+     "why": "In the article, fruit trees grow in the palms' shade, and farmers plant vegetables beneath them.",
      "wrong": {
       "A": "The article does not say only grass grows there.",
       "C": "Cactus plants are not mentioned.",
@@ -368,7 +368,7 @@
      ],
      "answer": "D",
      "skill": "inference",
-     "why": "The article says rain soaked into the ground long ago, when the land was wetter, and much of it is still stored there.",
+     "why": "In the article, rain soaked into the ground long ago, when the land was wetter, and much of it is still stored there.",
      "wrong": {
       "A": "The article never says caravans buried water.",
       "B": "Trees use water; they do not make groundwater.",
@@ -521,7 +521,7 @@
      }
     },
     {
-     "stem": "Read this phrase: \"faster than nature can replenish it.\" What does replenish mean?",
+     "stem": "Pumping can take groundwater faster than nature can replenish it. What does replenish mean?",
      "options": [
       "to pollute something",
       "to measure something carefully",
@@ -564,7 +564,7 @@
      ],
      "answer": "D",
      "skill": "inference",
-     "why": "An island is land surrounded by water. An oasis is the reverse: a small area of water and life surrounded by a 'sea' of dry desert.",
+     "why": "An island is land surrounded by water. An oasis is the reverse: a small area of water and life surrounded by dry desert.",
      "wrong": {
       "A": "Oases are in deserts, not oceans.",
       "B": "Travelers reached oases on camels, not boats.",
@@ -598,7 +598,7 @@
      ],
      "answer": "C",
      "skill": "cause-effect",
-     "why": "The article states that when groundwater is pumped faster than it is replenished, springs gradually disappear.",
+     "why": "When groundwater is pumped faster than nature refills it, springs slowly disappear.",
      "wrong": {
       "A": "Overpumping lowers the water; it does not cause overflow.",
       "B": "Less water would not make the soil more fertile.",
@@ -627,7 +627,7 @@
     ],
     "answer": "C",
     "skill": "detail",
-    "why": "The text says that in some spots the water comes up by itself, and that is a spring.",
+    "why": "In the text, the water comes up by itself in some places, and that is a spring.",
     "wrong": {
      "A": "A hole that people dig is a well.",
      "B": "The small pipes drip water on plants, but they are not a spring.",
@@ -767,7 +767,7 @@
     ],
     "answer": "B",
     "skill": "detail",
-    "why": "The text says farmers cultivate vegetables closer to the ground, below the date palms and fruit trees.",
+    "why": "In the text, farmers cultivate vegetables closer to the ground, below the date palms and fruit trees.",
     "wrong": {
      "A": "Date palms are the tallest layer.",
      "C": "Fruit trees grow in the shade, under the palms.",
@@ -784,7 +784,7 @@
     ],
     "answer": "D",
     "skill": "cause-effect",
-    "why": "The text says oases offer water, food, and shelter that are rare in the surrounding desert.",
+    "why": "Oases offer water and shelter that are rare in the desert around them.",
     "wrong": {
      "A": "The text does not say oases are cold.",
      "B": "Settlements and farms grow around oases.",
@@ -822,7 +822,7 @@
     "wrong": {
      "A": "The ending is hopeful, not a warning of a certain end.",
      "B": "The ending does not explain how to build a well.",
-     "D": "The article says very little rain falls."
+     "D": "Very little rain falls in the desert."
     }
    }
   ]

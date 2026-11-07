@@ -317,7 +317,7 @@
           ],
           "answer": "B",
           "skill": "detail",
-          "why": "The story says Noor begins helping her aunt every day, learning to shape clay and understand minerals.",
+          "why": "In the story, Noor begins helping her aunt every day, learning to shape clay and understand minerals.",
           "wrong": {
             "A": "No old books are mentioned in the story.",
             "C": "Noor stays and works in her aunt's own workshop.",
@@ -351,7 +351,7 @@
           ],
           "answer": "B",
           "skill": "cause-effect",
-          "why": "The story says her second attempt cracks badly in the intense heat of the kiln.",
+          "why": "In the story, her second attempt cracks badly in the intense heat of the kiln.",
           "wrong": {
             "A": "The story blames the heat, not the clay's softness.",
             "C": "No accident with Aunt Hind is mentioned.",
@@ -627,7 +627,7 @@
         ],
         "answer": "B",
         "skill": "detail",
-        "why": "The text says a potter makes pots from clay.",
+        "why": "In the text, a potter makes pots from clay.",
         "wrong": {
           "A": "Pots are not made from wood.",
           "C": "Pots are not made from metal.",
@@ -748,7 +748,7 @@
         ],
         "answer": "B",
         "skill": "detail",
-        "why": "The text says Noor learned how different minerals change a glaze's color.",
+        "why": "In the text, Noor learned how different minerals change a glaze's color.",
         "wrong": {
           "A": "A shelf does not change color.",
           "C": "The smell of clay is not linked to color.",

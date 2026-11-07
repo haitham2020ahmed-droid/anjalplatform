@@ -121,7 +121,7 @@
      ],
      "answer": "B",
      "skill": "central-idea",
-     "why": "The article explains the dangers turtles face when nesting and how people work to protect them.",
+     "why": "In the article, the dangers turtles face when nesting and how people work to protect them.",
      "wrong": {
       "A": "The article does not explain how turtles learn to swim.",
       "C": "Hotel buildings are mentioned as a danger, not the main idea.",
@@ -172,7 +172,7 @@
      ],
      "answer": "D",
      "skill": "inference",
-     "why": "The article explains that bright lights can confuse a hatchling and make it crawl the wrong way.",
+     "why": "In the article, lights can make a hatchling go the wrong way.",
      "wrong": {
       "A": "The article does not say turtles like hotels.",
       "B": "Lights are not food.",
@@ -303,25 +303,25 @@
      "why": "The article explains the threats turtles face and the solutions, such as reserves and hatcheries, that help them.",
      "wrong": {
       "B": "The article says turtles live in the wild, not only in zoos.",
-      "C": "The article says the Red Sea has sandy nesting beaches.",
+      "C": "In the article, the Red Sea has sandy nesting beaches.",
       "D": "Lights confuse hatchlings by accident, not on purpose."
      }
     },
     {
-     "stem": "According to the article, about how long do turtle eggs take to hatch?",
+     "stem": "According to the article, where do workers take turtle eggs from unsafe beaches?",
      "options": [
-      "A few days",
-      "About two long years or more",
-      "About two months",
-      "Only one week"
+      "To a large city zoo",
+      "Far out into the sea",
+      "To a safe hatchery",
+      "To a school classroom"
      ],
      "answer": "C",
      "skill": "detail",
-     "why": "The article states that the eggs develop on their own for about two months.",
+     "why": "Workers take eggs from unsafe beaches to a hatchery, where they stay safe until they hatch.",
      "wrong": {
-      "A": "A few days is far too short.",
-      "B": "Two years is far too long.",
-      "D": "One week is too short."
+      "A": "A zoo is not named.",
+      "B": "Eggs cannot hatch in the sea.",
+      "D": "A classroom is not named."
      }
     },
     {
@@ -334,7 +334,7 @@
      ],
      "answer": "D",
      "skill": "vocabulary",
-     "why": "The article describes a reserve as a protected area where nests cannot be disturbed by building or traffic.",
+     "why": "In the article, a reserve is a safe, protected area for nests.",
      "wrong": {
       "A": "A reserve is a place, not a turtle.",
       "B": "A reserve is not a plastic bag.",
@@ -513,7 +513,7 @@
      ],
      "answer": "B",
      "skill": "detail",
-     "why": "The article explains that volunteers patrol the shore at night to guide hatchlings safely into the sea when fewer predators are hunting.",
+     "why": "In the article, volunteers patrol the shore at night to guide hatchlings safely into the sea when fewer predators are hunting.",
      "wrong": {
       "A": "Collecting sand is not mentioned.",
       "C": "Building hotels is described as a danger to turtles, not a patrol purpose.",
@@ -627,7 +627,7 @@
     ],
     "answer": "A",
     "skill": "sequence",
-    "why": "The text says she digs a hole in the sand and then lays eggs in the hole.",
+    "why": "In the text, she digs a hole in the sand and then lays eggs in the hole.",
     "wrong": {
      "B": "Eating a bag is a danger, not a step in nesting.",
      "C": "Hotels are not mentioned in this text.",
@@ -697,7 +697,7 @@
     ],
     "answer": "B",
     "skill": "detail",
-    "why": "The text says she digs the hole using her back flippers.",
+    "why": "In the text, she digs the hole using her back flippers.",
     "wrong": {
      "A": "Teeth are not mentioned.",
      "C": "The tail is not mentioned.",
@@ -731,7 +731,7 @@
     ],
     "answer": "A",
     "skill": "cause-effect",
-    "why": "The text says the bag looks like a jellyfish, a food that turtles like.",
+    "why": "In the text, the bag looks like a jellyfish, a food that turtles like.",
     "wrong": {
      "B": "Smell is not mentioned.",
      "C": "A nest is on the beach.",
@@ -748,7 +748,7 @@
     ],
     "answer": "B",
     "skill": "sequence",
-    "why": "The text says the eggs stay safe until they hatch, and then the hatchlings go into the sea at night.",
+    "why": "In the text, the eggs stay safe until they hatch, and then the hatchlings go into the sea at night.",
     "wrong": {
      "A": "Hotels cause bright lights and are not mentioned here.",
      "C": "The mother has already left.",

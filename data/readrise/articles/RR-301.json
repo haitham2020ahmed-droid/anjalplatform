@@ -163,7 +163,7 @@
           }
         },
         {
-          "stem": "The article says the teller said some words \"again and again.\" What is this called?",
+          "stem": "When a storyteller says some words again and again, what is this called?",
           "options": [
             "A lesson",
             "A whisper",
@@ -317,7 +317,7 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The article says tellers shifted their voice to match each character so listeners could recognize who was speaking.",
+          "why": "In the article, tellers shifted their voice to match each character so listeners could recognize who was speaking.",
           "wrong": {
             "A": "The article does not connect voice changes to a faster ending.",
             "B": "Changing voices kept listeners interested, not bored.",
@@ -368,7 +368,7 @@
           ],
           "answer": "C",
           "skill": "cause-effect",
-          "why": "The article says repetition let the audience chant familiar lines together, which helped them remember the tale.",
+          "why": "In the article, repetition let the audience chant familiar lines together, which helped them remember the tale.",
           "wrong": {
             "A": "Repetition made a story feel familiar, not shorter.",
             "B": "The lesson stayed the same throughout the tale.",
@@ -490,13 +490,13 @@
           "stem": "According to the article, where did storytellers in Arabia traditionally gather an audience?",
           "options": [
             "In a crowded marketplace at noon",
-            "In the evening cool of a majlis",
+            "In a majlis, with listeners",
             "On a stage built for festivals",
             "Inside a school classroom"
           ],
           "answer": "B",
           "skill": "detail",
-          "why": "The article states that storytellers gathered listeners in the evening cool of a majlis.",
+          "why": "Storytellers gathered listeners in a majlis, where storytelling was part of a shared culture.",
           "wrong": {
             "A": "The article does not mention a marketplace setting.",
             "C": "Festivals are mentioned only as a modern setting for storytelling.",
@@ -513,7 +513,7 @@
           ],
           "answer": "D",
           "skill": "detail",
-          "why": "The article states that repetition let the audience chant familiar lines together, reinforcing shared memory of the tale.",
+          "why": "In the article, repetition let the audience chant familiar lines together, reinforcing shared memory of the tale.",
           "wrong": {
             "A": "The article links repetition to engagement, not sleep.",
             "B": "These were oral tales, not written records.",
@@ -697,7 +697,7 @@
         ],
         "answer": "C",
         "skill": "detail",
-        "why": "The text says a careful whisper pulled listeners closer.",
+        "why": "In the text, a careful whisper pulled listeners closer.",
         "wrong": {
           "A": "The text never says a whisper made people sleep.",
           "B": "A whisper drew listeners in, not away.",
@@ -731,7 +731,7 @@
         ],
         "answer": "D",
         "skill": "cause-effect",
-        "why": "The article says the rhythm made long stories easier to follow and remember.",
+        "why": "In the article, the rhythm made long stories easier to follow and remember.",
         "wrong": {
           "A": "The beat helped listeners follow, and speed is not mentioned.",
           "B": "The audience joined in, so talking was not stopped.",
@@ -784,7 +784,7 @@
         ],
         "answer": "A",
         "skill": "cause-effect",
-        "why": "The article states that rhythm made long, intricate stories noticeably easier to follow and remember.",
+        "why": "In the article, rhythm made long, intricate stories noticeably easier to follow and remember.",
         "wrong": {
           "B": "The article does not say rhythm shortened a story.",
           "C": "The audience chanted lines together, so they were not silent.",

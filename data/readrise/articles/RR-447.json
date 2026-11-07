@@ -189,7 +189,7 @@
           ],
           "answer": "C",
           "skill": "inference",
-          "why": "The story says the parents were busy getting ready for the harvest, so they almost missed the warning.",
+          "why": "In the story, Mom and Dad were busy with the harvest.",
           "wrong": {
             "A": "The parents were working, not sleeping.",
             "B": "The parents were at home on the farm, not on a trip.",
@@ -317,7 +317,7 @@
           ],
           "answer": "D",
           "skill": "detail",
-          "why": "The story explains that young shoots have not yet grown the thicker bark that protects older branches from frost.",
+          "why": "Young shoots do not yet have the thicker bark that protects older branches from the cold.",
           "wrong": {
             "A": "The story does not mention birds eating the shoots.",
             "B": "The shoots grow inside the orchard, not far away.",
@@ -547,7 +547,7 @@
           ],
           "answer": "B",
           "skill": "inference",
-          "why": "The story says the parents were 'worn down' by Noor's quiet persistence, suggesting her patient reasoning is what changed their minds.",
+          "why": "In the story, Noor's calm, patient reasoning is what changed her parents' minds.",
           "wrong": {
             "A": "The parents initially protested, showing they had not already planned to follow it.",
             "C": "No neighbor appears in the story.",
@@ -601,7 +601,7 @@
           "why": "By having Noor credit her late grandma, the author highlights how traditional knowledge passed down through generations can still matter deeply.",
           "wrong": {
             "A": "Noor did feel quietly proud, even while crediting her grandma.",
-            "B": "The story refers to Noor's grandma as 'late,' meaning she had passed away.",
+            "B": "Grandma's advice came from years earlier; the story does not show her working on the farm.",
             "C": "The story shows Noor's help was valuable, not discouraged."
           }
         }
@@ -644,7 +644,7 @@
         ],
         "answer": "A",
         "skill": "vocabulary",
-        "why": "The text says the busy season of picking dates is called the harvest.",
+        "why": "In the story, picking the ripe dates each year is called the harvest.",
         "wrong": {
           "B": "The palms are trees; the harvest is the picking time.",
           "C": "A cold night is a danger, not the harvest.",
@@ -767,7 +767,7 @@
         ],
         "answer": "C",
         "skill": "detail",
-        "why": "The article says the orchard was near a village in Saudi Arabia's Qassim region.",
+        "why": "In the article, the orchard was near a village in Saudi Arabia's Qassim region.",
         "wrong": {
           "A": "The article places the orchard in Qassim, not the Eastern Province.",
           "B": "The article places the orchard in Qassim, not the Asir mountains.",
@@ -801,7 +801,7 @@
         ],
         "answer": "D",
         "skill": "cause-effect",
-        "why": "The article says each covering was tied so the wind could not tear it loose.",
+        "why": "In the article, each covering was tied so the wind could not tear it loose.",
         "wrong": {
           "A": "Tying the cloth was for protection.",
           "B": "Color is not mentioned.",

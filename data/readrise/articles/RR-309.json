@@ -138,7 +138,7 @@
      ],
      "answer": "C",
      "skill": "detail",
-     "why": "The article says copper is a soft, red-orange metal.",
+     "why": "In the article, copper is a soft, red-orange metal.",
      "wrong": {
       "A": "Gold color describes brass, not copper.",
       "B": "The article never calls copper silver.",
@@ -155,7 +155,7 @@
      ],
      "answer": "B",
      "skill": "detail",
-     "why": "The article says brass is a mix of copper and another metal.",
+     "why": "Brass is a mix of copper and another metal.",
      "wrong": {
       "A": "Gold and silver are not mentioned.",
       "C": "Brass is a metal mix, not painted copper.",
@@ -163,7 +163,7 @@
      }
     },
     {
-     "stem": "The article says a craftsman hammers metal 'again and again.' What does this help the reader understand?",
+     "stem": "A craftsman hammers the metal again and again. What does this help the reader understand?",
      "options": [
       "The craftsman is angry at the metal today.",
       "Hammering is a quick, one-time step in the work.",
@@ -172,7 +172,7 @@
      ],
      "answer": "C",
      "skill": "vocabulary",
-     "why": "'Again and again' shows that hammering is repeated many times to slowly shape the metal.",
+     "why": "The words again and again show that hammering is repeated many times to slowly shape the metal.",
      "wrong": {
       "A": "The article gives no sign of anger.",
       "B": "The phrase shows the opposite: it is not quick or one-time.",
@@ -189,7 +189,7 @@
      ],
      "answer": "A",
      "skill": "cause-effect",
-     "why": "The article says heat makes the metal soft, and soft metal is easy to bend.",
+     "why": "In the article, heat makes the metal soft, and soft metal is easy to bend.",
      "wrong": {
       "B": "Brass is made by mixing metals, not by heating copper.",
       "C": "The craftsman adds the pattern by hand after shaping.",
@@ -334,7 +334,7 @@
      ],
      "answer": "B",
      "skill": "detail",
-     "why": "The article explains that heating, called annealing, softens the metal so it can be reshaped without cracking.",
+     "why": "In the article, heating, called annealing, softens the metal so it can be reshaped without cracking.",
      "wrong": {
       "A": "The metal stays solid; it is not melted into liquid.",
       "C": "Cleaning is not mentioned.",
@@ -498,13 +498,13 @@
      "skill": "detail",
      "why": "The article defines an alloy as a deliberate mixture of two or more metals, which is how brass differs from pure copper.",
      "wrong": {
-      "A": "The article says brass is harder than copper, not softer.",
+      "A": "In the article, brass is harder than copper, not softer.",
       "C": "Brass is also shaped by hammering.",
       "D": "Brass is used for finished objects like trays and pots, not only for tools."
      }
     },
     {
-     "stem": "Why does the article describe chasing as 'pushing the metal from the front rather than cutting material away'?",
+     "stem": "Why does the article explain that chasing pushes the metal from the front instead of cutting it away?",
      "options": [
       "To explain that chasing removes thin slices of metal entirely",
       "To show how chasing differs from techniques that cut or carve material out",
@@ -547,7 +547,7 @@
      ],
      "answer": "C",
      "skill": "cause-effect",
-     "why": "The article explains that annealing rearranges the metal's structure so it bends more freely and resists cracking during further hammering.",
+     "why": "In the article, annealing rearranges the metal's structure so it bends more freely and resists cracking during further hammering.",
      "wrong": {
       "A": "Annealing softens metal; it does not permanently harden it.",
       "B": "The metal is reshaped by hammering, not poured as a liquid.",
@@ -627,7 +627,7 @@
     ],
     "answer": "B",
     "skill": "vocabulary",
-    "why": "The text says he hits the metal on a block, and the block is hard, and it is an anvil.",
+    "why": "In the text, he hammers the metal on a hard tool called an anvil.",
     "wrong": {
      "A": "Copper is the soft red metal, not the anvil.",
      "C": "The small tool is used for engraving, not the anvil.",
@@ -697,7 +697,7 @@
     ],
     "answer": "B",
     "skill": "detail",
-    "why": "The article says artisans also make wide trays, bowls, and hanging lamps.",
+    "why": "In the article, artisans also make wide trays, bowls, and hanging lamps.",
     "wrong": {
      "A": "Wooden doors are not named in this article.",
      "C": "Paper boats are not named in this article.",
@@ -714,7 +714,7 @@
     ],
     "answer": "C",
     "skill": "vocabulary",
-    "why": "The article says travelers buy them in crowded marketplaces known as souks.",
+    "why": "In the article, travelers buy them in crowded marketplaces known as souks.",
     "wrong": {
      "A": "Fires are used for annealing, and are not called souks.",
      "B": "The coffee pots are called dallahs.",
@@ -731,7 +731,7 @@
     ],
     "answer": "A",
     "skill": "compare",
-    "why": "The article says copper is soft and reddish, while brass is harder and gold-like.",
+    "why": "In the article, copper is soft and reddish, while brass is harder and gold-like.",
     "wrong": {
      "B": "This describes copper.",
      "C": "Brass is made by mixing copper with zinc.",
@@ -748,7 +748,7 @@
     ],
     "answer": "D",
     "skill": "inference",
-    "why": "The article says an apprentice learns for several years to judge the metal's thickness, heat, and shape by feel.",
+    "why": "In the article, an apprentice learns for several years to judge the metal's thickness, heat, and shape by feel.",
     "wrong": {
      "A": "The article does not mention workshop days.",
      "B": "The article does not mention cost for the apprentice.",
@@ -820,9 +820,9 @@
     "skill": "inference",
     "why": "The article says each piece the artisans create reflects the style of its region, so dallahs from different regions can look different.",
     "wrong": {
-     "A": "The article says metalworkers across the region rely mainly on the same two metals, copper and brass.",
+     "A": "In the article, metalworkers across the region rely mainly on the same two metals, copper and brass.",
      "C": "The article says raising shapes a piece without cutting or joining separate pieces.",
-     "D": "The article says the craftsman shapes the sheet by hammering it again and again."
+     "D": "In the article, the craftsman shapes the sheet by hammering it again and again."
     }
    }
   ]

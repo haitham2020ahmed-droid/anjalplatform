@@ -138,7 +138,7 @@
      ],
      "answer": "A",
      "skill": "detail",
-     "why": "The article says sweat comes from tiny holes in your skin called sweat glands.",
+     "why": "In the article, sweat comes from tiny holes in your skin called sweat glands.",
      "wrong": {
       "B": "Blood is not described as the source of sweat.",
       "C": "Hair is not where sweat comes from.",
@@ -155,7 +155,7 @@
      ],
      "answer": "D",
      "skill": "detail",
-     "why": "The article says sweat is mostly water, with a little salt mixed in.",
+     "why": "In the article, sweat is mostly water.",
      "wrong": {
       "A": "Oil is not mentioned as part of sweat.",
       "B": "Sugar is not mentioned.",
@@ -163,7 +163,7 @@
      }
     },
     {
-     "stem": "Read: \"the air around you slowly dries them up.\" What does dries mean here?",
+     "stem": "In the article, what does the word \"dries\" mean?",
      "options": [
       "Makes something wet",
       "Makes something cold",
@@ -342,7 +342,7 @@
      }
     },
     {
-     "stem": "Read: \"staying properly hydrated is essential.\" What does hydrated mean?",
+     "stem": "In the article, what does the word \"hydrated\" mean?",
      "options": [
       "Having enough water in your body",
       "Having clean skin and clean hair",
@@ -368,7 +368,7 @@
      ],
      "answer": "A",
      "skill": "cause-effect",
-     "why": "The article says losing too much water without replacing it can leave you feeling tired, dizzy, or thirsty.",
+     "why": "In the article, losing too much water without replacing it can leave you feeling tired, dizzy, or thirsty.",
      "wrong": {
       "B": "Permanent skin color change is not mentioned.",
       "C": "Sweat glands are not described as stopping forever.",
@@ -496,7 +496,7 @@
      ],
      "answer": "C",
      "skill": "detail",
-     "why": "The article states that the hypothalamus continuously monitors body temperature and triggers sweating.",
+     "why": "In the article, the hypothalamus continuously monitors body temperature and triggers sweating.",
      "wrong": {
       "A": "The cerebellum is not mentioned.",
       "B": "The spinal cord is not described as monitoring temperature.",
@@ -521,7 +521,7 @@
      }
     },
     {
-     "stem": "Read: \"this depletion can precipitate dehydration.\" What does precipitate mean here?",
+     "stem": "Losing too much water can precipitate dehydration. What does precipitate mean here?",
      "options": [
       "Bring about or cause",
       "Freeze instantly",
@@ -547,7 +547,7 @@
      ],
      "answer": "B",
      "skill": "cause-effect",
-     "why": "The article explains that as sweat absorbs heat and evaporates into vapor, it carries that heat away from the skin, cooling it.",
+     "why": "As sweat takes in heat and evaporates, it carries the heat away from the skin, which cools it.",
      "wrong": {
       "A": "Freezing is not part of this process.",
       "C": "Blocking sunlight is not described.",
@@ -627,7 +627,7 @@
     ],
     "answer": "B",
     "skill": "detail",
-    "why": "The article says your face and your back have many glands.",
+    "why": "Your face and your back have many sweat glands.",
     "wrong": {
      "A": "Toes and hair are not named.",
      "C": "Teeth and nails are not named.",
@@ -644,7 +644,7 @@
     ],
     "answer": "A",
     "skill": "vocabulary",
-    "why": "The text says your skin may feel wet on a hot day, and that wetness is sweat.",
+    "why": "In the text, your skin may feel wet, and that wetness is sweat.",
     "wrong": {
      "B": "Hot weather can cause sweat, but it is not sweat.",
      "C": "You drink water; sweat comes out of your skin.",
@@ -697,7 +697,7 @@
     ],
     "answer": "D",
     "skill": "detail",
-    "why": "The article says sweat is mostly water, with a small amount of salt.",
+    "why": "Sweat is mostly water, with a small amount of salt.",
     "wrong": {
      "A": "Sugar is not named.",
      "B": "Soap is not named.",
@@ -750,7 +750,7 @@
     "skill": "author-purpose",
     "why": "Most readers have noticed wet skin after running, so the question connects the topic to their life.",
     "wrong": {
-     "A": "The article says sweat keeps you safe.",
+     "A": "Sweat protects your body; it is not dangerous.",
      "C": "The article also mentions exercise, not only heat.",
      "D": "The opening is not about a new word."
     }
@@ -801,7 +801,7 @@
     ],
     "answer": "A",
     "skill": "cause-effect",
-    "why": "The article says exercise generates heat since your muscles contract again and again.",
+    "why": "In the article, exercise generates heat since your muscles contract again and again.",
     "wrong": {
      "B": "Dry skin is not the cause.",
      "C": "Sweat glands work harder in exercise.",

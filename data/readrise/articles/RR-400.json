@@ -138,7 +138,7 @@
      ],
      "answer": "A",
      "skill": "detail",
-     "why": "The story says the group project is about the water cycle.",
+     "why": "In the story, the group project is about the water cycle.",
      "wrong": {
       "B": "The story does not mention the history of Jeddah as the topic.",
       "C": "Baking is never mentioned.",
@@ -317,7 +317,7 @@
      ],
      "answer": "D",
      "skill": "detail",
-     "why": "The story says the friends had almost two full weeks to complete the project together.",
+     "why": "In the story, the friends had almost two full weeks to complete the project together.",
      "wrong": {
       "A": "One night is only how much time was left when they finally met, not the whole time they had.",
       "B": "A month is never mentioned.",
@@ -496,7 +496,7 @@
      ],
      "answer": "B",
      "skill": "detail",
-     "why": "The story states that nobody had ever explicitly agreed on who was responsible for which specific component.",
+     "why": "In the story, nobody had ever explicitly agreed on who was responsible for which specific component.",
      "wrong": {
       "A": "The topic, the water cycle, was already assigned by the teacher.",
       "C": "The teacher already knew about and assigned the project.",
@@ -513,7 +513,7 @@
      ],
      "answer": "C",
      "skill": "inference",
-     "why": "The story explains that each friend individually assumed someone else would eventually handle the work, which explains the delay.",
+     "why": "In the story, each friend individually assumed someone else would eventually handle the work, which explains the delay.",
      "wrong": {
       "A": "The teacher did assign the project at the start.",
       "B": "Art supplies are never mentioned as a reason for the delay.",
@@ -627,7 +627,7 @@
     ],
     "answer": "D",
     "skill": "detail",
-    "why": "The text says, \"Omar will draw.\"",
+    "why": "In the story, Omar's job is to draw.",
     "wrong": {
      "A": "Noor is the one who finds facts.",
      "B": "Yusuf is the one who writes.",
@@ -678,7 +678,7 @@
     ],
     "answer": "B",
     "skill": "sequence",
-    "why": "The text says, \"They all work hard that night.\"",
+    "why": "In the story, they all work hard that night.",
     "wrong": {
      "A": "They stay up to finish the poster.",
      "C": "They give it to the teacher the next day, after it is finished.",
@@ -767,7 +767,7 @@
     ],
     "answer": "B",
     "skill": "cause-effect",
-    "why": "The text says Noor was meticulous and detailed, so she checked that every fact was accurate.",
+    "why": "In the text, Noor was meticulous and detailed, so she checked that every fact was accurate.",
     "wrong": {
      "A": "Her wish to draw is not mentioned.",
      "C": "Free time is not mentioned.",

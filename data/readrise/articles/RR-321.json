@@ -124,7 +124,7 @@
      "why": "The article describes several deserts, such as the Sahara and the Gobi, and how plants, animals, and people live in them.",
      "wrong": {
       "A": "The article is about deserts, not gardens.",
-      "C": "The article says deserts get very little rain.",
+      "C": "In the article, deserts get very little rain.",
       "D": "The article does not talk about boats."
      }
     },
@@ -140,7 +140,7 @@
      "skill": "detail",
      "why": "The article says both hot and cold deserts get very little rain, and that is what makes them deserts.",
      "wrong": {
-      "A": "The article says the Gobi is a cold desert.",
+      "A": "In the article, the Gobi is a cold desert.",
       "C": "The article names animals like camels that live in deserts.",
       "D": "Snow is only mentioned for the cold Gobi desert, not all deserts."
      }
@@ -155,9 +155,9 @@
      ],
      "answer": "C",
      "skill": "detail",
-     "why": "The article says wind blows sand into tall hills called dunes.",
+     "why": "In the article, wind blows the sand into hills.",
      "wrong": {
-      "A": "The article says deserts get very little rain.",
+      "A": "In the article, deserts get very little rain.",
       "B": "Camels do not make dunes.",
       "D": "An oasis has trees, but dunes are made of sand and wind."
      }
@@ -172,7 +172,7 @@
      ],
      "answer": "B",
      "skill": "vocabulary",
-     "why": "The article says an oasis is a green spot with water where trees grow and people and animals can rest.",
+     "why": "In the article, an oasis is a green spot with water where trees grow and people and animals can rest.",
      "wrong": {
       "A": "A hill of sand is a dune, not an oasis.",
       "C": "A camel is an animal, not an oasis.",
@@ -240,7 +240,7 @@
      ],
      "answer": "A",
      "skill": "author-purpose",
-     "why": "Starting with 'almost no rain' sets up the article's main point: that lack of rain, not heat, is what defines a desert.",
+     "why": "Starting with a place that gets almost no rain sets up the main point: lack of rain, not heat, is what makes a desert.",
      "wrong": {
       "B": "The article does not teach how to make rain.",
       "C": "The article is about deserts, not rainforests.",
@@ -303,7 +303,7 @@
      "why": "The article compares several deserts and shows that despite their differences, all are defined by very little rain, yet still support plants, animals, and people.",
      "wrong": {
       "B": "The article says some deserts are mostly rock and gravel, not sand.",
-      "C": "The article says deserts get very little rain.",
+      "C": "In the article, deserts get very little rain.",
       "D": "The article also mentions foxes, lizards, and hardy plants."
      }
     },
@@ -321,7 +321,7 @@
      "wrong": {
       "A": "The article excludes Europe.",
       "B": "The article names more than two continents, including Africa, Asia, and South America.",
-      "D": "The article also mentions South America, home to the Atacama Desert."
+      "D": "The article also mentions deserts on other continents."
      }
     },
     {
@@ -385,7 +385,7 @@
      ],
      "answer": "A",
      "skill": "inference",
-     "why": "The article explains that camels store fat that their bodies slowly convert into water when needed.",
+     "why": "In the article, camels store fat that their bodies slowly convert into water when needed.",
      "wrong": {
       "B": "The article does not give an exact schedule for drinking.",
       "C": "Sand does not contain drinkable water.",
@@ -402,7 +402,7 @@
      ],
      "answer": "A",
      "skill": "inference",
-     "why": "The article explains that oases let traders and travelers rest safely as they crossed vast stretches of sand and rock.",
+     "why": "Oases gave traders water and a safe place to rest on long trips across the desert.",
      "wrong": {
       "B": "The article does not call oases cities.",
       "C": "Oases do not produce sand.",
@@ -513,7 +513,7 @@
      ],
      "answer": "A",
      "skill": "detail",
-     "why": "The article explains that a cold ocean current along the coast blocks the moist air that might otherwise produce rain in the Atacama.",
+     "why": "In the article, a cold ocean current along the coast blocks the moist air that might otherwise produce rain in the Atacama.",
      "wrong": {
       "B": "This explanation is given for the Gobi's cold climate, not the Atacama's dryness.",
       "C": "The article does not mention the equator in relation to the Atacama.",
@@ -547,7 +547,7 @@
      ],
      "answer": "A",
      "skill": "inference",
-     "why": "The article explains that an oasis forms where an aquifer brings groundwater close enough to the surface to sustain trees and crops.",
+     "why": "In the article, an oasis forms where an aquifer brings groundwater close enough to the surface to sustain trees and crops.",
      "wrong": {
       "B": "Aquifers are not described as blocking wind.",
       "C": "Ocean currents relate to the Atacama's dryness, not aquifers.",
@@ -581,7 +581,7 @@
      ],
      "answer": "C",
      "skill": "sequence",
-     "why": "The article explains that winds pile loose sand into dunes, which then slowly shift and change shape over months and years.",
+     "why": "Winds pile loose sand into dunes, and the dunes slowly move and change shape over time.",
      "wrong": {
       "A": "The article associates erosion with rock, not sand hardening into rock.",
       "B": "Aquifers relate to oases, not dune formation.",
@@ -644,11 +644,11 @@
     ],
     "answer": "C",
     "skill": "inference",
-    "why": "The text says an oasis is a green spot with water and trees, so it is a good place to rest.",
+    "why": "In the text, an oasis is a green spot with water and trees, so it is a good place to rest.",
     "wrong": {
      "A": "Heat would not be a reason to rest there.",
      "B": "Sand is found all over the Sahara, not only at an oasis.",
-     "D": "The text says an oasis is a small green spot."
+     "D": "In the text, an oasis is a small green spot."
     }
    },
    {
@@ -681,8 +681,8 @@
     "why": "The last line says people still live near deserts today.",
     "wrong": {
      "A": "The text does not say people hide from the wind.",
-     "B": "The text says long ago traders used camels.",
-     "C": "The text says people still live near deserts."
+     "B": "In the text, long ago traders used camels.",
+     "C": "In the text, people still live near deserts."
     }
    }
   ],
@@ -733,7 +733,7 @@
     "skill": "author-purpose",
     "why": "The next sentence says mines, farms, and cities depend on the resources found in deserts.",
     "wrong": {
-     "A": "The text says deserts get very little rain.",
+     "A": "In the text, deserts get very little rain.",
      "B": "The text names bushes, grasses, and people too.",
      "C": "Mines, farms, and cities show that people use deserts."
     }
@@ -767,7 +767,7 @@
     ],
     "answer": "B",
     "skill": "cause-effect",
-    "why": "The article says its high elevation and distance from the sea keep its winters freezing.",
+    "why": "The Gobi is high up and far from the sea, so its winters are freezing.",
     "wrong": {
      "A": "The cold ocean current is the reason given for the Atacama.",
      "C": "The article does not say snow falls all year.",

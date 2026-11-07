@@ -138,7 +138,7 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The article says a rock is heavy for its size, so it sinks.",
+          "why": "In the article, a rock is heavy for its size, so it sinks.",
           "wrong": {
             "A": "The article does not say cold makes things sink.",
             "B": "The shape of the rock is not the reason given.",
@@ -172,7 +172,7 @@
           ],
           "answer": "D",
           "skill": "cause-effect",
-          "why": "The article explains that the ship is hollow and full of air, so the whole ship is light for its size.",
+          "why": "In the article, the ship is hollow and full of air, so the whole ship is light for its size.",
           "wrong": {
             "A": "The article says steel is heavy.",
             "B": "Ships float in fresh water too; salt is not the reason given.",
@@ -243,7 +243,7 @@
           "why": "Things that are light for their size float, and the article says ice floats on top of a drink, so it must be light for its size.",
           "wrong": {
             "B": "Rocks sink, but ice floats, so ice is not like a rock.",
-            "C": "The article says ice sits on top of a drink.",
+            "C": "In the article, ice sits on top of a drink.",
             "D": "Ice floats in a normal drink, which is not salty."
           }
         }
@@ -334,7 +334,7 @@
           ],
           "answer": "A",
           "skill": "cause-effect",
-          "why": "The article says air forces the water out of the tanks so the submarine rises.",
+          "why": "In the article, air forces the water out of the tanks so the submarine rises.",
           "wrong": {
             "B": "Flooding the tanks makes it dive, not adding air.",
             "C": "Air pushes the water out; it does not let water in.",
@@ -351,7 +351,7 @@
           ],
           "answer": "D",
           "skill": "vocabulary",
-          "why": "The article explains that the object pushes some water out of the way, or displaces it.",
+          "why": "In the article, the object pushes some water out of the way, or displaces it.",
           "wrong": {
             "A": "Freezing is a different idea in the article.",
             "B": "Objects do not drink water.",
@@ -496,7 +496,7 @@
           ],
           "answer": "A",
           "skill": "detail",
-          "why": "The article states that the upward force equals the weight of the liquid the object pushes aside.",
+          "why": "In the article, the upward force equals the weight of the liquid the object pushes aside.",
           "wrong": {
             "B": "This equality only happens when an object floats; it is not the principle itself.",
             "C": "Depth is not part of the principle as described.",
@@ -513,7 +513,7 @@
           ],
           "answer": "B",
           "skill": "detail",
-          "why": "The article says a bony fish adjusts the quantity of gas in its swim bladder.",
+          "why": "In the article, a bony fish adjusts the quantity of gas in its swim bladder.",
           "wrong": {
             "A": "Swallowing salt water is not mentioned.",
             "C": "Ballast tanks belong to submarines.",
@@ -627,7 +627,7 @@
         ],
         "answer": "C",
         "skill": "detail",
-        "why": "The text says some things are light for their size, and cork is like that.",
+        "why": "Cork is light for its size, so it floats.",
         "wrong": {
           "A": "The text says a rock, not cork, is heavy for its size.",
           "B": "The text says a ship is hollow and cork is not described this way.",
@@ -644,7 +644,7 @@
         ],
         "answer": "A",
         "skill": "cause-effect",
-        "why": "The text says salty water pushes up more, and the Dead Sea is very salty.",
+        "why": "In the text, salty water pushes up more, and the Dead Sea is very salty.",
         "wrong": {
           "B": "The text does not say the Dead Sea is cold.",
           "C": "Boats are not the reason a person floats.",
@@ -697,7 +697,7 @@
         ],
         "answer": "B",
         "skill": "detail",
-        "why": "The text says a ship's wide shape displaces a huge amount of water, which makes the buoyancy strong.",
+        "why": "A ship's wide shape pushes aside a huge amount of water, which makes the buoyancy strong.",
         "wrong": {
           "A": "Steel stays dense; the shape does not make it lighter.",
           "C": "Blowing air into tanks is how a submarine rises.",
@@ -714,7 +714,7 @@
         ],
         "answer": "D",
         "skill": "cause-effect",
-        "why": "The text says salty water is denser than fresh water, so it pushes up harder.",
+        "why": "In the text, salty water is denser than fresh water, so it pushes up harder.",
         "wrong": {
           "A": "The egg does not change; the water does.",
           "B": "Warmth is not mentioned.",
@@ -731,9 +731,9 @@
         ],
         "answer": "A",
         "skill": "inference",
-        "why": "The text says weight alone does not decide what floats, since a heavy log floats and a pebble sinks.",
+        "why": "In the text, weight alone does not decide what floats, since a heavy log floats and a pebble sinks.",
         "wrong": {
-          "B": "The text says the push is buoyancy, which is what you feel when swimming.",
+          "B": "What you feel when swimming is buoyancy, not density.",
           "C": "Weight is true for all objects, but it does not decide floating.",
           "D": "The push of water is called buoyancy, not density."
         }
@@ -784,7 +784,7 @@
         ],
         "answer": "A",
         "skill": "cause-effect",
-        "why": "The text says the broad hull displaces an enormous amount of water, which creates enough buoyancy.",
+        "why": "The wide hull pushes aside a huge amount of water, which makes enough buoyancy.",
         "wrong": {
           "B": "The hull does touch the water; the text does not say otherwise.",
           "C": "The text never compares the ship to a cork.",

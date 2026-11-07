@@ -155,7 +155,7 @@
           ],
           "answer": "A",
           "skill": "detail",
-          "why": "The article says the two rows of long eyelashes keep sand out of the camel's eyes.",
+          "why": "In the article, the two rows of long eyelashes keep sand out of the camel's eyes.",
           "wrong": {
             "B": "The article does not say anything about seeing at night.",
             "C": "The article does not say the eyelashes keep the camel cool.",
@@ -172,7 +172,7 @@
           ],
           "answer": "C",
           "skill": "cause-effect",
-          "why": "The article says a camel's big, wide feet spread out, so they do not sink in the sand.",
+          "why": "In the article, a camel's big, wide feet spread out, so they do not sink in the sand.",
           "wrong": {
             "A": "The article does not say speed keeps camels from sinking.",
             "B": "Camels are big, heavy animals; the article says nothing about them being light.",
@@ -180,7 +180,7 @@
           }
         },
         {
-          "stem": "\"Long lines of camels were called caravans.\" What is a caravan?",
+          "stem": "In the article, what is a caravan?",
           "options": [
             "A group that travels together",
             "A kind of desert plant",
@@ -304,7 +304,7 @@
           "wrong": {
             "A": "The article never compares the speed of desert animals.",
             "B": "The last paragraph shows camels are still loved and used today.",
-            "D": "The article says camels can travel for days with very little food or water."
+            "D": "In the article, camels can travel for days with very little food or water."
           }
         },
         {
@@ -317,7 +317,7 @@
           ],
           "answer": "A",
           "skill": "compare",
-          "why": "The article says the camels of Arabia, called dromedaries, have one hump, while camels from the cold deserts of Central Asia have two.",
+          "why": "In the article, the camels of Arabia, called dromedaries, have one hump, while camels from the cold deserts of Central Asia have two.",
           "wrong": {
             "B": "The cold deserts are in Central Asia, where two-humped camels live.",
             "C": "Camels of Central Asia have two humps, not none.",
@@ -334,7 +334,7 @@
           ],
           "answer": "D",
           "skill": "detail",
-          "why": "The article says that when food is scarce, the camel's body turns the fat into energy.",
+          "why": "In the article, when food is scarce, the camel's body turns the fat into energy.",
           "wrong": {
             "A": "The article does not say the fat becomes water; it corrects the idea that the hump holds water.",
             "B": "The fat is used up, so the hump shrinks; it does not move to the legs.",
@@ -342,7 +342,7 @@
           }
         },
         {
-          "stem": "\"When food is scarce, the camel's body slowly turns this fat into energy.\" What does scarce mean?",
+          "stem": "In the article, what does the word \"scarce\" mean?",
           "options": [
             "Fresh",
             "Hard to find",
@@ -368,7 +368,7 @@
           ],
           "answer": "B",
           "skill": "cause-effect",
-          "why": "The article says the wide, padded feet spread out, so the camel walks on top of the sand instead of sinking.",
+          "why": "In the article, the wide, padded feet spread out, so the camel walks on top of the sand instead of sinking.",
           "wrong": {
             "A": "The article talks about sand, not rocks or speed.",
             "C": "The article does not say spreading feet keep them cool.",
@@ -496,7 +496,7 @@
           ],
           "answer": "B",
           "skill": "detail",
-          "why": "The article states that a thin, transparent third eyelid sweeps away grains of sand that slip past the eyelashes.",
+          "why": "In the article, a thin, transparent third eyelid sweeps away grains of sand that slip past the eyelashes.",
           "wrong": {
             "A": "The article does not link the third eyelid to warmth.",
             "C": "Long-distance vision is not mentioned.",
@@ -521,7 +521,7 @@
           }
         },
         {
-          "stem": "\"A widespread misconception holds that a camel's hump is filled with water.\" What does misconception mean?",
+          "stem": "In the article, what does the word \"misconception\" mean?",
           "options": [
             "A scientific discovery that people made",
             "An old poem that people read",
@@ -530,7 +530,7 @@
           ],
           "answer": "C",
           "skill": "vocabulary",
-          "why": "The next sentence says, \"In reality, the hump stores fat,\" which shows the belief about water is wrong. A misconception is a mistaken idea.",
+          "why": "The article then explains that the hump really stores fat, which shows the belief about water is wrong. A misconception is a mistaken idea.",
           "wrong": {
             "A": "A discovery would be true, but this belief is shown to be false.",
             "B": "The sentence describes a belief, not a poem.",
@@ -567,7 +567,7 @@
           "why": "The article says caravans carried goods such as spices and incense, connecting distant towns and markets, so towns could trade with faraway places.",
           "wrong": {
             "A": "The article says caravans connected towns, the opposite of this.",
-            "C": "The article says caravans carried pilgrims to Makkah.",
+            "C": "In the article, caravans carried pilgrims to Makkah.",
             "D": "Nothing in the article suggests towns stopped growing food."
           }
         },
@@ -697,7 +697,7 @@
         ],
         "answer": "C",
         "skill": "detail",
-        "why": "The article says thick hair inside its ears helps keep sand out.",
+        "why": "In the article, hair inside the camel's ears helps keep sand out.",
         "wrong": {
           "A": "Warmth is not mentioned.",
           "B": "The text does not say it helps hearing.",
@@ -714,7 +714,7 @@
         ],
         "answer": "B",
         "skill": "vocabulary",
-        "why": "The article says many people believe the hump is full of water, but that is a myth because the hump stores fat.",
+        "why": "In the article, the idea that the hump is full of water is a myth, because the hump stores fat.",
         "wrong": {
           "A": "The idea is not a fact.",
           "C": "The word does not mean a rule.",
@@ -748,7 +748,7 @@
         ],
         "answer": "B",
         "skill": "detail",
-        "why": "The article says caravans carried trade goods such as spices, cloth and incense.",
+        "why": "In the article, caravans carried trade goods such as spices, cloth and incense.",
         "wrong": {
           "A": "Fish and rice are not named.",
           "C": "Sand and stones are not named.",
@@ -784,7 +784,7 @@
         ],
         "answer": "A",
         "skill": "detail",
-        "why": "The article says Bactrian camels are native to the cold deserts of Central Asia.",
+        "why": "In the article, Bactrian camels are native to the cold deserts of Central Asia.",
         "wrong": {
           "B": "Dromedaries are the camels of Arabia.",
           "C": "Dromedaries also live in North Africa.",
@@ -803,7 +803,7 @@
         "skill": "inference",
         "why": "If camels were indispensable and carried goods between towns, people depended on them for travel and trade.",
         "wrong": {
-          "A": "The article says they were valuable partners.",
+          "A": "In the article, camels became very important partners for people.",
           "C": "Camels carried goods and pilgrims, not only for fun.",
           "D": "Caravans connected distant towns and markets."
         }
@@ -818,7 +818,7 @@
         ],
         "answer": "D",
         "skill": "cause-effect",
-        "why": "The article says the feet spread across the ground and distribute the animal's weight, so it walks on top of the sand.",
+        "why": "In the article, the feet spread across the ground and distribute the animal's weight, so it walks on top of the sand.",
         "wrong": {
           "A": "Sticking to the sand is not mentioned.",
           "B": "Digging in would make the camel sink.",

@@ -123,7 +123,7 @@
           "skill": "central-idea",
           "why": "The article tells about the Silk Road, a web of paths used to trade goods and share ideas long ago.",
           "wrong": {
-            "A": "The article says China kept the way to make silk a secret; it does not teach how to make it.",
+            "A": "In the article, China kept the way to make silk a secret; it does not teach how to make it.",
             "B": "Camels are in the article, but their humps are not explained.",
             "C": "The article says there were no planes long ago."
           }
@@ -163,7 +163,7 @@
           }
         },
         {
-          "stem": "The article says \"To trade is to swap.\" What does swap mean?",
+          "stem": "To trade is to swap. What does swap mean?",
           "options": [
             "To keep something for yourself",
             "To throw something far away",
@@ -189,7 +189,7 @@
           ],
           "answer": "A",
           "skill": "cause-effect",
-          "why": "The article says China kept silk a secret and many people in the west wanted it, so it cost a lot.",
+          "why": "In the article, China kept silk a secret and many people in the west wanted it, so it cost a lot.",
           "wrong": {
             "B": "The article does not say silk was heavy.",
             "C": "Silk is made by a worm, not from gold.",
@@ -206,7 +206,7 @@
           ],
           "answer": "B",
           "skill": "inference",
-          "why": "The paths crossed hot, dry lands, and the article says camels can walk far without much to drink.",
+          "why": "The paths crossed hot, dry lands, and in the article, camels can walk far without much to drink.",
           "wrong": {
             "A": "Camels cannot fly.",
             "C": "The article does not say this.",
@@ -351,7 +351,7 @@
           ],
           "answer": "A",
           "skill": "vocabulary",
-          "why": "The article explains that a network of routes means many paths connected to one another.",
+          "why": "In the article, a network of routes means many paths connected to one another.",
           "wrong": {
             "B": "The article says the Silk Road was not a single road.",
             "C": "This is not the meaning used in the article.",
@@ -368,7 +368,7 @@
           ],
           "answer": "C",
           "skill": "sequence",
-          "why": "The article says papermaking spread west and reached Baghdad by around the year 800.",
+          "why": "In the article, papermaking spread west and reached Baghdad by around the year 800.",
           "wrong": {
             "A": "Silk trade continued.",
             "B": "The article does not say camels stopped being used.",
@@ -405,7 +405,7 @@
           "why": "In a relay race, each runner carries the baton part of the way, just as each trader carried goods part of the route.",
           "wrong": {
             "B": "There were no real races or prizes.",
-            "C": "The article says few merchants traveled the entire route.",
+            "C": "In the article, few merchants traveled the entire route.",
             "D": "Camels and ships also carried goods."
           }
         },
@@ -547,7 +547,7 @@
           ],
           "answer": "D",
           "skill": "cause-effect",
-          "why": "The article explains that goods passed from trader to trader like a relay, and their prices increased at every stop.",
+          "why": "In the article, goods passed from trader to trader like a relay, and their prices increased at every stop.",
           "wrong": {
             "A": "The article does not mention Chinese taxes in Europe.",
             "B": "This is not a real reason.",
@@ -564,7 +564,7 @@
           ],
           "answer": "C",
           "skill": "inference",
-          "why": "The article says his book made many Europeans curious about Asia, which could encourage more interest and travel.",
+          "why": "His book made many people curious about faraway lands, which could encourage more travel.",
           "wrong": {
             "A": "The article does not say his book revealed silk-making.",
             "B": "The article gives no sign that it ended trade.",
@@ -627,7 +627,7 @@
         ],
         "answer": "A",
         "skill": "detail",
-        "why": "The text says the paths were more than six thousand kilometers long.",
+        "why": "In the text, the paths were more than six thousand kilometers long.",
         "wrong": {
           "B": "Sixty kilometers is far too short.",
           "C": "Six hundred kilometers is far too short.",
@@ -644,7 +644,7 @@
         ],
         "answer": "D",
         "skill": "vocabulary",
-        "why": "The text says the Silk Road was not one road but a web of many paths.",
+        "why": "In the text, the Silk Road was not one road but a web of many paths.",
         "wrong": {
           "A": "The word web does not mean spiders here.",
           "B": "The paths are not covered with cloth.",
@@ -661,7 +661,7 @@
         ],
         "answer": "C",
         "skill": "cause-effect",
-        "why": "The text says the big groups stopped at inns to rest.",
+        "why": "In the text, the big groups stopped at inns to rest.",
         "wrong": {
           "A": "The camels were needed for the trip.",
           "B": "China made silk, not the inns.",
@@ -697,7 +697,7 @@
         ],
         "answer": "D",
         "skill": "detail",
-        "why": "The text says silk is made from threads spun by silkworms.",
+        "why": "In the text, silk is made from threads spun by silkworms.",
         "wrong": {
           "A": "Silk does not come from camel wool.",
           "B": "Gold was a trade good, not silk's material.",
@@ -748,7 +748,7 @@
         ],
         "answer": "B",
         "skill": "cause-effect",
-        "why": "The text says China kept the way of making silk a secret, so people paid high prices.",
+        "why": "In the text, China kept the way of making silk a secret, so people paid high prices.",
         "wrong": {
           "A": "The text says only China made silk.",
           "C": "Silk is made from silkworm threads, not paper.",
@@ -767,7 +767,7 @@
         ],
         "answer": "C",
         "skill": "detail",
-        "why": "The text says the Han dynasty sent an official named Zhang Qian west.",
+        "why": "In the text, the Han dynasty sent an official named Zhang Qian west.",
         "wrong": {
           "A": "Marco Polo traveled much later, in the late 1200s.",
           "B": "Von Richthofen popularized the name in 1877.",
@@ -801,7 +801,7 @@
         ],
         "answer": "D",
         "skill": "cause-effect",
-        "why": "The text says a caravan is a large group journeying together for safety.",
+        "why": "A caravan is a large group that travels together for safety.",
         "wrong": {
           "A": "Camels were used for the trip, not sold at inns.",
           "B": "Prices rose at every stop.",
@@ -821,7 +821,7 @@
         "why": "The text says few merchants traveled the entire route, so each trader could cover only a short part.",
         "wrong": {
           "A": "The text does not mention camel speed.",
-          "C": "The text says prices rose at every stop.",
+          "C": "In the text, prices rose at every stop.",
           "D": "China kept silk secret for other reasons."
         }
       }

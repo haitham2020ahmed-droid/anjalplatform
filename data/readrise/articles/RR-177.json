@@ -124,7 +124,7 @@
           "why": "The article tells how maglev trains float on magnets, why they are fast, and where they run.",
           "wrong": {
             "A": "The article does not tell how to build a toy.",
-            "C": "The article says maglevs are quiet.",
+            "C": "Maglevs are quiet; the article is not about noisy trains.",
             "D": "That train is only named at the end."
           }
         },
@@ -155,7 +155,7 @@
           ],
           "answer": "A",
           "skill": "detail",
-          "why": "The article says the maglev in China goes between a big airport and the city.",
+          "why": "In the article, the maglev in China starts at a big airport and goes to the city.",
           "wrong": {
             "B": "Japan has its own test train; the China maglev does not go there.",
             "C": "The article does not say it goes over the sea.",
@@ -172,7 +172,7 @@
           ],
           "answer": "C",
           "skill": "vocabulary",
-          "why": "The article says the wheels rub on the track, that rub is friction, and it slows the train.",
+          "why": "In the article, the wheels rub on the track, that rub is friction, and it slows the train.",
           "wrong": {
             "A": "Friction is not a magnet.",
             "B": "Friction slows a train; it is not its speed.",
@@ -240,7 +240,7 @@
           ],
           "answer": "B",
           "skill": "compare",
-          "why": "The article says the train between Makkah and Madinah has wheels, but a maglev floats.",
+          "why": "In the article, the train between Makkah and Madinah has wheels, but a maglev floats.",
           "wrong": {
             "A": "Floating is what a maglev does.",
             "C": "The maglev runs in China; the Saudi train runs between Makkah and Madinah.",
@@ -351,7 +351,7 @@
           ],
           "answer": "A",
           "skill": "cause-effect",
-          "why": "The article says the rubbing between wheels and rails, called friction, wears out the parts.",
+          "why": "In the article, the rubbing between wheels and rails, called friction, wears out the parts.",
           "wrong": {
             "B": "Regular trains do not float.",
             "C": "Regular trains do not use magnets to float.",
@@ -496,7 +496,7 @@
           ],
           "answer": "C",
           "skill": "vocabulary",
-          "why": "The article says magnets in the guideway provide propulsion by pulling and pushing the train forward.",
+          "why": "In the article, magnets in the guideway provide propulsion by pulling and pushing the train forward.",
           "wrong": {
             "A": "Lifting is levitation.",
             "B": "The track is the guideway.",
@@ -513,7 +513,7 @@
           ],
           "answer": "B",
           "skill": "detail",
-          "why": "The article says superconductors are cooled so that they can generate exceptionally strong magnetic fields.",
+          "why": "In the article, superconductors are cooled so that they can generate exceptionally strong magnetic fields.",
           "wrong": {
             "A": "Passenger comfort is not mentioned.",
             "C": "The article does not say cooling is used for braking.",
@@ -530,7 +530,7 @@
           ],
           "answer": "D",
           "skill": "cause-effect",
-          "why": "The article explains that air resistance still pushes against the train, which is why maglevs have specially shaped, streamlined noses.",
+          "why": "In the article, air resistance still pushes against the train, which is why maglevs have specially shaped, streamlined noses.",
           "wrong": {
             "A": "The magnets are in the train and guideway, not just the nose.",
             "B": "Appearance is not the reason given.",
@@ -564,11 +564,11 @@
           ],
           "answer": "B",
           "skill": "inference",
-          "why": "Although maglevs have almost no friction from the track, the article says air resistance still pushes against them.",
+          "why": "Although maglevs have almost no friction from the track, in the article, air resistance still pushes against them.",
           "wrong": {
             "A": "The article only says passengers may someday ride floating trains.",
-            "C": "The article says maglevs are incompatible with ordinary tracks.",
-            "D": "The article says magnets can also repel."
+            "C": "In the article, maglevs are incompatible with ordinary tracks.",
+            "D": "Magnets can also push apart."
           }
         },
         {
@@ -584,7 +584,7 @@
           "why": "The author connects maglevs to a familiar Saudi high-speed railway that still runs on wheels.",
           "wrong": {
             "A": "The author does not argue for replacing it.",
-            "B": "The article says its trains run on wheels.",
+            "B": "In the article, its trains run on wheels.",
             "D": "Ticket prices are not mentioned."
           }
         },
@@ -598,7 +598,7 @@
           ],
           "answer": "A",
           "skill": "detail",
-          "why": "The article says the guideway magnets switch on and off in a precisely timed sequence so they attract and repel the train.",
+          "why": "The guideway magnets switch on and off in a timed pattern, so they pull and push the train.",
           "wrong": {
             "B": "Maglevs have no wheels touching the guideway.",
             "C": "The magnets do not cool the air.",
@@ -644,7 +644,7 @@
         ],
         "answer": "A",
         "skill": "detail",
-        "why": "The text says the Japan test train went 603 km in an hour.",
+        "why": "In the text, the Japan test train went 603 km in an hour.",
         "wrong": {
           "B": "The China line goes more than 400 km in an hour.",
           "C": "Eight is the number of minutes for the trip in China.",
@@ -751,7 +751,7 @@
         "why": "The Makkah to Madinah train is in Saudi Arabia, so it links the topic to the reader's country.",
         "wrong": {
           "A": "The article says that train still runs on wheels.",
-          "B": "The article says maglevs cost a lot.",
+          "B": "Maglevs cost a lot to build, not very little.",
           "C": "Friction was explained earlier."
         }
       }

@@ -138,7 +138,7 @@
           ],
           "answer": "A",
           "skill": "detail",
-          "why": "The article says a thobe is a long, loose robe that reaches from the neck to the feet.",
+          "why": "In the article, a thobe is a long robe that men wear.",
           "wrong": {
             "B": "The cord is the agal.",
             "C": "The headdress is the ghutra.",
@@ -303,7 +303,7 @@
           "why": "The article shows how garments like the thobe, ghutra, bisht, and abaya balance comfort in the heat with regional custom.",
           "wrong": {
             "A": "The sewing machine is not mentioned.",
-            "C": "The article says styles vary from region to region.",
+            "C": "In the article, styles vary from region to region.",
             "D": "Cost is not compared in the article."
           }
         },
@@ -496,7 +496,7 @@
           ],
           "answer": "B",
           "skill": "detail",
-          "why": "The article says the loose cut promotes ventilation directly against the skin.",
+          "why": "In the article, the loose cut promotes ventilation directly against the skin.",
           "wrong": {
             "A": "A thobe is described as lightweight, not heavy.",
             "C": "Thobes are usually pale, not dark.",
@@ -547,7 +547,7 @@
           ],
           "answer": "A",
           "skill": "compare",
-          "why": "The article says both garments are cut loose, which permits ventilation beneath the fabric.",
+          "why": "In the article, both garments are cut loose, which permits ventilation beneath the fabric.",
           "wrong": {
             "B": "Wool is linked mainly to the bisht.",
             "C": "Both garments are described as loose, not tight.",
@@ -644,7 +644,7 @@
         ],
         "answer": "A",
         "skill": "detail",
-        "why": "The text says a black cord, called an agal, holds the ghutra.",
+        "why": "In the text, a black cord, called an agal, holds the ghutra.",
         "wrong": {
           "B": "A long robe is the thobe, which is worn on the body.",
           "C": "Shoes are not mentioned.",
@@ -697,7 +697,7 @@
         ],
         "answer": "D",
         "skill": "detail",
-        "why": "The article says a man may wear a bisht on formal days.",
+        "why": "In the article, a man may wear a bisht on formal days.",
         "wrong": {
           "A": "The thobe is the clothing for hot days; a bisht is a cloak.",
           "B": "The article does not mention sleeping.",
@@ -731,7 +731,7 @@
         ],
         "answer": "C",
         "skill": "cause-effect",
-        "why": "The article says the loose cut lets air move close to the skin, which keeps the wearer cooler.",
+        "why": "In the article, the loose cut lets air move close to the skin, which keeps the wearer cooler.",
         "wrong": {
           "A": "Blocking the wind would make the wearer hotter.",
           "B": "Warm cloth would not cool anyone.",
@@ -750,7 +750,7 @@
         "skill": "author-purpose",
         "why": "The author shows the clothes are about more than comfort: they mark weddings and Eid and show where a person comes from.",
         "wrong": {
-          "B": "The article says styles differ from region to region.",
+          "B": "In the article, styles differ from region to region.",
           "C": "Cotton growing is not explained.",
           "D": "The article does not compare the two days."
         }
@@ -801,7 +801,7 @@
         ],
         "answer": "A",
         "skill": "detail",
-        "why": "The article says the red-and-white shemagh is more common in cooler seasons.",
+        "why": "In the article, the red-and-white shemagh is more common in cooler seasons.",
         "wrong": {
           "B": "A plain white ghutra is favored in the hottest months.",
           "C": "The article does not limit shemaghs to weddings.",
@@ -818,7 +818,7 @@
         ],
         "answer": "C",
         "skill": "cause-effect",
-        "why": "The article says garments vary by region since local weather and local custom differ from place to place.",
+        "why": "In the article, garments vary by region since local weather and local custom differ from place to place.",
         "wrong": {
           "A": "The article does not say tailors refuse to share ideas.",
           "B": "The article does not say where cotton grows.",

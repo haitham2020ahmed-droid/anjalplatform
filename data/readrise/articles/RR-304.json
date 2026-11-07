@@ -138,7 +138,7 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The article says the tent, called the house of hair, is made from goat and camel hair.",
+          "why": "In the article, the tent was made of goat and camel hair.",
           "wrong": {
             "A": "Plastic is not mentioned.",
             "B": "Metal is not mentioned.",
@@ -155,7 +155,7 @@
           ],
           "answer": "A",
           "skill": "detail",
-          "why": "The article says ropes hold the tent to the ground and keep it steady in strong wind.",
+          "why": "In the article, ropes hold the tent to the ground and keep it steady in strong wind.",
           "wrong": {
             "B": "Water is not carried by rope in the article.",
             "C": "Tying up camels is not mentioned.",
@@ -206,7 +206,7 @@
           ],
           "answer": "B",
           "skill": "cause-effect",
-          "why": "The article says dark cloth blocks the hot sun, which keeps the tent cooler inside.",
+          "why": "In the article, dark cloth blocks the hot sun, which keeps the tent cooler inside.",
           "wrong": {
             "A": "Cost is not discussed.",
             "C": "Weight is not linked to color.",
@@ -240,7 +240,7 @@
           ],
           "answer": "C",
           "skill": "cause-effect",
-          "why": "The article says the gaps let air pass through, which keeps air moving and helps cool the tent.",
+          "why": "In the article, the gaps let air pass through, which keeps air moving and helps cool the tent.",
           "wrong": {
             "A": "Gaps do not tear the cloth.",
             "B": "Moving air is the opposite of staying still.",
@@ -627,7 +627,7 @@
         ],
         "answer": "B",
         "skill": "cause-effect",
-        "why": "The text says people moved a lot in the desert to find food and water.",
+        "why": "In the text, people long ago moved often to find water and food for their animals.",
         "wrong": {
           "A": "The text talks about a hot desert, not snow.",
           "C": "The cloth came from goats and camels, not from moving.",
@@ -644,7 +644,7 @@
         ],
         "answer": "D",
         "skill": "sequence",
-        "why": "The text says the hair was given, then it was spun, and then made into cloth.",
+        "why": "In the text, the hair was given, then it was spun, and then made into cloth.",
         "wrong": {
           "A": "The text says the ropes hold the tent, not that the hair is made into them first.",
           "B": "The hair is used for cloth, and the text does not say it is burned.",
@@ -697,7 +697,7 @@
         ],
         "answer": "A",
         "skill": "detail",
-        "why": "The article says the tent gets its name from its cloth, which is woven from hair.",
+        "why": "In the article, the tent gets its name from its cloth, which is woven from hair.",
         "wrong": {
           "B": "The article does not link the name to sand.",
           "C": "The article does not name a first camp.",
@@ -748,10 +748,10 @@
         ],
         "answer": "D",
         "skill": "cause-effect",
-        "why": "The article says small gaps between the threads let air pass through the walls.",
+        "why": "In the article, small gaps between the threads let air pass through the walls.",
         "wrong": {
           "A": "A camel is used to carry the tent, not to make a breeze.",
-          "B": "Poles hold up the tent, but the article says the gaps let air in.",
+          "B": "Poles hold up the tent, but in the article, the gaps let air in.",
           "C": "The sides are closed in a sandstorm, and the breeze comes through the walls."
         }
       }
@@ -771,7 +771,7 @@
         "wrong": {
           "A": "The article says the cloth kept sand out.",
           "B": "The article calls the tent resilient, so it was not badly damaged.",
-          "D": "The article says the shade stays cooler than the open desert."
+          "D": "In the article, the shade stays cooler than the open desert."
         }
       },
       {
@@ -818,7 +818,7 @@
         ],
         "answer": "B",
         "skill": "cause-effect",
-        "why": "The article says the gaps let air pass steadily through the walls, creating a gentle breeze.",
+        "why": "In the article, the gaps let air pass steadily through the walls, creating a gentle breeze.",
         "wrong": {
           "A": "The dark panels absorb heat, and the gaps let air in.",
           "C": "The article says the tent is portable and light enough to load.",

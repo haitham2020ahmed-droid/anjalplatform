@@ -155,7 +155,7 @@
           ],
           "answer": "A",
           "skill": "detail",
-          "why": "The article says monkeys jump in the trees, colorful birds fly above, and frogs hide near the ground.",
+          "why": "In the article, monkeys jump in the trees, colorful birds fly above, and frogs hide near the ground.",
           "wrong": {
             "B": "Polar bears and penguins live in cold places, not the rainforest.",
             "C": "Camels and lizards live in deserts, not in this article.",
@@ -172,7 +172,7 @@
           ],
           "answer": "B",
           "skill": "vocabulary",
-          "why": "The article says biodiversity is the word for the many kinds of life living in one place.",
+          "why": "In the article, biodiversity is the word for the many kinds of life living in one place.",
           "wrong": {
             "A": "Biodiversity is not one type of tree.",
             "C": "Biodiversity is not a type of rain.",
@@ -189,7 +189,7 @@
           ],
           "answer": "D",
           "skill": "detail",
-          "why": "The article says rain falls almost every day in the Amazon.",
+          "why": "In the article, rain falls almost every day in the Amazon.",
           "wrong": {
             "A": "The article says the opposite: rain is common.",
             "B": "The article does not mention a winter season.",
@@ -206,7 +206,7 @@
           ],
           "answer": "A",
           "skill": "inference",
-          "why": "The article says trees make fresh air, and the Amazon makes so much that people call it the lungs of the Earth.",
+          "why": "In the article, trees make fresh air, and the Amazon makes so much that people call it the lungs of the Earth.",
           "wrong": {
             "B": "The article does not describe the Amazon's shape.",
             "C": "The article does not mention hospitals.",
@@ -225,7 +225,7 @@
           "skill": "inference",
           "why": "With tall trees, thick leaves, and ground cover, the Amazon offers many different places for different animals to live.",
           "wrong": {
-            "B": "The article says rain falls almost every day.",
+            "B": "Rain falls almost every day.",
             "C": "The Amazon is a forest, not a desert of sand and rock.",
             "D": "The Amazon is warm and rainy, not cold."
           }
@@ -481,7 +481,7 @@
           "skill": "central-idea",
           "why": "The article explains the Amazon's scale, its extraordinary biodiversity, its photosynthesis-driven oxygen cycle, and its influence on global rainfall and temperature.",
           "wrong": {
-            "B": "The article says countless plants and insects remain entirely unidentified.",
+            "B": "Many species there have not been studied yet.",
             "C": "The article presents the river as part of the larger rainforest ecosystem, not superior to it.",
             "D": "The article discusses clearing and fire as ongoing concerns, implying real impact from human activity."
           }
@@ -496,7 +496,7 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The article explains that many Amazon species exist nowhere else in the world, making them especially vulnerable to habitat loss.",
+          "why": "Many Amazon species live nowhere else in the world, so losing their habitat puts them in danger.",
           "wrong": {
             "A": "The article implies the opposite: many species exist only in the Amazon and depend on it.",
             "B": "The article implies the opposite: many species exist only in the Amazon and depend on it.",
@@ -644,7 +644,7 @@
         ],
         "answer": "B",
         "skill": "vocabulary",
-        "why": "The text says trees make fresh air called oxygen, which we need to breathe.",
+        "why": "In the text, trees make fresh air called oxygen, which we need to breathe.",
         "wrong": {
           "A": "Snakes are animals, not oxygen.",
           "C": "Oxygen is made by trees, but it is not a tree part.",
@@ -697,7 +697,7 @@
         ],
         "answer": "C",
         "skill": "detail",
-        "why": "The text says the Amazon stretches across nine countries.",
+        "why": "In the text, the Amazon stretches across nine countries.",
         "wrong": {
           "A": "Three is too few; the text says nine.",
           "B": "Five is too few; the text says nine.",
@@ -731,7 +731,7 @@
         ],
         "answer": "D",
         "skill": "cause-effect",
-        "why": "The text says the Amazon helps regulate rainfall and heat far beyond South America, so people protect it.",
+        "why": "In the text, the Amazon helps regulate rainfall and heat far beyond South America, so people protect it.",
         "wrong": {
           "A": "The text says it is the largest rainforest.",
           "B": "The text says it holds about ten percent of known species.",
@@ -767,7 +767,7 @@
         ],
         "answer": "B",
         "skill": "detail",
-        "why": "The text says the Amazon holds about a third of the tropical rainforest left on the planet.",
+        "why": "In the text, the Amazon holds about a third of the tropical rainforest left on the planet.",
         "wrong": {
           "A": "A tenth is the share of species, not of rainforest.",
           "C": "Three quarters is more than the text says.",

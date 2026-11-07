@@ -29,7 +29,7 @@ export function PlacementPopup({ studentKey, href, cont }: { studentKey: string;
         <h2 id="rr-pop-h" className="mt-1 text-xl font-bold">{t("Let's find your reading level first")}</h2>
       </div>
       <div className="space-y-4 px-6 py-5">
-        <p className="text-slate-700">{t("Take the placement test: short passages with 3 questions each (about 40 questions, about 30 minutes). Then ReadRise gives you articles that are just right for you.")}</p>
+        <p className="text-slate-700">{t("Take the placement test: up to 13 short passages with 3 questions each (about 36–39 questions). About 20–30 minutes — no time limit, you can stop and come back. Then ReadRise gives you articles that are just right for you.")}</p>
         <div className="flex flex-wrap justify-end gap-2">
           <button type="button" onClick={later} className="inline-flex min-h-11 items-center rounded-xl px-4 font-semibold text-brand-navy ring-1 ring-slate-300 hover:ring-brand-teal">{t("Later")}</button>
           <Link href={href} prefetch={false} className="inline-flex min-h-11 items-center rounded-xl bg-brand-navy px-5 font-semibold text-white hover:bg-brand-purple" data-testid="rr-popup-start">{cont ? t("Continue ▶") : t("Start ▶")}</Link>

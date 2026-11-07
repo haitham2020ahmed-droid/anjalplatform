@@ -138,7 +138,7 @@
           ],
           "answer": "A",
           "skill": "detail",
-          "why": "The article says a sprint, like the 100-meter dash, is a short, fast race.",
+          "why": "In the article, a sprint, like the 100-meter dash, is a short, fast race.",
           "wrong": {
             "B": "A long race is called a distance race, not a sprint.",
             "C": "Jumping over a bar is the high jump.",
@@ -172,7 +172,7 @@
           ],
           "answer": "B",
           "skill": "sequence",
-          "why": "The article says four runners form a team, and each one hands off a baton to the next runner.",
+          "why": "In the article, four runners form a team, and each one hands off a baton to the next runner.",
           "wrong": {
             "A": "A relay race has four runners, not one.",
             "C": "Jumping over bars happens in the hurdles, a different event.",
@@ -223,7 +223,7 @@
           ],
           "answer": "A",
           "skill": "inference",
-          "why": "The article says a jumper runs, then jumps over a bar, and good form helps more than speed in this event.",
+          "why": "In the article, a jumper runs, then jumps over a bar, and good form helps more than speed in this event.",
           "wrong": {
             "B": "A bar is a key part of the high jump.",
             "C": "Running fast does not make the bar fall by itself.",
@@ -317,7 +317,7 @@
           ],
           "answer": "A",
           "skill": "cause-effect",
-          "why": "The article explains that sprinting the entire distance race would exhaust even strong runners.",
+          "why": "In the article, sprinting the entire distance race would exhaust even strong runners.",
           "wrong": {
             "B": "No such rule about speed is mentioned.",
             "C": "Pacing applies to distance races, not specifically relays.",
@@ -419,7 +419,7 @@
           ],
           "answer": "A",
           "skill": "cause-effect",
-          "why": "The article says each discipline trains different muscles and skills, which is why most athletes specialize.",
+          "why": "In the article, each discipline trains different muscles and skills, which is why most athletes specialize.",
           "wrong": {
             "B": "No such rule is mentioned in the article.",
             "C": "A single meet includes dozens of events.",
@@ -530,7 +530,7 @@
           ],
           "answer": "B",
           "skill": "inference",
-          "why": "The article says the long jump converts horizontal velocity into measurable distance.",
+          "why": "In the article, the long jump converts horizontal velocity into measurable distance.",
           "wrong": {
             "A": "The article directly connects running speed to jump distance.",
             "C": "Both speed and takeoff angle are described as mattering.",
@@ -547,7 +547,7 @@
           ],
           "answer": "B",
           "skill": "detail",
-          "why": "The article says the javelin is hurled along a carefully calculated trajectory, using explosive power from the whole body.",
+          "why": "In the article, the javelin is hurled along a carefully calculated trajectory, using explosive power from the whole body.",
           "wrong": {
             "A": "Shoe size is not discussed.",
             "C": "Team size relates to relay races, not the javelin.",
@@ -564,7 +564,7 @@
           ],
           "answer": "A",
           "skill": "inference",
-          "why": "The article says the event rewards athletes who maintain momentum and rhythm between each successive barrier.",
+          "why": "In the article, the event rewards athletes who maintain momentum and rhythm between each successive barrier.",
           "wrong": {
             "B": "No such stopping rule is described.",
             "C": "Momentum is discussed specifically in the context of hurdling.",
@@ -598,7 +598,7 @@
           ],
           "answer": "B",
           "skill": "inference",
-          "why": "The article explains that each discipline trains entirely different muscles, joints, and skills, making specialization practical.",
+          "why": "In the article, each discipline trains entirely different muscles, joints, and skills, making specialization practical.",
           "wrong": {
             "A": "No such one-event rule is mentioned.",
             "C": "No international rule like this is described.",
@@ -627,7 +627,7 @@
         ],
         "answer": "D",
         "skill": "detail",
-        "why": "The text says the kid jumps far into sand.",
+        "why": "In the text, the kid jumps far into sand.",
         "wrong": {
           "A": "The bar is used in the high jump.",
           "B": "Water is not mentioned in the article.",
@@ -644,7 +644,7 @@
         ],
         "answer": "B",
         "skill": "detail",
-        "why": "The text says that in the javelin throw, kids throw a long stick.",
+        "why": "In the javelin throw, athletes throw a long spear.",
         "wrong": {
           "A": "The heavy ball is pushed in the shot put.",
           "C": "Kids jump over a bar, they do not throw it.",
@@ -678,7 +678,7 @@
         ],
         "answer": "C",
         "skill": "vocabulary",
-        "why": "The text says a meet has many events in one day.",
+        "why": "A meet has many events in one day.",
         "wrong": {
           "A": "A fast race is called a sprint.",
           "B": "A meet is not a ball.",
@@ -784,7 +784,7 @@
         ],
         "answer": "A",
         "skill": "vocabulary",
-        "why": "The article says most athletes take part in only a few events because each trains different muscles and skills.",
+        "why": "In the article, most athletes take part in only a few events because each trains different muscles and skills.",
         "wrong": {
           "B": "Competing against everyone is the opposite of choosing only a few.",
           "C": "The athletes do not quit; they keep competing in a few events.",
@@ -818,7 +818,7 @@
         ],
         "answer": "C",
         "skill": "compare",
-        "why": "The article says technique matters considerably more than raw speed in the high jump, while the long jump depends on speed and takeoff angle.",
+        "why": "In the article, technique matters considerably more than raw speed in the high jump, while the long jump depends on speed and takeoff angle.",
         "wrong": {
           "A": "It is the other way around: the long jump uses sand and the high jump uses a bar.",
           "B": "In the high jump the athlete also runs toward the bar.",

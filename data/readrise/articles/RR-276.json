@@ -155,7 +155,7 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The article says stretching warms up the muscles and helps the body bend more easily.",
+          "why": "In the article, bending and stretching first helps a gymnast move easily.",
           "wrong": {
             "A": "Stretching does not change the mat.",
             "B": "Stretching does not make gymnasts taller.",
@@ -163,7 +163,7 @@
           }
         },
         {
-          "stem": "The article says, 'Balance means staying steady and not falling off.' In this article, balance means —",
+          "stem": "In this article, balance means —",
           "options": [
             "A type of narrow gym equipment for the class",
             "A coach's daily training job at the school",
@@ -189,7 +189,7 @@
           ],
           "answer": "A",
           "skill": "cause-effect",
-          "why": "The article says a coach spots a gymnast to help if something goes wrong.",
+          "why": "A coach spots a gymnast to help if something goes wrong.",
           "wrong": {
             "B": "Judges, not coaches, score routines.",
             "C": "Coaches do not build beams in the article.",
@@ -208,7 +208,7 @@
           "skill": "inference",
           "why": "The article says learning good balance can take months or years of steady practice.",
           "wrong": {
-            "A": "The article says it takes time, not no time at all.",
+            "A": "Learning balance takes time; it does not happen instantly.",
             "C": "Balance is learned through practice, not given.",
             "D": "Balance is described mainly on the beam, not the vault."
           }
@@ -223,7 +223,7 @@
           ],
           "answer": "C",
           "skill": "inference",
-          "why": "The article says strength helps gymnasts jump high and hold their body steady during a flip.",
+          "why": "In the article, strength helps a gymnast jump high.",
           "wrong": {
             "A": "Reading is not connected to gymnastics strength.",
             "B": "Strength is in the gymnast's body, not the mat.",
@@ -308,41 +308,41 @@
           }
         },
         {
-          "stem": "About how wide is a balance beam?",
+          "stem": "Which of these is named as one of the gymnastics events?",
           "options": [
-            "About one meter wide",
-            "About ten centimeters wide",
-            "About two meters wide",
-            "About fifty centimeters wide"
+            "The pool",
+            "The vault",
+            "The track",
+            "The court"
           ],
           "answer": "B",
           "skill": "detail",
-          "why": "The article says the balance beam is only about ten centimeters wide.",
+          "why": "The events include the floor, the beam, the vault, and the bars.",
           "wrong": {
-            "A": "One meter is far wider than the article states.",
-            "C": "Two meters would be far too wide for a balance beam.",
-            "D": "Fifty centimeters is still wider than the article states."
+            "A": "Swimming pools are not part of gymnastics.",
+            "C": "A track is used for running.",
+            "D": "A court is used for games like tennis."
           }
         },
         {
-          "stem": "According to the article, where does gymnastics trace its history back to?",
+          "stem": "According to the article, what does a gymnast need above all else?",
           "options": [
-            "Ancient Egypt",
-            "Modern Qatar",
-            "Ancient Greece",
-            "Ancient Rome"
+            "A very tall body",
+            "Excellent balance",
+            "A loud voice",
+            "Expensive shoes"
           ],
-          "answer": "C",
+          "answer": "B",
           "skill": "detail",
-          "why": "The article says gymnastics has a long history that stretches back to ancient Greece.",
+          "why": "A gymnast needs excellent balance above all else.",
           "wrong": {
-            "A": "Egypt is not mentioned in the article.",
-            "B": "Qatar is not mentioned in this article.",
-            "D": "Rome is not named as gymnastics' origin here."
+            "A": "Height is not named as the most important thing.",
+            "C": "A loud voice does not help in gymnastics.",
+            "D": "Shoes are not named."
           }
         },
         {
-          "stem": "The article says, 'Gymnasts perform a short routine on several pieces of apparatus.' In this article, apparatus means —",
+          "stem": "Gymnasts perform on several pieces of apparatus. In this article, apparatus means —",
           "options": [
             "A type of sports injury during training",
             "A scoring judge who watches the routine",
@@ -385,7 +385,7 @@
           ],
           "answer": "B",
           "skill": "inference",
-          "why": "The article says breaking a trick into small steps gradually builds precision and confidence.",
+          "why": "In the article, breaking a trick into small steps gradually builds precision and confidence.",
           "wrong": {
             "A": "Breaking a trick into steps makes it safer, not more dangerous.",
             "C": "The Olympics are unrelated to a single coach's training plan.",
@@ -402,7 +402,7 @@
           ],
           "answer": "C",
           "skill": "inference",
-          "why": "The article says a flexible body helps prevent injuries when bending and stretching.",
+          "why": "In the article, a flexible body helps prevent injuries when bending and stretching.",
           "wrong": {
             "A": "Swimming is not part of gymnastics in this article.",
             "B": "Flexibility does not change the beam's width.",
@@ -496,7 +496,7 @@
           ],
           "answer": "B",
           "skill": "detail",
-          "why": "The article says the vault carries the gymnast through a sprint, a springboard launch, and a twisting flight before landing.",
+          "why": "In the article, the vault carries the gymnast through a sprint, a springboard launch, and a twisting flight before landing.",
           "wrong": {
             "A": "A cartwheel and bow are not described as part of the vault.",
             "C": "Swimming and diving are not part of gymnastics in this article.",
@@ -513,7 +513,7 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The article says judges score every movement for both difficulty and precision.",
+          "why": "Judges score each movement for difficulty and precision.",
           "wrong": {
             "A": "Costumes and music are not mentioned in the article.",
             "B": "Height and weight are not described as scored traits.",
@@ -581,7 +581,7 @@
           ],
           "answer": "C",
           "skill": "compare",
-          "why": "The article says discipline and dedication over years turn athletic ability into genuine artistry.",
+          "why": "Years of discipline and hard work turn athletic skill into real artistry.",
           "wrong": {
             "A": "The article directly connects discipline to artistry.",
             "B": "Discipline is described as the foundation that leads to artistry.",
@@ -618,20 +618,20 @@
   "stretch": {
     "LOW": [
       {
-        "stem": "What does the coach show a gymnast?",
+        "stem": "Who helps a gymnast in training?",
         "options": [
-          "Where to buy mats",
-          "How to cook food",
-          "New moves",
-          "Which bar is tall"
+          "A judge",
+          "A doctor",
+          "A coach",
+          "A fan"
         ],
         "answer": "C",
         "skill": "detail",
-        "why": "The text says the coach shows new moves.",
+        "why": "In the text, a coach helps each gymnast train.",
         "wrong": {
-          "A": "Buying mats is not mentioned.",
-          "B": "Cooking is not mentioned.",
-          "D": "Bar height is not mentioned."
+          "A": "A judge scores a show; the coach helps in training.",
+          "B": "A doctor is not the one who trains her.",
+          "D": "A fan only watches."
         }
       },
       {
@@ -646,8 +646,8 @@
         "skill": "compare",
         "why": "Long ago people did gymnastics just for fun, and now there are big gyms with mats, bars, and beams.",
         "wrong": {
-          "A": "The text says it is fun to watch.",
-          "B": "The text says there are big gyms.",
+          "A": "Gymnastics is fun to watch.",
+          "B": "There are big gyms today, so people do not do it only at home.",
           "C": "The text says a coach helps a gymnast train."
         }
       },
@@ -748,7 +748,7 @@
         ],
         "answer": "D",
         "skill": "inference",
-        "why": "The text says good balance can take years of practice and strength comes from hours of training, so mastering it takes time.",
+        "why": "In the text, good balance can take years of practice and strength comes from hours of training, so mastering it takes time.",
         "wrong": {
           "A": "The text says a coach guides each gymnast.",
           "B": "The text says a routine is short.",
@@ -784,7 +784,7 @@
         ],
         "answer": "D",
         "skill": "cause-effect",
-        "why": "The text says each apparatus demands its own distinct technique, so a gymnast must master them all.",
+        "why": "Each piece of equipment needs its own technique, so a gymnast must master them all.",
         "wrong": {
           "A": "The text does not say the coach picks a new one daily.",
           "B": "Random choice by judges is not mentioned.",

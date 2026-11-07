@@ -138,7 +138,7 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The article says most beaches get two high tides and two low tides each day.",
+          "why": "Most beaches have two high tides and two low tides each day.",
           "wrong": {
             "A": "One is too few.",
             "B": "Four is the total of high and low tides, not high tides alone.",
@@ -172,7 +172,7 @@
           ],
           "answer": "A",
           "skill": "cause-effect",
-          "why": "The article says that as Earth spins, a beach moves into a bulge, and that is high tide.",
+          "why": "In the article, as Earth spins, each beach moves into a bulge of water, and that is high tide.",
           "wrong": {
             "B": "Rain is not a cause of tides in the article.",
             "C": "Wind is not given as the cause.",
@@ -303,7 +303,7 @@
           "why": "The article explains how the Moon and Sun cause tides and how people use this knowledge.",
           "wrong": {
             "B": "The Bay of Fundy is one example, not the main idea.",
-            "C": "The article says the Sun's effect is less than half the Moon's.",
+            "C": "In the article, the Sun's effect is less than half the Moon's.",
             "D": "Rock pools are only a small detail."
           }
         },
@@ -334,7 +334,7 @@
           ],
           "answer": "B",
           "skill": "detail",
-          "why": "The article says sailors use tide tables to know when a ship can safely enter a harbor.",
+          "why": "In the article, sailors use tide tables to know when a ship can safely enter a harbor.",
           "wrong": {
             "A": "Tide tables give times of high and low tide, not ocean depth.",
             "C": "The article does not say tide tables show where the Moon rises.",
@@ -402,7 +402,7 @@
           ],
           "answer": "D",
           "skill": "inference",
-          "why": "The article says the tidal range on the Red Sea coast is usually less than one meter, so the change is small.",
+          "why": "In the article, the tidal range on the Red Sea coast is usually less than one meter, so the change is small.",
           "wrong": {
             "A": "That describes the Bay of Fundy, not the Red Sea.",
             "B": "The Red Sea has tides; they are just small.",
@@ -513,7 +513,7 @@
           ],
           "answer": "A",
           "skill": "cause-effect",
-          "why": "The article explains the second bulge forms because the Moon attracts the distant ocean more weakly than the solid Earth.",
+          "why": "In the article, the second bulge forms because the Moon attracts the distant ocean more weakly than the solid Earth.",
           "wrong": {
             "B": "The Sun attracts water; it does not push it.",
             "C": "Wind is not given as a cause.",
@@ -530,7 +530,7 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The article states that because the Sun is so distant, its influence is less than half as strong as the Moon's.",
+          "why": "In the article, because the Sun is so distant, its influence is less than half as strong as the Moon's.",
           "wrong": {
             "A": "The Sun's effect is weaker, not stronger.",
             "B": "The two are not equal.",
@@ -538,7 +538,7 @@
           }
         },
         {
-          "stem": "\"The Sun and Moon pull in perpendicular directions, at right angles to each other.\" What does perpendicular mean?",
+          "stem": "In the article, what does the word \"perpendicular\" mean?",
           "options": [
             "Facing opposite ways",
             "At right angles",
@@ -547,7 +547,7 @@
           ],
           "answer": "B",
           "skill": "vocabulary",
-          "why": "The sentence itself explains perpendicular with the phrase \"at right angles to each other.\"",
+          "why": "The sentence explains perpendicular by saying the two pulls are at right angles to each other.",
           "wrong": {
             "A": "Opposite directions would be a straight line, not a right angle.",
             "C": "Parallel lines never meet; perpendicular lines meet at a corner.",
@@ -627,7 +627,7 @@
         ],
         "answer": "D",
         "skill": "detail",
-        "why": "The text says one bulge is on the side near the Moon and one more bulge is on the far side.",
+        "why": "There is a bulge of water on the side near the Moon and another bulge on the far side.",
         "wrong": {
           "A": "The bulges are made of sea water, not under the sand.",
           "B": "The Moon pulls the sea, but the bulge is on Earth.",
@@ -644,7 +644,7 @@
         ],
         "answer": "B",
         "skill": "cause-effect",
-        "why": "The text says that when the Sun and Moon line up, tides are big, and these are spring tides.",
+        "why": "In the text, when the Sun and Moon line up, tides are big, and these are spring tides.",
         "wrong": {
           "A": "Small tides happen when they do not line up.",
           "C": "The sea does not go away.",
@@ -678,7 +678,7 @@
         ],
         "answer": "C",
         "skill": "cause-effect",
-        "why": "The text says the Sun pulls too, but it is far off, so its pull on tides is less than half as strong.",
+        "why": "In the text, the Sun pulls too, but it is far off, so its pull on tides is less than half as strong.",
         "wrong": {
           "A": "The text does not say the Sun hides behind the Moon.",
           "B": "The Sun shines in the day.",
@@ -714,7 +714,7 @@
         ],
         "answer": "D",
         "skill": "cause-effect",
-        "why": "The text says the Sun's effect is less than half as strong because the Sun is so distant.",
+        "why": "In the text, the Sun's effect is less than half as strong because the Sun is so distant.",
         "wrong": {
           "A": "The text does not say the Sun is cold.",
           "B": "The text does not say the Sun faces away.",
@@ -767,7 +767,7 @@
         ],
         "answer": "C",
         "skill": "detail",
-        "why": "The text says the difference between high and low tide is called the tidal range.",
+        "why": "In the text, the difference between high and low tide is called the tidal range.",
         "wrong": {
           "A": "The tidal range is a difference in height, not in time.",
           "B": "The text does not use tidal range for the Moon's distance.",
@@ -784,7 +784,7 @@
         ],
         "answer": "A",
         "skill": "cause-effect",
-        "why": "The text says the Moon's pull causes water to accumulate in a bulge on the side of Earth facing the Moon.",
+        "why": "In the text, the Moon's pull causes water to accumulate in a bulge on the side of Earth facing the Moon.",
         "wrong": {
           "B": "The text does not mention freezing.",
           "C": "The oceans keep moving as the Earth spins.",

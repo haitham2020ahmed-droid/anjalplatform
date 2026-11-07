@@ -158,7 +158,7 @@
           "why": "The article says rechargeable batteries can be charged again and again and used over and over.",
           "wrong": {
             "A": "That describes a battery that is used once, not a rechargeable one.",
-            "B": "The article says every battery wears out a little each time it is charged.",
+            "B": "In the article, every battery wears out a little each time it is charged.",
             "D": "Batteries do not make sunlight."
           }
         },
@@ -197,7 +197,7 @@
           }
         },
         {
-          "stem": "Read: \"A battery stores power inside it.\" What does store mean here?",
+          "stem": "In the article, what does the word \"store\" mean?",
           "options": [
             "To sell something to a customer in a shop",
             "To keep something so it can be used later",
@@ -317,7 +317,7 @@
           ],
           "answer": "A",
           "skill": "detail",
-          "why": "The article states that many rechargeable batteries today are lithium batteries, known for packing a lot of capacity into a small package.",
+          "why": "In the article, many rechargeable batteries today are lithium batteries, known for packing a lot of capacity into a small package.",
           "wrong": {
             "B": "Water batteries are not mentioned.",
             "C": "Wind batteries are not described in the article.",
@@ -334,7 +334,7 @@
           ],
           "answer": "A",
           "skill": "detail",
-          "why": "The article says extra power from solar panels is saved in batteries so it can be used again after dark.",
+          "why": "In the article, extra power from solar panels is saved in batteries so it can be used again after dark.",
           "wrong": {
             "B": "Nothing can make the sun shine brighter.",
             "C": "Cleaning panels is not discussed in this article.",
@@ -342,7 +342,7 @@
           }
         },
         {
-          "stem": "Read: \"Many rechargeable batteries today... pack a lot of capacity into a small package.\" What does capacity mean here?",
+          "stem": "In the article, what does the word \"capacity\" mean?",
           "options": [
             "The exact color painted on the battery",
             "How much power something can hold",
@@ -481,7 +481,7 @@
           "skill": "central-idea",
           "why": "The article explains the chemistry behind batteries, the many devices and systems that depend on them, and the gradual degradation that limits their lifespan.",
           "wrong": {
-            "A": "The article says every charge-and-discharge cycle degrades a battery's chemistry.",
+            "A": "In the article, every charge-and-discharge cycle degrades a battery's chemistry.",
             "B": "The article lists phones, laptops, and solar farms as well as vehicles.",
             "C": "Rarity of lithium is not discussed in the article."
           }
@@ -530,7 +530,7 @@
           ],
           "answer": "B",
           "skill": "cause-effect",
-          "why": "The article explains that every charge-and-discharge cycle gradually degrades a battery's chemistry, reducing its capacity and efficiency.",
+          "why": "In the article, every charge-and-discharge cycle gradually degrades a battery's chemistry, reducing its capacity and efficiency.",
           "wrong": {
             "A": "The article clearly describes a lasting effect on battery chemistry.",
             "C": "Pollution from batteries is not discussed in the article.",
@@ -547,7 +547,7 @@
           ],
           "answer": "B",
           "skill": "inference",
-          "why": "The article states that lithium-ion batteries are prized for their high capacity relative to their comparatively modest weight.",
+          "why": "In the article, lithium-ion batteries are prized for their high capacity relative to their comparatively modest weight.",
           "wrong": {
             "A": "The article says manufacturing infrastructure has grown substantially.",
             "C": "Batteries rely on chemicals to work, according to the article.",
@@ -644,7 +644,7 @@
         ],
         "answer": "C",
         "skill": "detail",
-        "why": "The text says each charge makes the battery weaker, so it wears out a little.",
+        "why": "In the text, each charge makes the battery weaker, so it wears out a little.",
         "wrong": {
           "A": "The text does not say it gets loud.",
           "B": "The text does not say it gets warm.",
@@ -669,20 +669,20 @@
         }
       },
       {
-        "stem": "When do solar farms use the saved power?",
+        "stem": "What do big solar farms use to save power?",
         "options": [
-          "At noon",
-          "At night",
-          "In the rain",
-          "In the morning"
+          "Huge spinning fans",
+          "Huge batteries",
+          "Huge water pipes",
+          "Huge bright lamps"
         ],
         "answer": "B",
         "skill": "detail",
-        "why": "The text says extra power is saved in a battery and used at night.",
+        "why": "In the article, even big solar farms use huge batteries to save power.",
         "wrong": {
-          "A": "At noon the sun is shining, so no saved power is needed.",
-          "C": "The text does not mention rain.",
-          "D": "The text says the saved power is used at night."
+          "A": "Fans do not save power.",
+          "C": "Pipes are not named.",
+          "D": "Lamps use power; they do not save it."
         }
       }
     ],
@@ -714,7 +714,7 @@
         ],
         "answer": "A",
         "skill": "vocabulary",
-        "why": "The text says the battery wears out a little each time and holds less charge, so it works less well.",
+        "why": "In the text, the battery wears out a little each time it is used, so it works less well.",
         "wrong": {
           "B": "The text does not say the battery gets larger.",
           "C": "The text does not say the battery changes color.",
@@ -748,7 +748,7 @@
         ],
         "answer": "C",
         "skill": "inference",
-        "why": "The text says each charge and use wears a battery out a little, so it holds less charge.",
+        "why": "In the text, each charge and use wears a battery out a little, so it holds less charge.",
         "wrong": {
           "A": "The text does not say phones get heavier.",
           "B": "The text does not say chargers grow.",

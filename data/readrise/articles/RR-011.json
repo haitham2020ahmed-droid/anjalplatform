@@ -138,7 +138,7 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The article says sensors help a robot sense the world, like eyes and ears.",
+          "why": "In the article, sensors help a robot sense things around it.",
           "wrong": {
             "A": "Motors help a robot move, not sensors.",
             "B": "People write the program.",
@@ -192,7 +192,7 @@
           "why": "Mars is far away, so a message from Earth takes a long time. The rover cannot wait, so it makes some choices itself.",
           "wrong": {
             "A": "The rover has sensors; it takes photos and checks rocks.",
-            "B": "The article says people still plan and fix robots.",
+            "B": "In the article, people still plan and fix robots.",
             "D": "The rover takes photos of rocks on Mars."
           }
         },
@@ -317,15 +317,15 @@
           ],
           "answer": "D",
           "skill": "detail",
-          "why": "The article says the robot does not make medical decisions; the surgeon controls every movement to make tiny, precise cuts.",
+          "why": "The robot does not make medical decisions; the surgeon controls every movement to make tiny, precise cuts.",
           "wrong": {
-            "A": "The article says the robot does not make the decisions.",
+            "A": "In the article, the robot does not make the decisions.",
             "B": "Other hospital robots carry medicine; the robot arm is used in operations.",
             "C": "The surgeon guides the arm the whole time."
           }
         },
         {
-          "stem": "Read the sentence: \"They can repeat the same task thousands of times without getting tired, so they are ideal for repetitive work.\" What does repetitive mean?",
+          "stem": "In the article, what does the word \"repetitive\" mean?",
           "options": [
             "Hot and dangerous for people who work",
             "Done the same way again and again",
@@ -368,7 +368,7 @@
           ],
           "answer": "D",
           "skill": "detail",
-          "why": "The article says factory robots take on dangerous jobs, such as handling hot metal or harmful chemicals.",
+          "why": "In the article, factory robots take on dangerous jobs, such as handling hot metal or harmful chemicals.",
           "wrong": {
             "A": "Cleaning floors is not described as dangerous for people.",
             "B": "The rover explores Mars because it is far away, not because photos are dangerous.",
@@ -385,7 +385,7 @@
           ],
           "answer": "A",
           "skill": "inference",
-          "why": "The article says robots follow their instructions exactly and struggle with new or unexpected problems.",
+          "why": "In the article, robots follow their instructions exactly, so a problem their program did not plan for can be hard for them.",
           "wrong": {
             "B": "Nothing in its instructions tells it to paint boxes.",
             "C": "Surgeons work with robots in hospitals, not factories.",
@@ -421,7 +421,7 @@
           "skill": "inference",
           "why": "If a robot does exactly what its instructions say, an error in the instructions becomes an error in the robot's work, so programmers must be careful.",
           "wrong": {
-            "A": "The article says a wrong instruction makes the robot make a mistake.",
+            "A": "In the article, a wrong instruction makes the robot make a mistake.",
             "C": "The article says people write the instructions.",
             "D": "Every robot needs a program, not only rovers."
           }
@@ -481,7 +481,7 @@
           "skill": "central-idea",
           "why": "The article explains how robots sense, think, and act, shows them at work in several fields, and stresses that humans design, program, and maintain them.",
           "wrong": {
-            "A": "The article says surgeons control the robotic arms; robots have not replaced them.",
+            "A": "In the article, surgeons control the robotic arms; robots have not replaced them.",
             "B": "Rovers are only partially autonomous and still depend on people's programs.",
             "D": "The article says people must maintain robots."
           }
@@ -600,8 +600,8 @@
           "skill": "inference",
           "why": "The rover must be partly autonomous because people are too far away to guide it, which suggests distance from people increases the need for independent decisions.",
           "wrong": {
-            "A": "The article says robots struggle with unexpected situations.",
-            "B": "The article says robots cannot genuinely understand human emotions.",
+            "A": "In the article, robots struggle with unexpected situations.",
+            "B": "Nothing in the article suggests that robots will soon understand human feelings.",
             "C": "The surgeon controls every movement of the robotic arm."
           }
         }
@@ -627,7 +627,7 @@
         ],
         "answer": "A",
         "skill": "detail",
-        "why": "The text says a small computer is the robot's brain and it thinks.",
+        "why": "In the text, a small computer is the robot's brain and it thinks.",
         "wrong": {
           "B": "Motors help the robot move.",
           "C": "Arms are parts that lift and paint.",
@@ -697,7 +697,7 @@
         ],
         "answer": "B",
         "skill": "detail",
-        "why": "The article says engineers sum it up as sense, think, act.",
+        "why": "In the article, engineers sum it up as sense, think, act.",
         "wrong": {
           "A": "These words are not used by the engineers in the article.",
           "C": "These are jobs a robot may do, not the three words.",
@@ -731,7 +731,7 @@
         ],
         "answer": "B",
         "skill": "cause-effect",
-        "why": "The article says the robot follows its instructions exactly, so a wrong instruction leads to a mistake.",
+        "why": "In the article, the robot follows its instructions exactly, so a wrong instruction leads to a mistake.",
         "wrong": {
           "A": "Robots do not get tired in the article.",
           "C": "Its sensors can sense things.",
@@ -784,7 +784,7 @@
         ],
         "answer": "C",
         "skill": "detail",
-        "why": "The article says a radio signal can take up to about twenty minutes to arrive.",
+        "why": "In the article, a radio signal can take up to about twenty minutes to arrive.",
         "wrong": {
           "A": "The signal takes much longer.",
           "B": "The article says about twenty minutes, not an hour.",

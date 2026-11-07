@@ -103,7 +103,7 @@ export async function termStart(repo: Repo, schoolId: string, now: Date): Promis
 
 /** The ReadRise Level now, growth since placement (or the start), articles finished this term, the weekly goal streak. */
 export async function readRiseSection(repo: Repo, studentId: string, now = new Date()): Promise<ReportSection | null> {
-  const { studentReadRiseSummary } = await import("../readrise/engine");
+  const [{ studentReadRiseSummary }, { formatLevel }] = await Promise.all([import("../readrise/engine"), import("../readrise/level")]);
   const rr = await studentReadRiseSummary(repo, studentId, now);
   if (!rr) return null;
   // 🎯 no level before the placement test (the first visit's working start is not a level)
@@ -115,7 +115,7 @@ export async function readRiseSection(repo: Repo, studentId: string, now = new D
   const since = rr.source === "PLACEMENT" || rr.placed ? "since the placement" : "since the start";
   const growth = rr.growth > 0 ? `up ${rr.growth} ${since}` : rr.growth === 0 ? `the same as ${since.replace("since ", "")}` : `${rr.growth} ${since} — the level adjusts as more articles are read`;
   const lines = [
-    `ReadRise Level: ${rr.level} (started at ${rr.startLevel} · ${growth}).`,
+    `ReadRise Level: ${formatLevel(rr.level)} (started at ${formatLevel(rr.startLevel)} · ${growth}).`, // round 7: "820L"
     `Articles finished this term: ${term}.`,
     rr.streak > 0
       ? `Weekly goal (${rr.weeklyGoal} articles a week at 75%+ on the first try): met ${rr.streak} week${rr.streak === 1 ? "" : "s"} in a row.`

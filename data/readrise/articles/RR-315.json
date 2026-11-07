@@ -121,7 +121,7 @@
           ],
           "answer": "B",
           "skill": "central-idea",
-          "why": "The article explains the long history and skill of making silver jewelry in Saudi Arabia.",
+          "why": "The article explains the long history and skill of making silver jewelry.",
           "wrong": {
             "A": "Gold is mentioned only to compare it with silver.",
             "C": "Weddings are mentioned, but they are not the main focus.",
@@ -138,7 +138,7 @@
           ],
           "answer": "B",
           "skill": "detail",
-          "why": "The article says women wore silver jewelry at weddings and other happy days.",
+          "why": "In the article, women wore silver jewelry to weddings.",
           "wrong": {
             "A": "The article does not mention sleeping.",
             "C": "The article does not mention school.",
@@ -214,7 +214,7 @@
           }
         },
         {
-          "stem": "Read: \"Craftsmen made fine patterns by twisting thin silver wire.\" What does craftsmen mean here?",
+          "stem": "Silver jewelry was made by craftsmen. What does craftsmen mean here?",
           "options": [
             "People who sell silver in shops",
             "People skilled at making things by hand",
@@ -304,7 +304,7 @@
           "wrong": {
             "A": "The article explains that silver, not gold, was the common choice.",
             "C": "The article does not say silversmiths worked only in large cities.",
-            "D": "The article also describes engraving as a technique."
+            "D": "Engraving is another technique."
           }
         },
         {
@@ -368,7 +368,7 @@
           ],
           "answer": "D",
           "skill": "inference",
-          "why": "The article says each region developed its own style, shaped by local taste, materials, and history.",
+          "why": "In the article, each region had its own style, based on local taste.",
           "wrong": {
             "A": "The article does not say only Najd had silversmiths.",
             "B": "The article names Asir as one of the regions with its own style.",
@@ -393,7 +393,7 @@
           }
         },
         {
-          "stem": "Read: \"silver jewelry is a very old and special tradition.\" What does tradition mean here?",
+          "stem": "In the article, what does the word \"tradition\" mean?",
           "options": [
             "A costume worn by a storyteller",
             "A written book of folk tales",
@@ -483,7 +483,7 @@
           "wrong": {
             "A": "The article explains why silver, not gold, was commonly chosen.",
             "C": "The article presents filigree as a very old technique.",
-            "D": "The article says families, not only museums, keep old jewelry."
+            "D": "In the article, families, not only museums, keep old jewelry."
           }
         },
         {
@@ -513,7 +513,7 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The article says true craftsmanship cannot be rushed or faked, which is why authentic pieces are valued.",
+          "why": "In the article, true craftsmanship cannot be rushed or faked, which is why authentic pieces are valued.",
           "wrong": {
             "A": "The article does not compare the weight of copies.",
             "B": "The article is about silver jewelry, not gold.",
@@ -530,7 +530,7 @@
           ],
           "answer": "A",
           "skill": "cause-effect",
-          "why": "The article says an apprentice slowly absorbs the craftsmanship needed to shape silver skillfully.",
+          "why": "In the article, an apprentice slowly absorbs the craftsmanship needed to shape silver skillfully.",
           "wrong": {
             "B": "The article does not discuss wealth from sales.",
             "C": "Silversmiths still rely on tools to shape silver.",
@@ -572,7 +572,7 @@
           }
         },
         {
-          "stem": "Read: \"several intricate pieces simultaneously.\" What does intricate mean?",
+          "stem": "In the article, what does the word \"intricate\" mean?",
           "options": [
             "Plain and simple in design",
             "Having many small, detailed parts",
@@ -627,7 +627,7 @@
         ],
         "answer": "B",
         "skill": "detail",
-        "why": "The text says he twists wire and makes shapes, and some look like flowers.",
+        "why": "In the text, he twists wire and makes shapes, and some look like flowers.",
         "wrong": {
           "A": "Rope is not named in the text.",
           "C": "Glass is not named in the text.",
@@ -678,7 +678,7 @@
         ],
         "answer": "C",
         "skill": "cause-effect",
-        "why": "The text says each place has its style, and folks can tell from a necklace that looks new.",
+        "why": "In the text, each place has its style, and folks can tell from a necklace that looks new.",
         "wrong": {
           "A": "The text does not mention weight.",
           "B": "The text does not mention the day it was made.",
@@ -714,7 +714,7 @@
         ],
         "answer": "D",
         "skill": "cause-effect",
-        "why": "The article says gold cost a lot, while silver cost less and still looked nice and lasted.",
+        "why": "In the article, gold cost a lot, while silver cost less and still looked nice and lasted.",
         "wrong": {
           "A": "The article does not compare weight.",
           "B": "The article does not say where silver came from.",
@@ -784,9 +784,9 @@
         ],
         "answer": "A",
         "skill": "cause-effect",
-        "why": "The article says gold was costly and hard for most families to afford.",
+        "why": "In the article, gold was costly and hard for most families to afford.",
         "wrong": {
-          "B": "The article says silver lasted without losing its shine, not that gold lost its.",
+          "B": "Gold did not lose its shine; the problem was that it cost too much.",
           "C": "The article does not say gold was only found in museums.",
           "D": "The article says pieces were often heavy, but does not blame that on gold."
         }
@@ -804,7 +804,7 @@
         "why": "The article gives elegant as a good quality of silver, so it means graceful and stylish.",
         "wrong": {
           "A": "The article praises silver, so it is not dull.",
-          "B": "The article says silver was easier to find.",
+          "B": "In the article, silver was easier to find.",
           "C": "Heavy is a different description from elegant."
         }
       },
@@ -818,7 +818,7 @@
         ],
         "answer": "B",
         "skill": "detail",
-        "why": "The article says each region's style was shaped by local taste, materials, and old trade routes.",
+        "why": "In the article, each region's style was shaped by local taste, materials, and old trade routes.",
         "wrong": {
           "A": "Museums display pieces but do not shape the style.",
           "C": "The article does not link the price of gold to regional style.",

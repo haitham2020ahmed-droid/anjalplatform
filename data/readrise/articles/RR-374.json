@@ -627,7 +627,7 @@
         ],
         "answer": "A",
         "skill": "detail",
-        "why": "The text says he played all day and sang in the sun.",
+        "why": "In the text, he played all day and sang in the sun.",
         "wrong": {
           "B": "The ant stores the food, not the grasshopper.",
           "C": "Digging a hole is not mentioned.",

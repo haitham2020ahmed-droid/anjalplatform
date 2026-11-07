@@ -138,7 +138,7 @@
           ],
           "answer": "B",
           "skill": "detail",
-          "why": "The article says the first Games were held long ago in Greece.",
+          "why": "In the article, the first Games were held long ago in Greece.",
           "wrong": {
             "A": "France is where the man who brought the Games back came from.",
             "C": "The article does not say the first Games were in England.",
@@ -157,7 +157,7 @@
           "skill": "detail",
           "why": "The article says winners did not get gold; each got a crown made of olive leaves.",
           "wrong": {
-            "A": "The article says the winners did not get gold.",
+            "A": "In the article, the prize was not gold.",
             "B": "Horses pulled carts in races, but they were not the prize.",
             "C": "The article does not mention money as a prize."
           }
@@ -189,7 +189,7 @@
           ],
           "answer": "B",
           "skill": "cause-effect",
-          "why": "The article says getting to the Games is hard, so athletes train for years.",
+          "why": "In the article, getting to the Games is hard, so athletes train for years.",
           "wrong": {
             "A": "The Games are held every four years, not every day.",
             "C": "Making flags is not part of training.",
@@ -208,7 +208,7 @@
           "skill": "inference",
           "why": "The author wants readers to see that athletes with a disability are skilled athletes.",
           "wrong": {
-            "B": "The article says athletes work with coaches.",
+            "B": "In the article, athletes work with coaches.",
             "C": "The article does not say Paralympic races are short.",
             "D": "Racing at night is not mentioned."
           }
@@ -317,7 +317,7 @@
           ],
           "answer": "D",
           "skill": "detail",
-          "why": "The article says there was only one event at first, a sprint of about 190 meters.",
+          "why": "In the article, there was only one event at first, a sprint of about 190 meters.",
           "wrong": {
             "A": "Chariot racing was added later.",
             "B": "Boxing was added later.",
@@ -342,7 +342,7 @@
           }
         },
         {
-          "stem": "Read the sentence: \"Coubertin designed the rings to represent the continents of the world joining in friendship.\" What does represent mean?",
+          "stem": "In the article, what does the word \"represent\" mean?",
           "options": [
             "To stand for",
             "To compete against",
@@ -368,7 +368,7 @@
           ],
           "answer": "C",
           "skill": "cause-effect",
-          "why": "The article says he believed sport could build healthy young people and encourage peace between nations.",
+          "why": "In the article, he believed sport could build healthy young people and encourage peace between nations.",
           "wrong": {
             "A": "Building a city is not mentioned.",
             "B": "Olive trees are not his reason.",
@@ -496,7 +496,7 @@
           ],
           "answer": "A",
           "skill": "detail",
-          "why": "The article says the truce allowed athletes and spectators to travel safely even when cities were in conflict.",
+          "why": "In the article, the truce allowed athletes and spectators to travel safely even when cities were in conflict.",
           "wrong": {
             "B": "Choosing a host city is not mentioned.",
             "C": "The truce was about safe travel, not training.",
@@ -627,7 +627,7 @@
         ],
         "answer": "A",
         "skill": "detail",
-        "why": "The text says that in 1896 the Games came back.",
+        "why": "In 1896 the Games came back.",
         "wrong": {
           "B": "This year is not in the text.",
           "C": "This year is not in the text.",
@@ -647,7 +647,7 @@
         "why": "The old Games had men, while now men and women from more than 200 lands take part.",
         "wrong": {
           "A": "The crown of olive leaves was the old prize.",
-          "B": "The text says athletes come from all over the world.",
+          "B": "Athletes come from all over the world.",
           "C": "The Games are held every four years."
         }
       },
@@ -678,7 +678,7 @@
         ],
         "answer": "B",
         "skill": "inference",
-        "why": "The text says that most of all, athletes play fair, which means playing by the rules.",
+        "why": "In the text, most of all, athletes play fair, which means playing by the rules.",
         "wrong": {
           "A": "The text says fair play matters most, not only winning.",
           "C": "Playing in the sun is not named as what matters.",
@@ -697,7 +697,7 @@
         ],
         "answer": "D",
         "skill": "detail",
-        "why": "The article says Olympia was a holy site where the Greeks honored Zeus.",
+        "why": "In the article, Olympia was a holy site where the Greeks honored Zeus.",
         "wrong": {
           "A": "Apollo is not named in the article.",
           "B": "Athena is not named in the article.",
@@ -784,7 +784,7 @@
         ],
         "answer": "C",
         "skill": "detail",
-        "why": "The article says the olive wreath was an honor that brought fame to both the athlete and his city.",
+        "why": "In the article, the olive wreath was an honor that brought fame to both the athlete and his city.",
         "wrong": {
           "A": "The prize was a wreath of olive leaves, not gold.",
           "B": "Athens is not mentioned as a prize.",

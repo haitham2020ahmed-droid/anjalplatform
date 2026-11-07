@@ -155,7 +155,7 @@
      ],
      "answer": "A",
      "skill": "detail",
-     "why": "The article says farmers need water and land to grow food.",
+     "why": "In the article, farmers need water and land to grow food.",
      "wrong": {
       "B": "Paint and glue are not mentioned.",
       "C": "Ice and snow are not needed to grow food in the article.",
@@ -223,11 +223,11 @@
      ],
      "answer": "B",
      "skill": "cause-effect",
-     "why": "The article says water, land, and fuel were used to grow and carry the food, so wasting food wastes them too.",
+     "why": "In the article, water, land, and fuel were used to grow and carry the food, so wasting food wastes them too.",
      "wrong": {
       "A": "Water and fuel are used to make food, not found inside it.",
       "C": "Trucks carry food, not only water.",
-      "D": "The article says farms do use water."
+      "D": "In the article, farms do use water."
      }
     },
     {
@@ -317,7 +317,7 @@
      ],
      "answer": "C",
      "skill": "detail",
-     "why": "The article says researchers estimate close to one-third of all food grown is wasted.",
+     "why": "In the article, researchers estimate close to one-third of all food grown is wasted.",
      "wrong": {
       "A": "The article does not say almost all food is wasted.",
       "B": "One-third is much more than one percent.",
@@ -334,7 +334,7 @@
      ],
      "answer": "A",
      "skill": "detail",
-     "why": "The article says farmers need water to irrigate their fields.",
+     "why": "In the article, farmers need water to irrigate their fields.",
      "wrong": {
       "B": "Paint is not mentioned as something farmers use.",
       "C": "Glass is not mentioned as something farmers use.",
@@ -368,7 +368,7 @@
      ],
      "answer": "A",
      "skill": "inference",
-     "why": "The article says stores donate surplus food to people experiencing hunger instead of discarding it.",
+     "why": "In the article, stores donate surplus food to people experiencing hunger instead of discarding it.",
      "wrong": {
       "B": "Donating food does not make it spoil faster.",
       "C": "Stores still sell food; donating is only for extra food.",
@@ -402,7 +402,7 @@
      ],
      "answer": "C",
      "skill": "cause-effect",
-     "why": "The article says wasted food buried in a landfill decomposes and releases gases that trap heat.",
+     "why": "In the article, wasted food buried in a landfill decomposes and releases gases that trap heat.",
      "wrong": {
       "A": "The article does not say trucks burn the food.",
       "B": "The article does not mention stores adding chemicals.",
@@ -483,7 +483,7 @@
      "wrong": {
       "A": "The article focuses on reducing waste, not reducing what farms grow.",
       "C": "The article discusses the problem as global, not limited to wealthy countries.",
-      "D": "The article says discounting food nearing its sell-by date helps reduce waste."
+      "D": "In the article, discounting food nearing its sell-by date helps reduce waste."
      }
     },
     {
@@ -496,7 +496,7 @@
      ],
      "answer": "D",
      "skill": "detail",
-     "why": "The article states that researchers estimate close to one-third of food produced is wasted.",
+     "why": "In the article, researchers estimate close to one-third of food produced is wasted.",
      "wrong": {
       "A": "One-tenth is much lower than the article's estimate.",
       "B": "Two-thirds is higher than the article's estimate.",
@@ -513,7 +513,7 @@
      ],
      "answer": "C",
      "skill": "detail",
-     "why": "The article says fuel used to transport food is also wasted when food is wasted.",
+     "why": "In the article, fuel used to transport food is also wasted when food is wasted.",
      "wrong": {
       "A": "Sand is not mentioned as a wasted resource.",
       "B": "Glass is not mentioned as a wasted resource.",
@@ -521,7 +521,7 @@
      }
     },
     {
-     "stem": "\"Households can mitigate food waste.\" What does mitigate mean here?",
+     "stem": "In the article, what does the word \"mitigate\" mean?",
      "options": [
       "Lessen",
       "Increase",
@@ -538,7 +538,7 @@
      }
     },
     {
-     "stem": "Why does the article mention that resources used to grow food are \"unevenly distributed\"?",
+     "stem": "Why does the article mention that the resources used to grow food are not shared equally around the world?",
      "options": [
       "To argue that farms should be built only in rich countries",
       "To explain why some farms are much bigger than others in the same country",
@@ -564,7 +564,7 @@
      ],
      "answer": "B",
      "skill": "inference",
-     "why": "The article explains that buried food decomposes without oxygen in a landfill, releasing heat-trapping gases.",
+     "why": "In the article, buried food decomposes without oxygen in a landfill, releasing heat-trapping gases.",
      "wrong": {
       "A": "Sunlight in a landfill is not discussed.",
       "C": "Temperature differences are not discussed.",
@@ -627,7 +627,7 @@
     ],
     "answer": "C",
     "skill": "detail",
-    "why": "The text says trucks use fuel to bring food to a store.",
+    "why": "In the text, trucks use fuel to bring food to a store.",
     "wrong": {
      "A": "Wind is not named.",
      "B": "Sand is not named.",
@@ -644,7 +644,7 @@
     ],
     "answer": "A",
     "skill": "cause-effect",
-    "why": "The text says rotting food can make a bad gas that traps heat.",
+    "why": "In the text, rotting food can make a bad gas that traps heat.",
     "wrong": {
      "B": "Rotting food does not become fresh.",
      "C": "A farm is not mentioned in this way.",
@@ -678,7 +678,7 @@
     ],
     "answer": "B",
     "skill": "inference",
-    "why": "The text says food that sits in a kitchen too long goes bad and becomes waste.",
+    "why": "In the text, food that sits in a kitchen too long goes bad.",
     "wrong": {
      "A": "Picked fruit does not grow.",
      "C": "This makes no sense.",
@@ -697,9 +697,9 @@
     ],
     "answer": "B",
     "skill": "detail",
-    "why": "The text says some crops look odd or are slightly damaged, even though they are safe to eat.",
+    "why": "In the text, some crops look odd or are slightly damaged, even though they are safe to eat.",
     "wrong": {
-     "A": "The text says they are still safe to eat.",
+     "A": "These crops are still safe to eat.",
      "C": "Seasons are not mentioned.",
      "D": "Weight is not mentioned."
     }
@@ -767,7 +767,7 @@
     ],
     "answer": "B",
     "skill": "detail",
-    "why": "The text says they look oddly shaped or slightly damaged even though they remain safe to consume.",
+    "why": "In the text, they look oddly shaped or slightly damaged even though they remain safe to consume.",
     "wrong": {
      "A": "The text says they remain safe to consume.",
      "C": "Households buy food that is not left behind.",
@@ -818,7 +818,7 @@
     ],
     "answer": "A",
     "skill": "cause-effect",
-    "why": "The text says small choices add up to measurable savings of water, land, and energy.",
+    "why": "In the text, small choices add up to measurable savings of water, land, and energy.",
     "wrong": {
      "B": "Fewer farms is not mentioned.",
      "C": "Less spoiling is the aim, not more.",

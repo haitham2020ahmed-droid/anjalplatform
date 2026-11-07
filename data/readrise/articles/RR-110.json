@@ -172,7 +172,7 @@
           ],
           "answer": "B",
           "skill": "vocabulary",
-          "why": "The article says the fish a shark hunts and eats are its prey.",
+          "why": "In the article, the fish a shark hunts and eats are its prey.",
           "wrong": {
             "A": "Teeth are what a shark uses to bite prey.",
             "C": "A fin is a body part, not prey.",
@@ -209,7 +209,7 @@
           "why": "The opening shows a shark fin and asks if you feel scared, which sets up the idea that people fear sharks.",
           "wrong": {
             "B": "The article does not explain how fins are made.",
-            "C": "The article says shark bites are rare, so it is not warning people away.",
+            "C": "In the article, shark bites are rare, so it is not warning people away.",
             "D": "Speed is not discussed in the article."
           }
         },
@@ -223,10 +223,10 @@
           ],
           "answer": "B",
           "skill": "inference",
-          "why": "The article says shark bites are rare, but people catch millions of sharks each year.",
+          "why": "In the article, shark bites are rare, but people catch millions of sharks each year.",
           "wrong": {
             "A": "The article says sharks do not hunt people.",
-            "C": "The article says people are a big danger to sharks.",
+            "C": "In the article, people are a big danger to sharks.",
             "D": "The article does not say whale sharks eat other sharks."
           }
         },
@@ -240,7 +240,7 @@
           ],
           "answer": "C",
           "skill": "inference",
-          "why": "The article says sharks help keep the sea healthy, so losing them could harm it.",
+          "why": "In the article, sharks help keep the sea healthy, so losing them could harm it.",
           "wrong": {
             "A": "The article does not say sharks clean sand.",
             "B": "Salt in the sea is not mentioned.",
@@ -342,7 +342,7 @@
           }
         },
         {
-          "stem": "What does the word threat mean in the sentence 'people are a much greater threat to sharks'?",
+          "stem": "In the article, what does the word \"threat\" mean?",
           "options": [
             "Someone who helps",
             "A kind of food that sharks like to eat",
@@ -368,7 +368,7 @@
           ],
           "answer": "B",
           "skill": "cause-effect",
-          "why": "The article says sharks often catch sick or weak fish, which keeps fish groups healthy.",
+          "why": "In the article, sharks often catch sick or weak fish, which keeps fish groups healthy.",
           "wrong": {
             "A": "Sharks do not feed other fish.",
             "C": "The article does not say sharks chase fish deeper.",
@@ -513,7 +513,7 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The article says tiny pores on the snout can detect faint electrical signals made by living animals.",
+          "why": "In the article, tiny pores on the snout can detect faint electrical signals made by living animals.",
           "wrong": {
             "A": "Organs along the sides sense vibrations from moving fish.",
             "B": "Smell helps sharks detect blood.",
@@ -530,7 +530,7 @@
           ],
           "answer": "A",
           "skill": "cause-effect",
-          "why": "The article states that because most sharks grow slowly and have few young, their numbers recover slowly.",
+          "why": "Most sharks grow slowly and have few young, so their numbers come back slowly.",
           "wrong": {
             "B": "Losing teeth is normal and unrelated to population recovery.",
             "C": "Only the whale shark eats plankton.",
@@ -598,7 +598,7 @@
           ],
           "answer": "C",
           "skill": "compare",
-          "why": "The article says shark bites are extremely rare, while fishing fleets catch millions of sharks every year.",
+          "why": "In the article, shark bites are extremely rare, while fishing fleets catch millions of sharks every year.",
           "wrong": {
             "A": "The article says the dangers are not equal.",
             "B": "This is the opposite of what the article says.",
@@ -644,7 +644,7 @@
         ],
         "answer": "C",
         "skill": "inference",
-        "why": "The text says a new tooth moves up when one falls out, and a shark can lose lots of teeth, so it needs extra ones.",
+        "why": "In the text, a new tooth moves up when one falls out, and a shark can lose lots of teeth, so it needs extra ones.",
         "wrong": {
           "A": "The shark smells with its nose, not its teeth.",
           "B": "The text does not say that a shark chews for a long time.",
@@ -665,7 +665,7 @@
         "wrong": {
           "A": "The text says shark bites are rare.",
           "B": "Size is not the reason given.",
-          "C": "The text says sharks help keep the sea in good shape."
+          "C": "Sharks help keep the ocean healthy; they do not eat all the fish."
         }
       },
       {
@@ -731,7 +731,7 @@
         ],
         "answer": "A",
         "skill": "cause-effect",
-        "why": "The text says shark bites are very rare, while humans catch millions of sharks every year.",
+        "why": "In the text, shark bites are very rare, while humans catch millions of sharks every year.",
         "wrong": {
           "B": "The text says sharks, not people, have sharp teeth.",
           "C": "The text does not compare swimming speeds.",
@@ -748,7 +748,7 @@
         ],
         "answer": "C",
         "skill": "author-purpose",
-        "why": "The text says many people fear sharks, and then the author says much of what people believe is wrong.",
+        "why": "In the text, many people fear sharks, and then the author says much of what people believe is wrong.",
         "wrong": {
           "A": "The article does not teach swimmers how to find sharks.",
           "B": "The speed of a shark is not given in the text.",
@@ -767,7 +767,7 @@
         ],
         "answer": "B",
         "skill": "detail",
-        "why": "The text says the cartilage skeleton keeps their bodies light and easy to bend.",
+        "why": "A shark's skeleton is made of cartilage, which keeps its body light and easy to bend.",
         "wrong": {
           "A": "The text says light, not heavy.",
           "C": "Smell and other senses help find food, not cartilage.",
@@ -784,9 +784,9 @@
         ],
         "answer": "D",
         "skill": "cause-effect",
-        "why": "The text says fleets catch millions of sharks, often only for their valuable fins.",
+        "why": "In the text, fleets catch millions of sharks, often only for their valuable fins.",
         "wrong": {
-          "A": "The text says sharks, not fleets, catch sick fish.",
+          "A": "In the text, sharks, not fleets, catch sick fish.",
           "B": "The text does not say that fleets want to stop whale sharks.",
           "C": "No study in a lab is mentioned."
         }

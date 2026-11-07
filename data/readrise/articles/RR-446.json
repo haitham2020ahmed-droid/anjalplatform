@@ -138,7 +138,7 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The story says Saeed's teacher talks about trees, and that is why he wants to help the hill.",
+          "why": "In the story, Saeed's teacher talks about trees, and that is why he wants to help the hill.",
           "wrong": {
             "D": "The story does not say Saeed wants to hide.",
             "A": "The story does not mention building a boat.",
@@ -155,7 +155,7 @@
           ],
           "answer": "D",
           "skill": "detail",
-          "why": "The story says Saeed walks up the hill every day and gives the tree water.",
+          "why": "In the story, Saeed walks up the hill every day and gives the tree water.",
           "wrong": {
             "C": "The story does not mention a lamp.",
             "A": "Trees do not eat food like people.",
@@ -402,7 +402,7 @@
           ],
           "answer": "D",
           "skill": "cause-effect",
-          "why": "The story explains that Saeed chose a native species because it had belonged there naturally for generations.",
+          "why": "In the story, Saeed chose a native species because it had belonged there naturally for generations.",
           "wrong": {
             "A": "The story never mentions price.",
             "B": "No law about tree choice is mentioned.",
@@ -801,7 +801,7 @@
         ],
         "answer": "C",
         "skill": "cause-effect",
-        "why": "The article says neighbors joined in after witnessing the project happen over several months.",
+        "why": "In the article, neighbors joined in after witnessing the project happen over several months.",
         "wrong": {
           "A": "The school is not said to have asked them.",
           "B": "Selling trees is not mentioned.",

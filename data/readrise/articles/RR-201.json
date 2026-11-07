@@ -138,7 +138,7 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The article explains that mud or sand must bury the body quickly, before it can rot away.",
+          "why": "In the article, mud or sand must bury the body quickly, before it can rot away.",
           "wrong": {
             "A": "Being eaten destroys the body; it does not help a fossil form.",
             "B": "The article does not mention a flood carrying the body away.",
@@ -174,7 +174,7 @@
           "skill": "vocabulary",
           "why": "The article states that fossilis simply means \"dug up,\" since fossils are found buried underground.",
           "wrong": {
-            "A": "\"Very old\" describes fossils, but it is not what the Latin word means.",
+            "A": "Very old describes fossils, but it is not what the Latin word means.",
             "C": "Fossils are often inside rock, but that is not the word's meaning.",
             "D": "The article never calls fossils treasure."
           }
@@ -189,7 +189,7 @@
           ],
           "answer": "D",
           "skill": "inference",
-          "why": "The article explains that a warm, shallow sea once covered parts of Saudi Arabia long ago.",
+          "why": "In the article, a warm, shallow sea once covered parts of Saudi Arabia long ago.",
           "wrong": {
             "A": "No sailors are mentioned in the article.",
             "B": "The article does not say wind carried the shells into the desert.",
@@ -368,7 +368,7 @@
           ],
           "answer": "A",
           "skill": "cause-effect",
-          "why": "The article explains that buried bodies decay more slowly because very little oxygen can reach them.",
+          "why": "In the article, buried bodies decay more slowly because very little air can reach them.",
           "wrong": {
             "B": "The article does not connect decay speed to sunlight.",
             "C": "Minerals slowly replace remains over a long time; they do not dissolve a body instantly.",
@@ -513,7 +513,7 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The article says paleontologists frequently rely on small brushes and chisels so that a delicate specimen is not damaged.",
+          "why": "In the article, paleontologists frequently rely on small brushes and chisels so that a delicate specimen is not damaged.",
           "wrong": {
             "A": "Heavy machinery would be far too rough for delicate fossil removal.",
             "B": "Explosives are never mentioned and would destroy a fossil.",
@@ -530,7 +530,7 @@
           ],
           "answer": "C",
           "skill": "vocabulary",
-          "why": "The article explains that petrification is the gradual process by which minerals replace remains, turning them into solid rock.",
+          "why": "In the article, petrification is the gradual process by which minerals replace remains, turning them into solid rock.",
           "wrong": {
             "A": "Nothing in the article describes an explosion.",
             "B": "The article describes mineral replacement, not freezing into ice.",
@@ -547,7 +547,7 @@
           ],
           "answer": "A",
           "skill": "cause-effect",
-          "why": "The article explains that very little oxygen can penetrate a buried body, which slows decomposition considerably.",
+          "why": "In the article, very little oxygen can penetrate a buried body, which slows decomposition considerably.",
           "wrong": {
             "B": "Mineral replacement happens gradually over thousands of years, not instantly.",
             "C": "Paleontologists study fossils long after they form; they play no role in this process.",
@@ -627,7 +627,7 @@
         ],
         "answer": "B",
         "skill": "detail",
-        "why": "The text says fossils that are just tracks in old mud are trace fossils.",
+        "why": "In the text, fossils that are just tracks in old mud are trace fossils.",
         "wrong": {
           "A": "Body fossils are bones and shells, not tracks.",
           "C": "The text does not use the name sea fossil.",
@@ -644,7 +644,7 @@
         ],
         "answer": "D",
         "skill": "vocabulary",
-        "why": "The text says a fossil is an old living thing kept inside rock.",
+        "why": "In the text, a fossil is an old living thing kept inside rock.",
         "wrong": {
           "A": "The text does not describe fossils as small.",
           "B": "The text does not talk about brightness.",
@@ -661,7 +661,7 @@
         ],
         "answer": "A",
         "skill": "inference",
-        "why": "The text says old fossils sit deep down and new ones sit near the top.",
+        "why": "In the text, old fossils sit deep down and new ones sit near the top.",
         "wrong": {
           "B": "Deep down is where the old ones sit.",
           "C": "The text does not say new fossils are only at the bottom of the sea.",
@@ -678,7 +678,7 @@
         ],
         "answer": "C",
         "skill": "author-purpose",
-        "why": "The author describes a shell-shaped rock far from the sea and asks \"What is this?\" to make readers wonder.",
+        "why": "The author describes a strange rock in the desert to make readers wonder.",
         "wrong": {
           "A": "The opening does not talk about cold.",
           "B": "The opening does not teach digging.",
@@ -697,7 +697,7 @@
         ],
         "answer": "C",
         "skill": "detail",
-        "why": "The text says paleontologists carefully dig up ancient clues and study them.",
+        "why": "In the text, paleontologists carefully dig up ancient clues and study them.",
         "wrong": {
           "A": "Paleontologists do not build deserts.",
           "B": "Paleontologists do not fill seas with mud.",
@@ -731,7 +731,7 @@
         ],
         "answer": "D",
         "skill": "cause-effect",
-        "why": "The text says a warm, shallow sea once covered large parts of what is now the Arabian desert.",
+        "why": "In the text, a warm, shallow sea once covered large parts of what is now the Arabian desert.",
         "wrong": {
           "A": "The text does not say sea animals walked there.",
           "B": "The text says a sea once covered the land, not that wind carried the fossils.",

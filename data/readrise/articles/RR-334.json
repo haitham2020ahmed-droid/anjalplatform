@@ -302,7 +302,7 @@
           "skill": "central-idea",
           "why": "The article explains that a capital is a city chosen or built to serve as a country's official center of government.",
           "wrong": {
-            "B": "The article says some capitals are new, not always the oldest city.",
+            "B": "In the article, some capitals are new, not always the oldest city.",
             "C": "Every country, large or small, has a capital.",
             "D": "The article gives examples of many capitals, not only Riyadh."
           }
@@ -317,7 +317,7 @@
           ],
           "answer": "B",
           "skill": "detail",
-          "why": "The article says a capital is usually the official seat of government.",
+          "why": "In the article, a capital is usually the official seat of government.",
           "wrong": {
             "A": "Farms are not discussed as a role of a capital.",
             "C": "A capital has government buildings, not none.",
@@ -496,10 +496,10 @@
           ],
           "answer": "B",
           "skill": "detail",
-          "why": "The article says Brazil relocated its capital from Rio de Janeiro to the newly built city of Brasilia in 1960.",
+          "why": "In the article, Brazil relocated its capital from Rio de Janeiro to the newly built city of Brasilia in 1960.",
           "wrong": {
             "A": "Lisbon is in Portugal, not mentioned as Brazil's capital.",
-            "C": "The article says the capital moved away from Rio de Janeiro.",
+            "C": "In the article, the capital moved away from Rio de Janeiro.",
             "D": "The article does not describe Brasilia as an island."
           }
         },
@@ -581,7 +581,7 @@
           ],
           "answer": "D",
           "skill": "cause-effect",
-          "why": "The article explains that a newly designated capital can symbolize a fresh start or a more unified national identity for the country.",
+          "why": "A new capital can stand for a fresh start or a more united country.",
           "wrong": {
             "A": "The article does not say laws disappear with a new capital.",
             "B": "New capitals still need government buildings, as the article explains.",
@@ -631,7 +631,7 @@
         "wrong": {
           "A": "The text does not say they fish.",
           "B": "The text does not say they sail ships.",
-          "D": "The text says they work there each day."
+          "D": "They go to work there each day."
         }
       },
       {
@@ -669,20 +669,20 @@
         }
       },
       {
-        "stem": "Where do some capitals sit?",
+        "stem": "What is a capital?",
         "options": [
-          "Next to a wall",
-          "Near the sea",
-          "On a small boat",
-          "Inside a mountain"
+          "A small farm next to a river",
+          "The city where leaders work",
+          "A big ship on the sea",
+          "A tall mountain of rock"
         ],
         "answer": "B",
         "skill": "detail",
-        "why": "The text says some capitals sit near the sea.",
+        "why": "In the article, a capital is the city where a country's leaders work.",
         "wrong": {
-          "A": "A wall is not mentioned.",
-          "C": "Capitals are cities, not boats.",
-          "D": "The text does not put capitals inside mountains."
+          "A": "A farm is not a capital.",
+          "C": "A ship is not a capital.",
+          "D": "A mountain is not a capital."
         }
       }
     ],
@@ -735,7 +735,7 @@
         "wrong": {
           "B": "Nothing in the text says leaders are stopped from making laws.",
           "C": "The text does not say historic capitals are small.",
-          "D": "The text says a capital is not always the biggest city."
+          "D": "In the text, a capital is not always the biggest city."
         }
       },
       {
@@ -750,7 +750,7 @@
         "skill": "author-purpose",
         "why": "The opening question makes readers want to learn what makes a city a capital.",
         "wrong": {
-          "A": "The article explains how capitals are picked.",
+          "A": "The article does explain how capitals are picked.",
           "B": "The article does not list every capital.",
           "D": "The article does not argue about city size."
         }
@@ -801,7 +801,7 @@
         ],
         "answer": "C",
         "skill": "inference",
-        "why": "The text says capitals sit on coasts, inland, or in hills, chosen for reasons as different as the countries.",
+        "why": "In the text, capitals sit on coasts, inland, or in hills, chosen for reasons as different as the countries.",
         "wrong": {
           "A": "Only some capitals sit on a coast.",
           "B": "Only some capitals sit in hills.",
@@ -818,7 +818,7 @@
         ],
         "answer": "A",
         "skill": "cause-effect",
-        "why": "The text says Riyadh has grown fast, backed by infrastructure built to match its growing role.",
+        "why": "Riyadh has grown fast, with roads, power, and other services built to match its role.",
         "wrong": {
           "B": "The 1960 move was Brazil's capital, not Riyadh.",
           "C": "The text does not call Riyadh a port.",

@@ -5,6 +5,7 @@
 import type { TFn } from "@/i18n";
 import type { MyGrowthStory } from "@/server/readrise/growth-report";
 import { skillLabel } from "@/server/readrise/growth-words";
+import { formatLevel } from "@/server/readrise/level";
 
 export function GrowthStory({ story, t }: { story: MyGrowthStory; t: TFn }) {
   const named = (keys: string[]) => keys.map((k) => t(skillLabel(k))).join(", ");
@@ -26,7 +27,7 @@ export function GrowthStory({ story, t }: { story: MyGrowthStory; t: TFn }) {
             {story.journey.map((j, i) => (
               <li key={i} className="flex items-center gap-1.5">
                 {i > 0 && <span aria-hidden="true" className="text-emerald-600">→</span>}
-                <span className={`rounded-xl px-2.5 py-1 text-sm font-bold tabular-nums ${i === story.journey.length - 1 ? "bg-brand-navy text-white" : "bg-white text-brand-navy ring-1 ring-slate-200"}`} title={j.at.slice(0, 10)}>{j.level}</span>
+                <span className={`rounded-xl px-2.5 py-1 text-sm font-bold tabular-nums ${i === story.journey.length - 1 ? "bg-brand-navy text-white" : "bg-white text-brand-navy ring-1 ring-slate-200"}`} title={j.at.slice(0, 10)}>{formatLevel(j.level)}</span>
               </li>
             ))}
           </ol>

@@ -138,7 +138,7 @@
           ],
           "answer": "D",
           "skill": "detail",
-          "why": "The article says the plates move about as slowly as your fingernails grow.",
+          "why": "In the article, the plates move about as slowly as your fingernails grow.",
           "wrong": {
             "A": "Plates move far more slowly than a car.",
             "B": "Plates do not move as fast as a horse.",
@@ -146,7 +146,7 @@
           }
         },
         {
-          "stem": "The article says rock folds up \"like a rug that you push on the floor.\" What does fold mean here?",
+          "stem": "Rock can fold up like a rug that you push on the floor. What does fold mean here?",
           "options": [
             "Bend and bunch up",
             "Break into dust",
@@ -189,7 +189,7 @@
           ],
           "answer": "B",
           "skill": "detail",
-          "why": "The article says lava cools and hardens, then more lava comes on top, building the volcano bit by bit.",
+          "why": "In the article, lava cools and hardens, then more lava comes on top, building the volcano bit by bit.",
           "wrong": {
             "A": "Snow does not build a volcano.",
             "C": "Rain wears rock down; it does not build volcanoes.",
@@ -227,7 +227,7 @@
           "wrong": {
             "A": "People did not build these mountains.",
             "B": "They are made of rock, not ice.",
-            "D": "The article says Everest is the tallest mountain in the world."
+            "D": "Everest is the tallest mountain in the world, so these mountains are not taller."
           }
         },
         {
@@ -334,7 +334,7 @@
           ],
           "answer": "A",
           "skill": "compare",
-          "why": "The article says melted rock underground is magma, and when it pours out at the surface it is called lava.",
+          "why": "In the article, melted rock underground is magma, and when it pours out at the surface it is called lava.",
           "wrong": {
             "B": "Both are melted rock, so both are hot.",
             "C": "Magma is melted rock, not ice.",
@@ -359,7 +359,7 @@
           }
         },
         {
-          "stem": "Which word from the article means \"the slow breaking and carrying away of rock\"?",
+          "stem": "Which word from the article names the slow breaking and carrying away of rock?",
           "options": [
             "Summit",
             "Magma",
@@ -419,7 +419,7 @@
           ],
           "answer": "B",
           "skill": "sequence",
-          "why": "The article says rock melts into magma, pours out as lava, cools and hardens, and then more lava flows on top.",
+          "why": "In the article, rock melts into magma, pours out as lava, cools and hardens, and then more lava flows on top.",
           "wrong": {
             "A": "This order is mixed up, and folding is a different process.",
             "C": "Fossils are not part of how a volcano grows.",
@@ -481,7 +481,7 @@
           "skill": "central-idea",
           "why": "The article explains plate collisions, volcanoes, and erosion, showing that mountains are built up and worn down.",
           "wrong": {
-            "A": "The article also explains mountains formed by colliding plates.",
+            "A": "In the article, mountains formed by colliding plates.",
             "C": "Everest, not a Saudi peak, is the highest.",
             "D": "Erosion wears mountains down but does not stop them forming."
           }
@@ -496,7 +496,7 @@
           ],
           "answer": "A",
           "skill": "detail",
-          "why": "The article says they were lifted along a rift as the Arabian Plate separated from Africa, which opened the Red Sea.",
+          "why": "In the article, they were lifted along a rift as the Arabian Plate separated from Africa, which opened the Red Sea.",
           "wrong": {
             "B": "The article does not describe the Sarawat as one volcano.",
             "C": "India's plate crashed into Asia to form Everest.",
@@ -564,7 +564,7 @@
           ],
           "answer": "B",
           "skill": "cause-effect",
-          "why": "The article says rain, wind, and ice break rock apart and carry the pieces away, so mountains wear down.",
+          "why": "In the article, rain, wind, and ice break rock apart and carry the pieces away, so mountains wear down.",
           "wrong": {
             "A": "Plates move because of forces inside the Earth, not erosion.",
             "C": "Magma forms from heat underground.",
@@ -644,7 +644,7 @@
         ],
         "answer": "D",
         "skill": "detail",
-        "why": "The text calls Mount Everest the top peak in the world.",
+        "why": "Mount Everest is the tallest mountain in the world.",
         "wrong": {
           "A": "Everest grew when plates pushed, not from a volcano.",
           "B": "The text says it grew, not that it is shrinking fast.",
@@ -661,10 +661,10 @@
         ],
         "answer": "A",
         "skill": "cause-effect",
-        "why": "The text says rain, wind, and ice wear the rock down.",
+        "why": "In the text, rain, wind, and ice wear the rock down.",
         "wrong": {
           "B": "Lava helps a volcano grow; it does not wear rock down.",
-          "C": "The text says plates move very slowly.",
+          "C": "In the text, plates move very slowly.",
           "D": "Snow is not named as the cause."
         }
       },
@@ -681,7 +681,7 @@
         "why": "Nails grow very slowly, so the plates move too slowly for us to feel.",
         "wrong": {
           "A": "The text does not say they move only at night.",
-          "C": "The text says plates are always moving.",
+          "C": "In the text, plates are always moving.",
           "D": "The text says the plates move; depth is not the reason."
         }
       }
@@ -767,7 +767,7 @@
         ],
         "answer": "B",
         "skill": "detail",
-        "why": "The article says Everest formed when the plate carrying India crashed into Asia.",
+        "why": "Everest formed when the plate carrying India crashed into Asia.",
         "wrong": {
           "A": "Africa is named as the land the Arabian Plate pulled away from.",
           "C": "The Arabian Plate is linked to the Sarawat Mountains, not Everest.",
@@ -801,7 +801,7 @@
         ],
         "answer": "A",
         "skill": "cause-effect",
-        "why": "The article says the Arabian Plate slowly pulled away from Africa, which opened up the sea.",
+        "why": "In the article, the Arabian Plate slowly pulled away from Africa, which opened up the sea.",
         "wrong": {
           "B": "Erosion is described, but not as the cause of the sea.",
           "C": "The text does not say rain made the sea.",
@@ -822,7 +822,7 @@
         "wrong": {
           "A": "The comparison is about the shape of folding, not softness.",
           "C": "The speed of plates is explained with fingernails, not the rug.",
-          "D": "The article says some mountains are still rising."
+          "D": "In the article, some mountains are still rising."
         }
       }
     ]

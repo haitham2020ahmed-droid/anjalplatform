@@ -27,6 +27,7 @@ import { normalisedSkill, baseBand } from "./first-try";
 import { weekStart as rrWeekStart, riyadhDay } from "./engine";
 import { readAnnotations, withRunExtras } from "../../components/readrise/text";
 import { formatLevel } from "./level";
+import { runTitle, versionTitles } from "./version-title";
 import { forgetStudentPoints } from "./points";
 
 const s = (v: unknown) => String(v ?? "");
@@ -315,13 +316,14 @@ export async function studentWritings(repo: Repo, actor: Actor, classId: string,
   await assertReadClass(repo, actor, classId);
   const m = await repo.findMany("ClassMembership", { classId, studentId, leftAt: null }, { select: ["studentId"], take: 1 });
   if (!m.length) throw new ForbiddenError("This student is not in the class.");
-  const runs = (await repo.findMany("RRRun", { studentId, completedAt: { not: null } }, { select: ["id", "articleId", "band", "writing", "completedAt", "writingScore", "writingComment", "writingAiScore", "writingAiComment", "annotations"] }))
+  const runs = (await repo.findMany("RRRun", { studentId, completedAt: { not: null } }, { select: ["id", "articleId", "band", "versionLevel", "writing", "completedAt", "writingScore", "writingComment", "writingAiScore", "writingAiComment", "annotations"] }))
     .filter((r) => s(r.writing).trim());
   if (!runs.length) return [];
   const ids = [...new Set(runs.map((r) => s(r.articleId)))];
-  const [arts, prompts] = await Promise.all([
+  const [arts, prompts, vTitles] = await Promise.all([
     repo.findMany("RRArticle", { id: { in: ids } }, { select: ["id", "title"] }),
     repo.findMany("RRPrompt", { articleId: { in: ids } }, { select: ["articleId", "band", "prompt"] }),
+    versionTitles(repo, ids),
   ]);
   const title = new Map(arts.map((a) => [s(a.id), s(a.title)]));
   const num = (v: unknown) => (v === null || v === undefined ? null : Number(v));
@@ -329,7 +331,8 @@ export async function studentWritings(repo: Repo, actor: Actor, classId: string,
     const meta = runMeta(r.annotations);
     const at = r.completedAt ? new Date(r.completedAt as string | Date) : null;
     return {
-      runId: s(r.id), articleId: s(r.articleId), title: title.get(s(r.articleId)) || "Article", band: s(r.band),
+      // round 7: the article title + "(read as: <version title> · 600L)" when the student's version has its own title
+      runId: s(r.id), articleId: s(r.articleId), title: runTitle(title.get(s(r.articleId)) || "Article", vTitles, s(r.articleId), r.versionLevel), band: s(r.band),
       prompt: s(prompts.find((p) => s(p.articleId) === s(r.articleId) && s(p.band) === baseBand(r.band))?.prompt),
       writing: s(r.writing), submittedAt: at ? at.toISOString() : null, submittedRiyadh: at ? riyadhTime(at) : null,
       score: num(r.writingScore), comment: r.writingComment ? s(r.writingComment) : null, aiScore: num(r.writingAiScore), aiComment: r.writingAiComment ? s(r.writingAiComment) : null,

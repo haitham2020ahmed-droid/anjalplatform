@@ -138,7 +138,7 @@
           ],
           "answer": "D",
           "skill": "detail",
-          "why": "The article says some people used shells and others used salt or grain.",
+          "why": "In the article, some people used shells and others used salt or grain.",
           "wrong": {
             "A": "Cards and phones came much later.",
             "B": "Paper money came after coins.",
@@ -155,7 +155,7 @@
           ],
           "answer": "A",
           "skill": "detail",
-          "why": "The article says the first coins were gold and silver.",
+          "why": "In the article, the first coins were gold and silver.",
           "wrong": {
             "B": "Paper money came later, and the article does not mention wood.",
             "C": "Shells and salt were used before coins, not to make them.",
@@ -206,7 +206,7 @@
           ],
           "answer": "B",
           "skill": "inference",
-          "why": "The article says people now pay with cards and phones too, and that money keeps changing.",
+          "why": "In the article, people now pay with cards and phones too, and that money keeps changing.",
           "wrong": {
             "A": "The article does not say money will disappear.",
             "C": "Cards and phones show that money has changed.",
@@ -214,7 +214,7 @@
           }
         },
         {
-          "stem": "Read the sentences: \"One man had dates. One man had wool. They could trade.\" What does trade mean?",
+          "stem": "In the article, what does the word \"trade\" mean?",
           "options": [
             "Buy something in a store or in a shop",
             "Grow food on a farm and then sell it",
@@ -302,7 +302,7 @@
           "skill": "central-idea",
           "why": "The article follows money from bartering to coins, paper, and cards, each step making trade easier.",
           "wrong": {
-            "A": "The article explains the problems with bartering.",
+            "A": "The article shows problems with bartering, so it is not the best way to trade.",
             "B": "China is linked to paper money, not gold coins only.",
             "D": "The article does not compare shells and coins today."
           }
@@ -334,7 +334,7 @@
           ],
           "answer": "D",
           "skill": "detail",
-          "why": "The article says the first coins were made about 2,600 years ago.",
+          "why": "The first coins were made about 2,600 years ago.",
           "wrong": {
             "A": "Coins are far older than 100 years.",
             "B": "That is when paper money began in China.",
@@ -351,7 +351,7 @@
           ],
           "answer": "B",
           "skill": "cause-effect",
-          "why": "The article says coins were small, strong, easy to count, and stamped to show value, so trade became simpler.",
+          "why": "In the article, coins were small, strong, easy to count, and stamped to show value, so trade became simpler.",
           "wrong": {
             "A": "Coins are metal and cannot be eaten.",
             "C": "The article does not say everyone grew the same crops.",
@@ -393,7 +393,7 @@
           }
         },
         {
-          "stem": "Read the sentence: \"Instead, people had to barter, which means trading one item for another.\" What does barter mean?",
+          "stem": "In the article, what does the word \"barter\" mean?",
           "options": [
             "To save money in a bank for later",
             "To make coins from metal in a shop",
@@ -496,7 +496,7 @@
           ],
           "answer": "B",
           "skill": "detail",
-          "why": "The article says the earliest coins were made from electrum, a natural mixture of gold and silver.",
+          "why": "In the article, the earliest coins were made from electrum, a natural mixture of gold and silver.",
           "wrong": {
             "A": "Electrum is a metal mixture, not paper.",
             "C": "Lydia was the kingdom.",
@@ -513,7 +513,7 @@
           ],
           "answer": "A",
           "skill": "detail",
-          "why": "The article says the earliest known coins were made in Lydia, an ancient kingdom in what is now Turkey.",
+          "why": "In the article, the earliest known coins were made in Lydia, an ancient kingdom in what is now Turkey.",
           "wrong": {
             "B": "China is where paper money began.",
             "C": "Traders there carried coins later, but the first coins came from Lydia.",
@@ -530,9 +530,9 @@
           ],
           "answer": "C",
           "skill": "cause-effect",
-          "why": "The article says a sheet of paper has almost no value by itself and is valuable because a government or bank promises to honor it.",
+          "why": "In the article, a sheet of paper has almost no value by itself and is valuable because a government or bank promises to honor it.",
           "wrong": {
-            "A": "The article says the paper itself has almost no value.",
+            "A": "In the article, the paper itself has almost no value.",
             "B": "Paper money is lighter than coins.",
             "D": "The article does not say paper money contains gold."
           }
@@ -547,7 +547,7 @@
           ],
           "answer": "A",
           "skill": "inference",
-          "why": "The article says money works because people trust others will accept it, so without trust it would fail.",
+          "why": "In the article, money works because people trust others will accept it, so without trust it would fail.",
           "wrong": {
             "B": "Losing trust would lower its usefulness, not raise its value.",
             "C": "Trust has nothing to do with what coins are made of.",
@@ -568,11 +568,11 @@
           "wrong": {
             "A": "Shells, paper, and digital numbers are not metal.",
             "B": "They appeared thousands of years apart.",
-            "C": "The article says paper has almost no value by itself."
+            "C": "In the article, paper has almost no value by itself."
           }
         },
         {
-          "stem": "Read the phrase: \"because coins were small, durable, and easy to count.\" What does durable mean?",
+          "stem": "In the article, what does the word \"durable\" mean?",
           "options": [
             "Shiny and bright",
             "Light and thin",
@@ -627,7 +627,7 @@
         ],
         "answer": "C",
         "skill": "detail",
-        "why": "The text says the riyal comes in coins and paper notes, and some people pay with cards or phones.",
+        "why": "In the text, the riyal comes in coins and paper notes, and some people pay with cards or phones.",
         "wrong": {
           "A": "Shells and salt were used long ago.",
           "B": "Dates and wool were things people traded long ago.",
@@ -678,9 +678,9 @@
         ],
         "answer": "B",
         "skill": "inference",
-        "why": "The text says paper money was light to carry, which suggests coins were heavier.",
+        "why": "In the text, paper money was light to carry, which suggests coins were heavier.",
         "wrong": {
-          "A": "The text says coins were easy to count.",
+          "A": "In the text, coins were easy to count.",
           "C": "The text does not say people disliked gold.",
           "D": "Salt is not linked to paper money."
         }
@@ -697,7 +697,7 @@
         ],
         "answer": "D",
         "skill": "detail",
-        "why": "The text says traders carried gold and silver coins that markets along the way accepted.",
+        "why": "In the text, traders carried gold and silver coins that markets along the way accepted.",
         "wrong": {
           "A": "Wool and dates are goods from the bartering example.",
           "B": "Paper money is described later and in China.",
@@ -801,7 +801,7 @@
         ],
         "answer": "C",
         "skill": "cause-effect",
-        "why": "The text says coins were small, durable, and easy to count, so trading became simpler.",
+        "why": "Coins were small, strong, and easy to count, so trading became simpler.",
         "wrong": {
           "A": "Early coins were made of electrum, not paper.",
           "B": "Shells came before coins, not after.",

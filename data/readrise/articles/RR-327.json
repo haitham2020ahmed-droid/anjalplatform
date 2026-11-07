@@ -334,7 +334,7 @@
      ],
      "answer": "B",
      "skill": "detail",
-     "why": "The article says rising sea levels after the ice age separated Greenland from the mainland it had been joined to.",
+     "why": "In the article, rising sea levels after the ice age separated Greenland from the mainland it had been joined to.",
      "wrong": {
       "A": "It became an island, not fully submerged.",
       "C": "That describes volcanic islands, not Greenland.",
@@ -496,7 +496,7 @@
      ],
      "answer": "C",
      "skill": "detail",
-     "why": "The article states that many undersea volcanoes occur along tectonic boundaries where plates meet.",
+     "why": "In the article, many undersea volcanoes occur along tectonic boundaries where plates meet.",
      "wrong": {
       "A": "Tectonic boundaries are linked to eruptions, not prevention.",
       "B": "Coral dissolution is not discussed.",
@@ -628,7 +628,7 @@
     ],
     "answer": "D",
     "skill": "detail",
-    "why": "The text says Hawaii grew from a volcano.",
+    "why": "Some islands grew from volcanoes.",
     "wrong": {
      "A": "The text says Greenland was cut off from a big land.",
      "B": "Japan is named as having small islands near it.",
@@ -662,7 +662,7 @@
     ],
     "answer": "A",
     "skill": "vocabulary",
-    "why": "The text says the rock pokes above the waves, so a new island begins to exist.",
+    "why": "In the text, the rock pokes above the waves, so a new island begins to exist.",
     "wrong": {
      "B": "The island rises above the sea, it does not fall.",
      "C": "The text does not say the island moves.",
@@ -679,7 +679,7 @@
     ],
     "answer": "B",
     "skill": "sequence",
-    "why": "The text says the rock turns hard like stone, and then more hot rock piles on top.",
+    "why": "In the text, the hot rock turns hard, and then more of it piles up.",
     "wrong": {
      "A": "The text does not say a boat lands on it.",
      "C": "The island pokes above the waves in the end.",
@@ -715,7 +715,7 @@
     ],
     "answer": "C",
     "skill": "sequence",
-    "why": "The article says it cools fast, and then layer after layer of lava piles up on older rock.",
+    "why": "In the article, it cools fast, and then layer after layer of lava piles up on older rock.",
     "wrong": {
      "A": "The mound rises until it breaks the surface.",
      "B": "Waves grind coral into sand, not lava.",
@@ -768,7 +768,7 @@
     ],
     "answer": "B",
     "skill": "detail",
-    "why": "The article says the Hawaiian Islands formed as a single hot spot produced one eruption after another.",
+    "why": "In the article, the Hawaiian Islands formed as a single hot spot produced one eruption after another.",
     "wrong": {
      "A": "The British Isles formed when rising water cut off land.",
      "C": "The Philippines are named as an archipelago.",
@@ -785,7 +785,7 @@
     ],
     "answer": "A",
     "skill": "vocabulary",
-    "why": "The article says islands are isolated from other land by water, so a remote rock is far from other land.",
+    "why": "In the article, islands are isolated from other land by water, so a remote rock is far from other land.",
     "wrong": {
      "B": "The rock sits near a coastline, but remote describes isolation.",
      "C": "The rock is not described as sand.",

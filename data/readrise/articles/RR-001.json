@@ -138,7 +138,7 @@
           ],
           "answer": "D",
           "skill": "detail",
-          "why": "The article says each hive has one queen, and she lays the eggs.",
+          "why": "In the article, the queen is the bee that lays the eggs.",
           "wrong": {
             "A": "Drones are the male bees. They do not lay eggs.",
             "B": "Workers clean, guard, and find food, but the article says the queen lays the eggs.",
@@ -189,7 +189,7 @@
           ],
           "answer": "A",
           "skill": "cause-effect",
-          "why": "The article explains that when pollen falls off on the next flower, it helps the plant make fruit and seeds.",
+          "why": "In the article, when pollen falls off on the next flower, it helps the plant make fruit and seeds.",
           "wrong": {
             "B": "The article says nothing about bees getting lost.",
             "C": "Bees make honey inside the hive, not flowers.",
@@ -334,7 +334,7 @@
           ],
           "answer": "D",
           "skill": "detail",
-          "why": "The article says the direction or angle of the dance points the way to the flowers.",
+          "why": "In the article, the direction or angle of the dance points the way to the flowers.",
           "wrong": {
             "A": "The dance is about finding food outside, not about stored honey.",
             "B": "Distance is shown by the length of the waggle, not its direction.",
@@ -355,7 +355,7 @@
           "wrong": {
             "A": "Fanning moves warm air; it does not freeze the nectar.",
             "C": "Pollen is not part of this step of making honey.",
-            "D": "The water leaves as vapor, not by dripping, and the article says the liquid becomes thick."
+            "D": "The water leaves as vapor, not by dripping, and in the article, the liquid becomes thick."
           }
         },
         {
@@ -496,7 +496,7 @@
           ],
           "answer": "B",
           "skill": "detail",
-          "why": "The article states that bees add enzymes that break complex sugars into simpler ones.",
+          "why": "Bees add enzymes that break down the sugars in the nectar.",
           "wrong": {
             "A": "Pollen is carried on the bee's body; it does not break down sugars.",
             "C": "Wax is used to build cells and cap them.",
@@ -516,7 +516,7 @@
           "why": "The final paragraph lists pesticides, parasites such as mites, and the loss of wildflowers.",
           "wrong": {
             "A": "The article does not mention cold winters as a threat.",
-            "B": "The article says the disappearance of wildflowers is a threat, not too many.",
+            "B": "The article does not say that too many wildflowers is a problem for bees.",
             "D": "Drones are part of the colony, not a threat to it."
           }
         },
@@ -714,7 +714,7 @@
         ],
         "answer": "C",
         "skill": "cause-effect",
-        "why": "The article says honey feeds the colony when few flowers are blooming.",
+        "why": "In the article, honey feeds the colony when few flowers are blooming.",
         "wrong": {
           "A": "The text does not link honey to egg laying.",
           "B": "Comb is built by young workers; honey is not said to build it.",

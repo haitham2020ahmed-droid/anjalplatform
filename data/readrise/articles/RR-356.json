@@ -496,7 +496,7 @@
           ],
           "answer": "D",
           "skill": "detail",
-          "why": "The text states they stopped momentarily for a shoelace, and the group continued without them noticing.",
+          "why": "In the story, the boys stopped to tie a shoelace, and the group kept going without noticing.",
           "wrong": {
             "A": "The teacher never instructs them to wait.",
             "B": "They fall behind; they do not run ahead.",
@@ -767,7 +767,7 @@
         ],
         "answer": "A",
         "skill": "detail",
-        "why": "The story says the boys signaled three short blasts as they had practiced.",
+        "why": "In the story, the boys signaled three short blasts as they had practiced.",
         "wrong": {
           "B": "One blast is not what the story says.",
           "C": "Five blasts is not what the story says.",

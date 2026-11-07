@@ -172,7 +172,7 @@
           ],
           "answer": "D",
           "skill": "compare",
-          "why": "The article says sound moves faster in water than in air, and even faster in hard things like steel.",
+          "why": "In the article, sound moves faster in water than in air, and even faster in hard things like steel.",
           "wrong": {
             "A": "Sound is slowest in air of the three.",
             "B": "Water is faster than air, but hard things are faster still.",
@@ -189,7 +189,7 @@
           ],
           "answer": "B",
           "skill": "vocabulary",
-          "why": "The article says how high or low a sound is is called its pitch.",
+          "why": "How high or low a sound is is called its pitch.",
           "wrong": {
             "A": "Pitch is not about speed through the air.",
             "C": "The place where sound starts is the thing that vibrates.",
@@ -223,7 +223,7 @@
           ],
           "answer": "C",
           "skill": "inference",
-          "why": "The article says light is much faster than sound, so the flash reaches her first.",
+          "why": "In the article, light is much faster than sound, so the flash reaches her first.",
           "wrong": {
             "A": "The article explains the delay by speed, not by when thunder is made.",
             "B": "The article does not say clouds block sound.",
@@ -317,7 +317,7 @@
           ],
           "answer": "A",
           "skill": "detail",
-          "why": "The article says the pushed particles bump into their neighbors, so the push passes from particle to particle.",
+          "why": "In the article, the pushed particles bump into their neighbors, so the push passes from particle to particle.",
           "wrong": {
             "B": "The push is passed along, like a message in a line; one particle does not travel the whole way.",
             "C": "Light and sound are different; light does not carry sound.",
@@ -334,7 +334,7 @@
           ],
           "answer": "D",
           "skill": "detail",
-          "why": "The article states that sound travels about four times faster in water than in air.",
+          "why": "In the article, sound travels about four times faster in water than in air.",
           "wrong": {
             "A": "The article gives about four times, not two.",
             "B": "Ten times is too much; the article says about four.",
@@ -351,7 +351,7 @@
           ],
           "answer": "B",
           "skill": "vocabulary",
-          "why": "The article explains that space is nearly a vacuum because it contains almost no particles.",
+          "why": "In the article, space is nearly a vacuum because it contains almost no particles.",
           "wrong": {
             "A": "Space can be cold, but that is not what vacuum means here.",
             "C": "A vacuum is silent, not noisy.",
@@ -402,7 +402,7 @@
           ],
           "answer": "A",
           "skill": "cause-effect",
-          "why": "The article says they send out sounds and listen for the echoes, which helps them find food. This is called echolocation.",
+          "why": "In the article, they send out sounds and listen for the echoes, which helps them find food. This is called echolocation.",
           "wrong": {
             "B": "The article does not say they use echoes to talk to people.",
             "C": "Echoes have nothing to do with staying warm.",
@@ -496,7 +496,7 @@
           ],
           "answer": "B",
           "skill": "vocabulary",
-          "why": "The article says the drum skin squeezes nearby particles together, forming a high-pressure region called a compression.",
+          "why": "A compression is a place where air particles are squeezed close together.",
           "wrong": {
             "A": "That describes the spread-out region that forms when the skin moves back.",
             "C": "That is the cochlea.",
@@ -513,7 +513,7 @@
           ],
           "answer": "B",
           "skill": "cause-effect",
-          "why": "The article explains that because the particles in water and solids are packed more closely together, sound travels faster through them.",
+          "why": "In the article, because the particles in water and solids are packed more closely together, sound travels faster through them.",
           "wrong": {
             "A": "The article does not link speed to temperature.",
             "C": "Loudness depends on amplitude, not on the medium's speed.",
@@ -530,7 +530,7 @@
           ],
           "answer": "A",
           "skill": "detail",
-          "why": "The article says the strength of the vibration, its amplitude, determines loudness, measured in decibels.",
+          "why": "In the article, amplitude controls how loud a sound is.",
           "wrong": {
             "B": "Frequency controls pitch, not amplitude.",
             "C": "Speed depends on the medium.",
@@ -547,7 +547,7 @@
           ],
           "answer": "C",
           "skill": "sequence",
-          "why": "The article says the eardrum vibrates, three tiny bones pass the vibration to the cochlea, and the brain interprets the signal.",
+          "why": "In the article, the eardrum vibrates, three tiny bones pass the vibration to the cochlea, and the brain interprets the signal.",
           "wrong": {
             "A": "The brain is the last step, not the first.",
             "B": "The eardrum vibrates before the cochlea receives anything.",
@@ -581,7 +581,7 @@
           ],
           "answer": "B",
           "skill": "inference",
-          "why": "The article says space is nearly a vacuum, so even an enormous explosion would be silent.",
+          "why": "In the article, sound cannot travel through the empty space of outer space, so even a huge explosion would be silent.",
           "wrong": {
             "A": "The problem is not the pitch; no sound would travel at all.",
             "C": "Light is faster than sound, so a sound could never come first.",
@@ -627,7 +627,7 @@
         ],
         "answer": "A",
         "skill": "detail",
-        "why": "The text says sound can bounce off a cliff and you hear it two times, which is an echo.",
+        "why": "In the text, sound can bounce off a cliff and you hear it two times, which is an echo.",
         "wrong": {
           "B": "The text does not say it turns into a drum sound.",
           "C": "Thunder comes from a storm, not a cliff.",
@@ -646,7 +646,7 @@
         "skill": "inference",
         "why": "The text says sound can move through water, so the other diver can hear it.",
         "wrong": {
-          "A": "The text says sound moves in water, and fast.",
+          "A": "In the text, sound moves in water, and fast.",
           "B": "Sound also moves through water and hard things.",
           "D": "Being wet does not matter in the text."
         }
@@ -678,7 +678,7 @@
         ],
         "answer": "D",
         "skill": "vocabulary",
-        "why": "The text says the drum moves back and forth fast and calls it vibrating.",
+        "why": "In the text, the top of the drum shakes back and forth very fast, and this is called vibrating.",
         "wrong": {
           "A": "Vibrating is about shaking, not going away.",
           "B": "The text does not say it gets hot.",
@@ -697,7 +697,7 @@
         ],
         "answer": "B",
         "skill": "detail",
-        "why": "The article says small folds in the throat vibrate as air from the lungs passes over them.",
+        "why": "In the article, small folds in the throat vibrate as air from the lungs passes over them.",
         "wrong": {
           "A": "A vacuum is found in outer space.",
           "C": "The eardrum is in the ear and receives sound.",
@@ -748,30 +748,30 @@
         ],
         "answer": "D",
         "skill": "inference",
-        "why": "The article says water works as a medium, so sound waves can travel through it.",
+        "why": "In the article, water works as a medium, so sound waves can travel through it.",
         "wrong": {
           "A": "A vacuum has no particles to pass sound along.",
-          "B": "The article says sound moves faster in water.",
+          "B": "In the article, sound moves faster in water.",
           "C": "Water and solids work as well as air."
         }
       }
     ],
     "HIGH": [
       {
-        "stem": "What does echolocation help bats and dolphins do?",
+        "stem": "Why can sound not travel through outer space?",
         "options": [
-          "Make their own sound louder",
-          "Fly or swim faster",
-          "Find their food",
-          "Hear a vibration in space"
+          "Space is far too cold for sound",
+          "Space is a vacuum with no particles",
+          "Space is filled with bright light",
+          "Space is full of loud explosions"
         ],
-        "answer": "C",
+        "answer": "B",
         "skill": "detail",
-        "why": "The article says the returning echoes help them locate food, an ability known as echolocation.",
+        "why": "Sound needs particles to travel through, and space is a vacuum.",
         "wrong": {
-          "A": "The article does not link echoes to loudness.",
-          "B": "Echoes help them find food, not move quickly.",
-          "D": "The article says sound cannot travel in space."
+          "A": "Cold is not the reason given.",
+          "C": "Light does not stop sound.",
+          "D": "Explosions in space are silent."
         }
       },
       {
@@ -818,7 +818,7 @@
         ],
         "answer": "B",
         "skill": "compare",
-        "why": "The article says frequency determines pitch and amplitude determines loudness.",
+        "why": "In the article, frequency determines pitch and amplitude determines loudness.",
         "wrong": {
           "A": "This swaps the two ideas.",
           "C": "The article does not say that either one sets the medium.",

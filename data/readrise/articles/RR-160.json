@@ -138,9 +138,9 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The article says the Arabian wolf is the smallest wolf in the world.",
+          "why": "In the article, the Arabian wolf is the smallest wolf in the world.",
           "wrong": {
-            "A": "The article says it is the smallest, not the biggest.",
+            "A": "It is the smallest, not the biggest.",
             "B": "It is only a little bigger than a large dog.",
             "D": "It is much bigger than a mouse."
           }
@@ -155,7 +155,7 @@
           ],
           "answer": "A",
           "skill": "cause-effect",
-          "why": "The article says heat leaves the body through the big ears, so the wolf stays cool.",
+          "why": "In the article, the big ears let out heat, so the wolf stays cool.",
           "wrong": {
             "B": "Ears are not used for digging.",
             "C": "The article does not say this.",
@@ -172,7 +172,7 @@
           ],
           "answer": "D",
           "skill": "detail",
-          "why": "The article says the wolf rests in the day and hunts at night.",
+          "why": "In the article, the wolf rests in the day and hunts at night.",
           "wrong": {
             "A": "In the day it rests in the shade.",
             "B": "The article does not say this.",
@@ -240,7 +240,7 @@
           ],
           "answer": "B",
           "skill": "author-purpose",
-          "why": "After saying the wolves are rare, the author shows that parks now help keep them safe.",
+          "why": "After saying the wolves are rare, the author shows that people are now working to protect them.",
           "wrong": {
             "A": "The article gives no directions.",
             "C": "The article does not say wolves play in parks.",
@@ -334,7 +334,7 @@
           ],
           "answer": "A",
           "skill": "detail",
-          "why": "The article says the coat grows longer in winter to protect it on cold nights.",
+          "why": "In the article, the coat grows longer in winter to protect it on cold nights.",
           "wrong": {
             "B": "The article does not say it turns black.",
             "C": "The article does not say this.",
@@ -351,9 +351,9 @@
           ],
           "answer": "B",
           "skill": "detail",
-          "why": "The article says it gets much of its water, or moisture, from its food.",
+          "why": "In the article, it gets much of its water, or moisture, from its food.",
           "wrong": {
-            "A": "The article says water is hard to find there.",
+            "A": "In the article, water is hard to find there.",
             "C": "The article does not say this.",
             "D": "The article does not say this."
           }
@@ -496,7 +496,7 @@
           ],
           "answer": "B",
           "skill": "vocabulary",
-          "why": "The article says a subspecies belongs to the same species but has developed features suited to its environment.",
+          "why": "In the article, a subspecies belongs to the same species but has developed features suited to its environment.",
           "wrong": {
             "A": "The article does not call it a dog.",
             "C": "The article says some still live in the wild.",
@@ -627,7 +627,7 @@
         ],
         "answer": "C",
         "skill": "detail",
-        "why": "The text says the wolf eats hares and rats, and also birds and bugs.",
+        "why": "In the text, the wolf eats small animals such as hares, and also birds and insects.",
         "wrong": {
           "A": "Camels and goats are not named as food.",
           "B": "Fish and clams are not named.",
@@ -644,7 +644,7 @@
         ],
         "answer": "B",
         "skill": "inference",
-        "why": "The text says it gets a lot of its water from food, so it can live in dry land.",
+        "why": "In the text, it gets a lot of its water from food, so it can live in dry land.",
         "wrong": {
           "A": "Drinking sand is not mentioned.",
           "C": "The text does not say this.",
@@ -661,7 +661,7 @@
         ],
         "answer": "C",
         "skill": "vocabulary",
-        "why": "The text says a pack is a wolf group.",
+        "why": "In the text, a pack is a wolf group.",
         "wrong": {
           "A": "A bag is not a wolf thing.",
           "B": "A safe hole is a den.",
@@ -678,7 +678,7 @@
         ],
         "answer": "A",
         "skill": "cause-effect",
-        "why": "The text says the sun is hot in the day, so the wolf rests in the shade.",
+        "why": "In the text, the sun is hot in the day, so the wolf rests in the shade.",
         "wrong": {
           "B": "Pups are not linked to this.",
           "C": "The text does not say hares leave.",
@@ -697,7 +697,7 @@
         ],
         "answer": "A",
         "skill": "detail",
-        "why": "The text says it also eats dead animals it finds.",
+        "why": "In the text, it also eats dead animals it finds.",
         "wrong": {
           "B": "Dates are not mentioned.",
           "C": "Seeds are not mentioned.",
@@ -714,7 +714,7 @@
         ],
         "answer": "D",
         "skill": "cause-effect",
-        "why": "The text says wolves sometimes attack sheep and goats.",
+        "why": "In the text, wolves sometimes attack sheep and goats.",
         "wrong": {
           "A": "Crops are not mentioned.",
           "B": "The text gives livestock as the reason.",
@@ -784,7 +784,7 @@
         ],
         "answer": "A",
         "skill": "cause-effect",
-        "why": "The text says hunting in the cool darkness lets the wolf conserve water and energy.",
+        "why": "In the text, hunting in the cool darkness lets the wolf conserve water and energy.",
         "wrong": {
           "B": "Pups are not mentioned in this idea.",
           "C": "Carrion is not linked to darkness.",
@@ -801,7 +801,7 @@
         ],
         "answer": "B",
         "skill": "detail",
-        "why": "The text says pups are born in a sheltered den such as a cave or a hollow beneath rocks.",
+        "why": "In the text, pups are born in a sheltered den such as a cave or a hollow beneath rocks.",
         "wrong": {
           "A": "Pups are born in a den, not outside.",
           "C": "A sheltered den is not a flat desert.",

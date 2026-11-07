@@ -138,7 +138,7 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The article says the first one went up in 1960.",
+          "why": "In the article, the first weather satellite went up in 1960.",
           "wrong": {
             "A": "The date in the article is 1960, not 1906.",
             "B": "The first one went up long before 2006.",
@@ -155,7 +155,7 @@
           ],
           "answer": "D",
           "skill": "detail",
-          "why": "The article says it gets power from the sun and has big flat panels or wings that catch sunlight.",
+          "why": "In the article, it gets power from the sun and has big flat panels or wings that catch sunlight.",
           "wrong": {
             "A": "No one changes batteries in space in the article.",
             "B": "The article does not mention wind in space.",
@@ -206,7 +206,7 @@
           ],
           "answer": "D",
           "skill": "inference",
-          "why": "The article says a very cold cloud top is a sign of a tall storm cloud.",
+          "why": "In the article, a very cold cloud top is a sign of a tall storm cloud.",
           "wrong": {
             "A": "A cold cloud top means a storm, not calm weather.",
             "B": "The article does not link cold cloud tops to desert snow.",
@@ -214,7 +214,7 @@
           }
         },
         {
-          "stem": "Read this sentence: \"Its path is called an orbit.\" What is an orbit?",
+          "stem": "In the article, what does the word \"orbit\" mean?",
           "options": [
             "A kind of rocket",
             "A picture of a cloud",
@@ -303,7 +303,7 @@
           "why": "The article explains the orbits, sensors, and uses of weather satellites in forecasting.",
           "wrong": {
             "B": "TIROS-1 was the first weather satellite, but the article never says it is the best.",
-            "C": "The article explains why satellites do not fall.",
+            "C": "The article does explain why satellites do not fall.",
             "D": "Infrared sensors work at night, too."
           }
         },
@@ -372,7 +372,7 @@
           "wrong": {
             "B": "Infrared sensors measure heat; the article does not mention color photos.",
             "C": "Camera-like sensors can see clouds in daylight.",
-            "D": "The article says infrared sensors work at night as well."
+            "D": "In the article, infrared sensors work at night as well."
           }
         },
         {
@@ -421,7 +421,7 @@
           "skill": "author-purpose",
           "why": "The author asks a question readers may wonder about and then answers it by explaining gravity and speed.",
           "wrong": {
-            "B": "The article explains that they do not fall.",
+            "B": "Satellites do not fall.",
             "C": "There is no funny story.",
             "D": "Rocket parts are not listed."
           }
@@ -481,9 +481,9 @@
           "skill": "central-idea",
           "why": "The article explains how geostationary and polar satellites, with various sensors, supply information that forecasters use.",
           "wrong": {
-            "B": "The article says TIROS-1's pictures were blurry by modern standards.",
+            "B": "The pictures from TIROS-1 were blurry compared with pictures today.",
             "C": "The article presents both types as useful in different ways.",
-            "D": "The article says forecasters and computers use the information."
+            "D": "Forecasters and computers do use the information."
           }
         },
         {
@@ -513,7 +513,7 @@
           ],
           "answer": "D",
           "skill": "detail",
-          "why": "The article says measuring water vapor helps forecasters predict where clouds and rain may form.",
+          "why": "In the article, measuring water vapor helps forecasters predict where clouds and rain may form.",
           "wrong": {
             "A": "Speed is not measured by water vapor sensors.",
             "B": "Launch dates are not mentioned.",
@@ -564,7 +564,7 @@
           ],
           "answer": "D",
           "skill": "inference",
-          "why": "The article says extremely cold cloud tops reveal towering storm clouds, which means the cloud tops are very high where the air is cold.",
+          "why": "In the article, extremely cold cloud tops reveal towering storm clouds, which means the cloud tops are very high where the air is cold.",
           "wrong": {
             "A": "Cold tops point to tall clouds, not low, thin ones.",
             "B": "The article links cold tops to storms, not disappearing clouds.",
@@ -581,7 +581,7 @@
           ],
           "answer": "A",
           "skill": "vocabulary",
-          "why": "The article explains that geostationary satellites remain above the same region because they match Earth's rotation.",
+          "why": "In the article, geostationary satellites remain above the same region because they match Earth's rotation.",
           "wrong": {
             "B": "That describes polar-orbiting satellites.",
             "C": "The first weather satellite was launched in 1960.",
@@ -627,7 +627,7 @@
         ],
         "answer": "C",
         "skill": "detail",
-        "why": "The text says the first satellite sent back a shot of clouds.",
+        "why": "In the text, the first satellite sent back a shot of clouds.",
         "wrong": {
           "A": "The text does not mention the sea floor.",
           "B": "The text does not mention the moon.",
@@ -697,7 +697,7 @@
         ],
         "answer": "A",
         "skill": "detail",
-        "why": "The text says the satellite gets its power from the sun through large solar panels.",
+        "why": "In the text, the satellite gets its power from the sun through large solar panels.",
         "wrong": {
           "B": "The text does not mention a cable.",
           "C": "The text does not mention burning gas.",
@@ -731,7 +731,7 @@
         ],
         "answer": "C",
         "skill": "cause-effect",
-        "why": "The text says very cold cloud tops show tall storm clouds.",
+        "why": "In the text, very cold cloud tops show tall storm clouds.",
         "wrong": {
           "A": "Cold cloud tops are not a sign of dust.",
           "B": "Solar power has nothing to do with cloud tops.",
@@ -767,11 +767,11 @@
         ],
         "answer": "D",
         "skill": "detail",
-        "why": "The text says TIROS-1 transmitted the first television image of clouds ever photographed from space.",
+        "why": "In the text, TIROS-1 transmitted the first television image of clouds ever photographed from space.",
         "wrong": {
-          "A": "The text says its pictures were blurry by modern standards.",
+          "A": "Its pictures were blurry compared with pictures today.",
           "B": "The text says it was launched by the United States.",
-          "C": "The text says it sent an image of clouds."
+          "C": "In the text, it sent an image of clouds."
         }
       },
       {
@@ -801,7 +801,7 @@
         ],
         "answer": "C",
         "skill": "cause-effect",
-        "why": "The text says they travel much lower, which gives a closer and more detailed view.",
+        "why": "In the text, they travel much lower, which gives a closer and more detailed view.",
         "wrong": {
           "A": "That describes geostationary satellites.",
           "B": "That is why geostationary satellites watch one place.",
@@ -820,7 +820,7 @@
         "skill": "author-purpose",
         "why": "These examples show forecasters using satellite data to track real storms and warn communities.",
         "wrong": {
-          "A": "The text says forecasters track dust with satellite data.",
+          "A": "Forecasters use satellite data to track dust.",
           "C": "Gravity is explained in an earlier paragraph.",
           "D": "Cyclones are weather over the sea."
         }

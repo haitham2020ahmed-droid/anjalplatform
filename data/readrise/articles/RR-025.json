@@ -138,7 +138,7 @@
           ],
           "answer": "D",
           "skill": "detail",
-          "why": "The article says lightning is a huge spark made of electricity.",
+          "why": "In the article, lightning is a giant spark of electricity.",
           "wrong": {
             "A": "A cloud can make lightning, but lightning is not a cloud.",
             "B": "The loud sound is thunder, not lightning.",
@@ -175,8 +175,8 @@
           "why": "The article tells you to go into a shelter like a house or a car to stay safe from lightning.",
           "wrong": {
             "A": "A shelter is for safety, not for playing.",
-            "B": "The article says to stay away from tall trees.",
-            "D": "The article says to stay out of the water."
+            "B": "In the article, you should not stand by tall trees.",
+            "D": "In the article, you should stay out of the water."
           }
         },
         {
@@ -189,7 +189,7 @@
           ],
           "answer": "A",
           "skill": "cause-effect",
-          "why": "The article explains that lightning heats the air very fast, and the hot air pushes out with a boom.",
+          "why": "In the article, lightning heats the air very fast, and the air pushes out with a boom.",
           "wrong": {
             "B": "Clouds do not crash to make thunder.",
             "C": "Rain on a roof is not thunder.",
@@ -304,7 +304,7 @@
           "wrong": {
             "B": "Franklin invented the lightning rod; people saw lightning long before him.",
             "C": "Thunder is a sound; the article says lightning is the danger.",
-            "D": "The article says the clouds hold ice and water drops."
+            "D": "In the article, the clouds hold ice and water drops."
           }
         },
         {
@@ -317,7 +317,7 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The article says the bottom usually gathers a negative charge while the top gathers a positive charge.",
+          "why": "In the article, the bottom usually gathers a negative charge while the top gathers a positive charge.",
           "wrong": {
             "A": "The top, not the bottom, usually gathers the positive charge.",
             "B": "The article says the cloud builds up charge.",
@@ -325,24 +325,24 @@
           }
         },
         {
-          "stem": "Who invented the lightning rod?",
+          "stem": "What does a lightning rod do?",
           "options": [
-            "A pilot",
-            "A farmer in Saudi Arabia",
-            "A builder of tall towers",
-            "Benjamin Franklin"
+            "It makes the lightning much hotter",
+            "It pulls heavy rain down from clouds",
+            "It makes the thunder sound quieter",
+            "It guides lightning into the ground"
           ],
           "answer": "D",
           "skill": "detail",
-          "why": "The article states that the scientist Benjamin Franklin invented the lightning rod in the 1700s.",
+          "why": "A lightning rod is a metal bar on a roof that guides lightning safely into the ground.",
           "wrong": {
-            "A": "No pilot is mentioned.",
-            "B": "The article does not say this.",
-            "C": "Buildings use lightning rods, but the article names Franklin as the inventor."
+            "A": "A rod does not heat the lightning.",
+            "B": "A rod does not make rain fall.",
+            "C": "A rod does not change the thunder."
           }
         },
         {
-          "stem": "Read: \"You can use this to estimate how far away a storm is.\" What does estimate mean here?",
+          "stem": "In the article, what does the word \"estimate\" mean?",
           "options": [
             "To stop something from moving",
             "To make a careful guess",
@@ -368,7 +368,7 @@
           ],
           "answer": "C",
           "skill": "cause-effect",
-          "why": "The article says the hot air expands so fast that it creates a loud wave of sound, which is thunder.",
+          "why": "In the article, the hot air expands so fast that it makes a loud sound wave, which is thunder.",
           "wrong": {
             "A": "Rain does not make the boom.",
             "B": "Clouds do not break apart to make thunder.",
@@ -410,7 +410,7 @@
           }
         },
         {
-          "stem": "Why does the author say lightning and thunder are \"two parts of the same event\"?",
+          "stem": "Why does the author show that lightning and thunder are connected?",
           "options": [
             "They happen in different seasons.",
             "Thunder is caused by the heat of the lightning.",
@@ -496,7 +496,7 @@
           ],
           "answer": "A",
           "skill": "detail",
-          "why": "The article states that a bolt can reach about thirty thousand degrees Celsius, roughly five times hotter than the sun's surface.",
+          "why": "In the article, a bolt can reach about thirty thousand degrees Celsius, roughly five times hotter than the sun's surface.",
           "wrong": {
             "B": "This is far too low.",
             "C": "The article says lightning is about five times hotter than the sun's surface.",
@@ -521,7 +521,7 @@
           }
         },
         {
-          "stem": "Read: \"an enormous spark jumps to neutralize it.\" What does neutralize mean in this sentence?",
+          "stem": "In the article, what does the word \"neutralize\" mean?",
           "options": [
             "To make something louder",
             "To cancel out or balance something",
@@ -547,7 +547,7 @@
           ],
           "answer": "D",
           "skill": "cause-effect",
-          "why": "The article says the bolt heats the air in a fraction of a second, so the air expands explosively and creates a shock wave.",
+          "why": "In the article, the bolt heats the air in a fraction of a second, so the air expands explosively and creates a shock wave.",
           "wrong": {
             "A": "Rain is not the cause of thunder.",
             "B": "The article does not describe clouds separating.",
@@ -555,7 +555,7 @@
           }
         },
         {
-          "stem": "The article says the spark jumps when the imbalance is \"too great for the surrounding air to resist.\" What can you infer about air?",
+          "stem": "The spark jumps only when the charge becomes very strong. What can you infer about air?",
           "options": [
             "Air usually blocks electricity until the charge becomes very strong.",
             "Air is a perfect conductor of electricity, so sparks jump through it easily.",
@@ -581,7 +581,7 @@
           ],
           "answer": "C",
           "skill": "inference",
-          "why": "Every three seconds equals about one kilometer, and the article says to move indoors whenever thunder is audible.",
+          "why": "Every three seconds equals about one kilometer, and in the article, to move indoors whenever thunder is audible.",
           "wrong": {
             "A": "Thunder shows the storm is still active.",
             "B": "Thunder can be heard from far away.",
@@ -627,7 +627,7 @@
         ],
         "answer": "C",
         "skill": "detail",
-        "why": "The text says the spark is more hot than the top of the sun.",
+        "why": "In the text, lightning is hotter than the top of the sun.",
         "wrong": {
           "A": "The spark is very, very hot.",
           "B": "The spark is much hotter than a sunny day.",
@@ -644,7 +644,7 @@
         ],
         "answer": "A",
         "skill": "cause-effect",
-        "why": "The text says we see the flash first because light is fast and sound is slow.",
+        "why": "In the text, we see the flash first because light is fast and sound is slow.",
         "wrong": {
           "B": "This is backwards; light is faster than sound.",
           "C": "The text does not say the boom comes from a different cloud.",
@@ -681,8 +681,8 @@
         "why": "The text says a car is a good shelter, and it says to stay off the beach and away from tall trees.",
         "wrong": {
           "A": "The text says not to stand by a tall tree.",
-          "C": "The text says to stay off the beach.",
-          "D": "The text says to stay off the beach."
+          "C": "In the article, the beach is not a safe place in a storm.",
+          "D": "In the article, the beach is not a safe place in a storm."
         }
       }
     ],
@@ -767,7 +767,7 @@
         ],
         "answer": "D",
         "skill": "detail",
-        "why": "The article says the discharge may flash within a cloud, travel between clouds, or strike the ground.",
+        "why": "In the article, the discharge may flash within a cloud, travel between clouds, or strike the ground.",
         "wrong": {
           "A": "The ground is only one of three places.",
           "B": "A cloud is only one of three places.",
@@ -801,7 +801,7 @@
         ],
         "answer": "A",
         "skill": "cause-effect",
-        "why": "The article says light travels about a million times faster than sound.",
+        "why": "In the article, light travels about a million times faster than sound.",
         "wrong": {
           "B": "Both come from the same discharge.",
           "C": "The article does not mention clouds blocking sound.",

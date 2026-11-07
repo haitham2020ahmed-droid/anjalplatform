@@ -138,7 +138,7 @@
           ],
           "answer": "A",
           "skill": "detail",
-          "why": "The article says Jane watched birds and bugs in her yard as a child.",
+          "why": "In the article, Jane watched birds and bugs in her yard as a child.",
           "wrong": {
             "B": "Airplanes are not mentioned.",
             "C": "Music is not mentioned.",
@@ -155,7 +155,7 @@
           ],
           "answer": "B",
           "skill": "detail",
-          "why": "The article says Jane saw a chimp use a twig like a tool to get bugs out of a mound.",
+          "why": "In the article, Jane saw a chimp use a twig like a tool to get bugs out of a mound.",
           "wrong": {
             "A": "Nests are not mentioned.",
             "C": "Throwing is not mentioned.",
@@ -304,7 +304,7 @@
           "wrong": {
             "A": "Her love of birds is a childhood detail, not the main idea.",
             "C": "Leakey offered Jane the opportunity; he did not build the preserve.",
-            "D": "The article says most scientists used numbers, not names."
+            "D": "In the article, most scientists used numbers, not names."
           }
         },
         {
@@ -513,7 +513,7 @@
           ],
           "answer": "B",
           "skill": "detail",
-          "why": "The article states that Jane's forest research site was beside Lake Tanganyika.",
+          "why": "In the article, Jane's forest research site was beside Lake Tanganyika.",
           "wrong": {
             "A": "Lake Victoria is not named in the article.",
             "C": "The Red Sea is not mentioned.",
@@ -547,7 +547,7 @@
           ],
           "answer": "A",
           "skill": "cause-effect",
-          "why": "The article explains that the belief that only humans use tools made Jane's observation so surprising to scientists.",
+          "why": "In the article, the belief that only humans use tools made Jane's observation so surprising to scientists.",
           "wrong": {
             "B": "Chimpanzees were already known to science.",
             "C": "Termites were not a new discovery; the chimp's tool use was.",
@@ -627,7 +627,7 @@
         ],
         "answer": "C",
         "skill": "detail",
-        "why": "The text says she flew to a land called Tanzania.",
+        "why": "Jane went to a country called Tanzania.",
         "wrong": {
           "A": "London is where she was born.",
           "B": "Egypt is not named in the text.",
@@ -767,7 +767,7 @@
         ],
         "answer": "A",
         "skill": "detail",
-        "why": "The text says a respected scientist named Louis Leakey offered her the chance.",
+        "why": "In the text, a respected scientist named Louis Leakey offered her the chance.",
         "wrong": {
           "B": "Jane Goodall is the researcher herself.",
           "C": "This name is not in the article.",
@@ -818,11 +818,11 @@
         ],
         "answer": "A",
         "skill": "cause-effect",
-        "why": "The text says her research showed chimps feel emotion, play, and form close family bonds.",
+        "why": "In the text, her research showed chimps feel emotion, play, and form close family bonds.",
         "wrong": {
           "B": "Flying is not mentioned.",
           "C": "They live in forests, not cages.",
-          "D": "The text says they play together."
+          "D": "They do play and bond together."
         }
       }
     ]

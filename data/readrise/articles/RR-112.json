@@ -138,7 +138,7 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The article says a bat is a mammal because it has fur and its young drink milk.",
+          "why": "In the article, a bat is a mammal because it has fur and its young drink milk.",
           "wrong": {
             "A": "Birds and insects also fly, so flying does not make an animal a mammal.",
             "B": "Many animals eat insects; that is not what makes a mammal.",
@@ -155,7 +155,7 @@
           ],
           "answer": "B",
           "skill": "sequence",
-          "why": "The article says the sound hits the bug and bounces back. That is an echo.",
+          "why": "In the article, the sound hits the bug and bounces back. That is an echo.",
           "wrong": {
             "A": "Nothing in the article says the bug falls asleep.",
             "C": "The bat keeps flying and then grabs the bug.",
@@ -172,7 +172,7 @@
           ],
           "answer": "B",
           "skill": "detail",
-          "why": "The article says the echo tells the bat where the bug is and how big it is.",
+          "why": "In the article, the echo tells the bat where the bug is and how big it is.",
           "wrong": {
             "A": "Echoes do not tell the time in the article.",
             "C": "The article does not say echoes show a bug's age.",
@@ -189,7 +189,7 @@
           ],
           "answer": "A",
           "skill": "cause-effect",
-          "why": "The article says the sounds are too high for people to hear.",
+          "why": "In the article, the sounds are too high for people to hear.",
           "wrong": {
             "B": "Bats hunt and call at night, not in the day.",
             "C": "Bats call while they fly and hunt outside.",
@@ -223,7 +223,7 @@
           ],
           "answer": "D",
           "skill": "inference",
-          "why": "The article says one bat can eat many insects in a night, and many of those bugs harm crops.",
+          "why": "One bat can eat many insects in a night, and many of those insects harm crops.",
           "wrong": {
             "A": "The article says bats help farms; it does not say they eat all the fruit.",
             "B": "Bats do not warm farms.",
@@ -317,7 +317,7 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The article says that as the bat closes in, it calls faster and faster until it catches its meal.",
+          "why": "In the article, as the bat gets close to a moth, it calls faster and faster until it catches its meal.",
           "wrong": {
             "A": "The bat calls more, not less.",
             "B": "The article does not say the bat flies higher.",
@@ -530,7 +530,7 @@
           ],
           "answer": "A",
           "skill": "detail",
-          "why": "The article says the calls get faster until they blur into a buzz immediately before the capture.",
+          "why": "In the article, the calls get faster until they blur into a buzz immediately before the capture.",
           "wrong": {
             "B": "The bat calls faster, not less.",
             "C": "The bat catches its meal in flight.",
@@ -547,7 +547,7 @@
           ],
           "answer": "B",
           "skill": "cause-effect",
-          "why": "The article explains that certain moths can detect approaching bats and plunge toward the ground to escape.",
+          "why": "In the article, certain moths can detect approaching bats and plunge toward the ground to escape.",
           "wrong": {
             "A": "The moths are fleeing from the calls, not drawn to them.",
             "C": "The diving is described as an escape, not a search for food.",
@@ -583,7 +583,7 @@
           "skill": "author-purpose",
           "why": "The author states the myth and then says every bat can see, correcting a mistaken belief.",
           "wrong": {
-            "B": "The article says fruit bats find food well with sight and smell.",
+            "B": "Many fruit bats find food with their eyes and their sense of smell.",
             "C": "The article shows echolocation is very useful.",
             "D": "Sonar is discussed separately and the myth is not connected to it."
           }
@@ -598,7 +598,7 @@
           ],
           "answer": "B",
           "skill": "compare",
-          "why": "The article says many large fruit bats depend primarily on their eyesight and sense of smell, while insect hunters use echolocation.",
+          "why": "In the article, many large fruit bats depend primarily on their eyesight and sense of smell, while insect hunters use echolocation.",
           "wrong": {
             "A": "The article does not say fruit bats hunt insects or hunt in the daytime.",
             "C": "All bats are mammals.",
@@ -644,7 +644,7 @@
         ],
         "answer": "B",
         "skill": "cause-effect",
-        "why": "The text says fruit bats drop seeds, and then new trees grow.",
+        "why": "In the text, fruit bats drop seeds, and then new trees grow.",
         "wrong": {
           "A": "Water from caves is not mentioned.",
           "C": "Bugs are eaten by small bats, not for growing trees.",
@@ -664,8 +664,8 @@
         "why": "The text says bats hide in the day and fly out when it is night to eat, so they are active at night.",
         "wrong": {
           "B": "The text says some bats eat fruit.",
-          "C": "The text says all bats can see.",
-          "D": "The text says they hide in caves and old homes."
+          "C": "All bats can see.",
+          "D": "Bats also rest in caves, not only in old homes."
         }
       },
       {
@@ -697,7 +697,7 @@
         ],
         "answer": "A",
         "skill": "detail",
-        "why": "The text says many large fruit bats find food mostly with their eyes and their sense of smell.",
+        "why": "Many large fruit bats find food mainly with their eyes and their sense of smell.",
         "wrong": {
           "B": "Echolocation is used by many other bats to find prey.",
           "C": "The calls are too high to hear and are not used by fruit bats here.",
@@ -714,7 +714,7 @@
         ],
         "answer": "C",
         "skill": "cause-effect",
-        "why": "The text says fruit bats spread seeds that grow into new trees.",
+        "why": "In the text, fruit bats spread seeds that grow into new trees.",
         "wrong": {
           "A": "Eating pests is something small bats do for crops.",
           "B": "The text does not say that bats give shade.",
@@ -731,7 +731,7 @@
         ],
         "answer": "B",
         "skill": "author-purpose",
-        "why": "The text says bats are mammals because they have fur and feed their babies milk, as camels and cats do.",
+        "why": "In the text, bats are mammals because they have fur and feed their babies milk, as camels and cats do.",
         "wrong": {
           "A": "Running is not mentioned.",
           "C": "The camel is a Saudi animal but this comparison is about being a mammal.",
@@ -767,7 +767,7 @@
         ],
         "answer": "B",
         "skill": "detail",
-        "why": "The text says the bats shelter in caves, rocky valleys, and abandoned buildings during the day.",
+        "why": "In the text, the bats shelter in caves, rocky valleys, and abandoned buildings during the day.",
         "wrong": {
           "A": "Palm trees and tents are not mentioned.",
           "C": "Bats are land mammals; the sea is not mentioned for shelter.",
@@ -801,7 +801,7 @@
         ],
         "answer": "A",
         "skill": "compare",
-        "why": "The text says sonar sends sound through water and listens for echoes, as bats do with their calls.",
+        "why": "In the text, sonar sends sound through water and listens for echoes, as bats do with their calls.",
         "wrong": {
           "B": "Neither of them uses light in the text.",
           "C": "Fruit and flowers have nothing to do with sonar.",

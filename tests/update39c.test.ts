@@ -310,7 +310,7 @@ describe("Update 39C · reports, exports and the remap (Test School)", () => {
     assert.doesNotMatch(head, /Lexile/);
     const nm = String((await repo.findUnique("User", { id: (await repo.findUnique("Student", { id: a }))!.userId }))!.displayName);
     const line = csv.split("\n").find((l) => l.includes(nm))!;
-    assert.match(line, /,700,760,60,2,/);
+    assert.match(line, /,700L,760L,[A-Za-z ]+,60,2,/, "round 7: levels read 700L; the grade band column (benchmarks.ts)");
     const school = Buffer.from((await exp(admin, { kind: "readrise", scope: "school" })).bytes).toString("utf8");
     assert.match(school.split("\n")[0], /Median ReadRise Level \(estimate\)/);
     const x = await exp(t1, { kind: "readrise", classId: classA, format: "xlsx" });

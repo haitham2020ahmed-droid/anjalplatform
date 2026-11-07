@@ -155,7 +155,7 @@
           ],
           "answer": "D",
           "skill": "detail",
-          "why": "The article says the kidneys clean your blood and take out waste, which leaves as urine.",
+          "why": "In the article, the kidneys clean your blood and take out waste.",
           "wrong": {
             "A": "Sweat comes out of your skin. The article does not say kidneys make it.",
             "B": "Water pads your joints, not the kidneys.",
@@ -172,7 +172,7 @@
           ],
           "answer": "B",
           "skill": "vocabulary",
-          "why": "The article says you feel thirsty when your body needs water, and then you should drink.",
+          "why": "In the article, you feel thirsty when your body needs water, and then you should drink.",
           "wrong": {
             "A": "Being hot can make you thirsty, but the word does not mean hot.",
             "C": "Feeling tired is a sign of too little water, not the meaning of thirsty.",
@@ -206,7 +206,7 @@
           ],
           "answer": "A",
           "skill": "cause-effect",
-          "why": "The article says too little water can make your head hurt and make you tired.",
+          "why": "In the article, too little water can make your head hurt and make you tired.",
           "wrong": {
             "B": "The article does not connect water with fast-growing bones.",
             "C": "The article does not say you will get hungry.",
@@ -317,7 +317,7 @@
           ],
           "answer": "D",
           "skill": "detail",
-          "why": "The article says blood carries nutrients from your food and oxygen from the air to every part of you.",
+          "why": "In the article, blood carries nutrients from your food and oxygen from the air to every part of you.",
           "wrong": {
             "A": "Sweat and saliva are made from water, but blood does not carry them to every part.",
             "B": "The kidneys remove waste from the blood; blood does not deliver it.",
@@ -334,7 +334,7 @@
           ],
           "answer": "A",
           "skill": "vocabulary",
-          "why": "The article explains that when sweat begins to evaporate, it dries and changes into a gas in the air.",
+          "why": "In the article, when sweat begins to evaporate, it dries and changes into a gas in the air.",
           "wrong": {
             "B": "The sweat leaves the skin; it does not soak in.",
             "C": "Nothing in the article freezes.",
@@ -351,11 +351,11 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The article says water leaves in sweat, urine, and breath. Eating watermelon gives you water instead.",
+          "why": "In the article, water leaves in sweat, urine, and breath. Eating watermelon gives you water instead.",
           "wrong": {
             "A": "Sweat is one of the ways you lose water.",
             "B": "Urine is one of the ways you lose water.",
-            "D": "The article says some water leaves each time you breathe out."
+            "D": "In the article, some water leaves each time you breathe out."
           }
         },
         {
@@ -385,7 +385,7 @@
           ],
           "answer": "D",
           "skill": "inference",
-          "why": "The article says that if you do not drink enough you can become dehydrated and may get a headache or feel tired.",
+          "why": "In the article, if you do not drink enough you can become dehydrated and may get a headache or feel tired.",
           "wrong": {
             "A": "Watermelon would give her water, not cause these signs.",
             "B": "Her joints are not connected to these signs in the article.",
@@ -483,7 +483,7 @@
           "wrong": {
             "A": "The article gives advice for hot weather but never says to stay indoors.",
             "B": "The kidneys are one example of water's work, not the central idea.",
-            "C": "The article says people survive longer without food than without water."
+            "C": "People can live longer without food than without water."
           }
         },
         {
@@ -496,9 +496,9 @@
           ],
           "answer": "A",
           "skill": "detail",
-          "why": "The article states that water accounts for roughly (approximately) 60 percent of an adult's weight.",
+          "why": "In the article, about 60 percent of an adult's body weight is water.",
           "wrong": {
-            "B": "Ten percent is far too low; the article says more than half.",
+            "B": "Ten percent is far too low; It is more than half.",
             "C": "The body also contains other materials, so it cannot be almost all water.",
             "D": "The number 45 in the article is a temperature, not a percentage."
           }
@@ -530,7 +530,7 @@
           ],
           "answer": "B",
           "skill": "detail",
-          "why": "The article says water helps to cushion your joints, such as your knees and elbows.",
+          "why": "In the article, water helps to cushion your joints, such as your knees and elbows.",
           "wrong": {
             "A": "Carrying oxygen is the job of the blood, described with circulate.",
             "C": "Turning into a gas is described with evaporate.",
@@ -547,7 +547,7 @@
           ],
           "answer": "D",
           "skill": "cause-effect",
-          "why": "The article explains that the kidneys filter the blood and remove waste products, which leave the body as urine.",
+          "why": "In the article, the kidneys filter the blood and remove waste products, which leave the body as urine.",
           "wrong": {
             "A": "Sweat comes from the skin when you are hot, not from the kidneys.",
             "B": "Saliva is made in the mouth, not by the kidneys.",
@@ -581,7 +581,7 @@
           ],
           "answer": "C",
           "skill": "compare",
-          "why": "The article states that although a person can survive for weeks without food, they can usually last only a few days without water.",
+          "why": "A person can live for weeks without food but usually only a few days without water.",
           "wrong": {
             "A": "Neither can be survived for months, according to the article.",
             "B": "This reverses what the article says.",
@@ -627,7 +627,7 @@
         ],
         "answer": "A",
         "skill": "detail",
-        "why": "The text says water makes spit in your mouth and spit helps you eat.",
+        "why": "In the text, water makes spit in your mouth and spit helps you eat.",
         "wrong": {
           "B": "The text does not link spit to running.",
           "C": "The text does not link spit to sleep.",
@@ -647,7 +647,7 @@
         "why": "The text says drinks give you water and so does food, and a melon is an example.",
         "wrong": {
           "A": "Nothing in the text says melons are bad.",
-          "B": "The text says food gives water too.",
+          "B": "In the text, food gives water too.",
           "D": "The text says nothing about melons being hot."
         }
       },
@@ -678,7 +678,7 @@
         ],
         "answer": "D",
         "skill": "detail",
-        "why": "The text says water also goes out when you breathe.",
+        "why": "In the text, water also goes out when you breathe.",
         "wrong": {
           "A": "The text does not say this happens only in sleep.",
           "B": "Eating melon gives you water.",
@@ -714,7 +714,7 @@
         ],
         "answer": "A",
         "skill": "cause-effect",
-        "why": "The text says that without enough water your blood could not do its job of carrying nutrients and oxygen well.",
+        "why": "Without enough water, your blood could not carry nutrients and oxygen well.",
         "wrong": {
           "B": "Cleaning blood is the kidneys' job.",
           "C": "Cooling comes from sweat, not from blood needing water.",
@@ -748,7 +748,7 @@
         ],
         "answer": "C",
         "skill": "inference",
-        "why": "The article says pale yellow means you are fine.",
+        "why": "In the article, pale yellow means you are fine.",
         "wrong": {
           "A": "The text does not say he drinks too much.",
           "B": "The text does not link color to thirst being lost.",
@@ -758,20 +758,20 @@
     ],
     "HIGH": [
       {
-        "stem": "According to the article, where does the oxygen that your blood carries come from?",
+        "stem": "According to the article, what job do the kidneys do?",
         "options": [
-          "Your lungs",
-          "Your kidneys",
-          "Your food",
-          "Your bones"
+          "They pump blood around",
+          "They filter the blood",
+          "They store food",
+          "They make saliva"
         ],
-        "answer": "A",
+        "answer": "B",
         "skill": "detail",
-        "why": "The article says blood carries oxygen from your lungs to every living cell.",
+        "why": "The kidneys filter the blood, and they need enough water to do this.",
         "wrong": {
-          "B": "Kidneys filter blood and make urine.",
-          "C": "Food gives nutrients, not oxygen.",
-          "D": "Bones are made partly of water but do not supply oxygen."
+          "A": "The heart pumps blood, not the kidneys.",
+          "C": "The kidneys do not store food.",
+          "D": "Saliva is made in the mouth."
         }
       },
       {

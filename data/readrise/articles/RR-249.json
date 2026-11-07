@@ -138,7 +138,7 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The article says she was born in London, England, in 1920.",
+          "why": "In the article, she was born in London, England, in 1920.",
           "wrong": {
             "A": "She later worked in France, but she was not born there.",
             "B": "Paris is the city in France where she studied coal.",
@@ -155,7 +155,7 @@
           ],
           "answer": "D",
           "skill": "detail",
-          "why": "The article says her photograph showed that DNA had a twisted shape, like a twisted ladder.",
+          "why": "In the article, her photograph showed that DNA had a twisted shape, like a twisted ladder.",
           "wrong": {
             "A": "DNA is not a crystal; Rosalind studied crystals with a similar method.",
             "B": "X-rays were exactly how she was able to see the shape of DNA.",
@@ -317,7 +317,7 @@
           ],
           "answer": "D",
           "skill": "detail",
-          "why": "The article explains that she studied chemistry and physics at a university and then became a skilled researcher in crystallography.",
+          "why": "She studied at university and then became a skilled researcher in X-ray crystallography.",
           "wrong": {
             "A": "The article does not mention a book about stars.",
             "B": "She attended an actual university, not a distant course by mail.",
@@ -334,7 +334,7 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The article says Photo 51 showed unmistakably that the DNA molecule had a twisted helix shape.",
+          "why": "In the article, Photo 51 showed unmistakably that the DNA molecule had a twisted helix shape.",
           "wrong": {
             "A": "She studied coal's structure using the same method.",
             "B": "Crystals scattering X-rays is exactly what made her method work.",
@@ -496,7 +496,7 @@
           ],
           "answer": "B",
           "skill": "detail",
-          "why": "The article explains that Nobel Prizes are never awarded posthumously, so Rosalind could not share in the later prize.",
+          "why": "In the article, Nobel Prizes are never awarded posthumously, so Rosalind could not share in the later prize.",
           "wrong": {
             "A": "Her DNA research was central to the entire article.",
             "C": "The article never says she asked to be excluded.",
@@ -513,7 +513,7 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The article says her photograph demonstrated unmistakably that the DNA molecule possessed a twisted helix shape.",
+          "why": "In the article, her photograph demonstrated unmistakably that the DNA molecule possessed a twisted helix shape.",
           "wrong": {
             "A": "DNA is described as spiral, not flat or square.",
             "B": "A straight line would not match her careful measurements of a spiral.",
@@ -551,7 +551,7 @@
           "wrong": {
             "B": "X-ray crystallography was the method she used for both coal and DNA.",
             "C": "The article describes her as meticulous and painstaking in both areas of research.",
-            "D": "The article states she first applied her crystallography skills to the study of coal."
+            "D": "In the article, she first applied her crystallography skills to the study of coal."
           }
         },
         {
@@ -581,7 +581,7 @@
           ],
           "answer": "B",
           "skill": "inference",
-          "why": "The article explains that the two scientists who published the completed model received far more credit and recognition than Rosalind did.",
+          "why": "In the article, the two scientists who published the completed model received far more credit and recognition than Rosalind did.",
           "wrong": {
             "A": "Other scientists used her photograph and report, so she did share her results.",
             "C": "She completed her key DNA research and moved on to study viruses afterward.",
@@ -661,7 +661,7 @@
         ],
         "answer": "A",
         "skill": "cause-effect",
-        "why": "The article says the marks made by X-rays showed the shape inside.",
+        "why": "In the article, the marks made by X-rays showed the shape inside.",
         "wrong": {
           "B": "Age is not shown by the marks.",
           "C": "Weather is not mentioned.",
@@ -784,7 +784,7 @@
         ],
         "answer": "D",
         "skill": "detail",
-        "why": "The article says she worked for many months with thin, fragile fibers of DNA.",
+        "why": "In the article, she worked for many months with thin, fragile fibers of DNA.",
         "wrong": {
           "A": "Coal was her first topic, not the fibers.",
           "B": "Salt crystals are not mentioned.",

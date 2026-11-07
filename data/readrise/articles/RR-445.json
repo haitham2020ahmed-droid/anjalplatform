@@ -627,7 +627,7 @@
         ],
         "answer": "C",
         "skill": "detail",
-        "why": "The text says Yousef pays him and he gives Yousef a receipt.",
+        "why": "In the text, Yousef pays him and he gives Yousef a receipt.",
         "wrong": {
           "A": "Yousef already has his own bag.",
           "B": "Yousef's mom gave him the list.",
@@ -697,7 +697,7 @@
         ],
         "answer": "A",
         "skill": "detail",
-        "why": "The article says he helped Yousef find each item, checking them off as they went.",
+        "why": "In the article, he helped Yousef find each item, checking them off as they went.",
         "wrong": {
           "B": "He did not rewrite the list.",
           "C": "No box is mentioned.",
@@ -767,7 +767,7 @@
         ],
         "answer": "D",
         "skill": "detail",
-        "why": "The article says he set off toward town, humming quietly as the morning sun warmed the street.",
+        "why": "In the article, he set off toward town, humming quietly as the morning sun warmed the street.",
         "wrong": {
           "A": "He paid with coins later, at the stall.",
           "B": "Waving is not mentioned.",
@@ -801,7 +801,7 @@
         ],
         "answer": "B",
         "skill": "cause-effect",
-        "why": "The article says he chose to stay calm, and the mix-up was resolved in a courteous way without blame.",
+        "why": "In the article, he chose to stay calm, and the mix-up was resolved in a courteous way without blame.",
         "wrong": {
           "A": "No free gift is mentioned.",
           "C": "He knew the way and walked back.",

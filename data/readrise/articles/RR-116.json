@@ -138,7 +138,7 @@
           ],
           "answer": "D",
           "skill": "detail",
-          "why": "The article says more than one thousand Earths could fit inside Jupiter.",
+          "why": "More than one thousand Earths could fit inside Jupiter.",
           "wrong": {
             "A": "Ten is the number of hours in a day on Jupiter.",
             "B": "Twelve is the number of Earth years Jupiter takes to go around the Sun.",
@@ -155,7 +155,7 @@
           ],
           "answer": "A",
           "skill": "detail",
-          "why": "The article says the spot is a storm that is wider than Earth.",
+          "why": "In the article, the spot is a storm that is wider than Earth.",
           "wrong": {
             "B": "Jupiter has no ground, so it cannot have a desert.",
             "C": "The spot is on Jupiter itself; it is not a moon.",
@@ -317,7 +317,7 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The article says Jupiter is made mostly of hydrogen and helium.",
+          "why": "In the article, Jupiter is made mostly of hydrogen and helium.",
           "wrong": {
             "A": "These are gases in Earth's air, not the main gases of Jupiter.",
             "B": "The article does not say Jupiter is made of steam or smoke.",
@@ -351,7 +351,7 @@
           ],
           "answer": "D",
           "skill": "cause-effect",
-          "why": "The article explains that because Jupiter is so far from the Sun, its orbit takes about twelve Earth years.",
+          "why": "In the article, because Jupiter is so far from the Sun, its orbit takes about twelve Earth years.",
           "wrong": {
             "A": "Jupiter rotates faster than any other planet.",
             "B": "The article does not connect the storm to the length of Jupiter's year.",
@@ -496,7 +496,7 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The article says Jupiter's magnetic field, the strongest of any planet, produces auroras near its poles.",
+          "why": "In the article, Jupiter's magnetic field, the strongest of any planet, produces auroras near its poles.",
           "wrong": {
             "A": "The Great Red Spot is a storm; it is not linked to auroras.",
             "B": "Io's volcanoes are described separately.",
@@ -513,7 +513,7 @@
           ],
           "answer": "B",
           "skill": "compare",
-          "why": "The article says Jupiter's mass is more than twice that of all the other planets combined.",
+          "why": "In the article, Jupiter's mass is more than twice that of all the other planets combined.",
           "wrong": {
             "A": "The article does not compare Jupiter's mass with the Sun's.",
             "C": "Twelve is the number of Earth years in Jupiter's orbit.",
@@ -530,7 +530,7 @@
           ],
           "answer": "D",
           "skill": "detail",
-          "why": "The article states that Io is the most volcanic world known.",
+          "why": "Io is the most volcanic world known.",
           "wrong": {
             "A": "Europa is the icy moon that may hide an ocean.",
             "B": "Ganymede is described as the largest moon.",
@@ -547,7 +547,7 @@
           ],
           "answer": "A",
           "skill": "cause-effect",
-          "why": "The article explains that his discovery helped show that not every object in the sky revolves around Earth.",
+          "why": "His discovery helped show that not everything in the sky goes around Earth.",
           "wrong": {
             "B": "The article says Jupiter has no solid surface.",
             "C": "The ocean on Europa is still a scientific belief, not proven by Galileo.",
@@ -627,7 +627,7 @@
         ],
         "answer": "D",
         "skill": "detail",
-        "why": "The text says Jupiter has lots of moons and four are big.",
+        "why": "Jupiter has many moons, and four of them are big.",
         "wrong": {
           "A": "The text says four, not one.",
           "B": "The text says four, not two.",
@@ -648,7 +648,7 @@
         "wrong": {
           "A": "Jupiter is the fifth planet from the Sun, and its year is long.",
           "C": "The moons do not change the length of a day.",
-          "D": "The text says Jupiter is made of gas."
+          "D": "In the text, Jupiter is made of gas."
         }
       },
       {
@@ -663,8 +663,8 @@
         "skill": "inference",
         "why": "The text says the spot is a storm wider than Earth that has spun for a long time, so it is very strong.",
         "wrong": {
-          "B": "The text says the spot is wide, wider than Earth.",
-          "C": "The text says that you can not stand on Jupiter.",
+          "B": "In the text, the spot is wide, wider than Earth.",
+          "C": "You cannot stand or land on Jupiter, because it has no hard ground.",
           "D": "The text says the spot is a storm."
         }
       },
@@ -697,7 +697,7 @@
         ],
         "answer": "C",
         "skill": "detail",
-        "why": "The text says the scientist Galileo first spotted them through a telescope.",
+        "why": "In the text, the scientist Galileo first spotted them through a telescope.",
         "wrong": {
           "A": "Europa is a moon of Jupiter.",
           "B": "Ganymede is a moon of Jupiter.",
@@ -714,7 +714,7 @@
         ],
         "answer": "B",
         "skill": "cause-effect",
-        "why": "The text says that because of its size, people sometimes call it the king of the planets.",
+        "why": "In the text, because of its size, people sometimes call it the king of the planets.",
         "wrong": {
           "A": "Jupiter is the fifth planet from the Sun.",
           "C": "The text does not say that other planets have no moons.",
@@ -731,7 +731,7 @@
         ],
         "answer": "C",
         "skill": "vocabulary",
-        "why": "The text says Jupiter is a ball of gas with clouds in its thick atmosphere, so it is the gases around the planet.",
+        "why": "In the text, Jupiter is a ball of gas with clouds in its thick atmosphere, so it is the gases around the planet.",
         "wrong": {
           "A": "Europa is the moon with ice.",
           "B": "The storm is called the Great Red Spot.",
@@ -767,7 +767,7 @@
         ],
         "answer": "C",
         "skill": "detail",
-        "why": "The text says astronomers have observed it swirling for more than one hundred and fifty years.",
+        "why": "In the text, astronomers have observed it swirling for more than one hundred and fifty years.",
         "wrong": {
           "A": "Ten years is far too short.",
           "B": "Fifty years is shorter than the text says.",
@@ -801,7 +801,7 @@
         ],
         "answer": "D",
         "skill": "cause-effect",
-        "why": "The text says that because Jupiter travels at such a great distance from the Sun, one orbit takes about twelve Earth years.",
+        "why": "In the text, because Jupiter travels at such a great distance from the Sun, one orbit takes about twelve Earth years.",
         "wrong": {
           "A": "Spinning fast makes the day short and has nothing to do with the year.",
           "B": "The magnetic field makes auroras, not the length of the year.",
@@ -821,7 +821,7 @@
         "why": "The text says that, unlike Earth, Jupiter has no solid surface on which a visitor could stand.",
         "wrong": {
           "A": "The text does not say that Earth has no moons.",
-          "C": "The text says Jupiter is a gas giant made of hydrogen and helium.",
+          "C": "In the text, Jupiter is a gas giant made of hydrogen and helium.",
           "D": "Jupiter takes about twelve Earth years to orbit."
         }
       }

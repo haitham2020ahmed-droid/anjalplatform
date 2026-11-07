@@ -138,7 +138,7 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The article says the coach checks the lifter's back and the knees during each lift.",
+          "why": "In the article, a coach watches each lift to protect the back and the knees.",
           "wrong": {
             "A": "Shoes and socks are not mentioned.",
             "B": "A crowd is not described.",
@@ -368,7 +368,7 @@
           ],
           "answer": "C",
           "skill": "inference",
-          "why": "The article says small corrections made early prevent much bigger problems later.",
+          "why": "In the article, small corrections made early prevent much bigger problems later.",
           "wrong": {
             "A": "Slowing progress on purpose is not the goal.",
             "B": "No law is mentioned.",
@@ -530,7 +530,7 @@
           ],
           "answer": "C",
           "skill": "cause-effect",
-          "why": "The article explains that poor technique under heavy load, without correct alignment, can strain a tendon or injure joints.",
+          "why": "In the article, poor technique under heavy load, without correct alignment, can strain a tendon or injure joints.",
           "wrong": {
             "A": "Tendon strength is not compared to muscle strength.",
             "B": "The article describes coaches watching closely.",
@@ -627,7 +627,7 @@
         ],
         "answer": "D",
         "skill": "detail",
-        "why": "The text says muscles get a bit stronger over time and that this takes many weeks.",
+        "why": "Muscles grow stronger slowly, over many weeks of practice.",
         "wrong": {
           "A": "One day is far too short, since the text says many weeks.",
           "B": "A few minutes is far too short, since the text says many weeks.",
@@ -678,7 +678,7 @@
         ],
         "answer": "C",
         "skill": "sequence",
-        "why": "The text says young lifters start with light weights and then add more weight over time.",
+        "why": "In the text, young lifters start with light weights and then add more weight over time.",
         "wrong": {
           "A": "The text says they build strength over many lifts.",
           "B": "They keep lifting in slow steps.",
@@ -731,7 +731,7 @@
         ],
         "answer": "B",
         "skill": "cause-effect",
-        "why": "The text says muscles slowly grow stronger over weeks of steady practice and never change fast.",
+        "why": "In the text, muscles slowly grow stronger over weeks of steady practice and never change fast.",
         "wrong": {
           "A": "The coach's time is not mentioned.",
           "C": "The gym's place is not mentioned.",

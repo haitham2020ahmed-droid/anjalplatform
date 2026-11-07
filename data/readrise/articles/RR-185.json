@@ -138,7 +138,7 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The article says people built a tall tower on the roof.",
+          "why": "In the article, people built a tall tower on the roof.",
           "wrong": {
             "A": "The tower is tall and stands on the roof, not underground.",
             "B": "Windcatchers stand on homes, not next to the sea.",
@@ -155,7 +155,7 @@
           ],
           "answer": "A",
           "skill": "detail",
-          "why": "The article says windcatchers were built in Egypt and Iran long ago.",
+          "why": "In the article, windcatchers were built in Egypt and Iran long ago.",
           "wrong": {
             "B": "These countries are not in the article.",
             "C": "These countries are not in the article.",
@@ -189,7 +189,7 @@
           ],
           "answer": "C",
           "skill": "cause-effect",
-          "why": "The article says hot air rises, so the warm air goes up and out at the top.",
+          "why": "In the article, hot air rises, so the warm air goes up and out at the top.",
           "wrong": {
             "A": "Warm air rises; it does not stay low.",
             "B": "Air does not turn into water in the tower.",
@@ -317,7 +317,7 @@
           ],
           "answer": "B",
           "skill": "detail",
-          "why": "The article says the wind high above the ground is usually stronger and carries less dust.",
+          "why": "In the article, the wind high above the ground is usually stronger and carries less dust.",
           "wrong": {
             "A": "The article says the opposite.",
             "C": "Birds are not mentioned.",
@@ -334,7 +334,7 @@
           ],
           "answer": "D",
           "skill": "detail",
-          "why": "The article says the tall houses of Al-Balad have large wooden windows called rawasheen.",
+          "why": "In the article, the tall houses of Al-Balad have large wooden windows called rawasheen.",
           "wrong": {
             "A": "The water channels are a different cooling method.",
             "B": "Yazd's towers are windcatchers.",
@@ -368,7 +368,7 @@
           ],
           "answer": "C",
           "skill": "cause-effect",
-          "why": "The article says that as water evaporates, it takes heat away and the air gets cooler.",
+          "why": "In the article, as water evaporates, it takes heat away and the air gets cooler.",
           "wrong": {
             "A": "Evaporation makes the air cooler, not hotter.",
             "B": "Evaporation does not damage the tower.",
@@ -402,7 +402,7 @@
           ],
           "answer": "D",
           "skill": "inference",
-          "why": "The article says architects hope to design buildings that stay comfortable while using much less energy.",
+          "why": "In the article, architects hope to design buildings that stay comfortable while using much less energy.",
           "wrong": {
             "A": "Modern homes do use electricity.",
             "B": "Paint is not mentioned.",
@@ -482,7 +482,7 @@
           "why": "The article explains the design, history, and modern value of windcatchers.",
           "wrong": {
             "B": "The article does not argue for a ban.",
-            "C": "The article says ancient Egypt had similar vents long before.",
+            "C": "In the article, ancient Egypt had similar vents long before.",
             "D": "The article does not compare building materials."
           }
         },
@@ -547,7 +547,7 @@
           ],
           "answer": "A",
           "skill": "cause-effect",
-          "why": "The article explains that rising warm air leaves the tower and cooler fresh air is drawn in.",
+          "why": "In the article, rising warm air leaves the tower and cooler fresh air is drawn in.",
           "wrong": {
             "B": "Towers cannot store wind.",
             "C": "Windcatchers need no electricity and have no fans.",
@@ -627,7 +627,7 @@
         ],
         "answer": "C",
         "skill": "cause-effect",
-        "why": "The text says these towers need no fuel because they just use the wind.",
+        "why": "In the text, these towers need no fuel because they just use the wind.",
         "wrong": {
           "A": "The text says there were no fans.",
           "B": "Burning wood would need fuel, and the text says none is needed.",
@@ -661,7 +661,7 @@
         ],
         "answer": "D",
         "skill": "detail",
-        "why": "The text says the homes had big wood screens on the sides and the sea breeze came in through them.",
+        "why": "In the text, the homes had big wooden windows, and the sea breeze came in through them.",
         "wrong": {
           "A": "The Jeddah homes used screens, not windcatcher towers.",
           "B": "Pools are used in some windcatchers, not in Jeddah's homes.",
@@ -714,7 +714,7 @@
         ],
         "answer": "C",
         "skill": "vocabulary",
-        "why": "The text says architects study windcatchers because they hope to design new buildings.",
+        "why": "In the text, architects study windcatchers because they hope to design new buildings.",
         "wrong": {
           "A": "The text does not say architects build with clay.",
           "B": "Air conditioners are not what architects work on in the text.",
@@ -731,7 +731,7 @@
         ],
         "answer": "B",
         "skill": "cause-effect",
-        "why": "The text says Yazd has so many windcatchers that it is called the city of windcatchers.",
+        "why": "In the text, Yazd has so many windcatchers that it is called the city of windcatchers.",
         "wrong": {
           "A": "The text does not say Yazd built the first one.",
           "C": "The city is named for its towers, which catch wind.",

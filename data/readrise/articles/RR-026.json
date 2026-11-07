@@ -138,7 +138,7 @@
           ],
           "answer": "A",
           "skill": "detail",
-          "why": "The article says seawater has too much salt, and salt water makes you more thirsty.",
+          "why": "In the article, seawater has too much salt, and salt water makes you more thirsty.",
           "wrong": {
             "B": "The article does not say seawater is too cold.",
             "C": "Fish live in the sea, but that is not why people cannot drink it.",
@@ -172,11 +172,11 @@
           ],
           "answer": "D",
           "skill": "detail",
-          "why": "The article says long pipes take the water to towns, and some goes far, to Riyadh.",
+          "why": "In the article, long pipes take the water to towns, and some goes far, to Riyadh.",
           "wrong": {
             "A": "The article does not mention trucks or bottles.",
-            "B": "The article says Saudi Arabia gets very little rain.",
-            "C": "The article says Saudi Arabia has no rivers."
+            "B": "In the article, Saudi Arabia does not get much rain.",
+            "C": "In the article, Saudi Arabia has no rivers."
           }
         },
         {
@@ -189,7 +189,7 @@
           ],
           "answer": "A",
           "skill": "vocabulary",
-          "why": "The article says water gets through the tiny holes in the filter, but salt does not.",
+          "why": "In the article, water gets through the tiny holes in the filter, but salt does not.",
           "wrong": {
             "B": "Heating water is the first way, not the filter.",
             "C": "The pump pushes the water toward the filter; it is not the filter.",
@@ -317,7 +317,7 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The article says strong pumps push seawater against a membrane with tiny holes; water squeezes through, but salt cannot.",
+          "why": "In the article, strong pumps push seawater against a membrane with tiny holes; water squeezes through, but salt cannot.",
           "wrong": {
             "A": "Boiling is the heat method, not the membrane method.",
             "B": "The article never describes removing salt by hand.",
@@ -334,10 +334,10 @@
           ],
           "answer": "B",
           "skill": "detail",
-          "why": "The article says the membrane method uses less energy, so most new plants choose it.",
+          "why": "In the article, the membrane method uses less energy, so most new plants choose it.",
           "wrong": {
             "A": "The article does not say the water tastes sweet.",
-            "C": "The article says both methods leave behind brine.",
+            "C": "Both methods leave behind brine.",
             "D": "This method depends on strong pumps."
           }
         },
@@ -368,7 +368,7 @@
           ],
           "answer": "A",
           "skill": "cause-effect",
-          "why": "The article says brine must be spread out carefully so it does not harm fish and coral.",
+          "why": "In the article, brine must be spread out carefully so it does not harm fish and coral.",
           "wrong": {
             "B": "Brine is saltier than seawater, so it would make the water saltier, not less salty.",
             "C": "The article does not say brine becomes rain.",
@@ -496,7 +496,7 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The article states that when the steam cools, it condenses into fresh water.",
+          "why": "In the article, when the steam cools, it condenses into fresh water.",
           "wrong": {
             "A": "Membranes are used in reverse osmosis, not distillation.",
             "B": "The salt left behind becomes part of the brine; the steam becomes fresh water.",
@@ -513,9 +513,9 @@
           ],
           "answer": "A",
           "skill": "detail",
-          "why": "The article states that reverse osmosis consumes considerably less energy than distillation.",
+          "why": "In the article, reverse osmosis consumes considerably less energy than distillation.",
           "wrong": {
-            "B": "The article says both methods generate brine.",
+            "B": "In the article, both methods generate brine.",
             "C": "Reverse osmosis depends on powerful pumps.",
             "D": "The article says plants operate on both the Red Sea and the Arabian Gulf."
           }
@@ -598,7 +598,7 @@
           ],
           "answer": "B",
           "skill": "text-structure",
-          "why": "The article explains distillation, then reverse osmosis, and states that reverse osmosis uses less energy than distillation.",
+          "why": "In the article, distillation, then reverse osmosis, and states that reverse osmosis uses less energy than distillation.",
           "wrong": {
             "A": "No engineer's life story appears.",
             "C": "The article does not mention prices.",
@@ -661,7 +661,7 @@
         ],
         "answer": "A",
         "skill": "detail",
-        "why": "The text says a strong pump pushes the seawater at the filter, which has tiny holes.",
+        "why": "In the text, a strong pump pushes the seawater at the filter, which has tiny holes.",
         "wrong": {
           "B": "Heating to make steam is the other way.",
           "C": "The left-over salt is spread out, but not by the pump.",
@@ -678,7 +678,7 @@
         ],
         "answer": "C",
         "skill": "compare",
-        "why": "The text says rain is made like this, too.",
+        "why": "Rain also forms when water vapor cools and turns into water.",
         "wrong": {
           "A": "The salt stays down.",
           "B": "Fish are not made this way.",
@@ -714,7 +714,7 @@
         ],
         "answer": "C",
         "skill": "cause-effect",
-        "why": "The article says seawater is so salty that drinking it would make your body lose water.",
+        "why": "In the article, seawater is so salty that drinking it would make your body lose water.",
         "wrong": {
           "A": "The article does not talk about cold water.",
           "B": "Seawater is mostly water but has salt in it.",
@@ -731,7 +731,7 @@
         ],
         "answer": "D",
         "skill": "cause-effect",
-        "why": "The article says Saudi Arabia has no rivers and gets very little rain, so it depends on desalination.",
+        "why": "In the article, Saudi Arabia has no rivers and gets very little rain, so it depends on desalination.",
         "wrong": {
           "A": "The country has no rivers.",
           "B": "The country has coasts on the Red Sea and the Arabian Gulf.",
@@ -767,7 +767,7 @@
         ],
         "answer": "C",
         "skill": "detail",
-        "why": "The article says drinking seawater would draw water out of your body's cells and leave you thirstier.",
+        "why": "In the article, drinking seawater would draw water out of your body's cells and leave you thirstier.",
         "wrong": {
           "A": "It would take water out of the cells, not fill them.",
           "B": "The article does not talk about cooling.",
@@ -818,11 +818,11 @@
         ],
         "answer": "B",
         "skill": "compare",
-        "why": "The article says distillation relies on heat, while reverse osmosis forces seawater against a membrane.",
+        "why": "In the article, distillation relies on heat, while reverse osmosis forces seawater against a membrane.",
         "wrong": {
           "A": "This swaps the two methods.",
-          "C": "The article says both methods produce brine.",
-          "D": "The article says distillation is the older method."
+          "C": "In the article, both methods leave behind very salty water called brine.",
+          "D": "In the article, distillation is the older method."
         }
       }
     ]

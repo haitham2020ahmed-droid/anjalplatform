@@ -138,11 +138,11 @@
           ],
           "answer": "D",
           "skill": "detail",
-          "why": "The article says a dolphin swims up to the top and breathes through a blowhole on its head.",
+          "why": "In the article, a dolphin swims up to the top for air and breathes through a blowhole on its head.",
           "wrong": {
             "A": "Fish use gills. Dolphins are mammals and breathe air.",
-            "B": "The article says air goes in and out of the blowhole.",
-            "C": "The article says a dolphin must breathe air."
+            "B": "In the article, air goes in and out of the blowhole.",
+            "C": "In the article, a dolphin must breathe air."
           }
         },
         {
@@ -155,7 +155,7 @@
           ],
           "answer": "A",
           "skill": "detail",
-          "why": "The article says the calf drinks milk from its mom.",
+          "why": "In the article, the calf drinks milk from its mom.",
           "wrong": {
             "B": "The article does not say calves drink sea water.",
             "C": "The article does not say calves eat or drink anything from plants.",
@@ -317,7 +317,7 @@
           ],
           "answer": "A",
           "skill": "detail",
-          "why": "The article says the calf stays beside its mother for three to six years.",
+          "why": "In the article, the calf stays beside its mother for three to six years.",
           "wrong": {
             "B": "A few days is far too short; the calf must learn to hunt.",
             "C": "The article gives years, not months.",
@@ -334,7 +334,7 @@
           ],
           "answer": "D",
           "skill": "detail",
-          "why": "The article says the echoes tell the dolphin where the object is, how big it is, and even its shape.",
+          "why": "In the article, the echoes tell the dolphin where the object is, how big it is, and even its shape.",
           "wrong": {
             "A": "Water temperature is not mentioned.",
             "B": "Echoes do not show age.",
@@ -351,7 +351,7 @@
           ],
           "answer": "B",
           "skill": "vocabulary",
-          "why": "The article says this sound works like a name that other dolphins in the pod learn.",
+          "why": "In the article, this sound works like a name that other dolphins in the pod learn.",
           "wrong": {
             "A": "The whistle is not described as a warning.",
             "C": "Echolocation helps find things; the whistle does not map the sea.",
@@ -496,7 +496,7 @@
           ],
           "answer": "B",
           "skill": "detail",
-          "why": "The article says a calf usually emerges tail first and its mother guides it to the surface for its first breath.",
+          "why": "In the article, a calf usually emerges tail first and its mother guides it to the surface for its first breath.",
           "wrong": {
             "A": "Dolphins do not build nests, and the article says tail first.",
             "C": "The article does not mention beaches.",
@@ -581,7 +581,7 @@
           ],
           "answer": "C",
           "skill": "inference",
-          "why": "The article explains that several dolphins encircle a school and herd the fish into a packed ball the whole group can eat.",
+          "why": "In the article, several dolphins encircle a school and herd the fish into a packed ball the whole group can eat.",
           "wrong": {
             "A": "Whistles identify dolphins; volume is not linked to food.",
             "B": "Every dolphin can use echolocation.",
@@ -627,7 +627,7 @@
         ],
         "answer": "C",
         "skill": "compare",
-        "why": "The text says a dolphin is a mammal and \"So are you.\"",
+        "why": "In the text, a dolphin is a mammal, and so are you.",
         "wrong": {
           "A": "People do not live in the sea.",
           "B": "People do not have a fin.",
@@ -678,7 +678,7 @@
         ],
         "answer": "B",
         "skill": "cause-effect",
-        "why": "The text says a dolphin needs air, so it swims up to the top.",
+        "why": "In the text, a dolphin needs air, so it swims up to the top.",
         "wrong": {
           "A": "The text does not say it goes up to find its pod.",
           "C": "A calf drinks milk from its mom, not at the top.",
@@ -714,7 +714,7 @@
         ],
         "answer": "D",
         "skill": "cause-effect",
-        "why": "The text says that as a result, the dolphin can keep breathing and watch for danger.",
+        "why": "In the article, because only half of the brain rests, the dolphin can keep breathing and watch for danger.",
         "wrong": {
           "A": "The text does not link half-brain rest to deep diving.",
           "B": "Hunting in the dark uses echolocation, not sleep.",
@@ -734,7 +734,7 @@
         "why": "The article says dolphins are mammals: they breathe air, are warm-blooded, and their babies drink milk.",
         "wrong": {
           "B": "The article does not say dolphins live only in the Red Sea.",
-          "C": "The article describes a dolphin fin.",
+          "C": "The article does mention a dolphin's fin.",
           "D": "Dolphins must swim to the surface to breathe."
         }
       },

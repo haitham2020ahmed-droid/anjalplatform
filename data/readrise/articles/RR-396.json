@@ -483,7 +483,7 @@
           "wrong": {
             "A": "This particular assigned pairing turns out well, not disastrously.",
             "C": "The passage shows both approaches have value once combined, not that one is simply better.",
-            "D": "The passage states neither of them abandoned their own natural way of working."
+            "D": "Neither of them gives up their own way of working."
           }
         },
         {
@@ -496,7 +496,7 @@
           ],
           "answer": "A",
           "skill": "detail",
-          "why": "The passage states directly that Layla learned moving quickly did not always mean working carelessly.",
+          "why": "At the end, Layla learns that working fast does not always mean working carelessly.",
           "wrong": {
             "B": "Yousef's artwork is a valuable, appreciated part of the finished project.",
             "C": "Layla continues valuing planning; she simply reconsiders quickness too.",
@@ -513,7 +513,7 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The passage states that Yousef learned careful planning could sharpen, rather than slow down, a good idea.",
+          "why": "At the end, Yousef learns that careful planning can make a good idea better instead of slowing it down.",
           "wrong": {
             "A": "Layla's facts are a valued, necessary part of the finished poster.",
             "B": "The passage contrasts fast and careful work without ranking one as always worse.",
@@ -538,7 +538,7 @@
           }
         },
         {
-          "stem": "What does the passage suggest by noting that neither of them 'abandoned their own natural way of working'?",
+          "stem": "What does the passage suggest by noting that neither of them gave up their own way of working?",
           "options": [
             "Their final project failed because neither one of them would adapt or change at all, and they argued all week long",
             "Layla eventually started working exactly the way Yousef always had, and she gave up her own way",
@@ -661,7 +661,7 @@
         ],
         "answer": "D",
         "skill": "sequence",
-        "why": "The text says, \"Then they sit down. They talk.\"",
+        "why": "In the story, after they argue, they sit down and talk.",
         "wrong": {
           "A": "They stay and work on the project.",
           "B": "No new partner joins them.",
@@ -678,7 +678,7 @@
         ],
         "answer": "A",
         "skill": "cause-effect",
-        "why": "The teacher says, \"You two did well,\" because they worked together and the project turns out great.",
+        "why": "In the story, they work together and the project turns out great, so the teacher is proud.",
         "wrong": {
           "B": "The text does not say anything about a day off.",
           "C": "The work was shared, and there was no race.",
@@ -697,7 +697,7 @@
         ],
         "answer": "C",
         "skill": "detail",
-        "why": "The text says Yousef liked to work fast and test new ideas right away.",
+        "why": "In the text, Yousef liked to work fast and test new ideas right away.",
         "wrong": {
           "A": "Making neat lists is what Layla does.",
           "B": "Nothing says he asked for a plan; he rarely planned.",

@@ -138,9 +138,9 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The article says that in Saudi Arabia, a lot of the water comes from the sea.",
+          "why": "In Saudi Arabia, a lot of the water comes from the sea.",
           "wrong": {
-            "A": "The article says Saudi Arabia has few or almost no rivers.",
+            "A": "Saudi Arabia has very few rivers.",
             "B": "Snow is not named as a water source.",
             "D": "Rain tanks are not named as a source in the article."
           }
@@ -155,7 +155,7 @@
           ],
           "answer": "A",
           "skill": "detail",
-          "why": "The article says the water flows through a filter made of sand and small stones or rocks.",
+          "why": "In the article, the water flows through a filter made of sand and small stones or rocks.",
           "wrong": {
             "B": "Paper and cloth are not mentioned.",
             "C": "Salt is taken out of sea water; it is not part of the filter.",
@@ -172,7 +172,7 @@
           ],
           "answer": "D",
           "skill": "cause-effect",
-          "why": "The article says some germs are too small to see and can make people sick, so workers add something that kills them.",
+          "why": "In the article, some germs are too small to see and can make people sick, so workers add something that kills them.",
           "wrong": {
             "A": "The article does not say anything is added for taste.",
             "B": "Nothing is added to change the color.",
@@ -189,7 +189,7 @@
           ],
           "answer": "B",
           "skill": "vocabulary",
-          "why": "The article says a pump pushes the water through long pipes.",
+          "why": "In the article, a pump pushes the water through long pipes.",
           "wrong": {
             "A": "A large container that holds water is a tank.",
             "C": "A deep hole that reaches water is a well.",
@@ -223,10 +223,10 @@
           ],
           "answer": "B",
           "skill": "author-purpose",
-          "why": "The article says clean water takes a lot of work, so we should not waste it.",
+          "why": "Cleaning water takes a lot of work, so we should not waste it.",
           "wrong": {
             "A": "The article shows that getting clean water is hard, not easy.",
-            "C": "The article explains that tap water is cleaned to make it safe.",
+            "C": "Tap water is cleaned to make it safe.",
             "D": "The article never says pipes break when we use water."
           }
         },
@@ -317,7 +317,7 @@
           ],
           "answer": "A",
           "skill": "cause-effect",
-          "why": "The article says that because Saudi Arabia has almost no permanent rivers, it depends on the sea.",
+          "why": "In the article, because Saudi Arabia has almost no permanent rivers, it depends on the sea.",
           "wrong": {
             "B": "The article says sea water is far too salty to drink, not cleaner.",
             "C": "Sea water must have its salt removed and be treated.",
@@ -334,7 +334,7 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The article says the water rests in a large basin, and mud and dirt sink to the bottom.",
+          "why": "In the article, the water rests in a large basin, and mud and dirt sink to the bottom.",
           "wrong": {
             "A": "Salt is removed at desalination plants, not in the settling basin.",
             "B": "Chlorine is added later to kill germs.",
@@ -351,7 +351,7 @@
           ],
           "answer": "B",
           "skill": "detail",
-          "why": "The article says powerful pumps create pressure that pushes the water through pipes.",
+          "why": "In the article, powerful pumps create pressure that pushes the water through pipes.",
           "wrong": {
             "A": "Chlorine kills germs; it does not move water.",
             "C": "Filters trap dirt; they do not push water.",
@@ -368,7 +368,7 @@
           ],
           "answer": "C",
           "skill": "vocabulary",
-          "why": "Right after the word treatment, the article explains that it is the process of cleaning the water.",
+          "why": "Right after the word treatment, in the article, it is the process of cleaning the water.",
           "wrong": {
             "A": "This phrase describes sea water, not treatment.",
             "B": "This phrase names a place to store water.",
@@ -404,9 +404,9 @@
           "skill": "inference",
           "why": "Desalination plants remove salt from seawater, so it makes sense to build them next to the sea.",
           "wrong": {
-            "A": "The article says Saudi Arabia has almost no permanent rivers.",
+            "A": "In the article, Saudi Arabia has almost no permanent rivers.",
             "C": "The article does not say chlorine comes from the coast.",
-            "D": "The article says water is piped hundreds of kilometers inland to Riyadh, so Riyadh is not on the coast."
+            "D": "In the article, water is piped hundreds of kilometers inland to Riyadh, so Riyadh is not on the coast."
           }
         },
         {
@@ -419,7 +419,7 @@
           ],
           "answer": "A",
           "skill": "inference",
-          "why": "The article says this treated water is used for farms, parks, and gardens, so it is reused.",
+          "why": "In the article, this cleaned water is used again for farms and parks, so it is not wasted.",
           "wrong": {
             "B": "The article says it is cleaned and then used.",
             "C": "Nothing says it becomes seawater.",
@@ -483,7 +483,7 @@
           "wrong": {
             "A": "The article does not say how new reverse osmosis is.",
             "C": "The article says Saudi Arabia relies heavily on the sea, not only aquifers.",
-            "D": "The article says treated wastewater is used to irrigate farms and parks."
+            "D": "In the article, treated wastewater is used to irrigate farms and parks."
           }
         },
         {
@@ -496,7 +496,7 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The article says reverse osmosis forces seawater at high pressure through a membrane with openings so tiny that salt cannot pass.",
+          "why": "Reverse osmosis pushes seawater at high pressure through a membrane with openings so tiny that salt cannot pass.",
           "wrong": {
             "A": "Boiling is not described in the article.",
             "B": "Chlorine kills germs; it does not remove salt.",
@@ -644,7 +644,7 @@
         ],
         "answer": "A",
         "skill": "cause-effect",
-        "why": "The text says sea water has salt and is not good to drink.",
+        "why": "Sea water is salty and is not good to drink.",
         "wrong": {
           "B": "Cold is not mentioned.",
           "C": "Sea water is water.",
@@ -661,7 +661,7 @@
         ],
         "answer": "C",
         "skill": "sequence",
-        "why": "The text says that after the mud and dirt sink, the water goes through a filter.",
+        "why": "In the text, after the mud and dirt sink, the water goes through a filter.",
         "wrong": {
           "A": "Drain water is water that was already used.",
           "B": "Bleach is added after the filter.",
@@ -697,7 +697,7 @@
         ],
         "answer": "A",
         "skill": "detail",
-        "why": "The text says some of it is carried hundreds of kilometers to cities like Riyadh.",
+        "why": "In the text, some of it is carried hundreds of kilometers to cities like Riyadh.",
         "wrong": {
           "B": "A few meters is far too short.",
           "C": "Ten kilometers is far too short.",
@@ -714,7 +714,7 @@
         ],
         "answer": "C",
         "skill": "cause-effect",
-        "why": "The text says chlorine is added to kill germs that can make people sick.",
+        "why": "Chlorine is added to kill germs that can make people sick.",
         "wrong": {
           "A": "Taste is not mentioned.",
           "B": "Mud sinks by resting in a tank.",
@@ -748,7 +748,7 @@
         ],
         "answer": "D",
         "skill": "sequence",
-        "why": "After the filter, the text says workers add chlorine to kill germs.",
+        "why": "After the filter, in the text, workers add chlorine to kill germs.",
         "wrong": {
           "A": "The tank comes before the filter.",
           "B": "Screens come first.",
@@ -769,8 +769,8 @@
         "skill": "detail",
         "why": "The text says the Kingdom is one of the largest producers of desalinated water in the world.",
         "wrong": {
-          "A": "The text says it relies on the sea for water.",
-          "C": "The text says it is one of the largest, not the smallest.",
+          "A": "In the text, it relies on the sea for water.",
+          "C": "Saudi Arabia is one of the largest producers, not the smallest.",
           "D": "It makes its own water from the sea."
         }
       },
@@ -784,7 +784,7 @@
         ],
         "answer": "D",
         "skill": "cause-effect",
-        "why": "The text says it has almost no permanent rivers and very little rainfall.",
+        "why": "In the text, it has almost no permanent rivers and very little rainfall.",
         "wrong": {
           "A": "Wells are named as a possible source.",
           "B": "Cost is not the reason given.",
@@ -818,7 +818,7 @@
         ],
         "answer": "B",
         "skill": "detail",
-        "why": "The text says samples are tested regularly to make sure the water is safe.",
+        "why": "Samples are tested regularly to make sure the water is safe.",
         "wrong": {
           "A": "Salt is removed, not collected.",
           "C": "Pipes are not made in the lab.",

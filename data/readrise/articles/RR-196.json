@@ -155,7 +155,7 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The article says gravity pulls the ball back down.",
+          "why": "In the article, gravity pulls the ball back down.",
           "wrong": {
             "A": "The net does not pull the ball.",
             "B": "Wind is not mentioned.",
@@ -174,13 +174,13 @@
           "skill": "cause-effect",
           "why": "The article says the air-filled ball squeezes flat and springs back, which makes it bounce.",
           "wrong": {
-            "A": "The article says the ball is full of air.",
+            "A": "In the article, the ball is full of air.",
             "B": "There is no spring in the floor.",
             "D": "The article does not say this."
           }
         },
         {
-          "stem": "Read this: \"Grip helps you stop fast and turn.\" What does grip mean?",
+          "stem": "In the article, what does the word \"grip\" mean?",
           "options": [
             "A loud sound",
             "A kind of shot that players throw from far away",
@@ -206,11 +206,11 @@
           ],
           "answer": "A",
           "skill": "inference",
-          "why": "The article says a high curve gives the ball a bigger way into the hoop.",
+          "why": "In the article, a high curve gives the ball a bigger opening to drop into.",
           "wrong": {
             "B": "Speed is not the reason given.",
             "C": "Shots should go in, not bounce first.",
-            "D": "The article says good shots spin."
+            "D": "Good shots do spin, so this is not the reason."
           }
         },
         {
@@ -223,7 +223,7 @@
           ],
           "answer": "D",
           "skill": "inference",
-          "why": "The article says a ball with too little air will not bounce well.",
+          "why": "In the article, a ball with too little air will not bounce well.",
           "wrong": {
             "A": "The article does not say this.",
             "B": "Spin is not linked to air.",
@@ -317,7 +317,7 @@
           ],
           "answer": "D",
           "skill": "cause-effect",
-          "why": "The article says the ball descends at a steep angle and has a larger opening to fall through.",
+          "why": "In the article, the ball descends at a steep angle and has a larger opening to fall through.",
           "wrong": {
             "A": "Gravity is a pull, not a speed.",
             "B": "The goal is not to bounce off the rim.",
@@ -334,7 +334,7 @@
           ],
           "answer": "B",
           "skill": "detail",
-          "why": "The article says backspin slows the ball, so it is more likely to drop in.",
+          "why": "In the article, backspin slows the ball, so it is more likely to drop in.",
           "wrong": {
             "A": "This is the opposite.",
             "C": "Spin does not add air.",
@@ -368,7 +368,7 @@
           ],
           "answer": "C",
           "skill": "sequence",
-          "why": "The article says the ball hits the floor, squeezes flat storing energy, then springs back and releases it.",
+          "why": "In the article, the ball hits the floor, squeezes flat storing energy, then springs back and releases it.",
           "wrong": {
             "A": "The ball must hit the floor first.",
             "B": "The ball flattens because it hits the floor; it does not lose air.",
@@ -385,7 +385,7 @@
           ],
           "answer": "B",
           "skill": "detail",
-          "why": "The article says bending the knees cushions the impact and protects the joints.",
+          "why": "In the article, bending the knees cushions the impact and protects the joints.",
           "wrong": {
             "A": "The article does not say this.",
             "C": "Landing does not affect the ball.",
@@ -496,7 +496,7 @@
           ],
           "answer": "B",
           "skill": "detail",
-          "why": "The article says the steeper angle makes the opening effectively appear larger from the ball's perspective.",
+          "why": "In the article, the steeper angle makes the opening effectively appear larger from the ball's perspective.",
           "wrong": {
             "A": "Speed is not the reason given.",
             "C": "The article does not say this.",
@@ -504,7 +504,7 @@
           }
         },
         {
-          "stem": "Read this: \"pressurized air, which makes it remarkably elastic.\" What does elastic mean?",
+          "stem": "In the article, what does the word \"elastic\" mean?",
           "options": [
             "Heavy and solid",
             "Easy to throw far",
@@ -530,7 +530,7 @@
           ],
           "answer": "A",
           "skill": "cause-effect",
-          "why": "The article says an underinflated ball stores considerably less energy, so it bounces poorly.",
+          "why": "In the article, an underinflated ball stores considerably less energy, so it bounces poorly.",
           "wrong": {
             "B": "Air friction is not mentioned.",
             "C": "Spin is not linked to inflation.",
@@ -547,7 +547,7 @@
           ],
           "answer": "C",
           "skill": "cause-effect",
-          "why": "The article says a sprinting player possesses momentum, which makes stopping difficult.",
+          "why": "In the article, a sprinting player possesses momentum, which makes stopping difficult.",
           "wrong": {
             "A": "The court is described as polished, not wet.",
             "B": "Basketball shoes have rubber soles.",
@@ -564,7 +564,7 @@
           ],
           "answer": "C",
           "skill": "inference",
-          "why": "The article says repeated practice trains brains and muscles to produce the right angle, force, and spin automatically.",
+          "why": "In the article, repeated practice trains brains and muscles to produce the right angle, force, and spin automatically.",
           "wrong": {
             "A": "This is not a goal of practice.",
             "B": "Practice does not change the hoop's height.",
@@ -581,7 +581,7 @@
           ],
           "answer": "B",
           "skill": "compare",
-          "why": "The article says rubber soles allow players to stop without slipping, whereas ordinary shoes might slide.",
+          "why": "In the article, rubber soles allow players to stop without slipping, whereas ordinary shoes might slide.",
           "wrong": {
             "A": "Shoes do not affect the bounce.",
             "C": "The article says they are different.",
@@ -627,7 +627,7 @@
         ],
         "answer": "A",
         "skill": "detail",
-        "why": "The text says a man who was a teacher in the United States made the game in 1891.",
+        "why": "A teacher in the United States made up the game in 1891.",
         "wrong": {
           "B": "The text says he was a teacher, not a farmer.",
           "C": "The text says he lived in the United States, not Saudi Arabia.",
@@ -661,7 +661,7 @@
         ],
         "answer": "D",
         "skill": "cause-effect",
-        "why": "The text says the spin helps a ball that hits the rim drop in.",
+        "why": "In the text, the spin helps a ball that hits the rim drop in.",
         "wrong": {
           "A": "The spin helps the ball go in, not fly out.",
           "B": "The text does not say the ball stops in the air.",
@@ -767,7 +767,7 @@
         ],
         "answer": "D",
         "skill": "detail",
-        "why": "The text says he wanted an energetic indoor activity for the winter months.",
+        "why": "In the text, he wanted an energetic indoor activity for the winter months.",
         "wrong": {
           "A": "The text does not say he wanted to teach gravity.",
           "B": "The Asian tournament is mentioned only as a modern event.",
@@ -801,7 +801,7 @@
         ],
         "answer": "A",
         "skill": "cause-effect",
-        "why": "The text says backspin reduces the ball's speed, so it is likelier to fall through rather than bounce away.",
+        "why": "In the text, backspin reduces the ball's speed, so it is likelier to fall through rather than bounce away.",
         "wrong": {
           "B": "Backspin reduces speed, so it does not speed the ball up.",
           "C": "The text does not say backspin lifts the ball higher.",

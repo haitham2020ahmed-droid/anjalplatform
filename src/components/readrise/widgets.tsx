@@ -67,7 +67,7 @@ export function GrowthChart({ points, projected, yearEnd }: { points: GrowthPoin
         {ticks.map((v) => (
           <g key={v}>
             <line x1={L} x2={W - R} y1={y(v)} y2={y(v)} stroke="#e2e8f0" strokeWidth="1" />
-            <text x={L - 6} y={y(v) + 4} textAnchor="end" fontSize="11" className="fill-slate-500">{v}</text>
+            <text x={L - 6} y={y(v) + 4} textAnchor="end" fontSize="11" className="fill-slate-500">{formatLevel(v)}</text>
           </g>
         ))}
         <text x={L} y={H - 6} fontSize="11" className="fill-slate-500">{fmt(t0)}</text>

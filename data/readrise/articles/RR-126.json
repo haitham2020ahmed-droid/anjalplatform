@@ -123,7 +123,7 @@
           "skill": "central-idea",
           "why": "Most of the article explains the Sun's harmful rays and heat and how to protect yourself.",
           "wrong": {
-            "A": "The article says the Sun is hot but does not explain why.",
+            "A": "The article does not explain why the Sun is hot.",
             "C": "Plants are mentioned only once.",
             "D": "The article does not explain rain."
           }
@@ -138,7 +138,7 @@
           ],
           "answer": "A",
           "skill": "detail",
-          "why": "The article says a sunburn is red and sore and can hurt for days.",
+          "why": "In the article, a sunburn is red and sore and can hurt for days.",
           "wrong": {
             "B": "Sunburned skin is not cool and wet.",
             "C": "The article does not say skin grows faster.",
@@ -159,7 +159,7 @@
           "wrong": {
             "A": "The article says never to look right at the Sun.",
             "B": "The Sun is strongest in the middle of the day.",
-            "C": "The article says to drink lots of water."
+            "C": "In the article, to drink lots of water."
           }
         },
         {
@@ -172,7 +172,7 @@
           ],
           "answer": "B",
           "skill": "vocabulary",
-          "why": "The article explains that shade is a cool spot out of the sun, like under a tree.",
+          "why": "Shade is a cool place out of the sun, like under a tree.",
           "wrong": {
             "A": "Sunscreen is a cream, not a place.",
             "C": "Shade is cool, not hot.",
@@ -244,7 +244,7 @@
           "wrong": {
             "B": "The article tells how to play safely outside, not to stay inside.",
             "C": "The article never explains how sunscreen is made.",
-            "D": "The article says the Sun is hot."
+            "D": "The Sun is hot."
           }
         }
       ],
@@ -317,7 +317,7 @@
           ],
           "answer": "B",
           "skill": "detail",
-          "why": "The article says UV rays are strongest from about 10 in the morning until 4 in the afternoon.",
+          "why": "In the article, UV rays are strongest from about 10 in the morning until 4 in the afternoon.",
           "wrong": {
             "A": "Early morning rays are weaker.",
             "C": "Evening rays are weaker.",
@@ -334,7 +334,7 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The article says to reapply sunscreen every two hours, especially after swimming.",
+          "why": "In the article, to reapply sunscreen every two hours, especially after swimming.",
           "wrong": {
             "A": "That is far too seldom.",
             "B": "Sunscreen is needed while you are outside.",
@@ -368,7 +368,7 @@
           ],
           "answer": "D",
           "skill": "cause-effect",
-          "why": "The article says the body loses water through sweat, and losing too much is called dehydration.",
+          "why": "In the article, the body loses water through sweat, and losing too much is called dehydration.",
           "wrong": {
             "A": "Shade helps keep you cool.",
             "B": "A hat protects you from the Sun.",
@@ -496,7 +496,7 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The article says that in a Saudi summer the index often reaches 11 or higher, the extreme level.",
+          "why": "In a Saudi summer the index often reaches 11 or higher, the extreme level.",
           "wrong": {
             "A": "A high number means strong rays.",
             "B": "The index measures daytime rays.",
@@ -547,7 +547,7 @@
           ],
           "answer": "B",
           "skill": "cause-effect",
-          "why": "The article states that excessive sun exposure over many years can cause premature wrinkles and even skin cancer.",
+          "why": "In the article, excessive sun exposure over many years can cause premature wrinkles and even skin cancer.",
           "wrong": {
             "A": "UV rays can injure the eyes.",
             "C": "The article does not mention this.",
@@ -598,11 +598,11 @@
           ],
           "answer": "A",
           "skill": "inference",
-          "why": "Short shadows happen when the Sun is high, and the article says that is when rays are especially strong.",
+          "why": "Short shadows happen when the Sun is high, and that is when its rays are especially strong.",
           "wrong": {
             "B": "A shadow is only a sign of the Sun's angle.",
             "C": "Height does not change how much protection you need.",
-            "D": "The article says rays are strongest from about 10 a.m. to 4 p.m."
+            "D": "The rays are strongest in the middle of the day, not at sunrise."
           }
         }
       ],
@@ -644,7 +644,7 @@
         ],
         "answer": "B",
         "skill": "cause-effect",
-        "why": "The text says the rays can hurt your eyes, so do not look right at the Sun.",
+        "why": "The Sun's rays can hurt your eyes, so do not look right at the Sun.",
         "wrong": {
           "A": "The Sun is hot, not cold.",
           "C": "The Sun's height changes your shadow, not your looking at it.",
@@ -697,7 +697,7 @@
         ],
         "answer": "B",
         "skill": "detail",
-        "why": "The text says the Sun helps our bodies make vitamin D, which keeps bones strong.",
+        "why": "In the text, the Sun helps our bodies make vitamin D, which keeps bones strong.",
         "wrong": {
           "A": "The text does not mention skin cream made by the body.",
           "C": "Sweat is lost on hot days; the Sun does not help make it.",
@@ -767,10 +767,10 @@
         ],
         "answer": "C",
         "skill": "detail",
-        "why": "The text says to reapply sunscreen every two hours, particularly after swimming.",
+        "why": "Sunscreen should be put on again every two hours, especially after swimming.",
         "wrong": {
           "A": "Once a week is much too long.",
-          "B": "The text says every two hours, especially after swimming, not only then.",
+          "B": "Sunscreen should be put on again every two hours, not only after swimming.",
           "D": "The text says every two hours, not ten minutes."
         }
       },
@@ -801,7 +801,7 @@
         ],
         "answer": "D",
         "skill": "cause-effect",
-        "why": "The text says dehydration can make you feel exhausted, dizzy, and sick.",
+        "why": "Losing too much water can make you feel tired, dizzy, and sick.",
         "wrong": {
           "A": "Losing water makes you weaker, not stronger.",
           "B": "UV rays stay invisible.",

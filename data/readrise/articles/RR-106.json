@@ -138,7 +138,7 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The article says a switch opens a gap in the loop, so the power stops and the light goes off.",
+          "why": "In the article, a switch makes a gap in the loop, so the power stops and the light goes off.",
           "wrong": {
             "A": "Water is never put in a wire; water is a danger near power.",
             "B": "Turning the light off stops the flow; it does not add power.",
@@ -155,7 +155,7 @@
           ],
           "answer": "A",
           "skill": "cause-effect",
-          "why": "The article says power cannot pass through plastic, so the cover keeps our hands safe.",
+          "why": "In the article, power cannot pass through plastic, so the cover keeps our hands safe.",
           "wrong": {
             "B": "The article says power does not pass through plastic at all.",
             "C": "The article gives a safety reason, not a reason about looks.",
@@ -172,7 +172,7 @@
           ],
           "answer": "D",
           "skill": "detail",
-          "why": "The article says many plants in Saudi Arabia burn oil or gas, and some use the sun.",
+          "why": "Many power plants in Saudi Arabia burn oil or gas, and some use the sun.",
           "wrong": {
             "A": "The article does not talk about burning wood.",
             "B": "Coal is not named in the article.",
@@ -180,7 +180,7 @@
           }
         },
         {
-          "stem": "Read this: \"Never poke things in an outlet.\" What is an outlet?",
+          "stem": "In the article, what does the word \"outlet\" mean?",
           "options": [
             "A big power plant far from the city and the farms",
             "A place in the wall where you plug things in",
@@ -223,7 +223,7 @@
           ],
           "answer": "A",
           "skill": "inference",
-          "why": "The article says the AC, or air conditioner, uses a lot of power in hot months, so setting it warmer saves power.",
+          "why": "In the article, the AC, or air conditioner, uses a lot of power in hot months, so setting it warmer saves power.",
           "wrong": {
             "B": "Leaving lights on uses more power, not less.",
             "C": "This uses more power and can be unsafe.",
@@ -317,7 +317,7 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The article says the breaker switches off the power before a wire gets dangerously hot.",
+          "why": "In the article, the breaker switches off the power before a wire gets dangerously hot.",
           "wrong": {
             "A": "A breaker stops electricity; it does not speed it up.",
             "B": "Solar panels turn sunlight into electricity, not breakers.",
@@ -496,7 +496,7 @@
           ],
           "answer": "A",
           "skill": "detail",
-          "why": "The article states that electricity is the movement of tiny charged particles called electrons.",
+          "why": "In the article, electricity is the movement of tiny charged particles called electrons.",
           "wrong": {
             "B": "The sun is one source of energy, but electricity is not described as heat from the sun.",
             "C": "Electricity is not a gas, and wires are not pipes.",
@@ -521,7 +521,7 @@
           }
         },
         {
-          "stem": "Read this: \"newer facilities increasingly depend on renewable energy.\" Which energy source in the article is renewable?",
+          "stem": "Which energy source named in the article is renewable?",
           "options": [
             "Oil",
             "Natural gas",
@@ -564,7 +564,7 @@
           ],
           "answer": "D",
           "skill": "inference",
-          "why": "The article says turning off lights, choosing efficient appliances, and raising the thermostat make a considerable difference.",
+          "why": "In the article, turning off lights, choosing efficient appliances, and raising the thermostat make a considerable difference.",
           "wrong": {
             "A": "The article explains how to use electricity safely, not that homes should avoid it.",
             "B": "The article says air conditioners use a substantial share of a home's power.",
@@ -581,7 +581,7 @@
           ],
           "answer": "A",
           "skill": "inference",
-          "why": "Several appliances on one circuit can overload it, and the article says the breaker disconnects the power before a fire can develop.",
+          "why": "Several appliances on one circuit can overload it, and in the article, the breaker disconnects the power before a fire can develop.",
           "wrong": {
             "B": "Switching off lights reduces the flow; it would not cause the breaker to trip.",
             "C": "Efficient appliances use less power, which makes an overload less likely.",
@@ -627,7 +627,7 @@
         ],
         "answer": "B",
         "skill": "detail",
-        "why": "The text says a wire has metal in it, and that it is most of the time copper.",
+        "why": "A wire has metal inside, usually copper.",
         "wrong": {
           "A": "Gold is not named in the text.",
           "C": "Plastic is on the outside of the wire, not the metal inside.",
@@ -661,7 +661,7 @@
         ],
         "answer": "A",
         "skill": "inference",
-        "why": "The text says the power stops when the loop has a gap, so the light goes off.",
+        "why": "In the text, the power stops when the loop has a gap, so the light goes off.",
         "wrong": {
           "B": "The AC setting does not change a lamp.",
           "C": "Plastic on a wire is normal and keeps hands safe.",
@@ -697,7 +697,7 @@
         ],
         "answer": "D",
         "skill": "detail",
-        "why": "The text says plastic and rubber block power and are called insulators.",
+        "why": "Plastic and rubber block electricity, so they are called insulators.",
         "wrong": {
           "A": "Copper is named as a conductor.",
           "B": "Water is named as a conductor.",
@@ -714,7 +714,7 @@
         ],
         "answer": "A",
         "skill": "cause-effect",
-        "why": "The text says air conditioners use a large share of a home's power, so a warmer setting saves power.",
+        "why": "In the text, air conditioners use a large share of a home's power, so a warmer setting saves power.",
         "wrong": {
           "B": "The setting does not change whether a circuit is complete.",
           "C": "The text does not say it cools the wires.",
@@ -767,7 +767,7 @@
         ],
         "answer": "A",
         "skill": "detail",
-        "why": "The text says electricity travels along high-voltage power lines from the plants.",
+        "why": "In the text, electricity travels along high-voltage power lines from the plants.",
         "wrong": {
           "B": "Pipes are not mentioned.",
           "C": "Solar panels capture sunlight; they are not the path to homes.",
@@ -784,7 +784,7 @@
         ],
         "answer": "D",
         "skill": "cause-effect",
-        "why": "The text says if the circuit is broken at any point, the electrons stop flowing.",
+        "why": "In the text, if the circuit is broken at any point, the electrons stop flowing.",
         "wrong": {
           "A": "Heat from plastic is not the reason given.",
           "B": "Wires carry electricity; they do not make it.",

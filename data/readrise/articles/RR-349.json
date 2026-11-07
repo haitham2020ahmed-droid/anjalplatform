@@ -133,15 +133,15 @@
      "options": [
       "As fast as a car on a highway",
       "They never move at all, not even a bit",
-      "About as fast as your fingernails grow",
+      "About as fast as your nails grow",
       "As fast as a person walking"
      ],
      "answer": "C",
      "skill": "detail",
-     "why": "The article says the plates move about as fast as your fingernails grow.",
+     "why": "The plates move about as fast as your fingernails grow.",
      "wrong": {
       "A": "A car moves far too fast; plates move very slowly.",
-      "B": "The article says the plates move all the time.",
+      "B": "The plates are always moving.",
       "D": "Walking is much faster than the plates move."
      }
     },
@@ -155,7 +155,7 @@
      ],
      "answer": "A",
      "skill": "detail",
-     "why": "The article says deep lakes have formed along the floor of the valley.",
+     "why": "In the article, deep lakes sit in the valley.",
      "wrong": {
       "B": "The article does not mention sandy beaches.",
       "C": "Ice is not mentioned in the article.",
@@ -172,7 +172,7 @@
      ],
      "answer": "D",
      "skill": "cause-effect",
-     "why": "The article says two plates pull apart, so the land between them stretches, thins, and sinks down.",
+     "why": "In the article, two plates pull apart, so the land between them stretches, thins, and sinks down.",
      "wrong": {
       "A": "Rain is not given as the reason the land sinks.",
       "B": "The article does not say people dig the valley.",
@@ -197,7 +197,7 @@
      }
     },
     {
-     "stem": "Read: \"Each part is a plate.\" What does plate mean here?",
+     "stem": "In the article, what does the word \"plate\" mean?",
      "options": [
       "A dish you eat food from at home",
       "One of Earth's huge moving pieces",
@@ -351,7 +351,7 @@
      ],
      "answer": "D",
      "skill": "cause-effect",
-     "why": "The article explains that as plates pull apart, the land between them stretches, thins, and sinks to form the valley.",
+     "why": "In the article, as plates pull apart, the land between them stretches, thins, and sinks to form the valley.",
      "wrong": {
       "A": "Ice is not mentioned in the article.",
       "B": "The land sinks, it does not rise into a mountain.",
@@ -376,7 +376,7 @@
      }
     },
     {
-     "stem": "Read: \"a strip of land sinks lower, forming a deep trench.\" What does trench mean here?",
+     "stem": "In the article, what does the word \"trench\" mean?",
      "options": [
       "A tall mountain peak",
       "A wide, flat, sandy desert area",
@@ -419,9 +419,9 @@
      ],
      "answer": "B",
      "skill": "compare",
-     "why": "The article explains that Saudi Arabia's plate and the East African rift are both part of the same rifting system, which also includes the Red Sea.",
+     "why": "Saudi Arabia's plate and the East African rift are part of the same system of land pulling apart.",
      "wrong": {
-      "A": "The article says the plates are always slowly moving.",
+      "A": "In the article, the plates are always slowly moving.",
       "C": "Lakes cover only parts of the rift valley, not entire plates.",
       "D": "The plates carry land above the water, not only seafloor."
      }
@@ -487,7 +487,7 @@
      }
     },
     {
-     "stem": "Read: \"along a divergent boundary, plates instead pull steadily apart.\" What does divergent mean here?",
+     "stem": "In the article, what does the word \"divergent\" mean?",
      "options": [
       "Moving steadily toward each other",
       "Staying perfectly still",
@@ -581,7 +581,7 @@
      ],
      "answer": "B",
      "skill": "detail",
-     "why": "The article describes escarpments as the steep rocky walls that flank the rift valley.",
+     "why": "Escarpments are the steep rocky walls on each side of the rift valley.",
      "wrong": {
       "A": "An escarpment is a wall-like landform, not a lake.",
       "C": "Escarpments are not described as volcanoes.",
@@ -598,7 +598,7 @@
      ],
      "answer": "A",
      "skill": "compare",
-     "why": "The article explains that the Red Sea formed as land split away from Africa, which is the same kind of process that may someday split the East African rift.",
+     "why": "The Red Sea formed as land split apart, which is the same kind of process that may split other land someday.",
      "wrong": {
       "B": "Both processes are described as taking millions of years.",
       "C": "Volcanoes are a result of rifting, not its sole cause.",
@@ -627,7 +627,7 @@
     ],
     "answer": "A",
     "skill": "detail",
-    "why": "The text says the valley is in East Africa.",
+    "why": "In the text, the valley is in East Africa.",
     "wrong": {
      "B": "The text says the Red Sea gets wider, not that the valley is under it.",
      "C": "The valley can be seen from space, but it is on the ground.",
@@ -644,7 +644,7 @@
     ],
     "answer": "D",
     "skill": "vocabulary",
-    "why": "The text says the top of the Earth is a hard skin called the crust.",
+    "why": "In the text, the top of the Earth is a hard skin called the crust.",
     "wrong": {
      "A": "Lakes sit in the valley; they are not the crust.",
      "B": "Hot rock pushes up inside a mountain, but it is not the crust.",
@@ -661,7 +661,7 @@
     ],
     "answer": "C",
     "skill": "cause-effect",
-    "why": "The text says our land is on a plate that moves away from Africa, so the Red Sea grows wider.",
+    "why": "In the text, our land is on a plate that moves away from Africa, so the Red Sea grows wider.",
     "wrong": {
      "A": "The text does not say rain makes it wider.",
      "B": "The text does not say lakes flow into it.",
@@ -697,7 +697,7 @@
     ],
     "answer": "A",
     "skill": "detail",
-    "why": "The article says the trench is usually deepest and widest near its center.",
+    "why": "In the article, the trench is usually deepest and widest near its center.",
     "wrong": {
      "B": "The article does not put the deepest part near the sea.",
      "C": "The ends are not described as the deepest part.",
@@ -714,7 +714,7 @@
     ],
     "answer": "B",
     "skill": "cause-effect",
-    "why": "The article says magma pushes up through cracks in the thinning crust and builds a volcano.",
+    "why": "In the article, magma pushes up through cracks in the thinning crust and builds a volcano.",
     "wrong": {
      "A": "Rain is not the cause in the article.",
      "C": "The article does not say mountains slide into the sea.",
@@ -731,7 +731,7 @@
     ],
     "answer": "C",
     "skill": "vocabulary",
-    "why": "The article calls magma hot melted rock that pushes up through cracks.",
+    "why": "Magma is hot melted rock that pushes up through cracks.",
     "wrong": {
      "A": "Lakes are formed in basins, not from magma.",
      "B": "Magma is hot, not icy.",
@@ -748,7 +748,7 @@
     ],
     "answer": "B",
     "skill": "inference",
-    "why": "The article says nobody can tell how wide the rift will grow, so scientists study it closely.",
+    "why": "In the article, nobody can tell how wide the rift will grow, so scientists study it closely.",
     "wrong": {
      "A": "The article says nobody knows this yet.",
      "C": "The article says the rift keeps growing.",
@@ -758,20 +758,20 @@
   ],
   "HIGH": [
    {
-    "stem": "Which comparison does the article use to show how the plates fit together?",
+    "stem": "How fast do Earth's plates move, according to the article?",
     "options": [
-     "A broken plate of food",
-     "A gigantic puzzle",
-     "A long rope",
-     "A stretched piece of dough"
+     "Faster than a car on a highway",
+     "About as fast as fingernails grow",
+     "About as fast as a flowing river",
+     "They never move at all, even slowly"
     ],
     "answer": "B",
     "skill": "detail",
-    "why": "The article says the plates fit together like the pieces of a gigantic puzzle.",
+    "why": "The plates drift very slowly, at about the speed that human fingernails grow.",
     "wrong": {
-     "A": "The article does not compare plates to food.",
-     "C": "A rope is not used in the article.",
-     "D": "Dough is used for the stretching land, not for how plates fit."
+     "A": "The plates move very slowly, not fast.",
+     "C": "Rivers flow much faster than plates move.",
+     "D": "The plates do move, just slowly."
     }
    },
    {
@@ -801,28 +801,28 @@
     ],
     "answer": "D",
     "skill": "cause-effect",
-    "why": "The article says that as the crust thins, long cracks called faults appear along either side.",
+    "why": "As the crust gets thinner, long cracks called faults appear on each side.",
     "wrong": {
      "A": "The plates pull apart.",
-     "B": "The article says deep lakes formed.",
+     "B": "In the article, deep lakes formed.",
      "C": "Sand is not mentioned in this article."
     }
    },
    {
-    "stem": "Where is the trench usually deepest and widest?",
+    "stem": "Which countries does the Great Rift Valley pass through, according to the article?",
     "options": [
-     "Near its edges",
-     "Near its middle",
-     "At the Red Sea",
-     "Beside a volcano"
+     "Egypt, Libya, and the Sudan",
+     "Ethiopia, Kenya, and Tanzania",
+     "Spain, France, and Portugal",
+     "Brazil, Peru, and Argentina"
     ],
     "answer": "B",
     "skill": "detail",
-    "why": "The article says the trench is usually deepest and widest near its middle.",
+    "why": "The Great Rift Valley stretches through Ethiopia, Kenya, and Tanzania.",
     "wrong": {
-     "A": "The edges are not described as the deepest part.",
-     "C": "The Red Sea is a different place from the trench.",
-     "D": "Volcanoes are described along the escarpments, not as the deepest part."
+     "A": "These countries are not named.",
+     "C": "These countries are in Europe.",
+     "D": "These countries are in South America."
     }
    }
   ]

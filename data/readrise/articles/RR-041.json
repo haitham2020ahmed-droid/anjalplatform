@@ -138,7 +138,7 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The article says the caterpillar eats its own egg shell first, and then it eats leaves.",
+          "why": "In the article, the caterpillar eats its own egg shell first, and then it eats leaves.",
           "wrong": {
             "A": "The article does not say the caterpillar eats flowers.",
             "B": "Pollen is moved by the adult butterfly, not eaten by the caterpillar.",
@@ -155,11 +155,11 @@
           ],
           "answer": "A",
           "skill": "detail",
-          "why": "The article says the caterpillar sheds its tight skin four or five times.",
+          "why": "In the article, the caterpillar sheds its tight skin four or five times.",
           "wrong": {
             "B": "The article says it happens more than once.",
             "C": "Ten is too many. The article says four or five.",
-            "D": "The article clearly says the caterpillar sheds its skin."
+            "D": "In the article, the caterpillar sheds its skin."
           }
         },
         {
@@ -172,7 +172,7 @@
           ],
           "answer": "D",
           "skill": "vocabulary",
-          "why": "The article says the caterpillar makes a hard case, and the case is a chrysalis. Inside it, a new body forms.",
+          "why": "In the article, the caterpillar makes a hard case, and the case is a chrysalis. Inside it, a new body forms.",
           "wrong": {
             "A": "A sweet juice inside flowers is nectar.",
             "B": "The long tube is what the butterfly drinks with.",
@@ -317,7 +317,7 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The article says the caterpillar forms a chrysalis, and scientists call this stage the pupa.",
+          "why": "In the article, the caterpillar forms a chrysalis, and scientists call this stage the pupa.",
           "wrong": {
             "A": "The larva is the caterpillar stage, before the chrysalis.",
             "B": "A molt is the shedding of skin, not a stage.",
@@ -351,7 +351,7 @@
           ],
           "answer": "D",
           "skill": "detail",
-          "why": "The article says the butterfly cannot chew, so it drinks nectar through a long, curled tube called a proboscis.",
+          "why": "In the article, the butterfly cannot chew, so it drinks nectar through a long, curled tube called a proboscis.",
           "wrong": {
             "A": "The article says a butterfly cannot chew.",
             "B": "The butterfly can taste with its feet, but it does not drink with them.",
@@ -368,7 +368,7 @@
           ],
           "answer": "A",
           "skill": "cause-effect",
-          "why": "The article explains that the caterpillar grows fast but its skin cannot stretch much, so when the skin gets too tight, it sheds it.",
+          "why": "In the article, the caterpillar grows fast but its skin cannot stretch much, so when the skin gets too tight, it sheds it.",
           "wrong": {
             "B": "The article does not connect molting with color.",
             "C": "The poison in the article comes from the ushar plant, not old skin.",
@@ -385,7 +385,7 @@
           ],
           "answer": "C",
           "skill": "inference",
-          "why": "The caterpillars taste bad because they eat the poisonous ushar plant, and the article says birds learn to avoid them. So one bad taste teaches the bird.",
+          "why": "The caterpillars taste bad because they eat the poisonous ushar plant, and in the article, birds learn to avoid them. So one bad taste teaches the bird.",
           "wrong": {
             "A": "A bird would not look for food that tasted bad.",
             "B": "The article gives no reason to feed something bad-tasting to young birds.",
@@ -402,7 +402,7 @@
           ],
           "answer": "B",
           "skill": "inference",
-          "why": "The article says the female chooses the plant because its leaves are the food her young will need. On the wrong plant, the young would have nothing to eat.",
+          "why": "In the article, the female picks a plant whose leaves her young will need as food. On the wrong plant, the young would have nothing to eat.",
           "wrong": {
             "A": "Without food, a caterpillar could not grow, so it would not molt faster.",
             "C": "Eggs always hatch into caterpillars first, never straight into adults.",
@@ -496,7 +496,7 @@
           ],
           "answer": "A",
           "skill": "detail",
-          "why": "The article says most of the old body tissue begins to dissolve into a kind of soup, after which the structures of a new body develop.",
+          "why": "Inside the chrysalis, most of the caterpillar's body breaks down into a kind of soup, and then a new body forms.",
           "wrong": {
             "B": "The chrysalis is the hard case, but the body inside does not harden.",
             "C": "The article stresses that the body changes completely, not that it stays the same.",
@@ -513,7 +513,7 @@
           ],
           "answer": "D",
           "skill": "vocabulary",
-          "why": "The article says that as a butterfly feeds, it transfers pollen between flowers, and in this way it helps to pollinate plants so that they can produce seeds.",
+          "why": "As a butterfly feeds, it carries pollen from flower to flower, and this helps plants make seeds.",
           "wrong": {
             "A": "The article does not say butterflies eat insects.",
             "B": "Protection from predators is about the caterpillars, not the plants.",
@@ -530,7 +530,7 @@
           ],
           "answer": "B",
           "skill": "detail",
-          "why": "The article states that painted ladies complete an annual migration between Africa and Europe.",
+          "why": "In the article, painted ladies complete an annual migration between Africa and Europe.",
           "wrong": {
             "A": "The plain tiger is described with the ushar plant, not with a migration.",
             "C": "Crawling between plants is not described as a migration.",
@@ -547,7 +547,7 @@
           ],
           "answer": "C",
           "skill": "cause-effect",
-          "why": "The article explains that because the caterpillars consume ushar leaves, which contain a bitter, poisonous substance, predators learn to avoid them.",
+          "why": "In the article, the caterpillars eat the bitter, poisonous ushar plant, so predators learn to avoid them.",
           "wrong": {
             "A": "The chrysalis is only one stage, not the whole life.",
             "B": "Size is not given as the reason.",
@@ -680,7 +680,7 @@
         "skill": "inference",
         "why": "The young eat the bad juice in ushar, so birds do not like them and leave them alone.",
         "wrong": {
-          "A": "The text says the plant has a bad juice.",
+          "A": "In the text, the plant has a bad juice.",
           "B": "The text does not say where ushar grows.",
           "D": "The text talks about the leaves and juice, not nectar."
         }
@@ -748,7 +748,7 @@
         ],
         "answer": "C",
         "skill": "detail",
-        "why": "The text says painted ladies fly between Africa and Europe each year.",
+        "why": "Painted ladies fly between Africa and Europe each year.",
         "wrong": {
           "A": "The plain tiger lays eggs on ushar.",
           "B": "Hanging from a stem is part of the caterpillar stage in general.",
@@ -775,20 +775,20 @@
         }
       },
       {
-        "stem": "What does the butterfly do before it tries to fly?",
+        "stem": "What does a caterpillar often eat first after it hatches?",
         "options": [
-          "It pumps fluid into its wings and waits.",
-          "It sips nectar until its wings grow.",
-          "It eats its egg shell to get strong.",
-          "It hangs from a stem to make a case."
+          "Its own egg shell",
+          "Nectar from flowers",
+          "Small insects",
+          "Seeds from grass"
         ],
         "answer": "A",
         "skill": "detail",
-        "why": "The text says it pumps fluid into its wings and waits for them to dry and harden.",
+        "why": "The new larva's first meal is often its own egg shell, before it eats the leaves.",
         "wrong": {
-          "B": "Nectar does not make wings grow in the text.",
-          "C": "Eating the egg shell happens when a caterpillar hatches.",
-          "D": "Making the case happens before the pupa stage."
+          "B": "Adult butterflies drink nectar, not new caterpillars.",
+          "C": "Caterpillars eat plants, not insects.",
+          "D": "Seeds are not named."
         }
       },
       {

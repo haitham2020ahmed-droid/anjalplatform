@@ -231,7 +231,7 @@
           }
         },
         {
-          "stem": "Read this sentence: \"It said nature acts the same way, like in a mirror.\" What is this sentence describing?",
+          "stem": "Which idea says nature acts the same way as its mirror image?",
           "options": [
             "A tool used to measure particles",
             "The place where Wu was born",
@@ -317,7 +317,7 @@
           ],
           "answer": "A",
           "skill": "detail",
-          "why": "The article explains that parity said nature should behave identically when viewed as a mirror image.",
+          "why": "In the article, parity said nature should behave identically when viewed as a mirror image.",
           "wrong": {
             "B": "Electrical conductivity of metals is not discussed.",
             "C": "Cold temperature was part of her method, not the content of the rule.",
@@ -513,7 +513,7 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The article explains that Wu cooled the cobalt-60 to a temperature just above absolute zero and applied a powerful magnetic field to align the nuclear spins.",
+          "why": "In the article, Wu cooled the cobalt-60 to a temperature just above absolute zero and applied a powerful magnetic field to align the nuclear spins.",
           "wrong": {
             "A": "Heating is the opposite of what the article describes.",
             "B": "A centrifuge is not mentioned in the article.",
@@ -627,7 +627,7 @@
         ],
         "answer": "D",
         "skill": "detail",
-        "why": "The text says she used a magnet that lined up tiny bits in the metal.",
+        "why": "In the text, she used a strong magnet to line up the tiny bits in the metal.",
         "wrong": {
           "A": "A lamp is not named.",
           "B": "A fan is not named.",
@@ -644,7 +644,7 @@
         ],
         "answer": "A",
         "skill": "inference",
-        "why": "The text says Wu knew how to test this idea.",
+        "why": "In the text, Wu knew how to test this idea.",
         "wrong": {
           "B": "The text does not say she was their teacher.",
           "C": "She did not get the prize.",
@@ -734,7 +734,7 @@
         "why": "The author points out that she ran the test that proved the idea, yet did not receive the prize.",
         "wrong": {
           "A": "The text does not say this.",
-          "B": "The text calls it one of the great finds.",
+          "B": "It was one of the great discoveries, so the test was not easy.",
           "D": "The text does not criticize Lee and Yang's ideas."
         }
       },
@@ -748,7 +748,7 @@
         ],
         "answer": "B",
         "skill": "cause-effect",
-        "why": "The text says electrons shot out as the atoms broke apart, called beta decay.",
+        "why": "In the text, electrons shot out as the atoms broke apart, called beta decay.",
         "wrong": {
           "A": "The magnet lined up the cores; it did not make electrons shoot out.",
           "C": "The metal was cooled, not heated.",
@@ -801,7 +801,7 @@
         ],
         "answer": "D",
         "skill": "cause-effect",
-        "why": "The text says her command of radioactive metals had no equal.",
+        "why": "Her skill with radioactive metals had no equal.",
         "wrong": {
           "A": "She is not described as their student.",
           "B": "She did not receive the prize.",

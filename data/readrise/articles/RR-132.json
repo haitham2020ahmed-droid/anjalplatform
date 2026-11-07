@@ -138,7 +138,7 @@
           ],
           "answer": "A",
           "skill": "detail",
-          "why": "The article says that long ago, people wrote letters to send a message.",
+          "why": "In the article, long ago, people wrote letters to send a message.",
           "wrong": {
             "B": "Smartphones came much later.",
             "C": "Video calls came long after the first phone.",
@@ -155,9 +155,9 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The article says the clicks were fast, but you could not hear a voice.",
+          "why": "In the article, the clicks were fast, but they could not carry a voice.",
           "wrong": {
-            "A": "The article says the clicks were fast.",
+            "A": "The problem was not speed; the clicks could not carry a voice.",
             "B": "The article does not talk about cost.",
             "D": "The article says nothing about night."
           }
@@ -206,7 +206,7 @@
           ],
           "answer": "C",
           "skill": "sequence",
-          "why": "The article says the phone turns the sound into a signal, and then the signal travels down a wire.",
+          "why": "In the article, the phone turns the sound into a signal, and then the signal travels down a wire.",
           "wrong": {
             "A": "You talk before the phone makes the signal.",
             "B": "The signal turns back into sound, not into a letter.",
@@ -223,7 +223,7 @@
           ],
           "answer": "A",
           "skill": "compare",
-          "why": "The article says the first phone you could carry was big and heavy, but today we hold small phones.",
+          "why": "In the article, the first phone you could carry was big and heavy, but today we hold small phones.",
           "wrong": {
             "B": "Sending photos is something phones do today.",
             "C": "Today's phones are small; the first ones were big.",
@@ -303,7 +303,7 @@
           "why": "The article traces the telephone from the telegraph and Bell's invention to smartphones.",
           "wrong": {
             "A": "The article says the telegraph could not carry a voice.",
-            "C": "The article says machines took over the operators' job.",
+            "C": "Machines did later take over the operators' job.",
             "D": "Letters existed long before Bell."
           }
         },
@@ -351,7 +351,7 @@
           ],
           "answer": "B",
           "skill": "detail",
-          "why": "The article says your voice makes the air vibrate, and the phone changes these vibrations into an electric signal.",
+          "why": "In the article, your voice makes the air vibrate, and the phone changes these vibrations into an electric signal.",
           "wrong": {
             "A": "Light is not part of this process in the article.",
             "C": "Weight has nothing to do with the signal.",
@@ -368,7 +368,7 @@
           ],
           "answer": "A",
           "skill": "cause-effect",
-          "why": "The article says early telephones could not dial each other, so an operator connected each call by hand.",
+          "why": "In the article, early telephones could not dial each other, so an operator connected each call by hand.",
           "wrong": {
             "B": "The article does not say operators fixed wires.",
             "C": "Operators connected calls; they did not write messages.",
@@ -481,7 +481,7 @@
           "skill": "central-idea",
           "why": "The article traces how the telephone developed and says it helped revolutionize communication.",
           "wrong": {
-            "A": "The article mentions Elisha Gray working on a similar idea.",
+            "A": "In the article, Elisha Gray working on a similar idea.",
             "C": "The article says automatic equipment replaced operators.",
             "D": "Letters took weeks; phone calls are almost instant."
           }
@@ -496,7 +496,7 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The article says Gray submitted papers describing a similar idea on the same day Bell submitted his.",
+          "why": "In the article, Gray submitted papers describing a similar idea on the same day Bell submitted his.",
           "wrong": {
             "A": "Bell's assistant was Mr. Watson.",
             "B": "The 1973 call was made by an engineer, not Gray.",
@@ -547,7 +547,7 @@
           ],
           "answer": "A",
           "skill": "compare",
-          "why": "The article says mobile phones are wireless and send signals through the air to nearby towers rather than along a wire.",
+          "why": "In the article, mobile phones are wireless and send signals through the air to nearby towers rather than along a wire.",
           "wrong": {
             "B": "Phones do not send letters by mail.",
             "C": "Operators were needed for early phones, not mobile phones.",
@@ -564,7 +564,7 @@
           ],
           "answer": "B",
           "skill": "cause-effect",
-          "why": "The article says operators connected calls until automatic equipment took over this job.",
+          "why": "In the article, operators connected calls until automatic equipment took over this job.",
           "wrong": {
             "A": "Glass fibers carry calls; they did not replace operators.",
             "C": "The patent protected Bell's invention but did not connect calls.",
@@ -714,7 +714,7 @@
         ],
         "answer": "A",
         "skill": "cause-effect",
-        "why": "The text says the receiver at the other end changes the signal back into sound.",
+        "why": "In the text, the receiver at the other end changes the signal back into sound.",
         "wrong": {
           "B": "Clicks belong to the telegraph.",
           "C": "Your voice makes the vibrations, not the receiver.",
@@ -767,7 +767,7 @@
         ],
         "answer": "A",
         "skill": "detail",
-        "why": "The text says many calls travel as flashes of light through thin glass cables across the ocean floor.",
+        "why": "Many calls travel as flashes of light through thin glass cables on the ocean floor.",
         "wrong": {
           "B": "Clouds are not mentioned for calls.",
           "C": "Clicks belong to the old telegraph.",
@@ -801,7 +801,7 @@
         ],
         "answer": "B",
         "skill": "cause-effect",
-        "why": "The text says a microphone converts the vibrations of your voice into an electrical signal.",
+        "why": "In the text, a microphone converts the vibrations of your voice into an electrical signal.",
         "wrong": {
           "A": "Operators at a switchboard did that in early days.",
           "C": "The voice is not saved as a letter.",

@@ -214,7 +214,7 @@
           }
         },
         {
-          "stem": "Read the sentence: \"Lights left on waste power.\" What does waste mean?",
+          "stem": "In the article, what does the word \"waste\" mean?",
           "options": [
             "Make more of something",
             "Save it for later use",
@@ -317,7 +317,7 @@
           ],
           "answer": "B",
           "skill": "detail",
-          "why": "The article says baby turtles crawl toward the brightest place, which is usually the sea.",
+          "why": "In the article, baby turtles crawl toward the brightest place, which is usually the sea.",
           "wrong": {
             "A": "They move toward light, not darkness.",
             "C": "They reach roads only when lights confuse them.",
@@ -351,7 +351,7 @@
           ],
           "answer": "C",
           "skill": "cause-effect",
-          "why": "The article says street lamps, signs, and buildings send light up into the sky, making it glow.",
+          "why": "In the article, street lamps, signs, and buildings send light up into the sky, making it glow.",
           "wrong": {
             "A": "The Moon is not closer to cities.",
             "B": "Cities show fewer stars, not more.",
@@ -496,7 +496,7 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The article says darkness signals the body to produce melatonin, a hormone that makes us sleepy.",
+          "why": "In the article, darkness signals the body to produce melatonin, a hormone that makes us sleepy.",
           "wrong": {
             "A": "Turtles follow the brightest horizon, not melatonin.",
             "B": "Skyglow is caused by artificial light.",
@@ -513,7 +513,7 @@
           ],
           "answer": "A",
           "skill": "detail",
-          "why": "The article says researchers estimate more than a third of people on Earth can no longer see it.",
+          "why": "Researchers think more than a third of people on Earth can no longer see the Milky Way.",
           "wrong": {
             "B": "The number is much larger than one in a hundred.",
             "C": "The article does not give this number.",
@@ -572,7 +572,7 @@
           }
         },
         {
-          "stem": "Read the phrase: \"nocturnal wildlife, meaning animals that are active at night.\" What does nocturnal mean?",
+          "stem": "In the article, what does the word \"nocturnal\" mean?",
           "options": [
             "Living in the ocean",
             "Flying long distances",
@@ -697,7 +697,7 @@
         ],
         "answer": "D",
         "skill": "detail",
-        "why": "The text says insects circle around lamps until they are exhausted.",
+        "why": "In the text, insects circle around lamps until they are exhausted.",
         "wrong": {
           "A": "Turtles and insects are not linked in the text.",
           "B": "Food is not mentioned for insects.",
@@ -731,11 +731,11 @@
         ],
         "answer": "A",
         "skill": "cause-effect",
-        "why": "The text says light pollution hides the stars, so many city children have never seen the Milky Way.",
+        "why": "In the text, light pollution hides the stars, so many city children have never seen the Milky Way.",
         "wrong": {
           "B": "The text does not say the Milky Way moved.",
           "C": "The cause given is light, not children staying in.",
-          "D": "The article says even clear nights show only a handful of stars."
+          "D": "In the article, even clear nights show only a handful of stars."
         }
       },
       {
@@ -767,7 +767,7 @@
         ],
         "answer": "C",
         "skill": "detail",
-        "why": "The text says skyglow is a dome of light that hangs over a city.",
+        "why": "In the text, skyglow is a dome of light that hangs over a city.",
         "wrong": {
           "A": "Skyglow is not a star.",
           "B": "The bright sea is the horizon turtles crawl toward.",

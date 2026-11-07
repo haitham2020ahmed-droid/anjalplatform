@@ -155,7 +155,7 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The article says the trainer feeds the horse good food and helps it rest.",
+          "why": "In the article, the trainer plans workouts and feeds the horse healthy food.",
           "wrong": {
             "A": "Trainers do not build tracks in the article.",
             "B": "Riding during the race is not described as the trainer's job.",
@@ -317,7 +317,7 @@
           ],
           "answer": "B",
           "skill": "detail",
-          "why": "The article says a racehorse's large heart and lungs, along with long, powerful legs, give it endurance.",
+          "why": "In the article, a racehorse's large heart and lungs, along with long, powerful legs, give it endurance.",
           "wrong": {
             "A": "The article describes long legs and a large heart, not short or small ones.",
             "C": "Fur thickness is not mentioned.",
@@ -334,7 +334,7 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The article says desert tribes relied on the horse's speed and endurance to travel between scattered oases.",
+          "why": "Desert tribes used the horse's speed and endurance to travel between oases.",
           "wrong": {
             "A": "Carrying stones is not mentioned in the article.",
             "B": "Boats and rivers are not part of this article.",
@@ -368,7 +368,7 @@
           ],
           "answer": "A",
           "skill": "sequence",
-          "why": "The article says grooms brush the horse's coat and clean its hooves every day.",
+          "why": "In the article, grooms brush the horse's coat and clean its hooves every day.",
           "wrong": {
             "B": "Building stables is not described as the groom's job.",
             "C": "Choosing prizes is not mentioned.",
@@ -385,7 +385,7 @@
           ],
           "answer": "B",
           "skill": "inference",
-          "why": "The article says a trainer studies the horse's breed and bloodline to understand its natural strengths.",
+          "why": "A trainer studies the horse's family line to understand its natural strengths.",
           "wrong": {
             "A": "Stable color is not connected to bloodline.",
             "C": "Naming a horse is not described in the article.",
@@ -496,7 +496,7 @@
           ],
           "answer": "B",
           "skill": "detail",
-          "why": "The article says even a seemingly minor injury can end a promising career almost overnight.",
+          "why": "Even a small injury can end a horse's racing career very quickly.",
           "wrong": {
             "A": "Pedigree is fixed by birth, not changed by injury.",
             "C": "An injury would slow a horse, not speed it up.",
@@ -513,7 +513,7 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The article says this heritage predates most other organized sports by many centuries.",
+          "why": "This heritage is much older than most other organized sports.",
           "wrong": {
             "A": "The heritage is described as ancient, long before modern veterinary science.",
             "B": "Desert life is central to this heritage in the article.",
@@ -547,7 +547,7 @@
           ],
           "answer": "A",
           "skill": "cause-effect",
-          "why": "The article says even a minor injury could end a promising career, so regular checks matter.",
+          "why": "In the article, even a minor injury could end a promising career, so regular checks matter.",
           "wrong": {
             "B": "Naming horses is not discussed in the article.",
             "C": "Stable repairs are not mentioned.",
@@ -627,7 +627,7 @@
         ],
         "answer": "B",
         "skill": "detail",
-        "why": "The text says people love horses with great speed.",
+        "why": "In the text, people love horses with great speed.",
         "wrong": {
           "A": "Size is not mentioned.",
           "C": "Noise is not mentioned.",
@@ -697,7 +697,7 @@
         ],
         "answer": "C",
         "skill": "detail",
-        "why": "The text says the Arabian horse is known for its speed, spirit, and endurance.",
+        "why": "In the text, the Arabian horse is known for its speed, spirit, and endurance.",
         "wrong": {
           "A": "Size and weight are not mentioned.",
           "B": "Color is not named as its famous trait.",
@@ -714,7 +714,7 @@
         ],
         "answer": "A",
         "skill": "cause-effect",
-        "why": "The text says the trainer plans daily workouts that slowly build stamina.",
+        "why": "In the text, the trainer plans daily workouts that slowly build stamina.",
         "wrong": {
           "B": "Talking is not mentioned.",
           "C": "Workouts are for building stamina, not for sleep.",
@@ -801,7 +801,7 @@
         ],
         "answer": "A",
         "skill": "cause-effect",
-        "why": "The text says young horses learn to trust their trainer and groom before they ever race.",
+        "why": "In the text, young horses learn to trust their trainer and groom before they ever race.",
         "wrong": {
           "B": "They begin training before they ever race.",
           "C": "The prize is for race winners, not for young horses in training.",
@@ -818,7 +818,7 @@
         ],
         "answer": "D",
         "skill": "inference",
-        "why": "The text says many families take great pride in a tradition that goes back through generations of Arabian history.",
+        "why": "In the text, many families take great pride in a tradition that goes back through generations of Arabian history.",
         "wrong": {
           "A": "The text does not limit ownership to rich people.",
           "B": "The text says the tradition is continuing.",

@@ -138,7 +138,7 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The article says the capsule that landed on the Moon was named Eagle.",
+          "why": "The lunar module that landed on the Moon was named Eagle.",
           "wrong": {
             "A": "Columbia is not the name used in the article.",
             "B": "Discovery is not the name used in the article.",
@@ -168,11 +168,11 @@
             "Because the Saturn V rocket was very large and very loud",
             "Because the astronauts planted a colorful flag on the ground",
             "Because the ocean splashdown went smoothly in the morning",
-            "Because humans had walked on another world for the first time"
+            "Because people had walked on the Moon"
           ],
           "answer": "D",
           "skill": "cause-effect",
-          "why": "The article says people celebrated because, for the first time, humans had walked on another world.",
+          "why": "In the article, people were glad because men had walked on the Moon.",
           "wrong": {
             "A": "The rocket's size is not given as the reason for celebrating.",
             "B": "The flag is a detail, not the reason the article gives for celebrating.",
@@ -317,7 +317,7 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The article explains that Armstrong and Aldrin climbed into the lunar module to descend to the Moon's surface.",
+          "why": "In the article, Armstrong and Aldrin climbed into the lunar module to descend to the Moon's surface.",
           "wrong": {
             "A": "The command module stayed in orbit with Collins aboard.",
             "B": "Saturn V is the rocket that launched the spacecraft, not the landing vehicle.",
@@ -334,7 +334,7 @@
           ],
           "answer": "B",
           "skill": "detail",
-          "why": "The article states the astronauts gathered about 21 kilograms of Moon rocks and soil.",
+          "why": "In the article, the astronauts gathered about 21 kilograms of Moon rocks and soil.",
           "wrong": {
             "A": "2 kilograms is far less than the article states.",
             "C": "210 kilograms is far more than the article states.",
@@ -351,7 +351,7 @@
           ],
           "answer": "D",
           "skill": "cause-effect",
-          "why": "The article explains that the Moon's gravity pulls only about one-sixth as strongly as Earth's, letting the astronauts bounce more easily.",
+          "why": "In the article, the Moon's gravity pulls only about one-sixth as strongly as Earth's, letting the astronauts bounce more easily.",
           "wrong": {
             "A": "The Moon has no significant air at all.",
             "B": "Boot material is not given as the reason.",
@@ -513,7 +513,7 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The article explains that scientists were uncertain whether unknown lunar organisms might exist, so the astronauts were quarantined as a precaution.",
+          "why": "In the article, scientists were uncertain whether unknown lunar organisms might exist, so the astronauts were quarantined as a precaution.",
           "wrong": {
             "A": "Rest is not given as the reason for quarantine.",
             "B": "Repairs are not mentioned as a reason for quarantine.",
@@ -564,7 +564,7 @@
           ],
           "answer": "C",
           "skill": "compare",
-          "why": "The article explains that Collins stayed aboard the orbiting command module while Armstrong and Aldrin flew the lunar module down to the surface.",
+          "why": "In the article, Collins stayed aboard the orbiting command module while Armstrong and Aldrin flew the lunar module down to the surface.",
           "wrong": {
             "A": "Collins did not walk on the Moon; the other two astronauts did.",
             "B": "Collins was in orbit around the Moon, not on Earth.",
@@ -697,7 +697,7 @@
         ],
         "answer": "C",
         "skill": "detail",
-        "why": "The text says it landed in a flat spot called the Sea of Tranquility.",
+        "why": "In the text, it landed in a flat place called the Sea of Tranquility.",
         "wrong": {
           "A": "The landing spot was flat, not a mountain.",
           "B": "The text calls it flat, not a crater.",
@@ -767,7 +767,7 @@
         ],
         "answer": "B",
         "skill": "detail",
-        "why": "The article says the Moon is roughly 384,000 kilometers away.",
+        "why": "In the article, the Moon is roughly 384,000 kilometers away.",
         "wrong": {
           "A": "This is ten times too small.",
           "C": "This is ten times too large.",

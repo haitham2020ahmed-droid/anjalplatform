@@ -138,7 +138,7 @@
           ],
           "answer": "D",
           "skill": "detail",
-          "why": "The article says the peregrine falcon is the fastest of all.",
+          "why": "The peregrine falcon is the fastest of all.",
           "wrong": {
             "A": "The article does not say the saker falcon is the fastest.",
             "B": "The article does not talk about how fast baby falcons are.",
@@ -155,7 +155,7 @@
           ],
           "answer": "A",
           "skill": "detail",
-          "why": "The article says a falcon holds or grabs its prey with its talons, which are sharp claws.",
+          "why": "In the article, a falcon grabs its prey with its talons, which are sharp claws.",
           "wrong": {
             "B": "The article does not say the tail is used to grab prey.",
             "C": "The wings help the falcon fly and dive, not grab.",
@@ -172,7 +172,7 @@
           ],
           "answer": "C",
           "skill": "vocabulary",
-          "why": "The article says the bird or animal a falcon hunts is its prey.",
+          "why": "In the article, the bird or animal a falcon hunts is its prey.",
           "wrong": {
             "A": "A place where birds sleep is a nest, not prey.",
             "B": "The glove is what the bird sits on. It is not prey.",
@@ -189,7 +189,7 @@
           ],
           "answer": "A",
           "skill": "cause-effect",
-          "why": "The article says the hood keeps the bird calm.",
+          "why": "In the article, the hood keeps the bird calm.",
           "wrong": {
             "B": "A hood covers the head, so it does not help the bird see.",
             "C": "The article does not say the hood keeps the bird warm.",
@@ -317,7 +317,7 @@
           ],
           "answer": "A",
           "skill": "vocabulary",
-          "why": "The article says the falcon drops in a steep dive called a stoop.",
+          "why": "In the article, the falcon drops in a steep dive called a stoop.",
           "wrong": {
             "B": "The article does not call a nest a stoop.",
             "C": "The hood covers the bird's eyes. It is not a stoop.",
@@ -334,7 +334,7 @@
           ],
           "answer": "D",
           "skill": "detail",
-          "why": "The article states that a peregrine can go more than 300 kilometers per hour in a stoop.",
+          "why": "In the article, a peregrine can go more than 300 kilometers per hour in a stoop.",
           "wrong": {
             "A": "This is far too slow; the article gives a much larger number.",
             "B": "The article gives a speed of more than 300, not about 100.",
@@ -351,7 +351,7 @@
           ],
           "answer": "B",
           "skill": "detail",
-          "why": "The article says the beak has a hook and a small notch that help it hold or grip its food.",
+          "why": "In the article, the beak has a hook and a small notch that help it hold or grip its food.",
           "wrong": {
             "A": "Tail feathers are not mentioned as a way to hold food.",
             "C": "The hood is used by falconers to calm the bird.",
@@ -385,7 +385,7 @@
           ],
           "answer": "A",
           "skill": "inference",
-          "why": "The article says females are larger, often by about one third, so they can handle heavier prey.",
+          "why": "In the article, females are larger than males, so they can handle heavier prey.",
           "wrong": {
             "B": "The article does not say females hunt only at night.",
             "C": "All falcons have talons.",
@@ -496,7 +496,7 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The article says the tubercles appear to slow or moderate the rushing air so the bird can keep breathing.",
+          "why": "In the article, the tubercles appear to slow or moderate the rushing air so the bird can keep breathing.",
           "wrong": {
             "A": "The article does not link tubercles with smell.",
             "B": "Eggshells are discussed with DDT, not tubercles.",
@@ -530,7 +530,7 @@
           ],
           "answer": "D",
           "skill": "vocabulary",
-          "why": "The article says the tucked-in falcon has a streamlined shape that slices through the air with little resistance.",
+          "why": "When the falcon tucks in its wings, its smooth shape moves through the air with little resistance.",
           "wrong": {
             "A": "Streamlined is about shape, not thick feathers.",
             "B": "Sharp edges would not help air flow smoothly.",
@@ -581,7 +581,7 @@
           ],
           "answer": "D",
           "skill": "inference",
-          "why": "The article says the third eyelid protects the eye from wind and dust, so without it the eyes would be at risk.",
+          "why": "In the article, the third eyelid protects the eye from wind and dust, so without it the eyes would be at risk.",
           "wrong": {
             "A": "The eyelid protects the eye; it does not make sight reach farther.",
             "B": "The article does not connect the eyelid with speed.",
@@ -627,7 +627,7 @@
         ],
         "answer": "B",
         "skill": "detail",
-        "why": "The text says a falcon has sharp eyes and can see a small bird far off.",
+        "why": "In the text, a falcon has sharp eyes and can see a small bird far off.",
         "wrong": {
           "A": "The text does not say a falcon finds prey by its call.",
           "C": "The text does not mention a long tail.",
@@ -644,7 +644,7 @@
         ],
         "answer": "C",
         "skill": "compare",
-        "why": "The text says the mom is big and the dad is not as big.",
+        "why": "In the text, the mother falcon is bigger than the father.",
         "wrong": {
           "A": "The text does not say the mom is faster.",
           "B": "The text does not say how high each one flies.",
@@ -661,7 +661,7 @@
         ],
         "answer": "A",
         "skill": "vocabulary",
-        "why": "The text says, \"Talons are sharp claws.\"",
+        "why": "In the text, talons are sharp claws.",
         "wrong": {
           "B": "Wings are used to fly, not to grab prey.",
           "C": "The beak has a hook, but that is not a talon.",
@@ -681,8 +681,8 @@
         "why": "The text says training falcons is old and there is a big falcon show each year.",
         "wrong": {
           "A": "The text says this is old, not new.",
-          "B": "The text says men and boys train falcons.",
-          "C": "The text says there is a big falcon show every year."
+          "B": "In the text, people in Saudi Arabia train falcons.",
+          "C": "There is a big falcon show every year."
         }
       }
     ],
@@ -733,7 +733,7 @@
         "skill": "inference",
         "why": "Families have passed falconry down for generations and gather at a yearly festival, so it matters to them.",
         "wrong": {
-          "A": "The text calls it an old tradition.",
+          "A": "The article shows that falconry is a tradition.",
           "B": "Families have kept it for many generations.",
           "C": "People still gather each year to celebrate their birds."
         }
@@ -767,7 +767,7 @@
         ],
         "answer": "D",
         "skill": "cause-effect",
-        "why": "The article says females are usually about one third larger, which allows them to capture heavier prey.",
+        "why": "In the article, females are usually about one third larger, which allows them to capture heavier prey.",
         "wrong": {
           "A": "The text does not say females fly faster.",
           "B": "Tubercles help with breathing, not with prey size.",
@@ -818,7 +818,7 @@
         ],
         "answer": "B",
         "skill": "detail",
-        "why": "The text says the hood covers the bird's eyes and keeps it calm.",
+        "why": "In the text, the hood covers the bird's eyes and keeps it calm.",
         "wrong": {
           "A": "The glove, not the hood, lets the bird perch safely.",
           "C": "The third eyelid protects the eyes in flight.",

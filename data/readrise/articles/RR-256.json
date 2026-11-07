@@ -138,7 +138,7 @@
           ],
           "answer": "B",
           "skill": "detail",
-          "why": "The article says scholars worked to translate old books into a new tongue.",
+          "why": "In the article, scholars worked to translate old books into a new tongue.",
           "wrong": {
             "A": "The article does not say any books were burned.",
             "C": "The article does not mention selling books.",
@@ -155,7 +155,7 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The article explains that a code hides words so only some people can read them.",
+          "why": "In the article, a code hides words so only some people can read them.",
           "wrong": {
             "A": "The article is not about teaching reading and writing.",
             "B": "Codes are not described as a travel tool.",
@@ -368,7 +368,7 @@
           ],
           "answer": "B",
           "skill": "inference",
-          "why": "The article says people called him this because his writing covered so many different subjects.",
+          "why": "In the article, people called him this because his writing covered so many different subjects.",
           "wrong": {
             "A": "Al-Kindi was a scholar, not a king.",
             "C": "The article does not say he invented ciphers themselves.",
@@ -533,7 +533,7 @@
           "why": "The article describes Al-Kindi writing on mathematics, medicine, astronomy, music, philosophy, and cryptography, showing great breadth.",
           "wrong": {
             "A": "Cryptography was only one of his many interests.",
-            "C": "The article says he worked to connect philosophy with his own beliefs.",
+            "C": "In the article, he worked to connect philosophy with his own beliefs.",
             "D": "The article explicitly says he wrote about mathematics and medicine."
           }
         },
@@ -547,7 +547,7 @@
           ],
           "answer": "A",
           "skill": "cause-effect",
-          "why": "The article explains that counting letter frequency let Al-Kindi analyze the pattern and deduce the hidden letters.",
+          "why": "In the article, counting letter frequency let Al-Kindi analyze the pattern and deduce the hidden letters.",
           "wrong": {
             "B": "This method made ciphers easier, not impossible, to break.",
             "C": "The article does not say rulers abandoned ciphers.",
@@ -627,7 +627,7 @@
         ],
         "answer": "B",
         "skill": "detail",
-        "why": "The text says the town's king paid people to learn.",
+        "why": "In the text, the king paid people to learn.",
         "wrong": {
           "A": "The text does not say a teacher paid people.",
           "C": "A farmer is not mentioned as paying anyone.",
@@ -678,7 +678,7 @@
         ],
         "answer": "C",
         "skill": "detail",
-        "why": "The text says he wrote about math, stars, and sound.",
+        "why": "In the text, he wrote about math, stars, and sound.",
         "wrong": {
           "A": "Boats are not named in the text.",
           "B": "Horses are not named in the text.",
@@ -767,7 +767,7 @@
         ],
         "answer": "D",
         "skill": "detail",
-        "why": "The text says he wrote more than two hundred works on a wide range of topics.",
+        "why": "In the text, he wrote more than two hundred works on a wide range of topics.",
         "wrong": {
           "A": "Ten is far fewer than the text says.",
           "B": "Fifty is far fewer than the text says.",

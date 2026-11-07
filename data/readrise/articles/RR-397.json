@@ -172,8 +172,9 @@
           ],
           "answer": "C",
           "skill": "vocabulary",
-          "why": "The story says kids write notes about books they like and pin them on the wall for others to read.",
+          "why": "In the story, kids write notes about books they like and pin them on the wall for others to read.",
           "wrong": {
+            "A": "The wall is not made of books; it holds notes about books.",
             "B": "The wall does not keep kids out.",
             "D": "The notes are about books, not animal pictures."
           }
@@ -207,6 +208,7 @@
           "skill": "inference",
           "why": "The three friends think together, make signs together, and share both new ideas, showing they work as a team.",
           "wrong": {
+            "A": "They care a lot about the club and work hard to save it.",
             "B": "They want more kids to join, not fewer.",
             "C": "They love reading; that is why the club exists."
           }
@@ -332,7 +334,7 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The story says collecting enough stickers earns a small prize, such as a bookmark or a small treat.",
+          "why": "In the story, collecting enough stickers earns a small prize, such as a bookmark or a small treat.",
           "wrong": {
             "A": "There is no trip mentioned in the story.",
             "B": "Library cards are not part of the challenge.",
@@ -511,7 +513,7 @@
           ],
           "answer": "B",
           "skill": "detail",
-          "why": "The story states that finishing a mystery novel earns a sticker, and enough stickers earn a small prize, like a bookmark or snack.",
+          "why": "In the story, finishing a mystery novel earns a sticker, and enough stickers earn a small prize, like a bookmark or snack.",
           "wrong": {
             "A": "Student council membership is never mentioned.",
             "C": "A private meeting with the principal is not part of the challenge.",
@@ -625,7 +627,7 @@
         ],
         "answer": "D",
         "skill": "detail",
-        "why": "The text says, \"They meet on Tuesdays.\"",
+        "why": "In the story, the club meets every Tuesday.",
         "wrong": {
           "A": "The club does not meet on Mondays.",
           "B": "The club does not meet on Fridays.",
@@ -642,7 +644,7 @@
         ],
         "answer": "A",
         "skill": "detail",
-        "why": "The text says each book gets a sticker.",
+        "why": "In the story, each book gets a sticker.",
         "wrong": {
           "B": "A bookmark is not mentioned.",
           "C": "The signs are painted by Sara, not given to books.",
@@ -695,7 +697,7 @@
         ],
         "answer": "C",
         "skill": "detail",
-        "why": "The text says the sticker goes on a big chart by the door.",
+        "why": "In the story, the sticker goes on a big chart.",
         "wrong": {
           "A": "The text does not say it goes on a backpack.",
           "B": "The desk is not mentioned.",
@@ -729,7 +731,7 @@
         ],
         "answer": "A",
         "skill": "cause-effect",
-        "why": "The text says that just asking kids to join is not enough and they needed an exciting idea.",
+        "why": "In the story, just asking kids to join is not enough, so they need an exciting idea.",
         "wrong": {
           "B": "Kids could enter the library; they just did not come.",
           "C": "The principal is not mentioned in this story.",
@@ -756,20 +758,20 @@
     ],
     "HIGH": [
       {
-        "stem": "Where did the friends post reminders before they tried new ideas?",
+        "stem": "What did the friends name their first new idea?",
         "options": [
-          "Near the cafeteria and the gym",
-          "Inside every single classroom",
-          "On the roof of the library",
-          "On the side of the school bus"
+          "Mystery Month",
+          "Book Week",
+          "Reading Race",
+          "Story Day"
         ],
         "answer": "A",
         "skill": "detail",
-        "why": "The text says they posted friendly reminders near the cafeteria and the gym.",
+        "why": "Their first idea was a reading challenge they named Mystery Month.",
         "wrong": {
-          "B": "Classrooms are not mentioned.",
-          "C": "A roof is not mentioned.",
-          "D": "A bus is not mentioned."
+          "B": "Book Week is not named.",
+          "C": "Reading Race is not named.",
+          "D": "Story Day is not named."
         }
       },
       {
@@ -820,7 +822,7 @@
         "wrong": {
           "A": "Distance is not mentioned.",
           "C": "Nothing says students were not allowed.",
-          "D": "The text says they did post reminders."
+          "D": "They did put up reminders."
         }
       }
     ]

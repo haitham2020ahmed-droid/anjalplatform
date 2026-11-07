@@ -138,7 +138,7 @@
           ],
           "answer": "B",
           "skill": "detail",
-          "why": "The article says an Arab people called the Nabataeans lived there and carved the city.",
+          "why": "In the article, an Arab people called the Nabataeans lived there and carved the city.",
           "wrong": {
             "A": "The Romans are not named as the builders.",
             "C": "The article does not say this.",
@@ -155,7 +155,7 @@
           ],
           "answer": "C",
           "skill": "cause-effect",
-          "why": "The article says the rock is pink and red, so Petra is called the Rose City.",
+          "why": "In the article, the rock is pink and red, so Petra is called the Rose City.",
           "wrong": {
             "A": "The article does not say roses grow there.",
             "B": "The traders sold spices, not roses.",
@@ -172,7 +172,7 @@
           ],
           "answer": "B",
           "skill": "detail",
-          "why": "The article says the building called the Treasury was really a tomb.",
+          "why": "In the article, the building called the Treasury was really a tomb.",
           "wrong": {
             "A": "Its name sounds like a bank, but it was a tomb.",
             "C": "It was not a market.",
@@ -302,7 +302,7 @@
           "skill": "central-idea",
           "why": "The article explains how the Nabataeans carved the city, earned wealth from trade, and managed water.",
           "wrong": {
-            "B": "The article says the buildings were not made from bricks, and the Nabataeans built Petra.",
+            "B": "In the article, the buildings were not made from bricks, and the Nabataeans built Petra.",
             "C": "Petra is ancient and is in Jordan.",
             "D": "The Siq is only the entrance."
           }
@@ -317,7 +317,7 @@
           ],
           "answer": "B",
           "skill": "detail",
-          "why": "The article says the cliffs are made of sandstone.",
+          "why": "In the article, the cliffs are made of sandstone.",
           "wrong": {
             "A": "Granite is not mentioned.",
             "C": "Marble is not mentioned.",
@@ -334,7 +334,7 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The article says visitors walk through the Siq, a narrow canyon with towering walls.",
+          "why": "In the article, visitors walk through the Siq, a narrow canyon with towering walls.",
           "wrong": {
             "A": "That describes the Treasury.",
             "B": "The water tanks are a different feature.",
@@ -496,7 +496,7 @@
           ],
           "answer": "A",
           "skill": "cause-effect",
-          "why": "The article says they worked from the top down so falling rock would not damage completed sections.",
+          "why": "In the article, they worked from the top down so falling rock would not damage completed sections.",
           "wrong": {
             "B": "Height is not the reason given.",
             "C": "The color comes from the sandstone itself.",
@@ -530,7 +530,7 @@
           ],
           "answer": "B",
           "skill": "cause-effect",
-          "why": "The article says merchants began shipping goods by sea and an earthquake damaged buildings.",
+          "why": "In the article, merchants began shipping goods by sea and an earthquake damaged buildings.",
           "wrong": {
             "A": "War and drought are not mentioned.",
             "C": "Flood and fire are not mentioned.",
@@ -564,9 +564,9 @@
           ],
           "answer": "B",
           "skill": "inference",
-          "why": "The article says the dams and cisterns allowed thousands of people to live there in a dry desert.",
+          "why": "In the article, the dams and cisterns allowed thousands of people to live there in a dry desert.",
           "wrong": {
-            "A": "The article describes an arid desert.",
+            "A": "The land around Petra is a dry desert.",
             "C": "The Nabataeans built it.",
             "D": "It captured rainwater, not seawater."
           }
@@ -627,7 +627,7 @@
         ],
         "answer": "B",
         "skill": "detail",
-        "why": "The text says camels came to the city and brought spice to sell.",
+        "why": "In the text, camels came through Petra carrying spices.",
         "wrong": {
           "A": "The people did not use bricks.",
           "C": "The people kept rain for water; camels did not bring it.",
@@ -697,7 +697,7 @@
         ],
         "answer": "C",
         "skill": "detail",
-        "why": "The article says they built dams, clay pipes, and deep tanks.",
+        "why": "In the article, they built dams, clay pipes, and deep tanks.",
         "wrong": {
           "A": "Wells, towers, and lakes are not named.",
           "B": "Bridges, walls, and gates are not named.",
@@ -714,7 +714,7 @@
         ],
         "answer": "A",
         "skill": "cause-effect",
-        "why": "The article says that because Petra lies in a dry desert, water was precious.",
+        "why": "In the article, because Petra lies in a dry desert, water was precious.",
         "wrong": {
           "B": "The text gives the desert as the reason.",
           "C": "The text does not say camels drank it all.",
@@ -767,7 +767,7 @@
         ],
         "answer": "D",
         "skill": "detail",
-        "why": "The text says traders paid to rest in Petra and collect water.",
+        "why": "Traders paid to rest in Petra and get water.",
         "wrong": {
           "A": "The gold was only an old legend.",
           "B": "Bricks are not mentioned for caravans.",

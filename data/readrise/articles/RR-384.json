@@ -155,7 +155,7 @@
           ],
           "answer": "A",
           "skill": "detail",
-          "why": "The article says Hamza learned that some calls meant danger was near and others meant food had been found.",
+          "why": "In the article, Hamza learned that some calls meant danger was near and others meant food had been found.",
           "wrong": {
             "B": "The calls were not about sleep.",
             "C": "The calls were not about rain never coming.",
@@ -627,7 +627,7 @@
         ],
         "answer": "A",
         "skill": "detail",
-        "why": "The text says many birds flew away fast after the loud, strange call.",
+        "why": "In the text, many birds flew away fast after the loud, strange call.",
         "wrong": {
           "B": "The birds flew away; they did not sit still.",
           "C": "The call was loud and strange, not soft.",
@@ -784,7 +784,7 @@
         ],
         "answer": "A",
         "skill": "detail",
-        "why": "The text says one call signaled danger, another meant food, and another seemed to summon distant birds closer.",
+        "why": "In the text, one call signaled danger, another meant food, and another seemed to summon distant birds closer.",
         "wrong": {
           "B": "The storm call was a different, strange sound.",
           "C": "The danger call was the first kind.",

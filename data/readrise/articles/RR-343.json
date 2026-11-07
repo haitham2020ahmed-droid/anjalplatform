@@ -138,7 +138,7 @@
           ],
           "answer": "B",
           "skill": "detail",
-          "why": "The article says the main Amazon forms where the Solimões and the Rio Negro meet and flow on as one river.",
+          "why": "The Amazon is formed where two large rivers meet and flow on as one.",
           "wrong": {
             "A": "The ocean is where the river ends, not where it forms.",
             "C": "Manaus is the city near where the two rivers meet, but the river forms where the water joins, not inside the city.",
@@ -317,10 +317,10 @@
           ],
           "answer": "D",
           "skill": "detail",
-          "why": "The article states that the Amazon discharges more water into the ocean than the next seven largest rivers in the world combined.",
+          "why": "In the article, the Amazon discharges more water into the ocean than the next seven largest rivers in the world combined.",
           "wrong": {
             "A": "The article reports an estimate from researchers, so it has been measured.",
-            "B": "The article says the Amazon discharges far more, not about the same.",
+            "B": "In the article, the Amazon discharges far more, not about the same.",
             "C": "The article says the opposite: the Amazon discharges far more water."
           }
         },
@@ -334,7 +334,7 @@
           ],
           "answer": "A",
           "skill": "cause-effect",
-          "why": "The article explains that the Solimões carries pale, sediment-loaded water from the mountains while the Rio Negro carries darker water from decaying forest leaves, which gives each its color.",
+          "why": "The two rivers that meet carry water of different colors.",
           "wrong": {
             "B": "The article does not mention any dam where the rivers meet.",
             "C": "Rivers flow downhill, and the article never says otherwise.",
@@ -368,7 +368,7 @@
           ],
           "answer": "B",
           "skill": "vocabulary",
-          "why": "The article describes the basin as the entire area of land that funnels water into the Amazon, covering more than twice the area of India.",
+          "why": "The basin is all the land that sends water into the Amazon, and it is huge.",
           "wrong": {
             "A": "The article never uses basin to mean a boat.",
             "C": "The narrow strip right beside the river is closer to a floodplain, not the whole basin.",
@@ -482,7 +482,7 @@
           "why": "The article traces how the river's volume, watershed, and remoteness shape both its geography and daily life along its banks.",
           "wrong": {
             "A": "The article explains why roads are difficult to build, but does not blame the government for failing.",
-            "B": "The article says the Solimões, not the Rio Negro, carries heavy sediment; the Rio Negro is described as dark instead.",
+            "B": "In the article, the Solimões, not the Rio Negro, carries heavy sediment; the Rio Negro is described as dark instead.",
             "D": "The article is about the river system's hydrology, not rainforest species diversity."
           }
         },
@@ -547,7 +547,7 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The article describes the plume reaching far out to sea and notes that the river's volume measurably changes the ocean's salinity beyond its mouth.",
+          "why": "The river's water reaches far out to sea and changes how salty the ocean is near its mouth.",
           "wrong": {
             "A": "This describes a benefit to riverside communities, not an effect on the ocean.",
             "B": "This describes one tributary's source, not an effect on the ocean.",
@@ -600,7 +600,7 @@
           "skill": "author-purpose",
           "why": "The final paragraph highlights how the combined contribution of tributaries produces a volume so large it alters ocean salinity, underscoring the river's scale.",
           "wrong": {
-            "A": "The article notes the Amazon is not quite the longest river without making an unfavorable comparison to the Nile.",
+            "A": "The article does not make an unkind comparison with other rivers.",
             "B": "The article states no permanent bridge exists; it does not list proposed bridges.",
             "D": "The article says this phenomenon continues to fascinate scientists, not that study should stop."
           }
@@ -661,7 +661,7 @@
         ],
         "answer": "D",
         "skill": "sequence",
-        "why": "The text says the river rises and then spreads into the trees.",
+        "why": "In the text, the river rises and then spreads into the trees.",
         "wrong": {
           "A": "The river does not become a hill.",
           "B": "The text says no bridge crosses the river.",
@@ -678,7 +678,7 @@
         ],
         "answer": "B",
         "skill": "inference",
-        "why": "The text says families fish in the river and travel on it, so it gives life to many people.",
+        "why": "In the text, people travel on the river, and it gives life to many people.",
         "wrong": {
           "A": "The river is very wide and full of water.",
           "C": "The villages sit by the river, not far from it.",
@@ -767,7 +767,7 @@
         ],
         "answer": "B",
         "skill": "detail",
-        "why": "The text says more than a thousand smaller tributaries join the main river.",
+        "why": "In the text, more than a thousand smaller tributaries join the main river.",
         "wrong": {
           "A": "The number is far more than ten.",
           "C": "Fifty is far too few.",

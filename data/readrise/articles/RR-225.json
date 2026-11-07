@@ -138,7 +138,7 @@
           ],
           "answer": "B",
           "skill": "detail",
-          "why": "The article says the body of a ship is called a hull.",
+          "why": "In the article, the body of a ship is called a hull.",
           "wrong": {
             "A": "A sail is the cloth that catches the wind.",
             "C": "Rope was used to tie the wooden boards together.",
@@ -191,7 +191,7 @@
           "skill": "cause-effect",
           "why": "The article says the triangle-shaped sail caught the wind and helped the ship move and turn.",
           "wrong": {
-            "B": "The article says sailors sailed far away, to India and Africa.",
+            "B": "In the article, sailors sailed far from home to faraway lands.",
             "C": "The sail did not cause the boards to come apart.",
             "D": "Ships without engines still needed wind to move at all."
           }
@@ -368,7 +368,7 @@
           ],
           "answer": "A",
           "skill": "cause-effect",
-          "why": "The article explains that a lateen sail's wide range of wind angles gave sailors more control when steering and turning.",
+          "why": "In the article, a lateen sail's wide range of wind angles gave sailors more control when steering and turning.",
           "wrong": {
             "B": "The dhow's lateen sail is central to how it moved.",
             "C": "The article compares the shape and flexibility of sails, not their size.",
@@ -405,7 +405,7 @@
           "why": "Because monsoons blow one direction for part of the year and then reverse, timing a voyage around them made both the outward and return trips easier.",
           "wrong": {
             "B": "The article describes strong seasonal winds, not calm seas.",
-            "C": "The article says these winds affected travel across the wider Indian Ocean region.",
+            "C": "These winds affected travel across a wide ocean region.",
             "D": "The article says ships carried valuable cargo on these voyages."
           }
         },
@@ -496,7 +496,7 @@
           ],
           "answer": "B",
           "skill": "detail",
-          "why": "The article says builders shaped and assembled the outer planks first, and only afterward inserted internal ribs to reinforce the completed shell.",
+          "why": "In the article, builders shaped and assembled the outer planks first, and only afterward inserted internal ribs to reinforce the completed shell.",
           "wrong": {
             "A": "The article describes the reverse order: planks first, then ribs.",
             "C": "The sail is a separate part, added to a hull already under construction.",
@@ -513,7 +513,7 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The article states that workers sealed the remaining seams with a thick paste, typically a mixture of fish oil and lime.",
+          "why": "In the article, workers sealed the remaining seams with a thick paste, typically a mixture of fish oil and lime.",
           "wrong": {
             "A": "The article does not mention melted metal being used in this way.",
             "B": "Coconut fiber was twisted into cord for stitching the planks, not used alone to seal seams.",
@@ -547,7 +547,7 @@
           ],
           "answer": "B",
           "skill": "cause-effect",
-          "why": "The article says the lateen sail's ability to catch wind from many angles let crews maneuver skillfully and sail somewhat against the prevailing wind.",
+          "why": "In the article, the lateen sail's ability to catch wind from many angles let crews maneuver skillfully and sail somewhat against the prevailing wind.",
           "wrong": {
             "A": "The lateen sail improved turning, rather than preventing it.",
             "C": "Monsoons affected long voyages generally, not every single departure from port.",
@@ -564,7 +564,7 @@
           ],
           "answer": "A",
           "skill": "inference",
-          "why": "The article says square-rigged ships of the era generally struggled to sail against the prevailing wind, unlike dhows with their lateen sails.",
+          "why": "In the article, square-rigged ships of the era generally struggled to sail against the prevailing wind, unlike dhows with their lateen sails.",
           "wrong": {
             "B": "The article discusses sail shape, not whether these ships carried goods.",
             "C": "All ships described in the article, including square-rigged ones, were built of wood.",
@@ -627,7 +627,7 @@
         ],
         "answer": "A",
         "skill": "detail",
-        "why": "The text says a long piece of wood ran along the bottom and kept the ship steady.",
+        "why": "In the text, a long piece of wood ran along the bottom and kept the ship steady.",
         "wrong": {
           "B": "Noise is not mentioned.",
           "C": "The sail catches the wind, but the bottom piece does not hold it up in this text.",
@@ -661,11 +661,11 @@
         ],
         "answer": "D",
         "skill": "vocabulary",
-        "why": "The text says folks in Arabia built a kind of ship called a dhow.",
+        "why": "In the text, folks in Arabia built a kind of ship called a dhow.",
         "wrong": {
           "A": "Rope was used to tie the boards.",
           "B": "Wood is what the dhow was built from.",
-          "C": "The text says sailors went to Africa, but a dhow is not a harbor."
+          "C": "A dhow is a boat, not a harbor."
         }
       },
       {
@@ -678,7 +678,7 @@
         ],
         "answer": "B",
         "skill": "detail",
-        "why": "The text says sailors went to India and to Africa.",
+        "why": "In the text, sailors crossed the sea to faraway lands such as India.",
         "wrong": {
           "A": "The moon and sun are not mentioned.",
           "C": "The north pole is not mentioned.",
@@ -731,7 +731,7 @@
         ],
         "answer": "D",
         "skill": "cause-effect",
-        "why": "The text says the keel acted like a backbone, giving strength and helping the ship travel straight.",
+        "why": "In the text, the keel acted like a backbone, giving strength and helping the ship travel straight.",
         "wrong": {
           "A": "Builders sewed the planks with rope.",
           "B": "The cargo was carried inside the ship.",
@@ -767,7 +767,7 @@
         ],
         "answer": "B",
         "skill": "detail",
-        "why": "The text says the planks were stitched with cord made from coconut fiber.",
+        "why": "In the text, the planks were stitched with cord made from coconut fiber.",
         "wrong": {
           "A": "Cotton is not mentioned.",
           "C": "Silk is not mentioned.",
@@ -801,7 +801,7 @@
         ],
         "answer": "A",
         "skill": "cause-effect",
-        "why": "The text says inner ribs were added to the finished shell to make it even stronger.",
+        "why": "Inner ribs were added to the finished shell to make it even stronger.",
         "wrong": {
           "B": "The sail was a separate part of the dhow.",
           "C": "A paste of fish oil and lime sealed the seams.",

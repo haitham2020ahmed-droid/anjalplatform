@@ -11,6 +11,7 @@ import { activityTracker, classOverview, levelDetail } from "@/server/readrise/t
 import { ActivityTrackerView, ByWeekView, ClassDashboardView, ClassOverviewTable, ClassSettingsCard, LevelBars, LevelDetailView, StudentViewNav } from "./_components/data-center";
 import { ENGINE } from "@/server/readrise/engine";
 import { formatLevel } from "@/server/readrise/level";
+import { BAND_LABEL, GRADE_BANDS, gradeBand as benchBand } from "@/server/readrise/benchmarks";
 import { exportsOf } from "@/components/reports/report-ui";
 import { AtAGlance, Callout, ReportHeader } from "@/components/report-kit";
 import { getT } from "@/i18n/server";
@@ -94,7 +95,9 @@ export default async function ReadRiseTeacher({ searchParams }: { searchParams: 
   ]);
   const url = (t: Tab) => `/teacher/readrise?class=${klass.id}&tab=${t}`;
   const s = r.summary;
-  const medBelow = s.medianLevel !== null && s.medianLevel < r.band.low;
+  // round 7: ONE grade band (benchmarks.ts) — the median's band and the count of students in each band
+  const medBand = s.medianLevel === null ? null : benchBand(r.grade, s.medianLevel);
+  const bandText = (lo: number, hi: number) => `${formatLevel(lo)}–${formatLevel(hi)}`;
 
   return (
     <AppShell name={String(me.displayName)}>
@@ -103,14 +106,14 @@ export default async function ReadRiseTeacher({ searchParams }: { searchParams: 
       <ClassSettingsCard classId={klass.id} s={settings} canWrite={canWrite} t={t} />
       <AtAGlance items={[
         { icon: "🧭", label: "Placed", value: `${s.placed} / ${s.students}`, meaning: s.notPlaced ? t("{n} not placed", { n: s.notPlaced }) : "everyone placed", tone: s.notPlaced ? "warn" : "good" },
-        { icon: "📊", label: "Median ReadRise Level", value: fmt(s.medianLevel), meaning: t("Grade {g} band {lo}–{hi} (ReadRise Level is an estimate)", { g: r.grade, lo: r.band.low, hi: r.band.high }), tone: medBelow ? "bad" : "info" },
+        { icon: "📊", label: "Median ReadRise Level", value: s.medianLevel === null ? "—" : formatLevel(s.medianLevel), meaning: <>{medBand ? `${t(BAND_LABEL[medBand])} · ` : ""}{t("Grade {g} Meets range: {range} (ReadRise Level is an estimate)", { g: r.grade, range: bandText(r.band.low, r.band.high) })}</>, tone: medBand === "FAR_BELOW" ? "bad" : medBand === "APPROACHES" ? "warn" : "info" },
         { icon: "📈", label: "Growth", value: signed(s.avgGrowth), meaning: "average since placement", tone: (s.avgGrowth ?? 0) > 0 ? "good" : (s.avgGrowth ?? 0) < 0 ? "bad" : "neutral" },
-        { icon: "▼", label: "Below band", value: s.belowBand, meaning: "students under the grade's expected band", tone: s.belowBand ? "warn" : "neutral" },
+        { icon: "▼", label: "Grade bands", value: GRADE_BANDS.map((b) => s.bands[b]).join(" / "), meaning: GRADE_BANDS.map((b) => `${t(BAND_LABEL[b])} ${s.bands[b]}`).join(" · "), tone: s.bands.FAR_BELOW ? "warn" : "neutral" },
         { icon: "💤", label: "Inactive", value: s.inactive, meaning: "no reading for 14+ days", tone: s.inactive ? "warn" : "neutral" },
       ]} />
       <div className="mb-5 grid gap-4 lg:grid-cols-2">
         <Callout kind="help" items={[
-          s.belowBand ? <>{t("Below band")}: {r.students.filter((x) => x.flags.belowBand).slice(0, 10).map((x) => x.name).join(", ")}</> : null,
+          s.bands.FAR_BELOW ? <>{t("Falls Far Below")}: {r.students.filter((x) => x.flags.farBelow).slice(0, 10).map((x) => x.name).join(", ")}</> : null,
           s.inactive ? <>{t("Inactive")}: {r.students.filter((x) => x.flags.inactive).slice(0, 10).map((x) => x.name).join(", ")}</> : null,
           s.notPlaced ? <>{t("Not placed")}: {r.students.filter((x) => x.flags.notPlaced).slice(0, 10).map((x) => x.name).join(", ")}</> : null,
           s.belowGoal ? <>🟠 {t("Reading, below 75%")}: {r.students.filter((x) => x.flags.belowGoal).slice(0, 10).map((x) => x.name).join(", ")}</> : null,
@@ -160,9 +163,9 @@ function StudentsTab({ r, canWrite, classId, t }: { r: Report; canWrite: boolean
       <div className="grid gap-6 xl:grid-cols-[2fr_1fr]">
         <Section title="Growth" icon="📈" hint="Each student's ReadRise Level at the end of each week (thin lines) and the class median (bold).">
           {r.history.series.length === 0 ? <p className="text-sm text-slate-600">No student has been placed yet.</p> :
-            <ScaledLineChart labels={r.history.weeks} series={series} title={`${r.className} ReadRise Level by week`} min={range.min} max={range.max} ticks={range.ticks} band={{ ...r.band, label: `Grade ${r.grade} expected band` }} />}
+            <ScaledLineChart labels={r.history.weeks} series={series} title={`${r.className} ReadRise Level by week`} min={range.min} max={range.max} ticks={range.ticks} band={{ ...r.band, label: t("Grade {g} Meets range", { g: r.grade }) }} levels />}
         </Section>
-        <Section title="Where the class is" icon="📊" hint={`Expected band for Grade ${r.grade}: ${r.band.low}–${r.band.high}.`}>
+        <Section title="Where the class is" icon="📊" hint={t("Grade {g} Meets range: {range}.", { g: r.grade, range: `${formatLevel(r.band.low)}–${formatLevel(r.band.high)}` })}>
           <LevelBars buckets={r.distribution} title={`${r.className} students by ReadRise Level`} t={t} />
         </Section>
       </div>
@@ -193,7 +196,7 @@ function StudentsTab({ r, canWrite, classId, t }: { r: Report; canWrite: boolean
                   <td className="p-2">
                     <span className="flex flex-wrap gap-1 text-[11px] font-semibold">
                       {x.flags.notPlaced && <span className="rounded-full bg-slate-100 px-2 py-0.5 text-slate-700">not placed</span>}
-                      {x.flags.belowBand && <span className="rounded-full bg-red-50 px-2 py-0.5 text-red-800 ring-1 ring-red-200">below band</span>}
+                      {x.gradeBand && x.gradeBand !== "MEETS" && <span className={`rounded-full px-2 py-0.5 ring-1 ${x.gradeBand === "FAR_BELOW" ? "bg-red-50 text-red-800 ring-red-200" : x.gradeBand === "APPROACHES" ? "bg-amber-50 text-amber-900 ring-amber-200" : "bg-emerald-50 text-emerald-800 ring-emerald-200"}`}>{t(BAND_LABEL[x.gradeBand])}</span>}
                       {x.flags.inactive && <span className="rounded-full bg-amber-50 px-2 py-0.5 text-amber-900 ring-1 ring-amber-200">inactive</span>}
                       {x.flags.notReading && <span data-testid="rr-flag-not-reading" className="rounded-full bg-red-50 px-2 py-0.5 text-red-800 ring-1 ring-red-200">🔴 {t("Not reading")}</span>}
                       {x.flags.belowGoal && <span data-testid="rr-flag-below-goal" className="rounded-full bg-orange-50 px-2 py-0.5 text-orange-900 ring-1 ring-orange-200">🟠 {t("Reading, below 75%")}</span>}

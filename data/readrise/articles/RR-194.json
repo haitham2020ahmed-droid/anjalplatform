@@ -125,7 +125,7 @@
           "wrong": {
             "B": "Camels are not in the article.",
             "C": "The article is about plants saving water, not watering gardens.",
-            "D": "The article says deserts get very little rain."
+            "D": "Deserts get very little rain, but that is not the main topic."
           }
         },
         {
@@ -138,7 +138,7 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The article says a cactus has a thick stem that holds lots of water, like a tank.",
+          "why": "In the article, a cactus has a thick stem that holds lots of water, like a tank.",
           "wrong": {
             "A": "Spines help the cactus lose less water, but they do not hold it.",
             "B": "The article does not say flowers store water.",
@@ -155,7 +155,7 @@
           ],
           "answer": "B",
           "skill": "cause-effect",
-          "why": "The article says spines lose less water than big leaves and keep animals away.",
+          "why": "In the article, spines lose less water than big leaves and keep animals away.",
           "wrong": {
             "A": "The article does not say spines make a cactus taller.",
             "C": "Roots take in the rain, not spines.",
@@ -206,7 +206,7 @@
           ],
           "answer": "A",
           "skill": "sequence",
-          "why": "The article says that when rain comes, the seeds wake up, then grow and bloom in a few weeks.",
+          "why": "In the article, when rain comes, the seeds wake up, then grow and bloom in a few weeks.",
           "wrong": {
             "B": "The article does not say the seeds blow away.",
             "C": "Seeds do not turn into spines.",
@@ -334,7 +334,7 @@
           ],
           "answer": "A",
           "skill": "detail",
-          "why": "The article says the wax works like a seal that keeps moisture inside the leaf.",
+          "why": "In the article, the wax works like a seal that keeps moisture inside the leaf.",
           "wrong": {
             "B": "Taste is not mentioned.",
             "C": "Roots, not wax, take in water.",
@@ -496,7 +496,7 @@
           ],
           "answer": "A",
           "skill": "cause-effect",
-          "why": "The article says plants open their stomata at night, when the air is cooler and less water escapes.",
+          "why": "In the article, plants open their stomata at night, when the air is cooler and less water escapes.",
           "wrong": {
             "B": "Animals are not the reason given.",
             "C": "The article does not say rain falls only at night.",
@@ -513,7 +513,7 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The article says deserts often receive less than 250 millimeters of rain a year.",
+          "why": "Deserts often get less than 250 millimeters of rain a year.",
           "wrong": {
             "A": "That would be a very wet place, not a desert.",
             "B": "The article does not mention snow.",
@@ -547,7 +547,7 @@
           ],
           "answer": "D",
           "skill": "detail",
-          "why": "The article says the stem visibly expands as it fills after a rainstorm.",
+          "why": "In the article, the stem visibly expands as it fills after a rainstorm.",
           "wrong": {
             "A": "The stem grows larger, not smaller.",
             "B": "The spines stay on the cactus.",
@@ -697,7 +697,7 @@
         ],
         "answer": "B",
         "skill": "detail",
-        "why": "The text says the spines protect the cactus from hungry animals that want the water inside.",
+        "why": "In the text, the spines protect the cactus from hungry animals that want the water inside.",
         "wrong": {
           "A": "Wind is not mentioned.",
           "C": "Cold nights are not mentioned.",
@@ -714,7 +714,7 @@
         ],
         "answer": "D",
         "skill": "vocabulary",
-        "why": "The text says groundwater is water hidden under the earth.",
+        "why": "In the text, groundwater is water hidden under the earth.",
         "wrong": {
           "A": "That describes rain.",
           "B": "That water is stored in the cactus.",
@@ -787,7 +787,7 @@
         "why": "An arid region receives very little rainfall, so arid means extremely dry.",
         "wrong": {
           "A": "A place with little rain has few trees.",
-          "B": "The article says the sun beats down.",
+          "B": "Arid means very dry, not cold.",
           "D": "The region has very little rain."
         }
       },

@@ -138,7 +138,7 @@
      ],
      "answer": "C",
      "skill": "detail",
-     "why": "The article says this hidden water, held inside the ground, is called groundwater.",
+     "why": "In the article, this hidden water in the ground is called groundwater.",
      "wrong": {
       "A": "Rainwater is what falls from the sky, before it soaks in.",
       "B": "The article is about water under the land, not the sea.",
@@ -155,7 +155,7 @@
      ],
      "answer": "A",
      "skill": "detail",
-     "why": "The article says a well is a deep hole that goes down past the water table to reach water.",
+     "why": "In the article, a well is a deep hole that goes down past the water table to reach water.",
      "wrong": {
       "B": "A pond sits on the surface; a well goes deep underground.",
       "C": "The article does not say anything makes rain fall.",
@@ -189,7 +189,7 @@
      ],
      "answer": "A",
      "skill": "inference",
-     "why": "The article says heavy rain makes the water table rise closer to the surface.",
+     "why": "In the article, rain makes the water underground rise.",
      "wrong": {
       "B": "The water table does not disappear; it rises and falls.",
       "C": "The article never mentions ice.",
@@ -214,7 +214,7 @@
      }
     },
     {
-     "stem": "Read: \"This water is called groundwater.\" What does groundwater mean?",
+     "stem": "In the article, what does the word \"groundwater\" mean?",
      "options": [
       "Water in the open sea",
       "Water that is hidden under the ground",
@@ -334,7 +334,7 @@
      ],
      "answer": "C",
      "skill": "detail",
-     "why": "The article says a saturated zone is one where every hole and crack is completely filled with water, with no air left.",
+     "why": "In the article, a saturated zone is one where every hole and crack is completely filled with water, with no air left.",
      "wrong": {
       "A": "Saturated ground is full of water, the opposite of dry.",
       "B": "Sand dunes are not part of this definition.",
@@ -351,7 +351,7 @@
      ],
      "answer": "B",
      "skill": "cause-effect",
-     "why": "When extraction outpaces recharge, the article explains that the water table sinks lower.",
+     "why": "When extraction outpaces recharge, in the article, the water table sinks lower.",
      "wrong": {
       "A": "The article shows the water table does change over time.",
       "C": "Aquifers are already made of rock or sand; they do not turn to stone.",
@@ -393,7 +393,7 @@
      }
     },
     {
-     "stem": "Read: \"Because these materials are permeable, meaning water can pass through them.\" What does permeable mean?",
+     "stem": "In the article, what does the word \"permeable\" mean?",
      "options": [
       "Completely solid with no holes at all",
       "Extremely hot underground",
@@ -483,11 +483,11 @@
      "wrong": {
       "B": "Wells draw on groundwater that built up over time, not only on fresh rainfall.",
       "C": "Fossil water refers to very old groundwater, not water found in fossils.",
-      "D": "The article says rain is rare across much of Saudi Arabia."
+      "D": "Rain is rare across much of Saudi Arabia, but that is not the central idea."
      }
     },
     {
-     "stem": "Read: \"a zone where every pore and fracture is already saturated... porous materials allow water to pass through.\" What does porous mean?",
+     "stem": "In the article, what does the word \"porous\" mean?",
      "options": [
       "Extremely heavy and dense throughout",
       "Full of tiny holes that let liquid through",
@@ -627,7 +627,7 @@
     ],
     "answer": "A",
     "skill": "detail",
-    "why": "The text says farmers pump the water and grow crops with it.",
+    "why": "In the text, farmers pump the water and grow crops with it.",
     "wrong": {
      "B": "The text does not say farmers sail boats.",
      "C": "The text does not say roads are built with it.",
@@ -661,7 +661,7 @@
     ],
     "answer": "B",
     "skill": "detail",
-    "why": "The text says all the holes are full and no air is left at the water table.",
+    "why": "In the text, all the holes are full and no air is left at the water table.",
     "wrong": {
      "A": "The text says no air is left.",
      "C": "The holes are filled with water, not sand.",
@@ -767,9 +767,9 @@
     ],
     "answer": "D",
     "skill": "detail",
-    "why": "The text says groundwater exists almost everywhere beneath our feet, even beneath deserts.",
+    "why": "Groundwater is found almost everywhere under our feet, even under deserts.",
     "wrong": {
-     "A": "The text says it also exists beneath deserts.",
+     "A": "In the text, it also exists beneath deserts.",
      "B": "The text does not limit groundwater to places under rivers.",
      "C": "The text does not limit groundwater to farm fields."
     }
@@ -801,7 +801,7 @@
     ],
     "answer": "C",
     "skill": "cause-effect",
-    "why": "The text says rain recharges the aquifer and raises the water table closer to the surface.",
+    "why": "In the text, rain recharges the aquifer and raises the water table closer to the surface.",
     "wrong": {
      "A": "Wells run dry in a long dry season, not after heavy rain.",
      "B": "The text says the water table rises or falls with rainfall.",
@@ -818,7 +818,7 @@
     ],
     "answer": "A",
     "skill": "inference",
-    "why": "The text says the water table sinks in a long dry season and a well can run dry, so wells must reach lower.",
+    "why": "In a long dry season, the water table sinks and a well can run dry, so wells must go deeper.",
     "wrong": {
      "B": "The aquifer is not filled in a dry season.",
      "C": "The text does not say farmers need less water.",

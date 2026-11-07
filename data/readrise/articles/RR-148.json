@@ -138,7 +138,7 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The article says a camel's feet are wide and soft, so they do not sink in the sand.",
+          "why": "In the article, a camel's feet are wide and soft, so they do not sink in the sand.",
           "wrong": {
             "A": "The article does not talk about its tail.",
             "B": "Fur is not mentioned.",
@@ -155,7 +155,7 @@
           ],
           "answer": "B",
           "skill": "detail",
-          "why": "The article says the owner drives a car next to the track.",
+          "why": "In the article, the owner drives a car next to the track.",
           "wrong": {
             "A": "The robot rides the camel, not the owner.",
             "C": "The owner follows the race in a car.",
@@ -163,7 +163,7 @@
           }
         },
         {
-          "stem": "The article says, 'A track is a long path of sand.' What is a track in this article?",
+          "stem": "In this article, what is a track?",
           "options": [
             "A place where camels race",
             "A kind of robot",
@@ -325,20 +325,20 @@
           }
         },
         {
-          "stem": "Which country first used robot jockeys?",
+          "stem": "In the article, what is a jockey?",
           "options": [
-            "Qatar",
-            "Oman",
-            "Egypt",
-            "Kuwait"
+            "A rider in a race",
+            "A camel's owner",
+            "A race judge",
+            "A finish line"
           ],
           "answer": "A",
           "skill": "detail",
-          "why": "The article says Qatar first used robot jockeys in 2005.",
+          "why": "In the article, a rider in a race is called a jockey.",
           "wrong": {
-            "B": "Oman is not named in the article.",
-            "C": "Egypt is not named in the article.",
-            "D": "Kuwait is not named in the article."
+            "B": "An owner is not the same as a rider.",
+            "C": "A judge does not ride in the race.",
+            "D": "The finish line is where the race ends."
           }
         },
         {
@@ -496,7 +496,7 @@
           ],
           "answer": "D",
           "skill": "detail",
-          "why": "The article says the earliest models were heavy and expensive, but newer ones weigh only a few kilograms.",
+          "why": "The first robot jockeys were heavy and expensive, but newer ones weigh only a few kilograms.",
           "wrong": {
             "A": "They became lighter, not heavier.",
             "B": "Robots ride camels; they do not race alone.",
@@ -521,7 +521,7 @@
           }
         },
         {
-          "stem": "The article says governments 'prohibited child jockeys.' Prohibited most nearly means —",
+          "stem": "Governments prohibited child jockeys. Prohibited most nearly means —",
           "options": [
             "paid money to",
             "trained carefully",
@@ -581,7 +581,7 @@
           ],
           "answer": "C",
           "skill": "inference",
-          "why": "The article says the speaker lets the camel hear its owner's familiar voice, which encourages it to run.",
+          "why": "In the article, the speaker lets the camel hear its owner's familiar voice, which encourages it to run.",
           "wrong": {
             "A": "The article does not say this.",
             "B": "The speaker is for the camel, not the crowd.",
@@ -627,7 +627,7 @@
         ],
         "answer": "A",
         "skill": "detail",
-        "why": "The text says a camel can go as fast as a car.",
+        "why": "In the text, a camel can go as fast as a car.",
         "wrong": {
           "B": "The text says the camel is fast.",
           "C": "The text compares the camel to a car, not a plane.",
@@ -697,7 +697,7 @@
         ],
         "answer": "D",
         "skill": "detail",
-        "why": "The text says the wide, padded feet do not sink into the sand.",
+        "why": "The camel's wide, padded feet do not sink into the sand.",
         "wrong": {
           "A": "The text does not say this.",
           "B": "The text does not say this.",
@@ -767,7 +767,7 @@
         ],
         "answer": "C",
         "skill": "detail",
-        "why": "The text says Qatar introduced robot jockeys in 2005.",
+        "why": "In the text, Qatar introduced robot jockeys in 2005.",
         "wrong": {
           "A": "The text says 2005.",
           "B": "The text says 2005.",
@@ -801,7 +801,7 @@
         ],
         "answer": "D",
         "skill": "cause-effect",
-        "why": "The text says this decision created a problem because every camel still needed a rider.",
+        "why": "In the text, this decision created a problem because every camel still needed a rider.",
         "wrong": {
           "A": "The text does not say this.",
           "B": "The text does not say this.",

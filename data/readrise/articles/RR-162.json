@@ -138,7 +138,7 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The article says the eagle call makes the monkeys look up and hide in the bushes.",
+          "why": "In the article, the eagle call makes the monkeys hide.",
           "wrong": {
             "A": "Running up a tree goes with the big cat (leopard) call.",
             "B": "Looking down at the grass goes with the snake call.",
@@ -172,7 +172,7 @@
           ],
           "answer": "D",
           "skill": "vocabulary",
-          "why": "The article explains that a signal is a message an animal sends with a sound, a move, or a smell.",
+          "why": "In the article, an animal can send a signal, which is a kind of message without words.",
           "wrong": {
             "A": "A signal is not something to eat.",
             "B": "A signal is not a hiding place.",
@@ -206,7 +206,7 @@
           ],
           "answer": "C",
           "skill": "cause-effect",
-          "why": "The article says some elephant sounds are too low for people to hear.",
+          "why": "In the article, some elephant sounds are too low for people to hear.",
           "wrong": {
             "A": "The article says the sounds are low, not too loud.",
             "B": "The article does not say they only call at night.",
@@ -223,7 +223,7 @@
           ],
           "answer": "C",
           "skill": "inference",
-          "why": "The article says a howl tells other wolves to keep away.",
+          "why": "In the article, a howl tells other wolves to keep away.",
           "wrong": {
             "A": "The howl tells other wolves to stay away, not to come.",
             "B": "Following a scent is what ants do.",
@@ -351,7 +351,7 @@
           ],
           "answer": "B",
           "skill": "detail",
-          "why": "The article says the dance shows the direction to fly and how far to go.",
+          "why": "In the article, the dance shows the direction to fly and how far to go.",
           "wrong": {
             "A": "The dance shows direction and distance, not color.",
             "C": "Snake warnings are given by vervet monkeys.",
@@ -368,7 +368,7 @@
           ],
           "answer": "C",
           "skill": "inference",
-          "why": "The article says the snake call makes the monkeys stand on their back legs and search the ground.",
+          "why": "In the article, the snake call makes the monkeys stand on their back legs and search the ground.",
           "wrong": {
             "A": "Climbing a tree is the response to the leopard call.",
             "B": "Hiding in bushes is the response to the eagle call.",
@@ -402,7 +402,7 @@
           ],
           "answer": "B",
           "skill": "cause-effect",
-          "why": "The article explains that because each call leads to a different action, the group stays safe.",
+          "why": "In the article, because each call leads to a different action, the group stays safe from many dangers.",
           "wrong": {
             "A": "The article shows the monkeys know the calls well.",
             "C": "The article does not say predators learn the calls.",
@@ -496,7 +496,7 @@
           ],
           "answer": "B",
           "skill": "vocabulary",
-          "why": "The article says ants deposit a chemical called a pheromone that forms a trail.",
+          "why": "In the article, ants deposit a chemical called a pheromone that forms a trail.",
           "wrong": {
             "A": "Wolves howl; a pheromone is a chemical.",
             "C": "The bee dance is a movement, not a chemical.",
@@ -513,7 +513,7 @@
           ],
           "answer": "B",
           "skill": "cause-effect",
-          "why": "The article explains that low rumbles can travel several kilometers, keeping elephants in touch.",
+          "why": "In the article, low rumbles can travel several kilometers, keeping elephants in touch.",
           "wrong": {
             "A": "The article links their contact to sound, not smell.",
             "C": "Pheromone trails are used by ants.",
@@ -530,7 +530,7 @@
           ],
           "answer": "A",
           "skill": "detail",
-          "why": "The article says the eagle call makes the monkeys scan the sky and dive into bushes or vegetation.",
+          "why": "In the article, the eagle call makes the monkeys scan the sky and dive into bushes or vegetation.",
           "wrong": {
             "B": "That is the response to the leopard call.",
             "C": "That is the response to the snake call.",
@@ -555,7 +555,7 @@
           }
         },
         {
-          "stem": "What can you infer from the fact that vervet calls 'function somewhat like simple words'?",
+          "stem": "What can you infer from the fact that vervet calls work somewhat like simple words?",
           "options": [
             "Each call stands for a specific kind of thing, like a word does.",
             "Monkeys secretly learned to read and write from watching people.",
@@ -581,7 +581,7 @@
           ],
           "answer": "B",
           "skill": "detail",
-          "why": "The article says a howl gathers the pack and warns other wolves to stay out of its territory.",
+          "why": "A wolf's howl gathers the pack and warns other wolves to stay away.",
           "wrong": {
             "A": "Vervet monkeys live in Africa, and the article does not link them to the wolf.",
             "C": "Infrasound is linked to elephants.",
@@ -627,7 +627,7 @@
         ],
         "answer": "A",
         "skill": "detail",
-        "why": "The text says the dance shows where to find food and how far to fly.",
+        "why": "In the text, the dance shows where to find food and how far to fly.",
         "wrong": {
           "B": "The hive is where the dance happens.",
           "C": "Storms are not mentioned.",
@@ -644,7 +644,7 @@
         ],
         "answer": "C",
         "skill": "detail",
-        "why": "The text says they stand up tall and look down at the grass.",
+        "why": "In the text, they stand up tall and look at the ground.",
         "wrong": {
           "A": "That is the response to the big cat call.",
           "B": "That is the response to the eagle call.",
@@ -661,7 +661,7 @@
         ],
         "answer": "B",
         "skill": "cause-effect",
-        "why": "The text says the low sounds go far, so an elephant far off can get them.",
+        "why": "In the text, the low sounds go far, so an elephant far off can get them.",
         "wrong": {
           "A": "The text says some are too low to hear, not loud.",
           "C": "The sounds are deep, not high.",
@@ -697,7 +697,7 @@
         ],
         "answer": "A",
         "skill": "detail",
-        "why": "The text says a wolf howls to call its pack and to warn other wolves to stay out.",
+        "why": "In the text, a wolf howls to call its pack and to warn other wolves to stay out.",
         "wrong": {
           "B": "Bees use a dance.",
           "C": "A scent trail is what ants make.",
@@ -714,7 +714,7 @@
         ],
         "answer": "B",
         "skill": "vocabulary",
-        "why": "The article says a territory is the area the pack lives in and defends.",
+        "why": "In the article, a territory is the area the pack lives in and defends.",
         "wrong": {
           "A": "The howl is the call; the territory is the land.",
           "C": "A group of wolves is a pack.",
@@ -767,7 +767,7 @@
         ],
         "answer": "A",
         "skill": "vocabulary",
-        "why": "The text says infrasound means sounds too low for human ears to hear.",
+        "why": "In the text, infrasound means sounds too low for human ears to hear.",
         "wrong": {
           "B": "The text does not say this.",
           "C": "Bees use movement, not sound.",
@@ -801,7 +801,7 @@
         ],
         "answer": "B",
         "skill": "vocabulary",
-        "why": "The article says elephant rumbles include infrasound, sound too low for human ears to hear.",
+        "why": "In the article, elephant rumbles include infrasound, sound too low for human ears to hear.",
         "wrong": {
           "A": "Infrasound is low, not high.",
           "C": "Elephants make infrasound.",
@@ -818,7 +818,7 @@
         ],
         "answer": "C",
         "skill": "cause-effect",
-        "why": "The text says every call produces a different reaction, so the group can respond to each danger.",
+        "why": "Each call leads to a different reaction, so the group can respond to each danger.",
         "wrong": {
           "A": "The monkeys only dive into bushes for the eagle call.",
           "B": "They climb trees for the leopard call.",

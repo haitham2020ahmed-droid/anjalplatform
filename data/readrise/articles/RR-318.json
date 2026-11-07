@@ -138,7 +138,7 @@
      ],
      "answer": "A",
      "skill": "detail",
-     "why": "The article says some public art pieces stand in the middle of a roundabout, with cars circling around them.",
+     "why": "Some public art stands in the middle of a roundabout, with cars going around it.",
      "wrong": {
       "B": "The article never mentions a closet.",
       "C": "The article never mentions a school desk.",
@@ -155,7 +155,7 @@
      ],
      "answer": "B",
      "skill": "detail",
-     "why": "The article says a sculpture is a shape made from stone, metal, or other strong materials.",
+     "why": "In the article, a sculpture is a shape made of strong materials such as stone or metal.",
      "wrong": {
       "A": "Paper and glue are not named in the article.",
       "C": "Ice and snow are not named in the article.",
@@ -496,7 +496,7 @@
      ],
      "answer": "B",
      "skill": "detail",
-     "why": "The article explains that durable materials are chosen specifically because they withstand years of sun, wind, and rain without deteriorating.",
+     "why": "Strong materials are chosen because they can last for years in sun, wind, and rain.",
      "wrong": {
       "A": "Cloth is not mentioned and would not survive outdoors.",
       "C": "Dissolving materials are not mentioned.",
@@ -521,7 +521,7 @@
      }
     },
     {
-     "stem": "What can be inferred from the article's statement that commissioning civic art often involves \"considerable expense and lengthy public debate\"?",
+     "stem": "What can be inferred from the fact that paying for civic art often involves high costs and long public debate?",
      "options": [
       "Cities treat public art as a decision of very little consequence at all, and spend no time on it",
       "Cities generally consider public art an important, carefully weighed civic investment",
@@ -627,7 +627,7 @@
     ],
     "answer": "C",
     "skill": "detail",
-    "why": "The text says a sculpture is a shape made of stone, metal, or wood.",
+    "why": "In the text, a sculpture is a shape made of stone, metal, or wood.",
     "wrong": {
      "A": "Cars go around art in a roundabout, but a sculpture is not a road.",
      "B": "The text does not talk about stories told by voice.",
@@ -647,7 +647,7 @@
     "why": "The text says cars go around the art all day, so a roundabout is a circle in the road.",
     "wrong": {
      "A": "A museum keeps art inside, and a roundabout is outside.",
-     "C": "The text says cars go around it all day.",
+     "C": "Cars go around it all day.",
      "D": "The text says the art is free to see."
     }
    },
@@ -661,7 +661,7 @@
     ],
     "answer": "D",
     "skill": "inference",
-    "why": "The text says people stop to look and take photos, which shows they like the art.",
+    "why": "In the text, people stop to look and take photos, which shows they like the art.",
     "wrong": {
      "A": "The art stands in squares and roundabouts where people pass by.",
      "B": "The text says this art is free to see.",
@@ -714,7 +714,7 @@
     ],
     "answer": "D",
     "skill": "cause-effect",
-    "why": "The text says a sculpture can turn a plain, empty spot into something worth looking at.",
+    "why": "In the text, a sculpture can turn a plain, empty spot into something worth looking at.",
     "wrong": {
      "A": "Cars circle slowly around roundabout pieces already.",
      "B": "The art is meant to be seen, not hide a spot.",
@@ -750,7 +750,7 @@
     "skill": "inference",
     "why": "The text says public art is always free to see, unlike art locked inside a gallery.",
     "wrong": {
-     "A": "The text says public art stands outside.",
+     "A": "In the text, public art stands outside.",
      "B": "Local and visiting artists both make public art.",
      "D": "The text says a sculpture can be as tall as a small building."
     }
@@ -769,7 +769,7 @@
     "skill": "vocabulary",
     "why": "The sentence says a plain space becomes something worth stopping for, and people study it closely.",
     "wrong": {
-     "A": "The article says some people stop to study the art.",
+     "A": "In the article, some people stop to study the art.",
      "B": "Nothing in the article says people repair the art.",
      "C": "Cars circle around roundabout pieces, but that is not contemplating."
     }
@@ -786,7 +786,7 @@
     "skill": "cause-effect",
     "why": "The article says traffic circles around the piece all day, gradually forming a landmark drivers recognize.",
     "wrong": {
-     "B": "The article says a sculpture can be as tall as a small building, not the tallest in a city.",
+     "B": "In the article, a sculpture can be as tall as a small building, not the tallest in a city.",
      "C": "Road signs are not mentioned.",
      "D": "The article says sculptures can be made from stone, metal, wood, or other materials."
     }
@@ -801,10 +801,10 @@
     ],
     "answer": "C",
     "skill": "detail",
-    "why": "The article says public art is made by both local and visiting artists.",
+    "why": "In the article, public art is made by both local and visiting artists.",
     "wrong": {
      "A": "The article does not name city leaders as the makers.",
-     "B": "The article says local artists also make it.",
+     "B": "In the article, local artists also make it.",
      "D": "School art classes are not mentioned."
     }
    },

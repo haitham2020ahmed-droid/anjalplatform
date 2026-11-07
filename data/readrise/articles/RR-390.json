@@ -223,7 +223,7 @@
      ],
      "answer": "B",
      "skill": "cause-effect",
-     "why": "The story explains that strong wind blows outside and makes the loose shutter bang against the window.",
+     "why": "In the story, the wind blows and makes the loose shutter bang against the window.",
      "wrong": {
       "A": "The story does not mention a cat.",
       "C": "The story does not say students are knocking.",
@@ -627,7 +627,7 @@
     ],
     "answer": "C",
     "skill": "detail",
-    "why": "The text says a man fixes it the next day.",
+    "why": "In the story, a man fixes the shutter the next day.",
     "wrong": {
      "A": "Omar found the cause but did not fix the shutter.",
      "B": "Lina laughed and felt glad but did not fix it.",

@@ -155,7 +155,7 @@
           ],
           "answer": "B",
           "skill": "detail",
-          "why": "The article says that when animals breathe, they send some carbon back out into the air.",
+          "why": "In the article, when animals breathe, they send some carbon back out into the air.",
           "wrong": {
             "A": "Eating food is a separate action from breathing.",
             "C": "Storing carbon in bones is not mentioned.",
@@ -172,7 +172,7 @@
           ],
           "answer": "D",
           "skill": "cause-effect",
-          "why": "The article says that when a plant or animal dies, its body breaks down, and its carbon becomes part of the soil.",
+          "why": "In the article, when a plant or animal dies, its body breaks down, and its carbon becomes part of the soil.",
           "wrong": {
             "A": "The article says carbon becomes part of the soil, not that it disappears.",
             "B": "Turning into water is not mentioned.",
@@ -317,7 +317,7 @@
           ],
           "answer": "D",
           "skill": "detail",
-          "why": "The article says photosynthesis is the process plants use to turn sunlight and carbon dioxide into food.",
+          "why": "In the article, photosynthesis is the process plants use to turn sunlight and carbon dioxide into food.",
           "wrong": {
             "A": "Digestion is a different process, used by animals.",
             "B": "Decomposition is handled by bacteria, not photosynthesis.",
@@ -351,7 +351,7 @@
           ],
           "answer": "B",
           "skill": "cause-effect",
-          "why": "The article says bacteria help a dead plant or animal decompose, which returns its carbon to the soil.",
+          "why": "In the article, bacteria help a dead plant or animal decompose, which returns its carbon to the soil.",
           "wrong": {
             "A": "Burning fossil fuels is described as a human activity.",
             "C": "Breathing out oxygen is not what bacteria are shown doing.",
@@ -368,7 +368,7 @@
           ],
           "answer": "B",
           "skill": "vocabulary",
-          "why": "The article says oceans absorb carbon dioxide from the air, meaning they take it in.",
+          "why": "In the article, oceans absorb carbon dioxide from the air, meaning they take it in.",
           "wrong": {
             "A": "Releasing is the opposite of absorbing.",
             "C": "Burning is a different process, done with fossil fuels.",
@@ -385,7 +385,7 @@
           ],
           "answer": "C",
           "skill": "inference",
-          "why": "The article says oceans absorb large amounts of carbon dioxide from the air, holding it within their waters.",
+          "why": "In the article, oceans absorb large amounts of carbon dioxide from the air, holding it within their waters.",
           "wrong": {
             "A": "Producing coal and oil is not described as an ocean role here.",
             "B": "Oceans do not stop plants from using sunlight.",
@@ -402,7 +402,7 @@
           ],
           "answer": "B",
           "skill": "inference",
-          "why": "The article says burning fossil fuels releases extra carbon dioxide faster than plants and oceans can absorb it.",
+          "why": "In the article, burning fossil fuels releases extra carbon dioxide faster than plants and oceans can absorb it.",
           "wrong": {
             "A": "Bacteria decomposing dead matter is not shown to stop.",
             "C": "Sunlight absorption by plants is not discussed as reduced.",
@@ -482,7 +482,7 @@
           "why": "The article shows carbon moving in a long-stable cycle, and explains that human combustion of fossil fuels now adds carbon faster than the cycle can absorb it.",
           "wrong": {
             "A": "Phytoplankton are one part of the cycle, but not the only organisms that use carbon.",
-            "B": "The article says fossil fuels form over immense spans of geological time, not a few years.",
+            "B": "In the article, fossil fuels form over immense spans of geological time, not a few years.",
             "D": "The article says oceans absorb enormous quantities of carbon dioxide."
           }
         },
@@ -513,7 +513,7 @@
           ],
           "answer": "B",
           "skill": "detail",
-          "why": "The article says some carbon becomes buried and compressed over immense spans of geological time, eventually forming fossil fuels.",
+          "why": "In the article, some carbon becomes buried and compressed over immense spans of geological time, eventually forming fossil fuels.",
           "wrong": {
             "A": "Photosynthesis makes food, not fossil fuels, and not instantly.",
             "C": "Oceans are not described as manufacturing fossil fuels from salt water.",
@@ -530,7 +530,7 @@
           ],
           "answer": "C",
           "skill": "cause-effect",
-          "why": "The article says human combustion of fossil fuels releases substantial emissions of carbon dioxide faster than plants and oceans can absorb it.",
+          "why": "In the article, human combustion of fossil fuels releases substantial emissions of carbon dioxide faster than plants and oceans can absorb it.",
           "wrong": {
             "A": "The article says combustion adds carbon to the atmosphere.",
             "B": "The released carbon re-enters the cycle; it is not permanently removed.",
@@ -566,7 +566,7 @@
           "skill": "inference",
           "why": "Equilibrium describes a long-standing balance, showing that carbon moving in and out of the cycle stayed roughly steady for millions of years.",
           "wrong": {
-            "A": "The article says carbon has always circulated through the cycle.",
+            "A": "In the article, carbon has always circulated through the cycle.",
             "C": "Frozen oceans are not discussed.",
             "D": "The article does not say plants once could not grow."
           }
@@ -644,7 +644,7 @@
         ],
         "answer": "B",
         "skill": "cause-effect",
-        "why": "The text says bugs and birds eat plants, and this is how they get carbon.",
+        "why": "In the text, bugs and birds eat plants, and this is how they get carbon.",
         "wrong": {
           "A": "Rain is not mentioned as a way to get carbon.",
           "C": "Sunlight helps plants make food, not bugs and birds.",
@@ -661,7 +661,7 @@
         ],
         "answer": "C",
         "skill": "sequence",
-        "why": "The text says carbon moves from the air to plants, then to bugs and birds, then to the soil, then back to the air.",
+        "why": "In the text, carbon moves from the air to plants, then to bugs and birds, then to the soil, then back to the air.",
         "wrong": {
           "A": "Carbon does not start in the soil in the text.",
           "B": "Carbon goes from the air to plants, not from plants to air first.",
@@ -678,7 +678,7 @@
         ],
         "answer": "D",
         "skill": "inference",
-        "why": "The text says burning coal and gas sends more carbon into the air, so burning less would send less.",
+        "why": "In the text, burning coal and gas sends more carbon into the air, so burning less would send less.",
         "wrong": {
           "A": "The text does not say burning less would stop plants.",
           "B": "Birds' breathing is not linked to burning in the text.",
@@ -714,7 +714,7 @@
         ],
         "answer": "B",
         "skill": "vocabulary",
-        "why": "The text says bugs help a dead plant or animal decompose, and its carbon becomes part of the soil, so it breaks down.",
+        "why": "In the text, bugs help a dead plant or animal decompose, and its carbon becomes part of the soil, so it breaks down.",
         "wrong": {
           "A": "Dead plants do not grow tall.",
           "C": "The carbon goes into the soil, not away.",

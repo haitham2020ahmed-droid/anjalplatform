@@ -2,7 +2,7 @@
 import type { ArticleDetail } from "@/server/readrise/library";
 import { BAND_RANGE, BANDS } from "@/server/readrise/import";
 import { deleteReadRiseAction, setReadRiseHiddenAction, setReadRiseLexileAction, setReadRiseStatusAction } from "../actions";
-import { btn, btnGhost, RR_NOTE, SourcePill, StatusPill } from "./ui";
+import { btn, btnGhost, fmtLevel, RR_NOTE, SourcePill, StatusPill } from "./ui";
 import { RichInline } from "@/components/rich-inline";
 
 const BAND_STYLE = {
@@ -64,9 +64,9 @@ export function ArticleView({ a, base }: { a: ArticleDetail; base: string }) {
         </div>
         <div className="mt-3 overflow-x-auto rounded-2xl bg-white ring-1 ring-slate-200">
           <table className="w-full min-w-[44rem] text-center text-sm">
-            <thead><tr className="border-b text-xs text-slate-500"><th className="p-2 text-left">Version</th>{a.versions.map((v) => <th key={v.id} className="p-2 tabular-nums">{v.level}</th>)}</tr></thead>
+            <thead><tr className="border-b text-xs text-slate-500"><th className="p-2 text-left">Version</th>{a.versions.map((v) => <th key={v.id} className="p-2 tabular-nums">{fmtLevel(v.level)}</th>)}</tr></thead>
             <tbody>
-              <tr className="border-b"><th className="p-2 text-left text-xs font-semibold text-slate-600">Estimated level</th>{a.versions.map((v) => <td key={v.id} className={`p-2 tabular-nums font-semibold ${v.levelOk ? "text-teal-800" : "text-amber-800"}`}>{v.levelOk ? "✓" : "⚠"} {v.estLevel}</td>)}</tr>
+              <tr className="border-b"><th className="p-2 text-left text-xs font-semibold text-slate-600">Estimated level</th>{a.versions.map((v) => <td key={v.id} className={`p-2 tabular-nums font-semibold ${v.levelOk ? "text-teal-800" : "text-amber-800"}`}>{v.levelOk ? "✓" : "⚠"} {fmtLevel(v.estLevel)}</td>)}</tr>
               <tr className="border-b"><th className="p-2 text-left text-xs font-semibold text-slate-600">Words (target)</th>{a.versions.map((v) => { const ok = v.wordCount >= Math.round(v.target.min * 0.85) && v.wordCount <= Math.round(v.target.max * 1.2); return <td key={v.id} className={`p-2 tabular-nums ${ok ? "" : "font-semibold text-amber-800"}`}>{v.wordCount}<span className="block text-[10px] text-slate-400">{v.target.min}–{v.target.max}</span></td>; })}</tr>
               <tr><th className="p-2 text-left text-xs font-semibold text-slate-600">Official Lexile</th>{a.versions.map((v) => <td key={v.id} className="p-2 tabular-nums text-slate-600">{v.officialLexile === null ? "—" : `${v.officialLexile}L`}</td>)}</tr>
             </tbody>
@@ -78,8 +78,8 @@ export function ArticleView({ a, base }: { a: ArticleDetail; base: string }) {
             return (
               <li key={v.id} className={`w-80 shrink-0 snap-start overflow-hidden rounded-2xl bg-white ring-2 ${BAND_STYLE[b].ring}`}>
                 <div className={`flex items-center justify-between gap-2 px-4 py-2 ${BAND_STYLE[b].head}`}>
-                  <span className="text-lg font-bold tabular-nums">{v.level}</span>
-                  <span className="text-xs font-semibold">{b} · est. {v.estLevel} {v.levelOk ? "✓" : "⚠"} · {v.wordCount} words</span>
+                  <span className="text-lg font-bold tabular-nums">{fmtLevel(v.level)}</span>
+                  <span className="text-xs font-semibold">{b} · est. {fmtLevel(v.estLevel)} {v.levelOk ? "✓" : "⚠"} · {v.wordCount} words</span>
                 </div>
                 <div className="p-4">
                   <p className="font-semibold text-brand-navy">{v.title}</p>

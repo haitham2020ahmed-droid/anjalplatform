@@ -121,7 +121,7 @@
           ],
           "answer": "B",
           "skill": "central-idea",
-          "why": "The article tells about the Arctic at the top and the Antarctic at the bottom, and how they are the same and not the same.",
+          "why": "The article tells about the Arctic at the top and the Antarctic at the bottom, and how they are alike and different.",
           "wrong": {
             "A": "The article does not tell how to build anything.",
             "C": "Polar bears are one small part of the article.",
@@ -227,7 +227,7 @@
           "wrong": {
             "A": "The article says no one lives there all year.",
             "C": "The article says it is the coldest place.",
-            "D": "The article says thick ice sits on it."
+            "D": "In the article, thick ice sits on it."
           }
         },
         {
@@ -317,7 +317,7 @@
           ],
           "answer": "C",
           "skill": "cause-effect",
-          "why": "The article says sunlight arrives at a low angle, so it spreads out and delivers less heat.",
+          "why": "In the article, sunlight arrives at a low angle, so it spreads out and delivers less heat.",
           "wrong": {
             "A": "Clouds are not mentioned as the cause.",
             "B": "The moon is not part of the explanation.",
@@ -402,7 +402,7 @@
           ],
           "answer": "D",
           "skill": "inference",
-          "why": "The article says that in summer the sun never sets in the polar regions.",
+          "why": "In summer the sun never sets in the polar regions.",
           "wrong": {
             "A": "Penguins live in the south, and the Arctic is icy, not sandy.",
             "B": "The article does not describe daily rain.",
@@ -419,7 +419,7 @@
           ],
           "answer": "A",
           "skill": "compare",
-          "why": "The article says the Arctic is mostly ocean with floating ice, and the Antarctic is land under an ice sheet.",
+          "why": "In the article, the Arctic is mostly ocean with floating ice, and the Antarctic is land under an ice sheet.",
           "wrong": {
             "B": "Both get sunlight at a low angle.",
             "C": "Both regions have a pole.",
@@ -482,7 +482,7 @@
           "why": "The article explains the shared cause of cold and then contrasts the two regions in several ways.",
           "wrong": {
             "B": "The article does not argue against visiting.",
-            "C": "The article says nobody lives permanently in the Antarctic.",
+            "C": "In the article, nobody lives permanently in the Antarctic.",
             "D": "The article contrasts floating sea ice with the ice sheet on land."
           }
         },
@@ -496,7 +496,7 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The article states that the Antarctic ice sheet holds most of Earth's fresh water.",
+          "why": "In the article, the Antarctic ice sheet holds most of Earth's fresh water.",
           "wrong": {
             "A": "Floating ice describes the Arctic.",
             "B": "The article does not say it melts completely.",
@@ -513,7 +513,7 @@
           ],
           "answer": "B",
           "skill": "detail",
-          "why": "The article says the treaty protects the continent for peaceful scientific investigation.",
+          "why": "In the article, the treaty protects the continent for peaceful scientific investigation.",
           "wrong": {
             "A": "Dividing the land is not described as the purpose.",
             "C": "The article does not mention hunting penguins.",
@@ -547,7 +547,7 @@
           ],
           "answer": "C",
           "skill": "cause-effect",
-          "why": "The article explains that the two hemispheres have opposite seasons, so the Antarctic summer falls in December and January.",
+          "why": "In the article, the two hemispheres have opposite seasons, so the Antarctic summer falls in December and January.",
           "wrong": {
             "A": "The Antarctic is at the South Pole, far from the equator.",
             "B": "Reflection is not the explanation given.",
@@ -564,7 +564,7 @@
           ],
           "answer": "B",
           "skill": "inference",
-          "why": "The article says melting ice can raise sea levels and affect communities everywhere.",
+          "why": "In the article, melting ice can raise sea levels and affect communities everywhere.",
           "wrong": {
             "A": "The article does not link melting ice to colder deserts.",
             "C": "Polar bears are not said to move south.",
@@ -583,7 +583,7 @@
           "skill": "inference",
           "why": "The Arctic is surrounded by land belonging to several countries, and indigenous peoples fish and hunt along its coasts.",
           "wrong": {
-            "A": "The article says land surrounds the Arctic Ocean.",
+            "A": "In the article, land surrounds the Arctic Ocean.",
             "B": "The article only says penguins live in the south; it does not support this.",
             "C": "The article calls the Antarctic a desert with little precipitation."
           }
@@ -665,7 +665,7 @@
         "wrong": {
           "A": "A bright sun all day happens in the hot months.",
           "B": "The text does not say the sun sets at noon.",
-          "C": "The text says the sun is low in the sky at the poles."
+          "C": "In the text, the sun is low in the sky at the poles."
         }
       },
       {
@@ -731,7 +731,7 @@
         ],
         "answer": "A",
         "skill": "cause-effect",
-        "why": "The article says polar ice is shrinking as Earth grows warmer, and scientists measure it closely.",
+        "why": "In the article, polar ice is shrinking as Earth grows warmer, and scientists measure it closely.",
         "wrong": {
           "B": "The text does not give this reason.",
           "C": "The text does not say the ice is used to build stations.",
@@ -767,7 +767,7 @@
         ],
         "answer": "B",
         "skill": "detail",
-        "why": "The article says scientists once recorded about minus 89 degrees Celsius in the Antarctic.",
+        "why": "In the article, scientists once recorded about minus 89 degrees Celsius in the Antarctic.",
         "wrong": {
           "A": "That is not the number in the article.",
           "C": "That is not the number in the article.",
@@ -801,7 +801,7 @@
         ],
         "answer": "B",
         "skill": "cause-effect",
-        "why": "The article says sunlight arrives at a low angle, spreading its energy over a wide area.",
+        "why": "In the article, sunlight arrives at a low angle, spreading its energy over a wide area.",
         "wrong": {
           "A": "The text says the Antarctic is land and the Arctic is mostly ocean; water depth is not the reason.",
           "C": "The text does not mention stations blocking the sun.",
@@ -821,7 +821,7 @@
         "why": "The Antarctic is frozen and has no permanent residents, so most fresh water is locked in ice there.",
         "wrong": {
           "B": "The text does not say people drink water from the Antarctic.",
-          "C": "The article says the Antarctic holds most of the fresh water.",
+          "C": "The Antarctic holds most of the world's fresh water.",
           "D": "The Saudi deserts are described as scorching and sandy."
         }
       }

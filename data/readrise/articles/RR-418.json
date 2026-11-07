@@ -145,7 +145,7 @@
           ],
           "answer": "B",
           "skill": "detail",
-          "why": "The story says the camels carry goods to sell.",
+          "why": "In the story, the camels carry goods to sell.",
           "wrong": {
             "A": "The caravan carries goods, not sightseeing passengers.",
             "C": "The water bags are full, not empty, for most of the trip.",
@@ -247,7 +247,7 @@
           ],
           "answer": "D",
           "skill": "vocabulary",
-          "why": "The story explains that a caravan is many camels that walk together.",
+          "why": "In the story, a caravan is many camels that walk together.",
           "wrong": {
             "A": "A caravan is many camels, not just one.",
             "B": "A caravan is not a kind of bag.",
@@ -324,7 +324,7 @@
           ],
           "answer": "B",
           "skill": "detail",
-          "why": "The story says the camels carry bundles of goods, such as spices, to sell in distant towns.",
+          "why": "In the story, the camels carry bundles of goods, such as spices, to sell in distant towns.",
           "wrong": {
             "A": "No well-building tools are mentioned.",
             "C": "No maps or geographers appear in this story.",
@@ -503,7 +503,7 @@
           ],
           "answer": "A",
           "skill": "detail",
-          "why": "The story states that the caravan carries bundles of frankincense and cloth between towns.",
+          "why": "In the story, the caravan carries bundles of frankincense and cloth between towns.",
           "wrong": {
             "B": "No gold coins are mentioned in the story.",
             "C": "Fresh fruit is not part of the caravan's cargo.",
@@ -537,7 +537,7 @@
           ],
           "answer": "B",
           "skill": "vocabulary",
-          "why": "The story explains that water is essential because the desert journey cannot be survived without it.",
+          "why": "In the story, water is essential because the desert journey cannot be survived without it.",
           "wrong": {
             "A": "Essential is the opposite of unnecessary.",
             "C": "Rarity is not what the word essential describes here.",
@@ -627,7 +627,7 @@
         ],
         "answer": "B",
         "skill": "detail",
-        "why": "The text says they put water in bags.",
+        "why": "In the text, they put water in bags.",
         "wrong": {
           "A": "Big jars are not mentioned.",
           "C": "Small cups are not mentioned.",
@@ -767,7 +767,7 @@
         ],
         "answer": "A",
         "skill": "detail",
-        "why": "The text says Faisal proudly helped sell the frankincense they had carried.",
+        "why": "In the text, Faisal proudly helped sell the frankincense they had carried.",
         "wrong": {
           "B": "Water was kept for the trip, not sold.",
           "C": "Selling camels is not mentioned.",

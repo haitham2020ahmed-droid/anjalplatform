@@ -155,7 +155,7 @@
      ],
      "answer": "A",
      "skill": "detail",
-     "why": "The story says her notebook is full of careful drawings of birds.",
+     "why": "In the story, her notebook is full of careful drawings of birds.",
      "wrong": {
       "B": "The story never mentions math homework.",
       "C": "There is no list of names in the notebook.",
@@ -317,7 +317,7 @@
      ],
      "answer": "D",
      "skill": "detail",
-     "why": "The story explains that Lama had just moved from another city and left her old friends behind.",
+     "why": "In the story, Lama had just moved from another city and left her old friends behind.",
      "wrong": {
       "A": "No contest is mentioned in the story.",
       "B": "Lama keeps and shows her notebook; she has not lost it.",
@@ -627,7 +627,7 @@
     ],
     "answer": "C",
     "skill": "detail",
-    "why": "The text says, \"Sara is in Grade 5.\"",
+    "why": "In the story, Sara is in Grade 5.",
     "wrong": {
      "A": "Sara is not in Grade 3.",
      "B": "Sara is not in Grade 4.",
@@ -644,7 +644,7 @@
     ],
     "answer": "D",
     "skill": "detail",
-    "why": "The text says, \"They draw at play time.\"",
+    "why": "In the story, Sara and Lama now draw together at play time.",
     "wrong": {
      "A": "Races are not mentioned.",
      "B": "Reading to the teacher is not mentioned.",

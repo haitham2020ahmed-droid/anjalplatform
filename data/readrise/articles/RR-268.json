@@ -223,7 +223,7 @@
      ],
      "answer": "A",
      "skill": "cause-effect",
-     "why": "The article says burning oil, coal, and gas can make the air dirty because of what is released.",
+     "why": "In the article, burning oil, coal, and gas can make the air dirty because of what is released.",
      "wrong": {
       "B": "Weight is not discussed in the article.",
       "C": "Color is not discussed in the article.",
@@ -402,7 +402,7 @@
      ],
      "answer": "C",
      "skill": "cause-effect",
-     "why": "The article explains that burning fossil fuels releases gases that pollute the air and affect the climate.",
+     "why": "In the article, burning fossil fuels releases gases that pollute the air and affect the climate.",
      "wrong": {
       "A": "River speed is not discussed.",
       "B": "Wind is not affected by burning fossil fuels.",
@@ -627,7 +627,7 @@
     ],
     "answer": "B",
     "skill": "detail",
-    "why": "The text says these fuels formed deep in the ground over millions of years.",
+    "why": "In the text, these fuels formed deep in the ground over millions of years.",
     "wrong": {
      "A": "The sky is not named.",
      "C": "The sea is not named.",
@@ -648,7 +648,7 @@
     "wrong": {
      "B": "That describes renewable energy.",
      "C": "Nonrenewable fuels can make the air bad.",
-     "D": "The text says these fuels are very old."
+     "D": "These fuels are not new; they formed long ago."
     }
    },
    {
@@ -697,7 +697,7 @@
     ],
     "answer": "A",
     "skill": "detail",
-    "why": "The text says old plants and animals were slowly changed by heat.",
+    "why": "In the text, old plants and animals were slowly changed by heat.",
     "wrong": {
      "B": "Rivers are renewable, not the source of fossil fuels.",
      "C": "Wind and sunlight are renewable sources.",
@@ -731,7 +731,7 @@
     ],
     "answer": "B",
     "skill": "compare",
-    "why": "The text says power from sunlight, wind, and water lets out far less dirt than burning fossil fuels.",
+    "why": "In the text, power from sunlight, wind, and water lets out far less dirt than burning fossil fuels.",
     "wrong": {
      "A": "The text says they are different.",
      "C": "This reverses the two.",

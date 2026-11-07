@@ -731,7 +731,7 @@
     ],
     "answer": "A",
     "skill": "cause-effect",
-    "why": "The text says he played the trick just to break the monotony of a dull afternoon.",
+    "why": "In the text, he played the trick just to break the monotony of a dull afternoon.",
     "wrong": {
      "B": "There was no real danger to the flock yet.",
      "C": "There was no wolf the first time.",
@@ -767,7 +767,7 @@
     ],
     "answer": "D",
     "skill": "detail",
-    "why": "The text says the wolf was drawn by the scent of sheep in the gathering darkness.",
+    "why": "In the text, the wolf was drawn by the scent of sheep in the gathering darkness.",
     "wrong": {
      "A": "The dog barks after the wolf arrives.",
      "B": "The torches come later, with the villagers.",

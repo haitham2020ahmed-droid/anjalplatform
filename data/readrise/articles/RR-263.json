@@ -121,7 +121,7 @@
           ],
           "answer": "C",
           "skill": "central-idea",
-          "why": "The article explains reduce, reuse, and recycle, and says the order matters.",
+          "why": "In the article, reduce, reuse, and recycle, and says the order matters.",
           "wrong": {
             "A": "Building toys is not the topic.",
             "B": "Plastic bags are not the main topic.",
@@ -155,7 +155,7 @@
           ],
           "answer": "B",
           "skill": "vocabulary",
-          "why": "The article says reduce means to use less, such as not buying things you do not need.",
+          "why": "In the article, reduce means to use less of something.",
           "wrong": {
             "A": "Fixing is not reduce.",
             "C": "Throwing trash away is not reduce.",
@@ -189,7 +189,7 @@
           ],
           "answer": "C",
           "skill": "cause-effect",
-          "why": "The article says making new things uses up resources like trees, water, and metal, and makes trash.",
+          "why": "Making new things uses resources like trees, water, and metal, and it makes trash.",
           "wrong": {
             "A": "Trash can size is not discussed.",
             "B": "Closed plants are not mentioned.",
@@ -242,7 +242,7 @@
           "skill": "author-purpose",
           "why": "The whole article explains that the order matters, from the most helpful step to the least.",
           "wrong": {
-            "A": "The article says the order matters a lot.",
+            "A": "The order does matter.",
             "C": "Factories are mentioned only briefly.",
             "D": "Sea animals are not part of this article."
           }
@@ -342,7 +342,7 @@
           }
         },
         {
-          "stem": "Read this sentence: \"A conscientious consumer reuses a sturdy cloth bag.\" What does consumer mean here?",
+          "stem": "A careful consumer reuses a strong cloth bag. What does consumer mean here?",
           "options": [
             "A person who repairs machines",
             "A person who buys and uses things",
@@ -368,7 +368,7 @@
           ],
           "answer": "B",
           "skill": "cause-effect",
-          "why": "The article explains that reducing means the item is never manufactured, so no resources are used at all.",
+          "why": "In the article, reducing means the item is never manufactured, so no resources are used at all.",
           "wrong": {
             "A": "Difficulty to remember is not discussed.",
             "C": "Legality is not mentioned.",
@@ -496,7 +496,7 @@
           ],
           "answer": "B",
           "skill": "detail",
-          "why": "The article explains that reduce is most effective because the unwanted item is never manufactured, consuming no resources at all.",
+          "why": "In the article, reduce is most effective because the unwanted item is never manufactured, consuming no resources at all.",
           "wrong": {
             "A": "Recycling requires more energy and labor; reduce requires none.",
             "C": "Reduce does not depend on recycling facilities.",
@@ -513,7 +513,7 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The article states recycling ranks lowest because the entire process still demands considerable energy and labor.",
+          "why": "In the article, recycling ranks lowest because the entire process still demands considerable energy and labor.",
           "wrong": {
             "A": "The article says recycled material does become new products.",
             "B": "Bans are not mentioned.",
@@ -547,7 +547,7 @@
           ],
           "answer": "A",
           "skill": "cause-effect",
-          "why": "The article explains that reducing consumption stops pollution at the very beginning of the production cycle, before recycling could ever intervene.",
+          "why": "In the article, reducing consumption stops pollution at the very beginning of the production cycle, before recycling could ever intervene.",
           "wrong": {
             "B": "Plant location is not discussed.",
             "C": "This reverses the relationship the article describes.",
@@ -731,10 +731,10 @@
         ],
         "answer": "B",
         "skill": "cause-effect",
-        "why": "The text says the whole job still takes real energy and careful work.",
+        "why": "In the text, the whole job still takes real energy and careful work.",
         "wrong": {
           "A": "The text says cans can be melted down.",
-          "C": "The text says recycling truly helps the planet.",
+          "C": "In the text, recycling truly helps the planet.",
           "D": "Anyone can follow the three Rs."
         }
       },
@@ -748,9 +748,9 @@
         ],
         "answer": "A",
         "skill": "inference",
-        "why": "The text says most students know the words, but far fewer realize that the order matters.",
+        "why": "In the text, most students know the words, but far fewer realize that the order matters.",
         "wrong": {
-          "B": "The text says few realize the order matters.",
+          "B": "In the text, few realize the order matters.",
           "C": "Nothing says they never buy things.",
           "D": "Making cans is not discussed."
         }
@@ -767,7 +767,7 @@
         ],
         "answer": "B",
         "skill": "detail",
-        "why": "The text says an old can can be melted down and shaped into a new can.",
+        "why": "In the text, an old can can be melted down and shaped into a new can.",
         "wrong": {
           "A": "Washing and using it again would be reuse.",
           "C": "Burying it is not mentioned.",
@@ -818,7 +818,7 @@
         ],
         "answer": "C",
         "skill": "cause-effect",
-        "why": "The text says producing new products generates trash and pollution throughout, from digging to final shipping.",
+        "why": "Making new products creates trash and pollution at every step, from digging to shipping.",
         "wrong": {
           "A": "Buying less would reduce pollution.",
           "B": "Reusing bags reduces waste.",

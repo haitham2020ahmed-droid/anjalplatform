@@ -496,7 +496,7 @@
           ],
           "answer": "A",
           "skill": "detail",
-          "why": "The passage states that Faisal assumed removing every familiar distraction would make his usual reading struggles even worse.",
+          "why": "In the passage, Faisal assumed removing every familiar distraction would make his usual reading struggles even worse.",
           "wrong": {
             "B": "The passage does not say Faisal doubted the teacher would assign the exercise.",
             "C": "Faisal's assumption is about his own reading, not his classmates'.",
@@ -627,7 +627,7 @@
         ],
         "answer": "A",
         "skill": "detail",
-        "why": "Omar says, \"That will be dull!\"",
+        "why": "In the story, Omar says the plan will be dull.",
         "wrong": {
           "B": "Omar does not think it will be fun.",
           "C": "He does not say anything about length.",

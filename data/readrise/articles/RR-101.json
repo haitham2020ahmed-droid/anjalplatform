@@ -138,7 +138,7 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The article says the hot rock that comes up from deep down is called magma.",
+          "why": "In the article, hot rock comes up from deep in the Earth, and this hot rock is magma.",
           "wrong": {
             "A": "The sea water is cold, but it is not magma.",
             "B": "The black 'smoke' at vents is hot water, not magma.",
@@ -155,7 +155,7 @@
           ],
           "answer": "A",
           "skill": "cause-effect",
-          "why": "The article says the cold sea cools the lava fast, and it makes round lumps like pillows.",
+          "why": "In the article, the cold sea cools the lava fast, and it makes round lumps like pillows.",
           "wrong": {
             "B": "Fish do not shape lava in the article.",
             "C": "Sunlight does not reach the deep sea floor.",
@@ -189,7 +189,7 @@
           ],
           "answer": "A",
           "skill": "inference",
-          "why": "The article says most volcanoes are deep in the sea, so people cannot see them.",
+          "why": "In the article, most volcanoes are deep in the sea, so people cannot see them.",
           "wrong": {
             "B": "The article never says they erupt only at night.",
             "C": "Some sea volcanoes grow into islands, so they are not tiny.",
@@ -223,7 +223,7 @@
           ],
           "answer": "D",
           "skill": "vocabulary",
-          "why": "The article says hot water shoots out of the vents and looks like black smoke.",
+          "why": "In the article, hot water shoots out of the vents and looks like black smoke.",
           "wrong": {
             "A": "Vents in the article push out hot water, not cold air.",
             "B": "Vents are on the sea floor, not tall mountains on land.",
@@ -244,7 +244,7 @@
           "wrong": {
             "A": "The article gives no swimming tips.",
             "C": "The article does not count islands in the Red Sea.",
-            "D": "The article says the Red Sea has a crack where the floor splits, which is the opposite idea."
+            "D": "In the article, the Red Sea has a crack where the floor splits, which is the opposite idea."
           }
         }
       ],
@@ -334,7 +334,7 @@
           ],
           "answer": "A",
           "skill": "detail",
-          "why": "The article says the cracks form an underwater ridge around the whole planet, the longest mountain chain on Earth.",
+          "why": "In the article, the cracks form an underwater ridge around the whole planet, the longest mountain chain on Earth.",
           "wrong": {
             "B": "Hawaii is an example of islands, not the longest chain.",
             "C": "The article does not describe mountains on the Red Sea coast.",
@@ -351,7 +351,7 @@
           ],
           "answer": "B",
           "skill": "cause-effect",
-          "why": "The article explains that the weight of the water creates enormous pressure, so most deep eruptions are gentle.",
+          "why": "In the article, the weight of the water creates enormous pressure, so most deep eruptions are gentle.",
           "wrong": {
             "A": "The article does not say deep lava starts out cooler.",
             "C": "Animals do not block the volcanoes.",
@@ -419,7 +419,7 @@
           ],
           "answer": "D",
           "skill": "text-structure",
-          "why": "The author starts with what most people imagine, then says 'however' or 'yet' to reveal that most volcanoes are hidden under the ocean.",
+          "why": "The author starts with what most people imagine, then uses a contrast word to show that most volcanoes are hidden under the ocean.",
           "wrong": {
             "A": "The article never gives climbing advice.",
             "B": "The article shows that underwater volcanoes look and act differently.",
@@ -513,7 +513,7 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The article says sailors near Iceland saw a brand-new island, later named Surtsey, rise from the sea in 1963.",
+          "why": "In the article, sailors near Iceland saw a brand-new island, later named Surtsey, rise from the sea in 1963.",
           "wrong": {
             "A": "The tsunami in the article came from Hunga Tonga in 2022, in the Pacific.",
             "B": "The article does not say when submersibles were invented.",
@@ -627,7 +627,7 @@
         ],
         "answer": "B",
         "skill": "detail",
-        "why": "The text says the lumps look like big pillows.",
+        "why": "In the text, the round lumps are called pillow lava because they look like big pillows.",
         "wrong": {
           "A": "Rocks are not mentioned.",
           "C": "Eggs are not mentioned.",
@@ -697,7 +697,7 @@
         ],
         "answer": "D",
         "skill": "detail",
-        "why": "The text says tube worms, crabs, and clams live around the vents in total darkness.",
+        "why": "In the text, tube worms, crabs, and clams live around the vents in total darkness.",
         "wrong": {
           "A": "Sharks and whales are not mentioned.",
           "B": "Seals and turtles are not mentioned.",
@@ -714,7 +714,7 @@
         ],
         "answer": "A",
         "skill": "cause-effect",
-        "why": "The text says the cold water cools the lava so fast that it forms round lumps called pillow lava.",
+        "why": "In the text, the cold water cools the lava so fast that it forms round lumps called pillow lava.",
         "wrong": {
           "B": "Cold water cools lava, not heats it.",
           "C": "Lifting is not mentioned.",
@@ -748,7 +748,7 @@
         ],
         "answer": "B",
         "skill": "sequence",
-        "why": "The text says magma rises into the gap, and then it cools and becomes new seafloor.",
+        "why": "In the text, magma rises into the gap, and then it cools and becomes new seafloor.",
         "wrong": {
           "A": "The ridge is made by this process.",
           "C": "Black smoke comes from vents.",
@@ -767,7 +767,7 @@
         ],
         "answer": "D",
         "skill": "detail",
-        "why": "The text says the plates move extremely slowly.",
+        "why": "The plates move extremely slowly.",
         "wrong": {
           "A": "The plates are not described as fast.",
           "B": "Jumps each day are not mentioned.",
@@ -784,11 +784,11 @@
         ],
         "answer": "C",
         "skill": "cause-effect",
-        "why": "The text says magma rises into the widening gap, where it cools and hardens into brand-new seafloor.",
+        "why": "In the text, magma rises into the widening gap, where it cools and hardens into brand-new seafloor.",
         "wrong": {
           "A": "The tsunami is linked to Hunga Tonga.",
           "B": "The text says it forms a ridge, not a mountain at once.",
-          "D": "The text says it cools and hardens."
+          "D": "The magma cools and hardens; it does not stay soft."
         }
       },
       {

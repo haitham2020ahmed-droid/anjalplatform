@@ -138,7 +138,7 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The article says the battery sends power to a motor, and the motor turns the wheels.",
+          "why": "In the article, the battery sends power to a motor, and the motor turns the wheels.",
           "wrong": {
             "A": "Electric cars do not use gas.",
             "B": "Electric cars make no smoke.",
@@ -155,7 +155,7 @@
           ],
           "answer": "A",
           "skill": "detail",
-          "why": "The article says a fast charge takes about half an hour.",
+          "why": "In the article, a fast charge takes about half an hour.",
           "wrong": {
             "B": "One minute is far too short.",
             "C": "The article does not say a week.",
@@ -189,7 +189,7 @@
           ],
           "answer": "B",
           "skill": "cause-effect",
-          "why": "The article says when the car slows down, the motor makes a bit of power that goes back into the battery.",
+          "why": "In the article, when the car slows down, the motor makes a bit of power that goes back into the battery.",
           "wrong": {
             "A": "Electric cars make no smoke.",
             "C": "The article does not say the battery breaks.",
@@ -223,7 +223,7 @@
           ],
           "answer": "D",
           "skill": "cause-effect",
-          "why": "The article says gas cars cost less and could go farther, so most people got them.",
+          "why": "In the article, gas cars cost less, so most people bought them.",
           "wrong": {
             "A": "The article says electric cars are the quiet ones.",
             "B": "Gas cars burn fuel and make smoke.",
@@ -303,7 +303,7 @@
           "why": "The article explains how electric cars work, how they help the air, and what problems remain.",
           "wrong": {
             "A": "The article never says electric cars are slow.",
-            "C": "The article says gasoline cars took over the roads; it does not say they came later.",
+            "C": "In the article, gasoline cars took over the roads; it does not say they came later.",
             "D": "The article does not say charging stations are only in Saudi Arabia."
           }
         },
@@ -317,7 +317,7 @@
           ],
           "answer": "C",
           "skill": "vocabulary",
-          "why": "The article says the distance a car can travel on one charge is called its range.",
+          "why": "In the article, the distance a car can travel on one charge is called its range.",
           "wrong": {
             "A": "Range is about distance, not price.",
             "B": "Range has nothing to do with seats.",
@@ -334,7 +334,7 @@
           ],
           "answer": "D",
           "skill": "detail",
-          "why": "The article says many electric cars have a range of 300 to 500 kilometers.",
+          "why": "In the article, many electric cars have a range of 300 to 500 kilometers.",
           "wrong": {
             "A": "These numbers are ten times too small.",
             "B": "This is much farther than the article says.",
@@ -368,7 +368,7 @@
           ],
           "answer": "B",
           "skill": "detail",
-          "why": "The article says the motor works in reverse and makes electricity that goes back into the battery.",
+          "why": "In the article, the motor works in reverse and makes electricity that goes back into the battery.",
           "wrong": {
             "A": "The article does not say the battery shuts off.",
             "C": "Electric cars do not burn gasoline.",
@@ -406,7 +406,7 @@
           "wrong": {
             "A": "The article never says gasoline is no longer sold.",
             "B": "Nothing suggests people forgot how to drive.",
-            "D": "The article says batteries are expensive."
+            "D": "The article does not say electric cars are cheaper than bicycles."
           }
         },
         {
@@ -496,7 +496,7 @@
           ],
           "answer": "B",
           "skill": "detail",
-          "why": "The article says regenerative braking makes the motor operate in reverse, generating electricity that returns to the battery.",
+          "why": "In the article, regenerative braking makes the motor operate in reverse, generating electricity that returns to the battery.",
           "wrong": {
             "A": "Electric cars do not burn fuel.",
             "C": "The article does not mention cooling with water.",
@@ -513,7 +513,7 @@
           ],
           "answer": "D",
           "skill": "cause-effect",
-          "why": "The article says a motor converts most of the battery's energy into motion, while a gasoline engine wastes most of its energy as heat.",
+          "why": "In the article, a motor converts most of the battery's energy into motion, while a gasoline engine wastes most of its energy as heat.",
           "wrong": {
             "A": "The article does not say electric cars are always lighter.",
             "B": "The article does not mention flat roads.",
@@ -598,11 +598,11 @@
           ],
           "answer": "B",
           "skill": "compare",
-          "why": "The article says electric car batteries are expensive and need metals like lithium that must be mined.",
+          "why": "In the article, electric car batteries are expensive and need metals like lithium that must be mined.",
           "wrong": {
             "A": "Electric cars produce no emissions on the street.",
-            "C": "The article says gasoline engines waste most energy as heat.",
-            "D": "The article says electric cars improve air in cities."
+            "C": "Gasoline engines waste most of their energy as heat.",
+            "D": "Electric cars help make the air in cities cleaner."
           }
         }
       ],
@@ -627,7 +627,7 @@
         ],
         "answer": "B",
         "skill": "detail",
-        "why": "The text says the big battery is in the floor.",
+        "why": "In the text, the big battery is in the floor.",
         "wrong": {
           "A": "The roof is not mentioned.",
           "C": "The motor spins the wheels, but the battery is not in them.",
@@ -678,10 +678,10 @@
         ],
         "answer": "D",
         "skill": "inference",
-        "why": "The text says Saudi Arabia now makes these cars with its own brand.",
+        "why": "In the text, Saudi Arabia now makes these cars with its own brand.",
         "wrong": {
-          "A": "The text says Saudi Arabia makes them too.",
-          "B": "The text says a battery costs a lot.",
+          "A": "In the text, Saudi Arabia makes them too.",
+          "B": "In the text, a battery costs a lot.",
           "C": "The text does not say gas cars are gone."
         }
       }
@@ -731,7 +731,7 @@
         ],
         "answer": "A",
         "skill": "cause-effect",
-        "why": "The article says gasoline cars were cheaper and could travel farther.",
+        "why": "Gasoline cars were cheaper and could go farther.",
         "wrong": {
           "B": "Electric cars are the quiet and clean ones.",
           "C": "Batteries under the floor are in electric cars.",
@@ -767,9 +767,9 @@
         ],
         "answer": "A",
         "skill": "compare",
-        "why": "The article says it is a lithium-ion battery similar to a phone's but far bigger.",
+        "why": "An electric car's battery is like the one in a phone, but much bigger.",
         "wrong": {
-          "B": "The article says it is far bigger.",
+          "B": "The battery is much bigger.",
           "C": "The article says it is bigger, not smaller.",
           "D": "The article says it is usually the same kind, lithium-ion."
         }
@@ -784,7 +784,7 @@
         ],
         "answer": "D",
         "skill": "detail",
-        "why": "The article says Saudi Arabia aims for 30 percent of the cars in Riyadh to be electric by 2030.",
+        "why": "In the article, Saudi Arabia aims for 30 percent of the cars in Riyadh to be electric by 2030.",
         "wrong": {
           "A": "The article says 30 percent by 2030.",
           "B": "The article says 30 percent by 2030.",
@@ -818,9 +818,9 @@
         ],
         "answer": "D",
         "skill": "cause-effect",
-        "why": "The article says gasoline cars were less expensive and could travel greater distances.",
+        "why": "In the article, gasoline cars were less expensive and could travel greater distances.",
         "wrong": {
-          "A": "The article says many cars ran on batteries then.",
+          "A": "Batteries did exist then, so this is not the reason.",
           "B": "No road closures are mentioned.",
           "C": "Noise is not given as a reason."
         }

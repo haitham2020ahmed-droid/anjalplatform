@@ -138,7 +138,7 @@
           ],
           "answer": "A",
           "skill": "detail",
-          "why": "The article says hot, melted rock under the ground is called magma.",
+          "why": "In the article, hot, melted rock under the ground is called magma.",
           "wrong": {
             "B": "Melted rock is called lava only after it comes out of the ground.",
             "C": "Sand is made of tiny broken bits of rock.",
@@ -155,7 +155,7 @@
           ],
           "answer": "B",
           "skill": "detail",
-          "why": "The article says rock made from layers may hold a fossil, like a shell.",
+          "why": "In the article, rock made from layers may hold a fossil, like a shell.",
           "wrong": {
             "A": "Lava forms a different kind of rock when it cools.",
             "C": "The bits sink in lakes, but the rock does not hold fresh water.",
@@ -189,7 +189,7 @@
           ],
           "answer": "A",
           "skill": "cause-effect",
-          "why": "The article says the lava cools, gets hard, and becomes new rock.",
+          "why": "In the article, the lava cools and gets hard, and it becomes new rock.",
           "wrong": {
             "B": "Sand and mud come from wind and rain breaking rock.",
             "C": "Cooling makes lava hard; melting is the opposite.",
@@ -351,7 +351,7 @@
           ],
           "answer": "C",
           "skill": "vocabulary",
-          "why": "The article explains that when water and wind carry sediment away, this is called erosion.",
+          "why": "In the article, when water and wind carry sediment away, this is called erosion.",
           "wrong": {
             "A": "Melting rock makes magma; that is not erosion.",
             "B": "Cooling lava makes igneous rock.",
@@ -368,7 +368,7 @@
           ],
           "answer": "D",
           "skill": "cause-effect",
-          "why": "The article says that in the desert, hot days and cold nights can make rocks crack.",
+          "why": "In the desert, hot days and cold nights can make rocks crack.",
           "wrong": {
             "A": "Deep pressure changes rock into metamorphic rock; it is not about desert cracking.",
             "B": "Lava forms new rock rather than cracking desert rocks.",
@@ -389,7 +389,7 @@
           "wrong": {
             "B": "The cliffs are sedimentary layers, and the change took millions of years.",
             "C": "The article does not compare cliffs in other cities.",
-            "D": "The article says all rocks keep changing in the cycle."
+            "D": "In the article, all rocks keep changing in the cycle."
           }
         },
         {
@@ -496,7 +496,7 @@
           ],
           "answer": "B",
           "skill": "detail",
-          "why": "The article says magma that cools slowly underground produces rock with large, visible crystals, such as granite.",
+          "why": "In the article, magma that cools slowly underground produces rock with large, visible crystals, such as granite.",
           "wrong": {
             "A": "Basalt forms from lava that cools quickly and has microscopic crystals.",
             "C": "Sandstone is not described in terms of crystals in the article.",
@@ -530,7 +530,7 @@
           ],
           "answer": "A",
           "skill": "vocabulary",
-          "why": "The article explains that through weathering, wind, rain, and ice break rocks into particles, and desert temperature swings make rocks crack.",
+          "why": "In the article, through weathering, wind, rain, and ice break rocks into particles, and desert temperature swings make rocks crack.",
           "wrong": {
             "B": "Melting rock creates magma, which is not weathering.",
             "C": "Weathering here is not about weather forecasts.",
@@ -547,7 +547,7 @@
           ],
           "answer": "C",
           "skill": "cause-effect",
-          "why": "The article explains that lava that cools rapidly at the surface produces rock with microscopic crystals, such as basalt.",
+          "why": "In the article, lava that cools rapidly at the surface produces rock with microscopic crystals, such as basalt.",
           "wrong": {
             "A": "Pressing layers forms sedimentary rock, not basalt.",
             "B": "The ancient sea formed the limestone cliffs near Riyadh.",
@@ -568,7 +568,7 @@
           "wrong": {
             "A": "The article does not compare the strength of materials.",
             "B": "The article says metamorphic rock forms deep underground, not only in deserts.",
-            "C": "The article says any rock that melts becomes magma again."
+            "C": "In the article, any rock that melts becomes magma again."
           }
         },
         {
@@ -581,7 +581,7 @@
           ],
           "answer": "A",
           "skill": "inference",
-          "why": "The article says Earth's internal heat and the sun's energy power the process, and both continue, so the cycle keeps going.",
+          "why": "In the article, Earth's internal heat and the sun's energy power the process, and both continue, so the cycle keeps going.",
           "wrong": {
             "B": "The article says natural forces, not geologists, move rocks.",
             "C": "The article does not mention rocks from space.",
@@ -627,7 +627,7 @@
         ],
         "answer": "B",
         "skill": "detail",
-        "why": "The text says wind and rain hit rock and, bit by bit, break it.",
+        "why": "In the text, wind and rain hit rock and, bit by bit, break it.",
         "wrong": {
           "A": "Fossils are found in rock; they do not break it.",
           "C": "Lava and magma make new rock.",
@@ -644,7 +644,7 @@
         ],
         "answer": "D",
         "skill": "cause-effect",
-        "why": "The text says more layers form on top, the weight packs them down, and in time they turn to rock.",
+        "why": "In the text, more layers form on top, the weight packs them down, and in time they turn to rock.",
         "wrong": {
           "A": "The text does not say wind turns layers into rock.",
           "B": "Shells can be fossils, but they do not make the layers rock.",
@@ -678,9 +678,9 @@
         ],
         "answer": "C",
         "skill": "inference",
-        "why": "The text says it just takes a long, long time for rocks to change.",
+        "why": "Rocks change very slowly, over a long time.",
         "wrong": {
-          "A": "The text says it takes a long, long time.",
+          "A": "In the text, rocks change very slowly, over a long time.",
           "B": "The text does not say rain makes rocks change fast.",
           "D": "The text says rocks change, even if they look the same."
         }
@@ -697,7 +697,7 @@
         ],
         "answer": "C",
         "skill": "cause-effect",
-        "why": "The text says the weight of the top layers presses the lower ones together until they become solid rock.",
+        "why": "In the text, the weight of the top layers presses the lower ones together until they become solid rock.",
         "wrong": {
           "A": "The text does not say wind carries them into a volcano.",
           "B": "Lava makes igneous rock, not sedimentary rock.",
@@ -714,7 +714,7 @@
         ],
         "answer": "A",
         "skill": "vocabulary",
-        "why": "The text says rocks break into bits such as sand and mud, which are called sediment.",
+        "why": "In the text, rocks break into bits such as sand and mud, which are called sediment.",
         "wrong": {
           "B": "Melted rock under ground is magma.",
           "C": "Marble is a kind of metamorphic rock.",
@@ -735,7 +735,7 @@
         "wrong": {
           "A": "Metamorphic rock does not melt as it forms.",
           "B": "The cliffs near Riyadh are made of layers formed under an old sea.",
-          "C": "The text says metamorphic rock forms deep underground."
+          "C": "In the text, metamorphic rock forms deep underground."
         }
       },
       {
@@ -748,7 +748,7 @@
         ],
         "answer": "B",
         "skill": "detail",
-        "why": "The text says the huge lava fields near Madinah are covered with black igneous rock.",
+        "why": "In the text, the huge lava fields near Madinah are covered with black igneous rock.",
         "wrong": {
           "A": "The limestone cliffs are not mentioned for Madinah.",
           "C": "Shells are found in sedimentary rock.",
@@ -767,7 +767,7 @@
         ],
         "answer": "D",
         "skill": "detail",
-        "why": "The text says it forms deep underground, usually where huge sections of the Earth's crust collide.",
+        "why": "Metamorphic rock forms deep underground, usually where big parts of Earth's crust push together.",
         "wrong": {
           "A": "Sedimentary rock settles in lakes and seas.",
           "B": "Rock that cools from lava is igneous.",
@@ -784,10 +784,10 @@
         ],
         "answer": "A",
         "skill": "cause-effect",
-        "why": "The text says the heavy weight of the upper layers presses and cements the lower ones into solid rock.",
+        "why": "The heavy weight of the upper layers presses the lower layers into solid rock.",
         "wrong": {
           "B": "Melting would make magma, not sedimentary rock.",
-          "C": "The text says the sediment settles in lakes and seas.",
+          "C": "The sediment settles in layers and is pressed into rock; wind does not blow it into cliffs.",
           "D": "Cracking breaks rock into sediment in the first place."
         }
       },
@@ -804,7 +804,7 @@
         "why": "The rock does not melt, but heat and pressure turn it into a different kind of rock, so transform means change in form.",
         "wrong": {
           "A": "The rock turns into a new rock; it does not break up.",
-          "B": "The text says the rock does not melt.",
+          "B": "The rock does not melt.",
           "D": "Erosion washes sediment away, but metamorphic rock is not washed away."
         }
       },

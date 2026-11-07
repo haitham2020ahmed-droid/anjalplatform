@@ -155,7 +155,7 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The article says his most famous clock looked like a big elephant.",
+          "why": "His most famous clock was shaped like a big elephant.",
           "wrong": {
             "A": "The article does not mention a tower.",
             "B": "The boat was a musical toy, not the clock.",
@@ -172,7 +172,7 @@
           ],
           "answer": "D",
           "skill": "vocabulary",
-          "why": "The article explains that when one gear turns, its teeth make the next gear turn.",
+          "why": "In the article, when one gear turns, its teeth make the next gear turn.",
           "wrong": {
             "A": "Gears pass motion on; they do not stop it.",
             "B": "Gears do not heat water.",
@@ -189,11 +189,11 @@
           ],
           "answer": "D",
           "skill": "cause-effect",
-          "why": "The article says that with the pump, people no longer had to lift or carry water by hand.",
+          "why": "In the article, the pump lifted water, so people did not have to lift it by hand.",
           "wrong": {
             "A": "The pump made carrying water less needed, not more.",
             "B": "The article does not say rivers dried up.",
-            "C": "The article says he worked for the royal family; it does not say they stopped."
+            "C": "He did work for a king; it does not say they stopped."
           }
         },
         {
@@ -206,7 +206,7 @@
           ],
           "answer": "A",
           "skill": "inference",
-          "why": "The article says he drew and explained each machine so others could copy or build it, and we can still read it today.",
+          "why": "In the article, he drew each machine and told how to build it, so others could build it too.",
           "wrong": {
             "B": "He explained how to build them, which helps others copy them.",
             "C": "He wrote a book, so he could write.",
@@ -317,7 +317,7 @@
           ],
           "answer": "B",
           "skill": "detail",
-          "why": "The article says a bowl slowly sank in a tank of water, and every half hour signals showed the time.",
+          "why": "In the article, a bowl slowly sank in a tank of water, and every half hour signals showed the time.",
           "wrong": {
             "A": "That describes a sundial, not this clock.",
             "C": "The clock worked by itself, without a person.",
@@ -334,7 +334,7 @@
           ],
           "answer": "B",
           "skill": "detail",
-          "why": "The article says some pumps were powered by animals and others by flowing water.",
+          "why": "In the article, some pumps were powered by animals and others by flowing water.",
           "wrong": {
             "A": "There was no electricity 800 years ago.",
             "C": "Steam engines are not mentioned.",
@@ -368,7 +368,7 @@
           ],
           "answer": "D",
           "skill": "detail",
-          "why": "The article says valves open and close to control the flow of water.",
+          "why": "In the article, valves open and close to control the flow of water.",
           "wrong": {
             "A": "Valves control water; they do not make sounds.",
             "B": "Valves are machine parts, not drawings.",
@@ -530,7 +530,7 @@
           ],
           "answer": "B",
           "skill": "inference",
-          "why": "The article says the clock combined ideas from several cultures, showing that knowledge was exchanged across civilizations.",
+          "why": "The clock mixed ideas from several cultures, which shows that knowledge was shared between them.",
           "wrong": {
             "A": "The article says nothing about his travels.",
             "C": "The article does not say this.",
@@ -547,7 +547,7 @@
           ],
           "answer": "C",
           "skill": "cause-effect",
-          "why": "The article says gears and valves let his machines repeat their movements automatically.",
+          "why": "In the article, gears and valves let his machines repeat their movements automatically.",
           "wrong": {
             "A": "Valves control the flow; they do not stop it completely.",
             "B": "The article does not say this.",
@@ -627,7 +627,7 @@
         ],
         "answer": "B",
         "skill": "detail",
-        "why": "The text says each half hour a ball fell and a bird sang.",
+        "why": "Every half hour, a ball fell and a bird made a sound.",
         "wrong": {
           "A": "The elephant did not move to the river.",
           "C": "The band was on the toy boat, not the clock.",
@@ -644,7 +644,7 @@
         ],
         "answer": "D",
         "skill": "detail",
-        "why": "The text says one toy was a boat with a band that played a tune.",
+        "why": "In the text, one toy was a boat with a band that played a tune.",
         "wrong": {
           "A": "A king and a pump are not on the boat.",
           "B": "The ball and bird belong to the elephant clock.",
@@ -714,7 +714,7 @@
         ],
         "answer": "A",
         "skill": "cause-effect",
-        "why": "The text says his job was to design and build useful and surprising machines.",
+        "why": "His job was to design and build useful machines.",
         "wrong": {
           "B": "He built a boat with musicians but did not teach music.",
           "C": "Guarding farms is not mentioned.",
@@ -767,7 +767,7 @@
         ],
         "answer": "A",
         "skill": "detail",
-        "why": "The text says the manuscript described fifty of his machines.",
+        "why": "In the text, the manuscript described fifty of his machines.",
         "wrong": {
           "B": "Twenty-five is about how many years he worked for the royal family.",
           "C": "Four is the number of mechanical musicians on the boat.",

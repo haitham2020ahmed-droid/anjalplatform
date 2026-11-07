@@ -155,7 +155,7 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The article says their neighbor was an old man named Hamad who lived alone.",
+          "why": "In the story, Hamad is an old man who lives alone.",
           "wrong": {
             "A": "Hamad is not described as a teacher.",
             "B": "Hamad is a neighbor, not Rami's grandfather.",
@@ -317,7 +317,7 @@
           ],
           "answer": "B",
           "skill": "detail",
-          "why": "The article says Rami noticed the water rising far faster than it usually did after an ordinary rain.",
+          "why": "In the story, Rami noticed the water rising much faster than usual.",
           "wrong": {
             "A": "The article does not mention a phone or weather report.",
             "C": "Rami noticed the water himself, not his sister.",
@@ -329,12 +329,12 @@
           "options": [
             "Because he is much younger than everyone in the whole village",
             "Because he had only recently moved into the small village",
-            "Because he rarely speaks up, especially next to his louder sister",
+            "Because he rarely speaks up when he is in a crowd",
             "Because he does not go to school with the other children"
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The article explains that people overlooked Rami because he rarely spoke up, especially beside his louder sister.",
+          "why": "Most people overlooked Rami because he rarely spoke up in a crowd.",
           "wrong": {
             "A": "The article does not say he is much younger than everyone.",
             "B": "The article does not say he recently moved there.",
@@ -496,7 +496,7 @@
           ],
           "answer": "B",
           "skill": "detail",
-          "why": "The article states that Rami habitually sat quietly by his bedroom window most evenings.",
+          "why": "In the article, Rami habitually sat quietly by his bedroom window most evenings.",
           "wrong": {
             "A": "The article does not mention a market job.",
             "C": "The article does not mention homework.",
@@ -627,7 +627,7 @@
         ],
         "answer": "D",
         "skill": "detail",
-        "why": "The text says the family helped him grab his things before they went to high ground.",
+        "why": "In the story, the family helped him gather his things.",
         "wrong": {
           "A": "No new house is mentioned.",
           "B": "No boat is mentioned.",
@@ -697,7 +697,7 @@
         ],
         "answer": "B",
         "skill": "detail",
-        "why": "The article says they reached safety just moments before the water arrived.",
+        "why": "In the article, they reached safety just moments before the water arrived.",
         "wrong": {
           "A": "They had very little time to spare.",
           "C": "The flood went down by the next morning.",
@@ -801,7 +801,7 @@
         ],
         "answer": "D",
         "skill": "cause-effect",
-        "why": "The article says he was remarkably perceptive and noticed small details others walked past.",
+        "why": "Rami was very good at noticing small details that others missed.",
         "wrong": {
           "A": "The hills are not why he noticed.",
           "B": "A radio is not mentioned.",

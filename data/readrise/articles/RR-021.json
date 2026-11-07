@@ -138,7 +138,7 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The article says a lever is a bar that rests on a point, like a seesaw.",
+          "why": "In the article, a lever is a bar that rests on a point, like a seesaw.",
           "wrong": {
             "A": "A rope over a wheel is a pulley.",
             "B": "A thin edge that splits things is a wedge.",
@@ -155,7 +155,7 @@
           ],
           "answer": "A",
           "skill": "cause-effect",
-          "why": "The article says you pull the rope down and the load goes up, like a flag going up a pole.",
+          "why": "In the article, you pull the rope down and the load goes up.",
           "wrong": {
             "B": "The article does not say the load falls off.",
             "C": "The pulley does not change how heavy the load is.",
@@ -189,7 +189,7 @@
           ],
           "answer": "B",
           "skill": "vocabulary",
-          "why": "Force is the push or pull you use to move something. The article says a machine lets you use less of it.",
+          "why": "Force is the push or pull you use to move something. In the article, a machine lets you use less of it.",
           "wrong": {
             "A": "A rope is part of a pulley, not a force.",
             "C": "The long path is the distance you move, not the force.",
@@ -223,7 +223,7 @@
           ],
           "answer": "A",
           "skill": "inference",
-          "why": "The article says you use less force, but you must move farther. That is the trade.",
+          "why": "In the article, you use less force, but you must move farther. That is the trade.",
           "wrong": {
             "B": "The article does not talk about using two hands.",
             "C": "Night is never mentioned.",
@@ -317,7 +317,7 @@
           ],
           "answer": "A",
           "skill": "detail",
-          "why": "The article says a lever turns on a fixed point called a fulcrum.",
+          "why": "In the article, a lever turns on a fixed point called a fulcrum.",
           "wrong": {
             "B": "A pulley uses a rope, but that is not a fulcrum.",
             "C": "The edge of a wedge is not called a fulcrum.",
@@ -351,7 +351,7 @@
           ],
           "answer": "C",
           "skill": "inference",
-          "why": "The article says that moving the fulcrum closer to the load means you need less effort.",
+          "why": "In the article, moving the fulcrum closer to the load means you need less effort.",
           "wrong": {
             "A": "Moving the fulcrum away from the load would make it harder.",
             "B": "The article does not say a shorter bar helps.",
@@ -359,7 +359,7 @@
           }
         },
         {
-          "stem": "Read: \"An inclined plane is a ramp.\" What does inclined mean?",
+          "stem": "In the article, what does the word \"inclined\" mean?",
           "options": [
             "Sloping",
             "Heavy",
@@ -481,7 +481,7 @@
           "skill": "central-idea",
           "why": "The article describes the six simple machines and stresses that each lowers the force needed while the total work does not shrink.",
           "wrong": {
-            "A": "The article says the total work never becomes smaller.",
+            "A": "In the article, the total work never becomes smaller.",
             "B": "The article shows that simple machines without engines provide mechanical advantage.",
             "D": "The article does not rank the machines."
           }
@@ -513,7 +513,7 @@
           ],
           "answer": "D",
           "skill": "detail",
-          "why": "The article says the spiral ridges of a jar lid are called threads.",
+          "why": "In the article, the spiral ridges of a jar lid are called threads.",
           "wrong": {
             "A": "A wedge splits materials apart.",
             "B": "An axle is the rod turned by a wheel.",
@@ -530,7 +530,7 @@
           ],
           "answer": "B",
           "skill": "cause-effect",
-          "why": "The article states that machines always lose a little energy to friction, the rubbing between moving surfaces.",
+          "why": "In the article, machines always lose a little energy to friction.",
           "wrong": {
             "A": "The article does not say parts become heavier.",
             "C": "A fulcrum is fixed; it does not move on its own.",
@@ -551,11 +551,11 @@
           "wrong": {
             "A": "The article says total work never becomes smaller.",
             "B": "Choosing the long ramp suggests the worker wants less effort, not more speed.",
-            "D": "The article says machines always lose some energy to friction."
+            "D": "Machines always lose some energy to friction."
           }
         },
         {
-          "stem": "Read: \"...either by reducing the force you must exert...\" Which word could replace exert?",
+          "stem": "Simple machines can reduce the force you must exert. Which word could replace exert?",
           "options": [
             "Apply",
             "Avoid",
@@ -585,7 +585,7 @@
           "wrong": {
             "A": "No invention dates are given.",
             "B": "The article describes several machines rather than one solution.",
-            "C": "The article explains the benefits of machines; it does not argue against them."
+            "C": "Machines are shown as helpful tools; the article does not argue against them."
           }
         },
         {
@@ -644,10 +644,10 @@
         ],
         "answer": "A",
         "skill": "inference",
-        "why": "The text says that if the point is near the load, you need less force.",
+        "why": "In the text, if the point is near the load, you need less force.",
         "wrong": {
           "B": "Far from the load needs more force.",
-          "C": "The text says to put the point near the load.",
+          "C": "In the text, moving the point close to the load is the right choice.",
           "D": "The text says near the load, not at the end."
         }
       },
@@ -678,7 +678,7 @@
         ],
         "answer": "B",
         "skill": "compare",
-        "why": "The text says a screw is a ramp that winds round a post.",
+        "why": "A screw is like a ramp that winds around a post.",
         "wrong": {
           "A": "Neither one is made of rope.",
           "C": "A wedge, such as an axe, splits things.",
@@ -697,7 +697,7 @@
         ],
         "answer": "B",
         "skill": "detail",
-        "why": "The article says that when you push one end down, the other end rises.",
+        "why": "In the article, when you push one end down, the other end rises.",
         "wrong": {
           "A": "The bar turns on its point, so the other end moves.",
           "C": "A seesaw is a lever, not a ramp.",
@@ -731,7 +731,7 @@
         ],
         "answer": "A",
         "skill": "cause-effect",
-        "why": "The article says pushing a cart up a ramp takes less effort than lifting it, but the path is longer.",
+        "why": "In the article, pushing a cart up a ramp takes less effort than lifting it, but the path is longer.",
         "wrong": {
           "B": "The cart is still heavy.",
           "C": "Lifting straight up is the harder way.",
@@ -748,7 +748,7 @@
         ],
         "answer": "C",
         "skill": "detail",
-        "why": "The article says a wheel and axle, such as a doorknob, uses a large wheel to turn a small rod.",
+        "why": "In the article, a wheel and axle, such as a doorknob, uses a large wheel to turn a small rod.",
         "wrong": {
           "A": "Splitting things is what a wedge does.",
           "B": "Raising a load on a rope is a pulley.",
@@ -767,7 +767,7 @@
         ],
         "answer": "D",
         "skill": "detail",
-        "why": "The article says that when you push, pull, or lift an object and it moves, you are doing work.",
+        "why": "In the article, when you push, pull, or lift an object and it moves, you are doing work.",
         "wrong": {
           "A": "Reading does not move an object.",
           "B": "Resting does not move an object.",
@@ -801,7 +801,7 @@
         ],
         "answer": "A",
         "skill": "cause-effect",
-        "why": "The article says pulling downward on the rope lifts the load upward, which is more comfortable.",
+        "why": "In the article, pulling downward on the rope lifts the load upward, which is more comfortable.",
         "wrong": {
           "B": "A long ramp is an inclined plane, not a pulley.",
           "C": "Moving a fulcrum is how a lever is used.",

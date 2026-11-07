@@ -206,7 +206,7 @@
           ],
           "answer": "A",
           "skill": "inference",
-          "why": "The article says copying a book by hand took a long time, which made books rare and costly.",
+          "why": "In the article, copying a book by hand took a long time, which made books rare and costly.",
           "wrong": {
             "B": "The article does not say people disliked reading.",
             "C": "The article is about printing, not about paper being invented.",
@@ -223,7 +223,7 @@
           ],
           "answer": "B",
           "skill": "inference",
-          "why": "The article says metal blocks lasted longer than clay ones and did not wear out fast.",
+          "why": "In the article, the metal blocks did not wear out fast.",
           "wrong": {
             "A": "The blocks were reused, not thrown away.",
             "C": "The article does not say the blocks melted.",
@@ -302,8 +302,8 @@
           "skill": "central-idea",
           "why": "The article shows how movable type, from clay blocks to Gutenberg's metal press, made books cheaper and helped literacy grow.",
           "wrong": {
-            "B": "The article describes scribes, readers, and printers in China, Korea, and Europe.",
-            "C": "The article says metal type lasted longer than clay, not that clay was better.",
+            "B": "The article describes scribes, readers, and printers in several different places.",
+            "C": "In the article, metal type lasted longer than clay, not that clay was better.",
             "D": "The olive press is only mentioned as a model for Gutenberg's press."
           }
         },
@@ -317,7 +317,7 @@
           ],
           "answer": "B",
           "skill": "detail",
-          "why": "The article says a scribe was a trained writer who had to copy every word by hand.",
+          "why": "In the article, a scribe was a trained writer who had to copy every word by hand.",
           "wrong": {
             "A": "Carving wooden pages describes an earlier printing method, not a scribe's main job.",
             "C": "Mixing metals describes what Gutenberg did, not a scribe.",
@@ -334,7 +334,7 @@
           ],
           "answer": "B",
           "skill": "detail",
-          "why": "The article explains that movable type is made of small pieces that can be rearranged and reused to print many different pages.",
+          "why": "In the article, movable type is made of small pieces that can be moved and used again to print new pages.",
           "wrong": {
             "A": "An olive press is only compared to Gutenberg's printing press.",
             "C": "A whole carved page is the opposite of movable type.",
@@ -513,7 +513,7 @@
           ],
           "answer": "D",
           "skill": "detail",
-          "why": "The article states that in 1727, Ibrahim Muteferrika established one of the earliest printing presses using Arabic script in Istanbul.",
+          "why": "In 1727, Ibrahim Muteferrika set up one of the first printing presses using Arabic letters in Istanbul.",
           "wrong": {
             "A": "Bi Sheng worked in China, roughly a thousand years ago.",
             "B": "Gutenberg built his press in the German city of Mainz.",
@@ -521,7 +521,7 @@
           }
         },
         {
-          "stem": "In the article, Gutenberg's press \"transformed the economics of bookmaking.\" What does transformed mean here?",
+          "stem": "In the article, what does the word \"transformed\" mean?",
           "options": [
             "Slowly copied",
             "Completely changed",
@@ -547,7 +547,7 @@
           ],
           "answer": "C",
           "skill": "cause-effect",
-          "why": "The article says that as books spread more widely and became cheaper, literacy climbed steadily across many social classes.",
+          "why": "In the article, as books spread more widely and became cheaper, literacy climbed steadily across many social classes.",
           "wrong": {
             "A": "The article clearly links the press to literacy rising.",
             "B": "Books became far more common, not rarer.",
@@ -581,7 +581,7 @@
           ],
           "answer": "B",
           "skill": "inference",
-          "why": "Because the article shows Bi Sheng, the Korean monks, and Gutenberg working without direct contact, their shared solution suggests movable type solved a widely felt need.",
+          "why": "Because the article shows inventors in different places finding the same idea, movable type seems to have solved a common problem.",
           "wrong": {
             "A": "The article describes separate, independent discoveries, not instant travel of the idea.",
             "C": "China and Korea developed movable type well before Gutenberg.",
@@ -644,7 +644,7 @@
         ],
         "answer": "A",
         "skill": "cause-effect",
-        "why": "The text says books got cheap, so more folks could buy one.",
+        "why": "Books became cheap, so more people could buy them.",
         "wrong": {
           "B": "The text does not say books got heavier.",
           "C": "The monks made a book with metal blocks.",
@@ -661,7 +661,7 @@
         ],
         "answer": "D",
         "skill": "vocabulary",
-        "why": "The text says books were rare, so few could own one.",
+        "why": "Books were rare, so few people could own one.",
         "wrong": {
           "A": "Size is not the idea of the word.",
           "B": "Copying a book by hand took a long time.",
@@ -697,7 +697,7 @@
         ],
         "answer": "D",
         "skill": "detail",
-        "why": "The text says only rich families, temples, or royal courts could pay for one.",
+        "why": "In the text, only rich families, religious groups, or royal courts could pay for one.",
         "wrong": {
           "A": "The text says books cost a lot, so not just anyone could buy one.",
           "B": "Learners are not said to pay for books.",
@@ -714,7 +714,7 @@
         ],
         "answer": "B",
         "skill": "vocabulary",
-        "why": "The text says more people had a reason to learn to read, so literacy grew.",
+        "why": "In the text, more people had a reason to learn to read, so literacy grew.",
         "wrong": {
           "A": "Cost is the idea of cheap and costly books.",
           "C": "The press speed is a different idea.",
@@ -731,7 +731,7 @@
         ],
         "answer": "A",
         "skill": "cause-effect",
-        "why": "The text says a scribe copied every word by hand, and this took months.",
+        "why": "In the text, a scribe copied every word by hand, and this took months.",
         "wrong": {
           "B": "Making paper is not said to be the reason.",
           "C": "The press was used later, by Gutenberg.",
@@ -748,7 +748,7 @@
         ],
         "answer": "C",
         "skill": "compare",
-        "why": "The text says the monks used metal movable type, not clay.",
+        "why": "The monks used metal movable type, not clay.",
         "wrong": {
           "A": "Wood is not mentioned for the type.",
           "B": "Paper is what was printed on.",
@@ -767,7 +767,7 @@
         ],
         "answer": "A",
         "skill": "detail",
-        "why": "The text says the press was modeled on devices used in Europe to crush grapes and olives.",
+        "why": "In the text, the press was modeled on devices used in Europe to crush grapes and olives.",
         "wrong": {
           "B": "Cutting clay was how Bi Sheng worked.",
           "C": "Carving whole pages was the older way.",
@@ -801,7 +801,7 @@
         ],
         "answer": "B",
         "skill": "cause-effect",
-        "why": "The text says the mechanism distributed many identical pages at a pace no scribe could match.",
+        "why": "The press made many identical pages much faster than any scribe could.",
         "wrong": {
           "A": "Ink amount is not mentioned.",
           "C": "Gutenberg's type was cast from metal.",

@@ -138,7 +138,7 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The article says code tells the game what to do.",
+          "why": "Code tells the game what to do.",
           "wrong": {
             "A": "An artist draws the hero.",
             "B": "Other people make the sounds and music.",
@@ -172,7 +172,7 @@
           ],
           "answer": "D",
           "skill": "vocabulary",
-          "why": "The article says a bug is a mistake that can make the game stop.",
+          "why": "In the article, a bug is a mistake that can make the game stop.",
           "wrong": {
             "A": "In this article, a bug is not an insect.",
             "B": "New levels are added, but they are not bugs.",
@@ -189,7 +189,7 @@
           ],
           "answer": "B",
           "skill": "sequence",
-          "why": "The article says that first, the team makes a small test game.",
+          "why": "In the article, first, the team makes a small test game.",
           "wrong": {
             "A": "Selling comes at the end.",
             "C": "Fixing bugs comes after the real game is built.",
@@ -317,7 +317,7 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The article says game designers plan the rules, the goals, and the levels.",
+          "why": "In the article, game designers plan the rules, the goals, and the levels.",
           "wrong": {
             "A": "Composers write the music.",
             "B": "The article does not say designers fix computers.",
@@ -351,7 +351,7 @@
           ],
           "answer": "B",
           "skill": "detail",
-          "why": "The article says a prototype might use plain gray blocks instead of finished art.",
+          "why": "In the article, a prototype might use plain gray blocks instead of finished art.",
           "wrong": {
             "A": "Photographs are not mentioned.",
             "C": "Finished art comes later.",
@@ -385,7 +385,7 @@
           ],
           "answer": "B",
           "skill": "sequence",
-          "why": "The article says the team uses the players' feedback to improve the game.",
+          "why": "In the article, the team uses the players' feedback to improve the game.",
           "wrong": {
             "A": "Release comes much later.",
             "C": "Nothing says music is deleted.",
@@ -496,7 +496,7 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The article says an engine draws a frame many times every second, often thirty or sixty times.",
+          "why": "In the article, an engine draws a frame many times every second, often thirty or sixty times.",
           "wrong": {
             "A": "That would make movement look jerky.",
             "B": "This number is not in the article.",
@@ -513,7 +513,7 @@
           ],
           "answer": "D",
           "skill": "detail",
-          "why": "The article says the code tells the computer how to respond to a player's button press, which makes the game interactive.",
+          "why": "In the article, the code tells the computer how to respond to a player's button press, which makes the game interactive.",
           "wrong": {
             "A": "Sound adds to a game but does not make it respond to players.",
             "B": "Team size does not make a game interactive.",
@@ -547,7 +547,7 @@
           ],
           "answer": "B",
           "skill": "vocabulary",
-          "why": "The article explains that the team refines the design through iteration, testing and changing the game again and again.",
+          "why": "In the article, the team refines the design through iteration, testing and changing the game again and again.",
           "wrong": {
             "A": "Iteration is not about sales.",
             "C": "That is the artists' task.",
@@ -598,7 +598,7 @@
           ],
           "answer": "D",
           "skill": "compare",
-          "why": "The article says designers determine rules, objectives, and levels, while programmers write the code.",
+          "why": "In the article, designers determine rules, objectives, and levels, while programmers write the code.",
           "wrong": {
             "A": "This reverses the roles.",
             "B": "The article describes them as separate roles.",
@@ -644,7 +644,7 @@
         ],
         "answer": "A",
         "skill": "sequence",
-        "why": "The text says the team fixes the test game, and next the team builds the real game.",
+        "why": "In the text, the team makes the test game better, and next the team builds the full game.",
         "wrong": {
           "B": "The text does not say they draw the hero again.",
           "C": "The team keeps working until the game is done.",
@@ -678,7 +678,7 @@
         ],
         "answer": "B",
         "skill": "inference",
-        "why": "The text says the team still fixes bugs and adds new parts, which gives players more to play.",
+        "why": "In the text, the team still fixes bugs and adds new parts, which gives players more to play.",
         "wrong": {
           "A": "Adding parts makes a game bigger, not smaller.",
           "C": "The text does not say sounds are removed.",
@@ -697,7 +697,7 @@
         ],
         "answer": "A",
         "skill": "detail",
-        "why": "The text says a team may have hundreds of people and can take several years to finish one game.",
+        "why": "In the text, a team may have hundreds of people and can take several years to finish one game.",
         "wrong": {
           "B": "A few minutes is far too short.",
           "C": "One day is far too short.",
@@ -731,7 +731,7 @@
         ],
         "answer": "B",
         "skill": "cause-effect",
-        "why": "The text says testers play again and again to find bugs, which are mistakes in the code.",
+        "why": "In the text, testers play again and again to find bugs, which are mistakes in the code.",
         "wrong": {
           "A": "The sound team handles the music.",
           "C": "Artists draw the characters.",
@@ -748,7 +748,7 @@
         ],
         "answer": "D",
         "skill": "compare",
-        "why": "The text says small games may be made by one person, but big games need large teams and several years.",
+        "why": "In the text, small games may be made by one person, but big games need large teams and several years.",
         "wrong": {
           "A": "That describes small games.",
           "B": "Big games have artists and sound designers.",
@@ -767,7 +767,7 @@
         ],
         "answer": "C",
         "skill": "detail",
-        "why": "The text says an engine already knows how to render images, play sounds, and make objects fall or bounce.",
+        "why": "In the text, an engine already knows how to render images, play sounds, and make objects fall or bounce.",
         "wrong": {
           "A": "Game designers plan the rules.",
           "B": "Sound designers and composers create the music.",

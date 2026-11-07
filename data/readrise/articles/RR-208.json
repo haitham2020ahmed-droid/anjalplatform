@@ -138,7 +138,7 @@
           ],
           "answer": "D",
           "skill": "detail",
-          "why": "The article says a machine inside the turbine changes the blades' spinning into electric power.",
+          "why": "A machine inside the turbine changes the spinning of the blades into electricity.",
           "wrong": {
             "A": "The article does not say turbines pump water.",
             "B": "Turbines do not make wind; wind makes them spin.",
@@ -197,7 +197,7 @@
           }
         },
         {
-          "stem": "Read: \"The blades spin round and round.\" What does spin mean here?",
+          "stem": "In the article, what does the word \"spin\" mean?",
           "options": [
             "To turn around and around",
             "To fall down suddenly",
@@ -206,7 +206,7 @@
           ],
           "answer": "A",
           "skill": "vocabulary",
-          "why": "The words \"round and round\" show that spin means to turn around and around.",
+          "why": "The words round and round show that spin means to turn around and around.",
           "wrong": {
             "B": "The sentence is about turning, not falling.",
             "C": "Spinning is movement, the opposite of stopping.",
@@ -342,7 +342,7 @@
           }
         },
         {
-          "stem": "Read: \"it is a renewable source of energy.\" What does renewable mean here?",
+          "stem": "In the article, what does the word \"renewable\" mean?",
           "options": [
             "Costly for a country to build and run each year",
             "Able to be used again without running out",
@@ -496,7 +496,7 @@
           ],
           "answer": "B",
           "skill": "detail",
-          "why": "The article states that a generator inside the turbine converts the rotational motion into electric current.",
+          "why": "In the article, a generator inside the turbine converts the rotational motion into electric current.",
           "wrong": {
             "A": "A battery is never described inside the turbine.",
             "C": "Solar panels are not part of this article.",
@@ -504,7 +504,7 @@
           }
         },
         {
-          "stem": "In the sentence describing wind power as \"inherently intermittent,\" what does intermittent mean?",
+          "stem": "In the article, what does the word \"intermittent\" mean?",
           "options": [
             "Not steady; it starts and stops",
             "Extremely dangerous to be near",
@@ -532,7 +532,7 @@
           "skill": "cause-effect",
           "why": "The article explains that wind speed fluctuates constantly, which causes turbine output to change as a result.",
           "wrong": {
-            "A": "The article clearly says changing wind speed is a serious challenge.",
+            "A": "Changing wind speed does change how much power the turbines make.",
             "B": "Spinning backward is never mentioned.",
             "D": "Wind power produces no pollution at any wind speed."
           }
@@ -547,7 +547,7 @@
           ],
           "answer": "D",
           "skill": "inference",
-          "why": "The article says the aerodynamic profile allows wind to generate lift and rotate the blades with remarkable efficiency.",
+          "why": "The shape of the blades lets the wind lift and turn them very well.",
           "wrong": {
             "A": "Appearance is not the reason given in the article.",
             "B": "Birds are never mentioned in the article.",
@@ -564,7 +564,7 @@
           ],
           "answer": "A",
           "skill": "inference",
-          "why": "The article says infrastructure is needed to connect the wind farm to the broader electricity grid that carries power to distant cities.",
+          "why": "Equipment is needed to connect the wind farm to the electricity grid that carries power to cities.",
           "wrong": {
             "B": "Tourism is not mentioned in the article.",
             "C": "Infrastructure is not described as controlling turbine speed.",
@@ -598,7 +598,7 @@
           ],
           "answer": "B",
           "skill": "inference",
-          "why": "The article explains that wind speed fluctuates constantly, so engineers optimize turbine design to maintain efficiency across a broad range of conditions.",
+          "why": "Wind speed changes all the time, so engineers improve turbine designs to keep them working well.",
           "wrong": {
             "A": "Blade color is never mentioned as a reason.",
             "C": "Rebuilding turbines yearly is not described in the article.",
@@ -627,7 +627,7 @@
         ],
         "answer": "C",
         "skill": "detail",
-        "why": "The text says the electricity gives us energy for lights and fans.",
+        "why": "In the text, the electricity can run things like lights.",
         "wrong": {
           "A": "The text does not say turbines give water.",
           "B": "Turbines use wind; they do not give wind.",
@@ -648,7 +648,7 @@
         "wrong": {
           "B": "The text does not say it uses water.",
           "C": "The text does not talk about price.",
-          "D": "The text says wind can blow at night and on most days."
+          "D": "In the text, wind can blow at night and on most days."
         }
       },
       {
@@ -682,7 +682,7 @@
         "wrong": {
           "A": "Running out is about ending, not about blowing hard.",
           "C": "The text does not say where the wind goes.",
-          "D": "The text says wind can still blow at night."
+          "D": "Wind can blow at night, but that is not what run out means."
         }
       }
     ],
@@ -697,7 +697,7 @@
         ],
         "answer": "B",
         "skill": "detail",
-        "why": "The text says Saudi Arabia wants to make about half of its power from renewable sources by 2030.",
+        "why": "In the text, Saudi Arabia wants to make about half of its power from renewable sources by 2030.",
         "wrong": {
           "A": "The goal is to use more renewable power, not to end it.",
           "C": "The text does not say it wants to sell its turbines.",
@@ -731,7 +731,7 @@
         ],
         "answer": "A",
         "skill": "cause-effect",
-        "why": "The text says wind speed changes and on calm days turbines make little power.",
+        "why": "In the text, wind speed changes and on calm days turbines make little power.",
         "wrong": {
           "B": "The text does not say turbines get too hot.",
           "C": "The text does not say batteries stop working in sunlight.",
@@ -748,7 +748,7 @@
         ],
         "answer": "C",
         "skill": "inference",
-        "why": "The text says large batteries can store extra energy made on windy days for use when the wind is calm.",
+        "why": "In the text, large batteries can store extra energy made on windy days for use when the wind is calm.",
         "wrong": {
           "A": "Power cannot be poured into the sea, and the text does not say this.",
           "B": "The text does not say power goes back to the sky.",
@@ -767,7 +767,7 @@
         ],
         "answer": "D",
         "skill": "detail",
-        "why": "The text says connecting many turbines at one site is called a wind farm.",
+        "why": "Many turbines connected at one site are called a wind farm.",
         "wrong": {
           "A": "The text does not use this name for a group of turbines.",
           "B": "The grid is what the equipment connects to, not the group of turbines.",
@@ -801,7 +801,7 @@
         ],
         "answer": "B",
         "skill": "cause-effect",
-        "why": "The text says the region gets strong, steady wind and has vast stretches of open land.",
+        "why": "In the text, the region gets strong, steady wind and has vast stretches of open land.",
         "wrong": {
           "A": "The text does not mention mountains or heavy rain.",
           "C": "The text says open land is the advantage, not tall buildings.",
@@ -809,20 +809,20 @@
         }
       },
       {
-        "stem": "What can be inferred about wind power's future in the region?",
+        "stem": "What can be inferred about why a large wind farm was built in the north of the country?",
         "options": [
-          "It may grow as storage improves",
-          "It will replace all other power soon",
-          "It will stop once batteries are used",
-          "It cannot grow because of costs"
+          "The north has strong, steady winds",
+          "The north has no people at all",
+          "The north gets heavy rain every day",
+          "The north is the coldest place on Earth"
         ],
         "answer": "A",
         "skill": "inference",
-        "why": "The last sentence says that as storage technology improves, wind may supply a growing share of the region's power.",
+        "why": "The northern region has strong, steady winds on most days, which makes it a good place for turbines.",
         "wrong": {
-          "B": "The text says wind may supply a growing share, not all the power.",
-          "C": "Batteries help wind power; they do not stop it.",
-          "D": "The text says the cost of turbines has fallen a great deal."
+          "B": "The article does not say no one lives there.",
+          "C": "Heavy rain is not the reason.",
+          "D": "Cold is not the reason."
         }
       }
     ]

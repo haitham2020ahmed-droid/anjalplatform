@@ -287,8 +287,8 @@ function reasonText(r: RecommendReason | null | undefined, tr: ReturnType<typeof
     case "SKILL": { const name = r.label.replace(/^🎯\s*Practise:\s*/, ""); return tr("🎯 Practise: {skill}", { skill: tr(name) }); }
     case "INTEREST": return tr("❤️ You like: {topic}", { topic: tr(r.topic ?? "") });
     case "NEW_TOPIC": return r.label.startsWith("🌍") ? tr("🌍 New topic for you") : tr("📚 A good read for you");
-    case "STRETCH": return tr("⬆ Great! Try it one level up");
-    default: return tr("💪 Another one to build your skill");
+    // round 7: "one level up" is the Stretch button's job; readNext never offers the same article
+    default: return tr("📚 More on this topic");
   }
 }
 

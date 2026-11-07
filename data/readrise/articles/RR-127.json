@@ -138,7 +138,7 @@
           ],
           "answer": "A",
           "skill": "detail",
-          "why": "The article says most kids need nine to twelve hours each night.",
+          "why": "Most kids need nine to twelve hours of sleep each night.",
           "wrong": {
             "B": "Five to six hours is much less than the article says kids need.",
             "C": "One hour is how long before bed to turn off screens.",
@@ -158,7 +158,7 @@
           "why": "The article says the body's clock uses light to know day from night.",
           "wrong": {
             "A": "The article does not say food tells the clock the time.",
-            "B": "Sound is not what the article says the clock uses.",
+            "B": "Sound is not what the body's clock uses.",
             "D": "Games can keep you awake, but they do not tell day from night."
           }
         },
@@ -172,7 +172,7 @@
           ],
           "answer": "D",
           "skill": "cause-effect",
-          "why": "The article says screen light can trick or fool the brain into thinking it is still day, so you do not feel sleepy.",
+          "why": "In the article, screen light can trick or fool the brain into thinking it is still day, so you do not feel sleepy.",
           "wrong": {
             "A": "The article does not say screens make rooms cold.",
             "B": "Light is seen with the eyes; it does not hurt the ears.",
@@ -197,7 +197,7 @@
           }
         },
         {
-          "stem": "The article says, \"Sleep is not lost time.\" What does the author mean?",
+          "stem": "What does the author want you to know about sleep?",
           "options": [
             "Sleeping is a waste of a good day",
             "Clocks and watches stop when we fall asleep at night",
@@ -317,7 +317,7 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The article says the brain sorts the information you learned and stores it as memories.",
+          "why": "In the article, the brain sorts the information you learned and stores it as memories.",
           "wrong": {
             "A": "The brain keeps the information; it does not throw it away.",
             "B": "Melatonin is released when it gets dark; it is not made from information.",
@@ -334,7 +334,7 @@
           ],
           "answer": "A",
           "skill": "detail",
-          "why": "The article says that when it gets dark, the brain releases melatonin, which helps you feel sleepy.",
+          "why": "In the article, when it gets dark, the brain releases melatonin, which makes you feel sleepy.",
           "wrong": {
             "B": "The article does not connect melatonin to eating.",
             "C": "Exciting games keep the mind awake; they do not trigger melatonin.",
@@ -351,7 +351,7 @@
           ],
           "answer": "D",
           "skill": "sequence",
-          "why": "The article explains that screen light tricks the brain, so it makes less melatonin and the person stays alert.",
+          "why": "In the article, screen light tricks the brain, so it makes less melatonin and the person stays alert.",
           "wrong": {
             "A": "Screen light lowers melatonin; it does not make it rise.",
             "B": "This describes the healthy routine, not using a screen late.",
@@ -359,7 +359,7 @@
           }
         },
         {
-          "stem": "The article says screen light can \"trick your brain.\" What does trick mean here?",
+          "stem": "Screen light can fool your brain into thinking it is still day. What does trick mean here?",
           "options": [
             "To teach something new and useful about the world",
             "To fool into believing something that is not true",
@@ -406,7 +406,7 @@
           "wrong": {
             "B": "The article says to turn screens off an hour before bed, even for games.",
             "C": "The article says to keep the room dark.",
-            "D": "The article says children need nine to twelve hours every night."
+            "D": "In the article, children need nine to twelve hours every night."
           }
         },
         {
@@ -481,7 +481,7 @@
           "skill": "central-idea",
           "why": "The article explains the jobs sleep does, how screens interfere through light and stimulation, and why a consistent routine helps.",
           "wrong": {
-            "A": "The article says night mode may help only slightly, because content can still stimulate the brain.",
+            "A": "In the article, night mode may help only slightly, because content can still stimulate the brain.",
             "C": "The article does not say children need less sleep; it recommends nine to twelve hours.",
             "D": "The article links the circadian rhythm to day and night, not to hunger."
           }
@@ -513,7 +513,7 @@
           ],
           "answer": "A",
           "skill": "detail",
-          "why": "The article says the circadian rhythm relies on light to tell day from night.",
+          "why": "In the article, the circadian rhythm relies on light to tell day from night.",
           "wrong": {
             "B": "Noise is not named as the signal.",
             "C": "Temperature is not mentioned as the signal.",
@@ -530,7 +530,7 @@
           ],
           "answer": "D",
           "skill": "cause-effect",
-          "why": "The article explains that blue light deceives the brain into acting as if it were daytime, so it produces less melatonin.",
+          "why": "In the article, blue light deceives the brain into acting as if it were daytime, so it produces less melatonin.",
           "wrong": {
             "A": "The article does not say screens warm the room.",
             "B": "Blue light lowers melatonin; it does not raise it.",
@@ -547,11 +547,11 @@
           ],
           "answer": "B",
           "skill": "inference",
-          "why": "The article states that even with less blue light, stimulating content can still keep the brain awake.",
+          "why": "In the article, even with less blue light, stimulating content can still keep the brain awake.",
           "wrong": {
             "A": "Night mode reduces blue light; it does not make screens brighter.",
             "C": "The article does not say night mode turns devices off.",
-            "D": "The article explains that blue light makes sleep harder."
+            "D": "In the article, blue light makes sleep harder."
           }
         },
         {
@@ -572,7 +572,7 @@
           }
         },
         {
-          "stem": "In the article, a \"sleep-deprived\" student has trouble concentrating. What does sleep-deprived mean?",
+          "stem": "A student who is sleep-deprived has trouble concentrating. What does sleep-deprived mean?",
           "options": [
             "Having slept very deeply",
             "Not having had enough sleep",
@@ -697,7 +697,7 @@
         ],
         "answer": "D",
         "skill": "detail",
-        "why": "The text says most kids between six and twelve need nine to twelve hours every night.",
+        "why": "In the text, most kids between six and twelve need nine to twelve hours every night.",
         "wrong": {
           "A": "The text says nine to twelve, not six to eight.",
           "B": "The text says nine to twelve, not seven to nine.",
@@ -748,7 +748,7 @@
         ],
         "answer": "A",
         "skill": "inference",
-        "why": "The text says the brain stores what you learned as memories during sleep, so less sleep means less storing.",
+        "why": "In the text, the brain stores what you learned as memories during sleep, so less sleep means less storing.",
         "wrong": {
           "B": "A tablet cannot erase lessons from the brain.",
           "C": "The text does not link forgetting to classroom lights.",
@@ -767,7 +767,7 @@
         ],
         "answer": "B",
         "skill": "detail",
-        "why": "The text says adequate sleep strengthens the immune system, which helps the body defend itself against infections.",
+        "why": "In the text, adequate sleep strengthens the immune system, which helps the body defend itself against infections.",
         "wrong": {
           "A": "Blue light comes from screens, not from the body.",
           "C": "The body still needs melatonin to feel drowsy.",
@@ -801,10 +801,10 @@
         ],
         "answer": "A",
         "skill": "cause-effect",
-        "why": "The text says a tired student may find it harder to concentrate, forget information, and feel irritable.",
+        "why": "A tired student may find it harder to focus, forget things, and feel grumpy.",
         "wrong": {
           "B": "The immune system is strengthened by enough sleep, not by too little.",
-          "C": "The text says melatonin is released when darkness falls.",
+          "C": "Melatonin is released when it gets dark, not at noon.",
           "D": "A tired student feels irritable, not calm."
         }
       },

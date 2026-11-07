@@ -138,7 +138,7 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The article says the body is most often near 37 degrees.",
+          "why": "In the article, the body is most often near 37 degrees.",
           "wrong": {
             "A": "30 degrees is too low for a healthy body.",
             "B": "45 degrees is far too high.",
@@ -155,7 +155,7 @@
           ],
           "answer": "D",
           "skill": "cause-effect",
-          "why": "The article says many germs do not like heat and cannot grow as fast.",
+          "why": "In the article, many germs do not like heat and cannot grow as fast.",
           "wrong": {
             "A": "The article does not talk about red skin.",
             "B": "Eating too much is not given as a reason.",
@@ -172,7 +172,7 @@
           ],
           "answer": "A",
           "skill": "sequence",
-          "why": "The article says that when the fever ends, you sweat, and the sweat cools you.",
+          "why": "In the article, when the fever ends, you sweat, and the sweat cools you.",
           "wrong": {
             "B": "Shivering happens when the fever starts.",
             "C": "The body cools down when a fever ends.",
@@ -223,7 +223,7 @@
           ],
           "answer": "D",
           "skill": "inference",
-          "why": "The article says hot skin from the sun is not a fever, and you are not sick.",
+          "why": "In the article, hot skin from the sun is not a fever, and you are not sick.",
           "wrong": {
             "A": "Hot skin from playing in the sun is not a fever.",
             "B": "He feels fine, so the article gives no reason for a doctor.",
@@ -334,7 +334,7 @@
           ],
           "answer": "A",
           "skill": "detail",
-          "why": "The article says the immune system sends chemical messages to the brain, which raises the temperature.",
+          "why": "In the article, the immune system sends chemical messages to the brain, which raises the temperature.",
           "wrong": {
             "B": "Sweating happens later, when the fever breaks.",
             "C": "The article does not talk about the heart.",
@@ -351,7 +351,7 @@
           ],
           "answer": "B",
           "skill": "vocabulary",
-          "why": "The article says a fever is a symptom, or a sign, that the body is fighting an infection.",
+          "why": "In the article, a fever is a symptom, or a sign, that the body is fighting an infection.",
           "wrong": {
             "A": "Medicine is something an adult gives you, not a symptom.",
             "C": "Viruses and bacteria are germs.",
@@ -372,7 +372,7 @@
           "wrong": {
             "A": "The article does not say the room is cold.",
             "C": "Sweating happens when the fever breaks, not at the start.",
-            "D": "The article says the brain raises the temperature; germs do not make you cold."
+            "D": "The brain raises the temperature; germs do not make you cold."
           }
         },
         {
@@ -547,7 +547,7 @@
           ],
           "answer": "C",
           "skill": "vocabulary",
-          "why": "The article says you perspire and the evaporating sweat cools your body, so perspire means sweat.",
+          "why": "In the article, you perspire and the evaporating sweat cools your body, so perspire means sweat.",
           "wrong": {
             "A": "Shivering happens when the fever begins.",
             "B": "Breathing is not described as cooling the body.",
@@ -581,7 +581,7 @@
           ],
           "answer": "D",
           "skill": "cause-effect",
-          "why": "The article explains that sweating can cause dehydration, so you should drink plenty of fluids.",
+          "why": "Sweating during a fever can cause dehydration, so you should drink plenty of fluids.",
           "wrong": {
             "A": "The article does not say the hypothalamus stops controlling thirst.",
             "B": "Germs do not drink water.",
@@ -598,11 +598,11 @@
           ],
           "answer": "B",
           "skill": "inference",
-          "why": "The article says to tell an adult and get medical attention if a fever lasts more than three days.",
+          "why": "In the article, to tell an adult and get medical attention if a fever lasts more than three days.",
           "wrong": {
             "A": "Waiting longer ignores the three-day warning in the article.",
             "C": "Playing in the sun does not treat a fever and can add to dehydration.",
-            "D": "The article says to drink plenty of fluids."
+            "D": "In the article, to drink plenty of fluids."
           }
         }
       ],
@@ -644,7 +644,7 @@
         ],
         "answer": "A",
         "skill": "cause-effect",
-        "why": "The text says you shake and shiver, and that makes heat.",
+        "why": "In the text, you shake and shiver, and that makes heat.",
         "wrong": {
           "B": "The text does not say shivering puts germs to sleep.",
           "C": "Shivering has nothing to do with drinking water.",
@@ -661,7 +661,7 @@
         ],
         "answer": "B",
         "skill": "vocabulary",
-        "why": "The text says a fever is when you get too warm.",
+        "why": "In the text, a fever is when you get too warm.",
         "wrong": {
           "A": "A fever is too warm, not too cold.",
           "C": "The text says hot skin from the sun is not a fever.",
@@ -748,7 +748,7 @@
         ],
         "answer": "B",
         "skill": "detail",
-        "why": "The article says to tell an adult if you feel very sick or if the fever lasts more than three days.",
+        "why": "In the article, to tell an adult if you feel very sick or if the fever lasts more than three days.",
         "wrong": {
           "A": "Feeling hot after playing is not a fever.",
           "C": "Shivering at the start is normal during a fever.",
@@ -767,7 +767,7 @@
         ],
         "answer": "A",
         "skill": "detail",
-        "why": "The article says some thermometers go under the tongue or the arm, and others are held near the forehead or ear.",
+        "why": "In the article, some thermometers go under the tongue or the arm, and others are held near the forehead or ear.",
         "wrong": {
           "B": "The article does not mention the foot or knee.",
           "C": "The article says near the ear, not inside the nose.",
@@ -788,7 +788,7 @@
         "wrong": {
           "A": "The germs are viruses and bacteria, not symptoms.",
           "B": "A thermometer is the tool that checks heat.",
-          "D": "The article says an adult should give medicine; a symptom is not medicine."
+          "D": "In the article, an adult should give medicine; a symptom is not medicine."
         }
       },
       {
@@ -801,7 +801,7 @@
         ],
         "answer": "D",
         "skill": "cause-effect",
-        "why": "The article says you shiver and the shaking muscles make extra heat to reach the new setting.",
+        "why": "When a fever begins, you shiver, and the shaking muscles make extra heat.",
         "wrong": {
           "A": "The brain raises the setting; shivering does not lower it.",
           "B": "Sweat comes later, when the fever breaks.",

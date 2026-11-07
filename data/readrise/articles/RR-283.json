@@ -138,7 +138,7 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The article says the bow shows respect for the coach and for the other student.",
+          "why": "In the article, the bow shows respect for the coach and for the other student.",
           "wrong": {
             "A": "Warming up is not mentioned as the reason for bowing.",
             "D": "Bowing happens before practice, not to end it.",
@@ -155,15 +155,15 @@
           ],
           "answer": "D",
           "skill": "detail",
-          "why": "The article says a white belt is for beginners.",
+          "why": "In the article, a white belt is for beginners.",
           "wrong": {
-            "C": "Coaches are not described by belt color.",
-            "D": "Many years of practice are shown by darker belts.",
-            "B": "Stopping training is not mentioned."
+            "A": "Many years of practice are shown by a dark belt, not a white one.",
+            "B": "Stopping training is not mentioned.",
+            "C": "Coaches are not described by belt color."
           }
         },
         {
-          "stem": "Read this: \"Students learn to stay calm.\" What does calm mean here?",
+          "stem": "In the article, what does the word \"calm\" mean?",
           "options": [
             "Moving around very fast and wildly",
             "Wearing a belt that is dark in color",
@@ -206,7 +206,7 @@
           ],
           "answer": "A",
           "skill": "detail",
-          "why": "The article says martial arts began in Asia a very long time ago.",
+          "why": "Martial arts began a very long time ago.",
           "wrong": {
             "B": "Saudi Arabia is not mentioned as the origin.",
             "C": "Europe is not mentioned as the origin.",
@@ -304,7 +304,7 @@
           "wrong": {
             "B": "The article frames martial arts as training in discipline, not fighting.",
             "C": "Belts show progress, but technique and discipline matter just as much.",
-            "A": "The article mentions strict safety rules."
+            "A": "In the article, strict safety rules."
           }
         },
         {
@@ -334,7 +334,7 @@
           ],
           "answer": "C",
           "skill": "cause-effect",
-          "why": "The article explains that repeating movements builds smooth, balanced, precise technique.",
+          "why": "In the article, students repeat each move many times so it becomes smooth and precise.",
           "wrong": {
             "B": "Coaches continue teaching throughout training.",
             "D": "Matches are not mentioned as the reason for repetition.",
@@ -342,7 +342,7 @@
           }
         },
         {
-          "stem": "Read this: \"Training usually involves controlled technique.\" What does technique mean here?",
+          "stem": "In the article, what does the word \"technique\" mean?",
           "options": [
             "A kind of belt worn around the waist",
             "A careful, skilled way of doing a move",
@@ -496,7 +496,7 @@
           ],
           "answer": "B",
           "skill": "detail",
-          "why": "The article says darker belts represent years of disciplined practice and clearly demonstrated technique under examination.",
+          "why": "In the article, darker belts represent years of disciplined practice and clearly demonstrated technique under examination.",
           "wrong": {
             "A": "Olympic medals are not required for belts.",
             "C": "Belts are earned through demonstrated skill, not simply requested.",
@@ -513,7 +513,7 @@
           ],
           "answer": "B",
           "skill": "detail",
-          "why": "The article says competitors always defer to a referee's final rulings without protest.",
+          "why": "In the article, competitors always defer to a referee's final rulings without protest.",
           "wrong": {
             "A": "Uniforms are not described as the referee's role.",
             "C": "Belt color comes from coaches and examinations, not referees.",
@@ -530,7 +530,7 @@
           ],
           "answer": "A",
           "skill": "cause-effect",
-          "why": "The article explains that close supervision keeps technique controlled and never careless or rough toward a partner.",
+          "why": "In the article, close supervision keeps technique controlled and never careless or rough toward a partner.",
           "wrong": {
             "B": "Warm-up routines are not discussed here.",
             "C": "Match length is not the reason given.",
@@ -567,12 +567,12 @@
           "why": "The article describes judo and taekwondo together as Olympic sports with protective equipment, safety rules, and referees.",
           "wrong": {
             "B": "The exact founding years are not compared.",
-            "C": "The article mentions protective equipment.",
+            "C": "Martial arts today use protective gear.",
             "D": "Technique and discipline are emphasized throughout."
           }
         },
         {
-          "stem": "What can be inferred from the fact that martial arts are \"rooted in a particular philosophy of self-improvement, humility, and lifelong perseverance\"?",
+          "stem": "What can be inferred from the idea that martial arts are based on self-improvement, humility, and perseverance?",
           "options": [
             "Martial arts aim to shape character, not just skill",
             "Philosophy matters far more than daily practice does",
@@ -661,7 +661,7 @@
         ],
         "answer": "D",
         "skill": "cause-effect",
-        "why": "The text says kids work hard for each new belt and feel proud when they earn one.",
+        "why": "In the text, kids work hard for each new belt and feel proud when they earn one.",
         "wrong": {
           "A": "Sitting still all day is not mentioned.",
           "B": "Watching others is not mentioned as a reason for pride.",
@@ -697,7 +697,7 @@
         ],
         "answer": "A",
         "skill": "detail",
-        "why": "The text says martial arts began in Asia many years ago.",
+        "why": "In the text, martial arts began in Asia many years ago.",
         "wrong": {
           "B": "Europe is not named as the start.",
           "C": "Africa is not named as the start.",
@@ -731,7 +731,7 @@
         ],
         "answer": "C",
         "skill": "cause-effect",
-        "why": "The text says Olympic martial arts have safety gear and clear rules against rough contact.",
+        "why": "In the text, Olympic martial arts have safety gear and clear rules against rough contact.",
         "wrong": {
           "A": "Looks are not the reason given.",
           "B": "Gear is for safety, not speed.",
@@ -748,7 +748,7 @@
         ],
         "answer": "B",
         "skill": "inference",
-        "why": "The text says darker belts, such as black, show years of steady, hard work.",
+        "why": "In the text, darker belts, such as black, show years of steady, hard work.",
         "wrong": {
           "A": "Beginners wear white belts.",
           "C": "The text does not say anything about losing a match.",
@@ -767,7 +767,7 @@
         ],
         "answer": "B",
         "skill": "detail",
-        "why": "The text says martial arts began partly as self-defense and partly as disciplined training.",
+        "why": "In the text, martial arts began partly as self-defense and partly as disciplined training.",
         "wrong": {
           "A": "Racing and cooking are not mentioned.",
           "C": "Music and dancing are not mentioned.",
@@ -822,7 +822,7 @@
         "wrong": {
           "A": "The text does not say how winners feel.",
           "B": "The text says matches are held at the highest level.",
-          "C": "The text says competitors accept the referee's ruling."
+          "C": "In the text, competitors accept the referee's ruling."
         }
       }
     ]

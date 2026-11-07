@@ -138,7 +138,7 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The article says dead plants rot and turn dark and soft, and this dark part is humus.",
+          "why": "In the article, dead plants rot and become dark and soft, and this is humus.",
           "wrong": {
             "A": "Rock is a different part of soil.",
             "B": "Worms make tunnels, but those are not humus.",
@@ -240,7 +240,7 @@
           ],
           "answer": "B",
           "skill": "author-purpose",
-          "why": "The article says roots hold soil in place, so planting trees is a way to stop erosion.",
+          "why": "In the article, roots hold soil in place, so planting trees is a way to stop erosion.",
           "wrong": {
             "A": "The article does not compare trees and grass.",
             "C": "The plan is about planting trees, not cutting them down.",
@@ -300,7 +300,7 @@
           ],
           "answer": "B",
           "skill": "central-idea",
-          "why": "The article explains what soil contains, how slowly it forms, the life in it, and how people protect it.",
+          "why": "The article explains what soil is made of, how slowly it forms, what lives in it, and how people protect it.",
           "wrong": {
             "A": "The article says soil forms extremely slowly.",
             "C": "Earthworms are one example of soil life, not the main idea.",
@@ -317,7 +317,7 @@
           ],
           "answer": "D",
           "skill": "detail",
-          "why": "The article says about half of soil is minerals, tiny pieces of broken rock.",
+          "why": "In the article, about half of soil is minerals, tiny pieces of broken rock.",
           "wrong": {
             "A": "Minerals are a large part of soil.",
             "B": "The article says about half, not a quarter.",
@@ -334,7 +334,7 @@
           ],
           "answer": "A",
           "skill": "detail",
-          "why": "The article says the subsoil lies below the topsoil and is paler, with less humus.",
+          "why": "In the article, the subsoil lies below the topsoil and is paler, with less humus.",
           "wrong": {
             "B": "Humus is a material in the soil, not a layer below the topsoil.",
             "C": "Compost is something farmers add to soil.",
@@ -481,7 +481,7 @@
           "skill": "central-idea",
           "why": "The article covers soil's ingredients, its slow formation, its living organisms, its layers and textures, and how people protect it.",
           "wrong": {
-            "B": "The article says loam, a mixture, is usually best for farming.",
+            "B": "Loam, a mixture, is usually best for farming, not clay.",
             "C": "Weathering creates soil; erosion is the danger.",
             "D": "Decomposers release most nutrients; worms are only one helper."
           }
@@ -513,7 +513,7 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The article says earthworm tunnels let air and water reach roots and their waste enriches the ground.",
+          "why": "In the article, earthworm tunnels let air and water reach roots and their waste enriches the ground.",
           "wrong": {
             "A": "Weathering, not worms, breaks rock down.",
             "B": "Worms add richness; they do not remove humus.",
@@ -521,7 +521,7 @@
           }
         },
         {
-          "stem": "Sandy and clay soils \"differ in texture.\" Which detail best shows what texture means here?",
+          "stem": "Sandy and clay soils differ in texture. Which detail best shows what texture means here?",
           "options": [
             "Sand drains quickly, but clay is sticky.",
             "Topsoil is darker than subsoil.",
@@ -547,7 +547,7 @@
           ],
           "answer": "D",
           "skill": "cause-effect",
-          "why": "The article explains that sandy soil has large grains, so water drains through it quickly.",
+          "why": "In the article, sandy soil has large grains, so water drains through it quickly.",
           "wrong": {
             "A": "The article does not say sandy soil has more humus.",
             "B": "Nothing in the article says sand is frozen.",
@@ -644,9 +644,9 @@
         ],
         "answer": "D",
         "skill": "cause-effect",
-        "why": "The text says bugs eat dead leaves and germs help, which makes food for plants.",
+        "why": "In the text, small bugs eat dead leaves, and this helps make food for plants.",
         "wrong": {
-          "A": "The text says earthworms dig the paths.",
+          "A": "In the text, earthworms dig the paths.",
           "B": "The text says sun, rain, ice, and roots break rock.",
           "C": "The text says roots hold the soil in place."
         }
@@ -697,7 +697,7 @@
         ],
         "answer": "C",
         "skill": "detail",
-        "why": "The text says humus is the dark, soft material that forms when dead plants and animals rot.",
+        "why": "In the text, humus is the dark, soft material that forms when dead plants and animals rot.",
         "wrong": {
           "A": "Those are minerals.",
           "B": "That is the air and water part of soil.",
@@ -714,7 +714,7 @@
         ],
         "answer": "B",
         "skill": "cause-effect",
-        "why": "The text says roots grow into cracks and split the rock apart.",
+        "why": "In the text, roots grow into cracks and split the rock apart.",
         "wrong": {
           "A": "Earthworms dig their own tunnels.",
           "C": "The text says heat and cold come from the weather.",
@@ -748,7 +748,7 @@
         ],
         "answer": "A",
         "skill": "compare",
-        "why": "The text says topsoil is dark and rich in humus, while subsoil is paler with less humus.",
+        "why": "In the text, topsoil is dark and rich in humus, while subsoil is paler with less humus.",
         "wrong": {
           "B": "That describes the subsoil.",
           "C": "Solid rock lies below the subsoil.",
@@ -767,7 +767,7 @@
         ],
         "answer": "D",
         "skill": "detail",
-        "why": "The text says weathering is the process in which heat, cold, rain, wind, and ice break rock into smaller fragments.",
+        "why": "In the text, weathering is the process in which heat, cold, rain, wind, and ice break rock into smaller fragments.",
         "wrong": {
           "A": "That is how sandy soil drains, not weathering.",
           "B": "That is the work of decomposers.",
@@ -801,7 +801,7 @@
         ],
         "answer": "C",
         "skill": "cause-effect",
-        "why": "The text says decomposers release nutrients that plants need to grow.",
+        "why": "In the text, decomposers release nutrients that plants need to grow.",
         "wrong": {
           "A": "Air and water already fill the spaces between particles.",
           "B": "Decomposers do not make sand.",

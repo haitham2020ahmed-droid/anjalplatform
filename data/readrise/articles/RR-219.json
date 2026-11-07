@@ -223,7 +223,7 @@
           ],
           "answer": "B",
           "skill": "detail",
-          "why": "The article says traders carried the skill west along trade roads, reaching cities such as Samarkand.",
+          "why": "In the article, traders carried the skill west along old trade roads.",
           "wrong": {
             "A": "Only ships are not mentioned; the article names trade roads.",
             "C": "The article says the craft did spread outside China.",
@@ -317,7 +317,7 @@
           ],
           "answer": "D",
           "skill": "detail",
-          "why": "The article says workers used old cloth, tree bark, hemp, and plant fiber to make pulp.",
+          "why": "In the article, workers used old cloth, tree bark, hemp, and plant fiber to make pulp.",
           "wrong": {
             "A": "Metal and sand are not mentioned as papermaking materials.",
             "B": "Glass and clay are not described as part of papermaking.",
@@ -334,7 +334,7 @@
           ],
           "answer": "C",
           "skill": "vocabulary",
-          "why": "The article explains that workers refined the pulp with rags and water to make stronger, finer paper.",
+          "why": "In the article, workers refined the pulp with rags and water to make stronger, finer paper.",
           "wrong": {
             "A": "Coloring the pulp is not described in the article.",
             "B": "Selling pulp in a market is not mentioned.",
@@ -351,7 +351,7 @@
           ],
           "answer": "B",
           "skill": "cause-effect",
-          "why": "The article says using linen rags helped make the pulp finer and the finished paper stronger.",
+          "why": "Using linen rags made the pulp finer and the paper stronger.",
           "wrong": {
             "A": "Rags made paper stronger, not weaker.",
             "C": "No law about rags is mentioned.",
@@ -678,7 +678,7 @@
         ],
         "answer": "C",
         "skill": "cause-effect",
-        "why": "The text says workers in Baghdad built mills and made the pulp fine, so the paper got strong.",
+        "why": "In the text, workers in Baghdad built mills and made the pulp fine, so the paper got strong.",
         "wrong": {
           "A": "Drying in the sun was part of the first paper.",
           "B": "The text says they built mills, not that they used small bowls.",
@@ -697,7 +697,7 @@
         ],
         "answer": "A",
         "skill": "detail",
-        "why": "The text says workers used a flat screen called a mold.",
+        "why": "In the text, workers used a flat screen called a mold.",
         "wrong": {
           "B": "Old cloth was a raw material for the pulp.",
           "C": "The wet mix is called pulp.",
@@ -714,7 +714,7 @@
         ],
         "answer": "C",
         "skill": "cause-effect",
-        "why": "The text says paper was cheap to make from common plants and old cloth.",
+        "why": "In the text, paper was cheap to make from common plants and old cloth.",
         "wrong": {
           "A": "Silver is not mentioned.",
           "B": "Traders carried the skill, but that did not make paper cheap.",
@@ -731,7 +731,7 @@
         ],
         "answer": "D",
         "skill": "vocabulary",
-        "why": "The text says the trade grew in busy cities and the paper grew much stronger.",
+        "why": "In the text, the trade grew in busy cities and the paper grew much stronger.",
         "wrong": {
           "A": "The trade did not end.",
           "B": "The trade stayed in the cities.",
@@ -767,7 +767,7 @@
         ],
         "answer": "D",
         "skill": "detail",
-        "why": "The text says water drained through tiny holes, leaving behind a damp mat of tangled fiber.",
+        "why": "In the text, water drained through tiny holes, leaving behind a damp mat of tangled fiber.",
         "wrong": {
           "A": "Clay tablets are named only as a heavy older choice.",
           "B": "The sheet dried later, after it was pressed.",
@@ -818,7 +818,7 @@
         ],
         "answer": "B",
         "skill": "inference",
-        "why": "The text says paper was light and easy to transport, unlike heavy clay tablets.",
+        "why": "In the text, paper was light and easy to transport, unlike heavy clay tablets.",
         "wrong": {
           "A": "Where it was sold does not decide how easy it is to carry.",
           "C": "Linen helped make the pulp finer and does not decide how easy it is to carry.",

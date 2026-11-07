@@ -172,7 +172,7 @@
           ],
           "answer": "C",
           "skill": "vocabulary",
-          "why": "The article says clear glass lets light in, and that is why we call it transparent.",
+          "why": "In the article, clear glass lets light in, and that is why we call it transparent.",
           "wrong": {
             "A": "Transparent is not about heat.",
             "B": "Dark things that stop light are opaque.",
@@ -225,7 +225,7 @@
           "skill": "inference",
           "why": "The article says the moon does not make light but bounces back the light of the sun.",
           "wrong": {
-            "A": "The article says the moon does not make light, so it is not on fire.",
+            "A": "In the article, the moon does not make light, so it is not on fire.",
             "B": "Being opaque does not make something shine.",
             "D": "The moon is not a lamp."
           }
@@ -334,7 +334,7 @@
           ],
           "answer": "A",
           "skill": "detail",
-          "why": "The article says frosted glass and wax paper let some light through but scatter it, so they are translucent.",
+          "why": "In the article, frosted glass and wax paper let some light through but scatter it, so they are translucent.",
           "wrong": {
             "B": "Metal blocks all light, so it is opaque.",
             "C": "Clean water lets nearly all light through, so it is transparent.",
@@ -351,7 +351,7 @@
           ],
           "answer": "B",
           "skill": "vocabulary",
-          "why": "The article explains that a light source produces its own light, like the sun, lamps, and campfires.",
+          "why": "In the article, a light source produces its own light, like the sun, lamps, and campfires.",
           "wrong": {
             "A": "Something that blocks light is opaque.",
             "C": "A dark area behind an object is a shadow.",
@@ -368,7 +368,7 @@
           ],
           "answer": "D",
           "skill": "cause-effect",
-          "why": "The article says the sun is low in the morning and evening, so shadows stretch out long.",
+          "why": "In the article, the sun is low in the morning and evening, so shadows stretch out long.",
           "wrong": {
             "A": "The temperature does not change the length of a shadow.",
             "B": "People do not change height during the day.",
@@ -389,7 +389,7 @@
           "wrong": {
             "B": "Distance does not decide whether something is a source; the sun is farther away and is a source.",
             "C": "The moon can sometimes be seen in the day, and shining at night is not the reason.",
-            "D": "The article says the moon has a rocky surface."
+            "D": "In the article, the moon has a rocky surface."
           }
         },
         {
@@ -402,7 +402,7 @@
           ],
           "answer": "C",
           "skill": "inference",
-          "why": "The article says an object close to a lamp blocks more light and makes a larger shadow.",
+          "why": "In the article, an object close to a lamp blocks more light and makes a larger shadow.",
           "wrong": {
             "A": "Without light there is no shadow.",
             "B": "Moving away from the lamp makes the shadow shrink.",
@@ -419,11 +419,11 @@
           ],
           "answer": "B",
           "skill": "compare",
-          "why": "The article says clear glass lets nearly all light pass, while frosted glass lets some pass but scatters it.",
+          "why": "In the article, clear glass lets nearly all light pass, while frosted glass lets some pass but scatters it.",
           "wrong": {
             "A": "Blocking all light describes opaque materials.",
             "C": "It is the other way around.",
-            "D": "The article explains that they behave differently."
+            "D": "They are not the same; they let different amounts of light through."
           }
         }
       ],
@@ -481,9 +481,9 @@
           "skill": "central-idea",
           "why": "The whole article builds on how light travels and how blocking it creates shadows that change.",
           "wrong": {
-            "B": "The article says the moon is not a genuine source.",
-            "C": "The article says sundials were useless at night and on cloudy days.",
-            "D": "The article says windows are made of transparent glass."
+            "B": "In the article, the moon is not a genuine source.",
+            "C": "Sundials did not work at night or on cloudy days.",
+            "D": "In the article, windows are made of transparent glass."
           }
         },
         {
@@ -496,7 +496,7 @@
           ],
           "answer": "B",
           "skill": "detail",
-          "why": "The article states that shadows always appear on the opposite side of an object from the light source.",
+          "why": "In the article, shadows always appear on the opposite side of an object from the light source.",
           "wrong": {
             "A": "The side facing the light is lit, not shaded.",
             "C": "Shadows move and stretch with the sun's angle.",
@@ -513,7 +513,7 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The article explains that sundials depended entirely on sunlight, so they failed at night and on cloudy days.",
+          "why": "Sundials needed sunlight, so they did not work at night or on cloudy days.",
           "wrong": {
             "A": "Weight is not mentioned.",
             "B": "An opaque pointer is what makes a sundial work.",
@@ -547,7 +547,7 @@
           ],
           "answer": "B",
           "skill": "cause-effect",
-          "why": "The article says that because light cannot curve around obstacles, a dark region appears where light cannot arrive.",
+          "why": "In the article, because light cannot curve around obstacles, a dark region appears where light cannot arrive.",
           "wrong": {
             "A": "Objects do not create darkness; they block light.",
             "C": "The article does not say opaque objects send all light back.",
@@ -581,7 +581,7 @@
           ],
           "answer": "A",
           "skill": "inference",
-          "why": "The article explains that moving an object farther from a lamp makes its shadow diminish.",
+          "why": "In the article, moving an object farther from a lamp makes its shadow diminish.",
           "wrong": {
             "B": "The shadow grows when the puppet moves closer, not farther.",
             "C": "Shadows fall on the opposite side from the light.",
@@ -627,7 +627,7 @@
         ],
         "answer": "A",
         "skill": "detail",
-        "why": "The text says light from the sun gets to us in just eight minutes.",
+        "why": "In the text, light from the sun gets to us in just eight minutes.",
         "wrong": {
           "B": "The text says minutes, not hours.",
           "C": "Light is far faster than days.",
@@ -644,7 +644,7 @@
         ],
         "answer": "B",
         "skill": "cause-effect",
-        "why": "The text says you block some light, and a dark shape forms on the ground.",
+        "why": "In the text, light cannot go through you, so a dark shape forms behind you.",
         "wrong": {
           "A": "Low sun changes the length of a shadow, not whether you make one.",
           "C": "Air temperature is not the cause.",
@@ -697,7 +697,7 @@
         ],
         "answer": "B",
         "skill": "detail",
-        "why": "The text says sundials used the shadow of a stick to show the time.",
+        "why": "In the text, sundials used the shadow of a stick to show the time.",
         "wrong": {
           "A": "The moon is not used in the text.",
           "C": "Campfires are light sources, not clocks.",
@@ -714,7 +714,7 @@
         ],
         "answer": "D",
         "skill": "cause-effect",
-        "why": "The text says light cannot bend around you, so a dark area forms where it cannot reach.",
+        "why": "In the text, light cannot bend around you, so a dark area forms where it cannot reach.",
         "wrong": {
           "A": "Distance changes shadow size, not why one forms.",
           "B": "The text says the body is opaque.",
@@ -801,7 +801,7 @@
         ],
         "answer": "B",
         "skill": "cause-effect",
-        "why": "The text says clear glass allows almost all light to pass through, which is why windows are made of glass.",
+        "why": "In the text, clear glass allows almost all light to pass through, which is why windows are made of glass.",
         "wrong": {
           "A": "Glass is not opaque.",
           "C": "Shrinking shadows depend on distance.",

@@ -138,7 +138,7 @@
           ],
           "answer": "A",
           "skill": "detail",
-          "why": "The article says a farmer floods a whole field with water in the old way.",
+          "why": "In the article, the old way floods the whole field with water.",
           "wrong": {
             "B": "The article says water is used, just wasted.",
             "C": "Pipes are used in the new way, drip irrigation.",
@@ -155,7 +155,7 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The article says the water goes right to the root of each plant.",
+          "why": "The water goes right to the roots of each plant.",
           "wrong": {
             "A": "A canal is where water comes from, not where it goes.",
             "B": "Water does not go up into the sky in this process.",
@@ -172,7 +172,7 @@
           ],
           "answer": "B",
           "skill": "cause-effect",
-          "why": "The article says much of the water runs off or dries up fast in the sun when a field is flooded.",
+          "why": "In the article, much of the water runs off or dries up fast in the sun when a field is flooded.",
           "wrong": {
             "A": "Dripping slowly is part of the new way, not the old way.",
             "C": "Pipes with holes are used in drip irrigation.",
@@ -304,7 +304,7 @@
           "wrong": {
             "A": "Roots are central to how drip irrigation works.",
             "B": "The article is about watering crops better, not stopping farming.",
-            "C": "The article says flood irrigation wastes a lot of water."
+            "C": "In the article, flood irrigation wastes a lot of water."
           }
         },
         {
@@ -496,7 +496,7 @@
           ],
           "answer": "A",
           "skill": "detail",
-          "why": "The article explains that much flood-irrigation water evaporates rapidly in the sun before it has a chance to infiltrate the soil.",
+          "why": "In the article, much flood-irrigation water evaporates rapidly in the sun before it has a chance to infiltrate the soil.",
           "wrong": {
             "B": "Emitters are a feature of drip irrigation, not flood irrigation.",
             "C": "The article does not claim arid soil absorbs no water.",
@@ -513,7 +513,7 @@
           ],
           "answer": "D",
           "skill": "detail",
-          "why": "The article states that the slow, measured release of water keeps soil evenly moist without becoming waterlogged or saturated.",
+          "why": "In the article, the slow, measured release of water keeps soil evenly moist without becoming waterlogged or saturated.",
           "wrong": {
             "A": "The article describes continuous release throughout the day, not once a year.",
             "B": "A sudden flood is characteristic of traditional irrigation, which can saturate soil.",
@@ -627,7 +627,7 @@
         ],
         "answer": "C",
         "skill": "detail",
-        "why": "The text says small holes let water drip out of the pipe.",
+        "why": "In the text, small holes let water drip out of the pipe.",
         "wrong": {
           "A": "A pump is not mentioned.",
           "B": "A fan is not mentioned.",
@@ -661,7 +661,7 @@
         ],
         "answer": "D",
         "skill": "cause-effect",
-        "why": "The text says a small leak wastes water too, so the pipe must stay fixed.",
+        "why": "In the text, a small leak can waste a lot of water, so pipes must be fixed.",
         "wrong": {
           "A": "Looks are not mentioned.",
           "B": "Cost is not mentioned.",
@@ -750,7 +750,7 @@
         "skill": "author-purpose",
         "why": "The ending reminds readers that even small amounts of saved water help.",
         "wrong": {
-          "A": "The article says water must be used with care.",
+          "A": "In the article, water must be used with care.",
           "C": "Dry regions have little rain.",
           "D": "Cost of pipes is not discussed."
         }
@@ -767,7 +767,7 @@
         ],
         "answer": "B",
         "skill": "cause-effect",
-        "why": "The text says farms have used it for centuries simply because it requires little equipment.",
+        "why": "In the text, farms have used it for centuries simply because it requires little equipment.",
         "wrong": {
           "A": "Flood irrigation wastes a lot of water.",
           "C": "The text does not say this.",

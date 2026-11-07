@@ -19,6 +19,7 @@ import { ReadRiseScoreboard } from "@/components/readrise/scoreboard";
 import { studentScoreboard } from "@/server/readrise/points";
 import { loadReadRiseWindows } from "@/server/readrise/windows";
 import { ensureWeeklyPlansForStudent } from "@/server/readrise/teacher";
+import { formatLevel } from "@/server/readrise/level";
 
 export const metadata = { title: "ReadRise" };
 export const dynamic = "force-dynamic";
@@ -59,7 +60,7 @@ export default async function ReadRiseHomePage({ searchParams }: { searchParams:
           <span className="min-w-0 flex-1">
             <span className="block text-xs font-bold uppercase tracking-wider text-indigo-200">🎯 {h.placement.state === "CHECK" ? t("Reading check") : t("Find my level")}</span>
             <span className="block text-2xl font-extrabold">{h.placement.state === "OPEN" ? t("Finish your ReadRise placement") : h.placement.state === "RETAKE" ? t("Take the placement again") : h.placement.state === "CHECK" ? t("Check your reading level") : t("Take the placement test")}</span>
-            <span className="block text-sm text-indigo-100">{h.placement.state === "CHECK" ? t("It is time for your reading check: a few short passages with 3 questions each. It shows how much you have grown.") : t("A few short passages with 3 questions each. It finds the articles that are just right for you.")}</span>
+            <span className="block text-sm text-indigo-100">{h.placement.state === "CHECK" ? t("It is time for your reading check: a few short passages with 3 questions each. It shows how much you have grown.") : t("Up to 13 short passages with 3 questions each (about 36–39 questions). About 20–30 minutes — no time limit, you can stop and come back. It finds the articles that are just right for you.")}</span>
           </span>
           <span className="rounded-xl bg-white px-6 py-3 text-lg font-bold text-brand-navy">{h.placement.state === "OPEN" ? t("Continue ▶") : t("Start ▶")}</span>
         </Link>
@@ -74,7 +75,7 @@ export default async function ReadRiseHomePage({ searchParams }: { searchParams:
           ) : h.placement.doneAt ? (
             <>
               <p className="text-lg font-semibold text-emerald-800">✅ {t("Placement test done on {date}", { date: h.placement.doneAt.slice(0, 10) })}</p>
-              {h.placement.result !== null && <p className="mt-1 text-slate-700">{t("Your starting level")}: <b className="text-brand-navy">{h.placement.result}</b></p>}
+              {h.placement.result !== null && <p className="mt-1 text-slate-700">{t("Your starting level")}: <b className="text-brand-navy">{formatLevel(h.placement.result)}</b></p>}
               {h.placement.state === "CHECK" ? <Link href="/student/readrise/placement" data-testid="rr-check-start" className="mt-3 inline-flex min-h-11 items-center rounded-xl bg-brand-navy px-5 font-semibold text-white">{t("Check your reading level")} ▶</Link>
                 : h.placement.state === "RETAKE" ? <Link href="/student/readrise/placement" className="mt-3 inline-flex min-h-11 items-center rounded-xl bg-brand-navy px-5 font-semibold text-white">{t("Take the placement again")} ▶</Link>
                 : <p className="mt-2 text-sm text-slate-500">{t("Your teacher can let you take it again.")}</p>}
@@ -84,7 +85,7 @@ export default async function ReadRiseHomePage({ searchParams }: { searchParams:
           ) : (
             <>
               <p className="text-lg font-semibold text-brand-navy">{t("Take the placement test")}</p>
-              <p className="mt-1 text-slate-600">{t("A few short passages with 3 questions each. It finds the articles that are just right for you.")}</p>
+              <p className="mt-1 text-slate-600">{t("Up to 13 short passages with 3 questions each (about 36–39 questions). About 20–30 minutes — no time limit, you can stop and come back. It finds the articles that are just right for you.")}</p>
               {h.placed && <p className="mt-1 text-sm text-slate-500">{t("Your teacher set your level; the placement test can still find your best level.")}</p>}
               <Link href="/student/readrise/placement" className="mt-3 inline-flex min-h-11 items-center rounded-xl bg-brand-navy px-5 font-semibold text-white" data-testid="rr-placement-start">{t("Start ▶")}</Link>
             </>
@@ -103,9 +104,9 @@ export default async function ReadRiseHomePage({ searchParams }: { searchParams:
           <p className="text-sm font-semibold text-slate-600">My ReadRise Level</p>
           <div className="mt-2"><LevelBadge level={sum.level} size="lg" /></div>
           <p className={`mt-2 text-sm font-semibold ${sum.growth > 0 ? "text-emerald-700" : sum.growth < 0 ? "text-rose-700" : "text-slate-600"}`}>
-            {sum.growth > 0 ? `▲ +${sum.growth} since I started (${sum.startLevel})` : sum.growth < 0 ? `▼ ${sum.growth} since I started (${sum.startLevel})` : `Starting level ${sum.startLevel}`}
+            {sum.growth > 0 ? `▲ +${sum.growth} since I started (${formatLevel(sum.startLevel)})` : sum.growth < 0 ? `▼ ${sum.growth} since I started (${formatLevel(sum.startLevel)})` : `Starting level ${formatLevel(sum.startLevel)}`}
           </p>
-          {sum.projected !== null && sum.projected >= sum.level && <p className="mt-1 text-sm text-slate-600">On track for about <strong>{sum.projected}</strong> by the end of the year (estimate).</p>}
+          {sum.projected !== null && sum.projected >= sum.level && <p className="mt-1 text-sm text-slate-600">On track for about <strong>{formatLevel(sum.projected)}</strong> by the end of the year (estimate).</p>}
           <p className="mt-2 text-xs text-slate-500">{t("Your ReadRise level is ReadRise's own reading level.")}</p>
         </div>
         <div className="rounded-3xl bg-gradient-to-br from-amber-50 to-white p-5 shadow-card ring-1 ring-amber-200">
@@ -183,7 +184,7 @@ function ProgressStrip({ h, t }: { h: ReadRiseHome; t: TFn }) {
   const n = h.progress?.toMoveUp ?? null;
   return (
     <section data-testid="rr-progress-strip" aria-label={t("My progress")} className="mt-5 flex flex-wrap items-center gap-x-3 gap-y-1 rounded-2xl bg-gradient-to-r from-indigo-50 to-white px-5 py-3 text-slate-800 ring-1 ring-indigo-200">
-      {h.placed && <span className="font-bold text-brand-navy">{t("Your level {n}", { n: s.level })}</span>}
+      {h.placed && <span className="font-bold text-brand-navy">{t("Your level {n}", { n: formatLevel(s.level) })}</span>}
       {h.placed && <span aria-hidden="true" className="text-slate-400">·</span>}
       <span>{s.goalMet ? `🏆 ${t("This week {n} of {m}", { n: s.thisWeek, m: s.weeklyGoal })}` : t("This week {n} of {m}", { n: s.thisWeek, m: s.weeklyGoal })}</span>
       {h.placed && n !== null && <><span aria-hidden="true" className="text-slate-400">·</span><span data-testid="rr-to-move-up">{n === 1 ? t("1 more strong read (75%+) to move up +{step}", { step: h.progress!.step }) : t("{n} more strong reads (75%+) to move up +{step}", { n, step: h.progress!.step })}</span></>}
@@ -203,7 +204,7 @@ function ReadingChecks({ checks, t }: { checks: NonNullable<ReadRiseHome["placem
             {i > 0 && <span aria-hidden="true" className="text-slate-400">→</span>}
             <span className="rounded-xl bg-indigo-50 px-4 py-2 ring-1 ring-indigo-200">
               <span className="block text-xs font-semibold text-slate-600">{x.label}</span>
-              <span className="block text-xl font-bold tabular-nums text-brand-navy">{checks[x.key] ? checks[x.key]!.level : <span className="text-sm font-semibold text-slate-400">{t("Not yet")}</span>}</span>
+              <span className="block text-xl font-bold tabular-nums text-brand-navy">{checks[x.key] ? formatLevel(checks[x.key]!.level) : <span className="text-sm font-semibold text-slate-400">{t("Not yet")}</span>}</span>
             </span>
           </li>
         ))}

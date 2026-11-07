@@ -138,7 +138,7 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The article says digestion starts when you chew your food with your teeth, breaking it into small bits.",
+          "why": "In the article, the first step is chewing, when your teeth cut food into small bits.",
           "wrong": {
             "A": "Waste forms much later, near the end of digestion.",
             "B": "Food must pass through the stomach before the intestines.",
@@ -206,7 +206,7 @@
           ],
           "answer": "A",
           "skill": "inference",
-          "why": "The article explains that parts of food the body cannot use become waste, which leaves the body later on.",
+          "why": "In the article, parts of food the body cannot use become waste, which leaves the body later on.",
           "wrong": {
             "B": "The article never says food turns into teeth.",
             "C": "Waste leaves the body a different way, not back through the mouth.",
@@ -240,7 +240,7 @@
           ],
           "answer": "B",
           "skill": "detail",
-          "why": "The article says the whole trip, from the first bite to the very end, can take about a day.",
+          "why": "In the article, the whole trip can take about a day.",
           "wrong": {
             "A": "A few seconds is far too short for this whole trip.",
             "C": "A year is far too long for digestion.",
@@ -334,7 +334,7 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The article states that in the small intestine, the body absorbs nutrients through the intestine walls and into the blood.",
+          "why": "In the small intestine, the body absorbs nutrients through the intestine walls and into the blood.",
           "wrong": {
             "A": "Chewing breaks food apart, but does not absorb nutrients.",
             "B": "The esophagus only moves food toward the stomach.",
@@ -368,7 +368,7 @@
           ],
           "answer": "A",
           "skill": "cause-effect",
-          "why": "The article explains that saliva begins breaking the food down chemically and makes it easier and safer to swallow.",
+          "why": "Saliva starts breaking food down and makes it easier to swallow.",
           "wrong": {
             "B": "The stomach still squeezes food after saliva has acted on it.",
             "C": "Waste forms only after many later steps.",
@@ -496,7 +496,7 @@
           ],
           "answer": "A",
           "skill": "detail",
-          "why": "The article explains that villi, tiny finger-like structures, dramatically increase the surface area available for absorbing nutrients into the bloodstream.",
+          "why": "In the article, villi, tiny finger-like structures, dramatically increase the surface area available for absorbing nutrients into the bloodstream.",
           "wrong": {
             "B": "Acidic juices are secreted in the stomach, not by villi.",
             "C": "Pushing food forward describes peristalsis, not villi.",
@@ -547,7 +547,7 @@
           ],
           "answer": "A",
           "skill": "cause-effect",
-          "why": "The article explains that peristalsis, a wave-like squeezing motion, propels food forward regardless of the body's orientation.",
+          "why": "In the article, peristalsis, a wave-like squeezing motion, propels food forward regardless of the body's orientation.",
           "wrong": {
             "B": "The article specifically notes that food moves forward regardless of body orientation, which rules out gravity as the main cause.",
             "C": "Villi are involved in absorption, not in moving food forward.",
@@ -627,7 +627,7 @@
         ],
         "answer": "C",
         "skill": "detail",
-        "why": "The article says the long tubes called intestines take out the good parts.",
+        "why": "In the article, the long tubes called intestines take the useful parts out of the food.",
         "wrong": {
           "A": "Teeth only cut food small.",
           "B": "The mouth is where chewing starts.",
@@ -678,7 +678,7 @@
         ],
         "answer": "B",
         "skill": "sequence",
-        "why": "The text says that first, you chew your food.",
+        "why": "In the text, first, you chew your food.",
         "wrong": {
           "A": "Food parts reach the blood much later.",
           "C": "Waste leaves the body at the end.",
@@ -697,7 +697,7 @@
         ],
         "answer": "C",
         "skill": "detail",
-        "why": "The article says saliva softens the food and makes it easier to swallow.",
+        "why": "In the article, saliva softens the food and makes it easier to swallow.",
         "wrong": {
           "A": "Heat is not mentioned.",
           "B": "Waste is made later in digestion.",
@@ -818,7 +818,7 @@
         ],
         "answer": "D",
         "skill": "cause-effect",
-        "why": "The article says small bits are easier for the rest of the digestive system to manage.",
+        "why": "In the article, small bits are easier for the rest of the digestive system to manage.",
         "wrong": {
           "A": "The article does not say food stays longer.",
           "B": "Acid production is not linked to chewing.",

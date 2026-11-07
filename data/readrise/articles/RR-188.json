@@ -138,7 +138,7 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The article says Ada's mom loved math and made sure Ada had math lessons.",
+          "why": "In the article, Ada's mom loved math and made sure Ada had math lessons.",
           "wrong": {
             "A": "The article does not talk about a school teacher.",
             "B": "Ada met Babbage when she was 17, after her lessons began.",
@@ -155,7 +155,7 @@
           ],
           "answer": "B",
           "skill": "detail",
-          "why": "The article says Ada wrote out the steps the machine would follow to find a set of hard numbers.",
+          "why": "In the article, Ada wrote out steps that told the machine how to find some hard numbers.",
           "wrong": {
             "A": "Ada studied birds to plan flying, but that was not in her notes on the machine.",
             "C": "There is no letter to a king in the article.",
@@ -172,7 +172,7 @@
           ],
           "answer": "A",
           "skill": "vocabulary",
-          "why": "The article says a list of steps for a machine is called a program.",
+          "why": "In the article, a list of steps for a machine is called a program.",
           "wrong": {
             "B": "A program is a list of steps, not a book.",
             "C": "Ada's flying plans were not a program.",
@@ -303,7 +303,7 @@
           "why": "Most of the article explains Ada's notes, her step-by-step instructions, and her ideas about what machines could do.",
           "wrong": {
             "A": "Her illness is a detail, not the main idea.",
-            "C": "The article says Babbage's engine was never built.",
+            "C": "In the article, Babbage's engine was never built.",
             "D": "The engineer's article is a detail that leads to Ada's notes."
           }
         },
@@ -334,7 +334,7 @@
           ],
           "answer": "A",
           "skill": "detail",
-          "why": "The article says her notes ended up much longer than the article itself and included clear instructions for the engine.",
+          "why": "In the article, her notes ended up much longer than the article itself and included clear instructions for the engine.",
           "wrong": {
             "B": "She translated the article into English.",
             "C": "Her notes were longer than the whole article.",
@@ -368,7 +368,7 @@
           ],
           "answer": "D",
           "skill": "sequence",
-          "why": "The article says Ada was amazed by Babbage's machine and the two became friends; the notes came later.",
+          "why": "In the article, Ada was amazed by Babbage's machine and the two became friends; the notes came later.",
           "wrong": {
             "A": "Her flying plans came earlier, at about twelve.",
             "B": "The notes came later, after Babbage designed his new engine.",
@@ -496,7 +496,7 @@
           ],
           "answer": "A",
           "skill": "detail",
-          "why": "The article says the engine was meant to follow instructions stored on punched cards.",
+          "why": "In the article, the engine was meant to follow instructions stored on punched cards.",
           "wrong": {
             "B": "Spoken commands are not mentioned.",
             "C": "Keyboards and screens came much later.",
@@ -521,7 +521,7 @@
           }
         },
         {
-          "stem": "The article says a careful set of steps \"is called an algorithm.\" Which example best fits that meaning?",
+          "stem": "A careful set of steps for solving a problem is called an algorithm. Which example best fits that meaning?",
           "options": [
             "A drawing of a bird in flight",
             "A recipe that lists each step for baking bread in order",
@@ -585,7 +585,7 @@
           "wrong": {
             "B": "She was fascinated by machines.",
             "C": "She translated his article, but her learning began much earlier.",
-            "D": "The article says she studied math and science."
+            "D": "She did study math and science."
           }
         },
         {
@@ -627,7 +627,7 @@
         ],
         "answer": "D",
         "skill": "detail",
-        "why": "The text says she got the plan from birds.",
+        "why": "In the text, she got the plan from birds.",
         "wrong": {
           "A": "Her mom is linked to the math lessons.",
           "B": "Songs are mentioned only in her dream about machines.",
@@ -661,7 +661,7 @@
         ],
         "answer": "C",
         "skill": "cause-effect",
-        "why": "The text says Ada was sick a lot as a child, so she had to stay in bed.",
+        "why": "In the text, Ada was sick a lot as a child, so she had to stay in bed.",
         "wrong": {
           "A": "Her flying plans were drawn in bed, not the reason she was there.",
           "B": "She had lots of math lessons and her mind was busy.",
@@ -767,7 +767,7 @@
         ],
         "answer": "A",
         "skill": "detail",
-        "why": "The text says her notes were about three times longer than the original article.",
+        "why": "In the text, her notes were about three times longer than the original article.",
         "wrong": {
           "B": "The notes were much longer.",
           "C": "The notes were longer, not shorter.",
@@ -801,9 +801,9 @@
         ],
         "answer": "D",
         "skill": "cause-effect",
-        "why": "The text says her mother was passionate about mathematics, so she made sure Ada studied it.",
+        "why": "Her mother loved mathematics, so she made sure Ada studied it.",
         "wrong": {
-          "A": "The text says very few girls received such lessons.",
+          "A": "In the text, very few girls received such lessons.",
           "B": "A school is not mentioned.",
           "C": "Building a machine is not mentioned as her mother's goal."
         }

@@ -163,7 +163,7 @@
           }
         },
         {
-          "stem": "Read the sentences: \"In space, things do not fall. They float!\" What does float mean?",
+          "stem": "In the article, what does the word \"float\" mean?",
           "options": [
             "To fall down fast to the ground",
             "To stay up without falling",
@@ -325,7 +325,7 @@
           }
         },
         {
-          "stem": "Read the sentences: \"On the station, astronauts feel weightless. This is called microgravity.\" What does microgravity mean?",
+          "stem": "In the article, what does the word \"microgravity\" mean?",
           "options": [
             "A state of feeling almost weightless",
             "A very small machine used for experiments",
@@ -368,7 +368,7 @@
           ],
           "answer": "A",
           "skill": "detail",
-          "why": "The article says machines collect sweat and the water in astronauts' breath and clean it into drinking water.",
+          "why": "In the article, machines collect sweat and the water in astronauts' breath and clean it into drinking water.",
           "wrong": {
             "B": "There is no rain in space.",
             "C": "The article never mentions ice from the Moon.",
@@ -419,7 +419,7 @@
           ],
           "answer": "C",
           "skill": "compare",
-          "why": "The article explains that much of the food is dried and sealed in packs, and astronauts add water before eating.",
+          "why": "In the article, much of the food is dried and sealed in packs, and astronauts add water before eating.",
           "wrong": {
             "A": "The article does not say how many meals astronauts eat.",
             "B": "Astronauts grow plants for experiments, but most food comes in packs.",
@@ -496,7 +496,7 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The article explains that astronauts feel weightless because they and the station are constantly falling around Earth together.",
+          "why": "In the article, astronauts feel weightless because they and the station are constantly falling around Earth together.",
           "wrong": {
             "A": "The article does not say gravity cannot reach the station; it explains weightlessness by falling.",
             "B": "The article does not mention suits that remove weight.",
@@ -504,7 +504,7 @@
           }
         },
         {
-          "stem": "Read the sentence: \"Astronauts have lived aboard it continuously since 2000.\" What does continuously mean?",
+          "stem": "In the article, what does the word \"continuously\" mean?",
           "options": [
             "Without stopping",
             "Only during holidays",
@@ -551,7 +551,7 @@
           "wrong": {
             "A": "The article describes bones and muscles weakening, so such a long stay is unlikely.",
             "C": "The article says nothing about repairs.",
-            "D": "The article says astronauts exercise every day."
+            "D": "Astronauts must exercise every day."
           }
         },
         {
@@ -564,7 +564,7 @@
           ],
           "answer": "A",
           "skill": "inference",
-          "why": "The article says the station allows experiments that would be impossible on Earth, such as observing flames without gravity.",
+          "why": "In the article, the station allows experiments that would be impossible on Earth, such as observing flames without gravity.",
           "wrong": {
             "B": "Fire is used and studied on Earth all the time.",
             "C": "The article never says the station has more fuel.",
@@ -627,7 +627,7 @@
         ],
         "answer": "B",
         "skill": "detail",
-        "why": "The text says you may see a bright dot that moves fast in the sky.",
+        "why": "In the text, you may see a bright dot that moves fast in the sky.",
         "wrong": {
           "A": "The text does not mention dust.",
           "C": "The ISS moves fast; it does not stand still.",
@@ -661,7 +661,7 @@
         ],
         "answer": "C",
         "skill": "vocabulary",
-        "why": "The text says the crew does tests and calls the tests experiments.",
+        "why": "In the text, the crew does experiments, which are tests.",
         "wrong": {
           "A": "Sleeping bags are tied to the wall.",
           "B": "Food packs are for eating.",
@@ -731,7 +731,7 @@
         ],
         "answer": "B",
         "skill": "cause-effect",
-        "why": "The article says bones and muscles do not have to hold up the body in space, so they grow weaker.",
+        "why": "In the article, without gravity pulling on them, astronauts' bones and muscles grow weaker.",
         "wrong": {
           "A": "Food is not given as the cause.",
           "C": "Sleep is not given as the cause.",
@@ -748,7 +748,7 @@
         ],
         "answer": "A",
         "skill": "cause-effect",
-        "why": "The article says water is heavy to send from Earth, so the station must recycle it.",
+        "why": "In the article, water is heavy to send from Earth, so the station must recycle it.",
         "wrong": {
           "B": "The article does not say there is rain in space.",
           "C": "Astronauts drink the cleaned water.",
@@ -818,7 +818,7 @@
         ],
         "answer": "B",
         "skill": "detail",
-        "why": "The article says the machines capture sweat and the moisture from astronauts' breath.",
+        "why": "In the article, the machines capture sweat and the moisture from astronauts' breath.",
         "wrong": {
           "A": "There is no rain in space.",
           "C": "Ice is not mentioned.",

@@ -138,7 +138,7 @@
      ],
      "answer": "B",
      "skill": "detail",
-     "why": "The article says near the end of some bones there is a soft spot that helps the bone grow longer.",
+     "why": "In the article, near the end of some bones there is a soft spot that helps the bone grow longer.",
      "wrong": {
       "A": "The article points to the ends of bones, not the middle.",
       "C": "Teeth are not discussed in the article.",
@@ -155,7 +155,7 @@
      ],
      "answer": "C",
      "skill": "detail",
-     "why": "The article says an adult has 206 bones.",
+     "why": "In the article, a grown-up has 206 bones.",
      "wrong": {
       "A": "This number is too low.",
       "B": "This number is too low.",
@@ -189,7 +189,7 @@
      ],
      "answer": "D",
      "skill": "sequence",
-     "why": "The article says that first, blood forms a clot at the break.",
+     "why": "First, blood forms a clot at the break.",
      "wrong": {
       "A": "The soft spot is about growing longer, not about fixing breaks.",
       "B": "Milk helps bones in general, but it is not the first healing step.",
@@ -223,7 +223,7 @@
      ],
      "answer": "D",
      "skill": "inference",
-     "why": "The article says milk and play help bones grow strong.",
+     "why": "In the article, milk and play help bones grow strong.",
      "wrong": {
       "A": "The article does not say this habit stops growth.",
       "B": "Healthy habits do not cause breaks.",
@@ -240,7 +240,7 @@
      ],
      "answer": "A",
      "skill": "inference",
-     "why": "The article explains that small bones join together as a person grows, leaving 206 bones in an adult.",
+     "why": "In the article, some bones join together as you grow, so babies have more bones than adults.",
      "wrong": {
       "B": "The article does not mention doctors removing bones.",
       "C": "Bones join together; they do not disappear.",
@@ -317,7 +317,7 @@
      ],
      "answer": "B",
      "skill": "detail",
-     "why": "The article says marrow is a soft tissue that produces the blood cells your body needs.",
+     "why": "In the article, marrow is a soft tissue that produces the blood cells your body needs.",
      "wrong": {
       "A": "The hard outer layer is a separate part of the bone.",
       "C": "Marrow does not turn into calcium.",
@@ -402,7 +402,7 @@
      ],
      "answer": "C",
      "skill": "inference",
-     "why": "The article explains that healing new tissue into solid bone again takes several weeks.",
+     "why": "In the article, healing new tissue into solid bone again takes several weeks.",
      "wrong": {
       "A": "Marrow does not protect the brain.",
       "B": "The article does not give a six-week timeline for digestion.",
@@ -496,7 +496,7 @@
      ],
      "answer": "B",
      "skill": "detail",
-     "why": "The article states lengthening occurs at growth plates, bands of cartilage near the ends of long bones.",
+     "why": "In the article, lengthening occurs at growth plates, bands of cartilage near the ends of long bones.",
      "wrong": {
       "A": "Marrow produces blood cells, not length.",
       "C": "The compact layer provides strength, not lengthening.",
@@ -564,7 +564,7 @@
      ],
      "answer": "C",
      "skill": "cause-effect",
-     "why": "The article says bones that remain largely unloaded tend to lose density over time.",
+     "why": "Bones that are not used much tend to lose density over time.",
      "wrong": {
       "A": "Growth plates close permanently after puberty regardless of activity.",
       "B": "Marrow and spongy bone are distinct structures that do not convert into each other.",
@@ -581,7 +581,7 @@
      ],
      "answer": "B",
      "skill": "inference",
-     "why": "The article states growth plates close permanently once puberty concludes, making further lengthening impossible.",
+     "why": "In the article, growth plates close permanently once puberty concludes, making further lengthening impossible.",
      "wrong": {
       "A": "The article says growth plates close at this point, not stay open.",
       "C": "Calcium supports bone strength, not lengthening after plates close.",
@@ -598,7 +598,7 @@
      ],
      "answer": "D",
      "skill": "compare",
-     "why": "The article explains that osteoclasts remove excess or misshapen bone while osteoblasts deposit precisely shaped new bone during remodeling.",
+     "why": "In the article, osteoclasts remove excess or misshapen bone while osteoblasts deposit precisely shaped new bone during remodeling.",
      "wrong": {
       "A": "This reverses their actual roles.",
       "B": "The article does not restrict either cell type to marrow or cartilage alone.",
@@ -627,7 +627,7 @@
     ],
     "answer": "C",
     "skill": "detail",
-    "why": "The text says calcium makes bones hard and strong.",
+    "why": "In the text, calcium makes bones hard and strong.",
     "wrong": {
      "A": "Calcium makes bones hard, not soft.",
      "B": "The text does not say calcium makes bones shorter.",
@@ -697,7 +697,7 @@
     ],
     "answer": "D",
     "skill": "detail",
-    "why": "The text says vitamin D helps your body take in calcium from food.",
+    "why": "In the text, vitamin D helps your body take in calcium from food.",
     "wrong": {
      "A": "Salt is not mentioned.",
      "B": "Vitamin C is not mentioned.",
@@ -714,7 +714,7 @@
     ],
     "answer": "B",
     "skill": "vocabulary",
-    "why": "The text says a fracture is when a bone cracks or breaks.",
+    "why": "In the text, a fracture is when a bone cracks or breaks.",
     "wrong": {
      "A": "A joint is a different part of the body.",
      "C": "Calcium is the mineral in milk.",
@@ -731,7 +731,7 @@
     ],
     "answer": "A",
     "skill": "cause-effect",
-    "why": "The text says sunlight lets your skin make some vitamin D, which helps the body take in calcium.",
+    "why": "In the text, sunlight lets your skin make some vitamin D, which helps the body take in calcium.",
     "wrong": {
      "B": "Sunlight is not linked to marrow.",
      "C": "Warming a break is not mentioned.",
@@ -748,7 +748,7 @@
     ],
     "answer": "D",
     "skill": "inference",
-    "why": "The text says growing is fastest in childhood and then slows down and stops.",
+    "why": "In the text, growing is fastest in childhood and then slows down and stops.",
     "wrong": {
      "A": "The text does not say adults eat too little.",
      "B": "The text does not say the spots are lost; it says growth stops.",
@@ -767,7 +767,7 @@
     ],
     "answer": "C",
     "skill": "vocabulary",
-    "why": "The text says cartilage cells convert into solid bone in a process called ossification.",
+    "why": "In the text, cartilage cells convert into solid bone in a process called ossification.",
     "wrong": {
      "A": "Cells multiply first, but the process named is the change to bone.",
      "B": "That is the job of marrow.",
@@ -784,7 +784,7 @@
     ],
     "answer": "A",
     "skill": "cause-effect",
-    "why": "The text says the body cannot produce calcium on its own, so it must come from food.",
+    "why": "In the text, the body cannot produce calcium on its own, so it must come from food.",
     "wrong": {
      "B": "Calcium is deposited within bone.",
      "C": "Vitamin D can be made by skin in sunlight.",
@@ -801,7 +801,7 @@
     ],
     "answer": "B",
     "skill": "detail",
-    "why": "The text says excess or oddly shaped bone is removed while precisely shaped new bone is deposited.",
+    "why": "In the text, excess or oddly shaped bone is removed while precisely shaped new bone is deposited.",
     "wrong": {
      "A": "The bone is removed, not left.",
      "C": "The text does not say bone turns into marrow.",

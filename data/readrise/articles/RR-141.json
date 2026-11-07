@@ -155,7 +155,7 @@
           ],
           "answer": "A",
           "skill": "detail",
-          "why": "The article says she loved to draw and was good at math.",
+          "why": "In the article, she loved to draw and was good at math.",
           "wrong": {
             "B": "She designed a pool, but the article does not say she loved swimming.",
             "C": "Cooking and singing are not mentioned.",
@@ -163,7 +163,7 @@
           }
         },
         {
-          "stem": "Read: \"But Zaha liked a curve. Her walls bent like waves.\" What is a curve?",
+          "stem": "In the article, what does the word \"curve\" mean?",
           "options": [
             "A flat wall",
             "A square corner",
@@ -317,7 +317,7 @@
           ],
           "answer": "B",
           "skill": "detail",
-          "why": "The article says her first major building, a fire station in Germany, was finished in 1993.",
+          "why": "In the article, her first major building, a fire station in Germany, was finished in 1993.",
           "wrong": {
             "A": "The swimming center came later, for the 2012 Olympics.",
             "C": "The Riyadh center came later.",
@@ -334,7 +334,7 @@
           ],
           "answer": "D",
           "skill": "detail",
-          "why": "The article says she studied math in Beirut before studying architecture in London.",
+          "why": "In the article, she studied math in Beirut before studying architecture in London.",
           "wrong": {
             "A": "Painting is not what she studied in Beirut.",
             "B": "Engineering is not mentioned for Beirut.",
@@ -342,7 +342,7 @@
           }
         },
         {
-          "stem": "The Baku center \"has become a landmark that visitors travel to see.\" What is a landmark?",
+          "stem": "In the article, what does the word \"landmark\" mean?",
           "options": [
             "A map that shows the streets of a city",
             "A famous place that is easy to recognize",
@@ -513,7 +513,7 @@
           ],
           "answer": "D",
           "skill": "detail",
-          "why": "The article says she won Britain's Stirling Prize in 2010 and 2011.",
+          "why": "In the article, she won Britain's Stirling Prize in 2010 and 2011.",
           "wrong": {
             "A": "She won the Pritzker Prize once, in 2004.",
             "B": "The Royal Gold Medal is mentioned once.",
@@ -521,7 +521,7 @@
           }
         },
         {
-          "stem": "In the article, her designs \"featured fluid lines.\" What does fluid mean here?",
+          "stem": "In the article, what does the word \"fluid\" mean?",
           "options": [
             "Smooth and flowing",
             "Made of water",
@@ -627,7 +627,7 @@
         ],
         "answer": "B",
         "skill": "detail",
-        "why": "The text says she went to school in London and learned how to plan a building.",
+        "why": "In the text, she moved to London and went to a school for architects.",
         "wrong": {
           "A": "Baku is where she made a big hall.",
           "C": "Riyadh is where her team made a glass-like place.",
@@ -669,20 +669,20 @@
         }
       },
       {
-        "stem": "What does the place that her team made in Riyadh look like?",
+        "stem": "What kind of shapes did Zaha like to use?",
         "options": [
-          "Like a white wave",
-          "Like a flat square wall",
-          "Like a pool with a roof",
-          "Like a pile of glass gems"
+          "Tall, square boxes",
+          "Small, flat roofs",
+          "Plain, straight walls",
+          "Curved, flowing shapes"
         ],
         "answer": "D",
         "skill": "detail",
-        "why": "The text says the Riyadh place looks like a pile of glass gems.",
+        "why": "In the text, Zaha liked curves, and her buildings seem to flow and move.",
         "wrong": {
-          "A": "The white wave is the big hall in Baku.",
-          "B": "Zaha did not like flat walls.",
-          "C": "The pool with a roof is in London."
+          "A": "Her buildings were not plain boxes.",
+          "B": "Flat roofs are not what she is known for.",
+          "C": "She liked curves, not straight walls."
         }
       }
     ],
@@ -767,7 +767,7 @@
         ],
         "answer": "D",
         "skill": "detail",
-        "why": "The text says the rooms resemble crystals emerging from the desert.",
+        "why": "The rooms look like crystals coming up out of the desert.",
         "wrong": {
           "A": "The folded sheet describes the center in Baku.",
           "B": "The wave is the roof of the Olympic aquatics center.",
@@ -818,7 +818,7 @@
         ],
         "answer": "B",
         "skill": "cause-effect",
-        "why": "The article calls her a pioneer who changed what buildings could look like.",
+        "why": "She is remembered as a pioneer who changed what buildings could look like.",
         "wrong": {
           "A": "Her fire station was her first major building, not the first ever.",
           "C": "Where she was born does not make her a pioneer.",

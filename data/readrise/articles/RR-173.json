@@ -138,9 +138,9 @@
           ],
           "answer": "A",
           "skill": "detail",
-          "why": "The article says the front has art and big words, but the back has the facts.",
+          "why": "In the article, the front has art and big words, but the back has the facts.",
           "wrong": {
-            "B": "The article says the big words on the front are not where the facts are.",
+            "B": "The big words on the front of a package are not where the facts are.",
             "C": "Pictures do not give the facts.",
             "D": "The article does not talk about price tags."
           }
@@ -155,7 +155,7 @@
           ],
           "answer": "D",
           "skill": "detail",
-          "why": "The article says the first thing on the list is what the food has the most of.",
+          "why": "In the article, the first thing on the list is what the food has the most of.",
           "wrong": {
             "A": "Sugar is on the list, so the food has sugar.",
             "B": "The date tells how old food is, not the list.",
@@ -172,7 +172,7 @@
           ],
           "answer": "B",
           "skill": "inference",
-          "why": "The article says if you eat a bag with two servings, you eat two servings, which is twice as much.",
+          "why": "In the article, if you eat a bag with two servings, you eat two servings, which is twice as much.",
           "wrong": {
             "A": "She ate the whole bag, not half of one serving.",
             "C": "Chips have salt, so she ate some.",
@@ -197,7 +197,7 @@
           }
         },
         {
-          "stem": "The article says, \"A serving is one part of the food.\" What is a serving?",
+          "stem": "In the article, what does the word \"serving\" mean?",
           "options": [
             "A kind of sugar",
             "One amount of food",
@@ -240,7 +240,7 @@
           ],
           "answer": "A",
           "skill": "compare",
-          "why": "The article says to look at two snacks and pick the one with less sugar.",
+          "why": "In the article, to look at two snacks and pick the one with less sugar.",
           "wrong": {
             "B": "Snack B has more sugar, so it is not the better pick.",
             "C": "The two snacks have different amounts of sugar.",
@@ -317,7 +317,7 @@
           ],
           "answer": "D",
           "skill": "detail",
-          "why": "The article says calories measure the energy that food gives your body.",
+          "why": "In the article, calories measure the energy that food gives your body.",
           "wrong": {
             "A": "Salt is listed as sodium.",
             "B": "The date shows when food is no longer best to eat.",
@@ -334,7 +334,7 @@
           ],
           "answer": "A",
           "skill": "detail",
-          "why": "The article says salt is often listed as sodium.",
+          "why": "In the article, salt is often listed as sodium.",
           "wrong": {
             "B": "Fiber is a different nutrient.",
             "C": "Protein is a different nutrient.",
@@ -385,7 +385,7 @@
           ],
           "answer": "D",
           "skill": "inference",
-          "why": "The article says labels warn people when foods like milk are inside, so Omar should check for that warning.",
+          "why": "In the article, labels warn people when foods like milk are inside, so Omar should check for that warning.",
           "wrong": {
             "A": "Pictures may not show whether milk is inside.",
             "B": "Calories do not tell him if milk is inside.",
@@ -393,7 +393,7 @@
           }
         },
         {
-          "stem": "Read the sentence: \"Then check the nutrients, such as sugar, fat, protein, and fiber.\" What are nutrients?",
+          "stem": "In the article, what does the word \"nutrients\" mean?",
           "options": [
             "Things in food that the body uses",
             "Pictures printed on a package",
@@ -481,7 +481,7 @@
           "skill": "central-idea",
           "why": "The article explains serving size, nutrients, ingredients, allergens, and dates, showing how each helps a shopper choose wisely.",
           "wrong": {
-            "B": "The article describes pictures on packages; it does not say they are banned.",
+            "B": "Pictures on packages are only one small detail; it does not say they are banned.",
             "C": "The article recommends moderation, not removing sugar entirely.",
             "D": "The date is only one of many parts the article explains."
           }
@@ -530,7 +530,7 @@
           ],
           "answer": "D",
           "skill": "cause-effect",
-          "why": "The article explains that sugar hides under names like syrup, honey, and glucose, so the total can be larger than expected.",
+          "why": "Sugar can hide under other names like syrup, honey, and glucose, so the total can be more than expected.",
           "wrong": {
             "A": "The article says a package can hold more than one serving.",
             "B": "Sugar is listed, sometimes under other names.",
@@ -547,7 +547,7 @@
           ],
           "answer": "A",
           "skill": "inference",
-          "why": "The article says manufacturers design these words to attract shoppers and that they can be misleading, so they are not proof.",
+          "why": "In the article, manufacturers design these words to attract shoppers and that they can be misleading, so they are not proof.",
           "wrong": {
             "B": "The article warns that these words can mislead.",
             "C": "Calories are listed on the back, not in these words.",
@@ -572,7 +572,7 @@
           }
         },
         {
-          "stem": "Read the sentence: \"nutrition experts consistently recommend moderation.\" What does moderation mean?",
+          "stem": "In the article, what does the word \"moderation\" mean?",
           "options": [
             "Eating only one kind of food each day",
             "Eating reasonable amounts, not too much",
@@ -584,7 +584,7 @@
           "why": "The body needs some sugar and sodium, but too much is harmful, so moderation means a reasonable amount.",
           "wrong": {
             "A": "The article does not suggest eating one kind of food.",
-            "C": "The article says the body needs some of these nutrients.",
+            "C": "In the article, the body needs some of these nutrients.",
             "D": "Eating as much as you want is the opposite of moderation."
           }
         },
@@ -629,7 +629,7 @@
         "skill": "detail",
         "why": "The text says that in Saudi Arabia, the label is in Arabic.",
         "wrong": {
-          "B": "The text says Arabic, not English.",
+          "B": "In Saudi Arabia, the label is in Arabic, not English.",
           "C": "The text does not mention French.",
           "D": "The text does not mention Hindi."
         }
@@ -644,9 +644,9 @@
         ],
         "answer": "D",
         "skill": "cause-effect",
-        "why": "The text says the label has a date, and tells you not to eat old food.",
+        "why": "In the text, the label has a date, and tells you not to eat old food.",
         "wrong": {
-          "A": "The text says too much sugar is bad.",
+          "A": "Too much sugar is not good, so you should not pick the snack with more sugar.",
           "B": "Servings are shown separately on the label.",
           "C": "The text says the date helps you avoid eating old food, not learn when it was made."
         }
@@ -661,7 +661,7 @@
         ],
         "answer": "B",
         "skill": "vocabulary",
-        "why": "The text says the ingredients list shows what is in the food.",
+        "why": "In the text, the ingredients list shows what is in the food.",
         "wrong": {
           "A": "The front has art, but the ingredients are on the back.",
           "C": "The date is separate from the ingredients.",
@@ -751,7 +751,7 @@
         "why": "Comparing labels lets readers use the sugar and sodium facts to choose the healthier snack.",
         "wrong": {
           "A": "The article does not talk about price.",
-          "B": "The article says the one with less sugar and sodium is healthier.",
+          "B": "The one with less sugar and sodium is healthier.",
           "D": "The article does not tell readers to buy bags."
         }
       }
@@ -767,7 +767,7 @@
         ],
         "answer": "D",
         "skill": "detail",
-        "why": "The article says an expiry date shows when food will no longer be at its best or safe to consume.",
+        "why": "In the article, an expiry date shows when food will no longer be at its best or safe to consume.",
         "wrong": {
           "A": "Servings are shown by the serving size.",
           "B": "The ingredients list shows the order of amounts.",
@@ -801,7 +801,7 @@
         ],
         "answer": "C",
         "skill": "cause-effect",
-        "why": "The article says foods such as nuts or milk can make some people seriously ill, so labels highlight them.",
+        "why": "In the article, foods such as nuts or milk can make some people seriously ill, so labels highlight them.",
         "wrong": {
           "A": "The article does not link allergens to taste.",
           "B": "Ingredients are arranged by weight, not highlighted for being the largest.",

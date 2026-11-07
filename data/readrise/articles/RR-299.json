@@ -124,7 +124,7 @@
           "why": "The article explains how museums collect objects, keep them safe, study them, and display them so visitors can learn.",
           "wrong": {
             "B": "Building materials are not described in the article.",
-            "C": "The article says workers keep objects from breaking, not that they always break.",
+            "C": "In the article, workers keep objects from breaking, not that they always break.",
             "D": "Painting pictures of animals is not part of the article."
           }
         },
@@ -138,7 +138,7 @@
           ],
           "answer": "B",
           "skill": "detail",
-          "why": "The article says workers keep rooms cool and dry and handle every object with great care.",
+          "why": "In the article, workers must keep each object safe.",
           "wrong": {
             "A": "The article does not say objects are sold right away.",
             "C": "Throwing an object outside would damage it.",
@@ -155,7 +155,7 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The article says the National Museum stands in Riyadh, the capital of Saudi Arabia.",
+          "why": "In the article, the National Museum is in Riyadh.",
           "wrong": {
             "A": "Egypt is not named as the museum's location.",
             "B": "China is not named as the museum's location.",
@@ -325,20 +325,20 @@
           }
         },
         {
-          "stem": "What is the National Museum in Riyadh part of?",
+          "stem": "Which museum does the article name as an example?",
           "options": [
-            "A private art collector's home in the city",
-            "The King Abdulaziz Historical Center",
-            "A university research lab for old books",
-            "An ancient trade route across the desert"
+            "A private art collector's home",
+            "The National Museum in Riyadh",
+            "A university research lab",
+            "An ancient trade route"
           ],
           "answer": "B",
           "skill": "detail",
-          "why": "The article says the National Museum is part of the King Abdulaziz Historical Center.",
+          "why": "The article names the National Museum in Riyadh as one example.",
           "wrong": {
-            "A": "A private collector's home is not mentioned.",
-            "C": "A university research lab is not mentioned.",
-            "D": "Trade routes are mentioned only as an exhibit theme."
+            "A": "A private home is not named.",
+            "C": "A lab is not a museum.",
+            "D": "A trade route is not a museum."
           }
         },
         {
@@ -368,7 +368,7 @@
           ],
           "answer": "A",
           "skill": "vocabulary",
-          "why": "The article says to preserve means to protect something so it lasts for a very long time.",
+          "why": "In the article, to preserve means to keep something safe so it lasts for many years.",
           "wrong": {
             "B": "Selling is not related to the word preserve.",
             "C": "Studying carefully describes research, a different word.",
@@ -496,7 +496,7 @@
           ],
           "answer": "D",
           "skill": "detail",
-          "why": "The article says acquisition may involve direct purchase, donation from private collectors, or careful excavation.",
+          "why": "Acquisition can mean buying an object, getting it as a gift, or carefully digging it up.",
           "wrong": {
             "A": "Government donation alone is not how the article defines acquisition.",
             "B": "Purchase is only one of the methods mentioned.",
@@ -547,7 +547,7 @@
           ],
           "answer": "B",
           "skill": "vocabulary",
-          "why": "The article says to interpret an artifact means to explain its meaning and significance so visitors can understand it.",
+          "why": "In the article, to interpret an artifact means to explain its meaning and significance so visitors can understand it.",
           "wrong": {
             "A": "Selling is unrelated to interpretation.",
             "C": "Excavation is part of acquisition, not interpretation.",
@@ -645,7 +645,7 @@
         ],
         "answer": "C",
         "skill": "detail",
-        "why": "The text says long ago people made tools, pots, and art by hand.",
+        "why": "In the text, long ago people made tools, pots, and art by hand.",
         "wrong": {
           "A": "Cars and phones are not mentioned.",
           "B": "Planes and trains are not mentioned.",
@@ -662,7 +662,7 @@
         ],
         "answer": "B",
         "skill": "sequence",
-        "why": "The text says workers look far and near and then bring the objects back.",
+        "why": "In the text, workers search for objects and then bring them back.",
         "wrong": {
           "A": "The museum keeps the objects, so it does not sell them.",
           "C": "The text does not say workers paint objects.",
@@ -698,7 +698,7 @@
         ],
         "answer": "B",
         "skill": "vocabulary",
-        "why": "The article says research means careful study to find out facts.",
+        "why": "In the article, research means careful study to find out facts.",
         "wrong": {
           "A": "Cleaning is not how the article defines research.",
           "C": "Moving objects is not research.",
@@ -768,7 +768,7 @@
         ],
         "answer": "C",
         "skill": "detail",
-        "why": "The article says an exhibit is a well-organized group of artifacts arranged around one idea.",
+        "why": "In the article, an exhibit is a well-organized group of artifacts arranged around one idea.",
         "wrong": {
           "A": "A written history of an object is its provenance.",
           "B": "Digging at old sites is one way museums acquire artifacts.",
@@ -802,7 +802,7 @@
         ],
         "answer": "D",
         "skill": "cause-effect",
-        "why": "The article says museums matter because they let people connect with their heritage through real objects.",
+        "why": "In the article, museums matter because they let people connect with their heritage through real objects.",
         "wrong": {
           "A": "Museums may buy objects, but selling is not their purpose.",
           "B": "Making copies is not mentioned.",

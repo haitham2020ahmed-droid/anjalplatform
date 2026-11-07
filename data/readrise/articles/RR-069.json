@@ -138,7 +138,7 @@
           ],
           "answer": "D",
           "skill": "detail",
-          "why": "The article says the list of steps a computer follows is called a program.",
+          "why": "In the article, the list of steps a computer follows is called a program.",
           "wrong": {
             "A": "Cat pictures are data used to train the computer.",
             "B": "Scans are something AI can help doctors look at.",
@@ -172,7 +172,7 @@
           ],
           "answer": "D",
           "skill": "vocabulary",
-          "why": "The article explains that a pattern is something that shows up again and again.",
+          "why": "A pattern is something that shows up again and again.",
           "wrong": {
             "A": "A pattern is not a sound.",
             "B": "A pattern has nothing to do with cars here.",
@@ -223,7 +223,7 @@
           ],
           "answer": "C",
           "skill": "cause-effect",
-          "why": "The article says bad data can teach the computer wrong things, so people must check its work.",
+          "why": "In the article, bad data can teach the computer wrong things, so people must check its work.",
           "wrong": {
             "A": "Bad data does not make a computer faster.",
             "B": "The article says nothing about working only at night.",
@@ -334,7 +334,7 @@
           ],
           "answer": "D",
           "skill": "detail",
-          "why": "The article says each photo has a label that says \"cat\" or \"not cat.\"",
+          "why": "In the article, each photo comes with a label that says \"cat\" or \"not cat.\"",
           "wrong": {
             "A": "No sounds are mentioned.",
             "B": "Doctors are mentioned in a different part.",
@@ -351,7 +351,7 @@
           ],
           "answer": "B",
           "skill": "detail",
-          "why": "The article says AI can predict which roads will be crowded.",
+          "why": "In the article, AI can predict which roads will be crowded.",
           "wrong": {
             "A": "Cooking is not mentioned.",
             "C": "Painting is not mentioned.",
@@ -368,7 +368,7 @@
           ],
           "answer": "A",
           "skill": "sequence",
-          "why": "The article says the computer adjusts its math a little and tries again, becoming more accurate over many tries.",
+          "why": "In the article, when the computer guesses wrong, it changes its math a little and tries again, and it gets more accurate over many tries.",
           "wrong": {
             "B": "The computer keeps trying.",
             "C": "The point of training is that people do not write every rule.",
@@ -419,7 +419,7 @@
           ],
           "answer": "D",
           "skill": "cause-effect",
-          "why": "The article says that if data is wrong or unfair, the computer learns wrong things, so people need to check it.",
+          "why": "In the article, if the data is wrong or unfair, the computer learns wrong things, so people must check its work.",
           "wrong": {
             "A": "The article does not say AI refuses tasks.",
             "B": "AI uses thousands of pictures, so it can store them.",
@@ -481,8 +481,8 @@
           "skill": "central-idea",
           "why": "The article explains machine learning, its everyday uses, and its limits such as bias and the need for human checking.",
           "wrong": {
-            "B": "The article says neural networks are only loosely inspired by the brain.",
-            "C": "The article says programmers still write rules for many tasks.",
+            "B": "Neural networks are only loosely based on the brain.",
+            "C": "In the article, programmers still write rules for many tasks.",
             "D": "The article says AI does not truly understand the world."
           }
         },
@@ -547,7 +547,7 @@
           ],
           "answer": "B",
           "skill": "cause-effect",
-          "why": "The article says that if the examples are inaccurate or incomplete, the system can develop a bias.",
+          "why": "In the article, if the examples are inaccurate or incomplete, the system can develop a bias.",
           "wrong": {
             "A": "The number of computers is not mentioned as a cause.",
             "C": "Turning off the computer is not mentioned.",
@@ -564,7 +564,7 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The article states that AI does not truly understand the world or feel things the way people do.",
+          "why": "AI does not truly understand the world or feel things the way people do.",
           "wrong": {
             "A": "Translation shows a skill, not a difference from humans.",
             "B": "Accuracy shows improvement, not a difference in thinking.",
@@ -627,7 +627,7 @@
         ],
         "answer": "D",
         "skill": "detail",
-        "why": "The text says AI can change words from one language to another.",
+        "why": "In the text, AI can change words into a new language.",
         "wrong": {
           "A": "The text does not say AI makes words loud.",
           "B": "The text does not say AI hides words.",
@@ -644,7 +644,7 @@
         ],
         "answer": "C",
         "skill": "detail",
-        "why": "The text says AI can tell which roads are full.",
+        "why": "In the text, AI can tell which roads are busy.",
         "wrong": {
           "A": "New roads are not mentioned.",
           "B": "Road length is not mentioned.",
@@ -681,7 +681,7 @@
         "why": "The ending shows that Saudi Arabia has a big AI team and that kids there learn to code.",
         "wrong": {
           "A": "The article does not teach coding.",
-          "B": "The text says kids learn to code too.",
+          "B": "In the text, kids learn to code too.",
           "D": "The author says AI helps us."
         }
       }

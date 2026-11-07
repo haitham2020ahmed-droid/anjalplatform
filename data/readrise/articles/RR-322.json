@@ -240,7 +240,7 @@
           ],
           "answer": "B",
           "skill": "author-purpose",
-          "why": "Calling rivers 'roads made of water' helps readers picture how rivers let boats, goods, and people travel, just like roads do.",
+          "why": "Comparing rivers to roads helps readers picture how rivers let boats, goods, and people travel.",
           "wrong": {
             "A": "Rivers are water, not stone.",
             "C": "The article does not talk about painting roads.",
@@ -334,7 +334,7 @@
           ],
           "answer": "B",
           "skill": "detail",
-          "why": "The article says river floods deposit rich, dark soil along the banks, which helps crops grow well.",
+          "why": "In the article, river floods deposit rich, dark soil along the banks, which helps crops grow well.",
           "wrong": {
             "A": "The article does not say floods carry fish into fields.",
             "C": "Floods are about soil and water, not weather.",
@@ -513,7 +513,7 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The article explains that floods deposit nutrient-rich sediment along riverbanks, creating fertile farmland.",
+          "why": "In the article, floods deposit nutrient-rich sediment along riverbanks, creating fertile farmland.",
           "wrong": {
             "A": "Sediment does not block future floods.",
             "B": "The article does not describe sediment as a dam-building material.",
@@ -581,7 +581,7 @@
           ],
           "answer": "B",
           "skill": "author-purpose",
-          "why": "Describing rivers as 'natural highways' helps readers see how, before cars and roads, rivers served the same connecting function that highways serve today.",
+          "why": "Comparing rivers to highways helps readers see that, before cars and roads, rivers connected places the way highways do today.",
           "wrong": {
             "A": "The article never suggests paving over rivers.",
             "C": "The article does not compare danger levels between rivers and roads.",
@@ -644,11 +644,11 @@
         ],
         "answer": "B",
         "skill": "cause-effect",
-        "why": "The text says small streams join and make one river.",
+        "why": "Small streams join together to make one river.",
         "wrong": {
           "A": "The text does not say they dry up.",
           "C": "A river flows to the sea, but streams do not turn into it.",
-          "D": "The text says the streams join."
+          "D": "The streams join; they do not stay apart."
         }
       },
       {
@@ -678,7 +678,7 @@
         ],
         "answer": "C",
         "skill": "inference",
-        "why": "The text says rivers help crops grow, and farmers use the water.",
+        "why": "In the text, crops grow well near rivers, so farmers use the water.",
         "wrong": {
           "A": "Boats move on rivers, but this is not why farmers use it.",
           "B": "The text does not say the water cools towns.",
@@ -767,7 +767,7 @@
         ],
         "answer": "D",
         "skill": "detail",
-        "why": "The article says geographers define a river as a channel of flowing water that moves from higher to lower ground.",
+        "why": "In the article, geographers define a river as a channel of flowing water that moves from higher to lower ground.",
         "wrong": {
           "A": "The article does not mention how many fish a river holds.",
           "B": "People living by a river is not part of the definition.",
@@ -784,7 +784,7 @@
         ],
         "answer": "A",
         "skill": "vocabulary",
-        "why": "The article says tributaries are small streams that join a river and combine into one larger river.",
+        "why": "Tributaries are small streams that join and flow into a bigger river.",
         "wrong": {
           "B": "Farms use river water, but they do not join it.",
           "C": "A river may end in a lake, but a tributary joins a river.",
@@ -801,11 +801,11 @@
         ],
         "answer": "D",
         "skill": "inference",
-        "why": "The article says the Nile has shaped trade and settlement for thousands of years.",
+        "why": "The Nile has been important for trade and towns for thousands of years.",
         "wrong": {
-          "A": "The article says it is one of the longest rivers.",
+          "A": "It is one of the longest rivers.",
           "B": "The article says rivers give fertile farmland.",
-          "C": "The article says it shaped trade."
+          "C": "The Nile was used for trade."
         }
       },
       {
@@ -818,7 +818,7 @@
         ],
         "answer": "B",
         "skill": "cause-effect",
-        "why": "The article says dams generate hydroelectric power for homes and growing cities.",
+        "why": "Dams on rivers make electricity for homes and cities.",
         "wrong": {
           "A": "A river flows from higher to lower ground.",
           "C": "Gentle floods deposit sediment that makes fertile soil.",

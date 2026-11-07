@@ -138,7 +138,7 @@
           ],
           "answer": "A",
           "skill": "detail",
-          "why": "The article says that high up inside your nose is a small spot full of tiny parts.",
+          "why": "In the article, high up inside your nose is a small spot full of tiny parts.",
           "wrong": {
             "B": "The article does not describe a muscle there.",
             "C": "No tube to the ears is mentioned.",
@@ -155,7 +155,7 @@
           ],
           "answer": "D",
           "skill": "detail",
-          "why": "The article says that when a bit fits, the tiny part sends a signal to the brain.",
+          "why": "In the article, when a bit fits, the tiny part sends a signal to the brain.",
           "wrong": {
             "A": "The bit does not disappear; a signal is sent instead.",
             "B": "The tongue is not involved in this first step.",
@@ -163,7 +163,7 @@
           }
         },
         {
-          "stem": "Read this line: \"Your nose and your tongue work as a team.\" What does team mean here?",
+          "stem": "In the article, what does the word \"team\" mean?",
           "options": [
             "A kind of food you eat",
             "A long nap you take",
@@ -189,7 +189,7 @@
           ],
           "answer": "B",
           "skill": "cause-effect",
-          "why": "The article says food tastes dull when a cold blocks the nose, because the nose cannot add most of the taste.",
+          "why": "In the article, food tastes dull when a cold blocks the nose, because the nose cannot add most of the taste.",
           "wrong": {
             "A": "The article does not say food becomes sweeter.",
             "C": "Saltiness is not linked to a blocked nose in the article.",
@@ -240,7 +240,7 @@
           ],
           "answer": "C",
           "skill": "inference",
-          "why": "The article says the nose adds most of the taste to food, which matches what Huda says.",
+          "why": "In the article, the nose adds most of the taste to food, which matches what Huda says.",
           "wrong": {
             "A": "The article says the tongue tastes only a few things, not all the flavor.",
             "B": "The article says smells can bring back memories and feelings.",
@@ -334,7 +334,7 @@
           ],
           "answer": "A",
           "skill": "detail",
-          "why": "The article says the olfactory bulb sorts the signals before they are named.",
+          "why": "In the article, the olfactory bulb sorts the signals before they are named.",
           "wrong": {
             "B": "The article never says signals are erased.",
             "C": "Signals go deeper into the brain, not to the tongue.",
@@ -385,7 +385,7 @@
           ],
           "answer": "A",
           "skill": "cause-effect",
-          "why": "The article says that when a cold blocks the nose, the tongue is left working almost entirely alone, so food tastes dull.",
+          "why": "In the article, when a cold blocks the nose, the tongue is left working almost entirely alone, so food tastes dull.",
           "wrong": {
             "B": "The brain keeps working on whatever signals it receives.",
             "C": "The article does not mention receptors multiplying.",
@@ -421,7 +421,7 @@
           "skill": "inference",
           "why": "The article explains that most of flavor comes from the nose working together with the tongue.",
           "wrong": {
-            "A": "The article says the tongue alone detects only a handful of basic tastes.",
+            "A": "In the article, the tongue alone detects only a handful of basic tastes.",
             "C": "Appearance is not discussed as part of flavor in the article.",
             "D": "The stomach is not mentioned in relation to flavor."
           }
@@ -598,7 +598,7 @@
           ],
           "answer": "A",
           "skill": "inference",
-          "why": "Since the article explains that most of what people call flavor comes from smell, blocking the nose should leave food tasting dull, contradicting the chef's claim.",
+          "why": "Since in the article, most of what people call flavor comes from smell, blocking the nose should leave food tasting dull, contradicting the chef's claim.",
           "wrong": {
             "B": "The article says the tongue detects only a few basic tastes, not full flavor.",
             "C": "The article describes exactly how a cold tests this situation.",
@@ -627,7 +627,7 @@
         ],
         "answer": "C",
         "skill": "detail",
-        "why": "The article says the tiny bits are in the air and you can not see them.",
+        "why": "The tiny bits are in the air, and you cannot see them.",
         "wrong": {
           "A": "Tasting them is not mentioned.",
           "B": "Hearing them is not mentioned.",
@@ -661,7 +661,7 @@
         ],
         "answer": "D",
         "skill": "cause-effect",
-        "why": "The article says a smell can wake up a memory and make you think of a happy day.",
+        "why": "A smell can bring back a memory.",
         "wrong": {
           "A": "The article says smells bring memories back, not erase them.",
           "B": "Sleepiness is not mentioned.",

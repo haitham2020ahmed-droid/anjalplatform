@@ -124,7 +124,7 @@
           "why": "The article tells about goal cameras, VAR, and trackers that help referees and coaches.",
           "wrong": {
             "A": "The article does not explain how to become a player.",
-            "C": "The article says fans love football.",
+            "C": "In the article, fans love football.",
             "D": "The article does not talk about building stadiums."
           }
         },
@@ -155,7 +155,7 @@
           ],
           "answer": "A",
           "skill": "detail",
-          "why": "The article says the referee's watch buzzes and shows the word GOAL.",
+          "why": "The referee's watch buzzes to show that a goal was scored.",
           "wrong": {
             "B": "Fans do not tell the referee.",
             "C": "The article does not talk about a bell.",
@@ -225,7 +225,7 @@
           "skill": "inference",
           "why": "The article calls the referee's job hard and says the ball and players move fast.",
           "wrong": {
-            "A": "The article says the job is hard.",
+            "A": "The job is hard.",
             "B": "The article shows referees need help.",
             "D": "The article does not say games are only at night."
           }
@@ -351,7 +351,7 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The article says a sensor inside the ball sent data hundreds of times every second.",
+          "why": "A sensor inside the ball sent data many times every second.",
           "wrong": {
             "A": "There was no light in the ball.",
             "B": "The cameras were under the roof, not inside the ball.",
@@ -482,7 +482,7 @@
           "why": "The article explains several tools that help officials and coaches and mentions the complaints about long reviews.",
           "wrong": {
             "A": "Referees still make the final decisions.",
-            "C": "The article says the Saudi Pro League uses VAR too.",
+            "C": "The Saudi Pro League uses VAR too.",
             "D": "The article does not rank the inventions."
           }
         },
@@ -513,7 +513,7 @@
           ],
           "answer": "C",
           "skill": "sequence",
-          "why": "The article says they recommend a review, and the referee examines the footage on a monitor.",
+          "why": "In the article, they recommend a review, and the referee examines the footage on a monitor.",
           "wrong": {
             "A": "Matches are not cancelled.",
             "B": "Fans do not vote.",
@@ -627,7 +627,7 @@
         ],
         "answer": "C",
         "skill": "detail",
-        "why": "The text says that in one second, a watch on the ref's arm buzzes.",
+        "why": "In one second, a watch on the ref's arm buzzes.",
         "wrong": {
           "A": "That is much too slow.",
           "B": "That is much too slow.",
@@ -644,7 +644,7 @@
         ],
         "answer": "B",
         "skill": "detail",
-        "why": "The text says a team of refs sits in a room and watches a replay on big screens.",
+        "why": "In the text, a team of refs sits in a room and watches a replay on big screens.",
         "wrong": {
           "A": "Fans are not said to watch the replays here.",
           "C": "Coaches use the vest data instead.",
@@ -697,7 +697,7 @@
         ],
         "answer": "B",
         "skill": "detail",
-        "why": "The text says a signal goes to the referee's watch in about one second.",
+        "why": "In the text, a signal goes to the referee's watch in about one second.",
         "wrong": {
           "A": "Ten seconds is too slow.",
           "C": "One minute is too slow.",
@@ -716,8 +716,8 @@
         "skill": "cause-effect",
         "why": "The text says no one person can see it all, so football uses technology.",
         "wrong": {
-          "A": "The text says players run, turn, and crowd together.",
-          "B": "The text says the ball moves very fast.",
+          "A": "Players run, turn, and crowd together.",
+          "B": "In the text, the ball moves very fast.",
           "D": "The text says fans want fair matches."
         }
       },
@@ -801,7 +801,7 @@
         ],
         "answer": "B",
         "skill": "cause-effect",
-        "why": "The text says coaches analyze this data in order to prevent injuries.",
+        "why": "In the text, coaches analyze this data in order to prevent injuries.",
         "wrong": {
           "A": "Referees are not picked from this data.",
           "C": "The pitch size is not mentioned.",

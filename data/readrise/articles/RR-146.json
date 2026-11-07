@@ -138,7 +138,7 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The article says pollen sticks to the bee's soft hair.",
+          "why": "In the article, pollen sticks to the bee's soft hair.",
           "wrong": {
             "A": "Water does not stick to the bee in the article.",
             "B": "Sand is not mentioned.",
@@ -155,15 +155,15 @@
           ],
           "answer": "A",
           "skill": "detail",
-          "why": "The article says the wind moves the pollen of wheat and rice.",
+          "why": "In the article, the wind moves the pollen of wheat and rice.",
           "wrong": {
-            "B": "The article says apples and nuts need bees.",
+            "B": "In the article, apples and nuts need bees.",
             "C": "The article says apples need bees.",
-            "D": "The article says melons need bees."
+            "D": "In the article, melons need bees."
           }
         },
         {
-          "stem": "The article says some bees \"buzz hard\" to shake a flower. What does shake mean here?",
+          "stem": "Some bees buzz hard to shake a flower. What does shake mean here?",
           "options": [
             "Eat it all up in one go",
             "Paint it with a brush now",
@@ -189,7 +189,7 @@
           ],
           "answer": "B",
           "skill": "cause-effect",
-          "why": "The article says some pollen rubs off on the next flower. This is pollination, and it lets the plant make fruit and seeds.",
+          "why": "In the article, some pollen rubs off on the next flower. This is pollination, and it lets the plant make fruit and seeds.",
           "wrong": {
             "A": "The article does not say flowers close.",
             "C": "Bees keep their wings.",
@@ -320,7 +320,7 @@
           "why": "Scientists estimate that about three out of four of the world's main food crops benefit from pollinators.",
           "wrong": {
             "B": "This is far fewer than the article says.",
-            "C": "The article says many crops benefit.",
+            "C": "Many crops get help from pollinators, not none.",
             "D": "Wheat and rice, for example, do not need bees."
           }
         },
@@ -402,7 +402,7 @@
           ],
           "answer": "A",
           "skill": "inference",
-          "why": "The article says bees lose their habitat and food when cities replace wildflowers.",
+          "why": "In the article, bees lose their habitat and food when cities replace wildflowers.",
           "wrong": {
             "B": "Less food would not lead to more honey.",
             "C": "Bees do not become a new species this way.",
@@ -496,7 +496,7 @@
           ],
           "answer": "D",
           "skill": "detail",
-          "why": "The article says around two million hives are moved into almond orchards each spring.",
+          "why": "About two million hives are moved into almond orchards each spring.",
           "wrong": {
             "A": "This is a thousand times too few.",
             "B": "Twenty thousand is the number of bee species, not hives.",
@@ -513,7 +513,7 @@
           ],
           "answer": "B",
           "skill": "detail",
-          "why": "The article says that when too little pollen arrives, many crops produce smaller or oddly shaped fruit.",
+          "why": "When too little pollen reaches the flowers, many crops grow smaller or oddly shaped fruit.",
           "wrong": {
             "A": "Less pollen leads to poorer fruit, not more seeds.",
             "C": "The article says nothing about weeds.",
@@ -521,7 +521,7 @@
           }
         },
         {
-          "stem": "Bumblebees \"vibrate their bodies so rapidly that the pollen shakes loose.\" What does vibrate mean?",
+          "stem": "In the article, what does the word \"vibrate\" mean?",
           "options": [
             "To fly in a circle around a flower",
             "To bite into a flower with its mouth",
@@ -598,7 +598,7 @@
           ],
           "answer": "B",
           "skill": "inference",
-          "why": "The article says World Bee Day is meant to raise awareness, which helps people learn why bees matter and how to help them.",
+          "why": "In the article, World Bee Day is meant to raise awareness, which helps people learn why bees matter and how to help them.",
           "wrong": {
             "A": "Pesticides can harm bees, so selling more would not help.",
             "C": "The article does not say bees are counted.",
@@ -627,7 +627,7 @@
         ],
         "answer": "B",
         "skill": "detail",
-        "why": "The text says some wild bees dig homes in the ground.",
+        "why": "In the text, some wild bees dig homes in the ground.",
         "wrong": {
           "A": "The text does not say bees dig in trees.",
           "C": "Bees do not live in the sea.",
@@ -678,7 +678,7 @@
         ],
         "answer": "C",
         "skill": "cause-effect",
-        "why": "The text says the bee's body is soft and fuzzy, so pollen sticks to its hair.",
+        "why": "In the text, the bee's body is soft and fuzzy, so pollen sticks to its hair.",
         "wrong": {
           "A": "The text does not say the bee is wet.",
           "B": "Drinking water is not the reason.",
@@ -697,7 +697,7 @@
         ],
         "answer": "D",
         "skill": "detail",
-        "why": "The text says nectar is a sweet liquid that a bee drinks.",
+        "why": "In the text, nectar is a sweet liquid that a bee drinks.",
         "wrong": {
           "A": "The fine dust is pollen.",
           "B": "The soft hairs are on the bee's body.",
@@ -731,7 +731,7 @@
         ],
         "answer": "C",
         "skill": "cause-effect",
-        "why": "The text says that once pollination happens, the flower can grow fruit and seeds.",
+        "why": "In the text, once pollination happens, the flower can grow fruit and seeds.",
         "wrong": {
           "A": "The text does not say this.",
           "B": "Nectar is not mentioned as the result.",
@@ -767,7 +767,7 @@
         ],
         "answer": "C",
         "skill": "detail",
-        "why": "The text says many bees pack extra pollen into special baskets on their back legs.",
+        "why": "In the text, many bees pack extra pollen into special baskets on their back legs.",
         "wrong": {
           "A": "The text names baskets on the legs, not wing pockets.",
           "B": "The text does not say they carry pollen in their stomachs.",
@@ -801,7 +801,7 @@
         ],
         "answer": "D",
         "skill": "cause-effect",
-        "why": "The text says bees lose their habitat when farms and cities replace wildflowers.",
+        "why": "Bees lose their habitat when farms and cities take the place of wildflowers.",
         "wrong": {
           "A": "The text does not say this.",
           "B": "Mites attack honeybee hives, not flowers.",

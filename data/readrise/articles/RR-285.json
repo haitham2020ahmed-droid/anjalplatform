@@ -138,7 +138,7 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The article says every time a player hits the ball, it is counted as one stroke.",
+          "why": "In the article, each hit of the ball is called a stroke.",
           "wrong": {
             "A": "A score is the total count, not a single hit.",
             "B": "A course is the land where golf is played.",
@@ -155,7 +155,7 @@
           ],
           "answer": "A",
           "skill": "detail",
-          "why": "The article says the player with the fewest total strokes wins the game.",
+          "why": "In the article, a player wants as few strokes as possible, so the fewest strokes wins.",
           "wrong": {
             "B": "Hitting far is not the same as winning.",
             "C": "Golf is not about finishing in less time.",
@@ -163,7 +163,7 @@
           }
         },
         {
-          "stem": "Read this: \"A short club helps a player hit the ball carefully.\" What does carefully mean here?",
+          "stem": "A short club helps a player hit the ball carefully. What does carefully mean here?",
           "options": [
             "Very quickly and with force",
             "With close attention and control",
@@ -191,7 +191,7 @@
           "skill": "cause-effect",
           "why": "The article says a golfer thinks about the course and then picks the right club for that shot.",
           "wrong": {
-            "B": "The article says clubs come in different kinds.",
+            "B": "In the article, clubs come in different kinds.",
             "C": "Golfers use several different clubs.",
             "D": "Picking a club is about accuracy, not time."
           }
@@ -206,7 +206,7 @@
           ],
           "answer": "B",
           "skill": "detail",
-          "why": "The article says golf began a long time ago in Scotland.",
+          "why": "In the article, golf began a long time ago in Scotland.",
           "wrong": {
             "A": "People play golf in Saudi Arabia today, but it began elsewhere.",
             "C": "Golf is not played on a basketball court.",
@@ -317,7 +317,7 @@
           ],
           "answer": "B",
           "skill": "detail",
-          "why": "The article says a short club, called an iron, helps a player hit the ball with precision and control.",
+          "why": "In the article, a short club, called an iron, helps a player hit the ball with precision and control.",
           "wrong": {
             "A": "A driver, not an iron, is used for maximum distance.",
             "C": "Measuring the course is not described.",
@@ -325,7 +325,7 @@
           }
         },
         {
-          "stem": "Read this: \"accuracy consistently saves valuable strokes.\" What does accuracy mean here?",
+          "stem": "In the article, what does the word \"accuracy\" mean?",
           "options": [
             "Playing on a famous course in another country",
             "Hitting the ball as hard as possible each time",
@@ -584,7 +584,7 @@
           "why": "New, popular courses opening far from Scotland show the sport's wide and growing international appeal.",
           "wrong": {
             "B": "Nothing in the article suggests a ban in Scotland.",
-            "C": "The article states golf began in Scotland.",
+            "C": "In the article, golf began in Scotland.",
             "D": "Grass and course terrain are described throughout the article."
           }
         },
@@ -627,7 +627,7 @@
         ],
         "answer": "A",
         "skill": "vocabulary",
-        "why": "The text says the big grass field where she plays is called a course.",
+        "why": "In the text, the big grass field where she plays is called a course.",
         "wrong": {
           "B": "A bag is not mentioned.",
           "C": "A school class is not the meaning here.",
@@ -644,7 +644,7 @@
         ],
         "answer": "C",
         "skill": "detail",
-        "why": "The text says a good golfer looks at the wind and the grass, then picks a club.",
+        "why": "In the text, a good golfer looks at the wind and the grass, then picks a club.",
         "wrong": {
           "A": "The sky and moon are not mentioned.",
           "B": "Shoes and hats are not mentioned.",
@@ -767,7 +767,7 @@
         ],
         "answer": "A",
         "skill": "detail",
-        "why": "The text says golf began in Scotland using simple homemade clubs and leather balls.",
+        "why": "In the text, golf began in Scotland using simple homemade clubs and leather balls.",
         "wrong": {
           "B": "Metal clubs and rubber balls are not mentioned.",
           "C": "Rackets and paper balls are not mentioned.",
@@ -818,7 +818,7 @@
         ],
         "answer": "B",
         "skill": "inference",
-        "why": "The text says each hit counts as exactly one stroke regardless of distance, so short and long hits count the same.",
+        "why": "In the text, each hit counts as exactly one stroke regardless of distance, so short and long hits count the same.",
         "wrong": {
           "A": "Each hit counts as one stroke, not two.",
           "C": "Every hit is a stroke, not just putts.",

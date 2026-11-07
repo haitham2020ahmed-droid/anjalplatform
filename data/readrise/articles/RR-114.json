@@ -138,7 +138,7 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The article says dugongs eat a sea plant called seagrass.",
+          "why": "In the article, dugongs eat a sea plant called seagrass.",
           "wrong": {
             "A": "The article does not say dugongs eat fish or crabs.",
             "B": "Dugongs live in the sea, not on the beach.",
@@ -155,7 +155,7 @@
           ],
           "answer": "A",
           "skill": "detail",
-          "why": "The article says some dugongs swim in the Red Sea and the Gulf near Saudi Arabia.",
+          "why": "In the article, some dugongs swim in the Red Sea and the Gulf near Saudi Arabia.",
           "wrong": {
             "B": "Dugongs live in the sea, not desert lakes.",
             "C": "The article does not mention rivers.",
@@ -206,7 +206,7 @@
           ],
           "answer": "C",
           "skill": "vocabulary",
-          "why": "The article says a mother dugong's baby is called a calf.",
+          "why": "A baby dugong is called a calf.",
           "wrong": {
             "A": "Seagrass is the food, not the baby.",
             "B": "Fishing nets are a danger to dugongs.",
@@ -359,7 +359,7 @@
           }
         },
         {
-          "stem": "In the sentence \"They graze on it slowly, the way cows graze in a field,\" graze means",
+          "stem": "Dugongs graze on sea grass slowly, the way cows graze in a field. Graze means",
           "options": [
             "to run around in circles",
             "to sleep for many hours",
@@ -402,7 +402,7 @@
           ],
           "answer": "C",
           "skill": "inference",
-          "why": "The article says coastal building can destroy seagrass, and dugongs depend on seagrass for food.",
+          "why": "In the article, coastal building can destroy seagrass, and dugongs depend on seagrass for food.",
           "wrong": {
             "A": "The article does not say building changes temperature.",
             "B": "The article does not say this.",
@@ -496,7 +496,7 @@
           ],
           "answer": "D",
           "skill": "compare",
-          "why": "The article says the manatee has a rounded, paddle-shaped tail, while the dugong has a notched tail resembling a whale's.",
+          "why": "In the article, the manatee has a rounded, paddle-shaped tail, while the dugong has a notched tail resembling a whale's.",
           "wrong": {
             "A": "That describes the manatee's tail.",
             "B": "The article says the dugong has a tail.",
@@ -530,7 +530,7 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The article says researchers follow the trails to determine where dugongs have been feeding.",
+          "why": "In the article, researchers follow the trails to determine where dugongs have been feeding.",
           "wrong": {
             "A": "Age is not linked to the trails.",
             "B": "Speed is not linked to the trails.",
@@ -538,7 +538,7 @@
           }
         },
         {
-          "stem": "In the phrase \"scientists classify the species as vulnerable to extinction,\" vulnerable most nearly means",
+          "stem": "If a species is vulnerable to extinction, vulnerable most nearly means",
           "options": [
             "at risk",
             "protected",
@@ -564,7 +564,7 @@
           ],
           "answer": "B",
           "skill": "cause-effect",
-          "why": "The article says pollution destroys seagrass meadows, and the dugong depends almost entirely on seagrass.",
+          "why": "In the article, pollution destroys seagrass meadows, and the dugong depends almost entirely on seagrass.",
           "wrong": {
             "A": "The article does not link pollution to swimming speed.",
             "C": "Water temperature is not discussed.",
@@ -627,7 +627,7 @@
         ],
         "answer": "C",
         "skill": "detail",
-        "why": "The text says a mom dugong has one baby at a time.",
+        "why": "In the text, a mom dugong has one baby at a time.",
         "wrong": {
           "A": "The text says one baby, not two.",
           "B": "The text says one baby, not three.",
@@ -661,7 +661,7 @@
         ],
         "answer": "D",
         "skill": "inference",
-        "why": "The text says the calf stays close to its mom and drinks her milk.",
+        "why": "In the text, the calf stays close to its mom and drinks her milk.",
         "wrong": {
           "A": "The text does not say the mom helps it swim away from boats.",
           "B": "Nets are a danger and not food.",
@@ -714,7 +714,7 @@
         ],
         "answer": "D",
         "skill": "cause-effect",
-        "why": "The text says a dugong is a mammal that breathes air through nostrils on top of its snout.",
+        "why": "In the text, a dugong is a mammal that breathes air through nostrils on top of its snout.",
         "wrong": {
           "A": "Seagrass grows on the sea floor, not at the surface.",
           "B": "Trails are left on the sand while it feeds.",
@@ -784,11 +784,11 @@
         ],
         "answer": "C",
         "skill": "cause-effect",
-        "why": "The text says dugongs reproduce slowly, with one calf and a wait of several years before another.",
+        "why": "In the text, dugongs reproduce slowly, with one calf and a wait of several years before another.",
         "wrong": {
           "A": "The text does not say the groups are small; the Gulf holds a large group.",
           "B": "The text says they eat lots of seagrass.",
-          "D": "The text says they live in shallow coastal waters."
+          "D": "In the text, they live in shallow coastal waters."
         }
       },
       {
@@ -801,7 +801,7 @@
         ],
         "answer": "B",
         "skill": "inference",
-        "why": "The text says the calf stays beside her for more than a year, gradually learning where to find seagrass, so it learns from her.",
+        "why": "In the text, the calf stays beside her for more than a year, gradually learning where to find seagrass, so it learns from her.",
         "wrong": {
           "A": "If they were born knowing, they would not need to learn.",
           "C": "The text says the calf stays for more than a year.",

@@ -142,7 +142,7 @@
           "wrong": {
             "B": "The article does not say wind moves the rain.",
             "C": "The desert ground is dry, not wet.",
-            "D": "The article says few plants grow there."
+            "D": "Desert plants cannot drink all the rain at once."
           }
         },
         {
@@ -172,10 +172,10 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The article says to stay out of the wadi and go to high ground.",
+          "why": "In the article, to stay out of the wadi and go to high ground.",
           "wrong": {
             "A": "The article warns that flood water can push a car away.",
-            "B": "The article says flood water can knock you down.",
+            "B": "In the article, flood water can knock you down.",
             "D": "The middle of the wadi is where the water flows."
           }
         },
@@ -189,7 +189,7 @@
           ],
           "answer": "A",
           "skill": "inference",
-          "why": "The article says a flood can come from a storm that is far away, even when your sky is blue.",
+          "why": "In the article, a flood can come from a storm that is far away, even when your sky is blue.",
           "wrong": {
             "B": "The sun does not melt sand into water.",
             "C": "The article does not talk about pipes.",
@@ -368,7 +368,7 @@
           ],
           "answer": "D",
           "skill": "detail",
-          "why": "The article says dams catch flood water so it can be used later.",
+          "why": "In the article, dams catch flood water so it can be used later.",
           "wrong": {
             "A": "Dams cannot make it rain.",
             "C": "The article does not say dams hold back sand.",
@@ -481,7 +481,7 @@
           "skill": "central-idea",
           "why": "The article explains how flash floods form, why they are dangerous, how people respond, and what benefits the rain brings.",
           "wrong": {
-            "A": "The article says the ground cannot absorb the rain quickly.",
+            "A": "The ground cannot soak up the rain quickly.",
             "C": "The article describes Saudi Arabia as mostly desert with little rain.",
             "D": "Engineers reduce risk, but the article does not say floods were prevented."
           }
@@ -513,7 +513,7 @@
           ],
           "answer": "C",
           "skill": "cause-effect",
-          "why": "The article says the soil is baked hard and the sparse vegetation cannot slow the water, so it flows over the surface.",
+          "why": "The ground is baked hard and few plants grow there, so the water runs over the surface.",
           "wrong": {
             "A": "Cold air and wind are not given as causes.",
             "B": "Deserts lack thick forests and lakes.",
@@ -530,7 +530,7 @@
           ],
           "answer": "B",
           "skill": "detail",
-          "why": "The article states that floods in Jeddah in 2009 took more than one hundred lives.",
+          "why": "In the article, floods in Jeddah in 2009 took more than one hundred lives.",
           "wrong": {
             "A": "The article does not mention a dam opening in Jeddah.",
             "C": "Aquifers are discussed generally, not in Jeddah.",
@@ -678,7 +678,7 @@
         ],
         "answer": "C",
         "skill": "sequence",
-        "why": "The text says dark clouds come, then a big storm comes with hard, fast rain.",
+        "why": "In the text, dark clouds come, then a big storm comes with hard, fast rain.",
         "wrong": {
           "A": "The wadi fills with water after the storm.",
           "B": "Seeds wake up after the rain has fallen.",
@@ -697,7 +697,7 @@
         ],
         "answer": "C",
         "skill": "detail",
-        "why": "The text says the wadi fills with muddy water that carries rocks and branches.",
+        "why": "In the text, the wadi fills with muddy water that carries rocks and branches.",
         "wrong": {
           "A": "Fish and shells are not mentioned.",
           "B": "Cars can be swept away, but the water is said to carry rocks and branches.",
@@ -731,7 +731,7 @@
         ],
         "answer": "D",
         "skill": "cause-effect",
-        "why": "The text says the ground is baked hard and few plants grow there to slow the water.",
+        "why": "The ground is baked hard, and few plants grow there to slow the water.",
         "wrong": {
           "A": "The text says few plants grow, not many trees.",
           "B": "Wells fill later, after the flood.",

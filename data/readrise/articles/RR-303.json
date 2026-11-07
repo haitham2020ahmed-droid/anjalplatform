@@ -138,7 +138,7 @@
           ],
           "answer": "A",
           "skill": "detail",
-          "why": "The article says bakhoor is made of small wood chips with a rich scent.",
+          "why": "Bakhoor is made of small chips of wood with a rich smell.",
           "wrong": {
             "B": "Plastic is not part of bakhoor.",
             "C": "Cotton is not mentioned.",
@@ -155,7 +155,7 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The article says people place bakhoor chips on top of hot coals in a burner.",
+          "why": "In the article, people place bakhoor chips on top of hot coals in a burner.",
           "wrong": {
             "A": "A pillow would not let bakhoor burn safely.",
             "B": "Water would put out the coals.",
@@ -513,7 +513,7 @@
           ],
           "answer": "B",
           "skill": "detail",
-          "why": "The article says artisans combine wood, resin, and oils in precise proportions.",
+          "why": "In the article, artisans combine wood, resin, and oils in precise proportions.",
           "wrong": {
             "A": "Resin, especially oud, is a key ingredient.",
             "C": "Ingredients are combined before burning.",
@@ -644,7 +644,7 @@
         ],
         "answer": "C",
         "skill": "detail",
-        "why": "The text says each home may mix bakhoor its own way.",
+        "why": "In the text, each family may mix its own bakhoor.",
         "wrong": {
           "A": "The text says bakhoor needs no spray can.",
           "B": "Homes mix their own, so they do not all buy one.",
@@ -661,7 +661,7 @@
         ],
         "answer": "D",
         "skill": "sequence",
-        "why": "The text says bakhoor goes on top, and then smoke goes up.",
+        "why": "In the text, the chips go on top of the coals, and then smoke rises.",
         "wrong": {
           "A": "The coals are hot, and the text does not say they get cold.",
           "B": "The burner is used to fill the room, so it stays out.",
@@ -697,7 +697,7 @@
         ],
         "answer": "A",
         "skill": "detail",
-        "why": "The article says that on holidays, many homes burn a rich blend to mark the moment.",
+        "why": "On holidays, many homes burn a rich blend of bakhoor.",
         "wrong": {
           "B": "The article does not link bakhoor to summer.",
           "C": "The article does not link bakhoor to rain.",
@@ -714,7 +714,7 @@
         ],
         "answer": "C",
         "skill": "cause-effect",
-        "why": "The article says that as the chips warm, smoke rises and spreads through the room.",
+        "why": "In the article, as the chips warm, smoke rises and spreads through the room.",
         "wrong": {
           "A": "Coals do not turn into resin in the article.",
           "B": "Oud is a resin from a tree, not made in the burner.",
@@ -748,7 +748,7 @@
         ],
         "answer": "D",
         "skill": "inference",
-        "why": "The article says the host carries the burner so everyone can enjoy the scent, which shows care for all guests.",
+        "why": "In the article, the host carries the burner so everyone can enjoy the scent, which shows care for all guests.",
         "wrong": {
           "A": "The coals are lit on purpose to give off scent.",
           "B": "The host is moving through the room with the guests.",
@@ -767,7 +767,7 @@
         ],
         "answer": "D",
         "skill": "detail",
-        "why": "The article says the small burner is often made of brass, silver, or clay.",
+        "why": "In the article, the small burner is often made of brass, silver, or clay.",
         "wrong": {
           "A": "Wood, resin, and oil are what bakhoor itself is made from.",
           "B": "These materials are not named in the article.",

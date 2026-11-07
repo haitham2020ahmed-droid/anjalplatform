@@ -138,7 +138,7 @@
           ],
           "answer": "D",
           "skill": "detail",
-          "why": "The article says most kids need 9 to 12 hours of sleep a night.",
+          "why": "In the article, most kids need 9 to 12 hours of sleep a night.",
           "wrong": {
             "A": "5 to 6 hours is far too little for kids.",
             "B": "The article gives 9 to 12 hours, not 7 to 8.",
@@ -342,7 +342,7 @@
           }
         },
         {
-          "stem": "Read the sentence: \"Students who sleep well usually find it easier to concentrate.\" What does concentrate mean?",
+          "stem": "In the article, what does the word \"concentrate\" mean?",
           "options": [
             "To fall asleep quickly in the evening",
             "To give full attention to something",
@@ -368,7 +368,7 @@
           ],
           "answer": "C",
           "skill": "cause-effect",
-          "why": "The article says screen light can delay melatonin and trick the brain into thinking it is still daytime.",
+          "why": "In the article, screen light can delay melatonin and trick the brain into thinking it is still daytime.",
           "wrong": {
             "A": "Growth hormone is released during deep sleep, not because of screens.",
             "B": "The article does not say screens end dream sleep.",
@@ -496,7 +496,7 @@
           ],
           "answer": "A",
           "skill": "detail",
-          "why": "The article says the internal clock is synchronized primarily by daylight.",
+          "why": "The body's inner clock is set mainly by daylight.",
           "wrong": {
             "B": "Food is not mentioned as what sets the clock.",
             "C": "Dreams happen in REM sleep but do not set the clock.",
@@ -627,7 +627,7 @@
         ],
         "answer": "C",
         "skill": "detail",
-        "why": "The text says kids grow most in deep sleep.",
+        "why": "Kids grow most during deep sleep.",
         "wrong": {
           "A": "Running and playing help you sleep, but growth happens in deep sleep.",
           "B": "Meals are not mentioned as the time for growth.",
@@ -646,7 +646,7 @@
         "skill": "cause-effect",
         "why": "At night the brain sorts what you learned, which makes memory strong and learning easy the next day.",
         "wrong": {
-          "B": "The text says to keep the room dark.",
+          "B": "In the text, to keep the room dark.",
           "C": "Food is not mentioned.",
           "D": "The phone's light makes it hard to sleep."
         }
@@ -731,7 +731,7 @@
         ],
         "answer": "C",
         "skill": "cause-effect",
-        "why": "The article says students who sleep well find it easier to concentrate and remember their lessons.",
+        "why": "In the article, students who sleep well find it easier to concentrate and remember their lessons.",
         "wrong": {
           "A": "Brain size is not mentioned.",
           "B": "Meals are not mentioned.",
@@ -784,7 +784,7 @@
         ],
         "answer": "C",
         "skill": "detail",
-        "why": "The article says in deep sleep heart rate, breathing and body temperature gradually decline.",
+        "why": "In deep sleep heart rate, breathing and body temperature gradually decline.",
         "wrong": {
           "A": "The temperature goes down, not up.",
           "B": "It does not stay high.",
@@ -803,7 +803,7 @@
         "skill": "inference",
         "why": "The article goes on to describe the jobs your brain and body do during sleep, so sleep is active, not empty rest.",
         "wrong": {
-          "A": "The article shows sleep is valuable.",
+          "A": "The article shows that sleep does useful work, so it is not a waste of time.",
           "C": "The author advises good sleep habits.",
           "D": "Dreams are not argued about."
         }
@@ -818,7 +818,7 @@
         ],
         "answer": "D",
         "skill": "cause-effect",
-        "why": "The article says the brain releases melatonin, a hormone that produces drowsiness.",
+        "why": "In the article, the brain releases melatonin, a hormone that produces drowsiness.",
         "wrong": {
           "A": "Melatonin makes you drowsy, not alert.",
           "B": "Growth hormone helps growth, not melatonin.",

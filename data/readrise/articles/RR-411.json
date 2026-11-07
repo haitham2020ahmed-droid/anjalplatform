@@ -163,7 +163,7 @@
      }
     },
     {
-     "stem": "In the story, when a kid says the question \"in a new way,\" the kid is —",
+     "stem": "In the story, when a kid asks the question in a new way, the kid is —",
      "options": [
       "asking a brand-new question about something else",
       "writing the question down on paper",
@@ -240,7 +240,7 @@
      ],
      "answer": "D",
      "skill": "detail",
-     "why": "The story says Bo's job is to help kids with their math work.",
+     "why": "In the story, Bo's job is to help kids with their math work.",
      "wrong": {
       "A": "Cleaning is never mentioned as Bo's job.",
       "B": "The playground is not part of the story.",
@@ -333,7 +333,7 @@
      ],
      "answer": "C",
      "skill": "cause-effect",
-     "why": "The story explains that Bo's training did not include this kind of talk, which is why it gets confused by Fahd's wording.",
+     "why": "In the story, Bo's training never included Fahd's kind of wording, so Bo gets confused.",
      "wrong": {
       "A": "Volume is never mentioned as the problem.",
       "B": "Noise is not given as a reason in the story.",
@@ -511,7 +511,7 @@
      ],
      "answer": "C",
      "skill": "cause-effect",
-     "why": "The story explains that Bo's training data never incorporated phrasing like Fahd's, which is the direct cause of the misunderstanding.",
+     "why": "In the story, Bo's training data never incorporated phrasing like Fahd's, which is the direct cause of the misunderstanding.",
      "wrong": {
       "A": "Fahd has no intention of confusing Bo.",
       "B": "No malfunction is ever mentioned.",
@@ -624,7 +624,7 @@
     ],
     "answer": "C",
     "skill": "detail",
-    "why": "The text says Ms. Huda told them, \"Be kind. Bo is new too.\"",
+    "why": "In the story, Ms. Huda tells the kids to be kind to Bo because Bo is new too.",
     "wrong": {
      "A": "She did not send the kids to their seats.",
      "B": "She did not talk about speed.",
@@ -694,7 +694,7 @@
     ],
     "answer": "C",
     "skill": "detail",
-    "why": "The text says Fahd moved to this town last year and uses words from his old home town.",
+    "why": "In the text, Fahd moved to this town last year and uses words from his old home town.",
     "wrong": {
      "A": "The story never says he wants to trick Bo.",
      "B": "The story does not say he is new to the class.",
@@ -764,7 +764,7 @@
     ],
     "answer": "C",
     "skill": "detail",
-    "why": "The text says the students greet Bo with enthusiastic applause and several cheer.",
+    "why": "In the text, the students greet Bo with enthusiastic applause and several cheer.",
     "wrong": {
      "A": "They did not ignore Bo.",
      "B": "They welcomed Bo.",

@@ -124,7 +124,7 @@
           "why": "The article tells about the sea star's body, how it moves and eats, how it regrows arms, and where it lives.",
           "wrong": {
             "A": "The article says a sea star is not a fish at all.",
-            "C": "The article says to leave sea stars in their home.",
+            "C": "In the article, you should leave sea stars in their home, but that is only one small part.",
             "D": "The tide is mentioned, but the article is about sea stars."
           }
         },
@@ -155,7 +155,7 @@
           ],
           "answer": "A",
           "skill": "detail",
-          "why": "The article says the tube feet under each arm help the sea star creep over rocks.",
+          "why": "In the article, the tube feet help the sea star creep over rocks.",
           "wrong": {
             "B": "A sea star has no fins.",
             "C": "Sea stars have arms with tube feet, not long legs.",
@@ -189,7 +189,7 @@
           ],
           "answer": "A",
           "skill": "sequence",
-          "why": "The article says that after the shell opens a little, the sea star pushes its stomach out of its mouth and into the shell.",
+          "why": "In the article, after the shell opens a little, the sea star pushes its stomach out of its mouth and into the shell.",
           "wrong": {
             "B": "The article does not say the sea star carries the clam away.",
             "C": "Nothing in the article says sea stars share food.",
@@ -223,7 +223,7 @@
           ],
           "answer": "D",
           "skill": "inference",
-          "why": "The article says a sea star can regrow an arm, but it takes a long time.",
+          "why": "In the article, a sea star can regrow an arm, but it takes a long time.",
           "wrong": {
             "A": "The article says it can regrow the arm, so it does not have to die.",
             "B": "It still has other arms with tube feet.",
@@ -317,7 +317,7 @@
           ],
           "answer": "D",
           "skill": "detail",
-          "why": "The article says the closest relatives of sea stars are sea urchins and sand dollars.",
+          "why": "In the article, the closest relatives of sea stars are sea urchins and sand dollars.",
           "wrong": {
             "A": "The article says sea stars are not fish.",
             "B": "Crabs are mentioned as animals that may take an arm, not as relatives.",
@@ -334,7 +334,7 @@
           ],
           "answer": "B",
           "skill": "detail",
-          "why": "The article explains that water inside the sea star's tubes moves the tube feet.",
+          "why": "In the article, water inside the sea star's tubes moves the tube feet.",
           "wrong": {
             "A": "A sea star has no blood.",
             "C": "A sea star has no brain.",
@@ -404,7 +404,7 @@
           "skill": "inference",
           "why": "A bird or crab may take an arm, but the sea star can live on and grow a new one.",
           "wrong": {
-            "A": "The article says sea stars can lose arms to birds and crabs.",
+            "A": "In the article, sea stars can lose arms to birds and crabs.",
             "C": "Birds and crabs attack sea stars, so they are not afraid.",
             "D": "Regrowing takes many months, or even a year."
           }
@@ -422,7 +422,7 @@
           "why": "The article first describes the sea star's body, then how it hunts and regrows arms, and ends with tides and the Red Sea.",
           "wrong": {
             "A": "The article does not follow one sea star's life.",
-            "B": "The article says to leave sea stars in their home.",
+            "B": "In the article, to leave sea stars in their home.",
             "D": "Fish are mentioned only at the start."
           }
         }
@@ -496,7 +496,7 @@
           ],
           "answer": "A",
           "skill": "detail",
-          "why": "The article says the sea star circulates seawater through internal canals called a water vascular system.",
+          "why": "In the article, the sea star circulates seawater through internal canals called a water vascular system.",
           "wrong": {
             "B": "The article says sea stars lack gills.",
             "C": "Lungs are not mentioned.",
@@ -521,7 +521,7 @@
           }
         },
         {
-          "stem": "\"It can regenerate a replacement.\" What does regenerate mean?",
+          "stem": "In the article, what does the word \"regenerate\" mean?",
           "options": [
             "Remember",
             "Grow again",
@@ -547,7 +547,7 @@
           ],
           "answer": "B",
           "skill": "cause-effect",
-          "why": "The article says that because sea stars regulate the populations of other animals, they play an important role.",
+          "why": "Sea stars control the numbers of other animals, so they play an important role.",
           "wrong": {
             "A": "The article does not say sea stars feed every fish.",
             "C": "Tube feet are for gripping and moving, not cleaning water.",
@@ -566,7 +566,7 @@
           "skill": "inference",
           "why": "The article says the eye spot helps the animal identify shadows and shelter, so it likely uses darkness to find hiding places.",
           "wrong": {
-            "B": "The article says the eye spot cannot form detailed images.",
+            "B": "In the article, the eye spot cannot form detailed images.",
             "C": "The article does not say when sea stars hunt.",
             "D": "Nothing in the article suggests color vision."
           }
@@ -627,7 +627,7 @@
         ],
         "answer": "C",
         "skill": "detail",
-        "why": "The text says the eye spot at the tip of each arm can tell light from dark.",
+        "why": "In the text, the eye spot at the tip of each arm can tell light from dark.",
         "wrong": {
           "A": "The text does not say the eye spot finds clams.",
           "B": "It only tells light from dark.",
@@ -644,9 +644,9 @@
         ],
         "answer": "B",
         "skill": "detail",
-        "why": "The text says the stomach goes in the shell and the sea star eats the clam there.",
+        "why": "In the text, the stomach goes in the shell and the sea star eats the clam there.",
         "wrong": {
-          "A": "The text says it pulls the shell a bit open.",
+          "A": "In the text, it pulls the shell a bit open.",
           "C": "The sea star goes after the clam.",
           "D": "Rocks are only where the sea star creeps."
         }
@@ -678,7 +678,7 @@
         ],
         "answer": "A",
         "skill": "inference",
-        "why": "The text says sea water moves through its body, so it does not need blood.",
+        "why": "In the text, sea water moves through its body, so it does not need blood.",
         "wrong": {
           "B": "The sea star has no brain.",
           "C": "Eye spots only sense light.",
@@ -697,7 +697,7 @@
         ],
         "answer": "B",
         "skill": "detail",
-        "why": "The text says it cannot see clear pictures but can sense light and darkness.",
+        "why": "In the text, the eye spot cannot see clear pictures, but it can sense light and darkness.",
         "wrong": {
           "A": "Sound and heat are not mentioned.",
           "C": "It cannot see clear pictures.",
@@ -801,7 +801,7 @@
         ],
         "answer": "B",
         "skill": "cause-effect",
-        "why": "The text says water pressure within the canals extends and retracts the feet.",
+        "why": "In the text, water pressure within the canals extends and retracts the feet.",
         "wrong": {
           "A": "A sea star has no brain.",
           "C": "The tide is not described as moving the feet.",
@@ -818,7 +818,7 @@
         ],
         "answer": "B",
         "skill": "inference",
-        "why": "The text says a sea star can regenerate a replacement arm, which may take months or a year.",
+        "why": "In the text, a sea star can regenerate a replacement arm, which may take months or a year.",
         "wrong": {
           "A": "The text says it can regenerate.",
           "C": "A sea star has no brain at all.",

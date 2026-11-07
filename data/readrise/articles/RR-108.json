@@ -138,9 +138,9 @@
           ],
           "answer": "D",
           "skill": "detail",
-          "why": "The article says they live in Africa and parts of Asia, and some live in Saudi Arabia.",
+          "why": "In the article, they live in Africa and parts of Asia, and some live in Saudi Arabia.",
           "wrong": {
-            "A": "The article says they live in hot, dry places.",
+            "A": "Honey badgers live in parts of Africa and Asia, not only in cold, wet forests in the north.",
             "B": "Honey badgers live on land, not in the sea.",
             "C": "Saudi Arabia is only one of the places they live."
           }
@@ -163,7 +163,7 @@
           }
         },
         {
-          "stem": "Read this sentence: \"It digs a hole to sleep in. The hole is a burrow.\" What is a burrow?",
+          "stem": "In the article, what does the word \"burrow\" mean?",
           "options": [
             "A kind of food that bees make in a hive",
             "A sharp tooth for biting through a hard shell",
@@ -206,7 +206,7 @@
           ],
           "answer": "B",
           "skill": "cause-effect",
-          "why": "The article says a scared honey badger can make a bad smell, so most animals leave it alone.",
+          "why": "In the article, a scared honey badger makes a bad smell, so most animals leave it alone.",
           "wrong": {
             "A": "The article says nothing about singing.",
             "C": "The article does not mention water.",
@@ -225,7 +225,7 @@
           "skill": "inference",
           "why": "The article says the badger may sleep a while and then wake up, which shows it is tough.",
           "wrong": {
-            "A": "The article says it can live through the bite.",
+            "A": "It can live through the bite.",
             "B": "The article says it can be bitten.",
             "D": "No doctor is mentioned; it gets better by itself."
           }
@@ -243,7 +243,7 @@
           "why": "Each body part is described with how it helps the badger fight, dig, or scare enemies.",
           "wrong": {
             "B": "The article does not give drawing steps.",
-            "C": "The article says the badger is small, like a small dog.",
+            "C": "In the article, the badger is small, like a small dog.",
             "D": "The article is nonfiction with facts, not a made-up story."
           }
         }
@@ -334,7 +334,7 @@
           ],
           "answer": "D",
           "skill": "detail",
-          "why": "The article says it eats honey but mostly wants the larvae inside the comb.",
+          "why": "In the article, it eats honey but mostly wants the larvae inside the comb.",
           "wrong": {
             "A": "It digs burrows with its claws; it does not use wax.",
             "B": "It rests in burrows, not hives.",
@@ -342,7 +342,7 @@
           }
         },
         {
-          "stem": "In the article, \"partly resistant to some snake venom\" means that the venom",
+          "stem": "If a honey badger is partly resistant to snake venom, the venom",
           "options": [
             "harms the badger less than it would harm most animals",
             "cannot get through the badger's thick skin or fur",
@@ -368,7 +368,7 @@
           ],
           "answer": "B",
           "skill": "sequence",
-          "why": "The article says a bitten badger may sleep for a few hours, then wake up and keep going.",
+          "why": "In the article, a bitten badger may sleep for a few hours, then wake up and keep going.",
           "wrong": {
             "A": "Digging is not connected to snake bites in the article.",
             "C": "The smell is used to make enemies back away, not to call for help.",
@@ -404,7 +404,7 @@
           "skill": "inference",
           "why": "Honey badgers are solitary, and a mother raises her cub by herself for more than a year.",
           "wrong": {
-            "A": "The article says the mother raises the cub by herself.",
+            "A": "In the article, the mother raises the cub by herself.",
             "C": "Honey badgers usually live alone, not in groups.",
             "D": "Bees are food, not teachers."
           }
@@ -496,7 +496,7 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The article says the name means honey-eater from the Cape, a region of southern Africa.",
+          "why": "In the article, the name means honey-eater from the Cape, a region of southern Africa.",
           "wrong": {
             "A": "The article gives a different meaning.",
             "B": "This describes its looks, not its name.",
@@ -584,7 +584,7 @@
           "why": "Enemies conclude attacking such a determined animal is not worth the danger, meaning the risk outweighs the reward.",
           "wrong": {
             "A": "Night vision is not discussed.",
-            "B": "The article says honey badgers are usually solitary.",
+            "B": "In the article, honey badgers are usually solitary.",
             "D": "Taste is never mentioned."
           }
         },
@@ -627,7 +627,7 @@
         ],
         "answer": "D",
         "skill": "detail",
-        "why": "The text says the honey badger is as big as a small dog.",
+        "why": "The honey badger is about as big as a small dog.",
         "wrong": {
           "A": "The text says it is not big, so it is not lion-sized.",
           "B": "A mouse is food for the badger, not its size.",
@@ -644,7 +644,7 @@
         ],
         "answer": "A",
         "skill": "cause-effect",
-        "why": "The text says it has long claws and digs fast.",
+        "why": "In the text, it has long claws and digs fast.",
         "wrong": {
           "B": "Fur color does not help it dig.",
           "C": "The smell is for scaring other animals.",
@@ -718,7 +718,7 @@
         "wrong": {
           "A": "Hives are the bees' homes, not the larvae.",
           "B": "Honey is the sweet food, and it comes from bees, not fruit.",
-          "D": "The text says the thick skin keeps out stings."
+          "D": "In the text, the thick skin keeps out stings."
         }
       },
       {
@@ -731,7 +731,7 @@
         ],
         "answer": "A",
         "skill": "cause-effect",
-        "why": "The text says a scared adult can make a terrible smell that makes most enemies back away.",
+        "why": "A scared adult can make a terrible smell that makes most enemies back away.",
         "wrong": {
           "B": "The text does not say the badger runs away.",
           "C": "Honey badgers are solitary, so they do not call others.",
@@ -767,7 +767,7 @@
         ],
         "answer": "C",
         "skill": "detail",
-        "why": "The text says a broad gray or silvery stripe extends along the back.",
+        "why": "In the text, a broad gray or silvery stripe extends along the back.",
         "wrong": {
           "A": "The text does not mention a red stripe.",
           "B": "The legs and underside are black, not the stripe.",
@@ -818,7 +818,7 @@
         ],
         "answer": "B",
         "skill": "cause-effect",
-        "why": "The text says its thick skin protects it from most of the stings.",
+        "why": "Its thick skin protects it from most stings.",
         "wrong": {
           "A": "The young bees are the food, but the adult bees still sting.",
           "C": "The text does not say the bees sleep.",

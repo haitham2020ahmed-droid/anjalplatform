@@ -155,7 +155,7 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The article says the actors who perform are called the cast.",
+          "why": "In the article, the actors in a show are called the cast.",
           "wrong": {
             "A": "The crew works behind the scenes, not performing on stage.",
             "B": "The audience watches the show.",
@@ -163,7 +163,7 @@
           }
         },
         {
-          "stem": "Read: 'This practice is called a rehearsal.' What is a rehearsal?",
+          "stem": "Actors practice the play many times before the show. What is a rehearsal?",
           "options": [
             "The real show itself",
             "A practice before the real show",
@@ -242,7 +242,7 @@
           "skill": "author-purpose",
           "why": "Describing the cast, crew, and director together shows readers that putting on a show takes many people working as a team.",
           "wrong": {
-            "A": "The article says many people help, not just one.",
+            "A": "In the article, many people help, not just one.",
             "C": "Ticket printing is not discussed.",
             "D": "Books are not compared to plays."
           }
@@ -334,7 +334,7 @@
           ],
           "answer": "B",
           "skill": "detail",
-          "why": "The article says a director guides the entire cast through weeks of rehearsal.",
+          "why": "In the article, a director guides the entire cast through weeks of rehearsal.",
           "wrong": {
             "A": "The audience only watches the finished performance.",
             "C": "The crew works behind the scenes on sets, lighting, and sound.",
@@ -351,7 +351,7 @@
           ],
           "answer": "C",
           "skill": "vocabulary",
-          "why": "The article says stage directions tell actors where to stand, how to move, and how a character should feel at a given moment.",
+          "why": "In the article, stage directions tell actors where to stand, how to move, and how a character should feel at a given moment.",
           "wrong": {
             "A": "Driving directions are not what the article describes.",
             "B": "A city map is unrelated to stage directions.",
@@ -385,7 +385,7 @@
           ],
           "answer": "A",
           "skill": "inference",
-          "why": "The article says costumes help the audience quickly understand who each character is and how they are changing.",
+          "why": "Costumes help the audience quickly understand who each character is.",
           "wrong": {
             "B": "Lighting, not costumes, is described as setting the mood or brightness.",
             "C": "A script is still needed even with costumes.",
@@ -481,7 +481,7 @@
           "skill": "central-idea",
           "why": "The article traces every element, from the script and history to rehearsal, design, and the live, ever-so-slightly different nature of each performance.",
           "wrong": {
-            "B": "The article shows theater has continued for thousands of years, not only in ancient Greece.",
+            "B": "Theater has continued for thousands of years, not only in one ancient land.",
             "C": "The article says every performance feels subtly different.",
             "D": "Lighting is one of several design elements, along with sets, sound, and costumes."
           }
@@ -521,7 +521,7 @@
           }
         },
         {
-          "stem": "In the article, people 'collaborate toward a single shared goal' to produce a show. What does collaborate mean?",
+          "stem": "Many people collaborate to produce a show. What does collaborate mean?",
           "options": [
             "To compete against each other",
             "To work together",
@@ -538,7 +538,7 @@
           }
         },
         {
-          "stem": "Why does a live performance feel 'subtly different' from one night to the next, based on the article?",
+          "stem": "Why might a live performance feel a little different from one night to the next?",
           "options": [
             "Because the script changes every night",
             "Because the lighting is turned off randomly",
@@ -678,11 +678,11 @@
         ],
         "answer": "B",
         "skill": "compare",
-        "why": "The text says a play is live and is not like a movie.",
+        "why": "A play is live, so it is not like a movie.",
         "wrong": {
-          "A": "The text says all plays tell a story.",
-          "C": "The text says actors act it out on a stage.",
-          "D": "The text says many plays are funny."
+          "A": "All plays tell a story.",
+          "C": "In the text, actors act it out on a stage.",
+          "D": "Many plays are funny."
         }
       }
     ],
@@ -748,7 +748,7 @@
         ],
         "answer": "D",
         "skill": "inference",
-        "why": "The article says a film can be recorded again, but a live show must continue even after a mistake.",
+        "why": "In the article, a film can be recorded again, but a live show must continue even after a mistake.",
         "wrong": {
           "A": "The article does not say the audience wants it shorter.",
           "B": "The cast spends weeks practicing in rehearsal.",

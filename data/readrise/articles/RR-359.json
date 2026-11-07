@@ -317,7 +317,7 @@
           ],
           "answer": "B",
           "skill": "detail",
-          "why": "Hind thinks about the distance, and the story says the village is perhaps three kilometers down the road.",
+          "why": "Hind thinks about the distance, and in the story, the village is perhaps three kilometers down the road.",
           "wrong": {
             "A": "Thirty kilometers is far too great a distance.",
             "C": "Less than one kilometer is too short.",
@@ -627,7 +627,7 @@
         ],
         "answer": "B",
         "skill": "detail",
-        "why": "The driver looks at the bus and says, \"This will take time.\"",
+        "why": "In the story, the driver says the bus will take a long time to fix.",
         "wrong": {
           "A": "The bus is stopped, so he does not say it is fast.",
           "C": "Hind is the one who says the village is not far.",

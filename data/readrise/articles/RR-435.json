@@ -138,7 +138,7 @@
           ],
           "answer": "B",
           "skill": "detail",
-          "why": "The story says Yousef runs along the coast near his home every morning before school.",
+          "why": "In the story, Yousef runs by the coast near his home.",
           "wrong": {
             "A": "The story does not say he practices in a gym.",
             "C": "The story does not mention a mountain trail.",
@@ -317,7 +317,7 @@
           ],
           "answer": "B",
           "skill": "detail",
-          "why": "The story says Yousef jogs along the coast near his home every morning.",
+          "why": "In the story, Yousef runs along the coast near his home every morning.",
           "wrong": {
             "A": "The story does not mention a school running track for practice.",
             "C": "No stadium practice is described.",
@@ -334,7 +334,7 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The story says that partway through the race, Yousef feels completely exhausted and a voice urges him to slow down.",
+          "why": "In the story, partway through the race, Yousef feels completely exhausted and a voice urges him to slow down.",
           "wrong": {
             "A": "The story does not mention Yousef tripping or falling.",
             "B": "Yousef feels like stopping, but he does not actually stop.",
@@ -627,7 +627,7 @@
         ],
         "answer": "A",
         "skill": "detail",
-        "why": "The text says the wind blows past him and he feels happy.",
+        "why": "In the story, Yousef runs fast with the wind rushing past him, and he feels happy.",
         "wrong": {
           "B": "He feels happy, not sad.",
           "C": "Fear is not mentioned in the game.",
@@ -644,7 +644,7 @@
         ],
         "answer": "B",
         "skill": "detail",
-        "why": "The text says it is a long race that all the kids will run.",
+        "why": "In the story, the school has a long race.",
         "wrong": {
           "A": "The race is long, not short.",
           "C": "Swimming is not mentioned.",
@@ -697,7 +697,7 @@
         ],
         "answer": "C",
         "skill": "detail",
-        "why": "The text says he jogs along the sandy coast every morning before school.",
+        "why": "In the story, Yousef runs along the coast every morning.",
         "wrong": {
           "A": "He runs before school, not after.",
           "B": "Night is not mentioned.",
@@ -731,7 +731,7 @@
         ],
         "answer": "B",
         "skill": "cause-effect",
-        "why": "The text says the game turns hard parts of his run into something exciting instead of tiring.",
+        "why": "In the text, the game turns hard parts of his run into something exciting instead of tiring.",
         "wrong": {
           "A": "The length of the runs does not change.",
           "C": "The wind does not stop.",

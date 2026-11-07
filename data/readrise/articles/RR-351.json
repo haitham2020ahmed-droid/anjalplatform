@@ -138,7 +138,7 @@
      ],
      "answer": "B",
      "skill": "detail",
-     "why": "The story says Fahad reaches for his compass, but it is gone.",
+     "why": "In the story, Fahad reaches for his compass, but it is gone.",
      "wrong": {
       "A": "The story never mentions a shoe.",
       "C": "The story never mentions a hat.",
@@ -155,7 +155,7 @@
      ],
      "answer": "C",
      "skill": "detail",
-     "why": "The story says Fahad sees a small fennec fox and runs after it.",
+     "why": "In the story, Fahad sees a small fennec fox and runs after it.",
      "wrong": {
       "A": "The story does not mention a lizard.",
       "B": "The story does not mention a camel.",
@@ -317,7 +317,7 @@
      ],
      "answer": "B",
      "skill": "detail",
-     "why": "The story says the compass had once belonged to Fahad's grandfather.",
+     "why": "In the story, the compass once belonged to Fahad's grandfather.",
      "wrong": {
       "A": "The story does not say it was bought at a store.",
       "C": "The story does not mention a neighbor.",
@@ -325,20 +325,20 @@
      }
     },
     {
-     "stem": "About how far did Fahad wander from camp?",
+     "stem": "What did Fahad's father teach him to use?",
      "options": [
-      "About twenty kilometers",
-      "About ten meters",
-      "About two kilometers",
-      "About one kilometer"
+      "A map",
+      "A phone",
+      "A compass",
+      "A flashlight"
      ],
      "answer": "C",
      "skill": "detail",
-     "why": "The story says Fahad wandered nearly two kilometers farther from camp than he had planned.",
+     "why": "In the story, his father taught Fahad how to find his way with a compass.",
      "wrong": {
-      "A": "Twenty kilometers is much farther than the story states.",
-      "B": "Ten meters is far too short a distance.",
-      "D": "One kilometer is less than the story states."
+      "A": "A map is not what his father taught him to use.",
+      "B": "A phone is not what he learned to use.",
+      "D": "A flashlight does not show direction."
      }
     },
     {
@@ -402,7 +402,7 @@
      ],
      "answer": "C",
      "skill": "cause-effect",
-     "why": "The story explains that his father told him the star always points toward the north.",
+     "why": "In the story, his father told him the star always points toward the north.",
      "wrong": {
       "A": "The story does not compare it to every other light in the desert.",
       "B": "Stars do not move closer; they appear in a fixed direction.",
@@ -644,7 +644,7 @@
     ],
     "answer": "C",
     "skill": "cause-effect",
-    "why": "The text says he is lost and his heart beats fast.",
+    "why": "In the story, he knows he is lost, and his heart beats fast.",
     "wrong": {
      "A": "He chased a fox earlier, but the text links his fast heart to being lost.",
      "B": "The text does not mention a loud sound.",

@@ -155,7 +155,7 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The article says a needle and thread did the sewing that held the sections in place.",
+          "why": "In the article, a needle and thread did the sewing that held the sections in place.",
           "wrong": {
             "A": "Nails are not mentioned.",
             "B": "Tape is not mentioned.",
@@ -300,7 +300,7 @@
           ],
           "answer": "A",
           "skill": "central-idea",
-          "why": "The article explains the binding process and how craftsmen, especially in the Islamic world, turned books into art.",
+          "why": "The article explains how books were bound and how skilled craftsmen turned them into works of art.",
           "wrong": {
             "B": "Paper's invention is not the topic here.",
             "C": "Many kinds of valuable manuscripts were bound this way.",
@@ -334,7 +334,7 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The article says covers were built from leather stretched tightly over thin boards.",
+          "why": "In the article, covers were built from leather stretched tightly over thin boards.",
           "wrong": {
             "A": "Glass is not mentioned.",
             "B": "Metal sheets are not described as cover material.",
@@ -351,7 +351,7 @@
           ],
           "answer": "D",
           "skill": "cause-effect",
-          "why": "The article says apprentices worked closely with an older craftsman until every step was mastered.",
+          "why": "In the article, young apprentices trained for years with an older craftsman.",
           "wrong": {
             "A": "Sewing machines did not exist in this craft.",
             "B": "The article shows strong demand for books.",
@@ -368,7 +368,7 @@
           ],
           "answer": "C",
           "skill": "sequence",
-          "why": "The article says once sewing was complete, the bookbinder attached a cover over the stitched pages.",
+          "why": "In the article, once sewing was complete, the bookbinder attached a cover over the stitched pages.",
           "wrong": {
             "A": "Gold tooling happened on covers already made, in a later part of the article.",
             "B": "Folding happened before sewing, not after.",
@@ -564,7 +564,7 @@
           ],
           "answer": "D",
           "skill": "inference",
-          "why": "The article states this tradition favored pattern over figure, reflected in architecture and textiles as well.",
+          "why": "This tradition liked patterns more than pictures of people or animals.",
           "wrong": {
             "A": "Readers are shown valuing colorful, decorated pages.",
             "B": "Gold leaf is shown used on patterns throughout the article.",
@@ -583,7 +583,7 @@
           "skill": "author-purpose",
           "why": "This closing detail honors the patient, careful work of craftsmen whose individual names were rarely recorded.",
           "wrong": {
-            "A": "The article says many manuscripts still survive.",
+            "A": "Many manuscripts still survive today.",
             "B": "The article presents the craft as highly valued.",
             "C": "The article clearly admires these works."
           }
@@ -644,7 +644,7 @@
         ],
         "answer": "D",
         "skill": "detail",
-        "why": "The text says a needle and thread did the sewing.",
+        "why": "In the text, a needle and thread did the sewing.",
         "wrong": {
           "A": "Paint was used on some pages, not to sew.",
           "B": "The text does not say glue was used to sew.",
@@ -661,7 +661,7 @@
         ],
         "answer": "A",
         "skill": "vocabulary",
-        "why": "The text says folding each sheet made a small set of pages, called a section.",
+        "why": "In the text, folding each sheet made a small set of pages, called a section.",
         "wrong": {
           "B": "The cover is made after the sections are sewn.",
           "C": "The thread sews the sections, it is not one.",
@@ -682,7 +682,7 @@
         "wrong": {
           "A": "The text says the pages had gold and bright paint.",
           "B": "The text does not say they are easy to read.",
-          "D": "The text says many books had covers."
+          "D": "Many books had covers."
         }
       }
     ],
@@ -697,7 +697,7 @@
         ],
         "answer": "C",
         "skill": "detail",
-        "why": "The text says making a book by hand could take weeks or even months.",
+        "why": "In the text, making a book by hand could take weeks or even months.",
         "wrong": {
           "A": "The work was too slow for one hour.",
           "B": "The text says it took steady work, not minutes.",
@@ -714,7 +714,7 @@
         ],
         "answer": "A",
         "skill": "vocabulary",
-        "why": "The text says becoming a skilled binder took years of training with an older craftsman.",
+        "why": "In the text, becoming a skilled binder took years of training with an older craftsman.",
         "wrong": {
           "B": "The tool used to sew was a needle and thread.",
           "C": "The text does not say an apprentice buys books.",
@@ -731,7 +731,7 @@
         ],
         "answer": "D",
         "skill": "cause-effect",
-        "why": "The text says a durable, well-made cover could protect the pages for centuries.",
+        "why": "In the text, a durable, well-made cover could protect the pages for centuries.",
         "wrong": {
           "A": "The text does not say covers made books lighter.",
           "B": "Printing presses did not exist then.",
@@ -784,7 +784,7 @@
         ],
         "answer": "C",
         "skill": "detail",
-        "why": "The article says guilds set standards for the craft and supervised the training of new apprentices.",
+        "why": "In the article, guilds set standards for the craft and supervised the training of new apprentices.",
         "wrong": {
           "A": "Selling books is not mentioned for guilds.",
           "B": "Teaching the Quran is not the job of guilds here.",
@@ -801,7 +801,7 @@
         ],
         "answer": "C",
         "skill": "cause-effect",
-        "why": "The article says the stitching held every page firmly in place and created the spine.",
+        "why": "In the article, the stitching held every page firmly in place and created the spine.",
         "wrong": {
           "A": "The cover is attached after the sewing.",
           "B": "The article says the work was slow and patient.",
@@ -818,10 +818,10 @@
         ],
         "answer": "B",
         "skill": "inference",
-        "why": "The article says such a book preserved words and was also a genuine work of art.",
+        "why": "Such a book kept words safe and was also a real work of art.",
         "wrong": {
-          "A": "The article says such books were valuable.",
-          "C": "The article says the craft needed years of training.",
+          "A": "These books were valuable, not cheap.",
+          "C": "In the article, the craft needed years of training.",
           "D": "The article says every book was made by hand."
         }
       }

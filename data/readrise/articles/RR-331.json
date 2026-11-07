@@ -138,7 +138,7 @@
      ],
      "answer": "B",
      "skill": "detail",
-     "why": "The article says latitude lines tell how far north or south a place is.",
+     "why": "In the article, latitude lines tell how far north or south a place is.",
      "wrong": {
       "A": "That is what longitude lines tell us.",
       "C": "Population is not part of latitude.",
@@ -155,7 +155,7 @@
      ],
      "answer": "C",
      "skill": "detail",
-     "why": "The article says the equator is the line exactly between the top and bottom, at zero degrees.",
+     "why": "In the article, the equator is the line in the middle, exactly between the top and the bottom.",
      "wrong": {
       "A": "The North Pole is at ninety degrees, not zero.",
       "B": "The South Pole is also at ninety degrees.",
@@ -172,7 +172,7 @@
      ],
      "answer": "C",
      "skill": "cause-effect",
-     "why": "The article says finding longitude was much harder because it needed a very good clock.",
+     "why": "Finding longitude was much harder because sailors needed a very good clock at sea.",
      "wrong": {
       "A": "Sailors used stars to help them, not feared them.",
       "B": "Calm seas are not mentioned as the problem.",
@@ -189,7 +189,7 @@
      ],
      "answer": "C",
      "skill": "vocabulary",
-     "why": "The article describes latitude and longitude lines crossing to form a grid, a pattern of crossing lines.",
+     "why": "In the article, lines are drawn on a map, and the crossing lines make a grid.",
      "wrong": {
       "A": "A grid is not a boat.",
       "B": "A grid is not a mountain.",
@@ -206,7 +206,7 @@
      ],
      "answer": "B",
      "skill": "inference",
-     "why": "The article says every place gets two numbers that work like an address, and no two places share the same pair.",
+     "why": "Every place has its own pair of numbers, like an address, so no two places share the same pair.",
      "wrong": {
       "A": "Every place, not just famous ones, gets numbers.",
       "C": "The ocean also has latitude and longitude numbers.",
@@ -317,7 +317,7 @@
      ],
      "answer": "C",
      "skill": "detail",
-     "why": "The article states that the prime meridian is the special longitude line chosen to sit at zero degrees.",
+     "why": "In the article, the prime meridian is the special longitude line chosen to sit at zero degrees.",
      "wrong": {
       "A": "Ocean depth is not discussed.",
       "B": "Ninety degrees latitude describes the poles.",
@@ -496,7 +496,7 @@
      ],
      "answer": "D",
      "skill": "detail",
-     "why": "The article explains that calculating longitude required a chronometer precise enough to keep time while rocking at sea.",
+     "why": "In the article, calculating longitude required a chronometer precise enough to keep time while rocking at sea.",
      "wrong": {
       "A": "Maps and latitude lines are described as long-established.",
       "B": "Mathematics is implied as necessary, not refused.",
@@ -513,11 +513,11 @@
      ],
      "answer": "B",
      "skill": "detail",
-     "why": "The article states the prime meridian was officially designated in 1884, running through Greenwich, England.",
+     "why": "In the article, the prime meridian was officially designated in 1884, running through Greenwich, England.",
      "wrong": {
       "A": "Chronometers were adopted for navigation, not banned.",
       "C": "GPS satellites are a much later, modern development.",
-      "D": "The equator is not described as being 'discovered' in that year."
+      "D": "The equator was not discovered in that year."
      }
     },
     {
@@ -627,7 +627,7 @@
     ],
     "answer": "B",
     "skill": "detail",
-    "why": "The text says long ago sailors looked at stars to help find one of the numbers.",
+    "why": "Long ago, sailors looked at the stars to help find their position.",
     "wrong": {
      "A": "A clock is not named as the sailors' help in this text.",
      "C": "A globe is not said to help sailors find a number.",
@@ -644,7 +644,7 @@
     ],
     "answer": "D",
     "skill": "cause-effect",
-    "why": "The text says GPS talks to satellites, and then it finds your spot fast.",
+    "why": "In the text, a GPS receiver talks to satellites, so it can find your spot fast.",
     "wrong": {
      "A": "Stars were used by sailors long ago, not by GPS.",
      "B": "Lines on a map are the grid, not how GPS works.",
@@ -767,7 +767,7 @@
     ],
     "answer": "D",
     "skill": "detail",
-    "why": "The text says the equator is at zero degrees while the poles sit at ninety degrees.",
+    "why": "In the text, the equator is at zero degrees while the poles sit at ninety degrees.",
     "wrong": {
      "A": "Zero degrees is the equator, not the poles.",
      "B": "Thirty degrees is not given in the text.",
@@ -784,7 +784,7 @@
     ],
     "answer": "B",
     "skill": "vocabulary",
-    "why": "The text says even a remote place has its own pair of coordinates, so remote means far from other places.",
+    "why": "In the text, even a remote place has its own pair of coordinates, so remote means far from other places.",
     "wrong": {
      "A": "A crowded place is the opposite of remote.",
      "C": "The sentence is not about being easy to see.",

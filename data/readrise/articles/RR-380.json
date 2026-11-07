@@ -155,7 +155,7 @@
           ],
           "answer": "B",
           "skill": "detail",
-          "why": "The story says Lina had to feed the cub warm milk from a bottle several times a day.",
+          "why": "In the story, Lina had to feed the cub warm milk from a bottle several times a day.",
           "wrong": {
             "A": "The story does not focus on cleaning the enclosure.",
             "C": "The story does not mention taking photos.",
@@ -189,7 +189,7 @@
           ],
           "answer": "A",
           "skill": "cause-effect",
-          "why": "The story says the cub was too tired and weak to drink much milk, so Lina had to be patient.",
+          "why": "In the story, the cub was too tired and weak to drink much milk, so Lina had to be patient.",
           "wrong": {
             "B": "The story does not say the cub tried to bite her.",
             "C": "The story does not describe the other lions as dangerous.",
@@ -308,20 +308,20 @@
           }
         },
         {
-          "stem": "What did Dr. Amal ask Lina to record every day?",
+          "stem": "Who offered to help care for the cub?",
           "options": [
-            "The cub's weight and progress",
-            "The number of visitors at the center",
-            "The weather outside",
-            "The other lions' names"
+            "Lina, a veterinary student",
+            "A visitor from the city",
+            "The center's cook",
+            "A zoo keeper from far away"
           ],
           "answer": "A",
           "skill": "detail",
-          "why": "The article says Lina had to weigh the cub daily and record its progress.",
+          "why": "In the story, Lina, a veterinary student visiting the center, offered to help care for the cub.",
           "wrong": {
-            "B": "The article does not mention counting visitors.",
-            "C": "The article does not mention tracking the weather.",
-            "D": "The article does not mention recording lion names."
+            "B": "A city visitor is not named.",
+            "C": "A cook is not named.",
+            "D": "A zoo keeper is not named."
           }
         },
         {
@@ -368,7 +368,7 @@
           ],
           "answer": "A",
           "skill": "cause-effect",
-          "why": "The article explains that rushing or forcing the weak cub to eat would only cause more harm than good.",
+          "why": "In the article, rushing or forcing the weak cub to eat would only cause more harm than good.",
           "wrong": {
             "B": "The cub was weak, not too strong to hold.",
             "C": "Visitors are not mentioned as a reason for patience.",
@@ -530,7 +530,7 @@
           ],
           "answer": "A",
           "skill": "cause-effect",
-          "why": "The article explains that very young cubs can weaken dangerously fast without proper nutrition and warmth.",
+          "why": "In the article, very young cubs can weaken dangerously fast without proper nutrition and warmth.",
           "wrong": {
             "B": "Nutrition is not linked to roaring in the article.",
             "C": "The article never mentions fur color changing.",
@@ -583,7 +583,7 @@
           "skill": "compare",
           "why": "The article states that no textbook could fully prepare Lina for the slow, uncertain process of nursing the cub back to health.",
           "wrong": {
-            "B": "The article says the cub taught her something lectures could not.",
+            "B": "In the article, the cub taught her something lectures could not.",
             "C": "The article contrasts, rather than equates, the two kinds of learning.",
             "D": "The article never suggests the hands-on work replaced her formal schooling."
           }
@@ -627,7 +627,7 @@
         ],
         "answer": "C",
         "skill": "detail",
-        "why": "The text says the cub drank more milk and soon ate small bits of meat too.",
+        "why": "In the text, the cub drank more milk and soon ate small bits of meat too.",
         "wrong": {
           "A": "Bones are not mentioned.",
           "B": "Leaves are not mentioned as food.",

@@ -7,7 +7,7 @@
  * scale — never called a Lexile.
  */
 import { RR_SKILLS } from "./import";
-import { RR_FLOOR, RR_MAX } from "./level";
+import { RR_FLOOR, RR_MAX, formatLevel } from "./level";
 import { normalisedSkill, tallyAnswers, type QuestionsOf, type TallyQuestion } from "./first-try";
 import { ENGINE, PROJECTION_MIN_DAYS, PROJECTION_MIN_RUNS, projectLevel, weekStart, type LevelPoint } from "./engine";
 
@@ -201,8 +201,8 @@ export function storyLines(x: StoryInput): StoryLine[] {
   const out: StoryLine[] = [];
   if (x.articles === 0) return [{ icon: "🌱", text: "Read your first article to start your growth story." }];
   const growth = x.level - x.startLevel;
-  if (growth > 0) out.push({ icon: "🚀", text: "Your level grew {n} points: from {from} to {to}.", vars: { n: growth, from: x.startLevel, to: x.level } });
-  else out.push({ icon: "🌱", text: "You are building strong reading habits at level {level}.", vars: { level: x.level } });
+  if (growth > 0) out.push({ icon: "🚀", text: "Your level grew {n} points: from {from} to {to}.", vars: { n: growth, from: formatLevel(x.startLevel), to: formatLevel(x.level) } }); // round 7: "800L"
+  else out.push({ icon: "🌱", text: "You are building strong reading habits at level {level}.", vars: { level: formatLevel(x.level) } });
   if (x.movesUp === 1) out.push({ icon: "⬆️", text: "You moved up a level once. Great work!" });
   else if (x.movesUp > 1) out.push({ icon: "⬆️", text: "You moved up {n} times.", vars: { n: x.movesUp } });
   if (x.streak > 1) out.push({ icon: "🔥", text: "You met your weekly goal {n} weeks in a row.", vars: { n: x.streak } });

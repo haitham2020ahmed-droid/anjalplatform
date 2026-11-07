@@ -658,7 +658,7 @@
         ],
         "answer": "A",
         "skill": "inference",
-        "why": "The text says Ammar saw Salim's face and knew what he was thinking.",
+        "why": "In the text, Ammar saw Salim's face and knew what he was thinking.",
         "wrong": {
           "B": "The traveler knew nothing about the idea.",
           "C": "Salim thought it to himself.",

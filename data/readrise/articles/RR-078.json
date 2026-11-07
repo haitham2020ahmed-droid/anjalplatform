@@ -138,7 +138,7 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The article says people there pressed marks into soft, wet clay tablets.",
+          "why": "In the article, people there made flat tablets of soft, wet clay to write on.",
           "wrong": {
             "A": "Paper came much later, from China.",
             "B": "Phones are from today, not long ago.",
@@ -189,7 +189,7 @@
           ],
           "answer": "D",
           "skill": "cause-effect",
-          "why": "The article says the press printed lots of books fast, so books cost less and more people could read.",
+          "why": "In the article, the press printed lots of books fast, so books cost less and more people could read.",
           "wrong": {
             "A": "The article does not say people stopped writing.",
             "B": "Paper came before the printing press.",
@@ -225,7 +225,7 @@
           "skill": "inference",
           "why": "The article says that before writing, facts had to stay in people's heads. Marks helped them remember how much they had.",
           "wrong": {
-            "A": "The article says the first marks kept track of grain and sheep, not stories.",
+            "A": "In the article, the first marks were used to count things like grain and animals, not to tell stories.",
             "B": "The article does not say the first writing was used for greetings.",
             "C": "Animals cannot read."
           }
@@ -317,7 +317,7 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The article says cuneiform was first used to keep records of grain, animals, and trade.",
+          "why": "In the article, cuneiform was first used to keep records of grain, animals, and trade.",
           "wrong": {
             "A": "The article does not say the first marks were poems.",
             "B": "Printing came thousands of years later.",
@@ -368,7 +368,7 @@
           ],
           "answer": "A",
           "skill": "cause-effect",
-          "why": "The article says an alphabet was far easier to learn than hundreds of symbols, so it spread quickly.",
+          "why": "In the article, an alphabet was far easier to learn than hundreds of symbols, so it spread quickly.",
           "wrong": {
             "B": "The article does not limit alphabets to papyrus.",
             "C": "The article does not mention kings ordering this.",
@@ -385,7 +385,7 @@
           ],
           "answer": "C",
           "skill": "inference",
-          "why": "The article says scribes spent years learning hundreds of symbols. Most people did not have that much time to study.",
+          "why": "In the article, scribes spent years learning hundreds of symbols. Most people did not have that much time to study.",
           "wrong": {
             "A": "The article does not say clay was expensive.",
             "B": "The article does not say writing was illegal.",
@@ -496,7 +496,7 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The article says the Arabic script developed from the writing of the Nabataeans, whose inscriptions can be seen at Hegra near AlUla.",
+          "why": "In the article, the Arabic script developed from the writing of the Nabataeans, whose inscriptions can be seen at Hegra near AlUla.",
           "wrong": {
             "A": "The Sumerians used cuneiform.",
             "B": "The Egyptians used hieroglyphs.",
@@ -515,13 +515,13 @@
           "skill": "detail",
           "why": "The article states that Chinese printers had experimented with movable type centuries earlier.",
           "wrong": {
-            "A": "The article says Chinese printers used movable type.",
+            "A": "In the article, Chinese printers used movable type.",
             "C": "The Sumerians pressed marks into clay; they did not use movable type.",
             "D": "Typewriters came much later."
           }
         },
         {
-          "stem": "In the article, writing \"transformed this situation.\" What does transformed mean?",
+          "stem": "In the article, what does the word \"transformed\" mean?",
           "options": [
             "Slowly forgot",
             "Copied by hand",
@@ -547,10 +547,10 @@
           ],
           "answer": "D",
           "skill": "cause-effect",
-          "why": "The article says the press made books faster and less expensive to produce, which helped literacy expand.",
+          "why": "In the article, the press made books faster and less expensive to produce, which helped literacy expand.",
           "wrong": {
             "A": "Books became more common, not rare.",
-            "B": "The article says literacy expanded.",
+            "B": "The press did change reading: cheaper books helped more people learn to read.",
             "C": "Printing used paper rather than ending it."
           }
         },
@@ -627,7 +627,7 @@
         ],
         "answer": "B",
         "skill": "detail",
-        "why": "The text says they wrote on thin sheets made from a plant.",
+        "why": "In the text, they wrote on thin sheets made from a plant.",
         "wrong": {
           "A": "Clay tablets were used in the land we now call Iraq.",
           "C": "The text does not say they wrote on rocks.",
@@ -644,7 +644,7 @@
         ],
         "answer": "D",
         "skill": "cause-effect",
-        "why": "The text says paper was light and did not cost much.",
+        "why": "In the text, paper was light and did not cost much.",
         "wrong": {
           "A": "The text says paper was light, not thick and heavy.",
           "B": "Clay was used for the tablets, not paper.",
@@ -678,7 +678,7 @@
         ],
         "answer": "C",
         "skill": "sequence",
-        "why": "The text says that next came a big press that could print lots of books fast.",
+        "why": "In the text, the next step was a printing press that could print many books fast.",
         "wrong": {
           "A": "Clay tablets were the first kind of writing.",
           "B": "Egyptian signs came before paper.",
@@ -697,7 +697,7 @@
         ],
         "answer": "C",
         "skill": "detail",
-        "why": "The text says papyrus was made from a tall reed that grew along the Nile River.",
+        "why": "In the text, papyrus was made from a tall reed that grew along the Nile River.",
         "wrong": {
           "A": "Damp clay was used for Sumerian tablets.",
           "B": "Metal letters were used in Gutenberg's press.",
@@ -714,7 +714,7 @@
         ],
         "answer": "A",
         "skill": "cause-effect",
-        "why": "The text says writing let words last much longer than a voice.",
+        "why": "In the text, writing let words last much longer than a voice.",
         "wrong": {
           "B": "The text does not say written words are shorter.",
           "C": "Learning to write took years for scribes.",
@@ -767,7 +767,7 @@
         ],
         "answer": "A",
         "skill": "detail",
-        "why": "The text says it was first used to record grain, livestock, and trade goods.",
+        "why": "Cuneiform was first used to record amounts of grain, animals, and trade goods.",
         "wrong": {
           "B": "Stories and laws were first passed on by speech.",
           "C": "The text does not say it recorded songs or poems.",
@@ -784,7 +784,7 @@
         ],
         "answer": "C",
         "skill": "cause-effect",
-        "why": "The text says an alphabet was far easier to learn than hundreds of symbols, so it spread.",
+        "why": "An alphabet was much easier to learn than hundreds of symbols, so it spread quickly.",
         "wrong": {
           "A": "The text does not mention kings ordering it.",
           "B": "The printing press came much later.",
@@ -801,7 +801,7 @@
         ],
         "answer": "D",
         "skill": "author-purpose",
-        "why": "The text says the Arabic script developed from Nabataean writing, whose inscriptions can still be seen at Hegra.",
+        "why": "In the text, the Arabic script developed from Nabataean writing, whose inscriptions can still be seen at Hegra.",
         "wrong": {
           "A": "Phoenicians are linked to the alphabet, not to Hegra.",
           "B": "Paper is said to come from China.",

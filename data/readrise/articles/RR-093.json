@@ -138,7 +138,7 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The article says that in 2021, Saudi Arabia made a plan to plant ten billion trees.",
+          "why": "In 2021, Saudi Arabia made a plan to plant ten billion trees.",
           "wrong": {
             "A": "Ten thousand is far fewer than the plan.",
             "B": "One million is far fewer than the plan.",
@@ -155,7 +155,7 @@
           ],
           "answer": "D",
           "skill": "detail",
-          "why": "The article says a fence keeps goats and camels away from the young trees.",
+          "why": "In the article, a fence keeps goats and camels away from the young trees.",
           "wrong": {
             "A": "The thin pipe drips water on the roots.",
             "B": "The article does not talk about a wall of sand.",
@@ -206,7 +206,7 @@
           ],
           "answer": "A",
           "skill": "inference",
-          "why": "The article says these trees need only a little water and their roots go deep to find it. That fits the dry desert.",
+          "why": "In the article, these trees need only a little water and their roots go deep to find it. That fits the dry desert.",
           "wrong": {
             "B": "The desert is hot, not cold and snowy.",
             "C": "The article says their roots go down deep.",
@@ -317,9 +317,9 @@
           ],
           "answer": "B",
           "skill": "detail",
-          "why": "The article says experts choose native trees, such as the ghaf, the acacia, and the sidr.",
+          "why": "In the article, experts choose native trees, such as the ghaf, the acacia, and the sidr.",
           "wrong": {
-            "A": "The article says experts choose trees that have always grown in the region.",
+            "A": "In the article, experts choose trees that have always grown in the region.",
             "C": "Native desert trees need little water, not water every day.",
             "D": "Pine trees are not mentioned."
           }
@@ -334,7 +334,7 @@
           ],
           "answer": "D",
           "skill": "detail",
-          "why": "The article says trees take in carbon dioxide and release oxygen, which we need to breathe.",
+          "why": "In the article, trees take in carbon dioxide and release oxygen, which we need to breathe.",
           "wrong": {
             "A": "Trees reduce dust; they do not release it.",
             "B": "Trees take in carbon dioxide; they do not release it for us to breathe.",
@@ -385,7 +385,7 @@
           ],
           "answer": "D",
           "skill": "inference",
-          "why": "The article says these trees survive drought because their roots reach deep underground to find water.",
+          "why": "In the article, these trees survive drought because their roots reach deep underground to find water.",
           "wrong": {
             "A": "Flowers storing water is not mentioned.",
             "B": "The article says they can survive with little water.",
@@ -402,7 +402,7 @@
           ],
           "answer": "A",
           "skill": "cause-effect",
-          "why": "The article says trees offer shade, and the air beneath them is much cooler.",
+          "why": "In the article, trees offer shade, and the air beneath them is much cooler.",
           "wrong": {
             "B": "Trees reduce dust by holding the soil.",
             "C": "The article does not say trees make the air salty.",
@@ -496,7 +496,7 @@
           ],
           "answer": "A",
           "skill": "detail",
-          "why": "The article says ghaf roots may reach more than thirty meters below the surface.",
+          "why": "In the article, ghaf roots may reach more than thirty meters below the surface.",
           "wrong": {
             "B": "Three meters is much shallower than the article says.",
             "C": "Less than one meter is much shallower than the article says.",
@@ -547,7 +547,7 @@
           ],
           "answer": "D",
           "skill": "inference",
-          "why": "The article says protecting existing trees is as important as planting new ones, so cutting old trees would cancel out the benefits of planting.",
+          "why": "In the article, protecting existing trees is as important as planting new ones, so cutting old trees would cancel out the benefits of planting.",
           "wrong": {
             "A": "The laws are about native trees, not about all fire use.",
             "B": "Desert trees grow slowly; nothing suggests they regrow in days.",
@@ -581,7 +581,7 @@
           ],
           "answer": "A",
           "skill": "cause-effect",
-          "why": "The article explains that trees absorb carbon dioxide, a gas that traps heat in the atmosphere.",
+          "why": "In the article, trees absorb carbon dioxide, a gas that traps heat in the atmosphere.",
           "wrong": {
             "B": "Trees reduce dust; they do not release it.",
             "C": "Blocking wind reduces erosion, not heat-trapping gas.",
@@ -646,7 +646,7 @@
         "skill": "inference",
         "why": "Ten billion is a very big number, so planting that many will take many years.",
         "wrong": {
-          "B": "The text says it will take a long time.",
+          "B": "In the text, the work will take years.",
           "C": "Seeds are not described as hard to find.",
           "D": "The text does not talk about who wants to help."
         }
@@ -697,7 +697,7 @@
         ],
         "answer": "A",
         "skill": "detail",
-        "why": "The text says a thin pipe drips water right onto the roots.",
+        "why": "In the text, a thin pipe drips water right onto the roots.",
         "wrong": {
           "B": "The fence keeps animals away.",
           "C": "The pipe does not give shade.",
@@ -748,7 +748,7 @@
         ],
         "answer": "C",
         "skill": "sequence",
-        "why": "The text says that when the young tree is strong enough, it is planted in the ground.",
+        "why": "In the text, when the young tree is strong enough, it is planted in the ground.",
         "wrong": {
           "A": "The pipe comes after planting.",
           "B": "The nursery is where the tree grows first.",
@@ -767,7 +767,7 @@
         ],
         "answer": "C",
         "skill": "detail",
-        "why": "The text says the tree is transplanted usually during the cooler months.",
+        "why": "In the text, the tree is transplanted usually during the cooler months.",
         "wrong": {
           "A": "The text says summer heat can scorch leaves.",
           "B": "Storms are not mentioned.",

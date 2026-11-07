@@ -138,7 +138,7 @@
           ],
           "answer": "A",
           "skill": "detail",
-          "why": "The article says the water in air is a gas you cannot see, called water vapor.",
+          "why": "In the article, the water in the air is a gas, and this gas is called water vapor.",
           "wrong": {
             "B": "Ice is not named in the article.",
             "C": "Drops form when vapor cools, but vapor itself is a gas.",
@@ -180,7 +180,7 @@
           }
         },
         {
-          "stem": "Read this: \"Then we say the air is humid.\" What does humid mean?",
+          "stem": "In the article, what does the word \"humid\" mean?",
           "options": [
             "Full of dust and sand from the desert",
             "Full of water vapor",
@@ -317,7 +317,7 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The article says relative humidity compares the vapor in the air with the most it could hold; at 100 percent the air is full.",
+          "why": "Relative humidity compares the water vapor in the air with the most it could hold; at 100 percent the air is full.",
           "wrong": {
             "A": "That would be 0 percent, not 100.",
             "B": "The article does not say 100 percent means rain.",
@@ -342,7 +342,7 @@
           }
         },
         {
-          "stem": "Read this: \"some vapor must condense, or turn back into tiny drops.\" What does condense mean here?",
+          "stem": "In the article, what does the word \"condense\" mean?",
           "options": [
             "To rise higher into the sky",
             "To change from liquid into gas",
@@ -385,7 +385,7 @@
           ],
           "answer": "C",
           "skill": "inference",
-          "why": "The article explains that when air cools, vapor condenses into drops, just like dew on cold grass.",
+          "why": "In the article, when air cools, vapor condenses into drops, just like dew on cold grass.",
           "wrong": {
             "A": "Glass does not let juice through.",
             "B": "Nothing in the article suggests a spill.",
@@ -423,7 +423,7 @@
           "wrong": {
             "A": "There are no dates.",
             "B": "There is no family story.",
-            "C": "The article says they form in the same way."
+            "C": "Dew, clouds, and fog all form the same way, so there are not three different causes."
           }
         }
       ],
@@ -513,7 +513,7 @@
           ],
           "answer": "C",
           "skill": "vocabulary",
-          "why": "The article says air at 100 percent relative humidity is saturated and cannot accept more vapor.",
+          "why": "In the article, air at 100 percent relative humidity is saturated and cannot accept more vapor.",
           "wrong": {
             "A": "That is the opposite.",
             "B": "Saturation is about water vapor, not temperature alone.",
@@ -530,7 +530,7 @@
           ],
           "answer": "B",
           "skill": "detail",
-          "why": "The article says warm air holds more vapor, so cooling air releases droplets, and cold grass is covered with dew.",
+          "why": "In the article, warm air holds more vapor, so cooling air releases droplets, and cold grass is covered with dew.",
           "wrong": {
             "A": "Grass does not produce dew.",
             "C": "Evaporation adds vapor; it does not make dew.",
@@ -584,7 +584,7 @@
           "why": "The article links evaporation from seas to humidity and says coastal cities are humid while inland Riyadh is dry.",
           "wrong": {
             "B": "Nothing suggests this.",
-            "C": "The article says Riyadh's air is dry.",
+            "C": "In the article, Riyadh's air is dry.",
             "D": "Temperature is not compared this way."
           }
         },
@@ -644,7 +644,7 @@
         ],
         "answer": "B",
         "skill": "detail",
-        "why": "The text says water goes up from plants and wet clothes.",
+        "why": "In the text, water goes up from plants and wet clothes.",
         "wrong": {
           "A": "Dew is water drops that formed from the air.",
           "C": "A cold night makes vapor turn into drops.",
@@ -801,7 +801,7 @@
         ],
         "answer": "C",
         "skill": "cause-effect",
-        "why": "The text says evaporating sweat carries heat away from the skin.",
+        "why": "In the text, evaporating sweat carries heat away from the skin.",
         "wrong": {
           "A": "Adding vapor is not the cooling effect.",
           "B": "The text does not say this.",

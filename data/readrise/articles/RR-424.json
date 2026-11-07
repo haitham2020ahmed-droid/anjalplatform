@@ -138,7 +138,7 @@
           ],
           "answer": "A",
           "skill": "detail",
-          "why": "The article says the rare books were kept in a storage room below the library's main floor.",
+          "why": "In the story, the rare books were kept safe in a special room.",
           "wrong": {
             "B": "The article does not mention a room on the roof.",
             "C": "The books were not kept at Ibrahim's house.",
@@ -644,7 +644,7 @@
         ],
         "answer": "A",
         "skill": "cause-effect",
-        "why": "The text says it rained for many days and the streets got very wet.",
+        "why": "In the story, heavy rain fell for many days.",
         "wrong": {
           "B": "No broken pipe is mentioned.",
           "C": "The helpers did not spill water.",
@@ -697,7 +697,7 @@
         ],
         "answer": "C",
         "skill": "detail",
-        "why": "The text says scholars copied rare manuscripts by hand.",
+        "why": "In the text, scholars copied rare manuscripts by hand.",
         "wrong": {
           "A": "Selling books is not mentioned.",
           "B": "Teaching children is not mentioned.",
@@ -820,7 +820,7 @@
         "skill": "inference",
         "why": "The rain fell for many days in a row, far more than was usual for that time of year, which explains the flood.",
         "wrong": {
-          "A": "The text says it was far more than usual.",
+          "A": "The rain was much heavier than usual.",
           "B": "It fell steadily for many days.",
           "D": "The rain came before the water reached the room."
         }

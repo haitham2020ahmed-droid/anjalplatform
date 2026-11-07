@@ -140,7 +140,7 @@
           "skill": "detail",
           "why": "The article says a star starts as a cloud of gas and dust, which is called a nebula.",
           "wrong": {
-            "A": "A cold rock is not how the article describes the start of a star.",
+            "A": "A cold rock is not how a star begins.",
             "C": "A bright flash happens at the end of some stars' lives, not the start.",
             "D": "A moon is not how a star begins."
           }
@@ -189,7 +189,7 @@
           ],
           "answer": "A",
           "skill": "cause-effect",
-          "why": "The article says a star uses up its fuel bit by bit, and when the fuel runs out, the star starts to die.",
+          "why": "In the article, a star slowly uses up its fuel, and when the fuel runs out, the star begins to die.",
           "wrong": {
             "B": "Getting close to another star is not given as the reason.",
             "C": "Spinning is not mentioned as a cause of death.",
@@ -223,7 +223,7 @@
           ],
           "answer": "A",
           "skill": "inference",
-          "why": "The article explains that a small star puffs up and shrinks down, while only a huge star ends in a supernova, so a star the size of the Sun would not blast apart that way.",
+          "why": "A small star like the Sun does not end in a supernova; only a huge star does.",
           "wrong": {
             "B": "The article does not say the Sun has already used up its fuel.",
             "C": "The Sun is described as a star, not a planet.",
@@ -368,7 +368,7 @@
           ],
           "answer": "C",
           "skill": "cause-effect",
-          "why": "The article explains that a Sun-like star swells into a red giant, then shrinks into a white dwarf after its fuel runs out.",
+          "why": "In the article, a Sun-like star swells into a red giant, then shrinks into a white dwarf after its fuel runs out.",
           "wrong": {
             "A": "A used-up star does not turn back into a fresh nebula.",
             "B": "A supernova is described for much more massive stars, not Sun-like ones.",
@@ -627,7 +627,7 @@
         ],
         "answer": "C",
         "skill": "detail",
-        "why": "The text says gravity pulls the cloud in and packs it in tight.",
+        "why": "In the text, gravity pulls the cloud in and packs it in tight.",
         "wrong": {
           "A": "Gravity pulls the cloud in, not away.",
           "B": "The cloud gets hot, not icy.",
@@ -661,7 +661,7 @@
         ],
         "answer": "D",
         "skill": "cause-effect",
-        "why": "The text says the star uses up its fuel bit by bit, so it lasts a long time.",
+        "why": "In the text, the star uses up its fuel bit by bit, so it lasts a long time.",
         "wrong": {
           "A": "A star uses fuel, so it does have some.",
           "B": "The text says the fuel runs out in the end.",
@@ -678,7 +678,7 @@
         ],
         "answer": "B",
         "skill": "detail",
-        "why": "The text says the bright flash of a huge star blasting apart is called a supernova.",
+        "why": "In the text, the bright flash of a huge star blasting apart is called a supernova.",
         "wrong": {
           "A": "A nebula is the cloud where a star starts.",
           "C": "Fusion is what lights the star at birth.",
@@ -784,7 +784,7 @@
         ],
         "answer": "C",
         "skill": "detail",
-        "why": "The text says the core of a Sun-sized star settles into a white dwarf.",
+        "why": "In the text, the core of a Sun-sized star settles into a white dwarf.",
         "wrong": {
           "A": "Black holes are linked to much bigger stars.",
           "B": "A supernova is the end of a much bigger star.",
@@ -801,7 +801,7 @@
         ],
         "answer": "A",
         "skill": "cause-effect",
-        "why": "The text says gravity packs the cloud into a smaller space that grows hotter near its dense center.",
+        "why": "Gravity packs the cloud into a smaller space, so its center grows hotter.",
         "wrong": {
           "B": "The text does not say the cloud nears the sun.",
           "C": "The cloud heats up before it shines.",

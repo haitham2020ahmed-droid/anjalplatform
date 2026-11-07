@@ -138,7 +138,7 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The article says they walk in water that is not deep, with salt or mud in it.",
+          "why": "In the article, they walk in water that is not deep, with salt or mud in it.",
           "wrong": {
             "A": "The article says the water is not deep.",
             "B": "Flamingos wade in water, not grass.",
@@ -189,7 +189,7 @@
           ],
           "answer": "D",
           "skill": "vocabulary",
-          "why": "The article explains that to wade means to walk in water that is not deep.",
+          "why": "In the article, to wade means to walk in water that is not deep.",
           "wrong": {
             "A": "Flying is not wading.",
             "B": "Digging is not wading.",
@@ -317,7 +317,7 @@
           ],
           "answer": "D",
           "skill": "detail",
-          "why": "The article says the bird uses its tongue to pump water through the edges of its beak, trapping tiny bits of food.",
+          "why": "In the article, the bird uses its tongue to pump water through the edges of its beak, trapping tiny bits of food.",
           "wrong": {
             "A": "Flamingos feed in shallow water and do not chase fish.",
             "B": "The article says the beak, not the feet, catches food.",
@@ -334,7 +334,7 @@
           ],
           "answer": "A",
           "skill": "cause-effect",
-          "why": "The article says few other animals can survive in such salty water, so flamingos have the food to themselves.",
+          "why": "In the article, few other animals can survive in such salty water, so flamingos have the food to themselves.",
           "wrong": {
             "B": "The article does not say salt makes shrimp large.",
             "C": "People feeding them is not mentioned.",
@@ -351,7 +351,7 @@
           ],
           "answer": "B",
           "skill": "sequence",
-          "why": "The article says a chick hatches gray and turns pink slowly as it eats.",
+          "why": "In the article, a chick hatches gray and turns pink slowly as it eats.",
           "wrong": {
             "A": "The article does not say legs get shorter.",
             "C": "Leaving the colony is not described.",
@@ -385,7 +385,7 @@
           ],
           "answer": "D",
           "skill": "inference",
-          "why": "The article says being in a crowd protects them from predators, because many eyes can spot danger.",
+          "why": "In the article, being in a crowd helps keep flamingos safe, because many birds can watch for danger.",
           "wrong": {
             "A": "Crowds do not change the water.",
             "B": "Color comes from food, not crowds.",
@@ -483,7 +483,7 @@
           "wrong": {
             "B": "The article says they live in many regions and visit Saudi Arabia.",
             "C": "Carotenoids are one detail, not the main idea.",
-            "D": "The article says the visible joint is the ankle and suggests standing may conserve energy."
+            "D": "Weak knees are not given as a reason, and the leg is only a detail."
           }
         },
         {
@@ -496,7 +496,7 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The article says carotenoids in its diet are deposited in the feathers and produce the pink color.",
+          "why": "Pink pigments called carotenoids from shrimp and algae in its food make the flamingo pink.",
           "wrong": {
             "A": "Salt is not described as a color source.",
             "B": "Sunlight is not mentioned as a cause.",
@@ -513,7 +513,7 @@
           ],
           "answer": "D",
           "skill": "detail",
-          "why": "The article explains that the joint that looks like a knee is actually the ankle.",
+          "why": "In the article, the joint that looks like a knee is actually the ankle.",
           "wrong": {
             "A": "The real knee is hidden higher up beneath the feathers.",
             "B": "The hip is not discussed.",
@@ -581,10 +581,10 @@
           ],
           "answer": "D",
           "skill": "inference",
-          "why": "The article says scientists believe it may conserve energy but are still investigating how it works.",
+          "why": "Scientists think it may save energy, but they are still studying how it works.",
           "wrong": {
             "A": "The careful wording shows it is not fully proven.",
-            "B": "The article says they frequently stand on one leg.",
+            "B": "They often stand on one leg.",
             "C": "The posture is not limited to one place."
           }
         },
@@ -627,7 +627,7 @@
         ],
         "answer": "A",
         "skill": "detail",
-        "why": "The text says each pair makes a nest of mud and lays one egg on top.",
+        "why": "Each pair builds a nest of mud and lays one egg on top.",
         "wrong": {
           "B": "They do not dig sand holes or lay ten eggs.",
           "C": "A flock is a group, not something a pair makes.",
@@ -644,7 +644,7 @@
         ],
         "answer": "B",
         "skill": "cause-effect",
-        "why": "The text says the bent beak lets the water out and keeps the food in.",
+        "why": "In the text, the bent beak lets the water out and keeps the food in.",
         "wrong": {
           "A": "Clams are not in the text.",
           "C": "Mud is not what it pulls up.",
@@ -661,7 +661,7 @@
         ],
         "answer": "B",
         "skill": "vocabulary",
-        "why": "The text says these birds live in a big group called a flock.",
+        "why": "In the text, these birds live in a big group called a flock.",
         "wrong": {
           "A": "The nest is made of mud.",
           "C": "Pools are where they wade.",
@@ -678,7 +678,7 @@
         ],
         "answer": "C",
         "skill": "inference",
-        "why": "The text says the bird can rest on one leg for a long time.",
+        "why": "In the text, the bird can rest on one leg for a long time.",
         "wrong": {
           "A": "It eats with its head in the water.",
           "B": "Nest making is done on the ground with mud.",
@@ -714,7 +714,7 @@
         ],
         "answer": "C",
         "skill": "detail",
-        "why": "The text says scientists think standing on one leg may help flamingos save energy.",
+        "why": "In the text, scientists think standing on one leg may help flamingos save energy.",
         "wrong": {
           "A": "Sight is not mentioned.",
           "B": "Warming a leg is not mentioned.",

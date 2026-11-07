@@ -138,7 +138,7 @@
           ],
           "answer": "A",
           "skill": "detail",
-          "why": "The article says the family went far west to the city of Fez.",
+          "why": "In the article, the family went far west to the city of Fez.",
           "wrong": {
             "B": "The article does not mention a farm.",
             "C": "They went west, not east.",
@@ -214,7 +214,7 @@
           }
         },
         {
-          "stem": "The article ends, \"That gift still helps.\" What does the author mean?",
+          "stem": "What does the end of the article tell you about the school she built?",
           "options": [
             "Fatima still gives money to people every day.",
             "The mosque gives free food to everyone.",
@@ -317,7 +317,7 @@
           ],
           "answer": "A",
           "skill": "detail",
-          "why": "The article says her father was a merchant who bought and sold goods.",
+          "why": "Her father was a merchant who bought and sold goods.",
           "wrong": {
             "B": "Teachers came later, at the mosque Fatima built.",
             "C": "The article does not say he built houses.",
@@ -482,7 +482,7 @@
           "why": "The article explains how Fatima used her inheritance to found al-Qarawiyyin and why it still matters more than a thousand years later.",
           "wrong": {
             "B": "It was built as a mosque that became a place of learning.",
-            "C": "The article says historians know relatively little about her early life.",
+            "C": "In the article, historians know relatively little about her early life.",
             "D": "Fez was a growing city long before 1963."
           }
         },
@@ -496,7 +496,7 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The article says most descriptions of her were written centuries after her death.",
+          "why": "Most of the writing about her came hundreds of years after her death.",
           "wrong": {
             "A": "The article never says she asked this.",
             "B": "She moved to Fez as a child and lived there.",
@@ -547,7 +547,7 @@
           ],
           "answer": "A",
           "skill": "cause-effect",
-          "why": "The article explains that few people could read and every book was copied by hand, so a place to learn with a teacher was rare.",
+          "why": "In the article, few people could read and every book was copied by hand, so a place to learn with a teacher was rare.",
           "wrong": {
             "B": "The article suggests places of learning were rare, not too many.",
             "C": "Nothing says students were paid.",
@@ -627,7 +627,7 @@
         ],
         "answer": "C",
         "skill": "detail",
-        "why": "The text says the students read books and learned math and the stars.",
+        "why": "In the text, the students read books and learned math and the stars.",
         "wrong": {
           "A": "Sailing is not mentioned.",
           "B": "Farming is not mentioned.",
@@ -644,7 +644,7 @@
         ],
         "answer": "A",
         "skill": "vocabulary",
-        "why": "The text says a university is a school for grown-ups.",
+        "why": "A university is a school for grown-ups.",
         "wrong": {
           "B": "Fez is the big city in the west.",
           "C": "The gift was a place to learn, not money for the poor.",
@@ -771,7 +771,7 @@
         "wrong": {
           "A": "Fatima founded it in 859.",
           "B": "The library was repaired and reopened in 2016.",
-          "D": "The text says it has kept teaching without a break."
+          "D": "It was not closed; in 1963 it joined Morocco's modern university system."
         }
       },
       {
@@ -818,7 +818,7 @@
         ],
         "answer": "D",
         "skill": "compare",
-        "why": "The text says it was built for prayer and slowly grew into an important institution of learning.",
+        "why": "It was first built for prayer and slowly grew into an important place of learning.",
         "wrong": {
           "A": "The library was added later, but it did not become a market.",
           "B": "It began as a mosque, not a market.",

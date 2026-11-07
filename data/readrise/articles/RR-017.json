@@ -138,7 +138,7 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The article says a liquid flows and takes the shape of the cup it is in.",
+          "why": "A liquid flows and takes the shape of its container.",
           "wrong": {
             "A": "A solid keeps its own shape, not a liquid.",
             "B": "Pouring does not turn a liquid into a gas. Heat does that.",
@@ -206,7 +206,7 @@
           ],
           "answer": "A",
           "skill": "inference",
-          "why": "The article says very cold water turns into ice, a solid.",
+          "why": "Very cold water freezes into ice, which is a solid.",
           "wrong": {
             "B": "Water turns into a gas when it is heated, not cooled.",
             "C": "Only a gas spreads out to fill all the space.",
@@ -317,7 +317,7 @@
           ],
           "answer": "A",
           "skill": "detail",
-          "why": "The article says liquid particles remain close but can slide past one another.",
+          "why": "In the article, liquid particles remain close but can slide past one another.",
           "wrong": {
             "B": "Only vibrating in place describes a solid.",
             "C": "Being far apart and moving fast describes a gas.",
@@ -334,7 +334,7 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The article says a gas spreads out to fill any container completely.",
+          "why": "In the article, a gas spreads out to fill any container completely.",
           "wrong": {
             "A": "Sinking to the bottom is what a liquid does, not a gas.",
             "B": "A solid keeps its own shape.",
@@ -368,7 +368,7 @@
           ],
           "answer": "C",
           "skill": "cause-effect",
-          "why": "The article says heat gives particles more energy, so they move faster.",
+          "why": "In the article, heat gives particles more energy, so they move faster.",
           "wrong": {
             "A": "The article does not say particles change size.",
             "B": "Salt has nothing to do with how heating works.",
@@ -385,7 +385,7 @@
           ],
           "answer": "A",
           "skill": "inference",
-          "why": "The article says water can evaporate slowly at lower temperatures, so it becomes a gas without boiling.",
+          "why": "In the article, water can evaporate slowly at lower temperatures, so it becomes a gas without boiling.",
           "wrong": {
             "B": "Water in a puddle is a liquid, not a solid.",
             "C": "The sun warms water; it does not freeze it.",
@@ -402,7 +402,7 @@
           ],
           "answer": "D",
           "skill": "inference",
-          "why": "The article explains that a liquid changes shape but the amount stays the same.",
+          "why": "In the article, a liquid changes shape but the amount stays the same.",
           "wrong": {
             "A": "A taller shape does not add more liquid.",
             "B": "Pouring does not change a liquid into a solid.",
@@ -487,20 +487,20 @@
           }
         },
         {
-          "stem": "At what temperature does the article say water boils at sea level?",
+          "stem": "According to the article, what happens to a liquid poured into a new container?",
           "options": [
-            "Zero degrees Celsius",
-            "Fifty degrees Celsius",
-            "One thousand degrees Celsius",
-            "One hundred degrees Celsius"
+            "It keeps its old shape and loses volume",
+            "It turns into a solid as soon as it moves",
+            "It changes both its shape and its volume",
+            "It takes the new shape but keeps its volume"
           ],
           "answer": "D",
           "skill": "detail",
-          "why": "The article states that water boils at one hundred degrees Celsius at sea level.",
+          "why": "A liquid takes the shape of its container, but the amount of liquid stays the same.",
           "wrong": {
-            "A": "Zero degrees Celsius is where ice melts.",
-            "B": "The article does not give fifty degrees as a boiling point.",
-            "C": "This number does not appear in the article."
+            "A": "A liquid does not keep its old shape.",
+            "B": "Pouring a liquid does not make it solid.",
+            "C": "The volume of the liquid stays the same."
           }
         },
         {
@@ -542,12 +542,12 @@
           "options": [
             "Juice flows and can be poured from a bottle into a cup, so it takes any shape.",
             "Steam rises from a pot of rice on the stove, and it spreads out in the room.",
-            "A cup of juice in a tall bottle is still one cup of juice.",
+            "A liquid poured into a new container keeps the same amount.",
             "Most gases are invisible and have no color, so we cannot see them at all."
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The amount of juice stays the same even when its shape changes, which shows its volume is fixed.",
+          "why": "A liquid takes the shape of its container, but the amount stays the same, so its volume is definite.",
           "wrong": {
             "A": "Flowing shows a liquid changes shape, not that its volume stays the same.",
             "B": "Steam is a gas, not a liquid.",
@@ -555,20 +555,20 @@
           }
         },
         {
-          "stem": "Based on the article, why would desalination be especially important in Saudi Arabia?",
+          "stem": "Based on the article, why do desalination plants heat seawater?",
           "options": [
-            "Because seawater there contains no salt",
-            "Because the kingdom has few permanent rivers or lakes",
-            "Because it is too cold for water to evaporate",
-            "Because people there prefer the taste of seawater"
+            "To make the seawater even saltier than before",
+            "To leave the salt behind as water evaporates",
+            "To turn the seawater into solid ice",
+            "To make the salt dissolve faster"
           ],
           "answer": "B",
           "skill": "inference",
-          "why": "The article connects the importance of desalination to the kingdom having very few rivers or lakes.",
+          "why": "When seawater is heated, the water evaporates and the salt stays behind, so cooling the vapor gives fresh water.",
           "wrong": {
-            "A": "Desalination exists because seawater does contain salt.",
-            "C": "The article shows water evaporates easily in warm weather.",
-            "D": "The process removes salt; nobody prefers salty drinking water."
+            "A": "The goal is fresh water, not saltier water.",
+            "C": "Heating does not turn water into ice.",
+            "D": "The plants want to remove salt, not dissolve it."
           }
         },
         {
@@ -627,7 +627,7 @@
         ],
         "answer": "B",
         "skill": "detail",
-        "why": "The text says a rock is a solid and it keeps its shape.",
+        "why": "In the text, a solid like a rock keeps its own shape.",
         "wrong": {
           "A": "Flowing is what a liquid does.",
           "C": "Spreading out is what a gas does.",
@@ -661,7 +661,7 @@
         ],
         "answer": "A",
         "skill": "cause-effect",
-        "why": "The text says that if you heat the water a lot, it turns to a gas.",
+        "why": "In the text, if you heat the water a lot, it turns to a gas.",
         "wrong": {
           "B": "Water does not turn into a rock.",
           "C": "Water does not turn into milk.",
@@ -697,7 +697,7 @@
         ],
         "answer": "C",
         "skill": "detail",
-        "why": "The article says matter is anything that takes up space and has mass.",
+        "why": "In the article, matter is anything that takes up space and has mass.",
         "wrong": {
           "A": "Air is matter, but most gases cannot be seen.",
           "B": "Matter is not defined by its heat.",
@@ -714,7 +714,7 @@
         ],
         "answer": "A",
         "skill": "vocabulary",
-        "why": "The article says a solid's shape does not change, so definite means fixed.",
+        "why": "In the article, a solid's shape does not change, so definite means fixed.",
         "wrong": {
           "B": "A solid is not described as soft or wet.",
           "C": "The word is about the shape, not about size alone.",
@@ -731,7 +731,7 @@
         ],
         "answer": "D",
         "skill": "cause-effect",
-        "why": "The article says the vapor cools and turns back into liquid, which is called condensation.",
+        "why": "In the article, the vapor cools and turns back into liquid, which is called condensation.",
         "wrong": {
           "A": "Freezing happens when liquid water gets very cold.",
           "B": "Salt is not made from vapor.",
@@ -758,20 +758,20 @@
     ],
     "HIGH": [
       {
-        "stem": "How does the article define matter?",
+        "stem": "In which state are the particles packed most tightly together?",
         "options": [
-          "Anything that flows or can be poured",
-          "Anything that is visible to the eye",
-          "Anything that is hot enough to boil",
-          "Anything that occupies space and has mass"
+          "In a gas",
+          "In a liquid",
+          "In steam",
+          "In a solid"
         ],
         "answer": "D",
         "skill": "detail",
-        "why": "The article says scientists define matter as anything that occupies space and possesses mass.",
+        "why": "In a solid, the particles are packed closely together.",
         "wrong": {
-          "A": "Only liquids flow or are poured.",
-          "B": "Many gases are invisible but are still matter.",
-          "C": "Matter does not need to be hot."
+          "A": "Gas particles are far apart.",
+          "B": "Liquid particles can slide past each other.",
+          "C": "Steam is a gas, so its particles are far apart."
         }
       },
       {
@@ -801,7 +801,7 @@
         ],
         "answer": "A",
         "skill": "cause-effect",
-        "why": "The article says heating gives particles more energy, so they move faster and spread apart.",
+        "why": "In the article, heating gives particles more energy, so they move faster and spread apart.",
         "wrong": {
           "B": "This describes what happens during cooling.",
           "C": "Heated particles move more, not less.",
@@ -818,7 +818,7 @@
         ],
         "answer": "B",
         "skill": "compare",
-        "why": "The article says solid particles are tightly packed and gas particles are widely separated.",
+        "why": "In the article, solid particles are packed close together, and gas particles are far apart.",
         "wrong": {
           "A": "This reverses the two states.",
           "C": "Sliding is for a liquid and vibrating is for a solid.",

@@ -138,7 +138,7 @@
      ],
      "answer": "A",
      "skill": "detail",
-     "why": "The article explains that land heats up faster than the sea, so warm air over land rises and cooler sea air moves in to replace it.",
+     "why": "In the article, land heats up faster than the sea, so warm air over land rises and cooler sea air moves in to replace it.",
      "wrong": {
       "B": "The moon is not mentioned as a cause of wind.",
       "C": "Fish are not described as pushing water.",
@@ -189,7 +189,7 @@
      ],
      "answer": "A",
      "skill": "inference",
-     "why": "The article says too much rain falling at once can flood the land.",
+     "why": "In the article, too much rain falling at once can flood the land.",
      "wrong": {
       "B": "Heavy rain does not turn land into desert.",
       "C": "The wind keeps changing with the seasons, rather than stopping forever.",
@@ -214,7 +214,7 @@
      }
     },
     {
-     "stem": "Read: \"Wind is moving air.\" What does wind mean here?",
+     "stem": "In the article, what does the word \"wind\" mean?",
      "options": [
       "Air that stays completely still and quiet",
       "Water that is slowly moving in the sea",
@@ -302,8 +302,8 @@
      "skill": "central-idea",
      "why": "The article explains that uneven heating of land and sea creates air pressure differences, which drive monsoon winds that reverse with the seasons.",
      "wrong": {
-      "A": "The article mentions South Asia and the Arabian Peninsula, not only one country.",
-      "B": "The article says monsoon rain also fills rivers, lakes, and wells, which helps farming.",
+      "A": "The article mentions more than one region, not only one country.",
+      "B": "In the article, monsoon rain also fills rivers, lakes, and wells, which helps farming.",
       "C": "The article says pressure differences are exactly what create wind."
      }
     },
@@ -393,7 +393,7 @@
      }
     },
     {
-     "stem": "Read: \"the wind then reverses direction.\" What does reverses mean?",
+     "stem": "In the article, what does the word \"reverses\" mean?",
      "options": [
       "Speeds up without changing direction",
       "Turns to blow the opposite way",
@@ -487,7 +487,7 @@
      }
     },
     {
-     "stem": "Read: \"a disparity meteorologists term differential heating.\" What does differential mean here?",
+     "stem": "In the article, what does the word \"differential\" mean?",
      "options": [
       "Involving a difference between two compared things",
       "Occurring only far underground, out of sunlight",
@@ -513,7 +513,7 @@
      ],
      "answer": "D",
      "skill": "detail",
-     "why": "The article says meteorologists use orbiting satellites and computer models to forecast a monsoon's onset and intensity.",
+     "why": "In the article, meteorologists use orbiting satellites and computer models to forecast a monsoon's onset and intensity.",
      "wrong": {
       "A": "Historical records alone are not described as the tool used.",
       "B": "Simple thermometers are not mentioned.",
@@ -530,7 +530,7 @@
      ],
      "answer": "C",
      "skill": "detail",
-     "why": "The article says rainfall arriving too intensely or at the wrong time can intensify flooding, damage crops, and disrupt transportation.",
+     "why": "Too much rain, or rain at the wrong time, can cause floods, damage crops, and block transport.",
      "wrong": {
       "A": "Ocean current speed is not mentioned.",
       "B": "Sunlight brightness is not discussed in this context.",
@@ -564,7 +564,7 @@
      ],
      "answer": "A",
      "skill": "inference",
-     "why": "The article says scientists are studying how shifting ocean temperatures might alter a monsoon's timing, strength, or reliability.",
+     "why": "Scientists are studying how changing ocean temperatures might change a monsoon's timing, strength, or reliability.",
      "wrong": {
       "B": "The article does not suggest monsoons would stop entirely.",
       "C": "The article specifically says ocean temperatures could affect monsoons.",
@@ -581,7 +581,7 @@
      ],
      "answer": "C",
      "skill": "inference",
-     "why": "The article explains that a particularly strong or weak monsoon can ripple outward through regional food supplies and prices, which concerns economists.",
+     "why": "A very strong or very weak monsoon can affect food supplies and prices, so economists watch it.",
      "wrong": {
       "A": "Stock market holidays are not mentioned.",
       "B": "Satellite funding is not discussed in the article.",
@@ -697,7 +697,7 @@
     ],
     "answer": "C",
     "skill": "detail",
-    "why": "The text says farmers await its arrival so they can plant and grow crops.",
+    "why": "In the text, farmers await its arrival so they can plant and grow crops.",
     "wrong": {
      "A": "The text says heavy rain can flood roads, not that farmers fix them.",
      "B": "The text says rain fills wells, so farmers do not need to dig new ones.",
@@ -767,7 +767,7 @@
     ],
     "answer": "A",
     "skill": "detail",
-    "why": "The text says the wind reverses particularly around the Indian Ocean and the Arabian Sea.",
+    "why": "In the text, the wind reverses particularly around the Indian Ocean and the Arabian Sea.",
     "wrong": {
      "B": "The Red Sea and the Nile are not named.",
      "C": "The Atlantic and Pacific are not named.",
@@ -801,7 +801,7 @@
     ],
     "answer": "D",
     "skill": "cause-effect",
-    "why": "The text says water absorbs heat without a big rise in temperature.",
+    "why": "Water takes in heat without warming up quickly, so land heats up faster.",
     "wrong": {
      "A": "The sun heats both land and sea.",
      "B": "The text does not say land is nearer the sun.",

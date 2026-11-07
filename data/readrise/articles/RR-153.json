@@ -155,7 +155,7 @@
           ],
           "answer": "A",
           "skill": "detail",
-          "why": "The article says the tubes in the stem are like straws that carry water up.",
+          "why": "In the article, the tubes in the stem are like straws that carry water up.",
           "wrong": {
             "B": "The article never compares the tubes to ropes.",
             "C": "The article does not compare the tubes to doors.",
@@ -172,7 +172,7 @@
           ],
           "answer": "C",
           "skill": "inference",
-          "why": "The article says a plant with no water will wilt and droop.",
+          "why": "A plant without water will wilt and droop.",
           "wrong": {
             "A": "A plant with no water cannot do well enough to grow new flowers.",
             "B": "The article does not say roots grow stronger without water.",
@@ -197,7 +197,7 @@
           }
         },
         {
-          "stem": "Read the sentence: \"With no water, a plant will wilt.\" What does wilt mean?",
+          "stem": "In the article, what does the word \"wilt\" mean?",
           "options": [
             "Grow very fast",
             "Make its own food",
@@ -206,7 +206,7 @@
           ],
           "answer": "D",
           "skill": "vocabulary",
-          "why": "The article explains that a plant that wilts droops, and stands up again when it gets water.",
+          "why": "In the article, a plant that wilts droops, and stands up again when it gets water.",
           "wrong": {
             "A": "A plant without water does not grow fast.",
             "B": "Making food is a different idea in the article.",
@@ -317,7 +317,7 @@
           ],
           "answer": "A",
           "skill": "detail",
-          "why": "The article says water travels up the stem inside narrow tubes called xylem.",
+          "why": "In the article, water travels up the stem inside narrow tubes called xylem.",
           "wrong": {
             "B": "Those are root hairs, not xylem.",
             "C": "The food a plant makes is not called xylem.",
@@ -334,7 +334,7 @@
           ],
           "answer": "D",
           "skill": "detail",
-          "why": "The article says root hairs add extra surface, so the root can take in much more water.",
+          "why": "Root hairs add extra surface, so the root can take in much more water.",
           "wrong": {
             "A": "The article does not say root hairs hold the plant up in wind.",
             "B": "Food is made using water, air, and sunlight, not by root hairs.",
@@ -351,7 +351,7 @@
           ],
           "answer": "B",
           "skill": "cause-effect",
-          "why": "The article explains that as water evaporates from a leaf, it pulls on the water behind it, so more rises from the roots.",
+          "why": "In the article, as water evaporates from a leaf, it pulls on the water behind it, so more rises from the roots.",
           "wrong": {
             "A": "The article says water leaves through the leaves; it does not enter there.",
             "C": "The article does not describe roots as a pump.",
@@ -393,7 +393,7 @@
           }
         },
         {
-          "stem": "Read the sentence: \"Roots spread through the soil and absorb water.\" What does absorb mean?",
+          "stem": "In the article, what does the word \"absorb\" mean?",
           "options": [
             "Push away",
             "Take in",
@@ -496,7 +496,7 @@
           ],
           "answer": "D",
           "skill": "detail",
-          "why": "The article says leaves contain tiny pores called stomata, and water vapor escapes through them.",
+          "why": "In the article, leaves contain tiny pores called stomata, and water vapor escapes through them.",
           "wrong": {
             "A": "Those are root hairs.",
             "B": "Those tubes are the xylem.",
@@ -530,7 +530,7 @@
           ],
           "answer": "C",
           "skill": "cause-effect",
-          "why": "The article says water molecules cling together, a property called cohesion, so each one tugs on its neighbor.",
+          "why": "In the article, water molecules cling together, a property called cohesion, so each one tugs on its neighbor.",
           "wrong": {
             "A": "Gravity works against the rising water, not with it.",
             "B": "Stomata are openings, not pumps.",
@@ -572,7 +572,7 @@
           }
         },
         {
-          "stem": "Read the phrase: \"date palms flourish in arid regions.\" What does arid mean?",
+          "stem": "In the article, what does the word \"arid\" mean?",
           "options": [
             "Cold and snowy",
             "Crowded with people",
@@ -627,7 +627,7 @@
         ],
         "answer": "C",
         "skill": "detail",
-        "why": "The text says each root has tiny hairs and the hairs help a lot.",
+        "why": "In the text, each root has tiny hairs and the hairs help a lot.",
         "wrong": {
           "A": "Tiny holes are in the leaves.",
           "B": "Thin tubes are in the stem.",
@@ -644,7 +644,7 @@
         ],
         "answer": "D",
         "skill": "cause-effect",
-        "why": "The text says the water that goes out of the leaves pulls more water up.",
+        "why": "In the text, the water that goes out of the leaves pulls more water up.",
         "wrong": {
           "A": "The text does not say leaves fall off.",
           "B": "More water is pulled in, so the roots do not dry out.",
@@ -697,7 +697,7 @@
         ],
         "answer": "B",
         "skill": "detail",
-        "why": "The text says the water also carries minerals from the soil.",
+        "why": "In the text, the water also carries minerals from the soil.",
         "wrong": {
           "A": "Sunlight is used to make food, but water does not carry it.",
           "C": "Vapor leaves the plant through the leaves.",
@@ -714,7 +714,7 @@
         ],
         "answer": "C",
         "skill": "detail",
-        "why": "The text says water in the leaf turns into vapor and escapes through tiny holes.",
+        "why": "In the text, water in the leaf turns into vapor and escapes through tiny holes.",
         "wrong": {
           "A": "Root hairs take water in.",
           "B": "The xylem carries water up.",
@@ -767,7 +767,7 @@
         ],
         "answer": "B",
         "skill": "detail",
-        "why": "The text says water molecules cling tightly to one another, a property called cohesion.",
+        "why": "In the text, water molecules cling tightly to one another, a property called cohesion.",
         "wrong": {
           "A": "Roots spreading is not called cohesion.",
           "C": "That process is photosynthesis.",
@@ -801,7 +801,7 @@
         ],
         "answer": "A",
         "skill": "vocabulary",
-        "why": "The article says water molecules cling tightly to one another, a property called cohesion.",
+        "why": "In the article, water molecules cling tightly to one another, a property called cohesion.",
         "wrong": {
           "B": "Rain is part of the water cycle, not cohesion.",
           "C": "Dissolving is a different property of water.",

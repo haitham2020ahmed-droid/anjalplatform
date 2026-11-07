@@ -138,7 +138,7 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The article says the fuel makes hot gas that shoots out the back.",
+          "why": "In the article, the fuel makes hot gas that shoots out the back.",
           "wrong": {
             "A": "Water is not made by the fuel in the article.",
             "B": "The article does not say clouds hold the rocket up.",
@@ -155,7 +155,7 @@
           ],
           "answer": "A",
           "skill": "detail",
-          "why": "The article says a stage that runs out of fuel drops off.",
+          "why": "In the article, a stage that runs out of fuel drops off.",
           "wrong": {
             "B": "There is no way to fill it up in the sky.",
             "C": "The balloon is only an example.",
@@ -240,7 +240,7 @@
           ],
           "answer": "B",
           "skill": "inference",
-          "why": "The article says a Saudi astronaut went in 1985 and two more went in 2023, so Saudis have gone to space more than once.",
+          "why": "Saudi astronauts have gone to space more than once.",
           "wrong": {
             "A": "The article names Saudi astronauts who went to space.",
             "C": "The article does not say who built the first rocket.",
@@ -483,7 +483,7 @@
           "wrong": {
             "A": "The article never compares rockets with airplanes.",
             "C": "Newton described a law of motion; the article does not say he built a rocket.",
-            "D": "This is one detail, and the article says reaching that height is not enough."
+            "D": "This is only one detail, not the central idea."
           }
         },
         {
@@ -513,7 +513,7 @@
           ],
           "answer": "B",
           "skill": "detail",
-          "why": "The article says propellant has two components: a fuel and an oxidizer.",
+          "why": "Propellant has two parts: a fuel and an oxidizer.",
           "wrong": {
             "A": "Rockets do not use air from outside in space.",
             "C": "These are rocket parts, not parts of propellant.",
@@ -530,7 +530,7 @@
           ],
           "answer": "D",
           "skill": "cause-effect",
-          "why": "The article says the rotating Earth provides additional speed, which helps rockets launched toward the east.",
+          "why": "In the article, the rotating Earth provides additional speed, which helps rockets launched toward the east.",
           "wrong": {
             "A": "Oxygen in the air is not the reason given.",
             "B": "Gravity acts everywhere on Earth.",
@@ -547,7 +547,7 @@
           ],
           "answer": "A",
           "skill": "inference",
-          "why": "The article states that astronauts float because they and the station are continuously falling around Earth together, not because gravity is gone.",
+          "why": "In the article, astronauts float because they and the station are continuously falling around Earth together, not because gravity is gone.",
           "wrong": {
             "B": "The article says gravity has not disappeared.",
             "C": "No special gas is mentioned.",
@@ -600,7 +600,7 @@
           "skill": "author-purpose",
           "why": "The author uses this point to introduce the need for about 28,000 kilometers an hour of sideways velocity to stay in orbit.",
           "wrong": {
-            "A": "The article explains how rockets do reach space.",
+            "A": "In the article, how rockets do reach space.",
             "B": "The author accepts the 100-kilometer line; the point is about speed.",
             "C": "The article says rockets must go very fast, not slower."
           }
@@ -627,7 +627,7 @@
         ],
         "answer": "A",
         "skill": "detail",
-        "why": "The text says that in 2023, two more Saudi astronauts went up.",
+        "why": "In 2023, two more Saudi astronauts went up.",
         "wrong": {
           "B": "The text says two, not one.",
           "C": "The text says two, not four.",
@@ -697,7 +697,7 @@
         ],
         "answer": "D",
         "skill": "detail",
-        "why": "The text says a spacecraft must travel about 28,000 kilometers an hour to stay in orbit.",
+        "why": "In the text, a spacecraft must travel about 28,000 kilometers an hour to stay in orbit.",
         "wrong": {
           "A": "This is far too slow.",
           "B": "This is far too slow.",
@@ -748,7 +748,7 @@
         ],
         "answer": "C",
         "skill": "compare",
-        "why": "The text says the balloon zooms as air rushes out of the back, and a rocket works on the same idea.",
+        "why": "In the text, the balloon zooms as air rushes out of the back, and a rocket works on the same idea.",
         "wrong": {
           "A": "Only large rockets are built in stages.",
           "B": "Only the rocket needs to carry oxygen in space.",
@@ -818,7 +818,7 @@
         ],
         "answer": "B",
         "skill": "author-purpose",
-        "why": "The text says a rocket operates on the same principle as the balloon, which Newton described as equal and opposite reactions.",
+        "why": "In the text, a rocket operates on the same principle as the balloon, which Newton described as equal and opposite reactions.",
         "wrong": {
           "A": "The article is not about building balloons.",
           "C": "A balloon only zooms around the room.",

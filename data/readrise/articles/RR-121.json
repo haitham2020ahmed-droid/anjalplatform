@@ -138,7 +138,7 @@
           ],
           "answer": "A",
           "skill": "detail",
-          "why": "The article says that on most days, a wadi has no water and its sand and rocks are dry.",
+          "why": "In the article, on most days, a wadi has no water and its sand and rocks are dry.",
           "wrong": {
             "B": "A wadi has water only after heavy rain.",
             "C": "The article does not mention snow.",
@@ -155,7 +155,7 @@
           ],
           "answer": "C",
           "skill": "cause-effect",
-          "why": "The article says the ground is hard, so the rain cannot soak in fast and runs into the wadi.",
+          "why": "In the article, the desert ground is very hard, so the rain cannot soak in fast and runs into the wadi.",
           "wrong": {
             "A": "The article does not talk about the temperature of rain.",
             "B": "Plants grow after the flood; they do not drink the rain first.",
@@ -206,7 +206,7 @@
           ],
           "answer": "A",
           "skill": "sequence",
-          "why": "The article says that when the flood ends, water soaks in, wells fill up, and plants grow.",
+          "why": "In the article, after the flood ends, the water soaks in, wells fill up, and plants grow.",
           "wrong": {
             "B": "The storm comes before the flood.",
             "C": "Rain falls before the flood.",
@@ -223,7 +223,7 @@
           ],
           "answer": "D",
           "skill": "detail",
-          "why": "The article says floods can sweep cars away, so people should stay out of wadis when it rains or water is flowing.",
+          "why": "In the article, floods can sweep cars away, so people should stay out of wadis when it rains or water is flowing.",
           "wrong": {
             "A": "Swimming in flood water is dangerous.",
             "B": "Floods can sweep cars away, so driving through is unsafe.",
@@ -317,7 +317,7 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The article says the wadi suddenly becomes a fast, muddy river, which is called a flash flood.",
+          "why": "In the article, the wadi suddenly becomes a fast, muddy river, which is called a flash flood.",
           "wrong": {
             "A": "A flash flood happens quickly, not over weeks.",
             "B": "The article describes flash floods in desert wadis.",
@@ -334,7 +334,7 @@
           ],
           "answer": "B",
           "skill": "detail",
-          "why": "The article says much of the water slowly sinks into the ground and becomes groundwater.",
+          "why": "In the article, much of the water slowly sinks into the ground and becomes groundwater.",
           "wrong": {
             "A": "The article does not say the water flows to the ocean.",
             "C": "Water does not turn into salt.",
@@ -351,7 +351,7 @@
           ],
           "answer": "D",
           "skill": "cause-effect",
-          "why": "The article says the sudden water can sweep away cars and people.",
+          "why": "In the article, the sudden water can sweep away cars and people.",
           "wrong": {
             "A": "Salt is not the danger described.",
             "B": "Hot sand is not the danger during a flood.",
@@ -368,7 +368,7 @@
           ],
           "answer": "A",
           "skill": "vocabulary",
-          "why": "The article says flash floods arrive with almost no warning, so sudden means quick and unexpected.",
+          "why": "In the article, flash floods arrive with almost no warning, so sudden means quick and unexpected.",
           "wrong": {
             "B": "Flash floods are fast, not slow.",
             "C": "Floods in wadis are rare, not daily.",
@@ -402,7 +402,7 @@
           ],
           "answer": "B",
           "skill": "inference",
-          "why": "The article says dams hold back floodwater; this keeps water for later and helps control floods.",
+          "why": "Dams hold back floodwater; this keeps water for later and helps control floods.",
           "wrong": {
             "A": "A dam holds water back; it does not cause floods.",
             "C": "A dam cannot stop rain.",
@@ -496,7 +496,7 @@
           ],
           "answer": "D",
           "skill": "detail",
-          "why": "The article says erosion caused by occasional floods carved the valleys into the rock over thousands of years.",
+          "why": "Floods slowly wore the valleys into the rock over thousands of years.",
           "wrong": {
             "A": "People farm near wadis but did not dig them.",
             "B": "Earthquakes are not mentioned.",
@@ -513,7 +513,7 @@
           ],
           "answer": "A",
           "skill": "cause-effect",
-          "why": "The article says floods deposit sediment that makes the soil fertile.",
+          "why": "In the article, floods deposit sediment that makes the soil fertile.",
           "wrong": {
             "B": "The article says floods leave material behind.",
             "C": "Salt is not mentioned and would not help soil.",
@@ -627,7 +627,7 @@
         ],
         "answer": "C",
         "skill": "detail",
-        "why": "The text says the rain may fall far off in the hills while you do not see a drop.",
+        "why": "In the text, the rain may fall far away in the hills or mountains.",
         "wrong": {
           "A": "The text does not say the rain falls only on farms.",
           "B": "The text says you may not see a drop where you are.",
@@ -644,7 +644,7 @@
         ],
         "answer": "A",
         "skill": "cause-effect",
-        "why": "The text says the water goes deep down and wells fill up.",
+        "why": "In the text, the water goes deep down and wells fill up.",
         "wrong": {
           "B": "The wells fill up, they do not go dry.",
           "C": "Nothing in the text says wells turn to sand.",
@@ -661,11 +661,11 @@
         ],
         "answer": "D",
         "skill": "inference",
-        "why": "The text says the water soaks in, wells fill, and plants and trees grow, so farms did well there.",
+        "why": "In the text, after a flood the water soaks in, wells fill, and plants grow, so farms did well there.",
         "wrong": {
           "A": "The text says the sand and rocks are in the wadi, not that it is flat.",
           "B": "The text does not link farms to cars driving.",
-          "C": "The text says rain can fall in the hills and come down, not stay away."
+          "C": "In the text, rain can fall in the hills and come down, not stay away."
         }
       },
       {
@@ -697,7 +697,7 @@
         ],
         "answer": "B",
         "skill": "detail",
-        "why": "The text says an oasis is a green place with water in the desert.",
+        "why": "An oasis is a green place in the desert where there is water.",
         "wrong": {
           "A": "That describes a dam, not an oasis.",
           "C": "That describes a flash flood.",
@@ -714,7 +714,7 @@
         ],
         "answer": "D",
         "skill": "cause-effect",
-        "why": "The text says the ground is hard and dry, so the rain cannot soak in quickly and races downhill.",
+        "why": "In the text, the ground is hard and dry, so the rain cannot soak in quickly and races downhill.",
         "wrong": {
           "A": "The text does not mention salty water.",
           "B": "The text does not say wind moves the water.",
@@ -731,7 +731,7 @@
         ],
         "answer": "A",
         "skill": "inference",
-        "why": "The text says the wadi holds no water for most of the year, so only tough plants can live there.",
+        "why": "In the text, the wadi holds no water for most of the year, so only tough plants can live there.",
         "wrong": {
           "B": "The text does not say farmers pull plants out.",
           "C": "Floods come only after storms.",
@@ -748,7 +748,7 @@
         ],
         "answer": "C",
         "skill": "author-purpose",
-        "why": "The text says Wadi Hanifa is now a green park, showing a wadi can be useful.",
+        "why": "In the text, Wadi Hanifa is now a green park, showing a wadi can be useful.",
         "wrong": {
           "A": "The park is described as a good place, not a warning.",
           "B": "The ending is not about how dams work.",
@@ -767,7 +767,7 @@
         ],
         "answer": "D",
         "skill": "detail",
-        "why": "The text says hardy plants such as acacia trees manage to survive there.",
+        "why": "Tough plants such as acacia trees can survive in a wadi.",
         "wrong": {
           "A": "Date palms are not named in the text.",
           "B": "Wild grasses are not named in the text.",
@@ -818,7 +818,7 @@
         ],
         "answer": "A",
         "skill": "inference",
-        "why": "The text says a flash flood can arrive with almost no warning and sweep away people.",
+        "why": "A flash flood can come with almost no warning and sweep people away.",
         "wrong": {
           "B": "The text does not say branches fall on campers.",
           "C": "The danger given is flooding, not hot sand.",

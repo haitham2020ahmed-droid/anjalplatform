@@ -138,7 +138,7 @@
           ],
           "answer": "A",
           "skill": "detail",
-          "why": "The article says most plastic is made from oil and natural gas found deep in the ground.",
+          "why": "In the article, most plastic is made from oil and natural gas found deep in the ground.",
           "wrong": {
             "B": "Sand is used to make glass, not plastic, and the article does not mention it.",
             "C": "The article does not say plastic is made from wood.",
@@ -189,7 +189,7 @@
           ],
           "answer": "B",
           "skill": "cause-effect",
-          "why": "The article explains that the tiny living things that break down food and leaves cannot break down plastic.",
+          "why": "In the article, tiny living things can break down food but not plastic.",
           "wrong": {
             "A": "Plastic is not painted to make it last.",
             "C": "The article does not say plastic is kept in cold machines.",
@@ -303,7 +303,7 @@
           "why": "The article traces the bottle's journey, explains why plastic lasts, and ends with reduce, reuse, recycle.",
           "wrong": {
             "B": "New bottles are made in factories from pellets, not only at recycling centers.",
-            "C": "The article says fossil fuels are underground; it does not say only under the ocean.",
+            "C": "In the article, plastic is made from oil and gas from underground; it does not say only under the ocean.",
             "D": "Turtles are one example; the article does not rank animals."
           }
         },
@@ -317,7 +317,7 @@
           ],
           "answer": "C",
           "skill": "sequence",
-          "why": "The article says each heated tube is placed in a mold and air is blown inside so it stretches into a bottle.",
+          "why": "Each heated tube is put in a mold, and air is blown in so it stretches into a bottle.",
           "wrong": {
             "A": "Shredding happens during recycling, not when bottles are made.",
             "B": "Burying happens in a landfill after use.",
@@ -334,7 +334,7 @@
           ],
           "answer": "B",
           "skill": "detail",
-          "why": "The article says sunlight and waves crack plastic into smaller pieces, and the smallest are microplastics.",
+          "why": "In the article, sunlight and waves crack plastic into smaller pieces, and the smallest are microplastics.",
           "wrong": {
             "A": "Recycled flakes become new products, not microplastics.",
             "C": "Bacteria are the tiny living things that decompose leaves.",
@@ -359,7 +359,7 @@
           }
         },
         {
-          "stem": "Read the sentence: \"Tiny organisms such as bacteria decompose food scraps and fallen leaves.\" What does decompose mean?",
+          "stem": "In the article, what does the word \"decompose\" mean?",
           "options": [
             "To grow larger",
             "To break down slowly",
@@ -385,7 +385,7 @@
           ],
           "answer": "A",
           "skill": "cause-effect",
-          "why": "The article explains that reducing comes first because a bottle never made can never become waste.",
+          "why": "In the article, a bottle that is never made can never become waste, so reducing comes first.",
           "wrong": {
             "B": "Money is not discussed.",
             "C": "The article does not say recycling centers are closed.",
@@ -483,7 +483,7 @@
           "wrong": {
             "A": "The article says plastic is valuable, and it does not call for bans.",
             "C": "PET is one polymer used for bottles; the article does not say it is the only one.",
-            "D": "The article says only a small portion of plastic has been recycled."
+            "D": "In the article, only a small part of all plastic has been recycled."
           }
         },
         {
@@ -496,7 +496,7 @@
           ],
           "answer": "A",
           "skill": "detail",
-          "why": "The article says molecules from fuels are bonded together into extremely long chains called polymers.",
+          "why": "In the article, molecules from fuels are bonded together into extremely long chains called polymers.",
           "wrong": {
             "B": "Tiny organisms are bacteria and microorganisms.",
             "C": "The article calls sorting tools automated machines.",
@@ -513,7 +513,7 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The article says flakes are melted and made into clothing fibers, carpets, and new bottles.",
+          "why": "In the article, flakes are melted and made into clothing fibers, carpets, and new bottles.",
           "wrong": {
             "A": "Burying is what happens in a landfill, not recycling.",
             "B": "Feeding plastic to animals is not mentioned and would be harmful.",
@@ -521,7 +521,7 @@
           }
         },
         {
-          "stem": "The article says sunlight and waves \"degrade a bottle into progressively smaller fragments.\" What does degrade mean here?",
+          "stem": "In the article, what does the word \"degrade\" mean?",
           "options": [
             "To give a bottle a lower grade",
             "To slowly break down into pieces",
@@ -547,7 +547,7 @@
           ],
           "answer": "A",
           "skill": "cause-effect",
-          "why": "The article says microorganisms decompose food and leaves but cannot efficiently digest long polymer chains.",
+          "why": "In the article, tiny living things break down food easily but cannot quickly break down plastic.",
           "wrong": {
             "B": "Temperature is not given as the reason.",
             "C": "The article does not say microorganisms live only in the ocean.",
@@ -644,7 +644,7 @@
         ],
         "answer": "C",
         "skill": "cause-effect",
-        "why": "The text says wind and rain can take litter to the sea.",
+        "why": "In the text, litter can end up on a beach or in the sea.",
         "wrong": {
           "A": "The text does not say birds drop it.",
           "B": "Fish stay in the sea.",
@@ -669,20 +669,20 @@
         }
       },
       {
-        "stem": "What can recycled bottles be made into?",
+        "stem": "What does the article say we can do with old bottles?",
         "options": [
-          "A shirt",
-          "A bigger factory",
-          "Oil and gas",
-          "Wind and rain"
+          "Recycle them",
+          "Burn them all",
+          "Bury them",
+          "Plant them"
         ],
         "answer": "A",
         "skill": "detail",
-        "why": "The text says the melted bottles are made into new things, one of which is a shirt.",
+        "why": "In the article, old plastic bottles can be recycled.",
         "wrong": {
-          "B": "A factory is not made from bottles.",
-          "C": "Oil and gas are where plastic comes from.",
-          "D": "Wind and rain are weather."
+          "B": "Burning bottles is not suggested.",
+          "C": "Burying bottles is not the good choice.",
+          "D": "Bottles cannot be planted."
         }
       }
     ],
@@ -697,7 +697,7 @@
         ],
         "answer": "A",
         "skill": "vocabulary",
-        "why": "The article calls a landfill a huge pit where trash is dumped and covered with soil.",
+        "why": "In the article, a landfill is a place where trash is buried and covered with soil.",
         "wrong": {
           "B": "Bottles are made in a factory.",
           "C": "Rivers carry litter, but a landfill is not a river.",
@@ -714,7 +714,7 @@
         ],
         "answer": "B",
         "skill": "detail",
-        "why": "The article says chemicals are linked into chains and formed into tiny beads called pellets.",
+        "why": "In the article, chemicals are linked into chains and formed into tiny beads called pellets.",
         "wrong": {
           "A": "Pellets are tiny, not large.",
           "C": "Pellets are plastic, not water.",
@@ -731,7 +731,7 @@
         ],
         "answer": "C",
         "skill": "cause-effect",
-        "why": "The article says wind and rain wash litter into rivers, which carry it to the ocean.",
+        "why": "In the article, wind and rain wash litter into rivers, which carry it to the ocean.",
         "wrong": {
           "A": "The sea does not need plastic.",
           "B": "Birds are not said to carry litter there.",

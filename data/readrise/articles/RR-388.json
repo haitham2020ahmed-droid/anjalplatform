@@ -775,20 +775,20 @@
         }
       },
       {
-        "stem": "When did Yousef practice each day?",
+        "stem": "What did Yousef do after taking his teacher's advice?",
         "options": [
-          "After completing his homework",
-          "Before the sun came up each day",
-          "During the school lunch hour",
-          "Right before he went to bed"
+          "He quit the spelling contest",
+          "He set up a simple daily routine",
+          "He asked a friend to take his place",
+          "He practiced only on the weekend"
         ],
-        "answer": "A",
+        "answer": "B",
         "skill": "detail",
-        "why": "The text says every afternoon after completing his homework he practiced.",
+        "why": "Yousef took her advice and set up a simple daily routine that he kept even on busy days.",
         "wrong": {
-          "B": "He practiced in the afternoon.",
-          "C": "Lunch is not mentioned.",
-          "D": "Bedtime is not mentioned."
+          "A": "He did not quit.",
+          "C": "He did not ask anyone to replace him.",
+          "D": "He practiced every day, not only on weekends."
         }
       },
       {
@@ -801,7 +801,7 @@
         ],
         "answer": "D",
         "skill": "cause-effect",
-        "why": "The text says he worried that he would only embarrass himself in front of his classmates.",
+        "why": "In the text, he worried that he would only embarrass himself in front of his classmates.",
         "wrong": {
           "A": "He had never felt confident about spelling.",
           "B": "His sister helped him later.",

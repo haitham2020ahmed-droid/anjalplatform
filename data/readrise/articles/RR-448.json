@@ -138,7 +138,7 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The story says the stream grew wide and fast, completely covering the flat stones the children used to cross.",
+          "why": "In the story, the stream got wide and fast, so the children could not cross.",
           "wrong": {
             "A": "The story does not say the stream froze.",
             "B": "No fallen tree is mentioned in the story.",
@@ -627,7 +627,7 @@
         ],
         "answer": "C",
         "skill": "detail",
-        "why": "The text says they cut wood and made planks.",
+        "why": "In the story, they cut strong pieces of wood.",
         "wrong": {
           "A": "Grass is not used for the bridge.",
           "B": "Rope is not mentioned.",
@@ -661,7 +661,7 @@
         ],
         "answer": "D",
         "skill": "cause-effect",
-        "why": "The text says it rained hard, so the stream got wide and fast.",
+        "why": "In the text, it rained hard, so the stream got wide and fast.",
         "wrong": {
           "A": "The brothers did not dig the stream.",
           "B": "Wind is not mentioned.",
@@ -767,7 +767,7 @@
         ],
         "answer": "A",
         "skill": "detail",
-        "why": "The article says they measured the stream's width and cut sturdy lengths of wood accordingly.",
+        "why": "In the article, they measured the stream's width and cut sturdy lengths of wood accordingly.",
         "wrong": {
           "B": "No neighbors are mentioned.",
           "C": "A rope is not mentioned.",

@@ -16,7 +16,7 @@ import { useT } from "@/i18n/client";
  * Round 4: the time on each passage is sent (the server keeps its own clock too) — 2+ passages answered faster than
  * they can be read make the test "Not valid — retake" (the level is not changed). Every label goes through t();
  * the passages and questions stay English.
- * Round 6: like LevelSet (about 40 questions, about 30 minutes); the result is shown as a Lexile-style level
+ * Round 6: like LevelSet (round 7: up to 13 passages, about 36–39 questions, about 20–30 minutes, no time limit); the result is shown as a Lexile-style level
  * (formatLevel: "95L", "BR120L") with where it stands against the grade's end-of-year range (benchmarks.ts).
  */
 
@@ -91,7 +91,7 @@ export function PlacementRunner({ view, level }: { view: PlacementView; level: n
         <ul className="mt-3 space-y-2 text-slate-700">
           <li>📖 {t("Read a short passage, then answer 3 questions.")}</li>
           <li>🔀 {t("The next passage gets harder or easier depending on your answers.")}</li>
-          <li>⏱ {t("Up to {n} passages (about 40 questions), about 30 minutes. Your answers are saved — you can stop and come back.", { n: view.maxSteps })}</li>
+          <li>⏱ {t("Up to {n} passages, 3 questions each (about 36–39 questions). About 20–30 minutes — no time limit, you can stop and come back.", { n: view.maxSteps })}</li>
           <li>💡 {t("There is no pass or fail. Just do your best, on your own.")}</li>
           <li>🐢 {t("Read each passage carefully: answers that come faster than the passage can be read do not count.")}</li>
         </ul>

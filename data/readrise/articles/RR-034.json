@@ -138,7 +138,7 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The article says each colony has a queen, and she lays the eggs.",
+          "why": "In the article, the queen is the ant that lays the eggs.",
           "wrong": {
             "A": "Male ants have wings, but they do not lay eggs.",
             "B": "Workers dig, guard, and find food. The queen lays the eggs.",
@@ -172,7 +172,7 @@
           ],
           "answer": "D",
           "skill": "vocabulary",
-          "why": "The article says ants live in a big group, and the group is called a colony.",
+          "why": "In the article, ants live in a big group, and the group is called a colony.",
           "wrong": {
             "A": "A long hole under the ground is a tunnel.",
             "B": "Ants grow food on leaf bits, but that is not a colony.",
@@ -210,7 +210,7 @@
           "wrong": {
             "A": "Food does not grow because of a scent.",
             "B": "The queen lays eggs. She does not go out for food.",
-            "D": "The article says desert ants use the sun to find home. A scent is for the other ants."
+            "D": "In the article, desert ants use the sun to find home. A scent is for the other ants."
           }
         },
         {
@@ -223,7 +223,7 @@
           ],
           "answer": "A",
           "skill": "cause-effect",
-          "why": "The article says the tunnels let air and rain into the soil, and that helps the land.",
+          "why": "In the article, the tunnels let air and rain into the soil, and that helps the land.",
           "wrong": {
             "B": "The tunnels let rain in. They do not keep it away.",
             "C": "Tunnels make the soil loose, not hard.",
@@ -317,7 +317,7 @@
           ],
           "answer": "A",
           "skill": "detail",
-          "why": "The article explains that larvae are young ants that look like tiny white grubs.",
+          "why": "In the article, larvae are young ants that look like tiny white grubs.",
           "wrong": {
             "B": "Male ants with wings are the males, not larvae.",
             "C": "Leaf pieces are what leafcutter ants carry, not larvae.",
@@ -334,7 +334,7 @@
           ],
           "answer": "D",
           "skill": "detail",
-          "why": "The article says leafcutter ants do not eat the leaves; they grow a fungus on them, and the fungus is their food.",
+          "why": "In the article, leafcutter ants do not eat the leaves; they grow a fungus on them, and the fungus is their food.",
           "wrong": {
             "A": "The article says they do not eat the leaves.",
             "B": "The leaves are not used for walls.",
@@ -342,7 +342,7 @@
           }
         },
         {
-          "stem": "Read this sentence: \"It leaves a trail of a special scent called a pheromone.\" What is a pheromone?",
+          "stem": "In the article, what does the word \"pheromone\" mean?",
           "options": [
             "A kind of food ants store",
             "A chemical scent that sends a message",
@@ -402,7 +402,7 @@
           ],
           "answer": "B",
           "skill": "compare",
-          "why": "The article says the queen is the only ant that lays eggs, while the males live only a short time and mate with a young queen.",
+          "why": "In the article, the queen is the only ant that lays eggs, while the males live only a short time and mate with a young queen.",
           "wrong": {
             "A": "The article says the males have wings.",
             "C": "Only the queen lays eggs.",
@@ -513,7 +513,7 @@
           ],
           "answer": "A",
           "skill": "detail",
-          "why": "The article explains that these ants forage in the hottest part of the day, when fewer predators are active.",
+          "why": "In the article, these ants forage in the hottest part of the day, when fewer predators are active.",
           "wrong": {
             "B": "The article does not connect foraging time to digging.",
             "C": "The article does not say pheromones need heat.",
@@ -521,7 +521,7 @@
           }
         },
         {
-          "stem": "Read this sentence: \"Their tunnels aerate the soil, allowing air and water to penetrate it.\" What does aerate mean?",
+          "stem": "In the article, what does the word \"aerate\" mean?",
           "options": [
             "To make something dry and hard",
             "To fill something with sand",
@@ -627,7 +627,7 @@
         ],
         "answer": "B",
         "skill": "detail",
-        "why": "The text says workers dig, care for the young, guard the nest, and find food.",
+        "why": "In the text, worker ants have many jobs, such as caring for the young and guarding the nest.",
         "wrong": {
           "A": "Only the queen lays eggs.",
           "C": "The text says only some male ants have wings, and they are not workers.",
@@ -661,7 +661,7 @@
         ],
         "answer": "D",
         "skill": "cause-effect",
-        "why": "The text says some ants cut bits of leaf and grow food on the bits.",
+        "why": "In the text, some ants carry bits of leaf home and grow food on them.",
         "wrong": {
           "A": "The ants do not eat the leaf bits themselves.",
           "B": "The text does not say the leaves are used for a roof.",
@@ -697,7 +697,7 @@
         ],
         "answer": "D",
         "skill": "detail",
-        "why": "The text says a giant colony can have millions of ants.",
+        "why": "In the text, a giant colony can have millions of ants.",
         "wrong": {
           "A": "A few dozen is for a small colony.",
           "B": "Ten is far fewer than the text says.",
@@ -714,7 +714,7 @@
         ],
         "answer": "B",
         "skill": "cause-effect",
-        "why": "The text says that when a load is too big, several ants cooperate to move it.",
+        "why": "In the text, when a load is too big, several ants cooperate to move it.",
         "wrong": {
           "A": "The text says they work together to move it.",
           "C": "The queen lays eggs and does not carry loads.",
@@ -784,7 +784,7 @@
         ],
         "answer": "D",
         "skill": "detail",
-        "why": "The text says their primary purpose is to mate with a young queen.",
+        "why": "In the text, their primary purpose is to mate with a young queen.",
         "wrong": {
           "A": "Younger workers nurse the larvae.",
           "B": "Older workers excavate tunnels.",
@@ -801,7 +801,7 @@
         ],
         "answer": "A",
         "skill": "cause-effect",
-        "why": "The text says when an object is too large, several ants coordinate to move it together.",
+        "why": "In the text, when an object is too large, several ants coordinate to move it together.",
         "wrong": {
           "B": "The text says no ant issues orders.",
           "C": "A stronger trail, not a weaker one, comes from more ants.",
@@ -822,7 +822,7 @@
         "wrong": {
           "A": "The text does not say ants fear the queen.",
           "B": "The sentence is about orders, not digging.",
-          "D": "The article says ants are very strong for their size."
+          "D": "In the article, ants are very strong for their size."
         }
       }
     ]

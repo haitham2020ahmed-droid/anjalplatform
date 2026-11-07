@@ -209,7 +209,7 @@
           "why": "The pictures let other doctors see exactly what the instruments looked like, so they could make and use the same tools.",
           "wrong": {
             "A": "The article shows medicine was his life's work.",
-            "B": "The article says he helped many sick and hurt people.",
+            "B": "In the article, he helped many sick and hurt people.",
             "C": "The article does not mention the king asking for pictures."
           }
         },
@@ -227,7 +227,7 @@
           "wrong": {
             "A": "The article does not say it was their only book.",
             "B": "The king of Cordoba did not rule Europe.",
-            "D": "The article calls it a huge book with many parts."
+            "D": "It is a huge book with many parts."
           }
         },
         {
@@ -317,7 +317,7 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The article says his encyclopedia was made up of thirty separate books.",
+          "why": "In the article, his encyclopedia was made up of thirty separate books.",
           "wrong": {
             "A": "The article says thirty, not ten.",
             "B": "Five is not the number of books in his encyclopedia.",
@@ -334,7 +334,7 @@
           ],
           "answer": "A",
           "skill": "detail",
-          "why": "The article says he used a material that the body could slowly absorb on its own.",
+          "why": "In the article, he used a material that the body could slowly absorb on its own.",
           "wrong": {
             "B": "The article does not mention metal wire.",
             "C": "The article does not mention cotton cloth.",
@@ -483,7 +483,7 @@
           "wrong": {
             "A": "Al-Zahrawi worked at the royal court; he did not rule Al-Andalus.",
             "C": "His book was translated by others into Latin, which was not his own accomplishment.",
-            "D": "The article says his legacy endures and he is still honored today."
+            "D": "In the article, his legacy endures and he is still honored today."
           }
         },
         {
@@ -496,7 +496,7 @@
           ],
           "answer": "A",
           "skill": "detail",
-          "why": "The article states that he insisted a surgeon must thoroughly understand the structure of the human body before attempting any procedure.",
+          "why": "He believed a surgeon must understand the structure of the human body before any operation.",
           "wrong": {
             "B": "The article does not say he required knowledge of local history.",
             "C": "Latin translation happened long after his work, not as a requirement for surgeons.",
@@ -513,7 +513,7 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The article says the surgery volume was filled with detailed drawings of roughly two hundred instruments.",
+          "why": "In the article, the surgery volume was filled with detailed drawings of roughly two hundred instruments.",
           "wrong": {
             "A": "Twenty is far fewer than the article states.",
             "B": "Twelve is far fewer than the article states.",
@@ -627,7 +627,7 @@
         ],
         "answer": "B",
         "skill": "detail",
-        "why": "The article says he lived in Cordoba, which is in Spain now.",
+        "why": "Al-Zahrawi lived in Cordoba, which is in Spain today.",
         "wrong": {
           "A": "Cairo is not mentioned.",
           "C": "Makkah is not mentioned.",
@@ -731,7 +731,7 @@
         ],
         "answer": "D",
         "skill": "cause-effect",
-        "why": "The article says he believed a calm technique helped the body heal faster.",
+        "why": "In the article, he believed a calm technique helped the body heal faster.",
         "wrong": {
           "A": "He valued calm, not speed.",
           "B": "Knives are not linked to calm.",
@@ -818,7 +818,7 @@
         ],
         "answer": "D",
         "skill": "inference",
-        "why": "The article says he believed a calm, careful technique helped the body heal better than rushing.",
+        "why": "He believed calm, careful work helped the body heal better than rushing.",
         "wrong": {
           "A": "Patience is the opposite of hurrying.",
           "B": "He made many tools.",

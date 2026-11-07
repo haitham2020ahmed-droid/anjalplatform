@@ -2,6 +2,7 @@
 /** @jsxImportSource react */
 /** 🚀 ReadRise staff pages — small shared pieces (server-rendered, no client JS). */
 import type { ReactNode } from "react";
+import { formatLevel } from "@/server/readrise/level";
 
 export const RR_NOTE = "The ReadRise level is ReadRise's own reading level (an estimate from the reading checks and first-try scores).";
 export const btn = "rounded-xl bg-brand-navy px-4 py-2 text-sm font-semibold text-white hover:bg-brand-purple";
@@ -40,6 +41,8 @@ export function Stat({ label, value, note, tone = "slate" }: { label: string; va
 }
 
 export const fmt = (v: number | null | undefined, suffix = "") => (v === null || v === undefined ? "—" : `${v}${suffix}`);
+/** Round 7: a ReadRise level for a page ("600L", "BR120L"), "—" when there is none. */
+export const fmtLevel = (v: number | null | undefined) => (v === null || v === undefined || !Number.isFinite(Number(v)) ? "—" : formatLevel(Number(v)));
 export const signed = (v: number | null | undefined) => (v === null || v === undefined ? "—" : v > 0 ? `+${v}` : String(v));
 export const day = (iso: string | null) => (iso ? iso.slice(0, 10) : "—");
 
@@ -49,9 +52,12 @@ export interface ScaledSeries { name: string; color: string; points: (number | n
  * SVG line chart with its own value range (levels 200–1500, or articles per student per week), an optional shaded
  * expected band, and an accessible data table. Thin series (one per student) can be left out of the legend.
  */
-export function ScaledLineChart({ labels, series, title, min, max, ticks, band, height = 240, unit = "" }: {
+export function ScaledLineChart({ labels, series, title, min, max, ticks, band, height = 240, unit = "", levels = false }: {
   labels: string[]; series: ScaledSeries[]; title: string; min: number; max: number; ticks: number[]; band?: { low: number; high: number; label: string }; height?: number; unit?: string;
+  /** round 7: the values are ReadRise levels — ticks and the data table read "600L" / "BR120L" (formatLevel) */
+  levels?: boolean;
 }) {
+  const valText = (v: number) => (levels ? formatLevel(v) : `${v}${unit}`);
   const W = 640, H = height, L = 48, R = 16, T = 14, B = 30;
   const span = Math.max(1e-9, max - min);
   const x = (i: number) => L + (labels.length <= 1 ? (W - L - R) / 2 : (i * (W - L - R)) / (labels.length - 1));
@@ -64,7 +70,7 @@ export function ScaledLineChart({ labels, series, title, min, max, ticks, band, 
         {ticks.map((g) => (
           <g key={g}>
             <line x1={L} x2={W - R} y1={y(g)} y2={y(g)} stroke="#e2e8f0" strokeWidth={1} />
-            <text x={L - 8} y={y(g) + 4} textAnchor="end" fontSize={11} fill="#64748b">{g}</text>
+            <text x={L - 8} y={y(g) + 4} textAnchor="end" fontSize={11} fill="#64748b">{levels ? formatLevel(g) : g}</text>
           </g>
         ))}
         {labels.map((l, i) => <text key={`${l}-${i}`} x={x(i)} y={H - 10} textAnchor="middle" fontSize={11} fill="#64748b">{l}</text>)}
@@ -95,16 +101,17 @@ export function ScaledLineChart({ labels, series, title, min, max, ticks, band, 
       <table className="sr-only">
         <caption>{title}</caption>
         <thead><tr><th scope="col">Week</th>{series.map((s) => <th key={s.name} scope="col">{s.name}</th>)}</tr></thead>
-        <tbody>{labels.map((l, i) => <tr key={`${l}-${i}`}><th scope="row">{l}</th>{series.map((s) => <td key={s.name}>{s.points[i] === null ? "no data" : `${s.points[i]}${unit}`}</td>)}</tr>)}</tbody>
+        <tbody>{labels.map((l, i) => <tr key={`${l}-${i}`}><th scope="row">{l}</th>{series.map((s) => <td key={s.name}>{s.points[i] === null ? "no data" : valText(s.points[i] as number)}</td>)}</tr>)}</tbody>
       </table>
     </figure>
   );
 }
 
 /** Level distribution: one column per 100 levels; columns inside the expected band are teal. */
-export function LevelHistogram({ buckets, title }: { buckets: { from: number; to: number; count: number; inBand: boolean }[]; title: string }) {
+export function LevelHistogram({ buckets, title }: { buckets: { from: number; to: number; count: number; inBand: boolean; label?: string }[]; title: string }) {
   const max = Math.max(1, ...buckets.map((b) => b.count));
-  const label = (b: { from: number; to: number }, i: number) => (i === 0 ? `≤${b.to + 1}` : b.to >= 9999 ? `${b.from}+` : String(b.from));
+  // round 7: the bucket's own label ("BR", "600L" … "1600L+": dashboards.ts bucketLabel)
+  const label = (b: { from: number; to: number; label?: string }, i: number) => b.label ?? (i === 0 ? `≤${formatLevel(b.to + 1)}` : b.to >= 9999 ? `${formatLevel(b.from)}+` : formatLevel(b.from));
   return (
     <figure className="relative overflow-hidden">
       <div className="flex h-40 items-end gap-1" role="img" aria-label={title}>
@@ -118,7 +125,7 @@ export function LevelHistogram({ buckets, title }: { buckets: { from: number; to
       <div className="mt-1 flex gap-1 border-t border-slate-200 pt-1">
         {buckets.map((b, i) => <span key={b.from} className="min-w-0 flex-1 truncate text-center text-[10px] text-slate-500">{label(b, i)}</span>)}
       </div>
-      <figcaption className="mt-2 flex items-center gap-2 text-xs text-slate-500"><span className="h-3 w-4 rounded bg-teal-500" />inside the expected band<span className="ms-3 h-3 w-4 rounded bg-slate-300" />outside</figcaption>
+      <figcaption className="mt-2 flex items-center gap-2 text-xs text-slate-500"><span className="h-3 w-4 rounded bg-teal-500" />inside the grade's Meets range<span className="ms-3 h-3 w-4 rounded bg-slate-300" />outside</figcaption>
       <table className="sr-only"><caption>{title}</caption><tbody>{buckets.map((b, i) => <tr key={b.from}><th scope="row">{label(b, i)}</th><td>{b.count}</td></tr>)}</tbody></table>
     </figure>
   );

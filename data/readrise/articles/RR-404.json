@@ -155,7 +155,7 @@
      ],
      "answer": "A",
      "skill": "detail",
-     "why": "The story says Omar likes to build things and fixes old toys at home.",
+     "why": "In the story, Omar likes to build things and fixes old toys at home.",
      "wrong": {
       "B": "The story does not mention soccer.",
       "C": "The story does not mention cooking.",
@@ -547,7 +547,7 @@
      ],
      "answer": "D",
      "skill": "inference",
-     "why": "By calling it \"just for fun,\" Mr. Khalid keeps the focus on honest reflection about hopes, not on any literal journey through time.",
+     "why": "By saying the letter is only an exercise, Mr. Khalid keeps the focus on honest thinking about hopes, not on any real trip through time.",
      "wrong": {
       "A": "There is no suggestion students would be frightened.",
       "B": "He wants students to take their reflection seriously, just not literally.",
@@ -627,7 +627,7 @@
     ],
     "answer": "B",
     "skill": "detail",
-    "why": "The text says he fixes old toys at home.",
+    "why": "In the text, he fixes old toys at home.",
     "wrong": {
      "A": "Bikes and chairs are not mentioned.",
      "C": "Clocks and radios are not mentioned.",
@@ -644,7 +644,7 @@
     ],
     "answer": "D",
     "skill": "detail",
-    "why": "The text says, \"It was a letter to yourself.\"",
+    "why": "In the story, the letter is written to yourself.",
     "wrong": {
      "A": "It is not written to a friend.",
      "B": "It is not written to a family member.",

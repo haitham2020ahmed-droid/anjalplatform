@@ -138,7 +138,7 @@
           ],
           "answer": "A",
           "skill": "detail",
-          "why": "The article says Zaid runs every day after school for many weeks.",
+          "why": "In the article, Zaid runs every day after school for many weeks.",
           "wrong": {
             "B": "The article does not mention television.",
             "C": "The article does not say he plays football.",
@@ -767,10 +767,10 @@
         ],
         "answer": "B",
         "skill": "detail",
-        "why": "The text says he beat his old record by several whole seconds.",
+        "why": "In the text, he beat his old record by several whole seconds.",
         "wrong": {
           "A": "Minutes are far too long.",
-          "C": "The text says several whole seconds.",
+          "C": "In the text, several whole seconds.",
           "D": "An hour is not mentioned."
         }
       },

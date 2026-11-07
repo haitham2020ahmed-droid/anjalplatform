@@ -155,7 +155,7 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The article says the leopard rests in the day and hunts at night.",
+          "why": "In the article, the leopard rests in the day and hunts at night.",
           "wrong": {
             "A": "The article does not say the leopard hunts in the morning.",
             "B": "In the day, the leopard rests or sleeps.",
@@ -189,7 +189,7 @@
           ],
           "answer": "A",
           "skill": "cause-effect",
-          "why": "The article says people hunted the leopard's prey, so the cat had less food.",
+          "why": "In the article, people hunted the leopard's prey, so the cat had less food.",
           "wrong": {
             "B": "Nothing in the article says leopards forgot how to hunt.",
             "C": "The article does not talk about cold weather.",
@@ -210,7 +210,7 @@
           "wrong": {
             "A": "The article shows the opposite: the leopard's home got smaller.",
             "B": "The leopard was hurt by these changes, so they did have an effect.",
-            "D": "The article says the leopard had less prey, not more."
+            "D": "In the article, the leopard had less food, not more."
           }
         },
         {
@@ -223,11 +223,11 @@
           ],
           "answer": "D",
           "skill": "inference",
-          "why": "The article says that one day the cubs may go back to the wild. Keeping them safe helps the number of leopards grow.",
+          "why": "In the article, one day the cubs may go back to the wild. Keeping them safe helps the number of leopards grow.",
           "wrong": {
             "A": "The article never says the cubs are sold. The goal is to save the leopard.",
             "B": "TV is not mentioned in the article.",
-            "C": "The article says the cubs may go back to the wild one day, so this is not the plan."
+            "C": "In the article, the cubs may go back to the wild one day, so this is not the plan."
           }
         },
         {
@@ -317,7 +317,7 @@
           ],
           "answer": "B",
           "skill": "detail",
-          "why": "The article says the leopard's golden coat is decorated with dark, ring-shaped spots called rosettes.",
+          "why": "In the article, the leopard's golden coat is decorated with dark, ring-shaped spots called rosettes.",
           "wrong": {
             "A": "The article mentions caves, but they are not called rosettes.",
             "C": "The article does not call trails rosettes.",
@@ -334,7 +334,7 @@
           ],
           "answer": "A",
           "skill": "detail",
-          "why": "The article states that experts believe fewer than 200 remain in the wild.",
+          "why": "Experts think fewer than 200 are left in the wild.",
           "wrong": {
             "B": "This number is far larger than what the article gives.",
             "C": "This would not make the leopard one of the rarest cats.",
@@ -342,7 +342,7 @@
           }
         },
         {
-          "stem": "The article says the leopard lives in \"rugged mountains.\" What does rugged mean here?",
+          "stem": "In the article, what does the word \"rugged\" mean?",
           "options": [
             "Covered with soft grass",
             "Rough, rocky, and hard to cross",
@@ -354,7 +354,7 @@
           "why": "The leopard climbs steep cliffs and rests among boulders, which shows that its mountains are rough and rocky.",
           "wrong": {
             "A": "The article describes rocks and cliffs, not soft grass.",
-            "C": "Mountains are high, and the article mentions steep cliffs.",
+            "C": "Mountains are high, but rugged means rough and hard to cross.",
             "D": "The leopard is rarely seen, so its home is not crowded with people."
           }
         },
@@ -368,7 +368,7 @@
           ],
           "answer": "C",
           "skill": "cause-effect",
-          "why": "The article says some leopards were killed by herders who wanted to protect their goats.",
+          "why": "In the article, some leopards were killed by herders who wanted to protect their goats.",
           "wrong": {
             "A": "The article does not mention selling coats.",
             "B": "Fear of the dark is not given as a reason.",
@@ -496,7 +496,7 @@
           ],
           "answer": "B",
           "skill": "vocabulary",
-          "why": "The article explains that critically endangered means the species faces an extremely high risk of extinction in the wild.",
+          "why": "In the article, critically endangered means the species faces an extremely high risk of extinction in the wild.",
           "wrong": {
             "A": "The article does not link the leopard's status to seasons.",
             "C": "\"Endangered\" describes the animal's risk, not the danger it poses to people.",
@@ -530,7 +530,7 @@
           ],
           "answer": "B",
           "skill": "detail",
-          "why": "The article says researchers place hidden cameras along mountain trails to monitor wild leopards and learn where they survive.",
+          "why": "In the article, researchers place hidden cameras along mountain trails to monitor wild leopards and learn where they survive.",
           "wrong": {
             "A": "Sound-playing collars are not mentioned.",
             "C": "The article does not mention satellites.",
@@ -547,7 +547,7 @@
           ],
           "answer": "C",
           "skill": "sequence",
-          "why": "The article explains that when ibex and gazelles were hunted too much, some leopards attacked livestock, and herders then killed leopards to protect their animals.",
+          "why": "In the article, when ibex and gazelles were hunted too much, some leopards attacked livestock, and herders then killed leopards to protect their animals.",
           "wrong": {
             "A": "This reverses the order; the loss of prey came first.",
             "B": "Leopards turned to livestock because their prey was already gone, not before.",
@@ -568,7 +568,7 @@
           "wrong": {
             "A": "The article never says leopards attack children.",
             "B": "The comparison is about weight, not about how fast animals grow.",
-            "D": "The article says it is a formidable predator despite its size."
+            "D": "In the article, it is a formidable predator despite its size."
           }
         },
         {
@@ -627,7 +627,7 @@
         ],
         "answer": "B",
         "skill": "detail",
-        "why": "The text says the cat has a gold coat and its dark spots look like rings.",
+        "why": "In the text, the leopard has a golden coat with dark spots shaped like rings.",
         "wrong": {
           "A": "The coat is gold, not white.",
           "C": "The text does not say the spots are red.",
@@ -644,7 +644,7 @@
         ],
         "answer": "D",
         "skill": "detail",
-        "why": "The text says it hunts wild goats called ibex.",
+        "why": "In the article, the leopard hunts wild goats called ibex.",
         "wrong": {
           "A": "Camels are not on its list of prey.",
           "B": "Sheep are not on its list of prey.",
@@ -661,7 +661,7 @@
         ],
         "answer": "A",
         "skill": "vocabulary",
-        "why": "The text says roads and towns were built in the cat's home, so its habitat got small.",
+        "why": "In the text, roads and towns were built in the cat's home, so its habitat got small.",
         "wrong": {
           "B": "The wild goat is called an ibex.",
           "C": "Roads were built in the habitat; they are not the habitat.",
@@ -697,7 +697,7 @@
         ],
         "answer": "A",
         "skill": "detail",
-        "why": "The article says they often rest in caves or in the shade of rocks.",
+        "why": "In the article, they often rest in caves or in the shade of rocks during the hottest hours.",
         "wrong": {
           "B": "They live in the mountains, not on farms.",
           "C": "The sea is not mentioned.",
@@ -731,7 +731,7 @@
         ],
         "answer": "B",
         "skill": "cause-effect",
-        "why": "The article says the pattern helps the leopard blend in with the rocky ground.",
+        "why": "In the article, the pattern helps the leopard blend in with the rocky ground.",
         "wrong": {
           "A": "Size is not mentioned in that sentence.",
           "C": "Warmth is not mentioned.",
@@ -751,7 +751,7 @@
         "why": "The article says it is the smallest kind of leopard, yet it is still a skilled predator.",
         "wrong": {
           "A": "A child's weight is not huge.",
-          "C": "The article says it climbs steep cliffs with ease.",
+          "C": "In the article, it can climb very steep cliffs.",
           "D": "It also hunts ibex and gazelles."
         }
       }

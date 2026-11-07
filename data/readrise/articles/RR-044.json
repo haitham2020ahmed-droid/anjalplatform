@@ -155,7 +155,7 @@
           ],
           "answer": "A",
           "skill": "detail",
-          "why": "The article says one trip around Earth takes about a month.",
+          "why": "In the article, one trip around Earth takes about a month.",
           "wrong": {
             "B": "The Moon does not go all the way around in one day.",
             "C": "In one week the Moon goes only part of the way.",
@@ -163,7 +163,7 @@
           }
         },
         {
-          "stem": "Read this sentence: \"The Moon will reflect the light of the Sun.\" What does reflect mean here?",
+          "stem": "In the article, what does the word \"reflect\" mean?",
           "options": [
             "To hide something",
             "To make something hot",
@@ -189,7 +189,7 @@
           ],
           "answer": "B",
           "skill": "inference",
-          "why": "The article says the dark part is not Earth's shadow; it is just the side the Sun does not light.",
+          "why": "The dark part is not Earth's shadow; it is just the side the Sun does not light.",
           "wrong": {
             "A": "The article says this is a mistake.",
             "C": "The Moon is still whole; one side is just not lit.",
@@ -206,7 +206,7 @@
           ],
           "answer": "C",
           "skill": "sequence",
-          "why": "The article says a thin crescent grows to a half Moon and then to a full Moon.",
+          "why": "In the article, a thin crescent grows to a half Moon and then to a full Moon.",
           "wrong": {
             "A": "This is the order in which it shrinks, not grows.",
             "B": "The Moon does not jump from half to no Moon while growing.",
@@ -240,7 +240,7 @@
           ],
           "answer": "D",
           "skill": "inference",
-          "why": "The article says each Hijri month starts when the new crescent is seen.",
+          "why": "In the article, each Hijri month starts when the new crescent is seen.",
           "wrong": {
             "A": "The Moon never really changes or breaks.",
             "B": "The Sun is still shining; it lights the Moon.",
@@ -300,10 +300,10 @@
           ],
           "answer": "B",
           "skill": "central-idea",
-          "why": "The article explains that the phases happen because, as the Moon orbits, we see different amounts of its lit half.",
+          "why": "In the article, the phases happen because, as the Moon orbits, we see different amounts of its lit half.",
           "wrong": {
             "A": "The Moon makes no light of its own.",
-            "C": "The article says the dark part is not Earth's shadow.",
+            "C": "The dark part is not Earth's shadow.",
             "D": "The article does not discuss the Moon's size."
           }
         },
@@ -317,7 +317,7 @@
           ],
           "answer": "A",
           "skill": "detail",
-          "why": "The article says the Sun always lights exactly half of the Moon, the half facing the Sun.",
+          "why": "In the article, the Sun always lights exactly half of the Moon, the half facing the Sun.",
           "wrong": {
             "B": "The crescent is only the part we see, not all that is lit.",
             "C": "The side facing away from the Sun is dark.",
@@ -372,7 +372,7 @@
           "wrong": {
             "A": "The article does not mention clouds.",
             "C": "It still reflects sunlight, just not toward us.",
-            "D": "The article says the dark part is not Earth's shadow."
+            "D": "The dark part is not Earth's shadow."
           }
         },
         {
@@ -423,7 +423,7 @@
           "wrong": {
             "A": "The Moon moves along its orbit.",
             "C": "Half of the Moon is always dark.",
-            "D": "The article says the dark part is not Earth's shadow."
+            "D": "The dark part is not Earth's shadow."
           }
         }
       ],
@@ -479,9 +479,9 @@
           ],
           "answer": "D",
           "skill": "central-idea",
-          "why": "The article explains that the Moon itself does not change; our view of its lit hemisphere does as it orbits.",
+          "why": "The Moon itself does not change; our view of its lit hemisphere does as it orbits.",
           "wrong": {
-            "A": "The article says the Moon itself never changes.",
+            "A": "The Moon itself does not change.",
             "B": "The article calls this a misconception.",
             "C": "The calendar is one detail, not the central idea."
           }
@@ -496,9 +496,9 @@
           ],
           "answer": "B",
           "skill": "detail",
-          "why": "The article says the lunar glow is \"borrowed sunshine\" reflected by its rocky surface.",
+          "why": "The Moon's glow is sunlight that bounces off its surface.",
           "wrong": {
-            "A": "The article says the Moon generates no light.",
+            "A": "In the article, the Moon generates no light.",
             "C": "City lights are not mentioned.",
             "D": "Nothing burns on the Moon in the article."
           }
@@ -521,7 +521,7 @@
           }
         },
         {
-          "stem": "The author writes that the lunar glow is \"essentially borrowed sunshine.\" What does this phrase suggest?",
+          "stem": "The Moon's glow is really sunlight that bounces off it. What does this suggest?",
           "options": [
             "The Moon will give the light back later, in the morning",
             "The Moon steals light from the stars, and so it glows",
@@ -530,7 +530,7 @@
           ],
           "answer": "C",
           "skill": "vocabulary",
-          "why": "\"Borrowed\" shows that the Moon's light is not its own; it comes from the Sun.",
+          "why": "The word borrowed shows that the Moon's light is not its own; it comes from the Sun.",
           "wrong": {
             "A": "The phrase is a comparison, not a promise to return anything.",
             "B": "Stars are not mentioned as a source.",
@@ -644,7 +644,7 @@
         ],
         "answer": "A",
         "skill": "vocabulary",
-        "why": "The text says the Moon goes around Earth and this path is its orbit.",
+        "why": "In the text, the Moon goes around Earth and this path is its orbit.",
         "wrong": {
           "B": "The full Moon is a phase, not an orbit.",
           "C": "The lamp and ball are a model to test the idea.",
@@ -663,7 +663,7 @@
         "skill": "cause-effect",
         "why": "As the Moon moves, we see more or less of its lit half.",
         "wrong": {
-          "A": "The text says the dark part is not Earth's shadow.",
+          "A": "The dark part is not Earth's shadow.",
           "B": "The text says the Moon is the same.",
           "C": "The Sun always lights half of the Moon."
         }
@@ -678,7 +678,7 @@
         ],
         "answer": "B",
         "skill": "detail",
-        "why": "The text says each month starts when the new crescent is seen.",
+        "why": "In the text, each month starts when the new crescent is seen.",
         "wrong": {
           "A": "A full Moon comes in the middle of the cycle.",
           "C": "The half Moon does not start the month.",
@@ -714,7 +714,7 @@
         ],
         "answer": "D",
         "skill": "detail",
-        "why": "The text says sunlight falls on its gray, rocky surface.",
+        "why": "In the text, sunlight falls on its gray, rocky surface.",
         "wrong": {
           "A": "The surface is gray and rocky, not smooth and blue.",
           "B": "The text does not say it is wet or green.",
@@ -767,7 +767,7 @@
         ],
         "answer": "D",
         "skill": "vocabulary",
-        "why": "The text says a widespread misconception about Earth's shadow is incorrect.",
+        "why": "A common belief about Earth's shadow is wrong.",
         "wrong": {
           "A": "The sentence is about an idea, not a photo.",
           "B": "The word describes an idea, not a person.",
@@ -784,7 +784,7 @@
         ],
         "answer": "B",
         "skill": "detail",
-        "why": "The text says one cycle takes approximately 29 and a half days.",
+        "why": "One full cycle of phases takes about a month.",
         "wrong": {
           "A": "Seven days is about one quarter of the cycle.",
           "C": "Ninety days is too long.",

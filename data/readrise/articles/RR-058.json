@@ -138,7 +138,7 @@
           ],
           "answer": "A",
           "skill": "detail",
-          "why": "The article says a cyclone starts over the ocean, and the water must be warm.",
+          "why": "In the article, a cyclone starts over the ocean, and the water must be warm.",
           "wrong": {
             "B": "The article does not say cyclones start on mountains.",
             "C": "Cyclones need warm, wet air from the sea, not dry deserts.",
@@ -304,7 +304,7 @@
           "wrong": {
             "B": "The article says cyclones also happen near East Asia and in the Arabian Sea.",
             "C": "Gonu is an example; the article does not call it the strongest ever.",
-            "D": "The article says cyclones form over warm water."
+            "D": "In the article, cyclones form over warm water."
           }
         },
         {
@@ -317,7 +317,7 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The article states that the sea usually needs to be at least 26 degrees Celsius.",
+          "why": "In the article, the sea usually needs to be at least 26 degrees Celsius.",
           "wrong": {
             "A": "Ten degrees is far too cool for a cyclone.",
             "B": "Zero degrees is the freezing point of water.",
@@ -334,7 +334,7 @@
           ],
           "answer": "B",
           "skill": "detail",
-          "why": "The article says the eyewall, the ring of clouds around the eye, has the strongest winds and heaviest rain.",
+          "why": "In the article, the eyewall, the ring of clouds around the eye, has the strongest winds and heaviest rain.",
           "wrong": {
             "A": "The eye is the calm center.",
             "C": "The article does not say the outer edge is the strongest part.",
@@ -342,7 +342,7 @@
           }
         },
         {
-          "stem": "In the article, water vapor \"condenses into tiny drops.\" What does condenses mean?",
+          "stem": "In the article, what does the word \"condenses\" mean?",
           "options": [
             "Freezes into hard ice",
             "Turns from a gas into a liquid",
@@ -368,7 +368,7 @@
           ],
           "answer": "A",
           "skill": "cause-effect",
-          "why": "The article says that when vapor condenses it releases heat, which makes the air rise even faster and feeds the storm.",
+          "why": "In the article, when vapor condenses it releases heat, which makes the air rise even faster and feeds the storm.",
           "wrong": {
             "B": "The released heat warms the air; it does not cool the ocean.",
             "C": "The storm keeps spinning because of the Earth's turning.",
@@ -402,7 +402,7 @@
           ],
           "answer": "D",
           "skill": "inference",
-          "why": "The article says a cyclone weakens over land or cooler water because it loses its fuel, the warm ocean.",
+          "why": "In the article, a cyclone weakens over land or cooler water because it loses its fuel, the warm ocean.",
           "wrong": {
             "A": "Warm water feeds the storm; cool water does not.",
             "B": "The article does not mention a second eye.",
@@ -513,7 +513,7 @@
           ],
           "answer": "A",
           "skill": "detail",
-          "why": "The article states that the faster-rising air lowers the air pressure near the sea surface and draws in additional moist air.",
+          "why": "In the article, the faster-rising air lowers the air pressure near the sea surface and draws in additional moist air.",
           "wrong": {
             "B": "The article says the pressure is reduced, not raised.",
             "C": "The article says the pressure changes.",
@@ -530,7 +530,7 @@
           ],
           "answer": "C",
           "skill": "inference",
-          "why": "The article states that cyclones rotate counterclockwise in the Northern Hemisphere but clockwise in the Southern Hemisphere.",
+          "why": "In the article, cyclones rotate counterclockwise in the Northern Hemisphere but clockwise in the Southern Hemisphere.",
           "wrong": {
             "A": "Counterclockwise rotation is typical of the Northern Hemisphere.",
             "B": "The Earth's rotation causes all cyclones to spin.",
@@ -538,7 +538,7 @@
           }
         },
         {
-          "stem": "In the article, the cycle \"allows the storm to intensify.\" Which word could replace intensify?",
+          "stem": "The cycle makes the storm intensify. Which word could replace intensify?",
           "options": [
             "Disappear",
             "Strengthen",
@@ -564,7 +564,7 @@
           ],
           "answer": "D",
           "skill": "detail",
-          "why": "The article says short, distinctive names reduce confusion when several storms are active at the same time.",
+          "why": "Short, different names make it less confusing when several storms happen at the same time.",
           "wrong": {
             "A": "Countries do not cause storms.",
             "B": "A name cannot change a storm's strength.",
@@ -627,7 +627,7 @@
         ],
         "answer": "C",
         "skill": "detail",
-        "why": "The text says the warm sea gives the storm its power.",
+        "why": "The warm sea gives the storm its power.",
         "wrong": {
           "A": "The storm gets weak over land.",
           "B": "The clouds are made by the wet air, and they do not give the power.",
@@ -644,7 +644,7 @@
         ],
         "answer": "A",
         "skill": "sequence",
-        "why": "The text says the wet air goes up and up, and it makes big clouds.",
+        "why": "In the text, the warm, wet air rises, cools, and makes big clouds.",
         "wrong": {
           "B": "The storm reaches land later, after it has grown.",
           "C": "The warm sea feeds the storm, so it does not get cold.",
@@ -697,7 +697,7 @@
         ],
         "answer": "A",
         "skill": "detail",
-        "why": "The text says a storm becomes a full tropical cyclone when its winds reach about 119 kilometers per hour.",
+        "why": "In the text, a storm becomes a full tropical cyclone when its winds reach about 119 kilometers per hour.",
         "wrong": {
           "B": "The number 26 is the sea temperature in degrees Celsius.",
           "C": "This is much too slow for a cyclone.",
@@ -714,7 +714,7 @@
         ],
         "answer": "C",
         "skill": "cause-effect",
-        "why": "The text says that as air rushes in, the turning of the Earth makes the whole storm spin.",
+        "why": "In the text, as air rushes in, the turning of the Earth makes the whole storm spin.",
         "wrong": {
           "A": "Cold land weakens a storm and does not make it spin.",
           "B": "The clouds are part of the storm; they do not make it spin.",
@@ -731,7 +731,7 @@
         ],
         "answer": "B",
         "skill": "vocabulary",
-        "why": "The text says the water evaporates and turns into a gas called water vapor.",
+        "why": "In the text, the water evaporates and turns into a gas called water vapor.",
         "wrong": {
           "A": "The sea is warm, so it does not freeze.",
           "C": "Rain falls later from the clouds.",
@@ -748,10 +748,10 @@
         ],
         "answer": "D",
         "skill": "compare",
-        "why": "The text says the same kind of storm is called a hurricane near America and a typhoon near East Asia.",
+        "why": "In the text, the same kind of storm is called a hurricane near America and a typhoon near East Asia.",
         "wrong": {
           "A": "All of these storms have an eye.",
-          "B": "The text says cyclones form over warm ocean water.",
+          "B": "In the text, cyclones form over warm ocean water.",
           "C": "The text does not say they differ in temperature."
         }
       }
@@ -767,7 +767,7 @@
         ],
         "answer": "D",
         "skill": "detail",
-        "why": "The text says the eyewall is a dense ring of clouds with the most violent winds and heaviest rainfall.",
+        "why": "In the text, the eyewall is a dense ring of clouds with the most violent winds and heaviest rainfall.",
         "wrong": {
           "A": "That describes the eye in the middle.",
           "B": "A cyclone forms over warm water.",
@@ -784,7 +784,7 @@
         ],
         "answer": "B",
         "skill": "cause-effect",
-        "why": "The text says the rotation of the Earth deflects the inflowing air, so the entire system begins to spin.",
+        "why": "Earth's spinning bends the air that flows in, so the whole storm begins to spin.",
         "wrong": {
           "A": "Cooling makes vapor condense into droplets and clouds.",
           "C": "The warm sea is the fuel, not the cause of the spin.",
@@ -818,7 +818,7 @@
         ],
         "answer": "C",
         "skill": "author-purpose",
-        "why": "The text says the Arabian Sea also has cyclones, and Gonu struck the coast of Oman, so the example shows cyclones affect this region.",
+        "why": "In the text, the Arabian Sea also has cyclones, and Gonu struck the coast of Oman, so the example shows cyclones affect this region.",
         "wrong": {
           "A": "Gonu struck a coast, so it shows the opposite.",
           "B": "Names are explained in a different paragraph.",

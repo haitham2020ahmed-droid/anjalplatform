@@ -155,7 +155,7 @@
      ],
      "answer": "A",
      "skill": "detail",
-     "why": "The article says trees take in dirty air and give off fresh oxygen.",
+     "why": "In the article, trees take in dirty air and give off fresh oxygen.",
      "wrong": {
       "B": "Smoke is not what trees give off.",
       "C": "Noise is not related to trees and air.",
@@ -172,7 +172,7 @@
      ],
      "answer": "D",
      "skill": "inference",
-     "why": "The article explains that a park full of trees is cooler than a street full of concrete, so a city without parks would feel hotter.",
+     "why": "In the article, a park with trees is cooler than hot streets, so a city without parks would feel hotter.",
      "wrong": {
       "A": "Car speed is not mentioned.",
       "B": "Shopping is not mentioned.",
@@ -351,7 +351,7 @@
      ],
      "answer": "D",
      "skill": "inference",
-     "why": "The article explains that pollution from cars and factories can build up in cities and affect the health of everyone nearby.",
+     "why": "In the article, pollution from cars and factories can build up in cities.",
      "wrong": {
       "A": "Cars and factories are common in cities, not rare.",
       "B": "Cities are described as crowded with people.",
@@ -530,7 +530,7 @@
      ],
      "answer": "A",
      "skill": "inference",
-     "why": "The article explains that ponds and small lakes in parks give birds and small animals a place to live inside the city.",
+     "why": "In the article, ponds and small lakes in parks give birds and small animals a place to live inside the city.",
      "wrong": {
       "B": "The article shows animals do live in cities, within parks.",
       "C": "Parks are not built underwater.",
@@ -598,7 +598,7 @@
      ],
      "answer": "A",
      "skill": "cause-effect",
-     "why": "The article explains that shade and vegetation lower temperatures, while concrete absorbs heat during the day and releases it at night.",
+     "why": "In the article, shade and vegetation lower temperatures, while concrete absorbs heat during the day and releases it at night.",
      "wrong": {
       "B": "Parks are not built below ground.",
       "C": "The article does not describe concrete reflecting sunlight into space.",
@@ -647,7 +647,7 @@
     "why": "A walk in a park makes people feel glad, so calm means to make the mind quiet and peaceful.",
     "wrong": {
      "A": "That is the opposite of calm.",
-     "C": "The text says people feel glad.",
+     "C": "In the text, people feel glad.",
      "D": "Heat is not the point."
     }
    },
@@ -784,7 +784,7 @@
     ],
     "answer": "B",
     "skill": "detail",
-    "why": "The text says ponds and small lakes support local biodiversity and give birds and small animals a home.",
+    "why": "In the text, ponds and small lakes support local biodiversity and give birds and small animals a home.",
     "wrong": {
      "A": "Concrete is described as absorbing heat.",
      "C": "Buildings are not described as homes for wildlife.",
@@ -801,7 +801,7 @@
     ],
     "answer": "B",
     "skill": "cause-effect",
-    "why": "The text says concrete alone cannot support a healthy, sustainable daily life.",
+    "why": "In the text, concrete alone cannot support a healthy, sustainable daily life.",
     "wrong": {
      "A": "Cost is not discussed.",
      "C": "The text says cities are full of buildings and roads.",

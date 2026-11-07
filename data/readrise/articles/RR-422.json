@@ -138,7 +138,7 @@
           ],
           "answer": "A",
           "skill": "detail",
-          "why": "The story says Grandpa Saeed began this craft long ago.",
+          "why": "In the story, Grandpa Saeed began this craft long ago.",
           "wrong": {
             "B": "Omar is learning the craft, not the one who started it.",
             "C": "Khalid learned the craft from Saeed; he did not start it.",
@@ -155,7 +155,7 @@
           ],
           "answer": "D",
           "skill": "detail",
-          "why": "The story says Omar's design showed a hammer, a flame, and small stars.",
+          "why": "In the story, Omar's design had shapes like a flame and small stars.",
           "wrong": {
             "A": "The story does not mention a boat, fish, or wave.",
             "B": "The story does not mention a sun, moon, or cloud.",
@@ -189,7 +189,7 @@
           ],
           "answer": "A",
           "skill": "inference",
-          "why": "The story says Omar's hands shook at first, which is why some holes came out crooked.",
+          "why": "In the story, Omar's hands shook at first, which is why some holes came out crooked.",
           "wrong": {
             "B": "The story does not say the metal was wrong.",
             "C": "Omar cut the holes himself; Khalid only helped and showed him.",
@@ -385,7 +385,7 @@
           ],
           "answer": "C",
           "skill": "inference",
-          "why": "The story says Omar kept practicing every single evening, and this steady effort is why the pattern came out clean.",
+          "why": "In the story, Omar kept practicing every evening, and that is why the pattern came out clean.",
           "wrong": {
             "A": "The story does not mention buying a new tool.",
             "B": "Omar finished the pattern himself; Khalid only guided him.",
@@ -513,7 +513,7 @@
           ],
           "answer": "B",
           "skill": "detail",
-          "why": "The story explains that each symbol represented a different part of the family's long ancestral history with the craft.",
+          "why": "Each symbol stood for a different part of the family's long history with the craft.",
           "wrong": {
             "A": "The story does not connect the symbols to countries visited.",
             "C": "The story does not connect the symbols to specific tools.",
@@ -547,7 +547,7 @@
           ],
           "answer": "A",
           "skill": "inference",
-          "why": "The story explains that cutting the intricate pattern into unforgiving metal required a remarkably steady hand, which only developed through years of practice.",
+          "why": "In the story, cutting the intricate pattern into unforgiving metal required a remarkably steady hand, which only developed through years of practice.",
           "wrong": {
             "B": "The story does not mention importing brass.",
             "C": "Khalid patiently explained each step; he did not refuse to help.",
@@ -627,7 +627,7 @@
         ],
         "answer": "B",
         "skill": "detail",
-        "why": "The text says Grandpa Saeed began the craft and taught Omar's dad.",
+        "why": "In the text, Grandpa Saeed began the craft and taught Omar's dad.",
         "wrong": {
           "A": "An uncle is not mentioned.",
           "C": "A neighbor is not mentioned.",
@@ -644,7 +644,7 @@
         ],
         "answer": "A",
         "skill": "cause-effect",
-        "why": "The text says Grandpa's birthday was soon, so Omar had an idea to make him a gift.",
+        "why": "In the text, Grandpa's birthday was soon, so Omar had an idea to make him a gift.",
         "wrong": {
           "B": "The text does not say it was to be sold.",
           "C": "No prize is mentioned.",
@@ -661,7 +661,7 @@
         ],
         "answer": "D",
         "skill": "sequence",
-        "why": "The text says Omar got a sheet of metal and then drew a design on it.",
+        "why": "In the text, Omar got a sheet of metal and then drew a design on it.",
         "wrong": {
           "A": "He cut the holes after he drew the design.",
           "B": "He gave the gift at the end.",
@@ -767,7 +767,7 @@
         ],
         "answer": "D",
         "skill": "detail",
-        "why": "The text says he learned the basics from an older craftsman before opening his own shop.",
+        "why": "In the text, he learned the basics from an older craftsman before opening his own shop.",
         "wrong": {
           "A": "His father is not mentioned as his teacher.",
           "B": "No book is mentioned.",
@@ -801,7 +801,7 @@
         ],
         "answer": "B",
         "skill": "cause-effect",
-        "why": "The text says several holes came out crooked and uneven, forcing him to redo sections.",
+        "why": "In the text, several holes came out crooked and uneven, forcing him to redo sections.",
         "wrong": {
           "A": "Grandpa did not see it until the end.",
           "C": "No shortage of brass is mentioned.",

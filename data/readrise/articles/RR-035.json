@@ -138,9 +138,9 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The article says the shark does not hunt big fish. It eats tiny things called plankton.",
+          "why": "In the article, the shark does not hunt big animals. It eats tiny things called plankton.",
           "wrong": {
-            "A": "The article says the shark does not hunt big fish.",
+            "A": "In the article, the shark does not hunt big animals.",
             "B": "Seaweed is not named as its food.",
             "D": "Trash can hurt the shark. It is not food."
           }
@@ -189,7 +189,7 @@
           ],
           "answer": "D",
           "skill": "inference",
-          "why": "Fish use gills to take air from water. The article says the whale shark has gills, so it is a fish, a shark.",
+          "why": "Fish use gills to take air from water. In the article, the whale shark has gills, so it is a fish, a shark.",
           "wrong": {
             "A": "Where it lives does not make it a fish.",
             "B": "Spots do not decide if an animal is a fish.",
@@ -223,7 +223,7 @@
           ],
           "answer": "B",
           "skill": "cause-effect",
-          "why": "The article says boats can hit whale sharks. This is one reason they are endangered.",
+          "why": "In the article, boats can hit whale sharks. This is one reason they are endangered.",
           "wrong": {
             "A": "Boats do not feed the sharks in the article.",
             "C": "Spots do not change.",
@@ -302,7 +302,7 @@
           "skill": "central-idea",
           "why": "The article explains how the whale shark lives and eats, how scientists study it, and why it needs protection.",
           "wrong": {
-            "A": "The article says whale sharks are gentle and not a danger to people.",
+            "A": "In the article, whale sharks are gentle and not a danger to people.",
             "C": "The article does not compare the Red Sea with other seas.",
             "D": "The article says the shark does not use its teeth to eat."
           }
@@ -334,7 +334,7 @@
           ],
           "answer": "A",
           "skill": "detail",
-          "why": "The article says the tags show that whale sharks migrate long distances in search of food.",
+          "why": "In the article, the tags show that whale sharks migrate long distances in search of food.",
           "wrong": {
             "B": "Sleeping on the seafloor is not mentioned.",
             "C": "They also eat plankton and small fish.",
@@ -387,7 +387,7 @@
           "skill": "inference",
           "why": "The rule comes right after the article explains that whale sharks are endangered, so keeping away helps protect them.",
           "wrong": {
-            "A": "The article says whale sharks are not a danger to people.",
+            "A": "In the article, whale sharks are not a danger to people.",
             "B": "Water temperature is not mentioned.",
             "C": "The article does not say snorkelers scare plankton."
           }
@@ -402,7 +402,7 @@
           ],
           "answer": "A",
           "skill": "compare",
-          "why": "The article says whales are mammals that come up to breathe, while the whale shark is a fish with gills.",
+          "why": "In the article, whales are mammals that come up to breathe, while the whale shark is a fish with gills.",
           "wrong": {
             "B": "This is backward: whales are mammals and the whale shark is a fish.",
             "C": "Both live in the sea.",
@@ -496,7 +496,7 @@
           ],
           "answer": "A",
           "skill": "detail",
-          "why": "The article says most of the visitors are juvenile sharks measuring only about four meters long.",
+          "why": "In the article, most of the visitors are juvenile sharks measuring only about four meters long.",
           "wrong": {
             "B": "They are young, not adults, and the article gives four meters.",
             "C": "Whale sharks give birth to live young; they do not lay eggs.",
@@ -504,24 +504,24 @@
           }
         },
         {
-          "stem": "What does the article say about how whale sharks have their young?",
+          "stem": "According to the article, how is the whale shark different from a whale?",
           "options": [
-            "They lay eggs on the seafloor.",
-            "They build nests in coral reefs.",
-            "Females give birth to live young.",
-            "They hatch their eggs in their mouths."
+            "It must swim up to breathe air",
+            "It is a mammal that feeds milk",
+            "It is a fish that breathes with gills",
+            "It lives only in freshwater rivers"
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The article states that females give birth to live young rather than laying eggs.",
+          "why": "Whales are mammals that breathe air, but the whale shark is a fish that breathes with gills.",
           "wrong": {
-            "A": "The article says this is exactly what they do NOT do.",
-            "B": "Nests are not mentioned.",
-            "D": "This idea does not appear in the article."
+            "A": "Whales, not whale sharks, rise to breathe air.",
+            "B": "The whale shark is a fish, not a mammal.",
+            "D": "Whale sharks live in the sea."
           }
         },
         {
-          "stem": "The writer says the shark 'gulps water like a powerful vacuum.' What does this comparison suggest?",
+          "stem": "The whale shark takes in water with great force, like a vacuum. What does this comparison suggest?",
           "options": [
             "The shark makes a loud noise when it eats, like a vacuum.",
             "The shark pulls in water and food with great force.",
@@ -534,7 +534,7 @@
           "wrong": {
             "A": "The comparison is about suction, not sound.",
             "C": "The shark eats plankton; it does not clean up trash.",
-            "D": "The article says whale sharks present no danger to people."
+            "D": "In the article, whale sharks present no danger to people."
           }
         },
         {
@@ -581,7 +581,7 @@
           ],
           "answer": "A",
           "skill": "cause-effect",
-          "why": "The article says regulated ecotourism can benefit communities and sharks if snorkelers never touch them and keep their distance.",
+          "why": "Ecotourism can help communities and sharks if snorkelers never touch the sharks and keep their distance.",
           "wrong": {
             "B": "Boats are a danger; the article does not say sharks should trust them.",
             "C": "The article does not claim ecotourism removes all plastic.",
@@ -600,7 +600,7 @@
           "skill": "author-purpose",
           "why": "The mysterious shadow builds suspense and draws readers in before the author names the whale shark.",
           "wrong": {
-            "A": "The article says the shark is no danger to people.",
+            "A": "In the article, the shark is no danger to people.",
             "C": "Diving equipment is not explained.",
             "D": "No other oceans are compared."
           }
@@ -644,7 +644,7 @@
         ],
         "answer": "A",
         "skill": "vocabulary",
-        "why": "The text says the shark eats tiny things, and they are plankton.",
+        "why": "The shark eats tiny living things called plankton.",
         "wrong": {
           "B": "The shark does not hunt big fish.",
           "C": "The spots are on its back, but they are not plankton.",
@@ -681,7 +681,7 @@
         "why": "Lots of young sharks come to the reef in spring, so it must be a good place for them.",
         "wrong": {
           "A": "Sharks do visit the reef.",
-          "C": "The text says young sharks come there.",
+          "C": "In the text, young sharks come there.",
           "D": "The sharks come in spring."
         }
       }
@@ -697,7 +697,7 @@
         ],
         "answer": "B",
         "skill": "detail",
-        "why": "The text says an adult can grow about twelve meters long.",
+        "why": "An adult whale shark can grow about twelve meters long.",
         "wrong": {
           "A": "Two meters is far too short.",
           "C": "One hundred meters is far too long.",
@@ -748,7 +748,7 @@
         ],
         "answer": "C",
         "skill": "cause-effect",
-        "why": "The text says boats strike them, nets trap them, and plastic pollutes their waters.",
+        "why": "In the article, boats hit them, nets trap them, and plastic pollutes their waters.",
         "wrong": {
           "A": "The teeth do not harm them.",
           "B": "Being gentle does not stop them from feeding.",
@@ -770,7 +770,7 @@
         "why": "An aggregation of whale sharks forms at a reef each spring, so it means a gathering.",
         "wrong": {
           "A": "The sharks gather at a reef, not on a journey.",
-          "B": "The text says whale sharks present no danger to people.",
+          "B": "In the text, whale sharks present no danger to people.",
           "D": "The sharks eat plankton, not a food called aggregation."
         }
       },

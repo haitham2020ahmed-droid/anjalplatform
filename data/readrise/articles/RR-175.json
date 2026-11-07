@@ -155,9 +155,9 @@
           ],
           "answer": "A",
           "skill": "detail",
-          "why": "The article says to bend your knees, keep your back straight, and hold the box close.",
+          "why": "In the article, to bend your knees, keep your back straight, and hold the box close.",
           "wrong": {
-            "B": "The article says to keep your back straight and hold the box close.",
+            "B": "In the article, to keep your back straight and hold the box close.",
             "C": "The article does not say to use one hand.",
             "D": "The article does not say to lift fast."
           }
@@ -206,7 +206,7 @@
           ],
           "answer": "B",
           "skill": "inference",
-          "why": "The article says to hold your phone or tablet up so you do not bend your neck down.",
+          "why": "In the article, you should hold your phone or tablet up, not down low.",
           "wrong": {
             "A": "The floor would make her bend her neck even more.",
             "C": "The article does not suggest this.",
@@ -368,7 +368,7 @@
           ],
           "answer": "B",
           "skill": "cause-effect",
-          "why": "The article says this technique lets your powerful leg muscles do most of the work instead of your back.",
+          "why": "In the article, this technique lets your powerful leg muscles do most of the work instead of your back.",
           "wrong": {
             "A": "Speed is not the reason.",
             "C": "Bending your knees does not change the object's size.",
@@ -385,7 +385,7 @@
           ],
           "answer": "D",
           "skill": "inference",
-          "why": "The article says standing up after about thirty minutes of sitting prevents stiffness.",
+          "why": "In the article, getting up after about thirty minutes of sitting keeps you from getting stiff.",
           "wrong": {
             "A": "The student is not carrying a backpack.",
             "B": "The student is not lifting anything.",
@@ -406,7 +406,7 @@
           "wrong": {
             "B": "The spine is long, not the smallest part.",
             "C": "The article says the core muscles support the spine.",
-            "D": "The article says discs let the spine bend and twist."
+            "D": "In the article, discs let the spine bend and twist."
           }
         },
         {
@@ -419,7 +419,7 @@
           ],
           "answer": "C",
           "skill": "compare",
-          "why": "The article says the vertebrae are stacked on top of each other like a tower of building blocks.",
+          "why": "The vertebrae are stacked on top of each other like a tower of blocks.",
           "wrong": {
             "A": "The article does not use this comparison.",
             "B": "Ropes are not compared to the vertebrae.",
@@ -481,7 +481,7 @@
           "skill": "central-idea",
           "why": "The article describes the spine's design and then explains how posture, backpacks, lifting, and exercise protect it.",
           "wrong": {
-            "A": "The article says the spine is made of about 33 bones.",
+            "A": "In the article, the spine is made of about 33 bones.",
             "C": "Walking and stretching are also recommended.",
             "D": "The article gives advice on wearing backpacks correctly."
           }
@@ -496,7 +496,7 @@
           ],
           "answer": "A",
           "skill": "detail",
-          "why": "The article says the spinal cord passes through a hollow channel inside the vertebrae.",
+          "why": "In the article, the spinal cord passes through a hollow channel inside the vertebrae.",
           "wrong": {
             "B": "The article does not place it there.",
             "C": "Straps have nothing to do with the spinal cord.",
@@ -513,7 +513,7 @@
           ],
           "answer": "D",
           "skill": "detail",
-          "why": "The article says the discs act as cushions that absorb impact and allow bending, twisting, and turning.",
+          "why": "In the article, the discs act as cushions that absorb impact and allow bending, twisting, and turning.",
           "wrong": {
             "A": "The spinal cord carries messages.",
             "B": "The discs make the spine flexible, not stiff.",
@@ -547,7 +547,7 @@
           ],
           "answer": "C",
           "skill": "cause-effect",
-          "why": "The article explains that repeatedly bending the neck downward makes the neck muscles hold up much more weight.",
+          "why": "In the article, repeatedly bending the neck downward makes the neck muscles hold up much more weight.",
           "wrong": {
             "A": "Screen brightness is not discussed.",
             "B": "The spinal cord does not shrink.",
@@ -567,7 +567,7 @@
           "why": "The comparison helps readers picture how muscles pull and hold the spine in a balanced position.",
           "wrong": {
             "B": "The comparison is about function, not material.",
-            "C": "The article calls the muscles powerful.",
+            "C": "The core muscles are strong.",
             "D": "The comparison is about support, not messages."
           }
         },
@@ -697,7 +697,7 @@
         ],
         "answer": "B",
         "skill": "inference",
-        "why": "The article says strong muscles in the back and stomach help keep the spine steady.",
+        "why": "In the article, strong muscles in the back and stomach help keep the spine steady.",
         "wrong": {
           "A": "The article says muscles are needed.",
           "C": "Discs cushion the bones, but they do not hold the spine up alone.",
@@ -731,7 +731,7 @@
         ],
         "answer": "A",
         "skill": "cause-effect",
-        "why": "The article says bending your neck down for a long time makes your neck muscles work much harder.",
+        "why": "In the article, bending your neck down for a long time makes your neck muscles work much harder.",
         "wrong": {
           "B": "The discs soak up shock when you run or jump.",
           "C": "The weight of the phone does not change.",
@@ -748,7 +748,7 @@
         ],
         "answer": "A",
         "skill": "detail",
-        "why": "The article says getting up after about thirty minutes of sitting keeps you from getting stiff.",
+        "why": "In the article, getting up after about thirty minutes of sitting keeps you from getting stiff.",
         "wrong": {
           "B": "That is far too long to sit, according to the article.",
           "C": "The article says about thirty minutes.",
@@ -767,7 +767,7 @@
         ],
         "answer": "C",
         "skill": "detail",
-        "why": "The article says the spine is made of about 33 separate bones called vertebrae.",
+        "why": "In the article, the spine is made of about 33 separate bones called vertebrae.",
         "wrong": {
           "A": "The article says about 33.",
           "B": "The article says about 33.",
@@ -801,7 +801,7 @@
         ],
         "answer": "A",
         "skill": "cause-effect",
-        "why": "The article says wearing both straps spreads the load evenly across the shoulders.",
+        "why": "In the article, wearing both straps spreads the load evenly across the shoulders.",
         "wrong": {
           "B": "Packing the heaviest books near the back is a different tip.",
           "C": "The straps do not change the weight of the bag.",
@@ -818,7 +818,7 @@
         ],
         "answer": "B",
         "skill": "inference",
-        "why": "The article says the spine protects the spinal cord, which carries messages between the brain and body.",
+        "why": "In the article, the spine protects the spinal cord, which carries messages between the brain and body.",
         "wrong": {
           "A": "The article says posture is important.",
           "C": "The article talks about many activities, not only sitting.",

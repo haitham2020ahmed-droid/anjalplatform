@@ -138,7 +138,7 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The article says that in 1727 Muhammad bin Saud made Diriyah the capital of the first Saudi state.",
+          "why": "In 1727 Muhammad bin Saud made Diriyah the capital of the first Saudi state.",
           "wrong": {
             "A": "The town was already built long before 1727.",
             "B": "Riyadh became the capital later, after 1818.",
@@ -155,7 +155,7 @@
           ],
           "answer": "A",
           "skill": "detail",
-          "why": "The article says the homes were made of mud brick.",
+          "why": "In the article, the homes were made of mud brick.",
           "wrong": {
             "B": "Glass and steel are modern materials not named in the article.",
             "C": "Palm trees grew in the valley, but the homes were mud brick.",
@@ -172,7 +172,7 @@
           ],
           "answer": "B",
           "skill": "cause-effect",
-          "why": "The article says the walls were thick, so the rooms stayed cool.",
+          "why": "The thick walls kept the rooms cool.",
           "wrong": {
             "A": "The homes were not underground.",
             "C": "There was no ice on the roofs.",
@@ -214,7 +214,7 @@
           }
         },
         {
-          "stem": "In the article, the old town \"has been fixed.\" What does fixed mean here?",
+          "stem": "In the article, what does the word \"fixed\" mean?",
           "options": [
             "Made smaller than it was before",
             "Sold to new owners for a lot of money",
@@ -317,7 +317,7 @@
           ],
           "answer": "B",
           "skill": "detail",
-          "why": "The article says a large palace stood on a hill in a district called At-Turaif, where leaders lived and met.",
+          "why": "In the article, a large palace stood on a hill in a district called At-Turaif, where leaders lived and met.",
           "wrong": {
             "A": "The palms grow in the valley; At-Turaif is on a hill.",
             "C": "The army is not named At-Turaif.",
@@ -334,7 +334,7 @@
           ],
           "answer": "D",
           "skill": "detail",
-          "why": "The article states that in 2010 At-Turaif was named a World Heritage Site.",
+          "why": "In 2010 At-Turaif was named a World Heritage Site.",
           "wrong": {
             "A": "The town was founded in 1446.",
             "B": "Diriyah became the capital in 1727.",
@@ -351,7 +351,7 @@
           ],
           "answer": "B",
           "skill": "cause-effect",
-          "why": "The article says much of Diriyah was destroyed and left empty, and later Riyadh became the capital.",
+          "why": "In the article, much of Diriyah was destroyed and left empty, and later Riyadh became the capital.",
           "wrong": {
             "A": "The town was destroyed, not made richer.",
             "C": "The attack damaged the walls; it did not strengthen them.",
@@ -376,7 +376,7 @@
           }
         },
         {
-          "stem": "The article says At-Turaif is important to the \"heritage of the whole world.\" What does heritage mean here?",
+          "stem": "In the article, what does the word \"heritage\" mean?",
           "options": [
             "The weather of a place in each season of the year",
             "New buildings and roads that are built in the city",
@@ -513,7 +513,7 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The article explains that thick mud-brick walls kept interiors cool while small triangular openings provided ventilation.",
+          "why": "In the article, thick mud-brick walls kept interiors cool while small triangular openings provided ventilation.",
           "wrong": {
             "A": "The article mentions small openings, not large glass windows.",
             "B": "Stilts are not mentioned.",
@@ -555,7 +555,7 @@
           }
         },
         {
-          "stem": "The article says the forces \"placed the town under siege.\" What does this mean?",
+          "stem": "Forces placed the town under siege. What does this mean?",
           "options": [
             "They visited the town to trade with its people",
             "They surrounded the town to force it to surrender",
@@ -627,7 +627,7 @@
         ],
         "answer": "B",
         "skill": "detail",
-        "why": "The text says a big palace stood on a hill in the main part of town.",
+        "why": "In the text, a big palace stood on a hill in the main part of town.",
         "wrong": {
           "A": "The valley is where palms grow, not the palace.",
           "C": "The text does not put Diriyah by the sea.",
@@ -697,7 +697,7 @@
         ],
         "answer": "C",
         "skill": "detail",
-        "why": "The text says the small openings let fresh air flow in.",
+        "why": "In the text, the small openings let fresh air flow in.",
         "wrong": {
           "A": "The thick walls were strong; openings do not hold them.",
           "B": "The text does not say they kept sand out.",
@@ -767,7 +767,7 @@
         ],
         "answer": "B",
         "skill": "detail",
-        "why": "The text says mud brick is made by mixing clay, straw, and water and drying it in the sun.",
+        "why": "In the text, mud brick is made by mixing clay, straw, and water and drying it in the sun.",
         "wrong": {
           "A": "Sand and stone are not named.",
           "C": "Palm leaves and wood are not named.",

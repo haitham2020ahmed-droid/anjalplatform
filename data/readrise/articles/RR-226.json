@@ -223,7 +223,7 @@
           ],
           "answer": "C",
           "skill": "inference",
-          "why": "The article says Venus is hot enough to melt metal, so a person could never survive standing there.",
+          "why": "In the article, Venus is so hot it could melt some metal, so a person could not stand there.",
           "wrong": {
             "A": "The article does not say Venus is light like a gas giant.",
             "B": "Venus is extremely hot, not cold.",
@@ -304,7 +304,7 @@
           "wrong": {
             "A": "The article says the planets are similar in size but very different underneath.",
             "C": "Mercury is mentioned only for comparison.",
-            "D": "The article says spacecraft survive only a short time on Venus."
+            "D": "In the article, spacecraft survive only a short time on Venus."
           }
         },
         {
@@ -317,7 +317,7 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The article says Venus's clouds are made of a harsh acid, unlike the water droplets in Earth's clouds.",
+          "why": "In the article, Venus's clouds are made of a harsh acid, unlike the water droplets in Earth's clouds.",
           "wrong": {
             "A": "The article contrasts Venus's clouds with Earth's water-droplet clouds.",
             "B": "Ice crystals are not mentioned.",
@@ -342,7 +342,7 @@
           }
         },
         {
-          "stem": "Read: \"Venus's clouds reflect such an enormous proportion of incoming sunlight.\" What does reflect mean here?",
+          "stem": "In the article, what does the word \"reflect\" mean?",
           "options": [
             "Absorb completely",
             "Bounce back",
@@ -496,7 +496,7 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The article states the atmosphere presses down with roughly ninety times more pressure than Earth's atmosphere at sea level.",
+          "why": "In the article, the atmosphere presses down with roughly ninety times more pressure than Earth's atmosphere at sea level.",
           "wrong": {
             "A": "The article gives a much larger figure than double.",
             "B": "Ten times is far less than the figure given in the article.",
@@ -513,7 +513,7 @@
           ],
           "answer": "B",
           "skill": "detail",
-          "why": "The article states that landed spacecraft survive only a brief interval, generally under two hours, before extreme heat and pressure destroy their instruments.",
+          "why": "In the article, landed spacecraft survive only a brief interval, generally under two hours, before extreme heat and pressure destroy their instruments.",
           "wrong": {
             "A": "The article says survival time is brief, not years.",
             "C": "Venus's surface is not described as a liquid ocean.",
@@ -521,7 +521,7 @@
           }
         },
         {
-          "stem": "Read: \"Venus's clouds consist of this harsh, corrosive acid.\" What does corrosive mean here?",
+          "stem": "In the article, what does the word \"corrosive\" mean?",
           "options": [
             "Able to produce very bright light in the dark",
             "Able to gradually damage or dissolve materials",
@@ -547,7 +547,7 @@
           ],
           "answer": "A",
           "skill": "cause-effect",
-          "why": "The article explains that the extraordinarily thick atmosphere traps solar heat near the surface, preventing it from radiating back into space, which drives the runaway greenhouse effect.",
+          "why": "In the article, the extraordinarily thick atmosphere traps solar heat near the surface, preventing it from radiating back into space, which drives the runaway greenhouse effect.",
           "wrong": {
             "B": "Venus's atmosphere is described as extraordinarily thick, not thin.",
             "C": "Rotation direction is not linked to the greenhouse effect in the article.",
@@ -627,7 +627,7 @@
         ],
         "answer": "B",
         "skill": "detail",
-        "why": "The text says to look up at dusk and see a bright dot that does not blink.",
+        "why": "Look up at dusk and you may see a bright dot that does not twinkle.",
         "wrong": {
           "A": "The text never says Venus is red or that it blinks.",
           "C": "Venus is a planet, not a moon.",
@@ -644,7 +644,7 @@
         ],
         "answer": "D",
         "skill": "cause-effect",
-        "why": "The text says the trapped heat cannot get out, and this makes Venus the hottest planet of all.",
+        "why": "In the text, the trapped heat cannot get out, and this makes Venus the hottest planet of all.",
         "wrong": {
           "A": "Trapped heat makes Venus hot, not cold.",
           "B": "Trapped heat has nothing to do with how fast Venus spins.",
@@ -661,7 +661,7 @@
         ],
         "answer": "A",
         "skill": "compare",
-        "why": "The text says one spin takes longer than one whole trip round the sun.",
+        "why": "In the text, one spin of Venus takes longer than one whole trip around the sun.",
         "wrong": {
           "B": "The text says the spin is slow, not quick.",
           "C": "The text says the two are not the same.",
@@ -697,11 +697,11 @@
         ],
         "answer": "C",
         "skill": "cause-effect",
-        "why": "The text says its clouds reflect sunlight so well that Venus looks the brightest.",
+        "why": "In the text, its clouds reflect sunlight so well that Venus looks the brightest.",
         "wrong": {
           "A": "The text says Venus is almost the same size as Earth, not the biggest.",
           "B": "The text does not say Venus is the closest planet to Earth.",
-          "D": "The text says the clouds reflect sunlight, so the light is not its own."
+          "D": "In the text, the clouds reflect sunlight, so the light is not its own."
         }
       },
       {
@@ -714,7 +714,7 @@
         ],
         "answer": "A",
         "skill": "vocabulary",
-        "why": "The text says scientists call the thick blanket of gas that covers the planet the atmosphere.",
+        "why": "In the text, scientists call the thick blanket of gas that covers the planet the atmosphere.",
         "wrong": {
           "B": "The text does not describe a layer of rock called the atmosphere.",
           "C": "The acid is in the clouds, and the atmosphere is the gas.",
@@ -733,7 +733,7 @@
         "skill": "inference",
         "why": "Dense clouds cover the whole planet, so we need spacecraft to learn what is underneath them.",
         "wrong": {
-          "A": "The text says people can see Venus from Earth.",
+          "A": "In the text, people can see Venus from Earth.",
           "C": "The sun does shine on Venus, so this is wrong.",
           "D": "The text gives no reason like this."
         }
@@ -750,7 +750,7 @@
         "skill": "detail",
         "why": "The text says the atmosphere is made mostly of carbon dioxide.",
         "wrong": {
-          "A": "The text says the clouds are acid, not gentle water drops.",
+          "A": "The clouds are made of acid, not gentle water drops.",
           "B": "The text does not mention oxygen.",
           "C": "The text does not mention dust or sand."
         }
@@ -784,7 +784,7 @@
         ],
         "answer": "A",
         "skill": "vocabulary",
-        "why": "The text says Venus rotates in an unusual, backward direction that astronomers call retrograde rotation.",
+        "why": "In the text, Venus rotates in an unusual, backward direction that astronomers call retrograde rotation.",
         "wrong": {
           "B": "The text calls the spin slow, and it is not about speed around the sun.",
           "C": "The text says most planets spin the other way.",

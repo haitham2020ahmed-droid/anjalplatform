@@ -155,7 +155,7 @@
           ],
           "answer": "A",
           "skill": "detail",
-          "why": "The article says to turn off the tap when you brush your teeth.",
+          "why": "In the article, to turn off the tap when you brush your teeth.",
           "wrong": {
             "B": "A bath uses a lot of water.",
             "C": "A running tap wastes water.",
@@ -172,7 +172,7 @@
           ],
           "answer": "D",
           "skill": "cause-effect",
-          "why": "The article says sea water is too salty to drink, so plants take the salt out.",
+          "why": "In the article, sea water is too salty to drink, so plants take the salt out.",
           "wrong": {
             "A": "The goal is to make it safe to drink, not sweet.",
             "B": "The article does not say this.",
@@ -206,7 +206,7 @@
           ],
           "answer": "D",
           "skill": "inference",
-          "why": "The article says that when the sun is low, less of the water dries up.",
+          "why": "In the article, when the sun is low, less of the water dries up.",
           "wrong": {
             "A": "The article does not say plants sleep.",
             "B": "Birds are not mentioned.",
@@ -303,7 +303,7 @@
           "why": "The article explains why fresh water is limited and costly, then gives ways families can save it.",
           "wrong": {
             "B": "Saudi Arabia has no rivers that flow all year.",
-            "C": "The article says to run them only when full.",
+            "C": "Washing machines can be used when they are full; that is only one tip.",
             "D": "The article says desalination is costly and uses a lot of energy."
           }
         },
@@ -317,7 +317,7 @@
           ],
           "answer": "B",
           "skill": "vocabulary",
-          "why": "The article says plants along the coast remove the salt from sea water in a process called desalination.",
+          "why": "In the article, plants along the coast remove the salt from sea water in a process called desalination.",
           "wrong": {
             "A": "That describes groundwater.",
             "C": "That is a water-saving tip.",
@@ -334,7 +334,7 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The article states that Saudi Arabia produces more desalinated water than any other country.",
+          "why": "In the article, Saudi Arabia produces more desalinated water than any other country.",
           "wrong": {
             "A": "The article says desalination is used today.",
             "B": "There are no rivers that flow all year.",
@@ -351,7 +351,7 @@
           ],
           "answer": "B",
           "skill": "cause-effect",
-          "why": "The article says groundwater collected thousands of years ago and refills extremely slowly.",
+          "why": "In the article, groundwater collected thousands of years ago and refills extremely slowly.",
           "wrong": {
             "A": "The article does not say groundwater is too salty.",
             "C": "The article does not say this.",
@@ -368,7 +368,7 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The article says even a small leak can waste thousands of liters in a year.",
+          "why": "In the article, even a small leak can waste thousands of liters in a year.",
           "wrong": {
             "A": "The article says the amount is much larger.",
             "B": "The article says the amount is much larger.",
@@ -482,7 +482,7 @@
           "why": "The article explains the expense of desalination and the slow refilling of aquifers, then urges families to cut water use.",
           "wrong": {
             "B": "Desalination is expensive and energy-hungry.",
-            "C": "The article says it is replenished very slowly.",
+            "C": "The groundwater does refill very slowly.",
             "D": "The article addresses every family."
           }
         },
@@ -496,7 +496,7 @@
           ],
           "answer": "B",
           "skill": "detail",
-          "why": "The article says the water accumulated thousands of years ago and is replenished so slowly that it is not truly renewable.",
+          "why": "Most of the groundwater collected long ago and refills so slowly that it is not truly renewable.",
           "wrong": {
             "A": "Pollution is not mentioned.",
             "C": "People do pump it; depth is not the issue given.",
@@ -513,7 +513,7 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The article says Qatrah means \"drop\" in Arabic.",
+          "why": "In the article, Qatrah means \"drop\" in Arabic.",
           "wrong": {
             "A": "This is not the meaning given.",
             "B": "This is not the meaning given.",
@@ -564,7 +564,7 @@
           ],
           "answer": "A",
           "skill": "cause-effect",
-          "why": "The article says drip irrigation delivers water directly to the roots through small tubes.",
+          "why": "In the article, drip irrigation delivers water directly to the roots through small tubes.",
           "wrong": {
             "B": "Drip irrigation does not use sea water.",
             "C": "Its purpose is to use less water.",
@@ -644,7 +644,7 @@
         ],
         "answer": "D",
         "skill": "cause-effect",
-        "why": "The text says the land has no big rivers or lakes and it does not rain much.",
+        "why": "In the text, the land has no big rivers or lakes and it does not rain much.",
         "wrong": {
           "A": "A lot of water comes from the sea.",
           "B": "The plants that take out salt are big.",
@@ -714,7 +714,7 @@
         ],
         "answer": "A",
         "skill": "cause-effect",
-        "why": "The text says the process costs a lot of money and uses a great deal of energy.",
+        "why": "In the text, making fresh water from the sea costs a lot of money and uses a lot of energy.",
         "wrong": {
           "B": "The plants remove the salt.",
           "C": "Desalination does not depend on rain.",
@@ -767,7 +767,7 @@
         ],
         "answer": "D",
         "skill": "detail",
-        "why": "The text says an aquifer is an underground layer of rock that holds water like a sponge.",
+        "why": "In the text, an aquifer is an underground layer of rock that holds water like a sponge.",
         "wrong": {
           "A": "Desalination plants remove salt; an aquifer is underground.",
           "B": "The text does not describe a pipe.",
@@ -784,7 +784,7 @@
         ],
         "answer": "B",
         "skill": "vocabulary",
-        "why": "The article explains that Saudi Arabia removes salt from seawater to make fresh water, a process called desalination.",
+        "why": "In the article, Saudi Arabia removes salt from seawater to make fresh water, a process called desalination.",
         "wrong": {
           "A": "Underground water is groundwater from aquifers.",
           "C": "Evening watering is a way to save water, not desalination.",

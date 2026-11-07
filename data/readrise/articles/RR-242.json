@@ -138,7 +138,7 @@
      ],
      "answer": "A",
      "skill": "detail",
-     "why": "The article says a yawn means opening your mouth wide and taking a big breath.",
+     "why": "In the article, a yawn means opening your mouth wide and taking a big breath.",
      "wrong": {
       "B": "Yawning does not mean falling asleep instantly.",
       "C": "Shaking the body is not part of a yawn.",
@@ -155,7 +155,7 @@
      ],
      "answer": "C",
      "skill": "detail",
-     "why": "The article says a hiccup makes a funny 'hic' sound.",
+     "why": "In the article, a hiccup makes a funny 'hic' sound.",
      "wrong": {
       "A": "Barking is not mentioned.",
       "B": "Whistling is not mentioned.",
@@ -172,7 +172,7 @@
      ],
      "answer": "B",
      "skill": "vocabulary",
-     "why": "The article explains that the diaphragm is a muscle under your lungs that helps you breathe.",
+     "why": "The diaphragm is a muscle under your lungs that helps you breathe.",
      "wrong": {
       "A": "The diaphragm is not a bone in the ear.",
       "C": "A yawn is different from the diaphragm.",
@@ -223,7 +223,7 @@
      ],
      "answer": "A",
      "skill": "cause-effect",
-     "why": "The article says hiccups often start if you eat too fast or drink a fizzy drink.",
+     "why": "In the article, hiccups often start if you eat too fast or drink a fizzy drink.",
      "wrong": {
       "B": "Yawning is not linked to fast eating in the article.",
       "C": "The diaphragm keeps helping you breathe.",
@@ -304,7 +304,7 @@
      "wrong": {
       "A": "The article does not describe these as dangerous or easily cured.",
       "C": "People also yawn when tired or sleepy, not only when bored.",
-      "D": "The article says hiccups usually stop within a few minutes."
+      "D": "In the article, hiccups usually stop within a few minutes."
      }
     },
     {
@@ -334,7 +334,7 @@
      ],
      "answer": "A",
      "skill": "detail",
-     "why": "The article explains that when the diaphragm spasms, the vocal cords snap shut quickly, producing the 'hic' sound.",
+     "why": "In the article, when the diaphragm spasms, the vocal cords snap shut quickly, producing the 'hic' sound.",
      "wrong": {
       "B": "The lungs keep working during a hiccup.",
       "C": "Sleep is not connected to hiccups in the article.",
@@ -500,7 +500,7 @@
      "wrong": {
       "A": "The optic nerve relates to vision, not breathing.",
       "C": "A general spinal nerve is not named in the article.",
-      "D": "A 'vocal nerve' is not a term used in the article."
+      "D": "The article does not mention a vocal nerve."
      }
     },
     {
@@ -581,7 +581,7 @@
      ],
      "answer": "B",
      "skill": "inference",
-     "why": "The article explains that even watching or reading about yawning can trigger a yawn, supporting the idea that yawning is contagious.",
+     "why": "In the article, even watching or reading about yawning can trigger a yawn, supporting the idea that yawning is contagious.",
      "wrong": {
       "A": "Exercise is not connected to yawning in the article.",
       "C": "The phrenic nerve is linked to the diaphragm, not yawning.",
@@ -661,7 +661,7 @@
     ],
     "answer": "A",
     "skill": "cause-effect",
-    "why": "The text says when the muscle under the lungs jumps, the throat snaps shut fast, and that snap makes the 'hic' sound.",
+    "why": "In the text, when the muscle under the lungs jumps, the throat snaps shut fast, and that snap makes the 'hic' sound.",
     "wrong": {
      "B": "Teeth are not part of the hiccup.",
      "C": "A cold nose does not make the sound.",

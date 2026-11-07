@@ -95,7 +95,7 @@ describe("👪 Family report: Writing, ReadRise, Fluency Coach plan — friendly
 
     // 🚀 ReadRise Level, growth, this term, streak — never "Lexile"
     const r = sec("Reading level (ReadRise)")!.lines.join("\n");
-    assert.match(r, /ReadRise Level: 820 \(started at 760 · up 60 since the placement\)/);
+    assert.match(r, /ReadRise Level: 820L \(started at 760L · up 60 since the placement\)/);
     assert.match(r, /Articles finished this term: 4\./, "the run from 200 days ago is another term");
     assert.match(r, /met 2 weeks in a row/);
     assert.ok(!/lexile/i.test(all(c)), "never called Lexile");

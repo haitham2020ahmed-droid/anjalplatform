@@ -138,9 +138,9 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The article says the light comes from the body when two things mix inside it.",
+          "why": "In the article, the light comes from the body when two things mix inside it.",
           "wrong": {
-            "A": "The article says this light is not from the sun.",
+            "A": "This light is not from the sun.",
             "B": "The article says it is not a lamp.",
             "D": "The moon is not named as the source of the light."
           }
@@ -189,7 +189,7 @@
           ],
           "answer": "C",
           "skill": "cause-effect",
-          "why": "The article says waves shake the plankton and the sea shines blue.",
+          "why": "In the article, waves shake the plankton and the sea shines blue.",
           "wrong": {
             "A": "The article does not say plankton sink.",
             "B": "Plankton do not turn into fish in the article.",
@@ -303,7 +303,7 @@
           "why": "The article explains how living light is made and shows how animals use it to communicate, hunt, hide, and escape.",
           "wrong": {
             "A": "The article never compares how bright different animals are.",
-            "C": "The article says many animals live and glow in the deep sea.",
+            "C": "Many animals live and glow in the deep sea.",
             "D": "Scientists borrowed glowing chemicals from nature; they did not invent living light."
           }
         },
@@ -317,7 +317,7 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The article says a special glowing chemical joins with oxygen and the reaction gives off light.",
+          "why": "In the article, a special glowing chemical joins with oxygen and the reaction gives off light.",
           "wrong": {
             "A": "Living light does not need sunlight.",
             "B": "The light makes almost no heat, and salt is not mentioned.",
@@ -334,7 +334,7 @@
           ],
           "answer": "B",
           "skill": "detail",
-          "why": "The article says that, unlike a light bulb, living light makes almost no heat.",
+          "why": "In the article, living light makes almost no heat, unlike a light bulb.",
           "wrong": {
             "A": "Fireflies glow on warm nights, so it is not only in cold water.",
             "C": "Being blue is about how light travels in water, not why it is called cold.",
@@ -342,7 +342,7 @@
           }
         },
         {
-          "stem": "Read this sentence: \"Light can also be a kind of camouflage.\" What does camouflage mean here?",
+          "stem": "In the article, what does the word \"camouflage\" mean?",
           "options": [
             "A way to look brighter than everything else",
             "A way to call other animals",
@@ -368,7 +368,7 @@
           ],
           "answer": "B",
           "skill": "cause-effect",
-          "why": "The article says the belly glow blends with the dim light from the surface, so the fish almost disappears.",
+          "why": "In the article, the belly glow matches the dim light from above, so the fish is hard to see.",
           "wrong": {
             "A": "The glow is soft and faint, not blinding.",
             "C": "The article does not say the glow changes the fish's size.",
@@ -385,7 +385,7 @@
           ],
           "answer": "A",
           "skill": "inference",
-          "why": "The article says blue light travels farthest through water, so blue light is the most useful underwater.",
+          "why": "In the article, blue light travels farthest through water, so blue light is the most useful underwater.",
           "wrong": {
             "B": "The article never says animals can see only blue.",
             "C": "The article gives a different reason: blue travels farthest.",
@@ -513,7 +513,7 @@
           ],
           "answer": "B",
           "skill": "detail",
-          "why": "The article says patches under its eyes are packed with symbiotic bacteria that produce the light in exchange for food and shelter.",
+          "why": "In the article, patches under its eyes are packed with symbiotic bacteria that produce the light in exchange for food and shelter.",
           "wrong": {
             "A": "The article does not mention reflected moonlight.",
             "C": "Eating plankton is not given as the source of its light.",
@@ -564,7 +564,7 @@
           ],
           "answer": "C",
           "skill": "inference",
-          "why": "The article says blue-green is the wavelength that travels farthest through seawater, so it is the most visible color there.",
+          "why": "In the article, blue-green is the wavelength that travels farthest through seawater, so it is the most visible color there.",
           "wrong": {
             "A": "Living light is cold, so heat is not the issue.",
             "B": "Nothing in the article says predators prefer red.",
@@ -618,20 +618,20 @@
   "stretch": {
     "LOW": [
       {
-        "stem": "What is the light of a glowing animal like?",
+        "stem": "Where do many glowing animals live?",
         "options": [
-          "It is hot",
-          "It is red",
-          "It is cool",
-          "It is loud"
+          "In hot deserts",
+          "In the deep sea",
+          "On high hills",
+          "In big cities"
         ],
-        "answer": "C",
+        "answer": "B",
         "skill": "detail",
-        "why": "The text says the light is not hot, it is cool.",
+        "why": "In the article, many glowing animals live in the deep sea, where it is dark.",
         "wrong": {
-          "A": "The text says the light is not hot.",
-          "B": "Red is not mentioned.",
-          "D": "Light does not make sound."
+          "A": "Deserts are not where most glowing animals live.",
+          "C": "Hills are not named.",
+          "D": "Cities are not named."
         }
       },
       {
@@ -644,7 +644,7 @@
         ],
         "answer": "C",
         "skill": "author-purpose",
-        "why": "The text says the light is not from a lamp; the living thing makes it in its own body.",
+        "why": "The light is not from a lamp; the living thing makes it in its own body.",
         "wrong": {
           "A": "The text is not about lamps in the sea.",
           "B": "The fish does not use a lamp.",
@@ -661,7 +661,7 @@
         ],
         "answer": "D",
         "skill": "cause-effect",
-        "why": "The text says they mix and make light.",
+        "why": "In the text, they mix and make light.",
         "wrong": {
           "A": "The light is cool and not hot.",
           "B": "No sound is mentioned.",
@@ -678,7 +678,7 @@
         ],
         "answer": "A",
         "skill": "vocabulary",
-        "why": "The text says the flash is a signal that helps the bugs find each other.",
+        "why": "In the text, fireflies flash to help each other find one another, so a signal is a message.",
         "wrong": {
           "B": "Hiding is a different idea in the article.",
           "C": "Food is not the idea.",
@@ -697,7 +697,7 @@
         ],
         "answer": "B",
         "skill": "detail",
-        "why": "The text says the anglerfish has a glowing tip on a rod that hangs over its mouth.",
+        "why": "In the text, the anglerfish has a glowing tip on a rod that hangs over its mouth.",
         "wrong": {
           "A": "Eyes are not described this way.",
           "C": "A glowing cloud is squirted by squid and shrimp.",
@@ -731,7 +731,7 @@
         ],
         "answer": "A",
         "skill": "cause-effect",
-        "why": "The text says plankton glow when waves shake them.",
+        "why": "In the text, plankton glow when waves shake them.",
         "wrong": {
           "B": "Heat is not what makes them glow.",
           "C": "Squid are not mentioned here.",
@@ -767,7 +767,7 @@
         ],
         "answer": "D",
         "skill": "detail",
-        "why": "The text says each species has its own pattern so fireflies can recognize members of their own kind in the dark.",
+        "why": "In the text, each species has its own pattern so fireflies can recognize members of their own kind in the dark.",
         "wrong": {
           "A": "Energy is not mentioned.",
           "B": "Fireflies are beetles themselves.",

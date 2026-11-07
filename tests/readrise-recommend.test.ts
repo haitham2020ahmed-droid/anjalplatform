@@ -140,7 +140,7 @@ describe("🧭 ReadRise recommendations", () => {
     assert.notDeepEqual(ids.slice().sort(), seededOrder(ids, "x|2026-11-04"), "not alphabetical");
   });
 
-  test("readNext priorities: teacher > stretch > new topic > skill > easier; never done or open", async () => {
+  test("readNext priorities: teacher > new topic > skill > liked / same topic; never an article already run", async () => {
     const s = st[2];
     const base = { articleId: A.ocean, score: 90, firstTry: true, stretch: false, band: "MID", canStretch: true };
     await addRun(repo, s, A.ocean, { score: 90 });
@@ -151,14 +151,16 @@ describe("🧭 ReadRise recommendations", () => {
     const t1 = await readNext(repo, s.studentId!, s.schoolId!, base, NOW);
     assert.deepEqual([t1?.articleId, t1?.reason.kind, t1?.stretch], [A.art, "TEACHER", false]);
     assert.equal(t1?.reason.label, "📌 From your teacher · due Nov 7");
-    assert.equal(t1?.title, "Article ART");
+    assert.equal(t1?.title, "ART (800)", "round 7: the title of the version the student will read (their level)");
     // the teacher's article already done → the next one
     await addRun(repo, s, A.art, { score: 80 });
     assert.equal((await readNext(repo, s.studentId!, s.schoolId!, base, NOW))?.articleId, A.food);
     await repo.deleteMany("RRClassArticle", { classId });
-    // stretch
+    // round 7: never the same article "one level up" (the done screen's Stretch does that), even with a stretch allowed
     const t2 = await readNext(repo, s.studentId!, s.schoolId!, base, NOW);
-    assert.deepEqual([t2?.articleId, t2?.reason.kind, t2?.stretch], [A.ocean, "STRETCH", true]);
+    assert.ok(t2 && t2.articleId !== A.ocean && t2.articleId !== A.art && t2.stretch === false, JSON.stringify(t2));
+    assert.equal(t2?.reason.kind, "NEW_TOPIC");
+    assert.ok(!/one level up/.test(t2!.reason.label));
     // 75%+ without a stretch → a new topic (not Oceans, not Art: read lately)
     const t3 = await readNext(repo, s.studentId!, s.schoolId!, { ...base, canStretch: false }, NOW);
     assert.equal(t3?.reason.kind, "NEW_TOPIC");
@@ -171,10 +173,10 @@ describe("🧭 ReadRise recommendations", () => {
     await addRun(repo, s, A.vocab, { step: "QUIZ" });
     const t5 = await readNext(repo, s.studentId!, s.schoolId!, { ...base, articleId: A.readSci, score: 63, canStretch: false }, NOW);
     assert.ok(t5 && t5.articleId !== A.vocab);
-    // < 50%: a topic they like at their level; a hidden article is never offered
+    // < 50%: a topic they like at their level (round 7: the "You like" reason); a hidden article is never offered
     await setInterests(repo, s, ["Animals"]);
     const t6 = await readNext(repo, s.studentId!, s.schoolId!, { ...base, score: 30, canStretch: false }, NOW);
-    assert.equal(t6?.reason.kind, "EASIER");
+    assert.deepEqual([t6?.reason.kind, t6?.reason.topic], ["INTEREST", "Animals"]);
     assert.ok([A.ani1, A.ani2].includes(t6!.articleId));
     await repo.create("SchoolSetting", { schoolId: s.schoolId!, key: "readrise.hidden", value: [A.ani1, A.ani2] });
     const t7 = await readNext(repo, s.studentId!, s.schoolId!, { ...base, score: 30, canStretch: false }, NOW);

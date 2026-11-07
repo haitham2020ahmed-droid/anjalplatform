@@ -125,7 +125,7 @@
           "wrong": {
             "A": "The article does not teach swimming.",
             "C": "No fish live in the Dead Sea.",
-            "D": "The article says it hardly rains there."
+            "D": "The article is about the lake, not about rain in the desert."
           }
         },
         {
@@ -138,7 +138,7 @@
           ],
           "answer": "A",
           "skill": "detail",
-          "why": "The article says the Dead Sea is not a real sea but a big salt lake.",
+          "why": "In the article, the Dead Sea is not a real sea but a big salt lake.",
           "wrong": {
             "B": "A river flows into it, but it is a lake.",
             "C": "The article says it is not really a sea.",
@@ -155,7 +155,7 @@
           ],
           "answer": "D",
           "skill": "detail",
-          "why": "The article says the salt helps people float, so they do not sink.",
+          "why": "In the article, the salt helps people float, so they do not sink.",
           "wrong": {
             "A": "The article says you do not sink.",
             "B": "The land there is hot, and cold water is not mentioned.",
@@ -334,7 +334,7 @@
           ],
           "answer": "C",
           "skill": "cause-effect",
-          "why": "The article says the salt makes the water dense, so people float easily.",
+          "why": "In the article, the salt makes the water dense, so people float easily.",
           "wrong": {
             "A": "Warmth is not the reason given.",
             "B": "Waves are not mentioned.",
@@ -351,7 +351,7 @@
           ],
           "answer": "B",
           "skill": "detail",
-          "why": "The article says companies dry out lake water in ponds to collect minerals such as potash.",
+          "why": "In the article, companies dry out lake water in ponds to collect minerals such as potash.",
           "wrong": {
             "A": "The water is far too salty to drink.",
             "C": "No fish live there.",
@@ -368,7 +368,7 @@
           ],
           "answer": "A",
           "skill": "vocabulary",
-          "why": "The article says that in the hot sun, the water evaporates into the air.",
+          "why": "In the hot sun, the water evaporates into the air.",
           "wrong": {
             "B": "The Dead Sea is hot, not freezing.",
             "C": "No river flows out of the lake.",
@@ -402,7 +402,7 @@
           ],
           "answer": "C",
           "skill": "cause-effect",
-          "why": "The article says that as the water moves back, sinkholes open near the shore.",
+          "why": "In the article, as the shoreline moves back, sinkholes open near the shore.",
           "wrong": {
             "A": "Fish cannot live there.",
             "B": "The article does not connect shrinking to rain.",
@@ -419,7 +419,7 @@
           ],
           "answer": "B",
           "skill": "inference",
-          "why": "The article says people take Jordan River water for farms and cities, so less reaches the lake.",
+          "why": "In the article, people take Jordan River water for farms and cities, so less reaches the lake.",
           "wrong": {
             "A": "They use a lot of water.",
             "C": "The lake is too salty to drink.",
@@ -513,7 +513,7 @@
           ],
           "answer": "B",
           "skill": "detail",
-          "why": "The article says the mineral-rich mud is used in skin-care products.",
+          "why": "In the article, the mineral-rich mud is used in skin-care products.",
           "wrong": {
             "A": "Potash, not the mud, is used for fertilizer.",
             "C": "Bricks are not mentioned.",
@@ -530,7 +530,7 @@
           ],
           "answer": "B",
           "skill": "sequence",
-          "why": "The article explains that the Jordan River carries minerals in, water evaporates, and salt remains.",
+          "why": "In the article, the Jordan River carries minerals in, water evaporates, and salt remains.",
           "wrong": {
             "A": "Rain is rare, and there are no fish.",
             "C": "Factories remove minerals; nothing freezes.",
@@ -547,7 +547,7 @@
           ],
           "answer": "D",
           "skill": "vocabulary",
-          "why": "The article says the dense water makes the body buoyant enough to float effortlessly.",
+          "why": "In the article, the dense water makes the body buoyant enough to float effortlessly.",
           "wrong": {
             "A": "This is the opposite meaning.",
             "B": "Sunburn is not related to the word.",
@@ -621,13 +621,13 @@
         "stem": "What does the white salt on the shore look like?",
         "options": [
           "Gray rocks",
-          "Ice",
+          "Ice or snow",
           "Green grass",
           "Yellow sand"
         ],
         "answer": "B",
         "skill": "detail",
-        "why": "The text says the white salt on the shore looks like ice.",
+        "why": "In the article, the white salt on the shore looks like ice or snow.",
         "wrong": {
           "A": "The salt is white, not gray rocks.",
           "C": "The text does not mention grass.",
@@ -644,7 +644,7 @@
         ],
         "answer": "D",
         "skill": "cause-effect",
-        "why": "The text says people use the river for farms and at home, so less water gets in.",
+        "why": "In the text, people use the river for farms and at home, so less water gets in.",
         "wrong": {
           "A": "The text does not say the sun changes the rain.",
           "B": "The text says no river runs out of the lake.",
@@ -714,10 +714,10 @@
         ],
         "answer": "A",
         "skill": "vocabulary",
-        "why": "The text explains that dense means heavy for its size.",
+        "why": "In the text, dense means heavy for its size.",
         "wrong": {
           "B": "No fish can live in the lake.",
-          "C": "The text says the weather is hot.",
+          "C": "The word dense is not about temperature.",
           "D": "The text does not say the water is clear."
         }
       },
@@ -731,10 +731,10 @@
         ],
         "answer": "B",
         "skill": "cause-effect",
-        "why": "The text says people take water from the Jordan River for farms and cities.",
+        "why": "In the text, people take water from the Jordan River for farms and cities.",
         "wrong": {
           "A": "The text does not say the river changed direction.",
-          "C": "The text says it rarely rains there.",
+          "C": "The article does not say that heavy rain falls on the lake.",
           "D": "Microbes are too small to drink up a river."
         }
       },
@@ -750,7 +750,7 @@
         "skill": "inference",
         "why": "The text says no fish or plants can live in the salty water, and this is how the lake got its name.",
         "wrong": {
-          "A": "The text says people float and relax there.",
+          "A": "In the text, people float and relax there.",
           "B": "The text does not describe the color of the water.",
           "C": "The text says visitors float in the lake."
         }
@@ -804,7 +804,7 @@
         "why": "The paragraph begins by saying that even with nothing living in its water, the lake is valuable to people.",
         "wrong": {
           "A": "The salt is explained in a later paragraph.",
-          "B": "The text says tourists visit the shores.",
+          "B": "Tourists come to enjoy the lake; the paragraph does not warn them away.",
           "D": "The text does not say bacteria make the mud."
         }
       },
@@ -821,7 +821,7 @@
         "why": "Tourists come for the shore and mud, and factories take minerals from the water, so a shrinking lake hurts both.",
         "wrong": {
           "B": "The text does not say they would move to the river.",
-          "C": "The text says rainfall is unusual there.",
+          "C": "Neither one depends on rain; both need the lake itself.",
           "D": "The text does not say farms pay them."
         }
       }

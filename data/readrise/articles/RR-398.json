@@ -138,7 +138,7 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The story says they are chatting and laughing, so they do not look closely and climb on the wrong bus by mistake.",
+          "why": "In the story, they are chatting and laughing, so they do not look closely and climb on the wrong bus by mistake.",
           "wrong": {
             "A": "No teacher tells them to board that bus.",
             "B": "The story does not say the bus breaks down.",
@@ -317,7 +317,7 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The story explains that the two friends are distracted by excited conversation and do not pay close attention to the buses.",
+          "why": "In the story, the two friends are distracted by excited conversation and do not pay close attention to the buses.",
           "wrong": {
             "A": "They are not sleeping; they are talking.",
             "B": "No teacher instructs them to switch buses.",
@@ -334,7 +334,7 @@
           ],
           "answer": "D",
           "skill": "detail",
-          "why": "The story says Noura takes a slow breath and quietly tells Yousef that panicking will not help.",
+          "why": "In the story, Noura takes a slow breath and quietly tells Yousef that panicking will not help.",
           "wrong": {
             "A": "Calling parents is not mentioned in the story.",
             "B": "She does not hide under her seat.",
@@ -496,7 +496,7 @@
           ],
           "answer": "D",
           "skill": "detail",
-          "why": "The story explains that the two friends are so absorbed in excited conversation that they do not notice the buses closely, leading to the mix-up.",
+          "why": "In the story, the two friends are so absorbed in excited conversation that they do not notice the buses closely, leading to the mix-up.",
           "wrong": {
             "A": "Their boarding is accidental, not deliberate.",
             "B": "No teacher directs them onto the wrong bus.",
@@ -627,7 +627,7 @@
         ],
         "answer": "B",
         "skill": "detail",
-        "why": "The text says, \"They go to a museum.\"",
+        "why": "In the story, they go on a trip to a museum.",
         "wrong": {
           "A": "A park is not mentioned.",
           "C": "The class does not go to another school.",
@@ -697,7 +697,7 @@
         ],
         "answer": "D",
         "skill": "detail",
-        "why": "The text mentions old artifacts and a dinosaur skeleton that almost touched the ceiling.",
+        "why": "In the text, old artifacts and a dinosaur skeleton that almost touched the ceiling.",
         "wrong": {
           "A": "A robot and a space ship are not mentioned.",
           "B": "Paintings and a garden are not mentioned.",
@@ -731,7 +731,7 @@
         ],
         "answer": "C",
         "skill": "cause-effect",
-        "why": "The text says their teacher arrived relieved to find them safe.",
+        "why": "In the text, their teacher arrived relieved to find them safe.",
         "wrong": {
           "A": "The text does not say it was time to leave.",
           "B": "Lunch is not mentioned.",

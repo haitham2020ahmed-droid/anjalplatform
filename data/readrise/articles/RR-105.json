@@ -138,7 +138,7 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The article says that things that make sound vibrate, or shake back and forth very fast.",
+          "why": "In the article, things that make sound vibrate, or shake back and forth very fast.",
           "wrong": {
             "A": "The article does not say sound makes things hot.",
             "B": "The object moves; it does not stop.",
@@ -155,7 +155,7 @@
           ],
           "answer": "A",
           "skill": "detail",
-          "why": "The article says the sound goes down a tube, and the eardrum is at the end of it.",
+          "why": "In the article, the sound goes down a tube, and the eardrum is at the end of it.",
           "wrong": {
             "B": "The cup-shaped outer ear is on the outside; the eardrum is deeper in.",
             "C": "The eardrum is in the ear, not the brain.",
@@ -172,7 +172,7 @@
           ],
           "answer": "B",
           "skill": "sequence",
-          "why": "The article says that behind the eardrum are three tiny bones that pass the shake on.",
+          "why": "In the article, after the eardrum come three tiny bones that pass the shaking on.",
           "wrong": {
             "A": "The cochlea comes after the three bones.",
             "C": "The nerve comes near the end, after the cochlea.",
@@ -180,7 +180,7 @@
           }
         },
         {
-          "stem": "In the article, the eardrum is \"thin, like skin on a drum.\" What does this tell you?",
+          "stem": "In the article, the eardrum is thin, like skin on a drum. What does this tell you?",
           "options": [
             "It makes its own music, just like a real drum",
             "It is hard like a rock",
@@ -206,11 +206,11 @@
           ],
           "answer": "A",
           "skill": "cause-effect",
-          "why": "The article says loud sound can hurt the hair cells and they do not grow back, so we should keep the sound low.",
+          "why": "In the article, loud sound can hurt the hair cells and they do not grow back, so we should keep the sound low.",
           "wrong": {
             "B": "The article does not say which music sounds better.",
             "C": "Loud sound does not change the size of the outer ear.",
-            "D": "The article says hair cells do not grow back at all."
+            "D": "In the article, hair cells do not grow back at all."
           }
         },
         {
@@ -240,7 +240,7 @@
           ],
           "answer": "D",
           "skill": "inference",
-          "why": "The article says the inner ear helps with balance, so spinning and feeling dizzy has to do with the inner ear.",
+          "why": "In the article, the inner ear helps with balance, so spinning and feeling dizzy has to do with the inner ear.",
           "wrong": {
             "A": "The eardrum shakes with sound; the article does not link it to balance.",
             "B": "The outer ear catches sound but is not linked to balance.",
@@ -317,7 +317,7 @@
           ],
           "answer": "B",
           "skill": "detail",
-          "why": "The article says these three tiny bones pass the vibration along while making it stronger.",
+          "why": "In the article, these three tiny bones pass the vibration along while making it stronger.",
           "wrong": {
             "A": "The outer ear catches the sound, not the bones.",
             "C": "The hair cells in the cochlea change vibrations into signals.",
@@ -393,7 +393,7 @@
           }
         },
         {
-          "stem": "The article says the outer ear \"works like a funnel.\" What does this comparison suggest?",
+          "stem": "The outer ear is compared to a funnel. What does this comparison suggest?",
           "options": [
             "The outer ear holds water",
             "The outer ear gathers sound and directs it inward",
@@ -496,7 +496,7 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The article says these specialized cells convert the mechanical vibration into electrical signals.",
+          "why": "In the article, these specialized cells convert the mechanical vibration into electrical signals.",
           "wrong": {
             "A": "Glands in the ear canal produce earwax.",
             "B": "The three small bones amplify the vibration.",
@@ -530,10 +530,10 @@
           ],
           "answer": "D",
           "skill": "cause-effect",
-          "why": "The article explains that earwax protects the canal, which is why poking inside is discouraged.",
+          "why": "Earwax protects the ear canal, so poking inside is not a good idea.",
           "wrong": {
             "A": "The auditory nerve is deep inside and is not mentioned with swabs.",
-            "B": "The article says earwax protects the ear; it does not call it harmful.",
+            "B": "In the article, earwax protects the ear; it does not call it harmful.",
             "C": "The article says hair cells cannot regrow."
           }
         },
@@ -555,7 +555,7 @@
           }
         },
         {
-          "stem": "In the article, the eardrum is called \"a thin, tightly stretched membrane.\" Which word could best replace \"membrane\" here?",
+          "stem": "The eardrum is a thin, tightly stretched membrane. Which words could best replace membrane here?",
           "options": [
             "bone",
             "liquid",
@@ -564,7 +564,7 @@
           ],
           "answer": "D",
           "skill": "vocabulary",
-          "why": "A membrane is a thin, flexible layer, so \"sheet of tissue\" fits the description of the eardrum.",
+          "why": "A membrane is a thin, flexible layer, like a thin sheet of tissue, so this answer fits the eardrum.",
           "wrong": {
             "A": "A bone is hard, not thin and stretched.",
             "B": "The eardrum is solid tissue, not a liquid.",
@@ -581,7 +581,7 @@
           ],
           "answer": "A",
           "skill": "compare",
-          "why": "The article says the brain compares the timing and loudness of sounds reaching each ear to calculate direction.",
+          "why": "In the article, the brain compares the timing and loudness of sounds reaching each ear to calculate direction.",
           "wrong": {
             "B": "Each ear has its own bones, but the article does not link this to direction.",
             "C": "The article does not say ears take turns resting.",
@@ -627,7 +627,7 @@
         ],
         "answer": "B",
         "skill": "detail",
-        "why": "The text says the cochlea is shaped like a snail shell.",
+        "why": "In the text, the cochlea is shaped like a snail shell.",
         "wrong": {
           "A": "The outer ear is like a cup.",
           "C": "The eardrum is like skin on a drum.",
@@ -661,7 +661,7 @@
         ],
         "answer": "A",
         "skill": "vocabulary",
-        "why": "The text says things that make sound vibrate, which means they shake fast.",
+        "why": "In the text, things that make sound vibrate, which means they shake fast.",
         "wrong": {
           "B": "Staying still is the opposite.",
           "C": "Cold is not the idea.",
@@ -697,7 +697,7 @@
         ],
         "answer": "D",
         "skill": "detail",
-        "why": "The text says the eardrum sits at the end of the canal.",
+        "why": "In the text, the eardrum sits at the end of the canal.",
         "wrong": {
           "A": "The cochlea comes after the three tiny bones.",
           "B": "The hammer is behind the eardrum.",
@@ -748,7 +748,7 @@
         ],
         "answer": "B",
         "skill": "cause-effect",
-        "why": "The text says that when sound waves strike the eardrum, it begins to shake.",
+        "why": "In the text, when sound waves strike the eardrum, it begins to shake.",
         "wrong": {
           "A": "Hair cells are in the cochlea.",
           "C": "The nerve carries signals later.",
@@ -767,7 +767,7 @@
         ],
         "answer": "B",
         "skill": "detail",
-        "why": "The text says earwax traps dust and protects the delicate skin inside.",
+        "why": "Earwax traps dust and protects the skin inside the ear canal.",
         "wrong": {
           "A": "The tiny bones make the vibration stronger.",
           "C": "Balance is helped by the inner ear.",
@@ -801,7 +801,7 @@
         ],
         "answer": "D",
         "skill": "cause-effect",
-        "why": "The text says loud noise can damage the hair cells, and the body cannot replace them.",
+        "why": "In the text, loud noise can damage the hair cells, and the body cannot replace them.",
         "wrong": {
           "A": "The brain is not said to stop.",
           "B": "The ear canal is not said to close.",

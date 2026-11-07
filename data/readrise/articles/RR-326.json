@@ -155,7 +155,7 @@
           ],
           "answer": "D",
           "skill": "detail",
-          "why": "The article says the Red Sea is on the west side of the Arabian Peninsula.",
+          "why": "In the article, the Red Sea is on the west side of the Arabian Peninsula.",
           "wrong": {
             "A": "The Persian Gulf is on the east side.",
             "B": "The Arabian Sea is on the south side.",
@@ -206,7 +206,7 @@
           ],
           "answer": "C",
           "skill": "inference",
-          "why": "The article describes the Empty Quarter as a wide, sandy desert, so crossing it would mean a long journey through dry land.",
+          "why": "The Empty Quarter is a wide, sandy desert, so crossing it would mean a long trip through dry land.",
           "wrong": {
             "A": "A desert has very little water, not plenty.",
             "B": "The desert is in the interior, far from the coast.",
@@ -496,7 +496,7 @@
           ],
           "answer": "B",
           "skill": "detail",
-          "why": "The article states that an enormous share of the world's oil exports must pass through the Strait of Hormuz each day.",
+          "why": "In the article, an enormous share of the world's oil exports must pass through the Strait of Hormuz each day.",
           "wrong": {
             "A": "Irrigation water is not mentioned in connection with the strait.",
             "C": "Animal migration is not discussed.",
@@ -521,7 +521,7 @@
           }
         },
         {
-          "stem": "\"The Empty Quarter is one of the most formidable deserts on the planet.\" What does formidable mean in this sentence?",
+          "stem": "In the article, what does the word \"formidable\" mean?",
           "options": [
             "Quite bright, colorful, and visually scenic",
             "Fairly small in size and very easy to cross",
@@ -564,7 +564,7 @@
           ],
           "answer": "B",
           "skill": "inference",
-          "why": "The article states that maritime routes let goods and travelers reach distant markets \"before any overland route could realistically have managed the same journey,\" implying overland trade was far slower and harder.",
+          "why": "Sea routes let goods reach faraway markets faster than land routes could, so trade only over land would have been much slower and harder.",
           "wrong": {
             "A": "The article suggests the opposite, favoring sea routes.",
             "C": "The article does not claim trade would stop entirely.",
@@ -627,7 +627,7 @@
         ],
         "answer": "B",
         "skill": "detail",
-        "why": "The text says water sits on three sides.",
+        "why": "In the text, water sits on three sides.",
         "wrong": {
           "A": "The text says three, not two.",
           "C": "The text says three, not four.",
@@ -646,7 +646,7 @@
         "skill": "vocabulary",
         "why": "The text says water is all around the land on three sides.",
         "wrong": {
-          "A": "The text says water is close to the land on three sides.",
+          "A": "In the text, water is close to the land on three sides.",
           "B": "The water is not under the land.",
           "C": "The water is around the land and not inside it."
         }
@@ -661,11 +661,11 @@
         ],
         "answer": "A",
         "skill": "inference",
-        "why": "The text says some land has mountains, some has desert sand, and some is flat.",
+        "why": "In the text, some land has mountains, some has desert sand, and some is flat.",
         "wrong": {
-          "B": "The text says some land has mountains too.",
-          "C": "The text says some land has sand and some is flat.",
-          "D": "The text says the sun is hot and the sand is dry."
+          "B": "Some of the land has mountains, so it is not all flat and sandy.",
+          "C": "In the text, some land has sand and some is flat.",
+          "D": "The land is hot and dry, not covered in snow."
         }
       },
       {
@@ -678,7 +678,7 @@
         ],
         "answer": "C",
         "skill": "detail",
-        "why": "The text says Yemen and Oman are on the peninsula too.",
+        "why": "In the text, Yemen and Oman are on the peninsula too.",
         "wrong": {
           "A": "Egypt and Italy are not named.",
           "B": "India and China are not named.",
@@ -767,7 +767,7 @@
         ],
         "answer": "C",
         "skill": "detail",
-        "why": "The article says the Red Sea runs along the west side, separating the peninsula from Africa.",
+        "why": "In the article, the Red Sea runs along the west side, separating the peninsula from Africa.",
         "wrong": {
           "A": "The Arabian Sea borders the south coast.",
           "B": "The Persian Gulf lies along the east side.",
@@ -786,7 +786,7 @@
         "skill": "vocabulary",
         "why": "The article says there are only brief seasons of rain, so arid means very dry.",
         "wrong": {
-          "B": "The article says rain is brief.",
+          "B": "Rain is rare there, so arid does not mean rainy.",
           "C": "The climate is hot, and not cold.",
           "D": "The article describes a hot and dry land, not green fields."
         }
@@ -801,7 +801,7 @@
         ],
         "answer": "D",
         "skill": "cause-effect",
-        "why": "The article says water surrounds the peninsula on three sides, so maritime trade has reached nearly every part.",
+        "why": "In the article, water surrounds the peninsula on three sides, so maritime trade has reached nearly every part.",
         "wrong": {
           "A": "Mountains rise in the southwest, not in the middle.",
           "B": "The north edge joins Asia, but trade came by sea.",
@@ -818,11 +818,11 @@
         ],
         "answer": "B",
         "skill": "inference",
-        "why": "The article says the north edge joins the rest of Asia, so it is not an island.",
+        "why": "In the article, the north edge joins the rest of Asia, so it is not an island.",
         "wrong": {
           "A": "The article says water surrounds it on three sides.",
           "C": "The Red Sea separates it from Africa.",
-          "D": "The article says it also has mountains and plains."
+          "D": "The peninsula also has mountains and plains, not only dry desert."
         }
       }
     ]

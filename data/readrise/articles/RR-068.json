@@ -155,9 +155,9 @@
           ],
           "answer": "A",
           "skill": "detail",
-          "why": "The article says the phone does this with four or more satellites.",
+          "why": "In the article, the phone does this with four or more satellites.",
           "wrong": {
-            "B": "One satellite is not enough, the article says four or more.",
+            "B": "One satellite is not enough; you need four or more.",
             "C": "Two is fewer than the article says.",
             "D": "The article does not say a hundred are needed."
           }
@@ -189,7 +189,7 @@
           ],
           "answer": "D",
           "skill": "vocabulary",
-          "why": "The article says the signal is like a call that tells where the satellite is and what time it is.",
+          "why": "In the article, each satellite sends out a signal, like a message.",
           "wrong": {
             "A": "The clock is inside the satellite. The signal is what it sends.",
             "B": "The satellite is the machine, not the signal.",
@@ -302,7 +302,7 @@
           "skill": "central-idea",
           "why": "The article explains that a receiver times signals from at least four satellites to work out where it is.",
           "wrong": {
-            "B": "The article says phones only listen and send nothing back.",
+            "B": "In the article, phones only listen and send nothing back.",
             "C": "The article is about satellites that send time signals, not pictures.",
             "D": "GPS also helps ships, airplanes, and people in the desert."
           }
@@ -317,7 +317,7 @@
           ],
           "answer": "B",
           "skill": "detail",
-          "why": "The signal says, in effect, \"This is where I am, and this is the exact time.\"",
+          "why": "The signal tells where the satellite is and the exact time.",
           "wrong": {
             "A": "Weather is not mentioned.",
             "C": "The phone figures out its own location; the satellite does not know it.",
@@ -368,7 +368,7 @@
           ],
           "answer": "A",
           "skill": "cause-effect",
-          "why": "The article says the longer the trip, the greater the distance to that satellite.",
+          "why": "In the article, the longer the trip, the greater the distance to that satellite.",
           "wrong": {
             "B": "A longer trip means more distance, not less.",
             "C": "Batteries are not mentioned.",
@@ -483,7 +483,7 @@
           "wrong": {
             "A": "Farming is one use of GPS, and the article says it was first developed for the military.",
             "C": "Atomic clocks are a key detail, but the article makes no such claim.",
-            "D": "The article states that phones only listen."
+            "D": "Phones only listen to the satellites; they do not send signals back."
           }
         },
         {
@@ -496,7 +496,7 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The article explains that three distances identify a position and the fourth corrects errors in the phone's clock.",
+          "why": "In the article, three distances identify a position and the fourth corrects errors in the phone's clock.",
           "wrong": {
             "A": "Phones do not transmit anything to the satellites.",
             "B": "Weather is not mentioned.",
@@ -513,7 +513,7 @@
           ],
           "answer": "B",
           "skill": "detail",
-          "why": "The article states that such an error would place you approximately 300 meters away.",
+          "why": "Such an error would put you about 300 meters away from where you are.",
           "wrong": {
             "A": "The number in the article is 300 meters, not 3.",
             "C": "This is far larger than the article's figure.",
@@ -583,7 +583,7 @@
           "skill": "inference",
           "why": "Building separate systems is costly, so other countries must consider satellite navigation very valuable.",
           "wrong": {
-            "A": "The article says GPS serves people throughout the world.",
+            "A": "In the article, GPS serves people throughout the world.",
             "B": "The article says civilians worldwide use GPS.",
             "D": "They are described as similar systems, which suggests they also use satellites."
           }
@@ -627,10 +627,10 @@
         ],
         "answer": "A",
         "skill": "detail",
-        "why": "The text says each signal is like a call that says, \"Here I am. This is the time.\"",
+        "why": "In the text, each signal tells where the satellite is and what time it is.",
         "wrong": {
           "B": "The signal does not give road directions.",
-          "C": "The text says the phone does not call back.",
+          "C": "In the text, the phone does not call back.",
           "D": "This is a fact about the desert, not the signal."
         }
       },
@@ -644,7 +644,7 @@
         ],
         "answer": "C",
         "skill": "cause-effect",
-        "why": "The text says the phone then knows where you are and puts the dot on the map.",
+        "why": "In the text, the phone then knows where you are and puts the dot on the map.",
         "wrong": {
           "A": "The phone does not call back.",
           "B": "The map stays on to show the dot.",
@@ -678,7 +678,7 @@
         ],
         "answer": "A",
         "skill": "detail",
-        "why": "The text says the phone does not call back and it just hears.",
+        "why": "In the text, the phone only picks up the signals.",
         "wrong": {
           "B": "The phone does not send a map.",
           "C": "The satellite has the clock.",
@@ -697,7 +697,7 @@
         ],
         "answer": "B",
         "skill": "detail",
-        "why": "The article says about thirty satellites circle high above Earth.",
+        "why": "In the article, about thirty satellites circle high above Earth.",
         "wrong": {
           "A": "Three is far too few.",
           "C": "The article says thirty, not three hundred.",
@@ -714,7 +714,7 @@
         ],
         "answer": "A",
         "skill": "vocabulary",
-        "why": "The article says a satellite is a machine that travels around our planet.",
+        "why": "A satellite is a machine that goes around our planet.",
         "wrong": {
           "B": "The clocks are carried by the satellites.",
           "C": "The map is shown by the phone.",
@@ -784,7 +784,7 @@
         ],
         "answer": "A",
         "skill": "detail",
-        "why": "The article says each satellite completes a journey around the planet twice a day.",
+        "why": "Each GPS satellite goes around the Earth twice a day.",
         "wrong": {
           "B": "A week is too long.",
           "C": "An hour is too short.",
@@ -805,7 +805,7 @@
         "wrong": {
           "A": "Speed is not given as the reason.",
           "B": "Clocks keep time but do not allow many users.",
-          "C": "The article says the signals are weak by the time they reach the ground."
+          "C": "The signals are weak by the time they reach the ground."
         }
       },
       {

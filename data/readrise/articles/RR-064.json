@@ -121,11 +121,11 @@
           ],
           "answer": "C",
           "skill": "central-idea",
-          "why": "The article explains how to make a balanced plate with a bit of each kind of food.",
+          "why": "In the article, how to make a balanced plate with a bit of each kind of food.",
           "wrong": {
             "A": "Kabsa is named at the end, but the article does not tell how to cook it.",
             "B": "Water is named, but its temperature is not discussed.",
-            "D": "The article says to eat sweets only once in a while."
+            "D": "Sweets should be eaten only once in a while."
           }
         },
         {
@@ -155,7 +155,7 @@
           ],
           "answer": "B",
           "skill": "detail",
-          "why": "Fish and eggs have protein, and the article says protein helps build strong muscles.",
+          "why": "Fish and eggs have protein, and in the article, protein helps build strong muscles.",
           "wrong": {
             "A": "Sweet drinks have lots of sugar, not protein.",
             "C": "Candy is a sweet to have only once in a while.",
@@ -172,7 +172,7 @@
           ],
           "answer": "D",
           "skill": "cause-effect",
-          "why": "The article says grains give you energy so you can run and play.",
+          "why": "In the article, grains give you energy so you can run and play.",
           "wrong": {
             "A": "Milk and cheese help teeth.",
             "B": "Grains are food, not drinks.",
@@ -189,7 +189,7 @@
           ],
           "answer": "A",
           "skill": "vocabulary",
-          "why": "The article explains that a balanced plate has a bit of each kind of food.",
+          "why": "In the article, a balanced plate has a bit of each kind of food.",
           "wrong": {
             "B": "That is a different meaning of balance.",
             "C": "This is the opposite of a balanced plate.",
@@ -206,7 +206,7 @@
           ],
           "answer": "C",
           "skill": "inference",
-          "why": "The article says water is the best drink and that sweet drinks have lots of sugar.",
+          "why": "In the article, water is the best drink and that sweet drinks have lots of sugar.",
           "wrong": {
             "A": "The article says water is the best drink.",
             "B": "The article tells you to drink lots of water.",
@@ -303,7 +303,7 @@
           "why": "The article explains that no single food has every nutrient, so a balanced plate with each group is best.",
           "wrong": {
             "A": "Grains give energy, but the article is about many groups.",
-            "C": "The article says fried foods are fine occasionally.",
+            "C": "In the article, fried foods are fine occasionally.",
             "D": "Kabsa is an example, not the main idea."
           }
         },
@@ -342,7 +342,7 @@
           }
         },
         {
-          "stem": "In the article, a balanced plate has food from each group \"in the right portion.\" What does portion mean?",
+          "stem": "In the article, what does the word \"portion\" mean?",
           "options": [
             "A kind of plate",
             "A type of vitamin",
@@ -368,7 +368,7 @@
           ],
           "answer": "A",
           "skill": "cause-effect",
-          "why": "The article says whole grains have more fiber, so they keep you full longer.",
+          "why": "In the article, whole grains have more fiber, so they keep you full longer.",
           "wrong": {
             "B": "Sugar is not given as the reason.",
             "C": "Water is not the reason in the article.",
@@ -402,7 +402,7 @@
           ],
           "answer": "C",
           "skill": "inference",
-          "why": "Rice is a grain, and the article says grains are rich in carbohydrates.",
+          "why": "Rice is a grain, and in the article, grains are rich in carbohydrates.",
           "wrong": {
             "A": "Calcium comes from milk, laban, and cheese.",
             "B": "Protein comes from fish, eggs, chicken, and beans.",
@@ -419,7 +419,7 @@
           ],
           "answer": "D",
           "skill": "inference",
-          "why": "These foods contain protein, which the article says helps build muscles and repair the body.",
+          "why": "These foods contain protein, which in the article, helps build muscles and repair the body.",
           "wrong": {
             "A": "Sweet drinks mainly add sugar.",
             "B": "Oil is a healthy fat, but it is not named for repair.",
@@ -482,7 +482,7 @@
           "why": "The article shows how each group supplies different nutrients and how a balanced plate combines them.",
           "wrong": {
             "A": "Dairy is one valuable group among several.",
-            "B": "The article says sweets are acceptable in moderation.",
+            "B": "In the article, sweets are acceptable in moderation.",
             "C": "The article names carbohydrates as the main energy source."
           }
         },
@@ -496,7 +496,7 @@
           ],
           "answer": "B",
           "skill": "detail",
-          "why": "The article says each color offers a slightly different combination of vitamins and minerals.",
+          "why": "Vegetables of different colors have different mixes of vitamins and minerals.",
           "wrong": {
             "A": "Taste is not discussed.",
             "C": "Protein comes mainly from fish, eggs, chicken, beans, and lentils.",
@@ -521,7 +521,7 @@
           }
         },
         {
-          "stem": "The article says fried foods and sweets are acceptable \"in moderation.\" What does this phrase mean?",
+          "stem": "The article says fried foods and sweets are fine only now and then. What does eating something in moderation mean?",
           "options": [
             "Only when eating at restaurants",
             "Every day, at every single meal",
@@ -530,7 +530,7 @@
           ],
           "answer": "C",
           "skill": "vocabulary",
-          "why": "The article explains that moderation means occasionally rather than daily or habitually.",
+          "why": "In the article, moderation means occasionally rather than daily or habitually.",
           "wrong": {
             "A": "Location is not part of the meaning.",
             "B": "This is the opposite of moderation.",
@@ -564,7 +564,7 @@
           ],
           "answer": "D",
           "skill": "compare",
-          "why": "The article says whole grains retain more fiber and keep you feeling satisfied longer.",
+          "why": "Whole grains keep more fiber, so they help you feel full longer.",
           "wrong": {
             "A": "Grains are rich in carbohydrates.",
             "B": "Calcium comes from dairy foods.",
@@ -598,7 +598,7 @@
           ],
           "answer": "C",
           "skill": "inference",
-          "why": "The article says different foods supply different combinations of nutrients, so variety is needed.",
+          "why": "Different foods give different nutrients, so you need a variety.",
           "wrong": {
             "A": "Foods do contain nutrients, just different ones.",
             "B": "The article says nothing like this.",
@@ -627,7 +627,7 @@
         ],
         "answer": "D",
         "skill": "detail",
-        "why": "The text says milk and cheese make bones and teeth strong.",
+        "why": "In the text, milk and cheese make bones and teeth strong.",
         "wrong": {
           "A": "The text does not say they make you run faster.",
           "B": "The text does not say they fight colds.",
@@ -697,7 +697,7 @@
         ],
         "answer": "A",
         "skill": "detail",
-        "why": "The article says a small amount of healthy fat, such as olive oil or nuts, is good for you.",
+        "why": "In the article, a small amount of healthy fat, such as olive oil or nuts, is good for you.",
         "wrong": {
           "B": "Butter and cream are not named.",
           "C": "Fried foods are only fine now and then.",
@@ -714,7 +714,7 @@
         ],
         "answer": "D",
         "skill": "vocabulary",
-        "why": "The article says nutrients are the useful parts of food.",
+        "why": "In the article, nutrients are the useful parts of food that your body needs.",
         "wrong": {
           "A": "Sweetness is not the meaning.",
           "B": "Nutrients are not dishes.",
@@ -731,7 +731,7 @@
         ],
         "answer": "B",
         "skill": "cause-effect",
-        "why": "The article says grains are full of carbohydrates, which give you energy.",
+        "why": "Grains have lots of carbohydrates, which give you energy.",
         "wrong": {
           "A": "Temperature has nothing to do with energy here.",
           "C": "Fiber helps digestion and keeps you full, but carbohydrates give energy.",
@@ -767,7 +767,7 @@
         ],
         "answer": "B",
         "skill": "detail",
-        "why": "The article says dairy foods contain calcium, a mineral that strengthens bones and teeth.",
+        "why": "In the article, dairy foods give calcium, a mineral that makes bones and teeth strong.",
         "wrong": {
           "A": "Fiber helps digestion.",
           "C": "Sugar is not called a mineral that strengthens bones.",
@@ -801,7 +801,7 @@
         ],
         "answer": "A",
         "skill": "cause-effect",
-        "why": "The article says protein enables the body to build strong muscles and repair damaged tissue.",
+        "why": "In the article, protein enables the body to build strong muscles and repair damaged tissue.",
         "wrong": {
           "B": "Carbohydrates are the main energy source.",
           "C": "Fiber helps digestion.",
@@ -821,7 +821,7 @@
         "why": "Calling the amount surprising suggests that people often do not expect so much sugar.",
         "wrong": {
           "A": "Price is not mentioned.",
-          "C": "The article calls water the healthiest drink.",
+          "C": "In the article, water is the healthiest drink.",
           "D": "The article does not say sugar helps muscles."
         }
       }

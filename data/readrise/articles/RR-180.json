@@ -121,7 +121,7 @@
           ],
           "answer": "B",
           "skill": "central-idea",
-          "why": "The article tells about the tools smart farms use to grow food in the desert.",
+          "why": "The article tells how smart farms grow food in the desert.",
           "wrong": {
             "A": "Camels are not in the article.",
             "C": "Dates are only one detail.",
@@ -155,7 +155,7 @@
           ],
           "answer": "A",
           "skill": "detail",
-          "why": "The article says a drip pipe drips water right onto the roots.",
+          "why": "In the article, a drip pipe drips water right onto the roots.",
           "wrong": {
             "B": "Pipes cannot change the sun.",
             "C": "The article does not say this.",
@@ -163,7 +163,7 @@
           }
         },
         {
-          "stem": "Read this: \"A sensor is a small tool.\" What can the sensor in the article do?",
+          "stem": "What can the sensor in the article do?",
           "options": [
             "Pick the fruit when it is ready",
             "Tell if the soil is dry",
@@ -189,7 +189,7 @@
           ],
           "answer": "D",
           "skill": "sequence",
-          "why": "The article says that when the soil is dry, the water turns on.",
+          "why": "In the article, when the soil is dry, the water turns on.",
           "wrong": {
             "A": "The water turns on by itself.",
             "B": "The article does not say this.",
@@ -317,7 +317,7 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The article says thin pipes drip water right onto the roots.",
+          "why": "In the article, thin pipes drip water right onto the roots.",
           "wrong": {
             "A": "Spraying would waste water; drip pipes drip.",
             "B": "Flooding is not described.",
@@ -334,7 +334,7 @@
           ],
           "answer": "A",
           "skill": "detail",
-          "why": "The article says the sensor checks how wet the soil is and sends the data to a computer.",
+          "why": "In the article, the sensor checks how wet the soil is and sends the data to a computer.",
           "wrong": {
             "B": "Sensors do not send seeds.",
             "C": "Solar panels make electricity.",
@@ -342,7 +342,7 @@
           }
         },
         {
-          "stem": "Read this: \"Fans, shade cloth, and wet pads cool the air as water evaporates from them.\" What does evaporates mean?",
+          "stem": "Fans and wet pads cool the air as water evaporates. What does evaporates mean?",
           "options": [
             "Freezes into hard ice and snow",
             "Turns from liquid into a gas",
@@ -368,7 +368,7 @@
           ],
           "answer": "D",
           "skill": "cause-effect",
-          "why": "The article says that when the soil is too dry, the computer turns on the water.",
+          "why": "In the article, when the soil is too dry, the computer turns on the water.",
           "wrong": {
             "A": "The article does not say this.",
             "B": "The article does not say this.",
@@ -385,7 +385,7 @@
           ],
           "answer": "A",
           "skill": "compare",
-          "why": "The article says hydroponic plants grow in water with plant food, and the water is reused.",
+          "why": "In the article, hydroponic plants grow in water with plant food, and the water is reused.",
           "wrong": {
             "B": "Hydroponics uses water, not sand.",
             "C": "The article does not say this.",
@@ -496,7 +496,7 @@
           ],
           "answer": "C",
           "skill": "cause-effect",
-          "why": "The article explains that water arrives exactly where it is needed, so little is lost.",
+          "why": "Water goes right to where it is needed, so little is lost.",
           "wrong": {
             "A": "The article does not say drip irrigation uses salt water.",
             "B": "The article does not say this.",
@@ -513,7 +513,7 @@
           ],
           "answer": "A",
           "skill": "detail",
-          "why": "The article says water absorbs heat as it evaporates, cooling the air.",
+          "why": "In the article, water absorbs heat as it evaporates, cooling the air.",
           "wrong": {
             "B": "Shade cloth blocks some light; pads work through evaporation.",
             "C": "Solar panels produce electricity.",
@@ -521,7 +521,7 @@
           }
         },
         {
-          "stem": "Read this: \"farmers cultivate millions of date palms.\" What does cultivate mean?",
+          "stem": "In the article, what does the word \"cultivate\" mean?",
           "options": [
             "Grow and care for",
             "Cut down and remove",
@@ -547,7 +547,7 @@
           ],
           "answer": "B",
           "skill": "compare",
-          "why": "The article says hydroponic water is collected, filtered, and recycled continuously.",
+          "why": "In the article, hydroponic water is collected, filtered, and recycled continuously.",
           "wrong": {
             "A": "The article says it is reused.",
             "C": "Hydroponics uses no soil or sand.",
@@ -627,7 +627,7 @@
         ],
         "answer": "B",
         "skill": "detail",
-        "why": "The text says the drip pipe drips water on the roots, the part of the plant in the ground.",
+        "why": "In the text, the drip pipe drips water on the roots, the part of the plant in the ground.",
         "wrong": {
           "A": "The text says water drips on the roots, not the leaves.",
           "C": "The text says no water is lost on the sand.",
@@ -644,7 +644,7 @@
         ],
         "answer": "A",
         "skill": "detail",
-        "why": "The text says the roots sit in water that has plant food in it.",
+        "why": "In the text, the roots sit in water that has plant food in it.",
         "wrong": {
           "B": "The text says the sand is dry and poor for plants.",
           "C": "Solar panels make power, not a place for roots.",
@@ -697,7 +697,7 @@
         ],
         "answer": "A",
         "skill": "detail",
-        "why": "The article says solar panels turn sunlight into power for the pumps, fans, and sensors.",
+        "why": "In the article, solar panels turn sunlight into power for the pumps, fans, and sensors.",
         "wrong": {
           "B": "The article does not mention cattle or trucks.",
           "C": "The article does not mention roads or towers.",
@@ -731,7 +731,7 @@
         ],
         "answer": "A",
         "skill": "cause-effect",
-        "why": "The article says the water goes right onto the roots, so very little is lost to the sun or sand.",
+        "why": "In the article, the water goes right onto the roots, so very little is lost to the sun or sand.",
         "wrong": {
           "B": "The sensor only measures the soil.",
           "C": "The shade cloth cools greenhouse air.",
@@ -801,9 +801,9 @@
         ],
         "answer": "B",
         "skill": "cause-effect",
-        "why": "The article says the sandy soil contains very few of the nutrients that plants require to grow.",
+        "why": "Sandy soil has very few of the nutrients that plants need to grow.",
         "wrong": {
-          "A": "The article says rainfall is rare.",
+          "A": "Sandy soil does not hold much water, and rain is rare there.",
           "C": "The article talks about extreme summer heat.",
           "D": "The article does not say that the soil blocks the sun."
         }

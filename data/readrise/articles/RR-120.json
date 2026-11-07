@@ -206,7 +206,7 @@
           ],
           "answer": "C",
           "skill": "inference",
-          "why": "Long lashes around the eyes can block blowing sand, which is why the article says camels do well in storms.",
+          "why": "Long lashes around the eyes can block blowing sand, which is why in the article, camels do well in storms.",
           "wrong": {
             "A": "Lashes do not help an animal find its way.",
             "B": "Lashes do not keep a camel warm.",
@@ -214,7 +214,7 @@
           }
         },
         {
-          "stem": "Read this sentence: \"Listen for a warning on the news.\" What is a warning?",
+          "stem": "In the article, what does the word \"warning\" mean?",
           "options": [
             "A funny story about a trip to the zoo",
             "A list of school rules for the new year",
@@ -334,7 +334,7 @@
           ],
           "answer": "A",
           "skill": "detail",
-          "why": "The article explains that cold winds from thunderstorms rush to the ground and push a tall wall of dust ahead of them.",
+          "why": "In the article, cold winds from thunderstorms rush to the ground and push a tall wall of dust ahead of them.",
           "wrong": {
             "B": "Sand does not melt into dust in the article.",
             "C": "The sea does not cause haboobs in the article.",
@@ -351,7 +351,7 @@
           ],
           "answer": "D",
           "skill": "cause-effect",
-          "why": "The article says dust in the air can make breathing difficult, especially for people with asthma.",
+          "why": "In the article, dust in the air can make breathing difficult, especially for people with asthma.",
           "wrong": {
             "A": "Hearing is not connected to asthma in the article.",
             "B": "The article does not say this.",
@@ -402,7 +402,7 @@
           ],
           "answer": "B",
           "skill": "vocabulary",
-          "why": "The article explains that when visibility drops, people cannot see very far.",
+          "why": "In the article, when visibility drops, people cannot see very far.",
           "wrong": {
             "A": "Visibility is about seeing, not hearing.",
             "C": "Temperature is a different idea.",
@@ -496,7 +496,7 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The article says dust can travel hundreds or even thousands of kilometers before it settles.",
+          "why": "In the article, dust can travel hundreds or even thousands of kilometers before it settles.",
           "wrong": {
             "A": "Heavy sand stays close; dust travels far.",
             "B": "The article says dust can rise kilometers high and travel much farther.",
@@ -513,7 +513,7 @@
           ],
           "answer": "A",
           "skill": "detail",
-          "why": "The article says satellites can follow enormous dust clouds as they move across the region.",
+          "why": "In the article, satellites can follow enormous dust clouds as they move across the region.",
           "wrong": {
             "B": "Camels show adaptation; they do not track storms.",
             "C": "Home thermometers are not mentioned.",
@@ -627,7 +627,7 @@
         ],
         "answer": "C",
         "skill": "detail",
-        "why": "The text says dust that falls in the sea helps small sea plants grow.",
+        "why": "In the text, dust that falls in the sea helps small sea plants grow.",
         "wrong": {
           "A": "Big fish are not mentioned.",
           "B": "Palm trees do not grow in the sea.",
@@ -644,7 +644,7 @@
         ],
         "answer": "A",
         "skill": "cause-effect",
-        "why": "The text says a storm cloud's wind falls down and pushes a wall of dust, and that is a haboob.",
+        "why": "In the text, a storm cloud's wind falls down and pushes a wall of dust, and that is a haboob.",
         "wrong": {
           "B": "Hot ground makes hot air go up, which helps sandstorms in general.",
           "C": "The Shamal is a different wind and is strong only in spring and early summer.",
@@ -714,7 +714,7 @@
         ],
         "answer": "D",
         "skill": "cause-effect",
-        "why": "The text says visibility drops, so people cannot see far, and drivers must slow down.",
+        "why": "In the text, visibility drops, so people cannot see far, and drivers must slow down.",
         "wrong": {
           "A": "Camels are not on the road in the text.",
           "B": "The Shamal blows from the northwest.",
@@ -767,7 +767,7 @@
         ],
         "answer": "B",
         "skill": "detail",
-        "why": "The text says the Shamal can raise dust for several days at a time.",
+        "why": "In the text, the Shamal can raise dust for several days at a time.",
         "wrong": {
           "A": "A few seconds is much too short.",
           "C": "One hour a year is much too short.",
@@ -784,7 +784,7 @@
         ],
         "answer": "A",
         "skill": "cause-effect",
-        "why": "The text says the cold winds of a thunderstorm rush down to the ground and spread outward, pushing a towering wall of dust.",
+        "why": "In the text, the cold winds of a thunderstorm rush down to the ground and spread outward, pushing a towering wall of dust.",
         "wrong": {
           "B": "Rain is not mentioned as a cause.",
           "C": "Lightning is not mentioned.",

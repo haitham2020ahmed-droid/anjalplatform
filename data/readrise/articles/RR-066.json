@@ -138,7 +138,7 @@
           ],
           "answer": "A",
           "skill": "detail",
-          "why": "The article says that every 20 minutes you should look at something far away for 20 seconds.",
+          "why": "Every 20 minutes, you should look at something far away for 20 seconds.",
           "wrong": {
             "B": "The article says to play outside, but that is not the 20-20-20 rule.",
             "C": "The rule is about looking far away, not where to sit.",
@@ -155,7 +155,7 @@
           ],
           "answer": "B",
           "skill": "cause-effect",
-          "why": "The article says you blink less when you look at a screen, and blinking keeps your eyes wet.",
+          "why": "In the article, you blink less when you stare at a screen, and that can make your eyes dry.",
           "wrong": {
             "A": "Screens do not blow air.",
             "C": "Light is not wet, and the article does not say this.",
@@ -189,7 +189,7 @@
           ],
           "answer": "D",
           "skill": "cause-effect",
-          "why": "The article says the bright light from screens can make it hard to fall asleep.",
+          "why": "In the article, the bright light of a screen at bedtime can make it hard to sleep.",
           "wrong": {
             "A": "The article does not say screens make eyes stronger.",
             "B": "The article talks about falling asleep, not waking early.",
@@ -206,7 +206,7 @@
           ],
           "answer": "A",
           "skill": "inference",
-          "why": "The article says kids who spend lots of time outside are less likely to need glasses to see far away.",
+          "why": "In the article, kids who play outside a lot are less likely to need glasses.",
           "wrong": {
             "B": "The article does not say the sun makes eyes bigger.",
             "C": "You still blink outside.",
@@ -317,7 +317,7 @@
           ],
           "answer": "A",
           "skill": "detail",
-          "why": "The article says the retina turns light into signals and sends them to the brain.",
+          "why": "In the article, the retina turns light into signals and sends them to the brain.",
           "wrong": {
             "B": "That describes the pupil.",
             "C": "Blinking spreads tears.",
@@ -334,7 +334,7 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The article explains that nearsighted people see close things clearly, but far things look blurry.",
+          "why": "In the article, nearsighted people see close things clearly, but far things look blurry.",
           "wrong": {
             "A": "This is the opposite of nearsighted.",
             "B": "The article does not discuss color.",
@@ -496,7 +496,7 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The article says melatonin signals that it is time to sleep and that bright evening light can reduce it.",
+          "why": "In the article, melatonin signals that it is time to sleep and that bright evening light can reduce it.",
           "wrong": {
             "A": "Tiny muscles adjust the lens.",
             "B": "That describes the retina.",
@@ -513,7 +513,7 @@
           ],
           "answer": "A",
           "skill": "detail",
-          "why": "The article states that electrical signals from the retina travel along the optic nerve to the brain.",
+          "why": "Signals from the retina travel along the optic nerve to the brain.",
           "wrong": {
             "B": "The lens bends light.",
             "C": "The article does not link the optic nerve to blinking.",
@@ -627,7 +627,7 @@
         ],
         "answer": "C",
         "skill": "sequence",
-        "why": "The text says light hits the back of the eye and then a note goes to your brain.",
+        "why": "In the text, light hits the back of the eye and then a note goes to your brain.",
         "wrong": {
           "A": "Dry eyes come from blinking less at a screen.",
           "B": "Blinking is not part of how you see.",
@@ -644,7 +644,7 @@
         ],
         "answer": "A",
         "skill": "cause-effect",
-        "why": "The text says a screen is close, so your eyes work hard the whole time, get tired, and your head may hurt.",
+        "why": "In the text, a screen is close, so your eyes work hard the whole time, get tired, and your head may hurt.",
         "wrong": {
           "B": "The text says you blink less at a screen.",
           "C": "The sun is linked to glasses, not to head pain.",
@@ -680,7 +680,7 @@
         "skill": "author-purpose",
         "why": "The last lines say screens are fine and you should just give your eyes a break.",
         "wrong": {
-          "A": "The author says screens are fine.",
+          "A": "The author does not say screens should never be used.",
           "C": "The author says not to use a screen just as you go to bed.",
           "D": "The article does not limit screens to games."
         }
@@ -767,7 +767,7 @@
         ],
         "answer": "D",
         "skill": "detail",
-        "why": "The article says myopia often develops when the eyeball grows slightly too long.",
+        "why": "Myopia often happens when the eyeball grows a little too long.",
         "wrong": {
           "A": "The pupil is not linked to myopia.",
           "B": "The retina's thinness is not mentioned as a cause.",
@@ -801,7 +801,7 @@
         ],
         "answer": "B",
         "skill": "cause-effect",
-        "why": "The article says a screen is typically held close, so the muscles must keep adjusting the lens.",
+        "why": "In the article, a screen is typically held close, so the muscles must keep adjusting the lens.",
         "wrong": {
           "A": "Brightness affects sleep, not these muscles.",
           "C": "You blink less at a screen.",
@@ -818,7 +818,7 @@
         ],
         "answer": "B",
         "skill": "inference",
-        "why": "The article says this discomfort is usually temporary and disappears with rest.",
+        "why": "This kind of eye strain usually goes away with rest.",
         "wrong": {
           "A": "Eye strain is not myopia.",
           "C": "Eyeball growth is linked to myopia, not strain.",

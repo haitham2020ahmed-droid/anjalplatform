@@ -138,7 +138,7 @@
           ],
           "answer": "B",
           "skill": "detail",
-          "why": "The article says the lens bends the light so it can focus and make a sharp photo.",
+          "why": "In the article, the lens bends the light so it can focus and make a sharp photo.",
           "wrong": {
             "A": "The click comes from the shutter opening and shutting.",
             "C": "The lens does not keep the camera warm.",
@@ -155,9 +155,9 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The article says the shutter is shut most of the time, then opens fast and shuts again.",
+          "why": "In the article, the shutter stays closed, then opens and shuts in a flash.",
           "wrong": {
-            "A": "The article says it stays shut most of the time.",
+            "A": "It stays shut most of the time.",
             "B": "Bending light is the job of the lens.",
             "D": "The article does not say the shutter turns the camera on."
           }
@@ -240,7 +240,7 @@
           ],
           "answer": "D",
           "skill": "inference",
-          "why": "The article says that long ago he studied how light came through a hole into a dark room, which is how a camera works.",
+          "why": "In the article, long ago he studied how light came through a hole into a dark room, which is how a camera works.",
           "wrong": {
             "A": "Phones did not exist in his time.",
             "B": "The article does not say anything about him and cats.",
@@ -334,7 +334,7 @@
           ],
           "answer": "C",
           "skill": "cause-effect",
-          "why": "The article says a bigger aperture lets in more light, while a smaller one lets in less.",
+          "why": "In the article, a bigger aperture lets in more light, while a smaller one lets in less.",
           "wrong": {
             "A": "The aperture changes the light, not the picture size.",
             "B": "The shutter still works the same way.",
@@ -351,7 +351,7 @@
           ],
           "answer": "B",
           "skill": "compare",
-          "why": "The article says old cameras used film coated with chemicals, and phones use a sensor covered with pixels.",
+          "why": "In the article, old cameras used film coated with chemicals, and phones use a sensor covered with pixels.",
           "wrong": {
             "A": "The article does not say old cameras had no lens.",
             "C": "All cameras need light.",
@@ -368,7 +368,7 @@
           ],
           "answer": "D",
           "skill": "detail",
-          "why": "The article says each pixel measures how much light hits it, and together the pixels build the picture.",
+          "why": "In the article, each pixel measures how much light hits it, and together the pixels build the picture.",
           "wrong": {
             "A": "That is the job of the shutter.",
             "B": "That is the job of the lens.",
@@ -496,7 +496,7 @@
           ],
           "answer": "B",
           "skill": "detail",
-          "why": "The article says the lens bends, or refracts, the rays so they meet at a single point.",
+          "why": "In the article, the lens bends, or refracts, the rays so they meet at a single point.",
           "wrong": {
             "A": "Pixels turn light into numbers.",
             "C": "Reflection happens at the cat, not in the lens.",
@@ -530,7 +530,7 @@
           ],
           "answer": "D",
           "skill": "cause-effect",
-          "why": "The article says the image forms inverted inside, but the camera flips it back before you see it.",
+          "why": "In the article, the image forms inverted inside, but the camera flips it back before you see it.",
           "wrong": {
             "A": "The article says the image inside is inverted.",
             "B": "The article does not say pixels only record right-side-up light.",
@@ -627,7 +627,7 @@
         ],
         "answer": "A",
         "skill": "detail",
-        "why": "The text says a camera is a dark box with a small hole in the front, and light gets in through it.",
+        "why": "In the text, a camera is a dark box with a small hole in the front, and light gets in through it.",
         "wrong": {
           "B": "The light lands on the back of the box; it does not enter there.",
           "C": "The dots are in the sensor at the back and record the light.",
@@ -663,7 +663,7 @@
         "skill": "inference",
         "why": "The shutter opens fast and shuts again, so the light is let in for only a very short time.",
         "wrong": {
-          "A": "The text says the shutter is shut most of the time.",
+          "A": "The shutter is shut most of the time, not open all day.",
           "C": "The shutter opens fast, so the photo does not take a minute.",
           "D": "The camera needs light to take a photo."
         }
@@ -697,7 +697,7 @@
         ],
         "answer": "B",
         "skill": "detail",
-        "why": "The article says the shutter works like a tiny door that stays closed until you press the button.",
+        "why": "In the article, the shutter works like a tiny door that stays closed until you press the button.",
         "wrong": {
           "A": "The lens bends the light.",
           "C": "Pixels measure the light.",
@@ -714,7 +714,7 @@
         ],
         "answer": "B",
         "skill": "vocabulary",
-        "why": "The article says the light bounces off the cat in all directions, which is called reflecting.",
+        "why": "In the article, the light bounces off the cat in all directions, which is called reflecting.",
         "wrong": {
           "A": "The lens bends light; reflecting is bouncing.",
           "C": "The text does not say light turns to heat.",
@@ -767,7 +767,7 @@
         ],
         "answer": "A",
         "skill": "detail",
-        "why": "The article says each pixel measures how much light reaches it and turns that amount into a number.",
+        "why": "Each pixel measures how much light reaches it and turns that amount into a number.",
         "wrong": {
           "B": "The lens bends the light into one point.",
           "C": "The camera flips the image back; pixels do not.",
@@ -801,7 +801,7 @@
         ],
         "answer": "B",
         "skill": "compare",
-        "why": "The article says the eye's lens focuses light onto the retina at the back of the eye, much as a camera lens does.",
+        "why": "In the article, the eye's lens focuses light onto the retina at the back of the eye, much as a camera lens does.",
         "wrong": {
           "A": "The article does not give the eye a shutter.",
           "C": "Film was used in older cameras, not in the eye.",

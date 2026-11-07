@@ -138,7 +138,7 @@
           ],
           "answer": "A",
           "skill": "sequence",
-          "why": "The story says Coach Reem made a plan, and each week Noor ran a bit more than the week before.",
+          "why": "In the story, Coach Reem made a plan, and each week Noor ran a bit more than the week before.",
           "wrong": {
             "B": "Noor trained for months, not just one day.",
             "C": "The story does not mention watching television.",
@@ -334,7 +334,7 @@
           ],
           "answer": "B",
           "skill": "detail",
-          "why": "The story states the Fun Run covers five kilometers and is the longest race the district holds all year.",
+          "why": "In the story, the Fun Run covers five kilometers and is the longest race the district holds all year.",
           "wrong": {
             "A": "The Fun Run is the longest race, not the shortest.",
             "C": "The race is five kilometers, not ten, and students run it.",
@@ -547,7 +547,7 @@
           ],
           "answer": "A",
           "skill": "inference",
-          "why": "The story notes that five kilometers was considerably longer than any distance the students usually ran in gym class, which explains their anxiety.",
+          "why": "In the story, five kilometers was considerably longer than any distance the students usually ran in gym class, which explains their anxiety.",
           "wrong": {
             "B": "The story gives no sign that students disliked Coach Reem's methods.",
             "C": "Nothing suggests the students expected the race to be canceled.",
@@ -627,7 +627,7 @@
         ],
         "answer": "D",
         "skill": "detail",
-        "why": "The text says the Fun Run was five kilometers long.",
+        "why": "In the text, the Fun Run was five kilometers long.",
         "wrong": {
           "A": "One kilometer was all Noor could run long ago.",
           "B": "The race was shorter than ten kilometers.",
@@ -821,7 +821,7 @@
         "why": "The sprinters were fueled by excitement, but Noor chose a slow, deliberate rhythm.",
         "wrong": {
           "A": "Excitement drove the sprinters, not Noor.",
-          "B": "The article says she refused to copy them.",
+          "B": "She did not copy them.",
           "D": "All the runners left when the signal sounded."
         }
       }

@@ -530,7 +530,7 @@
      ],
      "answer": "A",
      "skill": "inference",
-     "why": "Once the sand's absorption and the fox's speed are considered, his 'helpful' plan actually benefits only him.",
+     "why": "Once you think about how the sand soaks up water and how fast the fox is, his plan really helps only him.",
      "wrong": {
       "B": "The fox does speak directly to the crow.",
       "C": "The fox does propose a plan rather than leaving.",
@@ -618,20 +618,20 @@
  "stretch": {
   "LOW": [
    {
-    "stem": "Where does the crow find the small pebbles?",
+    "stem": "What does the crow drop into the jar?",
     "options": [
-     "Up in a tree",
-     "In the fox's paw",
-     "On the ground",
-     "Inside the jar"
+     "Big leaves",
+     "Grains of sand",
+     "Small pebbles",
+     "Drops of milk"
     ],
     "answer": "C",
     "skill": "detail",
-    "why": "The text says the crow saw small pebbles on the ground.",
+    "why": "In the story, the crow drops small pebbles into the jar so the water rises.",
     "wrong": {
-     "A": "The pebbles are not in a tree.",
-     "B": "The fox does not hold any pebbles.",
-     "D": "The crow drops the pebbles into the jar; they begin on the ground."
+     "A": "Leaves are not what she drops.",
+     "B": "Sand is not what she uses.",
+     "D": "There is no milk in the story."
     }
    },
    {
@@ -644,7 +644,7 @@
     ],
     "answer": "A",
     "skill": "cause-effect",
-    "why": "The text says the fox got no water because his trick did not work.",
+    "why": "In the story, the fox's trick did not work, so he got no water.",
     "wrong": {
      "B": "The crow drinks the water herself.",
      "C": "The text does not say the fox is too small.",
@@ -767,7 +767,7 @@
     ],
     "answer": "D",
     "skill": "detail",
-    "why": "The text says the water is too low to reach, even with her head tilted at the narrow opening.",
+    "why": "In the story, the water is too low for the crow to reach.",
     "wrong": {
      "A": "The jar holds water, not sand.",
      "B": "No cover is mentioned.",

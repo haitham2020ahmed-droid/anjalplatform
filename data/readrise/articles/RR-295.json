@@ -155,7 +155,7 @@
           ],
           "answer": "A",
           "skill": "detail",
-          "why": "The article says each man holds a sword up high.",
+          "why": "In the article, each man holds a sword up high.",
           "wrong": {
             "B": "A drum is played, but the men do not each hold one.",
             "C": "Flags are not mentioned.",
@@ -163,7 +163,7 @@
           }
         },
         {
-          "stem": "The article says, 'A poet says a poem out loud.' A poet is —",
+          "stem": "In this article, a poet is —",
           "options": [
             "a person who plays the drum",
             "a person who fights with a sword",
@@ -189,7 +189,7 @@
           ],
           "answer": "B",
           "skill": "cause-effect",
-          "why": "The article explains the men hold swords up high but never fight with them.",
+          "why": "In the article, the men hold swords up high but never fight with them.",
           "wrong": {
             "A": "The men lift the swords easily.",
             "C": "The article does not say the swords are too old.",
@@ -206,7 +206,7 @@
           ],
           "answer": "A",
           "skill": "inference",
-          "why": "The article says the dance is old and connects to heritage, which can make people feel proud.",
+          "why": "The dance is old and part of the country's heritage, which can make people feel proud.",
           "wrong": {
             "B": "Running speed is not part of the dance.",
             "C": "The dance is old, not new.",
@@ -240,7 +240,7 @@
           ],
           "answer": "C",
           "skill": "author-purpose",
-          "why": "Calling Al-Ardah 'heritage' shows it is valued as an important tradition.",
+          "why": "Calling Al-Ardah heritage shows it is valued as an important tradition.",
           "wrong": {
             "A": "Joining the group is not explained.",
             "B": "Sword-making is not described.",
@@ -333,7 +333,7 @@
           ],
           "answer": "D",
           "skill": "detail",
-          "why": "The article says the sword is part of the costume and ceremony, a symbol of honor.",
+          "why": "In the article, the sword is part of the costume and ceremony, a symbol of honor.",
           "wrong": {
             "A": "No fighting happens in the dance.",
             "B": "Throwing swords is not mentioned.",
@@ -494,7 +494,7 @@
           ],
           "answer": "A",
           "skill": "detail",
-          "why": "The article states that the poet's recitation forms the heart of the performance.",
+          "why": "In the article, the poet's recitation forms the heart of the performance.",
           "wrong": {
             "B": "The recitation happens during, not after, the performance.",
             "C": "No exam is mentioned.",
@@ -511,7 +511,7 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The article says the sword functions as a symbol of honor rather than a weapon.",
+          "why": "In the article, the sword functions as a symbol of honor rather than a weapon.",
           "wrong": {
             "A": "The article explicitly says it is never used for fighting.",
             "B": "Farming is not mentioned.",
@@ -545,7 +545,7 @@
           ],
           "answer": "D",
           "skill": "cause-effect",
-          "why": "The article says the dance expressed unity, courage, and belonging among the people performing it.",
+          "why": "In the article, the dance expressed unity, courage, and belonging among the people performing it.",
           "wrong": {
             "A": "Choosing a poet to travel is not mentioned.",
             "B": "Testing swords is not described.",
@@ -624,7 +624,7 @@
         ],
         "answer": "A",
         "skill": "detail",
-        "why": "The text says the men move with the beat of the drum.",
+        "why": "In the text, the men move with the beat of the drum.",
         "wrong": {
           "B": "The poet says the poem, not the drum.",
           "C": "The men hold the swords themselves.",
@@ -660,7 +660,7 @@
         "skill": "inference",
         "why": "People do the dance on big days, and it makes them feel proud and close together.",
         "wrong": {
-          "A": "The text says the men do not fight.",
+          "A": "The men do not fight.",
           "B": "Nothing is sold in the dance.",
           "D": "The text does not say the dance teaches reading."
         }
@@ -675,7 +675,7 @@
         ],
         "answer": "B",
         "skill": "vocabulary",
-        "why": "The text says the men sway side to side with the beat.",
+        "why": "In the text, the men sway side to side with the beat.",
         "wrong": {
           "A": "The text says side to side, not up and down.",
           "C": "The men stay in their rows.",
@@ -728,7 +728,7 @@
         ],
         "answer": "A",
         "skill": "cause-effect",
-        "why": "The text says the dancers sway side to side together with the beat, which makes the dance look strong and graceful.",
+        "why": "In the text, the dancers sway side to side together with the beat, which makes the dance look strong and graceful.",
         "wrong": {
           "B": "The text says no one ever fights with a sword.",
           "C": "The men stand in rows and do not run between them.",
@@ -766,7 +766,7 @@
         "skill": "detail",
         "why": "The article says the honor is shared among several Gulf nations.",
         "wrong": {
-          "A": "The article says several Gulf nations, not every nation.",
+          "A": "In the article, several Gulf nations, not every nation.",
           "B": "The honor is shared by more than one town.",
           "C": "The article does not name a single tribe."
         }
@@ -781,7 +781,7 @@
         ],
         "answer": "B",
         "skill": "vocabulary",
-        "why": "The article says heritage refers to the customs and traditions a community preserves and passes down.",
+        "why": "In the article, heritage refers to the customs and traditions a community preserves and passes down.",
         "wrong": {
           "A": "The article does not mean money.",
           "C": "Heritage is about customs, not government rules.",
@@ -819,7 +819,7 @@
         "wrong": {
           "B": "Making swords is not explained.",
           "C": "No wedding dates are listed.",
-          "D": "The article says it continues to bring communities together."
+          "D": "The dance still brings communities together."
         }
       }
     ]

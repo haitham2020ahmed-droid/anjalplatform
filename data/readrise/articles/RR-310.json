@@ -155,7 +155,7 @@
      ],
      "answer": "B",
      "skill": "detail",
-     "why": "The article says a player moves a bow across the rebaba's strings.",
+     "why": "In the article, a player moves a bow across the rebaba's strings.",
      "wrong": {
       "A": "A hammer is not mentioned.",
       "C": "Breath is used for the mizmar, not the rebaba.",
@@ -172,7 +172,7 @@
      ],
      "answer": "B",
      "skill": "vocabulary",
-     "why": "The article explains that a wind instrument makes sound when a player blows air into it.",
+     "why": "In the article, you blow air into a wind instrument to make it sound.",
      "wrong": {
       "A": "Hitting describes drums, not wind instruments.",
       "C": "The word 'wind' here means blown air, not weather.",
@@ -206,7 +206,7 @@
      ],
      "answer": "A",
      "skill": "inference",
-     "why": "The article says drums often keep the beat for dancers, which helps explain why dancers can move along with them.",
+     "why": "In the article, drums keep the beat, so dancers can move along with it.",
      "wrong": {
       "B": "The article describes drums as providing a clear beat, not being quiet.",
       "C": "Drums do not have strings.",
@@ -214,7 +214,7 @@
      }
     },
     {
-     "stem": "Why might the rebaba be a good instrument for 'telling a story through its sound'?",
+     "stem": "Why might the rebaba be good for telling a story through its sound?",
      "options": [
       "Because it is the loudest of all the instruments in the band",
       "Because its long, singing sound can carry feeling, even without words",
@@ -338,11 +338,11 @@
      "wrong": {
       "B": "The article clearly separates how each is played.",
       "C": "The rebaba has strings; the mizmar does not.",
-      "D": "The article says the mizmar, not the rebaba, is chosen for its loud outdoor sound."
+      "D": "In the article, the mizmar, not the rebaba, is chosen for its loud outdoor sound."
      }
     },
     {
-     "stem": "The article says drums 'establish a steady, repeating beat.' Based on the article, what does 'establish' mean here?",
+     "stem": "Drums establish a steady beat for the dancers. What does establish mean here?",
      "options": [
       "To destroy or remove something",
       "To set up or create something clearly",
@@ -351,7 +351,7 @@
      ],
      "answer": "B",
      "skill": "vocabulary",
-     "why": "In context, drums 'establish' the beat by creating and setting it clearly for dancers to follow.",
+     "why": "In context, drums establish the beat by creating it clearly for dancers to follow.",
      "wrong": {
       "A": "Establishing a beat means creating it, not destroying it.",
       "C": "The beat is meant to be heard, not hidden.",
@@ -496,7 +496,7 @@
      ],
      "answer": "B",
      "skill": "detail",
-     "why": "The article explains that a player blows air through a reed inside the mizmar, and the reed's vibration is what produces its piercing sound.",
+     "why": "In the article, a player blows air through a reed inside the mizmar, and the reed's vibration is what produces its piercing sound.",
      "wrong": {
       "A": "A frame with strings describes the rebaba, not a reed.",
       "C": "Striking describes drums, not the mizmar's reed.",
@@ -504,7 +504,7 @@
      }
     },
     {
-     "stem": "Why does the article describe the mizmar's tone as more 'piercing and insistent' than similar Western wind instruments?",
+     "stem": "Why does the article describe the mizmar's sound as loud and sharp?",
      "options": [
       "To suggest the mizmar is an inferior instrument that people do not like to hear",
       "To highlight a specific quality that explains why the mizmar suits loud, crowded, outdoor celebrations",
@@ -627,7 +627,7 @@
     ],
     "answer": "C",
     "skill": "detail",
-    "why": "The text says the daf is flat and round, like a circle.",
+    "why": "In the text, the daf is flat and round, like a circle.",
     "wrong": {
      "A": "A pipe is not how the daf is described.",
      "B": "A bow is what the rebaba player uses, not the daf's shape.",
@@ -661,7 +661,7 @@
     ],
     "answer": "B",
     "skill": "vocabulary",
-    "why": "The text says people dance to the beat, so it is the steady pulse that drums keep.",
+    "why": "In the text, drums keep a steady beat, so a beat is a steady pulse in the music.",
     "wrong": {
      "A": "A beat is not a shout.",
      "C": "A beat is part of the music and not a song.",
@@ -701,7 +701,7 @@
     "wrong": {
      "A": "Blowing air describes the wind kind, like the mizmar.",
      "C": "Pulling a bow describes the rebaba.",
-     "D": "The article says the rebaba makes a bowed tone, not a plucked note."
+     "D": "In the article, the rebaba makes a bowed tone, not a plucked note."
     }
    },
    {
@@ -750,7 +750,7 @@
     "skill": "inference",
     "why": "Each instrument fills its own role, so combining them at joyful events shows they work well together.",
     "wrong": {
-     "A": "The article says musicians combine several kinds.",
+     "A": "In the article, musicians combine several kinds.",
      "C": "The article says playing alone is uncommon, but it does not say they cannot.",
      "D": "The article does not say the mizmar is banned."
     }
@@ -767,7 +767,7 @@
     ],
     "answer": "A",
     "skill": "detail",
-    "why": "The article says the daf is usually held upright against the body, often played by several performers at once.",
+    "why": "In the article, the daf is usually held upright against the body, often played by several performers at once.",
     "wrong": {
      "B": "The tabla is the one held under one arm.",
      "C": "The article does not say the daf is played on the ground.",
@@ -818,7 +818,7 @@
     ],
     "answer": "B",
     "skill": "inference",
-    "why": "The article says musicians built many kinds of instruments over time, which suggests they made their own before stores.",
+    "why": "In the article, musicians built many kinds of instruments over time, which suggests they made their own before stores.",
     "wrong": {
      "A": "The article says people played music for many centuries.",
      "C": "The article does not talk about prices.",

@@ -138,7 +138,7 @@
           ],
           "answer": "A",
           "skill": "detail",
-          "why": "The article says the gold ring in the middle is worth the most points.",
+          "why": "The gold ring in the middle is worth the most points.",
           "wrong": {
             "B": "Outer rings are worth less.",
             "C": "The article does not say this.",
@@ -155,7 +155,7 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The article says the fins help the arrow fly straight.",
+          "why": "In the article, the fins help the arrow fly straight.",
           "wrong": {
             "A": "The article gives a job for the fins, not looks.",
             "B": "The article does not say this.",
@@ -180,7 +180,7 @@
           }
         },
         {
-          "stem": "Read this: \"To hit the gold, you must focus.\" What does focus mean?",
+          "stem": "In the article, what does the word \"focus\" mean?",
           "options": [
             "Keep your mind on one thing",
             "Run as fast as you can",
@@ -317,7 +317,7 @@
           ],
           "answer": "C",
           "skill": "vocabulary",
-          "why": "The article says the anchor is the same spot on the face, usually under the chin, where the hand stops.",
+          "why": "In the article, the anchor is the same spot on the face, usually under the chin, where the hand stops.",
           "wrong": {
             "A": "The point is the front of the arrow.",
             "B": "The gold ring is the center of the target.",
@@ -351,7 +351,7 @@
           ],
           "answer": "D",
           "skill": "sequence",
-          "why": "The article says that finally archers release the string and hold still.",
+          "why": "In the article, finally archers release the string and hold still.",
           "wrong": {
             "A": "This is the second step.",
             "B": "This is the first step.",
@@ -368,7 +368,7 @@
           ],
           "answer": "B",
           "skill": "detail",
-          "why": "The article says Olympic archers shoot at a target seventy meters away.",
+          "why": "In the article, Olympic archers shoot at a target seventy meters away.",
           "wrong": {
             "A": "The article says seventy, not seven.",
             "C": "Ten is the points for the gold ring.",
@@ -385,7 +385,7 @@
           ],
           "answer": "A",
           "skill": "cause-effect",
-          "why": "The article says calm breathing helps keep the body steady.",
+          "why": "In the article, calm breathing helps keep the body steady.",
           "wrong": {
             "B": "Breathing does not change the string.",
             "C": "Breathing cannot change the wind.",
@@ -402,7 +402,7 @@
           ],
           "answer": "A",
           "skill": "compare",
-          "why": "The article says bows were used to hunt in the past and archery is now a sport.",
+          "why": "In the article, bows were used to hunt in the past and archery is now a sport.",
           "wrong": {
             "B": "The article does not say this.",
             "C": "Archers still use bows.",
@@ -521,7 +521,7 @@
           }
         },
         {
-          "stem": "Read this: \"they release the string smoothly and remain perfectly still, a step known as the follow-through.\" What is the follow-through?",
+          "stem": "In the article, what does the word \"follow-through\" mean?",
           "options": [
             "Staying still after letting go of the string",
             "Pulling the string back to the chin slowly",
@@ -678,7 +678,7 @@
         ],
         "answer": "B",
         "skill": "detail",
-        "why": "The text says to hold your hand by your chin.",
+        "why": "In the text, to hold your hand by your chin.",
         "wrong": {
           "A": "The text says chin, not knee.",
           "C": "The text says chin, not foot.",
@@ -731,7 +731,7 @@
         ],
         "answer": "A",
         "skill": "cause-effect",
-        "why": "The text says the fins or feathers help the arrow fly straight through the air.",
+        "why": "The feathers or fins at the back help the arrow fly straight.",
         "wrong": {
           "B": "The text does not say they help hold the string.",
           "C": "Fins and feathers are light, and the text does not say they add weight.",
@@ -748,11 +748,11 @@
         ],
         "answer": "C",
         "skill": "inference",
-        "why": "The text says young people can learn archery at clubs and take part in competitions.",
+        "why": "In the text, young people can learn archery at clubs and take part in competitions.",
         "wrong": {
           "A": "The text says young people can learn it.",
           "B": "The text says clubs and competitions exist in Saudi Arabia.",
-          "D": "The text says archery is safe when everyone follows the rules."
+          "D": "In the text, archery is safe when everyone follows the rules."
         }
       }
     ],
@@ -801,7 +801,7 @@
         ],
         "answer": "C",
         "skill": "cause-effect",
-        "why": "The text says repeating each step in precisely the same manner improves accuracy.",
+        "why": "In the text, repeating each step in precisely the same manner improves accuracy.",
         "wrong": {
           "A": "The text does not say the bow gets lighter.",
           "B": "The text says accuracy improves, not speed.",

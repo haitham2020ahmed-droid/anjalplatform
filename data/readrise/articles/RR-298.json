@@ -155,7 +155,7 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The article says many people could not read or write, so poets did not write poems down at first.",
+          "why": "Many people could not read or write, so poems were not written down at first.",
           "wrong": {
             "A": "No rule against writing is mentioned.",
             "B": "Poem length is not given as the reason.",
@@ -227,7 +227,7 @@
           "wrong": {
             "A": "No such rule is mentioned.",
             "B": "Rhyme is about sound, not subject matter.",
-            "D": "The article says poems also told of daily desert life."
+            "D": "Poems also told about daily desert life."
           }
         },
         {
@@ -334,7 +334,7 @@
           ],
           "answer": "A",
           "skill": "detail",
-          "why": "The article says poets competed at Souq Okaz, reciting their finest work before crowds.",
+          "why": "Poets competed at Souq Okaz by reciting their best work for crowds.",
           "wrong": {
             "B": "Cloth selling is not mentioned.",
             "C": "Spice trading is not mentioned here.",
@@ -419,7 +419,7 @@
           ],
           "answer": "B",
           "skill": "text-structure",
-          "why": "The article explains the oral tradition of reciting qasidas and then gives Souq Okaz as an example.",
+          "why": "The article explains how poets recited their poems aloud and gives an example of a famous market where they did this.",
           "wrong": {
             "A": "No single poet's full life story is compared to another's.",
             "C": "No step-by-step writing rules are listed.",
@@ -496,7 +496,7 @@
           ],
           "answer": "D",
           "skill": "detail",
-          "why": "The article says meter is a regular, recurring pattern of beats that gives each verse its rhythm.",
+          "why": "In the article, meter is a regular, recurring pattern of beats that gives each verse its rhythm.",
           "wrong": {
             "A": "Rhyme concerns ending sounds, not the beat pattern.",
             "B": "Voice volume is not mentioned as creating rhythm.",
@@ -714,7 +714,7 @@
         ],
         "answer": "D",
         "skill": "detail",
-        "why": "The article says a skilled reciter could hold hundreds of verses in his mind.",
+        "why": "In the article, a skilled reciter could hold hundreds of verses in his mind.",
         "wrong": {
           "A": "A few is far fewer than the article says.",
           "B": "One verse is far fewer than the article says.",
@@ -731,7 +731,7 @@
         ],
         "answer": "D",
         "skill": "cause-effect",
-        "why": "The article says the oral tradition let listeners learn favorite poems and pass them on by word of mouth.",
+        "why": "In the article, the oral tradition let listeners learn favorite poems and pass them on by word of mouth.",
         "wrong": {
           "A": "The article says writing was not common yet.",
           "B": "Playing music is not mentioned.",
@@ -801,7 +801,7 @@
         ],
         "answer": "D",
         "skill": "cause-effect",
-        "why": "The article says listeners passed poems on across generations before manuscripts existed to do so.",
+        "why": "In the article, listeners passed poems on across generations before manuscripts existed to do so.",
         "wrong": {
           "A": "The article does not say crowds disliked written poems.",
           "B": "The article does not say poets refused.",

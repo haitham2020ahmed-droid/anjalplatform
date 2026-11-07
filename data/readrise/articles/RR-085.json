@@ -163,7 +163,7 @@
           }
         },
         {
-          "stem": "Read: \"Each one was a scholar.\" What is a scholar?",
+          "stem": "In the article, what is a scholar?",
           "options": [
             "A person who sells books",
             "A person who builds new cities and towns",
@@ -334,7 +334,7 @@
           ],
           "answer": "D",
           "skill": "detail",
-          "why": "The article says his books were translated into Latin, and the new numbers spread across Europe.",
+          "why": "In the article, his books were translated into Latin, and the new numbers spread across Europe.",
           "wrong": {
             "A": "Scholars in Baghdad translated other books into Arabic.",
             "B": "Greek books came to Baghdad; his books were not translated into Greek.",
@@ -368,7 +368,7 @@
           ],
           "answer": "B",
           "skill": "cause-effect",
-          "why": "The article says that after his books were translated into Latin, the new numbers spread across Europe.",
+          "why": "In the article, after his books were translated into Latin, the new numbers spread across Europe.",
           "wrong": {
             "A": "Computers did not exist then.",
             "C": "The article does not say this.",
@@ -496,10 +496,10 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The article states that al-jabr means \"restoring.\"",
+          "why": "Al-jabr means \"restoring.\"",
           "wrong": {
             "A": "This is not the meaning given.",
-            "B": "Balance is a principle he used, but the article says al-jabr means restoring.",
+            "B": "Balance is a principle he used, but in the article, al-jabr means restoring.",
             "D": "Dividing land was one use of his methods, not the word's meaning."
           }
         },
@@ -513,7 +513,7 @@
           ],
           "answer": "B",
           "skill": "detail",
-          "why": "The article says he was born in Khwarazm, a region of Central Asia that gave him his name.",
+          "why": "In the article, he was born in Khwarazm, a region of Central Asia that gave him his name.",
           "wrong": {
             "A": "That is where he worked.",
             "C": "Latin writers changed his name; they did not create it.",
@@ -521,7 +521,7 @@
           }
         },
         {
-          "stem": "Read: \"he presented a systematic method for each category of problem.\" What does systematic mean?",
+          "stem": "In the article, what does the word \"systematic\" mean?",
           "options": [
             "Quick and careless, with no real plan",
             "Secret and hidden from most people",
@@ -530,7 +530,7 @@
           ],
           "answer": "D",
           "skill": "vocabulary",
-          "why": "The article contrasts his method with \"scattered tricks,\" so systematic means organized and planned.",
+          "why": "His method was organized and followed a clear plan, unlike scattered tricks, so systematic means organized and planned.",
           "wrong": {
             "A": "A systematic method is careful, not careless.",
             "B": "He shared his methods in a book.",
@@ -547,7 +547,7 @@
           ],
           "answer": "C",
           "skill": "cause-effect",
-          "why": "The article explains that the European spelling of his name, Algoritmi, became the word algorithm.",
+          "why": "In the article, the European spelling of his name, Algoritmi, became the word algorithm.",
           "wrong": {
             "A": "The article does not mention such a machine.",
             "B": "The word comes from his name, not a word for computer.",
@@ -678,7 +678,7 @@
         ],
         "answer": "B",
         "skill": "vocabulary",
-        "why": "The text says algorithm means a list of steps.",
+        "why": "In the text, algorithm means a list of steps.",
         "wrong": {
           "A": "Baghdad is the big city.",
           "C": "His book on math is not an algorithm.",
@@ -697,7 +697,7 @@
         ],
         "answer": "D",
         "skill": "detail",
-        "why": "The text says its library held books from Greece, Persia, India, and other lands.",
+        "why": "In the text, its library held books from Greece, Persia, India, and other lands.",
         "wrong": {
           "A": "Latin came later, when books were sent to Europe.",
           "B": "The text does not mention star maps of Europe.",
@@ -767,7 +767,7 @@
         ],
         "answer": "B",
         "skill": "detail",
-        "why": "The text says his tables helped astronomers track the movements of the sun, moon, and planets.",
+        "why": "In the text, his tables helped astronomers track the movements of the sun, moon, and planets.",
         "wrong": {
           "A": "Latin is mentioned for his books, not his tables.",
           "C": "Dividing land was done with his equation methods.",
@@ -801,7 +801,7 @@
         ],
         "answer": "C",
         "skill": "cause-effect",
-        "why": "The text says his books were translated into Latin and the new numerals gradually spread.",
+        "why": "His books were translated into Latin, and the new numerals slowly spread across Europe.",
         "wrong": {
           "A": "Coins are not mentioned.",
           "B": "Carrying them to Baghdad would not spread them in Europe.",

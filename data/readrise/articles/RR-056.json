@@ -138,7 +138,7 @@
           ],
           "answer": "D",
           "skill": "detail",
-          "why": "The article says most caves form in a rock called limestone.",
+          "why": "In the article, most caves form in a rock called limestone.",
           "wrong": {
             "A": "The stone points look like icicles, but caves do not form in ice.",
             "B": "Glass is not a rock in the article.",
@@ -155,7 +155,7 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The article says the stone points that hang down like icicles are stalactites.",
+          "why": "In the article, the stone points that hang down like icicles are stalactites.",
           "wrong": {
             "A": "A point that grows up from the floor is a stalagmite.",
             "B": "A post made when two points meet is a column.",
@@ -172,7 +172,7 @@
           ],
           "answer": "A",
           "skill": "vocabulary",
-          "why": "The article says that when a stalactite and a stalagmite meet, they make a post called a column.",
+          "why": "In the article, when a stalactite and a stalagmite meet, they make a post called a column.",
           "wrong": {
             "B": "Drops of water drip from the roof, but they are not columns.",
             "C": "The gas makes rain a weak acid; it is not a column.",
@@ -240,7 +240,7 @@
           ],
           "answer": "B",
           "skill": "inference",
-          "why": "The article says the points grew when there was more rain. Stone points need dripping water, and the Summan is now dry.",
+          "why": "In the article, the points grew when there was more rain. Stone points need dripping water, and the Summan is now dry.",
           "wrong": {
             "A": "The article does not say cold stops growth.",
             "C": "Nothing in the article says they were painted.",
@@ -317,7 +317,7 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The article says limestone is made mostly of a mineral called calcite.",
+          "why": "In the article, limestone is made mostly of a mineral called calcite.",
           "wrong": {
             "A": "Salt is not mentioned in the article.",
             "B": "Iron is not mentioned.",
@@ -334,7 +334,7 @@
           ],
           "answer": "D",
           "skill": "detail",
-          "why": "The article says that in a hundred years a formation may grow only about one centimeter.",
+          "why": "In a hundred years a formation may grow only about one centimeter.",
           "wrong": {
             "A": "This is far faster than the article says.",
             "B": "The article explains that formations keep growing ring by ring.",
@@ -368,7 +368,7 @@
           ],
           "answer": "A",
           "skill": "cause-effect",
-          "why": "The article says that as the drop hangs, it lets some of its gas escape and then leaves a ring of mineral.",
+          "why": "In the article, as the drop hangs, it lets out some of its gas and then leaves a ring of mineral.",
           "wrong": {
             "B": "Caves are cool, but the article does not say drops freeze.",
             "C": "Bats are not mentioned.",
@@ -496,7 +496,7 @@
           ],
           "answer": "D",
           "skill": "detail",
-          "why": "The article states that rainwater absorbs carbon dioxide, which converts it into a weak acid.",
+          "why": "In the article, rainwater absorbs carbon dioxide, which converts it into a weak acid.",
           "wrong": {
             "A": "Calcite is what the water dissolves and later deposits; it does not make the acid.",
             "B": "Sea salt is not mentioned.",
@@ -513,7 +513,7 @@
           ],
           "answer": "B",
           "skill": "detail",
-          "why": "The article says scientists study the layers to understand or reconstruct how rainfall has changed over time.",
+          "why": "Scientists study the layers in cave formations to learn how rainfall changed over time.",
           "wrong": {
             "A": "Cave depth is not discussed.",
             "C": "Animals are not discussed.",
@@ -547,7 +547,7 @@
           ],
           "answer": "C",
           "skill": "cause-effect",
-          "why": "The article explains that oils on human skin can prevent calcite from attaching, permanently stopping growth.",
+          "why": "In the article, oils on human skin can prevent calcite from attaching, permanently stopping growth.",
           "wrong": {
             "A": "Touching harms growth; it does not speed it up.",
             "B": "Skin does not turn calcite into acid.",
@@ -584,7 +584,7 @@
           "why": "The formations grew when Arabia's climate was wetter, and the plateau is now dry, so less water likely reaches the caves.",
           "wrong": {
             "A": "The article describes the plateau as dry or arid today.",
-            "B": "The article says the climate changed.",
+            "B": "The climate of the region has changed over time.",
             "C": "Salt content is not discussed."
           }
         },
@@ -644,7 +644,7 @@
         ],
         "answer": "D",
         "skill": "cause-effect",
-        "why": "The text says rain picks up a gas from the air and dirt, and the gas makes the rain a weak acid.",
+        "why": "In the text, rain picks up a gas from the air and dirt, and the gas makes the rain a weak acid.",
         "wrong": {
           "A": "Oil from hands can stop the stone points growing, but it does not make acid.",
           "B": "The text uses a light only to look at the roof.",
@@ -664,7 +664,7 @@
         "why": "The text says it takes a long time, so bit by bit means a little at a time.",
         "wrong": {
           "B": "It does not happen all at once.",
-          "C": "The text says it takes a long time.",
+          "C": "Caves take a very long time to form.",
           "D": "The text says nothing about noise."
         }
       },
@@ -678,7 +678,7 @@
         ],
         "answer": "C",
         "skill": "cause-effect",
-        "why": "The text says oil from your hands can stop them, so they cannot grow.",
+        "why": "In the text, oil from your hands can stop them, so they cannot grow.",
         "wrong": {
           "A": "The cave is dark and cool.",
           "B": "The text does not say they fall when touched.",
@@ -697,7 +697,7 @@
         ],
         "answer": "D",
         "skill": "detail",
-        "why": "The text says the rain picks up the gas from the air and the soil.",
+        "why": "Rain picks up a gas from the air and the soil.",
         "wrong": {
           "A": "The flashlight is used only to see the ceiling.",
           "B": "The gas is picked up before the water sinks into the rock.",
@@ -714,7 +714,7 @@
         ],
         "answer": "B",
         "skill": "cause-effect",
-        "why": "The text says the natural oil on human skin can stop the formations from growing.",
+        "why": "In the text, the natural oil on human skin can stop the formations from growing.",
         "wrong": {
           "A": "The text does not say weight is the problem.",
           "C": "The text does not say that heat melts the stone.",
@@ -767,7 +767,7 @@
         ],
         "answer": "C",
         "skill": "detail",
-        "why": "The text says many caves lie beneath the dry As-Summan Plateau, northeast of Riyadh.",
+        "why": "In the text, many caves lie beneath the dry As-Summan Plateau, northeast of Riyadh.",
         "wrong": {
           "A": "The text does not place the caves on the Red Sea coast.",
           "B": "The caves lie under a dry plateau.",

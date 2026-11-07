@@ -138,7 +138,7 @@
           ],
           "answer": "D",
           "skill": "detail",
-          "why": "The article says the robot does not choose; the surgeon is in charge.",
+          "why": "The robot does not choose; the surgeon is in charge.",
           "wrong": {
             "A": "The robot only copies the surgeon's moves.",
             "B": "The patient is being helped, not running the robot.",
@@ -155,7 +155,7 @@
           ],
           "answer": "A",
           "skill": "detail",
-          "why": "The article says when she moves her hands, the arms move the same way.",
+          "why": "In the article, when she moves her hands, the arms move the same way.",
           "wrong": {
             "B": "Lights turning off is not mentioned.",
             "C": "No cartoon is mentioned.",
@@ -180,7 +180,7 @@
           }
         },
         {
-          "stem": "In the article, robots \"kill germs.\" What are germs?",
+          "stem": "In the article, what does the word \"germs\" mean?",
           "options": [
             "Tiny things that can make us sick",
             "Small tools held by robot arms",
@@ -189,7 +189,7 @@
           ],
           "answer": "A",
           "skill": "vocabulary",
-          "why": "The article says germs can make us sick, and a robot's light kills them.",
+          "why": "In the article, germs can make us sick, and a robot's light kills them.",
           "wrong": {
             "B": "The tools are not germs.",
             "C": "Pills help us; germs make us sick.",
@@ -242,8 +242,8 @@
           "skill": "inference",
           "why": "The article ends by saying nurses and doctors still care for us, and robots cannot give kindness the same way.",
           "wrong": {
-            "A": "The article says people are still needed.",
-            "B": "The article shows robots as helpers.",
+            "A": "People are still needed.",
+            "B": "Robots are shown as helpers.",
             "C": "The article says a robot cannot give a kind smile."
           }
         }
@@ -303,7 +303,7 @@
           "why": "The article describes many robot jobs and ends by saying robots cannot replace people.",
           "wrong": {
             "B": "The surgeon controls every move, and people make decisions.",
-            "C": "The article says robots help some operations, not all.",
+            "C": "In the article, robots help some operations, not all.",
             "D": "The article shows robots helping."
           }
         },
@@ -342,7 +342,7 @@
           }
         },
         {
-          "stem": "In the article, the robot arms move in \"a very precise way.\" What does precise mean?",
+          "stem": "In the article, what does the word \"precise\" mean?",
           "options": [
             "Fast and noisy",
             "Exact and careful",
@@ -513,7 +513,7 @@
           ],
           "answer": "A",
           "skill": "cause-effect",
-          "why": "The article says ultraviolet light destroys germs but is harmful to people, so rooms must be empty.",
+          "why": "Ultraviolet light kills germs but is harmful to people, so the rooms must be empty.",
           "wrong": {
             "B": "Germs are not limited to empty rooms.",
             "C": "Size is not mentioned.",
@@ -627,7 +627,7 @@
         ],
         "answer": "B",
         "skill": "detail",
-        "why": "The text says the surgeon sits at a desk and moves her hands.",
+        "why": "The surgeon sits at a desk and controls the robot with her hands.",
         "wrong": {
           "A": "The surgeon is a person who sits at a desk, not inside the arm.",
           "C": "The text does not say she sits on the bed.",
@@ -678,7 +678,7 @@
         ],
         "answer": "C",
         "skill": "cause-effect",
-        "why": "The text says the robot shines a strong light in a room and the light kills the germs.",
+        "why": "In the text, the robot shines a strong light in a room and the light kills the germs.",
         "wrong": {
           "A": "The light is for germs, not for surgery.",
           "B": "The text does not say it warms the room.",
@@ -697,7 +697,7 @@
         ],
         "answer": "C",
         "skill": "detail",
-        "why": "The text says the thin arms hold tiny tools and a camera.",
+        "why": "In the text, the thin arms hold tiny tools and a camera.",
         "wrong": {
           "A": "Delivery robots carry meals and supplies.",
           "B": "The surgeon uses the viewer and desk.",
@@ -718,7 +718,7 @@
         "wrong": {
           "B": "The text says robots move through the halls on their own.",
           "C": "The text does not say robots stop at night.",
-          "D": "The text says the robot arms copy the surgeon's moves."
+          "D": "In the text, the robot arms copy the surgeon's moves."
         }
       },
       {
@@ -748,7 +748,7 @@
         ],
         "answer": "D",
         "skill": "inference",
-        "why": "The text says the robots move through the halls on their own and even ride the elevators.",
+        "why": "In the text, the robots move through the halls on their own and even ride the elevators.",
         "wrong": {
           "A": "The surgeon controls the surgery robot, not the delivery robots.",
           "B": "They work in halls and elevators.",
@@ -767,7 +767,7 @@
         ],
         "answer": "A",
         "skill": "detail",
-        "why": "The text says pharmacy robots sort and count thousands of pills each day.",
+        "why": "Robots in hospital pharmacies sort and count thousands of pills each day.",
         "wrong": {
           "B": "Delivery robots carry meals.",
           "C": "Disinfection robots use ultraviolet light.",
@@ -801,7 +801,7 @@
         ],
         "answer": "D",
         "skill": "cause-effect",
-        "why": "The text says the robots read barcodes to check each medicine, which helps prevent mistakes.",
+        "why": "The robots read barcodes to check each medicine, which helps stop mistakes.",
         "wrong": {
           "A": "Elevators are used by delivery robots with sensors and maps.",
           "B": "The text does not link barcodes to beds.",
@@ -818,7 +818,7 @@
         ],
         "answer": "B",
         "skill": "inference",
-        "why": "The text says autonomous robots use sensors and maps to move without a person steering, so they can find their way.",
+        "why": "In the text, autonomous robots use sensors and maps to move without a person steering, so they can find their way.",
         "wrong": {
           "A": "Disinfection robots shine the light.",
           "C": "Pharmacy robots count the pills.",

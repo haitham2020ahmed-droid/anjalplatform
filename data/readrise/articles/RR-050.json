@@ -155,7 +155,7 @@
           ],
           "answer": "A",
           "skill": "detail",
-          "why": "The article says the trip took about ten days, and then the crew came back.",
+          "why": "In the article, the trip lasted about ten days, and then the crew came back.",
           "wrong": {
             "B": "The trip was much shorter than a year.",
             "C": "An hour and a half is how long the station takes to go around the Earth once.",
@@ -223,7 +223,7 @@
           ],
           "answer": "A",
           "skill": "inference",
-          "why": "The article says the whole country was proud and that more kids now dream of space.",
+          "why": "In the article, the trip made the whole country proud.",
           "wrong": {
             "B": "People who are proud and dreaming of space are not bored.",
             "C": "Nothing in the article shows anger.",
@@ -351,7 +351,7 @@
           ],
           "answer": "D",
           "skill": "vocabulary",
-          "why": "The article explains that microgravity means everything seems to float.",
+          "why": "In the article, microgravity means everything seems to float.",
           "wrong": {
             "A": "Microgravity is not a rocket.",
             "B": "It is not a machine.",
@@ -496,7 +496,7 @@
           ],
           "answer": "D",
           "skill": "detail",
-          "why": "The article says Prince Sultan bin Salman flew on an American space shuttle in 1985, long before this mission.",
+          "why": "In the article, Prince Sultan bin Salman flew on an American space shuttle in 1985, long before this mission.",
           "wrong": {
             "A": "Barnawi was the first Saudi woman in space, not the first Saudi.",
             "B": "AlQarni flew in 2023, after Prince Sultan.",
@@ -513,7 +513,7 @@
           ],
           "answer": "A",
           "skill": "detail",
-          "why": "The article describes her as a biomedical scientist who studied human cells, including cells connected to breast cancer.",
+          "why": "Before the mission, she was a scientist who studied human cells, including cells linked to breast cancer.",
           "wrong": {
             "B": "Rocket fuel is not mentioned as her work.",
             "C": "Plants are not part of her research in the article.",
@@ -767,9 +767,9 @@
         ],
         "answer": "D",
         "skill": "detail",
-        "why": "The text says the following day the capsule connected to the station.",
+        "why": "The capsule connected to the station the next day.",
         "wrong": {
-          "A": "The text says it connected the next day.",
+          "A": "The capsule connected the next day.",
           "B": "Ten days is how long the mission lasted.",
           "C": "Sixteen sunrises happen in a single day on the station."
         }
@@ -784,7 +784,7 @@
         ],
         "answer": "B",
         "skill": "cause-effect",
-        "why": "The text says what is learned about cells could help doctors treat illnesses on Earth.",
+        "why": "What is learned about cells in space could help doctors treat illnesses on Earth.",
         "wrong": {
           "A": "Flying jets is Ali AlQarni's job, not a result of the experiments.",
           "C": "The experiments were about human cells.",

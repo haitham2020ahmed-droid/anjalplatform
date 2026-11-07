@@ -138,7 +138,7 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The article says Galileo saw four small moons going around Jupiter.",
+          "why": "In the article, Galileo saw four small moons going around Jupiter.",
           "wrong": {
             "A": "The gold mirror belongs to the Webb telescope.",
             "B": "The article does not say Galileo saw a galaxy near Jupiter.",
@@ -155,7 +155,7 @@
           ],
           "answer": "A",
           "skill": "detail",
-          "why": "The article says a lens is curved glass that bends light.",
+          "why": "In the article, a lens is curved glass that bends light.",
           "wrong": {
             "B": "The article never says a lens blocks heat.",
             "C": "Moving air blurs the stars, but a lens does not make air move.",
@@ -163,7 +163,7 @@
           }
         },
         {
-          "stem": "Read this sentence: \"More light lets us see dim things.\" What does dim mean?",
+          "stem": "In the article, what does the word \"dim\" mean?",
           "options": [
             "Very hot",
             "Not bright",
@@ -206,7 +206,7 @@
           ],
           "answer": "A",
           "skill": "inference",
-          "why": "The article says a big mirror catches a lot of light, and more light lets us see dim things.",
+          "why": "In the article, a bigger mirror catches more light, and more light lets us see dim things.",
           "wrong": {
             "B": "A small mirror catches less light, so it shows fewer dim things.",
             "C": "City lights and air make it harder, not easier, to see dim things.",
@@ -334,7 +334,7 @@
           ],
           "answer": "A",
           "skill": "detail",
-          "why": "The article says the wider the mirror, the more light it catches and the fainter the objects it can show.",
+          "why": "In the article, the wider the mirror, the more light it catches and the fainter the objects it can show.",
           "wrong": {
             "B": "The article does not compare prices.",
             "C": "Twinkling is caused by moving air; mirrors do not stop it.",
@@ -402,7 +402,7 @@
           ],
           "answer": "D",
           "skill": "inference",
-          "why": "The article says telescopes go on high mountains, far from city lights, because moving air and bright lights make viewing harder.",
+          "why": "In the article, telescopes go on high mountains, far from city lights, because moving air and bright lights make viewing harder.",
           "wrong": {
             "A": "Cities are inside the atmosphere like everywhere on Earth.",
             "B": "The article does not say this.",
@@ -419,7 +419,7 @@
           ],
           "answer": "B",
           "skill": "inference",
-          "why": "The article explains that Webb detects infrared light, a kind of heat light that human eyes cannot see.",
+          "why": "In the article, Webb detects infrared light, a kind of heat light that human eyes cannot see.",
           "wrong": {
             "A": "The article does not say Webb is closer to distant galaxies in any useful way.",
             "C": "Webb uses a mirror made of 18 gold-covered pieces.",
@@ -496,7 +496,7 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The article states that Webb's mirror is about 6.5 meters across.",
+          "why": "In the article, Webb's mirror is about 6.5 meters across.",
           "wrong": {
             "A": "About 2.4 meters is Hubble's mirror.",
             "B": "18 is the number of segments, not the width.",
@@ -513,7 +513,7 @@
           ],
           "answer": "A",
           "skill": "compare",
-          "why": "The article explains that refracting telescopes rely on a lens, while reflecting telescopes use a curved mirror.",
+          "why": "In the article, refracting telescopes rely on a lens, while reflecting telescopes use a curved mirror.",
           "wrong": {
             "B": "The article does not limit either design to a location.",
             "C": "The article does not link infrared light to refracting telescopes.",
@@ -530,7 +530,7 @@
           ],
           "answer": "B",
           "skill": "cause-effect",
-          "why": "The article says the shifting air causes stars to twinkle and can distort the images that telescopes record.",
+          "why": "In the article, the moving air of the atmosphere makes stars twinkle and can distort telescope images.",
           "wrong": {
             "A": "The article does not say the air brightens images.",
             "C": "Infrared detection comes from Webb's design, not from the air.",
@@ -581,7 +581,7 @@
           ],
           "answer": "C",
           "skill": "inference",
-          "why": "Webb's mirror is about 6.5 meters wide while Hubble's is about 2.4 meters, and the article says wider mirrors capture more light.",
+          "why": "Webb's mirror is about 6.5 meters wide while Hubble's is about 2.4 meters, and a wider mirror catches more light.",
           "wrong": {
             "A": "Hubble's mirror is the smaller one.",
             "B": "Both were launched into space.",
@@ -627,7 +627,7 @@
         ],
         "answer": "C",
         "skill": "detail",
-        "why": "The text says Galileo looked at the Moon and saw hills on it.",
+        "why": "In the text, Galileo looked at the Moon and saw hills on it.",
         "wrong": {
           "A": "The four small moons went round Jupiter, not the Moon.",
           "B": "Dark sand land is in Saudi Arabia, not on the Moon.",
@@ -644,7 +644,7 @@
         ],
         "answer": "A",
         "skill": "cause-effect",
-        "why": "The text says a big mirror can catch a lot of light, and more light lets us see dim things.",
+        "why": "In the text, a bigger mirror catches more light, and more light lets us see dim things.",
         "wrong": {
           "B": "The mirror does not clean the air.",
           "C": "A mirror does not move stars.",
@@ -697,7 +697,7 @@
         ],
         "answer": "B",
         "skill": "detail",
-        "why": "The text says Webb's mirror is made of 18 gold-covered pieces.",
+        "why": "In the text, Webb's mirror is made of 18 gold-covered pieces.",
         "wrong": {
           "A": "Four is the number of moons Galileo saw around Jupiter.",
           "C": "The text gives no such number for the mirror.",
@@ -714,7 +714,7 @@
         ],
         "answer": "A",
         "skill": "cause-effect",
-        "why": "The text says the air in the atmosphere is always moving, so it makes stars twinkle.",
+        "why": "In the text, the air in the atmosphere is always moving, so it makes stars twinkle.",
         "wrong": {
           "B": "The Moon is not given as the cause.",
           "C": "Gold mirrors are on Webb and do not cause twinkling.",
@@ -818,7 +818,7 @@
         ],
         "answer": "A",
         "skill": "compare",
-        "why": "The text says the wider the mirror, the more light it captures and the fainter the objects it can reveal.",
+        "why": "A wider mirror catches more light, so it can show fainter objects.",
         "wrong": {
           "B": "Time in space does not matter; mirror width does.",
           "C": "The wider mirror reveals fainter objects.",

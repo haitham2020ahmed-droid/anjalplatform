@@ -138,7 +138,7 @@
           ],
           "answer": "A",
           "skill": "detail",
-          "why": "The article says that in cold months, food can be hard to find, so birds fly to a warmer place with more food.",
+          "why": "In cold months, food can be hard to find, so birds fly to a warmer place with more food.",
           "wrong": {
             "B": "Rain is not mentioned as a reason.",
             "C": "This is not stated in the article.",
@@ -223,7 +223,7 @@
           ],
           "answer": "C",
           "skill": "inference",
-          "why": "The article explains that the Arabian Peninsula sits between three continents, so birds use it as a path.",
+          "why": "In the article, the Arabian Peninsula sits between three continents, so birds use it as a path.",
           "wrong": {
             "A": "The article does not describe the temperature there.",
             "B": "Food exists in many other places too.",
@@ -334,7 +334,7 @@
           ],
           "answer": "A",
           "skill": "detail",
-          "why": "The article states that birds study land shapes such as rivers, coastlines, and mountain ranges as landmarks.",
+          "why": "In the article, birds study land shapes such as rivers, coastlines, and mountain ranges as landmarks.",
           "wrong": {
             "B": "Buildings are not mentioned as landmarks.",
             "C": "Road signs are a human invention not discussed here.",
@@ -513,7 +513,7 @@
           ],
           "answer": "D",
           "skill": "detail",
-          "why": "The article states that some species can seemingly sense Earth's magnetic field through specialized cells.",
+          "why": "Some birds can sense Earth's magnetic field.",
           "wrong": {
             "A": "Smell is not discussed as a navigational cue.",
             "B": "The article does not describe a metal compass inside birds.",
@@ -530,7 +530,7 @@
           ],
           "answer": "A",
           "skill": "detail",
-          "why": "The article explains that birds pause at staging areas to feed intensively and recover their depleted strength before continuing onward.",
+          "why": "In the article, birds pause at staging areas to feed intensively and recover their depleted strength before continuing onward.",
           "wrong": {
             "B": "The permanent home is the breeding territory, not a staging area.",
             "C": "Staging areas support the journey; they do not prevent desert crossings.",
@@ -598,7 +598,7 @@
           ],
           "answer": "A",
           "skill": "inference",
-          "why": "The article explains that cues such as the sun, stars, magnetic field, and landmarks reinforce one another when any single one becomes unreliable.",
+          "why": "Cues like the sun, the stars, the magnetic field, and landmarks help each other when one of them is hard to use.",
           "wrong": {
             "B": "The article describes specific cues birds rely on.",
             "C": "The article implies cues can become unreliable under some conditions, which is why several are used together.",
@@ -627,7 +627,7 @@
         ],
         "answer": "B",
         "skill": "detail",
-        "why": "The text says birds use the sun, the stars, and rivers and hills below.",
+        "why": "In the text, birds use the sun, the stars, and rivers and hills below.",
         "wrong": {
           "A": "The wind is not named.",
           "C": "Rain is not named.",
@@ -678,7 +678,7 @@
         ],
         "answer": "B",
         "skill": "detail",
-        "why": "The text says some birds cross seas and deserts.",
+        "why": "In the text, some birds cross seas and deserts.",
         "wrong": {
           "A": "Cities are not named.",
           "C": "Farms are not named.",
@@ -758,20 +758,20 @@
     ],
     "HIGH": [
       {
-        "stem": "Which birds follow the same route year after year, according to the article?",
+        "stem": "According to the article, what is a flyway?",
         "options": [
-          "The sparrow and the pigeon",
-          "Steppe eagle and bee-eater",
-          "The falcon and the parrot",
-          "The ostrich and the owl"
+          "A place where birds build nests",
+          "A regular route used by the same species",
+          "A storm that blows birds off course",
+          "A tower where birds rest at night"
         ],
         "answer": "B",
         "skill": "detail",
-        "why": "The text names the steppe eagle and the European bee-eater as birds on this route.",
+        "why": "A flyway is a regular route used by the same species generation after generation.",
         "wrong": {
-          "A": "The article does not name these birds.",
-          "C": "The article does not name these birds.",
-          "D": "The article does not name these birds."
+          "A": "A flyway is a route, not a nesting place.",
+          "C": "A flyway is not a storm.",
+          "D": "A flyway is not a tower."
         }
       },
       {
@@ -818,7 +818,7 @@
         ],
         "answer": "B",
         "skill": "compare",
-        "why": "The text says they travel between breeding grounds in Europe or Asia and wintering grounds in Africa.",
+        "why": "The birds travel between breeding grounds in Europe or Asia and wintering grounds in Africa.",
         "wrong": {
           "A": "This reverses the places in the text.",
           "C": "The grounds are in different places.",

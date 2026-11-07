@@ -189,7 +189,7 @@
           ],
           "answer": "A",
           "skill": "detail",
-          "why": "The story says at low tide the island looks big, and at high tide the sea covers most of it, leaving only a small bump.",
+          "why": "In the story, the island is big at low tide and small at high tide.",
           "wrong": {
             "B": "The island does not fully disappear at low tide; that happens more at high tide.",
             "C": "This is the opposite of what the story describes.",
@@ -206,7 +206,7 @@
           ],
           "answer": "B",
           "skill": "cause-effect",
-          "why": "The story explains that the storm changed the current, and the current carried sand to one spot, forming the island.",
+          "why": "In the story, the storm changed the current, and the current carried sand to one spot, forming the island.",
           "wrong": {
             "A": "The family did not build the island themselves.",
             "C": "The story does not say the island floated in from another country.",
@@ -334,7 +334,7 @@
           ],
           "answer": "C",
           "skill": "cause-effect",
-          "why": "The story explains that at high tide, the sea rises and covers most of the island, leaving only a small bump visible.",
+          "why": "In the story, at high tide, the sea rises and covers most of the island, leaving only a small bump visible.",
           "wrong": {
             "A": "The island does not permanently shrink; the sea simply covers it at high tide.",
             "B": "The story does not say wind blows the sand away.",
@@ -402,7 +402,7 @@
           ],
           "answer": "D",
           "skill": "detail",
-          "why": "The story says the family brings a notebook to record exactly what they notice about the island on each visit.",
+          "why": "In the story, the family brings a notebook to record exactly what they notice about the island on each visit.",
           "wrong": {
             "A": "The notebook is about the island, not a fishing list.",
             "B": "The story does not mention making a map for other boats.",
@@ -627,7 +627,7 @@
         ],
         "answer": "D",
         "skill": "detail",
-        "why": "The text says the wind is strong and the waves are tall.",
+        "why": "In the text, the wind is strong and the waves are tall.",
         "wrong": {
           "A": "The wind is strong, not absent.",
           "B": "The text does not mention snow.",
@@ -697,7 +697,7 @@
         ],
         "answer": "A",
         "skill": "detail",
-        "why": "The story says the storm lasts almost two days before it fades.",
+        "why": "In the story, the storm lasts almost two days before it fades.",
         "wrong": {
           "B": "Two hours is much shorter than the storm.",
           "C": "Two weeks is much longer than the storm.",
@@ -801,7 +801,7 @@
         ],
         "answer": "B",
         "skill": "cause-effect",
-        "why": "The story says the waves grew rough and dangerous for any small boat on open water.",
+        "why": "In the story, the waves grew rough and dangerous for any small boat on open water.",
         "wrong": {
           "A": "The story does not link school to the storm.",
           "C": "A fishing net is not mentioned.",

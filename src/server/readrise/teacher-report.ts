@@ -26,6 +26,7 @@ import { questionKeys } from "./question-key";
 import { QUESTION_TYPES, QUESTION_TYPE_NAME, isUnreliableRun, storedRapid, type QuestionType } from "./accuracy";
 import { loadReadRiseWindows, placementChecks, type RRPeriod, type RRWindows } from "./windows";
 import { ForbiddenError, type Actor } from "../auth/rbac";
+import { runTitle, versionTitles } from "./version-title";
 import { ANNUAL_GOAL, BAND_LABEL, forecastLevel, gradeBand as benchBand, growthPaths, meetsRange, monthOf, monthsBetween, type GradeBand } from "./benchmarks";
 import { runMeta, secondTryScore } from "./teacher";
 
@@ -76,6 +77,16 @@ export interface ReadRiseTeacherReport {
 }
 
 /** The level at a moment from a student's points (oldest first), null before the first. Pure. */
+/** Round 7: an average count for a tile — one decimal under 10 ("0.1", "2.5"), whole from 10 up, "<0.1" for a small
+ *  value above 0 (it was "0" with one activity in a class), "—" when there is none. */
+export function rateText(v: number | null | undefined): string {
+  if (v === null || v === undefined || !Number.isFinite(v)) return "—";
+  if (v === 0) return "0";
+  if (v >= 10) return String(Math.round(v));
+  if (v > 0 && v < 0.05) return "<0.1";
+  return (Math.round(v * 10) / 10).toFixed(1);
+}
+
 export function levelOn(points: readonly { at: string; level: number }[], t: number): number | null {
   let v: number | null = null;
   for (const p of points) { if (time(p.at) <= t) v = p.level; else break; }
@@ -121,7 +132,7 @@ export async function readRiseTeacherReport(repo: Repo, actor: Actor, classId: s
     repo.findMany("Student", { id: { in: ids } }, { select: ["id", "userId"] }),
     repo.findMany("RRStudent", { studentId: { in: ids } }, { select: ["studentId", "level", "startLevel", "placedAt", "source", "weeklyGoal"] }),
     repo.findMany("RRLevelChange", { studentId: { in: ids } }, { select: ["studentId", "fromLevel", "toLevel", "reason", "createdAt"] }),
-    repo.findMany("RRRun", { studentId: { in: ids }, completedAt: { not: null } }, { select: ["id", "studentId", "articleId", "band", "answers", "score", "firstTry", "stretch", "completedAt", "answerMs", "rapidCount", "unreliable", "readSeconds"] }),
+    repo.findMany("RRRun", { studentId: { in: ids }, completedAt: { not: null } }, { select: ["id", "studentId", "articleId", "band", "versionLevel", "answers", "score", "firstTry", "stretch", "completedAt", "answerMs", "rapidCount", "unreliable", "readSeconds"] }),
     repo.findMany("RRPlacement", { studentId: { in: ids }, completedAt: { not: null }, result: { not: null } }, { select: ["studentId", "result", "period", "completedAt"] }),
   ]);
   const users = students.length ? await repo.findMany("User", { id: { in: students.map((x) => s(x.userId)) } }, { select: ["id", "displayName"] }) : [];
@@ -175,10 +186,12 @@ export async function readRiseTeacherReport(repo: Repo, actor: Actor, classId: s
   const byType = accuracyByType(reliable.map((r) => ({ articleId: s(r.articleId), band: s(r.band), answers: r.answers, rapid: storedRapid(r.answerMs) })), key);
 
   const bad = runs.filter(isUnreliableRun).sort((a, b) => time(b.completedAt) - time(a.completedAt)).slice(0, UNRELIABLE_LIST);
-  const arts = bad.length ? await repo.findMany("RRArticle", { id: { in: [...new Set(bad.map((r) => s(r.articleId)))] } }, { select: ["id", "title"] }) : [];
+  const badIds = [...new Set(bad.map((r) => s(r.articleId)))];
+  const [arts, vTitles] = bad.length ? await Promise.all([repo.findMany("RRArticle", { id: { in: badIds } }, { select: ["id", "title"] }), versionTitles(repo, badIds)]) : [[] as Row[], new Map<string, string>()];
   const title = new Map(arts.map((a) => [s(a.id), s(a.title)]));
   const unreliable = bad.map((r) => ({
-    runId: s(r.id), studentId: s(r.studentId), name: names.get(s(r.studentId)) ?? "Student", title: title.get(s(r.articleId)) ?? "Article",
+    // round 7: the article title + "(read as: <version title> · 600L)" when the student's version has its own title
+    runId: s(r.id), studentId: s(r.studentId), name: names.get(s(r.studentId)) ?? "Student", title: runTitle(title.get(s(r.articleId)) ?? "Article", vTitles, s(r.articleId), r.versionLevel),
     at: iso(time(r.completedAt)), rapid: Number(r.rapidCount ?? 0) || storedRapid(r.answerMs).length, score: r.score === null || r.score === undefined ? null : Number(r.score),
   }));
   const today = riyadhDay(nowT); // round 4: the window dates are school (Riyadh) days
@@ -337,7 +350,8 @@ export async function classOverview(repo: Repo, actor: Actor, classId: string, n
   const weeksSoFar = Math.max(1, Math.ceil((nowT - yearStartT) / (7 * DAY)));
   const tiles: ClassOverview["tiles"] = {
     avgScore: avgOf(main.map((r) => Number(r.score))), scoreN: main.length,
-    avgPerWeek: ids.length ? Math.round((10 * main.length) / ids.length / weeksSoFar) / 10 : null,
+    // round 7: two decimals (a small class value like 0.05 is not "0"); shown with rateText
+    avgPerWeek: ids.length ? Math.round((100 * main.length) / ids.length / weeksSoFar) / 100 : null,
     avgPerStudent: ids.length ? Math.round((10 * main.length) / ids.length) / 10 : null,
     preTestAvg: avgOf(placed.map((r) => r.preTest!)), currentAvg: avgOf(placed.map((r) => r.current!)),
     initialExpectedAvg: avgOf(placed.map((r) => r.initialEnd!)), actualGrowth: avgOf(placed.map((r) => r.growth!)),
@@ -478,14 +492,16 @@ export async function activityTracker(repo: Repo, actor: Actor, classId: string,
     repo.findMany("ClassMembership", { studentId, leftAt: null }, { select: ["classId"] }),
   ]);
   const ids = [...new Set(runs.map((r) => s(r.articleId)))];
-  const [arts, links, keys] = await Promise.all([
+  const [arts, links, keys, vTitles] = await Promise.all([
     ids.length ? repo.findMany("RRArticle", { id: { in: ids } }, { select: ["id", "title"] }) : Promise.resolve([] as Row[]),
     ids.length ? repo.findMany("RRClassArticle", { classId: { in: [...new Set([classId, ...mine.map((m) => s(m.classId))])] }, articleId: { in: ids } }, { select: ["articleId"] }) : Promise.resolve([] as Row[]),
     questionKeys(repo, ids),
+    versionTitles(repo, ids),
   ]);
   const title = new Map(arts.map((a) => [s(a.id), s(a.title)]));
   const assigned = new Set(links.map((l) => s(l.articleId)));
-  const rows = runs.map((r) => activityOf(r, title.get(s(r.articleId)) || "Article", assigned.has(s(r.articleId)), keys.get(s(r.articleId)) ?? []))
+  // round 7: the article title + "(read as: <version title> · 600L)" when the student's version has its own title
+  const rows = runs.map((r) => activityOf(r, runTitle(title.get(s(r.articleId)) || "Article", vTitles, s(r.articleId), r.versionLevel), assigned.has(s(r.articleId)), keys.get(s(r.articleId)) ?? []))
     .sort((a, b) => s(b.at).localeCompare(s(a.at)));
   return { name: who.name, rows };
 }

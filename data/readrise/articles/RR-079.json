@@ -138,7 +138,7 @@
           ],
           "answer": "D",
           "skill": "detail",
-          "why": "The article says the Nabataeans built Hegra, and they also built Petra.",
+          "why": "In the article, the Nabataeans built Hegra, and they also built Petra.",
           "wrong": {
             "A": "Petra is in Jordan, but the Nabataeans built both places long ago.",
             "B": "The article does not say traders from over the sea built it.",
@@ -155,7 +155,7 @@
           ],
           "answer": "A",
           "skill": "detail",
-          "why": "The article says the words over the doors tell who owns each tomb.",
+          "why": "The writing over the doors tells who each tomb belonged to.",
           "wrong": {
             "B": "The article says the town had wells, but the words do not give directions.",
             "C": "The words are about the tombs, not the caravans.",
@@ -189,11 +189,11 @@
           ],
           "answer": "D",
           "skill": "cause-effect",
-          "why": "The article says the rock is sandstone, which is soft and easy to cut, so the workers could carve tombs.",
+          "why": "In the article, the rock is soft and easy to cut, so the workers could carve tombs.",
           "wrong": {
             "A": "The article does not say they had machines.",
             "B": "The homes were made of mud, but the hills are rock.",
-            "C": "The article says the tombs are big."
+            "C": "The tombs were not small or quick to make."
           }
         },
         {
@@ -210,7 +210,7 @@
           "wrong": {
             "B": "The article does not say anyone lives in the tombs.",
             "C": "Camels carried goods, not homes.",
-            "D": "The article says the tombs are about two thousand years old."
+            "D": "In the article, the tombs are about two thousand years old."
           }
         },
         {
@@ -304,7 +304,7 @@
           "wrong": {
             "A": "The article says the Nabataeans built Hegra; it does not call it a Roman capital.",
             "B": "Camels are part of the trade story, but the article is about Hegra.",
-            "D": "The article says most homes have crumbled away."
+            "D": "In the article, most homes have crumbled away."
           }
         },
         {
@@ -317,7 +317,7 @@
           ],
           "answer": "A",
           "skill": "detail",
-          "why": "The article says caravans of camels carried incense from southern Arabia to lands in the north.",
+          "why": "In the article, caravans of camels carried incense from southern Arabia to lands in the north.",
           "wrong": {
             "B": "The article does not mention marble.",
             "C": "Fish are not mentioned in the article.",
@@ -334,7 +334,7 @@
           ],
           "answer": "D",
           "skill": "detail",
-          "why": "The article states that in 2008 Hegra became the first place in Saudi Arabia on the World Heritage List.",
+          "why": "In 2008 Hegra became the first place in Saudi Arabia on the World Heritage List.",
           "wrong": {
             "A": "Two thousand years ago is when Hegra was built.",
             "B": "The article does not mention 1950.",
@@ -513,11 +513,11 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The article states that in the year 106 the Roman Empire took control of (annexed) the Nabataean kingdom.",
+          "why": "In the year 106 the Roman Empire took control of (annexed) the Nabataean kingdom.",
           "wrong": {
             "A": "Hegra joined the World Heritage List in 2008.",
             "B": "The article does not say when people began using camels.",
-            "D": "The article says the tomb's lower section was never completed."
+            "D": "The lower part of the tomb was never finished."
           }
         },
         {
@@ -530,7 +530,7 @@
           ],
           "answer": "A",
           "skill": "vocabulary",
-          "why": "The article explains that a facade is the front, which resembles the entrance of a grand building.",
+          "why": "In the article, a facade is the front, which resembles the entrance of a grand building.",
           "wrong": {
             "B": "The article does not describe hidden rooms.",
             "C": "A caravan's path is a trade route.",
@@ -547,7 +547,7 @@
           ],
           "answer": "C",
           "skill": "cause-effect",
-          "why": "The article explains that merchants increasingly shipped goods by sea along the Red Sea coast, so fewer caravans crossed the desert and the city declined.",
+          "why": "In the article, merchants increasingly shipped goods by sea along the Red Sea coast, so fewer caravans crossed the desert and the city declined.",
           "wrong": {
             "A": "The article does not say the wells dried up.",
             "B": "The article does not say caravans damaged the tombs.",
@@ -644,7 +644,7 @@
         ],
         "answer": "C",
         "skill": "vocabulary",
-        "why": "The text says a tomb holds the dead.",
+        "why": "A tomb is a place that holds the dead.",
         "wrong": {
           "A": "Sweet smoke comes from burned sap.",
           "B": "The wells give water to camels.",
@@ -661,7 +661,7 @@
         ],
         "answer": "D",
         "skill": "inference",
-        "why": "The text says the script grew and led to the one for Arabic.",
+        "why": "This script grew and later led to the Arabic script.",
         "wrong": {
           "A": "The words name the owner of the tomb, not a camel.",
           "B": "The words tell who owns each tomb.",
@@ -697,7 +697,7 @@
         ],
         "answer": "B",
         "skill": "detail",
-        "why": "The text says some tombs have carved eagles above the door.",
+        "why": "In the text, some tombs have carved eagles above the door.",
         "wrong": {
           "A": "Camels are not said to be carved on the tombs.",
           "C": "No palm tree is mentioned on the tombs.",
@@ -731,7 +731,7 @@
         ],
         "answer": "D",
         "skill": "cause-effect",
-        "why": "The text says the homes were mud bricks and crumbled, while the stone tombs are still standing.",
+        "why": "In the text, the homes were made of mud bricks and crumbled, while the stone tombs still stand.",
         "wrong": {
           "A": "Nothing says the homes were moved.",
           "B": "The text says Hegra had many wells, not dry ones.",
@@ -767,7 +767,7 @@
         ],
         "answer": "B",
         "skill": "cause-effect",
-        "why": "The text says Hegra prospered because it was a stop on a trade route.",
+        "why": "In the text, Hegra prospered because it was a stop on a trade route.",
         "wrong": {
           "A": "Rome took control of the kingdom later; Hegra was not its capital.",
           "C": "Hegra was in the desert, not at a port.",
@@ -818,7 +818,7 @@
         ],
         "answer": "A",
         "skill": "compare",
-        "why": "The text says most mud-brick homes have crumbled while the stone tombs have survived.",
+        "why": "In the text, most mud-brick homes have crumbled while the stone tombs have survived.",
         "wrong": {
           "B": "This is the reverse of what the text says.",
           "C": "The tombs have not crumbled.",

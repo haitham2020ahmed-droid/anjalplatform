@@ -138,7 +138,7 @@
           ],
           "answer": "D",
           "skill": "detail",
-          "why": "The article says lots of bacteria live in your gut and help break down food.",
+          "why": "In the article, lots of bacteria live in your gut and help break down food.",
           "wrong": {
             "A": "The article does not say bacteria live in your hair.",
             "B": "The article does not mention bones.",
@@ -155,7 +155,7 @@
           ],
           "answer": "A",
           "skill": "cause-effect",
-          "why": "The article says yeast makes gas, and the gas makes the dough puff up.",
+          "why": "In the article, yeast makes gas, and the gas makes the dough puff up.",
           "wrong": {
             "B": "The article does not say salt makes bread rise.",
             "C": "The article does not say cold water makes bread rise.",
@@ -172,7 +172,7 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The article says microbes in soil break down dead leaves, which makes the soil good for plants.",
+          "why": "In the article, microbes in soil break down dead leaves, which makes the soil good for plants.",
           "wrong": {
             "A": "The article does not say microbes eat seeds.",
             "B": "The article does not say microbes make soil dry.",
@@ -240,9 +240,9 @@
           ],
           "answer": "D",
           "skill": "inference",
-          "why": "The article says some microbes can make us sick, so washing hands gets rid of those bad germs.",
+          "why": "In the article, some microbes can make us sick, so washing hands gets rid of those bad germs.",
           "wrong": {
-            "A": "The article says most microbes are friends, not that all are bad.",
+            "A": "In the article, most microbes are friends, not that all are bad.",
             "B": "The article does not say soap feeds microbes.",
             "C": "Washing hands has nothing to do with bread rising."
           }
@@ -317,7 +317,7 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The article says yeast feeds on sugar and gives off carbon dioxide, and the bubbles make bread rise.",
+          "why": "In the article, yeast feeds on sugar and gives off carbon dioxide, and the bubbles make bread rise.",
           "wrong": {
             "A": "The article does not say yeast gives off oxygen.",
             "B": "Nitrogen is not mentioned as the gas in bread.",
@@ -334,7 +334,7 @@
           ],
           "answer": "B",
           "skill": "detail",
-          "why": "The article says gut bacteria make vitamins such as vitamin K and crowd out harmful germs.",
+          "why": "In the article, gut bacteria make some vitamins and crowd out harmful germs.",
           "wrong": {
             "A": "The article does not mention bones.",
             "C": "Yeast, not gut bacteria, makes gas in bread dough.",
@@ -342,7 +342,7 @@
           }
         },
         {
-          "stem": "Read this sentence: \"This returns nutrients to the soil, so new plants can grow.\" What does returns mean here?",
+          "stem": "Microbes break down dead plants, and this returns nutrients to the soil. What does returns mean here?",
           "options": [
             "Takes away",
             "Hides",
@@ -402,7 +402,7 @@
           ],
           "answer": "B",
           "skill": "cause-effect",
-          "why": "The article says Fleming noticed a mold could kill bacteria, and this led to penicillin.",
+          "why": "In the article, Fleming noticed a mold could kill bacteria, and this led to penicillin.",
           "wrong": {
             "A": "The article does not say Fleming was baking.",
             "C": "Van Leeuwenhoek saw microbes long before penicillin. He did not find it.",
@@ -410,7 +410,7 @@
           }
         },
         {
-          "stem": "Why does the author end by saying microbes are \"partners, not enemies\"?",
+          "stem": "Why does the author end by showing that microbes help us?",
           "options": [
             "To show that microbes can think and make plans",
             "To warn readers that microbes are dangerous",
@@ -496,7 +496,7 @@
           ],
           "answer": "A",
           "skill": "detail",
-          "why": "The article explains that bacteria living in swellings on the roots take nitrogen from the air and convert it into a usable form.",
+          "why": "In the article, bacteria living in swellings on the roots take nitrogen from the air and convert it into a usable form.",
           "wrong": {
             "B": "The article does not mention insects.",
             "C": "Carbon dioxide is described in bread, not in bean roots.",
@@ -521,7 +521,7 @@
           }
         },
         {
-          "stem": "In the phrase \"bacteria become resistant to these essential medicines,\" what does resistant mean?",
+          "stem": "Bacteria can become resistant to medicines. What does resistant mean?",
           "options": [
             "Easily killed by the medicine doctors give",
             "Hidden inside the bodies of sick people",
@@ -661,7 +661,7 @@
         ],
         "answer": "A",
         "skill": "vocabulary",
-        "why": "The text says a microbe is life that is too small to see.",
+        "why": "In the text, a microbe is life that is too small to see.",
         "wrong": {
           "B": "The drug came from a mold, which is a microbe.",
           "C": "Microbes live in soil, but are not soil.",
@@ -678,7 +678,7 @@
         ],
         "answer": "C",
         "skill": "inference",
-        "why": "The text says the mold gave us a drug that kills bad germs.",
+        "why": "In the text, a mold can kill germs, and a medicine was made from it.",
         "wrong": {
           "A": "The drug kills germs, not makes them.",
           "B": "Yeast is the microbe that makes bread rise.",
@@ -697,7 +697,7 @@
         ],
         "answer": "D",
         "skill": "detail",
-        "why": "The article says yeast is a tiny fungus that bakers mix into bread dough.",
+        "why": "In the article, yeast is a tiny fungus that bakers mix into bread dough.",
         "wrong": {
           "A": "The article names yeast as a fungus, not bacteria.",
           "B": "Vitamins are made by gut bacteria, not yeast.",
@@ -714,7 +714,7 @@
         ],
         "answer": "B",
         "skill": "vocabulary",
-        "why": "The article says some microbes can make people sick but most are harmless, so they do not hurt us.",
+        "why": "In the article, some microbes can make people sick but most are harmless, so they do not hurt us.",
         "wrong": {
           "A": "Microbes are tiny.",
           "C": "The sentence is about harm, not about finding them.",
@@ -731,7 +731,7 @@
         ],
         "answer": "A",
         "skill": "cause-effect",
-        "why": "The article says the acid turns the milk thick and a little sour.",
+        "why": "In the article, the acid turns the milk thick and a little sour.",
         "wrong": {
           "B": "Dough is made with yeast and flour.",
           "C": "The milk becomes thick, not clear.",
@@ -748,7 +748,7 @@
         ],
         "answer": "C",
         "skill": "inference",
-        "why": "The article says microbes are so small that you need a microscope, so he built lenses to see them.",
+        "why": "In the article, microbes are so small that you need a microscope, so he built lenses to see them.",
         "wrong": {
           "A": "Medicine came later from Fleming's discovery.",
           "B": "Lenses are not used for digging.",
@@ -767,7 +767,7 @@
         ],
         "answer": "A",
         "skill": "detail",
-        "why": "The article says gut bacteria help you digest fiber and other food parts your body cannot break down by itself.",
+        "why": "In the article, gut bacteria help you digest fiber and other food parts your body cannot break down by itself.",
         "wrong": {
           "B": "Vitamin K is something bacteria produce, not something they digest.",
           "C": "Yogurt and cheese are foods made with bacteria.",
@@ -801,7 +801,7 @@
         ],
         "answer": "C",
         "skill": "cause-effect",
-        "why": "The article says bacteria consume the sugar in milk and produce an acid that gives it a sour flavor.",
+        "why": "In the article, bacteria consume the sugar in milk and produce an acid that gives it a sour flavor.",
         "wrong": {
           "A": "Carbon dioxide from yeast makes bread rise.",
           "B": "The article does not say yogurt is spoiled milk.",
@@ -818,7 +818,7 @@
         ],
         "answer": "B",
         "skill": "compare",
-        "why": "The article says decomposers break down dead things and return nutrients, while root bacteria turn nitrogen from the air into a form plants can use.",
+        "why": "In the article, decomposers break down dead things and return nutrients, while root bacteria turn nitrogen from the air into a form plants can use.",
         "wrong": {
           "A": "Gut bacteria make vitamins, and a mold gave penicillin.",
           "C": "Decomposers live in the soil, not only in air.",

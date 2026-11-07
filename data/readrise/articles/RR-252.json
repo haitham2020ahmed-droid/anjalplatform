@@ -138,7 +138,7 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The article says many farmers grew only one crop, cotton, year after year.",
+          "why": "In the article, many farmers grew only one crop, cotton, year after year.",
           "wrong": {
             "A": "Peanuts were the new crop Carver suggested, not the old one.",
             "B": "Sweet potatoes are mentioned as another new crop, not the old one.",
@@ -155,7 +155,7 @@
           ],
           "answer": "D",
           "skill": "detail",
-          "why": "The article says growing the same crop again and again made the soil weak and tired.",
+          "why": "In the article, growing the same crop again and again wore out the soil.",
           "wrong": {
             "A": "The article does not mention the soil becoming wet.",
             "B": "The article does not mention the soil changing color.",
@@ -317,7 +317,7 @@
           ],
           "answer": "A",
           "skill": "detail",
-          "why": "The article says Carver urged farmers to alternate cotton with peanuts and sweet potatoes to return nutrients to the soil.",
+          "why": "In the article, Carver urged farmers to alternate cotton with peanuts and sweet potatoes to return nutrients to the soil.",
           "wrong": {
             "B": "The article does not mention watering twice a day.",
             "C": "The article does not mention burning crops.",
@@ -334,7 +334,7 @@
           ],
           "answer": "D",
           "skill": "detail",
-          "why": "The article says Carver went to work at a school in Alabama called Tuskegee Institute.",
+          "why": "Carver went to work at a school in Alabama.",
           "wrong": {
             "A": "Missouri is where he was born, not where he worked as an adult.",
             "B": "The article does not mention Washington, D.C.",
@@ -483,7 +483,7 @@
           "wrong": {
             "A": "His childhood is background; his science is the article's focus.",
             "C": "The wagon is one detail among many of his contributions.",
-            "D": "The article says national organizations recognized him and people still honor him today."
+            "D": "People still honor him today, so his work was not forgotten."
           }
         },
         {
@@ -496,7 +496,7 @@
           ],
           "answer": "D",
           "skill": "detail",
-          "why": "The article explains that growing cotton repeatedly drained the soil of the nutrients plants need.",
+          "why": "In the article, growing cotton repeatedly drained the soil of the nutrients plants need.",
           "wrong": {
             "A": "Cost is not mentioned as the problem.",
             "B": "Insects are not mentioned in the article.",
@@ -504,20 +504,20 @@
           }
         },
         {
-          "stem": "What did Carver build so he could bring his conservation lessons directly to farmers?",
+          "stem": "How did Carver bring his conservation lessons directly to farmers?",
           "options": [
-            "A mobile classroom on a wagon",
-            "A new laboratory building",
-            "A printed weekly newspaper",
-            "A large university campus"
+            "He traveled to their farms himself",
+            "He built a new laboratory building",
+            "He printed a weekly newspaper",
+            "He opened a large university campus"
           ],
           "answer": "A",
           "skill": "detail",
-          "why": "The article says Carver built a mobile classroom on a wagon to reach farmers who could not travel to the school.",
+          "why": "Carver often traveled to farms himself to teach farmers these conservation methods.",
           "wrong": {
-            "B": "The article mentions his laboratory, but not building a new one for travel.",
+            "B": "A laboratory does not bring lessons to farms.",
             "C": "A newspaper is not mentioned.",
-            "D": "He worked at an existing institute; he did not build a campus."
+            "D": "He did not open a university campus."
           }
         },
         {
@@ -661,7 +661,7 @@
         ],
         "answer": "D",
         "skill": "cause-effect",
-        "why": "The article says peanuts helped the tired soil grow strong again.",
+        "why": "In the article, peanuts helped the tired soil become strong again.",
         "wrong": {
           "A": "Dryness is not mentioned.",
           "B": "Heat is not mentioned.",
@@ -784,7 +784,7 @@
         ],
         "answer": "C",
         "skill": "detail",
-        "why": "The article says he also found new uses for sweet potatoes and soybeans.",
+        "why": "In the article, he also found new uses for sweet potatoes and soybeans.",
         "wrong": {
           "A": "Rice and wheat are not mentioned.",
           "B": "Corn and barley are not mentioned.",

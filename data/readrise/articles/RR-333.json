@@ -317,7 +317,7 @@
           ],
           "answer": "B",
           "skill": "detail",
-          "why": "The article says a strait lets a ship avoid sailing all the way around a continent.",
+          "why": "In the article, a strait lets a ship avoid sailing all the way around a continent.",
           "wrong": {
             "A": "Ships still carry cargo through straits.",
             "C": "The article does not say fuel becomes free.",
@@ -419,7 +419,7 @@
           ],
           "answer": "C",
           "skill": "author-purpose",
-          "why": "By including examples like Malacca and the Bosphorus, the author shows straits matter across many regions, not just near Arabia.",
+          "why": "By giving examples from several places, the author shows straits matter in many regions.",
           "wrong": {
             "A": "The article treats straits in many regions as important.",
             "B": "The article does not explain shipbuilding.",
@@ -513,7 +513,7 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The article says a chokepoint can also become a bottleneck, delaying cargo across long supply chains.",
+          "why": "A chokepoint can become a bottleneck, so a problem there can delay cargo going to faraway ports.",
           "wrong": {
             "A": "A desert is a dry land area, not mentioned as a result.",
             "B": "A mountain range is not discussed here.",
@@ -627,7 +627,7 @@
         ],
         "answer": "B",
         "skill": "vocabulary",
-        "why": "The text says to trade is to send goods, such as oil and food, so goods are things that are sent.",
+        "why": "In the text, to trade is to send goods, such as oil and food, so goods are things that are sent.",
         "wrong": {
           "A": "Ships carry the goods; they are not the goods.",
           "C": "Narrow water describes a strait.",
@@ -644,7 +644,7 @@
         ],
         "answer": "A",
         "skill": "detail",
-        "why": "The text says ships carry oil and food, and other things too.",
+        "why": "In the text, ships carry oil and food, and other things too.",
         "wrong": {
           "B": "Sand and ice are not named in the text.",
           "C": "Wood and rocks are not named in the text.",
@@ -714,7 +714,7 @@
         ],
         "answer": "B",
         "skill": "vocabulary",
-        "why": "The text says cargo ships carry oil, clothes, and other goods, so cargo is goods carried by ship.",
+        "why": "In the text, cargo ships carry oil, clothes, and other goods, so cargo means goods carried by ship.",
         "wrong": {
           "A": "Weather is not what the ships carry.",
           "C": "The crew sails the ship; it is not the cargo.",
@@ -731,7 +731,7 @@
         ],
         "answer": "A",
         "skill": "cause-effect",
-        "why": "The text says that because straits are so narrow, storms can sometimes close them.",
+        "why": "In the text, because straits are so narrow, storms can sometimes close them.",
         "wrong": {
           "B": "Depth is not given as the reason.",
           "C": "Length is not given as the reason.",
@@ -801,7 +801,7 @@
         ],
         "answer": "D",
         "skill": "cause-effect",
-        "why": "The text says steady cargo keeps factories operating and fuel prices stable.",
+        "why": "In the text, steady cargo keeps factories operating and fuel prices stable.",
         "wrong": {
           "A": "The text does not say nations want to close ports.",
           "B": "Cargo has nothing to do with weather control.",

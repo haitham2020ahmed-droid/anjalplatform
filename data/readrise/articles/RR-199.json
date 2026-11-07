@@ -138,7 +138,7 @@
           ],
           "answer": "B",
           "skill": "detail",
-          "why": "The article says the Games are held once in four years.",
+          "why": "In the article, the Games are held once in four years.",
           "wrong": {
             "A": "They are not held every year.",
             "C": "The article says four years, not ten.",
@@ -155,7 +155,7 @@
           ],
           "answer": "A",
           "skill": "detail",
-          "why": "The article says it all began in England in 1948.",
+          "why": "It all began in England in 1948.",
           "wrong": {
             "B": "Rome hosted the first real Paralympic Games in 1960.",
             "C": "Athletes from Saudi Arabia take part today, but the games did not begin there.",
@@ -317,7 +317,7 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The article says para means beside, because the games run parallel to the Olympics.",
+          "why": "In the article, para means beside, because the games run parallel to the Olympics.",
           "wrong": {
             "A": "The article does not say para means fast.",
             "B": "The article does not say para means strong.",
@@ -342,7 +342,7 @@
           }
         },
         {
-          "stem": "\"They are joined by a short cord called a tether.\" What is a tether?",
+          "stem": "In the article, what does the word \"tether\" mean?",
           "options": [
             "A loud whistle",
             "A connecting cord",
@@ -496,7 +496,7 @@
           ],
           "answer": "D",
           "skill": "detail",
-          "why": "The article says Agitos comes from a Latin word meaning \"I move.\"",
+          "why": "In the article, Agitos comes from a Latin word meaning \"I move.\"",
           "wrong": {
             "A": "Beside is the meaning of para.",
             "B": "The article does not give this meaning.",
@@ -513,7 +513,7 @@
           ],
           "answer": "A",
           "skill": "detail",
-          "why": "The article states that Guttmann believed athletic activity could support rehabilitation.",
+          "why": "In the article, Guttmann believed athletic activity could support rehabilitation.",
           "wrong": {
             "B": "The Paralympics run parallel to the Olympics; they did not replace them.",
             "C": "The soldiers were injured patients, not trainees.",
@@ -521,7 +521,7 @@
           }
         },
         {
-          "stem": "\"Athletes are grouped through a system called classification.\" What does classification mean here?",
+          "stem": "In the article, what does the word \"classification\" mean?",
           "options": [
             "Ranking countries by medals",
             "Timing each runner's speed",
@@ -581,7 +581,7 @@
           ],
           "answer": "D",
           "skill": "inference",
-          "why": "The article says goalball is played by athletes with visual impairments who track a ball by its bells.",
+          "why": "In the article, goalball is played by athletes with visual impairments who track a ball by its bells.",
           "wrong": {
             "A": "Wheelchair racers are described in a different event.",
             "B": "Runners on blades compete on the track.",
@@ -678,7 +678,7 @@
         ],
         "answer": "C",
         "skill": "detail",
-        "why": "The text says the Games are held in the same town as the Olympics.",
+        "why": "The Paralympic Games are held in the same city as the Olympics.",
         "wrong": {
           "A": "Rome hosted the first real Games in 1960, but not every time.",
           "B": "England is where the games began in 1948, not where they are always held.",
@@ -697,7 +697,7 @@
         ],
         "answer": "A",
         "skill": "detail",
-        "why": "The text says a doctor named Ludwig Guttmann set up the contest.",
+        "why": "In the text, a doctor named Ludwig Guttmann set up the contest.",
         "wrong": {
           "B": "The text does not say a soldier from Saudi Arabia set it up.",
           "C": "Rome is where the first Games took place in 1960.",
@@ -731,7 +731,7 @@
         ],
         "answer": "C",
         "skill": "cause-effect",
-        "why": "The text says many of the soldiers could not walk, so they shot from wheelchairs.",
+        "why": "Many of the soldiers could not walk, so they shot from wheelchairs.",
         "wrong": {
           "A": "The text does not say they hunted.",
           "B": "The text says they shot arrows, not that they trained for a race.",
@@ -767,7 +767,7 @@
         ],
         "answer": "C",
         "skill": "detail",
-        "why": "The text says Winter Paralympic Games have been held since 1976.",
+        "why": "In the text, Winter Paralympic Games have been held since 1976.",
         "wrong": {
           "A": "1948 is when the movement began in England.",
           "B": "1960 is the year of the first official Paralympic Games.",

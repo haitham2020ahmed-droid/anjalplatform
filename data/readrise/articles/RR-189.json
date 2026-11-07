@@ -155,7 +155,7 @@
           ],
           "answer": "D",
           "skill": "detail",
-          "why": "The article says the women got paid for each tree that lived.",
+          "why": "In the article, the women got paid for each tree that lived.",
           "wrong": {
             "A": "The article does not mention houses.",
             "B": "No medals are mentioned.",
@@ -223,7 +223,7 @@
           ],
           "answer": "A",
           "skill": "author-purpose",
-          "why": "The bird does the best it can, and the article says we can all be like that bird.",
+          "why": "The bird does the best it can, and we can all be like that bird.",
           "wrong": {
             "B": "Nests are not mentioned.",
             "C": "The story is about trying to help, not giving up.",
@@ -317,7 +317,7 @@
           ],
           "answer": "D",
           "skill": "detail",
-          "why": "The article says she founded the Green Belt Movement in 1977.",
+          "why": "In the article, she founded the Green Belt Movement in 1977.",
           "wrong": {
             "A": "1940 is the year she was born.",
             "B": "1971 is when she earned her doctorate.",
@@ -351,7 +351,7 @@
           ],
           "answer": "C",
           "skill": "vocabulary",
-          "why": "The article says that when soil washed away in the rain, this loss of soil was called erosion.",
+          "why": "In the article, when soil washed away in the rain, this loss of soil was called erosion.",
           "wrong": {
             "A": "Planting trees was the solution to erosion.",
             "B": "Firewood is wood for cooking.",
@@ -368,7 +368,7 @@
           ],
           "answer": "D",
           "skill": "cause-effect",
-          "why": "The article says forests had been cleared for farms, and without roots the soil washed away.",
+          "why": "In the article, forests had been cleared for farms, and without roots the soil washed away.",
           "wrong": {
             "A": "Planting trees helped; it did not cause the problem.",
             "B": "The article does not blame women for the problem.",
@@ -496,7 +496,7 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The article says their families had less nutritious food, or increasingly limited access to it.",
+          "why": "Their families had less healthy food to eat.",
           "wrong": {
             "A": "Heavy rain caused erosion, but floods are not the problem described.",
             "B": "Forests had been cleared, not grown closer.",
@@ -521,7 +521,7 @@
           }
         },
         {
-          "stem": "\"Their roots stabilized the soil.\" What does stabilized mean?",
+          "stem": "In the article, what does the word \"stabilized\" mean?",
           "options": [
             "Softened",
             "Heated",
@@ -627,7 +627,7 @@
         ],
         "answer": "A",
         "skill": "detail",
-        "why": "The text says she drank from a clear stream.",
+        "why": "In the text, she drank from a clear stream.",
         "wrong": {
           "B": "A well is not mentioned.",
           "C": "A big river is not mentioned.",
@@ -697,7 +697,7 @@
         ],
         "answer": "D",
         "skill": "detail",
-        "why": "The text says she won a scholarship to study biology.",
+        "why": "In the text, she won a scholarship to study biology.",
         "wrong": {
           "A": "Farming is not named as her subject.",
           "B": "History is not named as her subject.",
@@ -786,7 +786,7 @@
         "skill": "vocabulary",
         "why": "The payment gave a small income, so a modest payment is a fairly small one.",
         "wrong": {
-          "A": "The text calls it a small income.",
+          "A": "Modest means fairly small, not very large.",
           "B": "Danger is not mentioned.",
           "C": "The payment was for trees that survived, not about speed."
         }

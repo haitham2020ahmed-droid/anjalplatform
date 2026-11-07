@@ -155,7 +155,7 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The article says halite is better known as rock salt, and people eat it every day.",
+          "why": "In the article, halite is called rock salt, and people eat it every day.",
           "wrong": {
             "A": "Quartz is described as hard and clear or white, not as rock salt.",
             "B": "Gypsum is described as soft and used to make chalk, not as rock salt.",
@@ -172,7 +172,7 @@
           ],
           "answer": "A",
           "skill": "vocabulary",
-          "why": "The article explains that a crystal is a neat shape with flat, straight sides.",
+          "why": "In the article, a crystal is a neat shape with flat, straight sides.",
           "wrong": {
             "B": "A crystal is a solid shape, not wet mud.",
             "C": "A crystal is not a plant.",
@@ -496,7 +496,7 @@
           ],
           "answer": "A",
           "skill": "detail",
-          "why": "The article states that Friedrich Mohs, a German mineralogist, introduced the hardness scale in 1812.",
+          "why": "Friedrich Mohs, a German scientist, made the hardness scale in 1812.",
           "wrong": {
             "B": "Marie Curie is not mentioned in the article.",
             "C": "The article credits Friedrich Mohs, not a team of Saudi geologists.",
@@ -513,7 +513,7 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The article states that talc occupies the bottom of the scale at one, while diamond sits at the top at ten.",
+          "why": "On the Mohs scale, talc is at the bottom with 1, and diamond is at the top with 10.",
           "wrong": {
             "A": "The article gives talc the lowest value, not the highest.",
             "B": "The article does not assign talc a value of five.",
@@ -584,7 +584,7 @@
           "why": "The article explains that testing hardness, luster, and streak only requires simple, widely available tools.",
           "wrong": {
             "A": "Laboratory equipment for minerals does exist; it just is not always necessary.",
-            "B": "The article says scientists still rely on the Mohs scale today.",
+            "B": "The Mohs scale is still used today; it is not outdated.",
             "D": "The article does not say minerals cannot be studied indoors."
           }
         },
@@ -627,7 +627,7 @@
         ],
         "answer": "A",
         "skill": "detail",
-        "why": "The text says quartz is often clear or white.",
+        "why": "In the text, quartz is often clear or white.",
         "wrong": {
           "B": "The text says quartz is very hard, not soft.",
           "C": "The text does not say quartz is black.",
@@ -678,7 +678,7 @@
         ],
         "answer": "B",
         "skill": "inference",
-        "why": "The text says you can test how hard a mineral is by trying to scratch it with a nail.",
+        "why": "In the text, you can test how hard a mineral is by trying to scratch it with a nail.",
         "wrong": {
           "A": "The text does not say scratching makes a mineral shiny.",
           "C": "Scratching does not change a mineral into salt.",
@@ -767,7 +767,7 @@
         ],
         "answer": "D",
         "skill": "detail",
-        "why": "The text says manufacturers use quartz in glass, watches, and electronics.",
+        "why": "In the text, manufacturers use quartz in glass, watches, and electronics.",
         "wrong": {
           "A": "Talc is the softest mineral on the Mohs scale.",
           "B": "Halite is rock salt.",
@@ -801,7 +801,7 @@
         ],
         "answer": "B",
         "skill": "cause-effect",
-        "why": "The text says classifying the mixture of minerals can tell how and where the rock formed long ago.",
+        "why": "The minerals in a rock can show how and where the rock formed long ago.",
         "wrong": {
           "A": "Classifying does not change the rock.",
           "C": "The text does not say classifying finds the price.",

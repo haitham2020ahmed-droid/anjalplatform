@@ -155,7 +155,7 @@
           ],
           "answer": "A",
           "skill": "detail",
-          "why": "The article says the game ends when the king cannot escape. This is checkmate.",
+          "why": "In the article, the game ends when the king cannot escape. This is checkmate.",
           "wrong": {
             "B": "The article does not say the game ends when pawns are gone.",
             "C": "The article does not say this.",
@@ -163,7 +163,7 @@
           }
         },
         {
-          "stem": "Read this: \"To win, you need a plan.\" What is a plan?",
+          "stem": "In the article, what does the word \"plan\" mean?",
           "options": [
             "A kind of chess piece",
             "A fast clock on the wall",
@@ -189,7 +189,7 @@
           ],
           "answer": "A",
           "skill": "cause-effect",
-          "why": "The article says you must think ahead and guess what the other player will do next.",
+          "why": "You must think ahead and guess what the other player will do next.",
           "wrong": {
             "B": "Thinking ahead is about winning, not ending sooner.",
             "C": "Players already know the names of the pieces.",
@@ -206,7 +206,7 @@
           ],
           "answer": "B",
           "skill": "detail",
-          "why": "The article says chess began in India long ago.",
+          "why": "In the article, chess began in India long ago.",
           "wrong": {
             "A": "Riyadh hosted players in 2017, but chess did not begin there.",
             "C": "Chess reached Europe later.",
@@ -325,7 +325,7 @@
           }
         },
         {
-          "stem": "Read this: \"a player needs a good strategy.\" What does strategy mean?",
+          "stem": "In the article, what does the word \"strategy\" mean?",
           "options": [
             "A kind of clock for chess",
             "A plan for the whole game",
@@ -334,7 +334,7 @@
           ],
           "answer": "B",
           "skill": "vocabulary",
-          "why": "The article explains that strategy is a plan for the whole game.",
+          "why": "In the article, strategy is a plan for the whole game.",
           "wrong": {
             "A": "A clock measures time.",
             "C": "Squares are spaces on the board.",
@@ -368,7 +368,7 @@
           ],
           "answer": "B",
           "skill": "sequence",
-          "why": "The article says chess began in India and then spread to Persia and across the Arab world.",
+          "why": "In the article, chess began in India and then spread to Persia and across the Arab world.",
           "wrong": {
             "A": "Europe came later.",
             "C": "The Americas are not mentioned.",
@@ -496,7 +496,7 @@
           ],
           "answer": "A",
           "skill": "vocabulary",
-          "why": "The article says shah mat is often translated as \"the king is helpless.\"",
+          "why": "Shah mat is a Persian phrase that is often translated as the king is helpless.",
           "wrong": {
             "B": "The phrase is about the king, not the queen.",
             "C": "Checkmate ends the game; it does not begin it.",
@@ -530,7 +530,7 @@
           ],
           "answer": "D",
           "skill": "cause-effect",
-          "why": "The article says players anticipate their opponent's moves so that they can prepare an effective response.",
+          "why": "Players try to guess their opponent's moves so they can plan a good response.",
           "wrong": {
             "A": "Players must move to play.",
             "B": "Players cannot change the clock's speed.",
@@ -627,7 +627,7 @@
         ],
         "answer": "D",
         "skill": "detail",
-        "why": "The text says each side has 16 pieces.",
+        "why": "In the text, each player has 16 pieces.",
         "wrong": {
           "A": "Each side has 16, not 8.",
           "B": "The board has 64 squares, not 64 pieces.",
@@ -714,7 +714,7 @@
         ],
         "answer": "A",
         "skill": "cause-effect",
-        "why": "The text says that when the king is attacked and cannot escape, the game ends in checkmate.",
+        "why": "In the text, when the king is attacked and cannot escape, the game ends in checkmate.",
         "wrong": {
           "B": "Taking a piece does not end the game.",
           "C": "Checkmate does not depend on agreement.",

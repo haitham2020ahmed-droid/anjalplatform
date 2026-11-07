@@ -155,7 +155,7 @@
           ],
           "answer": "D",
           "skill": "detail",
-          "why": "The article says camels did the hard work of carrying the loads.",
+          "why": "In the article, camels did the hard work of carrying the loads.",
           "wrong": {
             "A": "Horses are not named in the article.",
             "B": "Donkeys are not named in the article.",
@@ -172,7 +172,7 @@
           ],
           "answer": "B",
           "skill": "vocabulary",
-          "why": "The article explains that an oasis is a place in the desert with water.",
+          "why": "In the article, an oasis is a spot in the desert with water.",
           "wrong": {
             "A": "Ships came later and sailed on the sea, not in the desert.",
             "C": "Tombs were at Hegra; they are not an oasis.",
@@ -223,7 +223,7 @@
           ],
           "answer": "B",
           "skill": "sequence",
-          "why": "The article says that once ships took the goods by sea, fewer camels used the road.",
+          "why": "In the article, after ships carried the goods by sea, fewer camels used the road.",
           "wrong": {
             "A": "This is the opposite of what happened.",
             "C": "The trees did not change.",
@@ -303,7 +303,7 @@
           "why": "The article explains how the resin trade built the route and its towns, and how ships later caused its decline.",
           "wrong": {
             "A": "The article says it was used for perfume and medicine, not cooking.",
-            "C": "The article says camels go for days, not weeks, without water, and this is a detail.",
+            "C": "In the article, camels go for days, not weeks, without water, and this is a detail.",
             "D": "The article never says Hegra was the largest city."
           }
         },
@@ -334,7 +334,7 @@
           ],
           "answer": "A",
           "skill": "detail",
-          "why": "The article says the Nabataeans controlled the northern section and built Hegra.",
+          "why": "In the article, the Nabataeans controlled the northern section and built Hegra.",
           "wrong": {
             "B": "The Romans were buyers of the resins.",
             "C": "The Egyptians were also buyers far away.",
@@ -368,7 +368,7 @@
           ],
           "answer": "B",
           "skill": "cause-effect",
-          "why": "The article says sailors learned to use seasonal winds and ships carried goods more cheaply, so the land route declined.",
+          "why": "In the article, ships could carry goods for less money, so the land route declined.",
           "wrong": {
             "A": "The article says nothing about camels growing too old.",
             "C": "The trees did not stop growing.",
@@ -496,7 +496,7 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The article states that Hegra became Saudi Arabia's first World Heritage Site in 2008.",
+          "why": "In the article, Hegra became Saudi Arabia's first World Heritage Site in 2008.",
           "wrong": {
             "A": "This date is not given for Hegra.",
             "B": "This date is not given for Hegra.",
@@ -530,7 +530,7 @@
           ],
           "answer": "D",
           "skill": "vocabulary",
-          "why": "The phrase \"connected paths\" shows that a network is a system of routes linked together.",
+          "why": "The paths in the network are connected to each other, so a network is a system of linked routes.",
           "wrong": {
             "A": "The article says it was many connected paths, not one road.",
             "B": "The word is used for routes, not for fishing.",
@@ -627,7 +627,7 @@
         ],
         "answer": "C",
         "skill": "sequence",
-        "why": "The text says men cut the bark and then sap drips out.",
+        "why": "In the text, men cut the bark and then sap drips out.",
         "wrong": {
           "A": "The tree does not fall; sap drips out of the bark.",
           "B": "The sweet smoke comes later, from the hard drops of sap.",
@@ -661,7 +661,7 @@
         ],
         "answer": "D",
         "skill": "cause-effect",
-        "why": "The text says a camel can hold a big load and go for days with no drink.",
+        "why": "A camel can carry a big load and go for days without drinking.",
         "wrong": {
           "A": "Ships are mentioned later and camels do not run on the sea.",
           "B": "The article says oases already had water.",
@@ -678,7 +678,7 @@
         ],
         "answer": "B",
         "skill": "inference",
-        "why": "The text says the trip took weeks and was hot, so it was hard.",
+        "why": "In the text, the trip was long and hot, so it was hard.",
         "wrong": {
           "A": "Cutting bark is how sap was gotten, not part of the trip.",
           "C": "Going in a group does not say the trip was hard.",
@@ -697,7 +697,7 @@
         ],
         "answer": "B",
         "skill": "detail",
-        "why": "The text says people in Egypt and Rome wanted the resins for perfume and medicine.",
+        "why": "In the text, people in Egypt and Rome wanted the resins for perfume and medicine.",
         "wrong": {
           "A": "The resins were not used to make boats.",
           "C": "Tombs were carved in rock at Hegra, not built from resin.",
@@ -718,7 +718,7 @@
         "wrong": {
           "A": "The sea route came later with ships.",
           "B": "Oases already had water for the caravans.",
-          "C": "The text says the trip still took many weeks."
+          "C": "In the text, the trip still took many weeks."
         }
       },
       {
@@ -748,7 +748,7 @@
         ],
         "answer": "A",
         "skill": "sequence",
-        "why": "The text says later sailors used the winds, and so the land route began to decline.",
+        "why": "In the text, after sailors learned to use the winds, the land route began to decline.",
         "wrong": {
           "B": "Camels carried frankincense long before ships crossed the sea.",
           "C": "Towns grew at oases during the caravan days, earlier.",
@@ -767,7 +767,7 @@
         ],
         "answer": "C",
         "skill": "detail",
-        "why": "The text says people in distant lands wanted the resins for perfume and medicine.",
+        "why": "People in faraway lands like Egypt and Rome wanted the resins for perfume and medicine.",
         "wrong": {
           "A": "The resins were not building material.",
           "B": "The resins gave fragrant smoke, not a guide for camels.",
@@ -784,7 +784,7 @@
         ],
         "answer": "B",
         "skill": "cause-effect",
-        "why": "The text says they became prosperous by charging a toll that traders paid.",
+        "why": "In the text, they became prosperous by charging a toll that traders paid.",
         "wrong": {
           "A": "Selling camels is not mentioned.",
           "C": "Tombs were carved at Hegra by the Nabataeans, not for this reason.",

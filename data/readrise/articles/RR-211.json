@@ -124,7 +124,7 @@
      "why": "The article explains how a desalination plant removes salt from sea water, using heat or a filter, to make fresh drinking water.",
      "wrong": {
       "B": "Growing crops with salty water is not described in the article.",
-      "C": "The article says Saudi Arabia has very few rivers.",
+      "C": "Saudi Arabia has very few rivers, not many large ones.",
       "D": "Replacing old pipes is not discussed."
      }
     },
@@ -138,7 +138,7 @@
      ],
      "answer": "B",
      "skill": "detail",
-     "why": "The article says sea water is salty, and too much salt can make a person sick.",
+     "why": "Sea water is too salty, and too much salt can make a person sick.",
      "wrong": {
       "A": "Temperature is not the reason given in the article.",
       "C": "Thickness is not mentioned in the article.",
@@ -155,7 +155,7 @@
      ],
      "answer": "C",
      "skill": "detail",
-     "why": "The article explains that the plant heats the salty water until it turns to steam, while the salt stays behind.",
+     "why": "In the article, the water turns to steam, and the salt stays behind.",
      "wrong": {
       "A": "Freezing is not part of this method.",
       "B": "Ice is not mentioned in the article.",
@@ -189,7 +189,7 @@
      ],
      "answer": "A",
      "skill": "sequence",
-     "why": "The article says the steam cools and turns back into water that has no salt left in it.",
+     "why": "The steam cools and turns back into water with no salt in it.",
      "wrong": {
       "B": "Salt stays behind earlier in the process, not in the steam.",
       "C": "The water goes to homes, not back to the sea.",
@@ -206,9 +206,9 @@
      ],
      "answer": "B",
      "skill": "inference",
-     "why": "The article says Saudi Arabia is a dry country with very few rivers or lakes, so it needs another way to get water.",
+     "why": "Saudi Arabia is a dry country with very few rivers or lakes, so it needs another way to get water.",
      "wrong": {
-      "A": "The article says Saudi Arabia has very few rivers.",
+      "A": "Saudi Arabia has very few rivers, not too many.",
       "C": "The sea is described as salty, not salt-free.",
       "D": "Old pipes are not the reason given in the article."
      }
@@ -334,7 +334,7 @@
      ],
      "answer": "C",
      "skill": "detail",
-     "why": "The article says the membrane's holes are so tiny that only water molecules can pass through, not salt.",
+     "why": "The membrane's holes are so tiny that water can pass through but salt cannot.",
      "wrong": {
       "A": "Salt is described as too large to pass through.",
       "B": "Steam belongs to the heat method, not the membrane method.",
@@ -351,7 +351,7 @@
      ],
      "answer": "D",
      "skill": "detail",
-     "why": "The article says powerful pumps push the salty water through the membrane at very high pressure.",
+     "why": "In the article, powerful pumps push the salty water through the membrane at very high pressure.",
      "wrong": {
       "A": "Freezing belongs to neither method described.",
       "B": "Heating water into steam is the distillation method.",
@@ -368,7 +368,7 @@
      ],
      "answer": "A",
      "skill": "sequence",
-     "why": "The article explains that after the water evaporates into steam, the steam cools and condenses back into liquid water with no salt.",
+     "why": "In the article, after the water evaporates into steam, the steam cools and condenses back into liquid water with no salt.",
      "wrong": {
       "B": "Water reaches farms only after it becomes liquid again.",
       "C": "Salt stays behind earlier, not in the steam itself.",
@@ -496,7 +496,7 @@
      ],
      "answer": "B",
      "skill": "detail",
-     "why": "The article explains that the membrane's microscopic pores let water molecules through while blocking the larger dissolved salt ions.",
+     "why": "In the article, the membrane's microscopic pores let water molecules through while blocking the larger dissolved salt ions.",
      "wrong": {
       "A": "The article says the opposite: salt ions cannot pass.",
       "C": "Only water passes; salt ions are blocked.",
@@ -513,7 +513,7 @@
      ],
      "answer": "C",
      "skill": "detail",
-     "why": "The article states that concentrated leftover brine must be managed carefully so it does not harm marine life when returned to the sea.",
+     "why": "In the article, concentrated leftover brine must be managed carefully so it does not harm marine life when returned to the sea.",
      "wrong": {
       "A": "Boiling it again is not mentioned in the article.",
       "B": "Freezing brine is not mentioned in the article.",
@@ -547,7 +547,7 @@
      ],
      "answer": "A",
      "skill": "cause-effect",
-     "why": "The article explains that reverse osmosis requires considerably less energy than boiling the water outright, which is why it has become preferred at newer plants.",
+     "why": "In the article, reverse osmosis requires considerably less energy than boiling the water outright, which is why it has become preferred at newer plants.",
      "wrong": {
       "B": "Reverse osmosis still needs powerful pumps.",
       "C": "Brine is still produced and must be managed.",
@@ -581,7 +581,7 @@
      ],
      "answer": "C",
      "skill": "inference",
-     "why": "The article explains that concentrated leftover brine must be managed carefully so it does not harm marine life when it is returned to the sea.",
+     "why": "In the article, concentrated leftover brine must be managed carefully so it does not harm marine life when it is returned to the sea.",
      "wrong": {
       "A": "Pipeline color is not discussed in the article.",
       "B": "The number of schools is not related to sea life.",
@@ -627,7 +627,7 @@
     ],
     "answer": "D",
     "skill": "detail",
-    "why": "The text says the clean water goes through pipes to homes, schools, and farms.",
+    "why": "In the text, the clean water goes through pipes to homes, schools, and farms.",
     "wrong": {
      "A": "The sea is where the salty water comes from.",
      "B": "The text never says water goes to the sky.",
@@ -661,7 +661,7 @@
     ],
     "answer": "C",
     "skill": "vocabulary",
-    "why": "The text says a plant takes salt out of sea water and makes fresh water.",
+    "why": "In the text, a plant takes salt out of sea water and makes fresh water.",
     "wrong": {
      "A": "A garden plant does not take salt out of water.",
      "B": "A tree does not make clean water.",
@@ -717,7 +717,7 @@
     "why": "The text says Saudi Arabia sits next to the Red Sea and the Arabian Gulf.",
     "wrong": {
      "B": "The Nile River is not mentioned in the text.",
-     "C": "The text says the country has almost no lakes.",
+     "C": "In the text, the country has almost no lakes.",
      "D": "The text says it has almost no rivers or lakes."
     }
    },
@@ -767,10 +767,10 @@
     ],
     "answer": "D",
     "skill": "detail",
-    "why": "The text says distillation has been used for decades and remains common at older facilities.",
+    "why": "In the text, distillation has been used for decades and remains common at older facilities.",
     "wrong": {
      "A": "Newer plants mostly use reverse osmosis.",
-     "B": "The text says the country has almost no permanent rivers.",
+     "B": "In the text, the country has almost no permanent rivers.",
      "C": "Homes and schools receive the water but do not make it."
     }
    },
@@ -805,7 +805,7 @@
     "wrong": {
      "B": "The text says seawater is unsafe to drink.",
      "C": "The text says the country lies along two seas, so it is not rare.",
-     "D": "The text says seawater is far too salty."
+     "D": "In the text, seawater is far too salty."
     }
    },
    {
@@ -818,7 +818,7 @@
     ],
     "answer": "B",
     "skill": "cause-effect",
-    "why": "The text says that without desalination many coastal cities would struggle to find enough fresh water.",
+    "why": "Without desalination, many coastal cities would have trouble finding enough fresh water.",
     "wrong": {
      "A": "Brine is made by desalination, not by its absence.",
      "C": "Pipelines carry water after it is made.",

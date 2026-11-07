@@ -6,6 +6,7 @@ import { ValidationError } from "@/server/curriculum-admin";
 import { articlePage, readRiseAccess, type ArticlePage } from "@/server/readrise/student";
 import { getT } from "@/i18n/server";
 import { ReadRiseReader } from "@/components/readrise/reader";
+import { formatLevel } from "@/server/readrise/level";
 import { ReadRiseIcon } from "@/components/readrise/readrise-icon";
 import { LevelBadge } from "@/components/readrise/widgets";
 import { ARTICLE_STATUS_LABEL } from "@/server/readrise/first-try";
@@ -45,7 +46,7 @@ export default async function ReadRiseArticle({ params }: { params: Promise<{ ar
             <p className="mt-1 flex flex-wrap items-center gap-2 text-sm text-slate-600">
               {access.placed ? <>{t("My level")} <LevelBadge level={page.level} size="sm" /> · </> : null}{t("about {n} min", { n: page.minutes })}
               {/* round 5: the ONE article status (the same words as the library and My Work) */}
-              {page.status && <span data-testid="rr-article-status" data-status={page.status} className="rounded-full bg-slate-100 px-2 py-0.5 text-xs font-semibold text-slate-700">{t(ARTICLE_STATUS_LABEL[page.status])}{page.status === "DONE" && page.firstTryScore !== null && page.firstTryScore !== undefined ? ` · ${page.firstTryScore}%` : ""}{page.status === "DONE" && page.readLevel && access.placed ? ` · ${t("Read at level {n}", { n: page.readLevel })}` : ""}</span>}
+              {page.status && <span data-testid="rr-article-status" data-status={page.status} className="rounded-full bg-slate-100 px-2 py-0.5 text-xs font-semibold text-slate-700">{t(ARTICLE_STATUS_LABEL[page.status])}{page.status === "DONE" && page.firstTryScore !== null && page.firstTryScore !== undefined ? ` · ${page.firstTryScore}%` : ""}{page.status === "DONE" && page.readLevel && access.placed ? ` · ${t("Read at level {n}", { n: formatLevel(page.readLevel) })}` : ""}</span>}
             </p>
           </header>
           <ReadRiseReader page={page} />

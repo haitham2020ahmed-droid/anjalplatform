@@ -138,7 +138,7 @@
           ],
           "answer": "A",
           "skill": "detail",
-          "why": "The article says soap grabs the germs and lifts them off, and then water takes them away.",
+          "why": "In the article, soap grabs germs and lifts them off your skin, and water takes them away.",
           "wrong": {
             "B": "Smell is not how soap cleans in the article.",
             "C": "Soap does not turn germs into water.",
@@ -155,7 +155,7 @@
           ],
           "answer": "D",
           "skill": "detail",
-          "why": "The article says to scrub for about as long as singing a short song twice.",
+          "why": "In the article, to scrub for about as long as singing a short song twice.",
           "wrong": {
             "A": "One second is too short to clean well.",
             "B": "The article does not talk about hot water.",
@@ -163,7 +163,7 @@
           }
         },
         {
-          "stem": "Read: \"A cough or a sneeze can spread germs.\" What does spread mean here?",
+          "stem": "In the article, what does the word \"spread\" mean?",
           "options": [
             "Hide in one spot and stay there",
             "Move to other places and people",
@@ -317,7 +317,7 @@
           ],
           "answer": "D",
           "skill": "detail",
-          "why": "The article says you would need a microscope to see germs because they are so tiny.",
+          "why": "In the article, you would need a microscope to see germs because they are so tiny.",
           "wrong": {
             "A": "A ruler measures length; it does not show tiny things.",
             "B": "A telescope shows faraway things, not tiny ones.",
@@ -334,7 +334,7 @@
           ],
           "answer": "A",
           "skill": "detail",
-          "why": "The article says Semmelweis noticed that fewer patients became sick when doctors washed their hands.",
+          "why": "In the article, Semmelweis noticed that fewer patients became sick when doctors washed their hands.",
           "wrong": {
             "B": "The cost of soap is not mentioned.",
             "C": "Germs are too small to see without a microscope.",
@@ -342,7 +342,7 @@
           }
         },
         {
-          "stem": "Read: \"so the running water can rinse them away.\" What does rinse mean?",
+          "stem": "In the article, what does the word \"rinse\" mean?",
           "options": [
             "To dry with a towel in the sun",
             "To rub with soap and a brush",
@@ -368,7 +368,7 @@
           ],
           "answer": "C",
           "skill": "cause-effect",
-          "why": "The article explains that germs stick to your skin and enter your body when you touch your face.",
+          "why": "In the article, germs stick to your skin and enter your body when you touch your face.",
           "wrong": {
             "A": "Germs do not jump on their own.",
             "B": "The article does not say this.",
@@ -387,7 +387,7 @@
           "skill": "inference",
           "why": "Because handwashing only needs soap and water, nearly everyone can do it.",
           "wrong": {
-            "B": "The article calls it one of the most effective ways.",
+            "B": "In the article, it is one of the best ways to stop germs.",
             "C": "The article teaches readers the steps.",
             "D": "Germs are too small to see."
           }
@@ -483,7 +483,7 @@
           "wrong": {
             "B": "Semmelweis is a supporting example, and the article makes no such claim.",
             "C": "The article says sanitizer is for when soap and water are unavailable.",
-            "D": "The article says many bacteria are harmless."
+            "D": "Many bacteria are harmless."
           }
         },
         {
@@ -521,7 +521,7 @@
           }
         },
         {
-          "stem": "Read: \"The transmission of germs from one person to another occurs remarkably easily.\" What does transmission mean?",
+          "stem": "In the article, what does the word \"transmission\" mean?",
           "options": [
             "The growth of germs",
             "The cleaning of germs",
@@ -530,7 +530,7 @@
           ],
           "answer": "D",
           "skill": "vocabulary",
-          "why": "The phrase \"from one person to another\" shows that transmission means passing something along.",
+          "why": "The sentence is about germs passing from one person to another, so transmission means passing something along.",
           "wrong": {
             "A": "Growth is not described in that sentence.",
             "B": "Cleaning is the opposite of what the sentence describes.",
@@ -581,7 +581,7 @@
           ],
           "answer": "A",
           "skill": "inference",
-          "why": "The article explains that germs on your skin can enter your body when you rub your eyes or touch your nose or mouth.",
+          "why": "Germs on your hands can enter your body when you touch your eyes, nose, or mouth.",
           "wrong": {
             "B": "The article does not compare these.",
             "C": "The article warns that germs on surfaces can cause infection.",
@@ -627,7 +627,7 @@
         ],
         "answer": "C",
         "skill": "detail",
-        "why": "The text says germs get on your hands, then get in when you rub your eyes or touch your mouth.",
+        "why": "In the text, germs get on your hands, then get in when you rub your eyes or touch your mouth.",
         "wrong": {
           "A": "Shoes are not mentioned.",
           "B": "Ears are not mentioned.",
@@ -731,7 +731,7 @@
         ],
         "answer": "B",
         "skill": "cause-effect",
-        "why": "The article says coughs and sneezes spray tiny drops full of germs into the air.",
+        "why": "In the article, coughs and sneezes spray tiny drops full of germs into the air.",
         "wrong": {
           "A": "Washing needs soap and water.",
           "C": "The article does not say sneezes clean the nose.",
@@ -767,7 +767,7 @@
         ],
         "answer": "C",
         "skill": "detail",
-        "why": "The article says to continue scrubbing for at least twenty seconds.",
+        "why": "You should keep scrubbing for at least twenty seconds.",
         "wrong": {
           "A": "Five seconds is too short.",
           "B": "Ten minutes is far longer than the article says.",
@@ -805,7 +805,7 @@
         "wrong": {
           "A": "The article says to use sanitizer only when soap and water are unavailable.",
           "B": "The article does not say that.",
-          "C": "The article says to wash before eating."
+          "C": "In the article, to wash before eating."
         }
       },
       {
@@ -818,7 +818,7 @@
         ],
         "answer": "A",
         "skill": "cause-effect",
-        "why": "The article explains that germs on your hands can attach to surfaces and then to other people.",
+        "why": "In the article, germs on your hands can attach to surfaces and then to other people.",
         "wrong": {
           "B": "The article never says elbows are cleaner than the sink.",
           "C": "Noise is not mentioned.",

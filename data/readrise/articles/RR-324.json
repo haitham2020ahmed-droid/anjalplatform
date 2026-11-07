@@ -129,37 +129,37 @@
      }
     },
     {
-     "stem": "Which continent does the article say has the most people?",
+     "stem": "How many continents does the article say there are?",
      "options": [
-      "Africa",
-      "Asia",
-      "Europe",
-      "Australia"
+      "Five",
+      "Seven",
+      "Ten",
+      "Three"
      ],
      "answer": "B",
      "skill": "detail",
-     "why": "The article says Asia is the biggest continent and has more people than any other.",
+     "why": "In the article, Earth's land is split into seven big parts called continents.",
      "wrong": {
-      "A": "Africa is called the second biggest continent, not the one with the most people.",
-      "C": "Europe is described as small, with many countries, but not the most populated.",
-      "D": "Australia is described as the smallest continent."
+      "A": "There are more than five.",
+      "C": "There are fewer than ten.",
+      "D": "There are more than three."
      }
     },
     {
-     "stem": "Which continent does the article say is covered in thick ice and has no permanent population?",
+     "stem": "What covers the coldest continent?",
      "options": [
-      "North America",
-      "South America",
-      "Antarctica",
-      "Asia"
+      "Tall trees",
+      "Hot sand",
+      "Ice",
+      "Green grass"
      ],
      "answer": "C",
      "skill": "detail",
-     "why": "The article says Antarctica is the coldest continent, covered in thick ice, with no one living there all the time.",
+     "why": "In the article, one continent is very cold, and ice covers it.",
      "wrong": {
-      "A": "North America is described as a long continent between two oceans, not icy.",
-      "B": "South America is also described as a long continent, not an icy one.",
-      "D": "Asia is described as the biggest and most populated continent."
+      "A": "Trees do not cover the cold continent.",
+      "B": "Hot sand is found in deserts, not there.",
+      "D": "Grass does not grow under all that ice."
      }
     },
     {
@@ -172,10 +172,10 @@
      ],
      "answer": "D",
      "skill": "inference",
-     "why": "The article says Australia sits alone in the ocean, far from other landmasses, like being on its own island.",
+     "why": "Australia sits alone in the ocean, far from other land.",
      "wrong": {
       "A": "Antarctica, not Australia, is described as the coldest continent.",
-      "B": "The article says Australia is surrounded by ocean.",
+      "B": "Australia is surrounded by ocean.",
       "C": "The article does not describe a land bridge between Australia and Africa."
      }
     },
@@ -197,7 +197,7 @@
      }
     },
     {
-     "stem": "\"Each piece is called a continent.\" What is a continent?",
+     "stem": "In the article, what does the word \"continent\" mean?",
      "options": [
       "A small, rocky island in the middle of the sea",
       "One of Earth's seven huge pieces of land",
@@ -240,7 +240,7 @@
      ],
      "answer": "A",
      "skill": "cause-effect",
-     "why": "The article explains that big plates of rock under the ground shifted slowly, which is why the continents are where they are today.",
+     "why": "In the article, big rock plates moved slowly long ago, which is why the continents are where they are today.",
      "wrong": {
       "B": "The article does not mention a storm moving land.",
       "C": "The article does not say people built new land.",
@@ -317,7 +317,7 @@
      ],
      "answer": "C",
      "skill": "detail",
-     "why": "The article states that North America and South America are connected by the thin strip of land known as Central America.",
+     "why": "North America and South America are joined by a thin strip of land.",
      "wrong": {
       "A": "The article describes a land connection, not an ocean gap, between these continents.",
       "B": "The Ural Mountains mark the boundary between Europe and Asia, not the Americas.",
@@ -334,7 +334,7 @@
      ],
      "answer": "D",
      "skill": "detail",
-     "why": "The article explains that Europe and Asia actually sit on the very same landmass, together called Eurasia, divided mainly by the Ural Mountains on maps.",
+     "why": "Europe and Asia actually sit on the same large landmass.",
      "wrong": {
       "A": "The article says no true ocean divides them.",
       "B": "Asia is described as the largest continent, not one of the smallest.",
@@ -354,7 +354,7 @@
      "why": "Since Europe and Asia form one continuous landmass, with mountains chosen as a convenient marker, the boundary is more a human decision than a natural water barrier.",
      "wrong": {
       "B": "The article specifically says no ocean truly divides Europe and Asia.",
-      "C": "The article states they sit on the very same giant landmass.",
+      "C": "In the article, they sit on the very same giant landmass.",
       "D": "The article does not describe disagreement among scientists about this line."
      }
     },
@@ -376,7 +376,7 @@
      }
     },
     {
-     "stem": "\"They still drift a tiny bit farther apart every single year.\" What does drift mean in this sentence?",
+     "stem": "The continents still drift a tiny bit farther apart every year. What does drift mean in this sentence?",
      "options": [
       "To move slowly over time",
       "To shake violently and suddenly",
@@ -496,7 +496,7 @@
      ],
      "answer": "C",
      "skill": "detail",
-     "why": "The article states that scientists believe nearly all of today's continents were once joined together in a single supercontinent called Pangaea.",
+     "why": "Scientists believe that almost all of today's continents were once joined in one supercontinent called Pangaea.",
      "wrong": {
       "A": "Pangaea is an ancient landmass, not a modern country.",
       "B": "The Ural Mountains, not Pangaea, are described as the boundary between Europe and Asia.",
@@ -513,7 +513,7 @@
      ],
      "answer": "A",
      "skill": "detail",
-     "why": "The article describes Central America as the thin strip of land connecting North and South America, later shortened for ships by a canal.",
+     "why": "Central America is the thin strip of land that joins North and South America.",
      "wrong": {
       "B": "The canal shortens a sea journey; it does not separate the continents themselves.",
       "C": "The Ural Mountains are linked to Europe and Asia in the article, not the Americas.",
@@ -555,7 +555,7 @@
      }
     },
     {
-     "stem": "\"Scientists believe nearly all of today's continents were once joined together in a single supercontinent called Pangaea.\" What does supercontinent mean here?",
+     "stem": "In the article, what does the word \"supercontinent\" mean?",
      "options": [
       "A huge landmass formed by most or all continents joined together",
       "A small island surrounded by several oceans",
@@ -627,7 +627,7 @@
     ],
     "answer": "C",
     "skill": "detail",
-    "why": "The text says Earth's land is split into seven big parts, and each part is a continent.",
+    "why": "Earth's land is divided into seven big parts called continents.",
     "wrong": {
      "A": "The text says seven, not five.",
      "B": "The text says seven, not six.",
@@ -748,7 +748,7 @@
     ],
     "answer": "C",
     "skill": "compare",
-    "why": "The article says Australia sits alone, far from the others, like a giant island.",
+    "why": "In the article, Australia sits alone, far from the others, like a giant island.",
     "wrong": {
      "A": "Europe is the one that holds many countries packed together.",
      "B": "Europe is on the same landmass as Asia.",
@@ -801,7 +801,7 @@
     ],
     "answer": "A",
     "skill": "inference",
-    "why": "The article says a thin strip of land, Central America, joins the two continents, so ships had to go around it.",
+    "why": "In the article, a thin strip of land, Central America, joins the two continents, so ships had to go around it.",
     "wrong": {
      "B": "The article does not say the ocean was too deep.",
      "C": "Pangaea broke apart long ago.",
@@ -809,20 +809,20 @@
     }
    },
    {
-    "stem": "How does the article describe the climate of Asia?",
+    "stem": "Which continent has the largest population?",
     "options": [
-     "Warm and dry everywhere",
-     "Always cold and icy",
-     "Freezing tundra to jungle",
-     "Mild all year in every place"
+     "Europe",
+     "Africa",
+     "Asia",
+     "Australia"
     ],
     "answer": "C",
     "skill": "detail",
-    "why": "The article says Asia's climate ranges from freezing tundra to steamy jungle.",
+    "why": "Asia, the biggest continent, has more people than any other continent.",
     "wrong": {
-     "A": "The article says it includes freezing and steamy places.",
-     "B": "Antarctica is the continent covered in ice.",
-     "D": "The article says it ranges widely."
+     "A": "Europe has fewer people than Asia.",
+     "B": "Africa has fewer people than Asia.",
+     "D": "Australia has far fewer people."
     }
    }
   ]

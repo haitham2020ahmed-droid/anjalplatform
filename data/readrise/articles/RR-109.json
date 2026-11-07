@@ -138,7 +138,7 @@
           ],
           "answer": "D",
           "skill": "detail",
-          "why": "The article says they live in the Andes, high mountains in South America.",
+          "why": "In the article, they live in the Andes, high mountains in South America.",
           "wrong": {
             "A": "Camels live in Saudi Arabia, but llamas and alpacas live far away.",
             "B": "Their family lived in North America long ago, but they live in South America now.",
@@ -155,7 +155,7 @@
           ],
           "answer": "A",
           "skill": "detail",
-          "why": "The article says the llama is the big one and can carry a load.",
+          "why": "In the article, the llama is the bigger animal, and it can carry loads.",
           "wrong": {
             "B": "The alpaca is small; people keep it for its fleece.",
             "C": "The baby in Dubai is not described as carrying loads.",
@@ -189,7 +189,7 @@
           ],
           "answer": "A",
           "skill": "inference",
-          "why": "The article explains that long ago their family lived in North America; some became camels and some became the wild kinds in the south.",
+          "why": "In the article, long ago their family lived in North America; some became camels and some became the wild kinds in the south.",
           "wrong": {
             "B": "They live in mountains far from the desert.",
             "C": "The article says they have no hump.",
@@ -197,7 +197,7 @@
           }
         },
         {
-          "stem": "Read this sentence: \"Its coat is a soft fleece.\" What does fleece mean?",
+          "stem": "In the article, what does the word \"fleece\" mean?",
           "options": [
             "A sharp horn",
             "A kind of hat",
@@ -302,7 +302,7 @@
           "skill": "central-idea",
           "why": "The article explains how llamas and alpacas are related to camels, how they live in the high Andes, and how people use them.",
           "wrong": {
-            "A": "The article says they usually spit at each other, not at people.",
+            "A": "They usually spit at each other, not at people.",
             "B": "The article describes llamas, alpacas, guanacos, and vicuñas as members of the same family.",
             "D": "Dubai scientists produced a half-camel baby, not llamas."
           }
@@ -317,7 +317,7 @@
           ],
           "answer": "B",
           "skill": "detail",
-          "why": "The article says alpacas came from the smaller vicuña.",
+          "why": "In the article, alpacas came from the smaller vicuña.",
           "wrong": {
             "A": "Llamas came from the larger guanaco.",
             "C": "Camels developed in Asia; alpacas did not come from them.",
@@ -496,7 +496,7 @@
           ],
           "answer": "B",
           "skill": "detail",
-          "why": "The article says a llama has long, curved ears like bananas, while an alpaca has short, pointed ears.",
+          "why": "In the article, a llama has long, curved ears like bananas, while an alpaca has short, pointed ears.",
           "wrong": {
             "A": "Both animals have two toes.",
             "C": "Neither animal has a hump.",
@@ -513,7 +513,7 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The article states that the soft fleece helps insulate the animal against freezing nights.",
+          "why": "In the article, the soft fleece helps insulate the animal against freezing nights.",
           "wrong": {
             "A": "The llama, not the alpaca, is used for carrying loads.",
             "B": "Alpacas live in cold mountains, not deserts.",
@@ -627,7 +627,7 @@
         ],
         "answer": "B",
         "skill": "detail",
-        "why": "The text says each foot has two toes.",
+        "why": "Each foot has two toes.",
         "wrong": {
           "A": "The text says two toes, not one.",
           "C": "The text says two toes, not three.",
@@ -644,7 +644,7 @@
         ],
         "answer": "D",
         "skill": "cause-effect",
-        "why": "The text says the alpaca has a thick coat that is a soft fleece, and that it makes warm hats.",
+        "why": "In the text, the alpaca has soft, warm fleece, which is good for warm hats.",
         "wrong": {
           "A": "The animals live in cold high mountains, not hot places.",
           "B": "Chewing food twice has nothing to do with hats.",
@@ -664,8 +664,8 @@
         "why": "The text says the llama is big and strong and can take a load, so people can use it to carry things.",
         "wrong": {
           "B": "The text does not say that.",
-          "C": "The text says the llama is the big one.",
-          "D": "The text says llamas live in the Andes, far from camels."
+          "C": "The llama is the bigger animal.",
+          "D": "In the text, llamas live in the Andes, far from camels."
         }
       },
       {
@@ -714,7 +714,7 @@
         ],
         "answer": "A",
         "skill": "cause-effect",
-        "why": "The text says the air up there is thin, but their blood is very good at picking up the oxygen they need.",
+        "why": "The air up high is thin, but their blood is very good at picking up the oxygen they need.",
         "wrong": {
           "B": "The feet help them without harming the ground, not with thin air.",
           "C": "The colors of the fleece do not help with thin air.",
@@ -767,7 +767,7 @@
         ],
         "answer": "D",
         "skill": "detail",
-        "why": "The text says that together with camels, they belong to a family called camelids.",
+        "why": "In the text, together with camels, they belong to a family called camelids.",
         "wrong": {
           "A": "This word is not used in the text.",
           "B": "This word is not used in the text.",
@@ -784,11 +784,11 @@
         ],
         "answer": "A",
         "skill": "compare",
-        "why": "The text says both animals have long necks but no hump.",
+        "why": "Both animals have long necks but no hump.",
         "wrong": {
           "B": "Only the alpaca has short, pointed ears.",
           "C": "Only the llama can weigh close to 200 kilograms.",
-          "D": "The text says people raise the alpaca for its fiber, not the llama."
+          "D": "In the text, people raise the alpaca for its fiber, not the llama."
         }
       },
       {
@@ -801,7 +801,7 @@
         ],
         "answer": "C",
         "skill": "cause-effect",
-        "why": "The text says their blood is especially efficient at collecting the oxygen their bodies need.",
+        "why": "In the text, their blood is especially efficient at collecting the oxygen their bodies need.",
         "wrong": {
           "A": "The text does not say they breathe less.",
           "B": "The text does not mention stored air.",

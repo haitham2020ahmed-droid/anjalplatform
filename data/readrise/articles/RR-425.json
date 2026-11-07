@@ -155,7 +155,7 @@
      ],
      "answer": "A",
      "skill": "detail",
-     "why": "The story says the sun at noon is too hot, so Salim rests then and rides again when it is cool.",
+     "why": "In the story, the sun at noon is too hot, so Salim rests then and rides again when it is cool.",
      "wrong": {
       "B": "Salim slows down, not speeds up, at midday.",
       "C": "The story does not mention swimming.",
@@ -385,7 +385,7 @@
      ],
      "answer": "A",
      "skill": "inference",
-     "why": "The story explains that if Salim had arrived even a day later, the healer would have already left on another journey.",
+     "why": "In the story, if Salim had arrived even a day later, the healer would have already left on another journey.",
      "wrong": {
       "B": "The story does not say the letter expires.",
       "C": "The story does not set a travel limit for Badr.",
@@ -496,7 +496,7 @@
      ],
      "answer": "D",
      "skill": "detail",
-     "why": "The passage states that Salim carefully rations his water and replenishes his water skins at oases along the route.",
+     "why": "In the passage, Salim carefully rations his water and replenishes his water skins at oases along the route.",
      "wrong": {
       "A": "Salim is deliberate about his water use, not careless.",
       "B": "Salim carries water skins with him.",
@@ -513,7 +513,7 @@
      ],
      "answer": "B",
      "skill": "detail",
-     "why": "The passage explains that the healer had already packed his bags, preparing to leave for another town at dawn.",
+     "why": "In the passage, the healer had already packed his bags, preparing to leave for another town at dawn.",
      "wrong": {
       "A": "The healer is still in Dirah when Salim arrives.",
       "C": "The leader is still sick, which is why the letter is urgent.",
@@ -627,7 +627,7 @@
     ],
     "answer": "A",
     "skill": "detail",
-    "why": "The text says Salim rides his camel, Badr.",
+    "why": "In the text, Salim rides his camel, Badr.",
     "wrong": {
      "B": "Najim is the name of his town.",
      "C": "Dirah is the town where the healer lives.",
@@ -644,7 +644,7 @@
     ],
     "answer": "B",
     "skill": "detail",
-    "why": "The text says at night he looks up and the stars show him the way.",
+    "why": "In the text, at night he looks up and the stars show him the way.",
     "wrong": {
      "A": "No river is mentioned.",
      "C": "He does not meet a traveler.",
@@ -751,7 +751,7 @@
     "why": "He finds his way by the bright stars across the dark desert, so he must know how to use them.",
     "wrong": {
      "A": "The text does not say he is afraid.",
-     "C": "The text says he knows the desert routes well.",
+     "C": "In the text, he knows the desert routes well.",
      "D": "He keeps riding and guiding himself."
     }
    }
@@ -801,7 +801,7 @@
     ],
     "answer": "A",
     "skill": "cause-effect",
-    "why": "The text says riding too hard in such heat could exhaust both rider and camel alike.",
+    "why": "In the text, riding too hard in such heat could exhaust both rider and camel alike.",
     "wrong": {
      "B": "The text does not say Badr likes night.",
      "C": "No such order is mentioned.",

@@ -138,7 +138,7 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The article says you go to the southwest to find Asir, and the Red Sea is near.",
+          "why": "In the article, Asir is in the southwest of Saudi Arabia.",
           "wrong": {
             "A": "The article says southwest, not north.",
             "B": "Asir is a green mountain land, not the middle of the desert.",
@@ -155,7 +155,7 @@
           ],
           "answer": "B",
           "skill": "detail",
-          "why": "The article says fog is a cloud near the ground.",
+          "why": "In the article, fog is a cloud near the ground.",
           "wrong": {
             "A": "Rain falls from clouds, but fog is a cloud near the ground.",
             "C": "The article does not talk about fires or smoke.",
@@ -172,7 +172,7 @@
           ],
           "answer": "D",
           "skill": "inference",
-          "why": "The article says that up high the air is cool, so summer days are mild.",
+          "why": "In the article, up high the air is cool, so summer days are mild.",
           "wrong": {
             "A": "The sun shines in Asir too; the cool air comes from being high up.",
             "B": "The article does not talk about fans.",
@@ -197,7 +197,7 @@
           }
         },
         {
-          "stem": "\"Each step is a terrace. It holds the soil.\" What is a terrace?",
+          "stem": "In the article, what does the word \"terrace\" mean?",
           "options": [
             "A tall tree on a hill",
             "A stone house with painted walls",
@@ -206,7 +206,7 @@
           ],
           "answer": "C",
           "skill": "vocabulary",
-          "why": "The article says farmers built steps of stone on the steep hills, and each step is a terrace.",
+          "why": "In the article, farmers built steps of stone on the steep hills, and each step is a terrace.",
           "wrong": {
             "A": "Trees grow on the hills, but a terrace is a step.",
             "B": "Homes are made of stone, but they are not terraces.",
@@ -243,7 +243,7 @@
           "why": "The article says the wet air goes up the hills, cools, and then makes clouds, rain, and fog.",
           "wrong": {
             "A": "Air cannot turn into sand.",
-            "B": "The article says the air cools, not that it gets hotter.",
+            "B": "In the article, the air up high is cool, not hot.",
             "C": "The article does not say the wind blows the trees down."
           }
         }
@@ -317,7 +317,7 @@
           ],
           "answer": "D",
           "skill": "detail",
-          "why": "The article says Jabal Sawda rises about 3,000 meters above sea level.",
+          "why": "In the article, Jabal Sawda rises about 3,000 meters above sea level.",
           "wrong": {
             "A": "This is far too low for the country's highest peak.",
             "B": "This is too low.",
@@ -376,7 +376,7 @@
           }
         },
         {
-          "stem": "\"Winds from the sea carry moisture, which is water in the air.\" What does moisture mean?",
+          "stem": "In the article, what does the word \"moisture\" mean?",
           "options": [
             "Strong wind",
             "Salt from the sea",
@@ -496,7 +496,7 @@
           ],
           "answer": "A",
           "skill": "detail",
-          "why": "The article says each terrace slows the flow of rainwater and reduces erosion.",
+          "why": "Terraces slow down rainwater and reduce erosion.",
           "wrong": {
             "B": "The article does not describe terraces as water storage for visitors.",
             "C": "Terraces are for farming, not protecting baboons.",
@@ -513,7 +513,7 @@
           ],
           "answer": "D",
           "skill": "detail",
-          "why": "The article states that in 2017 UNESCO recognized Al-Qatt Al-Asiri as significant to all of humanity.",
+          "why": "In 2017, UNESCO recognized Al-Qatt Al-Asiri as important to all people.",
           "wrong": {
             "A": "The article does not link UNESCO to Jabal Sawda.",
             "B": "The article does not say UNESCO protects the magpie.",
@@ -555,7 +555,7 @@
           }
         },
         {
-          "stem": "\"Its water vapor begins to condense into tiny droplets.\" What does condense mean here?",
+          "stem": "In the article, what does the word \"condense\" mean?",
           "options": [
             "To disappear completely into the sky",
             "To heat up quickly",
@@ -697,7 +697,7 @@
         ],
         "answer": "B",
         "skill": "detail",
-        "why": "The text says Abha sits at an altitude of more than 2,000 meters.",
+        "why": "In the text, Abha sits at an altitude of more than 2,000 meters.",
         "wrong": {
           "A": "That is much lower than the text says.",
           "C": "About 3,000 meters is the height of Jabal Sawda, not Abha.",
@@ -714,7 +714,7 @@
         ],
         "answer": "D",
         "skill": "cause-effect",
-        "why": "The text says the air gets cooler as you climb higher, so summers in Asir are mild.",
+        "why": "In the text, the air gets cooler as you climb higher, so summers in Asir are mild.",
         "wrong": {
           "A": "The text does not say the sea cools Asir for this reason.",
           "B": "Asir has clouds, rain, and fog.",
@@ -750,7 +750,7 @@
         "skill": "inference",
         "why": "The text says all this water helps juniper trees grow, so there must be plenty of water.",
         "wrong": {
-          "A": "The text says Asir gets more rain than most of the country.",
+          "A": "In the text, Asir gets more rain than most of the country.",
           "B": "The text calls them tall evergreen trees, which take time to grow.",
           "D": "The text says farmers grow crops on the slopes."
         }
@@ -767,7 +767,7 @@
         ],
         "answer": "A",
         "skill": "detail",
-        "why": "The text says the abundant water allows juniper trees to flourish.",
+        "why": "In Asir, plenty of water lets juniper trees grow well.",
         "wrong": {
           "B": "Sand dunes are not described in Asir.",
           "C": "The text does not mention salt lakes.",
@@ -784,7 +784,7 @@
         ],
         "answer": "D",
         "skill": "cause-effect",
-        "why": "The text says air becomes progressively cooler with increasing height, so summers in Asir are mild.",
+        "why": "Air gets cooler higher up, so summers in Asir are mild.",
         "wrong": {
           "A": "The text says nothing about the mountains facing north.",
           "B": "Winds from the sea bring moist air, not cooling winds from the desert.",
@@ -818,7 +818,7 @@
         ],
         "answer": "C",
         "skill": "text-structure",
-        "why": "The article explains that sea winds carry humid air up the steep slopes, where it cools and forms clouds, rain, and fog, a cause-and-effect chain.",
+        "why": "In the article, sea winds carry humid air up the steep slopes, where it cools and forms clouds, rain, and fog, a cause-and-effect chain.",
         "wrong": {
           "A": "No dates of storms are listed.",
           "B": "The article does not tell a story about a farmer here.",

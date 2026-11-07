@@ -138,9 +138,9 @@
           ],
           "answer": "D",
           "skill": "detail",
-          "why": "The article says pets cannot say what hurts, so the vet looks for clues by checking the body.",
+          "why": "In the article, pets cannot say what hurts, so the vet looks for clues by checking the body.",
           "wrong": {
-            "A": "The article says a pet cannot tell the vet what hurts.",
+            "A": "In the article, a pet cannot tell the vet what hurts.",
             "B": "The vet checks carefully instead of guessing.",
             "C": "Other pets cannot help."
           }
@@ -223,7 +223,7 @@
           ],
           "answer": "A",
           "skill": "inference",
-          "why": "The article says each kind of animal has a body that works in its own way, so there is a lot to learn.",
+          "why": "In the article, a vet has a lot to learn, because each kind of animal's body works in its own way.",
           "wrong": {
             "B": "Driving is not part of the article.",
             "C": "Animals cannot speak, which is why vets look for clues.",
@@ -304,7 +304,7 @@
           "wrong": {
             "B": "The article does not compare zoo animals and pets this way.",
             "C": "The article also mentions falcon hospitals and general animal hospitals.",
-            "D": "The article says students can study at King Faisal University."
+            "D": "In the article, students can study at King Faisal University."
           }
         },
         {
@@ -368,7 +368,7 @@
           ],
           "answer": "D",
           "skill": "cause-effect",
-          "why": "The article says a sick animal cannot tell the vet what hurts, so the vet must look for clues.",
+          "why": "In the article, a sick animal cannot tell the vet what hurts, so the vet must look for clues.",
           "wrong": {
             "A": "The article does not say animals hide.",
             "B": "Vets use tools like a stethoscope and X-rays.",
@@ -419,7 +419,7 @@
           ],
           "answer": "C",
           "skill": "sequence",
-          "why": "The article says that afterward, the patients stay and rest until they recover.",
+          "why": "In the article, after surgery the animals stay and rest until they are well.",
           "wrong": {
             "A": "The article does not say this.",
             "B": "Owners are not changed.",
@@ -513,7 +513,7 @@
           ],
           "answer": "D",
           "skill": "detail",
-          "why": "The article says a frightened or injured wild animal can be fragile and dangerous at the same time.",
+          "why": "In the article, a frightened or injured wild animal can be fragile and dangerous at the same time.",
           "wrong": {
             "A": "The article does not say this.",
             "B": "Animals cannot describe their symptoms.",
@@ -547,7 +547,7 @@
           ],
           "answer": "B",
           "skill": "cause-effect",
-          "why": "The article explains that because some diseases pass from animals to humans, protecting animals protects people.",
+          "why": "In the article, because some diseases pass from animals to humans, protecting animals protects people.",
           "wrong": {
             "A": "The article does not say vets build hospitals.",
             "C": "Vets treat animals, not people.",
@@ -598,7 +598,7 @@
           ],
           "answer": "D",
           "skill": "author-purpose",
-          "why": "The article says the Gulf's dedicated hospitals show how specialized care can become and reflect the animals' cultural importance.",
+          "why": "In the article, the Gulf's dedicated hospitals show how specialized care can become and reflect the animals' cultural importance.",
           "wrong": {
             "A": "Falcons are not compared to cats.",
             "B": "Training is not discussed.",
@@ -661,7 +661,7 @@
         ],
         "answer": "B",
         "skill": "cause-effect",
-        "why": "The text says a shot can be a vaccine and it stops some bad germs.",
+        "why": "In the text, a shot can be a vaccine and it stops some bad germs.",
         "wrong": {
           "A": "Vets fix cuts in another way.",
           "C": "A test shows the bones.",
@@ -731,7 +731,7 @@
         ],
         "answer": "D",
         "skill": "cause-effect",
-        "why": "The text says each kind of beast has a body that works in its own way, so vets have a lot to learn.",
+        "why": "In the text, each kind of animal has a body that works in its own way, so vets have a lot to learn.",
         "wrong": {
           "A": "The text says vets have a lot to learn, not little.",
           "B": "Only some vets work at zoos.",
@@ -767,7 +767,7 @@
         ],
         "answer": "D",
         "skill": "detail",
-        "why": "The text says workers watch them closely until they are healthy and ready to go home.",
+        "why": "Workers watch the patients closely until they are healthy and ready to go home.",
         "wrong": {
           "A": "Going to a zoo is not mentioned.",
           "B": "Animals do not study.",
@@ -801,7 +801,7 @@
         ],
         "answer": "A",
         "skill": "cause-effect",
-        "why": "The text says it takes years because every species has a special body that works in its own way.",
+        "why": "It takes years because each kind of animal has a body that works in its own way.",
         "wrong": {
           "B": "The number of rooms is not the reason.",
           "C": "Making vaccines is not given as the reason.",
@@ -820,7 +820,7 @@
         "skill": "inference",
         "why": "A hurt wild animal can be dangerous, so the adult can contact officials and trained experts who can help it safely.",
         "wrong": {
-          "A": "The text says wild animals can be hurt.",
+          "A": "In the text, wild animals can be hurt.",
           "B": "Feeding the animal is not mentioned.",
           "D": "The text says to tell an adult because it can be found, not because it is unseen."
         }

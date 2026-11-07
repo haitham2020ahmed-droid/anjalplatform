@@ -334,7 +334,7 @@
           ],
           "answer": "D",
           "skill": "detail",
-          "why": "The article says Saleh noticed small ripples and seabirds diving toward the surface.",
+          "why": "In the article, Saleh noticed small ripples and seabirds diving toward the surface.",
           "wrong": {
             "A": "The article does not mention wind or clouds as signs.",
             "B": "Village noises are not mentioned as a sign.",
@@ -513,7 +513,7 @@
           ],
           "answer": "A",
           "skill": "detail",
-          "why": "The article says fishing in this manner was a family tradition inherited across many generations.",
+          "why": "Fishing from that shore was a family tradition passed down for generations.",
           "wrong": {
             "B": "There is no treasure map in the story.",
             "C": "The family inherited fishing skill, not net-building methods.",
@@ -697,7 +697,7 @@
         ],
         "answer": "C",
         "skill": "detail",
-        "why": "The text says the two walked down to the rocky shore to fish.",
+        "why": "In the text, the two walked down to the rocky shore to fish.",
         "wrong": {
           "A": "No river is mentioned.",
           "B": "The market is not where they fished.",

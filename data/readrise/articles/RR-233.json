@@ -155,7 +155,7 @@
           ],
           "answer": "A",
           "skill": "detail",
-          "why": "The article states that thick gloves cover the astronaut's hands.",
+          "why": "Thick gloves cover the astronaut's hands.",
           "wrong": {
             "B": "A metal shield is not described.",
             "C": "A plastic bag is not mentioned.",
@@ -172,7 +172,7 @@
           ],
           "answer": "D",
           "skill": "cause-effect",
-          "why": "The article explains that the visor lets the astronaut see while blocking the Sun's bright light.",
+          "why": "The visor lets the astronaut see while blocking bright sunlight.",
           "wrong": {
             "A": "Height is not mentioned as a reason for the visor.",
             "B": "The oxygen tank is separate from the visor.",
@@ -231,7 +231,7 @@
           }
         },
         {
-          "stem": "Why might an astronaut's suit be described as \"a tiny home\" or \"a tiny spacecraft\"?",
+          "stem": "Why might an astronaut's suit be compared to a tiny spacecraft?",
           "options": [
             "Because it is shaped like a house, with a roof, a door, and windows on every side of it",
             "Because astronauts sleep inside it every night, in a small bed that is made of soft cloth",
@@ -317,7 +317,7 @@
           ],
           "answer": "B",
           "skill": "detail",
-          "why": "The article says an airtight layer around the cooling garment keeps the suit under pressure similar to an airplane cabin.",
+          "why": "In the article, an airtight layer around the cooling garment keeps the suit under pressure similar to an airplane cabin.",
           "wrong": {
             "A": "The backpack supplies oxygen and removes carbon dioxide, not pressure.",
             "C": "The visor is for seeing and blocking light, not pressure.",
@@ -334,7 +334,7 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The article explains that the backpack supplies oxygen and removes the carbon dioxide the astronaut breathes out.",
+          "why": "In the article, the backpack supplies oxygen and removes the carbon dioxide the astronaut breathes out.",
           "wrong": {
             "A": "Fuel for the spacecraft is not part of the backpack's job.",
             "B": "Repair tools are not described as part of the backpack.",
@@ -351,7 +351,7 @@
           ],
           "answer": "D",
           "skill": "cause-effect",
-          "why": "The article explains that insulation shields the astronaut from extreme temperature swings in space.",
+          "why": "In the article, the insulation protects the astronaut from extreme heat and cold.",
           "wrong": {
             "A": "Weight is not the reason given for insulation.",
             "B": "Floating is not related to insulation.",
@@ -402,7 +402,7 @@
           ],
           "answer": "B",
           "skill": "inference",
-          "why": "The article explains that the gold-coated visor blocks the Sun's radiation and glare from the astronaut's eyes.",
+          "why": "In the article, the gold-coated visor blocks the Sun's radiation and glare from the astronaut's eyes.",
           "wrong": {
             "A": "Looking valuable is not the reason given in the article.",
             "C": "Absorbing more heat is not described as the visor's purpose.",
@@ -496,7 +496,7 @@
           ],
           "answer": "A",
           "skill": "detail",
-          "why": "The article states that a spacesuit is formally termed an extravehicular mobility unit.",
+          "why": "In the article, a spacesuit is formally termed an extravehicular mobility unit.",
           "wrong": {
             "B": "A pressure capsule is not the name given in the article.",
             "C": "A ventilation module is not the formal name used.",
@@ -513,7 +513,7 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The article explains that the liquid cooling and ventilation garment circulates water through tubes to carry away body heat.",
+          "why": "In the article, the liquid cooling and ventilation garment circulates water through tubes to carry away body heat.",
           "wrong": {
             "A": "Blocking radiation is the visor's job, not the cooling garment's.",
             "B": "The backpack supplies oxygen, not the cooling garment.",
@@ -627,7 +627,7 @@
         ],
         "answer": "C",
         "skill": "detail",
-        "why": "The text says the thick gloves let a person use their hands.",
+        "why": "In the text, the thick gloves let a person use their hands.",
         "wrong": {
           "A": "The text does not say gloves help a person fly.",
           "B": "Gloves are not linked to seeing in the dark.",
@@ -644,7 +644,7 @@
         ],
         "answer": "A",
         "skill": "cause-effect",
-        "why": "The text says space can get very hot and very cold, so the suit keeps the body at a safe heat.",
+        "why": "In the text, space can get very hot and very cold, so the suit keeps the body at a safe heat.",
         "wrong": {
           "B": "The text says space changes from hot to cold.",
           "C": "Weight of the helmet is not the reason given.",
@@ -748,7 +748,7 @@
         ],
         "answer": "B",
         "skill": "detail",
-        "why": "The text says the backpack removes the carbon dioxide breathed out.",
+        "why": "In the text, the backpack removes the carbon dioxide breathed out.",
         "wrong": {
           "A": "The backpack supplies oxygen, it does not remove it.",
           "C": "Water is used in the cooling tubes.",
@@ -801,7 +801,7 @@
         ],
         "answer": "D",
         "skill": "cause-effect",
-        "why": "The text says space has almost no pressure and no air, so a gap would let the suit's air out.",
+        "why": "In the text, space has almost no pressure and no air, so a gap would let the suit's air out.",
         "wrong": {
           "A": "Weight is not the problem.",
           "B": "The visor is not linked to the seal.",
@@ -818,7 +818,7 @@
         ],
         "answer": "A",
         "skill": "inference",
-        "why": "The article says engineers test the backpack many times to make sure it never fails, because an astronaut needs it to stay outside.",
+        "why": "Engineers test the backpack many times to make sure it never fails, because an astronaut needs it to stay outside.",
         "wrong": {
           "B": "Color is not the reason for testing.",
           "C": "Selling the backpack is not mentioned.",

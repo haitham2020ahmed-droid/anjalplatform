@@ -138,7 +138,7 @@
           ],
           "answer": "D",
           "skill": "detail",
-          "why": "The article says you cannot see the sugar, but the tea is sweet, so the sugar is still there.",
+          "why": "In the article, you cannot see the sugar, but the tea is sweet, so the sugar is still there.",
           "wrong": {
             "A": "The article does not say the sugar burns.",
             "B": "The sugar mixes in; it does not float.",
@@ -206,7 +206,7 @@
           ],
           "answer": "B",
           "skill": "cause-effect",
-          "why": "The article says to cook with a grown-up because heat can burn.",
+          "why": "In the article, to cook with a grown-up because heat can burn.",
           "wrong": {
             "A": "The article does not talk about recipes.",
             "C": "The article says you can stir sugar into tea.",
@@ -223,7 +223,7 @@
           ],
           "answer": "D",
           "skill": "inference",
-          "why": "The article says a new smell or color is a sign of new stuff.",
+          "why": "A new smell or color can be a sign that a new substance has formed.",
           "wrong": {
             "A": "A new color and smell show that the bread did change.",
             "B": "Bread does not melt like ice or butter.",
@@ -303,7 +303,7 @@
           "why": "The article explains both kinds of change using many kitchen examples.",
           "wrong": {
             "B": "Vinegar is only one example of a reaction.",
-            "C": "The article says chemical changes usually cannot be reversed.",
+            "C": "In the article, chemical changes usually cannot be reversed.",
             "D": "The article gives many other examples, like eggs, bread, and coffee."
           }
         },
@@ -317,7 +317,7 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The article says the reaction makes bubbles of a gas called carbon dioxide.",
+          "why": "In the article, the reaction makes bubbles of a gas called carbon dioxide.",
           "wrong": {
             "A": "The article does not name oxygen.",
             "B": "Steam comes from boiling water, not this reaction.",
@@ -351,7 +351,7 @@
           ],
           "answer": "D",
           "skill": "inference",
-          "why": "The sugar is still sugar, and the article says it would be left behind if the water dried up.",
+          "why": "The sugar is still sugar, and it would be left behind if the water dried up.",
           "wrong": {
             "A": "A new smell is a clue of a chemical change.",
             "B": "The article does not say dissolving gives off heat.",
@@ -496,7 +496,7 @@
           ],
           "answer": "A",
           "skill": "detail",
-          "why": "The article says heat permanently rearranges the protein, so the white becomes firm.",
+          "why": "In the article, heat permanently rearranges the protein, so the white becomes firm.",
           "wrong": {
             "B": "The egg white does not dissolve.",
             "C": "Carbon dioxide comes from baking soda or yeast.",
@@ -530,7 +530,7 @@
           ],
           "answer": "B",
           "skill": "detail",
-          "why": "The article says yeast generate gas as they consume sugar.",
+          "why": "In the article, yeast generate gas as they consume sugar.",
           "wrong": {
             "A": "Salt is not mentioned as yeast's food.",
             "C": "Vinegar reacts with baking soda, not yeast.",
@@ -627,7 +627,7 @@
         ],
         "answer": "B",
         "skill": "inference",
-        "why": "The text says you cannot see it, but the tea is sweet, so the sugar is still there.",
+        "why": "In the text, you cannot see it, but the tea is sweet, so the sugar is still there.",
         "wrong": {
           "A": "The text does not say it turned into gas.",
           "C": "Hot tea stays hot in the text.",
@@ -644,7 +644,7 @@
         ],
         "answer": "C",
         "skill": "detail",
-        "why": "The text says the clear part turns white and gets firm.",
+        "why": "In the text, the clear part turns white and gets firm.",
         "wrong": {
           "A": "The egg cannot be raw once more.",
           "B": "Butter is the thing that melts.",
@@ -678,7 +678,7 @@
         ],
         "answer": "D",
         "skill": "detail",
-        "why": "The text says to look for bubbles, a new hue, or a new smell.",
+        "why": "In the text, to look for bubbles, a new hue, or a new smell.",
         "wrong": {
           "A": "A cup is not a sign of change.",
           "B": "A grown-up is there for safety.",
@@ -697,7 +697,7 @@
         ],
         "answer": "C",
         "skill": "detail",
-        "why": "The text says butter melts in a hot pan and gets solid again in the fridge.",
+        "why": "In the text, butter melts in a hot pan and gets solid again in the fridge.",
         "wrong": {
           "A": "A physical change makes no new substance.",
           "B": "Browning is what toast does.",
@@ -714,7 +714,7 @@
         ],
         "answer": "A",
         "skill": "cause-effect",
-        "why": "The text says a chemical change forms a new substance that usually cannot be turned back.",
+        "why": "In the text, a chemical change forms a new substance that usually cannot be turned back.",
         "wrong": {
           "B": "A physical change can go back.",
           "C": "Dissolving sugar is a different example.",
@@ -784,7 +784,7 @@
         ],
         "answer": "D",
         "skill": "vocabulary",
-        "why": "The text says a chemical change is usually irreversible, like an egg that can never be raw again.",
+        "why": "In the text, a chemical change is usually irreversible, like an egg that can never be raw again.",
         "wrong": {
           "A": "The word is about going back, not seeing.",
           "B": "Heat is not the meaning.",

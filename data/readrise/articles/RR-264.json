@@ -155,7 +155,7 @@
           ],
           "answer": "B",
           "skill": "detail",
-          "why": "The article says trees use the gas, plus water and sun, to grow.",
+          "why": "In the article, trees use this gas, water, and sunlight to grow.",
           "wrong": {
             "A": "Sand and salt are not mentioned.",
             "C": "Metal and glass are not part of how trees grow.",
@@ -189,7 +189,7 @@
           ],
           "answer": "B",
           "skill": "cause-effect",
-          "why": "The article explains that when trees are gone, less air gets cleaned, and the gas trees would use stays in the air.",
+          "why": "In the article, when trees are gone, less air gets cleaned, and the gas trees would use stays in the air.",
           "wrong": {
             "A": "Dust from the sea is not discussed.",
             "C": "Birds cleaning the air is not in the article.",
@@ -317,7 +317,7 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The article explains that sunlight gives the leaf energy, which it uses with water to turn carbon dioxide into food.",
+          "why": "In the article, sunlight gives the leaf energy, which it uses with water to turn carbon dioxide into food.",
           "wrong": {
             "A": "Color change is not part of photosynthesis in the article.",
             "B": "Leaves trap dust; they do not release it.",
@@ -334,7 +334,7 @@
           ],
           "answer": "B",
           "skill": "detail",
-          "why": "The article says this dirt sticks to leaves, branches, and bark instead of staying in the air.",
+          "why": "In the article, this dirt sticks to leaves, branches, and bark instead of staying in the air.",
           "wrong": {
             "A": "Roots are not described as trapping dust.",
             "C": "Pollutants do not turn into oxygen.",
@@ -342,7 +342,7 @@
           }
         },
         {
-          "stem": "Read this sentence: \"Trees absorb a gas called carbon dioxide from the surrounding atmosphere.\" What does absorb mean here?",
+          "stem": "In the article, what does the word \"absorb\" mean?",
           "options": [
             "To push something away",
             "To set something on fire",
@@ -496,7 +496,7 @@
           ],
           "answer": "B",
           "skill": "detail",
-          "why": "The article explains that sunlight supplies each leaf with the energy required for photosynthesis to take place.",
+          "why": "In the article, sunlight supplies each leaf with the energy required for photosynthesis to take place.",
           "wrong": {
             "A": "Oxygen is released as a result of the process, not a direct form of sunlight.",
             "C": "Washing pollutants off leaves is not described.",
@@ -627,7 +627,7 @@
         ],
         "answer": "C",
         "skill": "detail",
-        "why": "The text says the sun gives each leaf power.",
+        "why": "The sun gives each leaf the energy it needs.",
         "wrong": {
           "A": "Dust sticks to leaves, but the sun does not give it.",
           "B": "Water comes from the roots, not the sun.",
@@ -665,7 +665,7 @@
         "wrong": {
           "A": "The text says trees help clean the air.",
           "C": "People need the oxygen that trees make.",
-          "D": "The text says trees use water."
+          "D": "In the text, trees use water."
         }
       },
       {
@@ -678,7 +678,7 @@
         ],
         "answer": "A",
         "skill": "sequence",
-        "why": "The text says trees use the gas, water, and sun to grow, then let out a new gas called oxygen.",
+        "why": "In the text, trees use the gas, water, and sun to grow, then let out a new gas called oxygen.",
         "wrong": {
           "B": "Dust sticks to trees; trees do not let it out.",
           "C": "Falling is not mentioned.",
@@ -697,7 +697,7 @@
         ],
         "answer": "D",
         "skill": "detail",
-        "why": "The text says the dirt sticks to leaves, branches, and the rough bark of each trunk.",
+        "why": "In the text, the dirt sticks to leaves, branches, and the rough bark of each trunk.",
         "wrong": {
           "A": "The roots are not named.",
           "B": "Water is not named as a place where dirt sticks.",
@@ -714,7 +714,7 @@
         ],
         "answer": "B",
         "skill": "vocabulary",
-        "why": "The text says people cut down many forests through an act called deforestation.",
+        "why": "Deforestation means cutting down or clearing large forests.",
         "wrong": {
           "A": "Planting is the opposite.",
           "C": "Counting leaves is not mentioned.",
@@ -731,7 +731,7 @@
         ],
         "answer": "B",
         "skill": "inference",
-        "why": "The text says a large, healthy forest can clean a tremendous amount of air every day.",
+        "why": "A large, healthy forest can clean a huge amount of air every day.",
         "wrong": {
           "A": "One small tree cleans much less than a forest.",
           "C": "A bare field has no leaves to clean the air.",
@@ -750,7 +750,7 @@
         "skill": "author-purpose",
         "why": "Trees release oxygen, so the sentence shows why trees matter to everything that lives.",
         "wrong": {
-          "B": "The text says every living thing needs oxygen.",
+          "B": "Every living thing needs oxygen, not only people.",
           "C": "Weight is not discussed.",
           "D": "Distance is not discussed."
         }
@@ -801,7 +801,7 @@
         ],
         "answer": "D",
         "skill": "cause-effect",
-        "why": "The text says factories and cars emit the harmful gas that trees help absorb.",
+        "why": "In the text, factories and cars emit the harmful gas that trees help absorb.",
         "wrong": {
           "A": "Roots and soil are not named as the source.",
           "B": "Leaves and bark take in the gas.",

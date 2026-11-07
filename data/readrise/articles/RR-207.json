@@ -138,7 +138,7 @@
           ],
           "answer": "B",
           "skill": "detail",
-          "why": "The article says Earth's land broke into huge parts, and each huge part is a continent.",
+          "why": "In the article, Earth's land broke into huge parts, and each huge part is a continent.",
           "wrong": {
             "A": "The article does not talk about sea animals.",
             "C": "A continent is land, not a kind of rock.",
@@ -155,7 +155,7 @@
           ],
           "answer": "D",
           "skill": "detail",
-          "why": "The article says continents sit on top of giant slabs of rock, and each slab is called a plate.",
+          "why": "In the article, the land sits on huge slabs of rock, and each slab is called a plate.",
           "wrong": {
             "A": "The article is not about dishes.",
             "B": "The article does not describe fish here.",
@@ -189,7 +189,7 @@
           ],
           "answer": "D",
           "skill": "inference",
-          "why": "The article says the crack may grow so wide that the Red Sea turns into a huge new ocean.",
+          "why": "In the article, the crack may grow so wide that the Red Sea turns into a huge new ocean.",
           "wrong": {
             "A": "The article says the sea grows wider, not that it dries up.",
             "B": "The plates are pulling apart, not joining together.",
@@ -302,7 +302,7 @@
           "skill": "central-idea",
           "why": "The article explains how the Red Sea's rift, evaporation, and lack of rivers together make it salty and warm.",
           "wrong": {
-            "B": "The article says very few rivers flow into the Red Sea.",
+            "B": "In the article, very few rivers flow into the Red Sea.",
             "C": "Coral reefs are mentioned as living in the sea, not as a cause of it forming.",
             "D": "The article does not say ships cannot cross the sea."
           }
@@ -513,7 +513,7 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The article says geologists examining the seafloor found young volcanic rock rising along the center of the rift as evidence of ongoing spreading.",
+          "why": "In the article, geologists examining the seafloor found young volcanic rock rising along the center of the rift as evidence of ongoing spreading.",
           "wrong": {
             "A": "The article does not mention pottery.",
             "B": "The article describes high, not dropping, salinity.",
@@ -627,7 +627,7 @@
         ],
         "answer": "B",
         "skill": "detail",
-        "why": "The text says Africa is on one side and Arabia is on the other.",
+        "why": "Africa is on one side, and Arabia is on the other.",
         "wrong": {
           "A": "Europe and India are not named in the text.",
           "C": "Asia and Australia are not named in the text.",
@@ -661,7 +661,7 @@
         ],
         "answer": "C",
         "skill": "detail",
-        "why": "The text says fish like the warm, salty water and coral likes it too.",
+        "why": "In the text, fish like the warm, salty water and coral likes it too.",
         "wrong": {
           "A": "Polar bears and seals are not mentioned.",
           "B": "Camels and goats live on land.",
@@ -678,7 +678,7 @@
         ],
         "answer": "D",
         "skill": "inference",
-        "why": "The text says scientists look at rocks on the sea floor and study the crack.",
+        "why": "In the text, scientists look at rocks on the sea floor and study the crack.",
         "wrong": {
           "A": "The text says they look at rocks, not fish.",
           "B": "The text does not say scientists change the salt.",
@@ -697,7 +697,7 @@
         ],
         "answer": "C",
         "skill": "detail",
-        "why": "The text says Saudi Arabia has a long coast along the eastern side of the Red Sea.",
+        "why": "In the text, Saudi Arabia has a long coast along the eastern side of the Red Sea.",
         "wrong": {
           "A": "The text says eastern, not northern.",
           "B": "Africa lies on the western side.",
@@ -731,11 +731,11 @@
         ],
         "answer": "D",
         "skill": "cause-effect",
-        "why": "The text says the warm, clear, salty water is a fine home for coral and fish.",
+        "why": "In the text, the warm, clear, salty water is a fine home for coral and fish.",
         "wrong": {
           "A": "The text says the water is warm and salty.",
           "B": "The text says the water is clear.",
-          "C": "The text says the sea stays warm all year, even in winter."
+          "C": "The sea stays warm all year, even in winter."
         }
       },
       {
@@ -767,11 +767,11 @@
         ],
         "answer": "B",
         "skill": "detail",
-        "why": "The text says the motion amounts to only a few centimeters each year.",
+        "why": "The plates move only a few centimeters each year.",
         "wrong": {
           "A": "Kilometers are far more than the text says.",
           "C": "Meters are far more than the text says.",
-          "D": "The text says the plates are still spreading apart."
+          "D": "The plates are still moving apart, so the rift does widen."
         }
       },
       {
@@ -801,7 +801,7 @@
         ],
         "answer": "C",
         "skill": "author-purpose",
-        "why": "The text says the Red Sea rift is part of a larger system in a region among the most active on the planet.",
+        "why": "In the text, the Red Sea rift is part of a larger system in a region among the most active on the planet.",
         "wrong": {
           "A": "The text does not talk about the depth of the sea.",
           "B": "The East African rifts are not compared with a desert.",
@@ -818,7 +818,7 @@
         ],
         "answer": "A",
         "skill": "inference",
-        "why": "The text says the widening amounts to only a few centimeters each year, which is too small to see.",
+        "why": "In the text, the widening amounts to only a few centimeters each year, which is too small to see.",
         "wrong": {
           "B": "The text does not link widening to heat.",
           "C": "The text says the plates move slowly all the time.",

@@ -138,7 +138,7 @@
           ],
           "answer": "A",
           "skill": "detail",
-          "why": "The article says he set out on a trip to Makkah for Hajj.",
+          "why": "In the article, he left home to travel to Makkah for Hajj.",
           "wrong": {
             "B": "He worked as a judge later, but that is not why he left.",
             "C": "The article does not say he sold camels.",
@@ -155,7 +155,7 @@
           ],
           "answer": "D",
           "skill": "detail",
-          "why": "The article says his journey lasted almost 30 years.",
+          "why": "In the article, his journey lasted almost 30 years.",
           "wrong": {
             "A": "His journey lasted much longer than one year.",
             "B": "Ten years is far too short.",
@@ -172,7 +172,7 @@
           ],
           "answer": "B",
           "skill": "vocabulary",
-          "why": "The article explains that a caravan is a long line of camels and people traveling together.",
+          "why": "In the article, a caravan is a long line of camels and people traveling together.",
           "wrong": {
             "A": "He sailed on ships at sea, but a caravan travels on land.",
             "C": "The book is the Rihla, not a caravan.",
@@ -189,7 +189,7 @@
           ],
           "answer": "C",
           "skill": "cause-effect",
-          "why": "The article says he knew (had studied) the law, so he could work as a judge.",
+          "why": "In the article, he knew (had studied) the law, so he could work as a judge.",
           "wrong": {
             "A": "He was born in Tangier, Morocco.",
             "B": "The article does not say being rich made him a judge.",
@@ -317,7 +317,7 @@
           ],
           "answer": "A",
           "skill": "detail",
-          "why": "The article states that his journey covered about 120,000 kilometers.",
+          "why": "In the article, his journey covered about 120,000 kilometers.",
           "wrong": {
             "B": "This is far less than the distance in the article.",
             "C": "This is still much less than the article says.",
@@ -334,7 +334,7 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The article says a young scholar named Ibn Juzayy wrote down his stories in the Rihla.",
+          "why": "In the article, a young scholar named Ibn Juzayy wrote down his stories in the Rihla.",
           "wrong": {
             "A": "Ibn Battuta worked for the sultan of Delhi, but the sultan did not write the book.",
             "B": "No ship captain wrote the book.",
@@ -368,7 +368,7 @@
           ],
           "answer": "A",
           "skill": "cause-effect",
-          "why": "The article says the ship sank in a storm and he lost most of what he owned.",
+          "why": "His ship sank in a storm, and he lost most of what he owned.",
           "wrong": {
             "B": "He kept traveling for many more years.",
             "C": "He served as a judge in the Maldives, not as sultan.",
@@ -496,7 +496,7 @@
           ],
           "answer": "B",
           "skill": "detail",
-          "why": "The article says the sultan of Morocco invited him to dictate his recollections to the scholar Ibn Juzayy.",
+          "why": "In the article, the sultan of Morocco invited him to dictate his recollections to the scholar Ibn Juzayy.",
           "wrong": {
             "A": "The book was written after he returned home, by Ibn Juzayy.",
             "C": "The sultan of Delhi employed him as a judge; he did not write the book.",
@@ -513,7 +513,7 @@
           ],
           "answer": "A",
           "skill": "detail",
-          "why": "The article states that he worked as a judge for the sultan of Delhi and later in the Maldives.",
+          "why": "In the article, he worked as a judge for the sultan of Delhi and later in the Maldives.",
           "wrong": {
             "B": "Tangier was his birthplace and Makkah his first destination.",
             "C": "He visited Mali and China but did not serve as a judge there.",
@@ -627,7 +627,7 @@
         ],
         "answer": "B",
         "skill": "detail",
-        "why": "The text says a boy was born in Tangier, a town in Morocco.",
+        "why": "In the text, a boy was born in Tangier, a town in Morocco.",
         "wrong": {
           "A": "Makkah is where he went for Hajj.",
           "C": "Mali is a land he visited later.",
@@ -661,7 +661,7 @@
         ],
         "answer": "D",
         "skill": "inference",
-        "why": "The tale made a big book, and the text says we still read it now.",
+        "why": "In the text, people still read his story today.",
         "wrong": {
           "A": "The ship sank and has nothing to do with the book.",
           "B": "The man wrote down Ibn Battuta's tale, not the king's.",
@@ -678,7 +678,7 @@
         ],
         "answer": "A",
         "skill": "vocabulary",
-        "why": "The text says that in India he was a judge and helped end fights.",
+        "why": "In India, he worked as a judge and helped settle arguments.",
         "wrong": {
           "B": "Riding camels is what he did in a caravan.",
           "C": "Sailing a ship is not what a judge does.",
@@ -697,7 +697,7 @@
         ],
         "answer": "A",
         "skill": "cause-effect",
-        "why": "The text says that because he knew the law, he worked as a judge for the sultan of Delhi.",
+        "why": "In the text, because he knew the law, he worked as a judge for the sultan of Delhi.",
         "wrong": {
           "B": "Owning a ship is not mentioned.",
           "C": "He was born in Tangier, Morocco.",
@@ -767,7 +767,7 @@
         ],
         "answer": "A",
         "skill": "detail",
-        "why": "The text says he observed their food, clothing, and customs in remarkable detail.",
+        "why": "He watched their food, clothing, and customs very closely.",
         "wrong": {
           "B": "Ships, swords, and armor are not listed.",
           "C": "Gardens, camels, and coins are not listed.",

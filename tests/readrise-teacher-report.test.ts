@@ -124,7 +124,7 @@ describe("📋 ReadRise teacher report", () => {
       const ids = out.doc.sections.flatMap((x) => (x.type === "table" ? [x.id] : []));
       for (const id of ["checks", "types", "unreliable"]) assert.ok(ids.includes(id), id);
       const checks = out.doc.sections.find((x) => x.type === "table" && x.id === "checks");
-      assert.ok(checks && checks.type === "table" && checks.rows.some((r) => r.boy === 800 && r.status === "rising fast"));
+      assert.ok(checks && checks.type === "table" && checks.rows.some((r) => r.boy === "800L" && r.status === "rising fast") /* round 7: formatLevel */);
       const text = Buffer.from(out.bytes).toString("utf8");
       assert.ok(!/Lexile/.test(text), "never called a Lexile");
     });

@@ -110,17 +110,18 @@ describe("📉 Round 6: levels like Achieve3000", () => {
     assert.equal(loadPlacementPassages(root).length, RR_LEVELS.length, "a broken extra file is ignored");
   });
 
-  test("the plan: starts low, climbs, 8–13 passages, never twice; a weak reader goes below 300", () => {
+  test("the plan: starts low, climbs, 12–13 passages (round 7; was 8–13), never twice; a weak reader goes below 300", () => {
     // a 1000 reader from 300: climbs and ends near 1000
     const strong = run(300, (_n, l) => (l <= 1000 ? 3 : l === 1100 ? 1 : 0));
     assert.deepEqual(strong.slice(0, 4).map((x) => x.level), [300, 500, 700, 900]);
     assert.ok(strong.length >= PLACEMENT.minPassages && strong.length <= PLACEMENT.maxPassages, `length ${strong.length}`);
     assert.equal(new Set(strong.map((x) => x.passageId)).size, strong.length);
-    assert.equal(placementResult(strong, 300), 1000);
+    // round 7: all right up to 1000, wrong above → between 1000 and 1100 (placementEstimate, within 100 of the rule's 1000)
+    assert.equal(placementResult(strong, 300), 1060);
     // a reader at about 100: fails 300 and 200, passes 100 and below
     const weak = run(300, (_n, l) => (l <= 100 ? 3 : 0));
     assert.ok(weak.some((x) => x.level < 300), "the test goes below 300");
-    assert.equal(placementResult(weak, 300), 100);
+    assert.equal(placementResult(weak, 300), 130, "round 7: between 100 (all right) and 200 (all wrong)");
     // a non-reader: fails everything → fails the lowest passage (−200) twice → BR300L, the test ends early
     const none = run(300, () => 0);
     assert.equal(placementResult(none, 300), -300);
@@ -131,7 +132,7 @@ describe("📉 Round 6: levels like Achieve3000", () => {
     assert.equal(placementResult(run(300, () => 0, only), 300), 200);
     // never more than 13
     const zig = run(700, (n) => (n % 2 ? 1 : 2));
-    assert.ok(zig.length >= 8 && zig.length <= 13, `zig ${zig.length}`);
+    assert.ok(zig.length >= 12 && zig.length <= 13, `zig ${zig.length}`);
   });
 
   describe("end to end", () => {
@@ -173,22 +174,26 @@ describe("📉 Round 6: levels like Achieve3000", () => {
     test("a weak reader is placed below 300 (BR), reads the 300 version; the middle-of-year check works below 300 too", async () => {
       const s = st[0], sid = s.studentId!;
       const start = await take(s, D("2026-09-06"), (l) => (l <= -200 ? 2 : 0));
-      assert.equal(start, -200, "passed only BR200");
+      // round 7: 2 of 3 at BR200 and nothing above: the answers fit a reader a little under BR200 (placementEstimate,
+      // within 100 of the old rule's −200)
+      assert.equal(start, -290, "passed only BR200 (2 of 3)");
       const rr = (await repo.findUnique("RRStudent", { studentId: sid }))!;
-      assert.deepEqual([Number(rr.level), Number(rr.startLevel), rr.source], [-200, -200, "PLACEMENT"]);
-      assert.ok((await repo.findMany("RRLevelChange", { studentId: sid })).some((c) => /result BR200L/.test(String(c.reason))));
+      assert.deepEqual([Number(rr.level), Number(rr.startLevel), rr.source], [-290, -290, "PLACEMENT"]);
+      assert.ok((await repo.findMany("RRLevelChange", { studentId: sid })).some((c) => /result BR290L/.test(String(c.reason))));
       // the middle-of-year check: same long test, starts at the current level (−200), can end below 300
       const c = defaultCycle(D("2026-09-01"));
       const mid = D(c.diagnostic.MOY.opens, 9);
       assert.equal((await placementStatus(repo, sid, mid)).due, "MOY");
       const check = await take(s, mid, (l) => (l <= 100 ? 3 : 0));
-      assert.equal(check, 100);
+      // round 7: one 3/3 at 100 (the other low passages were used in the first test) and 0/3 on every passage above —
+      // below guessing — so the estimate goes to the bottom of its window (100 − 100 = 0)
+      assert.equal(check, 0);
       const rr2 = (await repo.findUnique("RRStudent", { studentId: sid }))!;
-      assert.deepEqual([Number(rr2.level), Number(rr2.startLevel)], [100, -200], "the year's start is kept: growth BR200L → 100L");
+      assert.deepEqual([Number(rr2.level), Number(rr2.startLevel)], [0, -290], "the year's start is kept: growth BR290L → 0L");
       const later = new Date(mid.getTime() + DAY);
       const hist = await levelHistoryByMonth(repo, sid, D("2026-09-01"), later, later);
-      assert.equal(hist[0].month, "2026-09"); assert.equal(hist[0].level, -200);
-      assert.equal(hist[hist.length - 1].level, 100);
+      assert.equal(hist[0].month, "2026-09"); assert.equal(hist[0].level, -290);
+      assert.equal(hist[hist.length - 1].level, 0);
     });
   });
 });

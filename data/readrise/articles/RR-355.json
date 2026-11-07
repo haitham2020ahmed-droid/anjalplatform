@@ -644,7 +644,7 @@
         ],
         "answer": "D",
         "skill": "sequence",
-        "why": "The text says they see three rocks and then they see a tree.",
+        "why": "In the text, they see three rocks and then they see a tree.",
         "wrong": {
           "A": "The house is where they started.",
           "B": "No lake is in the story.",
@@ -681,7 +681,7 @@
         "why": "The chest came from his dad, so Grandpa is glad and shares tales.",
         "wrong": {
           "A": "The text says he is glad, not sleepy.",
-          "B": "The text says Grandpa is glad.",
+          "B": "Grandpa is glad, not angry.",
           "D": "The chest is in the open, not hidden."
         }
       }
@@ -731,7 +731,7 @@
         ],
         "answer": "D",
         "skill": "cause-effect",
-        "why": "The story says Faisal's fingers struck something hard and metal in the dirt.",
+        "why": "In the story, Faisal's fingers struck something hard and metal in the dirt.",
         "wrong": {
           "A": "The chest was buried, so it was not on the ground.",
           "B": "Grandfather stayed at home.",
@@ -801,7 +801,7 @@
         ],
         "answer": "A",
         "skill": "cause-effect",
-        "why": "The story says the map felt brittle yet soft, with edges soft with age.",
+        "why": "In the story, the map felt brittle yet soft, with edges soft with age.",
         "wrong": {
           "B": "Nothing in the story says it was wet.",
           "C": "The map is like worn cloth, not metal.",

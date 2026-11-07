@@ -129,20 +129,20 @@
      }
     },
     {
-     "stem": "Where is the Andes mountain range found?",
+     "stem": "What do mountain ranges hold, according to the article?",
      "options": [
-      "In Europe, between France and Italy",
-      "On the west side of South America",
-      "In Canada, far to the north",
-      "On a small island in the Pacific"
+      "Big cities and roads",
+      "Valleys, snow, and rock",
+      "Seas full of fish",
+      "Flat fields of grass"
      ],
      "answer": "B",
      "skill": "detail",
-     "why": "The article says the Andes runs down the west side of South America, near the sea.",
+     "why": "In the article, ranges hold valleys, snow, and rock.",
      "wrong": {
-      "A": "That location describes the Alps, not the Andes.",
-      "C": "The Rocky Mountains run through Canada, not the Andes.",
-      "D": "The Andes is a long range on a continent, not a small island."
+      "A": "Cities are not named.",
+      "C": "Seas are not part of a range.",
+      "D": "Ranges are not flat."
      }
     },
     {
@@ -155,7 +155,7 @@
      ],
      "answer": "B",
      "skill": "detail",
-     "why": "The article says the Himalayas hold Mount Everest, the tallest peak on Earth.",
+     "why": "The Himalayas hold Mount Everest, the tallest peak on Earth.",
      "wrong": {
       "A": "Mount Everest is in the Himalayas in Asia, not South America.",
       "C": "Mount Everest is part of the Himalayas, not the Alps.",
@@ -172,7 +172,7 @@
      ],
      "answer": "C",
      "skill": "inference",
-     "why": "The article explains that wet wind drops its rain on one slope, so the far side can stay dry.",
+     "why": "In the article, wet wind drops its rain on one slope, so the far side can stay dry.",
      "wrong": {
       "A": "The article does not say the sun avoids one side.",
       "B": "The article does not mention farmers using up water.",
@@ -189,7 +189,7 @@
      ],
      "answer": "B",
      "skill": "inference",
-     "why": "The article says each slope and valley has its own small climate, so different plants and animals can live there.",
+     "why": "In the article, each slope and valley has its own small climate, so different plants and animals can live there.",
      "wrong": {
       "A": "If the weather were the same everywhere, there would be less variety of life.",
       "C": "The article mentions llamas on grassy slopes, not just at the very top.",
@@ -197,7 +197,7 @@
      }
     },
     {
-     "stem": "\"Rivers that begin on one side flow west, while rivers on the other side flow east.\" What does this tell you about the Continental Divide?",
+     "stem": "What does the article tell you about the Continental Divide?",
      "options": [
       "It is a city in the United States.",
       "It is a line that splits where rivers go.",
@@ -308,37 +308,37 @@
      }
     },
     {
-     "stem": "According to the article, what splits the direction rivers flow in the Rocky Mountains?",
+     "stem": "According to the article, which range holds Mount Everest?",
      "options": [
-      "The Pacific Ocean",
-      "The Continental Divide",
-      "A line of old volcanoes",
-      "A border between countries"
+      "The Andes Mountains",
+      "The Himalayas",
+      "The Rocky Mountains",
+      "The Alps of Europe"
      ],
      "answer": "B",
      "skill": "detail",
-     "why": "The article says a line called the Continental Divide runs along the highest ridge and determines which way rivers flow.",
+     "why": "The Himalayas in Asia hold Mount Everest, the tallest peak on Earth.",
      "wrong": {
-      "A": "The Pacific Ocean is where some rivers end up, not the line that splits them.",
-      "C": "Volcanoes are mentioned for the Andes, not for splitting rivers in the Rockies.",
-      "D": "A border is a different idea from the Continental Divide."
+      "A": "The Andes are in South America.",
+      "C": "The Rockies are in North America.",
+      "D": "The Alps do not hold Everest."
      }
     },
     {
-     "stem": "What crop did farmers in the Andes first grow, according to the article?",
+     "stem": "Which mountain range is in South America?",
      "options": [
-      "Wheat",
-      "Rice",
-      "Potatoes",
-      "Corn"
+      "The Rockies",
+      "The Himalayas",
+      "The Andes",
+      "The Alps"
      ],
      "answer": "C",
      "skill": "detail",
-     "why": "The article states that farmers in the Andes were among the first people to grow potatoes.",
+     "why": "The Andes are a large mountain range in South America.",
      "wrong": {
-      "A": "Wheat is not mentioned as an Andes crop in the article.",
-      "B": "Rice is not mentioned at all.",
-      "D": "Corn is not named in the article."
+      "A": "The Rockies are in North America.",
+      "B": "The Himalayas are in Asia.",
+      "D": "The Alps are in Europe."
      }
     },
     {
@@ -351,7 +351,7 @@
      ],
      "answer": "A",
      "skill": "inference",
-     "why": "The article explains that wind drops its rain on one slope while rising, leaving the far side, the rain shadow, dry.",
+     "why": "In the article, wind drops its rain on one slope while rising, leaving the far side, the rain shadow, dry.",
      "wrong": {
       "B": "The article does not mention dams.",
       "C": "The article does not say the far side gets no sunlight.",
@@ -376,7 +376,7 @@
      }
     },
     {
-     "stem": "\"The far side of the range, often called the dry side, can remain arid for a very long time.\" What does arid mean here?",
+     "stem": "The dry side of a mountain range can stay arid for a long time. What does arid mean here?",
      "options": [
       "Extremely dry",
       "Very cold",
@@ -513,7 +513,7 @@
      ],
      "answer": "C",
      "skill": "detail",
-     "why": "The article states that the arid far side of a range can remain dry for centuries, supporting only hardy desert plants adapted to scarce water.",
+     "why": "In the article, the arid far side of a range can remain dry for centuries, supporting only hardy desert plants adapted to scarce water.",
      "wrong": {
       "A": "Thick forests are more likely on the wet, rainy slope, not the rain shadow.",
       "B": "The rain shadow receives less rain, since the wet slope captures the moisture first.",
@@ -555,7 +555,7 @@
      }
     },
     {
-     "stem": "\"A surprising diversity of plants and animals can live within a single range... a pattern that continues to fascinate biologists who study biodiversity.\" What does biodiversity mean here?",
+     "stem": "In the article, what does the word \"biodiversity\" mean?",
      "options": [
       "The height of a mountain above sea level",
       "The wide variety of different living things in an area",
@@ -627,7 +627,7 @@
     ],
     "answer": "B",
     "skill": "vocabulary",
-    "why": "The text says a long line of hills is a range, and ranges are mountains in lines.",
+    "why": "In the text, a long line of hills is a range, and ranges are mountains in lines.",
     "wrong": {
      "A": "A range is a line, not one peak.",
      "C": "Rivers start on a range, but a river is not a range.",
@@ -644,7 +644,7 @@
     ],
     "answer": "D",
     "skill": "inference",
-    "why": "The text says big rivers start in the snow up high, so the snow must melt into water.",
+    "why": "In the text, big rivers start in the snow up high, so the snow must melt into water.",
     "wrong": {
      "A": "Being far from the sea does not make a river.",
      "B": "Hard and cold snow would not feed a river.",
@@ -678,7 +678,7 @@
     ],
     "answer": "C",
     "skill": "detail",
-    "why": "The text says the range makes a border between two lands.",
+    "why": "In the text, the mountains form a border between countries.",
     "wrong": {
      "A": "Rivers start on other ranges.",
      "B": "The text does not mention a farm.",
@@ -801,7 +801,7 @@
     ],
     "answer": "D",
     "skill": "cause-effect",
-    "why": "The article says the Himalayas formed as one huge tectonic plate slowly collided with another over millions of years.",
+    "why": "In the article, the Himalayas formed as one huge tectonic plate slowly collided with another over millions of years.",
     "wrong": {
      "A": "Wind and sand build dunes, not mountains.",
      "B": "Erosion carves valleys after ranges form.",
@@ -818,7 +818,7 @@
     ],
     "answer": "C",
     "skill": "inference",
-    "why": "The article says the wind drops its rain on the other slope, so the rain shadow side gets little rain.",
+    "why": "In the article, the wind drops its rain on the other slope, so the rain shadow side gets little rain.",
     "wrong": {
      "A": "The article says the rain shadow side is arid.",
      "B": "The wind drops its rain on the other side.",

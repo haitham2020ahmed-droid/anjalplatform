@@ -141,7 +141,7 @@
           "why": "The article says the plates move about as fast as your nails grow.",
           "wrong": {
             "A": "A car is far too fast; the plates move very slowly.",
-            "B": "The article says the plates move all the time.",
+            "B": "The plates are always moving.",
             "D": "Walking is much faster than the plates move."
           }
         },
@@ -172,7 +172,7 @@
           ],
           "answer": "D",
           "skill": "cause-effect",
-          "why": "The article says the plate under Saudi Arabia is moving away from Africa, so the Red Sea grows wider.",
+          "why": "In the article, the plate under Saudi Arabia is moving away from Africa, so the Red Sea grows wider.",
           "wrong": {
             "A": "Rain is not given as the reason.",
             "B": "The article does not say people dig at the sea.",
@@ -193,11 +193,11 @@
           "wrong": {
             "A": "The article does not say quakes happen every day.",
             "C": "The machine measures quakes; it cannot say when one will come.",
-            "D": "The article says big quakes can break homes."
+            "D": "In the article, big quakes can damage buildings."
           }
         },
         {
-          "stem": "Read: \"The top of the Earth is a hard layer. It is the crust.\" What does crust mean here?",
+          "stem": "In the article, what does the word \"crust\" mean?",
           "options": [
             "The hard outside part of the Earth",
             "A slice of bread for lunch",
@@ -244,7 +244,7 @@
           "wrong": {
             "A": "Nails are not made of rock; this is only a comparison.",
             "B": "The article is not about caring for nails.",
-            "D": "The article says the plates move all the time."
+            "D": "The plates are always moving."
           }
         }
       ],
@@ -317,7 +317,7 @@
           ],
           "answer": "A",
           "skill": "detail",
-          "why": "The article says scientists record earthquakes with a machine called a seismometer.",
+          "why": "In the article, scientists record earthquakes with a machine called a seismometer.",
           "wrong": {
             "B": "A telescope is for looking at stars.",
             "C": "A thermometer measures temperature.",
@@ -325,7 +325,7 @@
           }
         },
         {
-          "stem": "Read: \"stress builds up in the rocks.\" What does stress mean in this sentence?",
+          "stem": "In the article, what does the word \"stress\" mean?",
           "options": [
             "A feeling of worry about a hard test",
             "A loud noise under the ground",
@@ -351,7 +351,7 @@
           ],
           "answer": "B",
           "skill": "cause-effect",
-          "why": "The article says an earthquake under the ocean can lift water and create a giant wave called a tsunami.",
+          "why": "In the article, an earthquake under the ocean can lift water and create a giant wave called a tsunami.",
           "wrong": {
             "A": "Wind is not named as the cause.",
             "C": "Rain does not make a tsunami in the article.",
@@ -402,7 +402,7 @@
           ],
           "answer": "B",
           "skill": "inference",
-          "why": "The article says shaking is usually strongest near the epicenter.",
+          "why": "In the article, shaking is usually strongest near the epicenter.",
           "wrong": {
             "A": "Shaking is strongest near the epicenter, not far away.",
             "C": "The town near the epicenter will feel strong shaking.",
@@ -487,7 +487,7 @@
           }
         },
         {
-          "stem": "Read: \"friction frequently prevents them from sliding smoothly.\" What does friction mean?",
+          "stem": "In the article, what does the word \"friction\" mean?",
           "options": [
             "A sudden flash of light from the rocks",
             "The force that resists rubbing surfaces",
@@ -513,7 +513,7 @@
           ],
           "answer": "A",
           "skill": "cause-effect",
-          "why": "The article says the rock surfaces are rough, so friction keeps them from sliding smoothly.",
+          "why": "The rock surfaces are rough, so friction keeps them from sliding smoothly.",
           "wrong": {
             "B": "Ice is not mentioned.",
             "C": "Scientists measure plates; they cannot hold them.",
@@ -530,7 +530,7 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The article says the rocks slip abruptly along a fracture called a fault.",
+          "why": "In the article, the rocks slip suddenly along a break in the rock called a fault.",
           "wrong": {
             "A": "Earthquakes begin deep underground, not on mountaintops.",
             "B": "Waves are in the water, not where rocks slip.",
@@ -551,7 +551,7 @@
           "wrong": {
             "A": "Buildings reduce damage; they do not stop earthquakes.",
             "C": "Engineers and whole communities prepare too.",
-            "D": "The article says nobody can predict precisely when one will strike."
+            "D": "Nobody can predict exactly when an earthquake will strike."
           }
         },
         {
@@ -598,7 +598,7 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The article says they monitor the ground with a network of stations distributed throughout the country.",
+          "why": "In the article, they monitor the ground with a network of stations distributed throughout the country.",
           "wrong": {
             "A": "Reports from people are not mentioned.",
             "B": "Boats are not mentioned.",
@@ -644,7 +644,7 @@
         ],
         "answer": "D",
         "skill": "detail",
-        "why": "The text says a quake in the sea can make a huge wave.",
+        "why": "A quake under the sea can make a huge wave.",
         "wrong": {
           "A": "The text does not say a quake in the sea makes a deep hole.",
           "B": "The text does not mention a hot wind.",
@@ -714,7 +714,7 @@
         ],
         "answer": "D",
         "skill": "cause-effect",
-        "why": "The text says the slip lets out a huge burst of energy that moves through the ground in waves.",
+        "why": "In the text, the slip lets out a huge burst of energy that moves through the ground in waves.",
         "wrong": {
           "A": "The plates keep moving slowly.",
           "B": "The spring is only a comparison for stress.",
@@ -767,7 +767,7 @@
         ],
         "answer": "D",
         "skill": "detail",
-        "why": "The text says the shaking is most violent near the epicenter and grows weaker with distance.",
+        "why": "The shaking is strongest near the epicenter and grows weaker farther away.",
         "wrong": {
           "A": "The shaking is strongest near the epicenter.",
           "B": "The text says it changes with distance.",

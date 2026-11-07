@@ -479,7 +479,7 @@
      ],
      "answer": "A",
      "skill": "central-idea",
-     "why": "The story shows the tortoise's steady perseverance succeeding while the complacent hare and gazelle fail.",
+     "why": "The story shows the tortoise's steady effort winning while the careless hare and gazelle fail.",
      "wrong": {
       "B": "The hare teaches the tortoise nothing about speed.",
       "C": "No new route is built in the story.",
@@ -618,20 +618,20 @@
  "stretch": {
   "LOW": [
    {
-    "stem": "Who gives the tortoise the message?",
+    "stem": "Who carries the message?",
     "options": [
-     "The chief",
+     "The tortoise",
      "The hare",
      "The gazelle",
      "A bug"
     ],
     "answer": "A",
     "skill": "detail",
-    "why": "The text says the chief had a message and asked the tortoise to take it.",
+    "why": "In the story, the slow tortoise carries the message.",
     "wrong": {
-     "B": "The hare only mocks the tortoise.",
-     "C": "The gazelle only mocks the tortoise.",
-     "D": "A bug distracts the gazelle; it does not give a message."
+     "B": "The hare stops to eat and nap.",
+     "C": "The gazelle runs off and gets distracted.",
+     "D": "A bug does not carry the message."
     }
    },
    {
@@ -644,7 +644,7 @@
     ],
     "answer": "B",
     "skill": "sequence",
-    "why": "The text says the hare stopped to eat some grass, and then he took a long nap.",
+    "why": "In the story, the hare stopped and ate some grass, and then he took a long nap.",
     "wrong": {
      "A": "The gazelle chases a bug.",
      "C": "The hare does not go back to the chief.",
@@ -678,7 +678,7 @@
     ],
     "answer": "D",
     "skill": "cause-effect",
-    "why": "The text says they ran off because they wanted to beat the tortoise.",
+    "why": "In the story, they ran off because they wanted to beat the tortoise.",
     "wrong": {
      "A": "The hare eats grass later, along the way.",
      "B": "The text does not say they are scared.",
@@ -767,7 +767,7 @@
     ],
     "answer": "A",
     "skill": "detail",
-    "why": "The text says the message must arrive before the following nightfall.",
+    "why": "In the text, the message must arrive before the following nightfall.",
     "wrong": {
      "B": "The moon is not mentioned.",
      "C": "The time limit is nightfall, not midday.",
@@ -801,7 +801,7 @@
     ],
     "answer": "C",
     "skill": "cause-effect",
-    "why": "The text says they were determined to beat the tortoise and claim the honor for themselves.",
+    "why": "In the text, they were determined to beat the tortoise and claim the honor for themselves.",
     "wrong": {
      "A": "Fear of the dark is not mentioned.",
      "B": "They mock the tortoise rather than help him.",

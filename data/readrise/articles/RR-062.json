@@ -138,7 +138,7 @@
           ],
           "answer": "A",
           "skill": "detail",
-          "why": "The article says grown-ups have 32 teeth.",
+          "why": "In the article, grown-ups have 32 teeth.",
           "wrong": {
             "B": "Kids have 20 baby teeth, not grown-ups.",
             "C": "Six is the age when baby teeth start to fall out.",
@@ -155,7 +155,7 @@
           ],
           "answer": "D",
           "skill": "detail",
-          "why": "The article says the back teeth crush and grind food.",
+          "why": "In the article, the back teeth crush and grind food.",
           "wrong": {
             "A": "The front teeth bite and cut.",
             "B": "Germs make acid, not teeth.",
@@ -172,7 +172,7 @@
           ],
           "answer": "B",
           "skill": "vocabulary",
-          "why": "The article says germs make a thin, sticky film called plaque.",
+          "why": "In the article, germs make a thin, sticky film called plaque.",
           "wrong": {
             "A": "The hard coat is enamel.",
             "C": "A hole in a tooth is a cavity.",
@@ -304,7 +304,7 @@
           "wrong": {
             "A": "The article says adult teeth must last a lifetime, so they matter a great deal.",
             "C": "The article recommends brushing with fluoride toothpaste, not only a miswak.",
-            "D": "The article says bacteria make acid that harms teeth."
+            "D": "In the article, bacteria make acid that harms teeth."
           }
         },
         {
@@ -334,7 +334,7 @@
           ],
           "answer": "A",
           "skill": "detail",
-          "why": "The article says fluoride helps make enamel stronger.",
+          "why": "Fluoride helps make enamel stronger.",
           "wrong": {
             "B": "Sugar feeds bacteria, not fluoride.",
             "C": "The article does not say fluoride makes teeth grow.",
@@ -388,7 +388,7 @@
           "why": "The article says adult teeth must last for the rest of your life, so there is no new set to replace them.",
           "wrong": {
             "A": "Baby teeth fall out at about six, not adult teeth.",
-            "B": "The article says bacteria live in every mouth.",
+            "B": "In the article, bacteria live in every mouth.",
             "C": "The article does not say adult teeth are softer."
           }
         },
@@ -482,7 +482,7 @@
           "why": "The article explains how decay happens and how brushing, flossing, checkups, and diet protect teeth that must last for life.",
           "wrong": {
             "B": "The article never says the miswak is better than toothpaste.",
-            "C": "The article explains that acid can erode enamel.",
+            "C": "In the article, acid can erode enamel.",
             "D": "Adults have 32 teeth and children have 20."
           }
         },
@@ -496,7 +496,7 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The article says enamel is a hard outer layer made mostly of minerals.",
+          "why": "Enamel is the hard outer layer of a tooth, and it is made mostly of minerals.",
           "wrong": {
             "A": "Sugar feeds bacteria; it is not part of enamel.",
             "B": "Bacteria live on the teeth but do not make up enamel.",
@@ -521,7 +521,7 @@
           }
         },
         {
-          "stem": "\"This acid can erode the enamel.\" What does erode mean?",
+          "stem": "Acid from bacteria can erode tooth enamel. What does erode mean?",
           "options": [
             "To build up slowly",
             "To change its color",
@@ -567,7 +567,7 @@
           "why": "Scientists found that the miswak contains antibacterial substances, which suggests an old habit can have real health benefits.",
           "wrong": {
             "A": "The article still recommends fluoride toothpaste.",
-            "B": "The article says people in the Arabian Peninsula have used it for centuries.",
+            "B": "In the article, people in the Arabian Peninsula have used it for centuries.",
             "D": "The article does not say where arak trees grow."
           }
         },
@@ -581,7 +581,7 @@
           ],
           "answer": "D",
           "skill": "cause-effect",
-          "why": "The article says the bacteria feed on sugar and release acid, which can erode enamel and cause decay.",
+          "why": "In the article, the bacteria feed on sugar and release acid, which can erode enamel and cause decay.",
           "wrong": {
             "A": "Fluoride comes from toothpaste, not bacteria.",
             "B": "Bacteria damage enamel; they do not build it.",
@@ -627,7 +627,7 @@
         ],
         "answer": "B",
         "skill": "detail",
-        "why": "The text says kids have 20 baby teeth.",
+        "why": "In the text, kids have 20 baby teeth.",
         "wrong": {
           "A": "The text says 20, not 12.",
           "C": "Adults, not kids, have 32 teeth.",
@@ -644,7 +644,7 @@
         ],
         "answer": "A",
         "skill": "vocabulary",
-        "why": "The text says each tooth has a hard coat called enamel.",
+        "why": "In the text, each tooth has a hard coat called enamel.",
         "wrong": {
           "B": "The sticky film is called plaque.",
           "C": "A hole in a tooth is a cavity.",
@@ -661,7 +661,7 @@
         ],
         "answer": "C",
         "skill": "cause-effect",
-        "why": "The text says acid can make a hole in a tooth, called a cavity.",
+        "why": "In the text, acid can make a hole in a tooth, called a cavity.",
         "wrong": {
           "A": "The text does not say acid makes teeth grow.",
           "B": "Acid hurts teeth, it does not make them shine.",
@@ -678,7 +678,7 @@
         ],
         "answer": "D",
         "skill": "detail",
-        "why": "The text says to brush for two full minutes.",
+        "why": "In the text, to brush for two full minutes.",
         "wrong": {
           "A": "One minute is too short for the text.",
           "B": "The text says two minutes, not five.",
@@ -714,7 +714,7 @@
         ],
         "answer": "A",
         "skill": "vocabulary",
-        "why": "The article says acid can damage enamel and make a hole called a cavity.",
+        "why": "In the article, acid can damage enamel and make a hole called a cavity.",
         "wrong": {
           "B": "A toothbrush cleans teeth; it is not a cavity.",
           "C": "Sweet food can lead to cavities but is not one.",
@@ -731,7 +731,7 @@
         ],
         "answer": "D",
         "skill": "cause-effect",
-        "why": "The article says larger adult teeth grow in to replace the baby teeth.",
+        "why": "In the article, larger adult teeth grow in to replace the baby teeth.",
         "wrong": {
           "A": "Sugar is linked to cavities, not to baby teeth falling out.",
           "B": "Floss cleans between teeth, it does not push teeth out.",
@@ -767,7 +767,7 @@
         ],
         "answer": "B",
         "skill": "detail",
-        "why": "The article says floss removes plaque from between your teeth, where a toothbrush cannot reach.",
+        "why": "Floss removes plaque from between your teeth, where a toothbrush cannot reach.",
         "wrong": {
           "A": "Fluoride strengthens enamel, not floss.",
           "C": "The article says to use both floss and toothpaste.",
@@ -822,7 +822,7 @@
         "wrong": {
           "A": "The article says sugar still feeds the bacteria that cause decay.",
           "B": "Permanent teeth do not grow back.",
-          "C": "The article says to visit a dentist every six months."
+          "C": "Dentist visits are still important; the problem is the sugary drinks."
         }
       }
     ]

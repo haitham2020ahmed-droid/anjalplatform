@@ -138,7 +138,7 @@
           ],
           "answer": "D",
           "skill": "detail",
-          "why": "The story says Yusuf is a scribe's apprentice who works at the House of Wisdom in old Baghdad.",
+          "why": "In the story, Yusuf works in the library in old Baghdad called the House of Wisdom.",
           "wrong": {
             "A": "The story does not mention Damascus.",
             "B": "Yusuf works at the library, not at the merchant's house.",
@@ -189,7 +189,7 @@
           ],
           "answer": "C",
           "skill": "inference",
-          "why": "The story says the scroll must be copied within three days because then it goes back to its owner.",
+          "why": "In the story, the scroll must be copied within three days because then it goes back to its owner.",
           "wrong": {
             "A": "The story does not say the scroll would fall apart.",
             "B": "Scholar Nasir was not leaving the library.",
@@ -223,7 +223,7 @@
           ],
           "answer": "A",
           "skill": "cause-effect",
-          "why": "The story says someone put the scroll back in the wrong place by mistake.",
+          "why": "In the story, someone put the scroll back in the wrong place by mistake.",
           "wrong": {
             "B": "Scrolls cannot move by themselves.",
             "C": "Scholar Nasir was worried about the scroll, not hiding it.",
@@ -496,7 +496,7 @@
           ],
           "answer": "D",
           "skill": "detail",
-          "why": "The article says scholars copied manuscripts onto fresh sheets of paper, a craft that had only recently arrived from China.",
+          "why": "Scholars copied books onto fresh sheets of paper, which had only recently arrived.",
           "wrong": {
             "A": "Clay tablets are not mentioned; paper is the material described.",
             "B": "Metal sheets are not mentioned as a copying material.",

@@ -123,7 +123,7 @@
           "skill": "central-idea",
           "why": "The article explains what a border is, how countries choose where to draw one, and why checkpoints exist.",
           "wrong": {
-            "A": "The article says most borders are not walls at all.",
+            "A": "In the article, most borders are not walls at all.",
             "B": "Rivers are mentioned as one kind of border, not explained in detail.",
             "D": "Getting a passport made is not explained in the article."
           }
@@ -138,7 +138,7 @@
           ],
           "answer": "D",
           "skill": "detail",
-          "why": "The article says a border is the edge where one country ends and another country begins.",
+          "why": "In the article, a border is the edge where one country ends and another country begins.",
           "wrong": {
             "A": "A mountain can form a border, but it is not what a border itself is.",
             "B": "A passport is checked at a border; it is not the border itself.",
@@ -368,7 +368,7 @@
           ],
           "answer": "C",
           "skill": "cause-effect",
-          "why": "The article explains that signing a treaty makes the line on its map the official, recognized border.",
+          "why": "In the article, signing a treaty makes the line on its map the official, recognized border.",
           "wrong": {
             "A": "Signing a treaty does not affect a river's water.",
             "B": "A treaty does not remove checkpoints in the article.",
@@ -513,7 +513,7 @@
           ],
           "answer": "A",
           "skill": "detail",
-          "why": "The article explains that officials meet repeatedly, discuss legal and territorial details, and sign a treaty before the line becomes official.",
+          "why": "In the article, officials meet repeatedly, discuss legal and territorial details, and sign a treaty before the line becomes official.",
           "wrong": {
             "B": "A negotiated line is specifically used when no river is available.",
             "C": "A checkpoint operating beforehand is not described as a requirement.",
@@ -647,7 +647,7 @@
         "why": "The text says a checkpoint is a spot where cars must stop.",
         "wrong": {
           "B": "Folks sign a sheet to agree on the line, which is not a checkpoint.",
-          "C": "The text says a border is not a wall most of the time.",
+          "C": "In the text, a border is not a wall most of the time.",
           "D": "A river can be a border, not a checkpoint."
         }
       },
@@ -661,7 +661,7 @@
         ],
         "answer": "B",
         "skill": "sequence",
-        "why": "The text says folks talk and then sign a sheet, and the line becomes the border.",
+        "why": "In the text, folks talk and then sign a sheet, and the line becomes the border.",
         "wrong": {
           "A": "The text says a border is not usually a wall.",
           "C": "They agree on a line when there is no river.",
@@ -680,7 +680,7 @@
         "skill": "inference",
         "why": "A border is where one country ends and a new land starts, so it matters even as a line.",
         "wrong": {
-          "A": "The text says a border is not a wall most of the time.",
+          "A": "In the text, a border is not a wall most of the time.",
           "B": "A border is not always a river.",
           "D": "Borders are not always next to hills."
         }
@@ -697,7 +697,7 @@
         ],
         "answer": "C",
         "skill": "detail",
-        "why": "The text says officials at a checkpoint check travel papers.",
+        "why": "In the text, officials at a checkpoint check travel papers.",
         "wrong": {
           "A": "Car speed is not mentioned.",
           "B": "Hills are not checked.",
@@ -731,7 +731,7 @@
         ],
         "answer": "D",
         "skill": "cause-effect",
-        "why": "The text says officials check goods moving across the border, which helps stop smuggling.",
+        "why": "In the text, officials check goods moving across the border, which helps stop smuggling.",
         "wrong": {
           "A": "The text does not say roads are closed.",
           "B": "Walls are not mentioned as the way.",
@@ -801,7 +801,7 @@
         ],
         "answer": "B",
         "skill": "cause-effect",
-        "why": "The text says both features are easy for officials to identify and hard for anyone to shift.",
+        "why": "In the text, both features are easy for officials to identify and hard for anyone to shift.",
         "wrong": {
           "A": "Rivers and mountains are natural, not built.",
           "C": "The text does not say they are always crossed at checkpoints.",
@@ -818,7 +818,7 @@
         ],
         "answer": "C",
         "skill": "inference",
-        "why": "The text says the agreement matters a great deal to people along it daily, so where the line runs affects their lives.",
+        "why": "In the text, the agreement matters a great deal to people along it daily, so where the line runs affects their lives.",
         "wrong": {
           "A": "Officials sign the treaty, not the neighbors.",
           "B": "The text does not say they are border officers.",

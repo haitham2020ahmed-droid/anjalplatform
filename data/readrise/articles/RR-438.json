@@ -138,7 +138,7 @@
      ],
      "answer": "C",
      "skill": "detail",
-     "why": "The story says Omar's team was called the Falcons.",
+     "why": "In the story, Omar's team was called the Falcons.",
      "wrong": {
       "A": "The Hawks are the other, stronger team in the story.",
       "B": "No team called the Tigers appears in the story.",
@@ -223,7 +223,7 @@
      ],
      "answer": "C",
      "skill": "inference",
-     "why": "The story says everyone on the team cheered with delight, showing how thrilled and proud they felt.",
+     "why": "In the story, everyone on the team cheered with delight, showing how thrilled and proud they felt.",
      "wrong": {
       "A": "The story clearly shows the team understanding and celebrating the win.",
       "B": "The team cheers loudly, showing they cared a great deal.",
@@ -496,7 +496,7 @@
      ],
      "answer": "A",
      "skill": "detail",
-     "why": "The article states that Coach Faisal never grew angry about the losses and consistently reminded the team to keep trying and support one another.",
+     "why": "In the article, Coach Faisal never grew angry about the losses and consistently reminded the team to keep trying and support one another.",
      "wrong": {
       "B": "Coach Faisal remains actively involved throughout the article.",
       "C": "Coach Faisal is shown encouraging the team, not placing individual blame.",
@@ -678,7 +678,7 @@
     ],
     "answer": "B",
     "skill": "inference",
-    "why": "The story says the team had never quit and that was what mattered most.",
+    "why": "In the story, the team had never quit and that was what mattered most.",
     "wrong": {
      "A": "The team lost many games, so winning every game is not the point.",
      "C": "The story does not say scoring more goals mattered most.",

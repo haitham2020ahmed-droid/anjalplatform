@@ -138,7 +138,7 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The story says Spark spins around and around instead of kicking the ball.",
+          "why": "In the story, Spark spins in circles instead of kicking the ball.",
           "wrong": {
             "A": "Spark keeps moving, it does not stop.",
             "B": "Spark does not run away in the story.",
@@ -172,7 +172,7 @@
           ],
           "answer": "A",
           "skill": "detail",
-          "why": "The story says Omar studies the code and finds the bug.",
+          "why": "In the story, Omar studies the code and finds the bug.",
           "wrong": {
             "B": "Sara watches, but Omar reads the code.",
             "C": "No coach is named in the story.",
@@ -627,7 +627,7 @@
         ],
         "answer": "D",
         "skill": "detail",
-        "why": "The text says, \"It is called the City Cup.\"",
+        "why": "In the story, the big match is the City Cup.",
         "wrong": {
           "A": "The School Cup is not mentioned.",
           "B": "The Robot Race is not mentioned.",
@@ -644,7 +644,7 @@
         ],
         "answer": "A",
         "skill": "vocabulary",
-        "why": "The text says, \"Code tells a robot what to do.\"",
+        "why": "In the story, code tells a robot what to do.",
         "wrong": {
           "B": "Code is not a part like wheels.",
           "C": "Code does not make sound.",
@@ -767,7 +767,7 @@
         ],
         "answer": "B",
         "skill": "detail",
-        "why": "The text says Spark has to act on its own during the match, with no one controlling it directly.",
+        "why": "In the text, Spark has to act on its own during the match, with no one controlling it directly.",
         "wrong": {
           "A": "No one pushes or controls it.",
           "C": "The crowd is not part of how it runs.",

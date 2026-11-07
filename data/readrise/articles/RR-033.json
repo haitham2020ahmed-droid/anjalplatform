@@ -138,7 +138,7 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The article says the oryx gets water from the plants it eats, so it can go a long time with no drink.",
+          "why": "In the article, the oryx gets water from the plants it eats, so it can go a long time with no drink.",
           "wrong": {
             "A": "The article does not say the oryx drinks from wells.",
             "B": "Deserts are dry, and the article does not talk about rivers.",
@@ -155,7 +155,7 @@
           ],
           "answer": "A",
           "skill": "detail",
-          "why": "The article says that by 1972, no oryx were left in the wild.",
+          "why": "By 1972, there were no oryx left in the wild.",
           "wrong": {
             "B": "The oryx is a desert animal. The article never says it moved to cold lands.",
             "C": "Oman set a herd free later, in 1982.",
@@ -172,7 +172,7 @@
           ],
           "answer": "D",
           "skill": "vocabulary",
-          "why": "A herd is a group of animals that live together. The article says the oryx herd rests in the shade together.",
+          "why": "A herd is a group of animals that live together. In the article, the oryx rest together in the shade.",
           "wrong": {
             "A": "The oryx does not live in a home made of sand.",
             "B": "The horns are on the oryx's head. They are not the herd.",
@@ -317,7 +317,7 @@
           ],
           "answer": "B",
           "skill": "detail",
-          "why": "The article states that the white coat reflects sunlight and helps keep the oryx cool.",
+          "why": "In the article, the white coat reflects sunlight and helps keep the oryx cool.",
           "wrong": {
             "A": "The article does not say the coat hides the oryx.",
             "C": "The oryx gets dew from leaves, not from its coat.",
@@ -334,7 +334,7 @@
           ],
           "answer": "A",
           "skill": "detail",
-          "why": "The article says Oman released a herd in 1982, and Saudi Arabia did the same in 1990.",
+          "why": "In the article, Oman released a herd in 1982, and Saudi Arabia did the same in 1990.",
           "wrong": {
             "B": "1972 is the year the oryx became extinct in the wild.",
             "C": "Saudi Arabia released oryx in 1990, not 1982.",
@@ -627,7 +627,7 @@
         ],
         "answer": "B",
         "skill": "detail",
-        "why": "The text says the oryx has two long horns that are thin and straight.",
+        "why": "In the text, the oryx has two long horns that are thin and straight.",
         "wrong": {
           "A": "The horns are long, not short.",
           "C": "The horns are thin, not thick.",
@@ -644,7 +644,7 @@
         ],
         "answer": "D",
         "skill": "cause-effect",
-        "why": "The text says the sun is hot and its white coat helps it stay cool.",
+        "why": "In the text, the sun is hot and its white coat helps it stay cool.",
         "wrong": {
           "A": "The text does not say the coat helps it run.",
           "B": "The oryx can tell where rain falls, but not by its coat.",
@@ -678,7 +678,7 @@
         ],
         "answer": "A",
         "skill": "vocabulary",
-        "why": "The text says the oryx live in a big reserve where men with trucks keep them safe.",
+        "why": "In the text, the oryx live in a big reserve where they are kept safe.",
         "wrong": {
           "B": "The trucks are used by the men who guard the oryx.",
           "C": "A group of oryx is called a herd.",
@@ -748,7 +748,7 @@
         ],
         "answer": "A",
         "skill": "detail",
-        "why": "The text says that from the side the two horns can look like just one.",
+        "why": "In the text, from the side the two horns can look like just one.",
         "wrong": {
           "B": "The horns are straight, not curly.",
           "C": "The horns are thin, not thick.",
@@ -767,7 +767,7 @@
         ],
         "answer": "D",
         "skill": "detail",
-        "why": "The text says its broad hooves help it walk across soft sand.",
+        "why": "An oryx's broad hooves help it walk across soft sand.",
         "wrong": {
           "A": "The oryx gets dew from leaves, but hooves are not used for that.",
           "B": "The text does not say hooves detect rain.",
@@ -784,7 +784,7 @@
         ],
         "answer": "A",
         "skill": "cause-effect",
-        "why": "The text says hunters equipped with rifles and fast vehicles killed far too many.",
+        "why": "In the text, hunters equipped with rifles and fast vehicles killed far too many.",
         "wrong": {
           "B": "Rangers came later, to protect the oryx.",
           "C": "The text does not blame a lack of grass.",

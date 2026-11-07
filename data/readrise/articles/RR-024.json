@@ -138,7 +138,7 @@
           ],
           "answer": "D",
           "skill": "detail",
-          "why": "The article says the roots take in water from the soil.",
+          "why": "In the article, the roots take in water from the soil.",
           "wrong": {
             "A": "The water ends up in the leaves, but the roots take it in.",
             "B": "The article does not say flowers take in water.",
@@ -155,7 +155,7 @@
           ],
           "answer": "A",
           "skill": "detail",
-          "why": "The article says that as the plant makes food, it lets out oxygen.",
+          "why": "In the article, as the plant makes food, it lets out oxygen.",
           "wrong": {
             "B": "Plants do not make smoke.",
             "C": "The article does not talk about steam.",
@@ -174,7 +174,7 @@
           "skill": "vocabulary",
           "why": "Chlorophyll takes in the light so the leaf can use it to make food.",
           "wrong": {
-            "A": "Light does not get wet, so the words do not mean \"makes wet\" here.",
+            "A": "Light does not get wet, so the word does not mean to make something wet here.",
             "C": "Chlorophyll uses the light. It does not push it away.",
             "D": "Chlorophyll does not hide from the sun. It needs the light."
           }
@@ -223,7 +223,7 @@
           ],
           "answer": "A",
           "skill": "inference",
-          "why": "The article explains that plants let out oxygen and that people and animals need oxygen to breathe.",
+          "why": "In the article, plants let out oxygen, and people and animals need oxygen to breathe.",
           "wrong": {
             "B": "Plants use sunlight, but they do not cool the sun.",
             "C": "The article does not say plants can tell the weather.",
@@ -317,7 +317,7 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The article says carbon dioxide enters each leaf through tiny holes called stomata.",
+          "why": "In the article, carbon dioxide enters each leaf through tiny holes called stomata.",
           "wrong": {
             "A": "Water travels up from the roots, not carbon dioxide.",
             "B": "Chlorophyll captures light; it does not make carbon dioxide.",
@@ -334,7 +334,7 @@
           ],
           "answer": "A",
           "skill": "detail",
-          "why": "The article says glucose gives the plant energy and is used to build new leaves, stems, roots, and fruit.",
+          "why": "In the article, glucose gives the plant energy and is used to build new leaves, stems, roots, and fruit.",
           "wrong": {
             "B": "Chlorophyll makes leaves green, not glucose.",
             "C": "Roots take in water; glucose is not described doing this.",
@@ -385,7 +385,7 @@
           ],
           "answer": "B",
           "skill": "cause-effect",
-          "why": "The article says photosynthesis also makes oxygen, which the plant lets out through its stomata.",
+          "why": "In the article, photosynthesis also makes oxygen, which the plant lets out through its stomata.",
           "wrong": {
             "A": "The plant keeps needing water, so the roots keep working.",
             "C": "The leaves keep their chlorophyll to keep making food.",
@@ -423,7 +423,7 @@
           "wrong": {
             "A": "The gases they give off connect them closely.",
             "B": "Plants take in carbon dioxide; they release oxygen.",
-            "C": "The article says people and animals need the oxygen plants make."
+            "C": "In the article, people and animals need the oxygen plants make."
           }
         }
       ],
@@ -496,7 +496,7 @@
           ],
           "answer": "B",
           "skill": "detail",
-          "why": "The article states that photosynthesis takes place in tiny structures called chloroplasts inside leaf cells.",
+          "why": "Photosynthesis happens in tiny parts called chloroplasts inside leaf cells.",
           "wrong": {
             "A": "Stomata let gases in and out; photosynthesis does not happen there.",
             "C": "Roots absorb water but are not inside the leaf.",
@@ -513,7 +513,7 @@
           ],
           "answer": "A",
           "skill": "detail",
-          "why": "The article explains that chlorophyll absorbs red and blue light and reflects green, so we see leaves as green.",
+          "why": "In the article, chlorophyll absorbs red and blue light and reflects green, so we see leaves as green.",
           "wrong": {
             "B": "Water from the soil is not described as green.",
             "C": "The article does not say glucose is green.",
@@ -530,7 +530,7 @@
           ],
           "answer": "D",
           "skill": "vocabulary",
-          "why": "The article says plants are called producers because they make their own food.",
+          "why": "Plants are called producers because they make their own food.",
           "wrong": {
             "A": "An animal that eats only plants depends on producers; it is not one.",
             "B": "The article uses the word for plants, not people.",
@@ -581,7 +581,7 @@
           ],
           "answer": "C",
           "skill": "inference",
-          "why": "The article says plants store glucose so they have extra energy when sunlight is scarce, as it would be in cloudy weather.",
+          "why": "In the article, plants store glucose so they have extra energy when sunlight is scarce, as it would be in cloudy weather.",
           "wrong": {
             "A": "Glucose is a sugar; it cannot become light.",
             "B": "Photosynthesis needs light and happens in leaf chloroplasts.",
@@ -598,7 +598,7 @@
           ],
           "answer": "D",
           "skill": "compare",
-          "why": "The article says plants are producers that manufacture food, while animals, including humans, cannot and depend on plants.",
+          "why": "In the article, plants are producers that manufacture food, while animals, including humans, cannot and depend on plants.",
           "wrong": {
             "A": "The gases are reversed: plants release oxygen, and animals exhale carbon dioxide.",
             "B": "Chloroplasts are found in plant cells.",
@@ -627,7 +627,7 @@
         ],
         "answer": "C",
         "skill": "detail",
-        "why": "The text says a plant needs sunlight, water, and a gas from the air.",
+        "why": "In the text, a plant needs sunlight, water, and a gas from the air.",
         "wrong": {
           "A": "Soil and a bee are not the three things named.",
           "B": "Sugar and oxygen are made or let out by the plant.",
@@ -644,7 +644,7 @@
         ],
         "answer": "A",
         "skill": "detail",
-        "why": "The text says the gas gets in through tiny holes on the leaf.",
+        "why": "In the text, the gas gets in through tiny holes on the leaf.",
         "wrong": {
           "B": "The roots take in water, not the gas.",
           "C": "Chlorophyll soaks up the sun, not the gas.",
@@ -661,7 +661,7 @@
         ],
         "answer": "D",
         "skill": "cause-effect",
-        "why": "The text says leaves are green because they have green stuff in them, called chlorophyll.",
+        "why": "In the text, leaves are green because they have green stuff in them, called chlorophyll.",
         "wrong": {
           "A": "Water does not make a leaf green.",
           "B": "Sugar is the food made by the leaf.",
@@ -697,7 +697,7 @@
         ],
         "answer": "B",
         "skill": "detail",
-        "why": "The article says thin tubes carry water up the stem to the leaves.",
+        "why": "In the article, thin tubes carry water up the stem to the leaves.",
         "wrong": {
           "A": "Stomata let in carbon dioxide and let out oxygen.",
           "C": "The article does not mention wind.",
@@ -714,7 +714,7 @@
         ],
         "answer": "D",
         "skill": "vocabulary",
-        "why": "The article says the leaf makes a simple sugar called glucose, which is the plant's food.",
+        "why": "In the article, the leaf makes a simple sugar called glucose, which is the plant's food.",
         "wrong": {
           "A": "The gas leaves let out is oxygen.",
           "B": "Water is taken in by roots; glucose is made in the leaf.",
@@ -731,7 +731,7 @@
         ],
         "answer": "A",
         "skill": "cause-effect",
-        "why": "The article says leaves are green because they hold chlorophyll.",
+        "why": "In the article, leaves are green because they hold chlorophyll.",
         "wrong": {
           "B": "Glucose is a sugar the plant makes.",
           "C": "Oxygen is a gas the plant lets out.",
@@ -748,7 +748,7 @@
         ],
         "answer": "C",
         "skill": "detail",
-        "why": "The article says the plant lets oxygen out through its stomata.",
+        "why": "In the article, the plant lets oxygen out through its stomata.",
         "wrong": {
           "A": "The plant stores glucose, not oxygen, in seeds.",
           "B": "The article does not say oxygen becomes water.",
@@ -767,7 +767,7 @@
         ],
         "answer": "D",
         "skill": "detail",
-        "why": "The article says the plant can open and close its stomata as the weather changes.",
+        "why": "In the article, the plant can open and close its stomata as the weather changes.",
         "wrong": {
           "A": "Glucose is stored in roots, seeds, or fruit.",
           "B": "Chlorophyll is in the chloroplasts.",
@@ -801,7 +801,7 @@
         ],
         "answer": "A",
         "skill": "cause-effect",
-        "why": "The article says animals cannot manufacture their own food, so they depend on plants for nourishment and oxygen.",
+        "why": "In the article, animals cannot manufacture their own food, so they depend on plants for nourishment and oxygen.",
         "wrong": {
           "B": "The article says plants, not animals, cannot wander.",
           "C": "Animals are not described this way.",
@@ -818,7 +818,7 @@
         ],
         "answer": "C",
         "skill": "compare",
-        "why": "The article says chloroplasts are tiny structures in the leaf where photosynthesis happens, and they contain the green pigment chlorophyll.",
+        "why": "In the article, chloroplasts are tiny structures in the leaf where photosynthesis happens, and they contain the green pigment chlorophyll.",
         "wrong": {
           "A": "Neither one is a gas or a root.",
           "B": "Glucose is the sugar, and oxygen is a byproduct.",

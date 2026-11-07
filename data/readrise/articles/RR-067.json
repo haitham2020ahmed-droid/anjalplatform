@@ -155,7 +155,7 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The article says that while you sleep, the brain keeps what you learned in your memory.",
+          "why": "In the article, while you sleep, the brain keeps what you learned in your memory.",
           "wrong": {
             "A": "The article says food helps the brain, but not that memories are saved while eating.",
             "B": "Exercise helps the brain, but the article links saving memories to sleep.",
@@ -163,7 +163,7 @@
           }
         },
         {
-          "stem": "Read this sentence from the article: \"Think of a new skill.\" What is a skill?",
+          "stem": "In the article, what does the word \"skill\" mean?",
           "options": [
             "Something you can learn to do well",
             "A kind of food for the brain and body",
@@ -189,7 +189,7 @@
           ],
           "answer": "D",
           "skill": "cause-effect",
-          "why": "The article says each time you use the skill, the path gets stronger.",
+          "why": "In the article, each time you use the skill, the path gets stronger.",
           "wrong": {
             "A": "This is the opposite of what the article says.",
             "B": "Neurons keep sending signals.",
@@ -223,7 +223,7 @@
           ],
           "answer": "C",
           "skill": "inference",
-          "why": "The article says getting something wrong and trying again helps you learn.",
+          "why": "In the article, getting something wrong and trying again helps you learn.",
           "wrong": {
             "A": "The article tells readers to keep trying.",
             "B": "The article says the brain fixes the path after mistakes.",
@@ -242,8 +242,8 @@
           "skill": "inference",
           "why": "The article says practice makes brain paths strong.",
           "wrong": {
-            "A": "The article says sleep helps the brain save what it learned.",
-            "B": "The article says water keeps the brain well.",
+            "A": "In the article, sleep helps the brain save what it learned.",
+            "B": "In the article, water keeps the brain well.",
             "C": "The article says to keep trying, not quit."
           }
         }
@@ -317,7 +317,7 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The article says the brain uses about one fifth of your body's energy.",
+          "why": "In the article, the brain uses about one fifth of your body's energy.",
           "wrong": {
             "A": "The article does not say one half.",
             "B": "The article does not say one tenth.",
@@ -334,7 +334,7 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The article says the hippocampus helps turn new facts into lasting memories.",
+          "why": "In the article, the hippocampus helps turn new facts into lasting memories.",
           "wrong": {
             "A": "The article says the brain controls breathing, but does not link it to the hippocampus.",
             "B": "The article does not say this.",
@@ -402,7 +402,7 @@
           ],
           "answer": "B",
           "skill": "inference",
-          "why": "The article says short review sessions over several days work better than one long session the night before a test.",
+          "why": "In the article, short review sessions over several days work better than one long session the night before a test.",
           "wrong": {
             "A": "This is the long, last-minute session the article warns against.",
             "C": "The article says to concentrate on one task at a time.",
@@ -483,7 +483,7 @@
           "wrong": {
             "A": "The article mentions the brain's energy use but does not say learning should be limited.",
             "B": "The article says the opposite: practice reinforces pathways.",
-            "D": "The article says neuroplasticity continues throughout life."
+            "D": "The brain can change throughout life."
           }
         },
         {
@@ -496,7 +496,7 @@
           ],
           "answer": "B",
           "skill": "detail",
-          "why": "The article states that the brain contains roughly 86 billion neurons.",
+          "why": "In the article, the brain contains roughly 86 billion neurons.",
           "wrong": {
             "A": "The number is in billions, not millions.",
             "C": "One and a half refers to the brain's weight in kilograms.",
@@ -513,7 +513,7 @@
           ],
           "answer": "A",
           "skill": "detail",
-          "why": "The article says neurons transmit signals across microscopic gaps called synapses.",
+          "why": "In the article, neurons transmit signals across microscopic gaps called synapses.",
           "wrong": {
             "B": "The skull protects the brain; signals do not pass through the bone.",
             "C": "The hippocampus helps form memories, but signals cross synapses throughout the brain.",
@@ -564,7 +564,7 @@
           ],
           "answer": "A",
           "skill": "cause-effect",
-          "why": "The article says testing yourself requires you to retrieve information from memory, which strengthens it.",
+          "why": "In the article, testing yourself requires you to retrieve information from memory, which strengthens it.",
           "wrong": {
             "B": "The article does not link testing to energy use.",
             "C": "The article says sleep is important for memory.",
@@ -581,7 +581,7 @@
           ],
           "answer": "C",
           "skill": "inference",
-          "why": "The article says that when you answer incorrectly and try again, the brain adjusts and improves the pathway.",
+          "why": "When you make a mistake and try again, the brain adjusts and makes the pathway stronger.",
           "wrong": {
             "A": "The article presents errors as part of learning.",
             "B": "The article does not discuss this, and it treats mistakes as useful.",
@@ -627,7 +627,7 @@
         ],
         "answer": "B",
         "skill": "detail",
-        "why": "The text says the brain is about as big as two fists.",
+        "why": "In the text, the brain is about as big as two fists.",
         "wrong": {
           "A": "A pea is far too small.",
           "C": "The text does not compare it to a football.",
@@ -644,7 +644,7 @@
         ],
         "answer": "D",
         "skill": "detail",
-        "why": "The text says that when you learn, neurons link up and make a new path.",
+        "why": "In the text, when you learn, neurons link up and make a new path.",
         "wrong": {
           "A": "Sleep is when the brain saves memories, not what neurons do.",
           "B": "The brain is pink, but that is not what neurons do.",
@@ -661,7 +661,7 @@
         ],
         "answer": "A",
         "skill": "cause-effect",
-        "why": "The text says that when you get a thing wrong and try again, you learn.",
+        "why": "In the text, when you get a thing wrong and try again, you learn.",
         "wrong": {
           "B": "The text says you try again.",
           "C": "The text does not say the brain gets smaller.",
@@ -678,9 +678,9 @@
         ],
         "answer": "D",
         "skill": "inference",
-        "why": "The text says your brain can learn new things all your life.",
+        "why": "Your brain can learn new things all through your life.",
         "wrong": {
-          "A": "The text says you can learn all your life.",
+          "A": "In the text, you can learn all your life.",
           "B": "Sleep helps, but it is not the whole answer.",
           "C": "The text says mistakes help you learn."
         }
@@ -714,7 +714,7 @@
         ],
         "answer": "A",
         "skill": "vocabulary",
-        "why": "The article says the brain is made of tiny cells called neurons that pass quick signals.",
+        "why": "In the article, the brain is made of tiny cells called neurons that pass quick signals.",
         "wrong": {
           "B": "The grass path is only a comparison.",
           "C": "The skull protects the brain but is not made of neurons.",
@@ -731,7 +731,7 @@
         ],
         "answer": "D",
         "skill": "cause-effect",
-        "why": "The article says the brain adjusts the path and improves it.",
+        "why": "In the article, the brain adjusts the path and improves it.",
         "wrong": {
           "A": "The hippocampus keeps saving facts.",
           "B": "The path is improved, not forgotten.",
@@ -767,7 +767,7 @@
         ],
         "answer": "B",
         "skill": "vocabulary",
-        "why": "The article says scientists call the brain's ability to reshape itself neuroplasticity.",
+        "why": "Neuroplasticity is the brain's power to reshape itself.",
         "wrong": {
           "A": "Food is a different tip.",
           "C": "The skull only protects the brain.",
@@ -801,7 +801,7 @@
         ],
         "answer": "A",
         "skill": "cause-effect",
-        "why": "The article says each use strengthens the pathway so signals travel more quickly.",
+        "why": "Each time you use a pathway, it gets stronger, so signals travel faster.",
         "wrong": {
           "B": "Using a skill does not erase the pathway.",
           "C": "The article does not describe splitting.",

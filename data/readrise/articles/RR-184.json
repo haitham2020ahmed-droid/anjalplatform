@@ -138,7 +138,7 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The article says the North Star stays in the same spot and is always in the north.",
+          "why": "In the article, the North Star stays in the same spot and is always in the north.",
           "wrong": {
             "A": "The article does not say it is the brightest.",
             "B": "The article says it shines all night, not only in summer.",
@@ -172,7 +172,7 @@
           ],
           "answer": "B",
           "skill": "detail",
-          "why": "The article says knots on the string showed how far north they were.",
+          "why": "In the article, knots on the string showed how far north they were.",
           "wrong": {
             "A": "The knots did not tell time.",
             "C": "The tool did not measure depth.",
@@ -189,7 +189,7 @@
           ],
           "answer": "D",
           "skill": "cause-effect",
-          "why": "The article says the winds blew one way in summer and back in winter, so sailors used them.",
+          "why": "In the article, the winds blew one way in summer and back in winter, so sailors used them.",
           "wrong": {
             "A": "Star names come from Arabic, not from the winds.",
             "B": "Winds do not change how bright stars are.",
@@ -243,7 +243,7 @@
           "why": "The ending shows that Arabic star names keep the sailors' work alive today.",
           "wrong": {
             "B": "The article is not a spelling lesson.",
-            "C": "The article says many stars have Arabic names.",
+            "C": "Many stars have Arabic names.",
             "D": "The ending is not about dates."
           }
         }
@@ -303,7 +303,7 @@
           "why": "The article explains how stars, the kamal, and the monsoon helped Arab sailors navigate.",
           "wrong": {
             "A": "The article does not compare ship speeds.",
-            "C": "The article says other stars move across the sky.",
+            "C": "In the article, other stars move across the sky.",
             "D": "Merchants traded dates, horses, spices, silk, and cloth."
           }
         },
@@ -496,7 +496,7 @@
           ],
           "answer": "D",
           "skill": "detail",
-          "why": "The article says the North Star rises higher as a ship sails farther north.",
+          "why": "In the article, the North Star rises higher as a ship sails farther north.",
           "wrong": {
             "A": "It sinks when sailing south, not north.",
             "B": "It always marks north.",
@@ -513,7 +513,7 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The article says Arab sailors called the North Star al-Jadi.",
+          "why": "In the article, Arab sailors called the North Star al-Jadi.",
           "wrong": {
             "A": "Altair is a different star, meaning \"the flyer.\"",
             "B": "Aldebaran means \"the follower\" and is a different star.",
@@ -530,7 +530,7 @@
           ],
           "answer": "A",
           "skill": "vocabulary",
-          "why": "The article explains that a treatise is a detailed book.",
+          "why": "In the article, a treatise is a detailed book.",
           "wrong": {
             "B": "The wooden tool is the kamal.",
             "C": "The ship is a dhow.",
@@ -564,7 +564,7 @@
           ],
           "answer": "C",
           "skill": "cause-effect",
-          "why": "The article says sailors admired his expertise so much that they gave him this name.",
+          "why": "In the article, sailors admired his expertise so much that they gave him this name.",
           "wrong": {
             "A": "The article does not mention hunting.",
             "B": "The article does not say he owned the largest ship.",
@@ -627,7 +627,7 @@
         ],
         "answer": "A",
         "skill": "detail",
-        "why": "The text says they came back with spice and cloth.",
+        "why": "In the text, they came back with spice and cloth.",
         "wrong": {
           "B": "Dates and horses are what they took with them.",
           "C": "Stars and wood are not things they brought back.",
@@ -644,7 +644,7 @@
         ],
         "answer": "C",
         "skill": "vocabulary",
-        "why": "The text says a navigator is a man who finds the way at sea.",
+        "why": "A navigator is a person who guides ships and finds the way at sea.",
         "wrong": {
           "A": "The star that stays still is the North Star.",
           "B": "Sailors traded spice, but that is not what a navigator is.",
@@ -697,7 +697,7 @@
         ],
         "answer": "B",
         "skill": "vocabulary",
-        "why": "The text says the star's height tells sailors their latitude, or how far north they are.",
+        "why": "In the text, the star's height tells sailors their latitude, or how far north they are.",
         "wrong": {
           "A": "Latitude is about position, not speed.",
           "C": "A port has a latitude, but latitude is not a name.",
@@ -734,7 +734,7 @@
         "why": "Other stars seem to move, but the North Star stays almost still and shows north.",
         "wrong": {
           "B": "The text does not say it is the brightest.",
-          "C": "The text says other stars move; the North Star does not.",
+          "C": "Other stars do move across the sky; the North Star does not.",
           "D": "The text does not say it shines only in winter."
         }
       },
@@ -767,7 +767,7 @@
         ],
         "answer": "C",
         "skill": "detail",
-        "why": "The text says Altair means \"the flyer\" and Aldebaran means \"the follower.\"",
+        "why": "In the text, Altair means \"the flyer\" and Aldebaran means \"the follower.\"",
         "wrong": {
           "A": "The Lion of the Sea was a name for Ibn Majid.",
           "B": "North and south are not given as meanings.",

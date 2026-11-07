@@ -334,7 +334,7 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The story says men in other cities would use the catalog to find their way at night.",
+          "why": "In the story, scholars in other cities would use the catalog to find their way and study the sky.",
           "wrong": {
             "A": "The catalog is a scientific record, not entertainment.",
             "B": "The catalog was made using the observatory, not instead of it.",
@@ -627,7 +627,7 @@
         ],
         "answer": "C",
         "skill": "detail",
-        "why": "The text says men go up the tower at night and look at stars.",
+        "why": "In the text, men go up the tower at night and look at stars.",
         "wrong": {
           "A": "Selling books is not mentioned.",
           "B": "They go up to watch the stars, not to sleep.",
@@ -697,7 +697,7 @@
         ],
         "answer": "B",
         "skill": "detail",
-        "why": "The text says he carried ink and paper to help the older men in the dark.",
+        "why": "In the text, he carried ink and paper to help the older men in the dark.",
         "wrong": {
           "A": "Lamps and oil are not mentioned.",
           "C": "Food and water are not mentioned.",

@@ -189,7 +189,7 @@
           ],
           "answer": "B",
           "skill": "detail",
-          "why": "The story says Lina was shy and did not want to help at first.",
+          "why": "In the story, Lina was shy and did not want to help at first.",
           "wrong": {
             "A": "Lina lived close to the lot.",
             "C": "School is not mentioned as the reason.",
@@ -285,7 +285,7 @@
           ],
           "answer": "D",
           "skill": "sequence",
-          "why": "The story says that after the harvest, neighbors shared baskets of food with every family, including elderly neighbors.",
+          "why": "In the story, after the harvest, neighbors shared baskets of food with every family, including elderly neighbors.",
           "wrong": {
             "A": "No market or selling is described.",
             "B": "The food was shared with everyone, not kept by one person.",
@@ -336,7 +336,7 @@
           ],
           "answer": "C",
           "skill": "cause-effect",
-          "why": "The story says because everyone chose to cooperate, the heavy work went much faster than anyone expected.",
+          "why": "In the story, because everyone chose to cooperate, the heavy work went much faster than anyone expected.",
           "wrong": {
             "A": "No machine is mentioned in the story.",
             "B": "Dozens of volunteers helped, not just Mr. Nasser.",
@@ -515,7 +515,7 @@
           ],
           "answer": "C",
           "skill": "inference",
-          "why": "The story explains that neighbors carried food to elderly neighbors who could not come outside themselves, showing thoughtful generosity.",
+          "why": "In the story, neighbors carried food to elderly neighbors who could not come outside themselves, showing thoughtful generosity.",
           "wrong": {
             "A": "No payment is mentioned in the story.",
             "B": "The story does not rank neighbors by how much they grew.",
@@ -627,7 +627,7 @@
         ],
         "answer": "B",
         "skill": "detail",
-        "why": "The text says Lina met a girl named Sara and they watered plants together.",
+        "why": "In the text, Lina met a girl named Sara and they watered plants together.",
         "wrong": {
           "A": "Mr. Nasser started the garden, but Lina did not meet him there.",
           "C": "Lina's mom is not the new friend.",
@@ -767,7 +767,7 @@
         ],
         "answer": "D",
         "skill": "detail",
-        "why": "The article says she pressed the seed into the soil near the fence.",
+        "why": "In the article, she pressed the seed into the soil near the fence.",
         "wrong": {
           "A": "The school is not mentioned as the place.",
           "B": "She planted it in the garden, not at home.",
@@ -801,7 +801,7 @@
         ],
         "answer": "A",
         "skill": "cause-effect",
-        "why": "The article says most neighbors had secretly wished for a long time that the lot looked better.",
+        "why": "Most neighbors had wished for a long time that the lot looked better.",
         "wrong": {
           "B": "No payment is mentioned.",
           "C": "Avoiding weeds is not the reason given.",

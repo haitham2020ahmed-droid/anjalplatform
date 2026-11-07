@@ -138,7 +138,7 @@
           ],
           "answer": "D",
           "skill": "detail",
-          "why": "The article says near the end of each bone is a soft spot called a growth plate.",
+          "why": "In the article, near the end of each bone is a soft spot called a growth plate.",
           "wrong": {
             "A": "Bones are not described as metal.",
             "B": "Skin and hair are not mentioned here.",
@@ -155,7 +155,7 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The article says the small gland makes a hormone that tells the body to grow.",
+          "why": "In the article, the small gland makes a hormone that tells the body to grow.",
           "wrong": {
             "A": "The growth plate, not the gland, builds new bone.",
             "B": "Food comes from eating, not from the gland.",
@@ -163,7 +163,7 @@
           }
         },
         {
-          "stem": "Read this line: \"The growth plate makes new bone.\" What does plate mean here?",
+          "stem": "In the article, what does the word \"plate\" mean?",
           "options": [
             "A flat part inside the body",
             "A dish used for eating dinner",
@@ -189,7 +189,7 @@
           ],
           "answer": "D",
           "skill": "cause-effect",
-          "why": "The article says the body makes more of this hormone when a child sleeps, which is one reason sleep helps growth.",
+          "why": "In the article, your body makes more growth hormone when you sleep.",
           "wrong": {
             "A": "The article says the opposite happens during sleep.",
             "B": "The gland keeps working, not stopping, during sleep.",
@@ -242,8 +242,8 @@
           "skill": "inference",
           "why": "The article says sleep helps the body release more growth hormone, which supports growth.",
           "wrong": {
-            "B": "The article says genes help set how tall a person may grow.",
-            "C": "The article says food helps build new bone.",
+            "B": "In the article, genes help set how tall a person may grow.",
+            "C": "In the article, food helps build new bone.",
             "D": "Growth plates close and harden, rather than becoming softer, with age."
           }
         }
@@ -334,7 +334,7 @@
           ],
           "answer": "A",
           "skill": "detail",
-          "why": "The article says the small gland releases growth hormone, which signals the body to keep growing.",
+          "why": "In the article, the small gland releases growth hormone, which signals the body to keep growing.",
           "wrong": {
             "B": "The growth plate, not the gland, builds new bone.",
             "C": "Calcium comes from food, not from the gland.",
@@ -385,7 +385,7 @@
           ],
           "answer": "A",
           "skill": "cause-effect",
-          "why": "The article says once growth plates close and harden, a person stops growing any taller.",
+          "why": "In the article, once growth plates close and harden, a person stops growing any taller.",
           "wrong": {
             "B": "Growth slows and stops, rather than speeding up.",
             "C": "The article does not link closing growth plates to more hormone.",
@@ -402,7 +402,7 @@
           ],
           "answer": "C",
           "skill": "inference",
-          "why": "The article says sleep and nutrition work together with genes, so missing out on them may limit how well a child grows.",
+          "why": "In the article, sleep and nutrition work together with genes, so missing out on them may limit how well a child grows.",
           "wrong": {
             "A": "Genes keep working regardless of sleep or food habits.",
             "B": "The article does not link poor habits to growth plates closing sooner.",
@@ -513,7 +513,7 @@
           ],
           "answer": "A",
           "skill": "detail",
-          "why": "The article says the pituitary gland releases considerably more growth hormone during deep sleep than during the daytime.",
+          "why": "In the article, the pituitary gland releases considerably more growth hormone during deep sleep than during the daytime.",
           "wrong": {
             "B": "The article contrasts deep sleep with daytime, which includes the afternoon.",
             "C": "Meals are linked to nutrition, not directly to hormone timing in the article.",
@@ -581,7 +581,7 @@
           ],
           "answer": "C",
           "skill": "inference",
-          "why": "The article states that none of the three factors can fully substitute for the other two, meaning all three must work together.",
+          "why": "In the article, none of the three factors can fully substitute for the other two, meaning all three must work together.",
           "wrong": {
             "A": "The article explicitly says no single factor can replace the others.",
             "B": "The article gives sleep, nutrition, and heredity comparable importance.",
@@ -598,7 +598,7 @@
           ],
           "answer": "A",
           "skill": "inference",
-          "why": "The article says hereditary factors inherited from parents help regulate a child's general range of height, which could apply here even with good sleep and nutrition.",
+          "why": "In the article, hereditary factors inherited from parents help regulate a child's general range of height, which could apply here even with good sleep and nutrition.",
           "wrong": {
             "B": "The article presents sleep as something that helps growth, not something to reduce.",
             "C": "Growth plates are described as eventually closing for everyone.",
@@ -627,7 +627,7 @@
         ],
         "answer": "D",
         "skill": "detail",
-        "why": "The article says milk, eggs, and meat help build new bone.",
+        "why": "In the article, milk, eggs, and meat help build new bone.",
         "wrong": {
           "A": "These foods are not mentioned.",
           "B": "These foods are not mentioned.",
@@ -678,7 +678,7 @@
         ],
         "answer": "C",
         "skill": "inference",
-        "why": "The article says the growth plate makes new bone, which makes the bone longer.",
+        "why": "In the article, the growth plate makes new bone, which makes the bone longer.",
         "wrong": {
           "A": "Without new bone it could not grow faster.",
           "B": "Bones do not turn to milk.",
@@ -784,7 +784,7 @@
         ],
         "answer": "A",
         "skill": "detail",
-        "why": "The article says the growth plate is made of flexible cartilage.",
+        "why": "In the article, the growth plate is made of flexible cartilage.",
         "wrong": {
           "B": "It is softer than hard bone.",
           "C": "Calcium is a nutrient, not the material of the plate.",

@@ -138,7 +138,7 @@
           ],
           "answer": "B",
           "skill": "detail",
-          "why": "The article says Louis used a microscope, which makes tiny things look big.",
+          "why": "In the article, Louis used a microscope, which makes tiny things look big.",
           "wrong": {
             "A": "A telescope is used to look at things far away, not tiny things.",
             "C": "Glasses are not mentioned.",
@@ -155,7 +155,7 @@
           ],
           "answer": "B",
           "skill": "detail",
-          "why": "The article says Louis proved that germs made food go bad.",
+          "why": "In the article, Louis proved that germs made food go bad.",
           "wrong": {
             "A": "The article does not say germs improve taste.",
             "C": "Germs cause spoiling, not freshness.",
@@ -206,7 +206,7 @@
           ],
           "answer": "A",
           "skill": "detail",
-          "why": "The article says heating milk this way killed bad germs and made it safer to drink.",
+          "why": "In the article, heating milk this way killed the germs inside, so it was safer to drink.",
           "wrong": {
             "B": "Taste is not the reason given in the article.",
             "C": "Heating milk does not turn it into juice.",
@@ -334,7 +334,7 @@
           ],
           "answer": "B",
           "skill": "detail",
-          "why": "The article explains that Pasteur discovered a way of heating liquids like milk to kill harmful germs inside.",
+          "why": "In the article, Pasteur discovered a way of heating liquids like milk to kill harmful germs inside.",
           "wrong": {
             "A": "Painting is not related to heating milk.",
             "C": "A vaccine is different from heating liquids.",
@@ -419,7 +419,7 @@
           ],
           "answer": "A",
           "skill": "inference",
-          "why": "The article explains that vaccines train the body's immune system to fight specific germs before they cause serious illness.",
+          "why": "In the article, vaccines train the body's immune system to fight specific germs before they cause serious illness.",
           "wrong": {
             "B": "Vaccines work inside the body, not by clearing the air.",
             "C": "Each vaccine is usually designed to protect against a specific disease.",
@@ -661,7 +661,7 @@
         ],
         "answer": "C",
         "skill": "detail",
-        "why": "The article says he saw tiny bits in the milk, which we call germs.",
+        "why": "In the article, he saw tiny bits in the milk, which we call germs.",
         "wrong": {
           "A": "Paint is not mentioned in the milk.",
           "B": "Bread is not mentioned.",
@@ -697,7 +697,7 @@
         ],
         "answer": "C",
         "skill": "detail",
-        "why": "The article says he first showed a talent for painting.",
+        "why": "In the article, he first showed a talent for painting.",
         "wrong": {
           "A": "Singing is not mentioned.",
           "B": "Cooking is not mentioned.",
@@ -731,7 +731,7 @@
         ],
         "answer": "B",
         "skill": "cause-effect",
-        "why": "The article says the heat killed harmful germs and did not ruin the taste.",
+        "why": "The heat killed harmful germs and did not ruin the taste.",
         "wrong": {
           "A": "Sweetness is not mentioned.",
           "C": "A year is not mentioned.",
@@ -752,7 +752,7 @@
         "wrong": {
           "A": "People still use his work.",
           "B": "His heating method is used around the world.",
-          "C": "The article says it is still used."
+          "C": "His method is still used today."
         }
       }
     ],
@@ -801,7 +801,7 @@
         ],
         "answer": "A",
         "skill": "cause-effect",
-        "why": "The article says he showed that specific germs could cause disease, a finding known as germ theory.",
+        "why": "In the article, he showed that specific germs could cause disease, a finding known as germ theory.",
         "wrong": {
           "B": "Foul air was the old, mistaken belief.",
           "C": "Dreams are not mentioned.",

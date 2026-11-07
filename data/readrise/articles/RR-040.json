@@ -138,7 +138,7 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The article says the leader of the herd is the oldest female, the oldest mom.",
+          "why": "The leader of an elephant herd is the oldest female.",
           "wrong": {
             "A": "Young males leave the herd when they grow up, so they do not lead it.",
             "B": "A calf is a baby. It needs the herd to keep it safe.",
@@ -197,7 +197,7 @@
           }
         },
         {
-          "stem": "Read the sentences: \"Some have two long teeth. They are tusks.\" What are tusks?",
+          "stem": "In the article, what does the word \"tusks\" mean?",
           "options": [
             "Big flat ears",
             "Strong thick feet",
@@ -240,7 +240,7 @@
           ],
           "answer": "A",
           "skill": "cause-effect",
-          "why": "The article says some people hunt elephants for their tusks, and that is why parks help keep them safe.",
+          "why": "In the article, some people hunt elephants for their tusks, and that is why parks help keep them safe.",
           "wrong": {
             "B": "The article does not say people hunt elephants to keep as pets.",
             "C": "Farm work is not in the article.",
@@ -317,7 +317,7 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The article says an adult elephant may eat about 150 kilograms of plants every day.",
+          "why": "An adult elephant may eat about 150 kilograms of plants every day.",
           "wrong": {
             "A": "This amount is far too small.",
             "B": "100 kilograms is the weight of a newborn calf, not the daily food.",
@@ -359,7 +359,7 @@
           }
         },
         {
-          "stem": "The trunk can \"pull up a small tree or pick up a single nut.\" What does this show?",
+          "stem": "An elephant's trunk can pull up a small tree or pick up a single nut. What does this show?",
           "options": [
             "The trunk is weak but very long.",
             "The trunk can do both strong and careful jobs.",
@@ -376,7 +376,7 @@
           }
         },
         {
-          "stem": "\"Other elephants feel the vibrations through their feet.\" What does vibrations mean in this sentence?",
+          "stem": "In the article, what does the word \"vibrations\" mean?",
           "options": [
             "Bright flashes of light",
             "Smells carried by the wind",
@@ -419,7 +419,7 @@
           ],
           "answer": "D",
           "skill": "cause-effect",
-          "why": "The article says that when lions come near, the adults form a circle around the young to protect them.",
+          "why": "In the article, when lions come near, the adults form a circle around the young to protect them.",
           "wrong": {
             "A": "The calf stays protected inside the herd; it does not hide alone.",
             "B": "Young males have usually left the herd, and the article does not say this.",
@@ -496,7 +496,7 @@
           ],
           "answer": "D",
           "skill": "detail",
-          "why": "The article states that these families respond more wisely to lion roars and are more likely to survive severe dry seasons.",
+          "why": "In the article, these families respond more wisely to lion roars and are more likely to survive severe dry seasons.",
           "wrong": {
             "A": "The article says nothing about traveling less.",
             "B": "The number of calves is not part of the research described.",
@@ -513,7 +513,7 @@
           ],
           "answer": "A",
           "skill": "detail",
-          "why": "The article explains that many elephant rumbles are infrasound, meaning they are too low for humans to hear.",
+          "why": "In the article, many elephant rumbles are infrasound, meaning they are too low for humans to hear.",
           "wrong": {
             "B": "A loud trumpet would be easy for people to hear.",
             "C": "The article says these sounds travel for kilometers across land and are sensed through the feet.",
@@ -555,7 +555,7 @@
           }
         },
         {
-          "stem": "\"Many have lost their habitat as farms and towns expand.\" What does habitat mean here?",
+          "stem": "In the article, what does the word \"habitat\" mean?",
           "options": [
             "A herd's family members and friends",
             "The food an animal stores for winter",
@@ -665,7 +665,7 @@
         "wrong": {
           "B": "The text says all day long, not only at night.",
           "C": "The trunk can drink, so elephants do drink.",
-          "D": "The text says they eat plants."
+          "D": "In the text, they eat plants."
         }
       },
       {
@@ -678,7 +678,7 @@
         ],
         "answer": "C",
         "skill": "detail",
-        "why": "The text says young males leave when they grow up.",
+        "why": "In the text, young males leave when they grow up.",
         "wrong": {
           "A": "The leader is the old mom.",
           "B": "The text says the males leave, not stay.",
@@ -697,7 +697,7 @@
         ],
         "answer": "C",
         "skill": "detail",
-        "why": "The text says young males stay until they are about twelve to fifteen years old.",
+        "why": "In the text, young males stay until they are about twelve to fifteen years old.",
         "wrong": {
           "A": "Two to five is much too young.",
           "B": "One to two is much too young.",
@@ -731,7 +731,7 @@
         ],
         "answer": "D",
         "skill": "compare",
-        "why": "The text says both kinds are smart, and both need their families to survive.",
+        "why": "In the text, both kinds are smart, and both need their families to survive.",
         "wrong": {
           "A": "African elephants live in Africa.",
           "B": "Asian elephants live in forests and grasslands.",
@@ -748,7 +748,7 @@
         ],
         "answer": "B",
         "skill": "cause-effect",
-        "why": "The text says an adult may eat about 150 kilograms of plants a day, so it spends most of its time eating.",
+        "why": "In the text, an adult may eat about 150 kilograms of plants a day, so it spends most of its time eating.",
         "wrong": {
           "A": "The text does not say eating is a way to hide.",
           "C": "Elephants call with low rumbles, not by eating.",

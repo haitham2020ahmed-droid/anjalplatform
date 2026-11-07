@@ -334,7 +334,7 @@
           ],
           "answer": "A",
           "skill": "detail",
-          "why": "The story says the planks were salvaged from nearby homes and sheds.",
+          "why": "In the story, the planks were salvaged from nearby homes and sheds.",
           "wrong": {
             "B": "No shipment from a city is mentioned.",
             "C": "No tree-cutting happens in the story.",
@@ -644,7 +644,7 @@
         ],
         "answer": "D",
         "skill": "cause-effect",
-        "why": "The text says the bridge goes to the road and is the only way to school.",
+        "why": "In the text, the bridge goes to the road and is the only way to school.",
         "wrong": {
           "A": "No market is in the story.",
           "B": "The bridge is not for play.",
@@ -680,7 +680,7 @@
         "skill": "inference",
         "why": "The bridge is made only of rope and planks, so the kids go slowly and hold on to stay safe.",
         "wrong": {
-          "A": "The text says they get to school on time.",
+          "A": "In the text, they get to school on time.",
           "C": "The river was in flood, and the text does not say it is calm.",
           "D": "The kids are not carrying boxes in the story."
         }

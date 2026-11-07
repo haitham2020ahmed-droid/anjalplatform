@@ -317,7 +317,7 @@
      ],
      "answer": "D",
      "skill": "detail",
-     "why": "The article says Unit 7 sweeps the floor each morning without being asked.",
+     "why": "In the article, Unit 7 sweeps the floor each morning without being asked.",
      "wrong": {
       "A": "The article says mornings, not weekends only.",
       "B": "Breakfast time is not mentioned.",
@@ -376,7 +376,7 @@
      }
     },
     {
-     "stem": "Why did the house feel 'more complete' after the robot was named Breezy?",
+     "stem": "Why did the house feel more complete after the robot was named Breezy?",
      "options": [
       "Because Breezy stopped doing chores and just sat in the corner of the room",
       "Because the family bought a second robot that was named Gust",
@@ -555,7 +555,7 @@
      }
     },
     {
-     "stem": "What can readers infer about why the family felt the house was 'more complete' after naming the robot?",
+     "stem": "What can readers infer about why the family felt the house was more complete after naming the robot?",
      "options": [
       "A name gave the robot a place of belonging within the family",
       "The robot became physically larger after being named by the whole family",
@@ -767,7 +767,7 @@
     ],
     "answer": "A",
     "skill": "detail",
-    "why": "The text says the robot was ordered to ease a busy schedule.",
+    "why": "In the text, the robot was ordered to ease a busy schedule.",
     "wrong": {
      "B": "A friend for Faisal is not mentioned as the reason.",
      "C": "Prizes are not mentioned.",
@@ -801,7 +801,7 @@
     ],
     "answer": "B",
     "skill": "compare",
-    "why": "The text says the robot folded laundry into piles considerably neater than anyone else managed.",
+    "why": "In the text, the robot folded laundry into piles considerably neater than anyone else managed.",
     "wrong": {
      "A": "The piles were neater, not messier.",
      "C": "The text says they were better than the family's.",

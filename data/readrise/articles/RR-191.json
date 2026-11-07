@@ -172,7 +172,7 @@
           ],
           "answer": "B",
           "skill": "cause-effect",
-          "why": "The article says the bag looks like a jellyfish, so the turtle eats it.",
+          "why": "The bag looks like a jellyfish, so the turtle eats it.",
           "wrong": {
             "A": "Turtles do not want to eat plastic. They are fooled.",
             "C": "The article does not talk about smell.",
@@ -223,7 +223,7 @@
           ],
           "answer": "A",
           "skill": "inference",
-          "why": "The article says the water moves in big loops that pull trash to the same places.",
+          "why": "In the article, the water moves in big loops that pull trash to the same places.",
           "wrong": {
             "B": "The article does not say people dump trash in those spots.",
             "C": "Whales do not carry trash.",
@@ -303,7 +303,7 @@
           "why": "The article explains where ocean trash comes from, why it is harmful, and how people can help.",
           "wrong": {
             "B": "The Red Sea is one example of where coral grows.",
-            "C": "The article says most trash starts on land as litter.",
+            "C": "In the article, most trash starts on land as litter.",
             "D": "The article does not say this."
           }
         },
@@ -317,7 +317,7 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The article says most of it begins on land as litter.",
+          "why": "In the article, most of it begins on land as litter.",
           "wrong": {
             "A": "Lost fishing nets are another source, but most plastic starts on land.",
             "B": "Coral reefs are harmed by trash; they are not the source.",
@@ -368,7 +368,7 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The article says barriers catch trash in rivers before it reaches the sea.",
+          "why": "In the article, barriers in rivers catch trash before it reaches the sea.",
           "wrong": {
             "A": "Barriers are meant to stop trash, not boats.",
             "B": "They do not stop fish.",
@@ -496,7 +496,7 @@
           ],
           "answer": "B",
           "skill": "detail",
-          "why": "The article says sunlight and waves fragment plastic into progressively smaller pieces, producing microplastics.",
+          "why": "In the article, sunlight and waves fragment plastic into progressively smaller pieces, producing microplastics.",
           "wrong": {
             "A": "The article does not say factories make them to clean anything.",
             "C": "Digestion by fish is not described as the cause.",
@@ -568,7 +568,7 @@
           "wrong": {
             "A": "The article describes the debris as harmful.",
             "B": "Scattered fragments could not be walked on.",
-            "D": "The article says currents concentrate the trash."
+            "D": "In the article, currents concentrate the trash."
           }
         },
         {
@@ -598,7 +598,7 @@
           ],
           "answer": "C",
           "skill": "compare",
-          "why": "The article states that prevention remains the most effective solution because removing plastic from the ocean is far more difficult.",
+          "why": "In the article, prevention remains the most effective solution because removing plastic from the ocean is far more difficult.",
           "wrong": {
             "A": "The patches are spread over huge areas, which makes cleanup hard.",
             "B": "The article says prevention is more effective.",
@@ -627,7 +627,7 @@
         ],
         "answer": "D",
         "skill": "detail",
-        "why": "The text says boats scoop trash from the waves.",
+        "why": "In the text, boats scoop trash from the waves.",
         "wrong": {
           "A": "Carrying fish is not about cleaning.",
           "B": "Plastic breaks into bits by itself, not because of boats.",
@@ -661,7 +661,7 @@
         ],
         "answer": "A",
         "skill": "cause-effect",
-        "why": "The text says the turtle eats the bag and gets sick.",
+        "why": "In the text, the turtle eats the bag and gets sick.",
         "wrong": {
           "B": "Getting stuck happens to animals in old nets.",
           "C": "The text says it gets sick, not that it sleeps well.",
@@ -697,7 +697,7 @@
         ],
         "answer": "B",
         "skill": "cause-effect",
-        "why": "The text says a sea turtle may mistake a floating plastic bag for a jellyfish and eat it.",
+        "why": "In the text, a sea turtle may mistake a floating plastic bag for a jellyfish and eat it.",
         "wrong": {
           "A": "Smell is not mentioned.",
           "C": "Currents push trash to patches, not into a turtle's mouth.",
@@ -770,7 +770,7 @@
         "why": "The text says the largest one is in the Pacific Ocean between Hawaii and California.",
         "wrong": {
           "A": "The Red Sea is named for its coral reefs.",
-          "B": "The text says patches form far from any shore.",
+          "B": "In the text, patches form far from any shore.",
           "D": "Garbage patches form in the ocean."
         }
       },
@@ -801,7 +801,7 @@
         ],
         "answer": "D",
         "skill": "cause-effect",
-        "why": "The text says rotating currents push floating trash into the same regions.",
+        "why": "In the text, rotating currents push floating trash into the same regions.",
         "wrong": {
           "A": "Rain brings trash to rivers, not into patches.",
           "B": "Nets are one source of debris, not the cause of patches.",

@@ -138,7 +138,7 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The article says a long string of plastic goes into the hot tip.",
+          "why": "In the article, a long string of plastic goes into the hot tip.",
           "wrong": {
             "A": "Paper is used by normal printers, not this one.",
             "B": "A 3D printer does not use ink in the article.",
@@ -155,7 +155,7 @@
           ],
           "answer": "D",
           "skill": "detail",
-          "why": "The article says doctors use 3D printers to make hands and arms for kids.",
+          "why": "In the article, doctors use 3D printers to make hands and arms for children.",
           "wrong": {
             "A": "Beds are not mentioned.",
             "B": "Pills are not mentioned.",
@@ -189,7 +189,7 @@
           ],
           "answer": "A",
           "skill": "sequence",
-          "why": "The article says first a person makes a plan, or design, on a computer.",
+          "why": "In the article, every object begins as a plan, or design, on a computer.",
           "wrong": {
             "B": "Cooling comes after each layer is laid down.",
             "C": "The top layer comes near the end.",
@@ -302,7 +302,7 @@
           "skill": "central-idea",
           "why": "The article explains the layer-by-layer process and then shows how inventors, doctors, dentists, and builders use it.",
           "wrong": {
-            "A": "The article mentions metal and concrete printers too.",
+            "A": "In the article, metal and concrete printers too.",
             "C": "Printing takes time, but the article shows many uses.",
             "D": "The article does not predict that paper printers will disappear."
           }
@@ -317,7 +317,7 @@
           ],
           "answer": "A",
           "skill": "detail",
-          "why": "The article says the program slices the model into hundreds of thin pieces so the printer knows what to build at each step.",
+          "why": "In the article, the program slices the model into hundreds of thin pieces so the printer knows what to build at each step.",
           "wrong": {
             "B": "Painting is not part of the process.",
             "C": "The printer builds the object itself.",
@@ -334,7 +334,7 @@
           ],
           "answer": "D",
           "skill": "detail",
-          "why": "The article says a small toy might take an hour, but a large object can take a day or more.",
+          "why": "In the article, a small toy might take an hour, but a large object can take a day or more.",
           "wrong": {
             "A": "No object in the article prints that fast.",
             "B": "The article gives no time this short.",
@@ -351,7 +351,7 @@
           ],
           "answer": "C",
           "skill": "vocabulary",
-          "why": "The article explains that a prototype is a first model that is checked before many copies are made.",
+          "why": "A prototype is an early model that is tested before many copies are made.",
           "wrong": {
             "A": "A prototype is made to test, not because it is broken.",
             "B": "That describes the nozzle, not a prototype.",
@@ -368,7 +368,7 @@
           ],
           "answer": "A",
           "skill": "cause-effect",
-          "why": "The article says each layer hardens so it can hold up, or support, the next one.",
+          "why": "In the article, each layer hardens so it can hold up, or support, the next one.",
           "wrong": {
             "B": "Cooling does not change the color.",
             "C": "The printer does not need rest.",
@@ -496,7 +496,7 @@
           ],
           "answer": "A",
           "skill": "detail",
-          "why": "The article says the first 3D printer was invented in the 1980s by an American engineer named Chuck Hull.",
+          "why": "In the article, the first 3D printer was invented in the 1980s by an American engineer named Chuck Hull.",
           "wrong": {
             "B": "Astronauts used printers much later; they did not invent them.",
             "C": "Dentists use printers but did not invent the first one.",
@@ -513,7 +513,7 @@
           ],
           "answer": "D",
           "skill": "detail",
-          "why": "The article says some printers use powerful lasers to fuse metal powder.",
+          "why": "Some 3D printers use strong lasers to melt metal powder together.",
           "wrong": {
             "A": "Cutting blocks is the traditional method, not a laser printer's job.",
             "B": "Software reads and slices the model.",
@@ -530,7 +530,7 @@
           ],
           "answer": "B",
           "skill": "vocabulary",
-          "why": "The article explains that the machine adds material instead of removing it.",
+          "why": "A 3D printer adds material instead of cutting it away.",
           "wrong": {
             "A": "Nothing about poison is mentioned.",
             "C": "The heated nozzle needs power.",
@@ -581,7 +581,7 @@
           ],
           "answer": "D",
           "skill": "inference",
-          "why": "The article says traditional factory methods are usually faster and cheaper for millions of identical items.",
+          "why": "For millions of identical items, regular factory methods are usually faster and cheaper.",
           "wrong": {
             "A": "Custom hands are one of the best uses of 3D printing.",
             "B": "Testing prototypes quickly is a key advantage.",
@@ -627,7 +627,7 @@
         ],
         "answer": "A",
         "skill": "detail",
-        "why": "The text says each layer cools and gets hard.",
+        "why": "In the text, each layer cools and gets hard.",
         "wrong": {
           "B": "Melting happens in the tip, before the layer is laid.",
           "C": "The printer does not use ink.",
@@ -697,7 +697,7 @@
         ],
         "answer": "D",
         "skill": "vocabulary",
-        "why": "The article says the nozzle is a small metal tip that gets very hot.",
+        "why": "In the article, the nozzle is a small metal tip that gets very hot.",
         "wrong": {
           "A": "The thread of plastic is pushed into the nozzle.",
           "B": "A special program slices the model.",
@@ -714,7 +714,7 @@
         ],
         "answer": "A",
         "skill": "detail",
-        "why": "The article says the design is a digital model that shows the exact shape and size.",
+        "why": "In the article, the design is a digital model that shows the exact shape and size.",
         "wrong": {
           "B": "Price is not mentioned.",
           "C": "Plastic color is not mentioned.",
@@ -731,7 +731,7 @@
         ],
         "answer": "C",
         "skill": "cause-effect",
-        "why": "The article says the inventor can check if it works before making many copies.",
+        "why": "The inventor can check if it works before making many copies.",
         "wrong": {
           "A": "Wood is not part of this idea.",
           "B": "Copies come after the prototype.",
@@ -784,7 +784,7 @@
         ],
         "answer": "B",
         "skill": "detail",
-        "why": "The article says his machine used a beam of ultraviolet light to harden a liquid.",
+        "why": "In the article, his machine used a beam of ultraviolet light to harden a liquid.",
         "wrong": {
           "A": "Heated nozzles are used with filament printers.",
           "C": "Steel wires are not mentioned for printing.",
@@ -801,7 +801,7 @@
         ],
         "answer": "A",
         "skill": "cause-effect",
-        "why": "The article says each layer hardens so that it can support the next layer.",
+        "why": "Each layer cools and hardens so that it can hold up the next layer.",
         "wrong": {
           "B": "Slicing happens to the model on the computer.",
           "C": "Selling is not mentioned.",
@@ -818,7 +818,7 @@
         ],
         "answer": "D",
         "skill": "inference",
-        "why": "The article says doctors print prosthetic hands that fit a particular child perfectly.",
+        "why": "A printed hand can be made to fit one child perfectly.",
         "wrong": {
           "A": "Factory use does not explain the choice.",
           "B": "The article does not say that.",

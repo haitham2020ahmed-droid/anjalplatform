@@ -57,7 +57,7 @@ describe("👩‍🏫 round 6 — ReadRise teacher data center", () => {
   test("pure: histogram has a BR bucket; weekly pick mixes topics; strategy; pre-test; assessments; activity flags; guide", () => {
     assert.equal(HIST_BUCKETS[0], -400);
     const h = histogram([-120, 95, 250, 950, 1700], { low: 900, high: 1000 });
-    assert.deepEqual([h[0].label, h[0].count, h[1].label, h[1].count, h[3].count, h[h.length - 1].label, h[h.length - 1].count], ["BR", 1, "0", 1, 1, "1600+", 1]);
+    assert.deepEqual([h[0].label, h[0].count, h[1].label, h[1].count, h[3].count, h[h.length - 1].label, h[h.length - 1].count], ["BR", 1, "0L", 1, 1, "1600L+", 1]); // round 7: bucket labels read with an L (formatLevel)
     assert.equal(h.reduce((n, b) => n + b.count, 0), 5);
     const cands = [{ id: "a", topic: "Science" }, { id: "b", topic: "Science" }, { id: "c", topic: "Space" }, { id: "d", topic: "Sports" }, { id: "e", topic: "Science" }];
     const p = pickWeekly(cands, "c1|2026-11-08");

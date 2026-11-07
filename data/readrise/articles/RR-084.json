@@ -138,7 +138,7 @@
           ],
           "answer": "A",
           "skill": "vocabulary",
-          "why": "The article says he was a scholar who loved to read and learn.",
+          "why": "In the article, he was a scholar who loved to read and learn.",
           "wrong": {
             "B": "The article does not say he built ships.",
             "C": "Roger was the king; al-Idrisi was not.",
@@ -155,7 +155,7 @@
           ],
           "answer": "D",
           "skill": "detail",
-          "why": "The article says he made a big map out of silver.",
+          "why": "In the article, he made a big map out of silver.",
           "wrong": {
             "A": "His book was written, but the big map was silver.",
             "B": "The article does not say wood.",
@@ -317,7 +317,7 @@
           ],
           "answer": "B",
           "skill": "detail",
-          "why": "The article says he studied in Cordoba, a famous center of learning in Spain.",
+          "why": "In the article, he studied in Cordoba, a famous center of learning in Spain.",
           "wrong": {
             "A": "Makkah appears on his map, but he did not study there in the article.",
             "C": "He worked in Sicily later, at the king's court.",
@@ -334,7 +334,7 @@
           ],
           "answer": "B",
           "skill": "detail",
-          "why": "The article says the book told how many days it took to travel from one town to the next.",
+          "why": "In the article, the book told how many days it took to travel from one town to the next.",
           "wrong": {
             "A": "House sizes are not mentioned.",
             "C": "Daily weather is not mentioned.",
@@ -496,7 +496,7 @@
           ],
           "answer": "A",
           "skill": "detail",
-          "why": "The article says the book divided the world into seven climate zones of ten sections each, making 70 maps.",
+          "why": "In the article, the book divided the world into seven climate zones of ten sections each, making 70 maps.",
           "wrong": {
             "B": "The numbers are reversed and kingdoms are not mentioned.",
             "C": "Oceans are not the way the book was divided.",
@@ -504,7 +504,7 @@
           }
         },
         {
-          "stem": "The article says al-Idrisi tried to \"verify each fact.\" What does verify mean in this context?",
+          "stem": "In the article, what does the word \"verify\" mean?",
           "options": [
             "To draw it carefully in silver",
             "To translate it into another language",
@@ -581,7 +581,7 @@
           ],
           "answer": "D",
           "skill": "detail",
-          "why": "The article says scribes copied his book by hand and several manuscripts survive in libraries.",
+          "why": "In the article, scribes copied his book by hand and several manuscripts survive in libraries.",
           "wrong": {
             "A": "The article does not say the map was rebuilt.",
             "B": "No poem is mentioned.",
@@ -627,7 +627,7 @@
         ],
         "answer": "C",
         "skill": "detail",
-        "why": "The text says the king wanted a map of the world.",
+        "why": "In the text, the king wanted a map of the world.",
         "wrong": {
           "A": "A ship is not mentioned.",
           "B": "The silver was used for the map, not a cup.",
@@ -663,7 +663,7 @@
         "skill": "inference",
         "why": "He worked in Sicily but learned from travelers and sailors, so he knew about faraway lands.",
         "wrong": {
-          "A": "The text says he worked for the king of Sicily.",
+          "A": "In the text, he worked for the king of Sicily.",
           "C": "The map was made for King Roger in Sicily.",
           "D": "The text does not say the king went to Arabia."
         }
@@ -697,7 +697,7 @@
         ],
         "answer": "C",
         "skill": "detail",
-        "why": "The text says the project took about 15 years.",
+        "why": "In the text, the project took about 15 years.",
         "wrong": {
           "A": "Five years is too short.",
           "B": "Fifty years is too long.",
@@ -731,7 +731,7 @@
         ],
         "answer": "D",
         "skill": "cause-effect",
-        "why": "The text says the map looks upside down because south is at the top.",
+        "why": "In the text, the map looks upside down because south is at the top.",
         "wrong": {
           "A": "The disc shape is not the reason.",
           "B": "Copying was done to the book, not the reason for direction.",
@@ -767,7 +767,7 @@
         ],
         "answer": "B",
         "skill": "detail",
-        "why": "The text says the king wanted a map that displayed every region of the known world in detail.",
+        "why": "In the text, the king wanted a map that displayed every region of the known world in detail.",
         "wrong": {
           "A": "The king asked for a map, not a book about kings.",
           "C": "Sailing lessons are not mentioned.",

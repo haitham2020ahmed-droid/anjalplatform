@@ -155,7 +155,7 @@
           ],
           "answer": "B",
           "skill": "cause-effect",
-          "why": "The article says things with different charges attract, so the balloon is pulled to the wall.",
+          "why": "In the article, things with different charges attract, so the balloon is pulled to the wall.",
           "wrong": {
             "A": "The balloon is not wet. It sticks because of its charge.",
             "C": "There is no glue. Static makes the balloon stick.",
@@ -172,7 +172,7 @@
           ],
           "answer": "D",
           "skill": "detail",
-          "why": "The article says each hair has the same charge, and things with the same charge push apart.",
+          "why": "In the article, each hair has the same charge, and things with the same charge push apart.",
           "wrong": {
             "A": "The hair does not get wet.",
             "B": "Heat is not the reason given in the article.",
@@ -189,7 +189,7 @@
           ],
           "answer": "B",
           "skill": "vocabulary",
-          "why": "The article says things with charges that are not the same attract, which means they pull close.",
+          "why": "Things with different charges attract, which means they pull toward each other.",
           "wrong": {
             "A": "Push away is the opposite of attract.",
             "C": "A spark jumps across, but that is not what attract means.",
@@ -206,7 +206,7 @@
           ],
           "answer": "C",
           "skill": "inference",
-          "why": "The article says wet air lets the charge leak out, and Riyadh has dry air, so more charge builds up.",
+          "why": "In the article, wet air lets the charge leak out, and Riyadh has dry air, so more charge builds up.",
           "wrong": {
             "A": "The article does not compare carpets in different places.",
             "B": "The article never says people in Riyadh touch more doors.",
@@ -223,7 +223,7 @@
           ],
           "answer": "A",
           "skill": "inference",
-          "why": "The article says a spark is charge that jumps, and lightning is a huge spark. The zap from a door is a small one.",
+          "why": "In the article, a spark is charge that jumps, and lightning is a huge spark. The zap from a door is a small one.",
           "wrong": {
             "B": "The article does not say either one happens only at night.",
             "C": "Lightning comes from a storm cloud, not a balloon.",
@@ -334,7 +334,7 @@
           ],
           "answer": "A",
           "skill": "detail",
-          "why": "The article explains the charge stays in place until it finds a way to escape.",
+          "why": "In the article, the charge stays in place until it finds a way to escape.",
           "wrong": {
             "B": "The article does not mention television screens.",
             "C": "Static charge stays still; it does not flow through wires in the article.",
@@ -405,7 +405,7 @@
           "why": "Both strands have the same charge, and like charges repel.",
           "wrong": {
             "A": "Pulling together happens with opposite charges.",
-            "B": "The article says charge stays until it finds a way to escape.",
+            "B": "The charge stays in place until it can escape, so it is not lost right away.",
             "D": "A spark jumps across a gap; the strands would not become one."
           }
         },
@@ -513,7 +513,7 @@
           ],
           "answer": "B",
           "skill": "cause-effect",
-          "why": "The article says countless ice particles collide in the cloud and separate enormous quantities of charge.",
+          "why": "In the article, countless ice particles collide in the cloud and separate enormous quantities of charge.",
           "wrong": {
             "A": "Sunlight is not mentioned as the cause.",
             "C": "Humidity helps charge leak away; it is not described as the cause.",
@@ -547,7 +547,7 @@
           ],
           "answer": "C",
           "skill": "inference",
-          "why": "The article says the object left with too few electrons becomes positively charged.",
+          "why": "The object left with too few electrons becomes positively charged.",
           "wrong": {
             "A": "The balloon, which gained electrons, is the negative one.",
             "B": "Losing electrons means the hair is no longer balanced.",
@@ -564,7 +564,7 @@
           ],
           "answer": "A",
           "skill": "inference",
-          "why": "The article says indoor heating and air conditioning remove moisture, and drier air lets charge build up.",
+          "why": "In the article, indoor heating and air conditioning remove moisture, and drier air lets charge build up.",
           "wrong": {
             "B": "The article does not mention metal clothing.",
             "C": "Storms are not linked to winter shocks in the article.",
@@ -598,7 +598,7 @@
           ],
           "answer": "D",
           "skill": "compare",
-          "why": "The article says opposite charges attract (the balloon) and like charges repel (the hair).",
+          "why": "In the article, opposite charges attract (the balloon) and like charges repel (the hair).",
           "wrong": {
             "A": "Both the balloon and the hair are charged.",
             "B": "The hair is charged, which is why it stands up.",
@@ -627,7 +627,7 @@
         ],
         "answer": "A",
         "skill": "detail",
-        "why": "The text says wet air lets the charge leak out.",
+        "why": "In the text, wet air lets the charge leak out.",
         "wrong": {
           "B": "The text never says charge gets bigger.",
           "C": "Dew is not mentioned in the text.",
@@ -678,7 +678,7 @@
         ],
         "answer": "D",
         "skill": "inference",
-        "why": "The text says charges that are not the same attract, which means they pull close.",
+        "why": "Charges that are different attract, which means they pull toward each other.",
         "wrong": {
           "A": "Only charges that are the same push apart.",
           "B": "Charges do not make ice.",
@@ -748,7 +748,7 @@
         ],
         "answer": "C",
         "skill": "cause-effect",
-        "why": "The text says one object ends up with extra electrons and the other has too few.",
+        "why": "In the text, one object ends up with extra electrons and the other has too few.",
         "wrong": {
           "A": "Only some electrons move.",
           "B": "Moving electrons make the objects charged, not balanced.",
@@ -818,7 +818,7 @@
         ],
         "answer": "A",
         "skill": "detail",
-        "why": "The text says amber attracted bits of straw after being rubbed with fur.",
+        "why": "In the text, amber attracted bits of straw after being rubbed with fur.",
         "wrong": {
           "B": "Lightning is linked to storm clouds, not amber.",
           "C": "The text does not link amber to dry air.",

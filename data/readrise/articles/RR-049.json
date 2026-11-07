@@ -138,7 +138,7 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The article says the Sun is a huge ball of hot gas.",
+          "why": "In the article, the Sun is a huge ball of hot gas.",
           "wrong": {
             "A": "The article says gas, not rock or metal.",
             "B": "The Sun is very hot, so it is not ice.",
@@ -172,7 +172,7 @@
           ],
           "answer": "D",
           "skill": "vocabulary",
-          "why": "The article explains that the path Earth follows around the Sun is called an orbit.",
+          "why": "In the article, the path Earth follows around the Sun is called an orbit.",
           "wrong": {
             "A": "A dark spot on the Sun is a sunspot.",
             "B": "An orbit is a path, not a tool.",
@@ -302,7 +302,7 @@
           "skill": "central-idea",
           "why": "The article explains what the Sun is, how fusion in its core makes energy, and how that energy helps Earth.",
           "wrong": {
-            "A": "The article says the Sun is the nearest star, not the largest one.",
+            "A": "The Sun is the nearest star, not the largest one.",
             "C": "Sunspots are only one detail.",
             "D": "The article does not say where solar farms were invented."
           }
@@ -317,7 +317,7 @@
           ],
           "answer": "D",
           "skill": "detail",
-          "why": "The article says the Sun is made mostly of hydrogen and helium.",
+          "why": "The Sun is made mostly of hydrogen and helium.",
           "wrong": {
             "A": "Neither gas is named as the Sun's main material.",
             "B": "Water vapor is not part of the Sun's makeup in the article.",
@@ -351,7 +351,7 @@
           ],
           "answer": "C",
           "skill": "vocabulary",
-          "why": "The article explains that fusion is the joining of hydrogen particles to form helium.",
+          "why": "In the article, fusion is the joining of hydrogen particles to form helium.",
           "wrong": {
             "A": "Fusion is the opposite: pieces join instead of breaking apart.",
             "B": "The core is extremely hot, not freezing.",
@@ -368,7 +368,7 @@
           ],
           "answer": "A",
           "skill": "cause-effect",
-          "why": "The article says fusion releases a huge amount of energy that leaves the Sun as light and heat.",
+          "why": "In the article, fusion releases a huge amount of energy that leaves the Sun as light and heat.",
           "wrong": {
             "B": "Hydrogen joins to make helium, not water.",
             "C": "Fusion does not change the length of Earth's year.",
@@ -388,7 +388,7 @@
           "why": "If the fastest thing in the universe still needs minutes to arrive, the distance must be enormous, about 150 million kilometers.",
           "wrong": {
             "B": "The article does not say light slows down.",
-            "C": "The article says the Sun is far bigger than Earth.",
+            "C": "In the article, the Sun is far bigger than Earth.",
             "D": "Sunlight moves during the day; this choice makes no sense."
           }
         },
@@ -402,7 +402,7 @@
           ],
           "answer": "B",
           "skill": "inference",
-          "why": "The article says Saudi Arabia receives plenty of sunshine, and solar panels need sunlight to make electricity.",
+          "why": "In the article, Saudi Arabia receives plenty of sunshine, and solar panels need sunlight to make electricity.",
           "wrong": {
             "A": "The article does not mention how many people live there.",
             "C": "No country is meaningfully closer to the Sun; the article does not say this.",
@@ -481,7 +481,7 @@
           "skill": "central-idea",
           "why": "The article explains the Sun's structure, how fusion produces energy, and how that energy affects Earth, from plants to auroras to solar power.",
           "wrong": {
-            "A": "The article says the surface is anything but calm.",
+            "A": "The Sun's surface is very active, not calm.",
             "B": "The article does not claim Saudi Arabia was first.",
             "C": "Auroras are one effect among several."
           }
@@ -496,7 +496,7 @@
           ],
           "answer": "B",
           "skill": "detail",
-          "why": "The article describes the photosphere as the bright visible surface, about 5,500 degrees Celsius.",
+          "why": "The photosphere is the Sun's bright, visible surface.",
           "wrong": {
             "A": "That is the core.",
             "C": "The photosphere belongs to the Sun, not Earth.",
@@ -513,7 +513,7 @@
           ],
           "answer": "C",
           "skill": "cause-effect",
-          "why": "The article says the solar wind's charged particles are channeled by Earth's magnetic field toward the poles, where they make the sky glow.",
+          "why": "In the article, the solar wind's charged particles are channeled by Earth's magnetic field toward the poles, where they make the sky glow.",
           "wrong": {
             "A": "The Moon is not mentioned as a cause.",
             "B": "The article says energy leaves from the surface; core gas does not travel directly to Earth's air.",
@@ -521,7 +521,7 @@
           }
         },
         {
-          "stem": "The article says the Sun's surface is 'anything but calm.' What does this phrase suggest?",
+          "stem": "What does the article show about the Sun's surface?",
           "options": [
             "The surface is very active and changing.",
             "The surface is quiet and still, like a calm lake.",
@@ -530,7 +530,7 @@
           ],
           "answer": "A",
           "skill": "vocabulary",
-          "why": "'Anything but calm' means the opposite of calm; the article then describes twisting gas, sunspots, and solar wind.",
+          "why": "Anything but calm means the opposite of calm; the article then describes how active the Sun's surface is.",
           "wrong": {
             "B": "That is the opposite of the phrase's meaning.",
             "C": "The surface is about 5,500 degrees Celsius, not frozen.",
@@ -566,7 +566,7 @@
           "skill": "inference",
           "why": "If energy needs thousands of years to reach the surface, then the energy reaching us now was made in the core long ago.",
           "wrong": {
-            "B": "The article says the Sun is billions of years old; nothing suggests it will stop soon.",
+            "B": "In the article, the Sun is billions of years old; nothing suggests it will stop soon.",
             "C": "Once in space, light reaches Earth in only eight minutes.",
             "D": "The article clearly places fusion in the core."
           }
@@ -581,7 +581,7 @@
           ],
           "answer": "B",
           "skill": "inference",
-          "why": "The article says auroras form near the North and South Poles, and Saudi Arabia is far from both.",
+          "why": "Auroras form near the far north and far south of Earth, and Saudi Arabia is far from both.",
           "wrong": {
             "A": "Earth's magnetic field surrounds the whole planet, including Saudi Arabia.",
             "C": "The article does not say auroras appear only in daytime.",
@@ -627,7 +627,7 @@
         ],
         "answer": "D",
         "skill": "detail",
-        "why": "The text says Earth goes around the Sun and one trip takes a year.",
+        "why": "Earth goes around the Sun, and one trip takes one year.",
         "wrong": {
           "A": "A day is much too short for one trip.",
           "B": "A month is much too short for one trip.",
@@ -663,7 +663,7 @@
         "skill": "vocabulary",
         "why": "A million Earths could fit in the Sun, so huge means very big.",
         "wrong": {
-          "A": "Hot is already given by the words \"hot gas\".",
+          "A": "Hot is already given by the word \"hot\" before \"gas\".",
           "B": "The text does not talk about the Sun's age.",
           "D": "The Sun gives light, so it is not dark."
         }
@@ -678,7 +678,7 @@
         ],
         "answer": "B",
         "skill": "inference",
-        "why": "The text says Saudi Arabia gets lots of sun, and solar farms turn sun into power.",
+        "why": "In the text, Saudi Arabia gets lots of sun, and solar farms turn sun into power.",
         "wrong": {
           "A": "The text does not say Saudi Arabia has no plants.",
           "C": "Every place on Earth is about the same far from the Sun.",
@@ -714,7 +714,7 @@
         ],
         "answer": "C",
         "skill": "cause-effect",
-        "why": "The text says sunspots look dark because they are cooler than the area around them.",
+        "why": "In the text, sunspots look dark because they are cooler than the area around them.",
         "wrong": {
           "A": "The text says they are patches on the surface, not holes.",
           "B": "They are part of the Sun, not bits of space.",
@@ -767,7 +767,7 @@
         ],
         "answer": "C",
         "skill": "detail",
-        "why": "The text says the Sun's gravitational pull holds all eight planets in their paths.",
+        "why": "The Sun's gravity holds the planets in their paths.",
         "wrong": {
           "A": "Sunspots are darker because they are cooler.",
           "B": "The aurora is made by charged particles and Earth's magnetic field.",
@@ -784,7 +784,7 @@
         ],
         "answer": "A",
         "skill": "cause-effect",
-        "why": "The text says powerful magnetic forces twist the hot gas and create sunspots.",
+        "why": "Sunspots are made where strong magnetic forces twist the hot gas.",
         "wrong": {
           "B": "The text does not say planets make sunspots.",
           "C": "Sunspots are cooler patches on the Sun, not clouds from space.",
@@ -801,7 +801,7 @@
         ],
         "answer": "B",
         "skill": "vocabulary",
-        "why": "The article says the photosphere is the Sun's visible surface, the bright layer we see.",
+        "why": "In the article, the photosphere is the Sun's visible surface, the bright layer we see.",
         "wrong": {
           "A": "The center is the core, deep inside.",
           "C": "Dark spots are sunspots.",

@@ -8,6 +8,7 @@ import { ExportLinks } from "@/components/reports/report-ui";
 import { fmt, RR_NOTE, ScaledLineChart, signed, Stat } from "../_components/ui";
 import { LevelBars } from "@/app/teacher/readrise/_components/data-center";
 import { formatLevel } from "@/server/readrise/level";
+import { BAND_LABEL, gradeBand as benchBand } from "@/server/readrise/benchmarks";
 import { getT } from "@/i18n/server";
 
 export const metadata = { title: "ReadRise dashboard" };
@@ -15,12 +16,14 @@ export const metadata = { title: "ReadRise dashboard" };
 const GRADE_COLORS: Record<number, string> = { 4: "#f97316", 5: "#0ea5e9", 6: "#10b981" };
 const colorOf = (g: number) => GRADE_COLORS[g] ?? "#8b5cf6";
 
-function MedianCell({ g }: { g: GroupStats }) {
+/** Round 7: the median's grade band (benchmarks.ts: Falls Far Below / Approaches / Meets / Exceeds), the Meets range on hover. */
+function MedianCell({ g, grade }: { g: GroupStats; grade: number }) {
   if (g.medianLevel === null) return <span className="text-slate-400">—</span>;
-  const below = g.medianLevel < g.band.low, above = g.medianLevel > g.band.high;
+  const band = benchBand(grade, g.medianLevel);
+  const range = `${formatLevel(g.band.low)}–${formatLevel(g.band.high)}`;
   return (
-    <span className={`font-semibold tabular-nums ${below ? "text-red-700" : above ? "text-emerald-700" : "text-teal-800"}`} title={`Expected ${g.band.low}–${g.band.high}`}>
-      {formatLevel(g.medianLevel)} <span className="text-xs font-normal text-slate-500">{below ? "below" : above ? "above" : "in"} {g.band.low}–{g.band.high}</span>
+    <span className={`font-semibold tabular-nums ${band === "FAR_BELOW" ? "text-red-700" : band === "APPROACHES" ? "text-amber-800" : band === "EXCEEDS" ? "text-emerald-700" : "text-teal-800"}`} title={`Grade ${grade} Meets range ${range}`}>
+      {formatLevel(g.medianLevel)} <span className="text-xs font-normal text-slate-500">{BAND_LABEL[band]} · Meets {range}</span>
     </span>
   );
 }
@@ -81,7 +84,7 @@ export default async function ReadRiseDashboard({ searchParams }: { searchParams
             <Section title="Reading per week" icon="📅" hint={grade === null ? "Articles finished (first try) per student, each of the last 8 weeks." : `Grade ${grade}: articles finished (first try) per student, by class.`}>
               <ScaledLineChart labels={d.weeks} series={usageSeries} title="Articles per student per week" min={0} max={uMax} ticks={uTicks} />
             </Section>
-            <Section title="Level distribution" icon="📊" hint={gradeRow ? `Grade ${grade} · expected band ${gradeRow.band.low}–${gradeRow.band.high}` : "All placed students (choose a grade to see its expected band)."}>
+            <Section title="Level distribution" icon="📊" hint={gradeRow ? `Grade ${grade} · Meets range ${formatLevel(gradeRow.band.low)}–${formatLevel(gradeRow.band.high)}` : "All placed students (choose a grade to see its Meets range)."}>
               <LevelBars buckets={gradeRow ? gradeRow.distribution : d.distribution} title={t("Students by ReadRise Level")} t={t} />
             </Section>
           </div>
@@ -96,7 +99,7 @@ export default async function ReadRiseDashboard({ searchParams }: { searchParams
                       <td className="p-2 font-bold"><Link href={`/admin/readrise/dashboard?grade=${g.grade}`} className="text-brand-navy hover:underline">Grade {g.grade}</Link></td>
                       <td className="p-2 tabular-nums">{g.students}</td><td className="p-2 tabular-nums">{g.placed}</td>
                       <td className={`p-2 tabular-nums ${g.notPlaced ? "font-semibold text-amber-800" : ""}`}>{g.notPlaced}</td>
-                      <td className="p-2"><MedianCell g={g} /></td>
+                      <td className="p-2"><MedianCell g={g} grade={g.grade} /></td>
                       <td className="p-2 tabular-nums">{signed(g.avgGrowth)}</td><td className="p-2 tabular-nums">{fmt(g.perStudentPerWeek)}</td><td className="p-2 tabular-nums">{fmt(g.goalPct, "%")}</td>
                     </tr>
                   ))}</tbody>
@@ -114,7 +117,7 @@ export default async function ReadRiseDashboard({ searchParams }: { searchParams
                     <td className="p-2 font-semibold"><Link href={`/teacher/readrise?class=${c.classId}`} className="text-brand-navy hover:underline">{c.name}</Link> <span className="text-xs text-slate-400">G{c.grade}</span></td>
                     <td className="p-2 tabular-nums">{c.students}</td>
                     <td className={`p-2 tabular-nums ${c.notPlaced ? "text-amber-800" : ""}`}>{c.placed}{c.notPlaced ? <span className="text-xs"> ({c.notPlaced} not)</span> : null}</td>
-                    <td className="p-2"><MedianCell g={c} /></td>
+                    <td className="p-2"><MedianCell g={c} grade={c.grade} /></td>
                     <td className="p-2 tabular-nums">{signed(c.avgGrowth)}</td>
                     <td className="p-2"><UsageBars usage={c.usage} /></td>
                     <td className="p-2 tabular-nums">{fmt(c.perStudentPerWeek)}</td><td className="p-2 tabular-nums">{fmt(c.goalPct, "%")}</td>

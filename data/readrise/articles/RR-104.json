@@ -138,7 +138,7 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The article says a grown-up has 206 bones.",
+          "why": "In the article, a grown-up has 206 bones.",
           "wrong": {
             "A": "The number in the article is 206, not 106.",
             "B": "A baby has more bones than a grown-up, but 300 is not the grown-up number.",
@@ -155,7 +155,7 @@
           ],
           "answer": "A",
           "skill": "detail",
-          "why": "The article says the ribs make a cage that guards the heart and lungs.",
+          "why": "In the article, the ribs make a cage that guards the heart and lungs.",
           "wrong": {
             "B": "The skull keeps the brain safe.",
             "C": "The ear bones are the smallest bones; they do not guard the heart.",
@@ -172,7 +172,7 @@
           ],
           "answer": "D",
           "skill": "vocabulary",
-          "why": "The article says a joint is a place where two bones meet, like a knee or an elbow.",
+          "why": "In the article, a joint is a place where two bones meet, like a knee or an elbow.",
           "wrong": {
             "A": "Blood is made inside some bones, not at joints.",
             "B": "Calcium comes from food; a joint is not about food.",
@@ -189,7 +189,7 @@
           ],
           "answer": "B",
           "skill": "cause-effect",
-          "why": "The article says bones cannot move by themselves, so a muscle pulls on a bone and the bone moves.",
+          "why": "In the article, bones cannot move by themselves, so a muscle pulls on a bone and the bone moves.",
           "wrong": {
             "A": "Pulling is how we move; the article does not say it breaks bones.",
             "C": "Nothing in the article says bones shrink when pulled.",
@@ -206,9 +206,9 @@
           ],
           "answer": "C",
           "skill": "inference",
-          "why": "The article says some small bones join and grow into one bone as a child grows, so the number goes down.",
+          "why": "In the article, some small bones join and grow into one bone as a child grows, so the number goes down.",
           "wrong": {
-            "A": "The article says broken bones heal; it does not say they are lost.",
+            "A": "In the article, broken bones heal; it does not say they are lost.",
             "B": "Food is not the reason for the number of bones.",
             "D": "Everyone has one skull."
           }
@@ -223,10 +223,10 @@
           ],
           "answer": "B",
           "skill": "inference",
-          "why": "The article says some bones make new blood and a broken bone can heal, which shows that bones are living.",
+          "why": "In the article, some bones make new blood and a broken bone can heal, which shows that bones are living.",
           "wrong": {
             "A": "Bones do not see or hear.",
-            "C": "The article says bones cannot move without muscles.",
+            "C": "In the article, bones cannot move without muscles.",
             "D": "Bones do change: they grow, join, and heal."
           }
         },
@@ -317,7 +317,7 @@
           ],
           "answer": "B",
           "skill": "detail",
-          "why": "The article says a newborn has close to 300 bones, more than an adult's 206.",
+          "why": "In the article, a newborn has close to 300 bones, more than an adult's 206.",
           "wrong": {
             "A": "That number is far too small.",
             "C": "206 is the number for an adult.",
@@ -368,7 +368,7 @@
           ],
           "answer": "D",
           "skill": "cause-effect",
-          "why": "The article says that because bones are alive, a broken bone can slowly repair itself.",
+          "why": "In the article, because bones are alive, a broken bone can slowly repair itself.",
           "wrong": {
             "A": "Bones are not metal.",
             "B": "Muscles move bones; the article does not say they glue them.",
@@ -385,7 +385,7 @@
           ],
           "answer": "C",
           "skill": "inference",
-          "why": "The article says exercise such as running and jumping helps build stronger bones.",
+          "why": "In the article, exercise such as running and jumping helps build stronger bones.",
           "wrong": {
             "A": "Exercise does not change how many joints you have.",
             "B": "Exercise does not shrink the skull.",
@@ -496,7 +496,7 @@
           ],
           "answer": "A",
           "skill": "detail",
-          "why": "The article says ligaments are tough bands of connective tissue that hold the vertebrae in alignment.",
+          "why": "In the article, ligaments are tough bands of connective tissue that hold the vertebrae in alignment.",
           "wrong": {
             "B": "Marrow makes blood cells.",
             "C": "The article says the skeleton stores calcium, but not that ligaments do.",
@@ -513,7 +513,7 @@
           ],
           "answer": "D",
           "skill": "detail",
-          "why": "The article states that the femur, or thigh bone, is the longest and strongest bone.",
+          "why": "In the article, the femur, or thigh bone, is the longest and strongest bone.",
           "wrong": {
             "A": "The skull protects the brain but is not called the longest.",
             "B": "Vertebrae are small bones.",
@@ -598,7 +598,7 @@
           ],
           "answer": "B",
           "skill": "inference",
-          "why": "The article says the spine keeps the body upright while still allowing it to bend, rotate, and twist, which a single rigid bone could not do.",
+          "why": "In the article, the spine keeps the body upright while still allowing it to bend, rotate, and twist, which a single rigid bone could not do.",
           "wrong": {
             "A": "Weight is not the reason given.",
             "C": "The article says many bones contain marrow.",
@@ -661,7 +661,7 @@
         ],
         "answer": "D",
         "skill": "cause-effect",
-        "why": "The text says your back has a long row of small bones, the spine, and it lets you bend and twist.",
+        "why": "In the text, your back has a long row of small bones, the spine, and it lets you bend and twist.",
         "wrong": {
           "A": "The ribs guard the heart and lungs.",
           "B": "The skull keeps the brain safe.",
@@ -748,7 +748,7 @@
         ],
         "answer": "B",
         "skill": "cause-effect",
-        "why": "The text says that when a muscle tightens, it pulls on a bone and moves it.",
+        "why": "In the text, when a muscle tightens, it pulls on a bone and moves it.",
         "wrong": {
           "A": "A tight muscle does not break a bone.",
           "C": "Marrow makes new blood cells.",
@@ -801,7 +801,7 @@
         ],
         "answer": "A",
         "skill": "cause-effect",
-        "why": "The text says regular activity encourages the body to build denser, healthier bones.",
+        "why": "In the text, regular activity encourages the body to build denser, healthier bones.",
         "wrong": {
           "B": "Fusing happens as a child grows.",
           "C": "Marrow makes new blood cells and stays in bones.",
@@ -821,7 +821,7 @@
         "why": "The picture of a body falling in a heap shows how the skeleton gives the body support.",
         "wrong": {
           "A": "Laundry is only a comparison.",
-          "B": "The text says muscles move the bones.",
+          "B": "In the text, muscles move the bones.",
           "C": "The skull is described later."
         }
       }

@@ -138,7 +138,7 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The article says the oud is shaped like a pear, with a round body.",
+          "why": "In the article, the oud is shaped like a pear, with a round body.",
           "wrong": {
             "A": "A square shape is not mentioned.",
             "B": "The body is round and curved, not flat.",
@@ -209,7 +209,7 @@
           "why": "Since the article says people have played the oud for a long time and it is still loved today, it has clearly mattered to many people over time.",
           "wrong": {
             "B": "The article says it is a very old instrument, not a new one.",
-            "C": "The article says people still play and love the oud today.",
+            "C": "People still play the oud today.",
             "D": "Singers, bands, and many people are mentioned, not just one person."
           }
         },
@@ -240,7 +240,7 @@
           ],
           "answer": "B",
           "skill": "sequence",
-          "why": "The article explains that thin strips of wood are bent and then glued together to form the round body first.",
+          "why": "In the article, strips of wood are bent first and then glued together.",
           "wrong": {
             "A": "Singing happens after the oud is built and played, not during its building.",
             "C": "Strings are added to a finished body, not before it exists.",
@@ -317,7 +317,7 @@
           ],
           "answer": "A",
           "skill": "detail",
-          "why": "The article says the oud's neck is fretless, unlike a guitar's neck, which has frets.",
+          "why": "In the article, the oud's neck is fretless, unlike a guitar's neck, which has frets.",
           "wrong": {
             "B": "The article says the oud has no frets at all, not extra frets.",
             "C": "Players press the fretless neck with their fingers to play notes.",
@@ -385,10 +385,10 @@
           ],
           "answer": "A",
           "skill": "inference",
-          "why": "The article says the oud often leads an ensemble while other instruments and a singer's voice join around it, suggesting its sound helps guide the group.",
+          "why": "In the article, the oud often leads an ensemble while other instruments and a singer's voice join around it, suggesting its sound helps guide the group.",
           "wrong": {
             "B": "The article describes other instruments and a singer's voice joining in, so the oud is not the only sound.",
-            "C": "The article says other instruments and a voice join around the oud, so they can be heard.",
+            "C": "In the article, other instruments and a voice join around the oud, so they can be heard.",
             "D": "An ensemble is a group of musicians playing instruments together."
           }
         },
@@ -496,7 +496,7 @@
           ],
           "answer": "A",
           "skill": "detail",
-          "why": "The article explains that a fretless neck lets a player slide smoothly between pitches, producing the gliding ornaments and microtones central to Arabic music.",
+          "why": "In the article, a fretless neck lets a player slide smoothly between pitches, producing the gliding ornaments and microtones central to Arabic music.",
           "wrong": {
             "B": "The article does not connect the fretless neck to tuning difficulty.",
             "C": "A fretless neck makes smooth, continuous changes of pitch easier, not impossible.",
@@ -530,7 +530,7 @@
           ],
           "answer": "B",
           "skill": "vocabulary",
-          "why": "The article describes a maqam as a traditional melodic mode that guides which notes feel natural together in Arabic music.",
+          "why": "A maqam is a traditional set of notes that guides which notes sound right together in Arabic music.",
           "wrong": {
             "A": "The plucking tool is called a plectrum or risha, not a maqam.",
             "C": "Andalusia, not maqam, refers to a region in Spain.",
@@ -547,11 +547,11 @@
           ],
           "answer": "C",
           "skill": "inference",
-          "why": "The article explains that trade and scholarship carried oud-related instruments into Europe, where the lute slowly emerged as a close descendant.",
+          "why": "In the article, trade and scholarship carried oud-related instruments into Europe, where the lute slowly emerged as a close descendant.",
           "wrong": {
             "A": "A descendant, by definition, shares features with what came before it.",
             "B": "The article presents the oud's long history as coming first, with the lute developing later.",
-            "D": "The article describes the lute spreading across Europe, not staying only in Arabic-speaking regions."
+            "D": "The lute spread to other lands, not staying in one region."
           }
         },
         {
@@ -566,7 +566,7 @@
           "skill": "inference",
           "why": "The article links the oud's spread into Andalusian Spain to the eventual development of the European lute, making this connection historically significant.",
           "wrong": {
-            "A": "The article says the oud remains central to Arabic music across the Arab world.",
+            "A": "In the article, the oud remains central to Arabic music across the Arab world.",
             "B": "The article directly connects Andalusian Spain to instruments carried from the Arab world.",
             "C": "The article says the oud's name likely comes from Arabic, pointing to an earlier origin."
           }
@@ -648,7 +648,7 @@
         "wrong": {
           "A": "Singers and bands both use it.",
           "C": "The text does not limit it to holidays.",
-          "D": "The text says many people love this music."
+          "D": "In the text, many people love this music."
         }
       },
       {

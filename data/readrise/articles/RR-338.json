@@ -155,7 +155,7 @@
      ],
      "answer": "A",
      "skill": "detail",
-     "why": "The article says a mineral is a hard, natural thing found inside rock.",
+     "why": "In the article, a mineral is a hard, natural thing found inside rock.",
      "wrong": {
       "B": "Rain is not described as a mineral.",
       "C": "A pipe carries water; it is not a mineral.",
@@ -317,7 +317,7 @@
      ],
      "answer": "C",
      "skill": "detail",
-     "why": "The article says certain ancient layers of rock can trap oil underground.",
+     "why": "In the article, certain ancient layers of rock can trap oil underground.",
      "wrong": {
       "A": "Shallow soil near rivers is not described as trapping oil.",
       "B": "Rainforests are not described as trapping oil.",
@@ -496,7 +496,7 @@
      ],
      "answer": "C",
      "skill": "detail",
-     "why": "The article says geology and climate mainly explain why resources are distributed unevenly.",
+     "why": "In the article, geology and climate mainly explain why resources are distributed unevenly.",
      "wrong": {
       "A": "Trade and population are effects of uneven resources, not the main causes.",
       "B": "Government and economy are not described as the main causes.",
@@ -513,7 +513,7 @@
      ],
      "answer": "A",
      "skill": "detail",
-     "why": "The article says certain ancient layers of rock, formed from buried sea life, trap oil underground.",
+     "why": "In the article, certain ancient layers of rock, formed from buried sea life, trap oil underground.",
      "wrong": {
       "B": "Modern factories are not described as forming oil.",
       "C": "Rivers are linked to fresh water, not oil formation.",
@@ -627,7 +627,7 @@
     ],
     "answer": "D",
     "skill": "detail",
-    "why": "The text says gold is a mineral and iron is one too.",
+    "why": "Gold and iron are both minerals.",
     "wrong": {
      "A": "Oil and water are resources, not the minerals named.",
      "B": "Wood and sand are not named as minerals.",
@@ -731,7 +731,7 @@
     ],
     "answer": "B",
     "skill": "cause-effect",
-    "why": "The text says the uneven distribution of resources is a big reason countries trade.",
+    "why": "In the text, the uneven distribution of resources is a big reason countries trade.",
     "wrong": {
      "A": "The text says countries do not have the same resources.",
      "C": "Trade is not a way to dig.",
@@ -767,7 +767,7 @@
     ],
     "answer": "B",
     "skill": "detail",
-    "why": "The text says Gulf countries hold some of the largest known oil reserves on the planet.",
+    "why": "Gulf countries have some of the largest oil reserves in the world.",
     "wrong": {
      "A": "Rainforest countries are not named for oil.",
      "C": "Mountain countries are not named for oil.",
@@ -801,7 +801,7 @@
     ],
     "answer": "A",
     "skill": "cause-effect",
-    "why": "The text says fresh water can become scarce in regions with little rainfall, which is why such plants are built.",
+    "why": "In the text, fresh water can become scarce in regions with little rainfall, which is why such plants are built.",
     "wrong": {
      "B": "Oil storage is not the reason given.",
      "C": "Mineral deposits are not linked to these plants.",

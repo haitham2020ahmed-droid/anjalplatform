@@ -496,7 +496,7 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The story explains that two tidal currents converge near the headland and flow toward Salem's village, which helps carry his boat home.",
+          "why": "In the story, two tidal currents converge near the headland and flow toward Salem's village, which helps carry his boat home.",
           "wrong": {
             "A": "The story does not claim fish can only be caught at that one spot.",
             "B": "No floating sign is mentioned anywhere in the story.",
@@ -627,7 +627,7 @@
         ],
         "answer": "A",
         "skill": "detail",
-        "why": "The text says fish live far out.",
+        "why": "In the text, fish live far out.",
         "wrong": {
           "B": "The text does not mention the cold.",
           "C": "His dad waits at home.",
@@ -678,7 +678,7 @@
         ],
         "answer": "A",
         "skill": "cause-effect",
-        "why": "The text says Yousef is worried because Salem is not back yet.",
+        "why": "In the text, Yousef is worried because Salem is not back yet.",
         "wrong": {
           "B": "The text does not say the fish are gone.",
           "C": "The engine has stopped.",
@@ -697,7 +697,7 @@
         ],
         "answer": "C",
         "skill": "detail",
-        "why": "The story says the boat once belonged to Salem's grandfather.",
+        "why": "In the story, the boat once belonged to Salem's grandfather.",
         "wrong": {
           "A": "His father is Yousef, who waits in the village.",
           "B": "A teacher is not in the story.",
@@ -767,7 +767,7 @@
         ],
         "answer": "A",
         "skill": "detail",
-        "why": "The story says he travels far, well past the rocky reef, where the water is deep and cool.",
+        "why": "In the story, Salem goes far out, past the rocky reef, where the water is deep.",
         "wrong": {
           "B": "He sails far from the shore.",
           "C": "He goes far from the harbor.",
@@ -801,7 +801,7 @@
         ],
         "answer": "C",
         "skill": "cause-effect",
-        "why": "The story says he knows panic rarely solves a genuine problem on open water.",
+        "why": "In the story, he knows panic rarely solves a genuine problem on open water.",
         "wrong": {
           "A": "It is a real problem, not a game.",
           "B": "His engine has stopped.",

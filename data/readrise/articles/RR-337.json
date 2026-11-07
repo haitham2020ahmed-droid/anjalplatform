@@ -334,7 +334,7 @@
      ],
      "answer": "A",
      "skill": "detail",
-     "why": "The article says a growing population can overwhelm a city's infrastructure, meaning its roads, water, and power lines.",
+     "why": "In the article, a growing population can overwhelm a city's infrastructure, meaning its roads, water, and power lines.",
      "wrong": {
       "B": "The article says infrastructure can be overwhelmed, not automatically stronger.",
       "C": "The article does not say infrastructure disappears.",
@@ -661,9 +661,9 @@
     ],
     "answer": "D",
     "skill": "cause-effect",
-    "why": "The text says cities will grow more because people want jobs and a good life.",
+    "why": "In the text, cities will keep growing because people look for jobs and a good life.",
     "wrong": {
-     "A": "The text says people want jobs.",
+     "A": "In the text, people want jobs.",
      "B": "The roads are busy and crowded.",
      "C": "Farms and cars are not linked in the text."
     }
@@ -697,7 +697,7 @@
     ],
     "answer": "B",
     "skill": "detail",
-    "why": "The text says that decades ago Riyadh was a small town surrounded by desert.",
+    "why": "In the text, decades ago Riyadh was a small town surrounded by desert.",
     "wrong": {
      "A": "The text says desert, not farms.",
      "C": "No sea is mentioned.",
@@ -734,7 +734,7 @@
     "why": "If news took weeks, there were no fast ways to send messages in the countryside.",
     "wrong": {
      "B": "The text does not say people did not need news.",
-     "C": "The text says most people lived in the countryside.",
+     "C": "In the text, most people lived in the countryside.",
      "D": "Busy roads are a city problem."
     }
    },
@@ -767,10 +767,10 @@
     ],
     "answer": "C",
     "skill": "detail",
-    "why": "The text says more than half of the world's population lives in urban areas.",
+    "why": "In the text, more than half of the world's population lives in urban areas.",
     "wrong": {
      "A": "The share is more than half, not under a quarter.",
-     "B": "The text says more than half, and it keeps climbing.",
+     "B": "In the text, more than half, and it keeps climbing.",
      "D": "One tenth is far too small."
     }
    },

@@ -13,10 +13,13 @@ import { AtAGlance } from "@/components/report-kit";
 import type { TFn } from "@/i18n";
 import type { ClassGrowth, StudentGrowthReport } from "@/server/readrise/growth-report";
 import { FIT_LABEL, skillLabel } from "@/server/readrise/growth-words";
-import { ScaledLineChart, day, fmt, levelRange, signed } from "@/app/admin/readrise/_components/ui";
+import { ScaledLineChart, day, fmt, fmtLevel, levelRange, signed } from "@/app/admin/readrise/_components/ui";
+import { BAND_LABEL, type GradeBand } from "@/server/readrise/benchmarks";
 import { LevelBars } from "./data-center";
 
-const POSITION_TEXT = { BELOW: "Below the grade range", WITHIN: "Within the grade range", ABOVE: "Above the grade range" } as const;
+// round 7: ONE grade band everywhere (benchmarks.ts): Falls Far Below / Approaches / Meets / Exceeds
+const BAND_TONE: Record<GradeBand, "bad" | "warn" | "info" | "good"> = { FAR_BELOW: "bad", APPROACHES: "warn", MEETS: "info", EXCEEDS: "good" };
+const rangeText = (b: { low: number; high: number }) => `${fmtLevel(b.low)}–${fmtLevel(b.high)}`;
 const FIT_STYLE = { EXACT: "bg-emerald-50 text-emerald-800 ring-emerald-200", STRETCH: "bg-indigo-50 text-indigo-800 ring-indigo-200", EASY: "bg-slate-100 text-slate-700 ring-slate-200" } as const;
 const CONF_LEVEL = { HIGH: "narrow range", MEDIUM: "moderate range", LOW: "wide range" } as const;
 const KIND_ICON = { START: "🏁", PLACEMENT: "🧭", UP: "▲", DOWN: "▼", TEACHER: "✎", OTHER: "•" } as const;
@@ -61,25 +64,25 @@ export function StudentGrowthView({ g, t, backHref }: { g: StudentGrowthReport; 
       {back}
       <h2 className="text-xl font-bold text-brand-navy">{g.name}</h2>
       <AtAGlance title={null} items={[
-        { icon: "📊", label: "ReadRise Level", value: g.level, meaning: g.position ? t(POSITION_TEXT[g.position]) + ` (${g.band.low}–${g.band.high})` : undefined, tone: g.position === "BELOW" ? "warn" : g.position === "ABOVE" ? "good" : "info" },
-        { icon: "📈", label: "Growth since the start", value: signed(growth), meaning: t("from {from}", { from: g.startLevel ?? "—" }), tone: growth > 0 ? "good" : growth < 0 ? "bad" : "neutral" },
+        { icon: "📊", label: "ReadRise Level", value: fmtLevel(g.level), meaning: g.gradeBand ? `${t(BAND_LABEL[g.gradeBand])} · ${t("Grade {g} Meets range: {range}.", { g: g.grade, range: rangeText(g.band) })}` : undefined, tone: g.gradeBand ? BAND_TONE[g.gradeBand] : "info" },
+        { icon: "📈", label: "Growth since the start", value: signed(growth), meaning: t("from {from}", { from: fmtLevel(g.startLevel) }), tone: growth > 0 ? "good" : growth < 0 ? "bad" : "neutral" },
         { icon: "✅", label: "Growth confidence", value: conf ? conf.readings : 0, meaning: confidenceWords(g.confidence, t), tone: conf?.label === "STRONG" || conf?.label === "CONFIRMED" ? "good" : conf?.label === "MIXED" ? "warn" : "neutral" },
-        { icon: "🔭", label: "Projected end of year", value: proj ? proj.mid : "—", meaning: proj ? t("range {low}–{high} · {conf}", { low: proj.low, high: proj.high, conf: t(CONF_LEVEL[proj.confidence]) }) : t("Needs 4 first-try readings over 2 weeks"), tone: "info" },
+        { icon: "🔭", label: "Projected end of year", value: proj ? fmtLevel(proj.mid) : "—", meaning: proj ? t("range {low}–{high} · {conf}", { low: fmtLevel(proj.low), high: fmtLevel(proj.high), conf: t(CONF_LEVEL[proj.confidence]) }) : t("Needs 4 first-try readings over 2 weeks"), tone: "info" },
         { icon: "📚", label: "Words read", value: g.wordsRead.toLocaleString("en-US"), meaning: t("{n} readings · {w} a week (8 weeks)", { n: g.readings, w: g.avgPerWeek ?? 0 }), tone: "neutral" },
         { icon: "🧗", label: "Stretch success", value: fmt(g.stretch.pct, "%"), meaning: t("{n} of {m} stretch readings at 75%+", { n: g.stretch.succeeded, m: g.stretch.tried }), tone: (g.stretch.pct ?? 0) >= 75 ? "good" : "neutral" },
-        { icon: "🗓️", label: "Reading checks", value: RR_PERIODS.map((p) => g.checks[p]?.level ?? "—").join(" → "), meaning: RR_PERIODS.map((p) => t(RR_PERIOD_NAME[p])).join(" → "), tone: "info" },
+        { icon: "🗓️", label: "Reading checks", value: RR_PERIODS.map((p) => fmtLevel(g.checks[p]?.level)).join(" → "), meaning: RR_PERIODS.map((p) => t(RR_PERIOD_NAME[p])).join(" → "), tone: "info" },
         ...(g.unreliableRuns ? [{ icon: "⚡", label: "Unreliable readings", value: g.unreliableRuns, meaning: t("2+ answers too fast to be read: the level did not move"), tone: "bad" as const }] : []),
       ]} />
 
       <div className="grid gap-6 xl:grid-cols-2">
         <Section title="Level history" icon="🧭" hint={t("Placement, then every change with its reason. The shaded area is the grade's expected range (guidance).")}>
-          <ScaledLineChart labels={g.history.map((e) => e.at.slice(5, 10))} series={[{ name: t("ReadRise Level"), color: "#0f766e", points: pts }]} title={t("Level history")} min={range.min} max={range.max} ticks={range.ticks} band={{ ...g.band, label: t("Grade {g} expected range", { g: g.grade }) }} height={200} />
+          <ScaledLineChart labels={g.history.map((e) => e.at.slice(5, 10))} series={[{ name: t("ReadRise Level"), color: "#0f766e", points: pts }]} title={t("Level history")} min={range.min} max={range.max} ticks={range.ticks} band={{ ...g.band, label: t("Grade {g} Meets range", { g: g.grade }) }} height={200} levels />
           <ol className="mt-3 space-y-1.5 text-sm">
             {g.history.map((e, i) => (
               <li key={i} className="flex gap-2">
                 <span aria-hidden="true" className={`w-5 text-center ${e.kind === "UP" ? "text-emerald-700" : e.kind === "DOWN" ? "text-red-700" : "text-slate-500"}`}>{KIND_ICON[e.kind]}</span>
                 <span className="w-20 shrink-0 tabular-nums text-slate-500">{day(e.at)}</span>
-                <span className="w-24 shrink-0 font-semibold tabular-nums">{e.from !== null ? `${e.from} → ${e.level}` : e.level}</span>
+                <span className="w-24 shrink-0 font-semibold tabular-nums">{e.from !== null ? `${fmtLevel(e.from)} → ${fmtLevel(e.level)}` : fmtLevel(e.level)}</span>
                 <span className="min-w-0 text-slate-700">{e.reason}</span>
               </li>
             ))}
@@ -120,8 +123,8 @@ export function StudentGrowthView({ g, t, backHref }: { g: StudentGrowthReport; 
                 <tr key={x.runId} className="border-b last:border-0">
                   <td className="p-2 tabular-nums text-slate-600">{day(x.at)}</td>
                   <td className="p-2 font-semibold text-brand-navy">{x.title}</td>
-                  <td className="p-2 text-center tabular-nums">{x.textLevel}<span className="block text-[11px] text-slate-400">{t("version {v}", { v: x.versionLevel })}</span></td>
-                  <td className="p-2 text-center tabular-nums">{x.studentLevel}</td>
+                  <td className="p-2 text-center tabular-nums">{fmtLevel(Math.round(x.textLevel / 10) * 10)}<span className="block text-[11px] text-slate-400">{t("version {v}", { v: fmtLevel(x.versionLevel) })}</span></td>
+                  <td className="p-2 text-center tabular-nums">{fmtLevel(x.studentLevel)}</td>
                   <td className="p-2 text-center"><span className={`rounded-full px-2 py-0.5 text-xs font-semibold ring-1 ${FIT_STYLE[x.fit]}`}>{t(FIT_LABEL[x.fit])}</span></td>
                   <td className="p-2 text-center tabular-nums">{fmt(x.score, "%")}</td>
                   <td className="p-2 text-center text-xs text-slate-600">{t(x.stretch ? "stretch" : x.firstTry ? "first try" : "re-read")}</td>
@@ -147,7 +150,7 @@ export function ClassGrowthTab({ g, t, studentHref, assignHref }: { g: ClassGrow
         { icon: "🧠", label: "Weak skills", value: g.weaknesses.length, meaning: t("class accuracy under 70%"), tone: g.weaknesses.length ? "warn" : "good" },
       ]} />
       <div className="grid gap-6 xl:grid-cols-2">
-        <Section title="Where the class is" icon="📊" hint={t("Expected range for Grade {g}: {lo}–{hi}.", { g: g.grade, lo: g.band.low, hi: g.band.high })}>
+        <Section title="Where the class is" icon="📊" hint={t("Grade {g} Meets range: {range}.", { g: g.grade, range: rangeText(g.band) })}>
           <LevelBars buckets={g.distribution} title={t("Students by ReadRise Level")} t={t} />
         </Section>
         <Section title="Not reading" icon="💤" hint={t("No reading started or finished for 2 weeks.")}>
@@ -179,11 +182,11 @@ export function ClassGrowthTab({ g, t, studentHref, assignHref }: { g: ClassGrow
             <tbody>{g.students.map((x) => (
               <tr key={x.studentId} className="border-b last:border-0">
                 <td className="p-2"><Link href={studentHref(x.studentId)} className="font-semibold text-brand-navy hover:underline">{x.name}</Link></td>
-                <td className="p-2 text-center font-bold tabular-nums">{fmt(x.level)}</td>
+                <td className="p-2 text-center font-bold tabular-nums">{fmtLevel(x.level)}</td>
                 <td className={`p-2 text-center tabular-nums ${(x.growthTerm ?? 0) > 0 ? "text-emerald-700" : (x.growthTerm ?? 0) < 0 ? "text-red-700" : ""}`}>{signed(x.growthTerm)}</td>
                 <td className="p-2 text-slate-700">{x.level === null ? "—" : <><b className="tabular-nums">{x.confirmedBy}</b> {t("readings")}{x.against ? <span className="ms-1 text-xs text-amber-800">({t("{n} under 50%", { n: x.against })})</span> : null}</>}</td>
-                <td className="p-2 text-center tabular-nums">{x.projection ? <>{x.projection.mid}<span className="block text-[11px] text-slate-500">{x.projection.low}–{x.projection.high}</span></> : "—"}</td>
-                <td className="p-2 text-center text-xs">{x.position ? t(POSITION_TEXT[x.position]) : "—"}</td>
+                <td className="p-2 text-center tabular-nums">{x.projection ? <>{fmtLevel(x.projection.mid)}<span className="block text-[11px] text-slate-500">{fmtLevel(x.projection.low)}–{fmtLevel(x.projection.high)}</span></> : "—"}</td>
+                <td className="p-2 text-center text-xs">{x.gradeBand ? t(BAND_LABEL[x.gradeBand]) : "—"}</td>
               </tr>
             ))}</tbody>
           </table>

@@ -138,7 +138,7 @@
           ],
           "answer": "D",
           "skill": "detail",
-          "why": "The article says that as a gift he could use the king's library, which had many rare books.",
+          "why": "In the article, as a gift he could use the king's library, which had many rare books.",
           "wrong": {
             "A": "The article does not mention a house.",
             "B": "The article does not mention a horse or a sword.",
@@ -155,7 +155,7 @@
           ],
           "answer": "A",
           "skill": "detail",
-          "why": "The article says he told people to drink clean water, eat well, move, and sleep.",
+          "why": "In the article, he told people to drink clean water, eat well, move, and sleep.",
           "wrong": {
             "B": "He said to move, not to stay in bed all day.",
             "C": "He said to eat well, not to eat only one food.",
@@ -189,7 +189,7 @@
           ],
           "answer": "B",
           "skill": "sequence",
-          "why": "The article says he found a cure, and then the king got well.",
+          "why": "In the article, Ibn Sina found a cure, and then the king got well.",
           "wrong": {
             "A": "Ibn Sina did not go to Europe; his book did.",
             "C": "He knew poems when he was ten, long before this.",
@@ -208,7 +208,7 @@
           "skill": "inference",
           "why": "Grown doctors would only learn from a teen who knew a great deal about medicine.",
           "wrong": {
-            "A": "The article says he loved to read and learned fast.",
+            "A": "In the article, he loved to read and learned fast.",
             "C": "He was just a teen, so he was younger.",
             "D": "He also read many books on medicine."
           }
@@ -388,7 +388,7 @@
           "why": "He succeeded where the older palace doctors could not, which shows how much he knew even as a teenager.",
           "wrong": {
             "B": "Nothing in the article suggests the doctors wanted him to stay sick.",
-            "C": "The article says the ruler was very sick.",
+            "C": "The ruler was very sick.",
             "D": "He was called to the palace; he had not studied there."
           }
         },
@@ -496,7 +496,7 @@
           ],
           "answer": "B",
           "skill": "detail",
-          "why": "The article states that he set out careful rules for testing whether a medicine genuinely works.",
+          "why": "In the article, he set out careful rules for testing whether a medicine genuinely works.",
           "wrong": {
             "A": "The article does not mention him building a hospital.",
             "C": "The printing press is not mentioned.",
@@ -678,7 +678,7 @@
         ],
         "answer": "B",
         "skill": "detail",
-        "why": "The text says the book told how to find what was wrong and how to help the sick.",
+        "why": "In the text, the book told how to find what was wrong and how to help the sick.",
         "wrong": {
           "A": "The book was about medicine, not poems.",
           "C": "Building a library is not mentioned.",
@@ -697,7 +697,7 @@
         ],
         "answer": "C",
         "skill": "detail",
-        "why": "The text says he then studied math, science, and logic.",
+        "why": "In the text, he then studied math, science, and logic.",
         "wrong": {
           "A": "Farming and trade are not mentioned.",
           "B": "Art and music are not mentioned here.",
@@ -714,7 +714,7 @@
         ],
         "answer": "A",
         "skill": "sequence",
-        "why": "The text says he learned so fast that he was soon treating patients.",
+        "why": "In the text, he learned so fast that he was soon treating patients.",
         "wrong": {
           "B": "He wrote the Canon later in life.",
           "C": "The palace visit came at about seventeen.",
@@ -748,7 +748,7 @@
         ],
         "answer": "B",
         "skill": "cause-effect",
-        "why": "The text says he was called to the palace because the ruler of Bukhara was very sick.",
+        "why": "In the text, he was called to the palace because the ruler was very sick.",
         "wrong": {
           "A": "Teaching children is not mentioned.",
           "C": "He wrote the Canon later.",
@@ -767,7 +767,7 @@
         ],
         "answer": "D",
         "skill": "detail",
-        "why": "The text says he set out careful rules for testing whether a medicine really works.",
+        "why": "In the text, he set out careful rules for testing whether a medicine really works.",
         "wrong": {
           "A": "Poems are not mentioned in that way.",
           "B": "Building a palace is not mentioned.",

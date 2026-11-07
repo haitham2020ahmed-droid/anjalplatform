@@ -9,7 +9,7 @@ import { exportsOf } from "@/components/reports/report-ui";
 import { AtAGlance, ReportHeader, ReportIntro, ReportSection, ReportSummary } from "@/components/report-kit";
 import { readRiseSummary } from "@/lib/report-summaries";
 import { ReadRiseTabs, TEACHER_TABS } from "@/app/admin/readrise/_components/tabs";
-import { day, fmt, signed } from "@/app/admin/readrise/_components/ui";
+import { day, fmt, fmtLevel, signed } from "@/app/admin/readrise/_components/ui";
 import { getT } from "@/i18n/server";
 import type { TFn } from "@/i18n";
 
@@ -42,8 +42,8 @@ export default async function ReadRiseReportPage({ searchParams }: { searchParam
   const r = await readRiseTeacherReport(repo, actor, klass.id);
   const placed = r.students.filter((x) => x.placed);
   const levels = placed.flatMap((x) => [...x.points.map((p) => p.level), ...(x.projected ? [x.projected.low, x.projected.high] : [])]);
-  const lo = Math.max(200, Math.floor(((levels.length ? Math.min(...levels) : 500) - 50) / 100) * 100);
-  const hi = Math.min(1500, Math.ceil(((levels.length ? Math.max(...levels) : 1000) + 50) / 100) * 100);
+  const lo = Math.max(-400, Math.floor(((levels.length ? Math.min(...levels) : 500) - 50) / 100) * 100);
+  const hi = Math.min(1600, Math.ceil(((levels.length ? Math.max(...levels) : 1000) + 50) / 100) * 100);
   const studentHref = (id: string) => `/teacher/readrise?class=${klass.id}&student=${id}`;
   const checksOpen = r.summary.checksDue.MOY + r.summary.checksDue.EOY;
   return (
@@ -67,13 +67,13 @@ export default async function ReadRiseReportPage({ searchParams }: { searchParam
               <li key={x.studentId} className="rounded-2xl p-3 ring-1 ring-slate-200">
                 <div className="flex flex-wrap items-baseline justify-between gap-2">
                   <Link href={studentHref(x.studentId)} className="font-semibold text-brand-navy hover:underline"><bdi>{x.name}</bdi></Link>
-                  <span className="text-sm tabular-nums text-slate-700">{x.placed ? <><b>{x.level}</b>{x.startLevel !== null && x.level !== null && x.level !== x.startLevel ? <span className={`ms-1 text-xs ${x.level > x.startLevel ? "text-emerald-700" : "text-red-700"}`}>({signed(x.level - x.startLevel)})</span> : null}</> : <span className="text-xs font-semibold text-amber-800">{t("No placement yet")}</span>}</span>
+                  <span className="text-sm tabular-nums text-slate-700">{x.placed ? <><b>{fmtLevel(x.level)}</b>{x.startLevel !== null && x.level !== null && x.level !== x.startLevel ? <span className={`ms-1 text-xs ${x.level > x.startLevel ? "text-emerald-700" : "text-red-700"}`}>({signed(x.level - x.startLevel)})</span> : null}</> : <span className="text-xs font-semibold text-amber-800">{t("No placement yet")}</span>}</span>
                 </div>
                 {x.placed && <LevelLine s={x} lo={lo} hi={hi} yearStart={r.windows.yearStart} yearEnd={r.yearEnd} now={r.now} t={t} />}
                 <p className="mt-1 flex flex-wrap gap-x-3 gap-y-1 text-xs text-slate-600">
-                  {RR_PERIODS.map((p) => <span key={p}>{t(RR_PERIOD_NAME[p])}: <b className="tabular-nums text-slate-800">{x.checks[p]?.level ?? "—"}</b></span>)}
+                  {RR_PERIODS.map((p) => <span key={p}>{t(RR_PERIOD_NAME[p])}: <b className="tabular-nums text-slate-800">{fmtLevel(x.checks[p]?.level)}</b></span>)}
                 </p>
-                {x.placed && <p className="mt-0.5 text-xs text-slate-600">{t("Projected end of year (estimate)")}: <b className="tabular-nums text-slate-800">{x.projected ? `${x.projected.mid} (${x.projected.low}–${x.projected.high})` : t("not enough readings yet")}</b></p>}
+                {x.placed && <p className="mt-0.5 text-xs text-slate-600">{t("Projected end of year (estimate)")}: <b className="tabular-nums text-slate-800">{x.projected ? `${fmtLevel(x.projected.mid)} (${fmtLevel(x.projected.low)}–${fmtLevel(x.projected.high)})` : t("not enough readings yet")}</b></p>}
               </li>
             ))}
           </ul>
@@ -87,7 +87,7 @@ export default async function ReadRiseReportPage({ searchParams }: { searchParam
               <h3 className="font-bold text-red-800">🔴 {t("Not reading")} <span className="font-normal text-slate-600">· {t("no counted reading for {n}+ days", { n: NOT_READING_DAYS })}</span></h3>
               {r.notReading.length === 0 ? <p className="text-slate-600">{t("Nobody.")}</p> : (
                 <ul data-testid="rr-report-not-reading" className="divide-y divide-slate-100">
-                  {r.notReading.map((x) => <li key={x.studentId} className="flex flex-wrap justify-between gap-2 py-2"><Link href={studentHref(x.studentId)} className="font-semibold text-brand-navy hover:underline"><bdi>{x.name}</bdi></Link><span className="tabular-nums text-slate-600">{x.level} · {x.days === null ? t("has not read yet") : t("last reading {n} days ago", { n: x.days })}</span></li>)}
+                  {r.notReading.map((x) => <li key={x.studentId} className="flex flex-wrap justify-between gap-2 py-2"><Link href={studentHref(x.studentId)} className="font-semibold text-brand-navy hover:underline"><bdi>{x.name}</bdi></Link><span className="tabular-nums text-slate-600">{fmtLevel(x.level)} · {x.days === null ? t("has not read yet") : t("last reading {n} days ago", { n: x.days })}</span></li>)}
                 </ul>
               )}
             </div>
@@ -95,7 +95,7 @@ export default async function ReadRiseReportPage({ searchParams }: { searchParam
               <h3 className="font-bold text-amber-800">🟠 {t("Reading, below 75%")} <span className="font-normal text-slate-600">· {t("{n}+ first tries in 4 weeks, none at 75%+, level unchanged", { n: BELOW_GOAL_TRIES })}</span></h3>
               {r.belowGoal.length === 0 ? <p className="text-slate-600">{t("Nobody.")}</p> : (
                 <ul data-testid="rr-report-below-goal" className="divide-y divide-slate-100">
-                  {r.belowGoal.map((x) => <li key={x.studentId} className="flex flex-wrap justify-between gap-2 py-2"><Link href={studentHref(x.studentId)} className="font-semibold text-brand-navy hover:underline"><bdi>{x.name}</bdi></Link><span className="tabular-nums text-slate-600">{x.level} · {t("{n} first tries in {d} days", { n: x.tries, d: BELOW_GOAL_DAYS })} · {t("best {n}", { n: fmt(x.best, "%") })}</span></li>)}
+                  {r.belowGoal.map((x) => <li key={x.studentId} className="flex flex-wrap justify-between gap-2 py-2"><Link href={studentHref(x.studentId)} className="font-semibold text-brand-navy hover:underline"><bdi>{x.name}</bdi></Link><span className="tabular-nums text-slate-600">{fmtLevel(x.level)} · {t("{n} first tries in {d} days", { n: x.tries, d: BELOW_GOAL_DAYS })} · {t("best {n}", { n: fmt(x.best, "%") })}</span></li>)}
                 </ul>
               )}
             </div>
@@ -112,7 +112,7 @@ export default async function ReadRiseReportPage({ searchParams }: { searchParam
         <ReportSection title="Rising fast" icon="🚀" className="mb-0" hint={<>{t("Up {n}+ in the last 4 weeks.", { n: RISING_GAIN })}</>}>
           {r.rising.length === 0 ? <p className="text-sm text-slate-600">{t("Nobody yet.")}</p> : (
             <ul data-testid="rr-report-rising" className="divide-y divide-slate-100 text-sm">
-              {r.rising.map((x) => <li key={x.studentId} className="flex flex-wrap justify-between gap-2 py-2"><Link href={studentHref(x.studentId)} className="font-semibold text-brand-navy hover:underline"><bdi>{x.name}</bdi></Link><span className="tabular-nums font-semibold text-emerald-700">{x.level} ({signed(x.gain)})</span></li>)}
+              {r.rising.map((x) => <li key={x.studentId} className="flex flex-wrap justify-between gap-2 py-2"><Link href={studentHref(x.studentId)} className="font-semibold text-brand-navy hover:underline"><bdi>{x.name}</bdi></Link><span className="tabular-nums font-semibold text-emerald-700">{fmtLevel(x.level)} ({signed(x.gain)})</span></li>)}
             </ul>
           )}
         </ReportSection>
@@ -158,18 +158,18 @@ function LevelLine({ s, lo, hi, yearStart, yearEnd, now: nowIso, t }: { s: Repor
   pts.forEach((q, i) => { d += i === 0 ? `M${q.x},${q.y}` : ` H${q.x} V${q.y}`; });
   const lastX = x(Math.min(now, t1));
   if (pts.length) d += ` H${lastX}`;
-  const label = `${s.name}: ${s.points.map((p) => `${p.at.slice(0, 10)} ${p.level}`).join(", ")}${s.projected ? `; ${t("Projected end of year (estimate)")} ${s.projected.mid}` : ""}`;
+  const label = `${s.name}: ${s.points.map((p) => `${p.at.slice(0, 10)} ${fmtLevel(p.level)}`).join(", ")}${s.projected ? `; ${t("Projected end of year (estimate)")} ${fmtLevel(s.projected.mid)}` : ""}`;
   return (
     <svg viewBox={`0 0 ${W} ${H}`} className="mt-1 h-24 w-full" role="img" aria-label={label}>
-      {[lo, Math.round((lo + hi) / 200) * 100, hi].map((v) => <g key={v}><line x1={L} x2={W - R} y1={y(v)} y2={y(v)} stroke="#e2e8f0" /><text x={L - 4} y={y(v) + 3} fontSize="8" textAnchor="end" fill="#64748b">{v}</text></g>)}
+      {[lo, Math.round((lo + hi) / 200) * 100, hi].map((v) => <g key={v}><line x1={L} x2={W - R} y1={y(v)} y2={y(v)} stroke="#e2e8f0" /><text x={L - 4} y={y(v) + 3} fontSize="8" textAnchor="end" fill="#64748b">{fmtLevel(v)}</text></g>)}
       <path d={d} fill="none" stroke="#0f766e" strokeWidth="2" />
       {s.projected && pts.length > 0 && <>
         <line x1={lastX} y1={pts[pts.length - 1].y} x2={x(t1)} y2={y(s.projected.mid)} stroke="#6366f1" strokeWidth="1.5" strokeDasharray="4 3" />
         <line x1={x(t1) - 2} x2={x(t1) - 2} y1={y(s.projected.high)} y2={y(s.projected.low)} stroke="#a5b4fc" strokeWidth="3" />
       </>}
       {pts.map((q, i) => q.p.kind === "PLACEMENT" || q.p.kind === "START"
-        ? <rect key={i} x={q.x - 3.5} y={q.y - 3.5} width="7" height="7" fill="#1e3a8a"><title>{`${q.p.at.slice(0, 10)} · ${q.p.level}`}</title></rect>
-        : <circle key={i} cx={q.x} cy={q.y} r="2.5" fill={q.p.kind === "DOWN" ? "#dc2626" : q.p.kind === "UP" ? "#059669" : "#64748b"}><title>{`${q.p.at.slice(0, 10)} · ${q.p.level}`}</title></circle>)}
+        ? <rect key={i} x={q.x - 3.5} y={q.y - 3.5} width="7" height="7" fill="#1e3a8a"><title>{`${q.p.at.slice(0, 10)} · ${fmtLevel(q.p.level)}`}</title></rect>
+        : <circle key={i} cx={q.x} cy={q.y} r="2.5" fill={q.p.kind === "DOWN" ? "#dc2626" : q.p.kind === "UP" ? "#059669" : "#64748b"}><title>{`${q.p.at.slice(0, 10)} · ${fmtLevel(q.p.level)}`}</title></circle>)}
       <text x={L} y={H - 2} fontSize="8" fill="#64748b">{yearStart.slice(0, 7)}</text>
       <text x={W - R} y={H - 2} fontSize="8" textAnchor="end" fill="#64748b">{yearEnd.slice(0, 7)}</text>
     </svg>

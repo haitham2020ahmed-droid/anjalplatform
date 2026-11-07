@@ -1,4 +1,5 @@
 import type { TFn } from "@/i18n";
+import { formatLevel } from "@/server/readrise/level";
 
 /**
  * 🚀 The student's ReadRise level over time (the student file): placement, then every change, as a step line.
@@ -22,14 +23,14 @@ export function ReadRiseLevelChart({ t, history }: { t: TFn; history: { at: stri
   return (
     <figure className="mt-2">
       <svg viewBox={`0 0 ${W} ${H}`} className="h-auto w-full" role="img" aria-label={t("ReadRise level over time")}>
-        {[lo, hi].map((v, i) => <g key={i}><line x1={L} x2={W - R} y1={y(v)} y2={y(v)} stroke="#e2e8f0" /><text x={L - 6} y={y(v) + 4} textAnchor="end" fontSize="11" fill="#64748b">{Math.round(v)}</text></g>)}
+        {[lo, hi].map((v, i) => <g key={i}><line x1={L} x2={W - R} y1={y(v)} y2={y(v)} stroke="#e2e8f0" /><text x={L - 6} y={y(v) + 4} textAnchor="end" fontSize="11" fill="#64748b">{formatLevel(Math.round(v))}</text></g>)}
         <path d={d} fill="none" stroke="#0f766e" strokeWidth="3" strokeLinejoin="round" />
         {pts.map((p, i) => <circle key={i} cx={x(p.x)} cy={y(p.y)} r="4" fill="#0f766e" />)}
         <text x={L} y={H - 6} fontSize="11" fill="#64748b">{day(minX)}</text>
         <text x={W - R} y={H - 6} fontSize="11" fill="#64748b" textAnchor="end">{day(maxX)}</text>
       </svg>
       <figcaption className="text-sm text-slate-600">
-        {t("ReadRise level")}: <b className="tabular-nums" dir="ltr">{first}</b> → <b className="tabular-nums" dir="ltr">{last}</b>{" "}
+        {t("ReadRise level")}: <b className="tabular-nums" dir="ltr">{formatLevel(first)}</b> → <b className="tabular-nums" dir="ltr">{formatLevel(last)}</b>{" "}
         <span className={change > 0 ? "text-emerald-700" : change < 0 ? "text-rose-700" : "text-slate-500"} dir="ltr">({change > 0 ? "+" : ""}{change})</span>
       </figcaption>
     </figure>

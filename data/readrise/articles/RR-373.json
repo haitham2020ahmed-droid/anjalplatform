@@ -818,7 +818,7 @@
         ],
         "answer": "B",
         "skill": "cause-effect",
-        "why": "The text says the long drought drained their strength and their resolve.",
+        "why": "In the text, the long drought drained their strength and their resolve.",
         "wrong": {
           "A": "The panicked birds do not become calm.",
           "C": "They grow exhausted, not faster.",

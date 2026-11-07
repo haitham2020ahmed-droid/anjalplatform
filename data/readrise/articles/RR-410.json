@@ -172,7 +172,7 @@
      ],
      "answer": "C",
      "skill": "detail",
-     "why": "The story says Yusuf saw big, round holes called craters on the moon.",
+     "why": "In the story, Yusuf saw big, round holes called craters on the moon.",
      "wrong": {
       "A": "There are no trees on the moon in the story.",
       "B": "No flag is mentioned in the story.",
@@ -351,7 +351,7 @@
      ],
      "answer": "A",
      "skill": "cause-effect",
-     "why": "The article says putting the telescope together required patience, since several small parts were tricky to fit into place.",
+     "why": "In the article, putting the telescope together required patience, since several small parts were tricky to fit into place.",
      "wrong": {
       "B": "The printed instructions are inside the box the whole time.",
       "C": "No rain is mentioned in the article.",
@@ -496,7 +496,7 @@
      ],
      "answer": "D",
      "skill": "detail",
-     "why": "The article explains that craters form when rocks hurtling through space collide with the moon at tremendous speed.",
+     "why": "Craters form when rocks from space hit the moon at very high speed.",
      "wrong": {
       "A": "Wind is never given as a cause of craters.",
       "B": "Volcanic eruptions are not mentioned as a cause.",
@@ -513,7 +513,7 @@
      ],
      "answer": "A",
      "skill": "detail",
-     "why": "The article explains that the lenses work together to gather and focus distant light into a single, sharp image.",
+     "why": "The two lenses work together to gather and focus faraway light into a clear picture.",
      "wrong": {
       "B": "The telescope in the article does not take photographs.",
       "C": "The lenses do not change colors.",
@@ -547,7 +547,7 @@
      ],
      "answer": "B",
      "skill": "cause-effect",
-     "why": "The article says several of the smaller components proved surprisingly difficult to fit correctly into place.",
+     "why": "In the article, several of the smaller components proved surprisingly difficult to fit correctly into place.",
      "wrong": {
       "A": "The printed instructions are used throughout the assembly.",
       "C": "The article does not describe them using an unfinished telescope.",
@@ -697,7 +697,7 @@
     ],
     "answer": "B",
     "skill": "detail",
-    "why": "The article says a telescope makes far-off objects look much bigger and closer.",
+    "why": "In the article, a telescope makes far-off objects look much bigger and closer.",
     "wrong": {
      "A": "It does not change how bright the sky is.",
      "C": "It does not change how the moon moves.",

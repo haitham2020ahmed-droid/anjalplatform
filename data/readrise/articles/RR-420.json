@@ -172,7 +172,7 @@
           ],
           "answer": "C",
           "skill": "vocabulary",
-          "why": "The story explains that old Egyptians used signs, little marks, to write words.",
+          "why": "In the story, a sign is a mark that people long ago used to write.",
           "wrong": {
             "A": "A sign is carved on stone, but it is not the stone itself.",
             "B": "A sign is not a tool for working.",
@@ -624,7 +624,7 @@
         ],
         "answer": "C",
         "skill": "detail",
-        "why": "The text says the pyramid was made of big stone blocks.",
+        "why": "In the text, the pyramid was made of big stone blocks.",
         "wrong": {
           "A": "Clay bricks are not mentioned.",
           "B": "Wood is not mentioned.",

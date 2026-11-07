@@ -231,7 +231,7 @@
           }
         },
         {
-          "stem": "Read this sentence: \"It sends lightning safely into the ground.\" What does this describe?",
+          "stem": "Which invention sends lightning safely into the ground?",
           "options": [
             "The kite that Franklin flew",
             "The metal key tied to the string",
@@ -317,7 +317,7 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The article states that Franklin attached a slender, pointed wire to the top of the kite to attract electrical charge.",
+          "why": "In the article, Franklin attached a thin metal wire to the top of the kite.",
           "wrong": {
             "A": "A wooden stick is not mentioned as the attracting part.",
             "B": "Cloth is not described as part of the kite's design for this purpose.",
@@ -334,7 +334,7 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The article says Franklin stood beneath a dry shed to stay reasonably safe during the storm.",
+          "why": "In the article, Franklin stood beneath a dry shed to stay reasonably safe during the storm.",
           "wrong": {
             "A": "He specifically avoided standing in the open.",
             "B": "The article does not say he stayed inside his house.",
@@ -483,7 +483,7 @@
           "wrong": {
             "B": "The article credits Franklin with proving lightning's nature, not with discovering electricity itself.",
             "C": "The lightning rod is presented as a deliberate invention following directly from the kite experiment.",
-            "D": "The article states that natural philosophers did not yet understand lightning before Franklin's test."
+            "D": "In the article, natural philosophers did not yet understand lightning before Franklin's test."
           }
         },
         {
@@ -496,7 +496,7 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The article explains that natural philosophers did not yet understand what lightning truly was or how it formed, leaving the phenomenon poorly understood.",
+          "why": "In the article, natural philosophers did not yet understand what lightning truly was or how it formed, leaving the phenomenon poorly understood.",
           "wrong": {
             "A": "This was specifically Franklin's own hypothesis, not the common view at the time.",
             "B": "Ocean currents are not mentioned anywhere in the article.",
@@ -547,7 +547,7 @@
           ],
           "answer": "A",
           "skill": "inference",
-          "why": "The article states this choice partly demonstrated that profound scientific truths need not require expensive or specialized equipment.",
+          "why": "His choice showed that big scientific discoveries do not always need expensive equipment.",
           "wrong": {
             "B": "Affordability is not given as his reason; the article frames it as a deliberate choice.",
             "C": "The article does not suggest he thought expensive equipment would be superior.",
@@ -678,7 +678,7 @@
         ],
         "answer": "B",
         "skill": "detail",
-        "why": "The text says the glasses let people see far and near.",
+        "why": "In the text, the glasses let people see far and near.",
         "wrong": {
           "A": "Hearing is not mentioned.",
           "C": "The shed helped him stay dry, not the glasses.",
@@ -748,7 +748,7 @@
         ],
         "answer": "B",
         "skill": "detail",
-        "why": "The text says bifocal glasses have two lenses in one pair.",
+        "why": "In the text, bifocal glasses have two lenses in one pair.",
         "wrong": {
           "A": "The metal rod is the lightning rod.",
           "C": "The string was part of the kite.",
@@ -767,7 +767,7 @@
         ],
         "answer": "A",
         "skill": "detail",
-        "why": "The text says he lived in colonial Philadelphia in the eighteenth century.",
+        "why": "In the text, he lived in colonial Philadelphia in the eighteenth century.",
         "wrong": {
           "B": "London is not named.",
           "C": "Rome is not named.",
@@ -818,7 +818,7 @@
         ],
         "answer": "C",
         "skill": "detail",
-        "why": "The text says two lenses in one pair let a wearer view far and near objects without switching pairs.",
+        "why": "Bifocals have two lenses in one pair, so a person can see far and near without changing glasses.",
         "wrong": {
           "A": "Night vision is not mentioned.",
           "B": "Looking at the sun is not mentioned.",

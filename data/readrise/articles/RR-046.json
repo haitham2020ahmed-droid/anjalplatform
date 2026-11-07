@@ -124,7 +124,7 @@
           "why": "The whole article explains what a black hole is, how one forms, and how scientists find one.",
           "wrong": {
             "A": "The article is not a guide to finding stars.",
-            "C": "The article says the Sun is too small to become a black hole; it does not say it is the biggest star.",
+            "C": "In the article, the Sun is too small to become a black hole; it does not say it is the biggest star.",
             "D": "Rockets are not part of the article."
           }
         },
@@ -138,7 +138,7 @@
           ],
           "answer": "A",
           "skill": "detail",
-          "why": "The article says the pull is so strong that not even light can escape.",
+          "why": "In the article, the pull is so strong that not even light can escape.",
           "wrong": {
             "B": "The article says nothing can escape, not just big rocks.",
             "C": "Nothing escapes, not only small stars.",
@@ -223,11 +223,11 @@
           ],
           "answer": "A",
           "skill": "inference",
-          "why": "The article says black holes are very far from Earth and our Sun is too small to become one, so we are safe.",
+          "why": "In the article, black holes are very far from Earth and our Sun is too small to become one, so we are safe.",
           "wrong": {
             "B": "The article says not to worry because black holes are far from us.",
-            "C": "The article says the Sun is too small to become one.",
-            "D": "The article says we cannot see black holes."
+            "C": "In the article, the Sun is too small to become one.",
+            "D": "In the article, we cannot see black holes."
           }
         },
         {
@@ -317,7 +317,7 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The article says the edge of a black hole is called the event horizon, and anything that crosses it can never return.",
+          "why": "In the article, the edge of a black hole is called the event horizon, and anything that crosses it can never return.",
           "wrong": {
             "A": "The glowing gas is a clue scientists use, not the event horizon.",
             "B": "The center of our galaxy holds a giant black hole, but that is not the event horizon.",
@@ -334,7 +334,7 @@
           ],
           "answer": "A",
           "skill": "detail",
-          "why": "The article says a giant black hole sits at the center of the Milky Way and holds about four million times as much matter as the Sun.",
+          "why": "In the article, a giant black hole sits at the center of the Milky Way and holds about four million times as much matter as the Sun.",
           "wrong": {
             "B": "The article does not describe a small star at the center.",
             "C": "Telescopes are on Earth, not at the center of the galaxy.",
@@ -351,7 +351,7 @@
           ],
           "answer": "B",
           "skill": "vocabulary",
-          "why": "The article explains that these stars have about twenty times more matter than the Sun, so massive means very big and heavy.",
+          "why": "In the article, these stars have about twenty times more matter than the Sun, so massive means very big and heavy.",
           "wrong": {
             "A": "The article does not say these stars are old and cold.",
             "C": "Color is not what massive means.",
@@ -368,7 +368,7 @@
           ],
           "answer": "D",
           "skill": "cause-effect",
-          "why": "The article explains that without fuel the star can no longer support its weight and begins to collapse.",
+          "why": "In the article, without fuel the star can no longer support its weight and begins to collapse.",
           "wrong": {
             "A": "The star does not become a planet.",
             "B": "The article does not say the star moves around the Sun.",
@@ -385,7 +385,7 @@
           ],
           "answer": "A",
           "skill": "inference",
-          "why": "The article says gas swirling toward a black hole gets so hot it glows. Light from the glowing gas can be seen, but the black hole gives off none.",
+          "why": "In the article, gas swirling toward a black hole gets so hot it glows. Light from the glowing gas can be seen, but the black hole gives off none.",
           "wrong": {
             "B": "The article says the gas becomes very hot, not cold.",
             "C": "The article does not say the gas is closer to Earth.",
@@ -496,7 +496,7 @@
           ],
           "answer": "B",
           "skill": "detail",
-          "why": "The article says the outer layers are hurled into space in a supernova while the core collapses inward.",
+          "why": "In the article, the outer layers are hurled into space in a supernova while the core collapses inward.",
           "wrong": {
             "A": "The core collapses; it does not expand into a galaxy.",
             "C": "The article does not describe stars cooling into planets.",
@@ -513,7 +513,7 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The article explains that radio telescopes on several continents were linked so they worked like a single Earth-sized telescope.",
+          "why": "In the article, radio telescopes on several continents were linked so they worked like a single Earth-sized telescope.",
           "wrong": {
             "A": "Nothing returns from beyond the event horizon, and no spacecraft was sent.",
             "B": "The article describes many linked telescopes, not one mirror.",
@@ -530,7 +530,7 @@
           ],
           "answer": "D",
           "skill": "vocabulary",
-          "why": "The article says the matter is crushed into an incredibly small space, which is what makes it dense.",
+          "why": "Dense means a lot of matter is packed into a very small space.",
           "wrong": {
             "A": "Dense describes how tightly matter is packed, not speed.",
             "B": "Glowing describes the hot gas, not density.",
@@ -564,7 +564,7 @@
           ],
           "answer": "B",
           "skill": "inference",
-          "why": "The article states that anything crossing the event horizon, including light, can never return, which explains the name.",
+          "why": "Nothing that crosses the event horizon, not even light, can come back, which explains the name.",
           "wrong": {
             "A": "The article does not connect the event horizon to new stars.",
             "C": "Telescopes did point there; the 2019 and 2022 images show black hole shadows.",
@@ -584,7 +584,7 @@
           "why": "Since no light leaves a black hole, the images must show its dark shadow against the light of hot gas around it.",
           "wrong": {
             "A": "Light cannot leave the inside, so no image could show it.",
-            "B": "The article says the Sun is far too small to become a black hole.",
+            "B": "In the article, the Sun is far too small to become a black hole.",
             "C": "The images came from telescopes on Earth."
           }
         },
@@ -627,7 +627,7 @@
         ],
         "answer": "B",
         "skill": "detail",
-        "why": "The text says gas near a black hole gets hot and glows.",
+        "why": "In the text, gas near a black hole gets hot and glows.",
         "wrong": {
           "A": "The gas gets hot, not cold.",
           "C": "The text never says gas becomes a star.",
@@ -644,7 +644,7 @@
         ],
         "answer": "A",
         "skill": "cause-effect",
-        "why": "The text says the star burns for a long time, then its fuel runs out and it falls in.",
+        "why": "In the text, the star shines for a long time, then its fuel runs out and it falls in.",
         "wrong": {
           "B": "A telescope only takes pictures; it does not pull stars.",
           "C": "Distance is not the reason the star falls in.",
@@ -681,7 +681,7 @@
         "why": "The author says black holes are far from us and the Sun is too small to be one, so we are safe.",
         "wrong": {
           "A": "The text says stars are real and can be seen.",
-          "B": "The text says the Sun is too small to become a black hole.",
+          "B": "In the text, the Sun is too small to become a black hole.",
           "D": "The author does not ask readers to look for one."
         }
       }
@@ -714,7 +714,7 @@
         ],
         "answer": "A",
         "skill": "cause-effect",
-        "why": "The text says the matter is squeezed into a very small space, so gravity becomes extremely strong.",
+        "why": "In the text, the matter is squeezed into a very small space, so gravity becomes extremely strong.",
         "wrong": {
           "B": "Shining for millions of years happens before the collapse.",
           "C": "The text does not mention moving away from other stars.",
@@ -784,7 +784,7 @@
         ],
         "answer": "C",
         "skill": "cause-effect",
-        "why": "The text says that after the star exhausts its fuel, it can no longer support its own enormous weight.",
+        "why": "When the star runs out of fuel, it can no longer hold up its own huge weight.",
         "wrong": {
           "A": "The text never mentions a star being struck.",
           "B": "The star runs out of fuel; it does not overheat.",

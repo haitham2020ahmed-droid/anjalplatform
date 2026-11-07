@@ -138,7 +138,7 @@
           ],
           "answer": "D",
           "skill": "detail",
-          "why": "The article says sunlight looks white but is a mix of all the colors, like the colors in a rainbow.",
+          "why": "In the article, sunlight looks white but is a mix of all the colors, like the colors in a rainbow.",
           "wrong": {
             "A": "Sunlight looks white, but the article says it is really many colors mixed.",
             "B": "Blue is only one of the colors in sunlight.",
@@ -206,7 +206,7 @@
           ],
           "answer": "D",
           "skill": "inference",
-          "why": "The article says that in space there is no air to scatter light, so the sky is black. With no air, the Moon's sky would be black too.",
+          "why": "In space there is no air to scatter light, so the sky is black. With no air, the Moon's sky would be black too.",
           "wrong": {
             "A": "The sky is blue only because air scatters blue light.",
             "B": "A red sky comes from light passing through lots of air.",
@@ -402,7 +402,7 @@
           ],
           "answer": "A",
           "skill": "inference",
-          "why": "The article says larger dust and sand particles scatter all colors, so blue no longer stands out.",
+          "why": "In the article, larger dust and sand particles scatter all colors, so blue no longer stands out.",
           "wrong": {
             "B": "The air is still there; it just carries dust too.",
             "C": "The sun keeps shining during a dust storm.",
@@ -496,7 +496,7 @@
           ],
           "answer": "A",
           "skill": "detail",
-          "why": "The article says Rayleigh explained mathematically why tiny particles scatter short wavelengths far more strongly.",
+          "why": "In the article, Rayleigh explained mathematically why tiny particles scatter short wavelengths far more strongly.",
           "wrong": {
             "B": "Newton used a prism in the 1660s.",
             "C": "The article explains the black sky in space, but it does not credit Rayleigh.",
@@ -513,7 +513,7 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The article says cloud droplets are much larger than gas molecules and scatter all colors about equally, so the mixed light looks white.",
+          "why": "In the article, cloud droplets are much larger than gas molecules and scatter all colors about equally, so the mixed light looks white.",
           "wrong": {
             "A": "Scattering only blue would not make clouds white.",
             "B": "Clouds are made of water droplets, not nitrogen molecules.",
@@ -521,7 +521,7 @@
           }
         },
         {
-          "stem": "Newton's prism split light into \"distinct colors.\" What does distinct mean here?",
+          "stem": "In the article, what does the word \"distinct\" mean?",
           "options": [
             "Dull and faded like old cloth",
             "Clearly separate from one another",
@@ -644,7 +644,7 @@
         ],
         "answer": "A",
         "skill": "cause-effect",
-        "why": "The text says the bits scatter blue light much more than red, so blue light fills the sky.",
+        "why": "In the text, the bits scatter blue light much more than red, so blue light fills the sky.",
         "wrong": {
           "B": "Sunlight is a mix of all colors.",
           "C": "The text does not say red light is blocked in space.",
@@ -678,7 +678,7 @@
         ],
         "answer": "D",
         "skill": "detail",
-        "why": "The text says blue light comes at us from all sides.",
+        "why": "Blue light is scattered all over the sky, so it comes at us from all sides.",
         "wrong": {
           "A": "It is scattered across the whole sky.",
           "B": "The ground is not the source.",
@@ -697,7 +697,7 @@
         ],
         "answer": "A",
         "skill": "detail",
-        "why": "The text says wavelength is the distance from the top of one wave to the top of the next.",
+        "why": "In the text, wavelength is the distance from the top of one wave to the top of the next.",
         "wrong": {
           "B": "Weight is not mentioned.",
           "C": "Wind is not mentioned.",
@@ -714,7 +714,7 @@
         ],
         "answer": "C",
         "skill": "cause-effect",
-        "why": "The text says some of the light bounces off in many directions, which is called scattering.",
+        "why": "In the text, some of the light bounces off in many directions, which is called scattering.",
         "wrong": {
           "A": "Only some light is scattered.",
           "B": "Heat is not mentioned.",
@@ -767,7 +767,7 @@
         ],
         "answer": "B",
         "skill": "detail",
-        "why": "The text says the gas molecules are mostly nitrogen and oxygen.",
+        "why": "Most of the gas in air is nitrogen and oxygen.",
         "wrong": {
           "A": "Helium and neon are not mentioned.",
           "C": "Carbon and steam are not mentioned.",
@@ -818,7 +818,7 @@
         ],
         "answer": "B",
         "skill": "cause-effect",
-        "why": "The text says sunlight contains less violet, and human eyes are more sensitive to blue.",
+        "why": "Sunlight has less violet light, and our eyes are more sensitive to blue.",
         "wrong": {
           "A": "The text says violet is scattered even more.",
           "C": "Sunset is a different time of day.",

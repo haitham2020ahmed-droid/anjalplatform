@@ -121,10 +121,10 @@
           ],
           "answer": "A",
           "skill": "central-idea",
-          "why": "The article explains the body's own guards, like skin and blood cells, that fight germs.",
+          "why": "In the article, the body's own guards, like skin and blood cells, that fight germs.",
           "wrong": {
             "B": "The article is not about building anything.",
-            "C": "The article says some germs can make people sick.",
+            "C": "In the article, some germs can make people sick.",
             "D": "The article does not talk about coloring pictures."
           }
         },
@@ -189,7 +189,7 @@
           ],
           "answer": "C",
           "skill": "cause-effect",
-          "why": "The article says the blood cells remember a germ, so the next time they fight it fast.",
+          "why": "In the article, the blood cells remember a germ, so the next time they fight it fast.",
           "wrong": {
             "A": "The article says the body remembers the germ.",
             "B": "A germ does not turn into a fever.",
@@ -317,7 +317,7 @@
           ],
           "answer": "B",
           "skill": "detail",
-          "why": "The article states that skin is the first line of defense, blocking most germs before they get inside.",
+          "why": "In the article, skin is the first line of defense, blocking most germs before they get inside.",
           "wrong": {
             "A": "White blood cells are described as a second line of defense.",
             "C": "A fever is described as an extra tool, not the first line.",
@@ -334,7 +334,7 @@
           ],
           "answer": "A",
           "skill": "detail",
-          "why": "The article says white blood cells surround a harmful germ and swallow it whole, destroying it.",
+          "why": "In the article, white blood cells surround a harmful germ and swallow it whole, destroying it.",
           "wrong": {
             "B": "The article does not say germs are turned into harmless cells.",
             "C": "The article does not describe pushing germs back out.",
@@ -402,7 +402,7 @@
           ],
           "answer": "A",
           "skill": "inference",
-          "why": "The article says healthy habits like washing hands and sleeping keep the immune system strong, so skipping them would likely weaken it.",
+          "why": "In the article, healthy habits like washing hands and sleeping keep the immune system strong, so skipping them would likely weaken it.",
           "wrong": {
             "B": "Skin stays on the body regardless of these habits.",
             "C": "White blood cells do not multiply forever.",
@@ -513,7 +513,7 @@
           ],
           "answer": "A",
           "skill": "detail",
-          "why": "The article states that Mechnikov saw mobile cells surround and swallow foreign particles, which he named phagocytes.",
+          "why": "In the article, Mechnikov saw mobile cells surround and swallow foreign particles, which he named phagocytes.",
           "wrong": {
             "B": "The article describes cell behavior, not a rising fever in the creature.",
             "C": "The observation was about cells, not skin forming a barrier.",
@@ -547,7 +547,7 @@
           ],
           "answer": "A",
           "skill": "cause-effect",
-          "why": "The article explains that raising body temperature slows the growth of many pathogens, helping the immune system work more efficiently.",
+          "why": "Raising body temperature slows the growth of many germs, which helps the immune system work better.",
           "wrong": {
             "B": "A fever does not destroy the skin barrier.",
             "C": "Phagocytes continue forming and working during a fever.",
@@ -564,7 +564,7 @@
           ],
           "answer": "B",
           "skill": "inference",
-          "why": "The article says his discovery helped later scientists understand precisely how white blood cells defend the body against invaders.",
+          "why": "His discovery helped later scientists understand how white blood cells defend the body.",
           "wrong": {
             "A": "The article never claims sea creatures cannot get sick.",
             "C": "The article presents inflammation as a useful part of healing.",
@@ -627,7 +627,7 @@
         ],
         "answer": "A",
         "skill": "detail",
-        "why": "The text says germs are so small that you can not see them.",
+        "why": "Germs are so small that you cannot see them.",
         "wrong": {
           "B": "The text does not say they hide in the dark.",
           "C": "The text never mentions the sun.",
@@ -661,7 +661,7 @@
         ],
         "answer": "C",
         "skill": "cause-effect",
-        "why": "The text says a fever makes your body warmer, and the extra heat makes it harder for germs to grow.",
+        "why": "In the text, the heat of a fever slows down germs.",
         "wrong": {
           "A": "A fever makes the body warmer, not cold.",
           "B": "The text does not say a fever makes you sleep all day.",
@@ -682,7 +682,7 @@
         "wrong": {
           "A": "The blood cells are fast the next time.",
           "C": "Skin does not turn into a germ.",
-          "D": "The text says a fever can help the body."
+          "D": "In the text, a fever can help the body."
         }
       }
     ],
@@ -701,7 +701,7 @@
         "wrong": {
           "A": "The text does not say how hard they are to avoid.",
           "C": "Only a few kinds can make people sick.",
-          "D": "The text says germs live on hands, in the air, and on things you touch."
+          "D": "In the text, germs live on hands, in the air, and on things you touch."
         }
       },
       {
@@ -731,7 +731,7 @@
         ],
         "answer": "B",
         "skill": "cause-effect",
-        "why": "The text says a fever makes the body warmer, which can slow germs down.",
+        "why": "In the text, a fever makes the body warmer, which can slow germs down.",
         "wrong": {
           "A": "The text does not say skin gets thicker.",
           "C": "Memory cells stay in the body.",
@@ -767,7 +767,7 @@
         ],
         "answer": "B",
         "skill": "detail",
-        "why": "The text says most germs are harmless and many are even beneficial.",
+        "why": "In the text, most germs are harmless and many are even beneficial.",
         "wrong": {
           "A": "Only certain bacteria and viruses cause illness.",
           "C": "They are on hands, in the air, and on objects.",
@@ -801,7 +801,7 @@
         ],
         "answer": "A",
         "skill": "detail",
-        "why": "The text says inflammation brings extra phagocytes directly to a hurt or infected spot.",
+        "why": "Inflammation brings extra phagocytes to a hurt or infected spot.",
         "wrong": {
           "B": "Raising body heat is what a fever does.",
           "C": "Memory cells help the body remember germs.",

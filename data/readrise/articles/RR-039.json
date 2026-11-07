@@ -140,7 +140,7 @@
           "skill": "detail",
           "why": "The article says penguins cannot fly and use their flippers to swim.",
           "wrong": {
-            "B": "The article says penguins cannot fly.",
+            "B": "In the article, penguins cannot fly.",
             "C": "The article does not say penguins dig with their flippers.",
             "D": "The father keeps the egg warm on his feet, not with flippers."
           }
@@ -155,7 +155,7 @@
           ],
           "answer": "D",
           "skill": "detail",
-          "why": "The article says the mother gives the egg to the father, and he holds it on his feet.",
+          "why": "In the article, the mother gives the egg to the father, and he holds it on his feet.",
           "wrong": {
             "A": "The mother lays the egg, then gives it to the father and goes to the sea.",
             "B": "The chick is inside the egg.",
@@ -172,7 +172,7 @@
           ],
           "answer": "B",
           "skill": "vocabulary",
-          "why": "The article explains that when penguins huddle, they stand close in a big group.",
+          "why": "In the article, when penguins huddle, they stand very close together in a group.",
           "wrong": {
             "A": "Swimming out to sea is how penguins find food, not how they huddle.",
             "C": "A huddle is a group, not one penguin alone.",
@@ -351,7 +351,7 @@
           ],
           "answer": "C",
           "skill": "vocabulary",
-          "why": "The article explains that the black back and white front make penguins harder for predators to spot, which is camouflage.",
+          "why": "In the article, the black back and white front make penguins harder for predators to spot, which is camouflage.",
           "wrong": {
             "A": "The article does not describe penguin calls.",
             "B": "A layer of fat under the skin is blubber.",
@@ -368,7 +368,7 @@
           ],
           "answer": "B",
           "skill": "cause-effect",
-          "why": "The article says these colors make it harder for a predator, such as a leopard seal or an orca, to spot a penguin.",
+          "why": "In the article, these colors make it harder for a predator, such as a leopard seal or an orca, to spot a penguin.",
           "wrong": {
             "A": "Blubber and feathers keep penguins warm, not their colors.",
             "C": "The article says penguins cannot fly.",
@@ -496,7 +496,7 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The article says researchers use satellite images in which brownish stains from the birds' droppings reveal their locations.",
+          "why": "In the article, researchers use satellite images in which brownish stains from the birds' droppings reveal their locations.",
           "wrong": {
             "A": "Leopard seals are predators; the article does not say researchers follow them.",
             "B": "The article does not mention cameras on eggs.",
@@ -547,7 +547,7 @@
           ],
           "answer": "C",
           "skill": "cause-effect",
-          "why": "The article explains that the birds continuously rotate, so each one eventually reaches the center before returning to the edge.",
+          "why": "In the article, the birds continuously rotate, so each one eventually reaches the center before returning to the edge.",
           "wrong": {
             "A": "The article describes rotation, not pushing by stronger birds.",
             "B": "The article does not say the huddle moves toward the ocean.",
@@ -661,7 +661,7 @@
         ],
         "answer": "D",
         "skill": "cause-effect",
-        "why": "The text says the black back and white front help the penguin hide in the sea.",
+        "why": "In the text, the black back and white front help the penguin hide in the sea.",
         "wrong": {
           "A": "Feathers and fat keep out the cold.",
           "B": "The text does not say the colors help it find krill.",
@@ -678,7 +678,7 @@
         ],
         "answer": "B",
         "skill": "sequence",
-        "why": "The text says she goes to the sea to eat and comes back when the chick hatches.",
+        "why": "In the text, she goes to the sea to eat and comes back when the chick hatches.",
         "wrong": {
           "A": "The dad holds the egg on his feet.",
           "C": "The text does not say she huddles then.",
@@ -748,7 +748,7 @@
         ],
         "answer": "B",
         "skill": "cause-effect",
-        "why": "The text says the packed feathers keep out the wind and water.",
+        "why": "In the text, the packed feathers keep out the wind and water.",
         "wrong": {
           "A": "The text does not say feathers help it dive.",
           "C": "Scientists, not penguins, count animals.",
@@ -784,7 +784,7 @@
         ],
         "answer": "D",
         "skill": "detail",
-        "why": "The text says their wings evolved into stiff, paddle-shaped flippers.",
+        "why": "In the text, their wings evolved into stiff, paddle-shaped flippers.",
         "wrong": {
           "A": "Penguins cannot fly or glide.",
           "B": "The flippers are stiff, not soft.",

@@ -189,7 +189,7 @@
      ],
      "answer": "A",
      "skill": "inference",
-     "why": "The story says Lama is shy and the idea of performing makes her feel scared.",
+     "why": "In the story, Lama shakes her head because she feels shy and scared.",
      "wrong": {
       "B": "Lama and Noor stay good friends in the story.",
       "C": "Lama loves to draw; that is not the reason.",
@@ -223,7 +223,7 @@
      ],
      "answer": "D",
      "skill": "sequence",
-     "why": "The story says the room goes quiet for a moment, and then the kids start to clap loudly.",
+     "why": "In the story, the room is quiet for a moment, and then the kids clap.",
      "wrong": {
       "A": "Lama stays on stage holding up her picture.",
       "B": "The story does not mention the lights.",
@@ -334,7 +334,7 @@
      ],
      "answer": "B",
      "skill": "detail",
-     "why": "The story says Lama draws a new picture that shows her whole school seen from high above.",
+     "why": "In the story, Lama draws a new picture that shows her whole school seen from high above.",
      "wrong": {
       "A": "The picture shows the school, not neighborhood streets.",
       "C": "The picture is of the school, not of Noor.",
@@ -496,7 +496,7 @@
      ],
      "answer": "A",
      "skill": "detail",
-     "why": "The story says Lama's new illustration portrays her whole school as seen from high above the rooftops.",
+     "why": "In the story, Lama's new illustration portrays her whole school as seen from high above the rooftops.",
      "wrong": {
       "B": "Lama draws her school, not a portrait of Noor.",
       "C": "The illustration is of the school building, not the neighborhood.",
@@ -627,7 +627,7 @@
     ],
     "answer": "C",
     "skill": "detail",
-    "why": "The text says, \"Noor will sing in the show.\"",
+    "why": "In the story, Noor will sing in the show.",
     "wrong": {
      "A": "Other kids tell jokes, but Noor sings.",
      "B": "Lama is the one who draws, not Noor.",
@@ -678,7 +678,7 @@
     ],
     "answer": "B",
     "skill": "cause-effect",
-    "why": "Noor says, \"Your drawings are special,\" and then Lama thinks about it and goes home to draw.",
+    "why": "In the story, Noor tells Lama her drawings are special, and then Lama thinks about it and goes home.",
     "wrong": {
      "A": "The text does not say it is homework.",
      "C": "Her mother is not in the story.",

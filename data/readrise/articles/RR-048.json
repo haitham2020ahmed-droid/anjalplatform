@@ -124,7 +124,7 @@
           "why": "The article tells what comets are, how they get tails, and how their dust makes shooting stars.",
           "wrong": {
             "A": "The article does not talk about building a telescope.",
-            "C": "The article says shooting stars are not stars at all.",
+            "C": "In the article, shooting stars are not stars at all.",
             "D": "The Sun is in the article, but the article is not about how it makes light."
           }
         },
@@ -155,7 +155,7 @@
           ],
           "answer": "A",
           "skill": "detail",
-          "why": "The article says the tail always points away from the Sun.",
+          "why": "In the article, the tail always points away from the Sun.",
           "wrong": {
             "B": "The article says the opposite: the tail points away from the Sun.",
             "C": "The article does not say the tail points to Earth.",
@@ -189,7 +189,7 @@
           ],
           "answer": "D",
           "skill": "vocabulary",
-          "why": "The article says a comet goes round the Sun, and that path is its orbit.",
+          "why": "In the article, a comet goes round the Sun, and that path is its orbit.",
           "wrong": {
             "A": "A long tail of gas is the comet's tail.",
             "B": "Holes in the sand are craters made by rocks from space.",
@@ -317,7 +317,7 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The article says people last saw Halley's Comet in 1986 and that it will return in 2061.",
+          "why": "In the article, people last saw Halley's Comet in 1986 and that it will return in 2061.",
           "wrong": {
             "A": "1986 was the last time it was seen.",
             "B": "August is when the Perseids meteor shower happens.",
@@ -496,7 +496,7 @@
           ],
           "answer": "B",
           "skill": "detail",
-          "why": "The article states that the nucleus may measure only a few kilometers across.",
+          "why": "In the article, the nucleus may be only a few kilometers wide.",
           "wrong": {
             "A": "The article never compares the nucleus with Earth.",
             "C": "Grains of sand describe meteor particles, not the nucleus.",
@@ -513,7 +513,7 @@
           ],
           "answer": "D",
           "skill": "detail",
-          "why": "The article says Earth crosses the debris of a comet named Swift-Tuttle every August.",
+          "why": "Every August, Earth passes through the dust left by a comet named Swift-Tuttle.",
           "wrong": {
             "A": "Halley's Comet is described separately and is not linked to the Perseids.",
             "B": "Wabar is the name of craters in Saudi Arabia.",
@@ -547,7 +547,7 @@
           ],
           "answer": "C",
           "skill": "cause-effect",
-          "why": "The article explains that sunlight and the solar wind continuously push the tail outward from the Sun.",
+          "why": "Sunlight and the solar wind keep pushing the tail away from the Sun.",
           "wrong": {
             "A": "The article says the direction of travel does not matter.",
             "B": "The article does not say Earth's gravity affects the tail.",
@@ -584,7 +584,7 @@
           "why": "Most particles vaporize in the atmosphere; only a larger rock occasionally survives the fiery descent to reach the ground.",
           "wrong": {
             "B": "Meteorites can land anywhere; the Wabar craters are only one example.",
-            "C": "The article says comets leave debris all along their orbits.",
+            "C": "In the article, comets leave debris all along their orbits.",
             "D": "The solar wind is linked to comet tails, not to falling meteors."
           }
         },
@@ -629,7 +629,7 @@
         "skill": "inference",
         "why": "A comet that comes back each 76 years must keep going round the Sun on its orbit.",
         "wrong": {
-          "B": "The text says a comet is far out in the dark most of the time.",
+          "B": "In the text, a comet is far out in the dark most of the time.",
           "C": "The text says a comet is a ball of ice, dust, and rock, not a star.",
           "D": "It comes back, so it does not burn up."
         }
@@ -644,7 +644,7 @@
         ],
         "answer": "C",
         "skill": "cause-effect",
-        "why": "The text says the bits hit our air fast, get hot, and burn.",
+        "why": "The dust bits rush into our air, get hot, and burn.",
         "wrong": {
           "A": "The bits get hot, not cold.",
           "B": "The ice turns to gas near the Sun; the bits do not turn into ice.",
@@ -678,7 +678,7 @@
         ],
         "answer": "B",
         "skill": "detail",
-        "why": "The text says big rocks like that hit the sand in Saudi Arabia and made big holes.",
+        "why": "In the text, big rocks like that hit the sand in Saudi Arabia and made big holes.",
         "wrong": {
           "A": "The tail is gas and dust and does not reach the ground.",
           "C": "Gas from the Sun is not linked to the holes in the text.",
@@ -697,7 +697,7 @@
         ],
         "answer": "C",
         "skill": "detail",
-        "why": "The text says meteorites made the Wabar craters in the Empty Quarter of Saudi Arabia.",
+        "why": "In the text, meteorites made the Wabar craters in the Empty Quarter of Saudi Arabia.",
         "wrong": {
           "A": "The craters are on Earth, not on the Sun.",
           "B": "A comet's tail is not on the ground.",
@@ -731,7 +731,7 @@
         ],
         "answer": "B",
         "skill": "vocabulary",
-        "why": "The text says the atmosphere is the layer of air around our planet.",
+        "why": "The atmosphere is the layer of air around our planet.",
         "wrong": {
           "A": "That describes the glowing cloud near a comet.",
           "C": "That is an orbit.",
@@ -767,9 +767,9 @@
         ],
         "answer": "B",
         "skill": "vocabulary",
-        "why": "The text explains that some ice changes directly into gas without first becoming liquid.",
+        "why": "Sublimation means ice changes directly into gas without first becoming liquid.",
         "wrong": {
-          "A": "The text says the ice does not become liquid first.",
+          "A": "In sublimation, the ice does not become liquid first.",
           "C": "The change goes from ice to gas, not gas to solid.",
           "D": "The glow comes after the gas and dust spread out."
         }
@@ -784,7 +784,7 @@
         ],
         "answer": "D",
         "skill": "cause-effect",
-        "why": "The text says the air in front of the particles is compressed and heated so much that they burn up and glow.",
+        "why": "The air in front of the particles is squeezed and heated so much that they burn up and glow.",
         "wrong": {
           "A": "The text does not link the glow to the Moon.",
           "B": "The particles are bits of dust and rock, not gas.",
@@ -801,7 +801,7 @@
         ],
         "answer": "A",
         "skill": "detail",
-        "why": "The text says people last observed Halley's Comet in 1986.",
+        "why": "Halley's Comet was last seen in 1986.",
         "wrong": {
           "B": "The text does not give 1961.",
           "C": "2061 is when it is expected to return.",

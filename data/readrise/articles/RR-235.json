@@ -138,7 +138,7 @@
      ],
      "answer": "B",
      "skill": "detail",
-     "why": "The article says the Sun sits at the very center of our solar system.",
+     "why": "In the article, the Sun sits at the very center of our solar system.",
      "wrong": {
       "A": "The Sun is not located near Mars.",
       "C": "The Sun is not between those two planets.",
@@ -163,7 +163,7 @@
      }
     },
     {
-     "stem": "Read: \"This path is called an orbit.\" What does orbit mean?",
+     "stem": "In the article, what is an orbit?",
      "options": [
       "A bright light that shines in the night sky above",
       "A kind of hard rock that is found out in deep space",
@@ -342,7 +342,7 @@
      }
     },
     {
-     "stem": "Read: \"Eight planets orbit the Sun, held in their paths by the Sun's gravity.\" What does gravity mean?",
+     "stem": "In the article, what does the word \"gravity\" mean?",
      "options": [
       "A bright light given off by a star",
       "A kind of rock found in the asteroid belt",
@@ -521,7 +521,7 @@
      }
     },
     {
-     "stem": "Read: \"These giants have a composition dominated by gas and ice.\" What does composition mean?",
+     "stem": "In the article, what does the word \"composition\" mean?",
      "options": [
       "The direction a planet travels",
       "The distance between two planets",
@@ -627,7 +627,7 @@
     ],
     "answer": "C",
     "skill": "detail",
-    "why": "The text says eight worlds, called planets, move around the Sun.",
+    "why": "Eight planets move around the Sun.",
     "wrong": {
      "A": "Four is the number of small rocky worlds, not all of them.",
      "B": "The text does not say six.",
@@ -731,7 +731,7 @@
     ],
     "answer": "A",
     "skill": "detail",
-    "why": "The text says the giant planets are built mostly from thick layers of gas and ice.",
+    "why": "The giant planets are made mostly of thick layers of gas and ice.",
     "wrong": {
      "B": "Rock and metal describe the inner planets.",
      "C": "The text does not say dust and sand.",
@@ -758,20 +758,20 @@
   ],
   "HIGH": [
    {
-    "stem": "Which world is named as an example in the Kuiper Belt?",
+    "stem": "What lies between the rocky inner planets and the giant outer planets?",
     "options": [
-     "Mars",
-     "Pluto",
-     "Neptune",
-     "Mercury"
+     "The Kuiper Belt",
+     "The Moon",
+     "The asteroid belt",
+     "The Sun"
     ],
-    "answer": "B",
+    "answer": "C",
     "skill": "detail",
-    "why": "The text says the Kuiper Belt is home to small, icy worlds such as Pluto.",
+    "why": "The asteroid belt marks the boundary between the small rocky planets and the giant planets.",
     "wrong": {
-     "A": "Mars is a rocky planet near the Sun.",
-     "C": "Neptune is the last giant planet, not in the Kuiper Belt.",
-     "D": "Mercury is the closest planet to the Sun."
+     "A": "The Kuiper Belt lies beyond the giant planets.",
+     "B": "The Moon goes around Earth.",
+     "D": "The Sun is at the center."
     }
    },
    {
@@ -803,7 +803,7 @@
     "skill": "cause-effect",
     "why": "The text says they move more slowly because they orbit so much farther away.",
     "wrong": {
-     "B": "The text says they are small and icy.",
+     "B": "They are small and icy, not bigger than Neptune.",
      "C": "The text says they are icy, not rocky.",
      "D": "The asteroid belt is much closer to the Sun."
     }
@@ -818,11 +818,11 @@
     ],
     "answer": "A",
     "skill": "detail",
-    "why": "The text says they are smaller and share their orbital neighborhood with many other icy objects.",
+    "why": "They are smaller and share their part of space with many other icy objects.",
     "wrong": {
      "B": "They are far past Neptune.",
      "C": "They are icy, not rocky.",
-     "D": "The text says they still travel around the Sun."
+     "D": "They still travel around the Sun."
     }
    }
   ]

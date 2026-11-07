@@ -138,7 +138,7 @@
      ],
      "answer": "A",
      "skill": "detail",
-     "why": "The article says soap helps lift sweat, oil, and dirt off your skin so water can rinse it away.",
+     "why": "In the article, soap grabs dirt and lifts it off your skin.",
      "wrong": {
       "B": "The article does not say soap makes hands cold.",
       "C": "Soap does not turn germs into water.",
@@ -163,7 +163,7 @@
      }
     },
     {
-     "stem": "Read: \"Clean habits stop bad smells.\" What does smell mean here?",
+     "stem": "Clean habits stop bad smells. What does smell mean here?",
      "options": [
       "A loud sound that you can hear",
       "Something you notice with your nose",
@@ -206,7 +206,7 @@
      ],
      "answer": "B",
      "skill": "inference",
-     "why": "The article explains that bacteria can grow in unwashed clothes and cause a bad smell.",
+     "why": "Sweat and oil build up in clothes that are not washed, and bacteria can grow there and make a bad smell.",
      "wrong": {
       "A": "Weight is not mentioned in the article.",
       "C": "Fading color is not mentioned.",
@@ -317,7 +317,7 @@
      ],
      "answer": "B",
      "skill": "detail",
-     "why": "The article explains that soap molecules loosen these substances so running water can carry them away.",
+     "why": "In the article, soap molecules loosen these substances so running water can carry them away.",
      "wrong": {
       "A": "Drying out skin is not mentioned.",
       "C": "Soap does not turn bacteria into water.",
@@ -342,7 +342,7 @@
      }
     },
     {
-     "stem": "Read: \"soap molecules loosen sweat, oil, and dirt... allowing running water to carry the loosened residue away.\" What does residue mean here?",
+     "stem": "In the article, what does the word \"residue\" mean?",
      "options": [
       "A kind of soap used for cleaning things in the home",
       "A type of tiny bacteria that is found on the skin",
@@ -368,7 +368,7 @@
      ],
      "answer": "A",
      "skill": "cause-effect",
-     "why": "The article explains that trimming nails reduces the chance of spreading germs to your mouth, eyes, or face.",
+     "why": "In the article, trimming nails reduces the chance of spreading germs to your mouth, eyes, or face.",
      "wrong": {
       "B": "Temperature of hands is not mentioned.",
       "C": "Nail growth speed is not mentioned.",
@@ -393,7 +393,7 @@
      }
     },
     {
-     "stem": "The article says a hygiene routine is \"one of the simplest and most effective ways to stay healthy.\" What does this suggest?",
+     "stem": "What does the article suggest about simple daily hygiene habits?",
      "options": [
       "Good hygiene requires expensive tools",
       "Only trained scientists can follow a hygiene routine",
@@ -513,7 +513,7 @@
      ],
      "answer": "C",
      "skill": "detail",
-     "why": "The article states that ancient Babylonians produced an early soap from wood ash and animal fat.",
+     "why": "In the article, ancient Babylonians produced an early soap from wood ash and animal fat.",
      "wrong": {
       "A": "Bones and sand are not mentioned.",
       "B": "Water and salt are not described as soap ingredients.",
@@ -521,7 +521,7 @@
      }
     },
     {
-     "stem": "Read: \"A reliable hygiene routine... helps prevent chronic skin infections.\" What does chronic mean here?",
+     "stem": "In the article, what does the word \"chronic\" mean?",
      "options": [
       "Happening only one single time",
       "Lasting or recurring over a long time",
@@ -547,7 +547,7 @@
      ],
      "answer": "C",
      "skill": "cause-effect",
-     "why": "The article explains that bacteria and pathogens multiply in unwashed fabric, producing a strong, persistent odor.",
+     "why": "In the article, bacteria and pathogens multiply in unwashed fabric, producing a strong, persistent odor.",
      "wrong": {
       "A": "Fabric does not produce its own smell.",
       "B": "Sunlight and dye are not discussed.",
@@ -627,7 +627,7 @@
     ],
     "answer": "A",
     "skill": "detail",
-    "why": "The article says dirt and germs can build up and make your skin itch or make you smell.",
+    "why": "Dirt and germs can build up and make your skin itch or make you smell.",
     "wrong": {
      "B": "Water is not given as a cause.",
      "C": "Clean clothes help you stay clean.",
@@ -697,7 +697,7 @@
     ],
     "answer": "D",
     "skill": "detail",
-    "why": "The article says running water carries the residue away.",
+    "why": "In the article, running water carries the residue away.",
     "wrong": {
      "A": "Thicker soap is not mentioned.",
      "B": "The goal is to remove oil, not add it.",
@@ -731,7 +731,7 @@
     ],
     "answer": "B",
     "skill": "cause-effect",
-    "why": "The article says oil and dust build up on your scalp too.",
+    "why": "In the article, oil and dust build up on your scalp too.",
     "wrong": {
      "A": "Hair growth is not mentioned.",
      "C": "Strengthening hair is not mentioned.",

@@ -138,7 +138,7 @@
           ],
           "answer": "B",
           "skill": "detail",
-          "why": "The article says the scanner shines a beam of light onto the code and the light bounces back.",
+          "why": "In the article, the scanner shines a beam of light onto the code and the light bounces back.",
           "wrong": {
             "A": "Water is not used on barcodes.",
             "C": "Wind plays no part in scanning.",
@@ -155,7 +155,7 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The article says a cashier used to have to type every price by hand.",
+          "why": "In the article, a cashier used to have to type every price by hand.",
           "wrong": {
             "A": "Weighing boxes is not mentioned.",
             "B": "Calling the factory is not mentioned.",
@@ -189,7 +189,7 @@
           ],
           "answer": "A",
           "skill": "sequence",
-          "why": "The article says the idea for the barcode came in 1952, before the 1974 supermarket scan and later QR codes.",
+          "why": "The idea for the barcode came first, and scanning in supermarkets came later.",
           "wrong": {
             "B": "QR codes came after the barcode idea.",
             "C": "The supermarket scan happened in 1974, after 1952.",
@@ -303,7 +303,7 @@
           "why": "The article explains how both kinds of codes store information that a scanner or camera can read quickly and accurately.",
           "wrong": {
             "A": "Chewing gum is mentioned only as the first product ever scanned.",
-            "C": "The article says hand typing was slow, not faster.",
+            "C": "In the article, hand typing was slow, not faster.",
             "D": "Smartphones are shown scanning QR codes in the article."
           }
         },
@@ -334,7 +334,7 @@
           ],
           "answer": "A",
           "skill": "detail",
-          "why": "The article states that in 1974 a pack of chewing gum was the first product scanned at a real supermarket checkout.",
+          "why": "In 1974 a pack of chewing gum was the first product scanned at a real supermarket checkout.",
           "wrong": {
             "B": "QR codes were invented later, not in 1974.",
             "C": "Smartphones are not dated in the article.",
@@ -351,7 +351,7 @@
           ],
           "answer": "C",
           "skill": "vocabulary",
-          "why": "The article describes Woodland wanting a universal code that any store across the country could use.",
+          "why": "Woodland wanted one code that any store could use.",
           "wrong": {
             "A": "Universal means the opposite of only one store.",
             "B": "Laser light is a different concept.",
@@ -402,7 +402,7 @@
           ],
           "answer": "B",
           "skill": "compare",
-          "why": "The article says a QR code can hold far more information than a barcode, including whole web addresses.",
+          "why": "In the article, a QR code can hold far more information than a barcode, including whole web addresses.",
           "wrong": {
             "A": "Phones are shown scanning QR codes with their cameras.",
             "C": "QR codes are used in stores and other places, not only in Japan.",
@@ -513,7 +513,7 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The article says Hara designed the QR code to help factories track car or engine parts more efficiently.",
+          "why": "Hara made the QR code to help factories keep track of car parts more easily.",
           "wrong": {
             "A": "Cash registers are not mentioned as his goal.",
             "B": "Chewing gum relates to the first barcode scan, not the QR code's invention.",
@@ -581,7 +581,7 @@
           ],
           "answer": "A",
           "skill": "compare",
-          "why": "The article states that a QR code can encode considerably more information than a traditional barcode, including whole web addresses.",
+          "why": "In the article, a QR code can encode considerably more information than a traditional barcode, including whole web addresses.",
           "wrong": {
             "B": "Smartphone cameras are described scanning QR codes.",
             "C": "Barcodes are read repeatedly at checkouts, not used only once.",
@@ -661,7 +661,7 @@
         ],
         "answer": "D",
         "skill": "vocabulary",
-        "why": "The text says the number tells the price of the thing, and this is called the product.",
+        "why": "In the text, each product is a thing for sale in a store.",
         "wrong": {
           "A": "The scanner reads the code, but it is not the product.",
           "B": "The cashier is the shop worker.",
@@ -678,7 +678,7 @@
         ],
         "answer": "B",
         "skill": "compare",
-        "why": "The text says a barcode is made of lines and a QR code is made of small black squares.",
+        "why": "In the text, a barcode is made of lines and a QR code is made of small black squares.",
         "wrong": {
           "A": "The text does not mention red lines.",
           "C": "A barcode has many thick and thin lines.",
@@ -697,7 +697,7 @@
         ],
         "answer": "B",
         "skill": "detail",
-        "why": "The text says Woodland got the idea while drawing lines in beach sand with his fingers.",
+        "why": "In the text, Woodland got the idea while drawing lines in beach sand with his fingers.",
         "wrong": {
           "A": "Silver worked with Woodland, but Woodland drew in the sand.",
           "C": "The cashier is only named as the person who typed prices.",
@@ -767,7 +767,7 @@
         ],
         "answer": "D",
         "skill": "detail",
-        "why": "The text says the number identifies the item, its manufacturer, and often its size or color.",
+        "why": "The barcode number tells the exact item, who made it, and often its size or color.",
         "wrong": {
           "A": "The cashier is not named in the barcode.",
           "B": "The text says the item may have a color, not the store.",
@@ -784,7 +784,7 @@
         ],
         "answer": "A",
         "skill": "vocabulary",
-        "why": "The text says the computer decodes the pattern into a number almost instantly.",
+        "why": "In the text, the computer decodes the pattern into a number almost instantly.",
         "wrong": {
           "B": "Printing is how the pattern is made, not decoded.",
           "C": "Typing by hand is the old method.",
@@ -818,7 +818,7 @@
         ],
         "answer": "B",
         "skill": "sequence",
-        "why": "The text says the inventors developed it in 1952 and were granted a patent the next year.",
+        "why": "In the text, the inventors developed it in 1952 and were granted a patent the next year.",
         "wrong": {
           "A": "The gum was scanned in 1974.",
           "C": "The text does not give a date for the QR code.",

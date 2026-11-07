@@ -163,7 +163,7 @@
           }
         },
         {
-          "stem": "Read this sentence: \"Thick ice called glaciers sits high up.\" What does glacier mean here?",
+          "stem": "Thick ice called a glacier sits high up in these mountains. What does glacier mean here?",
           "options": [
             "A kind of mountain animal",
             "A huge, slow mass of ice",
@@ -206,7 +206,7 @@
           ],
           "answer": "B",
           "skill": "inference",
-          "why": "The article says the plates still push today, so the mountains still grow a little each year.",
+          "why": "In the article, the plates still push today, so the mountains are still growing.",
           "wrong": {
             "A": "Mountains are not built by hand.",
             "C": "Glaciers are ice on mountains, not new mountains forming.",
@@ -223,7 +223,7 @@
           ],
           "answer": "B",
           "skill": "inference",
-          "why": "The article says Sherpas live near the mountains and help climbers on hard trips.",
+          "why": "Local people help climbers on hard trips in the mountains.",
           "wrong": {
             "A": "Selling food is not mentioned in the article.",
             "C": "No one owns the mountains in the article.",
@@ -317,7 +317,7 @@
           ],
           "answer": "A",
           "skill": "detail",
-          "why": "The article explains that two tectonic plates collided and the land between them folded upward.",
+          "why": "Two plates crashed together, and the land between them folded upward.",
           "wrong": {
             "B": "Rivers flow from the mountains; they did not carve them.",
             "C": "The article does not mention volcanoes forming the range.",
@@ -342,7 +342,7 @@
           }
         },
         {
-          "stem": "Read the sentence: \"Two huge plates pushed into each other with great force.\" What does this tell us the plates did?",
+          "stem": "What did the two plates do to make the Himalayas?",
           "options": [
             "They slid past each other without touching",
             "They melted into liquid rock",
@@ -496,7 +496,7 @@
           ],
           "answer": "A",
           "skill": "detail",
-          "why": "The article explains that two tectonic plates collided head-on in a process called continental collision, thrusting the land upward.",
+          "why": "In the article, two tectonic plates collided head-on in a process called continental collision, thrusting the land upward.",
           "wrong": {
             "B": "No draining sea is described as the cause.",
             "C": "Volcanic eruptions are not presented as the formation process.",
@@ -513,7 +513,7 @@
           ],
           "answer": "B",
           "skill": "detail",
-          "why": "The article states that even as the plates push the range higher, erosion from wind, rain, and glacial ice wears the peaks down at the same time.",
+          "why": "In the article, even as the plates push the range higher, erosion from wind, rain, and glacial ice wears the peaks down at the same time.",
           "wrong": {
             "A": "The plateau's elevation is not described as decreasing.",
             "C": "Border changes are never discussed.",
@@ -521,7 +521,7 @@
           }
         },
         {
-          "stem": "Read the sentence: \"The Himalayas are still gaining elevation by a few millimeters each year.\" What does elevation mean here?",
+          "stem": "In the article, what does the word \"elevation\" mean?",
           "options": [
             "The number of climbers who reach the summit",
             "The amount of snow that falls each winter",
@@ -627,7 +627,7 @@
         ],
         "answer": "C",
         "skill": "detail",
-        "why": "The text says yaks are big and strong and carry loads.",
+        "why": "Yaks are big and strong, and they carry loads for people.",
         "wrong": {
           "A": "Snow leopards hunt in the snow.",
           "B": "Climbers, not yaks, climb Everest in the text.",
@@ -678,7 +678,7 @@
         ],
         "answer": "B",
         "skill": "inference",
-        "why": "The text says Everest is the tallest peak and many want to climb it.",
+        "why": "Mount Everest is the tallest peak, and many people want to climb it.",
         "wrong": {
           "A": "It is the tallest, not the lowest.",
           "C": "The air up high is thin.",
@@ -767,7 +767,7 @@
         ],
         "answer": "D",
         "skill": "detail",
-        "why": "The text says the Tibetan Plateau lies behind the range.",
+        "why": "In the text, the Tibetan Plateau lies behind the range.",
         "wrong": {
           "A": "No sea is mentioned behind the range.",
           "B": "No desert is mentioned.",
@@ -792,20 +792,20 @@
         }
       },
       {
-        "stem": "How do the Himalayas affect the rain clouds that feed the monsoon?",
+        "stem": "Why are the Himalayas still getting taller?",
         "options": [
-          "They push the clouds away",
-          "They turn the clouds to ice",
-          "They hold the clouds back",
-          "They make the clouds move faster"
+          "Snow keeps piling up on top",
+          "The plates keep pushing together",
+          "Rivers carry rocks up the slopes",
+          "Climbers add stones to the peaks"
         ],
-        "answer": "C",
+        "answer": "B",
         "skill": "cause-effect",
-        "why": "The text says the mountains hold back the rain clouds that feed the summer monsoon.",
+        "why": "The plates keep pushing together, so the Himalayas still rise a few millimeters each year.",
         "wrong": {
-          "A": "The mountains hold clouds back, not push them away.",
-          "B": "Turning clouds to ice is not mentioned.",
-          "D": "The text says the clouds are held back."
+          "A": "Snow does not make the mountains taller.",
+          "C": "Rivers carry rocks down, not up.",
+          "D": "Climbers do not change the mountains' height."
         }
       },
       {
@@ -821,8 +821,8 @@
         "why": "Costly and carefully planned trips suggest the climb takes a lot of money and preparation.",
         "wrong": {
           "B": "Careful planning means a plan is needed.",
-          "C": "The text says climbing is extraordinarily dangerous.",
-          "D": "The text says it draws expeditions from every corner of the world."
+          "C": "Climbing Everest is very dangerous, not safe and easy.",
+          "D": "In the text, it draws expeditions from every corner of the world."
         }
       }
     ]

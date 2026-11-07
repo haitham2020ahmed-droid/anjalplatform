@@ -11,6 +11,9 @@
  *                   goal attainment, top / bottom classes, level histogram
  *
  * Expected grade bands are guidance on the ReadRise Level scale (an estimate, not an official Lexile).
+ * Round 7 (owner: ONE grade band everywhere): the band is benchmarks.ts — meetsRange(grade) (the end-of-year "Meets"
+ * range) and gradeBand(grade, level) (Falls Far Below / Approaches / Meets / Exceeds). The old guidance table
+ * (Grade 4 640–940 …) is gone.
  */
 import type { Repo, Row } from "../seeding/repo";
 import { assertCan, type Actor } from "../auth/rbac";
@@ -19,7 +22,9 @@ import { RR_SKILLS } from "./import";
 import { goalDates, readRisePlaced, weekLabel, weekStart as engineWeekStart } from "./engine";
 import { questionKeys } from "./question-key";
 import { standardOfSkill } from "./growth-words";
-import { RR_FLOOR } from "./level";
+import { RR_FLOOR, formatLevel } from "./level";
+import { runTitle, versionTitles } from "./version-title";
+import { GRADE_BANDS as BAND_KEYS, gradeBand as benchBand, meetsRange, type GradeBand } from "./benchmarks";
 import { articleRuns, baseBand, countedTries, goalRuns, isUnreliableRun, keyRowsLookup, rapidRead, scoredRun, stretchRuns, tallyAnswers, tallyBy, tallyRuns } from "./first-try";
 
 const s = (v: unknown) => String(v ?? "");
@@ -29,9 +34,14 @@ const time = (v: unknown) => (v === null || v === undefined ? null : new Date(v 
 // either, or lucky guesses inflate firstTryAvg, goal attainment % and per-skill accuracy shown on these dashboards.
 const unreliableRun = (r: Row) => isUnreliableRun(r);
 
-/** Expected ReadRise Level range by grade (guidance). */
-export const GRADE_BANDS: Record<number, { low: number; high: number }> = { 4: { low: 640, high: 940 }, 5: { low: 740, high: 1010 }, 6: { low: 830, high: 1070 } };
-export const gradeBand = (grade: number) => GRADE_BANDS[grade] ?? (grade < 4 ? { low: 420, high: 820 } : { low: 925, high: 1185 });
+/** The grade's expected range on the charts = the end-of-year "Meets" range (benchmarks.ts meetsRange; round 7). */
+export const gradeBand = (grade: number): { low: number; high: number } => { const m = meetsRange(grade); return { low: m.min, high: m.max }; };
+/** Students per grade band (benchmarks.ts), in the order Falls Far Below → Exceeds. */
+export function bandCounts(grade: number, levels: readonly number[]): Record<GradeBand, number> {
+  const out = Object.fromEntries(BAND_KEYS.map((b) => [b, 0])) as Record<GradeBand, number>;
+  for (const l of levels) out[benchBand(grade, l)]++;
+  return out;
+}
 /** A first-try score at or above this counts toward the weekly goal. */
 export const GOAL_SCORE = 75;
 export const INACTIVE_DAYS = 14;
@@ -196,14 +206,19 @@ export interface StudentReportRow {
   stretchArticles: number;
   lastActivity: string | null; writingToScore: number;
   /** notReading 🔴 / belowGoal 🟠 / missedGoal2w 📉: readingSignals (placed students only) */
-  flags: { notPlaced: boolean; inactive: boolean; belowBand: boolean; notReading: boolean; belowGoal: boolean; missedGoal2w: boolean };
+  /** round 7: belowBand = under the grade's "Meets" range (Approaches or Falls Far Below); farBelow = Falls Far Below */
+  flags: { notPlaced: boolean; inactive: boolean; belowBand: boolean; farBelow: boolean; notReading: boolean; belowGoal: boolean; missedGoal2w: boolean };
+  /** round 7: the grade band of the level now (benchmarks.ts gradeBand), null when not placed */
+  gradeBand: GradeBand | null;
   /** a placement test is started and not finished (a teacher can restart it) */
   placementOpen: boolean;
 }
 export interface ClassReport {
   classId: string; className: string; grade: number; band: { low: number; high: number };
   students: StudentReportRow[];
-  summary: { students: number; placed: number; notPlaced: number; medianLevel: number | null; avgGrowth: number | null; inactive: number; belowBand: number; writingToScore: number; notReading: number; belowGoal: number; missedGoal2w: number };
+  summary: { students: number; placed: number; notPlaced: number; medianLevel: number | null; avgGrowth: number | null; inactive: number; belowBand: number; writingToScore: number; notReading: number; belowGoal: number; missedGoal2w: number;
+    /** round 7: placed students per grade band (benchmarks.ts) */
+    bands: Record<GradeBand, number> };
   history: { weeks: string[]; series: { studentId: string; name: string; points: (number | null)[] }[]; median: (number | null)[] };
   /** label: "BR" (below 0) · "0" … "1500" · "1600+" */
   distribution: { from: number; to: number; count: number; inBand: boolean; label: string }[];
@@ -215,8 +230,8 @@ export interface ClassReport {
 // then 0–99, 100–199, 200–299 … 1500–1599 and "1600+" — a level under 300 is no longer hidden in the 200s bar.
 export const HIST_BUCKETS = [RR_FLOOR, ...Array.from({ length: 17 }, (_, i) => i * 100)]; // BR, 0–99 … 1600+
 
-/** A histogram bucket's short label: "BR" (below 0), "0", "100" … "1600+". */
-export const bucketLabel = (from: number, i: number, n = HIST_BUCKETS.length): string => (i === 0 && from < 0 ? "BR" : i === n - 1 ? `${from}+` : String(from));
+/** A histogram bucket's short label: "BR" (below 0), "0L", "100L" … "1600L+" (round 7: levels read with an L). */
+export const bucketLabel = (from: number, i: number, n = HIST_BUCKETS.length): string => (i === 0 && from < 0 ? "BR" : i === n - 1 ? `${formatLevel(from)}+` : formatLevel(from));
 
 export function histogram(levels: number[], band?: { low: number; high: number }): ClassReport["distribution"] {
   return HIST_BUCKETS.map((from, i) => {
@@ -252,7 +267,8 @@ export async function classReport(repo: Repo, actor: Actor, classId: string, now
       firstTryAvg: avg(arts.map((r) => Number(r.score))), goal: st ? Number(st.weeklyGoal ?? 2) : 0, goalMet: gw.met, goalWeeks: gw.weeks,
       lastActivity: last ? new Date(last).toISOString() : null,
       writingToScore: runs.filter((r) => s(r.writing).trim() && (r.writingScore === null || r.writingScore === undefined)).length,
-      flags: { notPlaced: !st, inactive: !!st && nowT - lastRef >= INACTIVE_DAYS * DAY, belowBand: level !== null && level < band.low, notReading: !!sig?.notReading, belowGoal: !!sig?.belowGoal, missedGoal2w: !!sig?.missedGoal2w },
+      flags: { notPlaced: !st, inactive: !!st && nowT - lastRef >= INACTIVE_DAYS * DAY, belowBand: level !== null && level < band.low, farBelow: level !== null && benchBand(grade, level) === "FAR_BELOW", notReading: !!sig?.notReading, belowGoal: !!sig?.belowGoal, missedGoal2w: !!sig?.missedGoal2w },
+      gradeBand: level === null ? null : benchBand(grade, level),
       placementOpen: d.openTest.has(id),
     };
   }).sort((a, b) => a.name.localeCompare(b.name));
@@ -274,6 +290,7 @@ export async function classReport(repo: Repo, actor: Actor, classId: string, now
       avgGrowth: avg(placed.map((r) => r.growth!)), inactive: rows.filter((r) => r.flags.inactive).length, belowBand: rows.filter((r) => r.flags.belowBand).length,
       writingToScore: rows.reduce((a, r) => a + r.writingToScore, 0),
       notReading: rows.filter((r) => r.flags.notReading).length, belowGoal: rows.filter((r) => r.flags.belowGoal).length, missedGoal2w: rows.filter((r) => r.flags.missedGoal2w).length,
+      bands: bandCounts(grade, placed.map((r) => r.level!)),
     },
     // round 4: the label is the week's Sunday in Riyadh time (weekStart is Saturday 21:00 UTC)
     history: { weeks: ends.map((t) => weekLabel(weekStart(t))), series, median: medianSeries },
@@ -394,16 +411,19 @@ export async function writingQueue(repo: Repo, actor: Actor, classId: string, op
   const d = await loadData(repo, ids, { map: false });
   const withText = d.runs.filter((r) => s(r.writing).trim());
   const articleIds = [...new Set(withText.map((r) => s(r.articleId)))];
-  const [arts, prompts] = articleIds.length ? await Promise.all([
+  const [arts, prompts, vTitles] = articleIds.length ? await Promise.all([
     repo.findMany("RRArticle", { id: { in: articleIds } }, { select: ["id", "title"] }),
     repo.findMany("RRPrompt", { articleId: { in: articleIds } }, { select: ["articleId", "band", "prompt", "checklist"] }),
-  ]) : [[], []];
+    versionTitles(repo, articleIds),
+  ]) : [[], [], new Map<string, string>()];
   const item = (r: Row): WritingItem => {
     const p = prompts.find((x) => x.articleId === r.articleId && x.band === baseBand(r.band)); // a stretch set (S-M) uses its band's prompt
     let checklist: unknown = p?.checklist ?? [];
     if (typeof checklist === "string") { try { checklist = JSON.parse(checklist); } catch { checklist = []; } }
     return {
-      runId: s(r.id), studentId: s(r.studentId), name: d.names.get(s(r.studentId)) ?? "Student", articleId: s(r.articleId), title: s(arts.find((a) => a.id === r.articleId)?.title) || "Article",
+      runId: s(r.id), studentId: s(r.studentId), name: d.names.get(s(r.studentId)) ?? "Student", articleId: s(r.articleId),
+      // round 7: the article title + "(read as: <version title> · 600L)" when the student's version has its own title
+      title: runTitle(s(arts.find((a) => a.id === r.articleId)?.title) || "Article", vTitles, s(r.articleId), r.versionLevel),
       band: s(r.band), prompt: s(p?.prompt), checklist: Array.isArray(checklist) ? checklist.map(String) : [], writing: s(r.writing),
       completedAt: r.completedAt ? new Date(r.completedAt as string).toISOString() : null, score: r.writingScore === null || r.writingScore === undefined ? null : Number(r.writingScore),
       aiScore: r.writingAiScore === null || r.writingAiScore === undefined ? null : Number(r.writingAiScore),

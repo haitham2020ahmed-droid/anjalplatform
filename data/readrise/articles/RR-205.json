@@ -155,7 +155,7 @@
           ],
           "answer": "B",
           "skill": "detail",
-          "why": "The article says scientists found a big hole in the ozone layer over Antarctica, a very cold place.",
+          "why": "Scientists found a big hole in the ozone layer over a very cold place.",
           "wrong": {
             "A": "The article does not say the hole was found over a desert.",
             "C": "The article does not mention a mountain.",
@@ -368,7 +368,7 @@
           ],
           "answer": "D",
           "skill": "cause-effect",
-          "why": "The article explains that CFCs drifted upward and broke apart ozone molecules, causing the hole.",
+          "why": "In the article, CFCs drifted upward and broke apart ozone molecules, causing the hole.",
           "wrong": {
             "A": "The article does not say temperature caused the hole.",
             "B": "Airplanes are not blamed for the hole in the article.",
@@ -513,7 +513,7 @@
           ],
           "answer": "D",
           "skill": "detail",
-          "why": "The article explains that each released chlorine atom is capable of destroying thousands of ozone molecules.",
+          "why": "Each chlorine atom can destroy thousands of ozone molecules.",
           "wrong": {
             "A": "The article does not describe chlorine cooling the stratosphere.",
             "B": "Treaties are agreements made by people, not chemical reactions.",
@@ -581,7 +581,7 @@
           ],
           "answer": "C",
           "skill": "inference",
-          "why": "The article notes that scientists remain alert because new, unregulated chemicals could pose a similar threat to CFCs.",
+          "why": "Scientists stay alert because new chemicals could harm the ozone layer the way CFCs did.",
           "wrong": {
             "A": "A chemical is not the same thing as a treaty.",
             "B": "The Montreal Protocol addressed known chemicals at the time, not every possible future one.",
@@ -627,7 +627,7 @@
         ],
         "answer": "B",
         "skill": "detail",
-        "why": "The text says UV light can hurt our skin and our eyes.",
+        "why": "In the text, UV light can hurt our skin and our eyes.",
         "wrong": {
           "A": "The text does not say UV light hurts hair or teeth.",
           "C": "Shoes and bags are not mentioned.",
@@ -661,7 +661,7 @@
         ],
         "answer": "A",
         "skill": "detail",
-        "why": "The text says people used the gas in old fridges and spray cans.",
+        "why": "In the text, people used the gas in old fridges and spray cans.",
         "wrong": {
           "B": "Cars and buses are not mentioned.",
           "C": "Shoes and bags are not mentioned.",
@@ -697,7 +697,7 @@
         ],
         "answer": "D",
         "skill": "detail",
-        "why": "The text says a person can get sunburned in under thirty minutes in strong sun.",
+        "why": "In the text, a person can get sunburned in under thirty minutes in strong sun.",
         "wrong": {
           "A": "Two days is far too long.",
           "B": "A week is far too long.",
@@ -750,7 +750,7 @@
         "skill": "author-purpose",
         "why": "The ending says that when nations act together on good evidence, they can fix harm that seemed permanent.",
         "wrong": {
-          "A": "The text says the ozone layer is slowly getting better.",
+          "A": "The ozone layer is slowly getting better.",
           "C": "How ozone forms is explained earlier.",
           "D": "Spray cans are only mentioned as one use of CFCs."
         }
@@ -762,12 +762,12 @@
         "options": [
           "By measuring shadows at midday",
           "By counting sunburned beachgoers",
-          "Using satellites and balloons",
+          "By using satellites and tools",
           "By testing the water in the sea"
         ],
         "answer": "C",
         "skill": "detail",
-        "why": "The text says researchers used instruments carried on satellites and weather balloons.",
+        "why": "Researchers used satellites and other instruments to measure the ozone layer.",
         "wrong": {
           "A": "Shadows are not mentioned.",
           "B": "The text does not say they counted sunburned people.",

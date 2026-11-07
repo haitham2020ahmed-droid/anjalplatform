@@ -124,7 +124,7 @@
           "why": "The article tells what a marathon is and how runners train, eat, drink, and pace themselves.",
           "wrong": {
             "A": "A marathon is a very long race, not a short one.",
-            "C": "The article says rest helps muscles get strong; it does not say running is bad.",
+            "C": "Rest helps muscles get strong; it does not say running is bad.",
             "D": "A track is only used to show how long the race is."
           }
         },
@@ -138,7 +138,7 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The article says most people take four to six hours.",
+          "why": "In the article, most people take four to six hours.",
           "wrong": {
             "A": "A marathon is far too long to run in ten minutes.",
             "B": "Even the best runners take just over two hours.",
@@ -155,7 +155,7 @@
           ],
           "answer": "A",
           "skill": "detail",
-          "why": "The article says the race got its name from an old tale about a man who ran from the town of Marathon.",
+          "why": "In the article, the race got its name from an old tale about a man who ran from the town of Marathon.",
           "wrong": {
             "B": "The article does not name a winner.",
             "C": "The article does not say the word means tired.",
@@ -172,7 +172,7 @@
           ],
           "answer": "B",
           "skill": "cause-effect",
-          "why": "The article says rest helps the runners' muscles heal and get strong.",
+          "why": "In the article, rest helps the runners' muscles heal and get strong.",
           "wrong": {
             "A": "Rest is part of training, not a way to forget the race.",
             "C": "The article does not talk about shoes.",
@@ -189,7 +189,7 @@
           ],
           "answer": "D",
           "skill": "vocabulary",
-          "why": "The article says runners who run out of energy feel like their legs are stone, and they call this the wall.",
+          "why": "In the article, runners who run out of energy feel like their legs are stone, and they call this the wall.",
           "wrong": {
             "A": "It is not a real wall on the track.",
             "B": "The crowds come to cheer, not to be kept away.",
@@ -317,7 +317,7 @@
           ],
           "answer": "D",
           "skill": "detail",
-          "why": "The article says the old story inspired the first Olympic marathon in 1896.",
+          "why": "In the article, the old story inspired the first Olympic marathon in 1896.",
           "wrong": {
             "A": "That is when the messenger's run is said to have happened.",
             "B": "The article does not mention 1947.",
@@ -359,7 +359,7 @@
           }
         },
         {
-          "stem": "What causes a runner to \"hit the wall\"?",
+          "stem": "What causes a runner to suddenly run out of energy in a long race?",
           "options": [
             "Drinking too much water",
             "Using up the energy stored in the muscles",
@@ -368,7 +368,7 @@
           ],
           "answer": "B",
           "skill": "cause-effect",
-          "why": "The article says late in a race some runners use up stored energy, and their legs feel heavy and slow.",
+          "why": "In the article, late in a race some runners use up stored energy, and their legs feel heavy and slow.",
           "wrong": {
             "A": "The article tells runners to drink water, not that water causes the wall.",
             "C": "The track is only used to compare distance.",
@@ -402,7 +402,7 @@
           ],
           "answer": "D",
           "skill": "compare",
-          "why": "The article says runners who start too fast run out of energy early, while experienced runners keep a steady pace.",
+          "why": "In the article, runners who start too fast run out of energy early, while experienced runners keep a steady pace.",
           "wrong": {
             "A": "The article does not say experienced runners stop often.",
             "B": "That describes the runner who starts too fast.",
@@ -496,10 +496,10 @@
           ],
           "answer": "C",
           "skill": "cause-effect",
-          "why": "The article says they increase their runs gradually so their bodies can adapt.",
+          "why": "In the article, they increase their runs gradually so their bodies can adapt.",
           "wrong": {
             "A": "Training still takes several months.",
-            "B": "The article says runners also schedule rest days.",
+            "B": "In the article, runners also schedule rest days.",
             "D": "Hydration is still essential."
           }
         },
@@ -581,7 +581,7 @@
           ],
           "answer": "C",
           "skill": "compare",
-          "why": "The article says historians consider the story partly a legend, but it still inspired the 1896 Olympic marathon.",
+          "why": "In the article, historians consider the story partly a legend, but it still inspired the 1896 Olympic marathon.",
           "wrong": {
             "A": "The messenger's run was not an Olympic event.",
             "B": "Times vary widely; the story gives no time.",
@@ -714,7 +714,7 @@
         ],
         "answer": "A",
         "skill": "cause-effect",
-        "why": "The text says rest gives their muscles time to heal and grow strong.",
+        "why": "In the text, rest gives their muscles time to heal and grow strong.",
         "wrong": {
           "B": "Hitting the wall happens late in a race.",
           "C": "Water is not linked to rest days.",
@@ -767,7 +767,7 @@
         ],
         "answer": "C",
         "skill": "detail",
-        "why": "The text says the first modern Olympic marathon was held in Athens in 1896.",
+        "why": "In the text, the first modern Olympic marathon was held in Athens in 1896.",
         "wrong": {
           "A": "Marathon is the town in the story, not where the Olympic race was held.",
           "B": "Riyadh is named only as a city that holds marathons today.",
@@ -784,7 +784,7 @@
         ],
         "answer": "D",
         "skill": "cause-effect",
-        "why": "The text says experienced runners keep a consistent pace and conserve strength for the final kilometers.",
+        "why": "In the text, experienced runners keep a consistent pace and conserve strength for the final kilometers.",
         "wrong": {
           "A": "The text does not link pace to starting first.",
           "B": "Marathons take hours, not under one hour.",

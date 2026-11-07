@@ -155,7 +155,7 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The article says Indonesia has more islands than almost any other place on Earth.",
+          "why": "Indonesia has one of the biggest chains of islands on Earth.",
           "wrong": {
             "A": "The Philippines has about seven thousand islands, fewer than Indonesia.",
             "B": "Saudi Arabia has a small archipelago, not the largest one.",
@@ -197,7 +197,7 @@
           }
         },
         {
-          "stem": "Read: \"Tiny sea animals build hard coral.\" What does coral mean here?",
+          "stem": "In the article, what does the word \"coral\" mean?",
           "options": [
             "A popular sunny tourist beach spot",
             "A warm current flowing through the sea",
@@ -243,7 +243,7 @@
           "why": "The article explains that people on an archipelago travel between islands by boat or plane instead of by road.",
           "wrong": {
             "A": "The article explains several differences, so it is not the same.",
-            "C": "The article says people do travel between islands.",
+            "C": "People do travel between the islands.",
             "D": "An archipelago is a group of many islands, not just one."
           }
         }
@@ -376,7 +376,7 @@
           }
         },
         {
-          "stem": "Read: \"a fixed place where magma keeps rising and building volcanoes.\" What does hotspot mean here?",
+          "stem": "In the article, what does the word \"hotspot\" mean?",
           "options": [
             "A popular sunny tourist beach spot",
             "A warm current flowing through the sea",
@@ -487,7 +487,7 @@
           }
         },
         {
-          "stem": "Read: \"one tectonic plate slowly descends beneath a neighboring plate.\" This process is called subduction. What does subduction mean?",
+          "stem": "In the article, what does the word \"subduction\" mean?",
           "options": [
             "One plate sinking beneath another plate",
             "Two plates spinning in the same direction",
@@ -627,7 +627,7 @@
         ],
         "answer": "B",
         "skill": "detail",
-        "why": "The text says people live there and fish in the sea.",
+        "why": "People who live on the islands fish in the sea.",
         "wrong": {
           "A": "Oil is not mentioned in the text.",
           "C": "Volcanoes form from hot rock, not from people.",
@@ -644,7 +644,7 @@
         ],
         "answer": "A",
         "skill": "inference",
-        "why": "The text says boats cross the sea from one spot to the next.",
+        "why": "In the text, people go from island to island by boat or plane.",
         "wrong": {
           "B": "Hot rock makes islands; boats do not dig it.",
           "C": "The text does not say people look for a new nation.",
@@ -661,7 +661,7 @@
         ],
         "answer": "C",
         "skill": "vocabulary",
-        "why": "The text says a group of islands sits close in the sea.",
+        "why": "In the text, a group of islands sits close in the sea.",
         "wrong": {
           "A": "Iron is not mentioned.",
           "B": "The text says the islands are close.",
@@ -731,10 +731,10 @@
         ],
         "answer": "A",
         "skill": "cause-effect",
-        "why": "The article says many islands sit far apart, so plants and animals have grown in their own ways.",
+        "why": "In the article, many islands sit far apart, so plants and animals have grown in their own ways.",
         "wrong": {
           "B": "Volcanoes are one way islands form, not the reason given.",
-          "C": "The article says coral is built by sea animals.",
+          "C": "In the article, coral is built by sea animals.",
           "D": "The article does not say people move them."
         }
       },
@@ -801,7 +801,7 @@
         ],
         "answer": "B",
         "skill": "cause-effect",
-        "why": "The article says a hotspot beneath a slowly drifting plate can produce a long line of islands.",
+        "why": "In the article, a hotspot beneath a slowly drifting plate can produce a long line of islands.",
         "wrong": {
           "A": "The article does not say flat sea floor does this.",
           "C": "Coral forms a different kind of island.",

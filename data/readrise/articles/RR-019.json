@@ -138,7 +138,7 @@
           ],
           "answer": "A",
           "skill": "detail",
-          "why": "The article says sunlight looks white but is a mix of many colors.",
+          "why": "In the article, sunlight looks white but is really a mix of colors.",
           "wrong": {
             "B": "Sunlight holds many colors, not just yellow.",
             "C": "Raindrops are in the air, but sunlight is not made of water.",
@@ -189,7 +189,7 @@
           ],
           "answer": "A",
           "skill": "cause-effect",
-          "why": "The article explains that each color bends a little more or less, so the colors spread out.",
+          "why": "Each color bends a different amount, so the colors spread out.",
           "wrong": {
             "B": "Raindrops are water, not paint.",
             "C": "The article does not say the wind splits the colors.",
@@ -206,7 +206,7 @@
           ],
           "answer": "D",
           "skill": "inference",
-          "why": "The article says the best time is when the sun is low, in the morning or late in the day. At noon the sun is high.",
+          "why": "In the article, the best time to look is when the sun is low. At noon the sun is high.",
           "wrong": {
             "A": "The article does not say raindrops dry up at noon.",
             "B": "There is plenty of sunlight at noon.",
@@ -223,7 +223,7 @@
           ],
           "answer": "B",
           "skill": "inference",
-          "why": "The article says you must stand with the sun behind you to see a rainbow.",
+          "why": "To see a rainbow, the sun must be behind you.",
           "wrong": {
             "A": "Spraying higher will not help if she is still facing the sun.",
             "C": "A rainbow needs sunlight, so the dark will not help.",
@@ -317,7 +317,7 @@
           ],
           "answer": "A",
           "skill": "detail",
-          "why": "The article says that when sunlight enters a drop it slows and bends, and this bending is called refraction.",
+          "why": "In the article, when sunlight enters a drop it slows and bends, and this bending is called refraction.",
           "wrong": {
             "B": "Reflection is when light bounces off the back of the drop.",
             "C": "The spectrum is the range of colors, not the bending.",
@@ -351,7 +351,7 @@
           ],
           "answer": "B",
           "skill": "vocabulary",
-          "why": "The article explains that the spectrum is the full range of colors that make up white light.",
+          "why": "In the article, the spectrum is the full range of colors that make up white light.",
           "wrong": {
             "A": "A clear block of glass is a prism.",
             "C": "A fainter rainbow is a second rainbow, not the spectrum.",
@@ -368,7 +368,7 @@
           ],
           "answer": "C",
           "skill": "cause-effect",
-          "why": "The article says light reflects twice inside the drops, so the second rainbow's colors appear in reverse order.",
+          "why": "In the article, light reflects twice inside the drops, so the second rainbow's colors appear in reverse order.",
           "wrong": {
             "A": "The article does not connect the order to how fast the sun moves.",
             "B": "Both rainbows come from the same raindrops.",
@@ -496,7 +496,7 @@
           ],
           "answer": "B",
           "skill": "detail",
-          "why": "The article states that red possesses the longest wavelength while violet possesses the shortest.",
+          "why": "In the article, red has the longest wavelength and violet has the shortest.",
           "wrong": {
             "A": "Violet has the shortest wavelength.",
             "C": "Green is in the middle of the spectrum.",
@@ -513,7 +513,7 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The article says Newton used prisms to demonstrate that white light contains every color.",
+          "why": "Newton used prisms to show that white light is made of all the colors.",
           "wrong": {
             "A": "The article does not connect Newton to the shape of rainbows.",
             "B": "Raindrops only behave like glass spheres; they are water.",
@@ -547,9 +547,9 @@
           ],
           "answer": "D",
           "skill": "cause-effect",
-          "why": "The article explains that red, which bends the least, appears on the outside, while violet, which bends the most, appears on the inside.",
+          "why": "In the article, red bends the least and is on the outside, while violet bends the most and is on the inside.",
           "wrong": {
-            "A": "The article says all colors travel together in one beam.",
+            "A": "In the article, sunlight looks white but is really made of many colors together.",
             "B": "Reflecting twice explains the second rainbow, not red's position.",
             "C": "Red has the longest wavelength, not the shortest."
           }
@@ -564,7 +564,7 @@
           ],
           "answer": "C",
           "skill": "inference",
-          "why": "The article says rainbows appear most often when the sun is low behind the observer; at noon the sun is high overhead.",
+          "why": "In the article, rainbows appear most often when the sun is low behind the observer; at noon the sun is high overhead.",
           "wrong": {
             "A": "The article says nothing about the size of raindrops at noon.",
             "B": "The article does not say Ibn al-Haytham made this claim.",
@@ -635,20 +635,20 @@
         }
       },
       {
-        "stem": "One day Omar sees two bows in the sky. Which bow has red at the bottom?",
+        "stem": "Omar sprays a hose with the sun at his back. What might he see?",
         "options": [
-          "The pale top bow",
-          "The bright low bow",
-          "Both of the bows",
-          "Neither of the bows"
+          "A small rainbow",
+          "A dark cloud",
+          "A full moon",
+          "A big snowfall"
         ],
         "answer": "A",
         "skill": "inference",
-        "why": "The text says the top bow is pale and its colors are flipped, so red is at the bottom.",
+        "why": "In the article, spraying water with the sun behind you can make a small rainbow.",
         "wrong": {
-          "B": "The bright bow has red on top.",
-          "C": "Only one bow has flipped colors.",
-          "D": "The top bow has flipped colors."
+          "B": "Spraying a hose does not make a cloud.",
+          "C": "The moon is not part of this.",
+          "D": "A hose does not make snow."
         }
       },
       {
@@ -731,7 +731,7 @@
         ],
         "answer": "D",
         "skill": "cause-effect",
-        "why": "The article says each color bends by a slightly different amount, so the colors split and fan out.",
+        "why": "In the article, each color bends by a slightly different amount, so the colors split and fan out.",
         "wrong": {
           "A": "The speed of the rain is not the reason.",
           "B": "A low sun helps you see the bow but does not split the colors.",
@@ -748,7 +748,7 @@
         ],
         "answer": "B",
         "skill": "cause-effect",
-        "why": "The article says the colors travel together in one beam, so we do not see them apart.",
+        "why": "In the article, the colors travel together in one beam, so we do not see them apart.",
         "wrong": {
           "A": "Distance is not the reason given.",
           "C": "Clouds are not given as the reason.",
@@ -767,7 +767,7 @@
         ],
         "answer": "B",
         "skill": "detail",
-        "why": "The article says light slows down and changes direction when it enters a drop, a process known as refraction.",
+        "why": "In the article, light slows down and bends when it enters a raindrop, and this is called refraction.",
         "wrong": {
           "A": "Bouncing off the back of the drop is reflection.",
           "C": "Refraction is about light, not rain.",
@@ -801,7 +801,7 @@
         ],
         "answer": "A",
         "skill": "cause-effect",
-        "why": "The article says a second, fainter rainbow forms with its colors in reverse order.",
+        "why": "In the article, a second, fainter rainbow can form with its colors in reverse order.",
         "wrong": {
           "B": "The article does not say violet disappears.",
           "C": "Rainbows are best seen when the sun is low.",
@@ -818,7 +818,7 @@
         ],
         "answer": "C",
         "skill": "sequence",
-        "why": "The article says the light reflects off the back and then bends a second time as it exits.",
+        "why": "In the article, the light reflects off the back and then bends a second time as it exits.",
         "wrong": {
           "A": "Light does not become rain.",
           "B": "The article does not send it back to the sun.",

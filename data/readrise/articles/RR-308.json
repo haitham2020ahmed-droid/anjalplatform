@@ -214,7 +214,7 @@
           }
         },
         {
-          "stem": "In the article, an apprentice is a \"helper who learns the craft.\" What does apprentice mean here?",
+          "stem": "A young apprentice works next to a master and learns the craft. What does apprentice mean here?",
           "options": [
             "A person who sells wood",
             "A person who owns and runs the entire workshop business",
@@ -231,7 +231,7 @@
           }
         },
         {
-          "stem": "Why does the article say this craft \"takes real skill\"?",
+          "stem": "Why does this craft take real skill?",
           "options": [
             "Because it uses expensive machines",
             "Because it takes years of practice with tools and wood",
@@ -240,7 +240,7 @@
           ],
           "answer": "B",
           "skill": "inference",
-          "why": "The article explains that the craft depends on years of practice with just wood and simple tools, which shows real skill.",
+          "why": "In the article, the craft depends on years of practice with just wood and simple tools, which shows real skill.",
           "wrong": {
             "A": "The article says simple tools are used, not expensive machines.",
             "C": "The article says this is an old craft, not a new one.",
@@ -644,7 +644,7 @@
         ],
         "answer": "D",
         "skill": "cause-effect",
-        "why": "The text says some window covers had small carved holes and light came in.",
+        "why": "In the text, some window covers had small carved holes and light came in.",
         "wrong": {
           "A": "Rain is not mentioned in the text.",
           "B": "Birds are not mentioned in the text.",
@@ -661,7 +661,7 @@
         ],
         "answer": "A",
         "skill": "vocabulary",
-        "why": "The text says workers cut small shapes into the wood, which is what carved means.",
+        "why": "In the text, craftsmen cut small shapes into the wood, which is what carved means.",
         "wrong": {
           "B": "The text does not say the wood was painted.",
           "C": "The worker shaped the wood, and did not carry it.",
@@ -680,7 +680,7 @@
         "skill": "inference",
         "why": "The text says no machine was used and the work was slow and careful, so a big door took many days.",
         "wrong": {
-          "A": "The text says the worker liked to carve the wood.",
+          "A": "In the text, the worker liked to carve the wood.",
           "B": "The text does not say anything about sleeping.",
           "D": "The text says doors were made of wood."
         }
@@ -731,7 +731,7 @@
         ],
         "answer": "D",
         "skill": "cause-effect",
-        "why": "The article says those carved lines give the door its real beauty and turn it into fine art.",
+        "why": "In the article, those carved lines give the door its real beauty and turn it into fine art.",
         "wrong": {
           "A": "The article says the door is built thick and heavy.",
           "B": "The article does not say the door is taken apart.",
@@ -801,7 +801,7 @@
         ],
         "answer": "A",
         "skill": "detail",
-        "why": "The article says the apprentice works closely side by side for several years before working alone.",
+        "why": "In the article, the apprentice works closely side by side for several years before working alone.",
         "wrong": {
           "B": "An afternoon is far shorter than several years.",
           "C": "A week is far shorter than several years.",
@@ -818,9 +818,9 @@
         ],
         "answer": "D",
         "skill": "inference",
-        "why": "The article says workers restore the doors so local people and tourists can study the original craft.",
+        "why": "Workers repair the old doors so people can study the original craft.",
         "wrong": {
-          "A": "The article says concrete is why few new doors are carved.",
+          "A": "In the article, concrete is why few new doors are carved.",
           "B": "The article says tourists study the doors, not buy them.",
           "C": "The article says the craft is carefully restored, so it has value."
         }

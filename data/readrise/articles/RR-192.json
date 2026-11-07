@@ -138,7 +138,7 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The article says the plants make shade and the soil blocks heat, so the rooms stay cool.",
+          "why": "In the article, the plants make shade and the soil blocks heat, so the rooms stay cool.",
           "wrong": {
             "A": "The article does not say the roof gets shiny.",
             "B": "The plants block sun; they do not let more in.",
@@ -206,7 +206,7 @@
           ],
           "answer": "D",
           "skill": "inference",
-          "why": "The article says the soil soaks up rain, so less water floods the streets.",
+          "why": "In the article, the soil soaks up rain, so less water floods the streets.",
           "wrong": {
             "A": "Plants cannot stop rain from falling.",
             "B": "A shiny roof does not stop floods.",
@@ -304,7 +304,7 @@
           "wrong": {
             "B": "Pools are not mentioned.",
             "C": "The article says concrete soaks up heat, which is a problem.",
-            "D": "The article says families can grow food on roofs."
+            "D": "In the article, families can grow food on roofs."
           }
         },
         {
@@ -317,7 +317,7 @@
           ],
           "answer": "C",
           "skill": "cause-effect",
-          "why": "The article says concrete buildings and dark roads absorb sunlight and slowly release the heat.",
+          "why": "In the article, concrete buildings and dark roads absorb sunlight and slowly release the heat.",
           "wrong": {
             "A": "The article says plants help cool the air.",
             "B": "The moon is not mentioned.",
@@ -334,7 +334,7 @@
           ],
           "answer": "B",
           "skill": "vocabulary",
-          "why": "The article explains that when water evaporates, it changes into a gas.",
+          "why": "In the article, when water evaporates, it changes into a gas.",
           "wrong": {
             "A": "Soaking into soil is different from changing into a gas.",
             "C": "Freezing makes ice, not gas.",
@@ -368,7 +368,7 @@
           ],
           "answer": "B",
           "skill": "cause-effect",
-          "why": "The article says the rooms below stay cooler, so people use less air conditioning.",
+          "why": "In the article, the rooms below stay cooler, so people use less air conditioning.",
           "wrong": {
             "A": "Plants do not make electricity for the building.",
             "C": "Gardens do not turn off lights.",
@@ -513,7 +513,7 @@
           ],
           "answer": "C",
           "skill": "cause-effect",
-          "why": "The article says evaporation requires energy, so it removes heat from the surrounding air.",
+          "why": "In the article, evaporation requires energy, so it removes heat from the surrounding air.",
           "wrong": {
             "A": "Evaporation removes water from leaves rather than adding it to soil.",
             "B": "Shade blocks sunlight, but that is a different process.",
@@ -627,7 +627,7 @@
         ],
         "answer": "B",
         "skill": "detail",
-        "why": "The text says roads and walls soak up the sun and then give off heat.",
+        "why": "In the text, roads and walls soak up the sun and then give off heat.",
         "wrong": {
           "A": "Nothing in the text turns heat into rain.",
           "C": "Roads and walls do not make shade in the text.",
@@ -661,7 +661,7 @@
         ],
         "answer": "A",
         "skill": "cause-effect",
-        "why": "The text says water goes out of the leaves into the air and that cools the air.",
+        "why": "Water goes out of the leaves into the air, and that cools the air.",
         "wrong": {
           "B": "The text does not link leaves to roof strength.",
           "C": "The water from leaves does not stop rain.",
@@ -680,7 +680,7 @@
         "skill": "inference",
         "why": "The text says wet soil is heavy and the roof must be strong, so plants that need less water make the load lighter.",
         "wrong": {
-          "A": "The text says bees come to the plants.",
+          "A": "The reason is about the weight on the roof, not about bees.",
           "B": "The text says you can grow tomatoes.",
           "D": "The text does not say mint needs no rain."
         }
@@ -714,7 +714,7 @@
         ],
         "answer": "A",
         "skill": "cause-effect",
-        "why": "The text says the soil soaks up the rain, so less water rushes into the streets and causes floods.",
+        "why": "In the text, the soil soaks up the rain, so less water rushes into the streets and causes floods.",
         "wrong": {
           "B": "The roads are not made of metal in the text.",
           "C": "The text does not say plants drink all the water.",
@@ -784,7 +784,7 @@
         ],
         "answer": "A",
         "skill": "detail",
-        "why": "The text says Toronto requires green roofs on certain large new buildings.",
+        "why": "In the text, Toronto requires green roofs on certain large new buildings.",
         "wrong": {
           "B": "Toronto requires them, it does not ban them.",
           "C": "Singapore offers support, and the text does not say Toronto pays families.",
@@ -818,7 +818,7 @@
         ],
         "answer": "B",
         "skill": "author-purpose",
-        "why": "The author says rooftop gardens are not a new idea, because ancient people planted them.",
+        "why": "Rooftop gardens are not a new idea, because people long ago also planted them.",
         "wrong": {
           "A": "Building height is not discussed.",
           "C": "The ancient gardens are not tied to Toronto's rule.",

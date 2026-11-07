@@ -138,7 +138,7 @@
           ],
           "answer": "A",
           "skill": "detail",
-          "why": "The article says sound waves first go into the outer ear, the flap-shaped part on the side of your head.",
+          "why": "In the article, sound goes into your outer ear first.",
           "wrong": {
             "B": "A signal reaches the brain only after several earlier steps happen.",
             "C": "Tiny bones shake after the eardrum, later in the process.",
@@ -240,7 +240,7 @@
           ],
           "answer": "D",
           "skill": "detail",
-          "why": "The article says the signal goes to your brain, and your brain reads the signal so you can hear the sound.",
+          "why": "In the article, the signal goes to your brain, and your brain reads the signal so you can hear the sound.",
           "wrong": {
             "A": "The outer ear only catches the sound at the start.",
             "B": "The eardrum shakes, but does not read the signal.",
@@ -334,7 +334,7 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The article explains that the three tiny bones pass vibrations from one to the next and amplify them before relaying them to the inner ear.",
+          "why": "In the article, the three tiny bones pass vibrations from one to the next and amplify them before relaying them to the inner ear.",
           "wrong": {
             "A": "Capturing sound waves is the job of the outer ear.",
             "B": "Converting vibrations into signals happens in the cochlea.",
@@ -496,7 +496,7 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The article states that the outer ear is formally designated the pinna.",
+          "why": "In the article, the outer ear is formally designated the pinna.",
           "wrong": {
             "A": "The cochlea is located inside the inner ear.",
             "B": "The tympanic membrane is another name for the eardrum, not the outer ear.",
@@ -661,7 +661,7 @@
         ],
         "answer": "C",
         "skill": "sequence",
-        "why": "The article says tiny bones pass the shake along after the eardrum shakes.",
+        "why": "In the article, tiny bones pass the shake along after the eardrum shakes.",
         "wrong": {
           "A": "The brain reads the signal near the end.",
           "B": "The sound does not leave the ear.",

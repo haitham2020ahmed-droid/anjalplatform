@@ -138,7 +138,7 @@
      ],
      "answer": "B",
      "skill": "detail",
-     "why": "The story says Noor and Hamza live in a small village set high among the mountains.",
+     "why": "In the story, Noor and Hamza live in a small village set high among the mountains.",
      "wrong": {
       "A": "No city or sea is mentioned in the story.",
       "C": "No boat is mentioned in the story.",
@@ -182,7 +182,7 @@
     {
      "stem": "What did Grandpa do right after the spring stopped?",
      "options": [
-      "He remembered an older spring from his own childhood",
+      "He thought of an old spring that he knew of",
       "He planted new trees near the village square",
       "He built a brand-new well in just one day",
       "He moved the whole village to another mountain"
@@ -317,7 +317,7 @@
      ],
      "answer": "B",
      "skill": "detail",
-     "why": "The story says the old spring was nearly five kilometers higher up in the mountains.",
+     "why": "In the story, the old spring was about five kilometers higher up the mountain.",
      "wrong": {
       "A": "The distance given in the story is much farther.",
       "C": "No river crossing is mentioned in the story.",
@@ -513,7 +513,7 @@
      ],
      "answer": "B",
      "skill": "detail",
-     "why": "The story explains that his own grandparents relied on that spring long ago, which is why he remembers the trail.",
+     "why": "In the story, his own grandparents relied on that spring long ago, which is why he remembers the trail.",
      "wrong": {
       "A": "He did not build the trail; he walked it as a child.",
       "C": "No newspaper is mentioned in the story.",
@@ -627,7 +627,7 @@
     ],
     "answer": "A",
     "skill": "detail",
-    "why": "The text says they walk up a rocky trail.",
+    "why": "In the text, they walk up a rocky trail.",
     "wrong": {
      "B": "The trail is rocky, not sandy.",
      "C": "No river path is mentioned.",
@@ -644,7 +644,7 @@
     ],
     "answer": "B",
     "skill": "cause-effect",
-    "why": "The text says the kids feel glad and run back with the news of the spring.",
+    "why": "In the story, the kids are happy and hurry back with the good news.",
     "wrong": {
      "A": "Fish are not in the story.",
      "C": "The kids like Grandpa and walk with him.",
@@ -697,7 +697,7 @@
     ],
     "answer": "B",
     "skill": "detail",
-    "why": "The text says they spot the old spring between two big rocks.",
+    "why": "In the text, they spot the old spring between two big rocks.",
     "wrong": {
      "A": "The village spring has stopped, and the well is not mentioned.",
      "C": "No cave is in the story.",
@@ -714,7 +714,7 @@
     ],
     "answer": "D",
     "skill": "cause-effect",
-    "why": "The text says the elders met to talk about what to do.",
+    "why": "In the text, the elders met to talk about what to do.",
     "wrong": {
      "A": "The village stays where it is.",
      "B": "Everyone feels anxious, so they do not rest.",

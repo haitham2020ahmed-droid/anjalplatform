@@ -138,7 +138,7 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The article says the rings are made of bits of ice and rock.",
+          "why": "In the article, the rings are made of bits of ice and rock.",
           "wrong": {
             "A": "The article does not say the rings are water and sand.",
             "B": "The rings are not smoke.",
@@ -189,7 +189,7 @@
           ],
           "answer": "A",
           "skill": "compare",
-          "why": "The article says Earth is rock, but Saturn is gas with no ground.",
+          "why": "Earth is made of rock, but Saturn is made of gas and has no solid ground.",
           "wrong": {
             "B": "Saturn is the sixth planet, farther from the sun than Earth.",
             "C": "Saturn has lots of moons.",
@@ -317,7 +317,7 @@
           ],
           "answer": "A",
           "skill": "detail",
-          "why": "The article says Cassini circled Saturn from 2004 to 2017 and sent back pictures and information.",
+          "why": "In the article, Cassini circled Saturn from 2004 to 2017 and sent back pictures and information.",
           "wrong": {
             "B": "Saturn has no solid ground to land on.",
             "C": "The article does not say Cassini brought anything back.",
@@ -334,7 +334,7 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The article says the rings stretch very wide but are only about as thick as a tall building is high in most places.",
+          "why": "In the article, the rings stretch very wide but are only about as thick as a tall building is high in most places.",
           "wrong": {
             "A": "The rings are billions of separate pieces.",
             "B": "This is the opposite of what the article says.",
@@ -368,7 +368,7 @@
           ],
           "answer": "A",
           "skill": "cause-effect",
-          "why": "The article says a day lasts only about ten and a half hours because the planet spins very fast.",
+          "why": "In the article, a day lasts only about ten and a half hours because the planet spins very fast.",
           "wrong": {
             "B": "Saturn is far from the sun.",
             "C": "The rings do not change the length of a day.",
@@ -496,7 +496,7 @@
           ],
           "answer": "D",
           "skill": "detail",
-          "why": "The article states that Saturn is composed predominantly of hydrogen and helium.",
+          "why": "In the article, Saturn is composed predominantly of hydrogen and helium.",
           "wrong": {
             "A": "These are metals found in rocky planets, not named in the article.",
             "B": "These gases make up Earth's air, not Saturn.",
@@ -513,7 +513,7 @@
           ],
           "answer": "A",
           "skill": "detail",
-          "why": "The article says Enceladus ejects geysers of icy water, suggesting a hidden ocean.",
+          "why": "In the article, Enceladus shoots out geysers of icy water.",
           "wrong": {
             "B": "That fact describes Titan.",
             "C": "That fact also describes Titan.",
@@ -521,7 +521,7 @@
           }
         },
         {
-          "stem": "Read: \"he speculated that Saturn might possess two large ears.\" What does speculated mean?",
+          "stem": "Galileo speculated about what he saw on the sides of Saturn. What does speculated mean?",
           "options": [
             "Proved with careful measurements",
             "Wrote down in a book",
@@ -547,7 +547,7 @@
           ],
           "answer": "C",
           "skill": "cause-effect",
-          "why": "The article explains that because hydrogen and helium are so light, Saturn has an exceptionally low density.",
+          "why": "In the article, because hydrogen and helium are so light, Saturn has an exceptionally low density.",
           "wrong": {
             "A": "Spinning explains the short day, not the low density.",
             "B": "The article does not say this.",
@@ -627,7 +627,7 @@
         ],
         "answer": "D",
         "skill": "detail",
-        "why": "The text says only Jupiter is bigger than Saturn.",
+        "why": "Only Jupiter is bigger than Saturn.",
         "wrong": {
           "A": "Earth is smaller than Saturn.",
           "B": "Mercury is much smaller than Saturn.",
@@ -644,7 +644,7 @@
         ],
         "answer": "B",
         "skill": "vocabulary",
-        "why": "The text says Saturn is huge and only Jupiter is bigger.",
+        "why": "Saturn is huge, and only Jupiter is bigger.",
         "wrong": {
           "A": "Saturn is big, not small.",
           "C": "Saturn is light, but huge is about size.",
@@ -697,7 +697,7 @@
         ],
         "answer": "C",
         "skill": "vocabulary",
-        "why": "The text says a gas giant is a planet made mostly of gas.",
+        "why": "In the text, a gas giant is a planet made mostly of gas.",
         "wrong": {
           "A": "A spaceship is not a planet.",
           "B": "Titan is a moon with a hazy sky.",
@@ -714,7 +714,7 @@
         ],
         "answer": "A",
         "skill": "detail",
-        "why": "The text says Saturn takes about twenty-nine Earth years to orbit the sun once.",
+        "why": "In the text, Saturn takes about twenty-nine Earth years to orbit the sun once.",
         "wrong": {
           "B": "Ten and a half hours is how long a day lasts.",
           "C": "Four hundred years ago is when Galileo looked at Saturn.",
@@ -779,12 +779,12 @@
         "options": [
           "Samples of ice from Saturn's rings",
           "Rocks collected from the moon Titan",
-          "Photos and scientific measurements",
+          "Scientific information about Saturn",
           "A new telescope built for Galileo"
         ],
         "answer": "C",
         "skill": "detail",
-        "why": "The text says Cassini transmitted thousands of photographs and scientific measurements to Earth.",
+        "why": "Cassini circled Saturn for years and sent back scientific information about the planet.",
         "wrong": {
           "A": "The text does not say it sent back ice samples.",
           "B": "The text does not say it collected rocks.",
@@ -801,7 +801,7 @@
         ],
         "answer": "B",
         "skill": "cause-effect",
-        "why": "The text says the planet rotates very rapidly, so a day lasts about ten and a half hours.",
+        "why": "In the text, the planet rotates very rapidly, so a day lasts about ten and a half hours.",
         "wrong": {
           "A": "Saturn takes about twenty-nine years to orbit the sun.",
           "C": "Moons do not set the length of a day.",

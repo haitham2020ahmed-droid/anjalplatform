@@ -189,7 +189,7 @@
      ],
      "answer": "B",
      "skill": "inference",
-     "why": "The article states Saudi Arabia sits in a dry, desert zone where few clouds bring rain.",
+     "why": "In the article, few clouds bring rain to Saudi Arabia.",
      "wrong": {
       "A": "This contradicts the article.",
       "C": "This contradicts the article.",
@@ -334,7 +334,7 @@
      ],
      "answer": "A",
      "skill": "detail",
-     "why": "The article explains that dry, descending air discourages rain clouds from forming over Saudi Arabia.",
+     "why": "In the article, dry, descending air discourages rain clouds from forming over Saudi Arabia.",
      "wrong": {
       "B": "This is not stated in the article.",
       "C": "This is not stated in the article.",
@@ -538,7 +538,7 @@
      }
     },
     {
-     "stem": "Why does the article suggest climate shapes 'entire national economies'?",
+     "stem": "Why does the article suggest climate shapes whole national economies?",
      "options": [
       "Because climate has no real effect on how countries develop, so every country grows in the same way",
       "Because water scarcity and growing conditions influence what a country can produce and how it must adapt",
@@ -645,7 +645,7 @@
     ],
     "answer": "A",
     "skill": "inference",
-    "why": "The text says some land gets little rain and turns into a desert, so water must be saved.",
+    "why": "In the text, some land gets little rain and turns into a desert, so water must be saved.",
     "wrong": {
      "B": "The sun stays low in the polar zone.",
      "C": "Snow and ice sit on the ground in the polar zone.",
@@ -662,7 +662,7 @@
     ],
     "answer": "D",
     "skill": "vocabulary",
-    "why": "The text says we sort spots with hot or cold weather into zones, so a zone is an area with like weather.",
+    "why": "Places with the same kind of weather are sorted into zones, so a zone is an area with like weather.",
     "wrong": {
      "A": "Tall hills are only one kind of place.",
      "B": "A cloud is not a place on the ground.",
@@ -732,11 +732,11 @@
     ],
     "answer": "C",
     "skill": "cause-effect",
-    "why": "The article says near the equator the sun hits hard all year, which keeps the tropical zone warm.",
+    "why": "In the article, near the equator the sun hits hard all year, which keeps the tropical zone warm.",
     "wrong": {
      "A": "The article does not say snow melts there.",
      "B": "The tropical zone is near the equator.",
-     "D": "The article says a lot of rain falls there."
+     "D": "In the article, a lot of rain falls there."
     }
    },
    {
@@ -768,7 +768,7 @@
     ],
     "answer": "C",
     "skill": "detail",
-    "why": "The article says heavy precipitation feeds dense forests that depend on steady moisture.",
+    "why": "Heavy rain helps thick forests grow in many tropical places.",
     "wrong": {
      "A": "Sand dunes are found in dry deserts.",
      "B": "Ice sheets are found in the polar zone.",
@@ -802,10 +802,10 @@
     ],
     "answer": "D",
     "skill": "cause-effect",
-    "why": "The article says people in hot, arid spots must save water, and Saudi Arabia builds large plants for seawater.",
+    "why": "In the article, people in hot, arid spots must save water, and Saudi Arabia builds large plants for seawater.",
     "wrong": {
      "A": "Saudi Arabia lies in a hot, arid zone.",
-     "B": "The article says the climate there is arid, with little rain.",
+     "B": "In the article, the climate there is arid, with little rain.",
      "C": "The plants make fresh water, not cooler air."
     }
    },

@@ -138,7 +138,7 @@
           ],
           "answer": "D",
           "skill": "detail",
-          "why": "The article says friction comes when two things, or two surfaces, rub against each other.",
+          "why": "In the article, friction comes when two things, or two surfaces, rub against each other.",
           "wrong": {
             "A": "The article does not say water makes friction.",
             "B": "Sunshine is not part of the article.",
@@ -163,7 +163,7 @@
           }
         },
         {
-          "stem": "Read this: \"Rough surfaces, like grass, sand, and carpet, make a lot of friction.\" What does rough mean?",
+          "stem": "In the article, what does the word \"rough\" mean?",
           "options": [
             "Very shiny and bright",
             "Wet and cold",
@@ -223,7 +223,7 @@
           ],
           "answer": "C",
           "skill": "inference",
-          "why": "The article says friction wears things out, and the soles of old shoes get thin.",
+          "why": "In the article, friction wears things out, and the soles of old shoes get thin.",
           "wrong": {
             "A": "Oil makes less friction. It does not wear soles thin.",
             "B": "The article does not say rain makes soles thin.",
@@ -317,7 +317,7 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The article says friction resists motion by pushing in the opposite direction to the way an object moves.",
+          "why": "In the article, friction resists motion by pushing in the opposite direction to the way an object moves.",
           "wrong": {
             "A": "That would speed the object up, not slow it down.",
             "B": "The article does not say friction pushes upward.",
@@ -334,7 +334,7 @@
           ],
           "answer": "B",
           "skill": "detail",
-          "why": "The article says people use a lubricant, such as oil or grease, so parts slide past each other more easily.",
+          "why": "People use oil or grease so parts slide past each other more easily.",
           "wrong": {
             "A": "Sand is rough and would add friction.",
             "C": "Rubber bands are not mentioned.",
@@ -385,7 +385,7 @@
           ],
           "answer": "A",
           "skill": "inference",
-          "why": "Brakes slow wheels by rubbing, and the article explains that friction produces heat.",
+          "why": "Brakes slow wheels by rubbing, and in the article, friction produces heat.",
           "wrong": {
             "B": "Rubbing makes heat, not ice.",
             "C": "Oil reduces friction, so it would not be put on brakes.",
@@ -402,7 +402,7 @@
           ],
           "answer": "D",
           "skill": "inference",
-          "why": "The article says friction wears tires so they lose their tread, and grip comes from friction. Less grip makes stopping harder.",
+          "why": "In the article, friction wears tires so they lose their tread, and grip comes from friction. Less grip makes stopping harder.",
           "wrong": {
             "A": "Tire smoothness does not change the car's weight.",
             "B": "The article does not say smooth tires stay cold.",
@@ -496,7 +496,7 @@
           ],
           "answer": "B",
           "skill": "detail",
-          "why": "The article says materials produce different amounts of friction depending largely on their texture.",
+          "why": "In the article, the amount of friction depends mostly on how rough or smooth the surfaces are.",
           "wrong": {
             "A": "Color is not mentioned as a cause.",
             "C": "Temperature is linked to heat from friction, not to how much friction there is.",
@@ -513,7 +513,7 @@
           ],
           "answer": "A",
           "skill": "detail",
-          "why": "The article says the energy of the movement is converted into heat, so your palms feel warmer.",
+          "why": "In the article, the energy of the movement turns into heat, so your palms feel warmer.",
           "wrong": {
             "B": "The energy does not vanish; it changes into heat.",
             "C": "Electricity is not mentioned.",
@@ -564,7 +564,7 @@
           ],
           "answer": "A",
           "skill": "inference",
-          "why": "The article says rough surfaces like sand create much friction, while ice creates very little. Sand would add grip.",
+          "why": "In the article, rough surfaces like sand create much friction, while ice creates very little. Sand would add grip.",
           "wrong": {
             "B": "Sand is rough, so it would make the surface less smooth.",
             "C": "More friction does not make cars more efficient.",
@@ -572,7 +572,7 @@
           }
         },
         {
-          "stem": "What can the reader infer from the phrase \"people rarely appreciate its importance\"?",
+          "stem": "What can the reader infer from the idea that people rarely notice how important friction is?",
           "options": [
             "People think friction is dangerous and should always be avoided.",
             "Friction helps us so often that we usually do not notice it.",
@@ -627,7 +627,7 @@
         ],
         "answer": "B",
         "skill": "detail",
-        "why": "The text says the brakes rub the wheel, so the bike slows and stops.",
+        "why": "In the text, the brakes rub the wheel, so the bike slows and stops.",
         "wrong": {
           "A": "Brakes slow the wheel; they do not speed it up.",
           "C": "Oil is put on the chain by people, not by brakes.",
@@ -644,7 +644,7 @@
         ],
         "answer": "C",
         "skill": "cause-effect",
-        "why": "The text says oil on the chain cuts friction so the chain can move with ease.",
+        "why": "In the text, oil on a bike chain makes less friction so the chain moves easily.",
         "wrong": {
           "A": "The text does not talk about a bright chain.",
           "B": "A bike cannot go to sleep.",
@@ -656,12 +656,12 @@
         "options": [
           "a small drop of oil",
           "a kind of shoe",
-          "a rub that makes heat",
-          "the top of a thing"
+          "a hard rub that makes heat",
+          "the outer part of a thing"
         ],
         "answer": "D",
         "skill": "vocabulary",
-        "why": "The text says the top of a thing is its surface.",
+        "why": "In the article, a surface is the top or outside of a thing.",
         "wrong": {
           "A": "Oil is not called a surface.",
           "B": "A shoe is not called a surface.",
@@ -688,20 +688,20 @@
     ],
     "MID": [
       {
-        "stem": "According to the article, what is tread?",
+        "stem": "According to the article, what slowly happens to car tires?",
         "options": [
-          "The bumpy pattern that grips the road",
-          "The oil people put on machine parts",
-          "The heat made when you rub your hands",
-          "The flat top of a hockey rink"
+          "They lose their tread",
+          "They grow much thicker",
+          "They turn into oil",
+          "They get very soft"
         ],
         "answer": "A",
         "skill": "detail",
-        "why": "The article calls tread the bumpy pattern that grips the road.",
+        "why": "In the article, friction slowly wears car tires down so they lose their tread.",
         "wrong": {
-          "B": "Oil is a lubricant, not tread.",
-          "C": "That heat comes from friction.",
-          "D": "An ice rink does not have tread."
+          "B": "Friction makes tires thinner, not thicker.",
+          "C": "Tires do not turn into oil.",
+          "D": "The article does not say tires get soft."
         }
       },
       {
@@ -731,9 +731,9 @@
         ],
         "answer": "D",
         "skill": "cause-effect",
-        "why": "The article says friction turns motion into heat.",
+        "why": "In the article, friction makes heat.",
         "wrong": {
-          "A": "The article says the morning is cold.",
+          "A": "Cold air cannot warm your hands; the warmth comes from friction.",
           "B": "Roughness is not the cause of the heat.",
           "C": "Smoothness would give less friction, not more heat."
         }
@@ -767,7 +767,7 @@
         ],
         "answer": "B",
         "skill": "detail",
-        "why": "The article says friction wears objects out and that tires slowly lose their tread.",
+        "why": "Friction wears things out, and tires slowly lose their tread.",
         "wrong": {
           "A": "The article does not say tires get hotter than wheels.",
           "C": "Tires wear down; they do not grow.",
@@ -784,7 +784,7 @@
         ],
         "answer": "D",
         "skill": "vocabulary",
-        "why": "The article says friction pushes in the opposite direction to the motion, so it works against it.",
+        "why": "In the article, friction pushes in the opposite direction to the motion, so it works against it.",
         "wrong": {
           "A": "Friction slows motion down.",
           "B": "Friction does not copy motion.",
@@ -792,20 +792,20 @@
         }
       },
       {
-        "stem": "Why does a car come to a safe stop when the driver uses the brakes?",
+        "stem": "Why does an object slide farther on smooth ice than on rough sand?",
         "options": [
-          "The brakes press the wheels and friction slows them",
-          "The brakes make the road very smooth for the tires",
-          "The brakes turn heat into motion inside the engine",
-          "The brakes wipe all of the oil from the wheels"
+          "Smooth surfaces make little friction",
+          "Ice pushes the object forward",
+          "Cold air makes the object lighter",
+          "Sand has no friction at all"
         ],
         "answer": "A",
         "skill": "cause-effect",
-        "why": "The article says brakes press firmly against the wheels and the resulting friction slows them until the vehicle stops.",
+        "why": "Rough surfaces make more friction and smooth ones like ice make little, so objects slide farther on ice.",
         "wrong": {
-          "B": "Smooth surfaces make less friction, which would not stop the car.",
-          "C": "Friction turns motion into heat, not heat into motion.",
-          "D": "The article does not mention oil on wheels in this way."
+          "B": "Ice does not push objects.",
+          "C": "Cold air does not change the object's weight.",
+          "D": "Rough sand makes a lot of friction."
         }
       },
       {

@@ -155,7 +155,7 @@
           ],
           "answer": "A",
           "skill": "detail",
-          "why": "The article says Mars had lakes and rivers long ago, but now it is dry and cold.",
+          "why": "In the article, Mars had lakes long ago, but now it is dry and cold.",
           "wrong": {
             "B": "The article does not say Mars had forests.",
             "C": "Jupiter, not Mars, is called big.",
@@ -191,7 +191,7 @@
           "skill": "cause-effect",
           "why": "Life needs water, and Europa has a big sea under its ice.",
           "wrong": {
-            "A": "The article says Europa is cold.",
+            "A": "Europa is very cold.",
             "C": "Europa is a moon of Jupiter, which is far away.",
             "D": "The article does not mention plants on Europa."
           }
@@ -240,7 +240,7 @@
           ],
           "answer": "C",
           "skill": "inference",
-          "why": "The article says some gases in the air could be a sign of life.",
+          "why": "In the article, some gases in the air could be a sign of life.",
           "wrong": {
             "A": "Color is not why they check gases.",
             "B": "Spinning is not mentioned.",
@@ -317,7 +317,7 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The article says Perseverance landed in a crater on Mars that once held a lake.",
+          "why": "In the article, Perseverance landed in a crater on Mars that once held a lake.",
           "wrong": {
             "A": "Europa Clipper, not a rover, is going to Europa.",
             "B": "No rover has landed on Enceladus.",
@@ -351,7 +351,7 @@
           ],
           "answer": "B",
           "skill": "detail",
-          "why": "The article says it can study the atmosphere, or layer of gases, around some planets.",
+          "why": "In the article, it can study the atmosphere, or layer of gases, around some planets.",
           "wrong": {
             "A": "Perseverance drills rocks.",
             "C": "Enceladus sprays water by itself.",
@@ -598,7 +598,7 @@
           ],
           "answer": "B",
           "skill": "inference",
-          "why": "The article says the search is worth continuing even if the answer takes generations.",
+          "why": "In the article, the search is worth continuing even if the answer takes generations.",
           "wrong": {
             "A": "The article mentions generations, not weeks.",
             "C": "Scientists believe the search should continue.",
@@ -714,7 +714,7 @@
         ],
         "answer": "A",
         "skill": "vocabulary",
-        "why": "The text explains evidence as proof.",
+        "why": "Evidence means proof.",
         "wrong": {
           "B": "The rocks are what scientists search, not the evidence itself.",
           "C": "A hot spring is a place on Earth where microbes live.",
@@ -731,7 +731,7 @@
         ],
         "answer": "D",
         "skill": "cause-effect",
-        "why": "The text says the rover landed in a crater that once held a lake, and microbes might once have lived there.",
+        "why": "In the text, the rover landed in a crater that once held a lake, and microbes might once have lived there.",
         "wrong": {
           "A": "The text does not say that the crater is the coldest place.",
           "B": "Safe landing is not the reason given.",
@@ -748,7 +748,7 @@
         ],
         "answer": "A",
         "skill": "inference",
-        "why": "The text says life can be tough and microbes live in boiling springs and on the dark sea floor, which keeps scientists searching.",
+        "why": "In the text, life can be tough and microbes live in boiling springs and on the dark sea floor, which keeps scientists searching.",
         "wrong": {
           "B": "The text says that life would most likely be microbes.",
           "C": "Hot springs are one place, but the text also names the dark sea floor and icy moons.",
@@ -801,7 +801,7 @@
         ],
         "answer": "A",
         "skill": "inference",
-        "why": "The text says that after decades they have never received a message that could not be explained by natural causes or human technology.",
+        "why": "In the text, after decades they have never received a message that could not be explained by natural causes or human technology.",
         "wrong": {
           "B": "The text says they have scanned many stars for decades.",
           "C": "The text does not say they are afraid.",
@@ -818,7 +818,7 @@
         ],
         "answer": "C",
         "skill": "compare",
-        "why": "The text says Europa appears to have a subsurface ocean beneath its icy shell, while Enceladus sprays jets of water through fractures in its frozen surface.",
+        "why": "Europa seems to have an ocean under its ice, while Enceladus sprays jets of water through cracks in its surface.",
         "wrong": {
           "A": "Europa is a moon of Jupiter and Enceladus is a moon of Saturn.",
           "B": "Both are described as having water.",

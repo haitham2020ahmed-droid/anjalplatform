@@ -138,7 +138,7 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The article says water turns to ice at zero degrees.",
+          "why": "In the article, water turns to ice at zero degrees.",
           "wrong": {
             "A": "Ten degrees is cool, but the article says zero.",
             "B": "Fifty degrees is hot, not freezing.",
@@ -155,7 +155,7 @@
           ],
           "answer": "A",
           "skill": "detail",
-          "why": "The article says ice takes up more room than water, so a full jar can crack.",
+          "why": "In the article, ice takes up more room than water, so a full jar can crack.",
           "wrong": {
             "B": "The article does not say anything about dry air.",
             "C": "Glass does not melt in the cold.",
@@ -206,7 +206,7 @@
           ],
           "answer": "C",
           "skill": "cause-effect",
-          "why": "The article says cold makes water freeze into ice.",
+          "why": "Cold makes water freeze into ice.",
           "wrong": {
             "A": "Shaking water does not turn it to ice.",
             "B": "More water does not make water freeze.",
@@ -223,7 +223,7 @@
           ],
           "answer": "D",
           "skill": "inference",
-          "why": "The article says chocolate melts in a warm hand, but iron needs a very hot fire.",
+          "why": "In the article, chocolate melts in a warm hand, but iron needs a very hot fire.",
           "wrong": {
             "A": "Iron needs a very hot fire to melt.",
             "B": "Glass does not melt in your hand.",
@@ -244,7 +244,7 @@
           "wrong": {
             "B": "The snow falls in winter, and the article does not ask readers to visit.",
             "C": "The article does not explain how to build a snowman.",
-            "D": "The article says snow falls only in some winters, and then it melts."
+            "D": "Snow falls only in some winters, and then it melts."
           }
         }
       ],
@@ -317,7 +317,7 @@
           ],
           "answer": "A",
           "skill": "detail",
-          "why": "The article says particles in a solid are packed tightly and shake in place but cannot move around.",
+          "why": "In the article, particles in a solid are packed tightly and shake in place but cannot move around.",
           "wrong": {
             "B": "Sliding past one another describes a liquid.",
             "C": "The article does not describe particles floating far apart.",
@@ -402,7 +402,7 @@
           ],
           "answer": "B",
           "skill": "inference",
-          "why": "The article says ice forms on top of the lake, and fish stay alive in the water below.",
+          "why": "In the article, ice forms on top of the lake, and fish stay alive in the water below.",
           "wrong": {
             "A": "Ice floats, so it forms on top, not at the bottom.",
             "C": "The fish stay alive in the liquid water below.",
@@ -547,7 +547,7 @@
           ],
           "answer": "B",
           "skill": "inference",
-          "why": "The article explains that melting ice stays at zero degrees because absorbed heat is used to break the crystal apart instead of warming it.",
+          "why": "Melting ice stays at zero degrees because the heat it takes in is used to break the ice apart, not to warm it.",
           "wrong": {
             "A": "Heat does enter; that is what melts the ice.",
             "C": "Water can be much warmer; the article mentions warm hands and furnaces.",
@@ -581,7 +581,7 @@
           ],
           "answer": "A",
           "skill": "compare",
-          "why": "The article says water freezes at the same temperature at which ice melts: zero degrees Celsius.",
+          "why": "In the article, water freezes at the same temperature at which ice melts: zero degrees Celsius.",
           "wrong": {
             "B": "Both happen at zero degrees.",
             "C": "Both happen at zero degrees.",
@@ -627,7 +627,7 @@
         ],
         "answer": "B",
         "skill": "compare",
-        "why": "The text says water is a liquid that can flow and ice is a solid that keeps its shape.",
+        "why": "In the text, a solid like ice keeps its shape, and a liquid like water can flow.",
         "wrong": {
           "A": "This swaps the two.",
           "C": "A liquid can spill, but a solid does not.",
@@ -644,7 +644,7 @@
         ],
         "answer": "C",
         "skill": "cause-effect",
-        "why": "The text says ice is light, so it floats in your drink.",
+        "why": "In the text, ice is light, so it floats in your drink.",
         "wrong": {
           "A": "Ice is cold, not hot.",
           "B": "Ice is light, not heavy.",
@@ -697,7 +697,7 @@
         ],
         "answer": "A",
         "skill": "compare",
-        "why": "The text says a liquid flows and takes the shape of its container, while a solid keeps its shape.",
+        "why": "In the text, a liquid flows and takes the shape of its container, while a solid keeps its shape.",
         "wrong": {
           "B": "A solid is the one that keeps its shape.",
           "C": "Ice floats on water, not the other way around.",
@@ -718,7 +718,7 @@
         "wrong": {
           "A": "Ice floats to the top, not the bottom.",
           "C": "The text does not say fish melt ice.",
-          "D": "The text says the fish live in the water below the ice."
+          "D": "In the text, the fish live in the water below the ice."
         }
       },
       {
@@ -784,7 +784,7 @@
         ],
         "answer": "D",
         "skill": "detail",
-        "why": "The text says in liquid water the molecules still attract one another but can slide past each other.",
+        "why": "In liquid water the molecules still attract one another but can slide past each other.",
         "wrong": {
           "A": "That describes a solid like ice.",
           "B": "They can slide, so they do move.",
@@ -803,7 +803,7 @@
         "skill": "cause-effect",
         "why": "The crystal pattern of ice has open spaces, so water expands and can crack the bottle.",
         "wrong": {
-          "A": "The text says the water expands, not that the glass shrinks.",
+          "A": "In the text, the water expands, not that the glass shrinks.",
           "B": "Weight is not the reason.",
           "C": "Density is compared with liquid water, not glass."
         }
@@ -818,7 +818,7 @@
         ],
         "answer": "B",
         "skill": "inference",
-        "why": "The text says liquid water flows and takes the shape of its container.",
+        "why": "In the text, liquid water flows and takes the shape of its container.",
         "wrong": {
           "A": "A crystal pattern belongs to solid ice.",
           "C": "Only solids keep a fixed shape.",

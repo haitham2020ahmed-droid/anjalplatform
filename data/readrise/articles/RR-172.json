@@ -138,7 +138,7 @@
           ],
           "answer": "B",
           "skill": "detail",
-          "why": "The article says your ribs keep your lungs safe, like a cage.",
+          "why": "Your ribs keep your lungs safe, like a cage.",
           "wrong": {
             "A": "The article does not say the stomach protects the lungs.",
             "C": "The nose cleans air, but the ribs protect the lungs.",
@@ -189,7 +189,7 @@
           ],
           "answer": "D",
           "skill": "cause-effect",
-          "why": "The article says you breathe fast when you run because your body needs more oxygen.",
+          "why": "In the article, you breathe fast when you run because your body needs more oxygen.",
           "wrong": {
             "A": "The article does not say ribs get smaller.",
             "B": "Dust does not make you breathe faster in the article.",
@@ -223,11 +223,11 @@
           ],
           "answer": "C",
           "skill": "inference",
-          "why": "The article says to stay inside or wear a mask on dust storm days.",
+          "why": "In the article, you should stay inside on dust storm days.",
           "wrong": {
             "A": "Running outside would bring more dust into your lungs.",
             "B": "Open windows would let dust in.",
-            "D": "The article says your nose helps catch dust."
+            "D": "Your nose helps catch dust, so breathing only through your mouth is not the advice."
           }
         },
         {
@@ -240,7 +240,7 @@
           ],
           "answer": "A",
           "skill": "sequence",
-          "why": "The article says when the muscle pulls down, air rushes in.",
+          "why": "In the article, when the muscle pulls down, air rushes in.",
           "wrong": {
             "B": "Air goes out when the muscle moves back up.",
             "C": "The heart does not stop.",
@@ -317,7 +317,7 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The article says air travels down a tube called the windpipe, which splits into two tubes, one for each lung.",
+          "why": "In the article, air travels down a tube called the windpipe, which splits into two tubes, one for each lung.",
           "wrong": {
             "A": "The heart pumps blood.",
             "B": "Hairs in the nose trap dust.",
@@ -351,7 +351,7 @@
           ],
           "answer": "D",
           "skill": "sequence",
-          "why": "The article says when the diaphragm relaxes and moves up, air is pushed out.",
+          "why": "In the article, when the diaphragm relaxes and moves up, air is pushed out.",
           "wrong": {
             "A": "Air rushes in when the diaphragm tightens and pulls down.",
             "B": "That happens inside the lungs, not because the diaphragm rises.",
@@ -368,7 +368,7 @@
           ],
           "answer": "B",
           "skill": "cause-effect",
-          "why": "The article says hairs and mucus trap dust before it can reach the lungs.",
+          "why": "In the article, hairs and mucus trap dust before it can reach the lungs.",
           "wrong": {
             "A": "They do not change the size of the lungs.",
             "C": "Blood carries oxygen.",
@@ -496,7 +496,7 @@
           ],
           "answer": "B",
           "skill": "detail",
-          "why": "The article says the left lung is slightly smaller to leave room for the heart.",
+          "why": "In the article, the left lung is slightly smaller to leave room for the heart.",
           "wrong": {
             "A": "The article says each lung gets one bronchus.",
             "C": "Both lungs take in oxygen.",
@@ -513,7 +513,7 @@
           ],
           "answer": "A",
           "skill": "detail",
-          "why": "The article says oxygen passes through the thin walls of the capillaries around the alveoli.",
+          "why": "In the article, oxygen passes through the thin walls of the capillaries around the alveoli.",
           "wrong": {
             "B": "The windpipe only carries air.",
             "C": "Nose hairs trap dust.",
@@ -530,7 +530,7 @@
           ],
           "answer": "C",
           "skill": "vocabulary",
-          "why": "The article says you remove carbon dioxide when you exhale, which means breathe out.",
+          "why": "In the article, you remove carbon dioxide when you exhale, which means breathe out.",
           "wrong": {
             "A": "Inhale means to breathe in.",
             "B": "Contract describes the diaphragm tightening.",
@@ -564,7 +564,7 @@
           ],
           "answer": "D",
           "skill": "sequence",
-          "why": "The article explains that when the diaphragm contracts, the chest gets larger and air rushes in.",
+          "why": "In the article, when the diaphragm contracts, the chest gets larger and air rushes in.",
           "wrong": {
             "A": "Air goes out when the diaphragm relaxes and rises.",
             "B": "The heart pumps oxygen-rich blood.",
@@ -697,7 +697,7 @@
         ],
         "answer": "D",
         "skill": "detail",
-        "why": "The text says your heart pumps the blood all over your body.",
+        "why": "Your heart pumps blood all over your body.",
         "wrong": {
           "A": "The ribs protect the lungs like a cage.",
           "B": "The windpipe carries air to the lungs.",
@@ -767,7 +767,7 @@
         ],
         "answer": "B",
         "skill": "detail",
-        "why": "The article says an adult at rest breathes roughly twelve to twenty times each minute.",
+        "why": "An adult at rest breathes about twelve to twenty times a minute.",
         "wrong": {
           "A": "That is slower than the article says.",
           "C": "That is faster than the article says.",
@@ -801,7 +801,7 @@
         ],
         "answer": "A",
         "skill": "cause-effect",
-        "why": "The article says smoking damages the delicate tissue of the lungs and makes every breath more difficult.",
+        "why": "In the article, smoking damages the delicate tissue of the lungs and makes every breath more difficult.",
         "wrong": {
           "B": "The text does not say that smoking changes the diaphragm.",
           "C": "Alveoli are wrapped in capillaries; the text does not say they fill with blood.",
@@ -818,7 +818,7 @@
         ],
         "answer": "B",
         "skill": "compare",
-        "why": "The article says exercise strengthens the breathing muscles, whereas smoking damages lung tissue.",
+        "why": "In the article, exercise strengthens the breathing muscles, whereas smoking damages lung tissue.",
         "wrong": {
           "A": "Exercise strengthens the diaphragm; it does not weaken it.",
           "C": "Smoking damages the lungs; it does not help them grow.",

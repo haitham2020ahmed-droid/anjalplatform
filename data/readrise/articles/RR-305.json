@@ -129,20 +129,20 @@
      }
     },
     {
-     "stem": "How does a puppeteer move a hand puppet?",
+     "stem": "Who makes a puppet move?",
      "options": [
-      "By pulling strings from above",
-      "By shining a light behind it",
-      "By slipping a hand inside it",
-      "By standing far away from it"
+      "A loud singer",
+      "A painter",
+      "A puppeteer",
+      "A school teacher"
      ],
      "answer": "C",
      "skill": "detail",
-     "why": "The article says the puppeteer slips a hand inside a hand puppet to move it.",
+     "why": "In the article, a puppet cannot move by itself, so a puppeteer moves it.",
      "wrong": {
-      "A": "Pulling strings is how a string puppet is moved.",
-      "B": "A light behind the puppet is used for shadow puppets.",
-      "D": "The puppeteer must be close to the puppet, not far away."
+      "A": "A singer does not move puppets.",
+      "B": "A painter does not move puppets.",
+      "D": "A teacher is not named as the one who moves it."
      }
     },
     {
@@ -163,7 +163,7 @@
      }
     },
     {
-     "stem": "Read this: \"A puppeteer holds the strings above a small stage.\" What is a stage?",
+     "stem": "In the article, what does the word \"stage\" mean?",
      "options": [
       "A kind of string used to tie things",
       "The area where a show is performed",
@@ -189,7 +189,7 @@
      ],
      "answer": "B",
      "skill": "cause-effect",
-     "why": "The article says a good puppeteer makes an object seem alive, which takes real skill and practice.",
+     "why": "In the article, a good puppeteer makes an object seem alive, which takes real skill and practice.",
      "wrong": {
       "A": "A puppet never moves by itself in the article.",
       "C": "Practice does not change the size of a stage.",
@@ -197,20 +197,20 @@
      }
     },
     {
-     "stem": "Where did people long ago watch shadow puppet shows at night?",
+     "stem": "When did people long ago watch puppet tales?",
      "options": [
-      "In old Cairo",
-      "In a modern theater",
-      "On a television",
-      "In a school classroom"
+      "At night",
+      "At noon",
+      "At school",
+      "At sea"
      ],
      "answer": "A",
      "skill": "detail",
-     "why": "The article says people in old Cairo watched shadow puppet shows at night.",
+     "why": "In the article, long ago people told tales with puppets at night.",
      "wrong": {
-      "B": "The article names old Cairo, not a modern theater.",
-      "C": "Television is not mentioned.",
-      "D": "A school classroom is not mentioned for long ago shows."
+      "B": "Noon is not named.",
+      "C": "School is not named.",
+      "D": "The sea is not named."
      }
     },
     {
@@ -304,7 +304,7 @@
      "wrong": {
       "B": "The article does not say shows are only for children.",
       "C": "Karagöz is from Turkey, but puppetry is far older and from many places.",
-      "D": "The article says puppet shows are still performed today."
+      "D": "In the article, puppet shows are still performed today."
      }
     },
     {
@@ -317,7 +317,7 @@
      ],
      "answer": "C",
      "skill": "detail",
-     "why": "The article says a puppeteer holds a wooden control bar and moves the strings to control a marionette.",
+     "why": "In the article, a puppeteer holds a wooden control bar and moves the strings to control a marionette.",
      "wrong": {
       "A": "Slipping a hand inside describes a hand puppet.",
       "B": "Shining a light describes shadow puppetry.",
@@ -334,7 +334,7 @@
      ],
      "answer": "D",
      "skill": "detail",
-     "why": "The article says the audience sees only moving shadows and shifting colors during a shadow puppet performance.",
+     "why": "In the article, the audience sees only moving shadows and shifting colors during a shadow puppet performance.",
      "wrong": {
       "A": "The puppeteer stays hidden, holding the cutout near the light.",
       "B": "A control bar is used for marionettes, not shadow puppets.",
@@ -342,7 +342,7 @@
      }
     },
     {
-     "stem": "Read this: \"Mastering this craft takes years of patient practice.\" What does craft mean here?",
+     "stem": "In the article, what does the word \"craft\" mean?",
      "options": [
       "A kind of boat used for travel on rivers",
       "A skill that needs practice",
@@ -368,7 +368,7 @@
      ],
      "answer": "A",
      "skill": "inference",
-     "why": "The article says mastering the illusion of life requires years of patient, disciplined practice.",
+     "why": "In the article, mastering the illusion of life requires years of patient, disciplined practice.",
      "wrong": {
       "B": "Good puppeteers want the audience to stay and watch.",
       "C": "The article does not mention shortening strings.",
@@ -513,7 +513,7 @@
      ],
      "answer": "B",
      "skill": "detail",
-     "why": "The article describes a dalang as the single skilled master who voices every character in a wayang performance.",
+     "why": "A dalang is the one skilled master who guides a wayang show.",
      "wrong": {
       "A": "A screen is a different part of the show.",
       "C": "Karagöz, not a dalang, is the Turkish puppet character.",
@@ -627,7 +627,7 @@
     ],
     "answer": "C",
     "skill": "detail",
-    "why": "The text says that pulling a string moves an arm.",
+    "why": "In the text, moving the strings makes the puppet's arms move.",
     "wrong": {
      "A": "The text does not say the stage falls.",
      "B": "The light is used for shadow puppets, not string puppets.",
@@ -678,7 +678,7 @@
     ],
     "answer": "B",
     "skill": "inference",
-    "why": "The text says a puppeteer moves it and that a good puppeteer makes it look real with skill.",
+    "why": "In the text, a skilled puppeteer can make a puppet seem alive.",
     "wrong": {
      "A": "The text does not mention any motor.",
      "C": "The audience sees the show, so they can see the puppet.",
@@ -697,7 +697,7 @@
     ],
     "answer": "B",
     "skill": "detail",
-    "why": "The article says Karagöz has made crowds laugh for years.",
+    "why": "Karagöz has made crowds laugh for many years.",
     "wrong": {
      "A": "The article does not say he taught reading.",
      "C": "The article does not say he led prayer.",
@@ -751,8 +751,8 @@
     "why": "The author lists simple things to show that a puppet show is easy to start.",
     "wrong": {
      "A": "The list names simple things, so it is not costly.",
-     "B": "The article says shows are in theaters, schools, and fairs, and you can make your own.",
-     "D": "The article says to use a tale worth telling."
+     "B": "Puppet shows happen in many places, not only in theaters.",
+     "D": "A good puppet show still needs a good story."
     }
    }
   ],
@@ -767,7 +767,7 @@
     ],
     "answer": "C",
     "skill": "detail",
-    "why": "The article says the puppeteer often stays hidden behind a low screen.",
+    "why": "In the article, the puppeteer often stays hidden behind a low screen.",
     "wrong": {
      "A": "The article does not place the puppeteer across the stage.",
      "B": "The puppeteer is hidden, not seated with the audience.",

@@ -5,7 +5,7 @@
  *  BR220L…820L — while ReadRise started every Grade 7 student at 1050, so weak readers ended far too high):
  *   - every test starts LOW: at 300 (the lowest version) and climbs; the grade no longer decides the start
  *     (placementStartLevel). Exception: a MAP Lexile from the last 6 months starts at the nearest passage level.
- *   - like LevelSet (40 questions, ~30 minutes): up to 13 passages (39 questions), at least 8; three reversals end it.
+ *   - like LevelSet: up to 13 passages (39 questions), at least 12 (round 7; was 8); three reversals end it.
  *   - below 300: passages at 200, 100, 0 and −200 ("BR200") when the content has them (placement-extra.json); the
  *     result can be below 300 (a level failed twice at the lowest passage → one step lower), never below RR_FLOOR.
  *     A student failing the lowest passage level twice, or passing the highest one twice, has nothing left to show:
@@ -51,9 +51,11 @@ import { ADMIN_RESET_TAG } from "./placement-reset";
 
 export { setLevelByTeacher } from "./engine";
 
-// Round 6: LevelSet-like length — up to 13 passages (39 questions, ~30 minutes), at least 8; 3 reversals end it
-// (was 8 / 5 / 2).
-export const PLACEMENT = { maxPassages: 13, minPassages: 8, reversals: 3, mapGap: 250 } as const;
+// Round 6: LevelSet-like length — up to 13 passages (39 questions), 3 reversals end it (was 8 / 5 / 2).
+// Round 7 (owner, live test: a test stopped after 8 passages / 24 questions): at least 12 passages (36 questions), at
+// most 13 (39); about 20–30 minutes. The content has 6 passages at each level 300–1600 and 4 at −200/0/100/200, and
+// the plan takes the nearest free level when a level runs out, so 13 passages are always there (never a repeat).
+export const PLACEMENT = { maxPassages: 13, minPassages: 12, reversals: 3, mapGap: 250 } as const;
 /** The fewest passages the content must have before the test is offered at all. */
 export const PLACEMENT_MIN_POOL = 5;
 /** Round 6: the test's start without a recent MAP Lexile — the lowest version (the test climbs from there). */
@@ -145,9 +147,34 @@ export function placementPlan(startLevel: number, steps: PlacementStep[], passag
   return { done: false, nextLevel: pick.level, passage: pick, reversals };
 }
 
+/** Round 7: the answer model used to refine the result — a 4-option question (1 in 4 guessing chance); the chance of a
+ *  right answer falls from ~100% to the guessing floor over a few hundred Lexile around the reader's level. */
+export const PLACEMENT_MODEL = { guess: 0.25, scale: 120, window: 100 } as const;
+/** The level (RR_FLOOR…RR_MAX, step 10) that best explains every counted answer (maximum likelihood). */
+export function placementEstimate(all: PlacementStep[]): number | null {
+  const steps = all.filter((x) => !x.rapid);
+  if (!steps.length) return null;
+  let best = -Infinity, at = 0;
+  for (let x = RR_FLOOR; x <= RR_MAX; x += 10) {
+    let ll = 0;
+    for (const st of steps) {
+      const c = Math.max(0, Math.min(3, st.correct));
+      const p = PLACEMENT_MODEL.guess + (1 - PLACEMENT_MODEL.guess) / (1 + Math.exp((st.level - x) / PLACEMENT_MODEL.scale));
+      ll += c * Math.log(p) + (3 - c) * Math.log(1 - p);
+    }
+    if (ll > best + 1e-9) { best = ll; at = x; }
+  }
+  return at;
+}
+
 /**
  * The placement result from the steps (before the MAP check). Round 6: it can be below 300 — when no level was
  * passed, one step (100) under the lowest level read, never below RR_FLOOR.
+ * Round 7 (owner: statistical check, tests/round7-placement-sim.test.ts): the rule result R (the highest level passed,
+ * not above a level failed twice) was biased: up to +50L below 1200 (a 2-of-3 pass is often luck) and about −120L
+ * from 1200 up (the 3-of-3 bar). Now: (1) when the lowest level failed above R is in the 3-of-3 tier, R becomes the
+ * midpoint between them; (2) when some level was passed, the result is the level that best explains ALL the answers
+ * (placementEstimate), kept within 100 of R. Nothing passed: R as before.
  */
 export function placementResult(all: PlacementStep[], startLevel: number): number {
   const steps = all.filter((x) => !x.rapid); // round 4: a rapid passage does not count
@@ -161,7 +188,13 @@ export function placementResult(all: PlacementStep[], startLevel: number): numbe
   const failedTwice = [...by.entries()].filter(([, e]) => e.fail >= 2).map(([l]) => l);
   const ceiling = failedTwice.length ? Math.min(...failedTwice) : Infinity;
   const ok = [...by.entries()].filter(([l, e]) => e.pass >= 1 && (l < ceiling || (l === ceiling && e.pass > e.fail))).map(([l]) => l);
-  const r = ok.length ? Math.max(...ok) : Math.min(...steps.map((x) => x.level)) - 100;
+  if (!ok.length) return clampP(Math.round((Math.min(...steps.map((x) => x.level)) - 100) / 10) * 10);
+  const high = Math.max(...ok);
+  const failedAbove = [...by.entries()].filter(([l, e]) => l > high && e.fail >= 1).map(([l]) => l);
+  const lowFail = failedAbove.length ? Math.min(...failedAbove) : null;
+  const rule = lowFail !== null && lowFail >= TOP_TIER ? (high + lowFail) / 2 : high;
+  const est = placementEstimate(steps) ?? rule;
+  const r = Math.min(rule + PLACEMENT_MODEL.window, Math.max(rule - PLACEMENT_MODEL.window, est));
   return clampP(Math.round(r / 10) * 10);
 }
 

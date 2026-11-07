@@ -138,7 +138,7 @@
      ],
      "answer": "A",
      "skill": "detail",
-     "why": "The article says a player can run with the ball, but only for three steps at a time.",
+     "why": "A player can run with the ball for only three steps at a time.",
      "wrong": {
       "B": "Five steps is not the rule given in the article.",
       "C": "One step is too few, based on the article.",
@@ -155,7 +155,7 @@
      ],
      "answer": "D",
      "skill": "detail",
-     "why": "The article says every goal scored is worth one point.",
+     "why": "In the article, every goal scored is worth one point.",
      "wrong": {
       "A": "The article does not say two points.",
       "B": "The article does not say three points.",
@@ -223,7 +223,7 @@
      ],
      "answer": "D",
      "skill": "sequence",
-     "why": "The article says that after three steps, the player must pass, bounce, or throw the ball at the goal.",
+     "why": "After three steps, the player must pass, bounce, or shoot the ball.",
      "wrong": {
       "A": "The game does not stop for one player's steps.",
       "B": "Sitting down is not part of the rule.",
@@ -351,7 +351,7 @@
      ],
      "answer": "A",
      "skill": "cause-effect",
-     "why": "The article explains that stepping inside the marked goal area is against the rules, so players jump over it to shoot legally.",
+     "why": "In the article, stepping inside the marked goal area is against the rules, so players jump over it to shoot legally.",
      "wrong": {
       "B": "Comfort is not the reason given in the article.",
       "C": "The goal area being wet is not mentioned.",
@@ -368,7 +368,7 @@
      ],
      "answer": "B",
      "skill": "inference",
-     "why": "The article says defenders must be careful not to push or hold attackers, which the referee would call a foul.",
+     "why": "In the article, defenders must not push or hold, because that would be a foul.",
      "wrong": {
       "A": "Pushing does not reward the defending team with a free goal.",
       "C": "The article does not say the attacker must leave the match.",
@@ -496,7 +496,7 @@
      ],
      "answer": "C",
      "skill": "detail",
-     "why": "The article explains that momentum transfers through the arm into the ball, generating velocity and a downward trajectory.",
+     "why": "Momentum moves through the arm into the ball, giving it speed and a downward path.",
      "wrong": {
       "A": "Momentum does not simply disappear during the jump.",
       "B": "The article focuses on how momentum affects the ball, not just the landing.",
@@ -513,7 +513,7 @@
      ],
      "answer": "A",
      "skill": "detail",
-     "why": "The article states that skilled defenders anticipate an attacker's next move by reading cues in the hips, shoulders, and eyes.",
+     "why": "In the article, skilled defenders anticipate an attacker's next move by reading cues in the hips, shoulders, and eyes.",
      "wrong": {
       "B": "Referees do not reveal a team's plans.",
       "C": "The scoreboard does not show a player's next move.",
@@ -627,7 +627,7 @@
     ],
     "answer": "B",
     "skill": "detail",
-    "why": "The text says some players throw hard from far back.",
+    "why": "In the text, some players throw hard from far back.",
     "wrong": {
      "A": "One player stays near the goal to help score, not the hard throwers.",
      "C": "The text never says players stand behind the other team.",
@@ -678,7 +678,7 @@
     ],
     "answer": "C",
     "skill": "inference",
-    "why": "The text says some players run fast on the sides, so a fast player fits that job.",
+    "why": "In the text, some players run fast on the sides, so a fast player fits that job.",
     "wrong": {
      "A": "Throwing hard from far back needs a strong player.",
      "B": "The player near the goal helps score, not run fast.",
@@ -767,7 +767,7 @@
     ],
     "answer": "A",
     "skill": "detail",
-    "why": "The article says a match is split into two equal halves, each about thirty minutes long.",
+    "why": "In the article, a match is split into two equal halves, each about thirty minutes long.",
     "wrong": {
      "B": "Twenty minutes is not the length given in the text.",
      "C": "Forty-five minutes is not the length given in the text.",

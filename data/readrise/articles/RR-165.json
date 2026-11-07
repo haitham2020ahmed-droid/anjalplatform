@@ -123,7 +123,7 @@
           "skill": "central-idea",
           "why": "The article tells what meteors and meteorites are and why deserts help people find them.",
           "wrong": {
-            "A": "The article says a shooting star is not a star at all.",
+            "A": "A shooting star is not a star at all.",
             "B": "The article does not explain how to build a telescope.",
             "D": "The article does not talk about desert heat."
           }
@@ -138,7 +138,7 @@
           ],
           "answer": "A",
           "skill": "detail",
-          "why": "The article says a space rock that lands is a meteorite.",
+          "why": "A space rock that lands on the ground is called a meteorite.",
           "wrong": {
             "B": "A meteor is the streak of light in the sky.",
             "C": "A meteoroid is the rock while it is still in space.",
@@ -155,7 +155,7 @@
           ],
           "answer": "B",
           "skill": "detail",
-          "why": "The article says a magnet will stick to iron meteorites.",
+          "why": "In the article, a magnet will stick to iron meteorites.",
           "wrong": {
             "A": "Sand does not stick to iron meteorites.",
             "C": "The article says few plants grow in the desert, not that they stick to rocks.",
@@ -223,7 +223,7 @@
           ],
           "answer": "A",
           "skill": "inference",
-          "why": "The article says these old rocks help us learn how Earth was made.",
+          "why": "In the article, these old rocks help us learn how Earth was made.",
           "wrong": {
             "B": "Studying rocks does not change the weather.",
             "C": "Meteorites are rocks, not plants.",
@@ -317,7 +317,7 @@
           ],
           "answer": "D",
           "skill": "detail",
-          "why": "The article says the piece of iron found in 1965 weighs about 2,200 kilograms.",
+          "why": "In the article, the piece of iron found in 1965 weighs about 2,200 kilograms.",
           "wrong": {
             "A": "That is far too light.",
             "B": "That is only one tenth of the real weight.",
@@ -334,7 +334,7 @@
           ],
           "answer": "A",
           "skill": "cause-effect",
-          "why": "The article says the meteoroid rubs against the air so quickly that it becomes hot and glows.",
+          "why": "In the article, the meteoroid rubs against the air so quickly that it becomes hot and glows.",
           "wrong": {
             "B": "The glow is caused by heat, not by sunlight.",
             "C": "Sand is on the ground, not on the meteoroid.",
@@ -368,7 +368,7 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The article explains that scientists learned an iron meteorite formed the craters and that a large iron piece was found nearby.",
+          "why": "In the article, scientists learned an iron meteorite formed the craters and that a large iron piece was found nearby.",
           "wrong": {
             "A": "Heat does not prove a meteorite hit the ground.",
             "B": "A visit does not prove what made the craters.",
@@ -481,7 +481,7 @@
           "skill": "central-idea",
           "why": "The article explains what meteorites are, why deserts preserve and reveal them, and what they teach.",
           "wrong": {
-            "B": "The article says most meteors burn up completely.",
+            "B": "Most meteors burn up in the air, so they are not a danger to desert travelers.",
             "C": "The article does not say it is the largest ever found.",
             "D": "The article describes deserts such as the Empty Quarter, too."
           }
@@ -496,7 +496,7 @@
           ],
           "answer": "B",
           "skill": "detail",
-          "why": "The article says the exterior melts and hardens again, forming a thin, glassy black coating called a fusion crust.",
+          "why": "In the article, the exterior melts and hardens again, forming a thin, glassy black coating called a fusion crust.",
           "wrong": {
             "A": "Sand in a crater is not a fusion crust.",
             "C": "Earth's crust is a different idea.",
@@ -513,7 +513,7 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The article states that the explorer Harry St John Philby recorded the craters in 1932.",
+          "why": "In the article, the explorer Harry St John Philby recorded the craters in 1932.",
           "wrong": {
             "A": "No astronauts are mentioned.",
             "B": "The Camel's Hump was recovered in 1965, later than 1932.",
@@ -547,7 +547,7 @@
           ],
           "answer": "A",
           "skill": "cause-effect",
-          "why": "The article says iron meteorites are extraordinarily dense, so they feel heavy for their size.",
+          "why": "In the article, iron meteorites are extraordinarily dense, so they feel heavy for their size.",
           "wrong": {
             "B": "The article does not say meteorites contain sand.",
             "C": "Ice is not mentioned as a cause.",
@@ -627,7 +627,7 @@
         ],
         "answer": "A",
         "skill": "cause-effect",
-        "why": "The text says the rock gets so hot that it glows.",
+        "why": "In the text, the rock gets so hot that it glows.",
         "wrong": {
           "B": "Only some rocks are iron, and this is not why they glow.",
           "C": "The text says a shooting star is not a star.",
@@ -644,7 +644,7 @@
         ],
         "answer": "C",
         "skill": "detail",
-        "why": "The text says he found big pits in the sand, and each pit is a crater.",
+        "why": "In the text, he found big pits in the sand, and each pit is a crater.",
         "wrong": {
           "A": "The huge chunk was found in 1965.",
           "B": "The crust is on the rock itself.",
@@ -731,7 +731,7 @@
         ],
         "answer": "A",
         "skill": "cause-effect",
-        "why": "The text says desert air is so dry that rocks rust slowly and last a long time.",
+        "why": "In the text, desert air is so dry that rocks rust slowly and last a long time.",
         "wrong": {
           "B": "There are few plants in the desert.",
           "C": "Cold is not mentioned.",
@@ -748,7 +748,7 @@
         ],
         "answer": "B",
         "skill": "inference",
-        "why": "The text says to show it to a teacher so a science lab can test whether it came from space.",
+        "why": "In the text, to show it to a teacher so a science lab can test whether it came from space.",
         "wrong": {
           "A": "Breaking is not suggested.",
           "C": "Water is not mentioned.",
@@ -767,7 +767,7 @@
         ],
         "answer": "A",
         "skill": "cause-effect",
-        "why": "The text says an iron meteorite broke apart and blasted out the Wabar craters.",
+        "why": "An iron meteorite broke apart and made the Wabar craters.",
         "wrong": {
           "B": "Wind is not given as the cause.",
           "C": "The explorer only recorded them.",
@@ -784,7 +784,7 @@
         ],
         "answer": "D",
         "skill": "detail",
-        "why": "The text says the chunk was nicknamed the Camel's Hump.",
+        "why": "In the text, the chunk was nicknamed the Camel's Hump.",
         "wrong": {
           "A": "The Empty Quarter is the place where it was found.",
           "B": "Fusion crust is the coating on a meteorite.",

@@ -138,7 +138,7 @@
           ],
           "answer": "B",
           "skill": "detail",
-          "why": "The article says each team has six players, three in front and three in back.",
+          "why": "In the article, each team has six players, three in front and three in back.",
           "wrong": {
             "A": "Five is not the number given.",
             "C": "Seven is not the number given.",
@@ -172,7 +172,7 @@
           ],
           "answer": "C",
           "skill": "cause-effect",
-          "why": "The article says that winning back the serve causes all players to rotate one spot clockwise.",
+          "why": "In the article, winning back the serve causes all players to rotate one spot clockwise.",
           "wrong": {
             "A": "Players do not leave the court for this reason.",
             "B": "Players stay on their own team.",
@@ -180,7 +180,7 @@
           }
         },
         {
-          "stem": "Read this: \"A spike is a strong hit down into the other team's court.\" What does spike mean here?",
+          "stem": "In the article, what does the word \"spike\" mean?",
           "options": [
             "A powerful hit aimed down into the court",
             "A sharp metal point on a running shoe",
@@ -223,7 +223,7 @@
           ],
           "answer": "D",
           "skill": "inference",
-          "why": "The article says teammates call out \"Mine!\" so they do not run into each other.",
+          "why": "Teammates call out to each other so they do not run into each other.",
           "wrong": {
             "A": "The score is not announced this way.",
             "B": "Time outs are not mentioned.",
@@ -317,7 +317,7 @@
           ],
           "answer": "B",
           "skill": "inference",
-          "why": "The article says a spinning hit can make the ball curve or float unpredictably through the air.",
+          "why": "In the article, a spinning hit can make the ball curve or float unpredictably through the air.",
           "wrong": {
             "A": "Speed is not linked to spin in the article.",
             "C": "Bouncing is not discussed for serves.",
@@ -334,7 +334,7 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The article states that a team may touch the ball up to three times before sending it back over the net.",
+          "why": "In the article, a team may touch the ball up to three times before sending it back over the net.",
           "wrong": {
             "A": "Once is fewer than the article allows.",
             "B": "Two times is not the limit given.",
@@ -351,7 +351,7 @@
           ],
           "answer": "D",
           "skill": "detail",
-          "why": "The article says all six players rotate one position clockwise when a team wins back the serve.",
+          "why": "In the article, all six players rotate one position clockwise when a team wins back the serve.",
           "wrong": {
             "A": "Players stay on the court.",
             "B": "Not every player moves to the front row.",
@@ -359,7 +359,7 @@
           }
         },
         {
-          "stem": "Read this: \"swinging the arm quickly so the ball leaves the hand carrying tremendous momentum.\" What does momentum mean here?",
+          "stem": "A fast arm swing gives the ball a lot of momentum. What does momentum mean here?",
           "options": [
             "The force that keeps the moving ball going",
             "The loud sound of the crowd cheering for them",
@@ -496,7 +496,7 @@
           ],
           "answer": "B",
           "skill": "detail",
-          "why": "The article says the angle and spin given to the ball shape its trajectory through the air.",
+          "why": "In the article, the angle and spin given to the ball shape its trajectory through the air.",
           "wrong": {
             "A": "Player numbers are fixed by the rules, not by serving.",
             "C": "Net height does not change with serving.",
@@ -504,7 +504,7 @@
           }
         },
         {
-          "stem": "Read this: \"a serve struck with topspin dips sharply downward.\" What does topspin mean?",
+          "stem": "In the article, what does the word \"topspin\" mean?",
           "options": [
             "A serve hit with no spin at all, so it floats in the air",
             "A slow, gentle hit near the net that barely clears it",
@@ -513,7 +513,7 @@
           ],
           "answer": "C",
           "skill": "vocabulary",
-          "why": "The article explains that topspin causes the ball to dip sharply downward during flight.",
+          "why": "In the article, topspin causes the ball to dip sharply downward during flight.",
           "wrong": {
             "A": "A floater serve, not topspin, has almost no spin.",
             "B": "Topspin serves are usually hit with power, not gently.",
@@ -644,7 +644,7 @@
         ],
         "answer": "D",
         "skill": "cause-effect",
-        "why": "The text says players jump high to spike the ball hard.",
+        "why": "In the text, players jump high to spike the ball hard.",
         "wrong": {
           "A": "The text does not say jumping is to see the other team.",
           "B": "Talking is done by calling \"Mine!\".",
@@ -661,7 +661,7 @@
         ],
         "answer": "B",
         "skill": "sequence",
-        "why": "The text says a serve starts the play, and the server hits the ball over the net.",
+        "why": "In the text, a serve starts the play, and the server hits the ball over the net.",
         "wrong": {
           "A": "Players rotate only after their team wins the serve back.",
           "C": "A spike comes later in the play.",
@@ -678,7 +678,7 @@
         ],
         "answer": "C",
         "skill": "inference",
-        "why": "The text says fans in Saudi Arabia love to watch volleyball games by the sea.",
+        "why": "In the text, fans in Saudi Arabia love to watch volleyball games by the sea.",
         "wrong": {
           "A": "The text does not say it is hard to learn.",
           "B": "Games are by the sea, not on boats.",

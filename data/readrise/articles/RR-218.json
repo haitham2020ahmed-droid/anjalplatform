@@ -138,7 +138,7 @@
           ],
           "answer": "B",
           "skill": "detail",
-          "why": "The article says a souq is often near the main mosque, right in the old town.",
+          "why": "In the article, a souq is often near the main mosque, right in the old town.",
           "wrong": {
             "A": "The souq is inside the old town, not far outside it.",
             "C": "Mountains are not mentioned.",
@@ -155,7 +155,7 @@
           ],
           "answer": "B",
           "skill": "detail",
-          "why": "The article says a roof of wood, cloth, or palm leaves covers each lane and gives shade.",
+          "why": "A roof of wood, cloth, or palm leaves covers the lanes and gives shade.",
           "wrong": {
             "A": "Glass is not mentioned as a roof material.",
             "C": "Stone is not used for the roof in the article.",
@@ -206,7 +206,7 @@
           ],
           "answer": "A",
           "skill": "inference",
-          "why": "The article says a son can learn his father's trade by watching and helping in the stall.",
+          "why": "In the article, a boy can learn the family trade from his father.",
           "wrong": {
             "B": "The article does not talk about school.",
             "C": "The souq is full of sellers, not empty.",
@@ -351,7 +351,7 @@
           ],
           "answer": "B",
           "skill": "detail",
-          "why": "The article says a son learns the trade by observing and assisting in the family stall from a young age.",
+          "why": "In the article, a son learns the trade by observing and assisting in the family stall from a young age.",
           "wrong": {
             "A": "Books are not mentioned as the way sons learn.",
             "C": "A university is not mentioned.",
@@ -385,7 +385,7 @@
           ],
           "answer": "A",
           "skill": "cause-effect",
-          "why": "The article says both sides usually enjoy the chat, treating the custom as friendly rather than a quarrel.",
+          "why": "In the article, both sides usually enjoy the bargaining, so it is a friendly custom, not a fight.",
           "wrong": {
             "B": "The seller does not always have to lower the price.",
             "C": "Customers are not forced to shop there.",
@@ -627,7 +627,7 @@
         ],
         "answer": "B",
         "skill": "detail",
-        "why": "The text says people sit and drink tea at a small stall.",
+        "why": "In the text, people sit and drink tea at a small stall.",
         "wrong": {
           "A": "Camels are not mentioned in this text.",
           "C": "Digging wells is not part of the souq.",
@@ -647,7 +647,7 @@
         "why": "The text says you do not pay the first price; you talk with the seller, which is a bargain.",
         "wrong": {
           "A": "The buyer and seller are at the same stall.",
-          "B": "The text says the buyer does not pay the first price, not that they forgot.",
+          "B": "In the text, the buyer does not pay the first price, not that they forgot.",
           "D": "The lanes are shady, not dark."
         }
       },
@@ -697,7 +697,7 @@
         ],
         "answer": "B",
         "skill": "detail",
-        "why": "The text says one lane rings with the sound of hammers on metal pots and tools.",
+        "why": "In the text, one lane rings with the sound of hammers on metal pots and tools.",
         "wrong": {
           "A": "The text does not say singing is heard in the lane.",
           "C": "Wells are not mentioned in this text.",
@@ -731,7 +731,7 @@
         ],
         "answer": "A",
         "skill": "cause-effect",
-        "why": "The text says the two sides offer and refuse until they agree on a fair price.",
+        "why": "In the text, the two sides offer and refuse until they agree on a fair price.",
         "wrong": {
           "B": "The text does not link price talk to the mosque.",
           "C": "A son learns a trade by watching and helping.",
@@ -801,7 +801,7 @@
         ],
         "answer": "D",
         "skill": "cause-effect",
-        "why": "The text says the shaded lanes stayed cooler, which drew people to linger.",
+        "why": "The shaded lanes stayed cooler than outside, so people stayed longer.",
         "wrong": {
           "A": "The text does not compare lane length with the streets.",
           "B": "The text does not say the shops closed early.",

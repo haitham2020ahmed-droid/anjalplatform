@@ -138,7 +138,7 @@
           ],
           "answer": "B",
           "skill": "detail",
-          "why": "The article says women used hair from goats, sheep, and camels.",
+          "why": "In the article, women used hair from goats, sheep, and camels.",
           "wrong": {
             "A": "Cotton is not mentioned.",
             "C": "Silk is not mentioned.",
@@ -155,7 +155,7 @@
           ],
           "answer": "C",
           "skill": "vocabulary",
-          "why": "The article says a loom is a frame that holds threads so another thread can be woven through them.",
+          "why": "In the article, a loom is a frame that holds thread tight for weaving.",
           "wrong": {
             "A": "The tent is made from the finished cloth, not the loom itself.",
             "B": "A bag is something made from the cloth.",
@@ -172,7 +172,7 @@
           ],
           "answer": "D",
           "skill": "detail",
-          "why": "The article says the black tent is called a bayt al-sha'ar, meaning house of hair.",
+          "why": "In the article, the black tent is called a bayt al-sha'ar, meaning house of hair.",
           "wrong": {
             "A": "A qalam is not in this article.",
             "B": "A roshan is not in this article.",
@@ -385,7 +385,7 @@
           ],
           "answer": "C",
           "skill": "cause-effect",
-          "why": "The article explains the thick, densely woven cloth blocked the sun by day and the cold wind by night.",
+          "why": "In the article, the thick, densely woven cloth blocked the sun by day and the cold wind by night.",
           "wrong": {
             "A": "A metal frame is not mentioned.",
             "B": "An underground tent is not described.",
@@ -627,7 +627,7 @@
         ],
         "answer": "B",
         "skill": "detail",
-        "why": "The text says each shape can mean a thing.",
+        "why": "In the text, each shape can stand for something, such as an animal or a star.",
         "wrong": {
           "A": "The cloth keeps out the wind, but the shapes are not said to do this.",
           "C": "The loom holds the thread tight, not the shapes.",
@@ -714,7 +714,7 @@
         ],
         "answer": "B",
         "skill": "cause-effect",
-        "why": "The text says cheap factory-made cloth is now easy to find nearly everywhere.",
+        "why": "In the text, cheap factory-made cloth is now easy to find nearly everywhere.",
         "wrong": {
           "A": "The text never says weaving was banned.",
           "C": "The text says dedicated weavers still work hard to keep the craft alive.",
@@ -748,7 +748,7 @@
         ],
         "answer": "A",
         "skill": "detail",
-        "why": "The text says a girl learned by watching and helping her mother or grandmother at the loom.",
+        "why": "In the text, a girl learned by watching and helping her mother or grandmother at the loom.",
         "wrong": {
           "B": "The text does not mention books.",
           "C": "She learned from her mother or grandmother, not herders.",
@@ -801,7 +801,7 @@
         ],
         "answer": "B",
         "skill": "detail",
-        "why": "The article says it was often assembled outdoors near the family's tent.",
+        "why": "In the article, it was often assembled outdoors near the family's tent.",
         "wrong": {
           "A": "The families were nomads living in tents, not in stone buildings.",
           "C": "The article does not mention a market.",
@@ -818,7 +818,7 @@
         ],
         "answer": "D",
         "skill": "author-purpose",
-        "why": "The article says the name reflects the material the tent is built from.",
+        "why": "In the article, the name reflects the material the tent is built from.",
         "wrong": {
           "A": "The name says nothing about size.",
           "B": "Looms are explained in a different paragraph.",

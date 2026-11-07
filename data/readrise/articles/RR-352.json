@@ -138,7 +138,7 @@
      ],
      "answer": "C",
      "skill": "detail",
-     "why": "The story says Yousef's uncle brought him along so Yousef could learn the family trade.",
+     "why": "In the story, Yousef wants to learn the trade from his uncle.",
      "wrong": {
       "A": "Yousef is not the captain's son; his uncle is a merchant.",
       "B": "The story does not mention a grandmother.",
@@ -223,7 +223,7 @@
      ],
      "answer": "D",
      "skill": "cause-effect",
-     "why": "The story says it was the sailors' skill and teamwork that kept the ship and everyone safe.",
+     "why": "In the story, it was the sailors' skill and teamwork that kept the ship and everyone safe.",
      "wrong": {
       "A": "The story credits skill and teamwork, not luck.",
       "B": "There is no fox in this story.",
@@ -240,7 +240,7 @@
      ],
      "answer": "B",
      "skill": "sequence",
-     "why": "Once the storm passes, the story says the sea slowly turns calm once again.",
+     "why": "Once the storm passes, in the story, the sea slowly turns calm once again.",
      "wrong": {
       "A": "Dark clouds appear before the storm, not after it passes.",
       "C": "Yousef is already with the captain throughout the voyage.",
@@ -317,7 +317,7 @@
      ],
      "answer": "B",
      "skill": "detail",
-     "why": "The story says Yousef's uncle is a cloth and spice merchant, and the ship carries crates of this cargo.",
+     "why": "In the story, Yousef's uncle is a cloth and spice merchant, and the ship carries this cargo.",
      "wrong": {
       "A": "The story does not mention fish or nets as cargo.",
       "C": "The story does not mention wood or stone.",
@@ -334,7 +334,7 @@
      ],
      "answer": "C",
      "skill": "detail",
-     "why": "The story says Captain Nasser had spent nearly thirty years working at sea.",
+     "why": "In the story, Captain Nasser had spent nearly thirty years working at sea.",
      "wrong": {
       "A": "Five years is far less than the story states.",
       "B": "Ten years is far less than the story states.",
@@ -521,7 +521,7 @@
      }
     },
     {
-     "stem": "What does the crew's ability to act 'without needing to be told twice' suggest about them?",
+     "stem": "What does the crew's ability to act without being told twice suggest about them?",
      "options": [
       "They clearly do not respect Captain Nasser's authority on this ship at all",
       "They are each working completely alone without any help from one another",
@@ -627,7 +627,7 @@
     ],
     "answer": "C",
     "skill": "detail",
-    "why": "The text says Yousef's uncle sells cloth and spices.",
+    "why": "In the text, Yousef's uncle sells cloth and spices.",
     "wrong": {
      "A": "Fish and salt are not mentioned.",
      "B": "Gold and silver are not mentioned.",
@@ -680,7 +680,7 @@
     "skill": "author-purpose",
     "why": "The calm sea makes the sudden gray sky and big waves feel like a big change.",
     "wrong": {
-     "A": "The text says Yousef likes the ride.",
+     "A": "In the text, Yousef likes the ride.",
      "C": "Yousef is not bored; he likes the blue water.",
      "D": "The text does not say the ship is slow."
     }
@@ -767,7 +767,7 @@
     ],
     "answer": "A",
     "skill": "detail",
-    "why": "The story says the ship left the harbor at Jeddah.",
+    "why": "In the story, the ship left the harbor at Jeddah.",
     "wrong": {
      "B": "Yanbu is not mentioned.",
      "C": "Dammam is not mentioned.",
@@ -820,7 +820,7 @@
     "skill": "inference",
     "why": "He enjoys the ride and imagines a busy market he will help his uncle build, which shows he is hopeful.",
     "wrong": {
-     "B": "The story says he enjoyed the gentle ride.",
+     "B": "In the story, he enjoyed the gentle ride.",
      "C": "His fear comes after the storm starts.",
      "D": "He is watching the water, not sleeping."
     }

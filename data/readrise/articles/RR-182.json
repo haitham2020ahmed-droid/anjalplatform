@@ -138,7 +138,7 @@
           ],
           "answer": "A",
           "skill": "detail",
-          "why": "The article says the houses are made of coral stone from the sea.",
+          "why": "The old houses are made of coral stone from the sea.",
           "wrong": {
             "B": "The article does not say the houses are made of mud.",
             "C": "Glass and steel are used in new buildings, not these old houses.",
@@ -172,7 +172,7 @@
           ],
           "answer": "A",
           "skill": "cause-effect",
-          "why": "The article says the wall kept the town safe from attacks.",
+          "why": "In the article, the wall kept the town safe from attacks.",
           "wrong": {
             "B": "The town wanted the breeze; the roshan let it in.",
             "C": "Wood beams help hold the houses up.",
@@ -317,7 +317,7 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The article says the wall was taken down in the 1940s so the city could grow.",
+          "why": "The wall was taken down in the 1940s so the city could grow.",
           "wrong": {
             "A": "It was removed, not made taller.",
             "B": "The article does not say it was painted.",
@@ -496,7 +496,7 @@
           ],
           "answer": "D",
           "skill": "cause-effect",
-          "why": "The article says Jeddah's importance grew when the caliph Uthman ibn Affan chose it as the port for Makkah.",
+          "why": "Jeddah became more important when the caliph Uthman ibn Affan chose it as the port for Makkah.",
           "wrong": {
             "A": "King Abdulaziz stayed in Nassif House in 1925, much later.",
             "B": "That happened in 2014.",
@@ -513,7 +513,7 @@
           ],
           "answer": "A",
           "skill": "vocabulary",
-          "why": "The article says the lattice provided ventilation by letting sea breezes circulate through the house.",
+          "why": "The wooden screens let sea breezes move through the house, which is ventilation.",
           "wrong": {
             "B": "A carved door is not ventilation.",
             "C": "Height is different from air flow.",
@@ -627,7 +627,7 @@
         ],
         "answer": "B",
         "skill": "detail",
-        "why": "The text says you can buy spice and cloth at the busy market.",
+        "why": "You can buy spices and cloth at the busy market.",
         "wrong": {
           "A": "Coral and wood are used to build the homes, not sold at the market in the text.",
           "C": "Ships and gates are not things you buy there.",
@@ -678,7 +678,7 @@
         ],
         "answer": "A",
         "skill": "detail",
-        "why": "The text says the wall is gone now, but some of the old gates still stand.",
+        "why": "In the text, the wall was taken down long ago, but some of the old gates still stand.",
         "wrong": {
           "B": "The wall was taken down, not made taller.",
           "C": "The text does not say it was painted.",
@@ -697,7 +697,7 @@
         ],
         "answer": "C",
         "skill": "detail",
-        "why": "The text says ships sailed in from Africa, India, and other faraway lands.",
+        "why": "In the text, ships came from Africa, India, and other faraway lands.",
         "wrong": {
           "A": "Greece and Persia are not mentioned.",
           "B": "Spain and China are not mentioned.",
@@ -731,7 +731,7 @@
         ],
         "answer": "D",
         "skill": "cause-effect",
-        "why": "The text says builders added strong wooden beams to hold the walls together.",
+        "why": "In the text, builders added strong wooden beams to hold the walls together.",
         "wrong": {
           "A": "The beams were for the walls, not the windows.",
           "B": "The roshan lattice keeps out the sun, not the beams.",
@@ -767,7 +767,7 @@
         ],
         "answer": "B",
         "skill": "cause-effect",
-        "why": "The text says it was demolished so that the city could expand.",
+        "why": "The wall was taken down so that the city could grow bigger.",
         "wrong": {
           "A": "The wall was built to defend against attacks, not taken down because of damage.",
           "C": "The wall already had gates, and some still stand.",
@@ -818,7 +818,7 @@
         ],
         "answer": "C",
         "skill": "detail",
-        "why": "The text says rooms on the upper floors caught the strongest breezes.",
+        "why": "Rooms on the upper floors caught the strongest breezes.",
         "wrong": {
           "A": "The market is not linked to sleeping rooms.",
           "B": "The text does not say the upper walls were thicker.",

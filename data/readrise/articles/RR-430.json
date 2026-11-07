@@ -138,7 +138,7 @@
           ],
           "answer": "B",
           "skill": "detail",
-          "why": "The story says Layla lives with Nura, her gran, who weaves cloth on a loom.",
+          "why": "In the story, Layla lives with Nura, her gran, who weaves cloth on a loom.",
           "wrong": {
             "A": "The story does not mention a school.",
             "C": "Nura lives with Layla, not far away.",
@@ -155,7 +155,7 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The story says Layla's brother comes home, and Nura wants the pattern done by then.",
+          "why": "In the story, Layla's brother comes home, and Nura wants the pattern done by then.",
           "wrong": {
             "A": "No moving happens in the story.",
             "B": "The story does not mention selling cloth.",
@@ -317,7 +317,7 @@
           ],
           "answer": "B",
           "skill": "detail",
-          "why": "The story says Nura wanted to pass down a pattern of small diamonds woven in their family for generations.",
+          "why": "In the story, Nura wanted to pass down a pattern of small diamonds woven in their family for generations.",
           "wrong": {
             "A": "No recipe is mentioned in the story.",
             "C": "No song is mentioned in the story.",
@@ -351,7 +351,7 @@
           ],
           "answer": "C",
           "skill": "cause-effect",
-          "why": "The story explains that the threads kept crossing wrong, which made the diamonds crooked and uneven.",
+          "why": "In the story, the threads kept crossing wrong, which made the diamonds crooked and uneven.",
           "wrong": {
             "A": "Thread type is not described as the issue.",
             "B": "A broken loom is never mentioned.",
@@ -402,7 +402,7 @@
           ],
           "answer": "A",
           "skill": "inference",
-          "why": "The story says the pattern had been woven in the family for generations, showing it was valued and passed down.",
+          "why": "In the story, the pattern had been woven in the family for generations, showing it was valued and passed down.",
           "wrong": {
             "B": "The pattern already existed long before that night.",
             "C": "Layla herself learns to weave it too.",
@@ -496,7 +496,7 @@
           ],
           "answer": "B",
           "skill": "detail",
-          "why": "The story explains that each successive weaver added her own touch and refinement, passed down across generations.",
+          "why": "In the story, each successive weaver added her own touch and refinement, passed down across generations.",
           "wrong": {
             "A": "The pattern existed long before that year.",
             "C": "The pattern belongs to Layla's own family line.",
@@ -513,7 +513,7 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The story explains that the threads kept crossing in the wrong places, which made the diamonds crooked and uneven.",
+          "why": "In the story, the threads kept crossing in the wrong places, which made the diamonds crooked and uneven.",
           "wrong": {
             "A": "No damaged loom is described in the story.",
             "B": "Thread type is never identified as the issue.",
@@ -644,7 +644,7 @@
         ],
         "answer": "C",
         "skill": "detail",
-        "why": "The text says the pattern has small shapes, and it is old and hard to make.",
+        "why": "In the text, the pattern has small shapes, and it is old and hard to make.",
         "wrong": {
           "A": "The shapes are small, not big.",
           "B": "The pattern is old and hard, not new and easy.",

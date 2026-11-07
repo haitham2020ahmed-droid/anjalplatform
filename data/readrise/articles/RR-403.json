@@ -155,7 +155,7 @@
      ],
      "answer": "A",
      "skill": "detail",
-     "why": "The story says the astronaut lived on a space station that flies high above Earth.",
+     "why": "In the story, the astronaut is on a space station.",
      "wrong": {
       "B": "Dr. Huda does not work in a classroom.",
       "C": "The story does not say she lives on a boat.",
@@ -180,20 +180,20 @@
      }
     },
     {
-     "stem": "Why does everything float on the space station?",
+     "stem": "What can you tell about life on the space station?",
      "options": [
-      "The astronauts tie balloons to things",
-      "There is very little gravity",
-      "The station is under water",
-      "Fans blow air at everything"
+      "Food falls fast to the floor",
+      "Things float if you let them go",
+      "Water always stays in cups",
+      "People walk just like on Earth"
      ],
      "answer": "B",
      "skill": "inference",
-     "why": "Dr. Huda explains that there is only a tiny bit of gravity, so things do not fall the way they do on Earth.",
+     "why": "In the story, the astronaut floats, and food can float away if she lets go of it.",
      "wrong": {
-      "A": "The story does not mention balloons.",
-      "C": "The station is not under water.",
-      "D": "The story does not mention fans."
+      "A": "Food floats; it does not fall.",
+      "C": "Water can float out of a cup.",
+      "D": "The astronaut floats instead of walking."
      }
     },
     {
@@ -317,7 +317,7 @@
      ],
      "answer": "B",
      "skill": "detail",
-     "why": "The story says Lama's school held a writing contest about space, which she won with her essay.",
+     "why": "In the story, Lama's school held a contest about space, and she won it with her essay.",
      "wrong": {
       "A": "Lama did not build a model.",
       "C": "Lama did not draw a picture to win.",
@@ -334,7 +334,7 @@
      ],
      "answer": "A",
      "skill": "detail",
-     "why": "The story says the station completes one full trip around the planet roughly every ninety minutes.",
+     "why": "In the story, the station completes one full trip around the planet roughly every ninety minutes.",
      "wrong": {
       "B": "A week is far too long compared to what the story says.",
       "C": "The story gives a longer time than one hour.",
@@ -393,20 +393,20 @@
      }
     },
     {
-     "stem": "What did Dr. Huda do before she could fly to the space station?",
+     "stem": "What happened after Lama won the contest?",
      "options": [
-      "She wrote an essay about the stars for her class",
-      "She watched other astronauts on a screen for a few days",
-      "She trained for years and learned to fly spacecraft",
-      "She built her own rocket at home with her father"
+      "She visited the space station herself",
+      "She talked live with a real astronaut",
+      "She flew on a plane to the Moon",
+      "She built her own small rocket"
      ],
-     "answer": "C",
+     "answer": "B",
      "skill": "sequence",
-     "why": "The story says Dr. Huda studied engineering and then trained for years before being chosen to fly to the station.",
+     "why": "In the story, as the contest winner, Lama would get to talk live with a real astronaut.",
      "wrong": {
-      "A": "Lama, not Dr. Huda, wrote an essay.",
-      "B": "The story does not describe this kind of watching.",
-      "D": "The story does not say Dr. Huda built her own rocket."
+      "A": "She talks to the astronaut; she does not go to space.",
+      "C": "No one flies to the Moon in the story.",
+      "D": "Building a rocket is not the prize."
      }
     },
     {
@@ -767,7 +767,7 @@
     ],
     "answer": "A",
     "skill": "detail",
-    "why": "The text says she wove in surprising facts she discovered while researching in the library.",
+    "why": "She found the surprising facts while doing research in the library.",
     "wrong": {
      "B": "A museum trip is not mentioned.",
      "C": "A television program is not mentioned.",
@@ -801,7 +801,7 @@
     ],
     "answer": "D",
     "skill": "compare",
-    "why": "The text says that instead of falling as it would on Earth, the drop curled into a ball and drifted.",
+    "why": "In the text, instead of falling as it would on Earth, the drop curled into a ball and drifted.",
     "wrong": {
      "A": "This is backwards from the text.",
      "B": "The text says the drop acts differently on the station.",

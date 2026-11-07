@@ -125,7 +125,7 @@
           "wrong": {
             "A": "The article does not explain how to fix a tire.",
             "B": "The race in France is a bike race, and it is only a small part.",
-            "C": "The article says riding is fun and good for you."
+            "C": "In the article, riding is fun and good for you."
           }
         },
         {
@@ -138,7 +138,7 @@
           ],
           "answer": "B",
           "skill": "detail",
-          "why": "The article says the first bike had no pedals, so the rider pushed it with his feet.",
+          "why": "In the article, the first bike had no pedals, so the rider pushed it with his feet.",
           "wrong": {
             "A": "The rider sat on it, so it had a seat.",
             "C": "It rolled on wheels.",
@@ -189,7 +189,7 @@
           ],
           "answer": "B",
           "skill": "detail",
-          "why": "The article says a low gear makes it easy to go up a hill.",
+          "why": "In the article, a low gear makes it easy to go up a hill.",
           "wrong": {
             "A": "A high gear helps on flat ground.",
             "C": "Gears help while riding, not parking.",
@@ -223,7 +223,7 @@
           ],
           "answer": "A",
           "skill": "inference",
-          "why": "The article says a bike needs no gas and does not make the air dirty, and riding keeps your body strong.",
+          "why": "In the article, a bike needs no gas and does not make the air dirty, and riding keeps your body strong.",
           "wrong": {
             "B": "The article does not say bikes are faster than cars.",
             "C": "The article does not say this.",
@@ -317,7 +317,7 @@
           ],
           "answer": "A",
           "skill": "cause-effect",
-          "why": "The article says a bigger wheel traveled farther with each turn of the pedals.",
+          "why": "In the article, a bigger wheel traveled farther with each turn of the pedals.",
           "wrong": {
             "B": "The article says these bikes were tall and unsteady.",
             "C": "A giant wheel made riders sit up high.",
@@ -351,7 +351,7 @@
           ],
           "answer": "B",
           "skill": "detail",
-          "why": "The article says the safety bicycle had two wheels of the same size and a chain that carried power to the back wheel.",
+          "why": "In the article, the safety bicycle had two wheels of the same size and a chain that carried power to the back wheel.",
           "wrong": {
             "A": "It had two wheels.",
             "C": "The 1817 bike had no pedals.",
@@ -385,7 +385,7 @@
           ],
           "answer": "D",
           "skill": "detail",
-          "why": "The article says inventors added tires filled with air, which made the ride more comfortable.",
+          "why": "In the article, inventors added tires filled with air, which made the ride more comfortable.",
           "wrong": {
             "A": "Bells are not mentioned.",
             "B": "Lights are not mentioned.",
@@ -482,7 +482,7 @@
           "why": "The article covers the bicycle's design history, how it works, its benefits, and how racers use science to save energy.",
           "wrong": {
             "A": "The article describes major changes, such as pedals, chains, and pneumatic tires.",
-            "B": "The article also mentions races near AlUla.",
+            "B": "In the article, races near AlUla.",
             "C": "The article says cycling strengthens the heart, lungs, and leg muscles."
           }
         },
@@ -513,7 +513,7 @@
           ],
           "answer": "C",
           "skill": "cause-effect",
-          "why": "The article says cyclists behind the leader encounter less air resistance and conserve energy.",
+          "why": "In the article, cyclists behind the leader encounter less air resistance and conserve energy.",
           "wrong": {
             "A": "Talking is not given as a reason.",
             "B": "Blocking fans is not mentioned.",
@@ -547,7 +547,7 @@
           ],
           "answer": "A",
           "skill": "detail",
-          "why": "The article says the pedals rotate a toothed wheel that pulls the chain, which turns the rear wheel.",
+          "why": "In the article, the pedals rotate a toothed wheel that pulls the chain, which turns the rear wheel.",
           "wrong": {
             "B": "On modern bikes the pedals work through a chain to the rear wheel.",
             "C": "Pedaling does not pump air into tires.",
@@ -564,7 +564,7 @@
           ],
           "answer": "C",
           "skill": "inference",
-          "why": "The article says a bicycle requires no fuel and does not pollute the atmosphere.",
+          "why": "A bicycle needs no fuel and does not pollute the air.",
           "wrong": {
             "A": "The article does not say cycling is always fastest.",
             "B": "The article mentions helmets, showing there is some risk.",
@@ -598,7 +598,7 @@
           ],
           "answer": "B",
           "skill": "detail",
-          "why": "The article says racers crouch low and wear smooth clothing to become more aerodynamic.",
+          "why": "In the article, racers crouch low and wear smooth clothing to become more aerodynamic.",
           "wrong": {
             "A": "Standing up is not mentioned and would catch more air.",
             "C": "Water helps in the heat but does not reduce air resistance.",
@@ -627,7 +627,7 @@
         ],
         "answer": "B",
         "skill": "detail",
-        "why": "The text says one big race in France lasts three weeks.",
+        "why": "One big race in France lasts three weeks.",
         "wrong": {
           "A": "Saudi Arabia is named for riding safely in the heat, not for this race.",
           "C": "England is not named in the text.",
@@ -644,7 +644,7 @@
         ],
         "answer": "C",
         "skill": "cause-effect",
-        "why": "The text says that once the bike moves, you steer to stay up.",
+        "why": "In the text, once the bike moves, you steer to stay up.",
         "wrong": {
           "A": "The text says nothing about the wheels getting smaller.",
           "B": "The pedals do not stop; they turn the chain.",
@@ -697,7 +697,7 @@
         ],
         "answer": "C",
         "skill": "detail",
-        "why": "The text says the first bicycle was built in 1817 in Germany.",
+        "why": "In the text, the first bicycle was built in 1817 in Germany.",
         "wrong": {
           "A": "Italy is not named in the text.",
           "B": "England is not named in the text.",
@@ -714,7 +714,7 @@
         ],
         "answer": "B",
         "skill": "cause-effect",
-        "why": "The text says a moving rider can make small steering changes to stay upright.",
+        "why": "In the text, a moving rider can make small steering changes to stay upright.",
         "wrong": {
           "A": "The wheels do not change size while riding.",
           "C": "Pedals do not balance the bike by themselves.",
@@ -748,7 +748,7 @@
         ],
         "answer": "D",
         "skill": "inference",
-        "why": "The text says a bike needs no fuel and does not pollute the air.",
+        "why": "A bike needs no fuel and does not pollute the air.",
         "wrong": {
           "A": "Gas stations are for fuel, and bikes need none.",
           "B": "Giant wheels were unsteady and have nothing to do with clean air.",
@@ -767,7 +767,7 @@
         ],
         "answer": "B",
         "skill": "compare",
-        "why": "The text says a low gear makes hills easier but slower, while a high gear takes more effort and gives more speed on flat ground.",
+        "why": "In the text, a low gear makes hills easier but slower, while a high gear takes more effort and gives more speed on flat ground.",
         "wrong": {
           "A": "This swaps the two gears.",
           "C": "The text does not limit gears to racing or climbing.",
@@ -801,7 +801,7 @@
         ],
         "answer": "A",
         "skill": "detail",
-        "why": "The text says professional races are held in the desert near AlUla.",
+        "why": "In the text, professional races are held in the desert near AlUla.",
         "wrong": {
           "B": "Jeddah is not named in the text.",
           "C": "Riyadh is not named in the text.",

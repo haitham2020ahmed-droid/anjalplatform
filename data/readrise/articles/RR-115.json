@@ -121,7 +121,7 @@
           ],
           "answer": "B",
           "skill": "central-idea",
-          "why": "The article tells about Uranus and Neptune, the two blue ice giants far from the Sun.",
+          "why": "The article is about Uranus and Neptune, two blue planets far from the Sun.",
           "wrong": {
             "A": "A spaceship is named, but the article does not tell how to build one.",
             "C": "The article does not compare which planet is best.",
@@ -138,7 +138,7 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The article says Neptune is the eighth planet and the last one.",
+          "why": "In the article, Neptune is the eighth planet and the last one.",
           "wrong": {
             "A": "Uranus is the seventh planet, so Neptune is farther.",
             "B": "Earth is much closer to the Sun.",
@@ -155,7 +155,7 @@
           ],
           "answer": "A",
           "skill": "detail",
-          "why": "The article says math helped people find Neptune.",
+          "why": "In the article, math helped people find Neptune.",
           "wrong": {
             "B": "A ship visited later; it did not find Neptune.",
             "C": "A map of Earth would not show a planet.",
@@ -223,7 +223,7 @@
           ],
           "answer": "D",
           "skill": "inference",
-          "why": "The article says the ice giants have no ground to stand on.",
+          "why": "In the article, these planets have no hard ground to stand on.",
           "wrong": {
             "A": "Each planet is about four times as wide as Earth.",
             "B": "Moons do not stop people from walking.",
@@ -317,7 +317,7 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The article says methane in the air of the planets gives them their blue color.",
+          "why": "Methane gas in the air of these planets makes them look blue.",
           "wrong": {
             "A": "The planets have no solid surface with oceans.",
             "B": "The rings are faint and are not the cause.",
@@ -334,7 +334,7 @@
           ],
           "answer": "A",
           "skill": "detail",
-          "why": "The article says Neptune needs about 165 years to circle the Sun.",
+          "why": "Neptune takes about 165 years to go around the Sun.",
           "wrong": {
             "B": "84 years is Uranus's year.",
             "C": "42 years is how long a pole of Uranus has sunlight.",
@@ -351,7 +351,7 @@
           ],
           "answer": "B",
           "skill": "vocabulary",
-          "why": "Uranus 'travels along its orbit,' so orbit is the path it follows around the Sun.",
+          "why": "Uranus moves along its orbit, so orbit is the path it follows around the Sun.",
           "wrong": {
             "A": "Rings are described separately.",
             "C": "Storms and winds are a different topic.",
@@ -513,7 +513,7 @@
           ],
           "answer": "D",
           "skill": "detail",
-          "why": "The article says Uranus was the first planet identified with a telescope.",
+          "why": "In the article, Uranus was the first planet identified with a telescope.",
           "wrong": {
             "A": "Uranus is far from Earth.",
             "B": "Neptune, not Uranus, was found through mathematics.",
@@ -521,7 +521,7 @@
           }
         },
         {
-          "stem": "In the discovery paragraph, the phrase 'tugged slightly away from its predicted path' suggests that Uranus was —",
+          "stem": "Uranus moved a little away from its predicted path. This suggests that Uranus was —",
           "options": [
             "moving exactly where astronomers expected",
             "being gently pulled by something unseen",
@@ -598,7 +598,7 @@
           ],
           "answer": "C",
           "skill": "compare",
-          "why": "The article says the ice giants have icy interiors and no solid surface, unlike rocky planets such as Earth.",
+          "why": "In the article, the ice giants have icy interiors and no solid surface, unlike rocky planets such as Earth.",
           "wrong": {
             "A": "Both have numerous moons.",
             "B": "They are about four times as wide as Earth.",
@@ -678,7 +678,7 @@
         ],
         "answer": "C",
         "skill": "vocabulary",
-        "why": "The text says a telescope is a tool to see far.",
+        "why": "A telescope is a tool that helps us see things far away.",
         "wrong": {
           "A": "A telescope does not make planets move.",
           "B": "A telescope does not change a planet.",
@@ -731,7 +731,7 @@
         ],
         "answer": "A",
         "skill": "cause-effect",
-        "why": "The text says Uranus is tilted so far that it spins on its side, and each end gets about 42 years of sunlight, then 42 years of dark.",
+        "why": "In the text, Uranus is tilted so far that it spins on its side, and each end gets about 42 years of sunlight, then 42 years of dark.",
         "wrong": {
           "B": "Cold is not the reason given.",
           "C": "The long years, not short days, are the reason.",
@@ -748,9 +748,9 @@
         ],
         "answer": "B",
         "skill": "compare",
-        "why": "The text says both planets have thin rings and many moons.",
+        "why": "Both planets have thin rings and many moons.",
         "wrong": {
-          "A": "The text says neither has solid ground.",
+          "A": "In the text, neither has solid ground.",
           "C": "Only Uranus takes 84 years; Neptune takes about 165 years.",
           "D": "Uranus was found in 1781 and Neptune in 1846."
         }
@@ -767,7 +767,7 @@
         ],
         "answer": "B",
         "skill": "detail",
-        "why": "The text says the interior surrounds a relatively small rocky core.",
+        "why": "In the text, the interior surrounds a relatively small rocky core.",
         "wrong": {
           "A": "Gold is not named in the text.",
           "C": "Sand is not named in the text.",
@@ -801,7 +801,7 @@
         ],
         "answer": "A",
         "skill": "cause-effect",
-        "why": "The text says that because they are so distant, both planets have extremely long years.",
+        "why": "In the text, because they are so distant, both planets have extremely long years.",
         "wrong": {
           "B": "Spin speed is not the reason given.",
           "C": "Both are about four times as wide as Earth.",
@@ -821,7 +821,7 @@
         "why": "With only one spacecraft visit, scientists have had only one close look at each planet.",
         "wrong": {
           "A": "Scientists can study them using telescopes and math.",
-          "B": "The text says telescopes found Uranus and Neptune.",
+          "B": "In the text, telescopes found Uranus and Neptune.",
           "D": "The planets are about four times as wide as Earth, so they are not small."
         }
       }

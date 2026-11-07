@@ -163,7 +163,7 @@
           }
         },
         {
-          "stem": "Read the sentence: \"Then the corals turn white. This is called bleaching.\" What does bleaching mean here?",
+          "stem": "In the article, what does the word \"bleaching\" mean?",
           "options": [
             "Corals losing their color and turning white",
             "Corals growing new cups on top of old ones",
@@ -334,7 +334,7 @@
           ],
           "answer": "D",
           "skill": "detail",
-          "why": "The article explains that the algae use sunlight to make food and share most of it with the coral.",
+          "why": "In the article, the algae use sunlight to make food and share most of it with the coral.",
           "wrong": {
             "A": "The polyp builds its own skeleton.",
             "B": "The article never says algae scare fish.",
@@ -342,7 +342,7 @@
           }
         },
         {
-          "stem": "Read the sentence: \"To protect its body, a polyp builds a hard, stony skeleton beneath it.\" What does skeleton mean in this sentence?",
+          "stem": "In the article, what does the word \"skeleton\" mean?",
           "options": [
             "A soft cover of skin that keeps water out",
             "A group of fish that swim near reefs",
@@ -351,7 +351,7 @@
           ],
           "answer": "C",
           "skill": "vocabulary",
-          "why": "The words \"hard\" and \"stony\" and the purpose \"to protect its body\" show that the skeleton is a hard supporting frame.",
+          "why": "The words \"hard\" and \"skeleton\" and the purpose of protecting the polyp's body show that the skeleton is a hard supporting frame.",
           "wrong": {
             "A": "The polyp's body is soft; the skeleton is hard.",
             "B": "A skeleton is part of one animal, not a group of fish.",
@@ -496,7 +496,7 @@
           ],
           "answer": "A",
           "skill": "detail",
-          "why": "The article states that because very few rivers drain into the Red Sea, it is unusually warm, salty, and transparent.",
+          "why": "In the article, because very few rivers drain into the Red Sea, it is unusually warm, salty, and transparent.",
           "wrong": {
             "B": "Limestone skeletons do not make the sea salty in the article.",
             "C": "The article never compares the depth of seas.",
@@ -513,7 +513,7 @@
           ],
           "answer": "D",
           "skill": "detail",
-          "why": "The article says researchers hope these corals can reveal how reefs might endure a warming world.",
+          "why": "In the article, researchers hope these corals can reveal how reefs might endure a warming world.",
           "wrong": {
             "A": "Corals and algae are different living things; one cannot turn into the other.",
             "B": "The article does not discuss fish preferring warm water.",
@@ -521,7 +521,7 @@
           }
         },
         {
-          "stem": "Read the sentence: \"Microscopic algae inhabit the polyps' tissues in a relationship called symbiosis, in which both partners benefit.\" What does symbiosis mean?",
+          "stem": "In the article, what does the word \"symbiosis\" mean?",
           "options": [
             "A disease that spreads between corals in the sea",
             "A partnership that helps both living things",
@@ -547,7 +547,7 @@
           ],
           "answer": "C",
           "skill": "sequence",
-          "why": "The article explains that prolonged heat causes corals to expel their algae and turn white, and if the heat persists, they can starve.",
+          "why": "In the article, prolonged heat causes corals to expel their algae and turn white, and if the heat persists, they can starve.",
           "wrong": {
             "A": "The order is reversed: heat comes first, and algae leave rather than arrive.",
             "B": "Algae leave during bleaching; they do not multiply.",
@@ -627,7 +627,7 @@
         ],
         "answer": "D",
         "skill": "detail",
-        "why": "The text says the small things in each coral use the sun to make food.",
+        "why": "In the text, tiny living things in the coral use sunlight to make food.",
         "wrong": {
           "A": "Salt is not used to make food in the text.",
           "B": "Fish live near the reef but do not make food for corals.",
@@ -697,7 +697,7 @@
         ],
         "answer": "A",
         "skill": "detail",
-        "why": "The article says reefs protect beaches by slowing down strong waves.",
+        "why": "In the article, reefs protect the coast by making strong waves weaker.",
         "wrong": {
           "B": "Warm water is not linked to protecting beaches.",
           "C": "The text does not say reefs push sand.",
@@ -731,7 +731,7 @@
         ],
         "answer": "A",
         "skill": "cause-effect",
-        "why": "The article says new polyps grow on top of the skeletons of old ones and over hundreds of years they form a reef.",
+        "why": "In the article, new polyps grow on top of the skeletons of old ones and over hundreds of years they form a reef.",
         "wrong": {
           "B": "A reef is made by animals, not by stones from boats.",
           "C": "Algae make food; the polyp builds the skeleton.",
@@ -767,7 +767,7 @@
         ],
         "answer": "A",
         "skill": "detail",
-        "why": "The article says a polyp has a ring of stinging tentacles around its mouth.",
+        "why": "In the article, a polyp has a ring of stinging tentacles around its mouth.",
         "wrong": {
           "B": "The limestone skeleton lies beneath the body.",
           "C": "Algae live inside the tissues, not around the mouth.",

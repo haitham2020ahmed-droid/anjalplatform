@@ -155,7 +155,7 @@
           ],
           "answer": "A",
           "skill": "detail",
-          "why": "The article says a map's key tells you exactly what each symbol means.",
+          "why": "In the article, a map's key tells you exactly what each symbol means.",
           "wrong": {
             "B": "A scale, not a key, helps with distance.",
             "C": "Weather is not shown by a key.",
@@ -172,7 +172,7 @@
           ],
           "answer": "C",
           "skill": "inference",
-          "why": "The article says a tiny tree symbol can stand for a whole forest.",
+          "why": "In the article, a tiny tree symbol can stand for a whole forest.",
           "wrong": {
             "A": "A tree symbol does not suggest a desert.",
             "B": "An ocean would likely use a different symbol.",
@@ -302,7 +302,7 @@
           "skill": "central-idea",
           "why": "The article explains several tools, including projections, symbols, legends, and scale, that together make flat maps useful.",
           "wrong": {
-            "A": "The article says every projection causes some distortion.",
+            "A": "Every projection changes the shape of the world a little, and maps do not all use the same one.",
             "B": "Maps are useful for far more than driving directions.",
             "C": "The legend is important, but it is not the only part discussed."
           }
@@ -334,7 +334,7 @@
           ],
           "answer": "B",
           "skill": "detail",
-          "why": "The article says distortion is especially noticeable near the top and bottom edges of a map.",
+          "why": "In the article, distortion is especially noticeable near the top and bottom edges of a map.",
           "wrong": {
             "A": "The center is usually the most accurate part, not the distorted part.",
             "C": "Distortion can appear on any projected map, not just road maps.",
@@ -644,7 +644,7 @@
         ],
         "answer": "A",
         "skill": "cause-effect",
-        "why": "The text says mapmakers must stretch some parts, which is why shapes can look odd near the top.",
+        "why": "In the text, mapmakers must stretch some parts, which is why shapes can look odd near the top.",
         "wrong": {
           "B": "Symbols are small pictures, and they do not change shapes.",
           "C": "The key tells what the symbols mean.",
@@ -678,7 +678,7 @@
         ],
         "answer": "B",
         "skill": "inference",
-        "why": "The text says one kind of map shows roads for cars, so a driver would use it.",
+        "why": "In the text, one kind of map shows roads for cars, so a driver would use it.",
         "wrong": {
           "A": "That map shows hills and rivers.",
           "C": "That map shows countries.",
@@ -748,7 +748,7 @@
         ],
         "answer": "D",
         "skill": "cause-effect",
-        "why": "The article says Earth is a sphere, so drawing a round planet on flat paper needs some stretching.",
+        "why": "In the article, Earth is a sphere, so drawing a round planet on flat paper needs some stretching.",
         "wrong": {
           "A": "The article does not mention folding.",
           "B": "Holding a map is not the reason.",

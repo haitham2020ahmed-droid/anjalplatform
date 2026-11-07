@@ -138,7 +138,7 @@
           ],
           "answer": "D",
           "skill": "detail",
-          "why": "The article says melted rock is called magma while it is deep under the ground.",
+          "why": "In the article, melted rock is called magma while it is deep under the ground.",
           "wrong": {
             "A": "Cooled lava becomes hard rock, not magma.",
             "B": "Ash is thrown out in a blast; it is not called magma.",
@@ -317,7 +317,7 @@
           ],
           "answer": "A",
           "skill": "detail",
-          "why": "The article says a long chain of volcanoes surrounds the Pacific Ocean and is called the Ring of Fire.",
+          "why": "In the article, a long chain of volcanoes surrounds the Pacific Ocean and is called the Ring of Fire.",
           "wrong": {
             "B": "Hawaii sits over a hot spot, which is different from the Ring of Fire.",
             "C": "The article does not use this name for glowing lava.",
@@ -334,7 +334,7 @@
           ],
           "answer": "D",
           "skill": "cause-effect",
-          "why": "The article explains that gas gets trapped in thick, sticky magma until the pressure bursts free.",
+          "why": "Gas gets trapped in thick, sticky magma until the pressure is too much and it bursts out.",
           "wrong": {
             "A": "Runny lava that lets gas escape leads to calm eruptions.",
             "B": "Being above a hot spot does not explain a violent blast.",
@@ -342,7 +342,7 @@
           }
         },
         {
-          "stem": "Read the sentence: \"Scientists monitor active volcanoes.\" What does monitor mean?",
+          "stem": "In the article, what does the word \"monitor\" mean?",
           "options": [
             "To repair something that is broken",
             "To watch and check over time",
@@ -368,7 +368,7 @@
           ],
           "answer": "A",
           "skill": "detail",
-          "why": "The article says that where two plates pull apart, magma rises to fill the widening gap.",
+          "why": "In the article, where two plates pull apart, magma rises to fill the widening gap.",
           "wrong": {
             "B": "Sliding under happens where plates push together, not where they pull apart.",
             "C": "Hot spots are in the middle of a plate, not at its edges.",
@@ -387,7 +387,7 @@
           "skill": "inference",
           "why": "A volcano near Madinah erupted in 1256, so scientists watch for signs that magma is moving again.",
           "wrong": {
-            "A": "The article says the 1256 lava stopped short of the city; nothing is flowing now.",
+            "A": "In the article, the 1256 lava stopped short of the city; nothing is flowing now.",
             "B": "The article does not mention selling rock.",
             "D": "The Ring of Fire is around the Pacific Ocean, not Arabia."
           }
@@ -402,7 +402,7 @@
           ],
           "answer": "B",
           "skill": "inference",
-          "why": "The article says thin, runny lava lets gas escape easily, so it flows steadily downhill.",
+          "why": "In the article, thin, runny lava lets gas escape easily, so it flows steadily downhill.",
           "wrong": {
             "A": "Violent blasts come from thick, sticky magma.",
             "C": "Runny lava still erupts; it just erupts calmly.",
@@ -513,7 +513,7 @@
           ],
           "answer": "A",
           "skill": "detail",
-          "why": "The article says thousands of small earthquakes shook the area as magma moved, villages were evacuated for a time, and no eruption followed.",
+          "why": "In the article, many small earthquakes shook the area in 2009, villages were evacuated for a time, and no eruption followed.",
           "wrong": {
             "B": "The article says no eruption followed.",
             "C": "The lava flow toward Madinah happened in 1256, not 2009.",
@@ -530,7 +530,7 @@
           ],
           "answer": "C",
           "skill": "cause-effect",
-          "why": "The article says geologists link the harrat to the widening of the Red Sea, which is separating Arabia from Africa.",
+          "why": "In the article, geologists link the harrat to the widening of the Red Sea, which is separating Arabia from Africa.",
           "wrong": {
             "A": "This explains the Hawaiian Islands, not the harrat.",
             "B": "Under Iceland, plates pull apart; and Iceland is not linked to the harrat.",
@@ -627,7 +627,7 @@
         ],
         "answer": "A",
         "skill": "detail",
-        "why": "The text says lava glows red, then it cools and gets hard.",
+        "why": "In the text, lava glows red, then it cools and gets hard.",
         "wrong": {
           "B": "The text says ash shoots up in some eruptions, not when lava cools.",
           "C": "Cooled lava stays on the ground as rock.",
@@ -644,7 +644,7 @@
         ],
         "answer": "C",
         "skill": "vocabulary",
-        "why": "The text says the top of the Earth is cut in big parts called plates.",
+        "why": "In the text, the outside of the Earth is broken into big parts called plates.",
         "wrong": {
           "A": "The plates in this text are not dishes.",
           "B": "Plates are parts of the ground, not holes.",
@@ -678,7 +678,7 @@
         ],
         "answer": "D",
         "skill": "detail",
-        "why": "The text says a hot spot is a hot place in the midst of a plate.",
+        "why": "A hot spot is a very hot place under a plate, away from its edges, and some volcanoes sit on it.",
         "wrong": {
           "A": "Most volcanoes sit at the edge of a plate, but a hot spot is in the middle.",
           "B": "A hot spring is not mentioned.",
@@ -697,7 +697,7 @@
         ],
         "answer": "B",
         "skill": "detail",
-        "why": "The article says plates drift very slowly, only a few centimeters each year.",
+        "why": "Plates move very slowly, only a few centimeters a year.",
         "wrong": {
           "A": "That is far too fast.",
           "C": "That is far too fast.",
@@ -731,7 +731,7 @@
         ],
         "answer": "A",
         "skill": "cause-effect",
-        "why": "The article says that when the signs change quickly, experts can warn nearby towns, so people have time to leave.",
+        "why": "When the warning signs change quickly, experts can warn nearby towns so people have time to leave.",
         "wrong": {
           "B": "Scientists keep watching.",
           "C": "Warning signs do not change the lava.",
@@ -784,7 +784,7 @@
         ],
         "answer": "D",
         "skill": "detail",
-        "why": "The article says the islands were built one after another as the Pacific Plate passed over a hot spot.",
+        "why": "In the article, the islands formed one by one as the Pacific Plate moved over a hot spot.",
         "wrong": {
           "A": "The islands were built one after another, not by a single blast.",
           "B": "That is how the gap under Iceland is made.",
@@ -818,7 +818,7 @@
         ],
         "answer": "D",
         "skill": "cause-effect",
-        "why": "The article says rock deep underground begins to melt, and the lighter magma forces its way toward the surface.",
+        "why": "In the article, rock deep underground begins to melt, and the lighter magma forces its way toward the surface.",
         "wrong": {
           "A": "Wind is not mentioned.",
           "B": "The rock is melting, not cooling.",

@@ -155,7 +155,7 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The article says dehydrated food has been dried, and astronauts add water to it before eating.",
+          "why": "In the article, dried food needs water, so the crew adds water to it.",
           "wrong": {
             "A": "Salt is mentioned separately, not as what is added to dried food.",
             "B": "Oil is not mentioned in the article.",
@@ -163,7 +163,7 @@
           }
         },
         {
-          "stem": "Read the sentence: \"Astronauts do not use loose salt or pepper.\" What does loose mean here?",
+          "stem": "In the article, what does the word \"loose\" mean?",
           "options": [
             "Not held together or contained",
             "Very expensive and rare to find",
@@ -189,7 +189,7 @@
           ],
           "answer": "D",
           "skill": "cause-effect",
-          "why": "The article explains that tiny loose bits would float into the air, so salt and pepper come as a liquid instead.",
+          "why": "In the article, tiny loose bits could float into eyes or lungs, so salt and pepper come as a liquid.",
           "wrong": {
             "A": "Taste is not the reason given in the article.",
             "B": "Cost is not discussed in the article.",
@@ -317,7 +317,7 @@
           ],
           "answer": "B",
           "skill": "detail",
-          "why": "The article explains that astronauts inject hot or cold water into the sealed pouch of dehydrated food before eating.",
+          "why": "In the article, astronauts inject hot or cold water into the sealed pouch of dehydrated food before eating.",
           "wrong": {
             "A": "Freezing is not described as the method used.",
             "C": "The article does not say food is thrown away.",
@@ -325,7 +325,7 @@
           }
         },
         {
-          "stem": "Read the sentence: \"Salt and pepper are dissolved into liquid form.\" What does dissolve mean?",
+          "stem": "Salt and pepper for astronauts come mixed into a liquid. What does dissolve mean?",
           "options": [
             "To freeze something solid",
             "To cut something into tiny pieces",
@@ -351,7 +351,7 @@
           ],
           "answer": "A",
           "skill": "cause-effect",
-          "why": "The article explains that floating grains could drift into an astronaut's eyes or into delicate equipment, so liquid versions are used instead.",
+          "why": "In the article, floating grains could drift into an astronaut's eyes or into delicate equipment, so liquid versions are used instead.",
           "wrong": {
             "B": "Cost is not discussed as the reason.",
             "C": "Taste preference is not the reason given.",
@@ -368,7 +368,7 @@
           ],
           "answer": "B",
           "skill": "detail",
-          "why": "The article says resupply flights can deliver a few surprise treats sent up from home.",
+          "why": "In the article, resupply flights can deliver a few surprise treats sent up from home.",
           "wrong": {
             "A": "Crew changes are not discussed in the article.",
             "C": "Fuel is not mentioned as part of a resupply.",
@@ -385,7 +385,7 @@
           ],
           "answer": "D",
           "skill": "inference",
-          "why": "The article explains that shifting body fluids create a sensation like a stuffy nose, which can dull how food tastes.",
+          "why": "In the article, shifting body fluids create a sensation like a stuffy nose, which can dull how food tastes.",
           "wrong": {
             "A": "The article describes seasonings like salt, pepper, and hot sauce being used.",
             "B": "Tasting food is not restricted in the article.",
@@ -419,7 +419,7 @@
           ],
           "answer": "A",
           "skill": "compare",
-          "why": "The article explains that thermostabilized food is cooked and sealed in a pouch, while dehydrated food has had its water removed and needs water added later.",
+          "why": "In the article, thermostabilized food is cooked and sealed in a pouch, while dehydrated food has had its water removed and needs water added later.",
           "wrong": {
             "B": "Freezing is not described as required for thermostabilized food.",
             "C": "Both types can apply to various kinds of food, not just drinks or snacks.",
@@ -496,7 +496,7 @@
           ],
           "answer": "B",
           "skill": "detail",
-          "why": "The article explains that thermostabilized food is cooked and sealed through a heat process, keeping it safe without refrigeration for many months.",
+          "why": "Thermostabilized food is cooked and sealed with heat, so it stays safe without a fridge for many months.",
           "wrong": {
             "A": "The food is sealed inside an airtight pouch.",
             "C": "Several other food types are also described.",
@@ -504,7 +504,7 @@
           }
         },
         {
-          "stem": "Read the sentence: \"Shifting body fluids give astronauts a lingering sensory experience similar to having a stuffy nose.\" What does sensory mean here?",
+          "stem": "In the article, what does the word \"sensory\" mean?",
           "options": [
             "Related to how fast the spacecraft travels",
             "Related to the weight of the food package",
@@ -530,7 +530,7 @@
           ],
           "answer": "D",
           "skill": "cause-effect",
-          "why": "The article explains that floating grains could drift into delicate internal vents and potentially cause a short circuit, so a liquid form avoids this danger.",
+          "why": "In the article, floating grains could drift into delicate internal vents and potentially cause a short circuit, so a liquid form avoids this danger.",
           "wrong": {
             "A": "Shelf life is not the comparison made in the article.",
             "B": "Astronauts can taste solids; the issue is floating grains, not tasting ability.",
@@ -566,7 +566,7 @@
           "skill": "inference",
           "why": "The article groups both floating grains and crumbs as hazards to eyes and equipment, implying either kind of small floating particle poses a similar risk.",
           "wrong": {
-            "A": "Nothing falls faster in microgravity, since there is effectively no 'down.'",
+            "A": "Nothing falls faster in microgravity, because things float instead of falling down.",
             "C": "Bread crumbs do not dissolve in air.",
             "D": "The article describes salt grains as floating freely, not as too large to float."
           }
@@ -627,7 +627,7 @@
         ],
         "answer": "C",
         "skill": "cause-effect",
-        "why": "The text says crumbs float and could get into a machine.",
+        "why": "In space, crumbs float away and could get into a machine.",
         "wrong": {
           "A": "The text does not say crumbs taste bad.",
           "B": "Chewing is not mentioned as a problem.",
@@ -661,7 +661,7 @@
         ],
         "answer": "D",
         "skill": "detail",
-        "why": "The text says people plan meals months ahead.",
+        "why": "In the text, people plan meals months ahead.",
         "wrong": {
           "A": "The text says months ahead, not the last day.",
           "B": "The meals are planned before the trip.",
@@ -697,7 +697,7 @@
         ],
         "answer": "B",
         "skill": "detail",
-        "why": "The text says a few foods, such as nuts, need no special prep.",
+        "why": "In the text, a few foods, such as nuts, need no special prep.",
         "wrong": {
           "A": "Dehydrated food needs water added.",
           "C": "Thermostabilized food is cooked and sealed first.",
@@ -748,7 +748,7 @@
         ],
         "answer": "D",
         "skill": "inference",
-        "why": "The article says they carried dates and Arabic coffee and shared them with the crew, so they wanted to share food from home.",
+        "why": "In the article, they carried dates and Arabic coffee and shared them with the crew, so they wanted to share food from home.",
         "wrong": {
           "A": "The article does not say the food was used in an experiment.",
           "B": "They shared the food; they did not sell it.",
@@ -767,7 +767,7 @@
         ],
         "answer": "A",
         "skill": "cause-effect",
-        "why": "The text says the instruments are hard to repair so far from home.",
+        "why": "In the text, the instruments are hard to repair so far from home.",
         "wrong": {
           "B": "The text does not say the crew has no time.",
           "C": "The text does not say equipment breaks easily in space.",

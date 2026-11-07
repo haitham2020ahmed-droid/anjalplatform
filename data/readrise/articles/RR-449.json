@@ -155,7 +155,7 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The story says Aunt Huda looks at the sore ankle very carefully.",
+          "why": "In the story, Aunt Huda looks at the sore ankle very carefully.",
           "wrong": {
             "A": "She treats Omar instead of sending him home.",
             "B": "The story does not mention calling his teacher.",
@@ -496,7 +496,7 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The story says Aunt Huda knelt down calmly and began the examination procedure before any bandaging occurred.",
+          "why": "In the story, Aunt Huda knelt down calmly and began the examination procedure before any bandaging occurred.",
           "wrong": {
             "A": "Bandaging happens after the examination, not before.",
             "B": "She treats Omar herself rather than sending him elsewhere.",
@@ -513,7 +513,7 @@
           ],
           "answer": "D",
           "skill": "detail",
-          "why": "The story says Lina spoke warmly and told Omar a funny story about her own bicycle fall to distract and comfort him.",
+          "why": "In the story, Lina spoke warmly and told Omar a funny story about her own bicycle fall to distract and comfort him.",
           "wrong": {
             "A": "The story never mentions a reward.",
             "B": "Explaining the procedure is Aunt Huda's role, not Lina's method.",
@@ -627,7 +627,7 @@
         ],
         "answer": "B",
         "skill": "detail",
-        "why": "Aunt Huda says, \"Rest now. Put ice on it.\"",
+        "why": "In the story, Aunt Huda tells Omar to rest and put ice on his foot.",
         "wrong": {
           "A": "A blanket is not mentioned.",
           "C": "A shoe is not mentioned.",
@@ -767,7 +767,7 @@
         ],
         "answer": "B",
         "skill": "detail",
-        "why": "The article says she carried a toy stethoscope and pretended to check her stuffed animals' heartbeats.",
+        "why": "As a small child, she pretended to check her stuffed animals' heartbeats with a toy stethoscope.",
         "wrong": {
           "A": "A radio is not mentioned.",
           "C": "Waking her aunt is not mentioned.",
@@ -801,7 +801,7 @@
         ],
         "answer": "A",
         "skill": "cause-effect",
-        "why": "The article says he felt far less afraid because someone was treating him with such empathy.",
+        "why": "In the article, he felt far less afraid because someone was treating him with such empathy.",
         "wrong": {
           "B": "The bandage came after he calmed down.",
           "C": "His mother only came with him.",

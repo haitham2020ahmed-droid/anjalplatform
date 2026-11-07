@@ -155,7 +155,7 @@
           ],
           "answer": "A",
           "skill": "detail",
-          "why": "The article says the Moon pulls on the sea, and the water rises and falls. These changes are the tides.",
+          "why": "In the article, the Moon pulls on the sea, and the water rises and falls. These changes are the tides.",
           "wrong": {
             "B": "The article does not say the Moon changes how cold the water is.",
             "C": "The sea does not dry up; it rises and falls.",
@@ -206,7 +206,7 @@
           ],
           "answer": "A",
           "skill": "inference",
-          "why": "The article says big things pull the hardest. The Sun is by far the biggest thing in the list, and it is strong enough to hold Earth in its orbit.",
+          "why": "In the article, big things pull the hardest. The Sun is by far the biggest thing in the list, and it is strong enough to hold Earth in its orbit.",
           "wrong": {
             "B": "A football is small, so its pull is tiny.",
             "C": "A small rock has very little pull.",
@@ -240,7 +240,7 @@
           ],
           "answer": "B",
           "skill": "author-purpose",
-          "why": "The author tells about Newton because he saw that one pull, gravity, drops an apple and also holds the Moon.",
+          "why": "The author tells about Newton because he saw that gravity pulls an apple down and also holds the Moon.",
           "wrong": {
             "A": "The apple is part of his idea, not about what he liked to eat.",
             "C": "The article does not explain how to become a scientist.",
@@ -303,7 +303,7 @@
           "why": "Each part of the article shows a different job that gravity does: making things fall, setting weight, holding orbits, and causing tides.",
           "wrong": {
             "A": "Jumping on the Moon is one small detail.",
-            "B": "The article says Newton explained gravity, not that he was the first to see an apple fall.",
+            "B": "In the article, Newton explained gravity, not that he was the first to see an apple fall.",
             "D": "The feather was brought to the Moon for an experiment; this is not the main idea."
           }
         },
@@ -334,7 +334,7 @@
           ],
           "answer": "D",
           "skill": "detail",
-          "why": "The article says the astronaut dropped a hammer and a feather together, and both landed together.",
+          "why": "In the article, the astronaut dropped a hammer and a feather at the same time, and both landed together.",
           "wrong": {
             "A": "The feather fell; it did not float away.",
             "B": "The hammer did not land first; they landed together.",
@@ -342,7 +342,7 @@
           }
         },
         {
-          "stem": "Read this sentence: \"Every object that has mass attracts every other object.\" What does attracts mean?",
+          "stem": "In the article, what does the word \"attracts\" mean?",
           "options": [
             "Pushes away",
             "Pulls toward itself",
@@ -368,7 +368,7 @@
           ],
           "answer": "C",
           "skill": "cause-effect",
-          "why": "The article explains that the Moon has no air, so nothing slowed the feather, and both landed together.",
+          "why": "In the article, the Moon has no air, so nothing slowed the feather, and both landed together.",
           "wrong": {
             "A": "The feather was a normal feather, not metal.",
             "B": "He dropped both at the same time; he did not throw them.",
@@ -385,7 +385,7 @@
           ],
           "answer": "A",
           "skill": "inference",
-          "why": "The article says mass stays the same wherever you go, but weight changes. On the Moon, she weighs about one sixth as much.",
+          "why": "In the article, mass stays the same wherever you go, but weight changes. On the Moon, she weighs about one sixth as much.",
           "wrong": {
             "B": "Mass does not change when you travel.",
             "C": "This is the reverse of what the article explains.",
@@ -402,10 +402,10 @@
           ],
           "answer": "D",
           "skill": "inference",
-          "why": "The article says that without gravity, the fast-moving Moon would fly off in a straight line.",
+          "why": "In the article, without gravity, the fast-moving Moon would go away in a straight line.",
           "wrong": {
             "A": "Gravity pulls the Moon in; without it the Moon would not fall toward Earth.",
-            "B": "The article says the Moon is moving very fast, so it would keep moving.",
+            "B": "In the article, the Moon is moving very fast, so it would keep moving.",
             "C": "The article does not suggest this."
           }
         },
@@ -550,7 +550,7 @@
           "why": "Because the Moon has almost no atmosphere, there was no air resistance to slow the feather.",
           "wrong": {
             "A": "He released both at the same instant; he did not throw the feather.",
-            "C": "The article says gravity accelerates all objects at the same rate.",
+            "C": "In the article, gravity accelerates all objects at the same rate.",
             "D": "The article gives no evidence about the feather's weight."
           }
         },
@@ -644,7 +644,7 @@
         ],
         "answer": "C",
         "skill": "cause-effect",
-        "why": "The text says big things pull hard and Earth is very big, so it pulls us down.",
+        "why": "In the text, big things pull hard and Earth is very big, so it pulls us down.",
         "wrong": {
           "A": "The text says it is a pull from Earth, not the air.",
           "B": "The text does not say the Sun holds us down.",
@@ -678,7 +678,7 @@
         ],
         "answer": "D",
         "skill": "vocabulary",
-        "why": "The text says the sea goes up and down each day, and this is the tide.",
+        "why": "In the text, the sea goes up and down each day, and this is the tide.",
         "wrong": {
           "A": "A path around the Sun is an orbit.",
           "B": "A pull that drops an apple is gravity.",
@@ -731,7 +731,7 @@
         ],
         "answer": "C",
         "skill": "cause-effect",
-        "why": "The article says the Moon's gravity tugs on Earth's oceans and this helps cause the tides.",
+        "why": "In the article, the Moon's gravity tugs on Earth's oceans and this helps cause the tides.",
         "wrong": {
           "A": "The article does not name wind as a cause of tides.",
           "B": "The article does not name the Sun's heat as the cause.",
@@ -748,7 +748,7 @@
         ],
         "answer": "A",
         "skill": "cause-effect",
-        "why": "The article says Earth pulls everything toward its center, so down is under everyone's feet.",
+        "why": "In the article, Earth pulls everything toward its center, so down is under everyone's feet.",
         "wrong": {
           "B": "The article gives gravity, not spinning, as the cause.",
           "C": "The Moon has much less mass than Earth.",
@@ -767,7 +767,7 @@
         ],
         "answer": "A",
         "skill": "detail",
-        "why": "The article says objects with greater mass pull more strongly and the pull weakens as distance increases.",
+        "why": "In the article, objects with greater mass pull more strongly and the pull weakens as distance increases.",
         "wrong": {
           "B": "Speed and color are not mentioned as factors.",
           "C": "The article says weight is a measure of the pull.",

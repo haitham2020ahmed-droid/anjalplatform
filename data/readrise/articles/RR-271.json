@@ -304,7 +304,7 @@
           "wrong": {
             "A": "Removing fish does not help coral reefs grow, and this is not discussed.",
             "B": "The article never says all fishing should stop.",
-            "C": "The article explains that populations can shrink."
+            "C": "Fish populations can shrink, so they do change."
           }
         },
         {
@@ -317,7 +317,7 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The article says size limits allow small, young fish to grow large enough to breed.",
+          "why": "In the article, size limits allow small, young fish to grow large enough to breed.",
           "wrong": {
             "A": "Boat speed is not discussed.",
             "B": "Price is not discussed.",
@@ -334,7 +334,7 @@
           ],
           "answer": "A",
           "skill": "detail",
-          "why": "The article says a quota sets the greatest number, or total weight, of fish a boat may legally catch.",
+          "why": "In the article, a quota sets the greatest number, or total weight, of fish a boat may legally catch.",
           "wrong": {
             "B": "Boat color is not discussed.",
             "C": "Bait type is not discussed.",
@@ -402,7 +402,7 @@
           ],
           "answer": "D",
           "skill": "inference",
-          "why": "The article says scientists study fish populations so regulations can be adjusted whenever conditions change.",
+          "why": "Scientists study fish populations so the rules can be changed when things change.",
           "wrong": {
             "A": "Boat size is not the reason.",
             "B": "Teaching fish is not mentioned.",
@@ -530,7 +530,7 @@
           ],
           "answer": "B",
           "skill": "cause-effect",
-          "why": "The article says bycatch adds further strain to already struggling populations and disturbs the broader marine ecosystem.",
+          "why": "In the article, bycatch adds further strain to already struggling populations and disturbs the broader marine ecosystem.",
           "wrong": {
             "A": "The article says bycatch adds strain to populations.",
             "C": "The article does not say bycatch helps reproduction.",
@@ -583,7 +583,7 @@
           "skill": "inference",
           "why": "The article shows that regulations like size limits, seasons, and quotas help keep fish populations and livelihoods secure for generations.",
           "wrong": {
-            "A": "The article shows depletion threatens both species and livelihoods.",
+            "A": "Overfishing harms both fish and the people who depend on them.",
             "B": "The article says scientists regularly study fish populations.",
             "D": "Bycatch harms, rather than helps, the species caught by accident."
           }
@@ -618,20 +618,20 @@
   "stretch": {
     "LOW": [
       {
-        "stem": "What do some people do with the fish they catch for their job?",
+        "stem": "Why is fishing important to some people?",
         "options": [
-          "They give it to the boats.",
-          "They put it back in the sea.",
-          "They sell it.",
-          "They keep it for the young fish."
+          "It is their job.",
+          "It is a school test.",
+          "It makes it rain.",
+          "It cleans the sea."
         ],
-        "answer": "C",
+        "answer": "A",
         "skill": "detail",
-        "why": "The text says fishing can be a job and that people sell the fish they catch.",
+        "why": "In the article, fishing can be a job for some people.",
         "wrong": {
-          "A": "Boats do not receive fish in the text.",
-          "B": "Only small fish go back to the sea.",
-          "D": "The text never says fish are kept for young fish."
+          "B": "Fishing is not a school test.",
+          "C": "Fishing does not make rain.",
+          "D": "Fishing does not clean the sea."
         }
       },
       {
@@ -661,7 +661,7 @@
         ],
         "answer": "B",
         "skill": "detail",
-        "why": "The text says that with a size limit, small fish go back.",
+        "why": "With a size limit, small fish are put back.",
         "wrong": {
           "A": "Small fish are not sold under this rule.",
           "C": "The rule does not say small fish are kept.",
@@ -731,7 +731,7 @@
         ],
         "answer": "C",
         "skill": "cause-effect",
-        "why": "The text says huge nets let big boats catch a huge number of fish in one trip, faster than a species can grow back.",
+        "why": "In the text, huge nets let big boats catch a huge number of fish in one trip, faster than a species can grow back.",
         "wrong": {
           "A": "The text does not say they catch only young fish.",
           "B": "Scaring sea animals is not mentioned.",
@@ -767,7 +767,7 @@
         ],
         "answer": "D",
         "skill": "detail",
-        "why": "The text says quotas set the greatest number, or weight, of fish a vessel may legally catch.",
+        "why": "In the text, quotas set the greatest number, or weight, of fish a vessel may legally catch.",
         "wrong": {
           "A": "Vessel size is not how a quota is measured.",
           "B": "Season length belongs to fishing seasons, not quotas.",

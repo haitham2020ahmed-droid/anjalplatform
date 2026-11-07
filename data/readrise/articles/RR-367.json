@@ -317,7 +317,7 @@
      ],
      "answer": "C",
      "skill": "detail",
-     "why": "The story states the river, normally no deeper than a person's waist, rose nearly two meters in a single night.",
+     "why": "In the story, the river, normally no deeper than a person's waist, rose nearly two meters in a single night.",
      "wrong": {
       "A": "This is far too small a rise for the story's events.",
       "B": "A kilometer is a measure of distance, not depth.",
@@ -513,7 +513,7 @@
      ],
      "answer": "B",
      "skill": "detail",
-     "why": "The story says he had lived near the river his entire life and understood its unpredictable moods intimately.",
+     "why": "In the story, he had lived near the river his entire life and understood its unpredictable moods intimately.",
      "wrong": {
       "A": "He had lived there his whole life, not just one night.",
       "C": "No book is mentioned in the story.",
@@ -644,7 +644,7 @@
     ],
     "answer": "C",
     "skill": "cause-effect",
-    "why": "The text says the rain does not stop one day, so the river gets too big.",
+    "why": "In the story, the rain does not stop one night, so the river gets too big.",
     "wrong": {
      "A": "Sheep drinking does not change a river.",
      "B": "No dam is in the story.",
@@ -748,7 +748,7 @@
     ],
     "answer": "C",
     "skill": "cause-effect",
-    "why": "The text says that with everyone's help, the family began to recover.",
+    "why": "In the text, with everyone's help, the family began to recover.",
     "wrong": {
      "A": "The river is not said to move away.",
      "B": "A school is not mentioned.",

@@ -138,7 +138,7 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The article says the heart is about as big as your fist.",
+          "why": "In the article, the heart is about as big as your fist.",
           "wrong": {
             "A": "The heart is much smaller than your head.",
             "B": "The heart is much bigger than a grain of rice.",
@@ -189,7 +189,7 @@
           ],
           "answer": "B",
           "skill": "vocabulary",
-          "why": "The article says the beat you feel at your wrist is your pulse.",
+          "why": "In the article, the beat you feel at your wrist is your pulse.",
           "wrong": {
             "A": "Games are a way to exercise, not a pulse.",
             "C": "Blood, not water, moves through the body's tubes.",
@@ -223,10 +223,10 @@
           ],
           "answer": "B",
           "skill": "inference",
-          "why": "The article says Saudi days can be hot, so play when it is cool and drink lots of water.",
+          "why": "In the article, Saudi days can be hot, so play when it is cool and drink lots of water.",
           "wrong": {
             "A": "Noon is hot, and the article says to drink water.",
-            "C": "The article says kids need to move every day.",
+            "C": "Kids do need to move every day.",
             "D": "The article warns about the heat."
           }
         },
@@ -334,7 +334,7 @@
           ],
           "answer": "A",
           "skill": "detail",
-          "why": "The article says blood delivers oxygen and nutrients from food.",
+          "why": "In the article, blood delivers oxygen and nutrients from food.",
           "wrong": {
             "B": "Blood carries much more than water.",
             "C": "Blood does not carry dust.",
@@ -547,7 +547,7 @@
           ],
           "answer": "A",
           "skill": "sequence",
-          "why": "The article says that simultaneously your breathing deepens and quickens.",
+          "why": "During hard exercise, your breathing also gets deeper and faster.",
           "wrong": {
             "B": "The pulse gets faster, not absent.",
             "C": "Vessels keep carrying blood and nutrients.",
@@ -665,7 +665,7 @@
         "wrong": {
           "A": "Hearts do not turn into other body parts.",
           "B": "The text says the heart beats fast when you run, not when you sit.",
-          "C": "The text says the heart is as big as your fist."
+          "C": "In the text, the heart is as big as your fist."
         }
       },
       {
@@ -678,7 +678,7 @@
         ],
         "answer": "B",
         "skill": "detail",
-        "why": "The text says kids should try to play hard for one hour each day.",
+        "why": "In the text, kids should be active for at least one hour each day.",
         "wrong": {
           "A": "Ten minutes is less than the text says.",
           "C": "Five hours is much more than the text says.",
@@ -697,7 +697,7 @@
         ],
         "answer": "D",
         "skill": "vocabulary",
-        "why": "The article says blood travels around the body through tubes called blood vessels.",
+        "why": "Blood vessels are the tubes that carry blood around the body.",
         "wrong": {
           "A": "Sweat is not mentioned as a blood part.",
           "B": "The heart is a muscle, but vessels are tubes.",
@@ -714,7 +714,7 @@
         ],
         "answer": "B",
         "skill": "detail",
-        "why": "The article says the heart pumps blood day and night, even while you sleep.",
+        "why": "In the article, the heart pumps blood day and night, even while you sleep.",
         "wrong": {
           "A": "The article says the heart never takes a break.",
           "C": "The article says it never takes a break.",
@@ -731,7 +731,7 @@
         ],
         "answer": "A",
         "skill": "cause-effect",
-        "why": "The article says your muscles need extra oxygen, so you breathe harder to pull in more air.",
+        "why": "In the article, your muscles need extra oxygen, so you breathe harder to pull in more air.",
         "wrong": {
           "B": "The article does not link breathing to sweat.",
           "C": "Your heart beats faster during a race, not slower.",
@@ -767,7 +767,7 @@
         ],
         "answer": "A",
         "skill": "detail",
-        "why": "The article says to count the beats for 15 seconds and then multiply the total by four.",
+        "why": "To find your heart rate, count the beats for 15 seconds and multiply by four.",
         "wrong": {
           "B": "The article does not say to divide by two.",
           "C": "The article does not say to add four.",
@@ -801,7 +801,7 @@
         ],
         "answer": "B",
         "skill": "cause-effect",
-        "why": "The article says blood delivers oxygen and nutrients to every individual cell in the body.",
+        "why": "In the article, blood delivers oxygen and nutrients to every individual cell in the body.",
         "wrong": {
           "A": "Blood vessels do not stop the heart.",
           "C": "The article does not say vessels change the lungs.",

@@ -189,7 +189,7 @@
           ],
           "answer": "A",
           "skill": "detail",
-          "why": "The article says crystals are hard bits with flat sides, like salt.",
+          "why": "In the article, crystals are hard bits with flat sides, like salt.",
           "wrong": {
             "B": "Crystals are hard, not soft.",
             "C": "Crystals are not coins.",
@@ -302,7 +302,7 @@
           "skill": "central-idea",
           "why": "The article explains how Jabir tested ideas and described methods like distillation and crystallization, which helped lead to chemistry.",
           "wrong": {
-            "B": "The article says turning metals into gold never worked.",
+            "B": "Turning metals into gold never worked.",
             "C": "Taif is a modern example, not something Jabir built.",
             "D": "The article says chemistry did not exist yet in Jabir's time."
           }
@@ -334,7 +334,7 @@
           ],
           "answer": "B",
           "skill": "detail",
-          "why": "The article says he used a tool called an alembic for distillation.",
+          "why": "In the article, he used a tool called an alembic for distillation.",
           "wrong": {
             "A": "The article does not mention a furnace for gold.",
             "C": "Microscopes are not mentioned.",
@@ -351,7 +351,7 @@
           ],
           "answer": "C",
           "skill": "cause-effect",
-          "why": "The article says he wrote down exactly what happened so that others could repeat his work.",
+          "why": "In the article, he wrote down exactly what happened so that others could repeat his work.",
           "wrong": {
             "A": "Writing things down for others is the opposite of keeping a secret.",
             "B": "The article does not mention selling notes.",
@@ -482,7 +482,7 @@
           "why": "The article explains Jabir's experiments, his methods such as distillation and crystallization, and his lasting influence on chemistry.",
           "wrong": {
             "A": "The article says making gold never succeeded.",
-            "C": "The article says historians are uncertain about many details.",
+            "C": "In the article, historians are uncertain about many details.",
             "D": "Jabir described distillation about 1,200 years ago."
           }
         },
@@ -530,10 +530,10 @@
           ],
           "answer": "A",
           "skill": "inference",
-          "why": "The article says historians are uncertain about many details and believe many books with his name were written later by followers.",
+          "why": "In the article, historians are uncertain about many details and believe many books with his name were written later by followers.",
           "wrong": {
             "B": "The article mentions hundreds of books, not one letter.",
-            "C": "The article says he tested his ideas through experiments.",
+            "C": "In the article, he tested his ideas through experiments.",
             "D": "Historians believe many were written by followers."
           }
         },
@@ -598,7 +598,7 @@
           ],
           "answer": "A",
           "skill": "detail",
-          "why": "The article says many alchemists hoped to transform ordinary metals into gold, an ambition that never succeeded.",
+          "why": "Many alchemists hoped to turn ordinary metals into gold, but they never succeeded.",
           "wrong": {
             "B": "Preparing medicines was part of alchemy, but the article does not say it failed.",
             "C": "Investigating metals was something they did.",
@@ -661,7 +661,7 @@
         ],
         "answer": "A",
         "skill": "cause-effect",
-        "why": "The text says you cool the steam and it drips back down.",
+        "why": "In the text, when you cool the steam, it turns back into a liquid.",
         "wrong": {
           "B": "Heat turns the liquid to steam, not back to liquid.",
           "C": "Salt is not part of distilling in the text.",
@@ -784,7 +784,7 @@
         ],
         "answer": "A",
         "skill": "cause-effect",
-        "why": "The text says he recorded precisely what happened so that others could repeat his work.",
+        "why": "He wrote down exactly what happened so that others could repeat his work.",
         "wrong": {
           "B": "Recording the steps shares methods, not hides them.",
           "C": "Payment from kings is not mentioned.",

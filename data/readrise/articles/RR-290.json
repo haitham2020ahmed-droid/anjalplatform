@@ -146,20 +146,20 @@
           }
         },
         {
-          "stem": "Who helps the team fix its mistakes?",
+          "stem": "What does a team need to get really good?",
           "options": [
-            "The crowd",
-            "A fan",
-            "The coach",
-            "A stranger"
+            "Luck",
+            "New phones",
+            "Practice",
+            "Loud fans"
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The article says a coach watches the games and helps the team fix mistakes.",
+          "why": "In the article, a team gets good by learning the game and practicing.",
           "wrong": {
-            "A": "The crowd watches but does not coach.",
-            "B": "Fans cheer but do not fix mistakes.",
-            "D": "No stranger is mentioned helping the team."
+            "A": "Luck is not what makes a team good.",
+            "B": "New phones are not the reason.",
+            "D": "Fans do not make the players better."
           }
         },
         {
@@ -513,7 +513,7 @@
           ],
           "answer": "B",
           "skill": "detail",
-          "why": "The article says major tournaments are often funded by a generous sponsor.",
+          "why": "In the article, major tournaments are often funded by a generous sponsor.",
           "wrong": {
             "A": "Taxes are not mentioned.",
             "C": "Players are not described as funding tournaments.",
@@ -627,7 +627,7 @@
         ],
         "answer": "B",
         "skill": "detail",
-        "why": "The text says it can take years to get good.",
+        "why": "It can take years to get good.",
         "wrong": {
           "A": "A few hours is much shorter than the text says.",
           "C": "One day is much shorter than the text says.",
@@ -644,7 +644,7 @@
         ],
         "answer": "D",
         "skill": "sequence",
-        "why": "The text says that first, the team learns the game.",
+        "why": "In the text, first, the team learns the game.",
         "wrong": {
           "A": "The tournament comes at the end.",
           "B": "Fixing skills comes after practice.",
@@ -714,7 +714,7 @@
         ],
         "answer": "B",
         "skill": "vocabulary",
-        "why": "The article says coordination means every player moves and reacts at the right time, together.",
+        "why": "In the article, coordination means every player moves and reacts at the right time, together.",
         "wrong": {
           "A": "Playing alone is the opposite of working as a team.",
           "C": "The article does not define coordination as winning.",
@@ -731,7 +731,7 @@
         ],
         "answer": "D",
         "skill": "cause-effect",
-        "why": "The article says coordination saves the team from making costly mistakes.",
+        "why": "In the article, coordination saves the team from making costly mistakes.",
         "wrong": {
           "A": "Top teams need cooperation, not playing alone.",
           "B": "The article does not say coordination changes match length.",
@@ -801,7 +801,7 @@
         ],
         "answer": "A",
         "skill": "cause-effect",
-        "why": "The article says top teams rehearse until their timing feels automatic, since one mistimed move can cost a match.",
+        "why": "In the article, top teams rehearse until their timing feels automatic, since one mistimed move can cost a match.",
         "wrong": {
           "B": "Sponsors pay for prizes and equipment, not for rehearsals.",
           "C": "Fan noise is not the reason for rehearsing.",
@@ -818,7 +818,7 @@
         ],
         "answer": "C",
         "skill": "author-purpose",
-        "why": "The author says the roar of the crowd feels every bit as real for esports players as for athletes on a football field.",
+        "why": "The roar of the crowd feels just as real for esports players as for athletes on a football field.",
         "wrong": {
           "A": "The article does not say football is easier.",
           "B": "No football rules are given.",

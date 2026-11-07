@@ -155,7 +155,7 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The article says people watched the sky and saw one bright star rise just before the sun, right before the flood.",
+          "why": "In the article, people watched the sky and saw one bright star.",
           "wrong": {
             "A": "The article does not mention watching cloud shapes.",
             "B": "The moon's color is not mentioned.",
@@ -172,7 +172,7 @@
           ],
           "answer": "D",
           "skill": "vocabulary",
-          "why": "The article says a calendar is a way to count days and months.",
+          "why": "In the article, a calendar is a way to count days and months.",
           "wrong": {
             "A": "Carrying water is not what a calendar is.",
             "B": "The mud used for growing seeds is called silt.",
@@ -317,7 +317,7 @@
           ],
           "answer": "A",
           "skill": "detail",
-          "why": "The article says the flood deposited dark, fertile silt that made the soil exceptionally rich for growing crops.",
+          "why": "In the article, the flood deposited dark, fertile silt that made the soil exceptionally rich for growing crops.",
           "wrong": {
             "B": "Stones are not mentioned as being left behind.",
             "C": "The silt made the soil richer, not unusable.",
@@ -334,7 +334,7 @@
           ],
           "answer": "D",
           "skill": "detail",
-          "why": "The article says Egyptians noticed Sirius rising just before the sun each year, right before the flood.",
+          "why": "In the article, Egyptians noticed Sirius rising just before the sun each year, right before the flood.",
           "wrong": {
             "A": "The North Star is not mentioned in this article.",
             "B": "Aldebaran is not mentioned in this article.",
@@ -496,7 +496,7 @@
           ],
           "answer": "D",
           "skill": "detail",
-          "why": "The article states that 360 days from twelve months, plus five additional days, made 365 days, a figure close to the true solar year.",
+          "why": "In the article, 360 days from twelve months, plus five additional days, made 365 days, a figure close to the true solar year.",
           "wrong": {
             "A": "The extra days were added to the calendar total, not to the flood itself.",
             "B": "The article does not say the days were reserved for observation.",
@@ -513,7 +513,7 @@
           ],
           "answer": "A",
           "skill": "detail",
-          "why": "The article states that the Nile's predictable behavior made the rise of ancient Egyptian civilization genuinely possible.",
+          "why": "In the article, the Nile's predictable behavior made the rise of ancient Egyptian civilization genuinely possible.",
           "wrong": {
             "B": "The Tigris is not mentioned in this article.",
             "C": "The Euphrates is not mentioned in this article.",
@@ -547,7 +547,7 @@
           ],
           "answer": "B",
           "skill": "compare",
-          "why": "The article states that the Egyptian calendar was based on the sun and stars rather than the ever-changing phases of the moon.",
+          "why": "In the article, the Egyptian calendar was based on the sun and stars rather than the ever-changing phases of the moon.",
           "wrong": {
             "A": "The flood was central to how the calendar was organized.",
             "C": "The calendar had a fixed total of 365 days.",
@@ -598,7 +598,7 @@
           ],
           "answer": "A",
           "skill": "inference",
-          "why": "The article states that the calendar's underlying structure influenced the calendars of numerous later civilizations for centuries afterward.",
+          "why": "In the article, the calendar's underlying structure influenced the calendars of numerous later civilizations for centuries afterward.",
           "wrong": {
             "B": "The article says its influence continued long after the pharaohs.",
             "C": "The calendar's solar structure, not a lunar one, is what spread.",
@@ -644,7 +644,7 @@
         ],
         "answer": "C",
         "skill": "cause-effect",
-        "why": "The text says men loved the mud because seeds grow well in it.",
+        "why": "In the text, men loved the mud because seeds grow well in it.",
         "wrong": {
           "A": "The text does not say mud makes the river longer.",
           "B": "Building homes is not mentioned.",
@@ -731,7 +731,7 @@
         ],
         "answer": "B",
         "skill": "cause-effect",
-        "why": "The text says people watched the sky for clues, and a bright star rose just before the flood began.",
+        "why": "In the text, people watched the sky for clues, and a bright star rose just before the flood began.",
         "wrong": {
           "A": "Fish are not mentioned.",
           "C": "They wanted clues about the flood, not the sun's distance.",

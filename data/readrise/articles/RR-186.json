@@ -163,7 +163,7 @@
           }
         },
         {
-          "stem": "Read this: \"We must check old tales.\" What does check mean?",
+          "stem": "In the article, what does the word \"check\" mean?",
           "options": [
             "To write down quickly",
             "To forget about",
@@ -197,7 +197,7 @@
           }
         },
         {
-          "stem": "Why did Ibn Khaldun say we should ask, \"What made it happen?\"",
+          "stem": "Why did Ibn Khaldun want people to ask what made something happen?",
           "options": [
             "To learn the cause of what happened",
             "To make the story longer",
@@ -317,7 +317,7 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The article says the Introduction was the opening part of a huge history of the world.",
+          "why": "In the article, the Introduction was the opening part of a huge history of the world.",
           "wrong": {
             "A": "It was not a letter.",
             "B": "It was about history and society.",
@@ -325,7 +325,7 @@
           }
         },
         {
-          "stem": "Read this: \"Is there evidence? Could the event really have happened?\" What is evidence?",
+          "stem": "In the article, what does the word \"evidence\" mean?",
           "options": [
             "A rumor that many people in the town keep repeating",
             "Facts that show whether something is true",
@@ -496,7 +496,7 @@
           ],
           "answer": "B",
           "skill": "detail",
-          "why": "The article says after about three generations, the bond weakens and the dynasty declines.",
+          "why": "In the article, after about three generations, the bond weakens and the dynasty declines.",
           "wrong": {
             "A": "This is too short.",
             "C": "This is too long and not stated.",
@@ -504,7 +504,7 @@
           }
         },
         {
-          "stem": "Read this: \"a responsible historian should scrutinize the evidence.\" What does scrutinize mean?",
+          "stem": "A good historian should scrutinize the evidence. What does scrutinize mean?",
           "options": [
             "To hide",
             "To repeat exactly what others wrote",
@@ -530,7 +530,7 @@
           ],
           "answer": "D",
           "skill": "cause-effect",
-          "why": "The article says very heavy taxes discourage people from working and trading.",
+          "why": "Very heavy taxes make people work and trade less.",
           "wrong": {
             "A": "The article does not say this.",
             "B": "Taxes are not linked to solidarity.",
@@ -627,7 +627,7 @@
         ],
         "answer": "D",
         "skill": "detail",
-        "why": "The text says he stayed at the fort for four years and wrote a big book of history.",
+        "why": "In the text, he stayed at the fort for four years and wrote a big book of history.",
         "wrong": {
           "A": "He was a judge later, in Cairo.",
           "B": "No war is mentioned at the fort.",
@@ -644,7 +644,7 @@
         ],
         "answer": "B",
         "skill": "sequence",
-        "why": "The text says he grew up, and then he worked for kings.",
+        "why": "In the text, he grew up, and then he worked for kings.",
         "wrong": {
           "A": "He lived in Cairo late in his life.",
           "C": "The fort came after his years working for kings.",
@@ -661,7 +661,7 @@
         ],
         "answer": "C",
         "skill": "inference",
-        "why": "The text says it was quiet there, and he wrote a big book while he stayed.",
+        "why": "In the text, it was quiet there, and he wrote a big book while he stayed.",
         "wrong": {
           "A": "He went to the fort to get away from the kings.",
           "B": "He became a judge later in Cairo.",
@@ -697,7 +697,7 @@
         ],
         "answer": "B",
         "skill": "detail",
-        "why": "The text says his family had moved to Tunis from al-Andalus.",
+        "why": "In the text, his family had moved to Tunis from al-Andalus.",
         "wrong": {
           "A": "Cairo is where he lived in his last years.",
           "C": "Egypt is where he died, not where his family came from.",
@@ -767,7 +767,7 @@
         ],
         "answer": "C",
         "skill": "detail",
-        "why": "The text says he believed the land and weather where people live shape how they work, eat, and build.",
+        "why": "He believed that the land and weather where people live shape how they work, eat, and build.",
         "wrong": {
           "A": "An army is not mentioned in this idea.",
           "B": "Heavy taxes make people stop working, but they do not shape food and towns.",
@@ -818,7 +818,7 @@
         ],
         "answer": "B",
         "skill": "cause-effect",
-        "why": "The text says some rulers imprisoned him when politics shifted.",
+        "why": "In the text, some rulers imprisoned him when politics shifted.",
         "wrong": {
           "A": "The text does not say he refused to write.",
           "C": "The text does not say he took money.",

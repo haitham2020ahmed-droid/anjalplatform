@@ -138,7 +138,7 @@
      ],
      "answer": "B",
      "skill": "detail",
-     "why": "The article says the equator is the line that circles the planet exactly in the middle.",
+     "why": "In the article, the equator is the line in the middle of the globe.",
      "wrong": {
       "A": "The top of the globe is the North Pole.",
       "C": "The bottom of the globe is the South Pole.",
@@ -155,7 +155,7 @@
      ],
      "answer": "D",
      "skill": "detail",
-     "why": "The article says at the poles the sun is low in the sky and its light spreads out.",
+     "why": "In the article, at the poles the sun is low in the sky and its light spreads out.",
      "wrong": {
       "A": "Straight-down sunlight describes the equator, not the poles.",
       "B": "The article does not say sunlight only comes at night.",
@@ -172,7 +172,7 @@
      ],
      "answer": "C",
      "skill": "cause-effect",
-     "why": "The article explains the sun shines almost straight down on the equator, giving it strong, direct heat.",
+     "why": "In the article, the sun shines straight down on the equator, so it gets strong heat all year.",
      "wrong": {
       "A": "Cities are not the reason for its climate.",
       "B": "Closeness to the ocean is not the reason given.",
@@ -223,7 +223,7 @@
      ],
      "answer": "B",
      "skill": "inference",
-     "why": "The article says thick forests grow near the equator, where it is warm and wet.",
+     "why": "In the article, thick forests grow near the equator, where it is warm and wet.",
      "wrong": {
       "A": "The North Pole is covered in ice, not forests.",
       "C": "Rainforests need lots of rain, as their name suggests.",
@@ -496,7 +496,7 @@
      ],
      "answer": "B",
      "skill": "detail",
-     "why": "The article describes a brief summer thaw lasting a few weeks, while the poles remain cold for nearly the entire year.",
+     "why": "Near the poles, summer is short, and it stays cold for most of the year.",
      "wrong": {
       "A": "No transformation into a rainforest is described.",
       "C": "The poles receive far less heat than the equator throughout the year.",
@@ -547,7 +547,7 @@
      ],
      "answer": "C",
      "skill": "cause-effect",
-     "why": "The article explains that at a low angle, sunlight spreads over a wider area, so each part of the ground receives less concentrated heat.",
+     "why": "In the article, at a low angle, sunlight spreads over a wider area, so each part of the ground receives less concentrated heat.",
      "wrong": {
       "A": "The equator does not shield the poles from sunlight.",
       "B": "The speed of sunlight is not discussed as a factor.",
@@ -583,7 +583,7 @@
      "skill": "inference",
      "why": "The article contrasts the few people who live permanently at the poles, due to extreme ice and cold, with the many people supported by the equator's milder climate.",
      "wrong": {
-      "A": "The article states very few people live permanently at either pole.",
+      "A": "In the article, very few people live permanently at either pole.",
       "B": "The article directly connects climate to where people can live.",
       "C": "Many people are described as living near the equator."
      }
@@ -644,7 +644,7 @@
     ],
     "answer": "A",
     "skill": "compare",
-    "why": "The text says one spot stays hot all year and the other stays cold all year, and the equator is the hot one.",
+    "why": "In the text, one spot stays hot all year and the other stays cold all year, and the equator is the hot one.",
     "wrong": {
      "B": "This is the reverse of what the text says.",
      "C": "Ice is at the poles and woods are near the equator.",
@@ -661,7 +661,7 @@
     ],
     "answer": "D",
     "skill": "vocabulary",
-    "why": "The text says the sun beams straight down at the equator, so direct heat means straight heat.",
+    "why": "In the text, the sun beams straight down at the equator, so direct heat means straight heat.",
     "wrong": {
      "A": "Slow does not describe how sunlight reaches the ground.",
      "B": "The sun's heat is not described as far.",
@@ -682,7 +682,7 @@
     "wrong": {
      "A": "Ice covers the poles, not the equator.",
      "B": "The sun beams straight down at the equator, not low.",
-     "D": "The text says many people live near the equator."
+     "D": "In the text, many people live near the equator."
     }
    }
   ],
@@ -731,7 +731,7 @@
     ],
     "answer": "D",
     "skill": "detail",
-    "why": "The text says climate tells us what weather to expect in a place, season after season.",
+    "why": "Climate tells us what weather to expect in a place, season after season.",
     "wrong": {
      "A": "Climate is about weather, not size.",
      "B": "Climate does not count people.",
@@ -767,7 +767,7 @@
     ],
     "answer": "C",
     "skill": "detail",
-    "why": "The text says climate shapes how people farm, build, and travel.",
+    "why": "In the text, climate shapes how people farm, build, and travel.",
     "wrong": {
      "A": "Clouds are not mentioned as shaped by climate.",
      "B": "Mountain height is not discussed.",
@@ -801,7 +801,7 @@
     ],
     "answer": "A",
     "skill": "cause-effect",
-    "why": "The text says the sun passes nearly overhead at midday regardless of season, so the heat stays the same.",
+    "why": "In the text, the sun passes nearly overhead at midday regardless of season, so the heat stays the same.",
     "wrong": {
      "B": "Rainforests are not said to block sunlight.",
      "C": "The text does not say the sun sets earlier.",

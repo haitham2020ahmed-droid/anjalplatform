@@ -155,7 +155,7 @@
           ],
           "answer": "B",
           "skill": "detail",
-          "why": "The article says lines called longitude lines run from the top of Earth to the bottom, and time zones follow them.",
+          "why": "Lines of longitude run from the top of Earth to the bottom, and time zones follow them.",
           "wrong": {
             "A": "Shadow lines are not mentioned in this article.",
             "C": "Border lines are not the same as longitude lines.",
@@ -240,7 +240,7 @@
           ],
           "answer": "C",
           "skill": "cause-effect",
-          "why": "The article says traveling east across a time-zone line adds an hour to your clock.",
+          "why": "In the article, traveling east across a time-zone line adds an hour to your clock.",
           "wrong": {
             "A": "Taking away an hour happens when traveling west, not east.",
             "B": "Something does change: the hour on your clock.",
@@ -317,7 +317,7 @@
           ],
           "answer": "D",
           "skill": "detail",
-          "why": "The article says crossing the Date Line changes the whole calendar date, not merely the hour.",
+          "why": "In the article, crossing the Date Line changes the whole calendar date, not merely the hour.",
           "wrong": {
             "A": "Clocks keep working as travelers cross the line.",
             "B": "The change is to the date, not a single hour.",
@@ -496,7 +496,7 @@
           ],
           "answer": "A",
           "skill": "detail",
-          "why": "The article states that China's choice of one time zone is meant to synchronize life and commerce across the whole country.",
+          "why": "In the article, China's choice of one time zone is meant to synchronize life and commerce across the whole country.",
           "wrong": {
             "B": "China actually spans a distance wide enough for about five zones.",
             "C": "Satellite reach is not given as the reason.",
@@ -513,7 +513,7 @@
           ],
           "answer": "D",
           "skill": "detail",
-          "why": "The article explains that satellites broadcast precise signals letting a phone determine its location and correct time zone.",
+          "why": "Satellites send exact signals that let a phone find its location and the correct time zone.",
           "wrong": {
             "A": "Weather reports are not mentioned as part of this signal.",
             "B": "Images are not broadcast by these satellites.",
@@ -533,7 +533,7 @@
           "why": "Since one zone covers a distance normally needing five, places far from the zone's center, like the western edge, likely see mismatches between clock time and sunlight.",
           "wrong": {
             "A": "The far western edge would see the Sun later, not earlier, than the east.",
-            "C": "The article says the whole country uses one time zone, including the western edge.",
+            "C": "In the article, the whole country uses one time zone, including the western edge.",
             "D": "A full lack of sunlight for part of the year is not discussed."
           }
         },
@@ -644,7 +644,7 @@
         ],
         "answer": "C",
         "skill": "cause-effect",
-        "why": "The text says Earth is round, so the Sun cannot shine on all of it at once.",
+        "why": "In the text, Earth is round, so the Sun cannot shine on all of it at once.",
         "wrong": {
           "A": "The text does not say Earth is small.",
           "B": "Distance is not given as the reason.",
@@ -661,7 +661,7 @@
         ],
         "answer": "A",
         "skill": "vocabulary",
-        "why": "The text says one spin takes a day and Earth spins like a top, so it turns around and around.",
+        "why": "In the text, Earth spins like a top, and one spin takes a day, so it turns around and around.",
         "wrong": {
           "B": "A spin takes a day, and Earth does not stop.",
           "C": "A top turns, it does not bounce up and down.",
@@ -767,7 +767,7 @@
         ],
         "answer": "A",
         "skill": "detail",
-        "why": "The article says one complete spin takes about twenty-four hours.",
+        "why": "In the article, one complete spin takes about twenty-four hours.",
         "wrong": {
           "B": "The article says about twenty-four hours, not a week.",
           "C": "The article says twenty-four hours, not twelve.",
@@ -784,7 +784,7 @@
         ],
         "answer": "C",
         "skill": "cause-effect",
-        "why": "The article says a single global clock would not match local daylight in most places.",
+        "why": "One clock time for the whole world would not match daylight in most places.",
         "wrong": {
           "A": "The article does not mention the cost of clocks.",
           "B": "The Sun's path is not the stated reason.",

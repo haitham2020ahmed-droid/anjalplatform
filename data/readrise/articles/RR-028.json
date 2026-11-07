@@ -138,7 +138,7 @@
           ],
           "answer": "D",
           "skill": "detail",
-          "why": "The article says flour comes from wheat that is ground into a soft dust.",
+          "why": "In the article, flour comes from wheat that is ground into a soft dust.",
           "wrong": {
             "A": "Salt is another thing in bread, not where flour comes from.",
             "B": "The article does not talk about milk.",
@@ -172,7 +172,7 @@
           ],
           "answer": "C",
           "skill": "vocabulary",
-          "why": "The article says when you knead, you push the dough, fold it, and push it some more.",
+          "why": "In the article, when you knead, you push the dough, fold it, and push it some more.",
           "wrong": {
             "A": "Baking comes later, in the oven.",
             "B": "The article never says to cut the dough.",
@@ -302,7 +302,7 @@
           "skill": "central-idea",
           "why": "The article explains how gluten traps gas from yeast and how the oven's heat finishes the bread.",
           "wrong": {
-            "A": "The article says people have baked bread for thousands of years, not that it is the oldest food.",
+            "A": "In the article, people have baked bread for thousands of years, not that it is the oldest food.",
             "B": "Ovens are only one part of the article.",
             "D": "The article does not say which bread is healthier."
           }
@@ -317,7 +317,7 @@
           ],
           "answer": "A",
           "skill": "detail",
-          "why": "The article says the proteins join together to form gluten, a stretchy web.",
+          "why": "In the article, the proteins join to form gluten, a stretchy web inside the dough.",
           "wrong": {
             "B": "Starch is already in the flour; it is not formed by mixing.",
             "C": "Salt is added as an ingredient.",
@@ -334,7 +334,7 @@
           ],
           "answer": "D",
           "skill": "detail",
-          "why": "The article says salt adds flavor and keeps the yeast from working too fast.",
+          "why": "In the article, salt adds flavor and controls how fast the yeast works.",
           "wrong": {
             "A": "Yeast feeds on sugars, not salt.",
             "B": "The crust becomes crunchy, and salt is not named as the reason.",
@@ -402,7 +402,7 @@
           ],
           "answer": "A",
           "skill": "inference",
-          "why": "The article says invisible yeast from the air was already working, even though the bakers could not explain it.",
+          "why": "In the article, yeast was already working, even though the bakers did not know about it.",
           "wrong": {
             "B": "They did not add gas; yeast made it.",
             "C": "Kneading makes gluten stronger, but it does not make the dough rise by itself.",
@@ -419,7 +419,7 @@
           ],
           "answer": "C",
           "skill": "compare",
-          "why": "The article says some flatbreads have very little yeast or none, so they stay thin.",
+          "why": "In the article, some flatbreads have very little yeast or none, so they stay thin.",
           "wrong": {
             "A": "The article does not say flatbread has no flour.",
             "B": "Flatbreads are baked; tamees is baked in a clay oven.",
@@ -496,7 +496,7 @@
           ],
           "answer": "B",
           "skill": "detail",
-          "why": "The article says natural enzymes in flour break starch into sugars, providing the yeast with food.",
+          "why": "In the article, natural enzymes in flour break starch into sugars, providing the yeast with food.",
           "wrong": {
             "A": "Salt regulates the yeast; it is not food for it.",
             "C": "Steam forms in the oven, after the yeast has done its work.",
@@ -513,7 +513,7 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The article says yeast releases carbon dioxide along with small amounts of alcohol.",
+          "why": "In the article, yeast releases carbon dioxide along with small amounts of alcohol.",
           "wrong": {
             "A": "Gluten forms from flour proteins and water.",
             "B": "Starch is already in the flour.",
@@ -547,7 +547,7 @@
           ],
           "answer": "C",
           "skill": "cause-effect",
-          "why": "The article says heat causes the trapped gas to expand rapidly while water in the dough converts to steam.",
+          "why": "In the article, heat causes the trapped gas to expand rapidly while water in the dough converts to steam.",
           "wrong": {
             "A": "The article does not say salt stops working in the oven.",
             "B": "Gluten does not turn back into flour.",
@@ -598,7 +598,7 @@
           ],
           "answer": "D",
           "skill": "compare",
-          "why": "The article says yeast is most active at moderately warm temperatures, but the oven's heat kills it.",
+          "why": "In the article, yeast is most active at moderately warm temperatures, but the oven's heat kills it.",
           "wrong": {
             "A": "Gluten forms from mixing and kneading, not from heat.",
             "B": "The article says yeast works best when it is warm, before baking.",
@@ -627,7 +627,7 @@
         ],
         "answer": "A",
         "skill": "detail",
-        "why": "The text says you need flour, water, salt, and yeast.",
+        "why": "Bread is made from flour, water, salt, and yeast.",
         "wrong": {
           "B": "Sugar, milk, and eggs are not on the list.",
           "C": "Oil and honey are not on the list.",
@@ -644,7 +644,7 @@
         ],
         "answer": "D",
         "skill": "cause-effect",
-        "why": "The text says pushing and folding the dough makes it strong and stretchy.",
+        "why": "In the text, pushing and folding the dough makes it strong and stretchy.",
         "wrong": {
           "A": "The oven makes the top brown.",
           "B": "The dough gets bigger, not smaller.",
@@ -661,7 +661,7 @@
         ],
         "answer": "B",
         "skill": "cause-effect",
-        "why": "The text says the heat makes the bubbles grow and the bread gets big.",
+        "why": "In the text, the heat makes the bubbles grow and the bread gets big.",
         "wrong": {
           "A": "The text does not say the salt grows.",
           "C": "Flour does not turn back into wheat.",
@@ -697,7 +697,7 @@
         ],
         "answer": "B",
         "skill": "detail",
-        "why": "The article says the powder is mostly starch but also holds proteins.",
+        "why": "In the article, the powder is mostly starch but also holds proteins.",
         "wrong": {
           "A": "Gluten forms later when flour is mixed with water.",
           "C": "Yeast is added to the flour; it is not flour.",
@@ -714,7 +714,7 @@
         ],
         "answer": "C",
         "skill": "vocabulary",
-        "why": "The article says yeast ferments, meaning it feeds on sugars and gives off a gas.",
+        "why": "In the article, yeast ferments, which means it feeds on sugars and gives off a gas.",
         "wrong": {
           "A": "Baking happens in the oven, after the dough rises.",
           "B": "Grinding makes flour.",
@@ -731,7 +731,7 @@
         ],
         "answer": "A",
         "skill": "cause-effect",
-        "why": "The article says the gluten web traps the bubbles like small balloons, so the dough rises.",
+        "why": "In the article, the gluten web traps the bubbles like small balloons, so the dough rises.",
         "wrong": {
           "B": "The web holds the bubbles in, so the dough grows.",
           "C": "The web keeps the gas in.",
@@ -748,7 +748,7 @@
         ],
         "answer": "D",
         "skill": "cause-effect",
-        "why": "The article says the outside dries out and forms a brown, crunchy crust.",
+        "why": "In the article, the outside dries out and forms a brown, crunchy crust.",
         "wrong": {
           "A": "The dough sets into bread; it does not melt.",
           "B": "The heat kills the yeast and sets the bread.",
@@ -801,7 +801,7 @@
         ],
         "answer": "D",
         "skill": "cause-effect",
-        "why": "The article says the outer surface dries and browns as sugars and proteins react.",
+        "why": "In the article, the outside of the bread dries and turns brown as sugars and proteins react.",
         "wrong": {
           "A": "The gas makes the dough rise.",
           "B": "Gluten helps hold the gas in the dough.",

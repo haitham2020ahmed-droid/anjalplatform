@@ -513,7 +513,7 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The story says the rescue crew coordinated efficiently once reports of the storm reached them, and their truck arrived after the wind weakened.",
+          "why": "In the story, the rescue crew coordinated efficiently once reports of the storm reached them, and their truck arrived after the wind weakened.",
           "wrong": {
             "A": "The crew travels to the class rather than waiting at the school.",
             "B": "The crew responds quickly rather than ignoring the reports.",
@@ -627,7 +627,7 @@
         ],
         "answer": "A",
         "skill": "detail",
-        "why": "The text says the class goes to see old desert plants.",
+        "why": "In the text, the class goes to see old desert plants.",
         "wrong": {
           "B": "No lake is in the story.",
           "C": "The rescue truck comes later.",
@@ -714,7 +714,7 @@
         ],
         "answer": "B",
         "skill": "cause-effect",
-        "why": "The story says they held hands tightly so nobody wandered off alone.",
+        "why": "In the story, they held hands tightly so nobody wandered off alone.",
         "wrong": {
           "A": "Warmth is not mentioned.",
           "C": "They stay together and do not hurry to the bus.",
@@ -767,7 +767,7 @@
         ],
         "answer": "A",
         "skill": "detail",
-        "why": "The story says she explained the names and traditional uses of each plant.",
+        "why": "In the story, she explained the names and traditional uses of each plant.",
         "wrong": {
           "B": "The rescue crew comes at the end.",
           "C": "The students point out lizards, not Ms. Huda.",

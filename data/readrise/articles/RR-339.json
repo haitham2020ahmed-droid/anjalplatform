@@ -129,20 +129,20 @@
           }
         },
         {
-          "stem": "Where is the Sahara?",
+          "stem": "What is the Sahara?",
           "options": [
-            "In South America",
-            "In North Africa",
-            "In northern Europe",
-            "In Australia"
+            "A tall mountain",
+            "A huge desert",
+            "A deep ocean",
+            "A busy city"
           ],
           "answer": "B",
           "skill": "detail",
-          "why": "The article says the Sahara covers a large part of North Africa.",
+          "why": "In the article, the Sahara is a huge desert.",
           "wrong": {
-            "A": "The Sahara is not in South America.",
-            "C": "The Sahara is not in Europe.",
-            "D": "The Sahara is not in Australia."
+            "A": "The Sahara is not a mountain.",
+            "C": "The Sahara is dry land, not an ocean.",
+            "D": "The Sahara is not a city."
           }
         },
         {
@@ -155,7 +155,7 @@
           ],
           "answer": "A",
           "skill": "detail",
-          "why": "The article says the wind piles sand into tall hills called dunes.",
+          "why": "In the article, the wind piles the sand into hills called dunes.",
           "wrong": {
             "B": "Rain is rare in the Sahara, so it does not make dunes.",
             "C": "Camels walk on the sand but do not make dunes.",
@@ -172,7 +172,7 @@
           ],
           "answer": "C",
           "skill": "vocabulary",
-          "why": "The article says a green spot where water comes up from the ground is called an oasis.",
+          "why": "In the article, an oasis is a green place in the desert where water comes up from the ground.",
           "wrong": {
             "A": "A hill of sand is a dune, not an oasis.",
             "B": "A camel is an animal; an oasis is a place.",
@@ -317,7 +317,7 @@
           ],
           "answer": "D",
           "skill": "detail",
-          "why": "The article says the Sahara covers roughly nine million square kilometers, an area almost as large as the United States.",
+          "why": "In the article, the Sahara covers roughly nine million square kilometers, an area almost as large as the United States.",
           "wrong": {
             "A": "This is far too small.",
             "B": "This is still much too small.",
@@ -334,7 +334,7 @@
           ],
           "answer": "B",
           "skill": "detail",
-          "why": "The article says traders crossed the desert in caravans carrying salt and gold between West Africa and the Mediterranean coast.",
+          "why": "In the article, traders crossed the desert in caravans carrying salt and gold between West Africa and the Mediterranean coast.",
           "wrong": {
             "A": "Rice and tea are not named in the article.",
             "C": "Wood and iron are not named in the article.",
@@ -351,7 +351,7 @@
           ],
           "answer": "B",
           "skill": "cause-effect",
-          "why": "The article explains that camels can travel for days through deep sand while needing very little water, which earned them that nickname.",
+          "why": "In the article, camels can travel for days through deep sand while needing very little water, which earned them that nickname.",
           "wrong": {
             "A": "The article does not say camels swim.",
             "C": "Camels walk; they do not float.",
@@ -496,7 +496,7 @@
           ],
           "answer": "A",
           "skill": "cause-effect",
-          "why": "The article explains that ongoing erosion from the wind perpetually reshapes the dunes over long stretches of time.",
+          "why": "The wind keeps slowly reshaping the dunes over time.",
           "wrong": {
             "B": "The article does not mention rivers shaping the dunes.",
             "C": "Camels walk across the sand but do not reshape entire dunes.",
@@ -513,7 +513,7 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The article says the sparse vegetation that survives has adapted to going months, or even years, without a single drop of precipitation.",
+          "why": "The few plants there have adapted to going months, or even years, without rain.",
           "wrong": {
             "A": "The article links the vegetation's survival to dryness, not to nighttime cold.",
             "B": "The article does not say plants depend on nomads for water.",
@@ -547,7 +547,7 @@
           ],
           "answer": "A",
           "skill": "inference",
-          "why": "The article says the expedition teams depended on local guides whose generations of accumulated knowledge revealed hidden wells, essential for survival in such an arid place.",
+          "why": "In the article, the expedition teams depended on local guides whose generations of accumulated knowledge revealed hidden wells, essential for survival in such an arid place.",
           "wrong": {
             "B": "The article does not say guides owned the oases.",
             "C": "No one in the article can control the rain.",
@@ -627,7 +627,7 @@
         ],
         "answer": "B",
         "skill": "detail",
-        "why": "The text says much of the land is flat rock.",
+        "why": "In the text, much of the land is flat rock.",
         "wrong": {
           "A": "Not much grows in the Sahara.",
           "C": "A thick forest does not grow in the desert.",
@@ -661,7 +661,7 @@
         ],
         "answer": "A",
         "skill": "cause-effect",
-        "why": "The text says water comes up from the ground at an oasis, and palm trees can grow there.",
+        "why": "In the text, water comes up from the ground at an oasis, so palm trees can grow there.",
         "wrong": {
           "B": "Wind piles sand into dunes, which does not help trees.",
           "C": "The text does not say the sun is cooler at an oasis.",
@@ -752,7 +752,7 @@
         "wrong": {
           "A": "Traders in a dry desert needed water.",
           "C": "The towns grew along the old trade routes.",
-          "D": "The text says towns grew where there was water."
+          "D": "In the text, towns grew where there was water."
         }
       }
     ],
@@ -801,7 +801,7 @@
         ],
         "answer": "D",
         "skill": "cause-effect",
-        "why": "The text says at night the dry air loses heat quickly and can turn surprisingly cold.",
+        "why": "In the text, at night the dry air loses heat quickly and can turn surprisingly cold.",
         "wrong": {
           "A": "Rain almost never falls.",
           "B": "The sand losing heat is the reverse of holding it.",

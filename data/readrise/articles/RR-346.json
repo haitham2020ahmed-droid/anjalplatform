@@ -146,20 +146,20 @@
           }
         },
         {
-          "stem": "What does the Strait of Hormuz connect?",
+          "stem": "In the article, what is a strait?",
           "options": [
-            "Two deserts far from any water",
-            "The Gulf and the open sea beyond it",
-            "Two cities inside the same small country",
-            "A lake and a wide river nearby"
+            "A tall hill of sand",
+            "A narrow path of water",
+            "A long road in a city",
+            "A big lake with no fish"
           ],
           "answer": "B",
           "skill": "detail",
-          "why": "The article says the strait links the Gulf to the open sea beyond it.",
+          "why": "In the article, a strait is a narrow path of water.",
           "wrong": {
-            "A": "Deserts are not what the strait connects.",
-            "C": "Cities are not discussed here.",
-            "D": "The article does not mention a lake and a river."
+            "A": "A strait is water, not sand.",
+            "C": "A strait is not a road.",
+            "D": "A strait is not a lake."
           }
         },
         {
@@ -172,7 +172,7 @@
           ],
           "answer": "A",
           "skill": "cause-effect",
-          "why": "The article says land sits close on both sides, so ships must sail with care.",
+          "why": "In the article, land sits close on both sides, so ships must sail with care.",
           "wrong": {
             "B": "Many ships use the strait every day.",
             "C": "Freezing water is not mentioned.",
@@ -180,7 +180,7 @@
           }
         },
         {
-          "stem": "In the article, narrow means \u2014",
+          "stem": "In the article, narrow means —",
           "options": [
             "thin from one side to the other",
             "covered in cold winter ice",
@@ -223,7 +223,7 @@
           ],
           "answer": "A",
           "skill": "inference",
-          "why": "The article says that without the strait, oil would be much harder to move, and many lands would feel the change.",
+          "why": "In the article, without the strait, oil would be much harder to move, and many lands would feel the change.",
           "wrong": {
             "B": "The article shows a clear change would happen.",
             "C": "Drying up is not discussed.",
@@ -317,7 +317,7 @@
           ],
           "answer": "B",
           "skill": "detail",
-          "why": "The article says the Gulf of Oman opens onto the wider Arabian Sea and eventually the Indian Ocean.",
+          "why": "The Gulf of Oman opens onto the wider sea and ocean beyond it.",
           "wrong": {
             "A": "Mountains are not mentioned here.",
             "C": "A lake is not mentioned.",
@@ -342,7 +342,7 @@
           }
         },
         {
-          "stem": "In the article, the word crude describes oil that \u2014",
+          "stem": "In the article, the word crude describes oil that —",
           "options": [
             "has not yet been cleaned or processed",
             "has already been turned into fuel for cars",
@@ -496,7 +496,7 @@
           ],
           "answer": "B",
           "skill": "detail",
-          "why": "The article states that some of the world's largest oil fields are concentrated close to the shoreline inside the Persian Gulf.",
+          "why": "In the article, some of the world's largest oil fields are concentrated close to the shoreline inside the Persian Gulf.",
           "wrong": {
             "A": "The oil fields are described as near the Gulf shoreline, not inland near Oman.",
             "C": "The Indian Ocean is mentioned only as a further destination.",
@@ -521,7 +521,7 @@
           }
         },
         {
-          "stem": "In the article, the word chokepoint most nearly means \u2014",
+          "stem": "In the article, the word chokepoint most nearly means —",
           "options": [
             "a tax charged on all goods being shipped across the sea",
             "a narrow passage carrying a large share of trade",
@@ -547,7 +547,7 @@
           ],
           "answer": "D",
           "skill": "inference",
-          "why": "The article states that alternative routes by pipeline can realistically carry only a small fraction of the sea route's total volume.",
+          "why": "Pipelines can carry only a small part of what ships carry through the strait.",
           "wrong": {
             "A": "The article implies such pipelines do exist, just with limited capacity.",
             "B": "Pipelines carry far less than the sea route, not more.",
@@ -644,7 +644,7 @@
         ],
         "answer": "C",
         "skill": "detail",
-        "why": "The text says land sits close on both sides of the strait.",
+        "why": "In the text, land sits close on both sides of the strait.",
         "wrong": {
           "A": "The big seas are joined by the strait, not beside it.",
           "B": "Ships sail in the strait, not beside it.",
@@ -661,7 +661,7 @@
         ],
         "answer": "B",
         "skill": "cause-effect",
-        "why": "The text says so much oil goes through the strait that it is a busy sea path.",
+        "why": "In the text, so much oil goes through the strait that it is a busy sea path.",
         "wrong": {
           "A": "The text says the strait is narrow, not long.",
           "C": "The text does not mention islands.",
@@ -731,7 +731,7 @@
         ],
         "answer": "C",
         "skill": "cause-effect",
-        "why": "The text says the oil is loaded in the Gulf, where some of the world's biggest oil fields are found.",
+        "why": "In the text, the oil is loaded in the Gulf, where some of the world's biggest oil fields are found.",
         "wrong": {
           "A": "The strait is narrow, not wide.",
           "B": "Refineries are in countries the oil travels to.",
@@ -767,7 +767,7 @@
         ],
         "answer": "A",
         "skill": "detail",
-        "why": "The text says a strait lets ships travel between seas without going around an entire landmass.",
+        "why": "In the text, a strait lets ships travel between seas without going around an entire landmass.",
         "wrong": {
           "B": "Ships in the strait still carry oil.",
           "C": "Large ships must still stay in marked lanes.",
@@ -787,7 +787,7 @@
         "why": "Analysts use the phrase because of the huge volume of oil and gas shipped through the strait.",
         "wrong": {
           "A": "The text does not describe it as a place to visit.",
-          "B": "The text says it is one of the busiest waterways.",
+          "B": "It is one of the busiest waterways, not a place with few ships.",
           "D": "The old port belonged to the island, not the phrase."
         }
       },
@@ -801,7 +801,7 @@
         ],
         "answer": "B",
         "skill": "cause-effect",
-        "why": "The text says land lies close on both sides, so captains must steer carefully.",
+        "why": "In the text, land lies close on both sides, so captains must steer carefully.",
         "wrong": {
           "A": "The text does not talk about depth.",
           "C": "The text does not mention spills.",

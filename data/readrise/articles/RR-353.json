@@ -155,7 +155,7 @@
           ],
           "answer": "D",
           "skill": "detail",
-          "why": "The story says water bubbled up, green plants grew around it, and palm trees gave shade.",
+          "why": "In the story, water bubbled up, green plants grew around it, and palm trees gave shade.",
           "wrong": {
             "A": "The oasis has much more than sand and stone.",
             "B": "There is no market in the story.",
@@ -801,7 +801,7 @@
         ],
         "answer": "B",
         "skill": "cause-effect",
-        "why": "The story says small groups keep the water supply sustainable for generations.",
+        "why": "In the story, small groups keep the water supply sustainable for generations.",
         "wrong": {
           "A": "The path was marked to protect plants.",
           "C": "The elders wanted to share the water safely.",

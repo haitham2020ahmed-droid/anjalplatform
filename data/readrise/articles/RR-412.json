@@ -333,7 +333,7 @@
      ],
      "answer": "C",
      "skill": "cause-effect",
-     "why": "The story explains that the machine has run almost nonstop since the center hosted a large community event.",
+     "why": "In the story, the machine has run almost nonstop since the center hosted a large community event.",
      "wrong": {
       "A": "Pool cleaning is never mentioned as the reason.",
       "B": "Mr. Omar forgetting to turn it off is not stated.",
@@ -511,7 +511,7 @@
      ],
      "answer": "C",
      "skill": "cause-effect",
-     "why": "The story explains that a worn bearing increased friction on a moving part, causing the strain and the loud humming.",
+     "why": "In the story, a worn bearing increased friction on a moving part, causing the strain and the loud humming.",
      "wrong": {
       "A": "An open window is never mentioned in the story.",
       "B": "Draining the pool is not given as a cause.",
@@ -815,7 +815,7 @@
     ],
     "answer": "C",
     "skill": "cause-effect",
-    "why": "The text says the worker had no idea, which only intensified Noor's curiosity.",
+    "why": "The worker had no idea either, which made Noor even more curious.",
     "wrong": {
      "A": "The worker told no story.",
      "B": "A prank is never mentioned.",

@@ -317,7 +317,7 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The article says sailors rubbed a thin iron needle against a lodestone, which transferred the stone's pulling power to the needle.",
+          "why": "In the article, sailors rubbed a thin iron needle against a lodestone, which transferred the stone's pulling power to the needle.",
           "wrong": {
             "A": "The article does not mention heating the needle.",
             "B": "The article does not mention seawater changing the needle.",
@@ -351,7 +351,7 @@
           ],
           "answer": "B",
           "skill": "vocabulary",
-          "why": "The article uses \"navigate\" to describe sailors finding their way across the sea using the compass.",
+          "why": "The article describes sailors finding their way across the sea with the compass, which is what navigate means.",
           "wrong": {
             "A": "Buying and selling goods describes a merchant, not navigating.",
             "C": "Rubbing a needle on a rock describes magnetizing it.",
@@ -496,7 +496,7 @@
           ],
           "answer": "B",
           "skill": "detail",
-          "why": "The article states that a freely suspended lodestone gradually turns until it aligns in one steady orientation, which is north.",
+          "why": "In the article, a freely suspended lodestone gradually turns until it aligns in one steady orientation, which is north.",
           "wrong": {
             "A": "The article does not describe the lodestone breaking.",
             "C": "Its magnetism, and ability to attract iron, is the whole basis of the compass.",
@@ -513,7 +513,7 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The article states that sailors magnetized a needle by repeatedly rubbing it against a lodestone.",
+          "why": "In the article, sailors magnetized a needle by repeatedly rubbing it against a lodestone.",
           "wrong": {
             "A": "The compass rose was added later, as a set of printed direction marks.",
             "B": "The box held the needle once it was already magnetized.",
@@ -644,7 +644,7 @@
         ],
         "answer": "A",
         "skill": "cause-effect",
-        "why": "The text says a compass works day or night, in rain or fog, so ships could find their way home.",
+        "why": "In the text, a compass works day or night, in rain or fog, so ships could find their way home.",
         "wrong": {
           "B": "The text says the sea has no roads.",
           "C": "The text says sailors had no map.",
@@ -714,7 +714,7 @@
         ],
         "answer": "B",
         "skill": "vocabulary",
-        "why": "The text says rubbing the needle on a lodestone gave it the same pulling power.",
+        "why": "In the text, rubbing the needle on a lodestone gave it the same pulling power.",
         "wrong": {
           "A": "Nothing in the text says the needle shines.",
           "C": "Hanging free is what the lodestone does.",
@@ -758,20 +758,20 @@
     ],
     "HIGH": [
       {
-        "stem": "Where is the compass still used today, according to the article?",
+        "stem": "According to the article, what did navigators add around the compass needle?",
         "options": [
-          "Only on very old wooden ships",
-          "Only in a few big museums",
-          "Only in some far-off cities",
-          "On ships, planes, and phones"
+          "A small bell",
+          "A compass rose",
+          "A glass of water",
+          "A metal anchor"
         ],
-        "answer": "D",
+        "answer": "B",
         "skill": "detail",
-        "why": "The last paragraph says it is still used on ships, in planes, and inside phones.",
+        "why": "Navigators added a circle of direction marks, called a compass rose, around the needle.",
         "wrong": {
-          "A": "The text says it is used in more places than old ships.",
-          "B": "The text says it is still a basic tool.",
-          "C": "Far cities are not mentioned in that way."
+          "A": "A bell is not named.",
+          "C": "Water is not what they added around it.",
+          "D": "An anchor is not part of a compass."
         }
       },
       {

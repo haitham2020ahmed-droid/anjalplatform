@@ -16,6 +16,8 @@ import { classReport as readRiseClass, schoolDashboard as readRiseSchool } from 
 import { classGrowth as readRiseClassGrowth, studentGrowthReport as readRiseStudentGrowth } from "../readrise/growth-report";
 import { FIT_LABEL, RANGE_NOTE, SKILL_LABEL, rangeText } from "../readrise/growth-words";
 import { readRiseTeacherReport } from "../readrise/teacher-report";
+import { formatLevel } from "../readrise/level";
+import { BAND_LABEL, GRADE_BANDS as RR_BANDS } from "../readrise/benchmarks";
 import { ForbiddenError } from "../auth/rbac";
 import { earlyWarning } from "../insights/early-warning";
 import { MEASURES, PATTERN_NAME, SEVERITY_NAME } from "../insights/early-warning-rules";
@@ -32,6 +34,9 @@ const TITLES: Record<ExtraKind, string> = {
 };
 const col = (key: string, label: string, kind: Column["kind"], width = 1, nowrap = false): Column => ({ key, label, kind, width, nowrap });
 const num = (v: number | null | undefined) => (v === null || v === undefined ? null : v);
+/** Round 7: a ReadRise level as it reads everywhere ("600L", "BR120L"), null when there is none. */
+const lvl = (v: number | null | undefined) => (v === null || v === undefined || !Number.isFinite(Number(v)) ? null : formatLevel(Number(v)));
+const bandRange = (b: { low: number; high: number }) => `${formatLevel(b.low)}–${formatLevel(b.high)}`;
 
 function doc(ctx: BuildContext, kind: ExtraKind, subtitle: string, meta: MetaItem[], sections: Section[], primary: string, stem: string[]): ReportDoc {
   return {
@@ -143,30 +148,30 @@ export async function buildExtraReport(ctx: BuildContext, kind: ExtraKind, opts:
   if (opts.scope === "school") {
     const d = await readRiseSchool(repo, actor, now);
     return doc(ctx, "readrise", "ReadRise Level (estimate) · school", [{ label: "Scope", value: "Whole school" }], [
-      table("classes", "Classes", [col("cls", "Class", "latin", 1.2, true), col("grade", "Grade", "int"), col("students", "Students", "int"), col("placed", "Placed", "int"), col("median", "Median ReadRise Level (estimate)", "int", 1.6), col("growth", "Avg growth", "signed"), col("perWeek", "Articles / student / week", "dec"), col("goal", "Weekly goal met", "pct")],
-        d.classes.map((c) => ({ cls: c.name, grade: c.grade, students: c.students, placed: c.placed, median: num(c.medianLevel), growth: num(c.avgGrowth), perWeek: num(c.perStudentPerWeek), goal: num(c.goalPct) }))),
-      table("grades", "Grades", [col("grade", "Grade", "int"), col("students", "Students", "int"), col("placed", "Placed", "int"), col("median", "Median ReadRise Level (estimate)", "int", 1.6), col("band", "Grade band", "latin"), col("growth", "Avg growth", "signed"), col("goal", "Weekly goal met", "pct")],
-        d.grades.map((g) => ({ grade: g.grade, students: g.students, placed: g.placed, median: num(g.medianLevel), band: `${g.band.low}–${g.band.high}`, growth: num(g.avgGrowth), goal: num(g.goalPct) }))),
+      table("classes", "Classes", [col("cls", "Class", "latin", 1.2, true), col("grade", "Grade", "int"), col("students", "Students", "int"), col("placed", "Placed", "int"), col("median", "Median ReadRise Level (estimate)", "latin", 1.6), col("growth", "Avg growth", "signed"), col("perWeek", "Articles / student / week", "dec"), col("goal", "Weekly goal met", "pct")],
+        d.classes.map((c) => ({ cls: c.name, grade: c.grade, students: c.students, placed: c.placed, median: lvl(c.medianLevel), growth: num(c.avgGrowth), perWeek: num(c.perStudentPerWeek), goal: num(c.goalPct) }))),
+      table("grades", "Grades", [col("grade", "Grade", "int"), col("students", "Students", "int"), col("placed", "Placed", "int"), col("median", "Median ReadRise Level (estimate)", "latin", 1.6), col("band", "Grade Meets range", "latin"), col("growth", "Avg growth", "signed"), col("goal", "Weekly goal met", "pct")],
+        d.grades.map((g) => ({ grade: g.grade, students: g.students, placed: g.placed, median: lvl(g.medianLevel), band: bandRange(g.band), growth: num(g.avgGrowth), goal: num(g.goalPct) }))),
       { type: "notes", title: "Notes", items: [RR_EXPORT_NOTE, "Weekly goal met = share of student-weeks (last 8 weeks) with the weekly number of articles at 75%+ on the first try."] },
     ], "classes", ["school"]);
   }
   if (opts.studentId && opts.classId) return readRiseStudentDoc(ctx, opts.classId, opts.studentId);
   const [r, g, tr] = await Promise.all([readRiseClass(repo, actor, opts.classId!, now), readRiseClassGrowth(repo, actor, opts.classId!, now), readRiseTeacherReport(repo, actor, opts.classId!, now)]);
   const ev = new Map(g.students.map((x) => [x.studentId, x]));
-  return doc(ctx, "readrise", "ReadRise Level (estimate) · class", [{ label: "Class", value: r.className, isolate: "latin" }, { label: "Grade band", value: `${r.band.low}–${r.band.high}` }], [
-    kpis("Summary", [{ label: "Placed", value: r.summary.placed, kind: "int", glance: true, hint: "students with a ReadRise Level (estimate)" }, { label: "Median ReadRise Level (estimate)", value: r.summary.medianLevel, kind: "int", glance: true, hint: "the middle student's level" }, { label: "Avg growth", value: r.summary.avgGrowth, kind: "signed", glance: true, hint: "average change since placement (+ means up)" }, { label: "Below band", value: r.summary.belowBand, kind: "int", glance: true, hint: "students below the grade band" }, { label: "Inactive 14+ days", value: r.summary.inactive, kind: "int", glance: true, hint: "students who have not read for two weeks" }]),
-    table("students", "Students", [col("name", "Student", "name", 2.2), col("start", "ReadRise Level start (estimate)", "int", 1.4), col("now", "ReadRise Level now (estimate)", "int", 1.4), col("growth", "Growth", "signed"), col("runs", "Readings", "int"), col("articles", "Articles (first try)", "int"), col("firstTry", "First-try accuracy", "pct"), col("goal", "Weekly goal", "int"), col("met", "Goal weeks met", "text"), col("last", "Last activity", "date"), col("term", "Growth this term", "signed"), col("confirmed", "Confirmed by (readings)", "int"), col("projected", "Projected end of year (range)", "latin", 1.6)],
-      r.students.map((x) => { const e = ev.get(x.studentId); return { name: x.name, start: num(x.startLevel), now: num(x.level), growth: num(x.growth), term: num(e?.growthTerm), runs: x.runs, articles: x.totalArticles, firstTry: num(x.firstTryAvg), goal: x.goal, confirmed: x.placed ? e?.confirmedBy ?? 0 : null, projected: rangeText(e?.projection ?? null), met: x.placed ? `${x.goalMet} of ${x.goalWeeks}` : "—", last: x.lastActivity ? x.lastActivity.slice(0, 10) : null }; })),
+  return doc(ctx, "readrise", "ReadRise Level (estimate) · class", [{ label: "Class", value: r.className, isolate: "latin" }, { label: "Grade Meets range", value: bandRange(r.band) }], [
+    kpis("Summary", [{ label: "Placed", value: r.summary.placed, kind: "int", glance: true, hint: "students with a ReadRise Level (estimate)" }, { label: "Median ReadRise Level (estimate)", value: lvl(r.summary.medianLevel) ?? "—", kind: "latin", glance: true, hint: "the middle student's level" }, { label: "Avg growth", value: r.summary.avgGrowth, kind: "signed", glance: true, hint: "average change since placement (+ means up)" }, ...RR_BANDS.map((b) => ({ label: BAND_LABEL[b], value: r.summary.bands[b], kind: "int" as const, glance: b === "FAR_BELOW", hint: "students in this grade band" })), { label: "Inactive 14+ days", value: r.summary.inactive, kind: "int", glance: true, hint: "students who have not read for two weeks" }]),
+    table("students", "Students", [col("name", "Student", "name", 2.2), col("start", "ReadRise Level start (estimate)", "latin", 1.4), col("now", "ReadRise Level now (estimate)", "latin", 1.4), col("gband", "Grade band", "text", 1.2), col("growth", "Growth", "signed"), col("runs", "Readings", "int"), col("articles", "Articles (first try)", "int"), col("firstTry", "First-try accuracy", "pct"), col("goal", "Weekly goal", "int"), col("met", "Goal weeks met", "text"), col("last", "Last activity", "date"), col("term", "Growth this term", "signed"), col("confirmed", "Confirmed by (readings)", "int"), col("projected", "Projected end of year (range)", "latin", 1.6)],
+      r.students.map((x) => { const e = ev.get(x.studentId); return { name: x.name, start: lvl(x.startLevel), now: lvl(x.level), gband: x.gradeBand ? BAND_LABEL[x.gradeBand] : "—", growth: num(x.growth), term: num(e?.growthTerm), runs: x.runs, articles: x.totalArticles, firstTry: num(x.firstTryAvg), goal: x.goal, confirmed: x.placed ? e?.confirmedBy ?? 0 : null, projected: rangeText(e?.projection ?? null), met: x.placed ? `${x.goalMet} of ${x.goalWeeks}` : "—", last: x.lastActivity ? x.lastActivity.slice(0, 10) : null }; })),
     kpis("Growth this term", [{ label: "Average growth this term", value: g.term.avg, kind: "signed", hint: `since ${g.termStart.slice(0, 10)}` }, { label: "Median growth this term", value: g.term.median, kind: "signed" }, { label: "Moved up", value: g.term.movedUp, kind: "int" }, { label: "Not reading (2 weeks)", value: g.notReading.length, kind: "int" }]),
-    table("distribution", "Level distribution", [col("range", "ReadRise Level (estimate)", "latin"), col("count", "Students", "int"), col("band", "Inside the grade band", "text")],
-      g.distribution.filter((b) => b.count > 0).map((b, i) => ({ range: i === 0 && b.from === 200 ? `≤${b.to}` : b.to >= 9999 ? `${b.from}+` : `${b.from}–${b.to}`, count: b.count, band: b.inBand ? "yes" : "no" }))),
+    table("distribution", "Level distribution", [col("range", "ReadRise Level (estimate)", "latin"), col("count", "Students", "int"), col("band", "Inside the grade's Meets range", "text")],
+      g.distribution.filter((b) => b.count > 0).map((b) => ({ range: b.from < 0 ? `≤${formatLevel(b.to)}` : b.to >= 9999 ? `${formatLevel(b.from)}+` : `${formatLevel(b.from)}–${formatLevel(b.to)}`, count: b.count, band: b.inBand ? "yes" : "no" }))),
     table("notreading", "Not reading (no activity for 2 weeks)", [col("name", "Student", "name", 2.2), col("placed", "Placed", "text"), col("last", "Last activity", "date")],
       g.notReading.map((x) => ({ name: x.name, placed: x.placed ? "yes" : "no", last: x.lastActivity ? x.lastActivity.slice(0, 10) : null })), undefined, "Not reading"),
     table("skills", "Accuracy by question skill (class, first tries)", [col("skill", "Skill", "text", 2), col("acc", "Accuracy", "pct"), col("answers", "Answers", "int")],
       g.skills.map((k) => ({ skill: SKILL_LABEL[k.skill] ?? k.skill, acc: num(k.pct), answers: k.total })), undefined, "Skills"),
     // owner r69: the three reading checks, the end-of-year estimate, stuck / rising, question types and unreliable runs
-    table("checks", "Reading checks and end-of-year estimate", [col("name", "Student", "name", 2.2), col("boy", "Start of year", "int"), col("moy", "Middle of year", "int"), col("eoy", "End of year", "int"), col("now", "ReadRise Level now (estimate)", "int", 1.4), col("projected", "Projected end of year (estimate)", "latin", 1.6), col("status", "Status", "text", 1.4)],
-      tr.students.map((x) => ({ name: x.name, boy: x.checks.BOY?.level ?? null, moy: x.checks.MOY?.level ?? null, eoy: x.checks.EOY?.level ?? null, now: num(x.level), projected: rangeText(x.projected), status: !x.placed ? "not placed" : (x.gain4w ?? 0) >= 100 ? "rising fast" : (x.daysSinceChange ?? 0) >= 28 ? `stuck ${x.daysSinceChange} days` : "—" })), undefined, "Reading checks"),
+    table("checks", "Reading checks and end-of-year estimate", [col("name", "Student", "name", 2.2), col("boy", "Start of year", "latin"), col("moy", "Middle of year", "latin"), col("eoy", "End of year", "latin"), col("now", "ReadRise Level now (estimate)", "latin", 1.4), col("projected", "Projected end of year (estimate)", "latin", 1.6), col("status", "Status", "text", 1.4)],
+      tr.students.map((x) => ({ name: x.name, boy: lvl(x.checks.BOY?.level), moy: lvl(x.checks.MOY?.level), eoy: lvl(x.checks.EOY?.level), now: lvl(x.level), projected: rangeText(x.projected), status: !x.placed ? "not placed" : (x.gain4w ?? 0) >= 100 ? "rising fast" : (x.daysSinceChange ?? 0) >= 28 ? `stuck ${x.daysSinceChange} days` : "—" })), undefined, "Reading checks"),
     table("types", "Class accuracy by question type (reliable first tries)", [col("type", "Question type", "text", 2), col("acc", "Accuracy", "pct"), col("answers", "Answers", "int")],
       tr.byType.map((k) => ({ type: k.name, acc: num(k.pct), answers: k.total })), undefined, "Question types"),
     table("unreliable", "Unreliable readings (2+ answers too fast to be read: the level did not move)", [col("name", "Student", "name", 2.2), col("title", "Article", "latin", 3), col("date", "Date", "date"), col("rapid", "Rapid answers", "int"), col("score", "Score", "pct")],
@@ -180,22 +185,22 @@ export async function buildExtraReport(ctx: BuildContext, kind: ExtraKind, opts:
 /** 🚀 One student's ReadRise growth evidence (the same numbers as the teacher's student page). */
 async function readRiseStudentDoc(ctx: BuildContext, classId: string, studentId: string): Promise<ReportDoc> {
   const g = await readRiseStudentGrowth(ctx.repo, ctx.actor, classId, studentId, ctx.now);
-  const pos = { BELOW: "below the grade range", WITHIN: "within the grade range", ABOVE: "above the grade range" } as const;
-  return doc(ctx, "readrise", "ReadRise growth evidence · student", [{ label: "Student", value: g.name, isolate: "auto" }, { label: "Class", value: g.className, isolate: "latin" }, { label: "Grade range (guidance)", value: `${g.band.low}–${g.band.high}` }], [
+
+  return doc(ctx, "readrise", "ReadRise growth evidence · student", [{ label: "Student", value: g.name, isolate: "auto" }, { label: "Class", value: g.className, isolate: "latin" }, { label: "Grade Meets range", value: bandRange(g.band) }], [
     kpis("Summary", [
-      { label: "ReadRise Level now (estimate)", value: g.level, kind: "int", glance: true, hint: g.position ? pos[g.position] : "not placed yet" },
+      { label: "ReadRise Level now (estimate)", value: lvl(g.level) ?? "—", kind: "latin", glance: true, hint: g.gradeBand ? `grade band: ${BAND_LABEL[g.gradeBand]}` : "not placed yet" },
       { label: "Growth since the start", value: g.level !== null && g.startLevel !== null ? g.level - g.startLevel : null, kind: "signed", glance: true },
       { label: "Confirmed by (readings)", value: g.confidence?.readings ?? 0, kind: "int", glance: true, hint: g.confidenceText },
       { label: "Projected end of year", value: rangeText(g.projection), kind: "latin", glance: true, hint: g.projection ? `${g.projection.confidence.toLowerCase()} confidence` : "not enough readings yet" },
       { label: "Words read", value: g.wordsRead, kind: "int" }, { label: "Articles per week (8 weeks)", value: g.avgPerWeek, kind: "dec" },
       { label: "Stretch success", value: g.stretch.pct, kind: "pct", hint: `${g.stretch.succeeded} of ${g.stretch.tried} stretch readings at 75%+` },
     ]),
-    table("history", "Level history", [col("date", "Date", "date"), col("from", "From", "int"), col("to", "Level", "int"), col("reason", "Reason", "text", 4)],
-      g.history.map((e) => ({ date: e.at.slice(0, 10), from: e.from, to: e.level, reason: e.reason }))),
+    table("history", "Level history", [col("date", "Date", "date"), col("from", "From", "latin"), col("to", "Level", "latin"), col("reason", "Reason", "text", 4)],
+      g.history.map((e) => ({ date: e.at.slice(0, 10), from: lvl(e.from), to: lvl(e.level), reason: e.reason }))),
     table("trend", "First-try scores", [col("date", "Date", "date"), col("score", "Score", "pct")], g.trend.map((x) => ({ date: x.at.slice(0, 10), score: x.score }))),
     table("skills", "Accuracy by question skill", [col("skill", "Skill", "text", 2), col("acc", "Accuracy", "pct"), col("answers", "Answers", "int")], g.skills.map((k) => ({ skill: SKILL_LABEL[k.skill] ?? k.skill, acc: num(k.pct), answers: k.total }))),
-    table("readings", "Recent readings: text level vs student level", [col("date", "Date", "date"), col("title", "Article", "latin", 3), col("text", "Text level (measured)", "int"), col("student", "Student level", "int"), col("fit", "Fit", "text"), col("score", "Score", "pct"), col("kind", "Reading", "text")],
-      g.recent.map((x) => ({ date: x.at.slice(0, 10), title: x.title, text: x.textLevel, student: x.studentLevel, fit: FIT_LABEL[x.fit], score: num(x.score), kind: x.stretch ? "stretch" : x.firstTry ? "first try" : "re-read" }))),
+    table("readings", "Recent readings: text level vs student level", [col("date", "Date", "date"), col("title", "Article", "latin", 3), col("text", "Text level (measured)", "latin"), col("student", "Student level", "latin"), col("fit", "Fit", "text"), col("score", "Score", "pct"), col("kind", "Reading", "text")],
+      g.recent.map((x) => ({ date: x.at.slice(0, 10), title: x.title, text: lvl(Math.round(x.textLevel / 10) * 10), student: lvl(x.studentLevel), fit: FIT_LABEL[x.fit], score: num(x.score), kind: x.stretch ? "stretch" : x.firstTry ? "first try" : "re-read" }))),
     { type: "notes", title: "Notes", items: [RR_EXPORT_NOTE, "Fit: exact = the text measures within 75 points of the student's level; stretch = harder; easy = easier.", RANGE_NOTE] },
   ], "history", [g.name]);
 }

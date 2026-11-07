@@ -138,7 +138,7 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The article says the beam bridge is the most simple kind: a flat beam on posts.",
+          "why": "The beam bridge is the simplest kind: a flat beam on posts.",
           "wrong": {
             "A": "Hanging bridges are used for very long gaps, not because they are simple.",
             "B": "Arch bridges use a curve; the article does not call them the simplest.",
@@ -172,7 +172,7 @@
           ],
           "answer": "B",
           "skill": "cause-effect",
-          "why": "The article says the curve pushes the weight out to the ends of the bridge.",
+          "why": "In the article, the curve pushes the weight out to the ends of the bridge.",
           "wrong": {
             "A": "The article is about how the curve holds weight, not how it looks.",
             "C": "Boats do not ride on top of bridges.",
@@ -334,7 +334,7 @@
           ],
           "answer": "A",
           "skill": "detail",
-          "why": "The article says the top of the beam is squeezed while the bottom is stretched.",
+          "why": "In the article, the top of the beam is squeezed while the bottom is stretched.",
           "wrong": {
             "B": "This reverses what the article says.",
             "C": "The article does not describe the beam being pulled upward.",
@@ -359,7 +359,7 @@
           }
         },
         {
-          "stem": "Read this: \"Beam bridges work best when the span, or distance between supports, is short.\" What does span mean?",
+          "stem": "In the article, what does the word \"span\" mean?",
           "options": [
             "The color of the bridge",
             "The distance between supports",
@@ -482,7 +482,7 @@
           "why": "The article explains loads, forces, materials, bridge types, wind, and heat, all showing how designs are matched to conditions.",
           "wrong": {
             "A": "Roman bridges are one example, not the source of all modern designs.",
-            "C": "The article says concrete resists compression well, especially when reinforced.",
+            "C": "In the article, concrete resists compression well, especially when reinforced.",
             "D": "Wind tunnels are one detail, and the article makes no such claim."
           }
         },
@@ -496,7 +496,7 @@
           ],
           "answer": "B",
           "skill": "cause-effect",
-          "why": "The article says concrete cracks under tension while steel handles tension well, so steel bars are embedded in the concrete.",
+          "why": "In the article, concrete cracks under tension while steel handles tension well, so steel bars are embedded in the concrete.",
           "wrong": {
             "A": "Concrete is very heavy, not lighter than air.",
             "C": "The article says steel and concrete both expand in heat.",
@@ -513,7 +513,7 @@
           ],
           "answer": "A",
           "skill": "vocabulary",
-          "why": "The article says an arch distributes weight into solid supports at each end, known as abutments.",
+          "why": "In the article, an arch distributes weight into solid supports at each end, known as abutments.",
           "wrong": {
             "B": "Those are expansion joints.",
             "C": "Those are the vertical cables of a suspension bridge.",
@@ -581,7 +581,7 @@
           ],
           "answer": "C",
           "skill": "inference",
-          "why": "The article says suspension bridges are chosen for the longest gaps and can span more than two kilometers between towers.",
+          "why": "In the article, suspension bridges are chosen for the longest gaps and can span more than two kilometers between towers.",
           "wrong": {
             "A": "The article does not suggest a single arch could cover such a distance.",
             "B": "Beam bridges are best for relatively short spans.",
@@ -627,7 +627,7 @@
         ],
         "answer": "A",
         "skill": "detail",
-        "why": "The text says a bridge holds cars, trucks, and lots of people.",
+        "why": "In the text, a bridge holds cars, trucks, and lots of people.",
         "wrong": {
           "B": "Bridges hold more than small bikes.",
           "C": "Boats pass under a bridge, not on it.",
@@ -644,7 +644,7 @@
         ],
         "answer": "C",
         "skill": "detail",
-        "why": "The text says a flat beam sits on posts.",
+        "why": "In the text, a flat beam sits on posts.",
         "wrong": {
           "A": "The beam sits on posts, not on water.",
           "B": "Cables belong to the hanging bridge.",
@@ -697,7 +697,7 @@
         ],
         "answer": "C",
         "skill": "detail",
-        "why": "The article says a bridge first has to support its own heavy body of steel or concrete.",
+        "why": "In the article, a bridge first has to support its own heavy body of steel or concrete.",
         "wrong": {
           "A": "Cars come second.",
           "B": "People come second, with the cars.",
@@ -731,7 +731,7 @@
         ],
         "answer": "D",
         "skill": "cause-effect",
-        "why": "The article says strong wind made the bridge twist until it collapsed.",
+        "why": "In the article, strong wind made the bridge twist until it collapsed.",
         "wrong": {
           "A": "Trucks are not given as the cause.",
           "B": "A flood is not mentioned.",
@@ -767,7 +767,7 @@
         ],
         "answer": "B",
         "skill": "vocabulary",
-        "why": "The article says a beam rests on vertical supports called piers.",
+        "why": "In the article, a beam rests on vertical supports called piers.",
         "wrong": {
           "A": "Expansion joints are narrow gaps in a roadway.",
           "C": "The cables pass over towers.",
@@ -784,7 +784,7 @@
         ],
         "answer": "D",
         "skill": "detail",
-        "why": "The article says the causeway opened in 1986.",
+        "why": "In the article, the causeway opened in 1986.",
         "wrong": {
           "A": "1940 is the year of the bridge collapse.",
           "B": "The article does not give 1976.",
@@ -804,7 +804,7 @@
         "why": "Under a load the top of a beam is compressed and the bottom is stretched, which limits how far it can reach.",
         "wrong": {
           "B": "Roman builders are linked to arch bridges.",
-          "C": "The article says concrete cracks under tension.",
+          "C": "In the article, concrete cracks under tension.",
           "D": "The article does not say steel is too heavy."
         }
       },

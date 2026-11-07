@@ -138,7 +138,7 @@
           ],
           "answer": "B",
           "skill": "detail",
-          "why": "The story says the fishermen saw the whale moving in the shallow water near the shore.",
+          "why": "In the story, the fishermen saw the whale in shallow water.",
           "wrong": {
             "A": "The deep sea is where the whale should have been, not where it was seen.",
             "C": "The whale was in the water, not on the beach.",
@@ -368,7 +368,7 @@
           ],
           "answer": "B",
           "skill": "cause-effect",
-          "why": "The article explains that a frightened whale might panic and swim even farther into danger, which is why loud noise is avoided.",
+          "why": "A frightened whale might panic and swim even farther into danger, so loud noise is avoided.",
           "wrong": {
             "A": "Loud noise would not help the whale find its pod.",
             "C": "The article never suggests the whale would fall asleep.",
@@ -481,7 +481,7 @@
           "skill": "central-idea",
           "why": "The article describes fishermen, biologists, and schoolchildren combining patience and knowledge to guide a disoriented whale back to open water.",
           "wrong": {
-            "A": "The article says whales normally travel with a pod, a group.",
+            "A": "In the article, whales normally travel with a pod, a group.",
             "B": "The article shows research boats operating safely along the coast.",
             "C": "The whale is guided back to the sea, not captured."
           }
@@ -513,7 +513,7 @@
           ],
           "answer": "B",
           "skill": "detail",
-          "why": "The article explains that the team used the boat's engine to produce a slow, steady acoustic signal that whales find calming rather than threatening.",
+          "why": "In the article, the team used the boat's engine to produce a slow, steady acoustic signal that whales find calming rather than threatening.",
           "wrong": {
             "A": "The article never mentions dolphin sounds or whales fearing dolphins.",
             "C": "The article does not mention lights.",
@@ -549,7 +549,7 @@
           "skill": "inference",
           "why": "Mentioning the whale's long seasonal migration helps explain how it ended up near this coastline while traveling with, and then losing, its pod.",
           "wrong": {
-            "B": "The article shows the whale passing close to the Red Sea coast.",
+            "B": "The whale passes close to the coast.",
             "C": "The article implies migration happens regularly, not just once.",
             "D": "The fishermen did find a whale in this story."
           }
@@ -618,20 +618,20 @@
   "stretch": {
     "LOW": [
       {
-        "stem": "How did the whale swim in the shallow water?",
+        "stem": "Where was the whale at the start of the story?",
         "options": [
-          "It swam in rings.",
-          "It swam straight out to sea.",
-          "It swam fast after the men.",
-          "It swam far under the boat."
+          "In shallow water",
+          "Far out at sea",
+          "In a big river",
+          "Under the ice"
         ],
         "answer": "A",
         "skill": "detail",
-        "why": "The text says the whale swam in rings and did not go to deep water.",
+        "why": "In the story, the whale was in shallow water near the shore.",
         "wrong": {
-          "B": "It did not go to deep water.",
-          "C": "The whale did not chase the men.",
-          "D": "The whale was in shallow water, not under the boat."
+          "B": "It needed help to get back to deep water.",
+          "C": "It was in the sea, not a river.",
+          "D": "There is no ice in the story."
         }
       },
       {
@@ -644,7 +644,7 @@
         ],
         "answer": "C",
         "skill": "cause-effect",
-        "why": "The text says the whale had lost its group, and a group of whales is a pod.",
+        "why": "In the text, the whale had lost its group, and a group of whales is a pod.",
         "wrong": {
           "A": "The kids came later to learn.",
           "B": "Fish are not mentioned.",

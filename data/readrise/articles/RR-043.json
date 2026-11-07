@@ -155,7 +155,7 @@
           ],
           "answer": "A",
           "skill": "detail",
-          "why": "The article says a rover has cameras that work like eyes.",
+          "why": "In the article, a rover has cameras that work like eyes.",
           "wrong": {
             "B": "The article does not say lights are its eyes.",
             "C": "Wheels help it move, not see.",
@@ -223,7 +223,7 @@
           ],
           "answer": "C",
           "skill": "inference",
-          "why": "The article says dust can cover rovers that use power from the Sun.",
+          "why": "In the article, dust can cover rovers that use power from the Sun.",
           "wrong": {
             "A": "Mars is dry; the article does not mention rain.",
             "B": "Losing wheels would stop it moving, not stop sunlight power.",
@@ -351,7 +351,7 @@
           ],
           "answer": "A",
           "skill": "vocabulary",
-          "why": "The article explains that a sample is a small piece the rover can test.",
+          "why": "In the article, a sample is a small piece the rover can test.",
           "wrong": {
             "B": "A message from Earth is a signal.",
             "C": "Pictures come from cameras but are not samples.",
@@ -513,7 +513,7 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The article says it seals samples in tubes that a future mission may return to Earth.",
+          "why": "In the article, it seals samples in tubes that a future mission may return to Earth.",
           "wrong": {
             "A": "The samples are not fuel.",
             "B": "They are kept, not thrown away.",
@@ -530,7 +530,7 @@
           ],
           "answer": "D",
           "skill": "detail",
-          "why": "The article says the small helicopter achieved the first powered flight on another planet.",
+          "why": "In the article, the small helicopter achieved the first powered flight on another planet.",
           "wrong": {
             "A": "Ingenuity was a helicopter, not a drilling rover.",
             "B": "Opportunity lasted almost 15 years.",
@@ -697,7 +697,7 @@
         ],
         "answer": "A",
         "skill": "vocabulary",
-        "why": "The text says a mission is a big plan with a goal.",
+        "why": "In the text, a mission is a big project with a goal.",
         "wrong": {
           "B": "A small piece of rock is a sample.",
           "C": "A signal is what guides the rover.",
@@ -751,7 +751,7 @@
         "why": "Rocks that formed in water show that water was once there, unlike today's dry planet.",
         "wrong": {
           "A": "The water rocks show Mars was not always dry.",
-          "B": "The text says nobody can live on Mars.",
+          "B": "In the article, no person can live on Mars for now.",
           "C": "The helicopter is unrelated to how the rocks formed."
         }
       }
@@ -767,7 +767,7 @@
         ],
         "answer": "C",
         "skill": "vocabulary",
-        "why": "The article explains that habitable means able to support tiny living things.",
+        "why": "Habitable means able to support living things.",
         "wrong": {
           "A": "Mars is not described as crowded or noisy.",
           "B": "The word is about supporting life, not being covered in oceans.",
@@ -784,7 +784,7 @@
         ],
         "answer": "A",
         "skill": "detail",
-        "why": "The text says Hope circles Mars and studies the planet's weather.",
+        "why": "In the text, Hope circles Mars and studies the planet's weather.",
         "wrong": {
           "B": "Perseverance explores Jezero Crater.",
           "C": "Perseverance carried the helicopter.",
@@ -792,20 +792,20 @@
         }
       },
       {
-        "stem": "Why could a person not survive on Mars without protective equipment?",
+        "stem": "Why are Mars rovers designed to make some decisions on their own?",
         "options": [
-          "The planet is too crowded with rovers",
-          "Its dust is too heavy to walk through",
-          "Its gravity pulls people into the ground",
-          "Its atmosphere has almost no oxygen"
+          "Mars has no ground for them to drive on",
+          "Signals between Mars and Earth take minutes",
+          "Scientists on Earth do not want to help",
+          "The rovers can talk to people on Mars"
         ],
-        "answer": "D",
+        "answer": "B",
         "skill": "cause-effect",
-        "why": "The text says the thin atmosphere contains almost no oxygen.",
+        "why": "Signals between Mars and Earth can take many minutes, so people cannot steer the rovers in real time.",
         "wrong": {
-          "A": "The text does not say Mars is crowded.",
-          "B": "The text does not say the dust is heavy.",
-          "C": "The text does not mention gravity."
+          "A": "Rovers drive on the rocky ground of Mars.",
+          "C": "Scientists do guide the rovers.",
+          "D": "No people live on Mars."
         }
       },
       {

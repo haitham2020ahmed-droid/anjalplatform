@@ -138,7 +138,7 @@
           ],
           "answer": "B",
           "skill": "detail",
-          "why": "The article says the inside is black because black things get hot in the sun.",
+          "why": "In the article, the inside is black because dark colors take in sunlight and get hot.",
           "wrong": {
             "A": "Cleaning is not mentioned.",
             "C": "Bugs are not part of the article.",
@@ -155,7 +155,7 @@
           ],
           "answer": "D",
           "skill": "detail",
-          "why": "The article says the flaps reflect light and bounce more sun into the box.",
+          "why": "In the article, the flaps reflect light and bounce more sun into the box.",
           "wrong": {
             "A": "The flaps are for light, not rain.",
             "B": "The food sits inside the box, not on the flaps.",
@@ -189,7 +189,7 @@
           ],
           "answer": "B",
           "skill": "cause-effect",
-          "why": "The article says people breathe the smoke each day and it can hurt their lungs.",
+          "why": "People breathe the smoke every day, and it can hurt their lungs.",
           "wrong": {
             "A": "Hot food is not the problem described.",
             "C": "Smoke does not make the sun go away.",
@@ -240,7 +240,7 @@
           ],
           "answer": "D",
           "skill": "inference",
-          "why": "Solar ovens need sunlight, and the article says Saudi Arabia gets lots of sun.",
+          "why": "Solar ovens need sunlight, and in the article, Saudi Arabia gets lots of sun.",
           "wrong": {
             "A": "Rain would block the sun.",
             "B": "Solar ovens do not need wood.",
@@ -317,7 +317,7 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The article says insulation, such as cardboard or wool, keeps the heat from escaping.",
+          "why": "In the article, insulation, such as cardboard or wool, keeps the heat from escaping.",
           "wrong": {
             "A": "Reflectors bounce sunlight; insulation holds heat.",
             "B": "Solar ovens cannot cook at night.",
@@ -334,7 +334,7 @@
           ],
           "answer": "A",
           "skill": "detail",
-          "why": "The article says a good box oven can reach more than 100 degrees Celsius.",
+          "why": "In the article, a good box oven can reach more than 100 degrees Celsius.",
           "wrong": {
             "B": "That is about room temperature, too cool to cook.",
             "C": "Ovens get hot, not freezing.",
@@ -385,7 +385,7 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The article says the smoke especially harms women and children.",
+          "why": "In the article, the smoke especially harms women and children.",
           "wrong": {
             "A": "People far from the fire do not breathe the smoke.",
             "B": "Farmers in fields are not mentioned.",
@@ -496,7 +496,7 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The article says a curved, bowl-shaped mirror concentrates sunlight onto a single point where the pot sits.",
+          "why": "In the article, a curved, bowl-shaped mirror concentrates sunlight onto a single point where the pot sits.",
           "wrong": {
             "A": "Solar cookers burn no fuel.",
             "B": "That describes a box oven.",
@@ -513,7 +513,7 @@
           ],
           "answer": "B",
           "skill": "detail",
-          "why": "The article says his insulated box with layers of glass became hot enough to cook fruit.",
+          "why": "His insulated box covered with glass got hot enough to cook fruit.",
           "wrong": {
             "A": "Glass melting is not mentioned.",
             "C": "The health effects of smoke are discussed separately.",
@@ -530,7 +530,7 @@
           ],
           "answer": "D",
           "skill": "cause-effect",
-          "why": "The article says it must be adjusted to follow the sun's movement, because the light must stay focused on the pot.",
+          "why": "It must be moved to follow the sun, so the light stays focused on the pot.",
           "wrong": {
             "A": "Dirt is not mentioned.",
             "B": "The pot's weight does not change.",
@@ -538,7 +538,7 @@
           }
         },
         {
-          "stem": "In the article, sunlight is converted into \"thermal energy.\" What does thermal mean?",
+          "stem": "In the article, what does the word \"thermal\" mean?",
           "options": [
             "Related to light",
             "Related to heat",
@@ -547,7 +547,7 @@
           ],
           "answer": "B",
           "skill": "vocabulary",
-          "why": "The article explains thermal energy as heat.",
+          "why": "In the article, thermal energy as heat.",
           "wrong": {
             "A": "Light is what is being converted, not the result.",
             "C": "Electricity is not involved.",
@@ -564,7 +564,7 @@
           ],
           "answer": "C",
           "skill": "inference",
-          "why": "The article says they often spend the most time near the fire, so they breathe the most smoke.",
+          "why": "They often spend the most time near the fire, so they breathe the most smoke.",
           "wrong": {
             "A": "Spending time near the fire suggests they do much of the cooking.",
             "B": "The article says they are near the fire, not far from it.",
@@ -748,7 +748,7 @@
         ],
         "answer": "B",
         "skill": "inference",
-        "why": "The text says solar ovens cannot work on cloudy days because they run on sunlight.",
+        "why": "In the text, solar ovens cannot work on cloudy days because they run on sunlight.",
         "wrong": {
           "A": "The text does not say clouds change the lid.",
           "C": "Solar ovens make no smoke.",
@@ -767,7 +767,7 @@
         ],
         "answer": "B",
         "skill": "detail",
-        "why": "The text says more than two billion people still cook this way.",
+        "why": "In the text, more than two billion people still cook this way.",
         "wrong": {
           "A": "The text says billion, not two hundred.",
           "C": "The text says billion, not fewer than two thousand.",
@@ -784,7 +784,7 @@
         ],
         "answer": "D",
         "skill": "vocabulary",
-        "why": "The text explains that these illnesses affect the lungs and breathing.",
+        "why": "In the text, these illnesses affect the lungs and breathing.",
         "wrong": {
           "A": "The text names the lungs, not the skin.",
           "B": "The text names the lungs, not the bones.",
@@ -801,7 +801,7 @@
         ],
         "answer": "C",
         "skill": "cause-effect",
-        "why": "The text says gathering firewood contributes to the loss of forests.",
+        "why": "In the text, gathering firewood contributes to the loss of forests.",
         "wrong": {
           "A": "Cutting wood does not help trees grow.",
           "B": "The text does not say it protects soil.",
@@ -818,7 +818,7 @@
         ],
         "answer": "A",
         "skill": "compare",
-        "why": "The text says the curved mirror concentrates sunlight onto a single point, so it heats much faster.",
+        "why": "In the text, the curved mirror concentrates sunlight onto a single point, so it heats much faster.",
         "wrong": {
           "B": "A parabolic cooker uses sunlight, not charcoal.",
           "C": "The mirror focuses light; it does not make shade.",

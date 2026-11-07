@@ -124,7 +124,7 @@
           "why": "The article explains why we need breakfast and what foods make a good one.",
           "wrong": {
             "A": "Eggs and beans are named, but the article does not teach cooking.",
-            "C": "The article says sweet cakes are not so good.",
+            "C": "Sweet foods are less helpful, not the best.",
             "D": "Sleep is mentioned, but it is not the main idea."
           }
         },
@@ -138,7 +138,7 @@
           ],
           "answer": "C",
           "skill": "vocabulary",
-          "why": "The article says the word means to break the fast, a long time with no food.",
+          "why": "The word means to break the fast, which is a long time without food.",
           "wrong": {
             "A": "Breakfast is not about eating quickly.",
             "B": "The word is not about plates.",
@@ -172,11 +172,11 @@
           ],
           "answer": "C",
           "skill": "cause-effect",
-          "why": "The article says sweet cakes give a quick boost, but then you feel tired fast.",
+          "why": "In the article, sweet cakes give a quick boost, but then you feel tired fast.",
           "wrong": {
             "A": "The article says protein helps you stay full, not cakes.",
             "B": "The article does not say this.",
-            "D": "The article says you soon feel tired."
+            "D": "In the article, you soon feel tired."
           }
         },
         {
@@ -189,11 +189,11 @@
           ],
           "answer": "B",
           "skill": "detail",
-          "why": "The article says you are hungry because you did not eat all night.",
+          "why": "You are hungry because you have not eaten all night.",
           "wrong": {
             "A": "The article gives the opposite reason.",
             "C": "The article does not say this.",
-            "D": "The article says your heart kept beating."
+            "D": "In the article, your heart kept beating."
           }
         },
         {
@@ -206,10 +206,10 @@
           ],
           "answer": "B",
           "skill": "inference",
-          "why": "The article says breakfast helps you focus and kids who skip it can feel tired.",
+          "why": "In the article, kids who skip breakfast may feel tired.",
           "wrong": {
             "A": "Skipping food does not make you feel full.",
-            "C": "The article says breakfast helps you remember.",
+            "C": "In the article, breakfast helps you remember.",
             "D": "She will likely be very hungry."
           }
         },
@@ -334,7 +334,7 @@
           ],
           "answer": "A",
           "skill": "cause-effect",
-          "why": "The article says whole wheat bread contains fiber, so its energy is released gradually.",
+          "why": "In the article, whole wheat bread contains fiber, so its energy is released gradually.",
           "wrong": {
             "B": "Sweet foods give quick energy that drops fast.",
             "C": "Temperature is not mentioned.",
@@ -385,7 +385,7 @@
           ],
           "answer": "B",
           "skill": "inference",
-          "why": "The article says children who skip breakfast often become very hungry long before lunch.",
+          "why": "In the article, children who skip breakfast often become very hungry long before lunch.",
           "wrong": {
             "A": "Sugary snacks are not described as high in fiber.",
             "C": "The article does not say sugary snacks contain protein.",
@@ -483,7 +483,7 @@
           "wrong": {
             "B": "Glucose is the body's main fuel; the article does not call it harmful.",
             "C": "The article focuses on children but does not say adults never need breakfast.",
-            "D": "The article says refined foods are less beneficial."
+            "D": "In the article, refined foods are less beneficial."
           }
         },
         {
@@ -513,7 +513,7 @@
           ],
           "answer": "C",
           "skill": "cause-effect",
-          "why": "The article says fiber slows digestion so glucose enters the bloodstream gradually and energy lasts.",
+          "why": "In the article, fiber slows digestion so glucose enters the bloodstream gradually and energy lasts.",
           "wrong": {
             "A": "Fiber slows, not speeds, the process.",
             "B": "Fiber does not remove protein.",
@@ -533,7 +533,7 @@
           "why": "The article links refined flour with foods the body digests very rapidly.",
           "wrong": {
             "A": "Refined flour has had parts removed, not added.",
-            "B": "The article says refined foods are digested rapidly.",
+            "B": "In the article, refined foods are digested rapidly.",
             "C": "Refined means processed, not untouched."
           }
         },
@@ -583,7 +583,7 @@
           "skill": "inference",
           "why": "Refined, sugary foods give a burst of energy that declines quickly, leaving you sluggish and hungry.",
           "wrong": {
-            "A": "The article says the energy declines quickly.",
+            "A": "The energy from sugar drops quickly.",
             "B": "Eggs are named as the protein source.",
             "D": "A food that leaves you sluggish would not be best before a test."
           }
@@ -627,7 +627,7 @@
         ],
         "answer": "A",
         "skill": "detail",
-        "why": "The text says protein helps you stay full.",
+        "why": "In the text, protein helps you stay full.",
         "wrong": {
           "B": "The text does not link protein to sleep.",
           "C": "The text does not link protein to height.",
@@ -644,7 +644,7 @@
         ],
         "answer": "C",
         "skill": "vocabulary",
-        "why": "The text says a fast is a long time with no food.",
+        "why": "A fast is a long time without food.",
         "wrong": {
           "A": "A fast is about not eating, not a quick meal.",
           "B": "Wheat bread is a food; a fast is not.",
@@ -697,7 +697,7 @@
         ],
         "answer": "D",
         "skill": "detail",
-        "why": "The text says children who eat breakfast pay attention in class and remember what they learn more easily.",
+        "why": "In the text, children who eat breakfast pay attention in class and remember what they learn more easily.",
         "wrong": {
           "A": "Lunch speed is not mentioned.",
           "B": "Sleep hours are not mentioned.",
@@ -714,7 +714,7 @@
         ],
         "answer": "A",
         "skill": "cause-effect",
-        "why": "The text says your heart pumps, your lungs breathe, and your body repairs itself and grows while you sleep.",
+        "why": "In the text, your heart pumps, your lungs breathe, and your body repairs itself and grows while you sleep.",
         "wrong": {
           "B": "The text does not mention preparing for lunch.",
           "C": "The text does not mention dreams.",
@@ -767,7 +767,7 @@
         ],
         "answer": "C",
         "skill": "detail",
-        "why": "The text says protein helps you feel satisfied for longer.",
+        "why": "Protein helps you feel full for longer.",
         "wrong": {
           "A": "Quick digestion is linked to refined flour and sugar.",
           "B": "The text does not mention bones.",
@@ -787,7 +787,7 @@
         "why": "The article describes breakfasts with foods that give the body what it needs, so nutritious means healthy and good for the body.",
         "wrong": {
           "A": "Sugary pastries are not the nutritious choice in the article.",
-          "C": "The article says such a breakfast need not be expensive.",
+          "C": "A healthy breakfast does not have to be expensive.",
           "D": "The word is about health, not size or speed."
         }
       },
@@ -801,7 +801,7 @@
         ],
         "answer": "A",
         "skill": "cause-effect",
-        "why": "The text says a morning meal breaks the overnight fast and refills the body's supply of fuel.",
+        "why": "In the text, a morning meal breaks the overnight fast and refills the body's supply of fuel.",
         "wrong": {
           "B": "The body keeps using energy all day.",
           "C": "The text does not say glucose turns into fiber.",

@@ -138,7 +138,7 @@
      ],
      "answer": "B",
      "skill": "detail",
-     "why": "The story says Yusuf just moved and does not know anyone at his new school.",
+     "why": "In the story, Yusuf just moved and does not know anyone at his new school.",
      "wrong": {
       "A": "The story does not mention a forgotten lunch.",
       "C": "The story does not say Yusuf is afraid of a teacher.",
@@ -155,7 +155,7 @@
      ],
      "answer": "B",
      "skill": "detail",
-     "why": "The story says every table looks full and Yusuf does not know where to sit.",
+     "why": "In the story, every table looks full and Yusuf does not know where to sit.",
      "wrong": {
       "A": "The story does not mention the food.",
       "C": "The story does not say he drops anything.",
@@ -317,7 +317,7 @@
      ],
      "answer": "B",
      "skill": "detail",
-     "why": "The story says Omar points out the library, playground, and classrooms spread across each floor.",
+     "why": "In the story, Omar points out the library, playground, and classrooms spread across each floor.",
      "wrong": {
       "A": "The gym and kitchen are not mentioned.",
       "C": "The office is not described as part of the tour.",
@@ -334,7 +334,7 @@
      ],
      "answer": "D",
      "skill": "detail",
-     "why": "The story describes Yusuf wondering whether anyone will even bother to talk to him in his unfamiliar surroundings.",
+     "why": "In the story, Yusuf wonders if anyone will talk to him.",
      "wrong": {
       "A": "Books are not mentioned.",
       "B": "No test is mentioned in the story.",
@@ -627,7 +627,7 @@
     ],
     "answer": "C",
     "skill": "detail",
-    "why": "The text says Omar waves and makes room for Yusuf.",
+    "why": "In the text, Omar waves and makes room for Yusuf.",
     "wrong": {
      "A": "Omar invites Yusuf; he does not point away.",
      "B": "Omar looks at Yusuf kindly.",

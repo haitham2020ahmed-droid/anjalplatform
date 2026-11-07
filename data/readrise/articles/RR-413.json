@@ -138,7 +138,7 @@
      ],
      "answer": "B",
      "skill": "detail",
-     "why": "The story says Sprout can water the plants and can also pull up weeds.",
+     "why": "In the story, Sprout can water the plants and can also pull up weeds.",
      "wrong": {
       "A": "The story does not mention planting trees.",
       "C": "The story does not mention painting a fence.",
@@ -155,7 +155,7 @@
      ],
      "answer": "A",
      "skill": "detail",
-     "why": "The story says Sprout pulls up a carrot plant and a tomato plant, thinking they are weeds.",
+     "why": "In the story, Sprout pulls up good plants by mistake.",
      "wrong": {
       "B": "The story does not say Sprout waters too much.",
       "C": "The story does not mention a fence.",
@@ -317,7 +317,7 @@
      ],
      "answer": "A",
      "skill": "detail",
-     "why": "The story explains that Sprout pulls up a healthy carrot plant and then a tomato plant, mistaking both for weeds.",
+     "why": "In the story, Sprout pulls up a healthy carrot plant and then a tomato plant, mistaking both for weeds.",
      "wrong": {
       "B": "Roses are not mentioned in the story.",
       "C": "The story names carrots and tomatoes, not trees or flowers.",
@@ -627,7 +627,7 @@
     ],
     "answer": "D",
     "skill": "detail",
-    "why": "The text says one card has a weed and one card has a carrot plant.",
+    "why": "In the text, one card has a weed and one card has a carrot plant.",
     "wrong": {
      "A": "The cards show a weed and a carrot plant, not two tomatoes.",
      "B": "Trees are not in the story.",
@@ -767,7 +767,7 @@
     ],
     "answer": "C",
     "skill": "detail",
-    "why": "The text says built-in sensors check the moisture in the soil as it rolls along each row.",
+    "why": "In the text, built-in sensors check the moisture in the soil as it rolls along each row.",
     "wrong": {
      "A": "Sprout works on its own.",
      "B": "A chart is not mentioned.",

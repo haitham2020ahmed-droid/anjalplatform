@@ -155,7 +155,7 @@
           ],
           "answer": "A",
           "skill": "detail",
-          "why": "The article says Reem saw rows of straight lines that form a ridge.",
+          "why": "In the story, Reem sees straight lines on the reef.",
           "wrong": {
             "B": "The article does not mention a sunken boat.",
             "C": "The article does not mention sharks.",
@@ -513,7 +513,7 @@
           ],
           "answer": "A",
           "skill": "detail",
-          "why": "The article says the team compares the pattern to known fossil records from comparable expeditions to reach their conclusion.",
+          "why": "In the article, the team compares the pattern to known fossil records from comparable expeditions to reach their conclusion.",
           "wrong": {
             "B": "The article describes careful comparison, not a simple guess.",
             "C": "The article does not mention asking fishermen.",
@@ -697,7 +697,7 @@
         ],
         "answer": "C",
         "skill": "detail",
-        "why": "The article says free-diving means swimming deep underwater without a tank, using one breath.",
+        "why": "Free-diving means swimming deep underwater on one breath, without an air tank.",
         "wrong": {
           "A": "The article does not say it needs a team.",
           "B": "Reem dives on a Friday morning.",

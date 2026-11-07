@@ -6,7 +6,7 @@ import { ForbiddenError } from "@/server/auth/rbac";
 import { ValidationError } from "@/server/curriculum-admin";
 import { importArticleJson, previewArticleFile, type Issue, type VersionCheck } from "@/server/readrise/import";
 import { deleteArticle, setArticleHidden, setArticleStatus, setOfficialLexile } from "@/server/readrise/library";
-import { syncStretchChunk, type StretchSyncChunk } from "@/server/readrise/seed";
+import { syncLibraryChunk, syncStretchChunk, type StretchSyncChunk } from "@/server/readrise/seed";
 import { adminResetPlacements } from "@/server/readrise/placement-reset";
 
 const STAFF = { roles: ["TEACHER", "SCHOOL_ADMIN", "SUPER_ADMIN"] as ("TEACHER" | "SCHOOL_ADMIN" | "SUPER_ADMIN")[], permission: "questions:edit" as const };
@@ -111,6 +111,13 @@ export async function stretchChunkAction(start: number): Promise<{ ok: true; dat
   await requireActor({ roles: ["SCHOOL_ADMIN", "SUPER_ADMIN"], permission: "questions:edit" });
   try { return { ok: true, data: await syncStretchChunk(repo, process.cwd(), Number.isFinite(Number(start)) ? Number(start) : 0) }; }
   catch (e) { console.error("readrise.stretch_sync", e); return { ok: false, error: "This part could not be done. Press the button again to go on from here." }; }
+}
+
+/** 🔄 round 7: "Update articles from files" — ONE chunk of article files per call (seed.ts syncLibraryChunk). */
+export async function libraryChunkAction(start: number): Promise<{ ok: true; data: StretchSyncChunk } | { ok: false; error: string }> {
+  await requireActor({ roles: ["SCHOOL_ADMIN", "SUPER_ADMIN"], permission: "questions:edit" });
+  try { return { ok: true, data: await syncLibraryChunk(repo, process.cwd(), Number.isFinite(Number(start)) ? Number(start) : 0) }; }
+  catch (e) { console.error("readrise.library_sync", e); return { ok: false, error: "This part could not be done. Press the button again to go on from here." }; }
 }
 
 /** 🔄 Admin: the chosen students take the ReadRise placement again (placement-reset.ts). Admins only. */

@@ -138,7 +138,7 @@
      ],
      "answer": "C",
      "skill": "detail",
-     "why": "The story says Grandfather gives Faisal a young falcon named Barq to train.",
+     "why": "In the story, Grandfather gives Faisal a young falcon named Barq to train.",
      "wrong": {
       "A": "No dog appears in the story.",
       "B": "No fox appears in the story.",
@@ -155,7 +155,7 @@
      ],
      "answer": "A",
      "skill": "detail",
-     "why": "The story says that when Faisal moves too fast, Barq flies far off and will not come near him.",
+     "why": "In the story, when Faisal moves too fast, Barq flies away and will not come near him.",
      "wrong": {
       "B": "The opposite happens; Barq does not land on the glove at first.",
       "C": "The story does not say Barq falls asleep.",
@@ -697,7 +697,7 @@
     ],
     "answer": "D",
     "skill": "detail",
-    "why": "The text says Faisal sits in the same spot at the same hour each day.",
+    "why": "In the text, Faisal sits in the same spot at the same hour each day.",
     "wrong": {
      "A": "He used the same spot each day.",
      "B": "Grandfather leaving is not mentioned.",
@@ -784,7 +784,7 @@
     ],
     "answer": "B",
     "skill": "detail",
-    "why": "The text says his own grandfather taught him these methods when he was a boy.",
+    "why": "In the story, his own grandfather taught him falconry when he was a boy.",
     "wrong": {
      "A": "Books are not mentioned.",
      "C": "No school is mentioned.",

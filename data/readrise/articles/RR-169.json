@@ -138,7 +138,7 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The article says that when the sun dries the lake up, white salt is left on the ground.",
+          "why": "In the article, when the sun dries the lake up, white salt is left on the ground.",
           "wrong": {
             "A": "The article does not say dunes are left behind.",
             "B": "Grass is not mentioned.",
@@ -155,7 +155,7 @@
           ],
           "answer": "A",
           "skill": "detail",
-          "why": "The article says the rivers were used on farms to grow cotton.",
+          "why": "The river water was used on farms to grow cotton.",
           "wrong": {
             "B": "Salt is left by drying lakes; it was not the reason water was taken.",
             "C": "Ships were left on the sand, but water was not used to build them.",
@@ -163,7 +163,7 @@
           }
         },
         {
-          "stem": "\"The lake will shrink.\" What does shrink mean?",
+          "stem": "In the article, what does the word \"shrink\" mean?",
           "options": [
             "Grow bigger",
             "Get colder",
@@ -189,7 +189,7 @@
           ],
           "answer": "A",
           "skill": "cause-effect",
-          "why": "The article says that if more water goes out than comes in, the lake will shrink.",
+          "why": "In the article, if more water goes out than comes in, the lake will shrink.",
           "wrong": {
             "B": "Salt is left only after a lake dries up, and it does not happen at once.",
             "C": "The article does not say fish swim away.",
@@ -317,7 +317,7 @@
           ],
           "answer": "A",
           "skill": "detail",
-          "why": "The article says the sun heats the surface and some water changes into a gas or vapor and rises, which is evaporation.",
+          "why": "In the article, the sun heats the surface and some water changes into a gas or vapor and rises, which is evaporation.",
           "wrong": {
             "B": "Draining through a hole is how Lost Lake loses water.",
             "C": "Flowing out through a river is another way lakes lose water, not evaporation.",
@@ -342,7 +342,7 @@
           }
         },
         {
-          "stem": "\"These seasonal lakes are common in dry places.\" What does seasonal mean?",
+          "stem": "In the article, what does the word \"seasonal\" mean?",
           "options": [
             "Very deep and cold all year",
             "Present only at certain times",
@@ -368,7 +368,7 @@
           ],
           "answer": "D",
           "skill": "cause-effect",
-          "why": "The article says strong winds carried salty dust from the dry lakebed, and many people got sick.",
+          "why": "In the article, strong winds carried salty dust from the dry lakebed, and many people got sick.",
           "wrong": {
             "A": "Fish were disappearing, not too many.",
             "B": "The dam helped the lake; it did not cause floods.",
@@ -496,7 +496,7 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The article says the opening connects to an underground tunnel formed long ago by volcanic activity.",
+          "why": "The opening connects to an underground tunnel made long ago by volcanoes.",
           "wrong": {
             "A": "The water drains underground, not into a river.",
             "B": "The dam was built at the Aral Sea.",
@@ -521,7 +521,7 @@
           }
         },
         {
-          "stem": "\"Planners decided to divert enormous quantities of water.\" What does divert mean?",
+          "stem": "In the article, what does the word \"divert\" mean?",
           "options": [
             "Purify",
             "Redirect",
@@ -630,7 +630,7 @@
         "why": "The sun warms the lake and bits of water go up in the air; that is what evaporate means.",
         "wrong": {
           "A": "The text says water goes up in the air, not that it freezes.",
-          "C": "The text says the water goes up in the air, not down.",
+          "C": "The water goes up into the air, not down.",
           "D": "A stream carries water away, but that is not evaporation."
         }
       },
@@ -697,7 +697,7 @@
         ],
         "answer": "A",
         "skill": "detail",
-        "why": "The text says Lost Lake has a hole in its floor and its water drains away underground every year.",
+        "why": "In the text, Lost Lake has a hole in its floor and its water drains away underground every year.",
         "wrong": {
           "B": "White salt is left by Saudi desert lakes, not Lost Lake.",
           "C": "The text says the water drains through a hole, not a river.",

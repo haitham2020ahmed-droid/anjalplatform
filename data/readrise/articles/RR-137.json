@@ -138,7 +138,7 @@
           ],
           "answer": "A",
           "skill": "detail",
-          "why": "The article says people pressed marks into wet clay, which dried into a tablet.",
+          "why": "In the article, people pressed marks into wet clay, which dried into a tablet.",
           "wrong": {
             "B": "The article does not say the first lists were on paper.",
             "C": "Metal is not named.",
@@ -172,7 +172,7 @@
           ],
           "answer": "D",
           "skill": "vocabulary",
-          "why": "The article explains that an astronomer studies the sky.",
+          "why": "In the article, an astronomer studies the sky.",
           "wrong": {
             "A": "Al-Sufi mapped stars, not cities.",
             "B": "Building boats is not what an astronomer does.",
@@ -317,7 +317,7 @@
           ],
           "answer": "B",
           "skill": "detail",
-          "why": "The article says Hipparchus made a catalog of about 850 stars.",
+          "why": "In the article, Hipparchus made a catalog of about 850 stars.",
           "wrong": {
             "A": "The number is ten times larger.",
             "C": "The Chinese chart shows more than 1,300 stars.",
@@ -334,7 +334,7 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The article says al-Sufi described a faint 'little cloud,' which is the Andromeda Galaxy.",
+          "why": "In the article, al-Sufi described a faint 'little cloud,' which is the Andromeda Galaxy.",
           "wrong": {
             "A": "The article does not describe it as a red star.",
             "B": "It was a cloudy patch, not a group of stars.",
@@ -342,7 +342,7 @@
           }
         },
         {
-          "stem": "The stars 'helped travelers navigate across deserts and seas.' Navigate means to —",
+          "stem": "The stars helped travelers navigate across deserts and seas. Navigate means to —",
           "options": [
             "find the way",
             "sleep outside",
@@ -419,7 +419,7 @@
           ],
           "answer": "A",
           "skill": "compare",
-          "why": "The article says Babylonians pressed star lists into clay, while Gaia, a space telescope, mapped almost two billion stars.",
+          "why": "People long ago made simple star lists, while modern telescopes have mapped huge numbers of stars.",
           "wrong": {
             "B": "The Babylonians had no telescopes.",
             "C": "964 is the year of al-Sufi's book.",
@@ -496,7 +496,7 @@
           ],
           "answer": "D",
           "skill": "detail",
-          "why": "The article says the Dunhuang chart, made around 700 CE, shows more than 1,300 stars.",
+          "why": "In the article, the Dunhuang chart, made around 700 CE, shows more than 1,300 stars.",
           "wrong": {
             "A": "Andromeda was described by al-Sufi.",
             "B": "This chart is described by its number of stars, not Greek constellations.",
@@ -513,7 +513,7 @@
           ],
           "answer": "B",
           "skill": "detail",
-          "why": "The article says al-Sufi's book corrected and expanded earlier Greek work.",
+          "why": "In the article, al-Sufi's book corrected and expanded earlier Greek work.",
           "wrong": {
             "A": "Correcting is the opposite of copying exactly.",
             "C": "The article does not link al-Sufi to Chinese charts.",
@@ -521,7 +521,7 @@
           }
         },
         {
-          "stem": "Hipparchus's brightness ranking is called 'an early version of the magnitude scale.' In this context, magnitude refers to —",
+          "stem": "Hipparchus ranked stars by brightness, an early form of the magnitude scale. In this context, magnitude refers to —",
           "options": [
             "a measure of a star's apparent brightness",
             "the age of a star and how long it will shine",
@@ -678,7 +678,7 @@
         ],
         "answer": "D",
         "skill": "cause-effect",
-        "why": "The text says we have big telescopes now, so we can see a lot more.",
+        "why": "In the text, we have big telescopes today, so we can see many more stars.",
         "wrong": {
           "A": "Lamps are not the reason.",
           "B": "The text does not say stars changed.",
@@ -767,7 +767,7 @@
         ],
         "answer": "A",
         "skill": "cause-effect",
-        "why": "The article says cultures named patterns themselves, so one might look like a hunter to one group and a lion to another.",
+        "why": "In the article, cultures named patterns themselves, so one might look like a hunter to one group and a lion to another.",
         "wrong": {
           "B": "The article does not say the stars moved.",
           "C": "The article says nothing about rules for hunters.",

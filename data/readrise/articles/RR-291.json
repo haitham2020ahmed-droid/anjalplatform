@@ -129,20 +129,20 @@
           }
         },
         {
-          "stem": "What is the Arabic word for calligraphy?",
+          "stem": "According to the article, what can Arabic letters be?",
           "options": [
-            "Khatt",
-            "Qalam",
-            "Naskh",
-            "Kufic"
+            "Art",
+            "Food",
+            "Music",
+            "Sport"
           ],
           "answer": "A",
           "skill": "detail",
-          "why": "The article says this art is called khatt in Arabic.",
+          "why": "In the article, beautiful Arabic writing is a kind of art called calligraphy.",
           "wrong": {
-            "B": "Qalam is the name of the pen.",
-            "C": "Naskh is a script, not the word for calligraphy.",
-            "D": "Kufic is also a script, not the word for calligraphy."
+            "B": "Letters are not food.",
+            "C": "The article is not about music.",
+            "D": "Writing letters is not a sport."
           }
         },
         {
@@ -155,7 +155,7 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The article says artists use a special pen called a qalam, which is cut from a reed.",
+          "why": "In the article, the pen is cut from a reed.",
           "wrong": {
             "A": "The article does not mention a brush.",
             "B": "A stamp is not mentioned.",
@@ -317,7 +317,7 @@
           ],
           "answer": "B",
           "skill": "detail",
-          "why": "The article says people wanted to write the holy words of the Quran beautifully, which helped make calligraphy respected.",
+          "why": "In the article, people wanted to write the holy words of the Quran beautifully, which helped make calligraphy respected.",
           "wrong": {
             "A": "Paper's rarity is not mentioned.",
             "C": "No law is mentioned.",
@@ -334,7 +334,7 @@
           ],
           "answer": "C",
           "skill": "vocabulary",
-          "why": "The article says the tip is trimmed at a precise angle so it can make thick and thin lines, meaning the angle is exact.",
+          "why": "In the article, the tip is trimmed at a precise angle so it can make thick and thin lines, meaning the angle is exact.",
           "wrong": {
             "A": "The article says the angle matters for making strokes.",
             "B": "The tip is trimmed at an angle, not left pointless.",
@@ -496,7 +496,7 @@
           ],
           "answer": "B",
           "skill": "cause-effect",
-          "why": "The article says this religious motivation helped transform handwriting into a highly respected art.",
+          "why": "In the article, this religious motivation helped transform handwriting into a highly respected art.",
           "wrong": {
             "A": "Paper cost is not discussed.",
             "C": "No ban on other art is mentioned.",
@@ -530,7 +530,7 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The article states that a student receives an ijazah, a formal certificate authorizing them to sign and sell independent work.",
+          "why": "A student receives an ijazah, a certificate that allows them to sign and sell their own work.",
           "wrong": {
             "A": "A new pen is not described as a reward for mastery.",
             "B": "A medal is not mentioned.",
@@ -697,7 +697,7 @@
         ],
         "answer": "B",
         "skill": "detail",
-        "why": "The text says the angled tip lets a steady hand make both thick and thin strokes in one letter.",
+        "why": "In the text, the angled tip lets a steady hand make both thick and thin strokes in one letter.",
         "wrong": {
           "A": "The text does not say the pen works without ink.",
           "C": "The reed is cut to make the pen, not by the pen.",
@@ -731,7 +731,7 @@
         ],
         "answer": "C",
         "skill": "sequence",
-        "why": "The text says the student copies the guide's work for years and only later tries an original design.",
+        "why": "In the text, the student copies the guide's work for years and only later tries an original design.",
         "wrong": {
           "A": "The student must study first.",
           "B": "The student learns scripts by copying.",
@@ -748,7 +748,7 @@
         ],
         "answer": "A",
         "skill": "cause-effect",
-        "why": "The text says Naskh letters are round, smooth, and easy to read, so everyday writing relies on it.",
+        "why": "In the text, Naskh letters are round, smooth, and easy to read, so everyday writing relies on it.",
         "wrong": {
           "B": "Sharp, bold corners describe Kufic.",
           "C": "The text calls Kufic one of the oldest scripts, not Naskh.",
@@ -784,7 +784,7 @@
         ],
         "answer": "A",
         "skill": "vocabulary",
-        "why": "The article says calligraphy is highly esteemed and one of the most respected arts, so revered means respected deeply.",
+        "why": "In the article, calligraphy is highly esteemed and one of the most respected arts, so revered means respected deeply.",
         "wrong": {
           "B": "The art has stayed alive for over a thousand years.",
           "C": "The article says mastering it takes years of practice.",
@@ -801,7 +801,7 @@
         ],
         "answer": "D",
         "skill": "cause-effect",
-        "why": "The article says Naskh is simple to read quickly, even in long blocks of text.",
+        "why": "In the article, Naskh is simple to read quickly, even in long blocks of text.",
         "wrong": {
           "A": "Sharp, angled corners describe Kufic.",
           "B": "The article does not say Naskh is new.",
@@ -818,7 +818,7 @@
         ],
         "answer": "B",
         "skill": "author-purpose",
-        "why": "The article says the old art remains remarkably alive and reaches new generations through these uses.",
+        "why": "In the article, the old art remains remarkably alive and reaches new generations through these uses.",
         "wrong": {
           "A": "The qalam is explained earlier in the article.",
           "C": "The ending does not list scripts.",

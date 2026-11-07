@@ -140,7 +140,7 @@
           "skill": "detail",
           "why": "The article says a computer does just what the code says and does each step in order.",
           "wrong": {
-            "B": "The article says a computer can not guess what you mean.",
+            "B": "A computer cannot guess what you mean.",
             "C": "A computer follows every step; it does not skip steps.",
             "D": "People must tell the computer what to do."
           }
@@ -155,7 +155,7 @@
           ],
           "answer": "C",
           "skill": "vocabulary",
-          "why": "The article says a loop tells the computer to do the same step again and again.",
+          "why": "In the article, a loop tells the computer to do the same step again and again.",
           "wrong": {
             "A": "A loop does not turn off the computer.",
             "B": "Finding mistakes is fixing a bug, not a loop.",
@@ -172,7 +172,7 @@
           ],
           "answer": "D",
           "skill": "detail",
-          "why": "The article says a mistake in code is called a bug.",
+          "why": "In the article, a mistake in code is called a bug.",
           "wrong": {
             "A": "In this article, a bug is a mistake, not an insect.",
             "B": "Blocks are steps, not bugs.",
@@ -189,7 +189,7 @@
           ],
           "answer": "B",
           "skill": "cause-effect",
-          "why": "The article says that if the order is wrong, the job goes wrong.",
+          "why": "In the article, if the steps are in the wrong order, the result is wrong.",
           "wrong": {
             "A": "A computer can not guess what you mean, so it does not fix the order.",
             "C": "The article does not say wrong order makes code faster.",
@@ -226,7 +226,7 @@
           "why": "Each block is one step, and kids snap them together, which is easier than typing every step.",
           "wrong": {
             "A": "Each block is one step.",
-            "B": "The article says a computer can not think on its own.",
+            "B": "A computer cannot think on its own.",
             "D": "The article shows blocks making a character move, not only drawing."
           }
         },
@@ -240,7 +240,7 @@
           ],
           "answer": "D",
           "skill": "inference",
-          "why": "The article says coders look for bugs and fix them, so fixing mistakes is a normal part of coding.",
+          "why": "In the article, coders look for bugs and fix them, so fixing mistakes is a normal part of coding.",
           "wrong": {
             "A": "The article says code can have mistakes.",
             "B": "Coders fix the bug; they do not stop.",
@@ -334,7 +334,7 @@
           ],
           "answer": "D",
           "skill": "detail",
-          "why": "A condition lets a program choose using an 'if ... then' rule, as in the wall example.",
+          "why": "A condition lets a program make a choice with an if-then rule, as in the wall example.",
           "wrong": {
             "A": "This is a sequence of steps, not a choice.",
             "B": "This describes how block coding works.",
@@ -402,7 +402,7 @@
           ],
           "answer": "B",
           "skill": "compare",
-          "why": "The article says beginners snap blocks together in Scratch and later move on to typed languages such as Python.",
+          "why": "In the article, beginners snap blocks together in Scratch and later move on to typed languages such as Python.",
           "wrong": {
             "A": "This reverses the two languages.",
             "C": "The article does not link the languages to robots or tea.",
@@ -496,7 +496,7 @@
           ],
           "answer": "B",
           "skill": "vocabulary",
-          "why": "The article calls a language's strict grammatical rules its syntax.",
+          "why": "A language's strict grammar rules are called its syntax.",
           "wrong": {
             "A": "The order of instructions is the sequence.",
             "C": "Repeating steps describes a loop.",
@@ -534,7 +534,7 @@
           "wrong": {
             "B": "No language lets a computer guess intentions.",
             "C": "Every program depends on sequence.",
-            "D": "The article says programs rarely work perfectly the first time."
+            "D": "All programs can have mistakes, so they all need debugging."
           }
         },
         {
@@ -555,7 +555,7 @@
           }
         },
         {
-          "stem": "What does it mean that a computer's logic is \"completely literal\"?",
+          "stem": "What does it mean that a computer follows instructions literally?",
           "options": [
             "It reads only books and articles.",
             "It works only with words, not numbers.",
@@ -564,7 +564,7 @@
           ],
           "answer": "D",
           "skill": "inference",
-          "why": "The article explains that the computer cannot interpret what the programmer intended; it follows the code exactly.",
+          "why": "In the article, the computer cannot interpret what the programmer intended; it follows the code exactly.",
           "wrong": {
             "A": "Literal here does not mean reading books.",
             "B": "The article does not say computers avoid numbers.",
@@ -581,7 +581,7 @@
           ],
           "answer": "C",
           "skill": "compare",
-          "why": "The article says a loop repeats instructions and a condition enables the program to make decisions.",
+          "why": "In the article, a loop repeats instructions and a condition enables the program to make decisions.",
           "wrong": {
             "A": "This reverses the two ideas.",
             "B": "The article does not limit either idea to one language.",
@@ -627,7 +627,7 @@
         ],
         "answer": "C",
         "skill": "detail",
-        "why": "The text says the cat on the screen can move and jump.",
+        "why": "In the text, a character on the screen can move and jump.",
         "wrong": {
           "A": "Talking and singing are not mentioned.",
           "B": "Drawing is not mentioned.",
@@ -661,7 +661,7 @@
         ],
         "answer": "D",
         "skill": "cause-effect",
-        "why": "The text says a computer can not think on its own, so we must tell it what to do.",
+        "why": "A computer cannot think on its own, so we must tell it what to do.",
         "wrong": {
           "A": "Loudness is not mentioned.",
           "B": "Size is not mentioned.",
@@ -697,7 +697,7 @@
         ],
         "answer": "B",
         "skill": "vocabulary",
-        "why": "The article says mistakes in code are bugs and fixing them is called debugging.",
+        "why": "In the article, mistakes in code are bugs and fixing them is called debugging.",
         "wrong": {
           "A": "Debugging is fixing, not first writing.",
           "C": "Typing speed is not mentioned.",
@@ -767,7 +767,7 @@
         ],
         "answer": "A",
         "skill": "detail",
-        "why": "The article says Scratch was developed at a university in the United States.",
+        "why": "In the article, Scratch was developed at a university in the United States.",
         "wrong": {
           "B": "The article names Saudi Arabia only for teaching coding.",
           "C": "No factory is mentioned.",
@@ -801,7 +801,7 @@
         ],
         "answer": "D",
         "skill": "cause-effect",
-        "why": "The article says coding skills are useful in mathematics, science, and many future careers.",
+        "why": "Coding skills are useful in many subjects and many future jobs.",
         "wrong": {
           "A": "Cost is not mentioned.",
           "B": "The article does not say that.",

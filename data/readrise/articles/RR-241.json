@@ -121,7 +121,7 @@
      ],
      "answer": "C",
      "skill": "central-idea",
-     "why": "The whole article explains how blood travels through tubes called vessels to every part of the body.",
+     "why": "The whole article explains how blood moves through tubes called vessels.",
      "wrong": {
       "A": "Growing taller is not discussed in the article.",
       "B": "Sleep is not the topic of this article.",
@@ -138,7 +138,7 @@
      ],
      "answer": "A",
      "skill": "detail",
-     "why": "The article says arteries are the tubes that carry blood away from the heart.",
+     "why": "In the article, arteries are the tubes that carry blood away from the heart.",
      "wrong": {
       "B": "Veins carry blood back toward the heart, not away from it.",
       "C": "Capillaries are the tiniest tubes, not the ones leaving the heart.",
@@ -155,7 +155,7 @@
      ],
      "answer": "D",
      "skill": "detail",
-     "why": "The article says veins carry blood back toward the heart.",
+     "why": "In the article, veins carry blood back toward the heart.",
      "wrong": {
       "A": "Arteries carry blood away from the heart.",
       "B": "Capillaries are the tiny tubes where blood meets cells.",
@@ -189,7 +189,7 @@
      ],
      "answer": "D",
      "skill": "inference",
-     "why": "The article says arteries have strong walls because blood pushes hard inside them.",
+     "why": "In the article, arteries have strong walls because blood pushes hard inside them.",
      "wrong": {
       "A": "Length is not the reason given.",
       "B": "Arteries carry blood, not air.",
@@ -206,7 +206,7 @@
      ],
      "answer": "B",
      "skill": "inference",
-     "why": "The article explains that in capillaries, blood gives oxygen and food to cells and picks up waste.",
+     "why": "In capillaries, blood gives oxygen and food to cells and picks up waste.",
      "wrong": {
       "A": "Blood does not turn into bone.",
       "C": "Heartbeat is not described as happening inside capillaries.",
@@ -317,7 +317,7 @@
      ],
      "answer": "D",
      "skill": "detail",
-     "why": "The article says arteries carry blood away from the heart out to the rest of the body.",
+     "why": "In the article, arteries carry blood away from the heart out to the rest of the body.",
      "wrong": {
       "A": "Carrying blood back to the heart is the job of veins.",
       "B": "Exchanging oxygen with cells happens in capillaries, not arteries.",
@@ -334,7 +334,7 @@
      ],
      "answer": "A",
      "skill": "detail",
-     "why": "The article explains that inside capillaries, blood passes oxygen and nutrients to cells and picks up waste.",
+     "why": "In the article, inside capillaries, blood passes oxygen and nutrients to cells and picks up waste.",
      "wrong": {
       "B": "Blood keeps moving through capillaries.",
       "C": "Blood does not turn into air.",
@@ -368,7 +368,7 @@
      ],
      "answer": "B",
      "skill": "inference",
-     "why": "The article explains that veins have thinner walls because blood moves through them more gently and at lower pressure.",
+     "why": "In the article, veins have thinner walls than arteries because blood moves through them more gently.",
      "wrong": {
       "A": "Length is not given as the reason.",
       "C": "Nearness to the lungs is not the reason given.",
@@ -513,7 +513,7 @@
      ],
      "answer": "A",
      "skill": "detail",
-     "why": "The article says arteries have strong, thick, elastic walls because blood is forced through them under pressure.",
+     "why": "In the article, arteries have strong, thick, elastic walls because blood is forced through them under pressure.",
      "wrong": {
       "B": "Veins have considerably thinner walls than arteries.",
       "C": "Capillaries are described as thinner than a single strand of hair.",
@@ -547,7 +547,7 @@
      ],
      "answer": "D",
      "skill": "cause-effect",
-     "why": "The article explains that arteries need strong walls because blood pushes through them with pressure every time the heart contracts.",
+     "why": "In the article, arteries need strong walls because blood pushes through them with pressure every time the heart contracts.",
      "wrong": {
       "A": "Capillaries, not arteries, are the thinnest vessels.",
       "B": "Arteries carry blood pumped straight from the heart, not the least amount.",
@@ -627,7 +627,7 @@
     ],
     "answer": "B",
     "skill": "detail",
-    "why": "The article says to touch your wrist and feel a beat, which is blood.",
+    "why": "In the article, to touch your wrist and feel a beat, which is blood.",
     "wrong": {
      "A": "The article never mentions the stomach.",
      "C": "The article never mentions teeth.",
@@ -697,7 +697,7 @@
     ],
     "answer": "C",
     "skill": "detail",
-    "why": "The article says blood drops off a waste gas called carbon dioxide in the lungs.",
+    "why": "In the article, blood drops off a waste gas called carbon dioxide in the lungs.",
     "wrong": {
      "A": "Oxygen is picked up in the lungs, not dropped off.",
      "B": "Water is not named as the waste gas.",
@@ -733,7 +733,7 @@
     "skill": "inference",
     "why": "Blood carries oxygen and nutrients, so vessels must reach all body parts.",
     "wrong": {
-     "A": "The article says vessels reach every part of the body.",
+     "A": "In the article, vessels reach every part of the body.",
      "C": "The article does not say toes heat the blood.",
      "D": "The heart is the size of a fist, not in the toes."
     }

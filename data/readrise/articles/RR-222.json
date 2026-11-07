@@ -180,7 +180,7 @@
           }
         },
         {
-          "stem": "Read: \"One sign was zero. It meant nothing at all.\" What does nothing mean here?",
+          "stem": "In the article, what does the word \"nothing\" mean?",
           "options": [
             "Full of marks and lines",
             "Very heavy to hold",
@@ -223,7 +223,7 @@
           ],
           "answer": "A",
           "skill": "cause-effect",
-          "why": "The article says that after a trader took the books to Europe, people there began using the new signs.",
+          "why": "In the article, after a trader took the books to Europe, people there began using the new signs.",
           "wrong": {
             "B": "Tally marks are not mentioned as returning.",
             "C": "The new signs replaced Roman numerals instead.",
@@ -342,7 +342,7 @@
           }
         },
         {
-          "stem": "Read: \"the exact position of a symbol inside a number also showed its worth.\" In this sentence, what does position mean?",
+          "stem": "In the article, what does the word \"position\" mean?",
           "options": [
             "The place where a symbol sits",
             "The color of a symbol on the page",
@@ -351,7 +351,7 @@
           ],
           "answer": "A",
           "skill": "vocabulary",
-          "why": "Position refers to where a symbol sits inside a number, which the article says determines its worth.",
+          "why": "Position means where a symbol sits inside a number, and that place shows its worth.",
           "wrong": {
             "B": "Color is never discussed.",
             "C": "Sound is not relevant to written symbols.",
@@ -368,7 +368,7 @@
           ],
           "answer": "C",
           "skill": "cause-effect",
-          "why": "The article says that having zero made the whole plan remarkably useful and efficient.",
+          "why": "In the article, having zero made the whole system work well.",
           "wrong": {
             "A": "Rome's switch away from letters is not described this way.",
             "B": "Merchants still needed to count; the system just made it easier.",
@@ -402,7 +402,7 @@
           ],
           "answer": "B",
           "skill": "inference",
-          "why": "The article explains that Roman numbers had no sign for zero, which made math frustrating for merchants.",
+          "why": "In the article, Roman numbers had no sign for zero, which made math frustrating for merchants.",
           "wrong": {
             "A": "Roman numerals used letters, not tally marks.",
             "C": "The article never says Roman numerals were banned.",
@@ -496,7 +496,7 @@
           ],
           "answer": "B",
           "skill": "detail",
-          "why": "The article says positional notation rested on earlier symbols known as Brahmi numerals.",
+          "why": "In the article, positional notation rested on earlier symbols known as Brahmi numerals.",
           "wrong": {
             "A": "Roman numerals are described as a separate, earlier system used in Rome.",
             "C": "Egyptian hieroglyphs are not described as the basis for positional notation.",
@@ -513,7 +513,7 @@
           ],
           "answer": "B",
           "skill": "detail",
-          "why": "The article explains that sifr, meaning empty, later gave Europeans their own word, cipher.",
+          "why": "In the article, sifr, meaning empty, later gave Europeans their own word, cipher.",
           "wrong": {
             "A": "Algebra is not connected to the word sifr in this article.",
             "C": "Arithmetic is a general math term, not derived from sifr here.",
@@ -521,7 +521,7 @@
           }
         },
         {
-          "stem": "Read: \"an entirely different innovation, now called positional notation.\" What does positional mean here?",
+          "stem": "In the article, what does the word \"positional\" mean?",
           "options": [
             "Related to the color of ink used",
             "Related to how loudly a number is spoken",
@@ -547,7 +547,7 @@
           ],
           "answer": "D",
           "skill": "cause-effect",
-          "why": "The article states that lacking a symbol for zero made even simple arithmetic hard in Roman numerals.",
+          "why": "In the article, lacking a symbol for zero made even simple arithmetic hard in Roman numerals.",
           "wrong": {
             "A": "The article clearly describes a real effect.",
             "B": "Roman numerals were eventually replaced, not spread faster.",
@@ -678,7 +678,7 @@
         ],
         "answer": "C",
         "skill": "detail",
-        "why": "The text says wise men in Baghdad learned the plan, used it, and wrote books.",
+        "why": "In the text, wise men in Baghdad learned the plan, used it, and wrote books.",
         "wrong": {
           "A": "Sailors are not mentioned.",
           "B": "Farmers are not said to write books.",
@@ -731,11 +731,11 @@
         ],
         "answer": "A",
         "skill": "cause-effect",
-        "why": "The text says these early signs were slow to read and hard to use for real math.",
+        "why": "In the text, these early signs were slow to read and hard to use for real math.",
         "wrong": {
           "B": "The text does not say they were short.",
           "C": "Zero came from the Indian plan.",
-          "D": "The text says Egypt and Babylon made them."
+          "D": "In the text, Egypt and Babylon made them."
         }
       },
       {
@@ -748,7 +748,7 @@
         ],
         "answer": "B",
         "skill": "cause-effect",
-        "why": "The text says Europeans learned them from Arabic books, not straight from India.",
+        "why": "In the text, Europeans learned them from Arabic books, not straight from India.",
         "wrong": {
           "A": "The plan was built in India.",
           "C": "Sailors are not mentioned.",
@@ -767,7 +767,7 @@
         ],
         "answer": "C",
         "skill": "detail",
-        "why": "The text says the scholar Leonardo Fibonacci praised the numerals in a widely read book of his own.",
+        "why": "In the text, the scholar Leonardo Fibonacci praised the numerals in a widely read book of his own.",
         "wrong": {
           "A": "Gutenberg is not in this text.",
           "B": "Al-Khwarizmi wrote a famous book in Baghdad, but Fibonacci praised the numerals in Europe.",
@@ -801,7 +801,7 @@
         ],
         "answer": "B",
         "skill": "cause-effect",
-        "why": "The text says these early schemes were slow to read and even slower to use for arithmetic.",
+        "why": "These early number systems were slow to read and hard to use for math.",
         "wrong": {
           "A": "Zero came later in India.",
           "C": "The bone was a tally-mark tool, not an Egyptian scheme.",

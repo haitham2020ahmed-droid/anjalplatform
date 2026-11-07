@@ -163,7 +163,7 @@
           }
         },
         {
-          "stem": "\"China built walls to protect its land.\" What does protect mean?",
+          "stem": "In the article, what does the word \"protect\" mean?",
           "options": [
             "To sell",
             "To clean",
@@ -223,7 +223,7 @@
           ],
           "answer": "A",
           "skill": "cause-effect",
-          "why": "The article says riders on fast horses came from the north and took food and goods, so China built walls.",
+          "why": "In the article, riders on fast horses came from the north and took food and goods, so China built walls.",
           "wrong": {
             "B": "The article does not talk about hot land.",
             "C": "The article says the wall cannot even be seen from the Moon.",
@@ -317,7 +317,7 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The article says the Ming dynasty, which ruled from 1368 to 1644, built most of the wall seen today.",
+          "why": "In the article, the Ming dynasty, which ruled from 1368 to 1644, built most of the wall seen today.",
           "wrong": {
             "A": "Qin Shi Huang connected older walls about 2,200 years ago, but most of today's wall is Ming.",
             "B": "The Han dynasty is not mentioned in the article.",
@@ -342,7 +342,7 @@
           }
         },
         {
-          "stem": "\"Each dynasty, or family of rulers, added to the wall.\" What is a dynasty?",
+          "stem": "In the article, what does the word \"dynasty\" mean?",
           "options": [
             "A type of brick",
             "A group of soldiers",
@@ -387,7 +387,7 @@
           "skill": "inference",
           "why": "A wall over 21,000 kilometers long needed so many workers that people from different groups were used.",
           "wrong": {
-            "A": "The article calls the work hard and dangerous.",
+            "A": "The work was hard and dangerous.",
             "B": "Farmers and prisoners were not trained builders.",
             "D": "Sticky rice was used in mortar, not as pay."
           }
@@ -402,7 +402,7 @@
           ],
           "answer": "B",
           "skill": "cause-effect",
-          "why": "The article says soldiers sent a signal from tower to tower, using smoke by day and fire at night.",
+          "why": "In the article, soldiers sent a signal from tower to tower, using smoke by day and fire at night.",
           "wrong": {
             "A": "The soldiers stayed to warn others.",
             "C": "Building a new wall would take far too long.",
@@ -496,7 +496,7 @@
           ],
           "answer": "A",
           "skill": "detail",
-          "why": "The article says all the sections together would stretch over 21,000 kilometers.",
+          "why": "All the sections of the wall together would stretch over 21,000 kilometers.",
           "wrong": {
             "B": "2,200 is the number of years since Qin Shi Huang, not kilometers.",
             "C": "1368 is the year the Ming dynasty began ruling.",
@@ -513,7 +513,7 @@
           ],
           "answer": "D",
           "skill": "detail",
-          "why": "The article says Qin Shi Huang, the first emperor of a unified China, ordered older walls to be connected.",
+          "why": "In the article, Qin Shi Huang, the first emperor of a unified China, ordered older walls to be connected.",
           "wrong": {
             "A": "The Ming dynasty ruled much later, from 1368 to 1644.",
             "B": "Nomadic peoples were the ones the wall kept out.",
@@ -521,7 +521,7 @@
           }
         },
         {
-          "stem": "\"A widespread misconception claims that the Great Wall is visible from the Moon.\" What is a misconception?",
+          "stem": "In the article, what does the word \"misconception\" mean?",
           "options": [
             "A proven fact",
             "A mistaken belief",
@@ -627,7 +627,7 @@
         ],
         "answer": "C",
         "skill": "detail",
-        "why": "The text says that at first the walls were dirt and stone, then men made the wall with brick.",
+        "why": "In the text, at first the walls were dirt and stone, then men made the wall with brick.",
         "wrong": {
           "A": "Wood is not mentioned for the later walls.",
           "B": "The Moon is only mentioned for a false idea.",
@@ -644,7 +644,7 @@
         ],
         "answer": "B",
         "skill": "detail",
-        "why": "The text says work on the walls went on for more than two thousand years.",
+        "why": "In the text, work on the walls went on for more than two thousand years.",
         "wrong": {
           "A": "Two hundred years is too short.",
           "C": "One year is far too short.",
@@ -697,7 +697,7 @@
         ],
         "answer": "C",
         "skill": "detail",
-        "why": "The text says all the parts together stretch over 21,000 kilometers.",
+        "why": "In the text, all the parts together stretch over 21,000 kilometers.",
         "wrong": {
           "A": "2,200 is how many years ago the emperor joined the walls.",
           "B": "1,368 is the year the Ming dynasty began.",
@@ -748,7 +748,7 @@
         ],
         "answer": "D",
         "skill": "vocabulary",
-        "why": "The text says nomadic groups moved from place to place with their animals.",
+        "why": "Nomadic groups moved from place to place with their animals.",
         "wrong": {
           "A": "The soldiers watched from towers, not the nomads.",
           "B": "The Ming dynasty was a Chinese ruling family.",
@@ -767,7 +767,7 @@
         ],
         "answer": "B",
         "skill": "detail",
-        "why": "The text says the bricks and stone blocks were bound with a mortar of lime mixed with sticky rice.",
+        "why": "In the text, the bricks and stone blocks were bound with a mortar of lime mixed with sticky rice.",
         "wrong": {
           "A": "Granite and river water are not mentioned.",
           "C": "Packed earth and wood were used in the earliest sections.",
@@ -784,7 +784,7 @@
         ],
         "answer": "D",
         "skill": "cause-effect",
-        "why": "The text says that because they were expert riders, they could travel rapidly.",
+        "why": "They were expert riders, so they could travel fast.",
         "wrong": {
           "A": "Smoke signals were used by the wall's soldiers.",
           "B": "No paved roads are mentioned.",

@@ -138,7 +138,7 @@
           ],
           "answer": "A",
           "skill": "detail",
-          "why": "The article says the wide nostrils help the horse take in lots of air.",
+          "why": "In the article, the wide nostrils help the horse take in lots of air.",
           "wrong": {
             "B": "The article does not say the nostrils help the horse smell food.",
             "C": "The nostrils are for air; shade is not mentioned.",
@@ -155,7 +155,7 @@
           ],
           "answer": "D",
           "skill": "detail",
-          "why": "The article says the dark skin helps the horse in the hot desert sun.",
+          "why": "In the article, the dark skin helps the horse in the hot desert sun.",
           "wrong": {
             "A": "The article links speed to strong legs, not to skin color.",
             "B": "The article says the skin helps with the sun, not the cold.",
@@ -304,7 +304,7 @@
           "wrong": {
             "A": "The article praises their endurance, not their top speed, and never compares them with all animals.",
             "B": "The article says the Bedouin raised horses.",
-            "D": "The article says Thoroughbreds have Arabian ancestors, not that they replaced them."
+            "D": "Thoroughbreds come from Arabian horses; they did not replace them."
           }
         },
         {
@@ -317,7 +317,7 @@
           ],
           "answer": "B",
           "skill": "detail",
-          "why": "The article says many Arabians have one fewer rib, which gives them a short, strong back.",
+          "why": "In the article, many Arabians have one fewer rib, which gives them a short, strong back.",
           "wrong": {
             "A": "The article does not say anything about carrying loads.",
             "C": "The article does not describe the horses' food.",
@@ -334,7 +334,7 @@
           ],
           "answer": "D",
           "skill": "detail",
-          "why": "The article says that, seen from the side, the face has a curved, or dished, profile.",
+          "why": "In the article, seen from the side, the face has a curved, or dished, profile.",
           "wrong": {
             "A": "The article says the face is curved, not straight.",
             "B": "The article says the neck is arched, and a profile here is about the face.",
@@ -406,7 +406,7 @@
           "wrong": {
             "A": "The article describes the horses' features, not great size.",
             "B": "The article says the skin under the coat is still black.",
-            "C": "The article says the horses became gentle and loyal with people."
+            "C": "In the article, the horses became gentle and loyal with people."
           }
         },
         {
@@ -496,7 +496,7 @@
           ],
           "answer": "A",
           "skill": "detail",
-          "why": "The article says families carefully memorized each mare's lineage: her mother, grandmother, and earlier ancestors.",
+          "why": "In the article, families carefully remembered each horse's ancestors: her mother, grandmother, and earlier ancestors.",
           "wrong": {
             "B": "Oases are not mentioned in the article.",
             "C": "The article does not say families memorized race rules.",
@@ -521,7 +521,7 @@
           }
         },
         {
-          "stem": "\"Its face displays a gently concave, or dished, profile.\" What does concave mean?",
+          "stem": "In the article, what does the word \"concave\" mean?",
           "options": [
             "Straight and flat",
             "Rough and bumpy",
@@ -530,7 +530,7 @@
           ],
           "answer": "C",
           "skill": "vocabulary",
-          "why": "The words \"or dished\" show that concave means curving inward, like the inside of a dish.",
+          "why": "The words \"dished\" and \"concave\" are used together, so concave means curving inward, like the inside of a dish.",
           "wrong": {
             "A": "A dished shape is curved, not flat.",
             "B": "The sentence is about shape, not texture.",
@@ -627,7 +627,7 @@
         ],
         "answer": "C",
         "skill": "detail",
-        "why": "The text says this breed is very old and came from Arabia.",
+        "why": "In the text, the Arabian horse is a very old breed from Arabia.",
         "wrong": {
           "A": "The horses grew up in a hot desert.",
           "B": "The farm near Riyadh keeps them safe today.",
@@ -664,7 +664,7 @@
         "why": "If other breeds have Arabian blood, the Arabian horse helped make them.",
         "wrong": {
           "A": "The text says this breed is very old.",
-          "B": "The text says these horses can run far.",
+          "B": "In the text, these horses can run far.",
           "C": "Only some mares slept in the tent."
         }
       },
@@ -714,7 +714,7 @@
         ],
         "answer": "B",
         "skill": "detail",
-        "why": "The text says the Bedouin are people who traveled across the desert with their animals.",
+        "why": "In the text, the Bedouin are people who traveled across the desert with their animals.",
         "wrong": {
           "A": "The Bedouin lived in the desert.",
           "C": "The text does not say they were sailors.",
@@ -784,7 +784,7 @@
         ],
         "answer": "D",
         "skill": "detail",
-        "why": "The text says one fewer rib produces a compact, powerful back.",
+        "why": "One fewer rib gives many Arabians a short, strong back.",
         "wrong": {
           "A": "Nostrils help the horse take in air.",
           "B": "The text does not link the coat to the back.",
@@ -801,7 +801,7 @@
         ],
         "answer": "C",
         "skill": "cause-effect",
-        "why": "The text says they lived so intimately with people that they became gentle and loyal.",
+        "why": "In the article, they lived very close to people, so they became gentle and loyal.",
         "wrong": {
           "A": "Races are linked to endurance, not gentleness.",
           "B": "The desert made the horses hardy, not gentle.",
@@ -818,9 +818,9 @@
         ],
         "answer": "A",
         "skill": "author-purpose",
-        "why": "The text says modern breeds, including the Thoroughbred, are descendants of Arabians.",
+        "why": "In the article, the Arabian is an ancestor of other breeds, including the Thoroughbred.",
         "wrong": {
-          "B": "The text calls the Thoroughbred speedy.",
+          "B": "The article does not compare the speed of the two breeds.",
           "C": "The dished face is described in another paragraph.",
           "D": "Arabians were brought to Europe from Arabia."
         }

@@ -140,9 +140,9 @@
           "skill": "detail",
           "why": "The article says magnets pull iron and steel.",
           "wrong": {
-            "A": "The article says a magnet will not pull wood.",
+            "A": "In the article, a magnet will not pull wood.",
             "B": "The article says a magnet will not pull glass.",
-            "C": "The article says a magnet will not pull paper."
+            "C": "In the article, a magnet will not pull paper."
           }
         },
         {
@@ -155,7 +155,7 @@
           ],
           "answer": "A",
           "skill": "detail",
-          "why": "The article says two like poles push away from each other, or repel.",
+          "why": "In the article, two like poles push away from each other.",
           "wrong": {
             "B": "Poles snap together only when north is put next to south.",
             "C": "Magnets do not change into iron.",
@@ -302,7 +302,7 @@
           "skill": "central-idea",
           "why": "The article explains how magnetic force works and then shows uses such as compasses and electromagnets.",
           "wrong": {
-            "A": "Sailors are one example; the article says people found lodestone long ago.",
+            "A": "Sailors are one example; In the article, people found lodestone long ago.",
             "C": "The article does not compare plastic and steel for cars.",
             "D": "The article does not rank electricity above magnets."
           }
@@ -317,7 +317,7 @@
           ],
           "answer": "D",
           "skill": "detail",
-          "why": "The article states that the field is strongest near the poles.",
+          "why": "In the article, the field is strongest near the poles.",
           "wrong": {
             "A": "The article names the poles, not the middle.",
             "B": "The field grows weaker farther away.",
@@ -368,7 +368,7 @@
           ],
           "answer": "C",
           "skill": "cause-effect",
-          "why": "The article says an electromagnet works only while power flows; when the power is off, it lets go.",
+          "why": "In the article, an electromagnet works only while power flows; when the power is off, it lets go.",
           "wrong": {
             "A": "The car's weight stays the same.",
             "B": "The article does not connect letting go with poles turning.",
@@ -404,7 +404,7 @@
           "skill": "compare",
           "why": "Workers need to drop the metal after lifting it, and only the electromagnet can be switched off.",
           "wrong": {
-            "A": "The article says lodestone does pull iron.",
+            "A": "In the article, lodestone does pull iron.",
             "B": "The article says magnets do not pull wood or glass.",
             "C": "The article never says lodestone works only on ships."
           }
@@ -513,7 +513,7 @@
           ],
           "answer": "D",
           "skill": "detail",
-          "why": "The article states that an electromagnet operates only while a current flows through its coiled wire.",
+          "why": "An electromagnet works only while electric current flows through its wire.",
           "wrong": {
             "A": "Lodestone is a separate, natural magnet.",
             "B": "Pointing north describes a compass needle.",
@@ -564,7 +564,7 @@
           ],
           "answer": "A",
           "skill": "inference",
-          "why": "The article explains that magnets attract objects containing iron, so a can that is not pulled likely lacks iron.",
+          "why": "In the article, magnets attract objects containing iron, so a can that is not pulled likely lacks iron.",
           "wrong": {
             "B": "Only electromagnets use a current; nothing suggests this is one.",
             "C": "A can is not a magnet and has no poles.",
@@ -627,7 +627,7 @@
         ],
         "answer": "C",
         "skill": "detail",
-        "why": "The text says men found a rock called lodestone that could pull iron.",
+        "why": "In the text, men found a rock called lodestone that could pull iron.",
         "wrong": {
           "A": "Wood is not pulled by a magnet.",
           "B": "Glass is not pulled by a magnet.",
@@ -644,7 +644,7 @@
         ],
         "answer": "A",
         "skill": "inference",
-        "why": "The text says the pull can go through thin paper, so the pin will move up.",
+        "why": "In the text, the pull can go through thin paper, so the pin will move up.",
         "wrong": {
           "B": "The pull can go through thin paper, so the pin moves.",
           "C": "The magnet pulls iron things, not paper.",
@@ -697,7 +697,7 @@
         ],
         "answer": "B",
         "skill": "detail",
-        "why": "The article says magnets attract steel because steel contains iron.",
+        "why": "In the article, magnets attract steel because steel contains iron.",
         "wrong": {
           "A": "Shiny things are not pulled just for shining.",
           "C": "Glass is not pulled by a magnet.",
@@ -714,7 +714,7 @@
         ],
         "answer": "D",
         "skill": "inference",
-        "why": "The article says the magnetic force can pass through a thin sheet of paper, and steel is attracted.",
+        "why": "In the article, the magnetic force can pass through a thin sheet of paper, and steel is attracted.",
         "wrong": {
           "A": "A steel object is attracted, not pushed away.",
           "B": "A magnet cannot change steel into wood.",
@@ -748,7 +748,7 @@
         ],
         "answer": "C",
         "skill": "cause-effect",
-        "why": "The article says the Earth acts like a giant magnet, and the compass has a tiny magnet inside.",
+        "why": "In the article, the Earth acts like a giant magnet, and the compass needle is a tiny magnet.",
         "wrong": {
           "A": "The article does not say wind moves the needle.",
           "B": "The article does not link the needle to sunlight.",
@@ -767,7 +767,7 @@
         ],
         "answer": "D",
         "skill": "detail",
-        "why": "The article says a magnet will not pull wood, regardless of how powerful the magnet is.",
+        "why": "In the article, a magnet will not pull wood, regardless of how powerful the magnet is.",
         "wrong": {
           "A": "The article says closeness does not change this.",
           "B": "Paper is not mentioned as a way to pull wood.",
@@ -818,7 +818,7 @@
         ],
         "answer": "B",
         "skill": "inference",
-        "why": "The article says that like poles repel, so magnets that shove apart had like poles facing.",
+        "why": "In the article, like poles repel, so magnets that shove apart had like poles facing.",
         "wrong": {
           "A": "Opposite poles would snap together.",
           "C": "Wood is not magnetic, so it would not push.",

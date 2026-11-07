@@ -138,7 +138,7 @@
           ],
           "answer": "A",
           "skill": "detail",
-          "why": "The article says most families add cardamom, a spice with a strong smell.",
+          "why": "In the article, most families add cardamom, a spice with a strong smell.",
           "wrong": {
             "B": "The article does not mention sugar.",
             "C": "The article does not mention milk.",
@@ -189,7 +189,7 @@
           ],
           "answer": "C",
           "skill": "cause-effect",
-          "why": "The article says after beans are roasted, they are ground into a fine powder.",
+          "why": "In the article, after beans are roasted, they are ground into a fine powder.",
           "wrong": {
             "A": "The article does not say beans are planted after roasting.",
             "B": "Guests are given the coffee, not whole beans.",
@@ -223,7 +223,7 @@
           ],
           "answer": "D",
           "skill": "inference",
-          "why": "The article says a sweet date can balance the coffee's bold taste.",
+          "why": "In the article, a sweet date can balance the coffee's bold taste.",
           "wrong": {
             "A": "Dates are served along with coffee, not instead of it.",
             "B": "The article does not connect dates to guests leaving.",
@@ -317,7 +317,7 @@
           ],
           "answer": "B",
           "skill": "detail",
-          "why": "The article states that the dallah has served this purpose for centuries and is often passed down within families.",
+          "why": "The dallah has been used for centuries and is often passed down in families.",
           "wrong": {
             "A": "The article presents it as a lasting, valued object, not disposable.",
             "C": "The article connects it to home preparation, not specifically coffee shops.",
@@ -334,7 +334,7 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The article says the host often begins with the eldest or most honored guest present.",
+          "why": "In the article, the host often begins with the eldest or most honored guest present.",
           "wrong": {
             "A": "The article names the eldest, not the youngest, as typically served first.",
             "B": "The article does not base serving order on arrival time.",
@@ -368,7 +368,7 @@
           ],
           "answer": "A",
           "skill": "cause-effect",
-          "why": "The article states that filling the cup only part way signals thoughtful attention rather than carelessness or haste.",
+          "why": "In the article, the host fills each cup only part way as a sign of thoughtful care.",
           "wrong": {
             "B": "The article does not mention saving coffee for later.",
             "C": "The article does not link the amount poured to cooling speed.",
@@ -402,7 +402,7 @@
           ],
           "answer": "A",
           "skill": "inference",
-          "why": "The article says a host who performs the ritual well is widely regarded as generous, respectful, and polite.",
+          "why": "In the article, a host who performs the ritual well is widely regarded as generous, respectful, and polite.",
           "wrong": {
             "B": "Careful serving suggests welcoming guests, not rushing them out.",
             "C": "The careful ritual suggests genuine care for guests, not dislike.",
@@ -513,7 +513,7 @@
           ],
           "answer": "A",
           "skill": "detail",
-          "why": "The article describes the dallah as a vessel frequently passed down carefully within families as a cherished heritage object.",
+          "why": "The dallah is often passed down in families as a treasured object.",
           "wrong": {
             "B": "The article presents it as something preserved, not discarded.",
             "C": "The article describes home preparation, not a restaurant setting.",
@@ -627,7 +627,7 @@
         ],
         "answer": "B",
         "skill": "detail",
-        "why": "The text says saffron gives the drink a gold hue.",
+        "why": "Saffron gives the drink a golden color.",
         "wrong": {
           "A": "The text does not say saffron makes it sour.",
           "C": "A drink does not make a sound in the text.",
@@ -804,7 +804,7 @@
         "why": "Offering coffee to almost every visitor, even short ones, suggests welcome is given to everyone.",
         "wrong": {
           "A": "The phrase says the length does not matter, not that visits are long.",
-          "B": "The article says almost every visitor is offered coffee.",
+          "B": "In the article, almost every visitor is offered coffee.",
           "C": "Nothing in the article suggests guests are rushed."
         }
       },

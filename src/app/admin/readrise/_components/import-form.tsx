@@ -42,9 +42,9 @@ export function ImportForm({ base, canPublish }: { base: string; canPublish: boo
                 <tbody>
                   {checks.map((c) => (
                     <tr key={c.level} className="border-b last:border-0">
-                      <td className="p-2 font-bold tabular-nums">{c.level}</td>
+                      <td className="p-2 font-bold tabular-nums">{c.level < 0 ? `BR${-c.level}L` : `${c.level}L`}</td>
                       <td className="p-2">{c.title}</td>
-                      <td className={`p-2 font-semibold tabular-nums ${c.levelOk ? "text-teal-800" : "text-amber-800"}`}>{c.levelOk ? "✓" : "⚠"} {c.estLevel}</td>
+                      <td className={`p-2 font-semibold tabular-nums ${c.levelOk ? "text-teal-800" : "text-amber-800"}`}>{c.levelOk ? "✓" : "⚠"} {c.estLevel < 0 ? `BR${-c.estLevel}L` : `${c.estLevel}L`}</td>
                       <td className={`p-2 tabular-nums ${c.wordsOk ? "" : "font-semibold text-amber-800"}`}>{c.wordsOk ? "✓" : "⚠"} {c.wordCount} <span className="text-xs text-slate-400">({c.target.min}–{c.target.max})</span></td>
                       <td className="p-2 text-xs text-slate-600">{c.hint ?? ""}</td>
                     </tr>

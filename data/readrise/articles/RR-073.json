@@ -155,7 +155,7 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The article says the battery gives the drone power, but it does not last long, so the drone must come back.",
+          "why": "In the article, the battery gives the drone power, but it does not last long, so the drone must come back.",
           "wrong": {
             "A": "The article does not say the camera gets hot.",
             "B": "The article does not say drones get lost in the dark.",
@@ -189,7 +189,7 @@
           ],
           "answer": "A",
           "skill": "cause-effect",
-          "why": "The article says drones check towers and bridges, so no one has to climb up. That keeps workers safe.",
+          "why": "Drones can check towers and bridges, so people do not have to climb up. That keeps workers safe.",
           "wrong": {
             "B": "Drones cannot make towers grow.",
             "C": "Checking towers does not charge the battery.",
@@ -206,7 +206,7 @@
           ],
           "answer": "D",
           "skill": "inference",
-          "why": "The article says the camera can see a lot from high up. That helps people look over a big area quickly.",
+          "why": "In the article, the camera can see a lot from high up. That helps people look over a big area quickly.",
           "wrong": {
             "A": "The article does not say drones can call out names.",
             "B": "Drones fly. They do not dig.",
@@ -317,7 +317,7 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The article says that when the propellers spin faster, they push more air down, and the drone rises.",
+          "why": "In the article, when the propellers spin faster, they push more air down, and the drone rises.",
           "wrong": {
             "A": "The article does not mention a gas lighter than air.",
             "B": "The controller sends directions; it does not pull the drone.",
@@ -334,7 +334,7 @@
           ],
           "answer": "A",
           "skill": "detail",
-          "why": "The article states that the battery usually lasts less than an hour, so the drone must land and recharge.",
+          "why": "In the article, the battery usually lasts less than an hour, so the drone must land and recharge.",
           "wrong": {
             "B": "Two days is far longer than the article says.",
             "C": "The article does not link the battery to sunlight.",
@@ -402,7 +402,7 @@
           ],
           "answer": "D",
           "skill": "cause-effect",
-          "why": "The article explains that changing the speed of each propeller lets the drone turn or move forward.",
+          "why": "In the article, changing the speed of each propeller lets the drone turn or move forward.",
           "wrong": {
             "A": "The drone must land to recharge.",
             "B": "The camera is not controlled by propeller speed.",
@@ -564,7 +564,7 @@
           ],
           "answer": "C",
           "skill": "cause-effect",
-          "why": "The article explains that powerful winds and sandstorms can push a lightweight drone off course.",
+          "why": "In the article, powerful winds and sandstorms can push a lightweight drone off course.",
           "wrong": {
             "A": "The article does not say sand affects satellites.",
             "B": "The article does not connect thermal cameras to sandstorms.",
@@ -627,7 +627,7 @@
         ],
         "answer": "A",
         "skill": "detail",
-        "why": "The text says he holds a box with two sticks.",
+        "why": "In the text, a person flies a drone with a controller that has two sticks.",
         "wrong": {
           "B": "No rope is mentioned.",
           "C": "Shouting is not mentioned.",
@@ -644,7 +644,7 @@
         ],
         "answer": "C",
         "skill": "detail",
-        "why": "The text says drones can take pills to sick folks far off.",
+        "why": "In the text, drones can carry medicine to sick people far away.",
         "wrong": {
           "A": "Water bottles are not mentioned.",
           "B": "Hot meals are not mentioned.",
@@ -767,7 +767,7 @@
         ],
         "answer": "C",
         "skill": "detail",
-        "why": "The article says the battery typically lasts less than an hour, which limits how far a drone can travel before it must land.",
+        "why": "In the article, the battery typically lasts less than an hour, which limits how far a drone can travel before it must land.",
         "wrong": {
           "A": "Loudness is not linked to the battery.",
           "B": "The number of cameras is not linked to the battery.",
@@ -801,7 +801,7 @@
         ],
         "answer": "D",
         "skill": "cause-effect",
-        "why": "The article says a heavy package drains the battery more quickly.",
+        "why": "In the article, a heavy package drains the battery more quickly.",
         "wrong": {
           "A": "Heat is not mentioned.",
           "B": "The article says the opposite.",
@@ -822,7 +822,7 @@
         "wrong": {
           "B": "The article says rules exist, not that drones will be banned.",
           "C": "The article does not say taxis are not needed.",
-          "D": "The article says larger drones could carry heavier packages."
+          "D": "Drones already carry packages, so they can carry weight."
         }
       }
     ]

@@ -129,20 +129,20 @@
           }
         },
         {
-          "stem": "About how much of Earth's surface is covered by ocean?",
+          "stem": "How much of Earth's surface do the oceans cover?",
           "options": [
             "About one-tenth",
             "About one-third",
-            "About seven-tenths",
-            "About all of it"
+            "Most of it",
+            "None of it"
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The article says oceans cover about seven-tenths of Earth's surface.",
+          "why": "In the article, oceans cover most of Earth's surface.",
           "wrong": {
-            "A": "One-tenth is far too small.",
-            "B": "One-third is close to the amount of land, not ocean.",
-            "D": "Land still covers part of the surface, so it is not all ocean."
+            "A": "Oceans cover much more than one-tenth.",
+            "B": "Oceans cover much more than one-third.",
+            "D": "Oceans cover a lot of Earth."
           }
         },
         {
@@ -155,7 +155,7 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The article says the Pacific Ocean is the biggest.",
+          "why": "In the article, the Pacific Ocean is the biggest.",
           "wrong": {
             "A": "The Arctic Ocean is the smallest, not the biggest.",
             "B": "The Atlantic Ocean comes next, after the Pacific.",
@@ -172,7 +172,7 @@
           ],
           "answer": "A",
           "skill": "cause-effect",
-          "why": "The article explains that the Sun warms the sea, water rises into the air and forms clouds, and clouds bring rain.",
+          "why": "The Sun warms the sea, water rises into the air and forms clouds, and clouds bring rain.",
           "wrong": {
             "B": "Ships carry goods, not rain.",
             "C": "Whales are not described as causing rain.",
@@ -189,7 +189,7 @@
           ],
           "answer": "B",
           "skill": "inference",
-          "why": "The article says big ships carry goods across the sea, so without oceans, ships could not carry goods between countries.",
+          "why": "In the article, big ships carry goods across the sea, so without oceans, ships could not carry goods between countries.",
           "wrong": {
             "A": "Losing a cheap way to move goods would not make trade easier.",
             "C": "Losing ships would change trade a great deal.",
@@ -334,7 +334,7 @@
           ],
           "answer": "D",
           "skill": "detail",
-          "why": "The article says the Indian Ocean stays warm for most of the year, which shapes the climate of the lands around it.",
+          "why": "In the article, the Indian Ocean stays warm for most of the year, which shapes the climate of the lands around it.",
           "wrong": {
             "A": "The Indian Ocean is described as warm, not cold.",
             "B": "An icy surface near the south pole describes the Southern Ocean.",
@@ -368,7 +368,7 @@
           ],
           "answer": "B",
           "skill": "cause-effect",
-          "why": "The article explains that the Sun warms the sea, water evaporates, rises as vapor, and gathers into clouds.",
+          "why": "In the article, the Sun warms the sea, water evaporates, rises as vapor, and gathers into clouds.",
           "wrong": {
             "A": "Freezing is not described as causing clouds.",
             "C": "Ships are not linked to cloud formation.",
@@ -496,7 +496,7 @@
           ],
           "answer": "B",
           "skill": "detail",
-          "why": "The article states that the Pacific Ocean holds more water than every continent combined.",
+          "why": "The largest ocean holds an enormous amount of water.",
           "wrong": {
             "A": "The Atlantic Ocean is described only as second in size.",
             "C": "The Southern Ocean circles Antarctica but is not described this way.",
@@ -530,7 +530,7 @@
           ],
           "answer": "B",
           "skill": "detail",
-          "why": "The article states that the Sun warms surface waters most intensely near the equator.",
+          "why": "The sea is warmest near the equator.",
           "wrong": {
             "A": "The article specifically highlights the equator as warmer.",
             "C": "This reverses what the article says.",
@@ -538,7 +538,7 @@
           }
         },
         {
-          "stem": "\"Massive currents carry warm water and cool water around the globe through ocean circulation.\" What does circulation mean here?",
+          "stem": "In the article, what does the word \"circulation\" mean?",
           "options": [
             "A sudden storm at sea",
             "A single, one-time journey across an ocean",
@@ -629,9 +629,9 @@
         "skill": "detail",
         "why": "The text says Indian is warm.",
         "wrong": {
-          "A": "The text says Pacific is the biggest.",
-          "B": "The text says Atlantic is next in size.",
-          "C": "The text says Arctic is icy."
+          "A": "The Pacific is the biggest ocean, not the warm one.",
+          "B": "In the text, Atlantic is next in size.",
+          "C": "The Arctic is the coldest ocean, not the warm one."
         }
       },
       {
@@ -644,7 +644,7 @@
         ],
         "answer": "A",
         "skill": "sequence",
-        "why": "The text says the sun warms the sea, and then some water goes up into the air.",
+        "why": "In the text, the sun warms the sea, and then some water goes up into the air.",
         "wrong": {
           "B": "The water must go up and make clouds first.",
           "C": "Ships carrying goods is a different topic.",
@@ -661,7 +661,7 @@
         ],
         "answer": "B",
         "skill": "cause-effect",
-        "why": "The text says a ship costs less than a plane.",
+        "why": "In the text, a ship costs less than a plane.",
         "wrong": {
           "A": "The text says big ships carry goods.",
           "C": "The text says a ship costs less, not that it is faster.",
@@ -697,7 +697,7 @@
         ],
         "answer": "A",
         "skill": "detail",
-        "why": "The article says the Arctic is the smallest and coldest of the five.",
+        "why": "In the article, the Arctic is the smallest and coldest of the five.",
         "wrong": {
           "B": "The Southern circles the icy continent near the south pole.",
           "C": "The Indian stays warm most of the year.",
@@ -714,7 +714,7 @@
         ],
         "answer": "C",
         "skill": "vocabulary",
-        "why": "The article says the water rises into the air as tiny drops of vapor.",
+        "why": "When water evaporates, it rises into the air as water vapor.",
         "wrong": {
           "A": "The sun warms the sea, so the water does not freeze.",
           "B": "Rain falls after clouds form.",
@@ -750,9 +750,9 @@
         "skill": "inference",
         "why": "The article lists many kinds of life, from tiny plankton to giant whales, so the sea is full of life.",
         "wrong": {
-          "A": "The article says oceans are full of life.",
+          "A": "In the article, oceans are full of life.",
           "C": "Whales are giant animals.",
-          "D": "The article says coral lives in the sea."
+          "D": "In the article, coral lives in the sea."
         }
       }
     ],
@@ -784,7 +784,7 @@
         ],
         "answer": "D",
         "skill": "vocabulary",
-        "why": "The article says cargo ships carry goods across the sea, which it calls maritime shipping.",
+        "why": "In the article, cargo ships carry goods across the sea, which it calls maritime shipping.",
         "wrong": {
           "A": "Moving goods by air is the other way it names.",
           "B": "The article names moving goods over land as another way.",
@@ -801,9 +801,9 @@
         ],
         "answer": "A",
         "skill": "cause-effect",
-        "why": "The article says maritime shipping usually costs far less per ton than air or land.",
+        "why": "Shipping by sea costs much less per ton than moving goods by air or land.",
         "wrong": {
-          "B": "The article says enormous ships carry goods.",
+          "B": "In the article, enormous ships carry goods.",
           "C": "The article says ships follow established routes.",
           "D": "Ports are on the coast, not inland."
         }
@@ -818,11 +818,11 @@
         ],
         "answer": "D",
         "skill": "inference",
-        "why": "The article says most people picture a world of continents and countries rather than open water.",
+        "why": "In the article, most people picture a world of continents and countries rather than open water.",
         "wrong": {
           "A": "The article does not say people picture open ice.",
           "B": "The article says continents and countries, not busy cities.",
-          "C": "The article says people picture land more than open water."
+          "C": "In the article, people picture land more than open water."
         }
       }
     ]

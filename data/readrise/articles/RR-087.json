@@ -155,7 +155,7 @@
           ],
           "answer": "A",
           "skill": "detail",
-          "why": "The article says that in 1903 she won the Nobel Prize and was the first woman to win it.",
+          "why": "In 1903 she won the Nobel Prize and was the first woman to win it.",
           "wrong": {
             "B": "She went to university, but the article does not say she was the first woman to do so.",
             "C": "Moving to France did not make her a first.",
@@ -189,7 +189,7 @@
           ],
           "answer": "C",
           "skill": "cause-effect",
-          "why": "The article says girls in Poland could not go to a university, so she saved up and went to France.",
+          "why": "In the article, girls in Poland could not go to a university, so she saved up and went to France.",
           "wrong": {
             "A": "The article does not mention the sea.",
             "B": "She met Pierre after she got to Paris.",
@@ -225,7 +225,7 @@
           "skill": "inference",
           "why": "Saving up so she could study far away shows she worked hard to reach her goal.",
           "wrong": {
-            "A": "The article says she loved to learn.",
+            "A": "She did love to learn.",
             "C": "The article does not say she wanted a house.",
             "D": "She named an element after her home land, so she cared about it."
           }
@@ -385,7 +385,7 @@
           ],
           "answer": "A",
           "skill": "cause-effect",
-          "why": "The article says the rays were harmful and made her sick, and she died in 1934.",
+          "why": "The rays were harmful and made her sick, and she died in 1934.",
           "wrong": {
             "B": "She never lost her prizes.",
             "C": "The article does not say this.",
@@ -496,7 +496,7 @@
           ],
           "answer": "B",
           "skill": "detail",
-          "why": "The article states she remains the only person to win Nobel Prizes in two different sciences.",
+          "why": "She is still the only person to win Nobel Prizes in two different sciences.",
           "wrong": {
             "A": "She won them in 1903 and 1911.",
             "C": "Pierre died in 1906, before the second prize.",
@@ -581,7 +581,7 @@
           ],
           "answer": "D",
           "skill": "inference",
-          "why": "The article states that scientists of that era did not yet understand the hazard that radiation posed.",
+          "why": "In the article, scientists of that era did not yet understand the hazard that radiation posed.",
           "wrong": {
             "A": "The article does not say they were trying to prove this.",
             "B": "The article does not mention doctors' advice about safety.",
@@ -644,7 +644,7 @@
         ],
         "answer": "D",
         "skill": "vocabulary",
-        "why": "The text says an element is a kind of stuff that all things are made of.",
+        "why": "An element is a basic kind of stuff that things are made of.",
         "wrong": {
           "A": "The big school is a university in France.",
           "B": "The prize is the Nobel Prize.",
@@ -697,7 +697,7 @@
         ],
         "answer": "C",
         "skill": "detail",
-        "why": "The text says she worked as a teacher and saved her money for years.",
+        "why": "In the text, she worked as a teacher and saved her money for years.",
         "wrong": {
           "A": "Selling books is not mentioned.",
           "B": "She won the prize years later.",
@@ -767,7 +767,7 @@
         ],
         "answer": "C",
         "skill": "detail",
-        "why": "The text says that working with Pierre, she processed tons of rock and discovered two new elements.",
+        "why": "Working with Pierre, she processed tons of rock and found two new elements.",
         "wrong": {
           "A": "Old notebooks are not mentioned as the source.",
           "B": "X-ray trucks came later, during a war.",
@@ -818,7 +818,7 @@
         ],
         "answer": "B",
         "skill": "cause-effect",
-        "why": "The text says the prize brought her international recognition.",
+        "why": "In the text, the prize brought her international recognition.",
         "wrong": {
           "A": "She kept doing science and won a second prize.",
           "C": "She stayed in Paris and later taught at her university there.",

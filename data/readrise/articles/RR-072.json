@@ -138,7 +138,7 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The article says each cable has glass inside that is as thin as a hair.",
+          "why": "Each cable has glass strands inside that are as thin as a hair.",
           "wrong": {
             "A": "The cable keeps water out; it does not carry it.",
             "B": "Steel wires are an outside coat near the shore, not the inside.",
@@ -172,7 +172,7 @@
           ],
           "answer": "D",
           "skill": "cause-effect",
-          "why": "The article says light gets weak on a long trip, so the boxes make it strong again.",
+          "why": "In the article, light gets weaker on a long trip, so the boxes along the cable make it strong again.",
           "wrong": {
             "A": "The boxes are not used to hold the cable down.",
             "B": "The boxes do not store photos.",
@@ -197,7 +197,7 @@
           }
         },
         {
-          "stem": "Read: \"A big ship lays the cable.\" What does lays mean here?",
+          "stem": "In the article, what does the word \"lays\" mean?",
           "options": [
             "Puts something down in its place",
             "Sleeps on a bed in the cabin",
@@ -325,7 +325,7 @@
           }
         },
         {
-          "stem": "Read: \"it is covered in armor made of steel wires.\" What does armor mean here?",
+          "stem": "In the article, what does the word \"armor\" mean?",
           "options": [
             "Clothing worn by soldiers long ago",
             "A kind of glass",
@@ -402,7 +402,7 @@
           ],
           "answer": "B",
           "skill": "compare",
-          "why": "The article says the 1858 cable carried simple messages and stopped after a few weeks, while today's cables carry millions of conversations.",
+          "why": "In the article, the 1858 cable carried simple messages and stopped after a few weeks, while today's cables carry millions of conversations.",
           "wrong": {
             "A": "The article does not say the 1858 cable used glass fibers.",
             "C": "Its route is not given.",
@@ -481,13 +481,13 @@
           "skill": "central-idea",
           "why": "The article explains how undersea cables carry data and how they are protected, strengthened, and repaired.",
           "wrong": {
-            "A": "The article says most data travels by cable, not satellite.",
+            "A": "In the article, most data travels by cable, not satellite.",
             "B": "Cable ships are a detail, not the central idea.",
             "C": "The first ocean cable of 1858 carried telegraph messages; it was not the internet."
           }
         },
         {
-          "stem": "Read: \"a repeater, which amplifies the signal.\" What does amplifies mean?",
+          "stem": "In the article, what does the word \"amplifies\" mean?",
           "options": [
             "Slows down",
             "Makes stronger",
@@ -530,7 +530,7 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The article says a repair vessel hauls the broken section up, and technicians splice the fibers together.",
+          "why": "In the article, a repair vessel hauls the broken section up, and technicians splice the fibers together.",
           "wrong": {
             "A": "Divers are not mentioned.",
             "B": "Satellites are not used for repairs.",
@@ -584,7 +584,7 @@
           "why": "The author stresses that the overwhelming majority of international data travels through cables, not satellites.",
           "wrong": {
             "B": "The article makes no such prediction.",
-            "C": "The article says cables near shore need steel armor.",
+            "C": "In the article, cables near shore need steel armor.",
             "D": "Hundreds of cables crisscross the world's oceans."
           }
         },
@@ -598,7 +598,7 @@
           ],
           "answer": "C",
           "skill": "compare",
-          "why": "The article says near the shore the cable is considerably thicker because of its steel-wire armor.",
+          "why": "In the article, near the shore the cable is considerably thicker because of its steel-wire armor.",
           "wrong": {
             "A": "All cables carry fibers.",
             "B": "The deep-water cable is the thinner one.",
@@ -644,7 +644,7 @@
         ],
         "answer": "A",
         "skill": "cause-effect",
-        "why": "The text says that if a cable breaks, a ship comes to fix it.",
+        "why": "In the text, if a cable breaks, a ship comes to fix it.",
         "wrong": {
           "B": "The sea is not changed by a break.",
           "C": "The text does not say cables fix themselves.",
@@ -678,7 +678,7 @@
         ],
         "answer": "B",
         "skill": "author-purpose",
-        "why": "The text says the cables at Jeddah link us to the world.",
+        "why": "In the text, the cables connect us to the rest of the world.",
         "wrong": {
           "A": "Swimming is not mentioned.",
           "C": "The article does not describe a boat trip to Jeddah.",
@@ -697,7 +697,7 @@
         ],
         "answer": "B",
         "skill": "detail",
-        "why": "The article says they would be more than a million kilometers long.",
+        "why": "In the article, they would be more than a million kilometers long.",
         "wrong": {
           "A": "That is far too short.",
           "C": "That is far too short.",
@@ -767,7 +767,7 @@
         ],
         "answer": "D",
         "skill": "detail",
-        "why": "The article says a single modern cable can carry millions of conversations simultaneously.",
+        "why": "In the article, a single modern cable can carry millions of conversations simultaneously.",
         "wrong": {
           "A": "One message is far too few.",
           "B": "The article says millions of conversations.",

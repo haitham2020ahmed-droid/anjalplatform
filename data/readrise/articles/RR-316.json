@@ -214,7 +214,7 @@
           }
         },
         {
-          "stem": "Read: \"The clever person could think fast.\" What does clever mean?",
+          "stem": "In the article, what does the word \"clever\" mean?",
           "options": [
             "Very tall and strong in height and size",
             "Able to think quickly and solve problems",
@@ -302,7 +302,7 @@
           "skill": "central-idea",
           "why": "The article explains that folk tales traveled by voice through an oral tradition, carrying lessons across generations.",
           "wrong": {
-            "A": "The article says many tales were not written down at all.",
+            "A": "Many tales were not written down at first.",
             "C": "The article says children also later retold tales themselves.",
             "D": "The article says some tales included make-believe elements."
           }
@@ -317,9 +317,9 @@
           ],
           "answer": "A",
           "skill": "detail",
-          "why": "The article says people shared folk tales through an oral tradition, relying on memory and voice.",
+          "why": "In the article, people shared folk tales through an oral tradition, relying on memory and voice.",
           "wrong": {
-            "B": "The article says these tales were not written down.",
+            "B": "These tales were usually not written down.",
             "C": "The article does not describe acting tales out in plays.",
             "D": "The article does not limit storytelling to once a year."
           }
@@ -393,7 +393,7 @@
           }
         },
         {
-          "stem": "Read: \"These spoken stories followed familiar patterns.\" What does pattern mean here?",
+          "stem": "Spoken stories often followed familiar patterns. What does pattern mean here?",
           "options": [
             "A costume worn by a storyteller",
             "A written book of folk tales",
@@ -482,7 +482,7 @@
           "why": "The article shows folk tales carrying cultural wisdom and lessons through spoken memory, generation after generation.",
           "wrong": {
             "A": "The article says most tales were spoken, not written, for a long time.",
-            "C": "The article says make-believe parts were understood as imaginative, not real history.",
+            "C": "In the article, make-believe parts were understood as imaginative, not real history.",
             "D": "The article describes many families and regions telling tales."
           }
         },
@@ -530,11 +530,11 @@
           ],
           "answer": "D",
           "skill": "cause-effect",
-          "why": "The article says these patterns made tales easier to remember and retell accurately.",
+          "why": "In the article, these patterns made tales easier to remember and retell accurately.",
           "wrong": {
-            "A": "The article says these patterns made tales easier, not harder, to remember.",
+            "A": "In the article, these patterns made tales easier, not harder, to remember.",
             "B": "The article says tales still carried a clear moral.",
-            "C": "The article says the clever character remained central to the tale."
+            "C": "In the article, the clever character remained central to the tale."
           }
         },
         {
@@ -572,7 +572,7 @@
           }
         },
         {
-          "stem": "Read: \"a storyteller's own imagination shaped a few small details.\" What does imagination mean here?",
+          "stem": "In the article, what does the word \"imagination\" mean?",
           "options": [
             "A written record of historical facts and events",
             "The ability to form new ideas or pictures in the mind",
@@ -600,7 +600,7 @@
           "skill": "author-purpose",
           "why": "This detail clarifies that imaginative elements were understood as storytelling, not as real or religious belief.",
           "wrong": {
-            "B": "The author states these imaginative parts were not real events.",
+            "B": "The author explains that these make-believe parts were not real.",
             "C": "The article explains that talking animals were make-believe.",
             "D": "The article says tales carried clear, useful morals."
           }
@@ -627,7 +627,7 @@
         ],
         "answer": "B",
         "skill": "detail",
-        "why": "The text says that when a grandparent told a tale, the kids were still.",
+        "why": "In the text, when a grandparent told a tale, the kids were still.",
         "wrong": {
           "A": "The text does not say the kids sang.",
           "C": "The kids sat close, they did not run outside.",
@@ -644,7 +644,7 @@
         ],
         "answer": "C",
         "skill": "cause-effect",
-        "why": "The text says folks told the tales again, and small bits changed.",
+        "why": "In the text, folks told the tales again, and small bits changed.",
         "wrong": {
           "A": "The text does not say the tales got longer.",
           "B": "The tales were kept, not lost.",
@@ -697,7 +697,7 @@
         ],
         "answer": "C",
         "skill": "detail",
-        "why": "The text says families sat close after a day of work, in the dark.",
+        "why": "In the text, families sat close after a day of work, in the dark.",
         "wrong": {
           "A": "The text does not mention morning.",
           "B": "No trip is mentioned.",
@@ -716,7 +716,7 @@
         "skill": "vocabulary",
         "why": "The text says tales were shared by voice instead of being set down in writing.",
         "wrong": {
-          "B": "The text says tales were rarely set down in writing.",
+          "B": "Tales were rarely written down.",
           "C": "Nothing is said about drawing.",
           "D": "Tales were told with the voice, so they were not silent."
         }
@@ -731,7 +731,7 @@
         ],
         "answer": "D",
         "skill": "cause-effect",
-        "why": "The text says tales are set down in books so they are not lost.",
+        "why": "Today, some tales are written in books so they are not lost.",
         "wrong": {
           "A": "The text says families still like telling tales.",
           "B": "Nothing is said about kids not hearing well.",
@@ -748,7 +748,7 @@
         ],
         "answer": "B",
         "skill": "detail",
-        "why": "The text says the clever one fixed problems by quick thought, not by being big or rich.",
+        "why": "The clever character solved problems by thinking fast, not by being strong or rich.",
         "wrong": {
           "A": "The text says it was not by being rich.",
           "C": "The text says it was not by being big.",
@@ -784,7 +784,7 @@
         ],
         "answer": "D",
         "skill": "detail",
-        "why": "The article says the clever character solved problems by thinking fast, not by being strong, rich, or powerful.",
+        "why": "The clever character solved problems by thinking fast, not by being strong, rich, or powerful.",
         "wrong": {
           "A": "The article says it was not by being strong or rich.",
           "B": "The grandparent is the storyteller, not a helper in the tale.",

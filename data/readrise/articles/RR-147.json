@@ -155,7 +155,7 @@
           ],
           "answer": "B",
           "skill": "detail",
-          "why": "The article says an animal's home is its habitat.",
+          "why": "In the article, an animal's home is its habitat.",
           "wrong": {
             "A": "A habitat is a home, not food.",
             "C": "Plastic can harm animals; it is not a home.",
@@ -368,7 +368,7 @@
           ],
           "answer": "D",
           "skill": "cause-effect",
-          "why": "The article explains that when too many are hunted, not enough adults are left to raise young.",
+          "why": "When too many are hunted, not enough adults are left to raise young.",
           "wrong": {
             "A": "Moving to the sea is not mentioned.",
             "B": "Size is not mentioned.",
@@ -405,7 +405,7 @@
           "why": "The oryx was saved and returned to reserves in Saudi Arabia, giving local readers a hopeful example.",
           "wrong": {
             "B": "The article does not say it is the largest animal.",
-            "C": "The article says it was hunted until none were left in the wild.",
+            "C": "In the article, it was hunted until none were left in the wild.",
             "D": "The oryx lives in deserts."
           }
         },
@@ -496,7 +496,7 @@
           ],
           "answer": "B",
           "skill": "cause-effect",
-          "why": "The article says rats carried to islands can eat the eggs of birds that have never encountered such predators.",
+          "why": "In the article, rats carried to islands can eat the eggs of birds that have never encountered such predators.",
           "wrong": {
             "A": "The article does not say this.",
             "C": "Water is not mentioned.",
@@ -521,7 +521,7 @@
           }
         },
         {
-          "stem": "In the phrase \"scientists began to reintroduce them to reserves,\" reintroduce means",
+          "stem": "Scientists began to reintroduce oryx to reserves. Reintroduce means",
           "options": [
             "to count again",
             "to hunt again",
@@ -581,7 +581,7 @@
           ],
           "answer": "A",
           "skill": "detail",
-          "why": "The article says the lists help governments understand which animals require help most urgently.",
+          "why": "In the article, the lists help governments understand which animals require help most urgently.",
           "wrong": {
             "B": "The lists are meant to protect animals, not to help hunters.",
             "C": "The article does not mention selling.",
@@ -598,7 +598,7 @@
           ],
           "answer": "D",
           "skill": "inference",
-          "why": "The article says Saudi Arabia is currently working to save the leopard, so conservation efforts continue.",
+          "why": "In the article, Saudi Arabia is working to save the leopard now, so its conservation work goes on.",
           "wrong": {
             "A": "The article calls it critically endangered.",
             "B": "It is endangered, not extinct.",
@@ -627,7 +627,7 @@
         ],
         "answer": "C",
         "skill": "detail",
-        "why": "The text says the dodo was a big bird that could not fly.",
+        "why": "In the text, the dodo was a big bird that could not fly.",
         "wrong": {
           "A": "The text does not say the dodo could not walk.",
           "B": "The text does not say the dodo could not eat.",

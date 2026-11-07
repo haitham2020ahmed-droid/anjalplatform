@@ -189,7 +189,7 @@
           ],
           "answer": "B",
           "skill": "vocabulary",
-          "why": "The article calls the path made by hooking both ends to a toy a loop, and that loop is a circuit.",
+          "why": "In the article, joining both ends to something with wires makes a full loop, and that loop is a circuit.",
           "wrong": {
             "A": "Metal is mentioned with Volta, but it is not a circuit.",
             "C": "The signs are the plus and minus marks.",
@@ -223,7 +223,7 @@
           ],
           "answer": "A",
           "skill": "inference",
-          "why": "The article says the big batteries save the sun's power so it can be used at night.",
+          "why": "In the article, big batteries save the sun's power, so it can be used when there is no sun.",
           "wrong": {
             "B": "The article does not talk about how batteries look.",
             "C": "Batteries cannot make the sun shine longer.",
@@ -334,7 +334,7 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The article says Volta stacked zinc and copper disks with cloth soaked in salt water between them.",
+          "why": "In the article, Volta stacked zinc and copper disks with cloth soaked in salt water between them.",
           "wrong": {
             "A": "The article does not mention lemon juice.",
             "B": "Iron and sand are not part of Volta's battery in the article.",
@@ -359,7 +359,7 @@
           }
         },
         {
-          "stem": "In the article, the electrolyte \"lets the reaction keep going.\" What does this tell you about the electrolyte?",
+          "stem": "The electrolyte lets the battery's reaction keep going. What does this tell you about the electrolyte?",
           "options": [
             "It is needed for the battery to keep working",
             "It is the plus sign printed on the battery's case",
@@ -385,7 +385,7 @@
           ],
           "answer": "B",
           "skill": "compare",
-          "why": "The article says a charger pushes power back into a rechargeable battery, turning the chemicals back to how they were.",
+          "why": "In the article, a charger pushes power back into a rechargeable battery, turning the chemicals back to how they were.",
           "wrong": {
             "A": "All batteries have two terminals.",
             "C": "Every battery needs a circuit to make a current.",
@@ -482,7 +482,7 @@
           "why": "The article explains how chemical energy becomes current through a circuit and how rechargeable batteries reverse the reaction.",
           "wrong": {
             "B": "Lithium is one example; zinc and copper are also mentioned.",
-            "C": "The article says Volta, an Italian scientist, built the first battery.",
+            "C": "In the article, Volta, an Italian scientist, built the first battery.",
             "D": "Electrons travel through the wire; ions move through the electrolyte."
           }
         },
@@ -496,7 +496,7 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The article states that ions move through the electrolyte, which keeps the reaction balanced.",
+          "why": "In the article, ions move through the electrolyte, which keeps the reaction balanced.",
           "wrong": {
             "A": "Electrons cannot cross the electrolyte, so they take the wire.",
             "B": "Light is made in the lamp, not inside the electrolyte.",
@@ -513,7 +513,7 @@
           ],
           "answer": "B",
           "skill": "cause-effect",
-          "why": "The article says that because the electrons cannot cross the electrolyte, they travel along the wire instead.",
+          "why": "In the article, because the electrons cannot cross the electrolyte, they travel along the wire instead.",
           "wrong": {
             "A": "Length is not the reason given.",
             "C": "The lamp uses the current, but it is not described as pulling electrons.",
@@ -530,7 +530,7 @@
           ],
           "answer": "D",
           "skill": "detail",
-          "why": "The article says each terminal is joined to a material called an electrode.",
+          "why": "In the article, each terminal is joined to a material called an electrode.",
           "wrong": {
             "A": "A charger is attached only when recharging.",
             "B": "A lamp is something the battery powers, not part of it.",
@@ -538,7 +538,7 @@
           }
         },
         {
-          "stem": "When the article says a charger \"reverses the reaction,\" it means the charger",
+          "stem": "When a charger reverses the reaction in a battery, it means the charger",
           "options": [
             "makes the reaction run backward, restoring the original chemicals",
             "stops the battery from ever working again after it has gone dead",
@@ -584,7 +584,7 @@
           "why": "Since the moving ions keep the reaction balanced, blocking them would stop the reaction, and with it the flow of electrons.",
           "wrong": {
             "A": "Blocking a needed part would not increase the current.",
-            "C": "The article says electrons cannot cross the electrolyte.",
+            "C": "Electrons cannot cross the electrolyte.",
             "D": "Recharging needs a charger."
           }
         },
@@ -767,7 +767,7 @@
         ],
         "answer": "A",
         "skill": "detail",
-        "why": "The text says the word voltage comes from Alessandro Volta's name.",
+        "why": "In the text, the word voltage comes from Alessandro Volta's name.",
         "wrong": {
           "B": "Italy is where Volta came from, but the word comes from his name.",
           "C": "Zinc disks are not linked to the word.",
@@ -801,7 +801,7 @@
         ],
         "answer": "B",
         "skill": "detail",
-        "why": "The text says the electrolyte keeps the electrodes apart but still lets ions pass through.",
+        "why": "The electrolyte keeps the electrodes apart but still lets ions pass through.",
         "wrong": {
           "A": "The flow of electrons in the wire lights the lamp.",
           "C": "The terminals have the plus and minus signs.",

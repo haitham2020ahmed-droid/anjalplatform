@@ -121,7 +121,7 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The story says the old pump broke, and no water came out of the well.",
+          "why": "In the story, the old pump broke, and no water came out of the well.",
           "wrong": {
             "A": "The well was not filled in.",
             "B": "The story does not mention freezing weather.",
@@ -172,7 +172,7 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The story says Omar liked to watch his uncle work and learned a lot from watching him.",
+          "why": "In the story, Omar liked to watch his uncle work and learned a lot from watching him.",
           "wrong": {
             "A": "Omar learned by watching, not just guessing.",
             "B": "No book is mentioned in the story.",
@@ -317,7 +317,7 @@
           ],
           "answer": "A",
           "skill": "sequence",
-          "why": "The story explains that Omar watched his uncle work for a long time and gradually learned about tools and parts before he ever asked about the pump.",
+          "why": "In the story, Omar watched his uncle work for a long time and gradually learned about tools and parts before he ever asked about the pump.",
           "wrong": {
             "B": "Omar did not build a pump from scratch.",
             "C": "No travel to another village is mentioned.",
@@ -368,7 +368,7 @@
           ],
           "answer": "D",
           "skill": "inference",
-          "why": "The story says Saleh agreed because he was curious about what his nephew had learned from all his watching.",
+          "why": "In the story, Saleh agreed because he was curious about what his nephew had learned from all his watching.",
           "wrong": {
             "A": "No payment from Omar is mentioned.",
             "B": "Nothing about retirement appears in the story.",
@@ -385,7 +385,7 @@
           ],
           "answer": "B",
           "skill": "cause-effect",
-          "why": "The story explains that without the pump, the village's only other water source was far away, which made the broken pump a serious problem.",
+          "why": "In the story, without the pump, the village's only other water source was far away, which made the broken pump a serious problem.",
           "wrong": {
             "A": "The village clearly needed water badly.",
             "C": "No one plans to move away in the story.",
@@ -496,7 +496,7 @@
           ],
           "answer": "A",
           "skill": "detail",
-          "why": "The story says that lacking the ideal tool for one tricky step, Omar had to improvise with whatever materials were available.",
+          "why": "In the story, lacking the ideal tool for one tricky step, Omar had to improvise with whatever materials were available.",
           "wrong": {
             "B": "Omar repairs the existing pump rather than designing a new one.",
             "C": "No additional well is dug in the story.",
@@ -682,7 +682,7 @@
         "wrong": {
           "A": "Omar liked to watch his uncle.",
           "B": "He stayed until the job was done.",
-          "C": "The story says Omar had a plan."
+          "C": "Omar did know what he was trying to do."
         }
       }
     ],
@@ -767,7 +767,7 @@
         ],
         "answer": "A",
         "skill": "detail",
-        "why": "The article says Saleh repaired machines in a small shop nearby.",
+        "why": "Saleh fixed machines in a small shop nearby.",
         "wrong": {
           "B": "The well is where the broken pump was.",
           "C": "The next town is where they bought the part.",
@@ -801,7 +801,7 @@
         ],
         "answer": "B",
         "skill": "cause-effect",
-        "why": "The article says he inspected the pump as he had watched his uncle do countless times.",
+        "why": "In the article, he inspected the pump as he had watched his uncle do countless times.",
         "wrong": {
           "A": "His sister is not mentioned.",
           "C": "A book is not mentioned.",

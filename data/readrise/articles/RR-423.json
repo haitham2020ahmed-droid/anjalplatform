@@ -138,7 +138,7 @@
           ],
           "answer": "A",
           "skill": "detail",
-          "why": "The article says the camels carried cloth, salt, and dried dates.",
+          "why": "In the article, the camels carried cloth, salt, and dried dates.",
           "wrong": {
             "B": "The article does not mention tents.",
             "C": "The article does not mention gold coins.",
@@ -317,7 +317,7 @@
           ],
           "answer": "B",
           "skill": "detail",
-          "why": "The article says Malik had guided caravans along this route for more than twenty years.",
+          "why": "In the article, Malik had guided caravans along this route for more than twenty years.",
           "wrong": {
             "A": "The article gives a much longer length of time.",
             "C": "The article does not say Malik started as a child.",
@@ -513,7 +513,7 @@
           ],
           "answer": "D",
           "skill": "detail",
-          "why": "The article explains that desert creatures seem to sense subtle atmospheric changes, including shifts in humidity and air pressure.",
+          "why": "Desert animals seem to sense small changes in the air, such as in humidity and air pressure.",
           "wrong": {
             "A": "The article does not say animals can predict an exact end date.",
             "B": "The signs relate to weather, not to merchants' travel plans.",
@@ -627,7 +627,7 @@
         ],
         "answer": "A",
         "skill": "detail",
-        "why": "The text says the ants took food up to high ground.",
+        "why": "In the story, the ants carried food up to high ground.",
         "wrong": {
           "B": "The ants went up, not down.",
           "C": "The camels' bags are not mentioned with the ants.",
@@ -767,7 +767,7 @@
         ],
         "answer": "C",
         "skill": "detail",
-        "why": "The text says the group turned toward a rocky shelter a few hours away.",
+        "why": "In the story, the group headed to a rocky shelter.",
         "wrong": {
           "A": "The group did not turn back to the oasis.",
           "B": "They had been heading to the market, but they turned to the shelter.",

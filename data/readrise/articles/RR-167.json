@@ -155,7 +155,7 @@
           ],
           "answer": "B",
           "skill": "detail",
-          "why": "The article says algae live in the polyps and use the sun to make food.",
+          "why": "In the article, algae live in the polyps and use the sun to make food.",
           "wrong": {
             "A": "Sea turtles lay eggs on the islands; they do not live in polyps.",
             "C": "Fish live on the reef, not inside the polyps.",
@@ -223,7 +223,7 @@
           ],
           "answer": "D",
           "skill": "cause-effect",
-          "why": "The article says hot water can harm coral: the algae leave and the coral turns white.",
+          "why": "In the article, hot water can harm coral: the algae leave and the coral turns white.",
           "wrong": {
             "A": "Sand helps build islands; it does not turn coral white.",
             "B": "Fish live on reefs, but they do not turn coral white.",
@@ -304,7 +304,7 @@
           "wrong": {
             "A": "The article says the water is salty, not that it is the saltiest.",
             "C": "Parrotfish are one small part of the article.",
-            "D": "The article says the Farasan Islands are made of ancient coral rock."
+            "D": "In the article, the Farasan Islands are made of ancient coral rock."
           }
         },
         {
@@ -368,7 +368,7 @@
           ],
           "answer": "A",
           "skill": "detail",
-          "why": "The article says that when water gets too hot, coral can lose its algae and turn white, which is called bleaching.",
+          "why": "In the article, when water gets too hot, coral can lose its algae and turn white, which is called bleaching.",
           "wrong": {
             "B": "That is how sand is made.",
             "C": "That is how a reef grows.",
@@ -517,7 +517,7 @@
           "wrong": {
             "A": "The article does not say parrotfish eat coral's food.",
             "B": "The article does not connect sand to starving coral.",
-            "C": "The article says the skeleton remains; it does not say it dissolves."
+            "C": "The skeleton stays; it does not say it dissolves."
           }
         },
         {
@@ -534,7 +534,7 @@
           "wrong": {
             "A": "The article does not say they are the oldest.",
             "C": "The article does not mention space.",
-            "D": "The article says algae live inside the polyps."
+            "D": "In the article, algae live inside the polyps."
           }
         },
         {
@@ -547,7 +547,7 @@
           ],
           "answer": "B",
           "skill": "detail",
-          "why": "The article says the algae share food with their hosts while the polyps provide shelter in return.",
+          "why": "In the article, the algae share food with their hosts while the polyps provide shelter in return.",
           "wrong": {
             "A": "The sun provides sunlight, not the polyps.",
             "C": "Sediment helps form islands, not algae.",
@@ -681,7 +681,7 @@
         "why": "If some fish live only on these reefs, losing the reefs would lose those fish, so the reefs need care.",
         "wrong": {
           "B": "Some fish live in no other place, so not every fish can live anywhere.",
-          "C": "The text says lots of fish live on the reefs.",
+          "C": "In the text, lots of fish live on the reefs.",
           "D": "The text does not say the fish live only near Farasan."
         }
       }
@@ -697,7 +697,7 @@
         ],
         "answer": "B",
         "skill": "detail",
-        "why": "The text says more than a thousand kinds of fish live on the Red Sea reefs.",
+        "why": "In the text, more than a thousand kinds of fish live on the Red Sea reefs.",
         "wrong": {
           "A": "Eighty is the number of islands in Farasan.",
           "C": "The text says more than a thousand.",

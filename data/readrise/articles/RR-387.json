@@ -801,7 +801,7 @@
         ],
         "answer": "A",
         "skill": "cause-effect",
-        "why": "The text says she was increasingly anxious since almost no time remained before the fair.",
+        "why": "In the text, she was increasingly anxious since almost no time remained before the fair.",
         "wrong": {
           "B": "Omar stayed and helped.",
           "C": "Her teacher was not there at the rehearsal.",

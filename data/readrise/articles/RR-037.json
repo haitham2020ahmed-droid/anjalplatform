@@ -138,7 +138,7 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The article says the one hard part of its body is its beak.",
+          "why": "The only hard part of an octopus's body is its beak.",
           "wrong": {
             "A": "The arms are soft and bend easily.",
             "B": "The suckers grab and taste; they are not hard.",
@@ -155,7 +155,7 @@
           ],
           "answer": "D",
           "skill": "detail",
-          "why": "The article says an octopus has three hearts.",
+          "why": "In the article, an octopus has three hearts.",
           "wrong": {
             "A": "People have one heart, but an octopus has more.",
             "B": "Two is not the number in the article.",
@@ -317,7 +317,7 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The article says an octopus is a mollusk, related to snails and clams.",
+          "why": "In the article, an octopus is a mollusk, related to snails and clams.",
           "wrong": {
             "A": "Sharks and eels are predators that hunt octopuses.",
             "B": "Crabs and shellfish are food for the octopus.",
@@ -351,7 +351,7 @@
           ],
           "answer": "A",
           "skill": "vocabulary",
-          "why": "The article explains that the octopus raises little bumps, which changes how its skin feels and looks.",
+          "why": "In the article, the octopus raises tiny bumps, which changes how its skin feels and looks.",
           "wrong": {
             "B": "Color is mentioned separately from texture.",
             "C": "The octopus does not change its size.",
@@ -402,7 +402,7 @@
           ],
           "answer": "C",
           "skill": "cause-effect",
-          "why": "The article says that when a predator spots it anyway, the octopus squirts ink and escapes.",
+          "why": "In the article, when a predator finds it anyway, the octopus lets out dark ink and escapes.",
           "wrong": {
             "A": "Changing texture is how it hides before being spotted.",
             "B": "Octopuses have no shell.",
@@ -513,7 +513,7 @@
           ],
           "answer": "A",
           "skill": "detail",
-          "why": "The article explains that the skin contains thousands of sacs of pigment that the octopus stretches or squeezes.",
+          "why": "In the article, the skin contains thousands of sacs of pigment that the octopus stretches or squeezes.",
           "wrong": {
             "B": "The octopus has no bones.",
             "C": "Ink is released as a cloud for escape, not used to change skin color.",
@@ -581,7 +581,7 @@
           ],
           "answer": "A",
           "skill": "cause-effect",
-          "why": "The article explains that a copper-based substance carries oxygen in its blood, which makes the blood blue.",
+          "why": "In the article, a copper-based substance carries oxygen in its blood, which makes the blood blue.",
           "wrong": {
             "B": "The article does not connect seawater to its blood color.",
             "C": "Its diet is not given as the reason.",
@@ -627,7 +627,7 @@
         ],
         "answer": "B",
         "skill": "detail",
-        "why": "The text says the suckers grab things and can taste, too.",
+        "why": "Octopus suckers can grab things and can also taste.",
         "wrong": {
           "A": "The octopus squirts ink, but not with its suckers.",
           "C": "The text does not say the suckers help it see.",
@@ -644,7 +644,7 @@
         ],
         "answer": "D",
         "skill": "sequence",
-        "why": "The text says it squirts ink, the ink makes a dark cloud, and then it swims off.",
+        "why": "In the text, it squirts ink, the ink makes a dark cloud, and then it swims off.",
         "wrong": {
           "A": "Egg laying is not part of this escape.",
           "B": "Opening a jar is about being smart, not escaping.",
@@ -714,7 +714,7 @@
         ],
         "answer": "C",
         "skill": "detail",
-        "why": "The text says special skin cells let it change color in less than a second.",
+        "why": "In the text, special skin cells let it change color in less than a second.",
         "wrong": {
           "A": "One hour is far too slow.",
           "B": "One day is far too slow.",
@@ -748,7 +748,7 @@
         ],
         "answer": "A",
         "skill": "compare",
-        "why": "The text says unlike snails and clams, an octopus has no shell and no bones.",
+        "why": "In the text, unlike snails and clams, an octopus has no shell and no bones.",
         "wrong": {
           "B": "The text says octopuses live in seas.",
           "C": "The octopus has no bones.",
@@ -820,7 +820,7 @@
         "skill": "text-structure",
         "why": "\"Despite\" sets up a contrast between being very intelligent and living only one or two years.",
         "wrong": {
-          "A": "The article says they are exceptionally intelligent.",
+          "A": "In the article, octopuses are very smart.",
           "C": "The text does not compare mothers and babies.",
           "D": "Puzzle solving was explained in an earlier paragraph."
         }

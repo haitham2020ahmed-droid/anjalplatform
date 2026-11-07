@@ -138,7 +138,7 @@
           ],
           "answer": "B",
           "skill": "detail",
-          "why": "The story says Omar helps Hassan, a mapmaker.",
+          "why": "In the story, Omar helps Hassan, a mapmaker.",
           "wrong": {
             "A": "No ship captain appears in the story.",
             "C": "The king wants the map, but Omar does not work for him.",
@@ -496,7 +496,7 @@
           ],
           "answer": "A",
           "skill": "detail",
-          "why": "The story states that the king, a powerful patron, commissioned the manuscript to display the finest geography in his royal library.",
+          "why": "In the story, the king, a powerful patron, commissioned the manuscript to display the finest geography in his royal library.",
           "wrong": {
             "B": "No lost ship is mentioned in the story.",
             "C": "No dispute between merchants appears in the story.",
@@ -627,7 +627,7 @@
         ],
         "answer": "C",
         "skill": "detail",
-        "why": "The text says a king wants the map.",
+        "why": "In the text, a king wants the map.",
         "wrong": {
           "A": "A teacher is not in the story.",
           "B": "A sailor is not named as the one who wants it.",
@@ -678,7 +678,7 @@
         ],
         "answer": "B",
         "skill": "sequence",
-        "why": "The text says they fix the spot after Hassan says, \"Good eyes.\"",
+        "why": "In the story, after Hassan praises Omar's sharp eyes, they fix the spot.",
         "wrong": {
           "A": "They did not send the map back.",
           "C": "They fixed this map and did not draw a new one.",
@@ -767,7 +767,7 @@
         ],
         "answer": "B",
         "skill": "detail",
-        "why": "The text says Omar was learning mapmaking in the port city of Palermo, in Sicily.",
+        "why": "In the text, Omar was learning mapmaking in the port city of Palermo, in Sicily.",
         "wrong": {
           "A": "Egypt is not named as the setting.",
           "C": "Persia is not named as the setting.",

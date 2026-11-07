@@ -138,7 +138,7 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The article says the heat inside a kiln bakes the clay until it turns hard and strong.",
+          "why": "In the article, the heat of a kiln makes clay hard.",
           "wrong": {
             "A": "The article does not say clay melts into glass.",
             "B": "Clay starts as wet earth; the kiln makes it hard, not wet again.",
@@ -155,7 +155,7 @@
           ],
           "answer": "B",
           "skill": "detail",
-          "why": "The article says a potter can also use a wheel, a table that spins fast, to shape clay.",
+          "why": "In the article, a potter can also shape clay on a wheel that spins.",
           "wrong": {
             "A": "Freezing clay is not mentioned in the article.",
             "C": "The article does not say clay is boiled.",
@@ -172,7 +172,7 @@
           ],
           "answer": "B",
           "skill": "vocabulary",
-          "why": "The article explains that a glaze is a thin, glassy coating that makes a pot shiny and smooth.",
+          "why": "In the article, a glaze is like glass and makes a pot shiny.",
           "wrong": {
             "A": "Clay itself is not called a glaze.",
             "C": "The hot oven is called a kiln, not a glaze.",
@@ -189,7 +189,7 @@
           ],
           "answer": "A",
           "skill": "inference",
-          "why": "The article says a glaze helps a pot hold liquid without leaking, so a pot without one could leak more easily.",
+          "why": "A glaze helps a pot hold water without leaking, so a pot without one could leak.",
           "wrong": {
             "B": "The article does not say glaze changes how heavy a jar is.",
             "C": "Firing makes clay hard; it does not turn back into wet clay.",
@@ -208,7 +208,7 @@
           "skill": "inference",
           "why": "The article names several places where people shaped clay into pots long ago, showing pottery was made in many places.",
           "wrong": {
-            "A": "The article says people made pottery thousands of years ago.",
+            "A": "People made pottery long ago, not just last year.",
             "C": "The article does not mention kings owning pottery.",
             "D": "The article names four different places, not one."
           }
@@ -317,7 +317,7 @@
           ],
           "answer": "A",
           "skill": "detail",
-          "why": "The article explains that kneading pushes out tiny air bubbles that could later crack or burst a piece once it is fired.",
+          "why": "In the article, kneading pushes out tiny air bubbles that could later crack or burst a piece once it is fired.",
           "wrong": {
             "B": "Color comes from paint or glaze, not kneading.",
             "C": "The article does not say kneading cools clay.",
@@ -334,7 +334,7 @@
           ],
           "answer": "D",
           "skill": "detail",
-          "why": "The article says the heat inside a kiln permanently changes soft clay into a hard material called ceramic.",
+          "why": "In the article, the heat inside a kiln permanently changes soft clay into a hard material called ceramic.",
           "wrong": {
             "A": "The article says clay hardens; it does not become a liquid.",
             "B": "Firing makes clay harder, not softer.",
@@ -385,7 +385,7 @@
           ],
           "answer": "C",
           "skill": "inference",
-          "why": "The article says each region's styles, colors, and patterns reflected its own history, beliefs, and daily life.",
+          "why": "Each region's styles and patterns grew out of its own history and daily life.",
           "wrong": {
             "A": "The article shows clay was used in all four places.",
             "B": "The article does not say pottery was banned anywhere.",
@@ -419,7 +419,7 @@
           ],
           "answer": "C",
           "skill": "sequence",
-          "why": "The article says a shaped piece must dry completely before it is fired inside a kiln.",
+          "why": "In the article, a shaped piece must dry completely before it is fired inside a kiln.",
           "wrong": {
             "A": "A glaze is usually applied and then fired separately, not required before the first firing.",
             "B": "Selling is never mentioned in the article.",
@@ -496,7 +496,7 @@
           ],
           "answer": "A",
           "skill": "detail",
-          "why": "The article explains that kneading removes tiny trapped air bubbles that could otherwise crack or shatter a piece once it meets intense heat.",
+          "why": "In the article, kneading removes tiny trapped air bubbles that could otherwise crack or shatter a piece once it meets intense heat.",
           "wrong": {
             "B": "Color comes from paint or glaze, not from kneading.",
             "C": "Kneading does not affect the kiln's temperature.",
@@ -513,7 +513,7 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The article states that intense heat permanently transforms soft clay into a hard material known as ceramic.",
+          "why": "In the article, intense heat permanently transforms soft clay into a hard material known as ceramic.",
           "wrong": {
             "A": "Glaze is a separate coating, not what clay itself becomes.",
             "B": "The article says the change is permanent, not reversible once cooled.",
@@ -564,7 +564,7 @@
           ],
           "answer": "A",
           "skill": "inference",
-          "why": "The article explains that pottery fragments survive for centuries after other, more fragile materials decay, which is why archaeologists rely on them.",
+          "why": "In the article, pottery fragments survive for centuries after other, more fragile materials decay, which is why archaeologists rely on them.",
           "wrong": {
             "B": "The article never says pottery includes written history.",
             "C": "Most ancient pottery was not kept in museums; much of it was found buried or broken.",
@@ -627,7 +627,7 @@
         ],
         "answer": "C",
         "skill": "detail",
-        "why": "The text says clay is wet earth and it is soft.",
+        "why": "In the text, clay is wet earth and it is soft.",
         "wrong": {
           "A": "A glaze is like glass, but clay is not.",
           "B": "A kiln is the hot oven.",
@@ -661,7 +661,7 @@
         ],
         "answer": "A",
         "skill": "inference",
-        "why": "The text says a craft makes things we use and art makes things look nice, and pottery can do both.",
+        "why": "In the text, a craft makes things we use and art makes things look nice, and pottery can do both.",
         "wrong": {
           "B": "Pots were made in Egypt, Iraq, China, and Arabia.",
           "C": "The text does not say pots are painted blue.",
@@ -678,7 +678,7 @@
         ],
         "answer": "B",
         "skill": "vocabulary",
-        "why": "The text says a craft makes things we use.",
+        "why": "In the text, a craft makes things we use.",
         "wrong": {
           "A": "The hot oven is called a kiln.",
           "C": "The shiny coat is a glaze.",
@@ -714,7 +714,7 @@
         ],
         "answer": "A",
         "skill": "detail",
-        "why": "The article says the heat changes the soft clay into a hard material called ceramic.",
+        "why": "In the article, the heat changes the soft clay into a hard material called ceramic.",
         "wrong": {
           "B": "A glaze is a glassy coating.",
           "C": "A wheel is a flat disk that spins.",
@@ -767,7 +767,7 @@
         ],
         "answer": "B",
         "skill": "detail",
-        "why": "The article says ceramic comes from the ancient Greek word for potter's clay.",
+        "why": "In the article, ceramic comes from the ancient Greek word for potter's clay.",
         "wrong": {
           "A": "Porcelain is linked to China, but it is not where ceramic comes from.",
           "C": "The article does not link ceramic to Arabic.",
@@ -818,7 +818,7 @@
         ],
         "answer": "A",
         "skill": "inference",
-        "why": "The article says trained hands press, pull, and lift spinning clay, which is a skill that takes years of practice.",
+        "why": "In the article, trained hands press, pull, and lift spinning clay, which is a skill that takes years of practice.",
         "wrong": {
           "B": "The kiln heat is not described as taking years.",
           "C": "Drying is not said to take years.",

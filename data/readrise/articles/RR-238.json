@@ -138,7 +138,7 @@
      ],
      "answer": "B",
      "skill": "detail",
-     "why": "The article says a tendon is like a tough string that links a muscle to a bone.",
+     "why": "In the article, a tendon is like a tough string that links a muscle to a bone.",
      "wrong": {
       "A": "A joint is where two bones meet, not what connects muscle to bone.",
       "C": "A nerve is not discussed in this article.",
@@ -155,7 +155,7 @@
      ],
      "answer": "D",
      "skill": "detail",
-     "why": "The article says muscles can only pull, they can not push.",
+     "why": "Muscles can only pull; they cannot push.",
      "wrong": {
       "A": "The article says muscles cannot push.",
       "B": "Muscles cannot push at all.",
@@ -189,7 +189,7 @@
      ],
      "answer": "D",
      "skill": "cause-effect",
-     "why": "The article says rest and good food help fix tiny tears, and the muscle grows back thicker and stronger.",
+     "why": "In the article, rest and good food help fix tiny tears, and the muscle grows back thicker and stronger.",
      "wrong": {
       "A": "Muscles do not disappear.",
       "B": "A muscle does not turn into a tendon.",
@@ -240,7 +240,7 @@
      ],
      "answer": "A",
      "skill": "inference",
-     "why": "The article says exercise, rest, and good food all help keep muscles strong.",
+     "why": "In the article, rest and good food help muscles get stronger after exercise.",
      "wrong": {
       "B": "Not moving can make muscles weak.",
       "C": "Candy alone is not the healthy food the article describes.",
@@ -317,7 +317,7 @@
      ],
      "answer": "D",
      "skill": "detail",
-     "why": "The article says when the brain sends a signal, muscle fibers contract at the same time.",
+     "why": "In the article, when the brain sends a signal, muscle fibers contract at the same time.",
      "wrong": {
       "A": "Fibers do not turn into tendons.",
       "B": "Fibers do not stop working when signaled.",
@@ -385,7 +385,7 @@
      ],
      "answer": "A",
      "skill": "cause-effect",
-     "why": "The article says exercise causes tiny tears, and rest and food repair them into thicker, stronger fibers.",
+     "why": "In the article, exercise causes tiny tears, and rest and food repair them into thicker, stronger fibers.",
      "wrong": {
       "B": "Fibers do not turn into tendons.",
       "C": "Fibers keep contracting after exercise and rest.",
@@ -402,7 +402,7 @@
      ],
      "answer": "D",
      "skill": "inference",
-     "why": "The article says exercise with enough rest and protein-rich food helps muscle fibers grow back thicker and stronger.",
+     "why": "In the article, with rest and good food, the muscle fibers grow back thicker and stronger.",
      "wrong": {
       "A": "Using muscles regularly with good food helps them get stronger, not weaker.",
       "B": "Muscles always need tendons to pull on bones.",
@@ -419,7 +419,7 @@
      ],
      "answer": "A",
      "skill": "inference",
-     "why": "The article says a muscle that goes unused for a long time gradually weakens.",
+     "why": "In the article, a muscle that goes unused for a long time gradually weakens.",
      "wrong": {
       "B": "The article links flexibility to exercise, not inactivity.",
       "C": "Muscles do not grow extra tendons.",
@@ -496,7 +496,7 @@
      ],
      "answer": "A",
      "skill": "detail",
-     "why": "The article says skeletal muscle is unlike the involuntary smooth muscle in organs or the cardiac muscle of the heart.",
+     "why": "Skeletal muscle is unlike smooth muscle in organs and cardiac muscle in the heart, which work without our control.",
      "wrong": {
       "B": "Tendons are not contrasted with skeletal muscle this way.",
       "C": "Joints are not described as containing no tissue.",
@@ -504,20 +504,20 @@
      }
     },
     {
-     "stem": "What does the article identify as an example of an antagonist pair?",
+     "stem": "How do the two muscles in an antagonist pair work together?",
      "options": [
-      "The hamstring and the heart",
-      "The nerve and the tendon",
-      "The biceps and triceps",
-      "The skull and the spine"
+      "Both muscles push the bone at once",
+      "Both muscles relax at the same time",
+      "One contracts while its partner relaxes",
+      "One pushes while the other one pulls"
      ],
      "answer": "C",
      "skill": "detail",
-     "why": "The article names the biceps and triceps of the upper arm as a familiar antagonist pair example.",
+     "why": "When one muscle in the pair contracts to bend the joint, its partner relaxes and lengthens.",
      "wrong": {
-      "A": "The heart is cardiac muscle, not part of this example.",
-      "B": "A nerve and a tendon are not a muscle pair.",
-      "D": "The skull and spine are bones, not muscles."
+      "A": "Muscles can only pull, never push.",
+      "B": "Both relaxing would not move the joint.",
+      "D": "Muscles cannot push."
      }
     },
     {
@@ -564,7 +564,7 @@
      ],
      "answer": "C",
      "skill": "cause-effect",
-     "why": "The article explains that resistance exercise causes microscopic tears that the body repairs into thicker, stronger fibers, a process called hypertrophy.",
+     "why": "In the article, resistance exercise causes microscopic tears that the body repairs into thicker, stronger fibers, a process called hypertrophy.",
      "wrong": {
       "A": "The body repairs the damage rather than leaving permanent harm.",
       "B": "Muscle fibers do not turn into nerve tissue.",
@@ -581,7 +581,7 @@
      ],
      "answer": "A",
      "skill": "inference",
-     "why": "The article says a muscle left unused for an extended period gradually loses mass and strength, a process called atrophy.",
+     "why": "In the article, a muscle left unused for an extended period gradually loses mass and strength, a process called atrophy.",
      "wrong": {
       "B": "Hypertrophy results from exercise, not from rest alone.",
       "C": "Tendons do not turn into nerves.",
@@ -598,7 +598,7 @@
      ],
      "answer": "D",
      "skill": "compare",
-     "why": "The article states skeletal muscle responds to conscious, voluntary control, unlike the involuntary cardiac muscle of the heart.",
+     "why": "We control skeletal muscle ourselves, but cardiac muscle in the heart works without our control.",
      "wrong": {
       "A": "This reverses the article's description.",
       "B": "The article contrasts voluntary and involuntary control.",
@@ -644,7 +644,7 @@
     ],
     "answer": "A",
     "skill": "cause-effect",
-    "why": "The text says if you do not use a muscle, it can get weak.",
+    "why": "If you do not use a muscle, it can get weak.",
     "wrong": {
      "B": "Water is part of the advice to stay strong.",
      "C": "Rest helps muscles to grow back stronger.",
@@ -682,7 +682,7 @@
     "wrong": {
      "B": "The text says muscles move the arm.",
      "C": "The text does not teach a game.",
-     "D": "The text says muscles pull, and bones do not push."
+     "D": "In the text, muscles pull, and bones do not push."
     }
    }
   ],
@@ -714,7 +714,7 @@
     ],
     "answer": "B",
     "skill": "detail",
-    "why": "The text says a tendon is a tough cord that links a muscle to a bone.",
+    "why": "In the text, a tendon is a tough cord that links a muscle to a bone.",
     "wrong": {
      "A": "A tendon links a muscle to a bone and is not a bone.",
      "C": "That describes a joint.",
@@ -750,7 +750,7 @@
     "skill": "author-purpose",
     "why": "The author starts with a familiar movement so readers can connect muscles to their own bodies.",
     "wrong": {
-     "A": "The text says muscles help you walk, chew, and smile too.",
+     "A": "In the text, muscles help you walk, chew, and smile too.",
      "B": "There is no warning about knees.",
      "C": "Robots are not mentioned."
     }
@@ -784,7 +784,7 @@
     ],
     "answer": "C",
     "skill": "detail",
-    "why": "The text says a torn tendon can keep a muscle from moving a bone properly at all.",
+    "why": "A torn tendon can stop a muscle from moving a bone the right way.",
     "wrong": {
      "A": "A torn tendon harms movement, not strength.",
      "B": "The text does not say a bone turns into muscle.",
@@ -801,7 +801,7 @@
     ],
     "answer": "D",
     "skill": "cause-effect",
-    "why": "The text says the body repairs the muscle tissue during rest, rebuilding fibers a bit thicker.",
+    "why": "In the text, the body repairs the muscle tissue during rest, rebuilding fibers a bit thicker.",
     "wrong": {
      "A": "The text says repair happens during rest.",
      "B": "Protein and sleep are said to support repair.",

@@ -155,7 +155,7 @@
           ],
           "answer": "B",
           "skill": "detail",
-          "why": "The article says that in Baghdad a doctor had to pass a test first.",
+          "why": "In Baghdad a doctor had to pass a test first.",
           "wrong": {
             "A": "Doctors did not have to build hospitals.",
             "C": "Hanging meat is from the story about Al-Razi, not a rule for all doctors.",
@@ -172,7 +172,7 @@
           ],
           "answer": "C",
           "skill": "vocabulary",
-          "why": "The article says each sickness had its own ward, such as one for bad eyes and one for fevers.",
+          "why": "In the article, each sickness had its own ward, such as one for bad eyes and one for fevers.",
           "wrong": {
             "A": "The test is something doctors had to pass, not a ward.",
             "B": "The huge book was written by Ibn Sina.",
@@ -189,7 +189,7 @@
           ],
           "answer": "A",
           "skill": "cause-effect",
-          "why": "The article says the spot where the meat went bad last had the best, cleanest air, so the hospital was built there.",
+          "why": "In the article, the spot where the meat went bad last had the best air, so the hospital was built there.",
           "wrong": {
             "B": "The article does not talk about food in that part of town.",
             "C": "No river is named in the article.",
@@ -243,7 +243,7 @@
           "why": "The last line connects the old hospitals to hospitals today, showing why they are still important.",
           "wrong": {
             "A": "The author does not ask readers to travel.",
-            "B": "The article says some hospitals were huge.",
+            "B": "The hospitals were great, not small.",
             "C": "The last line does not explain how to mix medicine."
           }
         }
@@ -351,7 +351,7 @@
           ],
           "answer": "B",
           "skill": "detail",
-          "why": "The article says each hospital had a pharmacy, where trained workers prepared medicines.",
+          "why": "In the article, each hospital had a pharmacy, where trained workers prepared medicines.",
           "wrong": {
             "A": "Students studied books in the library, not the pharmacy.",
             "C": "The article does not say where clothes were kept.",
@@ -368,7 +368,7 @@
           ],
           "answer": "C",
           "skill": "cause-effect",
-          "why": "According to the story, the slowest spoiling showed where the air was cleanest, so he said the hospital should be built there.",
+          "why": "In the story, the slowest spoiling showed where the air was cleanest, so he said the hospital should be built there.",
           "wrong": {
             "A": "The cost of meat is not part of the story.",
             "B": "The article does not mention a market.",
@@ -406,7 +406,7 @@
           "wrong": {
             "A": "The meat story is a famous tale, not a modern hospital practice.",
             "B": "The bimaristans did the opposite and even helped patients rest at home.",
-            "C": "The article says the sick did not all stay together in one big room."
+            "C": "The sick did not all stay together in one big room."
           }
         },
         {
@@ -483,7 +483,7 @@
           "wrong": {
             "A": "The article shows careful observation and training, not guesswork.",
             "C": "The article never says the two physicians disagreed.",
-            "D": "The article says treatment at the bimaristans was free for anyone who was sick."
+            "D": "Treatment at the bimaristans was free for anyone who was sick."
           }
         },
         {
@@ -513,7 +513,7 @@
           ],
           "answer": "A",
           "skill": "detail",
-          "why": "The article says Ibn Sina's book functioned like a medical encyclopedia and was studied by European doctors for hundreds of years.",
+          "why": "Ibn Sina's book was like a medical encyclopedia, and doctors in Europe studied it for hundreds of years.",
           "wrong": {
             "B": "The article calls the book enormous, not short.",
             "C": "The book is about medicine, not hospital rules.",
@@ -530,7 +530,7 @@
           ],
           "answer": "C",
           "skill": "inference",
-          "why": "The article says young men observed physicians examine and diagnose patients and studied manuscripts in the hospital library.",
+          "why": "In the article, young men observed physicians examine and diagnose patients and studied manuscripts in the hospital library.",
           "wrong": {
             "A": "The article does not mention universities nearby.",
             "B": "Doctors, not patients, had to pass exams.",
@@ -547,10 +547,10 @@
           ],
           "answer": "B",
           "skill": "cause-effect",
-          "why": "The article says he described the symptoms that help doctors distinguish one disease from the other.",
+          "why": "In the article, he described the symptoms that help doctors distinguish one disease from the other.",
           "wrong": {
             "A": "The article does not say the diseases disappeared.",
-            "C": "The article says anyone who was sick could seek help.",
+            "C": "The article does not say hospitals turned away patients with spots.",
             "D": "The article does not connect Ibn Sina with a poem."
           }
         },
@@ -581,7 +581,7 @@
           ],
           "answer": "A",
           "skill": "detail",
-          "why": "The article states that in Baghdad in 931 a new regulation required doctors to pass an exam before practicing.",
+          "why": "In Baghdad in 931 a new regulation required doctors to pass an exam before practicing.",
           "wrong": {
             "B": "The rule was about doctors, not about building hospitals.",
             "C": "Treatment was free, and the rule did not concern payment.",
@@ -627,7 +627,7 @@
         ],
         "answer": "C",
         "skill": "detail",
-        "why": "The text says each patient got a bed, food, and clean clothes.",
+        "why": "In the text, each patient got a bed, food, and clean clothes.",
         "wrong": {
           "A": "A horse is not mentioned.",
           "B": "The test was for doctors, not patients.",
@@ -714,7 +714,7 @@
         ],
         "answer": "C",
         "skill": "cause-effect",
-        "why": "The text says the money let patients rest at home before going back to work.",
+        "why": "In the text, the money let patients rest at home before going back to work.",
         "wrong": {
           "A": "The care was free.",
           "B": "Patients got a bed in the hospital.",
@@ -767,7 +767,7 @@
         ],
         "answer": "C",
         "skill": "detail",
-        "why": "The text says each patient received a bed, nourishing meals, and clean clothes.",
+        "why": "In the text, each patient received a bed, nourishing meals, and clean clothes.",
         "wrong": {
           "A": "Only some Cairo patients got money, as they left.",
           "B": "The library was for young men who studied.",
@@ -801,7 +801,7 @@
         ],
         "answer": "D",
         "skill": "compare",
-        "why": "The text says eye patients stayed in one area while fever patients stayed in another.",
+        "why": "Patients with eye problems stayed in one area, and patients with fevers stayed in another.",
         "wrong": {
           "A": "The sick were not kept together in one big room.",
           "B": "They stayed in the hospital in wards.",
@@ -818,7 +818,7 @@
         ],
         "answer": "A",
         "skill": "cause-effect",
-        "why": "The text says the hospitals were places of learning where young men studied books in the library.",
+        "why": "The hospitals were also places of learning, where young doctors studied books in the library.",
         "wrong": {
           "B": "The library was for students.",
           "C": "The pharmacy mixed medicines.",

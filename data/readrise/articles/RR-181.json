@@ -140,7 +140,7 @@
           "skill": "cause-effect",
           "why": "The article says books were made on skin, and skin cost a lot, so there were not many books.",
           "wrong": {
-            "A": "The article says the rulers loved books.",
+            "A": "In the article, the rulers loved books.",
             "C": "The article does not say there were no scholars.",
             "D": "The article does not say the river washed books away."
           }
@@ -155,7 +155,7 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The article says paper first came from China.",
+          "why": "In the article, paper first came from China.",
           "wrong": {
             "A": "Paper reached Spain later.",
             "B": "Baghdad made paper after the skill spread west.",
@@ -172,7 +172,7 @@
           ],
           "answer": "D",
           "skill": "sequence",
-          "why": "The article says they beat the cloth into mush, spread it thin on a screen, and then let it dry.",
+          "why": "In the article, they beat the cloth into mush, spread it thin on a screen, and then let it dry.",
           "wrong": {
             "A": "It was not sold as mush.",
             "B": "The article does not say it was burned.",
@@ -189,7 +189,7 @@
           ],
           "answer": "A",
           "skill": "vocabulary",
-          "why": "The article says the scholars would translate books, which means they put the words in Arabic.",
+          "why": "In the article, scholars would translate books from other lands into Arabic, which means they put the words into Arabic.",
           "wrong": {
             "B": "Making paper is a different job.",
             "C": "Selling books is not what translate means.",
@@ -209,7 +209,7 @@
           "why": "The article says paper did not cost much, so more books were made, and many people could buy them.",
           "wrong": {
             "A": "The article does not say this.",
-            "C": "The article says the rulers loved books.",
+            "C": "In the article, the rulers loved books.",
             "D": "Many books would not sell if only one person could read."
           }
         },
@@ -334,7 +334,7 @@
           ],
           "answer": "B",
           "skill": "cause-effect",
-          "why": "The article says that because paper was cheaper, people could make far more books.",
+          "why": "In the article, because paper was cheaper, people could make far more books.",
           "wrong": {
             "A": "Copyists still wrote each manuscript by hand.",
             "C": "The library is described as famous and busy.",
@@ -368,7 +368,7 @@
           ],
           "answer": "D",
           "skill": "sequence",
-          "why": "The article says workers soaked and beat the rags, spread the pulp, let it dry, and then made the sheets smooth.",
+          "why": "In the article, workers soaked and beat the rags, spread the pulp, let it dry, and then made the sheets smooth.",
           "wrong": {
             "A": "Soaking came first.",
             "B": "Beating came before spreading.",
@@ -496,7 +496,7 @@
           ],
           "answer": "A",
           "skill": "detail",
-          "why": "The article says algebra comes from the Arabic title of al-Khwarizmi's book about solving equations.",
+          "why": "In the article, algebra comes from the Arabic title of al-Khwarizmi's book about solving equations.",
           "wrong": {
             "B": "The article does not connect the word to Greek.",
             "C": "Paper mills are not linked to the word.",
@@ -513,7 +513,7 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The article says books were written on parchment from animal skin or papyrus from Egypt.",
+          "why": "In the article, books were written on parchment from animal skin or papyrus from Egypt.",
           "wrong": {
             "A": "Clay and stone are not mentioned.",
             "B": "Rags and fibers were used to make paper, not as writing surfaces before it.",
@@ -547,7 +547,7 @@
           ],
           "answer": "D",
           "skill": "cause-effect",
-          "why": "The article says translating into Arabic preserved ancient knowledge that might otherwise have disappeared.",
+          "why": "In the article, translating into Arabic preserved ancient knowledge that might otherwise have disappeared.",
           "wrong": {
             "A": "The goal was to keep older ideas, not replace them.",
             "B": "Cost is not linked to translation.",
@@ -627,7 +627,7 @@
         ],
         "answer": "B",
         "skill": "detail",
-        "why": "The text says they spread the mush thin on a screen and let it dry.",
+        "why": "In the text, they spread the mush thin on a screen and let it dry.",
         "wrong": {
           "A": "A wall is not mentioned in making paper.",
           "C": "Cloth is what they beat into mush, not what they spread it on.",
@@ -767,7 +767,7 @@
         ],
         "answer": "C",
         "skill": "detail",
-        "why": "The text says workers soaked old linen rags and other plant fibers before beating them.",
+        "why": "Workers soaked old linen rags and other plant fibers and then beat them into pulp.",
         "wrong": {
           "A": "Animal skin is used for parchment, not paper.",
           "B": "Papyrus was an older writing material that was imported.",
@@ -820,7 +820,7 @@
         "skill": "author-purpose",
         "why": "The ending links the daily use of paper today to the work of Baghdad's papermakers and scholars.",
         "wrong": {
-          "B": "The author says people use paper every day.",
+          "B": "People still use paper every day.",
           "C": "The article describes the steps but is not a how-to guide.",
           "D": "The author never invites readers to travel."
         }

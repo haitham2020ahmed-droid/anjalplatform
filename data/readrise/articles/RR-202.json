@@ -138,7 +138,7 @@
           ],
           "answer": "A",
           "skill": "detail",
-          "why": "The article explains that sinkholes often form where there is soft rock, such as limestone, underground.",
+          "why": "In the article, sinkholes form where there is soft rock underground.",
           "wrong": {
             "B": "Frozen rock is never mentioned in the article.",
             "C": "Sand covering rock is not part of how sinkholes form.",
@@ -317,7 +317,7 @@
           ],
           "answer": "A",
           "skill": "detail",
-          "why": "The article explains that rainwater is slightly acidic, which lets it slowly dissolve soft rock like limestone.",
+          "why": "In the article, rainwater is slightly acidic, which lets it slowly dissolve soft rock like limestone.",
           "wrong": {
             "B": "Frozen water is not mentioned as part of this process.",
             "C": "Boiling water is not mentioned in the article.",
@@ -325,20 +325,20 @@
           }
         },
         {
-          "stem": "According to the article, what are regions with a great deal of limestone underground called?",
+          "stem": "According to the article, where are sinkholes extra likely to form?",
           "options": [
-            "Collapse zones",
-            "Desert valleys",
-            "Karst landscapes",
-            "Groundwater fields"
+            "Where the ground is always frozen",
+            "Near the rocky tops of very tall mountains",
+            "Where lots of limestone is underground",
+            "Under the deepest parts of oceans"
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The article states that regions with abundant limestone underground are called karst landscapes.",
+          "why": "In the article, places with lots of soft limestone underground are extra likely to have sinkholes.",
           "wrong": {
-            "A": "\"Collapse zones\" is not a term used in the article.",
-            "B": "\"Desert valleys\" is not the term the article uses for limestone regions.",
-            "D": "\"Groundwater fields\" is not a term the article uses."
+            "A": "Frozen ground is not named as a cause.",
+            "B": "Mountain tops are not named.",
+            "D": "The article is about sinkholes on land."
           }
         },
         {
@@ -385,7 +385,7 @@
           ],
           "answer": "A",
           "skill": "inference",
-          "why": "The article explains that pumping too much groundwater can lower the water level that was helping support a cavity's roof, making collapse more likely.",
+          "why": "Pumping too much groundwater can lower the water that was helping hold up a cave's roof, so a collapse is more likely.",
           "wrong": {
             "B": "Pumping groundwater removes water; it does not fill cavities with rock.",
             "C": "Limestone forms over vast amounts of time, not overnight.",
@@ -402,7 +402,7 @@
           ],
           "answer": "B",
           "skill": "inference",
-          "why": "The article explains that a solution sinkhole forms gradually as the surface slowly sinks, while a collapse sinkhole forms suddenly when a cavity's roof gives way all at once.",
+          "why": "In the article, one kind of sinkhole forms slowly as the surface sinks, while the other forms suddenly when the roof of a space gives way.",
           "wrong": {
             "A": "The article does not say either type of sinkhole forms in fire.",
             "C": "Size is not what separates the two kinds of sinkholes in the article.",
@@ -530,7 +530,7 @@
           ],
           "answer": "D",
           "skill": "vocabulary",
-          "why": "The article explains that erosion is the slow, gradual wearing away of soft rock by slightly acidic rainwater over a very long time.",
+          "why": "In the article, erosion is the slow, gradual wearing away of soft rock by slightly acidic rainwater over a very long time.",
           "wrong": {
             "A": "Nothing in the article describes an explosion.",
             "B": "Freezing is not part of the erosion process described.",
@@ -547,7 +547,7 @@
           ],
           "answer": "A",
           "skill": "cause-effect",
-          "why": "The article explains that erosion gradually dissolves and thins the rock forming a cavity's roof until it becomes too weak to bear the ground's weight.",
+          "why": "In the article, erosion gradually dissolves and thins the rock forming a cavity's roof until it becomes too weak to bear the ground's weight.",
           "wrong": {
             "B": "Geologists study cavities; they do not remove roofs to do so.",
             "C": "Rock does not turn into groundwater in the article's explanation.",
@@ -627,7 +627,7 @@
         ],
         "answer": "C",
         "skill": "detail",
-        "why": "The text says a big sinkhole can eat a tree and a road.",
+        "why": "In the text, a big sinkhole can eat a tree and a road.",
         "wrong": {
           "A": "The text does not say a sinkhole can eat a mountain.",
           "B": "The text does not say a sinkhole can eat the sea.",
@@ -678,7 +678,7 @@
         ],
         "answer": "D",
         "skill": "cause-effect",
-        "why": "The text says some spots in Saudi Arabia have soft rock, so sinkholes can form there too.",
+        "why": "In the text, some spots in Saudi Arabia have soft rock, so sinkholes can form there too.",
         "wrong": {
           "A": "The text does not say there is ice.",
           "B": "The text does not link trees to sinkholes.",
@@ -697,11 +697,11 @@
         ],
         "answer": "B",
         "skill": "detail",
-        "why": "The text says the fast kind forms when the roof suddenly gives way, sometimes with no warning.",
+        "why": "The fast kind forms when the roof suddenly gives way, sometimes with no warning.",
         "wrong": {
           "A": "The slow kind sinks over many years, so people can notice it.",
           "C": "Forming over many years is the slow kind.",
-          "D": "The text says sinkholes can be tiny or huge."
+          "D": "In the text, sinkholes can be tiny or huge."
         }
       },
       {
@@ -731,7 +731,7 @@
         ],
         "answer": "A",
         "skill": "cause-effect",
-        "why": "The text says rainwater slowly dissolves soft rock such as limestone and leaves a cavity.",
+        "why": "In the text, rainwater slowly dissolves soft rock such as limestone and leaves a cavity.",
         "wrong": {
           "B": "Limestone does not change how much rain falls.",
           "C": "The text does not say limestone grows.",
@@ -748,7 +748,7 @@
         ],
         "answer": "C",
         "skill": "compare",
-        "why": "The text says one kind sinks slowly over many years and the other forms fast when the roof gives way.",
+        "why": "One kind sinks slowly over many years, and the other forms fast when the roof gives way.",
         "wrong": {
           "A": "The text does not link sinkholes to seasons.",
           "B": "Large sinkholes of either kind can swallow things.",

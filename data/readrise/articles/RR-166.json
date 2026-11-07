@@ -138,7 +138,7 @@
           ],
           "answer": "B",
           "skill": "cause-effect",
-          "why": "The article says the Moon has no air, so an astronaut must wear a suit.",
+          "why": "The Moon has no air, so an astronaut must wear a space suit.",
           "wrong": {
             "A": "Wind is not mentioned.",
             "C": "Low gravity, not the suit, lets them jump high.",
@@ -155,7 +155,7 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The article says each day on the Moon lasts about two weeks.",
+          "why": "Each day on the Moon lasts about two weeks.",
           "wrong": {
             "A": "A Moon day is much longer than an hour.",
             "B": "This does not make sense as an answer.",
@@ -180,7 +180,7 @@
           }
         },
         {
-          "stem": "Read this: \"Gravity is the pull that holds us down.\" On the Moon, gravity is weak. What does that mean?",
+          "stem": "In the article, what does the word \"that\" mean?",
           "options": [
             "Things fall faster on the Moon",
             "You could jump much higher on the Moon",
@@ -334,7 +334,7 @@
           ],
           "answer": "A",
           "skill": "detail",
-          "why": "The article says people may cover their homes with thick layers of moon soil.",
+          "why": "In the article, people may cover their homes with thick layers of moon soil.",
           "wrong": {
             "B": "Paint is not mentioned.",
             "C": "Height would not block radiation in the article.",
@@ -351,7 +351,7 @@
           ],
           "answer": "B",
           "skill": "cause-effect",
-          "why": "The article says that without thick air, nothing blocks the radiation.",
+          "why": "In the article, without thick air, nothing blocks the radiation.",
           "wrong": {
             "A": "The article does not say this, and it is not true.",
             "C": "Dust does not pull in radiation.",
@@ -359,7 +359,7 @@
           }
         },
         {
-          "stem": "Read this: \"Scientists have found ice in deep, dark craters near the Moon's south pole.\" What is a crater?",
+          "stem": "Scientists have found ice in craters near the Moon's south pole. What is a crater?",
           "options": [
             "A tall mountain made of ice and rock",
             "A large bowl-shaped hole in the ground",
@@ -368,7 +368,7 @@
           ],
           "answer": "B",
           "skill": "vocabulary",
-          "why": "A crater is a bowl-shaped hole; the article calls them deep and dark.",
+          "why": "A crater is a bowl-shaped hole; the craters are described as deep and dark.",
           "wrong": {
             "A": "Craters are holes, not mountains.",
             "C": "A crater is not a vehicle.",
@@ -385,7 +385,7 @@
           ],
           "answer": "C",
           "skill": "inference",
-          "why": "The article says the craters are deep and dark; without sunlight they stay cold, so ice does not melt.",
+          "why": "In the article, the craters are deep and dark; without sunlight they stay cold, so ice does not melt.",
           "wrong": {
             "A": "No one keeps the ice in freezers.",
             "B": "The article says it is ice, not salt.",
@@ -496,7 +496,7 @@
           ],
           "answer": "B",
           "skill": "detail",
-          "why": "The article says settlers could melt the ice for water and split it into hydrogen and oxygen for air and fuel.",
+          "why": "In the article, settlers could melt the ice for water and split it into hydrogen and oxygen for air and fuel.",
           "wrong": {
             "A": "The article does not say this.",
             "C": "Soil and tunnels are suggested for shielding.",
@@ -513,7 +513,7 @@
           ],
           "answer": "C",
           "skill": "cause-effect",
-          "why": "The article says the particles were never smoothed by wind or water.",
+          "why": "The particles were never smoothed by wind or water.",
           "wrong": {
             "A": "The article does not say this.",
             "B": "The grains are sharp naturally.",
@@ -530,7 +530,7 @@
           ],
           "answer": "A",
           "skill": "detail",
-          "why": "The article says reduced gravity may gradually weaken muscles and bones, so settlers would exercise daily.",
+          "why": "In the article, reduced gravity may gradually weaken muscles and bones, so settlers would exercise daily.",
           "wrong": {
             "B": "Height is not mentioned.",
             "C": "Gravity still holds shelters down.",
@@ -538,7 +538,7 @@
           }
         },
         {
-          "stem": "Read this: \"Settlers might therefore shield their shelters with thick layers of soil.\" What does shield mean?",
+          "stem": "Settlers might shield their shelters with thick layers of soil. What does shield mean?",
           "options": [
             "To clean something by washing it",
             "To build quickly",
@@ -644,9 +644,9 @@
         ],
         "answer": "A",
         "skill": "cause-effect",
-        "why": "The text says the Moon has no air, so a home must be shut tight to keep air in.",
+        "why": "In the text, the Moon has no air, so a home must be shut tight to keep air in.",
         "wrong": {
-          "B": "The dust is a problem, but the text says a home is shut tight to keep air in.",
+          "B": "The dust is a problem, but in the text, a home is shut tight to keep air in.",
           "C": "The text does not say a shut home keeps heat out.",
           "D": "The ice is in dark holes, not in the homes."
         }
@@ -735,7 +735,7 @@
         "wrong": {
           "B": "The text says there is no thick air, so it does not describe rain or wind.",
           "C": "The text says a night lasts about two weeks, not hours.",
-          "D": "The text says the temperature changes wildly."
+          "D": "In the text, the temperature changes wildly."
         }
       },
       {
@@ -767,7 +767,7 @@
         ],
         "answer": "A",
         "skill": "detail",
-        "why": "The article says the last of them returned home in 1972.",
+        "why": "In the article, the last of them returned home in 1972.",
         "wrong": {
           "B": "2023 is when two Saudi astronauts went to the space station.",
           "C": "The article does not give this year.",
@@ -784,7 +784,7 @@
         ],
         "answer": "A",
         "skill": "cause-effect",
-        "why": "The article says that without a thick atmosphere or a strong magnetic field, nothing protects the surface from radiation.",
+        "why": "The Moon has no thick atmosphere or strong magnetic field, so nothing protects its surface from radiation.",
         "wrong": {
           "B": "Dust is a danger to lungs and machines, but it is not the reason for radiation.",
           "C": "The article does not blame the distance from the Sun for the radiation.",
@@ -804,7 +804,7 @@
         "why": "The ground goes from about 120 degrees in sunlight to below minus 170 at night, a big and sudden drop.",
         "wrong": {
           "A": "The temperature falls at night; it does not rise.",
-          "B": "The article says temperatures change dramatically.",
+          "B": "Temperatures on the Moon change a lot.",
           "C": "Going below minus 170 is not warming."
         }
       },
@@ -818,9 +818,9 @@
         ],
         "answer": "C",
         "skill": "text-structure",
-        "why": "The earlier paragraphs list dangers, and \"Fortunately\" signals that the ice is a helpful resource.",
+        "why": "The earlier paragraphs list dangers, and the ice comes next as good news, a helpful resource.",
         "wrong": {
-          "A": "The article says the ice is in permanently shadowed craters, not that it is easy to find.",
+          "A": "In the article, the ice is in permanently shadowed craters, not that it is easy to find.",
           "B": "The article describes the Moon as dangerous and hard.",
           "D": "The ice is in permanently shadowed craters, so sunlight does not reach it."
         }

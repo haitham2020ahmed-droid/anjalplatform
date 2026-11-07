@@ -214,7 +214,7 @@
      }
     },
     {
-     "stem": "In the story, what does it mean that the flock 'listened carefully' the second time?",
+     "stem": "In the story, what does it mean that the flock listened carefully the second time?",
      "options": [
       "They quickly flew away before anyone finished speaking",
       "They argued loudly about which path to follow",
@@ -627,7 +627,7 @@
     ],
     "answer": "B",
     "skill": "detail",
-    "why": "The text says Rami liked to cut off others.",
+    "why": "In the text, Rami liked to cut off others.",
     "wrong": {
      "A": "The text never says Rami sang with others.",
      "C": "Rami did not fly away from others when they talked.",
@@ -784,7 +784,7 @@
     ],
     "answer": "A",
     "skill": "cause-effect",
-    "why": "The text says its branches were picked clean by other hungry creatures passing through.",
+    "why": "In the text, its branches were picked clean by other hungry creatures passing through.",
     "wrong": {
      "B": "Heat is mentioned only as a reason to fly early.",
      "C": "Rami and the flock did not strip the tree.",

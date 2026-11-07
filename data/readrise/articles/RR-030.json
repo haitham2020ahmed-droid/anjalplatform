@@ -172,7 +172,7 @@
           ],
           "answer": "D",
           "skill": "vocabulary",
-          "why": "The article says that when the eggs hatch, each baby turtle is called a hatchling.",
+          "why": "In the article, when the eggs hatch, each baby turtle is called a hatchling.",
           "wrong": {
             "A": "The mother turtle is an adult, not a hatchling.",
             "B": "A hole in the sand is the nest.",
@@ -189,7 +189,7 @@
           ],
           "answer": "B",
           "skill": "cause-effect",
-          "why": "The article says the hatchlings crawl to the sea because it looks bright.",
+          "why": "In the article, the hatchlings crawl to the sea because it looks bright.",
           "wrong": {
             "A": "The mother is gone; she never comes back.",
             "C": "Birds hunt the babies; they do not guide them.",
@@ -317,7 +317,7 @@
           ],
           "answer": "B",
           "skill": "detail",
-          "why": "The article says scientists believe turtles can sense the Earth's magnetic field, which works like an invisible map.",
+          "why": "In the article, scientists believe turtles can sense the Earth's magnetic field, which works like an invisible map.",
           "wrong": {
             "A": "The article does not say turtles travel in lines.",
             "C": "Clouds are not mentioned.",
@@ -368,7 +368,7 @@
           ],
           "answer": "D",
           "skill": "cause-effect",
-          "why": "The article explains that birds and crabs hunt them on the beach and fish wait in the water, so few survive.",
+          "why": "In the article, birds and crabs hunt them on the beach and fish wait in the water, so few survive.",
           "wrong": {
             "A": "She lays about 100 eggs in a nest, which is a lot.",
             "B": "Hatchlings head straight for the sea.",
@@ -496,7 +496,7 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The article says reaching maturity may require twenty years or more.",
+          "why": "In the article, reaching maturity may require twenty years or more.",
           "wrong": {
             "A": "Two months is how long the eggs incubate.",
             "B": "The article gives a much longer time.",
@@ -513,7 +513,7 @@
           ],
           "answer": "B",
           "skill": "detail",
-          "why": "The article says green and hawksbill turtles nest along the Red Sea coast and on Arabian Gulf islands, including Karan and Jana.",
+          "why": "In the article, green and hawksbill turtles nest along the Red Sea coast and on Arabian Gulf islands, including Karan and Jana.",
           "wrong": {
             "A": "Turtles nest on beaches by the sea, not in desert dunes.",
             "C": "Rivers are not mentioned.",
@@ -521,7 +521,7 @@
           }
         },
         {
-          "stem": "In the article, the sand \"begins to incubate the eggs.\" What does incubate mean here?",
+          "stem": "In the article, what does the word \"incubate\" mean?",
           "options": [
             "To bury something so animals cannot find it",
             "To wash something with seawater",
@@ -538,7 +538,7 @@
           }
         },
         {
-          "stem": "Why does the author conclude that turtle navigation \"must depend on instinct\"?",
+          "stem": "Why does the author conclude that turtle navigation depends on instinct?",
           "options": [
             "Because no adult ever teaches a young turtle the route",
             "Because turtles travel in large groups",
@@ -627,7 +627,7 @@
         ],
         "answer": "A",
         "skill": "detail",
-        "why": "The text says it swims with big, flat legs called flippers.",
+        "why": "In the text, a sea turtle swims with flat legs called flippers.",
         "wrong": {
           "B": "The text does not mention a fish tail.",
           "C": "A sea turtle has no wings.",
@@ -661,7 +661,7 @@
         ],
         "answer": "D",
         "skill": "inference",
-        "why": "The text says warm sand makes more girls and cool sand makes more boys.",
+        "why": "In the text, warm sand makes more girls and cool sand makes more boys.",
         "wrong": {
           "A": "Cool sand makes more boys.",
           "B": "The sand changes how many girls and boys there are.",
@@ -678,7 +678,7 @@
         ],
         "answer": "B",
         "skill": "cause-effect",
-        "why": "The text says a plastic bag can look like food to a turtle.",
+        "why": "In the text, a plastic bag can look like food to a turtle.",
         "wrong": {
           "A": "The text does not say bags warm the water.",
           "C": "Bags do not dig nests.",
@@ -697,7 +697,7 @@
         ],
         "answer": "D",
         "skill": "detail",
-        "why": "The article says she digs a deep nest with her back flippers.",
+        "why": "In the article, she digs a deep nest with her back flippers.",
         "wrong": {
           "A": "The article does not say she digs with her teeth.",
           "B": "The shell is for protection, not digging.",
@@ -714,7 +714,7 @@
         ],
         "answer": "B",
         "skill": "vocabulary",
-        "why": "The article says turtles that migrate travel a long way between where they feed and where they nest.",
+        "why": "In the article, turtles that migrate travel a long way between where they feed and where they nest.",
         "wrong": {
           "A": "Hiding is not what migrate means.",
           "C": "Digging a nest is only one step of nesting.",
@@ -731,9 +731,9 @@
         ],
         "answer": "A",
         "skill": "cause-effect",
-        "why": "The article says they crawl toward the ocean because the sky above the water looks brighter.",
+        "why": "In the article, they crawl toward the ocean because the sky above the water looks brighter.",
         "wrong": {
-          "B": "The article says warm or cool sand decides the number of males and females, not where they go.",
+          "B": "In the article, warm or cool sand decides the number of males and females, not where they go.",
           "C": "The mother never comes back to care for her young.",
           "D": "The article does not mention quiet waves."
         }
@@ -801,7 +801,7 @@
         ],
         "answer": "A",
         "skill": "cause-effect",
-        "why": "The article says that because they breathe air, they must return to the surface between dives.",
+        "why": "In the article, because they breathe air, they must return to the surface between dives.",
         "wrong": {
           "B": "Warm sand is needed for eggs on the beach.",
           "C": "The article does not say they come up to hunt.",
@@ -818,7 +818,7 @@
         ],
         "answer": "C",
         "skill": "inference",
-        "why": "The article says floating plastic bags resemble jellyfish and turtles that swallow them can become seriously ill.",
+        "why": "In the article, floating plastic bags resemble jellyfish and turtles that swallow them can become seriously ill.",
         "wrong": {
           "A": "The article does not say bags warm the water.",
           "B": "The article does not say bags hide beaches.",

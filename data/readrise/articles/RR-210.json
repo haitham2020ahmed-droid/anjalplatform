@@ -138,7 +138,7 @@
      ],
      "answer": "B",
      "skill": "detail",
-     "why": "The article says a grid made of thin wires sits under the glass, and a charge flows through it.",
+     "why": "In the article, a grid made of thin wires sits under the glass, and a charge flows through it.",
      "wrong": {
       "A": "Sand is never mentioned in the article.",
       "C": "A coin is only used to press an older screen.",
@@ -189,7 +189,7 @@
      ],
      "answer": "A",
      "skill": "sequence",
-     "why": "The article explains that the change sends a signal to a small chip, and the chip finds where you touched.",
+     "why": "In the article, the change sends a signal to a small chip, and the chip finds where you touched.",
      "wrong": {
       "B": "The article never says the screen turns off.",
       "C": "An air gap belongs to an older kind of screen.",
@@ -206,7 +206,7 @@
      ],
      "answer": "B",
      "skill": "inference",
-     "why": "The article says skin carries a charge that changes the signal, but dry cloth usually does not change it at all.",
+     "why": "In the article, skin has a charge, but dry cloth does not.",
      "wrong": {
       "A": "Warmth is not given as the reason in the article.",
       "C": "Weight has nothing to do with it.",
@@ -240,7 +240,7 @@
      ],
      "answer": "D",
      "skill": "cause-effect",
-     "why": "The article explains that new screens can sense many touches at once, which lets you pinch to zoom.",
+     "why": "In the article, new screens can sense many touches at once, which lets you pinch to zoom.",
      "wrong": {
       "A": "Two layers describe an older kind of screen, not this one.",
       "B": "Weight is not mentioned in the article.",
@@ -303,7 +303,7 @@
      "why": "The article explains how capacitive screens sense charge, how older resistive screens sense pressure, and how multitouch works.",
      "wrong": {
       "B": "Air traffic control is only mentioned as the first use of the idea.",
-      "C": "The article says plain gloves usually do not work well.",
+      "C": "In the article, plain gloves usually do not work well.",
       "D": "Glass matters, but the sensor beneath it is the main point."
      }
     },
@@ -317,7 +317,7 @@
      ],
      "answer": "B",
      "skill": "vocabulary",
-     "why": "The article describes electrodes as the thin wires arranged in rows and columns that carry the electric charge.",
+     "why": "In the article, electrodes are the thin wires under the glass that carry the electric charge.",
      "wrong": {
       "A": "Gloves are a separate topic in the article.",
       "C": "Bank machines are just one place touchscreens appear.",
@@ -351,7 +351,7 @@
      ],
      "answer": "D",
      "skill": "detail",
-     "why": "The article explains that skin and special conductive materials carry a charge, while dry plastic usually does not.",
+     "why": "In the article, skin and special conductive materials carry a charge, while dry plastic usually does not.",
      "wrong": {
       "A": "Thickness of plastic is not the reason given.",
       "B": "Temperature is not the reason given in the article.",
@@ -402,7 +402,7 @@
      ],
      "answer": "C",
      "skill": "inference",
-     "why": "The article says dry materials that are not good conductors usually do not disturb the field, so the screen would likely not respond.",
+     "why": "In the article, dry materials that are not good conductors usually do not disturb the field, so the screen would likely not respond.",
      "wrong": {
       "A": "A capacitive screen needs a conductor, which wood is not.",
       "B": "The controller is not damaged by an unresponsive touch.",
@@ -419,7 +419,7 @@
      ],
      "answer": "D",
      "skill": "cause-effect",
-     "why": "The article says capacitive screens can sense many points at once, called multitouch, while older screens usually sense only one touch at a time.",
+     "why": "In the article, capacitive screens can sense many points at once, called multitouch, while older screens usually sense only one touch at a time.",
      "wrong": {
       "A": "Screen size is not the reason given in the article.",
       "B": "Capacitive screens do use a controller to track touches.",
@@ -496,7 +496,7 @@
      ],
      "answer": "B",
      "skill": "detail",
-     "why": "The article explains that the electrodes must stay transparent so the display beneath them remains fully visible.",
+     "why": "In the article, the electrodes must stay transparent so the display beneath them remains fully visible.",
      "wrong": {
       "A": "Transparency is about visibility, not conducting power.",
       "C": "Withstanding pressure from a coin relates to older screens.",
@@ -513,7 +513,7 @@
      ],
      "answer": "C",
      "skill": "detail",
-     "why": "The article states that the controller must calibrate its sensitivity continuously so that scratches or temperature changes do not distort its readings.",
+     "why": "The controller must keep checking its sensitivity so that scratches or temperature changes do not confuse it.",
      "wrong": {
       "A": "Devices do not switch between touch types.",
       "B": "The field must stay active for the screen to work.",
@@ -547,7 +547,7 @@
      ],
      "answer": "A",
      "skill": "cause-effect",
-     "why": "The article explains that dry fabric typically does not act as a conductor, so it cannot disturb the electrostatic field the way skin does.",
+     "why": "In the article, dry fabric typically does not act as a conductor, so it cannot disturb the electrostatic field the way skin does.",
      "wrong": {
       "B": "Opacity of electrodes is not affected by gloves.",
       "C": "Coordinates are calculated fresh each time, not changed forever.",
@@ -644,7 +644,7 @@
     ],
     "answer": "B",
     "skill": "vocabulary",
-    "why": "The text says the grid is made of wires under the glass.",
+    "why": "In the text, the grid is made of wires under the glass.",
     "wrong": {
      "A": "A grid is made of many wires, not one.",
      "C": "The text does not call the grid a button.",
@@ -714,7 +714,7 @@
     ],
     "answer": "D",
     "skill": "detail",
-    "why": "The text says the two bendy layers have a tiny gap of air between them.",
+    "why": "In the text, the two bendy layers have a tiny gap of air between them.",
     "wrong": {
      "A": "The text does not say there is a sheet of glass between them.",
      "B": "The text does not mention water.",
@@ -731,7 +731,7 @@
     ],
     "answer": "A",
     "skill": "cause-effect",
-    "why": "The text says the controller repeats the check many times each second, so the screen feels fast.",
+    "why": "In the text, the controller repeats the check many times each second, so the screen feels fast.",
     "wrong": {
      "B": "The text does not say the glass thinness makes it fast.",
      "C": "The text does not mention a battery.",
@@ -767,7 +767,7 @@
     ],
     "answer": "B",
     "skill": "detail",
-    "why": "The text says touchscreens only became common once smartphones popularized them after 2007.",
+    "why": "In the text, touchscreens only became common once smartphones popularized them after 2007.",
     "wrong": {
      "A": "The first one was built in 1965, but it was not common then.",
      "C": "1812 is not mentioned in this text.",
@@ -801,7 +801,7 @@
     ],
     "answer": "D",
     "skill": "cause-effect",
-    "why": "The text says pressing anywhere, even with a coin, pushes the two layers together.",
+    "why": "In the text, pressing anywhere, even with a coin, pushes the two layers together.",
     "wrong": {
      "A": "Sensing a body's charge is how capacitive screens work.",
      "B": "The electric field belongs to capacitive screens.",

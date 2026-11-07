@@ -231,7 +231,7 @@
           }
         },
         {
-          "stem": "Read this sentence: \"That line is the horizon.\" What is the horizon?",
+          "stem": "In the article, what does the word \"horizon\" mean?",
           "options": [
             "The very top of a tall mountain peak",
             "Where the land seems to meet the sky",
@@ -240,7 +240,7 @@
           ],
           "answer": "B",
           "skill": "vocabulary",
-          "why": "The article says he looked out to where the land and sky meet, and that line is the horizon.",
+          "why": "The horizon is the line where the land and the sky seem to meet.",
           "wrong": {
             "A": "He stood on the mountain top to look at the horizon.",
             "C": "The horizon is not a tool.",
@@ -334,7 +334,7 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The article states he made the measurements at a fort in what is now Pakistan.",
+          "why": "In the article, he made the measurements at a fort in what is now Pakistan.",
           "wrong": {
             "A": "No ship is mentioned.",
             "B": "He was born in Khwarazm, but the measurements were made in what is now Pakistan.",
@@ -351,7 +351,7 @@
           ],
           "answer": "D",
           "skill": "cause-effect",
-          "why": "The article explains that because the Earth is round, the horizon looked a little lower than level.",
+          "why": "In the article, because the Earth is round, the horizon looked a little lower than level.",
           "wrong": {
             "A": "The mountain was not sinking.",
             "B": "His tools gave a very accurate result.",
@@ -496,11 +496,11 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The article says the angle was tiny, only a little more than half a degree.",
+          "why": "The angle was tiny, a little more than half a degree.",
           "wrong": {
             "A": "Ten degrees is far larger than the angle described.",
             "B": "Ninety degrees would be straight up or down.",
-            "D": "The article describes the angle as tiny."
+            "D": "The angle was very small."
           }
         },
         {
@@ -513,7 +513,7 @@
           ],
           "answer": "D",
           "skill": "detail",
-          "why": "The article states that he used an astrolabe to measure the angle from the ground to the peak.",
+          "why": "In the article, he used an astrolabe to measure the angle from the ground to the peak.",
           "wrong": {
             "A": "Telescopes are not mentioned and were invented centuries later.",
             "B": "A compass shows direction, and it is not mentioned.",
@@ -532,7 +532,7 @@
           "skill": "cause-effect",
           "why": "When an angle is only about half a degree, a small error is a large part of the whole, so it strongly affects the final answer.",
           "wrong": {
-            "A": "The article says he combined this angle with his other measurement.",
+            "A": "In the article, he combined this angle with his other measurement.",
             "B": "The article does not say he misjudged the mountain's height.",
             "C": "Nothing suggests the horizon moved."
           }
@@ -547,7 +547,7 @@
           ],
           "answer": "C",
           "skill": "inference",
-          "why": "The article says he believed knowledge should be tested by observation rather than accepted, and he repeated measurements to confirm them.",
+          "why": "In the article, he believed knowledge should be tested by observation rather than accepted, and he repeated measurements to confirm them.",
           "wrong": {
             "A": "The article says the opposite: he did not simply accept earlier authorities.",
             "B": "He relied on careful measurement.",
@@ -678,7 +678,7 @@
         ],
         "answer": "B",
         "skill": "sequence",
-        "why": "The text says that next he went up to the top.",
+        "why": "In the text, next he went up to the top.",
         "wrong": {
           "A": "His plan did not need a long walk.",
           "C": "The text does not say he wrote a book then.",
@@ -731,9 +731,9 @@
         ],
         "answer": "A",
         "skill": "cause-effect",
-        "why": "The text says their method worked, but it needed many people and a great deal of time.",
+        "why": "In the text, their method was useful, but it needed many people and a lot of time.",
         "wrong": {
-          "B": "The text says their method worked.",
+          "B": "Their method did work.",
           "C": "They walked across flat land.",
           "D": "The mountain was part of Al-Biruni's new method."
         }
@@ -767,7 +767,7 @@
         ],
         "answer": "B",
         "skill": "detail",
-        "why": "The text says he learned the Sanskrit language for his study of India.",
+        "why": "He learned the Sanskrit language for his study of India.",
         "wrong": {
           "A": "Greek is not mentioned.",
           "C": "Latin is not mentioned.",

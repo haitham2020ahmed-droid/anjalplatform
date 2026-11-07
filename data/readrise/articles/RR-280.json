@@ -138,7 +138,7 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The article says a shuttlecock has soft feathers on top and a round cork base at the bottom.",
+          "why": "In the article, a shuttlecock has feathers on top and a round base.",
           "wrong": {
             "A": "A handle and strings belong to a racket, not a shuttlecock.",
             "B": "Rubber and plastic are not mentioned.",
@@ -172,7 +172,7 @@
           ],
           "answer": "B",
           "skill": "cause-effect",
-          "why": "The article says the feathers catch the air, and the air pushes back on them, so the shuttlecock loses speed.",
+          "why": "In the article, the feathers catch the air, and the air pushes back on them, so the shuttlecock loses speed.",
           "wrong": {
             "A": "Weight is not discussed as the reason.",
             "C": "The floor is not described as pulling the shuttlecock.",
@@ -317,7 +317,7 @@
           ],
           "answer": "A",
           "skill": "detail",
-          "why": "The article says the shuttlecock speeds off fast at first, then slows down sharply within a short distance.",
+          "why": "In the article, the shuttlecock speeds off fast at first, then slows down sharply within a short distance.",
           "wrong": {
             "B": "The article says its speed changes, not stays the same.",
             "C": "The article says it slows, not speeds up.",
@@ -334,7 +334,7 @@
           ],
           "answer": "D",
           "skill": "detail",
-          "why": "The article states a team must reach twenty-one points to win a game.",
+          "why": "A team must reach twenty-one points to win a game.",
           "wrong": {
             "A": "Eleven is not the number given.",
             "B": "Fifteen is not the number given.",
@@ -351,7 +351,7 @@
           ],
           "answer": "C",
           "skill": "cause-effect",
-          "why": "The article explains that the feathers create drag by catching a large amount of air, which pushes back and slows the shuttlecock.",
+          "why": "In the article, the feathers create drag by catching a large amount of air, which pushes back and slows the shuttlecock.",
           "wrong": {
             "A": "The net does not pull the shuttlecock down.",
             "B": "The cork base is not described as cracking.",
@@ -376,7 +376,7 @@
           }
         },
         {
-          "stem": "Read this: \"its feathers create a lot of drag.\" What does drag mean here?",
+          "stem": "In the article, what does the word \"drag\" mean?",
           "options": [
             "The push air gives against something moving through it",
             "A heavy weight that pulls a shuttlecock down toward the floor",
@@ -419,7 +419,7 @@
           ],
           "answer": "B",
           "skill": "compare",
-          "why": "The article says a shuttlecock slows sharply, while a tennis ball or football keeps far more of its speed.",
+          "why": "In the article, a shuttlecock slows sharply, while a tennis ball or football keeps far more of its speed.",
           "wrong": {
             "A": "The article says a tennis ball does not slow as suddenly.",
             "C": "The article says the opposite.",
@@ -496,7 +496,7 @@
           ],
           "answer": "A",
           "skill": "detail",
-          "why": "The article says the heavier cork base always leads the way as the shuttlecock falls, keeping the flight stable.",
+          "why": "In the article, the heavier cork base always leads the way as the shuttlecock falls, keeping the flight stable.",
           "wrong": {
             "B": "Spinning feathers are not described.",
             "C": "The net does not act on the shuttlecock mid-flight.",
@@ -530,7 +530,7 @@
           ],
           "answer": "C",
           "skill": "cause-effect",
-          "why": "The article explains that the feathered skirt creates far more aerodynamic drag than a smooth, rounded ball, causing sharper deceleration.",
+          "why": "In the article, the feathered skirt creates far more aerodynamic drag than a smooth, rounded ball, causing sharper deceleration.",
           "wrong": {
             "A": "Initial force is not described as the cause.",
             "B": "Internal weight is not discussed.",
@@ -627,10 +627,10 @@
         ],
         "answer": "C",
         "skill": "compare",
-        "why": "The text says a shuttlecock slows down fast and a ball does not slow like that.",
+        "why": "In the text, a shuttlecock slows down fast and a ball does not slow like that.",
         "wrong": {
           "A": "The text says it slows down.",
-          "B": "The text says it flies fast at first.",
+          "B": "In the text, it flies fast at first.",
           "D": "The text says it has feathers."
         }
       },
@@ -644,7 +644,7 @@
         ],
         "answer": "A",
         "skill": "vocabulary",
-        "why": "The text says the shuttlecock has feathers on top and a hard, round base, so the base is the part below the feathers.",
+        "why": "In the text, the shuttlecock has feathers on top and a hard, round base, so the base is the part below the feathers.",
         "wrong": {
           "B": "The feathers are on top, not the base.",
           "C": "The net is a different thing.",
@@ -697,7 +697,7 @@
         ],
         "answer": "A",
         "skill": "detail",
-        "why": "The text says most matches need two games out of three to finish.",
+        "why": "In the text, most matches need two games out of three to finish.",
         "wrong": {
           "B": "One game would not finish the match.",
           "C": "Three games out of three is not required.",
@@ -731,7 +731,7 @@
         ],
         "answer": "C",
         "skill": "vocabulary",
-        "why": "The text says players need quick hands and quick footwork because a rally can last only a few seconds, so reflexes are quick reactions.",
+        "why": "In the text, players need quick hands and quick footwork because a rally can last only a few seconds, so reflexes are quick reactions.",
         "wrong": {
           "A": "The sport needs quick actions, not slow thinking.",
           "B": "A rally is fast, so there is no long break.",
@@ -748,7 +748,7 @@
         ],
         "answer": "B",
         "skill": "inference",
-        "why": "The text says the feathers create drag by catching air, so fewer feathers would catch less air and slow it down less.",
+        "why": "In the text, the feathers create drag by catching air, so fewer feathers would catch less air and slow it down less.",
         "wrong": {
           "A": "Fewer feathers would catch less air, so less drag.",
           "C": "The text does not say it would stop at once.",
@@ -801,7 +801,7 @@
         ],
         "answer": "C",
         "skill": "cause-effect",
-        "why": "The text says the open feathered design catches a huge volume of air relative to its tiny mass.",
+        "why": "In the text, the open feathered design catches a huge volume of air relative to its tiny mass.",
         "wrong": {
           "A": "The text says the shuttlecock has a tiny mass.",
           "B": "A smooth ball makes less drag in the text.",
@@ -818,7 +818,7 @@
         ],
         "answer": "A",
         "skill": "inference",
-        "why": "The text says the shuttlecock catches a huge volume of air relative to its tiny mass, so it is very light.",
+        "why": "In the text, the shuttlecock catches a huge volume of air relative to its tiny mass, so it is very light.",
         "wrong": {
           "B": "A tiny mass is not heavier than a football.",
           "C": "The racket's weight is not compared.",

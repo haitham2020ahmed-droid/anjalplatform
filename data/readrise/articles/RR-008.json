@@ -155,7 +155,7 @@
           ],
           "answer": "C",
           "skill": "cause-effect",
-          "why": "The article says a dusty panel makes less power, so it must be cleaned.",
+          "why": "In the article, a dusty panel makes less power, so it must be cleaned.",
           "wrong": {
             "A": "The article does not say dust breaks panels.",
             "B": "Dust blocks sunlight, so power goes down, not up.",
@@ -302,7 +302,7 @@
           "skill": "central-idea",
           "why": "The article explains how solar power works, why the region is a good place for it, its benefits, and its challenges.",
           "wrong": {
-            "A": "The article says panel prices have dropped.",
+            "A": "The article does not say solar panels are too expensive to use.",
             "C": "The article describes a move toward sunlight, not that oil is always best.",
             "D": "Robots are only one detail about cleaning panels."
           }
@@ -334,7 +334,7 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The article says Saudi Arabia wants about half of its electricity to come from renewable sources, like sunlight and wind, by 2030.",
+          "why": "In the article, Saudi Arabia wants about half of its electricity to come from renewable sources, like sunlight and wind, by 2030.",
           "wrong": {
             "A": "The goal is about renewable power, not stopping electricity at night.",
             "B": "No such goal is described.",
@@ -496,7 +496,7 @@
           ],
           "answer": "B",
           "skill": "detail",
-          "why": "The article says sunlight's energy loosens electrons in the cell, and their movement produces an electric current.",
+          "why": "In the article, sunlight's energy loosens electrons in the cell, and their movement produces an electric current.",
           "wrong": {
             "A": "The article does not describe heating water.",
             "C": "Silicon is refined from sand, but nothing melts to make power.",
@@ -504,7 +504,7 @@
           }
         },
         {
-          "stem": "In the sentence \"solar power is intermittent: panels produce nothing at night and less on cloudy days,\" what does intermittent mean?",
+          "stem": "In the article, what does the word \"intermittent\" mean?",
           "options": [
             "Extremely powerful",
             "Expensive to build",
@@ -530,7 +530,7 @@
           ],
           "answer": "A",
           "skill": "cause-effect",
-          "why": "The article says panels lose some efficiency as their temperature rises.",
+          "why": "Panels work a little less well as they get hotter.",
           "wrong": {
             "B": "Heat cannot make panels work without sunlight.",
             "C": "Heat does not reduce dust in the article.",
@@ -598,7 +598,7 @@
           ],
           "answer": "C",
           "skill": "inference",
-          "why": "The article says robots with soft brushes clean panels without water, which is scarce in the desert.",
+          "why": "In the article, robots with soft brushes clean panels without water, which is scarce in the desert.",
           "wrong": {
             "A": "The robots are designed to clean without water.",
             "B": "The article does not say robots work only at night.",
@@ -627,7 +627,7 @@
         ],
         "answer": "C",
         "skill": "detail",
-        "why": "The text says the solar panel is flat and dark.",
+        "why": "In the text, a solar panel is flat and dark.",
         "wrong": {
           "A": "The text does not say it is round or red.",
           "B": "It sits on a roof or in the sand, not on legs.",
@@ -644,7 +644,7 @@
         ],
         "answer": "A",
         "skill": "cause-effect",
-        "why": "The text says the sun will not run out and will shine for a long, long time.",
+        "why": "In the text, the sun's energy will not run out.",
         "wrong": {
           "B": "The text says panels must be cleaned.",
           "C": "Sand is not said to make batteries.",
@@ -661,7 +661,7 @@
         ],
         "answer": "B",
         "skill": "vocabulary",
-        "why": "The text says big solar farms sit in the sand with rows and rows of panels.",
+        "why": "In the text, solar farms have rows and rows of panels.",
         "wrong": {
           "A": "No plants are grown on a solar farm.",
           "C": "A solar farm has many panels, not one fan.",
@@ -669,20 +669,20 @@
         }
       },
       {
-        "stem": "Who cleans the dust from the panels?",
+        "stem": "What do strong winds blow onto the panels?",
         "options": [
-          "Only the wind",
-          "Only the sun",
-          "Only the rain",
-          "Men and robots"
+          "Snow",
+          "Leaves",
+          "Rain",
+          "Dust"
         ],
         "answer": "D",
         "skill": "detail",
-        "why": "The text says men do this job and robots do it, too.",
+        "why": "In the article, wind blows dust onto the panels, so they must be cleaned.",
         "wrong": {
-          "A": "Wind blows the dust onto the panels.",
-          "B": "The sun does not clean the panels.",
-          "C": "The text says Saudi Arabia does not get much rain."
+          "A": "Snow is not what lands on the panels.",
+          "B": "Leaves are not named.",
+          "C": "Rain is not what the wind blows onto them."
         }
       }
     ],
@@ -697,7 +697,7 @@
         ],
         "answer": "A",
         "skill": "detail",
-        "why": "The article says many cells together make enough power to run lights, computers and air conditioners.",
+        "why": "In the article, many cells together make enough power to run lights, computers and air conditioners.",
         "wrong": {
           "B": "Cars, trains and ships are not mentioned.",
           "C": "Ovens, boats and bicycles are not mentioned.",
@@ -731,7 +731,7 @@
         ],
         "answer": "B",
         "skill": "cause-effect",
-        "why": "The article says dusty panels make less power.",
+        "why": "In the article, dusty panels make less power.",
         "wrong": {
           "A": "Dust does not help the panels.",
           "C": "The panels do not grow.",
@@ -784,7 +784,7 @@
         ],
         "answer": "C",
         "skill": "detail",
-        "why": "The article says the cost of panels has fallen dramatically in recent decades.",
+        "why": "In the article, the cost of panels has fallen dramatically in recent decades.",
         "wrong": {
           "A": "The cost has changed.",
           "B": "The cost has gone down, not up.",
@@ -818,7 +818,7 @@
         ],
         "answer": "D",
         "skill": "cause-effect",
-        "why": "The article says dust accumulates on panels, blocking sunlight and reducing their output.",
+        "why": "In the article, dust accumulates on panels, blocking sunlight and reducing their output.",
         "wrong": {
           "A": "Weight is not mentioned as the problem.",
           "B": "Cooling is not mentioned; heat is another problem.",

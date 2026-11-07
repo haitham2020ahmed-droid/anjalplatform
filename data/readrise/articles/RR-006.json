@@ -124,7 +124,7 @@
           "why": "The article explains how the body fights germs and how vaccines help it get ready.",
           "wrong": {
             "A": "The article does not talk about broken bones.",
-            "B": "The article says some germs can make people sick.",
+            "B": "In the article, some germs can make people sick.",
             "D": "The article does not tell where to buy medicine."
           }
         },
@@ -138,7 +138,7 @@
           ],
           "answer": "A",
           "skill": "detail",
-          "why": "The article says the immune system is the body's team that fights germs.",
+          "why": "In the article, the immune system is the body's team that fights germs.",
           "wrong": {
             "B": "The article does not connect the immune system to growing taller.",
             "C": "Moving food is not the job described in the article.",
@@ -155,7 +155,7 @@
           ],
           "answer": "D",
           "skill": "detail",
-          "why": "The article says a vaccine has a weak germ, a dead germ, or just a piece of a germ.",
+          "why": "A vaccine has a weak germ, a dead germ, or part of a germ.",
           "wrong": {
             "A": "The article says a vaccine cannot give you the real sickness.",
             "B": "The article does not say vaccines are made of sugar and water.",
@@ -172,7 +172,7 @@
           ],
           "answer": "B",
           "skill": "vocabulary",
-          "why": "The article says the immune system makes antibodies, and they stick to or grab germs.",
+          "why": "In the article, the immune system makes antibodies, and they stick to or grab germs.",
           "wrong": {
             "A": "Antibodies fight germs; they are not germs.",
             "C": "A shot is how a vaccine is given, not an antibody.",
@@ -317,7 +317,7 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The article says antibodies lock on to one kind of germ and mark it so other cells can destroy it.",
+          "why": "In the article, antibodies lock on to one kind of germ and mark it so other cells can destroy it.",
           "wrong": {
             "A": "The article does not say antibodies carry oxygen.",
             "B": "Antibodies fight germs; they do not give energy.",
@@ -334,7 +334,7 @@
           ],
           "answer": "B",
           "skill": "detail",
-          "why": "The article states that some vaccines contain a weakened or killed germ, and others hold only a harmless piece.",
+          "why": "In the article, some vaccines contain a weakened or killed germ, and others hold only a harmless piece.",
           "wrong": {
             "A": "The article says vaccines cannot cause the full illness.",
             "C": "The body makes its own white blood cells; vaccines do not contain them.",
@@ -368,7 +368,7 @@
           ],
           "answer": "C",
           "skill": "cause-effect",
-          "why": "The article says the immune system keeps memory cells, so it knows a returning germ quickly and can stop it.",
+          "why": "In the article, the immune system keeps memory cells, so it knows a returning germ quickly and can stop it.",
           "wrong": {
             "A": "The article does not say germs get weaker; the body gets better prepared.",
             "B": "White blood cells keep working; the article never says they stop.",
@@ -385,7 +385,7 @@
           ],
           "answer": "A",
           "skill": "inference",
-          "why": "The article says mild effects like tiredness are usually signs that the body is building protection.",
+          "why": "In the article, mild effects like tiredness are usually signs that the body is building protection.",
           "wrong": {
             "B": "The article says vaccines cannot cause the full illness.",
             "C": "A vaccine helps the body make antibodies; it does not remove them.",
@@ -402,7 +402,7 @@
           ],
           "answer": "D",
           "skill": "inference",
-          "why": "The article says a germ has trouble spreading when most people are immune, so with few people protected it could spread more easily.",
+          "why": "In the article, a germ has trouble spreading when most people are immune, so with few people protected it could spread more easily.",
           "wrong": {
             "A": "The article gives no reason to think germs would stop on their own.",
             "B": "Babies are protected when most people are immune, so they would be less safe.",
@@ -513,7 +513,7 @@
           ],
           "answer": "A",
           "skill": "detail",
-          "why": "The article states that smallpox was declared eradicated in 1980 after a worldwide vaccination effort.",
+          "why": "In the article, smallpox was declared eradicated in 1980 after a worldwide vaccination effort.",
           "wrong": {
             "B": "Cowpox, not smallpox, is the mild cattle disease.",
             "C": "Vaccination stopped smallpox from spreading.",
@@ -547,7 +547,7 @@
           ],
           "answer": "A",
           "skill": "cause-effect",
-          "why": "The article says some vaccines need more than one dose to build strong, durable protection.",
+          "why": "In the article, some vaccines need more than one dose to build strong, durable protection.",
           "wrong": {
             "B": "The article says vaccines cannot cause the full illness.",
             "C": "Vaccines train white blood cells; they do not replace them.",
@@ -627,7 +627,7 @@
         ],
         "answer": "B",
         "skill": "cause-effect",
-        "why": "The text says that when a germ gets in for the first time, the team is slow and you may get sick.",
+        "why": "In the text, when a germ gets in for the first time, the team is slow and you may get sick.",
         "wrong": {
           "A": "Germs are described as very small.",
           "C": "No shot is given in that part of the text.",
@@ -652,20 +652,20 @@
         }
       },
       {
-        "stem": "Who may not be able to get a shot?",
+        "stem": "What may happen to your arm after a shot?",
         "options": [
-          "Only very old people",
-          "All of the grown-ups",
-          "Some kids and grown-ups",
-          "Only the doctors"
+          "It may grow much stronger",
+          "It may turn a new color",
+          "It may feel a little sore",
+          "It may stop moving for good"
         ],
         "answer": "C",
         "skill": "detail",
-        "why": "The text says some kids and grown-ups can not get a shot.",
+        "why": "In the article, your arm may feel sore after a shot.",
         "wrong": {
-          "A": "Age alone is not the reason given.",
-          "B": "Only some grown-ups cannot get a shot.",
-          "D": "Doctors are not mentioned."
+          "A": "A shot does not make your arm stronger.",
+          "B": "The article does not say your arm changes color.",
+          "D": "A sore arm is not an arm that stops moving."
         }
       },
       {
@@ -682,7 +682,7 @@
         "wrong": {
           "A": "The text does not talk about games after shots.",
           "B": "No prize is named in the text.",
-          "C": "The text says germs have trouble spreading."
+          "C": "In the text, germs have trouble spreading."
         }
       }
     ],
@@ -697,7 +697,7 @@
         ],
         "answer": "D",
         "skill": "detail",
-        "why": "The article says germs live on your hands, in the air, and on the things you touch.",
+        "why": "In the article, germs live on your hands, in the air, and on the things you touch.",
         "wrong": {
           "A": "Germs are also found outside the body.",
           "B": "Water is not mentioned.",
@@ -748,7 +748,7 @@
         ],
         "answer": "C",
         "skill": "detail",
-        "why": "The article says the body keeps memory cells that remember the germ.",
+        "why": "In the article, the body keeps memory cells that remember the germ.",
         "wrong": {
           "A": "Antibodies mark germs so other cells can destroy them.",
           "B": "A sore arm is a sign the body is building protection.",
@@ -784,7 +784,7 @@
         ],
         "answer": "A",
         "skill": "detail",
-        "why": "The article says some vaccines hold a harmless fragment or instructions that help cells make that fragment.",
+        "why": "In the article, some vaccines hold a harmless fragment or instructions that help cells make that fragment.",
         "wrong": {
           "B": "Vaccines cannot cause the full illness.",
           "C": "White blood cells are not put in vaccines.",

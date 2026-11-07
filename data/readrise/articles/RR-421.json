@@ -155,7 +155,7 @@
           ],
           "answer": "A",
           "skill": "detail",
-          "why": "The story says some of her lines were too thick and some were too thin.",
+          "why": "In the story, some of her lines were too thick and some were too thin.",
           "wrong": {
             "B": "The story does not say her letters were too small.",
             "C": "The story does not mention the wrong color.",
@@ -334,7 +334,7 @@
           ],
           "answer": "A",
           "skill": "detail",
-          "why": "The story explains that Maha had to hold the pen at an exact angle and apply the right amount of pressure.",
+          "why": "In the story, Maha had to hold the pen at an exact angle and apply the right amount of pressure.",
           "wrong": {
             "B": "The story does not mention color or size as things she had to control.",
             "C": "The story does not mention speed or sound.",
@@ -627,7 +627,7 @@
         ],
         "answer": "A",
         "skill": "detail",
-        "why": "The text says Master Nasser wrote in a small shop.",
+        "why": "In the text, Master Nasser wrote in a small shop.",
         "wrong": {
           "B": "The text does not say he wrote in a school.",
           "C": "He wrote in his shop, not in Maha's home.",
@@ -644,7 +644,7 @@
         ],
         "answer": "B",
         "skill": "detail",
-        "why": "The text says she got a pen made of reed and black ink.",
+        "why": "In the text, she got a pen made of reed and black ink.",
         "wrong": {
           "A": "She did not get a brush or red paint.",
           "C": "She did not get a pencil or blue ink.",
@@ -714,7 +714,7 @@
         ],
         "answer": "A",
         "skill": "detail",
-        "why": "The text says people had admired this kind of calligraphy for hundreds of years.",
+        "why": "In the text, people had admired this kind of calligraphy for hundreds of years.",
         "wrong": {
           "B": "Weeks is how long Maha took to improve her hand, not how long people admired thuluth.",
           "C": "Twenty years is not mentioned in the text.",
@@ -731,7 +731,7 @@
         ],
         "answer": "D",
         "skill": "cause-effect",
-        "why": "The text says she repeated each stroke many times until her arm grew tired.",
+        "why": "In the story, she practiced each stroke many times until her arm was tired.",
         "wrong": {
           "A": "The pen is described as thin, not heavy.",
           "B": "The text does not say he made her stand.",
@@ -748,7 +748,7 @@
         ],
         "answer": "C",
         "skill": "inference",
-        "why": "The text says patience shaped both the word on the page and the artist who wrote it, so it changed Maha too.",
+        "why": "In the text, patience shaped both the word on the page and the artist who wrote it, so it changed Maha too.",
         "wrong": {
           "A": "The text says patience shaped the artist, not just one word.",
           "B": "The text does not link patience with being slow.",
@@ -767,7 +767,7 @@
         ],
         "answer": "C",
         "skill": "detail",
-        "why": "The text says he had practiced his craft for more than thirty years in his small shop.",
+        "why": "In the text, he had practiced his craft for more than thirty years in his small shop.",
         "wrong": {
           "A": "A few months is how long Maha's improvement took, not Nasser's career.",
           "B": "One year is not mentioned.",

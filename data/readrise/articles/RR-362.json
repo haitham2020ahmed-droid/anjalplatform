@@ -627,7 +627,7 @@
         ],
         "answer": "B",
         "skill": "detail",
-        "why": "The text says their grandparents live by the coast.",
+        "why": "In the text, their grandparents live by the coast.",
         "wrong": {
           "A": "The family leaves the city to visit them.",
           "C": "The text does not say they live on a hill.",

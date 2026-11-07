@@ -138,7 +138,7 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The article says people in England invented the game in the 1880s.",
+          "why": "People in England invented the game in the 1880s.",
           "wrong": {
             "A": "The United States is not mentioned as the game's birthplace.",
             "B": "Saudi Arabia is mentioned only for its modern school clubs.",
@@ -155,7 +155,7 @@
           ],
           "answer": "D",
           "skill": "detail",
-          "why": "The article says a game is usually played to eleven points.",
+          "why": "A game is usually played to eleven points.",
           "wrong": {
             "A": "Five points is fewer than the article states.",
             "B": "Twenty points is more than the article states.",
@@ -172,7 +172,7 @@
           ],
           "answer": "A",
           "skill": "cause-effect",
-          "why": "The article says the ball moves extremely fast after a hard hit, which is why players need quick eyes and hands.",
+          "why": "In the article, the ball moves very fast, so players need quick eyes and hands.",
           "wrong": {
             "B": "The table is described as small, not large.",
             "C": "The net's height is not given as the reason.",
@@ -180,7 +180,7 @@
           }
         },
         {
-          "stem": "Read this: \"players need quick eyes and quick hands.\" What does quick mean here?",
+          "stem": "In the article, what does the word \"quick\" mean?",
           "options": [
             "Loud and noisy",
             "Fast, in a short time",
@@ -317,7 +317,7 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The article says a player must win by at least two clear points to end the game.",
+          "why": "In the article, a player must win by at least two clear points to end the game.",
           "wrong": {
             "A": "A single-point win is not enough, according to the article.",
             "B": "Five points is not the margin given.",
@@ -351,7 +351,7 @@
           ],
           "answer": "D",
           "skill": "cause-effect",
-          "why": "The article says the exact angle of the paddle at contact decides which direction the spin curves the ball.",
+          "why": "In the article, the exact angle of the paddle at contact decides which direction the spin curves the ball.",
           "wrong": {
             "A": "Scoring is not decided automatically by paddle angle.",
             "B": "Ball color is not affected by paddle angle.",
@@ -359,7 +359,7 @@
           }
         },
         {
-          "stem": "Read this: \"leaving players only a tiny fraction of a second of reaction time.\" What does reaction time mean here?",
+          "stem": "In the article, what does the word \"reaction time\" mean?",
           "options": [
             "The total length of the match, from start to finish",
             "How quickly a player responds to the fast-moving ball",
@@ -496,7 +496,7 @@
           ],
           "answer": "D",
           "skill": "detail",
-          "why": "The article says a hard hit sends the ball along a fast, flat trajectory toward the opponent.",
+          "why": "In the article, a hard hit sends the ball along a fast, flat trajectory toward the opponent.",
           "wrong": {
             "A": "The ball speeds up, not slows down, after a hard hit.",
             "B": "The article does not describe a sharp upward curve before the net.",
@@ -504,7 +504,7 @@
           }
         },
         {
-          "stem": "Read this: \"this rotation, commonly known as spin, bends the ball's trajectory.\" What does trajectory mean here?",
+          "stem": "In the article, what does the word \"trajectory\" mean?",
           "options": [
             "The final score of the match being played at the end",
             "The curved path the ball follows through the air",
@@ -530,7 +530,7 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The article says friction between the rubber surface of the paddle and the ball is what generates spin.",
+          "why": "In the article, friction between the rubber surface of the paddle and the ball is what generates spin.",
           "wrong": {
             "A": "Table size does not create spin.",
             "B": "Net height is unrelated to spin.",
@@ -547,7 +547,7 @@
           ],
           "answer": "A",
           "skill": "inference",
-          "why": "The article says a smoother paddle would grip the ball far less, meaning it has less friction and so produces weaker rotation.",
+          "why": "In the article, a smoother paddle would grip the ball far less, meaning it has less friction and so produces weaker rotation.",
           "wrong": {
             "B": "Paddle smoothness does not change the ball's weight.",
             "C": "Velocity depends on how hard the ball is hit, not paddle smoothness alone.",
@@ -627,7 +627,7 @@
         ],
         "answer": "D",
         "skill": "detail",
-        "why": "The text says people in England played the game after dinner.",
+        "why": "People in England played the game after dinner.",
         "wrong": {
           "A": "The text says after dinner, not before breakfast.",
           "B": "A boat is not mentioned.",
@@ -644,7 +644,7 @@
         ],
         "answer": "A",
         "skill": "sequence",
-        "why": "The text says the ball bounces on your side, then goes over the net, then bounces on the other side.",
+        "why": "In the text, the ball bounces on your side, then goes over the net, then bounces on the other side.",
         "wrong": {
           "B": "The text does not say the ball hits the paddle twice.",
           "C": "The ball must keep moving to the other side.",
@@ -678,7 +678,7 @@
         ],
         "answer": "B",
         "skill": "inference",
-        "why": "The text says schools in Saudi Arabia have table tennis clubs for fast, fun games, so students enjoy it.",
+        "why": "In the text, schools in Saudi Arabia have table tennis clubs for fast, fun games, so students enjoy it.",
         "wrong": {
           "A": "Children play it in school clubs.",
           "C": "The text says it is played in school clubs.",
@@ -818,7 +818,7 @@
         ],
         "answer": "D",
         "skill": "cause-effect",
-        "why": "The text says that because the ball is so light, a hard hit sends it along a fast, flat trajectory.",
+        "why": "In the text, because the ball is so light, a hard hit sends it along a fast, flat trajectory.",
         "wrong": {
           "A": "The table is described as fairly small.",
           "B": "A smooth paddle is linked to weaker spin, not speed.",

@@ -138,7 +138,7 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The article says the long, thin rowing boat is called a shell.",
+          "why": "In the article, the long, thin rowing boat is called a shell.",
           "wrong": {
             "A": "Canoes are not mentioned.",
             "B": "Rafts are not mentioned.",
@@ -155,7 +155,7 @@
           ],
           "answer": "B",
           "skill": "detail",
-          "why": "The article says the coxswain, who sits at the back, calls out, \"Pull!\"",
+          "why": "In the article, the coxswain, who sits at the back, calls out, \"Pull!\"",
           "wrong": {
             "A": "Rowers listen; the coxswain calls out.",
             "C": "A judge on shore is not mentioned.",
@@ -172,7 +172,7 @@
           ],
           "answer": "C",
           "skill": "vocabulary",
-          "why": "The article explains timing as all rowers pulling at the exact same time.",
+          "why": "In the article, timing as all rowers pulling at the exact same time.",
           "wrong": {
             "A": "Race length is not what timing means here.",
             "B": "A clock is not mentioned.",
@@ -317,7 +317,7 @@
           ],
           "answer": "A",
           "skill": "detail",
-          "why": "The article says the shell's long, narrow shape lets it slide through water with little resistance.",
+          "why": "In the article, the shell's long, narrow shape lets it slide through water with little resistance.",
           "wrong": {
             "B": "Passenger capacity is not discussed.",
             "C": "Floating height is not mentioned.",
@@ -483,7 +483,7 @@
           "wrong": {
             "A": "Cargo is not discussed.",
             "C": "The coxswain steers and calls rhythm rather than rowing.",
-            "D": "The article says rowing is practiced widely, not only in the Olympics."
+            "D": "Rowing is practiced widely, not only in big competitions."
           }
         },
         {
@@ -496,7 +496,7 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The article states that the shell's shape lets it slide through water with very little resistance.",
+          "why": "In the article, the shell's shape lets it slide through water with very little resistance.",
           "wrong": {
             "A": "Passenger capacity is not discussed.",
             "B": "Visibility for the coxswain is not discussed.",
@@ -598,7 +598,7 @@
           ],
           "answer": "A",
           "skill": "cause-effect",
-          "why": "The article explains that the boat's accumulated momentum carries it forward smoothly until the next pull begins.",
+          "why": "In the article, the boat's accumulated momentum carries it forward smoothly until the next pull begins.",
           "wrong": {
             "B": "Shells are not described as having motors.",
             "C": "The coxswain steers and calls rhythm, not pushes the boat.",
@@ -661,7 +661,7 @@
         ],
         "answer": "A",
         "skill": "cause-effect",
-        "why": "The text says that when an oar pushes water, the boat moves ahead.",
+        "why": "In the text, when an oar pushes water, the boat moves ahead.",
         "wrong": {
           "B": "Wind is not mentioned.",
           "C": "The weight of the shell is not mentioned.",
@@ -792,20 +792,20 @@
         }
       },
       {
-        "stem": "What can small timing mistakes cost a crew in a close race?",
+        "stem": "Why does the coxswain call out the rhythm during a race?",
         "options": [
-          "Their oars",
-          "Valuable seconds",
-          "Their coach",
-          "Extra rowers"
+          "To make the boat lighter in the water",
+          "To help the rowers keep the same timing",
+          "To warn other boats to move away",
+          "To let the rowers rest during the race"
         ],
         "answer": "B",
         "skill": "cause-effect",
-        "why": "The text says even small timing mistakes can cost a crew valuable seconds in a close race.",
+        "why": "Timing matters in rowing, so the coxswain calls out the rhythm to help the whole crew row together.",
         "wrong": {
-          "A": "Losing oars is not mentioned.",
-          "C": "Losing a coach is not mentioned.",
-          "D": "Extra rowers are not mentioned."
+          "A": "Calling the rhythm does not change the boat's weight.",
+          "C": "The calls are for the crew, not other boats.",
+          "D": "The rhythm keeps them rowing, not resting."
         }
       },
       {

@@ -155,7 +155,7 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The article says Mae went to Africa as a doctor and helped sick people there.",
+          "why": "In the article, Mae worked in Africa as a doctor and took care of sick people.",
           "wrong": {
             "A": "Mae flew on a shuttle; she did not build one in Africa.",
             "B": "The article does not say she taught dance in Africa.",
@@ -317,7 +317,7 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The article says watching astronauts on television helped inspire her.",
+          "why": "In the article, watching astronauts on television helped inspire her.",
           "wrong": {
             "A": "Farming is not mentioned.",
             "B": "A factory is not mentioned.",
@@ -334,7 +334,7 @@
           ],
           "answer": "A",
           "skill": "detail",
-          "why": "The article says she worked as a volunteer doctor in two African countries, caring for sick people.",
+          "why": "In the article, she worked as a volunteer doctor in two African countries, caring for sick people.",
           "wrong": {
             "B": "Volunteering in Africa is not the same as training astronauts.",
             "C": "The article does not say she ran a camp in Chicago.",
@@ -342,7 +342,7 @@
           }
         },
         {
-          "stem": "What does orbit mean in the sentence 'the shuttle went around Earth in orbit more than one hundred times'?",
+          "stem": "In the article, what does the word \"orbit\" mean?",
           "options": [
             "A space suit",
             "A landing place",
@@ -402,7 +402,7 @@
           ],
           "answer": "D",
           "skill": "cause-effect",
-          "why": "The article says some people doubted her, but she refused to give up.",
+          "why": "In the article, some people doubted her, but she refused to give up.",
           "wrong": {
             "A": "She went on to study engineering and medicine.",
             "B": "She went to Africa to work and later joined NASA.",
@@ -496,7 +496,7 @@
           ],
           "answer": "D",
           "skill": "detail",
-          "why": "The article says she conducted experiments on how weightlessness affects the body, including bone cells and motion sickness.",
+          "why": "In the article, she conducted experiments on how weightlessness affects the body, including bone cells and motion sickness.",
           "wrong": {
             "A": "The Moon is not mentioned.",
             "B": "Landing is not described as her experiment.",
@@ -627,7 +627,7 @@
         ],
         "answer": "D",
         "skill": "detail",
-        "why": "The text says Mae went off to a big school at just 16.",
+        "why": "Mae went off to a big school when she was just 16.",
         "wrong": {
           "A": "She was 16, not 12.",
           "B": "She was 16, not 10.",
@@ -748,7 +748,7 @@
         ],
         "answer": "D",
         "skill": "cause-effect",
-        "why": "The text says she became the first Black woman to travel to space.",
+        "why": "In the text, she became the first Black woman to travel to space.",
         "wrong": {
           "A": "The text does not say she was the first doctor.",
           "B": "The text does not say she was the youngest.",
@@ -767,7 +767,7 @@
         ],
         "answer": "B",
         "skill": "detail",
-        "why": "The text says Mae entered Stanford University when she was only 16.",
+        "why": "Mae entered Stanford University when she was only 16.",
         "wrong": {
           "A": "Harvard is not mentioned.",
           "C": "Chicago is where she grew up.",
@@ -801,7 +801,7 @@
         ],
         "answer": "A",
         "skill": "sequence",
-        "why": "The text says that in 1993 she left NASA and founded a technology company and a science camp.",
+        "why": "In 1993, she left NASA and started a technology company and a science camp.",
         "wrong": {
           "B": "She flew on Endeavour in 1992, before leaving.",
           "C": "She entered Stanford when she was 16.",

@@ -138,7 +138,7 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The article says the sun warms the sea, and some of the water turns into a gas.",
+          "why": "In the article, the sun warms the sea, and some of the water turns into a gas.",
           "wrong": {
             "A": "The article does not say wind heats the water.",
             "B": "Clouds form later, after the vapor cools.",
@@ -163,7 +163,7 @@
           }
         },
         {
-          "stem": "Read the sentence: \"They fall as rain, snow, or hail. This step is precipitation.\" What does precipitation mean?",
+          "stem": "In the article, what does the word \"precipitation\" mean?",
           "options": [
             "Water that soaks into the ground",
             "Water that turns into a gas",
@@ -189,7 +189,7 @@
           ],
           "answer": "B",
           "skill": "sequence",
-          "why": "The article says that when the vapor cools high in the sky, it turns back into tiny drops. This is condensation.",
+          "why": "In the article, the vapor cools and turns back into drops. This is condensation.",
           "wrong": {
             "A": "Salt does not come from vapor; salt stays in the sea.",
             "C": "Water sinks into the ground after it falls, much later in the cycle.",
@@ -208,7 +208,7 @@
           "skill": "inference",
           "why": "The article says the drops came from the air. Cold makes vapor turn back into drops, just like condensation in the sky.",
           "wrong": {
-            "A": "The article says nobody spilled anything; the water came from the air.",
+            "A": "Nobody spilled anything in the article; the water came from the air.",
             "B": "The article says the water came from the air, not from a splash.",
             "D": "Heat from the sun causes evaporation, not drops on a cold glass."
           }
@@ -342,7 +342,7 @@
           }
         },
         {
-          "stem": "Read the sentence: \"Some seeps into the soil and slowly trickles down to become groundwater.\" What does seeps mean?",
+          "stem": "In the article, what does the word \"seeps\" mean?",
           "options": [
             "Flows slowly through small spaces",
             "Freezes into hard ice",
@@ -368,7 +368,7 @@
           ],
           "answer": "D",
           "skill": "cause-effect",
-          "why": "The article explains that when seawater evaporates, the salt stays in the ocean, so the vapor is fresh.",
+          "why": "In the article, when seawater evaporates, the salt stays in the ocean, so the vapor is fresh.",
           "wrong": {
             "A": "The salt never reaches the clouds, so there is nothing to filter.",
             "B": "Rain is already fresh before it reaches any river.",
@@ -385,9 +385,9 @@
           ],
           "answer": "B",
           "skill": "inference",
-          "why": "The article says much of the groundwater collected long ago and refills very slowly, so using too much could use it up.",
+          "why": "In the article, much of the groundwater collected long ago and refills very slowly, so using too much could use it up.",
           "wrong": {
-            "A": "The article says groundwater is part of the country's water supply, so it is usable.",
+            "A": "In the article, groundwater is part of the country's water supply, so it is usable.",
             "C": "Wadis flood because of heavy storms, not because of wells.",
             "D": "Dew forms from vapor in the air, not from groundwater."
           }
@@ -421,7 +421,7 @@
           "skill": "author-purpose",
           "why": "The section connects the science of the water cycle to the reader's own dry country and its water sources.",
           "wrong": {
-            "B": "The article says rain is rare in Saudi Arabia.",
+            "B": "In the article, Saudi Arabia gets very little rain.",
             "C": "The article mentions desalination plants but does not explain how to build one.",
             "D": "The article does not give a history of wells."
           }
@@ -513,7 +513,7 @@
           ],
           "answer": "B",
           "skill": "detail",
-          "why": "The article states that the aquifers filled thousands of years ago, during a wetter climatic period.",
+          "why": "In the article, the aquifers filled thousands of years ago, during a wetter climatic period.",
           "wrong": {
             "A": "The article says aquifers refill very slowly, so one winter could not fill them.",
             "C": "Desalination plants produce water from the sea, not aquifer water.",
@@ -547,7 +547,7 @@
           ],
           "answer": "C",
           "skill": "cause-effect",
-          "why": "The article says droplets combine into larger drops, and once they are too heavy, gravity pulls them down.",
+          "why": "In the article, droplets combine into larger drops, and once they are too heavy, gravity pulls them down.",
           "wrong": {
             "A": "The sun's heat causes evaporation, which moves water upward.",
             "B": "Dust particles help droplets form; they do not make them fall.",
@@ -627,7 +627,7 @@
         ],
         "answer": "A",
         "skill": "cause-effect",
-        "why": "The text says the drops bump, join, get big and fat, and then they fall.",
+        "why": "In the text, the drops bump, join, get big and fat, and then they fall.",
         "wrong": {
           "B": "The drops are cold up high, not hot and dry.",
           "C": "Turning into gas is evaporation, which sends water up.",
@@ -661,7 +661,7 @@
         ],
         "answer": "D",
         "skill": "vocabulary",
-        "why": "The text says big plants by the sea take the salt out of sea water, and that is desalination.",
+        "why": "In the text, big plants by the sea take the salt out of sea water, and that is desalination.",
         "wrong": {
           "A": "Clouds are made by condensation.",
           "B": "Wells pull up water from the ground, which is different.",
@@ -731,7 +731,7 @@
         ],
         "answer": "C",
         "skill": "cause-effect",
-        "why": "The article says the droplets join, and when they grow too heavy to float, they fall.",
+        "why": "In the article, the droplets join, and when they get too heavy, they fall.",
         "wrong": {
           "A": "Wind is not given as the cause.",
           "B": "The sun powers the cycle but does not pull drops down.",
@@ -767,7 +767,7 @@
         ],
         "answer": "B",
         "skill": "vocabulary",
-        "why": "The article says layers of rock and sand that hold underground water are called aquifers.",
+        "why": "In the article, layers of rock and sand that hold underground water are called aquifers.",
         "wrong": {
           "A": "That describes a wadi.",
           "C": "That describes a desalination plant.",
@@ -784,7 +784,7 @@
         ],
         "answer": "D",
         "skill": "cause-effect",
-        "why": "The article says the cycle recycles the same water, so the total stays almost the same.",
+        "why": "In the article, the same water goes around the cycle again and again, so the total stays about the same.",
         "wrong": {
           "A": "Rain is part of the cycle and does not create new water.",
           "B": "The ocean does not make new water in the text.",

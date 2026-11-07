@@ -138,7 +138,7 @@
           ],
           "answer": "A",
           "skill": "detail",
-          "why": "The article says the wings beat so fast that they make a hum, and that is how the bird got its name.",
+          "why": "In the article, the wings make a hum, and that is how the bird got its name.",
           "wrong": {
             "B": "The article does not say the bird sings to its chicks.",
             "C": "The article does not say it lives near bees.",
@@ -172,7 +172,7 @@
           ],
           "answer": "D",
           "skill": "vocabulary",
-          "why": "The article explains that when the bird can hover, it can stay in one spot in the air.",
+          "why": "In the article, when the bird can hover, it can stay in one spot in the air.",
           "wrong": {
             "A": "The article does not say the bird flies above the clouds.",
             "B": "Hummingbirds do not dive into water in the article.",
@@ -189,7 +189,7 @@
           ],
           "answer": "B",
           "skill": "cause-effect",
-          "why": "The article says the bird takes pollen to the next flower, and that helps the plant make seeds.",
+          "why": "In the article, the bird takes pollen to the next flower, and that helps the plant make seeds.",
           "wrong": {
             "A": "The article does not say the flower loses its nectar.",
             "C": "Pollen has nothing to do with finding the nest.",
@@ -223,7 +223,7 @@
           ],
           "answer": "A",
           "skill": "inference",
-          "why": "Hummingbirds live in North and South America, and the article says Saudi Arabia does not have them.",
+          "why": "Hummingbirds live in North and South America, and there are none in Saudi Arabia.",
           "wrong": {
             "B": "There are no wild hummingbirds in Saudi Arabia.",
             "C": "Hummingbirds rest at night, and none live in Saudi Arabia.",
@@ -240,7 +240,7 @@
           ],
           "answer": "D",
           "skill": "author-purpose",
-          "why": "The author explains that Saudi Arabia has no hummingbirds but has sunbirds, which also drink nectar.",
+          "why": "The author explains that Saudi Arabia has no hummingbirds but has sunbirds.",
           "wrong": {
             "A": "The article does not compare their size.",
             "B": "The article does not tell how to catch birds.",
@@ -317,7 +317,7 @@
           ],
           "answer": "A",
           "skill": "detail",
-          "why": "The article says that at night the bird enters a deep, sleep-like state called torpor, which saves energy.",
+          "why": "In the article, at night the bird enters a deep, sleep-like state called torpor, which saves energy.",
           "wrong": {
             "B": "Torpor is not a flower.",
             "C": "The long trip is the migration across the Gulf of Mexico.",
@@ -334,7 +334,7 @@
           ],
           "answer": "D",
           "skill": "detail",
-          "why": "The article says insects and spiders give the bird protein.",
+          "why": "In the article, insects and spiders give the bird protein.",
           "wrong": {
             "A": "Hummingbirds do not feed sunbirds.",
             "B": "The nest is made with spider silk, not insects.",
@@ -482,7 +482,7 @@
           "why": "The article connects the bird's tiny body and fast metabolism to hovering, frequent feeding, torpor, and migration.",
           "wrong": {
             "A": "The article does not say hummingbirds are in danger.",
-            "C": "The article says they live only in North and South America.",
+            "C": "They live only in North and South America.",
             "D": "Nectar is their main food; insects add protein."
           }
         },
@@ -496,7 +496,7 @@
           ],
           "answer": "D",
           "skill": "detail",
-          "why": "The article explains that flexible shoulder joints let the wings rotate and make lift on both the forward and backward strokes.",
+          "why": "In the article, flexible shoulder joints let the wings rotate and make lift on both the forward and backward strokes.",
           "wrong": {
             "A": "The article does not mention hollow beaks.",
             "B": "Feet do not grip the air.",
@@ -581,7 +581,7 @@
           ],
           "answer": "D",
           "skill": "compare",
-          "why": "The article says sunbirds also drink nectar but typically perch rather than hover.",
+          "why": "In the article, sunbirds also drink nectar but typically perch rather than hover.",
           "wrong": {
             "A": "The article says sunbirds also drink nectar.",
             "B": "Sunbirds live in Saudi Arabia; hummingbirds live only in the Americas.",
@@ -644,7 +644,7 @@
         ],
         "answer": "D",
         "skill": "cause-effect",
-        "why": "The text says at night its heart slows, which helps it last the night.",
+        "why": "At night, its heart slows down, which helps it save energy until morning.",
         "wrong": {
           "A": "The bird rests at night.",
           "B": "The hum comes from the wings.",
@@ -661,7 +661,7 @@
         ],
         "answer": "A",
         "skill": "detail",
-        "why": "The text says the least one is as long as your thumb.",
+        "why": "The smallest one is about as long as your thumb.",
         "wrong": {
           "B": "It is far smaller than an arm.",
           "C": "A nut is the size of the nest, about half a nut.",
@@ -714,7 +714,7 @@
         ],
         "answer": "A",
         "skill": "cause-effect",
-        "why": "The text says flying like this burns a lot of energy and its heart beats very fast.",
+        "why": "Flying like this uses a lot of energy, and its heart beats very fast.",
         "wrong": {
           "B": "The nest distance is not mentioned.",
           "C": "It has a long beak.",
@@ -748,7 +748,7 @@
         ],
         "answer": "D",
         "skill": "vocabulary",
-        "why": "The article says hover means they stay in one place in the air.",
+        "why": "In the article, hover means they stay in one place in the air.",
         "wrong": {
           "A": "Flying far is migrating.",
           "B": "Sleeping in a nest is not hovering.",
@@ -801,7 +801,7 @@
         ],
         "answer": "B",
         "skill": "cause-effect",
-        "why": "The text says this style of flight needs an enormous amount of energy and they have a very fast metabolism.",
+        "why": "In the text, this style of flight needs an enormous amount of energy and they have a very fast metabolism.",
         "wrong": {
           "A": "Nest distance is not mentioned.",
           "C": "Feeding chicks is not given as the reason.",

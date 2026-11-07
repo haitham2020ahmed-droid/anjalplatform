@@ -308,20 +308,20 @@
           }
         },
         {
-          "stem": "About how long does it take the space station to orbit Earth once?",
+          "stem": "How many sunrises does the astronaut see each day?",
           "options": [
-            "About five minutes",
-            "About one full day",
-            "About ninety minutes",
-            "About one full week"
+            "Only one each day",
+            "Exactly two or three",
+            "More than a dozen",
+            "None at all, ever"
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The diary says the station circles Earth roughly once every ninety minutes.",
+          "why": "In the story, the station moves so fast that the astronaut sees the sun rise more than a dozen times a day.",
           "wrong": {
-            "A": "This is far too short a time.",
-            "B": "A full day would mean only a few orbits, not many sunrises.",
-            "D": "This is far too long; the station orbits many times each day."
+            "A": "The station circles Earth many times a day.",
+            "B": "The number is much bigger than two.",
+            "D": "The astronaut does see sunrises."
           }
         },
         {

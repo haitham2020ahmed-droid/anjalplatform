@@ -138,7 +138,7 @@
      ],
      "answer": "D",
      "skill": "detail",
-     "why": "The article says National Day falls on 23 September.",
+     "why": "In the article, National Day falls on 23 September.",
      "wrong": {
       "A": "The article names 23 September, not 22 February.",
       "B": "The article does not mention 1 January.",
@@ -317,7 +317,7 @@
      ],
      "answer": "B",
      "skill": "detail",
-     "why": "The article states that National Day marks the anniversary of King Abdulaziz uniting the country in 1932.",
+     "why": "In the article, National Day marks the anniversary of King Abdulaziz uniting the country in 1932.",
      "wrong": {
       "A": "The article does not say a landmark was built that year.",
       "C": "The anthem's writing is not mentioned as the reason for the day.",
@@ -334,7 +334,7 @@
      ],
      "answer": "B",
      "skill": "detail",
-     "why": "The article says marching bands perform patriotic songs as participants carry flags past the crowds.",
+     "why": "In the article, marching bands perform patriotic songs as participants carry flags past the crowds.",
      "wrong": {
       "A": "Handing out flags to tourists is not mentioned.",
       "C": "Selling food is not described in the article.",
@@ -483,7 +483,7 @@
      "wrong": {
       "B": "The article treats the two days as distinct, not as rivals.",
       "C": "The article never discusses the cost of fireworks.",
-      "D": "The article mentions smaller commemorations beyond major cities, including abroad."
+      "D": "The celebrations are not only in big cities."
      }
     },
     {
@@ -496,7 +496,7 @@
      ],
      "answer": "B",
      "skill": "detail",
-     "why": "The article states that the flag symbolizes the country's Islamic faith through its script, with a sword representing strength and justice.",
+     "why": "The green flag stands for the country's faith and its history.",
      "wrong": {
       "A": "Trade wealth is not linked to the flag's design.",
       "C": "Riyadh's founding is not what the flag symbolizes.",
@@ -513,7 +513,7 @@
      ],
      "answer": "B",
      "skill": "detail",
-     "why": "The article explains that National Day marks the 1932 unification, while Founding Day, on 22 February, commemorates the earlier 1727 founding of the first Saudi state.",
+     "why": "National Day marks the 1932 unification of the country.",
      "wrong": {
       "A": "Both days are held every year, not every ten years.",
       "C": "National Day has an official date, 23 September.",
@@ -598,7 +598,7 @@
      ],
      "answer": "A",
      "skill": "compare",
-     "why": "The article states that the tradition has grown considerably larger and more elaborate over recent decades.",
+     "why": "The celebrations have grown much larger over recent years.",
      "wrong": {
       "B": "The article describes growth, not a decline in interest.",
       "C": "The article explicitly describes change over time, not sameness.",
@@ -647,7 +647,7 @@
     "why": "The text says the king joined many parts, and it became one country.",
     "wrong": {
      "A": "The flag is still hung each year.",
-     "B": "The text says the date is 23 September.",
+     "B": "The day is 23 September, but the date did not change.",
      "C": "Fireworks go up on National Day."
     }
    },
@@ -661,7 +661,7 @@
     ],
     "answer": "B",
     "skill": "vocabulary",
-    "why": "The text says bands play songs as they walk in the parade.",
+    "why": "In the text, bands play songs as they walk in the parade.",
     "wrong": {
      "A": "The food is eaten with family, not the parade.",
      "C": "The parade goes by in town.",
@@ -697,7 +697,7 @@
     ],
     "answer": "A",
     "skill": "detail",
-    "why": "The text says families cook favorite dishes to share and visit relatives and friends.",
+    "why": "In the text, families cook favorite dishes to share and visit relatives and friends.",
     "wrong": {
      "B": "School is not mentioned.",
      "C": "The text does not say families sell flags.",
@@ -731,7 +731,7 @@
     ],
     "answer": "B",
     "skill": "inference",
-    "why": "The text says many people stand still to listen, and some sing along with patriotic pride.",
+    "why": "In the text, many people stand still to listen, and some sing along with patriotic pride.",
     "wrong": {
      "A": "The noise is from the fireworks, not the anthem.",
      "C": "The parade moves through the streets in another part of the text.",
@@ -784,7 +784,7 @@
     ],
     "answer": "A",
     "skill": "cause-effect",
-    "why": "The article says shops sell them so that families can join in the display.",
+    "why": "Shops sell flags and ribbons so that families can join in.",
     "wrong": {
      "B": "The parade is run by marching bands in the streets.",
      "C": "The article does not say flags are gifts.",
@@ -818,7 +818,7 @@
     ],
     "answer": "C",
     "skill": "detail",
-    "why": "The article says children often wave smaller flags from the sidelines as the parade passes.",
+    "why": "Children often wave small flags as the parade passes.",
     "wrong": {
      "A": "The article does not say children carry the king's flag.",
      "B": "The marching band performs the songs; the children watch from the sidelines.",

@@ -121,7 +121,7 @@
           ],
           "answer": "A",
           "skill": "central-idea",
-          "why": "Every part of the article tells a fact about Mercury: its size, its year and day, its heat and cold, and its craters.",
+          "why": "Every part of the article gives facts about Mercury: its size, its year and day, its heat and cold, and its craters.",
           "wrong": {
             "B": "The article does not explain how to build a spaceship.",
             "C": "Earth's Moon is only used to compare size.",
@@ -138,7 +138,7 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The article says one trip around the Sun takes 88 days. That is a year on Mercury.",
+          "why": "In the article, one trip around the Sun takes 88 days. That is a year on Mercury.",
           "wrong": {
             "A": "One trip is much longer than one day.",
             "B": "Mercury is faster than Earth, so its year is shorter than ours.",
@@ -206,7 +206,7 @@
           ],
           "answer": "A",
           "skill": "vocabulary",
-          "why": "The article explains that craters are big holes made when space rocks hit Mercury.",
+          "why": "In the article, craters are big holes made when space rocks hit Mercury.",
           "wrong": {
             "B": "Ice hides inside craters, but craters are not mountains.",
             "C": "The article does not mention rivers.",
@@ -226,7 +226,7 @@
           "why": "Mercury is the closest planet to the Sun, but the article says it is not the hottest. Venus is.",
           "wrong": {
             "A": "Mercury is the smallest planet.",
-            "B": "The article says Venus has thick air.",
+            "B": "Venus is hotter than Mercury, not cold.",
             "C": "The article says Mercury has no moons."
           }
         },
@@ -317,7 +317,7 @@
           ],
           "answer": "A",
           "skill": "detail",
-          "why": "The article says one orbit takes just 88 Earth days.",
+          "why": "One orbit takes just 88 Earth days.",
           "wrong": {
             "B": "176 days is the time from one sunrise to the next, not one orbit.",
             "C": "430 is the daytime temperature in degrees, not a number of days.",
@@ -334,7 +334,7 @@
           ],
           "answer": "D",
           "skill": "detail",
-          "why": "The article says the ground can drop to about minus 180 degrees at night.",
+          "why": "The ground can drop to about minus 180 degrees at night.",
           "wrong": {
             "A": "Mercury's nights are far colder than freezing.",
             "B": "This number is much too warm compared with the article.",
@@ -393,7 +393,7 @@
           }
         },
         {
-          "stem": "Read the sentence: \"Its temperature swings wildly.\" What does swings mean here?",
+          "stem": "In the article, what does the word \"swings\" mean?",
           "options": [
             "Moves on a playground ride",
             "Stays the same all the time",
@@ -496,7 +496,7 @@
           ],
           "answer": "A",
           "skill": "detail",
-          "why": "The article says MESSENGER confirmed ice concealed in deep craters near the poles that are always in shadow.",
+          "why": "In the article, MESSENGER confirmed ice concealed in deep craters near the poles that are always in shadow.",
           "wrong": {
             "B": "Mercury has almost no atmosphere.",
             "C": "Mercury has no moons.",
@@ -572,7 +572,7 @@
           }
         },
         {
-          "stem": "Read the phrase: \"ice is concealed inside deep craters.\" What does concealed mean?",
+          "stem": "Ice is concealed inside deep craters. What does concealed mean?",
           "options": [
             "Melted",
             "Hidden",
@@ -627,7 +627,7 @@
         ],
         "answer": "B",
         "skill": "inference",
-        "why": "The text says it is hard to see and that it stays near the Sun.",
+        "why": "Mercury stays near the Sun, so it is hard to see.",
         "wrong": {
           "A": "Mercury is the smallest planet.",
           "C": "It has lots of craters.",
@@ -678,7 +678,7 @@
         ],
         "answer": "D",
         "skill": "compare",
-        "why": "The text says a day there is longer than its year.",
+        "why": "In the text, a day there is longer than its year.",
         "wrong": {
           "A": "The day is not shorter than the year.",
           "B": "They are not the same length.",
@@ -697,7 +697,7 @@
         ],
         "answer": "B",
         "skill": "detail",
-        "why": "The text says the time from one sunrise to the next is about 176 days.",
+        "why": "In the text, the time from one sunrise to the next is about 176 days.",
         "wrong": {
           "A": "88 days is how long one orbit takes.",
           "C": "430 is the hot temperature in degrees.",
@@ -714,7 +714,7 @@
         ],
         "answer": "D",
         "skill": "cause-effect",
-        "why": "The text says Mercury spins very slowly, so sunrise to sunrise takes about 176 days.",
+        "why": "In the text, Mercury spins very slowly, so sunrise to sunrise takes about 176 days.",
         "wrong": {
           "A": "Moons do not change the length of a day.",
           "B": "Mercury orbits faster than any other planet.",
@@ -801,7 +801,7 @@
         ],
         "answer": "C",
         "skill": "detail",
-        "why": "The text says a newer mission called BepiColombo was launched in 2018.",
+        "why": "A newer mission called BepiColombo was launched in 2018.",
         "wrong": {
           "A": "MESSENGER orbited Mercury between 2011 and 2015.",
           "B": "Andromeda is not mentioned in this article.",
@@ -818,7 +818,7 @@
         ],
         "answer": "B",
         "skill": "cause-effect",
-        "why": "The text says Mercury lacks a protective atmosphere, so it has extreme temperature swings.",
+        "why": "Mercury has almost no air to protect it, so its temperature changes a lot.",
         "wrong": {
           "A": "Size is not given as the cause.",
           "C": "Mercury has no moons.",

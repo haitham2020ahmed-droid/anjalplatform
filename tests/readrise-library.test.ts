@@ -353,7 +353,9 @@ describe("dashboards", () => {
     assert.equal(b.growth, -50);
     assert.equal(c.placed, false);
     assert.equal(c.flags.notPlaced, true);
-    assert.equal(b.flags.belowBand, true, "550 is under the Grade 4 guidance band (640)");
+    // round 7: ONE grade band (benchmarks.ts): Grade 4 Meets 740–940 — 550 is "Approaches" (≥ 740 − 350), not Far Below
+    assert.equal(b.flags.belowBand, true, "550 is under the Grade 4 Meets range (740)");
+    assert.deepEqual([b.gradeBand, b.flags.farBelow], ["APPROACHES", false]);
     assert.equal(b.flags.inactive, true, "last activity 20 days ago");
     assert.equal(a.flags.inactive, false);
     assert.equal(a.weekArticles, 1);
@@ -361,7 +363,7 @@ describe("dashboards", () => {
     assert.equal(a.firstTryAvg, 100, "only first tries count");
     assert.equal(r.summary.medianLevel, 675);
     assert.equal(r.summary.avgGrowth, 25);
-    assert.deepEqual(r.band, { low: 640, high: 940 });
+    assert.deepEqual(r.band, { low: 740, high: 940 }, "round 7: the band is the Grade 4 \"Meets\" range (benchmarks.ts meetsRange)");
     assert.equal(r.history.weeks.length, 8);
     const sa = r.history.series.find((x) => x.studentId === s1)!;
     assert.equal(sa.points[sa.points.length - 1], 800);

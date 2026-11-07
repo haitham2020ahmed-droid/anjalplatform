@@ -155,7 +155,7 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The article says wide, flat feet spread out and do not sink into soft, loose sand.",
+          "why": "In the article, the camel's flat feet do not sink into sand.",
           "wrong": {
             "A": "Climbing rocks is not described in the article.",
             "B": "Running speed is not compared this way.",
@@ -317,7 +317,7 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The article states that a camel can drink well over one hundred liters of water at a single time.",
+          "why": "In the article, a camel can drink well over one hundred liters of water at a single time.",
           "wrong": {
             "A": "Ten liters is far less than the article states.",
             "B": "Fifty liters is less than the article states.",
@@ -334,7 +334,7 @@
           ],
           "answer": "D",
           "skill": "detail",
-          "why": "The article explains that thick double eyelashes protect a camel's eyes from both sand and harsh glare.",
+          "why": "In the article, thick double eyelashes protect a camel's eyes from both sand and harsh glare.",
           "wrong": {
             "A": "Wide feet help with walking on sand, not eye protection.",
             "B": "The hump stores fat, not eye protection.",
@@ -538,20 +538,20 @@
           }
         },
         {
-          "stem": "How does a fluctuating body temperature help prevent dehydration in a camel?",
+          "stem": "What does a camel's body do with the fat in its hump when food is scarce?",
           "options": [
-            "It reduces how much the camel needs to sweat, conserving its water",
-            "It causes the camel to drink far more water than it actually needs",
-            "It somehow makes the camel's fat turn instantly into pure water",
-            "It cools the hot sand resting beneath the camel's wide feet"
+            "It changes the fat into energy and a little water",
+            "It sends the fat out through its skin as sweat",
+            "It stores the fat as water inside its stomach",
+            "It turns the fat into extra hair for the winter"
           ],
           "answer": "A",
           "skill": "cause-effect",
-          "why": "The article explains that a fluctuating body temperature reduces sweating, which helps the camel conserve the water it has.",
+          "why": "When food is scarce, the camel's body turns the fat into energy, and this even makes a little water.",
           "wrong": {
-            "B": "Drinking more than needed is not described as a result.",
-            "C": "Fat does not instantly become water.",
-            "D": "Cooling the sand is not mentioned in the article."
+            "B": "Fat does not leave the body as sweat.",
+            "C": "The hump stores fat, not water.",
+            "D": "The fat is used for energy, not hair."
           }
         },
         {
@@ -627,7 +627,7 @@
         ],
         "answer": "A",
         "skill": "detail",
-        "why": "The text says the camel's body uses the fat and gets a bit of water from it.",
+        "why": "In the text, the camel's body uses the fat and gets a bit of water from it.",
         "wrong": {
           "B": "Hair is not mentioned.",
           "C": "The hump does not give sand.",
@@ -678,7 +678,7 @@
         ],
         "answer": "D",
         "skill": "inference",
-        "why": "The text says a camel shuts its nose to keep out sand, so it does this when sand blows.",
+        "why": "In the text, a camel shuts its nose to keep out sand, so it does this when sand blows.",
         "wrong": {
           "A": "Drinking has nothing to do with keeping out sand.",
           "B": "Towns are not mentioned.",
@@ -731,7 +731,7 @@
         ],
         "answer": "A",
         "skill": "cause-effect",
-        "why": "The text says a tame camel could carry a heavy load and walk for many days under the burning sun.",
+        "why": "In the text, a tame camel could carry a heavy load and walk for many days under the burning sun.",
         "wrong": {
           "B": "Swimming is not mentioned.",
           "C": "Trucks did not exist yet, and speed is not the reason.",

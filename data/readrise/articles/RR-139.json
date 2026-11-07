@@ -138,7 +138,7 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The article says a pearl grows inside a sea animal called an oyster.",
+          "why": "In the article, a pearl grows inside a sea animal called an oyster.",
           "wrong": {
             "A": "Pearls do not grow in beach sand.",
             "B": "The article does not say pearls grow in rocks.",
@@ -155,7 +155,7 @@
           ],
           "answer": "B",
           "skill": "detail",
-          "why": "The article says a stone on a rope took the diver down fast.",
+          "why": "In the article, a stone on a rope took the diver down fast.",
           "wrong": {
             "A": "No fish pulled the divers.",
             "C": "The nose clip kept water out; it did not make him sink.",
@@ -180,7 +180,7 @@
           }
         },
         {
-          "stem": "Read this: \"A diver took one big breath.\" What is a breath?",
+          "stem": "In the article, what does the word \"breath\" mean?",
           "options": [
             "Air you take into your body",
             "A kind of hard shell from the sea",
@@ -206,7 +206,7 @@
           ],
           "answer": "A",
           "skill": "cause-effect",
-          "why": "The article says the boats set out in summer because the sea was warm.",
+          "why": "In the article, the boats set out in summer because the sea was warm.",
           "wrong": {
             "B": "The article does not talk about fish.",
             "C": "School is not part of the article.",
@@ -240,7 +240,7 @@
           ],
           "answer": "B",
           "skill": "cause-effect",
-          "why": "The article says farms in Japan made pearls in a new way, and then oil was found.",
+          "why": "In the article, farms in Japan made pearls in a new way, and then oil was found.",
           "wrong": {
             "A": "Storms and sharks are not given as the reasons.",
             "C": "New boats and ropes are not in the article.",
@@ -317,7 +317,7 @@
           ],
           "answer": "C",
           "skill": "sequence",
-          "why": "The article says the oyster covers a trapped object with layer after layer until a pearl forms.",
+          "why": "In the article, the oyster covers a trapped object with layer after layer until a pearl forms.",
           "wrong": {
             "A": "Divers did not make pearls.",
             "B": "Pearls do not fall from the sky.",
@@ -342,7 +342,7 @@
           }
         },
         {
-          "stem": "Read this: \"pearls were the main source of income.\" What does income mean?",
+          "stem": "In the article, what does the word \"income\" mean?",
           "options": [
             "Money a family earns",
             "A kind of boat for fishing",
@@ -513,7 +513,7 @@
           ],
           "answer": "A",
           "skill": "compare",
-          "why": "The article says cultured pearls are produced by deliberately placing an irritant inside oysters.",
+          "why": "In the article, cultured pearls are produced by deliberately placing an irritant inside oysters.",
           "wrong": {
             "B": "Both are built from layers formed by the oyster.",
             "C": "Cultured pearls also form inside oysters.",
@@ -521,7 +521,7 @@
           }
         },
         {
-          "stem": "Read this: \"pearling represented the most significant livelihood.\" What does livelihood mean?",
+          "stem": "In the article, what does the word \"livelihood\" mean?",
           "options": [
             "A dangerous sea animal",
             "A way of earning a living",
@@ -589,7 +589,7 @@
           }
         },
         {
-          "stem": "Why does the article say pearl diving \"survives as treasured heritage\"?",
+          "stem": "Why is pearl diving still part of the region's heritage today?",
           "options": [
             "Divers still use it as their main job in the Gulf every year",
             "People remember and celebrate it in museums, songs, and festivals",
@@ -598,11 +598,11 @@
           ],
           "answer": "B",
           "skill": "detail",
-          "why": "The article says pearl diving is celebrated in museums, songs, and festivals today.",
+          "why": "In the article, pearl diving is celebrated in museums, songs, and festivals today.",
           "wrong": {
             "A": "The article says the industry declined and men took other jobs.",
             "C": "The article does not say this.",
-            "D": "The article says cultured pearls were developed in Japan."
+            "D": "Cultured pearls were developed in modern times."
           }
         }
       ],
@@ -627,7 +627,7 @@
         ],
         "answer": "C",
         "skill": "detail",
-        "why": "The text says a dive took a minute or two.",
+        "why": "In the text, a dive took a minute or two.",
         "wrong": {
           "A": "A diver took one breath, so a dive could not last an hour.",
           "B": "A dive was only a minute or two.",
@@ -697,7 +697,7 @@
         ],
         "answer": "B",
         "skill": "detail",
-        "why": "The text says a heavy stone tied to a rope pulled the diver down quickly.",
+        "why": "A heavy stone tied to a rope pulled the diver down quickly.",
         "wrong": {
           "A": "The diver filled a basket with oysters.",
           "C": "The stone was tied to the diver's rope.",
@@ -801,7 +801,7 @@
         ],
         "answer": "A",
         "skill": "cause-effect",
-        "why": "The article says oil offered steadier employment than diving.",
+        "why": "Oil jobs were steadier than pearl diving.",
         "wrong": {
           "B": "Oil work was not done on a dhow.",
           "C": "The text says nothing about fewer men.",

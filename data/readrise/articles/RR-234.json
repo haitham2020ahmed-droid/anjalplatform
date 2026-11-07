@@ -138,7 +138,7 @@
      ],
      "answer": "B",
      "skill": "detail",
-     "why": "The article says the Soviet Union launched Salyut 1 in 1971, the first space station.",
+     "why": "In the article, the first space station was Salyut 1.",
      "wrong": {
       "A": "The ISS was built much later, using ideas from earlier stations.",
       "C": "Skylab launched after Salyut 1, in 1973.",
@@ -163,7 +163,7 @@
      }
     },
     {
-     "stem": "Read: \"The crew had to repair it in space.\" What does repair mean?",
+     "stem": "In the article, what does the word \"repair\" mean?",
      "options": [
       "To throw something away",
       "To make something bigger",
@@ -334,7 +334,7 @@
      ],
      "answer": "C",
      "skill": "detail",
-     "why": "The article says Polyakov set a record by spending 437 consecutive days in orbit.",
+     "why": "One astronaut set a record by spending more than a year in orbit.",
      "wrong": {
       "A": "This number is far too small.",
       "B": "This number is still less than the article states.",
@@ -342,7 +342,7 @@
      }
     },
     {
-     "stem": "Read: \"Engineers attached several new modules to Mir.\" What does module mean?",
+     "stem": "Engineers added new modules to the space station Mir. What does module mean?",
      "options": [
       "A section that can be added to a larger structure",
       "A kind of food eaten in space",
@@ -513,7 +513,7 @@
      ],
      "answer": "B",
      "skill": "detail",
-     "why": "The article explains that a second docking port let fresh crews and supplies arrive during a mission.",
+     "why": "In the article, a second docking port let fresh crews and supplies arrive during a mission.",
      "wrong": {
       "A": "A viewing window is not mentioned.",
       "C": "A kitchen is not described in the article.",
@@ -521,7 +521,7 @@
      }
     },
     {
-     "stem": "Read: \"Mir also survived a serious collision with an uncrewed cargo vehicle.\" What does collision mean?",
+     "stem": "In the article, what does the word \"collision\" mean?",
      "options": [
       "A friendly greeting between two crews",
       "A peaceful landing on Earth",
@@ -627,7 +627,7 @@
     ],
     "answer": "B",
     "skill": "detail",
-    "why": "The text says Skylab launched in 1973.",
+    "why": "Skylab was launched in 1973.",
     "wrong": {
      "A": "1971 is when Salyut 1 went up.",
      "C": "The text does not give 1979 for Skylab's launch.",
@@ -644,7 +644,7 @@
     ],
     "answer": "A",
     "skill": "compare",
-    "why": "The text says Mir was much bigger and that new parts were added for years.",
+    "why": "In the text, Mir was much bigger and that new parts were added for years.",
     "wrong": {
      "B": "The text says bigger, not smaller.",
      "C": "Crews lived on Mir.",
@@ -697,7 +697,7 @@
     ],
     "answer": "D",
     "skill": "detail",
-    "why": "The text says they made emergency repairs, freeing the panel and rigging a shade.",
+    "why": "In the text, the crew fixed the problems, freeing the panel and making a shade.",
     "wrong": {
      "A": "Moving the orbit is not mentioned.",
      "B": "The station already had no power.",
@@ -731,7 +731,7 @@
     ],
     "answer": "C",
     "skill": "cause-effect",
-    "why": "The text says that by 1979, with no fuel left, Skylab fell and broke apart.",
+    "why": "In the text, by 1979, with no fuel left, Skylab fell and broke apart.",
     "wrong": {
      "A": "Storms are not mentioned.",
      "B": "The cargo ship crash happened to Mir.",
@@ -748,7 +748,7 @@
     ],
     "answer": "B",
     "skill": "inference",
-    "why": "The text says they kept building new stations and later missions worked well, which shows they did not give up.",
+    "why": "In the text, they kept building new stations, which shows they did not give up.",
     "wrong": {
      "A": "Building more stations shows they still cared.",
      "C": "The text does not talk about money.",
@@ -801,7 +801,7 @@
     ],
     "answer": "A",
     "skill": "cause-effect",
-    "why": "The text says Skylab fell because it had run out of fuel.",
+    "why": "In the text, Skylab fell because it had run out of fuel.",
     "wrong": {
      "B": "A rocket strike is not mentioned.",
      "C": "The text does not say the crew sent it down.",

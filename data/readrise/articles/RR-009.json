@@ -138,7 +138,7 @@
           ],
           "answer": "B",
           "skill": "detail",
-          "why": "The article says old books taught that our eyes send out rays.",
+          "why": "In the article, old books taught that our eyes send out rays.",
           "wrong": {
             "A": "Ibn al-Haytham showed this; the old books did not say it.",
             "C": "This is what he saw in the dark room, not what the old books said.",
@@ -155,7 +155,7 @@
           ],
           "answer": "A",
           "skill": "detail",
-          "why": "The article says the image of the scene outside showed on the wall, but it was upside down.",
+          "why": "In the article, the image of the scene outside showed on the wall, but it was upside down.",
           "wrong": {
             "B": "The article does not say the image was blue.",
             "C": "The article does not say the image moved.",
@@ -189,7 +189,7 @@
           ],
           "answer": "D",
           "skill": "cause-effect",
-          "why": "The article says each lamp made its own spot, and when he covered one lamp, its spot was gone.",
+          "why": "In the article, covering one lamp made its spot of light disappear.",
           "wrong": {
             "A": "Only one spot went away, not all of them.",
             "B": "Covering a lamp would make the room darker, not brighter.",
@@ -317,7 +317,7 @@
           ],
           "answer": "D",
           "skill": "detail",
-          "why": "The article says the theory from ancient Greek writers claimed that the eyes send out rays that reach objects.",
+          "why": "In the article, the theory from ancient Greek writers claimed that the eyes send out rays that reach objects.",
           "wrong": {
             "A": "The article says nothing about curved paths in the old theory.",
             "B": "Images in the dark room appeared upside down.",
@@ -334,7 +334,7 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The article says the book was translated into Latin and studied by European scholars for centuries.",
+          "why": "In the article, the book was translated into Latin and studied by European scholars for centuries.",
           "wrong": {
             "A": "The book was translated and studied, so it was not lost.",
             "B": "The article does not mention poems.",
@@ -513,7 +513,7 @@
           ],
           "answer": "D",
           "skill": "detail",
-          "why": "The article states that he became known in Europe as Alhazen.",
+          "why": "In the article, he became known in Europe as Alhazen.",
           "wrong": {
             "A": "Ptolemy is the name of an ancient Greek scholar, not Ibn al-Haytham's European name.",
             "B": "Euclid was an ancient Greek mathematician, a different person.",
@@ -521,7 +521,7 @@
           }
         },
         {
-          "stem": "He argued that a seeker of truth should not \"trust any authority blindly.\" What does authority mean here?",
+          "stem": "In the article, what does the word \"authority\" mean?",
           "options": [
             "a small opening in a chamber wall",
             "an expert or source that people trust",
@@ -555,7 +555,7 @@
           }
         },
         {
-          "stem": "Why does his belief that people should not \"trust any authority blindly\" matter for science?",
+          "stem": "Why does his belief that people should not simply trust famous thinkers matter for science?",
           "options": [
             "Scientists must check claims with evidence.",
             "Scientists should never read old books.",
@@ -627,7 +627,7 @@
         ],
         "answer": "B",
         "skill": "detail",
-        "why": "The text says he was born in Basra and then lived in Cairo.",
+        "why": "In the text, he was born in Basra and later lived in Cairo.",
         "wrong": {
           "A": "Makkah is not mentioned.",
           "C": "Riyadh is not mentioned.",
@@ -678,7 +678,7 @@
         ],
         "answer": "D",
         "skill": "detail",
-        "why": "The text says he wrote down what he saw and wrote a big book on light.",
+        "why": "He wrote down what he saw and wrote a famous book about light.",
         "wrong": {
           "A": "The text does not say he sold it.",
           "B": "He wrote it down so he would not forget.",
@@ -697,7 +697,7 @@
         ],
         "answer": "D",
         "skill": "detail",
-        "why": "The article says he studied mathematics, astronomy and especially light.",
+        "why": "He studied mathematics, astronomy, and especially light.",
         "wrong": {
           "A": "Music and cooking are not mentioned.",
           "B": "Sailing and farming are not mentioned.",
@@ -731,7 +731,7 @@
         ],
         "answer": "B",
         "skill": "cause-effect",
-        "why": "The article says he respected them but did not simply accept their ideas because he wanted evidence.",
+        "why": "In the article, he respected them but did not just accept their ideas, because he wanted evidence.",
         "wrong": {
           "A": "He wrote a large book.",
           "C": "He studied for many years.",

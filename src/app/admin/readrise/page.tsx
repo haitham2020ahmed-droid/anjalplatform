@@ -5,6 +5,7 @@ import { existsSync, readdirSync } from "node:fs";
 import { join } from "node:path";
 import { readRiseLibraryStatus, startReadRiseLibraryLoad, stretchQuestionCounts } from "@/server/readrise/seed";
 import { StretchLoader } from "./_components/stretch-loader";
+import { LibrarySync } from "./_components/library-sync";
 import { getT } from "@/i18n/server";
 import { listLibrary } from "@/server/readrise/library";
 import { LibraryView, libraryFilters } from "./_components/library-view";
@@ -44,6 +45,7 @@ export default async function ReadRiseLibraryAdmin({ searchParams }: { searchPar
         </div>
       ) : null}
       {/* ⬆ round 5: the stretch question sets of the article files, added to the articles already loaded (chunked) */}
+      <LibrarySync />
       <StretchLoader counts={stretchCounts} />
       <LibraryView base="/admin/readrise" items={items} topics={topics} f={f} />
     </AppShell>

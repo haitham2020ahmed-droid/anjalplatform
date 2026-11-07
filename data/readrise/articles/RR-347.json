@@ -138,7 +138,7 @@
           ],
           "answer": "A",
           "skill": "detail",
-          "why": "The article says more than eight billion people live on Earth today.",
+          "why": "In the article, more than eight billion people live on Earth today.",
           "wrong": {
             "B": "Eight thousand is far too small; the article says billion.",
             "C": "Eight hundred is far too small for the world's population.",
@@ -206,7 +206,7 @@
           ],
           "answer": "D",
           "skill": "detail",
-          "why": "The article says clean water and good food help people stay well for many years.",
+          "why": "In the article, clean water and good food help people live longer.",
           "wrong": {
             "A": "Sleep amounts are not discussed in the article.",
             "B": "Weather is not discussed in the article.",
@@ -388,7 +388,7 @@
           "why": "The article says estimating the future requires weighing birth rates, healthcare, and resources together, since these can change.",
           "wrong": {
             "A": "The article does not say countries keep no records.",
-            "B": "The article clearly says the population changes.",
+            "B": "The population does change.",
             "C": "The article does not mention a once-a-century rule."
           }
         },
@@ -530,7 +530,7 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The article states that the rapid increase began roughly two centuries ago.",
+          "why": "In the article, the rapid increase began roughly two centuries ago.",
           "wrong": {
             "A": "Two thousand years ago is described as a time of slow growth.",
             "B": "The shift began far earlier than the last ten years.",
@@ -681,7 +681,7 @@
         "why": "The text says growth was slow for a long time, and then it got fast.",
         "wrong": {
           "B": "The text says slow came first.",
-          "C": "The text says growth changed over time.",
+          "C": "In the text, growth changed over time.",
           "D": "Growth did not stop; it got fast."
         }
       }
@@ -767,7 +767,7 @@
         ],
         "answer": "A",
         "skill": "vocabulary",
-        "why": "The article says the mortality rate means how often people die.",
+        "why": "In the article, the mortality rate means how often people die.",
         "wrong": {
           "B": "That is closer to the birth rate.",
           "C": "Wealth is a separate idea in the article.",
@@ -801,7 +801,7 @@
         ],
         "answer": "C",
         "skill": "cause-effect",
-        "why": "The article says war, famine, and disease kept most people from living long lives.",
+        "why": "In the article, war, famine, and disease kept most people from living long lives.",
         "wrong": {
           "A": "The article does not say few babies were born.",
           "B": "The article says nothing about other planets.",

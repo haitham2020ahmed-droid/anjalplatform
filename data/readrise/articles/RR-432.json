@@ -138,7 +138,7 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The article says Nour hears a loud clank, and the bike chain breaks.",
+          "why": "In the story, Nour hears a loud noise, and the bike chain breaks.",
           "wrong": {
             "A": "The article does not mention a flat tire.",
             "B": "Bikes do not use gas.",
@@ -317,7 +317,7 @@
           ],
           "answer": "D",
           "skill": "detail",
-          "why": "The article says a loud clank happens because the bike chain snaps and breaks, forcing Nour to stop.",
+          "why": "In the article, a loud clank happens because the bike chain snaps and breaks, forcing Nour to stop.",
           "wrong": {
             "A": "Nour wants to finish the race, not quit.",
             "B": "Sam's mother, not Nour's, is mentioned starting the race.",
@@ -496,7 +496,7 @@
           ],
           "answer": "A",
           "skill": "cause-effect",
-          "why": "The article explains that the chain snaps completely and without warning, forcing Nour to stop pedaling immediately.",
+          "why": "In the article, the chain snaps completely and without warning, forcing Nour to stop pedaling immediately.",
           "wrong": {
             "B": "Nour wants to win, not deliberately slow down.",
             "C": "No neighbor steps into the road in the article.",
@@ -627,7 +627,7 @@
         ],
         "answer": "B",
         "skill": "detail",
-        "why": "The text says Sam's mom says go.",
+        "why": "In the story, Sam's mom starts the race.",
         "wrong": {
           "A": "Nour's dad is not mentioned.",
           "C": "A neighbor is not mentioned.",
@@ -644,7 +644,7 @@
         ],
         "answer": "C",
         "skill": "detail",
-        "why": "The text says it takes a few minutes, and then the chain works again.",
+        "why": "In the story, it takes a few minutes, and then the chain works again.",
         "wrong": {
           "A": "An hour is not mentioned.",
           "B": "Seconds is too short; the text says minutes.",
@@ -818,7 +818,7 @@
         ],
         "answer": "D",
         "skill": "detail",
-        "why": "The text says they got a bit of grease on their fingers as they worked.",
+        "why": "In the text, they got a bit of grease on their fingers as they worked.",
         "wrong": {
           "A": "Paint is not mentioned.",
           "B": "Sand is not mentioned.",

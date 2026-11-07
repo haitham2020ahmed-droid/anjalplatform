@@ -317,7 +317,7 @@
           ],
           "answer": "B",
           "skill": "detail",
-          "why": "The story says Maya assembles her gadget from a thin tube and a simple timer.",
+          "why": "In the story, Maya assembles her gadget from a thin tube and a simple timer.",
           "wrong": {
             "A": "The story does not mention a motor or battery.",
             "C": "The story does not mention a fan or light bulb.",
@@ -325,20 +325,20 @@
           }
         },
         {
-          "stem": "Where did Maya find the timer she uses for her gadget?",
+          "stem": "What does Maya use to build her gadget?",
           "options": [
-            "in her school's science lab",
-            "at a nearby hardware store",
-            "in a kitchen drawer",
-            "in her father's old car"
+            "a battery and a small fan",
+            "a box and a little bell",
+            "a thin tube and a timer",
+            "a cup and a metal spoon"
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The story says Maya found the timer she needed in a kitchen drawer.",
+          "why": "In the story, Maya builds her gadget from a thin tube and a simple timer.",
           "wrong": {
-            "A": "The story does not mention a science lab.",
-            "B": "The story does not mention a hardware store.",
-            "D": "The story does not mention a car."
+            "A": "A fan is not part of her gadget.",
+            "B": "A bell is not part of it.",
+            "D": "A cup and spoon are not named."
           }
         },
         {
@@ -697,7 +697,7 @@
         ],
         "answer": "C",
         "skill": "detail",
-        "why": "The text says it drips water into a plant's soil so no one has to remember.",
+        "why": "In the story, it drips water into the plant's soil, so no one has to remember.",
         "wrong": {
           "A": "It waters; it does not pick plants.",
           "B": "Cleaning soil is not mentioned.",
@@ -767,7 +767,7 @@
         ],
         "answer": "D",
         "skill": "detail",
-        "why": "The text says the timer was one she had found in a kitchen drawer.",
+        "why": "In the text, the timer was one she had found in a kitchen drawer.",
         "wrong": {
           "A": "A store is not mentioned.",
           "B": "The tools in the workshop are her father's, but the timer came from a kitchen drawer.",

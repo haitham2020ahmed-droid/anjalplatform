@@ -138,7 +138,7 @@
           ],
           "answer": "D",
           "skill": "detail",
-          "why": "The article says the roots go deep and find water under the ground.",
+          "why": "In the article, the roots go deep and find water under the ground.",
           "wrong": {
             "A": "The article says the leaves are used for mats and baskets, not for catching rain.",
             "B": "Nothing in the article says palms take water from the air.",
@@ -155,7 +155,7 @@
           ],
           "answer": "A",
           "skill": "detail",
-          "why": "The article says people use the fronds to make mats and baskets.",
+          "why": "In the article, people use the fronds to make mats and baskets.",
           "wrong": {
             "B": "Glass is not made from palm leaves.",
             "C": "Bricks and stones are not made from fronds.",
@@ -208,7 +208,7 @@
           "skill": "inference",
           "why": "Palms that make dates need pollen from a male palm, so a farmer needs a male palm to get a crop.",
           "wrong": {
-            "B": "The article says male palms do not make dates.",
+            "B": "In the article, male palms do not make dates.",
             "C": "The article does not say male palm leaves are better for roofs.",
             "D": "The article does not compare how much water male and female palms need."
           }
@@ -334,7 +334,7 @@
           ],
           "answer": "D",
           "skill": "detail",
-          "why": "The article says the rough fibers around the trunk can be twisted into strong rope.",
+          "why": "In the article, the fibers around the trunk can be twisted into rope.",
           "wrong": {
             "A": "The article says fronds are woven into mats and baskets, not burned for glass.",
             "B": "The article does not say the roots are used as medicine.",
@@ -368,7 +368,7 @@
           ],
           "answer": "A",
           "skill": "cause-effect",
-          "why": "The article says the wind carries some pollen, but not enough for a large crop, so farmers do the job by hand.",
+          "why": "In the article, the wind carries some pollen, but not enough for a large crop, so farmers do the job by hand.",
           "wrong": {
             "B": "The article says farmers pollinate in spring, and it does not say pollen is made only in winter.",
             "C": "The article does not mention bees eating pollen.",
@@ -496,7 +496,7 @@
           ],
           "answer": "B",
           "skill": "detail",
-          "why": "The article states that the tough, waxy surface of the fronds helps reduce evaporation.",
+          "why": "In the article, the tough, waxy surface of the fronds helps reduce evaporation.",
           "wrong": {
             "A": "The article does not describe red fronds; it says the dates may turn red.",
             "C": "The article does not say fronds fold up.",
@@ -513,7 +513,7 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The article says a single male palm can supply enough pollen for many female trees.",
+          "why": "In the article, a single male palm can supply enough pollen for many female trees.",
           "wrong": {
             "A": "Only female trees produce dates.",
             "B": "The article gives no rule about planting distance.",
@@ -547,7 +547,7 @@
           ],
           "answer": "D",
           "skill": "cause-effect",
-          "why": "The article explains that palms need water and that in an oasis groundwater reaches the surface or lies just beneath it.",
+          "why": "In the article, palms need water and that in an oasis groundwater reaches the surface or lies just beneath it.",
           "wrong": {
             "A": "Palms need intense sunlight, so shade would not help them.",
             "B": "The article does not link an oasis to extra pollen.",
@@ -627,7 +627,7 @@
         ],
         "answer": "B",
         "skill": "detail",
-        "why": "The text says the dates get ripe in late summer.",
+        "why": "Dates become ripe in late summer.",
         "wrong": {
           "A": "Spring is not when dates get ripe.",
           "C": "The text does not mention winter.",
@@ -644,7 +644,7 @@
         ],
         "answer": "D",
         "skill": "cause-effect",
-        "why": "The text says the roots go deep so the palm can find water deep in the ground.",
+        "why": "In the text, the roots go deep so the palm can find water deep in the ground.",
         "wrong": {
           "A": "The text does not say roots hold up the leaves.",
           "B": "Sweetness comes from the dates, not the roots.",
@@ -678,7 +678,7 @@
         ],
         "answer": "C",
         "skill": "detail",
-        "why": "The text says date palms like hot, dry land and lots of sun.",
+        "why": "In the text, date palms grow well in hot, dry places.",
         "wrong": {
           "A": "Palms like hot land, not cold.",
           "B": "They like sun, not shade.",
@@ -697,7 +697,7 @@
         ],
         "answer": "B",
         "skill": "detail",
-        "why": "The article says builders used palm trunks as beams to hold up roofs.",
+        "why": "In the article, builders used palm trunks as beams to hold up roofs.",
         "wrong": {
           "A": "Rope is made from the fibers around the trunk.",
           "C": "Baskets are woven from fronds.",
@@ -748,7 +748,7 @@
         ],
         "answer": "C",
         "skill": "detail",
-        "why": "The article says farmers climb the tall trunks in spring to place strands of male flowers among the female flowers.",
+        "why": "In the article, farmers climb the tall trunks in spring to place strands of male flowers among the female flowers.",
         "wrong": {
           "A": "Winter is not mentioned.",
           "B": "Late summer is when dates are picked.",

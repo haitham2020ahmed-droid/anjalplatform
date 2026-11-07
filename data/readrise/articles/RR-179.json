@@ -206,7 +206,7 @@
           ],
           "answer": "A",
           "skill": "inference",
-          "why": "The article says compost helps dry, sandy land hold water, which plants need in hot places.",
+          "why": "In the article, compost helps dry, sandy land hold water, which plants need in hot places.",
           "wrong": {
             "B": "Compost cannot block the sun.",
             "C": "Compost does not make rain.",
@@ -303,7 +303,7 @@
           "why": "The article explains how decomposers turn scraps into compost and why that helps plants and the planet.",
           "wrong": {
             "A": "The article shows that bacteria do helpful work in compost.",
-            "B": "The article says people make compost in piles or bins at home.",
+            "B": "In the article, people make compost in piles or bins at home.",
             "D": "Coffee grounds are only one example of a green."
           }
         },
@@ -317,7 +317,7 @@
           ],
           "answer": "A",
           "skill": "detail",
-          "why": "The article says browns are dry things such as dead leaves, straw, and cardboard.",
+          "why": "In the article, browns are dry things such as dead leaves, straw, and cardboard.",
           "wrong": {
             "B": "Wet, fresh scraps are called greens.",
             "C": "Worms and insects are helpers, not ingredients.",
@@ -351,7 +351,7 @@
           ],
           "answer": "B",
           "skill": "vocabulary",
-          "why": "The article explains that nutrients are the substances plants need to grow.",
+          "why": "Nutrients are the substances plants need to grow.",
           "wrong": {
             "A": "Nutrients help plants; they do not make them sick.",
             "C": "Bad smells come from meat and oily food.",
@@ -368,7 +368,7 @@
           ],
           "answer": "A",
           "skill": "cause-effect",
-          "why": "The article says that as the bacteria work, they release heat.",
+          "why": "In the article, as the bacteria work, they release heat.",
           "wrong": {
             "B": "The heat comes from inside the pile, not the sun.",
             "C": "Meat should not be in the pile, and nothing burns.",
@@ -385,11 +385,11 @@
           ],
           "answer": "C",
           "skill": "inference",
-          "why": "The article says food in a landfill rots without air and releases methane, which helps trap heat around the Earth.",
+          "why": "In the article, food in a landfill rots without air and releases methane, which helps trap heat around the Earth.",
           "wrong": {
             "A": "The article does not say landfills are full of worms.",
             "B": "Food in a landfill does not become useful compost.",
-            "D": "The article says food does rot in landfills, without air."
+            "D": "In the article, food does rot in landfills, without air."
           }
         },
         {
@@ -513,7 +513,7 @@
           ],
           "answer": "A",
           "skill": "detail",
-          "why": "The article says the interior can exceed sixty degrees Celsius.",
+          "why": "In the article, the interior can exceed sixty degrees Celsius.",
           "wrong": {
             "B": "Ten degrees would be cool, not hot.",
             "C": "The article does not claim temperatures this high.",
@@ -521,7 +521,7 @@
           }
         },
         {
-          "stem": "\"Compost improves the capacity of sandy soil to retain water.\" What does retain mean?",
+          "stem": "In the article, what does the word \"retain\" mean?",
           "options": [
             "Release",
             "Heat",
@@ -547,7 +547,7 @@
           ],
           "answer": "C",
           "skill": "cause-effect",
-          "why": "The article says these temperatures destroy many weed seeds and harmful germs.",
+          "why": "In the article, these temperatures destroy many weed seeds and harmful germs.",
           "wrong": {
             "A": "Pests are unwanted, and heat is not described as attracting them.",
             "B": "Methane comes from food rotting without oxygen in landfills.",
@@ -564,7 +564,7 @@
           ],
           "answer": "A",
           "skill": "inference",
-          "why": "The article says chewing breaks scraps into fragments that give microorganisms more surface area, so they can work faster.",
+          "why": "In the article, chewing breaks scraps into fragments that give microorganisms more surface area, so they can work faster.",
           "wrong": {
             "B": "Salt is not mentioned.",
             "C": "The pile becomes hot, and insects are not said to cool it.",
@@ -581,7 +581,7 @@
           ],
           "answer": "D",
           "skill": "inference",
-          "why": "The article says compost helps sandy soil retain water, which is valuable in arid regions such as Saudi Arabia.",
+          "why": "In the article, compost helps sandy soil retain water, which is valuable in arid regions such as Saudi Arabia.",
           "wrong": {
             "A": "The article calls the region arid, meaning dry.",
             "B": "Every country produces food scraps.",
@@ -661,9 +661,9 @@
         ],
         "answer": "B",
         "skill": "cause-effect",
-        "why": "The text says meat and milk smell bad and bring pests.",
+        "why": "In the text, meat and milk smell bad and bring pests.",
         "wrong": {
-          "A": "The text says the heap gets warm in the middle.",
+          "A": "In the text, the heap gets warm in the middle.",
           "C": "The text does not say they use up the water.",
           "D": "The text does not say they change the soil."
         }
@@ -697,7 +697,7 @@
         ],
         "answer": "B",
         "skill": "detail",
-        "why": "The article says worms and insects help by chewing the scraps into smaller pieces.",
+        "why": "In the article, worms and insects help by chewing the scraps into smaller pieces.",
         "wrong": {
           "A": "The bacteria give off heat.",
           "C": "People keep the pile moist; worms are not said to do this.",
@@ -714,7 +714,7 @@
         ],
         "answer": "B",
         "skill": "vocabulary",
-        "why": "The article says decomposers are living things that break down dead plants and animals.",
+        "why": "In the article, decomposers are living things that break down dead plants and animals.",
         "wrong": {
           "A": "Gardeners are people, not decomposers.",
           "C": "Straw and cardboard are called browns.",
@@ -748,7 +748,7 @@
         ],
         "answer": "C",
         "skill": "inference",
-        "why": "The article says this is valuable in dry places like Saudi Arabia, where water is hard to keep.",
+        "why": "In the article, this is valuable in dry places like Saudi Arabia, where water is hard to keep.",
         "wrong": {
           "A": "The article does not say that.",
           "B": "The article calls Saudi Arabia a dry place.",
@@ -767,7 +767,7 @@
         ],
         "answer": "C",
         "skill": "detail",
-        "why": "The article says the pile should remain damp, similar to a sponge that has been squeezed out.",
+        "why": "A compost pile should feel damp, like a sponge that has been squeezed out.",
         "wrong": {
           "A": "Decomposers require moisture, so the pile should not be dry.",
           "B": "The center of the pile gets hot, not icy.",

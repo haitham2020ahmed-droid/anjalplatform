@@ -138,7 +138,7 @@
           ],
           "answer": "B",
           "skill": "detail",
-          "why": "The article says the reef is made of almost 3,000 smaller reefs and hundreds of small islands.",
+          "why": "In the article, the reef is made of many smaller reefs and small islands.",
           "wrong": {
             "A": "The article says it is not just one thing.",
             "C": "The article mentions hundreds of islands, not just ten.",
@@ -163,7 +163,7 @@
           }
         },
         {
-          "stem": "Read the sentence: \"The reef is so big you can see it from space!\" What does space mean here?",
+          "stem": "In the article, what does the word \"space\" mean?",
           "options": [
             "An empty room with nothing in it at all, like a classroom at night",
             "The area far above Earth, where astronauts travel",
@@ -317,7 +317,7 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The article states that the reef is made up of almost 3,000 smaller individual reefs.",
+          "why": "In the article, the reef is made up of almost 3,000 smaller individual reefs.",
           "wrong": {
             "A": "The number given is much larger than 10.",
             "B": "The article says almost 3,000, not 300.",
@@ -342,7 +342,7 @@
           }
         },
         {
-          "stem": "Read the sentence: \"An astonishing variety of animals make their homes within this ecosystem.\" What does ecosystem mean here?",
+          "stem": "In the article, what does the word \"ecosystem\" mean?",
           "options": [
             "A single type of fish found on the reef near the coast",
             "A community of living things and their environment",
@@ -368,7 +368,7 @@
           ],
           "answer": "B",
           "skill": "cause-effect",
-          "why": "The article explains that when the sea stays unusually hot, stressed coral turns white and grows weak.",
+          "why": "In the article, when the sea stays unusually hot, stressed coral turns white and grows weak.",
           "wrong": {
             "A": "Heat stress harms coral; it does not speed up growth.",
             "C": "Coral does not create new islands from heat stress.",
@@ -496,7 +496,7 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The article states the reef is not a single, solid structure but is composed of almost 3,000 smaller individual reefs and roughly 900 islands.",
+          "why": "In the article, the reef is not a single, solid structure but is composed of almost 3,000 smaller individual reefs and roughly 900 islands.",
           "wrong": {
             "A": "The article explicitly says it is not one continuous structure.",
             "B": "Volcanic rock is not described as forming the reef.",
@@ -513,7 +513,7 @@
           ],
           "answer": "A",
           "skill": "detail",
-          "why": "The article explains that the oldest layers beneath today's living coral are many thousands of years old, formed from accumulated skeletons and sediment.",
+          "why": "Under today's living coral are layers of old coral skeletons that are thousands of years old.",
           "wrong": {
             "B": "No diver-built caves are mentioned.",
             "C": "Sunken ships are not discussed in the article.",
@@ -521,7 +521,7 @@
           }
         },
         {
-          "stem": "Read the sentence: \"Reef-building corals are especially vulnerable to even modest shifts in water temperature.\" What does vulnerable mean here?",
+          "stem": "In the article, what does the word \"vulnerable\" mean?",
           "options": [
             "Extremely strong and impossible to damage",
             "Completely unaffected by the surrounding water",
@@ -661,7 +661,7 @@
         ],
         "answer": "A",
         "skill": "cause-effect",
-        "why": "The text says hot seas can turn coral white.",
+        "why": "In the text, hot seas can turn coral white.",
         "wrong": {
           "B": "Hot seas harm coral, not make it bigger.",
           "C": "Coral does not sing.",
@@ -731,7 +731,7 @@
         ],
         "answer": "C",
         "skill": "cause-effect",
-        "why": "The text says when a coral dies, new ones grow on top, so the layers pile up.",
+        "why": "In the text, when a coral dies, new ones grow on top, so the layers pile up.",
         "wrong": {
           "A": "Sharks are not said to build the reef.",
           "B": "Islands are part of the reef system, not what builds it.",

@@ -101,7 +101,7 @@ describe("🎯 ReadRise: a level only after the placement test", () => {
     assert.equal(reset.restarted, true);
     assert.deepEqual((await repo.findUnique("RRPlacement", { id: pid }))!.steps, [], "back to the first passage");
     // finish the test
-    for (let i = 0; i < 10; i++) {
+    for (let i = 0; i < 16; i++) { // round 7: at least 12 passages (was 8)
       v = await placementView(repo, s, PASSAGES);
       if (v.state !== "IN_PROGRESS") break;
       const a = await answerPlacement(repo, s, pid, v.passage!.id, i % 2 ? ["A", "B", "B"] : ["A", "A", "A"], PASSAGES, new Date(NOW.getTime() + (i + 1) * 60_000)); // round 4: a passage takes real time (a 0-second answer is a rapid guess)

@@ -189,7 +189,7 @@
           ],
           "answer": "A",
           "skill": "cause-effect",
-          "why": "The article says that if one password gets out, the rest of your accounts are not safe.",
+          "why": "In the article, if one password gets out, the rest of your accounts are not safe.",
           "wrong": {
             "B": "The article does not say this.",
             "C": "Speed is not mentioned.",
@@ -206,7 +206,7 @@
           ],
           "answer": "C",
           "skill": "inference",
-          "why": "The article says a real site will never ask for your password, so the message is fake. You should not click and should tell a grown-up.",
+          "why": "In the article, a real site will never ask for your password, so the message is fake. You should not click and should tell a grown-up.",
           "wrong": {
             "A": "A real site never asks for your password, so this would be a trick.",
             "B": "Even part of a password should stay secret.",
@@ -317,7 +317,7 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The article says hackers use computer programs that try millions of guesses every second.",
+          "why": "In the article, hackers use computer programs that try millions of guesses every second.",
           "wrong": {
             "A": "Diaries are not mentioned.",
             "B": "Websites do not help hackers.",
@@ -496,7 +496,7 @@
           ],
           "answer": "D",
           "skill": "detail",
-          "why": "The article states that two-step verification requires a temporary code, typically delivered to a phone.",
+          "why": "In the article, two-step verification requires a temporary code, typically delivered to a phone.",
           "wrong": {
             "A": "The extra step is a code, not a second password.",
             "B": "Usernames are not mentioned.",
@@ -530,7 +530,7 @@
           ],
           "answer": "A",
           "skill": "vocabulary",
-          "why": "The article says passwords should be shared only with a parent or guardian, so confidential means kept private.",
+          "why": "In the article, passwords should be shared only with a parent or guardian, so confidential means kept private.",
           "wrong": {
             "B": "A password can be complicated, but that is not what confidential means.",
             "C": "Temporary describes the verification code.",
@@ -564,7 +564,7 @@
           ],
           "answer": "A",
           "skill": "inference",
-          "why": "The article states that genuine organizations never ask for a password this way, so the message is likely a phishing attempt.",
+          "why": "In the article, genuine organizations never ask for a password this way, so the message is likely a phishing attempt.",
           "wrong": {
             "B": "Phishing messages imitate real companies, so the name proves nothing.",
             "C": "You should not reply or click at all; report it to a trusted adult.",
@@ -581,7 +581,7 @@
           ],
           "answer": "C",
           "skill": "inference",
-          "why": "The article says a passphrase uses unrelated words, making it long and difficult for computers to predict but easy to remember.",
+          "why": "In the article, a passphrase uses unrelated words, making it long and difficult for computers to predict but easy to remember.",
           "wrong": {
             "A": "The words are chosen because they are unrelated.",
             "B": "Only mango is a food.",
@@ -627,7 +627,7 @@
         ],
         "answer": "B",
         "skill": "detail",
-        "why": "The text says bad guys use a tool that tries lots of words each second.",
+        "why": "In the text, bad guys use computer tools that can guess passwords very fast.",
         "wrong": {
           "A": "Sites send codes, not the bad guys' tool.",
           "C": "The tool guesses; it does not make passwords.",
@@ -714,9 +714,9 @@
         ],
         "answer": "A",
         "skill": "cause-effect",
-        "why": "The text says a strong password is long because longer passwords are much harder to guess.",
+        "why": "In the text, a strong password is long because longer passwords are much harder to guess.",
         "wrong": {
-          "B": "The article says passphrases are easy to remember, not all long passwords.",
+          "B": "In the article, passphrases are easy to remember, not all long passwords.",
           "C": "The article does not say anything about hackers liking long words.",
           "D": "The article does not say websites need long passwords."
         }
@@ -767,7 +767,7 @@
         ],
         "answer": "B",
         "skill": "detail",
-        "why": "The article says an account is where your messages, files, and progress are stored.",
+        "why": "An account is where your messages, files, and progress are kept.",
         "wrong": {
           "A": "The article does not say an account holds other passwords.",
           "C": "Temporary codes are sent to a phone, not stored in an account.",
@@ -784,7 +784,7 @@
         ],
         "answer": "C",
         "skill": "cause-effect",
-        "why": "The text says hackers use automated programs that attempt millions of combinations every second.",
+        "why": "In the text, hackers use automated programs that attempt millions of combinations every second.",
         "wrong": {
           "A": "Weak passwords are short, and the article says long ones are stronger.",
           "B": "The article does not say websites hand over passwords.",

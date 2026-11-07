@@ -697,7 +697,7 @@
         ],
         "answer": "A",
         "skill": "detail",
-        "why": "The story says they use rope for steering.",
+        "why": "In the story, they use rope for steering.",
         "wrong": {
           "B": "The chain is used to study gears.",
           "C": "The flag starts the race.",

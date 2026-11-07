@@ -155,7 +155,7 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The article says each family could take only two buckets of water a day.",
+          "why": "In the story, each home got two buckets of water a day.",
           "wrong": {
             "A": "The article says two buckets, not one.",
             "B": "Ten buckets is far more than the ration allowed.",
@@ -172,7 +172,7 @@
           ],
           "answer": "D",
           "skill": "vocabulary",
-          "why": "The article says the plan that limits how much water people could use is called a ration.",
+          "why": "In the story, the plan that limits how much water each home gets is called a ration.",
           "wrong": {
             "A": "That describes the council, not a ration.",
             "B": "That describes a cistern, not a ration.",
@@ -206,7 +206,7 @@
           ],
           "answer": "B",
           "skill": "inference",
-          "why": "The article says the grandfather remembered that the village used the cistern long ago, before the tank was built.",
+          "why": "In the story, Grandpa remembered the old cistern from long ago.",
           "wrong": {
             "A": "The cistern was old, not newly built.",
             "C": "The article does not mention a storybook.",
@@ -317,7 +317,7 @@
           ],
           "answer": "B",
           "skill": "detail",
-          "why": "The article says each family could collect only two buckets of water per day.",
+          "why": "In the article, each family could collect only two buckets of water per day.",
           "wrong": {
             "A": "The ration allowed two buckets, not one.",
             "C": "Four buckets is more than the article states.",
@@ -496,7 +496,7 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The article states that the reservoir normally holds roughly ten thousand liters.",
+          "why": "In the article, the reservoir normally holds roughly ten thousand liters.",
           "wrong": {
             "A": "This figure is far too small for the tank described.",
             "B": "This figure is still too small for the tank described.",
@@ -513,7 +513,7 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The article states that twenty-six consecutive days had passed without a single drop of rain.",
+          "why": "In the article, twenty-six consecutive days had passed without a single drop of rain.",
           "wrong": {
             "A": "This number is far too low.",
             "B": "This number does not match the article's figure.",
@@ -644,7 +644,7 @@
         ],
         "answer": "A",
         "skill": "vocabulary",
-        "why": "The article says a council helps run the town, and this one made the plan for the water.",
+        "why": "In the story, the council helps run the town, and it made a new plan.",
         "wrong": {
           "B": "The council did not teach school.",
           "C": "Trucks are not fixed in the article.",
@@ -801,7 +801,7 @@
         ],
         "answer": "D",
         "skill": "cause-effect",
-        "why": "The article says that with two independent water sources, scarcity felt considerably less threatening.",
+        "why": "In the article, with two independent water sources, scarcity felt considerably less threatening.",
         "wrong": {
           "A": "The ration stayed at two buckets a day.",
           "B": "Climbing a hill is not the reason.",

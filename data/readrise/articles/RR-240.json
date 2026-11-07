@@ -138,7 +138,7 @@
           ],
           "answer": "B",
           "skill": "detail",
-          "why": "The article says skin acts as a shield that keeps out germs and dirt.",
+          "why": "In the article, skin acts as a shield that keeps out germs and dirt.",
           "wrong": {
             "A": "The article does not connect skin to running speed.",
             "C": "A scab forms after a cut, not instead of skin.",
@@ -155,7 +155,7 @@
           ],
           "answer": "D",
           "skill": "detail",
-          "why": "The article says when you are hot, skin makes sweat, and the sweat cools you down.",
+          "why": "In the article, when you are hot, skin makes sweat, and the sweat cools you down.",
           "wrong": {
             "A": "A scab forms after a cut, not to cool you down.",
             "B": "The article does not say blood cools the body.",
@@ -172,7 +172,7 @@
           ],
           "answer": "B",
           "skill": "vocabulary",
-          "why": "The article says a scab forms over the cut, and new skin grows underneath it, which is how skin heals.",
+          "why": "In the article, a scab forms over the cut, and new skin grows underneath it, which is how skin heals.",
           "wrong": {
             "A": "The article says skin can heal itself, not stop working.",
             "C": "Sweat is for cooling, not for healing cuts.",
@@ -189,7 +189,7 @@
           ],
           "answer": "C",
           "skill": "cause-effect",
-          "why": "The article says skin feels things like a sharp pin and sends a message to the brain fast.",
+          "why": "In the article, skin feels things like a sharp pin and sends a message to the brain fast.",
           "wrong": {
             "A": "A scab forms after a cut, not after a simple touch.",
             "B": "Skin keeps feeling things; it does not stop.",
@@ -206,7 +206,7 @@
           ],
           "answer": "D",
           "skill": "inference",
-          "why": "The article says a scab forms over a cut and protects it while new skin grows underneath.",
+          "why": "In the article, a scab forms over a cut and protects it while new skin grows underneath.",
           "wrong": {
             "A": "The article does not connect a scab to sweating.",
             "B": "A scab falls off once the skin underneath has healed; it does not stay forever.",
@@ -223,7 +223,7 @@
           ],
           "answer": "A",
           "skill": "inference",
-          "why": "The article says taking care of skin by washing and keeping it dry helps your shield do its job well.",
+          "why": "In the article, keeping skin clean and dry helps your shield do its job well.",
           "wrong": {
             "B": "The article does not say washing changes skin color.",
             "C": "Skin keeps sensing touch no matter what.",
@@ -317,7 +317,7 @@
           ],
           "answer": "A",
           "skill": "detail",
-          "why": "The article states that skin keeps water from escaping too quickly, which helps the body stay hydrated.",
+          "why": "In the article, skin keeps water from escaping too quickly, which helps the body stay hydrated.",
           "wrong": {
             "B": "The article says skin helps keep water in, not remove it.",
             "C": "Sweat is released only when needed for cooling, not as a water replacement.",
@@ -334,7 +334,7 @@
           ],
           "answer": "B",
           "skill": "detail",
-          "why": "The article says blood vessels in the skin constrict in the cold, which helps conserve warmth near the body's core.",
+          "why": "In the article, blood vessels in the skin constrict in the cold, which helps conserve warmth near the body's core.",
           "wrong": {
             "A": "Blood vessels remain in the skin; they do not disappear.",
             "C": "Widening blood vessels would release heat, the opposite of conserving it.",
@@ -496,7 +496,7 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The article states that receptors are distributed throughout the dermis.",
+          "why": "In the article, receptors are distributed throughout the dermis.",
           "wrong": {
             "A": "Blood vessels are involved in temperature regulation, not receptor placement.",
             "B": "Scabs form after injury; receptors are not described as being inside them.",
@@ -513,7 +513,7 @@
           ],
           "answer": "D",
           "skill": "detail",
-          "why": "The article states that Malpighi described a distinct layer deep within the epidermis, later named the Malpighian layer.",
+          "why": "In the article, Malpighi described a distinct layer deep within the epidermis, later named the Malpighian layer.",
           "wrong": {
             "A": "The article does not describe a 'first' scab in history.",
             "B": "Malpighi is credited with describing a skin layer, not a sweat gland.",
@@ -547,7 +547,7 @@
           ],
           "answer": "B",
           "skill": "cause-effect",
-          "why": "The article explains that a clot and scab protect the injured area from new germs while the skin heals beneath it.",
+          "why": "In the article, a clot and scab protect the injured area from new germs while the skin heals beneath it.",
           "wrong": {
             "A": "Blood vessels continue working elsewhere; they are not permanently stopped.",
             "C": "The epidermis is not replaced by a different organ.",
@@ -572,7 +572,7 @@
           }
         },
         {
-          "stem": "Why might scientists still refer to the 'Malpighian layer' centuries after Malpighi's original observation?",
+          "stem": "Why might scientists still use Malpighi's name for a layer of skin centuries later?",
           "options": [
             "No other scientist has studied skin since the 1600s.",
             "The layer disappeared after being named and no longer exists.",
@@ -627,7 +627,7 @@
         ],
         "answer": "B",
         "skill": "detail",
-        "why": "The text says skin keeps germs and dirt out and keeps water in.",
+        "why": "In the text, skin keeps germs and dirt out and keeps water in.",
         "wrong": {
           "A": "Skin keeps dirt out.",
           "C": "Skin keeps germs out.",
@@ -661,7 +661,7 @@
         ],
         "answer": "D",
         "skill": "detail",
-        "why": "The text says that when you are cold, skin helps keep heat in.",
+        "why": "In the text, when you are cold, skin helps keep heat in.",
         "wrong": {
           "A": "Skin makes sweat when you are hot.",
           "B": "A scab forms over a cut.",
@@ -697,10 +697,10 @@
         ],
         "answer": "D",
         "skill": "compare",
-        "why": "The text says skin is the largest organ, bigger than your heart or your lungs.",
+        "why": "In the text, skin is the largest organ, bigger than your heart or your lungs.",
         "wrong": {
           "A": "Skin is larger, not smaller.",
-          "B": "The text says skin is bigger.",
+          "B": "Skin is bigger than both.",
           "C": "Skin is bigger than the lungs."
         }
       },
@@ -714,7 +714,7 @@
         ],
         "answer": "A",
         "skill": "vocabulary",
-        "why": "The text says receptors feel a pat, a hot cup, or a pin and send a signal to the brain.",
+        "why": "In the text, receptors feel a pat, a hot cup, or a pin and send a signal to the brain.",
         "wrong": {
           "B": "Sweat glands make sweat.",
           "C": "A scab forms to protect a cut.",
@@ -731,7 +731,7 @@
         ],
         "answer": "C",
         "skill": "cause-effect",
-        "why": "The text says a scab forms to protect the spot from new germs.",
+        "why": "In the text, a scab forms to protect the spot from new germs.",
         "wrong": {
           "A": "Sweat is not linked to scabs.",
           "B": "A scab keeps germs out.",

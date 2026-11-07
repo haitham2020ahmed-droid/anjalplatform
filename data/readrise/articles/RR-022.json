@@ -155,7 +155,7 @@
           ],
           "answer": "D",
           "skill": "detail",
-          "why": "The article says the diggers use small tools and soft brushes and work with care.",
+          "why": "In the article, the diggers use small tools and soft brushes and work carefully.",
           "wrong": {
             "A": "Big machines are not named in the article and could break the bones.",
             "B": "The article does not say people wash fossils with soap.",
@@ -163,7 +163,7 @@
           }
         },
         {
-          "stem": "Read: \"More mud piles on top. Each pile is a layer.\" What is a layer?",
+          "stem": "In the article, what does the word \"layer\" mean?",
           "options": [
             "A deep hole",
             "A kind of bone from an animal",
@@ -223,7 +223,7 @@
           ],
           "answer": "C",
           "skill": "sequence",
-          "why": "The article says the layers of mud turn to rock over a very long time.",
+          "why": "In the article, the layers of mud turn to rock over a very long time.",
           "wrong": {
             "A": "A dead animal cannot wake up.",
             "B": "The mud stays and piles up. It does not blow away.",
@@ -317,7 +317,7 @@
           ],
           "answer": "B",
           "skill": "detail",
-          "why": "The article says water in the ground carries minerals into the bones and slowly turns them to stone.",
+          "why": "In the article, water in the ground carries minerals into the bones and slowly turns them to stone.",
           "wrong": {
             "A": "Wind is not named as carrying minerals.",
             "C": "Paleontologists dig fossils up; they do not add minerals.",
@@ -351,7 +351,7 @@
           ],
           "answer": "A",
           "skill": "vocabulary",
-          "why": "The article explains that extinct means none of that kind of animal are still alive today.",
+          "why": "In the article, extinct means none of that kind of animal are still alive today.",
           "wrong": {
             "B": "Extinct animals can be any size.",
             "C": "Extinct is not about where an animal lives.",
@@ -496,11 +496,11 @@
           ],
           "answer": "A",
           "skill": "detail",
-          "why": "The article says groundwater deposits dissolved minerals in the bones, replacing the original material and turning it to stone.",
+          "why": "In the article, groundwater deposits dissolved minerals in the bones, replacing the original material and turning it to stone.",
           "wrong": {
             "B": "The bones stay buried; paleontologists must excavate them.",
             "C": "The bones are replaced by stone, not simply dissolved away.",
-            "D": "The article says the soft tissues decay."
+            "D": "In the article, the soft tissues decay."
           }
         },
         {
@@ -513,7 +513,7 @@
           ],
           "answer": "D",
           "skill": "detail",
-          "why": "The article says traces an animal left behind include footprints and burrows.",
+          "why": "In the article, traces an animal left behind include footprints and burrows.",
           "wrong": {
             "A": "A tooth is a hard body part, not a trace.",
             "B": "A shell is a body part of the animal.",
@@ -581,7 +581,7 @@
           ],
           "answer": "C",
           "skill": "cause-effect",
-          "why": "The article says the tremendous weight of the layers compresses the lower ones into rock.",
+          "why": "The heavy weight of the layers above presses the lower layers into rock.",
           "wrong": {
             "A": "The article does not say sunlight forms the rock.",
             "B": "Footprints are traces, but animals do not turn layers into rock.",
@@ -627,7 +627,7 @@
         ],
         "answer": "B",
         "skill": "detail",
-        "why": "The text says a fossil can be a bone, a tooth, a shell, or a footprint kept in rock.",
+        "why": "In the text, a fossil is something left from a plant or animal and kept in rock.",
         "wrong": {
           "A": "A new toy is not left from a plant or animal.",
           "C": "Sand is not left from a plant or animal.",
@@ -644,7 +644,7 @@
         ],
         "answer": "A",
         "skill": "inference",
-        "why": "The text says deep rock is old and top rock is new, so the deep fossil is the old one.",
+        "why": "In the text, deep rock is old and top rock is new, so the deep fossil is the old one.",
         "wrong": {
           "B": "Top rock is new, so that fossil is newer.",
           "C": "Deep rock and top rock are not the same age.",
@@ -697,7 +697,7 @@
         ],
         "answer": "C",
         "skill": "detail",
-        "why": "The article says the mud and sand that cover the body are called sediment.",
+        "why": "In the article, the mud and sand that cover the body are called sediment.",
         "wrong": {
           "A": "Scientists use picks and brushes for digging.",
           "B": "A mark of a living thing is a trace such as a footprint.",
@@ -731,7 +731,7 @@
         ],
         "answer": "D",
         "skill": "cause-effect",
-        "why": "The article says they use small picks and soft brushes so the old bones do not break.",
+        "why": "In the article, they use small picks and soft brushes so the old bones do not break.",
         "wrong": {
           "A": "Small tools and brushes are slow, not fast.",
           "B": "Selling rocks is not mentioned.",
@@ -748,7 +748,7 @@
         ],
         "answer": "B",
         "skill": "inference",
-        "why": "The article says the soft parts rot away and only the hard parts remain.",
+        "why": "In the article, the soft parts rot away and only the hard parts remain.",
         "wrong": {
           "A": "The article says soft parts rot away, not turn into water.",
           "C": "Paleontologists dig carefully and do not take the skin.",
@@ -767,7 +767,7 @@
         ],
         "answer": "B",
         "skill": "detail",
-        "why": "The article says the soft tissues decay, but the hard parts remain.",
+        "why": "In the article, the soft parts rot away, but the hard parts remain.",
         "wrong": {
           "A": "Minerals replace the hard parts, not the soft tissues.",
           "C": "The layers are made of sediment, not tissues.",
@@ -801,7 +801,7 @@
         ],
         "answer": "A",
         "skill": "cause-effect",
-        "why": "The article says the deepest layers generally formed first, so what is buried in them is older.",
+        "why": "In the article, the deepest layers generally formed first, so what is buried in them is older.",
         "wrong": {
           "B": "Hardness is not the reason given.",
           "C": "The article does not link depth to animal size.",

@@ -155,7 +155,7 @@
           ],
           "answer": "A",
           "skill": "detail",
-          "why": "The article says dark panels on the roof turn sunlight into power for the building.",
+          "why": "In the article, dark panels on the roof turn sunlight into power for the building.",
           "wrong": {
             "B": "The article does not say panels add weight.",
             "C": "Panels make power; windcatchers deal with wind.",
@@ -206,7 +206,7 @@
           ],
           "answer": "C",
           "skill": "inference",
-          "why": "The article says large windows let in sunlight, so fewer lights need to be switched on.",
+          "why": "Big windows let in sunlight, so fewer lights are needed.",
           "wrong": {
             "A": "Windows let light in; they are not painted black.",
             "B": "A building without rooms makes no sense in the article.",
@@ -513,7 +513,7 @@
           ],
           "answer": "B",
           "skill": "cause-effect",
-          "why": "The article says insulation slows the movement of heat into the rooms, keeping the interior cooler.",
+          "why": "In the article, insulation slows the movement of heat into the rooms, keeping the interior cooler.",
           "wrong": {
             "A": "Photovoltaic panels, not insulation, generate electricity.",
             "C": "Insulation deals with heat moving through walls, not wind at windows.",
@@ -547,7 +547,7 @@
           ],
           "answer": "B",
           "skill": "inference",
-          "why": "The article says builders plan a building's orientation so it takes advantage of the sun and prevailing wind.",
+          "why": "Builders plan the direction a building faces so it can use the sun and the wind well.",
           "wrong": {
             "A": "The article says orientation directly affects sun and wind exposure.",
             "C": "Paint color is a separate choice from orientation.",
@@ -564,7 +564,7 @@
           ],
           "answer": "A",
           "skill": "inference",
-          "why": "The article says light-colored, reflective materials send sunlight back into the sky instead of absorbing it, so less heat builds up.",
+          "why": "In the article, light-colored, reflective materials send sunlight back into the sky instead of absorbing it, so less heat builds up.",
           "wrong": {
             "B": "Wall color does not control wind entering the building.",
             "C": "Wall color does not generate electricity; photovoltaic panels do.",
@@ -644,7 +644,7 @@
         ],
         "answer": "D",
         "skill": "cause-effect",
-        "why": "The text says roads and walls soak up the sun and then give off heat.",
+        "why": "In the text, roads and walls soak up the sun and then give off heat.",
         "wrong": {
           "A": "Trees are not mentioned as a cause of heat.",
           "B": "Wind helps cool the air in the text.",
@@ -697,7 +697,7 @@
         ],
         "answer": "A",
         "skill": "detail",
-        "why": "The text says windcatchers caught passing wind and sent it down into rooms with no electricity.",
+        "why": "In the text, windcatchers caught passing wind and sent it down into rooms with no electricity.",
         "wrong": {
           "B": "Solar panels make power from sunlight.",
           "C": "Shades block light from windows.",
@@ -748,7 +748,7 @@
         ],
         "answer": "B",
         "skill": "inference",
-        "why": "The text says the sun shines strongly all year in Saudi Arabia, and solar panels turn sunlight into power.",
+        "why": "In the text, the sun shines strongly all year in Saudi Arabia, and solar panels turn sunlight into power.",
         "wrong": {
           "A": "The text mentions many flat roofs, which can hold panels.",
           "C": "The text does not say there is no wind.",
@@ -767,7 +767,7 @@
         ],
         "answer": "C",
         "skill": "detail",
-        "why": "The text says some buildings even store extra power in batteries for later use.",
+        "why": "Some buildings store extra power in batteries to use later.",
         "wrong": {
           "A": "The text does not link extra power to shading devices.",
           "B": "Insulation is a thick material in the walls, not made from power.",
@@ -784,7 +784,7 @@
         ],
         "answer": "A",
         "skill": "inference",
-        "why": "The text says many cities require new large buildings to meet green standards before approval, which shows they value green design.",
+        "why": "In the text, many cities require new large buildings to meet green standards before approval, which shows they value green design.",
         "wrong": {
           "B": "The rule is about how buildings are made, not how many.",
           "C": "Green design uses technology such as photovoltaic panels.",
@@ -818,7 +818,7 @@
         ],
         "answer": "A",
         "skill": "cause-effect",
-        "why": "The text says shading devices block sunlight before it reaches the windows, so rooms stay cooler and need less air conditioning.",
+        "why": "Shading devices block sunlight before it reaches the windows, so rooms stay cooler and need less air conditioning.",
         "wrong": {
           "B": "Moving air into rooms is natural ventilation.",
           "C": "Photovoltaic panels make power from the sun.",

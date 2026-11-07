@@ -138,7 +138,7 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The article says each boot has a thin metal blade under it.",
+          "why": "Each boot has a thin metal blade under it.",
           "wrong": {
             "A": "Rubber pads are not mentioned.",
             "D": "Wheels are used for roller skates, not ice skates.",
@@ -155,7 +155,7 @@
           ],
           "answer": "D",
           "skill": "detail",
-          "why": "The article says the skater uses the edge of the blade to turn, stop, and push off the ice.",
+          "why": "In the article, the skater uses the edge of the blade to turn, stop, and push off the ice.",
           "wrong": {
             "A": "Cleaning the ice is not mentioned.",
             "C": "The blade does not cut the boot.",
@@ -163,7 +163,7 @@
           }
         },
         {
-          "stem": "Read this: \"To stay up, a skater needs good balance.\" What does balance mean here?",
+          "stem": "In the article, what does the word \"balance\" mean?",
           "options": [
             "Moving very fast on the ice",
             "Staying steady without falling",
@@ -189,7 +189,7 @@
           ],
           "answer": "A",
           "skill": "cause-effect",
-          "why": "The article says the thin blade is the reason a skater can glide so smoothly.",
+          "why": "In the article, the blade is very thin, and that is why a skater can glide smoothly.",
           "wrong": {
             "B": "The article says ice is cold, not warm.",
             "C": "Heavy boots are not mentioned as a reason.",
@@ -206,7 +206,7 @@
           ],
           "answer": "D",
           "skill": "detail",
-          "why": "The article says people long ago made skates out of animal bones.",
+          "why": "In the article, people long ago made skates out of animal bones.",
           "wrong": {
             "A": "Plastic is not mentioned.",
             "C": "Rubber is not mentioned.",
@@ -223,7 +223,7 @@
           ],
           "answer": "A",
           "skill": "compare",
-          "why": "The article says figure skaters jump and spin to music, while speed skaters race fast around a track.",
+          "why": "In the article, figure skaters jump and spin to music, while speed skaters race fast around a track.",
           "wrong": {
             "B": "This reverses the two kinds of skating.",
             "C": "Both kinds of skating use blades.",
@@ -302,7 +302,7 @@
           "skill": "central-idea",
           "why": "The article explains the physics of the blade, balance and edges, the two main events, and the sport's history.",
           "wrong": {
-            "B": "The article says people once made skates from bone.",
+            "B": "In the article, people once made skates from bone.",
             "C": "The article does not compare how popular each sport is.",
             "D": "Only a thin, invisible layer of water forms; the ice does not melt away."
           }
@@ -342,7 +342,7 @@
           }
         },
         {
-          "stem": "Read this: \"a bit of friction from the gliding motion.\" What does friction mean here?",
+          "stem": "In the article, what does the word \"friction\" mean?",
           "options": [
             "A kind of patterned ice found only at the poles",
             "A type of curved blade used by figure skaters",
@@ -385,7 +385,7 @@
           ],
           "answer": "C",
           "skill": "compare",
-          "why": "The article says speed skaters use longer, flatter blades to race, while figure skaters use curved blades for jumps and spins.",
+          "why": "In the article, speed skaters use longer, flatter blades to race, while figure skaters use curved blades for jumps and spins.",
           "wrong": {
             "A": "This reverses the two kinds of skating.",
             "D": "The article does not mention a summer indoor rule.",
@@ -402,7 +402,7 @@
           ],
           "answer": "A",
           "skill": "inference",
-          "why": "The article says better metal blades made gliding smoother and more precise, and the sport then spread across the world.",
+          "why": "Better metal blades made skating smoother, and then the sport spread across the world.",
           "wrong": {
             "B": "The article says skating spread worldwide.",
             "C": "A ban is not mentioned.",
@@ -530,7 +530,7 @@
           ],
           "answer": "B",
           "skill": "cause-effect",
-          "why": "The article says skaters shift weight onto one edge or the other to turn, stop, and generate the momentum needed for speed.",
+          "why": "In the article, skaters shift weight onto one edge or the other to turn, stop, and generate the momentum needed for speed.",
           "wrong": {
             "A": "Cleaning is not mentioned.",
             "C": "Skaters must stay on the ice to skate.",
@@ -572,7 +572,7 @@
           }
         },
         {
-          "stem": "What can be inferred from the fact that scientists \"still study and debate\" why ice is slippery?",
+          "stem": "What can be inferred from the fact that scientists still study and debate why ice is slippery?",
           "options": [
             "The real explanation is more complex than one simple cause",
             "No one has ever studied this question before today, in any lab",
@@ -661,7 +661,7 @@
         ],
         "answer": "B",
         "skill": "sequence",
-        "why": "The text says people made skates from bones long ago and later used metal blades.",
+        "why": "In the text, people made skates from bones long ago and later used metal blades.",
         "wrong": {
           "A": "Rope is not mentioned.",
           "C": "Cloth is not mentioned.",
@@ -805,7 +805,7 @@
         "wrong": {
           "A": "Blades do not change the ice's thickness.",
           "C": "Speed skating still exists in the text.",
-          "D": "The text says skaters need exceptional balance."
+          "D": "In the text, skaters need exceptional balance."
         }
       },
       {

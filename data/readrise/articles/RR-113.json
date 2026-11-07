@@ -138,7 +138,7 @@
           ],
           "answer": "A",
           "skill": "detail",
-          "why": "The article says a locust that lives alone is green or brown.",
+          "why": "In the article, a locust that lives alone is green or brown.",
           "wrong": {
             "B": "Locusts turn yellow and black after they crowd together.",
             "C": "The article does not name these colors.",
@@ -206,7 +206,7 @@
           ],
           "answer": "C",
           "skill": "inference",
-          "why": "The article says a swarm can eat a whole field of crops fast, so farmers can lose their food.",
+          "why": "In the article, a swarm can eat a whole field of crops fast, so farmers can lose their food.",
           "wrong": {
             "A": "The article does not talk about noise.",
             "B": "Rain helps locusts grow; locusts do not bring rain.",
@@ -302,7 +302,7 @@
           "skill": "central-idea",
           "why": "The article explains how locusts change after rain, form swarms, damage harvests, and how teams try to stop them.",
           "wrong": {
-            "A": "The article explains that locusts can become dangerous pests.",
+            "A": "In the article, locusts can become dangerous pests.",
             "C": "Cyclones are part of one example, not the main idea.",
             "D": "The article does not compare locusts with other insects."
           }
@@ -372,7 +372,7 @@
           "wrong": {
             "A": "Pesticide kills locusts; it does not change them.",
             "C": "Flying far happens after the change, not before.",
-            "D": "The article says locusts live in hot, dry places."
+            "D": "In the article, locusts live in hot, dry places."
           }
         },
         {
@@ -481,7 +481,7 @@
           "skill": "central-idea",
           "why": "The article traces how rain and crowding produce gregarious swarms, the damage they cause, and how teams monitor and spray hoppers.",
           "wrong": {
-            "A": "The article explains how locusts spread to many countries.",
+            "A": "Locusts can spread to many countries.",
             "B": "Kenya is one example of an outbreak, not the main idea.",
             "D": "Cyclones brought rain; they did not carry locusts."
           }
@@ -496,7 +496,7 @@
           ],
           "answer": "D",
           "skill": "detail",
-          "why": "The article states that such a swarm eats as much in a day as about 35,000 people.",
+          "why": "Such a swarm can eat as much in one day as about 35,000 people.",
           "wrong": {
             "A": "This number is ten times too small.",
             "B": "This number is ten times too large.",
@@ -513,7 +513,7 @@
           ],
           "answer": "A",
           "skill": "detail",
-          "why": "The article says that by 2020 Kenya experienced its worst outbreak in about seventy years.",
+          "why": "In the article, by 2020 Kenya experienced its worst outbreak in about seventy years.",
           "wrong": {
             "B": "Egypt is not named in the article.",
             "C": "India is not named in the article.",
@@ -547,7 +547,7 @@
           ],
           "answer": "D",
           "skill": "cause-effect",
-          "why": "The article explains that cyclone rain fell on the Empty Quarter, the area was too remote to monitor, and locusts bred for months before spreading.",
+          "why": "In the article, cyclone rain fell on the Empty Quarter, the area was too remote to monitor, and locusts bred for months before spreading.",
           "wrong": {
             "A": "The article does not say pesticides failed.",
             "B": "The problem began with heavy rain, not drought.",
@@ -568,7 +568,7 @@
           "wrong": {
             "B": "The article does not compare the weight of insects.",
             "C": "Color change is caused by crowding, not eating.",
-            "D": "The article says hoppers eat as they travel."
+            "D": "In the article, hoppers eat as they travel."
           }
         },
         {
@@ -627,7 +627,7 @@
         ],
         "answer": "C",
         "skill": "detail",
-        "why": "The text says the locusts turn yellow and black when they want to be in a big group.",
+        "why": "In the text, the locusts turn yellow and black when they start to look for each other.",
         "wrong": {
           "A": "Green or brown is the color of a locust that lives alone.",
           "B": "Red and white are not named in the text.",
@@ -648,7 +648,7 @@
         "wrong": {
           "B": "The wind helps a swarm go far, but it is not the reason for the crowding.",
           "C": "The text does not say that farmers move them.",
-          "D": "The text says lots of eggs hatch after the rain."
+          "D": "Many eggs hatch after the rain."
         }
       },
       {
@@ -661,7 +661,7 @@
         ],
         "answer": "D",
         "skill": "sequence",
-        "why": "The text says the hoppers shed their skin five times, and then they have wings.",
+        "why": "In the text, the hoppers shed their skin five times, and then they have wings.",
         "wrong": {
           "A": "Hoppers march before they have wings.",
           "B": "The text does not say that they lose their legs.",
@@ -697,7 +697,7 @@
         ],
         "answer": "D",
         "skill": "detail",
-        "why": "The text says teams spray a pesticide, a chemical that kills pests, when they find hoppers.",
+        "why": "In the text, teams spray a pesticide, a chemical that kills pests, when they find hoppers.",
         "wrong": {
           "A": "Water is not named as a spray.",
           "B": "Sand is not named as a spray.",
@@ -731,7 +731,7 @@
         ],
         "answer": "B",
         "skill": "cause-effect",
-        "why": "The text says each locust eats about its own weight daily and a swarm has more than a billion insects.",
+        "why": "Each locust eats a lot, and a swarm has more than a billion insects.",
         "wrong": {
           "A": "Hiding food is not mentioned.",
           "C": "The wind helps the swarm travel; it does not blow crops away.",
@@ -767,7 +767,7 @@
         ],
         "answer": "B",
         "skill": "detail",
-        "why": "The text says locusts bred for months in the Empty Quarter, the vast desert in the south of Saudi Arabia.",
+        "why": "In the text, locusts bred for months in the Empty Quarter, the vast desert in the south of Saudi Arabia.",
         "wrong": {
           "A": "Kenya was where swarms later caused an outbreak.",
           "C": "Farms in South Asia are not named as a breeding place.",
@@ -801,7 +801,7 @@
         ],
         "answer": "C",
         "skill": "inference",
-        "why": "The text says the green or brown color helps the solitary locust blend in with the desert.",
+        "why": "In the text, the green or brown color helps the solitary locust blend in with the desert.",
         "wrong": {
           "A": "Hiding from other locusts is not linked to its color.",
           "B": "The text does not say the color keeps it cool.",

@@ -189,7 +189,7 @@
           ],
           "answer": "B",
           "skill": "inference",
-          "why": "The article says pictures help young readers see who is in the story and where it takes place.",
+          "why": "In the article, a picture helps young readers see who is in the story.",
           "wrong": {
             "A": "Weight is not discussed in the article.",
             "C": "Pictures go with words, not instead of them.",
@@ -206,9 +206,9 @@
           ],
           "answer": "D",
           "skill": "inference",
-          "why": "The article says illustrators plan their work with care, choosing colors and shapes that fit the story.",
+          "why": "In the article, illustrators plan their work with care, choosing colors and shapes that fit the story.",
           "wrong": {
-            "A": "The article says illustrators read the story closely first.",
+            "A": "In the article, illustrators read the story closely first.",
             "B": "The article shows illustrators thinking carefully about the story.",
             "C": "The article mentions children's books especially, not just books for adults."
           }
@@ -223,7 +223,7 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The article says old handwritten books had pictures too, drawn by hand by skilled workers.",
+          "why": "In the article, old books had art too, drawn by hand by workers.",
           "wrong": {
             "A": "Stories existed long before printing.",
             "B": "Pictures were used in old books too.",
@@ -385,7 +385,7 @@
           ],
           "answer": "A",
           "skill": "inference",
-          "why": "The article says skilled artists drew scenes by hand to help readers follow the tale.",
+          "why": "Skilled artists drew story scenes by hand in old books, which helped readers follow the tale.",
           "wrong": {
             "B": "Illustrations accompanied words, not replaced them.",
             "C": "Weight is not discussed.",
@@ -402,7 +402,7 @@
           ],
           "answer": "C",
           "skill": "inference",
-          "why": "The article explains pictures help young readers see who, where, and what is happening in a story.",
+          "why": "In the article, pictures help young readers see who, where, and what is happening in a story.",
           "wrong": {
             "A": "Children's books are shown pairing pictures with written words.",
             "B": "Cost is not discussed in the article.",
@@ -513,7 +513,7 @@
           ],
           "answer": "C",
           "skill": "compare",
-          "why": "The article explains fine art can stand alone, whereas illustration is created to accompany writing.",
+          "why": "Fine art can stand on its own, while illustration is made to go with writing.",
           "wrong": {
             "A": "The article does not claim fine art always depicts scenes while illustration never does.",
             "B": "Illustrators are shown planning and composing their work carefully.",
@@ -564,7 +564,7 @@
           ],
           "answer": "B",
           "skill": "inference",
-          "why": "The article says skilled artists across cultures drew scenes by hand to help readers follow the tale.",
+          "why": "In the article, skilled artists across cultures drew scenes by hand to help readers follow the tale.",
           "wrong": {
             "A": "The article describes illustrations found across many different cultures, not just one.",
             "C": "Manuscripts are described as including both writing and illustrations.",
@@ -598,7 +598,7 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The article describes illustrators composing scenes and choosing colors together to convey mood and meaning.",
+          "why": "Illustrators plan each scene and choose its colors to show mood and meaning.",
           "wrong": {
             "A": "Composing a scene does not replace the need to also choose a palette.",
             "B": "These choices happen while creating the illustration, not after printing.",
@@ -644,7 +644,7 @@
         ],
         "answer": "D",
         "skill": "cause-effect",
-        "why": "The text says wall art can stand alone because it does not need words.",
+        "why": "In the text, wall art can stand alone because it does not need words.",
         "wrong": {
           "A": "The text does not say wall art is large.",
           "B": "The text does not say what wall art is made of.",
@@ -678,7 +678,7 @@
         ],
         "answer": "B",
         "skill": "inference",
-        "why": "The text says the art shows what the words say, so it must fit the story.",
+        "why": "In the text, the art shows what the words say, so it must fit the story.",
         "wrong": {
           "A": "The text does not say the art makes the book shorter.",
           "C": "Bright colors alone would not match the words.",
@@ -784,7 +784,7 @@
         ],
         "answer": "A",
         "skill": "detail",
-        "why": "The article says the illustrator reads closely to understand characters, setting, and events.",
+        "why": "In the article, the illustrator reads closely to understand characters, setting, and events.",
         "wrong": {
           "B": "Price and page count are not mentioned.",
           "C": "The article does not say the illustrator studies the printer.",

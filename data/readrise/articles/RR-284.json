@@ -138,7 +138,7 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The article says the rope and the harness keep a climber safe if they slip.",
+          "why": "In the article, the rope and the harness keep a climber safe if they slip.",
           "wrong": {
             "A": "Chalk keeps hands dry, not safe from a fall.",
             "B": "A route is the path up the wall, not safety gear.",
@@ -163,7 +163,7 @@
           }
         },
         {
-          "stem": "Read this: \"A climber must keep their weight over their feet.\" What is balance?",
+          "stem": "In the article, what does the word \"balance\" mean?",
           "options": [
             "Holding on with your fingers",
             "Staying steady without falling",
@@ -206,7 +206,7 @@
           ],
           "answer": "B",
           "skill": "detail",
-          "why": "The article says climbing began as training for people who climbed big mountains.",
+          "why": "In the article, climbing began as training for people who climbed big mountains.",
           "wrong": {
             "A": "Indoor climbing came later, not at the start.",
             "C": "The article does not describe a race.",
@@ -325,7 +325,7 @@
           }
         },
         {
-          "stem": "Read this: \"This careful plan is called a sequence.\" What does sequence mean here?",
+          "stem": "In the article, what does the word \"sequence\" mean?",
           "options": [
             "A type of knot used to tie a rope",
             "A series of planned moves in order",
@@ -351,7 +351,7 @@
           ],
           "answer": "A",
           "skill": "cause-effect",
-          "why": "The article says climbers use chalk to keep their hands dry and grippy on the holds.",
+          "why": "In the article, climbers use chalk to keep their hands dry and grippy on the holds.",
           "wrong": {
             "B": "Chalk does not change hold color.",
             "C": "Chalk is unrelated to difficulty grades.",
@@ -504,20 +504,20 @@
           }
         },
         {
-          "stem": "What are the three disciplines of Olympic sport climbing mentioned in the article?",
+          "stem": "When did sport climbing first appear at the Olympic Games?",
           "options": [
-            "Speed, bouldering, and lead climbing",
-            "Indoor, outdoor, and night climbing",
-            "Grip, balance, and chalk climbing",
-            "Rope, anchor, and harness climbing"
+            "In 2020",
+            "In 1950",
+            "In 1896",
+            "In 2000"
           ],
           "answer": "A",
           "skill": "detail",
-          "why": "The article names speed, bouldering, and lead climbing as the three disciplines in the Olympic Games.",
+          "why": "Sport climbing appeared at the Olympic Games for the first time in 2020.",
           "wrong": {
-            "B": "These are not named as Olympic disciplines.",
-            "C": "These are climbing concepts, not disciplines.",
-            "D": "These are pieces of equipment, not disciplines."
+            "B": "1950 is not the year given.",
+            "C": "1896 is not the year given.",
+            "D": "2000 is not the year given."
           }
         },
         {
@@ -530,7 +530,7 @@
           ],
           "answer": "A",
           "skill": "cause-effect",
-          "why": "The article says climbers evaluate texture and friction to know exactly where their shoes will grip best.",
+          "why": "In the article, climbers evaluate texture and friction to know exactly where their shoes will grip best.",
           "wrong": {
             "B": "Timing is not connected to friction here.",
             "C": "Rope color is not mentioned.",
@@ -583,7 +583,7 @@
           "skill": "inference",
           "why": "Saving energy for difficult sections shows that climbers think strategically about effort, not just physical strength.",
           "wrong": {
-            "B": "The article describes arms becoming exhausted.",
+            "B": "Climbers' arms do get very tired.",
             "C": "The hardest sections, not the easiest, need the most planning.",
             "D": "Energy clearly affects how a climb goes."
           }
@@ -661,9 +661,9 @@
         ],
         "answer": "A",
         "skill": "sequence",
-        "why": "The text says climbing began as training for men on big mountains and now it is its own sport.",
+        "why": "In the text, climbing began as training for men on big mountains and now it is its own sport.",
         "wrong": {
-          "B": "The text says climbing is a sport now.",
+          "B": "In the text, climbing is a sport now.",
           "C": "Night climbing is not mentioned.",
           "D": "The text says climbing was in the Olympic Games."
         }
@@ -678,7 +678,7 @@
         ],
         "answer": "D",
         "skill": "cause-effect",
-        "why": "The text says a climber must plan a few moves ahead and guess where her hand will go next.",
+        "why": "In the text, a climber must think a few moves ahead.",
         "wrong": {
           "A": "Picking a gym is not mentioned.",
           "B": "Counting holds is not mentioned.",
@@ -714,7 +714,7 @@
         ],
         "answer": "B",
         "skill": "vocabulary",
-        "why": "The text says a clear technique means a good way of moving.",
+        "why": "In the text, a clear technique means a good way of moving.",
         "wrong": {
           "A": "Shoes are not defined as technique.",
           "C": "Sound is not mentioned.",
@@ -731,7 +731,7 @@
         ],
         "answer": "A",
         "skill": "sequence",
-        "why": "The text says that over time skilled climbers opened indoor gyms, and that climbing joined the Olympics later.",
+        "why": "Over time, climbers opened indoor gyms, and climbing later became an Olympic sport.",
         "wrong": {
           "B": "The text does not say they stopped.",
           "C": "Selling ropes is not mentioned.",

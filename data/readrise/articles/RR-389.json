@@ -661,7 +661,7 @@
     ],
     "answer": "D",
     "skill": "cause-effect",
-    "why": "Miss Nadia says, 'That is honest. I am proud of you,' after Yusuf tells the truth.",
+    "why": "In the story, Miss Nadia is proud of Yusuf because he tells the truth.",
     "wrong": {
      "A": "A new bag is not mentioned.",
      "B": "Extra work is not mentioned.",
@@ -784,7 +784,7 @@
     ],
     "answer": "D",
     "skill": "detail",
-    "why": "The text says he finished it carefully and checked it twice.",
+    "why": "In the story, he finished his homework carefully and checked it twice.",
     "wrong": {
      "A": "Copying is not mentioned.",
      "B": "A friend is not mentioned at night.",
@@ -801,7 +801,7 @@
     ],
     "answer": "B",
     "skill": "cause-effect",
-    "why": "The text says he had already reflected on the question carefully on his way to school.",
+    "why": "In the text, he had already reflected on the question carefully on his way to school.",
     "wrong": {
      "A": "Miss Nadia only asked the question.",
      "C": "A friend is not mentioned.",

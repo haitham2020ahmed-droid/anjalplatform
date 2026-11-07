@@ -138,7 +138,7 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The article says a phone has bits of gold, silver, and copper in it.",
+          "why": "A phone has small amounts of metals such as gold, silver, and copper inside.",
           "wrong": {
             "A": "These are not the metals the article names.",
             "B": "Plastic and glass are not metals.",
@@ -155,7 +155,7 @@
           ],
           "answer": "A",
           "skill": "detail",
-          "why": "The article says a battery in the trash can start a fire.",
+          "why": "In the article, a battery in the trash can start a fire.",
           "wrong": {
             "B": "Batteries do not turn into gold.",
             "C": "The article does not say this.",
@@ -197,7 +197,7 @@
           }
         },
         {
-          "stem": "Read: \"We can recycle old phones.\" What does recycle mean?",
+          "stem": "In the article, what does the word \"recycle\" mean?",
           "options": [
             "To turn old things into material for new things",
             "To ride a bike again and again on the same road",
@@ -317,7 +317,7 @@
           ],
           "answer": "A",
           "skill": "detail",
-          "why": "The article says less than a quarter of e-waste is collected and recycled properly.",
+          "why": "In the article, less than a quarter of e-waste is collected and recycled properly.",
           "wrong": {
             "B": "The amount is less than a quarter, not half.",
             "C": "Most of it is wasted, not recycled.",
@@ -325,7 +325,7 @@
           }
         },
         {
-          "stem": "Read: \"they can be harmful to the environment.\" What does harmful mean?",
+          "stem": "In the article, what does the word \"harmful\" mean?",
           "options": [
             "Very expensive to buy",
             "Easy to carry",
@@ -404,8 +404,8 @@
           "skill": "compare",
           "why": "The article says mines damage the land and use energy, while recycling uses metal that was already dug up.",
           "wrong": {
-            "A": "The article says mining uses a great deal of energy.",
-            "C": "The article says mining damages the land; recycling helps protect it.",
+            "A": "Mining uses a lot of energy.",
+            "C": "In the article, mining damages the land; recycling helps protect it.",
             "D": "Recycling recovers many metals, such as silver and copper."
           }
         },
@@ -487,7 +487,7 @@
           }
         },
         {
-          "stem": "Read: \"These materials are difficult and expensive to extract from nature.\" What does extract mean?",
+          "stem": "In the article, what does the word \"extract\" mean?",
           "options": [
             "To decorate",
             "To take out",
@@ -530,7 +530,7 @@
           ],
           "answer": "C",
           "skill": "detail",
-          "why": "The article states that less than a quarter of e-waste is collected and recycled appropriately.",
+          "why": "In the article, less than a quarter of e-waste is collected and recycled appropriately.",
           "wrong": {
             "A": "Most e-waste is lost, not recycled.",
             "B": "The amount is less than a quarter.",
@@ -583,7 +583,7 @@
           "skill": "inference",
           "why": "The author shows that discarded devices lose precious metals and can release toxic substances.",
           "wrong": {
-            "B": "The author says mining consumes a tremendous amount of energy.",
+            "B": "Mining uses a huge amount of energy.",
             "C": "The author advises repairing phones when they malfunction.",
             "D": "The author presents e-waste as a serious problem."
           }
@@ -627,7 +627,7 @@
         ],
         "answer": "C",
         "skill": "sequence",
-        "why": "The text says people take the phones apart and then sort the parts.",
+        "why": "In the text, people take the phones apart and then sort the parts.",
         "wrong": {
           "A": "Melting the metal comes after the parts are sorted.",
           "B": "The text says nothing about burying parts.",
@@ -644,7 +644,7 @@
         ],
         "answer": "A",
         "skill": "compare",
-        "why": "The text says old phones hold more gold than the same heap of rock from a mine.",
+        "why": "In the text, old phones hold more gold than the same heap of rock from a mine.",
         "wrong": {
           "B": "The rock from a mine has less gold than old phones.",
           "C": "The text does not say used batteries hold the most gold.",
@@ -661,7 +661,7 @@
         ],
         "answer": "D",
         "skill": "vocabulary",
-        "why": "The text says we throw out lots of old phones, and this is e-waste.",
+        "why": "In the text, we throw out lots of old phones, and this is e-waste.",
         "wrong": {
           "A": "A new phone in a shop is not thrown out.",
           "B": "A drop box is where you can take old phones.",
@@ -697,7 +697,7 @@
         ],
         "answer": "D",
         "skill": "detail",
-        "why": "The text says some electronics contain lead or mercury, which can leak into the soil and water.",
+        "why": "In the text, some electronics contain lead or mercury, which can leak into the soil and water.",
         "wrong": {
           "A": "Gold and silver are valuable metals inside phones, not the harmful ones named.",
           "B": "Copper is a useful metal in phones, not a harmful one named in the text.",
@@ -731,11 +731,11 @@
         ],
         "answer": "A",
         "skill": "cause-effect",
-        "why": "The text says mining can damage the land and use a lot of energy.",
+        "why": "In the text, mining can damage the land and use a lot of energy.",
         "wrong": {
           "B": "Recycling is the choice that protects the land, not mining.",
-          "C": "The text says these metals are hard to find in nature.",
-          "D": "The text says mining uses a lot of energy."
+          "C": "In the text, these metals are hard to find in nature.",
+          "D": "In the text, mining uses a lot of energy."
         }
       },
       {
@@ -748,7 +748,7 @@
         ],
         "answer": "C",
         "skill": "vocabulary",
-        "why": "The text says the materials are hard to find in nature and some are rare.",
+        "why": "In the text, the materials are hard to find in nature and some are rare.",
         "wrong": {
           "A": "Dirt is not the idea here.",
           "B": "Weight is not mentioned.",
