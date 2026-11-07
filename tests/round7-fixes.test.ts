@@ -47,11 +47,11 @@ describe("Round 7 fixes", () => {
   });
 
   test("4. teacher pages: the article title + (read as: version title · 600L) when they differ", () => {
-    assert.equal(readAsTitle("Honeybees: Tiny Workers", "Honeybees: Busy Helpers", 600), "Honeybees: Tiny Workers (read as: Honeybees: Busy Helpers · 600L)");
+    assert.equal(readAsTitle("Honeybees: Tiny Workers", "Honeybees: Busy Helpers", 600), "Honeybees: Tiny Workers (read as: Honeybees: Busy Helpers · 700L)" /* round 9 review: the 600 version ≈ Achieve 700L */);
     assert.equal(readAsTitle("Honeybees: Tiny Workers", "Honeybees: Tiny Workers", 600), "Honeybees: Tiny Workers", "same title: nothing added");
     assert.equal(readAsTitle("A", "", 600), "A");
     const titles = new Map([["art1|300", "Bees (easy)"]]);
-    assert.equal(runTitle("Bees", titles, "art1", 300), "Bees (read as: Bees (easy) · 300L)");
+    assert.equal(runTitle("Bees", titles, "art1", 300), "Bees (read as: Bees (easy) · 200L)"); // round 9 review: the 300 version ≈ Achieve 200L
     assert.equal(runTitle("Bees", titles, "art1", null), "Bees");
     for (const f of ["src/server/readrise/teacher-report.ts", "src/server/readrise/teacher.ts", "src/server/readrise/dashboards.ts", "src/server/readrise/growth-report.ts"]) assert.match(src(f), /runTitle|readAsTitle/, f);
   });

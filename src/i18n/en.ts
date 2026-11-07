@@ -1080,7 +1080,7 @@ export const UI_STRINGS = [
   "Search by title or topic", "Topics", "All topics",
   "No articles match.", "Show all articles", "No articles yet. Check back soon!",
   "Only your first try on an article counts. Reading it again is practice.", "Score 75% or more on 3 of your last 4 articles and your level goes up 50.", "If an article was too hard (25% or less, or under 50% two times in a row), your level goes down 100 so the next articles fit you better.",
-  "Take your time: answers that come too fast do not count, and an article read in under 45 seconds does not count.", "Your weekly goal counts each article once: 75% or more on the first try, or on its stretch.", "Three times a year you check your reading level with a few short passages: at the start, in the middle and at the end of the year.",
+  "Take your time: answers that come too fast do not count, and an article read in under 45 seconds does not count.", "Your weekly goal counts each article once: 75% or more on the first try.", "Three times a year you check your reading level with a few short passages: at the start, in the middle and at the end of the year.",
   "Score 75% or more on your first try and you can Stretch: the same article one level higher. With new stretch questions (or new questions of a higher band) it counts like a first try and can help you move up. If the questions are the same ones, it is practice: it can count for your weekly goal only. A stretch never lowers your level.", "Change my topics", "This week {n} of {m}",
   "1 more strong read (75%+) to move up +{step}", "{n} more strong reads (75%+) to move up +{step}", "Stretch done",
   "Practice re-read done", "You read this very fast, so it did not count. Read carefully next time.", "New questions: this stretch counts like a first try (75%+ can help you move up).",
@@ -1225,6 +1225,7 @@ export const UI_STRINGS = [
   "One hard article never moves your level down. Under 50% on 2 articles in a row (or on 3 of your last 4) and your level goes down 50, so the next articles fit you better. 25% or less two times in a row: down 100.",
   "After your level goes down, 75% or more on 2 articles in a row brings it back up 50.",
   "Score 75% or more on your first try and you can Stretch: the same article at your grade level, with new questions. It is practice: it gives you points but never changes your level.",
+  "You read 1 article and {w} words.",
 ] as const;
 
 export type UiString = (typeof UI_STRINGS)[number];

@@ -123,7 +123,7 @@ export function StudentGrowthView({ g, t, backHref }: { g: StudentGrowthReport; 
                 <tr key={x.runId} className="border-b last:border-0">
                   <td className="p-2 tabular-nums text-slate-600">{day(x.at)}</td>
                   <td className="p-2 font-semibold text-brand-navy">{x.title}</td>
-                  <td className="p-2 text-center tabular-nums">{fmtLevel(Math.round(x.textLevel / 10) * 10)}<span className="block text-[11px] text-slate-400">{t("version {v}", { v: fmtLevel(x.versionLevel) })}</span></td>
+                  <td className="p-2 text-center tabular-nums">{fmtLevel(Math.round(x.textLevel / 10) * 10)}<span className="block text-[11px] text-slate-400">{t("version {v}", { v: String(x.versionLevel) }) /* round 9 review: the version label (300…1600), not a level */}</span></td>
                   <td className="p-2 text-center tabular-nums">{fmtLevel(x.studentLevel)}</td>
                   <td className="p-2 text-center"><span className={`rounded-full px-2 py-0.5 text-xs font-semibold ring-1 ${FIT_STYLE[x.fit]}`}>{t(FIT_LABEL[x.fit])}</span></td>
                   <td className="p-2 text-center tabular-nums">{fmt(x.score, "%")}</td>

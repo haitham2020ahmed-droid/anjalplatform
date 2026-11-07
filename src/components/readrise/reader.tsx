@@ -11,6 +11,7 @@ import {
 import { AGREE, COLORS, DISAGREE, keyWordFor, pollSide, tokenize, type Annotation, type HighlightColor, type KeyWord, type Token } from "./text";
 import { WordLookup } from "../learn/word-lookup";
 import { GoalRing, LevelBadge, formatLevel } from "./widgets";
+import { toAchieve } from "@/server/readrise/achieve-scale"; // round 9 review: a version label shown on the Achieve3000 scale
 import { bestBrowserVoice } from "@/lib/tts/voices";
 import { passageSpeech } from "@/lib/tts/text";
 import { ListenButton } from "../listen-button";
@@ -219,7 +220,7 @@ function Stepper({ step, stretch, level }: { step: StepKey; stretch: boolean; le
           </li>
         ))}
       </ol>
-      <p className="mt-2 text-xs text-slate-500">{tr("Text level {level}", { level: formatLevel(level) })}{stretch ? ` · ${tr("⬆ Stretch: your grade-level text (practice)")}` : ""}</p>
+      <p className="mt-2 text-xs text-slate-500">{tr("Text level {level}", { level: formatLevel(toAchieve(level)) })}{stretch ? ` · ${tr("⬆ Stretch: your grade-level text (practice)")}` : ""}</p>
     </nav>
   );
 }

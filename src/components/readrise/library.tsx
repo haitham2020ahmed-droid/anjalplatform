@@ -3,6 +3,7 @@ import type { ArticleCard, Library } from "@/server/readrise/student";
 import { ARTICLE_STATUS_LABEL } from "@/server/readrise/first-try";
 import { reasonLabel } from "@/server/readrise/recommend";
 import { formatLevel } from "@/server/readrise/level";
+import { toAchieve } from "@/server/readrise/achieve-scale"; // round 9 review: the version read, on the Achieve3000 scale
 import type { TFn } from "@/i18n";
 import type { ReactNode } from "react";
 
@@ -46,7 +47,7 @@ export function ArticleTile({ c, showLevel = true, level, t = plain }: { c: Arti
           <span className="text-slate-500">
             {t("About {n} min", { n: c.minutes })}
             {showLevel && (done
-              ? <> · <span data-testid="rr-read-level">{t("Read at level {n}", { n: formatLevel(c.readLevel!) })}</span></>
+              ? <> · <span data-testid="rr-read-level">{t("Read at level {n}", { n: formatLevel(toAchieve(c.readLevel!)) })}</span></>
               : <> · <span data-testid="rr-your-level">{t("Your level {n}", { n: formatLevel(level ?? c.versionLevel) })}</span>{c.textLevel ? <span className="text-xs text-slate-400"> ({t("text ≈{n}", { n: formatLevel(c.textLevel) })})</span> : null}</>)}
           </span>
           <span className="rounded-lg bg-brand-navy px-3 py-1 font-semibold text-white" aria-hidden="true">{cta} ▶</span>

@@ -56,7 +56,7 @@ export default async function ReadRiseTeacher({ searchParams }: { searchParams: 
   const studentId = typeof sp.student === "string" && /^[\w-]{1,64}$/.test(sp.student) ? sp.student : null;
   const header = (
     <ReportHeader back={{ href: "/teacher", label: "Home" }} icon="🚀" title="ReadRise"
-      subtitle={<>Every student reads the same articles at their own level; the level moves with first-try scores (3 of the last 4 at 75%+: up 50 · one score of 25% or less, or two in a row under 50%: down 100). Readings with 2+ answers too fast to be read do not count. <span className="text-xs text-slate-500">{RR_NOTE}</span></>}
+      subtitle={<>Every student reads the same articles at their own level; the level moves with first-try scores (3 of the last 4 at 75%+: up 50 · two in a row under 50%, or 3 of the last 4: down 50 · two in a row at 25% or less: down 100 · after a drop, two in a row at 75%+: back up 50 · one bad article alone never moves it). Readings with 2+ answers too fast to be read do not count. <span className="text-xs text-slate-500">{RR_NOTE}</span></>}
       who={klass?.name} downloads={klass ? exportsOf({ kind: "readrise", classId: klass.id, period: "TERM", ...(studentId ? { studentId } : {}) }).map((d) => ({ ...d, label: d.label })) : []}
       filters={classes.length ? <nav aria-label="Class" className="flex flex-wrap gap-2">
         {classes.map((c) => <Link key={c.id} href={`/teacher/readrise?class=${c.id}&tab=${tab}`} className={chip(c.id === klass?.id)}>{c.name}{!c.own && <span className="ms-1 text-xs opacity-70">(view)</span>}</Link>)}

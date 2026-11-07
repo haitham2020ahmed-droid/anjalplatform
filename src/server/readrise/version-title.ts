@@ -4,6 +4,7 @@
  * admin pages show the article title, plus "(read as: <version title> · 600L)" when the run's version title differs,
  * so a teacher can match what the student says they read. Student pages show the version title only.
  */
+import { toAchieve } from "./achieve-scale";
 import type { Repo } from "../seeding/repo";
 import { formatLevel } from "./level";
 
@@ -14,7 +15,7 @@ const keyOf = (articleId: string, level: number) => `${articleId}|${level}`;
 export function readAsTitle(articleTitle: string, versionTitle: string | null | undefined, versionLevel: number | null | undefined): string {
   const a = s(articleTitle).trim(), v = s(versionTitle).trim();
   if (!v || v === a || versionLevel === null || versionLevel === undefined || !Number.isFinite(Number(versionLevel))) return a;
-  return `${a} (read as: ${v} · ${formatLevel(Number(versionLevel))})`;
+  return `${a} (read as: ${v} · ${formatLevel(toAchieve(Number(versionLevel)))})`; // round 9 review: on the Achieve3000 scale (achieve-scale.ts)
 }
 
 /** The version titles of the given articles (one read): `${articleId}|${level}` → title. */

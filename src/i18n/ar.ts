@@ -7101,7 +7101,7 @@ export const ar: Record<UiString, string> = {
   "Score 75% or more on 3 of your last 4 articles and your level goes up 50.": "احصل على 75% أو أكثر في 3 من آخر 4 مقالات فيرتفع مستواك 50.",
   "If an article was too hard (25% or less, or under 50% two times in a row), your level goes down 100 so the next articles fit you better.": "إذا كانت المقالة صعبة جدًا (25% أو أقل، أو أقل من 50% مرتين متتاليتين) ينخفض مستواك 100 لتناسبك المقالات التالية أكثر.",
   "Take your time: answers that come too fast do not count, and an article read in under 45 seconds does not count.": "خذ وقتك: الإجابات السريعة جدًا لا تُحتسب، والمقالة التي تُقرأ في أقل من 45 ثانية لا تُحتسب.",
-  "Your weekly goal counts each article once: 75% or more on the first try, or on its stretch.": "هدفك الأسبوعي يحتسب كل مقالة مرة واحدة: 75% أو أكثر في المحاولة الأولى أو في قراءتها بمستوى أعلى.",
+  "Your weekly goal counts each article once: 75% or more on the first try.": "يحتسب هدفك الأسبوعي كل مقالة مرة واحدة: 75% أو أكثر في المحاولة الأولى.",
   "Three times a year you check your reading level with a few short passages: at the start, in the middle and at the end of the year.": "ثلاث مرات في السنة تتحقق من مستوى قراءتك ببضع قطع قصيرة: في بداية السنة ومنتصفها ونهايتها.",
   "Score 75% or more on your first try and you can Stretch: the same article one level higher. With new stretch questions (or new questions of a higher band) it counts like a first try and can help you move up. If the questions are the same ones, it is practice: it can count for your weekly goal only. A stretch never lowers your level.": "احصل على 75% أو أكثر في محاولتك الأولى لتقرأ المقالة نفسها بمستوى أعلى. مع أسئلة جديدة تُحتسب كمحاولة أولى وقد تساعدك على الارتفاع. وإذا كانت الأسئلة نفسها فهي تدريب يُحتسب لهدفك الأسبوعي فقط. القراءة بمستوى أعلى لا تُخفض مستواك أبدًا.",
   "Change my topics": "غيّر مواضيعي",
@@ -7491,4 +7491,5 @@ export const ar: Record<UiString, string> = {
   "One hard article never moves your level down. Under 50% on 2 articles in a row (or on 3 of your last 4) and your level goes down 50, so the next articles fit you better. 25% or less two times in a row: down 100.": "مقالة واحدة صعبة لا تُنزل مستواك أبدًا. إذا حصلت على أقل من 50% في مقالتين متتاليتين (أو في 3 من آخر 4) ينخفض مستواك 50 لتناسبك المقالات التالية أكثر. وإذا حصلت على 25% أو أقل مرتين متتاليتين ينخفض 100.",
   "After your level goes down, 75% or more on 2 articles in a row brings it back up 50.": "بعد انخفاض مستواك، الحصول على 75% أو أكثر في مقالتين متتاليتين يرفعه 50 من جديد.",
   "Score 75% or more on your first try and you can Stretch: the same article at your grade level, with new questions. It is practice: it gives you points but never changes your level.": "إذا حصلت على 75% أو أكثر في المحاولة الأولى يمكنك تجربة التحدي: المقالة نفسها بمستوى صفك مع أسئلة جديدة. إنه تدريب: يمنحك نقاطًا لكنه لا يغيّر مستواك أبدًا.",
+  "You read 1 article and {w} words.": "قرأت مقالة واحدة و{w} كلمة.",
 };

@@ -120,7 +120,7 @@ export default async function ReadRiseHomePage({ searchParams }: { searchParams:
             <div><dt className="text-xs text-slate-500">Articles read</dt><dd className="text-2xl font-bold text-brand-navy">{sum.articlesDone}</dd></div>
             <div><dt className="text-xs text-slate-500">First-try average</dt><dd className="text-2xl font-bold text-brand-navy">{sum.firstTryAvg === null ? "—" : `${sum.firstTryAvg}%`}</dd></div>
             <div><dt className="text-xs text-slate-500">Weeks goal met</dt><dd className="text-2xl font-bold text-brand-navy">{sum.weeksMet}</dd></div>
-            <div><dt className="text-xs text-slate-500">Placement</dt><dd className="text-2xl font-bold text-brand-navy">{h.placement.result ?? "—"}</dd></div>
+            <div><dt className="text-xs text-slate-500">Placement</dt><dd className="text-2xl font-bold text-brand-navy">{h.placement.result === null ? "—" : formatLevel(h.placement.result)}</dd></div>
           </dl>
         </div>
       </section>
@@ -134,7 +134,7 @@ export default async function ReadRiseHomePage({ searchParams }: { searchParams:
           <li>{t("One hard article never moves your level down. Under 50% on 2 articles in a row (or on 3 of your last 4) and your level goes down 50, so the next articles fit you better. 25% or less two times in a row: down 100.")}</li>
           <li>{t("After your level goes down, 75% or more on 2 articles in a row brings it back up 50.")}</li>
           <li>{t("Take your time: answers that come too fast do not count, and an article read in under 45 seconds does not count.")}</li>
-          <li>{t("Your weekly goal counts each article once: 75% or more on the first try, or on its stretch.")}</li>
+          <li>{t("Your weekly goal counts each article once: 75% or more on the first try.")}</li>
           <li>{t("Three times a year you check your reading level with a few short passages: at the start, in the middle and at the end of the year.")}</li>
           <li>{t("Score 75% or more on your first try and you can Stretch: the same article at your grade level, with new questions. It is practice: it gives you points but never changes your level.")}</li>
         </ul>

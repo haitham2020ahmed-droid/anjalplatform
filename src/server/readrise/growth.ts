@@ -207,7 +207,7 @@ export function storyLines(x: StoryInput): StoryLine[] {
   else if (x.movesUp > 1) out.push({ icon: "⬆️", text: "You moved up {n} times.", vars: { n: x.movesUp } });
   if (x.streak > 1) out.push({ icon: "🔥", text: "You met your weekly goal {n} weeks in a row.", vars: { n: x.streak } });
   else if (x.weeksMet > 0) out.push({ icon: "🎯", text: "You met your weekly goal in {n} weeks.", vars: { n: x.weeksMet } });
-  out.push({ icon: "📚", text: "You read {n} articles and {w} words.", vars: { n: x.articles, w: x.words.toLocaleString("en-US") } });
+  out.push({ icon: "📚", text: x.articles === 1 ? "You read 1 article and {w} words." : "You read {n} articles and {w} words.", vars: { n: x.articles, w: x.words.toLocaleString("en-US") } });
   if (x.stronger.length) out.push({ icon: "💪", text: "Getting stronger: {skills}.", vars: { skills: x.stronger.join(", ") } });
   if (x.stretchWins > 0) out.push({ icon: "🧗", text: "You scored 75% or more on {n} stretch articles.", vars: { n: x.stretchWins } });
   if (x.scoreDelta !== null && x.scoreDelta >= 5) out.push({ icon: "📈", text: "Your recent first-try scores went up {n} points.", vars: { n: x.scoreDelta } });

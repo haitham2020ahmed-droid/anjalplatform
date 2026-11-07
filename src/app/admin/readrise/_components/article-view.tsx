@@ -4,6 +4,7 @@ import { BAND_RANGE, BANDS } from "@/server/readrise/import";
 import { deleteReadRiseAction, setReadRiseHiddenAction, setReadRiseLexileAction, setReadRiseStatusAction } from "../actions";
 import { btn, btnGhost, fmtLevel, RR_NOTE, SourcePill, StatusPill } from "./ui";
 import { RichInline } from "@/components/rich-inline";
+import { toAchieve } from "@/server/readrise/achieve-scale";
 
 const BAND_STYLE = {
   LOW: { head: "bg-orange-50 text-orange-900", ring: "ring-orange-200" },
@@ -67,6 +68,8 @@ export function ArticleView({ a, base }: { a: ArticleDetail; base: string }) {
             <thead><tr className="border-b text-xs text-slate-500"><th className="p-2 text-left">Version</th>{a.versions.map((v) => <th key={v.id} className="p-2 tabular-nums">{fmtLevel(v.level)}</th>)}</tr></thead>
             <tbody>
               <tr className="border-b"><th className="p-2 text-left text-xs font-semibold text-slate-600">Estimated level</th>{a.versions.map((v) => <td key={v.id} className={`p-2 tabular-nums font-semibold ${v.levelOk ? "text-teal-800" : "text-amber-800"}`}>{v.levelOk ? "✓" : "⚠"} {fmtLevel(v.estLevel)}</td>)}</tr>
+              {/* round 9 review: the level students see (Achieve3000 scale, achieve-scale.ts) — a reader at this level gets this version */}
+              <tr className="border-b"><th className="p-2 text-left text-xs font-semibold text-slate-600">For readers at ≈ (Achieve3000 scale)</th>{a.versions.map((v) => <td key={v.id} className="p-2 tabular-nums text-indigo-800">{fmtLevel(Math.round(toAchieve(v.estLevel > 0 ? v.estLevel : v.level) / 10) * 10)}</td>)}</tr>
               <tr className="border-b"><th className="p-2 text-left text-xs font-semibold text-slate-600">Words (target)</th>{a.versions.map((v) => { const ok = v.wordCount >= Math.round(v.target.min * 0.85) && v.wordCount <= Math.round(v.target.max * 1.2); return <td key={v.id} className={`p-2 tabular-nums ${ok ? "" : "font-semibold text-amber-800"}`}>{v.wordCount}<span className="block text-[10px] text-slate-400">{v.target.min}–{v.target.max}</span></td>; })}</tr>
               <tr><th className="p-2 text-left text-xs font-semibold text-slate-600">Official Lexile</th>{a.versions.map((v) => <td key={v.id} className="p-2 tabular-nums text-slate-600">{v.officialLexile === null ? "—" : `${v.officialLexile}L`}</td>)}</tr>
             </tbody>
