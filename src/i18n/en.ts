@@ -1271,6 +1271,9 @@ export const UI_STRINGS = [
   "Weeks goal met",
   "How does my level move?",
   "My growth",
+
+  // ---- Practice and time · IXL gaps (Nov 2026): empty days, session times, quick ranges, score start → end, areas, sort
+  "Most questions", "Lowest accuracy", "Most time", "Most improved", "AM", "PM", "Friday", "Saturday", "skills whose score went up in this range", "student skills whose score went up in this range", "By week", "By area", "Reading, Vocabulary, Grammar…: where the questions went. Every skill is in the table below.", "Sort by", "📈 {n} improved", "Score: start → end", "No skill-practice answer in this range", "🏫 at school (Sun–Thu 7:00–14:00) · 🏠 at home. Minutes = time spent answering (at most 5 minutes a question).", "Questions answered per week, at school and at home", "Questions answered per day, at school and at home", "at school", "at home", "no practice", "At school (Sun–Thu 7:00–14:00)", "At home", "No practice that week", "No practice that day", "{n} school days without practice", "Other skills", "1 skill", "Questions per skill", "Questions per area", "Punctuation & capitals", "Spelling & word study",
 ] as const;
 
 export type UiString = (typeof UI_STRINGS)[number];

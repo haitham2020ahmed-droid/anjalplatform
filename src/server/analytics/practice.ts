@@ -32,6 +32,7 @@ import { readableClasses } from "../teacher/coordinators";
 import { classMembers, studentNames } from "../insights/student-data";
 import { displayScore, practiceSessionIds, skillKeyIndex, skillStatusesFor, type StarStatus, type StarView } from "../skills/status";
 import { isHiddenSkill } from "../skills/master";
+import { DOMAIN_LABEL } from "../assessment/diagnostic";
 
 const s = (v: unknown) => (v === null || v === undefined ? "" : String(v));
 const t = (v: unknown) => new Date(v instanceof Date ? v.toISOString() : s(v)).getTime();
@@ -48,6 +49,62 @@ export function atSchool(at: Date | string | number): boolean {
   return day >= 0 && day <= 4 && h >= 7 && h < 14;
 }
 export const riyadhDay = (at: Date | string | number) => new Date(new Date(at).getTime() + RIYADH).toISOString().slice(0, 10);
+/** Minutes after Riyadh midnight (5:38 PM → 1058). */
+export const riyadhMinute = (at: Date | string | number) => { const d = new Date(new Date(at).getTime() + RIYADH); return d.getUTCHours() * 60 + d.getUTCMinutes(); };
+const DAY_MS = 86_400_000;
+/** a range longer than this is drawn by week, so the bars stay readable */
+const MAX_DAY_BARS = 92;
+/**
+ * Every day of the range, empty days included (yyyy-mm-dd, Riyadh days) — up to today, plus any later day that has
+ * answers. Over MAX_DAY_BARS days → weeks (Sunday–Saturday), each labelled by its Sunday.
+ */
+export function fillDays(used: readonly DayUse[], fromMs: number, toMs: number, nowMs = Date.now()): { days: DayUse[]; unit: "day" | "week" } {
+  const byDay = new Map(used.map((d) => [d.day, d]));
+  const start = Date.parse(`${riyadhDay(fromMs)}T00:00:00Z`);
+  const lastUsed = used.length ? Date.parse(`${[...used].sort((a, b) => a.day.localeCompare(b.day))[used.length - 1].day}T00:00:00Z`) : -Infinity;
+  const end = Math.max(Date.parse(`${riyadhDay(Math.min(toMs, nowMs))}T00:00:00Z`), lastUsed);
+  const all: DayUse[] = [];
+  for (let d = start; d <= end && all.length < 2 * 366 + 7; d += DAY_MS) {
+    const k = new Date(d).toISOString().slice(0, 10);
+    all.push(byDay.get(k) ?? { day: k, questions: 0, school: 0, home: 0, minutes: 0 });
+  }
+  // a day outside the range (never expected) is kept rather than lost
+  for (const d of used) if (!all.some((x) => x.day === d.day)) all.push(d);
+  all.sort((a, b) => a.day.localeCompare(b.day));
+  if (all.length <= MAX_DAY_BARS) return { days: all, unit: "day" };
+  const weeks = new Map<string, DayUse>();
+  for (const d of all) {
+    const ms = Date.parse(`${d.day}T00:00:00Z`);
+    const k = new Date(ms - new Date(ms).getUTCDay() * DAY_MS).toISOString().slice(0, 10);
+    const w = weeks.get(k) ?? { day: k, questions: 0, school: 0, home: 0, minutes: 0 };
+    w.questions += d.questions; w.school += d.school; w.home += d.home; w.minutes += d.minutes;
+    weeks.set(k, w);
+  }
+  return { days: [...weeks.values()].sort((a, b) => a.day.localeCompare(b.day)), unit: "week" };
+}
+/** Nov 2026: how the teacher can sort the student list (most practice first by default) */
+export type PracticeSort = "questions" | "name" | "accuracy" | "minutes" | "improved" | "last";
+export const PRACTICE_SORTS: [PracticeSort, string][] = [["questions", "Most questions"], ["name", "Name"], ["accuracy", "Lowest accuracy"], ["minutes", "Most time"], ["improved", "Most improved"], ["last", "Last active"]];
+export function sortStudentUse(list: readonly StudentUse[], by: PracticeSort): StudentUse[] {
+  const name = (a: StudentUse, b: StudentUse) => a.name.localeCompare(b.name);
+  const cmp: Record<PracticeSort, (a: StudentUse, b: StudentUse) => number> = {
+    questions: (a, b) => b.questions - a.questions || name(a, b),
+    name,
+    // "lowest accuracy" is about the students who practised: no answers go last
+    accuracy: (a, b) => (a.accuracy ?? 101) - (b.accuracy ?? 101) || name(a, b),
+    minutes: (a, b) => b.minutes - a.minutes || name(a, b),
+    improved: (a, b) => b.improved - a.improved || b.questions - a.questions || name(a, b),
+    last: (a, b) => (b.lastActive ?? "").localeCompare(a.lastActive ?? "") || name(a, b),
+  };
+  return [...list].sort(cmp[by]);
+}
+/** The mastery % at the start and at the end of a range, from the engine's before/after of every answer in it. */
+export function scoreSpan(logs: readonly { at: number; before: number | null; after: number | null }[]): { from: number; to: number } | null {
+  const l = logs.filter((x) => x.after !== null && Number.isFinite(x.after)).sort((a, b) => a.at - b.at);
+  if (!l.length) return null;
+  const clampPct = (v: number) => Math.max(0, Math.min(100, Math.round(v)));
+  return { from: clampPct(l[0].before ?? 0), to: clampPct(l[l.length - 1].after!) };
+}
 /** A calendar day range (UTC midnight dates, as periods.ts gives them) → the same days in Riyadh time. */
 export function riyadhRange(from: Date, to: Date): { from: Date; to: Date } {
   return { from: new Date(from.getTime() - RIYADH), to: new Date(to.getTime() - RIYADH) };
@@ -76,15 +133,24 @@ export interface SkillUse {
   /** a skill row practised under this key (links that need a row id) */
   skillId: string;
   name: string; questions: number; correct: number; accuracy: number | null; minutes: number; students: number; effort: number | null;
+  /** the skill's area (Skill.domain: READING, VOCABULARY, GRAMMAR, …) */
+  domain: string;
   /** the stars NOW of the students who practised it in the range */
   stars: StarCounts;
   /** answers by source (in the current view) */
   bySource: Partial<Record<AnswerSource, number>>;
 }
+/** Nov 2026 (IXL "Practice by category"): the answers grouped by area — Reading, Vocabulary, Grammar, … */
+export interface AreaUse { domain: string; label: string; questions: number; skills: number }
 export interface StudentSkill {
   key: string; skillId: string; name: string; questions: number; minutes: number; accuracy: number | null; change: number | null; effort: number | null;
   /** the star now (SkillStatus) */
   status: StarStatus; score: number; answered: number; mastered: boolean; masteredInRange: boolean; needsSupport: boolean;
+  /** Nov 2026 (IXL "SmartScore 0 → 76"): the mastery % when the range started and when it ended (the engine's own
+   *  before/after of every answer, AdaptiveDecisionLog); null = no engine answer in the range (NAFS, ReadRise) */
+  scoreFrom: number | null; scoreTo: number | null;
+  /** the score went up in the range (scoreTo > scoreFrom) */
+  improved: boolean;
 }
 export interface StudentUse {
   id: string; name: string; questions: number; minutes: number; accuracy: number | null; skills: number; effort: number | null; unreliable: number;
@@ -92,9 +158,17 @@ export interface StudentUse {
   stars: StarCounts;
   /** ⭐ earned inside the range */
   newStars: number;
+  /** skills whose mastery % went up in the range (IXL "made progress in N skills") */
+  improved: number;
   schoolPct: number | null; lastActive: string | null; detail: StudentSkill[];
 }
-export interface SessionUse { id: string; day: string; skill: string; source: AnswerSource; answers: number; effort: number | null; unreliable: boolean }
+export interface SessionUse {
+  id: string; day: string; skill: string; source: AnswerSource; answers: number; effort: number | null; unreliable: boolean;
+  /** Nov 2026 (IXL "Tuesday, October 20 | 5:38 – 6:02 PM"): the Riyadh weekday (0 = Sunday), the clock time the
+   *  session started and ended (minutes after Riyadh midnight), the minutes spent answering, the accuracy, and
+   *  whether it was at school (Sunday–Thursday 07:00–14:00) */
+  weekday: number; startMin: number; endMin: number; minutes: number; accuracy: number | null; atSchool: boolean;
+}
 export interface DayUse { day: string; questions: number; school: number; home: number; minutes: number }
 export interface PracticeAnalytics {
   scope: { classId: string; className: string; studentId: string | null; view: PracticeView }; from: string; to: string;
@@ -105,12 +179,17 @@ export interface PracticeAnalytics {
     /** stars now, over the skills practised in the range (each student × skill once) */
     stars: StarCounts;
     schoolQuestions: number; homeQuestions: number; avgPerStudent: number | null; effort: number | null; unreliable: number;
+    /** student × skill pairs whose mastery % went up in the range */
+    improved: number;
   };
   /** every answer in the range by source — always all sources, whatever the view */
   sources: { source: AnswerSource; label: string; questions: number; students: number; countsForStars: boolean }[];
   /** answers on Curriculum Map questions that are not linked to a skill yet (shown apart, never a skill row) */
   unlinked: { questions: number; students: number };
-  days: DayUse[]; skills: SkillUse[]; students: StudentUse[];
+  /** EVERY day of the range (empty days are 0, so a gap shows as a gap); a range over 92 days is grouped by week
+   *  (Sunday–Saturday, `day` = the Sunday) — `dayUnit` says which */
+  days: DayUse[]; dayUnit: "day" | "week";
+  areas: AreaUse[]; skills: SkillUse[]; students: StudentUse[];
   /** the one-student view: the student's sessions in the range, newest first (at most 40) */
   sessions: SessionUse[];
   trouble: { questionId: string; stem: string; skill: string; key: string; missedBy: number; tried: number }[];
@@ -186,8 +265,8 @@ export async function practiceAnalytics(repo: Repo, actor: Actor, input: { class
 
   // the hidden Curriculum Map holder skill: those answers are ONE separate line, never a skill row
   const skillIdsSeen = [...new Set(inRangeAll.map((a) => a.skillId).filter(Boolean))];
-  const codes = new Map<string, string>();
-  for (let i = 0; i < skillIdsSeen.length; i += 500) for (const k of await repo.findMany("Skill", { id: { in: skillIdsSeen.slice(i, i + 500) } }, { select: ["id", "code", "name"] })) codes.set(s(k.id), s(k.code));
+  const codes = new Map<string, string>(), domains = new Map<string, string>();
+  for (let i = 0; i < skillIdsSeen.length; i += 500) for (const k of await repo.findMany("Skill", { id: { in: skillIdsSeen.slice(i, i + 500) } }, { select: ["id", "code", "name", "domain"] })) { codes.set(s(k.id), s(k.code)); domains.set(s(k.id), s(k.domain)); }
   const hidden = (id: string) => isHiddenSkill(codes.get(id));
   const keyOf = (id: string) => ix.keyOf.get(id) ?? `skill:${id}`;
   const nameOfKey = new Map<string, string>();
@@ -234,7 +313,33 @@ export async function practiceAnalytics(repo: Repo, actor: Actor, input: { class
     d.questions++; if (atSchool(r.at)) d.school++; else d.home++; d.minutes += (r.ms ?? 0) / 60_000;
     dayMap.set(k, d);
   }
-  const days = [...dayMap.values()].map((d) => ({ ...d, minutes: Math.round(d.minutes) })).sort((a, b) => a.day.localeCompare(b.day));
+  // every day of the range, the empty ones too (IXL-style: two days without practice show as a gap, not as nothing)
+  const filled = fillDays([...dayMap.values()], from, to);
+  const days = filled.days.map((d) => ({ ...d, minutes: Math.round(d.minutes) }));
+
+  // the mastery % at the start and end of the range per student × skill: the engine logs before/after for every
+  // answer (AdaptiveDecisionLog); one batched read of the range, only the columns used
+  const logsOf = new Map<string, { at: number; before: number | null; after: number | null }[]>();
+  for (let i = 0; i < ids.length; i += CHUNK) {
+    const part = ids.slice(i, i + CHUNK);
+    const logs = await repo.findMany("AdaptiveDecisionLog", { studentId: { in: part }, createdAt: { gte: input.from, lte: input.to } }, { select: ["studentId", "skillId", "masteryBefore", "masteryAfter", "createdAt"] }).catch(() => [] as Row[]);
+    for (const l of logs) {
+      if (!s(l.skillId)) continue;
+      const k = `${s(l.studentId)}|${s(l.skillId)}`;
+      const num = (v: unknown) => (v === null || v === undefined || v === "" ? null : Number(v));
+      const e = { at: t(l.createdAt), before: num(l.masteryBefore), after: num(l.masteryAfter) };
+      const list = logsOf.get(k); if (list) list.push(e); else logsOf.set(k, [e]);
+    }
+  }
+  /** start → end of one student's skill key: the highest over the key's skill rows (the same rule as the engine) */
+  const spanOf = (sid: string, skillIds: readonly string[]) => {
+    let best: { from: number; to: number } | null = null;
+    for (const id of new Set(skillIds)) {
+      const sp = scoreSpan(logsOf.get(`${sid}|${id}`) ?? []);
+      if (sp) best = best ? { from: Math.max(best.from, sp.from), to: Math.max(best.to, sp.to) } : sp;
+    }
+    return best;
+  };
 
   // group once: key → answers, student → answers, student|key → answers
   const byKey = new Map<string, Answer[]>(), byStudent = new Map<string, Answer[]>(), byPair = new Map<string, Answer[]>();
@@ -247,8 +352,16 @@ export async function practiceAnalytics(repo: Repo, actor: Actor, input: { class
     const st = emptyStars(); for (const sid of who) addStar(st, starOf(sid, key));
     const bySource: Partial<Record<AnswerSource, number>> = {};
     for (const r of list) bySource[r.source] = (bySource[r.source] ?? 0) + 1;
-    return { key, skillId: list[0].skillId, name: nameOf(key, list[0].skillId), questions: list.length, correct: careful(list).filter((r) => r.correct).length, accuracy: accOf(list), minutes: timeOf(list), students: who.length, effort: effortOf(list), stars: st, bySource };
+    return { key, skillId: list[0].skillId, name: nameOf(key, list[0].skillId), questions: list.length, correct: careful(list).filter((r) => r.correct).length, accuracy: accOf(list), minutes: timeOf(list), students: who.length, effort: effortOf(list), domain: domains.get(list[0].skillId) || "OTHER", stars: st, bySource };
   }).sort((a, b) => b.questions - a.questions || a.name.localeCompare(b.name));
+
+  // by area (IXL "Practice by category"): Reading, Vocabulary, Grammar, …
+  const areaMap = new Map<string, AreaUse>();
+  for (const k of skills) {
+    const a = areaMap.get(k.domain) ?? { domain: k.domain, label: DOMAIN_LABEL[k.domain] ?? "Other", questions: 0, skills: 0 };
+    a.questions += k.questions; a.skills++; areaMap.set(k.domain, a);
+  }
+  const areas = [...areaMap.values()].sort((a, b) => b.questions - a.questions || a.label.localeCompare(b.label));
 
   // per student (and each skill they practised)
   const students: StudentUse[] = ids.map((id) => {
@@ -258,9 +371,15 @@ export async function practiceAnalytics(repo: Repo, actor: Actor, input: { class
       const a = byPair.get(`${id}|${key}`) ?? [], v = starOf(id, key);
       const c = careful(a), first = c.slice(0, 5), last = c.slice(-5);
       const change = c.length >= 6 ? pct(last.filter((r) => r.correct).length, last.length)! - pct(first.filter((r) => r.correct).length, first.length)! : null;
+      // start → end of the range; shown like the star (99 at most until the ⭐ is earned, as displayScore does)
+      const span = spanOf(id, ix.skillsOf.get(key) ?? a.map((r) => r.skillId));
+      const starBy = (at: number) => isMastered(v) && v!.masteredAt !== null && t(v!.masteredAt) <= at;
+      const scoreFrom = span ? (starBy(from) ? span.from : Math.min(99, span.from)) : null;
+      const scoreTo = span ? (starBy(to) ? span.to : Math.min(99, span.to)) : null;
       return {
         key, skillId: a[0].skillId, name: nameOf(key, a[0].skillId), questions: a.length, minutes: timeOf(a), accuracy: accOf(a), change, effort: effortOf(a),
         status: v?.status ?? "NOT_STARTED", score: v ? displayScore(v.score, v.answered) : 0, answered: v?.answered ?? 0, mastered: isMastered(v), masteredInRange: masteredIn(v), needsSupport: Boolean(v?.needsSupport),
+        scoreFrom, scoreTo, improved: scoreFrom !== null && scoreTo !== null && scoreTo > scoreFrom,
       };
     }).sort((a, b) => b.questions - a.questions || a.name.localeCompare(b.name));
     const all = stars.get(id) ?? new Map<string, StarView>();
@@ -269,7 +388,7 @@ export async function practiceAnalytics(repo: Repo, actor: Actor, input: { class
     const last = mine.length ? riyadhDay(mine[mine.length - 1].at) : null;
     return {
       id, name: names.get(id)?.name ?? "Student", questions: mine.length, minutes: timeOf(mine), accuracy: accOf(mine), skills: keys.length, effort: effortOf(mine), unreliable: unreliableOf.get(id) ?? 0,
-      stars: st, newStars: fresh, schoolPct: pct(mine.filter((r) => atSchool(r.at)).length, mine.length), lastActive: last, detail,
+      stars: st, newStars: fresh, improved: detail.filter((d) => d.improved).length, schoolPct: pct(mine.filter((r) => atSchool(r.at)).length, mine.length), lastActive: last, detail,
     };
   }).sort((a, b) => b.questions - a.questions || a.name.localeCompare(b.name));
 
@@ -287,7 +406,12 @@ export async function practiceAnalytics(repo: Repo, actor: Actor, input: { class
   // the one-student view: sessions
   const sessions: SessionUse[] = input.studentId ? [...bySession.values()].sort((a, b) => b[0].at - a[0].at).slice(0, 40).map((list) => {
     const e = sessionEffort(list.map((r) => ({ rapidGuess: r.rapid, correct: r.correct }))), here = [...new Set(list.map((r) => nameOf(keyOf(r.skillId), r.skillId)))];
-    return { id: list[0].session, day: riyadhDay(list[0].at), skill: here.slice(0, 2).join(", ") + (here.length > 2 ? " +" : ""), source: list[0].source, answers: e.answers, effort: e.effort, unreliable: e.unreliable };
+    // the session began when its first question was shown (the first answer minus the time it took)
+    const begin = list[0].at - (list[0].ms ?? 0), end = list[list.length - 1].at;
+    return {
+      id: list[0].session, day: riyadhDay(begin), skill: here.slice(0, 2).join(", ") + (here.length > 2 ? " +" : ""), source: list[0].source, answers: e.answers, effort: e.effort, unreliable: e.unreliable,
+      weekday: new Date(begin + RIYADH).getUTCDay(), startMin: riyadhMinute(begin), endMin: riyadhMinute(end), minutes: timeOf(list), accuracy: accOf(list), atSchool: atSchool(begin),
+    };
   }) : [];
 
   // totals: stars over the skills practised (each student × skill once), ⭐ earned in the range over all skills
@@ -303,7 +427,8 @@ export async function practiceAnalytics(repo: Repo, actor: Actor, input: { class
       activeStudents: active, students: ids.length, skills: keysPractised.length, newStars: students.reduce((x, st) => x + st.newStars, 0), stars: totStars,
       schoolQuestions: school, homeQuestions: rows.length - school, avgPerStudent: active ? Math.round(rows.length / active) : null,
       effort: effortOf(rows), unreliable: [...unreliableOf.values()].reduce((a, b) => a + b, 0),
+      improved: students.reduce((x, st) => x + st.improved, 0),
     },
-    sources, unlinked, days, skills, students, trouble, sessions,
+    sources, unlinked, days, dayUnit: filled.unit, areas, skills, students, trouble, sessions,
   };
 }

@@ -53,7 +53,11 @@ describe("📊 Practice analytics (IXL-style), fake answers", () => {
     assert.deepEqual([a.totals.schoolQuestions, a.totals.homeQuestions], [10, 2]);
     assert.equal(a.totals.newStars, 1, "⭐ from SkillStatus, not the old mastery table");
     assert.equal(a.sources.find((x) => x.source === "PRACTICE")!.questions, 12);
-    assert.deepEqual(a.days.map((d) => [d.day, d.questions]), [["2026-10-04", 10], ["2026-10-05", 2]]);
+    assert.deepEqual(a.days.filter((d) => d.questions).map((d) => [d.day, d.questions]), [["2026-10-04", 10], ["2026-10-05", 2]]);
+    // Nov 2026: every day of the range is drawn — the empty ones as 0 (a gap shows as a gap). This range is given
+    // in UTC, so it ends at 02:59 on 9 Oct in Riyadh: that Riyadh day is listed too
+    assert.equal(a.dayUnit, "day");
+    assert.deepEqual(a.days.map((d) => d.day), ["2026-10-01", "2026-10-02", "2026-10-03", "2026-10-04", "2026-10-05", "2026-10-06", "2026-10-07", "2026-10-08", "2026-10-09"]);
     assert.equal(a.skills[0].skillId, skillA);
     assert.equal(a.skills[0].stars.mastered, 1, "one of the students who practised skill A has ⭐");
     const s0 = a.students.find((x) => x.id === ids[0])!;

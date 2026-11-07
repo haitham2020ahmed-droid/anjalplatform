@@ -52,6 +52,20 @@ export function resolvePeriod(name: PeriodName, cal: Calendar, now = new Date(),
   }
 }
 
+/** Nov 2026 (Practice and time, IXL-style): the quick ranges a teacher wants right after a class. */
+export type QuickRange = "TODAY" | "YESTERDAY" | "THIS_WEEK";
+export const QUICK_RANGES: readonly QuickRange[] = ["TODAY", "YESTERDAY", "THIS_WEEK"];
+/**
+ * A quick range as the from/to days of a CUSTOM period (pass `now` already in local time, as the reports do):
+ * today; yesterday; this week = the school week, Sunday → today.
+ */
+export function quickRange(name: QuickRange, now = new Date()): { from: Date; to: Date } {
+  const today = startOfDay(now);
+  if (name === "TODAY") return { from: today, to: today };
+  if (name === "YESTERDAY") { const y = new Date(today.getTime() - DAY); return { from: y, to: y }; }
+  return { from: new Date(today.getTime() - today.getUTCDay() * DAY), to: today };
+}
+
 /** Month buckets covering a period (for monthly growth charts). */
 export function months(p: Period): { key: string; label: string; end: Date }[] {
   const out: { key: string; label: string; end: Date }[] = [];
