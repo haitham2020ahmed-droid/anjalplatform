@@ -19,7 +19,7 @@ import type { Repo, Row } from "../seeding/repo";
 import { assertCan, type Actor } from "../auth/rbac";
 import { assertClassRead } from "../teacher/coordinators";
 import { RR_SKILLS } from "./import";
-import { goalDates, readRisePlaced, weekLabel, weekStart as engineWeekStart } from "./engine";
+import { RETAKE_REASON, goalDates, readRisePlaced, weekLabel, weekStart as engineWeekStart } from "./engine";
 import { questionKeys } from "./question-key";
 import { standardOfSkill } from "./growth-words";
 import { RR_FLOOR, formatLevel } from "./level";
@@ -146,11 +146,13 @@ interface Data {
   placedTest: Set<string>;
   /** students taking the placement now (a test started, not finished: a teacher can restart it) */
   openTest: Set<string>;
+  /** round 9 review: placed students allowed to take the placement again (teacher retake or admin reset) who have not started it */
+  retakeWaiting: Set<string>;
 }
 
 /** `runCols` = the reading columns a report needs (default: all it may show; the school dashboard needs only scores and times) */
 async function loadData(repo: Repo, ids: string[], opts: { map?: boolean; runCols?: string[] } = {}): Promise<Data> {
-  if (!ids.length) return { names: new Map(), rr: new Map(), changes: new Map(), runs: [], map: new Map(), placedTest: new Set(), openTest: new Set() };
+  if (!ids.length) return { names: new Map(), rr: new Map(), changes: new Map(), runs: [], map: new Map(), placedTest: new Set(), openTest: new Set(), retakeWaiting: new Set() };
   const chunks: string[][] = [];
   for (let i = 0; i < ids.length; i += 500) chunks.push(ids.slice(i, i + 500));
   const many = async (model: string, where: (part: string[]) => Record<string, unknown>, select?: string[]) =>
@@ -158,7 +160,7 @@ async function loadData(repo: Repo, ids: string[], opts: { map?: boolean; runCol
   const [students, rr, changes, runs, maps, placements] = await Promise.all([
     many("Student", (p) => ({ id: { in: p } }), ["id", "userId"]),
     many("RRStudent", (p) => ({ studentId: { in: p } })),
-    many("RRLevelChange", (p) => ({ studentId: { in: p } }), ["studentId", "toLevel", "createdAt"]),
+    many("RRLevelChange", (p) => ({ studentId: { in: p } }), ["studentId", "toLevel", "createdAt", "reason"]),
     many("RRRun", (p) => ({ studentId: { in: p } }), opts.runCols ?? ["id", "studentId", "articleId", "band", "versionLevel", "step", "prePoll", "postPoll", "answers", "score", "writing", "writingScore", "writingAiScore", "writingAiComment", "firstTry", "stretch", "levelBefore", "levelAfter", "startedAt", "completedAt", "unreliable", "answerMs", "readSeconds"]),
     opts.map === false ? Promise.resolve([] as Row[]) : many("MapResult", (p) => ({ studentId: { in: p }, lexile: { not: null } }), ["studentId", "lexile", "testDate"]),
     many("RRPlacement", (p) => ({ studentId: { in: p } }), ["studentId", "completedAt", "result"]),
@@ -178,7 +180,11 @@ async function loadData(repo: Repo, ids: string[], opts: { map?: boolean; runCol
   const openTest = new Set(placements.filter((p) => !p.completedAt).map((p) => s(p.studentId)));
   // 🎯 only REAL levels (readRisePlaced): the working start of a first visit (MAP / grade default) is "No placement yet"
   const placedRR = rr.filter((r) => readRisePlaced(r, placedTest.has(s(r.studentId))));
-  return { names: new Map(students.map((x) => [s(x.id), uname.get(s(x.userId)) ?? "Student"])), rr: new Map(placedRR.map((r) => [s(r.studentId), r])), changes: ch, runs, map, placedTest, openTest };
+  // 🔄 round 9 review: a retake allowed (RETAKE_REASON marker) after the last finished test, and no test started yet
+  const lastDone = new Map<string, number>();
+  for (const p of placements) if (p.completedAt) { const k = s(p.studentId), t = time(p.completedAt) ?? 0; if (t > (lastDone.get(k) ?? 0)) lastDone.set(k, t); }
+  const retakeWaiting = new Set(changes.filter((c) => s(c.reason).startsWith(RETAKE_REASON) && (time(c.createdAt) ?? 0) > (lastDone.get(s(c.studentId)) ?? 0)).map((c) => s(c.studentId)).filter((id) => !openTest.has(id)));
+  return { names: new Map(students.map((x) => [s(x.id), uname.get(s(x.userId)) ?? "Student"])), rr: new Map(placedRR.map((r) => [s(r.studentId), r])), changes: ch, runs, map, placedTest, openTest, retakeWaiting };
 }
 
 /**
@@ -212,11 +218,15 @@ export interface StudentReportRow {
   gradeBand: GradeBand | null;
   /** a placement test is started and not finished (a teacher can restart it) */
   placementOpen: boolean;
+  /** round 9 review: allowed to take the placement again and not started yet (a teacher retake or an admin reset) */
+  retakeWaiting: boolean;
 }
 export interface ClassReport {
   classId: string; className: string; grade: number; band: { low: number; high: number };
   students: StudentReportRow[];
   summary: { students: number; placed: number; notPlaced: number; medianLevel: number | null; avgGrowth: number | null; inactive: number; belowBand: number; writingToScore: number; notReading: number; belowGoal: number; missedGoal2w: number;
+    /** round 9 review: placed students who still have to take the placement again */
+    retakeWaiting: number;
     /** round 7: placed students per grade band (benchmarks.ts) */
     bands: Record<GradeBand, number> };
   history: { weeks: string[]; series: { studentId: string; name: string; points: (number | null)[] }[]; median: (number | null)[] };
@@ -270,6 +280,7 @@ export async function classReport(repo: Repo, actor: Actor, classId: string, now
       flags: { notPlaced: !st, inactive: !!st && nowT - lastRef >= INACTIVE_DAYS * DAY, belowBand: level !== null && level < band.low, farBelow: level !== null && benchBand(grade, level) === "FAR_BELOW", notReading: !!sig?.notReading, belowGoal: !!sig?.belowGoal, missedGoal2w: !!sig?.missedGoal2w },
       gradeBand: level === null ? null : benchBand(grade, level),
       placementOpen: d.openTest.has(id),
+      retakeWaiting: !!st && d.retakeWaiting.has(id),
     };
   }).sort((a, b) => a.name.localeCompare(b.name));
   // weekly history (end of each week), oldest first
@@ -290,6 +301,7 @@ export async function classReport(repo: Repo, actor: Actor, classId: string, now
       avgGrowth: avg(placed.map((r) => r.growth!)), inactive: rows.filter((r) => r.flags.inactive).length, belowBand: rows.filter((r) => r.flags.belowBand).length,
       writingToScore: rows.reduce((a, r) => a + r.writingToScore, 0),
       notReading: rows.filter((r) => r.flags.notReading).length, belowGoal: rows.filter((r) => r.flags.belowGoal).length, missedGoal2w: rows.filter((r) => r.flags.missedGoal2w).length,
+      retakeWaiting: rows.filter((r) => r.retakeWaiting).length,
       bands: bandCounts(grade, placed.map((r) => r.level!)),
     },
     // round 4: the label is the week's Sunday in Riyadh time (weekStart is Saturday 21:00 UTC)

@@ -43,12 +43,12 @@ export default async function ReadRiseHomePage({ searchParams }: { searchParams:
   const first = String(me.displayName ?? "").split(" ")[0];
   return (
     <AppShell name={String(me.displayName)}>
-      <p><Link href="/student" className="inline-flex min-h-10 items-center text-sm font-medium text-slate-500 hover:text-brand-teal">‹ My Work</Link></p>
+      <p><Link href="/student" className="inline-flex min-h-10 items-center text-sm font-medium text-slate-500 hover:text-brand-teal"><span aria-hidden="true" className="inline-block rtl:rotate-180">‹</span>&nbsp;{t("My Work")}</Link></p>
       <header className="mt-2 flex flex-wrap items-center gap-4">
         <ReadRiseIcon size={56} />
         <div className="min-w-0 flex-1">
           <h1 className="text-3xl font-bold tracking-tight text-brand-navy">ReadRise</h1>
-          <p className="text-slate-600">Read real-world articles at your level{first ? `, ${first}` : ""} — and watch your level rise.</p>
+          <p className="text-slate-600">{first ? t("Read real-world articles at your level, {name} — and watch your level rise.", { name: first }) : t("Read real-world articles at your level — and watch your level rise.")}</p>
         </div>
       </header>
 
@@ -101,32 +101,32 @@ export default async function ReadRiseHomePage({ searchParams }: { searchParams:
       {report && h.placed && <>
       <section aria-label="My progress" data-testid="rr-my-report" className="grid gap-4 md:grid-cols-3">
         <div className="rounded-3xl bg-gradient-to-br from-indigo-50 to-white p-5 shadow-card ring-1 ring-indigo-200">
-          <p className="text-sm font-semibold text-slate-600">My ReadRise Level</p>
+          <p className="text-sm font-semibold text-slate-600">{t("My ReadRise Level")}</p>
           <div className="mt-2"><LevelBadge level={sum.level} size="lg" /></div>
           <p className={`mt-2 text-sm font-semibold ${sum.growth > 0 ? "text-emerald-700" : sum.growth < 0 ? "text-rose-700" : "text-slate-600"}`}>
-            {sum.growth > 0 ? `▲ +${sum.growth} since I started (${formatLevel(sum.startLevel)})` : sum.growth < 0 ? `▼ ${sum.growth} since I started (${formatLevel(sum.startLevel)})` : `Starting level ${formatLevel(sum.startLevel)}`}
+            {sum.growth > 0 ? `▲ ${t("+{n} since I started ({start})", { n: sum.growth, start: formatLevel(sum.startLevel) })}` : sum.growth < 0 ? `▼ ${t("{n} since I started ({start})", { n: sum.growth, start: formatLevel(sum.startLevel) })}` : t("Starting level {n}", { n: formatLevel(sum.startLevel) })}
           </p>
-          {sum.projected !== null && sum.projected >= sum.level && <p className="mt-1 text-sm text-slate-600">On track for about <strong>{formatLevel(sum.projected)}</strong> by the end of the year (estimate).</p>}
+          {sum.projected !== null && sum.projected >= sum.level && <p className="mt-1 text-sm text-slate-600">{t("On track for about {n} by the end of the year (estimate).", { n: formatLevel(sum.projected) })}</p>}
           <p className="mt-2 text-xs text-slate-500">{t("Your ReadRise level is ReadRise's own reading level.")}</p>
         </div>
         <div className="rounded-3xl bg-gradient-to-br from-amber-50 to-white p-5 shadow-card ring-1 ring-amber-200">
-          <p className="text-sm font-semibold text-slate-600">Weekly goal</p>
-          <div className="mt-2"><GoalRing done={sum.thisWeek} goal={sum.weeklyGoal} /></div>
-          <p className="mt-2 text-sm text-slate-700">{sum.streak > 0 ? <>🔥 <strong>{sum.streak}-week streak</strong> — keep it going!</> : "Meet your goal this week to start a streak."}</p>
+          <p className="text-sm font-semibold text-slate-600">{t("Weekly goal")}</p>
+          <div className="mt-2"><GoalRing done={sum.thisWeek} goal={sum.weeklyGoal} t={t} /></div>
+          <p className="mt-2 text-sm text-slate-700">{sum.streak > 0 ? <>🔥 <strong>{t("{n}-week streak", { n: sum.streak })}</strong> — {t("keep it going!")}</> : t("Meet your goal this week to start a streak.")}</p>
         </div>
         <div className="rounded-3xl bg-gradient-to-br from-emerald-50 to-white p-5 shadow-card ring-1 ring-emerald-200">
-          <p className="text-sm font-semibold text-slate-600">My reading</p>
+          <p className="text-sm font-semibold text-slate-600">{t("My reading")}</p>
           <dl className="mt-2 grid grid-cols-2 gap-3">
-            <div><dt className="text-xs text-slate-500">Articles read</dt><dd className="text-2xl font-bold text-brand-navy">{sum.articlesDone}</dd></div>
-            <div><dt className="text-xs text-slate-500">First-try average</dt><dd className="text-2xl font-bold text-brand-navy">{sum.firstTryAvg === null ? "—" : `${sum.firstTryAvg}%`}</dd></div>
-            <div><dt className="text-xs text-slate-500">Weeks goal met</dt><dd className="text-2xl font-bold text-brand-navy">{sum.weeksMet}</dd></div>
-            <div><dt className="text-xs text-slate-500">Placement</dt><dd className="text-2xl font-bold text-brand-navy">{h.placement.result === null ? "—" : formatLevel(h.placement.result)}</dd></div>
+            <div><dt className="text-xs text-slate-500">{t("Articles read")}</dt><dd className="text-2xl font-bold text-brand-navy">{sum.articlesDone}</dd></div>
+            <div><dt className="text-xs text-slate-500">{t("First-try average")}</dt><dd className="text-2xl font-bold text-brand-navy">{sum.firstTryAvg === null ? "—" : `${sum.firstTryAvg}%`}</dd></div>
+            <div><dt className="text-xs text-slate-500">{t("Weeks goal met")}</dt><dd className="text-2xl font-bold text-brand-navy">{sum.weeksMet}</dd></div>
+            <div><dt className="text-xs text-slate-500">{t("Placement")}</dt><dd className="text-2xl font-bold text-brand-navy">{h.placement.result === null ? "—" : formatLevel(h.placement.result)}</dd></div>
           </dl>
         </div>
       </section>
 
       <details className="mt-4 rounded-2xl bg-teal-50 p-4 text-sm text-slate-700 ring-1 ring-teal-200">
-        <summary className="cursor-pointer font-semibold text-brand-navy">How does my level move?</summary>
+        <summary className="cursor-pointer font-semibold text-brand-navy">{t("How does my level move?")}</summary>
         {/* round 5: the real rules (first-try.ts / student.ts stretchOffer / engine.ts) — round 9: the gentler automatic drop + the quick way back */}
         <ul className="mt-2 list-disc space-y-1 ps-5">
           <li>{t("Only your first try on an article counts. Reading it again is practice.")}</li>
@@ -143,8 +143,8 @@ export default async function ReadRiseHomePage({ searchParams }: { searchParams:
       {h.placement.checks && <ReadingChecks checks={h.placement.checks} t={t} />}
 
       <section aria-labelledby="growth-h" className="mt-6 rounded-2xl bg-white p-5 ring-1 ring-slate-200">
-        <h2 id="growth-h" className="text-xl font-bold text-brand-navy">📈 My growth</h2>
-        <div className="mt-3"><GrowthChart points={h.growth.points} projected={h.growth.projected} yearEnd={h.growth.yearEnd} /></div>
+        <h2 id="growth-h" className="text-xl font-bold text-brand-navy">📈 {t("My growth")}</h2>
+        <div className="mt-3"><GrowthChart points={h.growth.points} projected={h.growth.projected} yearEnd={h.growth.yearEnd} t={t} /></div>
       </section>
 
       {/* ⚡ the growth story streams in after the page: the level, goal and chart above show at once */}

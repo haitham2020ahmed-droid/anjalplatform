@@ -16,7 +16,10 @@ export function LevelBadge({ level, size = "md" }: { level: number; size?: "sm" 
 }
 
 /** A ring that fills as the week's qualifying readings reach the goal. */
-export function GoalRing({ done, goal, size = 92 }: { done: number; goal: number; size?: number }) {
+/** Round 9 review: `t` translates the words (Arabic interface); without it they stay English. */
+type Tr = (s: string, vars?: Record<string, string | number>) => string;
+const same: Tr = (s, v) => (v ? s.replace(/\{(\w+)\}/g, (_, k) => String(v[k] ?? "")) : s);
+export function GoalRing({ done, goal, size = 92, t = same }: { done: number; goal: number; size?: number; t?: Tr }) {
   const r = 38, c = 2 * Math.PI * r, frac = goal > 0 ? Math.min(1, done / goal) : 0;
   const met = done >= goal;
   return (
@@ -25,11 +28,11 @@ export function GoalRing({ done, goal, size = 92 }: { done: number; goal: number
         <circle cx="46" cy="46" r={r} fill="none" stroke="#e2e8f0" strokeWidth="9" />
         <circle cx="46" cy="46" r={r} fill="none" stroke={met ? "#059669" : "#1fa3a3"} strokeWidth="9" strokeLinecap="round" strokeDasharray={`${c * frac} ${c}`} transform="rotate(-90 46 46)" />
         <text x="46" y="44" textAnchor="middle" className="fill-slate-900" fontSize="20" fontWeight="700">{done}/{goal}</text>
-        <text x="46" y="61" textAnchor="middle" className="fill-slate-500" fontSize="10">this week</text>
+        <text x="46" y="61" textAnchor="middle" className="fill-slate-500" fontSize="10">{t("this week")}</text>
       </svg>
       <figcaption className="text-sm text-slate-700">
-        <span className="block font-semibold text-brand-navy">{met ? "✓ Goal met!" : `${Math.max(0, goal - done)} more to go`}</span>
-        Articles at 75%+ on the first try
+        <span className="block font-semibold text-brand-navy">{met ? t("✓ Goal met!") : t("{n} more to go", { n: Math.max(0, goal - done) })}</span>
+        {t("Articles at 75%+ on the first try")}
       </figcaption>
     </figure>
   );
@@ -41,8 +44,8 @@ export interface GrowthPoint { at: string; level: number }
  * The student's own ReadRise Level over time (a step line: the level holds until it changes), with the projected
  * end-of-year level as a dashed segment. One series → no legend; native tooltips on each point; a table for screen readers.
  */
-export function GrowthChart({ points, projected, yearEnd }: { points: GrowthPoint[]; projected: number | null; yearEnd: string | null }) {
-  if (!points.length) return <p className="text-sm text-slate-600">Your growth chart starts after your first articles.</p>;
+export function GrowthChart({ points, projected, yearEnd, t = same }: { points: GrowthPoint[]; projected: number | null; yearEnd: string | null; t?: Tr }) {
+  if (!points.length) return <p className="text-sm text-slate-600">{t("Your growth chart starts after your first articles.")}</p>;
   const now = Date.now();
   const pts = points.map((p) => ({ t: new Date(p.at).getTime(), level: p.level }));
   const lastT = Math.max(now, pts[pts.length - 1].t);
@@ -82,15 +85,15 @@ export function GrowthChart({ points, projected, yearEnd }: { points: GrowthPoin
         {projected !== null && (
           <g>
             <circle cx={x(endT)} cy={y(projected)} r="5" fill="#fff" stroke="#5b3fa0" strokeWidth="2"><title>{`Projected (estimate): ${formatLevel(projected)}`}</title></circle>
-            <text x={x(endT) - 8} y={y(projected) - 9} textAnchor="end" fontSize="11" className="fill-slate-700">{`Projected ${formatLevel(projected)} (estimate)`}</text>
+            <text x={x(endT) - 8} y={y(projected) - 9} textAnchor="end" fontSize="11" className="fill-slate-700">{t("Projected {n} (estimate)", { n: formatLevel(projected) })}</text>
           </g>
         )}
         <text x={x(lastT) + 4} y={y(last.level) - 8} fontSize="12" fontWeight="700" className="fill-slate-900">{formatLevel(last.level)}</text>
       </svg>
       <table className="sr-only">
-        <caption>ReadRise Level over time</caption>
-        <thead><tr><th>Date</th><th>Level</th></tr></thead>
-        <tbody>{pts.map((p, i) => <tr key={i}><td>{fmt(p.t)}</td><td>{formatLevel(p.level)}</td></tr>)}{projected !== null && <tr><td>End of year (projected estimate)</td><td>{formatLevel(projected)}</td></tr>}</tbody>
+        <caption>{t("ReadRise Level over time")}</caption>
+        <thead><tr><th>{t("Date")}</th><th>{t("Level")}</th></tr></thead>
+        <tbody>{pts.map((p, i) => <tr key={i}><td>{fmt(p.t)}</td><td>{formatLevel(p.level)}</td></tr>)}{projected !== null && <tr><td>{t("End of year (projected estimate)")}</td><td>{formatLevel(projected)}</td></tr>}</tbody>
       </table>
     </figure>
   );

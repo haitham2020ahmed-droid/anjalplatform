@@ -132,7 +132,7 @@ export function LevelBars({ buckets, title, t }: { buckets: { from: number; to: 
 
 export function ClassOverviewTable({ o, classId, t }: { o: ClassOverview; classId: string; t: TFn }) {
   return (
-    <Section title="Class Overview" icon="📋" hint={t("First-try scores only. Pre-test = the year's first placement. Expected levels are estimates.")}>
+    <Section title="Class Overview" icon="📋" hint={t("First-try scores only. Pre-test = the year's first placement. Expected levels are estimates from typical yearly growth (a minimum to aim past): students who read 2+ articles a week at 75% usually grow more.")}>
       {o.students.length === 0 ? <p className="text-sm text-slate-600">{t("No students in this class yet.")}</p> : (
         <div className="rk-box rk-tall">
           <table data-testid="rr-overview" className="w-full min-w-[64rem] text-left text-sm">

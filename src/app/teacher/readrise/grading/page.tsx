@@ -8,6 +8,9 @@ import { ReadRiseTabs, TEACHER_TABS } from "@/app/admin/readrise/_components/tab
 import { btn, field, Flash } from "@/app/admin/readrise/_components/ui";
 import { gradeReadRiseWritingAction } from "../actions";
 
+/** Round 9 review: the AI's 0–4 suggestion as the points choice it matches (4 → 20, 3 → 10, 0–2 → 5). */
+const aiPoints = (score: number | null | undefined) => (score === null || score === undefined ? null : WRITING_POINTS.find((p) => p.score === Math.min(4, Math.max(2, Math.round(Number(score))))) ?? null);
+
 export const metadata = { title: "ReadRise Grading Center" };
 
 /**
@@ -65,12 +68,13 @@ export default async function ReadRiseGrading({ searchParams }: { searchParams: 
                     </header>
                     <p className="mt-2 text-sm text-slate-700"><b>{t("Prompt")}:</b> {w.prompt || "—"}</p>
                     <p className="mt-2 whitespace-pre-line rounded-xl bg-slate-50 p-3 text-slate-900">{w.writing}</p>
-                    {w.aiScore !== null && w.score === null && <p className="mt-2 rounded-lg bg-indigo-50 p-2 text-xs text-indigo-900 ring-1 ring-indigo-200">🤖 {t("AI suggestion — check before saving:")} {w.aiScore}/4{w.aiComment ? ` · "${w.aiComment}"` : ""}</p>}
+                    {/* round 9 review: the AI suggestion in the SAME words as the points choice (one scale: 5 / 10 / 20 points) */}
+                    {w.aiScore !== null && w.score === null && <p className="mt-2 rounded-lg bg-indigo-50 p-2 text-xs text-indigo-900 ring-1 ring-indigo-200">🤖 {t("AI suggestion — check before saving:")} {(() => { const p = aiPoints(w.aiScore); return p ? `${p.points} · ${t(p.label)}` : `${w.aiScore}/4`; })()}{w.aiComment ? ` · "${w.aiComment}"` : ""}</p>}
                     {canWrite ? (
                       <form action={gradeReadRiseWritingAction} className="mt-4 space-y-4 text-sm">
                         <input type="hidden" name="classId" value={klass.id} /><input type="hidden" name="studentId" value={studentId} /><input type="hidden" name="runId" value={w.runId} />
                         <fieldset>
-                          <legend className="mb-1 font-semibold">{t("Rubric")} <span className="font-normal text-slate-500">(0–3)</span></legend>
+                          <legend className="mb-1 font-semibold">{t("Rubric")} <span className="font-normal text-slate-500">(0–3 · {t("helps you choose the points; the student sees the points and your feedback")})</span></legend>
                           <div className="grid gap-2 sm:grid-cols-2">
                             {WRITING_RUBRIC.map((row, i) => (
                               <label key={row} className="flex items-center justify-between gap-2 rounded-lg bg-slate-50 px-3 py-2">
@@ -85,7 +89,7 @@ export default async function ReadRiseGrading({ searchParams }: { searchParams: 
                           <div className="flex flex-wrap gap-2">
                             {WRITING_POINTS.map((p) => (
                               <label key={p.points} className="cursor-pointer">
-                                <input type="radio" name="points" value={p.points} required defaultChecked={w.points === p.points || (w.points === null && w.score === p.score)} className="peer sr-only" />
+                                <input type="radio" name="points" value={p.points} required defaultChecked={w.points === p.points || (w.points === null && w.score === p.score) || (w.points === null && w.score === null && aiPoints(w.aiScore)?.points === p.points)} className="peer sr-only" />
                                 <span className="block rounded-lg px-3 py-1.5 font-semibold ring-1 ring-slate-300 peer-checked:bg-brand-navy peer-checked:text-white peer-focus-visible:ring-2 peer-focus-visible:ring-brand-teal">{p.points} · {t(p.label)}</span>
                               </label>
                             ))}

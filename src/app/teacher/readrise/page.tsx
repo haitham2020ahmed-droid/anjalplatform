@@ -50,13 +50,14 @@ export default async function ReadRiseTeacher({ searchParams }: { searchParams: 
   const me = (await getActor())!.user;
   const sp = await searchParams;
   const [classes, { t }] = await Promise.all([teacherReadRiseClasses(repo, actor), getT()]);
+  const tr = t; // the tab list below names its items `t`
   const klass = classes.find((c) => c.id === sp.class) ?? classes.find((c) => c.own) ?? classes[0];
   const tab: Tab = TABS.some((t) => t.key === sp.tab) ? (sp.tab as Tab) : "students";
   const chip = (on: boolean) => `rounded-full px-4 py-1.5 text-sm font-semibold ${on ? "bg-brand-navy text-white" : "bg-white text-brand-navy ring-1 ring-slate-200 hover:ring-brand-teal"}`;
   const studentId = typeof sp.student === "string" && /^[\w-]{1,64}$/.test(sp.student) ? sp.student : null;
   const header = (
     <ReportHeader back={{ href: "/teacher", label: "Home" }} icon="🚀" title="ReadRise"
-      subtitle={<>Every student reads the same articles at their own level; the level moves with first-try scores (3 of the last 4 at 75%+: up 50 · two in a row under 50%, or 3 of the last 4: down 50 · two in a row at 25% or less: down 100 · after a drop, two in a row at 75%+: back up 50 · one bad article alone never moves it). Readings with 2+ answers too fast to be read do not count. <span className="text-xs text-slate-500">{RR_NOTE}</span></>}
+      subtitle={<>{t("Every student reads the same articles at their own level; the level moves with first-try scores (3 of the last 4 at 75%+: up 50 · two in a row under 50%, or 3 of the last 4: down 50 · two in a row at 25% or less: down 100 · after a drop, two in a row at 75%+: back up 50 · one bad article alone never moves it). Readings with 2+ answers too fast to be read do not count.")} <span className="text-xs text-slate-500">{t(RR_NOTE)}</span></>}
       who={klass?.name} downloads={klass ? exportsOf({ kind: "readrise", classId: klass.id, period: "TERM", ...(studentId ? { studentId } : {}) }).map((d) => ({ ...d, label: d.label })) : []}
       filters={classes.length ? <nav aria-label="Class" className="flex flex-wrap gap-2">
         {classes.map((c) => <Link key={c.id} href={`/teacher/readrise?class=${c.id}&tab=${tab}`} className={chip(c.id === klass?.id)}>{c.name}{!c.own && <span className="ms-1 text-xs opacity-70">(view)</span>}</Link>)}
@@ -116,21 +117,23 @@ export default async function ReadRiseTeacher({ searchParams }: { searchParams: 
           s.bands.FAR_BELOW ? <>{t("Falls Far Below")}: {r.students.filter((x) => x.flags.farBelow).slice(0, 10).map((x) => x.name).join(", ")}</> : null,
           s.inactive ? <>{t("Inactive")}: {r.students.filter((x) => x.flags.inactive).slice(0, 10).map((x) => x.name).join(", ")}</> : null,
           s.notPlaced ? <>{t("Not placed")}: {r.students.filter((x) => x.flags.notPlaced).slice(0, 10).map((x) => x.name).join(", ")}</> : null,
+          s.retakeWaiting ? <>🔄 {t("Placement test to take again")}: {r.students.filter((x) => x.retakeWaiting).slice(0, 10).map((x) => x.name).join(", ")}</> : null,
           s.belowGoal ? <>🟠 {t("Reading, below 75%")}: {r.students.filter((x) => x.flags.belowGoal).slice(0, 10).map((x) => x.name).join(", ")}</> : null,
           s.missedGoal2w ? <>📉 {t("Missed the weekly goal 2 weeks in a row")}: {r.students.filter((x) => x.flags.missedGoal2w).slice(0, 10).map((x) => x.name).join(", ")}</> : null,
         ]} />
         <Callout kind="next" items={[
-          s.writingToScore ? <>{t("Writing to score")}: <b>{s.writingToScore}</b> · <Link href={url("writing")} className="font-semibold text-brand-teal hover:underline">Score now →</Link></> : null,
+          s.writingToScore ? <>{t("Writing to score")}: <b>{s.writingToScore}</b> · <Link href={url("writing")} className="font-semibold text-brand-teal hover:underline">{t("Score now →")}</Link></> : null,
           s.inactive ? t("Remind inactive students to read one article this week.") : null,
           s.notPlaced ? t("Ask students who are not placed to take the placement.") : null,
-          !s.writingToScore && !s.inactive && !s.notPlaced ? t("Everyone is reading: keep the weekly goal going.") : null,
+          s.retakeWaiting ? t("Ask the students marked 🔄 to take the placement test again (ReadRise → Placement test). Their level stays until they finish.") : null,
+          !s.writingToScore && !s.inactive && !s.notPlaced && !s.retakeWaiting ? t("Everyone is reading: keep the weekly goal going.") : null,
         ]} />
       </div>
       <nav aria-label="Report" className="mb-5 flex flex-wrap gap-1 border-b border-slate-200">
         {TABS.map((t) => (
           <Link key={t.key} href={url(t.key)} aria-current={t.key === tab ? "page" : undefined}
             className={`-mb-px rounded-t-xl px-4 py-2 text-sm font-semibold ${t.key === tab ? "border border-b-white border-slate-200 bg-white text-brand-navy" : "text-slate-500 hover:text-brand-navy"}`}>
-            {t.label}{t.key === "writing" && s.writingToScore ? <span className="ms-1 rounded-full bg-amber-100 px-1.5 text-xs text-amber-900">{s.writingToScore}</span> : null}
+            {tr(t.label)}{t.key === "writing" && s.writingToScore ? <span className="ms-1 rounded-full bg-amber-100 px-1.5 text-xs text-amber-900">{s.writingToScore}</span> : null}
           </Link>
         ))}
       </nav>
@@ -196,6 +199,7 @@ function StudentsTab({ r, canWrite, classId, t }: { r: Report; canWrite: boolean
                   <td className="p-2">
                     <span className="flex flex-wrap gap-1 text-[11px] font-semibold">
                       {x.flags.notPlaced && <span className="rounded-full bg-slate-100 px-2 py-0.5 text-slate-700">not placed</span>}
+                      {x.retakeWaiting && <span data-testid="rr-flag-retake" className="rounded-full bg-indigo-50 px-2 py-0.5 text-indigo-800 ring-1 ring-indigo-200">🔄 {t("Placement test to take again")}</span>}
                       {x.gradeBand && x.gradeBand !== "MEETS" && <span className={`rounded-full px-2 py-0.5 ring-1 ${x.gradeBand === "FAR_BELOW" ? "bg-red-50 text-red-800 ring-red-200" : x.gradeBand === "APPROACHES" ? "bg-amber-50 text-amber-900 ring-amber-200" : "bg-emerald-50 text-emerald-800 ring-emerald-200"}`}>{t(BAND_LABEL[x.gradeBand])}</span>}
                       {x.flags.inactive && <span className="rounded-full bg-amber-50 px-2 py-0.5 text-amber-900 ring-1 ring-amber-200">inactive</span>}
                       {x.flags.notReading && <span data-testid="rr-flag-not-reading" className="rounded-full bg-red-50 px-2 py-0.5 text-red-800 ring-1 ring-red-200">🔴 {t("Not reading")}</span>}

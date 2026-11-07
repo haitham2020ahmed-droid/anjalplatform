@@ -15,6 +15,7 @@ import { RR_LEVELS } from "../src/server/readrise/level";
 import { parsePlacement, type PlacementPassage } from "../src/server/readrise/content-loader";
 import { answerPlacement, placementPlan, placementStatus, placementView, startPlacement, teacherResetPlacement, type PlacementStep } from "../src/server/readrise/placement";
 import { adminResetPlacements, resetCandidates } from "../src/server/readrise/placement-reset";
+import { classReport } from "../src/server/readrise/dashboards";
 import { demoDatabase } from "./helpers/db";
 
 const PASSAGES: PlacementPassage[] = parsePlacement({
@@ -70,6 +71,11 @@ describe("🔄 ReadRise: admin reset placement and the 2-of-3 move fix", () => {
     assert.equal(status.canStart, true); assert.equal(status.retake, true);
     assert.equal(Number((await repo.findUnique("RRStudent", { studentId: sid }))!.level), old, "the level stays until the new test ends");
     assert.equal((await resetCandidates(repo, admin, { doubtful: true })).find((x) => x.studentId === sid)?.pending, true, "shown as waiting");
+    // round 9 review: the teacher's class page shows the retake waiting (🔄)
+    const cls = String((await repo.findMany("ClassMembership", { studentId: sid }))[0].classId);
+    const rep = await classReport(repo, admin, cls, NOW);
+    assert.equal(rep.students.find((x) => x.studentId === sid)?.retakeWaiting, true);
+    assert.ok(rep.summary.retakeWaiting >= 1);
     assert.equal((await adminResetPlacements(repo, admin, [sid], "", NOW)).skipped, 1, "a second reset: nothing to do");
     // the teacher's retake of the term is not used up by the admin reset (the retake is just already waiting)
     await assert.rejects(teacherResetPlacement(repo, admin, sid, "", NOW), /already allowed/);
@@ -77,7 +83,8 @@ describe("🔄 ReadRise: admin reset placement and the 2-of-3 move fix", () => {
     const fresh = await takeTest(repo, s, new Date(NOW.getTime() + 3_600_000), () => ["B", "B", "B"]);
     assert.ok(fresh !== null && fresh < old!, `new result ${fresh} below ${old}`);
     const rr = (await repo.findUnique("RRStudent", { studentId: sid }))!;
-    assert.equal(Number(rr.level), fresh); assert.equal(Number(rr.startLevel), fresh, "the start level is replaced (fresh start)");
+    assert.equal(Number(rr.level), fresh);
+    assert.equal((await classReport(repo, admin, cls, new Date(NOW.getTime() + 7_200_000))).students.find((x) => x.studentId === sid)?.retakeWaiting, false, "done: no longer waiting"); assert.equal(Number(rr.startLevel), fresh, "the start level is replaced (fresh start)");
     const hist = await repo.findMany("RRLevelChange", { studentId: sid });
     assert.ok(hist.some((c) => String(c.reason).includes("(admin reset): Grade 11 before the fix")), "the reset is in the level history");
     assert.ok((await repo.findMany("RRPlacement", { studentId: sid })).length >= 2, "nothing deleted");

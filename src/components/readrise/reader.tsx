@@ -11,7 +11,9 @@ import {
 import { AGREE, COLORS, DISAGREE, keyWordFor, pollSide, tokenize, type Annotation, type HighlightColor, type KeyWord, type Token } from "./text";
 import { WordLookup } from "../learn/word-lookup";
 import { GoalRing, LevelBadge, formatLevel } from "./widgets";
-import { toAchieve } from "@/server/readrise/achieve-scale"; // round 9 review: a version label shown on the Achieve3000 scale
+import { toAchieve } from "@/server/readrise/achieve-scale";
+/** Round 9 review: the writing score in the Grading Center's words (teacher.ts WRITING_POINTS: 2 / 3 / 4). */
+const WRITING_LABEL: Record<number, string> = { 2: "Okay response", 3: "Good response", 4: "Thoughtful, complete response" }; // round 9 review: a version label shown on the Achieve3000 scale
 import { bestBrowserVoice } from "@/lib/tts/voices";
 import { passageSpeech } from "@/lib/tts/text";
 import { ListenButton } from "../listen-button";
@@ -333,7 +335,7 @@ function DoneCard({ view, busy, onStretch, onReread, headRef }: { view: RunView;
           </p>
         </div>
         <div className="rounded-xl bg-white p-4 ring-1 ring-slate-200">
-          <GoalRing done={d.goal.thisWeek} goal={d.goal.goal} size={84} />
+          <GoalRing done={d.goal.thisWeek} goal={d.goal.goal} size={84} t={tr} />
           {d.goal.met && <p data-testid="rr-goal-met" className="mt-2 text-sm font-bold text-emerald-800">🏆 {tr("Goal met! One more?")}</p>}
           {d.goal.streak > 0 && <p className="mt-2 text-sm font-semibold text-amber-800">🔥 {tr("{n}-week streak", { n: d.goal.streak })}</p>}
         </div>
@@ -350,7 +352,7 @@ function DoneCard({ view, busy, onStretch, onReread, headRef }: { view: RunView;
       )}
       {!d.stretch && (
         <p className="mt-2 text-sm text-slate-600">
-          {tr("Thought question:")} {view.writingScore === null ? tr("waiting for your teacher's score.") : tr("your teacher gave {n}/4.", { n: view.writingScore })}{view.writingComment ? ` “${view.writingComment}”` : ""}
+          {tr("Thought question:")} {view.writingScore === null ? tr("waiting for your teacher's score.") : (WRITING_LABEL[view.writingScore] ? tr("your teacher's score: {label}.", { label: tr(WRITING_LABEL[view.writingScore]) }) : tr("your teacher gave {n}/4.", { n: view.writingScore }))}{view.writingComment ? ` “${view.writingComment}”` : ""}
           {view.writingScore !== null && view.writingPoints ? ` · ⭐ ${tr("{n} points", { n: view.writingPoints })}` : ""}
         </p>
       )}
