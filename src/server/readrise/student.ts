@@ -33,13 +33,13 @@ import { runAfterResponse } from "../lib/after-response";
 import { aiEnv } from "../ai/env";
 import { draftReadRiseWritingScore } from "./writing-ai";
 import { onSkillAnswer } from "../skills/status";
-import { alertMapGap, alertStuckUnreliable, rapidAnswers } from "./accuracy";
+import { alertMapGap, alertStuckUnreliable, notifyLevelDown, rapidAnswers } from "./accuracy";
 import { loadReadRiseWindows, placementChecks, type RRPeriod } from "./windows";
 import type { Repo, Row } from "../seeding/repo";
 import { ForbiddenError, type Actor } from "../auth/rbac";
 import { ValidationError } from "../curriculum-admin";
 import { LIBRARY_LEVELS, bandOf, chooseVersion, measuredLevel, stretchAbove, type MeasuredVersion, type RRBand } from "./level";
-import { ENGINE, applyFirstTryScore, ensureRRStudent, goalDates, goalStats, levelHistory, levelWindow, readRisePlaced, readsToMoveUp, s, studentReadRiseSummary, toDate, yearEndFor, type GoalStats, type ReadRiseSummary } from "./engine";
+import { ENGINE, applyFirstTryScore, ensureRRStudent, goalDates, goalStats, levelHistory, levelWindowState, readRisePlaced, readsToMoveUp, s, studentReadRiseSummary, toDate, yearEndFor, type GoalStats, type ReadRiseSummary } from "./engine";
 import { articleStatus, baseBand, firstTryRun, isFirst, isStretch, isUnreliableRun, rapidRead, stretchSetBand, type ArticleStatus } from "./first-try";
 import { QUESTION_TYPE_NAME, pickShownQuestions, questionTypeOf } from "./question-type";
 import { gradeLevelVersion } from "./benchmarks";
@@ -958,7 +958,7 @@ export interface ActivityTiming { at?: Record<string, unknown> | null }
  * it. A stretch is practice: it never moves the level and ends the run (Stretch Read → Stretch Respond → done).
  */
 export async function submitActivity(repo: Repo, actor: Actor, runId: string, raw: Record<string, unknown>, now = new Date(), timing: ActivityTiming = {}): Promise<RunView> {
-  let moved = false, studentId = "";
+  let moved = false, studentId = "", drop: { from: number; to: number; reason: string } | null = null;
   await repo.transaction(async (tx) => {
     // 🔒 lock the run's row first (annotations.quiz is written by answerQuestion)
     await tx.updateMany("RRRun", { id: runId, step: "QUIZ" }, { step: "QUIZ" });
@@ -995,8 +995,10 @@ export async function submitActivity(repo: Repo, actor: Actor, runId: string, ra
     // RR_MIN_READ_SECONDS never counts (the skill-evidence rule). Round 6 (owner): a stretch NEVER counts (practice +
     // points only — first-try.ts stretchCountsFully is always false)
     const counts = run.firstTry === true && run.stretch !== true && !fast.unreliable && !rapidRead(run);
-    if (counts) ({ levelBefore: before, levelAfter: after } = await applyFirstTryScore(tx, { ...run, score: pct, completedAt: now, unreliable: false }, now));
+    let why: string | null = null;
+    if (counts) ({ levelBefore: before, levelAfter: after, reason: why } = await applyFirstTryScore(tx, { ...run, score: pct, completedAt: now, unreliable: false }, now));
     moved = after !== before;
+    drop = after < before ? { from: before, to: after, reason: why ?? "" } : null;
     await tx.updateMany("RRRun", { id: runId }, { levelBefore: before, levelAfter: after });
   });
   forgetStudentPoints(repo, studentId); // points.ts: the student's points cache is stale now
@@ -1007,6 +1009,9 @@ export async function submitActivity(repo: Repo, actor: Actor, runId: string, ra
     await feedReadRise(repo, runId, now, (ids) => skills.push(...ids));
     for (const skillId of new Set(skills)) runAfterResponse("skills.status", () => onSkillAnswer(repo, studentId, skillId, now), { key: `skills.status|${studentId}|${skillId}` });
   }));
+  // 📉 round 9: an automatic drop → the class teachers get a notification (information only, nothing to approve)
+  const down = drop as { from: number; to: number; reason: string } | null;
+  if (down) runAfterResponse("readrise.level_down", () => notifyLevelDown(repo, studentId, down.from, down.to, down.reason, now).catch(() => false), { key: `readrise.level_down|${studentId}` });
   // ⚖️ the level moved: ReadRise vs MAP far apart → one alert for the teacher
   if (moved) runAfterResponse("readrise.map_gap", () => alertMapGap(repo, studentId, now).catch(() => false), { key: `readrise.map_gap|${studentId}` });
   // 🚩 whether or not the level moved this time: a streak of runs that never counted → one alert for the teacher
@@ -1150,7 +1155,7 @@ export async function readRiseHome(repo: Repo, actor: Actor, filter: LibraryFilt
   const [library, yearEnd, pst, windows, win, interests] = await Promise.all([
     studentLibrary(repo, actor, filter, now), // creates the RRStudent row on first use
     yearEndFor(repo, schoolId, now), placementStatus(repo, studentId, now), loadReadRiseWindows(repo, schoolId, now),
-    levelWindow(repo, studentId).catch(() => [] as number[]),
+    levelWindowState(repo, studentId).catch(() => ({ scores: [] as number[], afterDrop: false })), // round 9
     Promise.resolve().then(() => getInterests(repo, studentId)).catch(() => [] as string[]),
   ]);
   const [summary, hist, placements] = await Promise.all([
@@ -1164,6 +1169,6 @@ export async function readRiseHome(repo: Repo, actor: Actor, filter: LibraryFilt
     growth: { points: hist.points.map((p) => ({ at: p.at.toISOString(), level: p.level })), projected: summary!.projected, yearEnd: yearEnd.toISOString() },
     placement: { state, result: pst.last ? Number(pst.last.result) : null, doneAt: pst.last?.completedAt ? new Date(pst.last.completedAt instanceof Date ? pst.last.completedAt.toISOString() : String(pst.last.completedAt)).toISOString() : null, ready, due: pst.due, checks: placementChecks(windows, placements) },
     placed: summary!.placed, locked: !summary!.placed && ready,
-    progress: { toMoveUp: readsToMoveUp(win, library.level), step: ENGINE.step, interests: Array.isArray(interests) ? interests.map(String) : [], topics: library.topics },
+    progress: { toMoveUp: readsToMoveUp(win.scores, library.level, win.afterDrop), step: ENGINE.step, interests: Array.isArray(interests) ? interests.map(String) : [], topics: library.topics },
   };
 }

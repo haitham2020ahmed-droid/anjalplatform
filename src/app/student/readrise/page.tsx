@@ -127,15 +127,16 @@ export default async function ReadRiseHomePage({ searchParams }: { searchParams:
 
       <details className="mt-4 rounded-2xl bg-teal-50 p-4 text-sm text-slate-700 ring-1 ring-teal-200">
         <summary className="cursor-pointer font-semibold text-brand-navy">How does my level move?</summary>
-        {/* round 5: the real rules (first-try.ts / student.ts stretchOffer / engine.ts) */}
+        {/* round 5: the real rules (first-try.ts / student.ts stretchOffer / engine.ts) — round 9: the gentler automatic drop + the quick way back */}
         <ul className="mt-2 list-disc space-y-1 ps-5">
           <li>{t("Only your first try on an article counts. Reading it again is practice.")}</li>
           <li>{t("Score 75% or more on 3 of your last 4 articles and your level goes up 50.")}</li>
-          <li>{t("If an article was too hard (25% or less, or under 50% two times in a row), your level goes down 100 so the next articles fit you better.")}</li>
+          <li>{t("One hard article never moves your level down. Under 50% on 2 articles in a row (or on 3 of your last 4) and your level goes down 50, so the next articles fit you better. 25% or less two times in a row: down 100.")}</li>
+          <li>{t("After your level goes down, 75% or more on 2 articles in a row brings it back up 50.")}</li>
           <li>{t("Take your time: answers that come too fast do not count, and an article read in under 45 seconds does not count.")}</li>
           <li>{t("Your weekly goal counts each article once: 75% or more on the first try, or on its stretch.")}</li>
           <li>{t("Three times a year you check your reading level with a few short passages: at the start, in the middle and at the end of the year.")}</li>
-          <li>{t("Score 75% or more on your first try and you can Stretch: the same article one level higher. With new stretch questions (or new questions of a higher band) it counts like a first try and can help you move up. If the questions are the same ones, it is practice: it can count for your weekly goal only. A stretch never lowers your level.")}</li>
+          <li>{t("Score 75% or more on your first try and you can Stretch: the same article at your grade level, with new questions. It is practice: it gives you points but never changes your level.")}</li>
         </ul>
       </details>
 

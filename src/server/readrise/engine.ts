@@ -31,7 +31,24 @@ export const toDate = (v: unknown) => (v instanceof Date ? v : new Date(s(v)));
 // would get silently pulled back down to 1500 by the very next level-change calculation.
 // Round 6 (owner): `min` is RR_FLOOR (−400, "BR400L") — a weak reader's level can go below the lowest version (300);
 // they read the 300 version (level.ts).
-export const ENGINE = { up: 75, down: 50, step: 50, max: 1700, min: RR_FLOOR, /** one score at or under this → down at once */ floor: 25, /** a step down */ downStep: 100 } as const;
+/**
+ * Round 9 (owner, 7 Nov 2026 — "fully automatic, in the student's favour"):
+ *  - up: 3 of the last 4 at 75%+ with the latest 75%+ → +50 (unchanged);
+ *  - ONE bad article (even ≤ 25%) never moves the level (a bad day, a strange topic, a wrong click);
+ *  - two in a row under 50% → −50 (was −100); two in a row at or under 25% → −100 (the texts are far too hard);
+ *  - 3 of the last 4 under 50% with the latest under 50% → −50;
+ *  - after an automatic drop, two in a row at 75%+ → +50 back at once (a wrong drop mends itself fast);
+ *  - every automatic drop sends the class teachers a notification (information only: nothing to approve).
+ */
+export const ENGINE = {
+  up: 75, down: 50, step: 50, max: 1700, min: RR_FLOOR,
+  /** two scores in a row at or under this → the big step down */ floor: 25,
+  /** the big step down (two very low scores in a row) */ downStep: 100,
+  /** the usual step down */ downSmall: 50,
+  /** after an automatic drop: this many strong reads in a row move the level back up */ returnReads: 2,
+} as const;
+/** The reason prefix of an automatic drop (RRLevelChange.reason starts with it). */
+export const AUTO_DOWN_PREFIX = "Down ";
 /** RRLevelChange rows with this reason prefix only record a teacher's retake permission (no level change). */
 export const RETAKE_REASON = "Placement retake allowed";
 const DAY = 86_400_000, WEEK = 7 * DAY, RIYADH = 3 * 3_600_000;
@@ -161,21 +178,30 @@ export async function levelChanges(repo: Repo, studentId: string): Promise<Row[]
 export interface LevelDecision { delta: number; reason: string | null }
 
 /**
- * The level rule on the window of first-try scores since the last change (oldest → newest). Pure.
- * Down first (≤ 25% once, or two in a row under 50%: −100), then up (3 of the last 4 at 75%+ with the latest
- * 75%+: +50). The reason is in plain words for the teacher.
+ * The level rule on the window of first-try scores since the last change (oldest → newest). Pure. Round 9 (see
+ * ENGINE): down first — two in a row ≤ 25% → −100; two in a row under 50% → −50; 3 of the last 4 under 50% (latest
+ * under 50%) → −50; one bad score alone never moves the level. Then up — after an automatic drop (`afterDrop`), two
+ * in a row at 75%+ → +50; else 3 of the last 4 at 75%+ with the latest 75%+ → +50. The reason is in plain words for
+ * the teacher.
  */
-export function levelDecision(scores: number[]): LevelDecision {
+export function levelDecision(scores: number[], opts: { afterDrop?: boolean } = {}): LevelDecision {
   if (!scores.length) return { delta: 0, reason: null };
   const latest = scores[scores.length - 1];
-  if (latest <= ENGINE.floor) return { delta: -ENGINE.downStep, reason: `the first-try score on the last article was ${latest}% (${ENGINE.floor}% or lower), so the articles were too hard` };
   const prev = scores.length >= 2 ? scores[scores.length - 2] : null;
-  if (prev !== null && latest < ENGINE.down && prev < ENGINE.down) return { delta: -ENGINE.downStep, reason: `the last two first-try scores were both under ${ENGINE.down}% (${prev}% and ${latest}%), so the articles were too hard` };
+  if (prev !== null && latest <= ENGINE.floor && prev <= ENGINE.floor) return { delta: -ENGINE.downStep, reason: `the last two first-try scores were both ${ENGINE.floor}% or lower (${prev}% and ${latest}%), so the articles were far too hard` };
+  if (prev !== null && latest < ENGINE.down && prev < ENGINE.down) return { delta: -ENGINE.downSmall, reason: `the last two first-try scores were both under ${ENGINE.down}% (${prev}% and ${latest}%), so the articles were too hard` };
   const last4 = scores.slice(-4);
+  const low = last4.filter((x) => x < ENGINE.down).length;
+  if (latest < ENGINE.down && low >= 3) return { delta: -ENGINE.downSmall, reason: `${low} of the last ${last4.length} first-try scores were under ${ENGINE.down}% (latest ${latest}%), so the articles were too hard` };
+  const lastN = scores.slice(-ENGINE.returnReads);
+  if (opts.afterDrop && lastN.length === ENGINE.returnReads && lastN.every((x) => x >= ENGINE.up)) return { delta: ENGINE.step, reason: `back up after the drop: the last ${ENGINE.returnReads} first-try scores were ${ENGINE.up}% or higher (${lastN.map((x) => `${x}%`).join(" and ")})` };
   const high = last4.filter((x) => x >= ENGINE.up).length;
   if (latest >= ENGINE.up && high >= 3) return { delta: ENGINE.step, reason: `${high} of the last ${last4.length} first-try scores were ${ENGINE.up}% or higher (latest ${latest}%)` };
   return { delta: 0, reason: null };
 }
+
+/** Round 9: was the last level change an automatic drop? (then two strong reads bring the level back up) */
+export const afterAutoDrop = (changes: readonly Row[]): boolean => changes.length > 0 && s(changes[changes.length - 1].reason).startsWith(AUTO_DOWN_PREFIX);
 
 /** A run marked Unreliable (2+ rapid answers: accuracy.ts). */
 const unreliableRun = (r: Row) => isUnreliableRun(r);
@@ -204,17 +230,23 @@ export function goalDates(runs: readonly Row[]): Date[] {
  * the student's `level` is already at or above RR_MAX (the top version).
  */
 export function readsToMoveUp(windowScores: readonly number[]): number;
-export function readsToMoveUp(windowScores: readonly number[], level: number): number | null;
-export function readsToMoveUp(windowScores: readonly number[], level?: number): number | null {
+export function readsToMoveUp(windowScores: readonly number[], level: number, afterDrop?: boolean): number | null;
+export function readsToMoveUp(windowScores: readonly number[], level?: number, afterDrop = false): number | null {
   // at / above the top version (RR_MAX) there is no higher article to move up to: no "+50" promise
   if (level !== undefined && Number(level) >= RR_MAX) return null;
-  for (let k = 1; k <= 4; k++) if (levelDecision([...windowScores, ...Array<number>(k).fill(100)]).delta > 0) return k;
+  for (let k = 1; k <= 4; k++) if (levelDecision([...windowScores, ...Array<number>(k).fill(100)], { afterDrop }).delta > 0) return k;
   return 4;
 }
 
-/** The student's level window: the scores of the counted first tries since the last level change (oldest first). */
-export async function levelWindow(repo: Repo, studentId: string): Promise<number[]> {
+/** Round 9: the level window and whether it follows an automatic drop (for readsToMoveUp). */
+export async function levelWindowState(repo: Repo, studentId: string): Promise<{ scores: number[]; afterDrop: boolean }> {
   const changes = await levelChanges(repo, studentId);
+  return { scores: await levelWindow(repo, studentId, changes), afterDrop: afterAutoDrop(changes) };
+}
+
+/** The student's level window: the scores of the counted first tries since the last level change (oldest first). */
+export async function levelWindow(repo: Repo, studentId: string, known?: Row[]): Promise<number[]> {
+  const changes = known ?? await levelChanges(repo, studentId);
   const since = changes.length ? toDate(changes[changes.length - 1].createdAt).getTime() : -Infinity;
   return countedTries(await repo.findMany("RRRun", { studentId, firstTry: true, score: { not: null } }, { select: ["studentId", "articleId", "band", "firstTry", "stretch", "score", "completedAt", "unreliable", "readSeconds"] }))
     .filter((r) => r.completedAt && toDate(r.completedAt).getTime() > since && countsForLevel(r))
@@ -248,7 +280,7 @@ export async function applyFirstTryScore(repo: Repo, run: Row, now: Date): Promi
     const runs = countedTries(await repo.findMany("RRRun", { studentId, firstTry: true, score: { not: null } }))
       .filter((r) => r.completedAt && toDate(r.completedAt).getTime() > since && countsForLevel(r))
       .sort((a, b) => toDate(a.completedAt).getTime() - toDate(b.completedAt).getTime());
-    const dec = levelDecision(runs.map((r) => Number(r.score)));
+    const dec = levelDecision(runs.map((r) => Number(r.score)), { afterDrop: afterAutoDrop(changes) }); // round 9
     // a stretch can only move the level up. r85 audit (#4 — checked, not a bug): this guard looks like it could
     // mask a legitimate down-adjustment, but `countsForLevel` above only lets a stretch run into `runs` when its
     // OWN score is ≥ ENGINE.up (75), and this function is only ever called for a stretch run when its score is
@@ -268,7 +300,7 @@ export async function applyFirstTryScore(repo: Repo, run: Row, now: Date): Promi
       if (attempt >= CONCURRENT_RETRIES) throw new ValidationError("Could not save the reading result — please try again.");
       continue; // another run for this student committed in between; re-read and recompute from the fresh row
     }
-    if (after !== before) await recordLevelChange(repo, { studentId, schoolId: s(rr.schoolId), from: before, to: after, reason: `${after > before ? "Up" : "Down"} ${Math.abs(after - before)}: ${dec.reason}`, now });
+    if (after !== before) await recordLevelChange(repo, { studentId, schoolId: s(rr.schoolId), from: before, to: after, reason: `${after > before ? "Up" : AUTO_DOWN_PREFIX.trim()} ${Math.abs(after - before)}: ${dec.reason}`, now });
     return { levelBefore: before, levelAfter: after, reason: after !== before ? dec.reason : null };
   }
 }

@@ -171,7 +171,9 @@ describe("🎯 ReadRise accuracy", () => {
     test("a careful run counts: the level rule, skill evidence by question type and the skill stars (after the response)", async () => {
       const s = st[1];
       await setLevelByTeacher(repo, teacher, s.studentId!, 800, "", at(0));
-      const r = await read(s, arts[0], 1, at(1), careful()); // 13% → −100
+      const r = await read(s, arts[0], 1, at(1), careful()); // 13%: round 9 — one bad article alone does not move it
+      assert.equal(await lvl(s), 800);
+      await read(s, arts[2], 1, at(1, 1), careful()); // 13% again → two in a row ≤ 25% → −100
       assert.equal(await lvl(s), 700);
       await afterResponseSettled();
       const run = (await repo.findUnique("RRRun", { id: r.runId }))!;
@@ -183,7 +185,7 @@ describe("🎯 ReadRise accuracy", () => {
       assert.ok(inference && ev.some((e) => e.skillId === inference));
       // the star path counts them as practice (countedAnswers ← readRisePracticeAnswers)
       const rr = await readRisePracticeAnswers(repo, s.studentId!, [inference]);
-      assert.equal(rr.answered, 2, "two inference questions");
+      assert.equal(rr.answered, 4, "two inference questions in each of the two runs (round 9: two low runs to move down)");
       assert.ok((await countedAnswers(repo, s.studentId!, [inference])).answered >= 2);
       const star = await repo.findMany("SkillStatus", { studentId: s.studentId });
       assert.ok(star.length >= 1 && star.every((x) => x.status === "IN_PROGRESS"), "the skill-status hook ran after the response");
@@ -208,6 +210,7 @@ describe("🎯 ReadRise accuracy", () => {
       assert.ok(!/Lexile/.test(String(al[0].detail)), "never called a Lexile");
       // the level moving in an article run checks it after the response (no second alert)
       await read(s, arts[2], 0, at(1), careful());
+      await read(s, arts[3], 0, at(1, 1), careful()); // round 9: two low first tries move the level
       await afterResponseSettled();
       assert.equal((await repo.findMany("StudentAlert", { studentId: s.studentId, kind: "RR_MAP_GAP" })).length, 1);
       // a student without a real level (no placement, no teacher level) is never alerted

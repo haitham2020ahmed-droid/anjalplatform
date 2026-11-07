@@ -26,6 +26,7 @@ import type { Repo, Row } from "../seeding/repo";
 import { PASSAGE_SHARE, RAPID_GUESS_MS, expectedReadingMs } from "../practice/guessing";
 import { schoolYearOf } from "../assessment-cycle/cycle";
 import { countsForLevel, latestMapLexile, readRisePlaced, s, toDate } from "./engine";
+import { formatLevel } from "./level";
 
 /** this many rapid answers in one run make it Unreliable */
 export const RR_UNRELIABLE_RAPID = 2;
@@ -196,6 +197,29 @@ export async function alertStuckUnreliable(repo: Repo, studentId: string, now = 
     userId, type: "INTERVENTION_ALERT", title: `🚩 ${name}: ReadRise isn't getting a real reading`,
     body: `${name}'s last ${STUCK_RUNS} ReadRise attempts didn't count toward their level — too fast / guessed, or a low Stretch score. Their level hasn't moved because nothing real has been measured. Worth checking in.`,
     link: "/teacher/alerts", readAt: null, createdAt: now,
+  })));
+  return true;
+}
+
+/**
+ * 📉 Round 9 (owner: "fully automatic"): an automatic level drop is told to the student's class teachers — a
+ * notification only (nothing to approve; the teacher can still set the level by hand on the class page).
+ */
+export async function notifyLevelDown(repo: Repo, studentId: string, from: number, to: number, reason: string, now = new Date()): Promise<boolean> {
+  const [student, member] = await Promise.all([
+    repo.findUnique("Student", { id: studentId }),
+    repo.findMany("ClassMembership", { studentId, leftAt: null }, { select: ["classId"] }),
+  ]);
+  if (!student || !member.length) return false;
+  const teachers = await repo.findMany("ClassTeacher", { classId: { in: [...new Set(member.map((m) => s(m.classId)))] } }, { select: ["teacherId"] });
+  const users = teachers.length ? await repo.findMany("Teacher", { id: { in: [...new Set(teachers.map((t) => s(t.teacherId)))] } }, { select: ["userId"] }) : [];
+  if (!users.length) return false;
+  const me = await repo.findUnique("User", { id: student.userId });
+  const name = s(me?.displayName) || "A student";
+  await repo.createMany("Notification", [...new Set(users.map((u) => s(u.userId)))].map((userId) => ({
+    userId, type: "INTERVENTION_ALERT", title: `📉 ${name}: ReadRise ${formatLevel(from)} → ${formatLevel(to)}`.slice(0, 190),
+    body: `${name}'s ReadRise level moved down from ${formatLevel(from)} to ${formatLevel(to)}: ${reason}. This happens automatically; two strong reads (75%+) bring it back up. Nothing to do unless you want to set the level by hand.`.slice(0, 1000),
+    link: "/teacher/readrise", readAt: null, createdAt: now,
   })));
   return true;
 }

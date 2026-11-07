@@ -7488,4 +7488,7 @@ export const ar: Record<UiString, string> = {
   "Copies corrected questions, explanations and new articles from the article files into the library. Run it once after an update. Running it again changes nothing that is already up to date.": "ينسخ الأسئلة والشروح المصححة والمقالات الجديدة من ملفات المقالات إلى المكتبة. شغّله مرة واحدة بعد كل تحديث. تشغيله مرة أخرى لا يغيّر ما هو محدَّث بالفعل.",
   "Update articles": "تحديث المقالات",
   "Done: {a} articles checked and updated ({q} new).": "تم: فُحصت {a} مقالة وحُدّثت ({q} جديدة).",
+  "One hard article never moves your level down. Under 50% on 2 articles in a row (or on 3 of your last 4) and your level goes down 50, so the next articles fit you better. 25% or less two times in a row: down 100.": "مقالة واحدة صعبة لا تُنزل مستواك أبدًا. إذا حصلت على أقل من 50% في مقالتين متتاليتين (أو في 3 من آخر 4) ينخفض مستواك 50 لتناسبك المقالات التالية أكثر. وإذا حصلت على 25% أو أقل مرتين متتاليتين ينخفض 100.",
+  "After your level goes down, 75% or more on 2 articles in a row brings it back up 50.": "بعد انخفاض مستواك، الحصول على 75% أو أكثر في مقالتين متتاليتين يرفعه 50 من جديد.",
+  "Score 75% or more on your first try and you can Stretch: the same article at your grade level, with new questions. It is practice: it gives you points but never changes your level.": "إذا حصلت على 75% أو أكثر في المحاولة الأولى يمكنك تجربة التحدي: المقالة نفسها بمستوى صفك مع أسئلة جديدة. إنه تدريب: يمنحك نقاطًا لكنه لا يغيّر مستواك أبدًا.",
 };

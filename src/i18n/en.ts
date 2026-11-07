@@ -1222,6 +1222,9 @@ export const UI_STRINGS = [
   "Copies corrected questions, explanations and new articles from the article files into the library. Run it once after an update. Running it again changes nothing that is already up to date.",
   "Update articles",
   "Done: {a} articles checked and updated ({q} new).",
+  "One hard article never moves your level down. Under 50% on 2 articles in a row (or on 3 of your last 4) and your level goes down 50, so the next articles fit you better. 25% or less two times in a row: down 100.",
+  "After your level goes down, 75% or more on 2 articles in a row brings it back up 50.",
+  "Score 75% or more on your first try and you can Stretch: the same article at your grade level, with new questions. It is practice: it gives you points but never changes your level.",
 ] as const;
 
 export type UiString = (typeof UI_STRINGS)[number];

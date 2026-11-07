@@ -39,23 +39,32 @@ async function read(repo: SqliteRepo, s: Actor, articleId: string, right: number
 }
 
 describe("📉📈 ReadRise level rules", () => {
-  test("pure: ≤ 25% once → −100; two in a row under 50% → −100; 3 of 4 at 75%+ → +50", () => {
-    assert.deepEqual([ENGINE.floor, ENGINE.downStep, ENGINE.step, ENGINE.min, ENGINE.max], [25, 100, 50, -400, 1700]); // round 6: min is RR_FLOOR (BR400L), was 200
-    // down at once
-    for (const sc of [[0], [25], [90, 90, 10], [80, 80, 80, 25]]) assert.equal(levelDecision(sc).delta, -100, sc.join(","));
-    assert.equal(levelDecision([26]).delta, 0, "26% alone is not enough");
+  test("pure (round 9): one bad score never moves it; two in a row under 50% → −50; two ≤ 25% → −100; 3 of 4 under 50% → −50; quick way back; 3 of 4 at 75%+ → +50", () => {
+    assert.deepEqual([ENGINE.floor, ENGINE.downStep, ENGINE.downSmall, ENGINE.step, ENGINE.returnReads, ENGINE.min, ENGINE.max], [25, 100, 50, 50, 2, -400, 1700]);
+    // one bad article alone: no move (a bad day, a strange topic)
+    for (const sc of [[0], [25], [90, 90, 10], [80, 80, 80, 25]]) assert.equal(levelDecision(sc).delta, 0, sc.join(","));
     // two in a row
-    assert.equal(levelDecision([49, 49]).delta, -100);
+    assert.equal(levelDecision([49, 49]).delta, -50);
+    assert.equal(levelDecision([25, 10]).delta, -100, "two very low in a row: far too hard");
+    assert.equal(levelDecision([26, 10]).delta, -50);
     assert.equal(levelDecision([49, 50]).delta, 0, "50% is not under 50%");
-    assert.equal(levelDecision([40, 80, 40]).delta, 0, "not in a row");
+    assert.equal(levelDecision([40, 80, 40]).delta, 0, "not in a row, only 2 of 3");
+    // 3 of the last 4 under 50% with the latest under 50%
+    assert.equal(levelDecision([40, 80, 30, 45]).delta, -50);
+    assert.equal(levelDecision([40, 30, 45, 80]).delta, 0, "the latest is fine");
+    // the quick way back after an automatic drop
+    assert.equal(levelDecision([80, 85], { afterDrop: true }).delta, 50);
+    assert.equal(levelDecision([80, 85]).delta, 0, "without a drop: 3 of 4 are needed");
+    assert.equal(levelDecision([80, 70], { afterDrop: true }).delta, 0);
     // up (unchanged)
     assert.equal(levelDecision([75, 75, 75]).delta, 50);
     assert.equal(levelDecision([30, 75, 80, 90]).delta, 50, "3 of the last 4");
     assert.equal(levelDecision([75, 75, 74]).delta, 0, "the latest must be 75%+");
     assert.equal(levelDecision([]).delta, 0);
     // plain words for the teacher
-    assert.match(levelDecision([20]).reason!, /the first-try score on the last article was 20% \(25% or lower\), so the articles were too hard/);
+    assert.match(levelDecision([20, 10]).reason!, /the last two first-try scores were both 25% or lower \(20% and 10%\), so the articles were far too hard/);
     assert.match(levelDecision([45, 30]).reason!, /the last two first-try scores were both under 50% \(45% and 30%\)/);
+    assert.match(levelDecision([80, 90], { afterDrop: true }).reason!, /back up after the drop: the last 2 first-try scores were 75% or higher \(80% and 90%\)/);
     assert.match(levelDecision([80, 90, 100]).reason!, /3 of the last 3 first-try scores were 75% or higher \(latest 100%\)/);
     // limits
     assert.deepEqual([clampEngine(150), clampEngine(-500), clampEngine(1800), clampEngine(844)], [150, -400, 1700, 840]); // round 6: below 300 is real
@@ -79,20 +88,29 @@ describe("📉📈 ReadRise level rules", () => {
       for (let i = 0; i < 12; i++) arts.push(await makeArticle(repo, `LR-${i}`));
     });
 
-    test("a student placed far above their level is corrected quickly (950 → 750 after two very low scores)", async () => {
+    test("round 9: one very low score does not move it; a second one in a row → −100; two strong reads bring it back", async () => {
       const s = st[0];
       await setLevelByTeacher(repo, teacher, s.studentId!, 950, "old default start", at(0));
       const d1 = await read(repo, s, arts[0], 1, at(1)); // 13%
-      assert.equal(await lvl(s), 850, "one score ≤ 25% → −100 at once");
-      assert.deepEqual([d1.done!.levelBefore, d1.done!.levelAfter], [950, 850]);
-      await read(repo, s, arts[1], 2, at(1, 1)); // 25%: the window restarted after the change, ≤ 25% again
-      assert.equal(await lvl(s), 750);
+      assert.equal(await lvl(s), 950, "one bad article never moves the level");
+      assert.deepEqual([d1.done!.levelBefore, d1.done!.levelAfter], [950, 950]);
+      await read(repo, s, arts[1], 2, at(1, 1)); // 25%: two in a row ≤ 25%
+      assert.equal(await lvl(s), 850);
       const r = await reasons(s);
-      assert.ok(r.some((x) => /^Down 100: the first-try score on the last article was 13% \(25% or lower\)/.test(x)), r.join(" | "));
+      assert.ok(r.some((x) => /^Down 100: the last two first-try scores were both 25% or lower \(13% and 25%\)/.test(x)), r.join(" | "));
+      await read(repo, s, arts[2], 6, at(2)); // 75%
+      assert.equal(await lvl(s), 850);
+      await read(repo, s, arts[3], 7, at(2, 1)); // 88% → the quick way back
+      assert.equal(await lvl(s), 900);
+      assert.ok((await reasons(s)).some((x) => /^Up 50: back up after the drop/.test(x)));
+      // the teachers were told about the drop (information only)
       await afterResponseSettled();
+      const notes = await repo.findMany("Notification", { title: { contains: "ReadRise 950L → 850L" } });
+      assert.ok(notes.length >= 1, "a notification for the teacher");
+      assert.match(String(notes[0].body), /This happens automatically/);
     });
 
-    test("two in a row under 50% → −100; one low score between highs does not move it; up stays +50", async () => {
+    test("two in a row under 50% → −50; one low score between highs does not move it; up stays +50", async () => {
       const s = st[1];
       await setLevelByTeacher(repo, teacher, s.studentId!, 800, "", at(0));
       await read(repo, s, arts[0], 3, at(1)); // 38%
@@ -100,14 +118,20 @@ describe("📉📈 ReadRise level rules", () => {
       await read(repo, s, arts[1], 7, at(1, 1)); // 88%: breaks the run
       await read(repo, s, arts[2], 3, at(1, 2)); // 38%
       assert.equal(await lvl(s), 800, "the low scores were not in a row");
-      await read(repo, s, arts[3], 3, at(1, 3)); // 38% → two in a row
-      assert.equal(await lvl(s), 700);
-      // up: 3 of the last 4 at 75%+ with the latest 75%+
-      await read(repo, s, arts[4], 6, at(2));
-      await read(repo, s, arts[5], 7, at(2, 1));
-      assert.equal(await lvl(s), 700);
-      await read(repo, s, arts[6], 8, at(2, 2));
-      assert.equal(await lvl(s), 750, "+50 (unchanged)");
+      await read(repo, s, arts[3], 3, at(1, 3)); // 38% → two in a row (and 3 of 4)
+      assert.equal(await lvl(s), 750, "round 9: −50 (was −100)");
+      // after the drop: 2 strong reads in a row → back up
+      await read(repo, s, arts[4], 4, at(2)); // 50%
+      await read(repo, s, arts[5], 7, at(2, 1)); // 88%
+      assert.equal(await lvl(s), 750);
+      await read(repo, s, arts[6], 8, at(2, 2)); // 100% → two in a row at 75%+
+      assert.equal(await lvl(s), 800);
+      // then the usual rule: 3 of the last 4 at 75%+
+      await read(repo, s, arts[7], 7, at(3));
+      await read(repo, s, arts[8], 7, at(3, 1));
+      assert.equal(await lvl(s), 800, "the quick way back is only after a drop");
+      await read(repo, s, arts[9], 8, at(3, 2));
+      assert.equal(await lvl(s), 850, "+50 (unchanged)");
       assert.ok((await reasons(s)).some((x) => /^Up 50: 3 of the last 3 first-try scores were 75% or higher/.test(x)));
       await afterResponseSettled();
     });
@@ -116,9 +140,9 @@ describe("📉📈 ReadRise level rules", () => {
       const s = st[2];
       await setLevelByTeacher(repo, teacher, s.studentId!, -350, "", at(0));
       await read(repo, s, arts[0], 0, at(1));
-      assert.equal(await lvl(s), -400, "never below −400 (BR400L)");
+      assert.equal(await lvl(s), -350, "round 9: one bad article never moves the level");
       await read(repo, s, arts[1], 0, at(1, 1));
-      assert.equal(await lvl(s), -400, "stays at the floor (no change row)");
+      assert.equal(await lvl(s), -400, "two ≤ 25% in a row: −100, but never below −400 (BR400L)");
       assert.equal((await reasons(s)).filter((x) => x.startsWith("Down")).length, 1);
       // round 4: a stretch needs a NEW question band — 1000 (MID) stretches to 1100 (HIGH); 800 → 900 (MID → MID) is refused
       await setLevelByTeacher(repo, teacher, s.studentId!, 1000, "", at(2));
@@ -162,13 +186,14 @@ describe("📉📈 ReadRise level rules", () => {
 
     test("two realistically-timed, genuinely low first-try scores actually drop the level", async () => {
       await setLevelByTeacher(repo, teacher, student.studentId!, 1000, "placement", at(0));
-      const r1 = await readRealistic(student, arts[0], 2, at(1)); // 25% → ≤ 25% → −100 at once
+      const r1 = await readRealistic(student, arts[0], 2, at(1)); // 25%: round 9 — one bad article alone does not move it
       const run1 = (await repo.findUnique("RRRun", { id: r1.runId }))!;
       assert.equal(run1.unreliable, false, "a normal click-through cadence is not Unreliable");
-      assert.equal(await lvl(student), 900, "the level must actually drop on a genuine ≤ 25% first try");
-      const r2 = await readRealistic(student, arts[1], 3, at(2)); // 38%, still below the window's own prior score
+      assert.equal(await lvl(student), 1000);
+      const r2 = await readRealistic(student, arts[1], 3, at(2)); // 38% → two in a row under 50%
       const run2 = (await repo.findUnique("RRRun", { id: r2.runId }))!;
       assert.equal(run2.unreliable, false);
+      assert.equal(await lvl(student), 950, "the level must actually drop on two genuine low first tries (round 9: −50)");
       await afterResponseSettled();
     });
   });
