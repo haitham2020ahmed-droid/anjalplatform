@@ -108,6 +108,22 @@ export async function sentPlans(repo: Repo, studentId: string, now = new Date())
   return out;
 }
 
+/**
+ * 🆕 feature (Nov 2026): one subject's MAP plan, reduced to "where is the student in it" — done/total over the
+ * items actually linked to a live assignment (an item the teacher's plan never assigned yet doesn't count against
+ * the student), and the next not-done item's quiz link (plan items are a set of mixed questions, not a single
+ * skill, so this always points at the assignment's quiz, the same href My Work would use for that assignment).
+ * Pure: reads nothing itself, so the student page, the teacher study-plan report and the class study-plans report
+ * can all derive the exact same numbers from the one PlanDoc they already fetch — no new query, no schema change.
+ */
+export interface PlanProgress { done: number; total: number; pct: number; allDone: boolean; next: { href: string; group: GroupKey } | null }
+export function planProgress(d: Pick<PlanDoc, "items">): PlanProgress {
+  const linked = d.items.filter((it) => it.assignmentId);
+  const total = linked.length, done = linked.filter((it) => it.done).length;
+  const nextItem = linked.find((it) => !it.done) ?? null;
+  return { done, total, pct: total ? Math.round((100 * done) / total) : 0, allDone: total > 0 && done === total, next: nextItem ? { href: `/quiz/${nextItem.assignmentId}`, group: nextItem.group } : null };
+}
+
 // ------------------------------------------------------------------ the student's My MAP
 
 export interface MySubject {

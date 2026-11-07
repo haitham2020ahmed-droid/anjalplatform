@@ -7,6 +7,7 @@ import { StudentStarsPanel } from "@/components/skills/student-stars-panel";
 import { getActor, repo, requireActor } from "@/server/auth/next";
 import { ForbiddenError } from "@/server/auth/rbac";
 import { studyPlan } from "@/server/map/map-reports";
+import { sentPlans, planProgress } from "@/server/map/map-more";
 import { endOfSchoolWeek, starredSkills } from "@/server/assign/star";
 import { studentStarsSummary } from "@/server/skills/student-stars";
 import { safeIfBehind } from "@/server/db/schema-errors";
@@ -32,6 +33,11 @@ export default async function StudyPlanPage({ params, searchParams }: { params: 
   let d;
   try { d = await studyPlan(repo, actor, studentId, subject, { full: sp.full === "1" }); } catch (e) { if (e instanceof ForbiddenError) notFound(); throw e; }
   const back = actor.role === "STUDENT" ? { href: "/student/map", label: "My MAP" } : actor.role === "PARENT" ? { href: "/parent", label: "Back" } : { href: d.student.classId ? `/teacher/map-reports?classId=${d.student.classId}` : "/teacher/map-reports", label: "MAP Reports" };
+  // 🆕 feature (Nov 2026): if the teacher sent this student an auto-advance MAP plan (the Reading/Language button
+  // on My MAP), show where they are in it right here too — the same done/total a teacher following along needs,
+  // no second report to open.
+  const planDoc = (await sentPlans(repo, studentId)).find((x) => x.subject === subject) ?? null;
+  const plan = planDoc ? planProgress(planDoc) : null;
   // ☆ quick-assign for the class teacher: the skills already assigned to the class (one read)
   let star: PlanStarAssign | undefined;
   if (actor.role === "TEACHER" && d.student.classId) {
@@ -44,6 +50,11 @@ export default async function StudyPlanPage({ params, searchParams }: { params: 
       <ReportToolbar back={back} base={`/map-report/study-plan/${studentId}`} subject={subject} full={d.full} msg={sp.msg} />
       {mine && <div className="mx-auto max-w-4xl print:hidden"><StudentStarsPanel s={mine} t={t} back={`/map-report/study-plan/${studentId}`} count={d.counts ?? planStarCount(d.areas)} /></div>}
       <div className="mx-auto max-w-4xl"><ReportIntro text="The skills to practise next, by goal area, and how many are already mastered." /></div>
+      {plan && plan.total > 0 && (
+        <div className="mx-auto mb-4 max-w-4xl rounded-2xl bg-white p-4 ring-1 ring-slate-200 print:hidden">
+          <p className="font-semibold text-brand-navy">📋 {t("MAP plan")}: {plan.allDone ? `✅ ${t("All done")}` : t("{done} of {total} done", { done: plan.done, total: plan.total })} <span dir="ltr" className="text-sm text-slate-500">({plan.pct}%)</span></p>
+        </div>
+      )}
       <StudyPlanView d={d} link={actor.role === "STUDENT"} hub={["TEACHER", "SCHOOL_ADMIN", "SUPER_ADMIN"].includes(actor.role)} t={t} star={star} canAssign={actor.role === "TEACHER" || actor.role === "SCHOOL_ADMIN" || actor.role === "SUPER_ADMIN"} />
       <div className="mx-auto max-w-4xl"><ReportSummary summary={studyPlanSummary({ ...d, counts: d.counts ?? planStarCount(d.areas) }, actor.role === "STUDENT" ? "student" : actor.role === "PARENT" ? "parent" : "staff")} /></div>
       {sp.print === "1" && <AutoPrint />}
