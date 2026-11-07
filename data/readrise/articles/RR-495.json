@@ -114,22 +114,10 @@
         {
           "stem": "What is this passage mostly about?",
           "options": [
-            {
-              "id": "A",
-              "text": "how farmers plant seeds without needing any water at all"
-            },
-            {
-              "id": "B",
-              "text": "how people use the sun's heat to turn salty sea water into fresh water"
-            },
-            {
-              "id": "C",
-              "text": "why the sun is bigger than every star in the sky"
-            },
-            {
-              "id": "D",
-              "text": "how people built a boat that sails using only sunlight"
-            }
+            "how farmers plant seeds without needing any water at all",
+            "how people use the sun's heat to turn salty sea water into fresh water",
+            "why the sun is bigger than every star in the sky",
+            "how people built a boat that sails using only sunlight"
           ],
           "answer": "B",
           "skill": "central idea",
@@ -143,22 +131,10 @@
         {
           "stem": "Why can't people drink water straight from the sea?",
           "options": [
-            {
-              "id": "A",
-              "text": "the sea water is far too salty for people to safely drink"
-            },
-            {
-              "id": "B",
-              "text": "the sea water is always too cold for people to drink"
-            },
-            {
-              "id": "C",
-              "text": "the sea has no water in it at all"
-            },
-            {
-              "id": "D",
-              "text": "the sea water turns to ice as soon as someone touches it"
-            }
+            "the sea water is far too salty for people to safely drink",
+            "the sea water is always too cold for people to drink",
+            "the sea has no water in it at all",
+            "the sea water turns to ice as soon as someone touches it"
           ],
           "answer": "A",
           "skill": "detail",
@@ -172,22 +148,10 @@
         {
           "stem": "What did people put the salty water inside of in this passage?",
           "options": [
-            {
-              "id": "A",
-              "text": "a deep hole dug far down into the sand"
-            },
-            {
-              "id": "B",
-              "text": "a metal can with no openings at all"
-            },
-            {
-              "id": "C",
-              "text": "a bucket left outside only during the cold night"
-            },
-            {
-              "id": "D",
-              "text": "a box with a glass top that let the sun shine in"
-            }
+            "a deep hole dug far down into the sand",
+            "a metal can with no openings at all",
+            "a bucket left outside only during the cold night",
+            "a box with a glass top that let the sun shine in"
           ],
           "answer": "D",
           "skill": "detail",
@@ -201,22 +165,10 @@
         {
           "stem": "Why does the water turn into drops again after it touches the glass?",
           "options": [
-            {
-              "id": "A",
-              "text": "because the glass is cooler than the rising steam, so the steam changes back into water"
-            },
-            {
-              "id": "B",
-              "text": "because the glass melts and mixes together with the steam"
-            },
-            {
-              "id": "C",
-              "text": "because the sun's light changes the water into a different color"
-            },
-            {
-              "id": "D",
-              "text": "because the box gets so cold that nothing can escape it"
-            }
+            "because the glass is cooler than the rising steam, so the steam changes back into water",
+            "because the glass melts and mixes together with the steam",
+            "because the sun's light changes the water into a different color",
+            "because the box gets so cold that nothing can escape it"
           ],
           "answer": "A",
           "skill": "inference",
@@ -230,22 +182,10 @@
         {
           "stem": "Why is this way of making fresh water especially helpful for a place like Saudi Arabia?",
           "options": [
-            {
-              "id": "A",
-              "text": "because that land gets far too much rain every single year"
-            },
-            {
-              "id": "B",
-              "text": "because that land gets lots of strong sun but very little rain"
-            },
-            {
-              "id": "C",
-              "text": "because that land has no sunlight at any time of year"
-            },
-            {
-              "id": "D",
-              "text": "because that land already has more fresh water than it needs"
-            }
+            "because that land gets far too much rain every single year",
+            "because that land gets lots of strong sun but very little rain",
+            "because that land has no sunlight at any time of year",
+            "because that land already has more fresh water than it needs"
           ],
           "answer": "B",
           "skill": "inference",
@@ -259,22 +199,10 @@
         {
           "stem": "In this passage, what does the word \"drip\" mean?",
           "options": [
-            {
-              "id": "A",
-              "text": "to fall slowly in small drops"
-            },
-            {
-              "id": "B",
-              "text": "to shine extremely brightly all at once"
-            },
-            {
-              "id": "C",
-              "text": "to freeze solid almost instantly"
-            },
-            {
-              "id": "D",
-              "text": "to disappear completely without a trace"
-            }
+            "to fall slowly in small drops",
+            "to shine extremely brightly all at once",
+            "to freeze solid almost instantly",
+            "to disappear completely without a trace"
           ],
           "answer": "A",
           "skill": "vocabulary",
@@ -288,22 +216,10 @@
         {
           "stem": "Why does the author explain that this way needs no fire at all?",
           "options": [
-            {
-              "id": "A",
-              "text": "to show that the sun alone is powerful enough to make fresh water"
-            },
-            {
-              "id": "B",
-              "text": "to warn readers that fire is dangerous and should be avoided"
-            },
-            {
-              "id": "C",
-              "text": "to explain why fires are not allowed near the ocean"
-            },
-            {
-              "id": "D",
-              "text": "to describe how people once cooked food using only sunlight"
-            }
+            "to show that the sun alone is powerful enough to make fresh water",
+            "to warn readers that fire is dangerous and should be avoided",
+            "to explain why fires are not allowed near the ocean",
+            "to describe how people once cooked food using only sunlight"
           ],
           "answer": "A",
           "skill": "author's purpose",
@@ -317,22 +233,10 @@
         {
           "stem": "What happens right after the sun heats the box full of salty water?",
           "options": [
-            {
-              "id": "A",
-              "text": "the water turns into steam and rises up toward the glass top"
-            },
-            {
-              "id": "B",
-              "text": "the water instantly disappears and leaves the box completely empty"
-            },
-            {
-              "id": "C",
-              "text": "the water freezes solid at the bottom of the box"
-            },
-            {
-              "id": "D",
-              "text": "the glass top shatters from all the built-up heat"
-            }
+            "the water turns into steam and rises up toward the glass top",
+            "the water instantly disappears and leaves the box completely empty",
+            "the water freezes solid at the bottom of the box",
+            "the glass top shatters from all the built-up heat"
           ],
           "answer": "A",
           "skill": "sequence",
@@ -389,22 +293,10 @@
         {
           "stem": "What is the main idea of this passage?",
           "options": [
-            {
-              "id": "A",
-              "text": "farmers around the world have completely stopped using fresh water on their crops"
-            },
-            {
-              "id": "B",
-              "text": "the sun is slowly losing its heat due to changes in the atmosphere"
-            },
-            {
-              "id": "C",
-              "text": "an old sun-powered method grew into a modern tool that helps dry, sunny places"
-            },
-            {
-              "id": "D",
-              "text": "scientists recently discovered a brand new ocean hidden beneath the desert sand"
-            }
+            "farmers around the world have completely stopped using fresh water on their crops",
+            "the sun is slowly losing its heat due to changes in the atmosphere",
+            "an old sun-powered method grew into a modern tool that helps dry, sunny places",
+            "scientists recently discovered a brand new ocean hidden beneath the desert sand"
           ],
           "answer": "C",
           "skill": "central idea",
@@ -418,22 +310,10 @@
         {
           "stem": "According to the passage, why can't people simply drink water straight from the sea?",
           "options": [
-            {
-              "id": "A",
-              "text": "it contains far too much salt for the body to handle"
-            },
-            {
-              "id": "B",
-              "text": "it is always too cold for the human body to drink"
-            },
-            {
-              "id": "C",
-              "text": "it contains no actual water molecules at all"
-            },
-            {
-              "id": "D",
-              "text": "it instantly freezes the moment someone tries to drink it"
-            }
+            "it contains far too much salt for the body to handle",
+            "it is always too cold for the human body to drink",
+            "it contains no actual water molecules at all",
+            "it instantly freezes the moment someone tries to drink it"
           ],
           "answer": "A",
           "skill": "detail",
@@ -447,22 +327,10 @@
         {
           "stem": "What did the water turn into after the sun heated the box?",
           "options": [
-            {
-              "id": "A",
-              "text": "solid ice that formed instantly inside the sealed box"
-            },
-            {
-              "id": "B",
-              "text": "a thick syrup that had to be poured out carefully"
-            },
-            {
-              "id": "C",
-              "text": "colorful crystals that floated on top of the water"
-            },
-            {
-              "id": "D",
-              "text": "rising steam, which later touched the cool glass and turned back into drops"
-            }
+            "solid ice that formed instantly inside the sealed box",
+            "a thick syrup that had to be poured out carefully",
+            "colorful crystals that floated on top of the water",
+            "rising steam, which later touched the cool glass and turned back into drops"
           ],
           "answer": "D",
           "skill": "detail",
@@ -476,22 +344,10 @@
         {
           "stem": "Why does touching the cool glass turn the rising steam back into drops of water with no salt in it?",
           "options": [
-            {
-              "id": "A",
-              "text": "only water rises as steam, while the heavy salt stays in the box"
-            },
-            {
-              "id": "B",
-              "text": "because cooling the steam somehow destroys the salt completely"
-            },
-            {
-              "id": "C",
-              "text": "because the steam picks up new salt from the cool glass"
-            },
-            {
-              "id": "D",
-              "text": "because the box adds extra fresh water while the steam rises"
-            }
+            "only water rises as steam, while the heavy salt stays in the box",
+            "because cooling the steam somehow destroys the salt completely",
+            "because the steam picks up new salt from the cool glass",
+            "because the box adds extra fresh water while the steam rises"
           ],
           "answer": "A",
           "skill": "inference",
@@ -505,22 +361,10 @@
         {
           "stem": "Why might this sun-powered method feel surprising to someone seeing it for the first time?",
           "options": [
-            {
-              "id": "A",
-              "text": "because the box used in the process is actually invisible to onlookers"
-            },
-            {
-              "id": "B",
-              "text": "salty water seems to become clean using only sunlight and glass"
-            },
-            {
-              "id": "C",
-              "text": "because the water genuinely disappears and never comes back at all"
-            },
-            {
-              "id": "D",
-              "text": "because the salt turns into a completely different, edible food"
-            }
+            "because the box used in the process is actually invisible to onlookers",
+            "salty water seems to become clean using only sunlight and glass",
+            "because the water genuinely disappears and never comes back at all",
+            "because the salt turns into a completely different, edible food"
           ],
           "answer": "B",
           "skill": "inference",
@@ -534,22 +378,10 @@
         {
           "stem": "In this passage, what does the word \"region\" most likely mean?",
           "options": [
-            {
-              "id": "A",
-              "text": "a particular area or part of the world"
-            },
-            {
-              "id": "B",
-              "text": "a single small building used for storing water"
-            },
-            {
-              "id": "C",
-              "text": "a type of glass used for covering boxes"
-            },
-            {
-              "id": "D",
-              "text": "a specific measurement of how salty water is"
-            }
+            "a particular area or part of the world",
+            "a single small building used for storing water",
+            "a type of glass used for covering boxes",
+            "a specific measurement of how salty water is"
           ],
           "answer": "A",
           "skill": "vocabulary",
@@ -563,22 +395,10 @@
         {
           "stem": "Why might the author have chosen to describe the simple box-and-glass method before describing the huge modern plants?",
           "options": [
-            {
-              "id": "A",
-              "text": "to prove that modern plants do not actually use the same basic idea"
-            },
-            {
-              "id": "B",
-              "text": "to argue that the box-and-glass method worked better than today's big plants"
-            },
-            {
-              "id": "C",
-              "text": "to help readers grasp the idea before seeing it grow bigger"
-            },
-            {
-              "id": "D",
-              "text": "to show that fresh water was never truly needed by anyone long ago"
-            }
+            "to prove that modern plants do not actually use the same basic idea",
+            "to argue that the box-and-glass method worked better than today's big plants",
+            "to help readers grasp the idea before seeing it grow bigger",
+            "to show that fresh water was never truly needed by anyone long ago"
           ],
           "answer": "C",
           "skill": "author's purpose",
@@ -592,22 +412,10 @@
         {
           "stem": "What is the correct order of events in how this method works?",
           "options": [
-            {
-              "id": "A",
-              "text": "the sun heats salty water, it rises as steam, then cools into fresh water"
-            },
-            {
-              "id": "B",
-              "text": "fresh water is heated first, and only then does salt get added to it"
-            },
-            {
-              "id": "C",
-              "text": "steam cools into fresh water before it is ever heated by the sun"
-            },
-            {
-              "id": "D",
-              "text": "salt is removed completely before the water is even placed in the box"
-            }
+            "the sun heats salty water, it rises as steam, then cools into fresh water",
+            "fresh water is heated first, and only then does salt get added to it",
+            "steam cools into fresh water before it is ever heated by the sun",
+            "salt is removed completely before the water is even placed in the box"
           ],
           "answer": "A",
           "skill": "sequence",
@@ -664,22 +472,10 @@
         {
           "stem": "What is the central idea connecting solar distillation and modern solar desalination plants in this passage?",
           "options": [
-            {
-              "id": "A",
-              "text": "both rely on sunlight rather than burning fuel to remove salt from seawater, though modern plants work on a far larger scale"
-            },
-            {
-              "id": "B",
-              "text": "both methods were abandoned long ago in favor of simply drinking seawater directly"
-            },
-            {
-              "id": "C",
-              "text": "both methods are used only to remove salt from freshwater lakes, never from the sea"
-            },
-            {
-              "id": "D",
-              "text": "both methods require burning large amounts of coal or oil to operate"
-            }
+            "both rely on sunlight rather than burning fuel to remove salt from seawater, though modern plants work on a far larger scale",
+            "both methods were abandoned long ago in favor of simply drinking seawater directly",
+            "both methods are used only to remove salt from freshwater lakes, never from the sea",
+            "both methods require burning large amounts of coal or oil to operate"
           ],
           "answer": "A",
           "skill": "central idea",
@@ -693,22 +489,10 @@
         {
           "stem": "According to the passage, what did the sun's heat cause inside the solar still?",
           "options": [
-            {
-              "id": "A",
-              "text": "the salty water to evaporate into vapor that later condensed as fresh water"
-            },
-            {
-              "id": "B",
-              "text": "the glass top to melt completely and fall into the water below"
-            },
-            {
-              "id": "C",
-              "text": "the salt to turn instantly into a harmless, edible powder"
-            },
-            {
-              "id": "D",
-              "text": "the seawater to freeze solid before any vapor could form"
-            }
+            "the salty water to evaporate into vapor that later condensed as fresh water",
+            "the glass top to melt completely and fall into the water below",
+            "the salt to turn instantly into a harmless, edible powder",
+            "the seawater to freeze solid before any vapor could form"
           ],
           "answer": "A",
           "skill": "detail",
@@ -722,22 +506,10 @@
         {
           "stem": "Where does the passage say Saudi Arabia and its Gulf neighbors fall in terms of sunshine and rainfall?",
           "options": [
-            {
-              "id": "A",
-              "text": "they receive both heavy rainfall and limited sunshine throughout the year"
-            },
-            {
-              "id": "B",
-              "text": "they get plenty of sunshine but very little rainfall"
-            },
-            {
-              "id": "C",
-              "text": "they receive neither meaningful sunshine nor any rainfall at all"
-            },
-            {
-              "id": "D",
-              "text": "they experience rainfall only during a short winter season each year"
-            }
+            "they receive both heavy rainfall and limited sunshine throughout the year",
+            "they get plenty of sunshine but very little rainfall",
+            "they receive neither meaningful sunshine nor any rainfall at all",
+            "they experience rainfall only during a short winter season each year"
           ],
           "answer": "B",
           "skill": "detail",
@@ -751,22 +523,10 @@
         {
           "stem": "Why does the passage point out that this approach avoids burning coal, oil, or natural gas?",
           "options": [
-            {
-              "id": "A",
-              "text": "to argue that coal, oil, and natural gas are no longer available anywhere"
-            },
-            {
-              "id": "B",
-              "text": "to suggest that older desalination methods never used any fuel at all"
-            },
-            {
-              "id": "C",
-              "text": "to prove that solar desalination cannot produce enough fresh water to matter"
-            },
-            {
-              "id": "D",
-              "text": "to highlight that solar desalination produces fresh water without releasing fuel-based pollution"
-            }
+            "to argue that coal, oil, and natural gas are no longer available anywhere",
+            "to suggest that older desalination methods never used any fuel at all",
+            "to prove that solar desalination cannot produce enough fresh water to matter",
+            "to highlight that solar desalination produces fresh water without releasing fuel-based pollution"
           ],
           "answer": "D",
           "skill": "inference",
@@ -780,22 +540,10 @@
         {
           "stem": "What can be inferred about why arid regions specifically benefit most from solar desalination plants?",
           "options": [
-            {
-              "id": "A",
-              "text": "they cannot rely on rain, so free, abundant sunshine becomes especially valuable"
-            },
-            {
-              "id": "B",
-              "text": "because arid regions are usually located far away from any ocean or sea"
-            },
-            {
-              "id": "C",
-              "text": "because arid regions already receive more fresh water than they could ever use"
-            },
-            {
-              "id": "D",
-              "text": "because arid regions have no farms and therefore need very little water"
-            }
+            "they cannot rely on rain, so free, abundant sunshine becomes especially valuable",
+            "because arid regions are usually located far away from any ocean or sea",
+            "because arid regions already receive more fresh water than they could ever use",
+            "because arid regions have no farms and therefore need very little water"
           ],
           "answer": "A",
           "skill": "inference",
@@ -809,22 +557,10 @@
         {
           "stem": "In this passage, what does the word \"arid\" most likely mean?",
           "options": [
-            {
-              "id": "A",
-              "text": "extremely dry, with very little rainfall"
-            },
-            {
-              "id": "B",
-              "text": "extremely wet, with frequent and heavy storms"
-            },
-            {
-              "id": "C",
-              "text": "located directly next to a large, calm lake"
-            },
-            {
-              "id": "D",
-              "text": "covered mostly in thick, green forest"
-            }
+            "extremely dry, with very little rainfall",
+            "extremely wet, with frequent and heavy storms",
+            "located directly next to a large, calm lake",
+            "covered mostly in thick, green forest"
           ],
           "answer": "A",
           "skill": "vocabulary",
@@ -838,22 +574,10 @@
         {
           "stem": "Why might the author have ended the passage by mentioning that engineers keep working to make solar systems more efficient?",
           "options": [
-            {
-              "id": "A",
-              "text": "to argue that solar desalination plants will soon be completely unnecessary"
-            },
-            {
-              "id": "B",
-              "text": "to prove that interest in solar desalination has actually been falling for years"
-            },
-            {
-              "id": "C",
-              "text": "to suggest solar desalination will likely stay important, or grow even more so"
-            },
-            {
-              "id": "D",
-              "text": "to suggest that rainfall in arid regions will increase significantly soon"
-            }
+            "to argue that solar desalination plants will soon be completely unnecessary",
+            "to prove that interest in solar desalination has actually been falling for years",
+            "to suggest solar desalination will likely stay important, or grow even more so",
+            "to suggest that rainfall in arid regions will increase significantly soon"
           ],
           "answer": "C",
           "skill": "author's purpose",
@@ -867,22 +591,10 @@
         {
           "stem": "What is the correct sequence of ideas presented across the passage?",
           "options": [
-            {
-              "id": "A",
-              "text": "today's large plants existed first, and the solar still was developed afterward"
-            },
-            {
-              "id": "B",
-              "text": "the problem of rainfall scarcity was solved before anyone noticed seawater was salty"
-            },
-            {
-              "id": "C",
-              "text": "modern plants existed before anyone discovered that sunlight could evaporate water"
-            },
-            {
-              "id": "D",
-              "text": "the salty seawater problem, then the solar still, then today's larger solar desalination plants"
-            }
+            "today's large plants existed first, and the solar still was developed afterward",
+            "the problem of rainfall scarcity was solved before anyone noticed seawater was salty",
+            "modern plants existed before anyone discovered that sunlight could evaporate water",
+            "the salty seawater problem, then the solar still, then today's larger solar desalination plants"
           ],
           "answer": "D",
           "skill": "sequence",
@@ -908,22 +620,10 @@
       {
         "stem": "What can you tell about people long ago from the fact that they invented this way using just a box and glass?",
         "options": [
-          {
-            "id": "A",
-            "text": "they already had machines that could make fresh water instantly"
-          },
-          {
-            "id": "B",
-            "text": "they never thought carefully about problems like having too little water"
-          },
-          {
-            "id": "C",
-            "text": "they were able to solve a hard problem using only simple, everyday materials"
-          },
-          {
-            "id": "D",
-            "text": "they decided drinking salty water was perfectly safe after all"
-          }
+          "they already had machines that could make fresh water instantly",
+          "they never thought carefully about problems like having too little water",
+          "they were able to solve a hard problem using only simple, everyday materials",
+          "they decided drinking salty water was perfectly safe after all"
         ],
         "answer": "C",
         "skill": "inference",
@@ -937,22 +637,10 @@
       {
         "stem": "Why might the author mention that huge plants use sun panels on a much bigger scale today?",
         "options": [
-          {
-            "id": "A",
-            "text": "to prove that the old box-and-glass way no longer works at all"
-          },
-          {
-            "id": "B",
-            "text": "to argue that big plants have nothing to do with the old way"
-          },
-          {
-            "id": "C",
-            "text": "to suggest that fresh water is no longer needed by anyone today"
-          },
-          {
-            "id": "D",
-            "text": "to show how a simple old idea grew into something that helps many people now"
-          }
+          "to prove that the old box-and-glass way no longer works at all",
+          "to argue that big plants have nothing to do with the old way",
+          "to suggest that fresh water is no longer needed by anyone today",
+          "to show how a simple old idea grew into something that helps many people now"
         ],
         "answer": "D",
         "skill": "author's purpose",
@@ -966,22 +654,10 @@
       {
         "stem": "Based on the passage, what would likely happen if a sunny place had no plants that made fresh water this way?",
         "options": [
-          {
-            "id": "A",
-            "text": "it would get much more rain than it currently gets each year"
-          },
-          {
-            "id": "B",
-            "text": "it would probably struggle to get enough fresh water for its people"
-          },
-          {
-            "id": "C",
-            "text": "it would no longer have any sunlight at all"
-          },
-          {
-            "id": "D",
-            "text": "its farms would need less water than they need right now"
-          }
+          "it would get much more rain than it currently gets each year",
+          "it would probably struggle to get enough fresh water for its people",
+          "it would no longer have any sunlight at all",
+          "its farms would need less water than they need right now"
         ],
         "answer": "B",
         "skill": "cause-effect",
@@ -995,22 +671,10 @@
       {
         "stem": "What is most likely the reason the author describes fresh water as something people's lives depend on?",
         "options": [
-          {
-            "id": "A",
-            "text": "because people and farms cannot survive without it"
-          },
-          {
-            "id": "B",
-            "text": "because fresh water is simply more fun to drink than sea water"
-          },
-          {
-            "id": "C",
-            "text": "because fresh water costs less money than sea water does"
-          },
-          {
-            "id": "D",
-            "text": "because fresh water is only used for washing clothes"
-          }
+          "because people and farms cannot survive without it",
+          "because fresh water is simply more fun to drink than sea water",
+          "because fresh water costs less money than sea water does",
+          "because fresh water is only used for washing clothes"
         ],
         "answer": "A",
         "skill": "inference",
@@ -1026,22 +690,10 @@
       {
         "stem": "What can you infer about why early people were able to invent this method using only a box and glass?",
         "options": [
-          {
-            "id": "A",
-            "text": "the sun's heat and basic glass are enough, without needing any complicated tools or fuel"
-          },
-          {
-            "id": "B",
-            "text": "they actually had access to advanced machines that we no longer use today"
-          },
-          {
-            "id": "C",
-            "text": "the method only works when expensive scientific equipment is available"
-          },
-          {
-            "id": "D",
-            "text": "they accidentally discovered it without understanding how or why it worked"
-          }
+          "the sun's heat and basic glass are enough, without needing any complicated tools or fuel",
+          "they actually had access to advanced machines that we no longer use today",
+          "the method only works when expensive scientific equipment is available",
+          "they accidentally discovered it without understanding how or why it worked"
         ],
         "answer": "A",
         "skill": "inference",
@@ -1055,22 +707,10 @@
       {
         "stem": "Why does the passage emphasize that big plants now make fresh water \"around the clock\"?",
         "options": [
-          {
-            "id": "A",
-            "text": "to suggest that the plants only operate for a single hour each day"
-          },
-          {
-            "id": "B",
-            "text": "to show that these plants work nonstop, producing far more fresh water than the old box ever could"
-          },
-          {
-            "id": "C",
-            "text": "to argue that clocks are now a required part of the solar process"
-          },
-          {
-            "id": "D",
-            "text": "to prove that the plants work more slowly than the original box method"
-          }
+          "to suggest that the plants only operate for a single hour each day",
+          "to show that these plants work nonstop, producing far more fresh water than the old box ever could",
+          "to argue that clocks are now a required part of the solar process",
+          "to prove that the plants work more slowly than the original box method"
         ],
         "answer": "B",
         "skill": "author's purpose",
@@ -1084,22 +724,10 @@
       {
         "stem": "Based on the passage, what would most likely happen if a sunny, dry region stopped using sun-powered plants?",
         "options": [
-          {
-            "id": "A",
-            "text": "its rainfall would automatically increase to make up the difference"
-          },
-          {
-            "id": "B",
-            "text": "its farms would need noticeably less water than they currently use"
-          },
-          {
-            "id": "C",
-            "text": "its location would shift farther away from the coastline"
-          },
-          {
-            "id": "D",
-            "text": "its people would likely face a serious shortage of fresh water for drinking and farming"
-          }
+          "its rainfall would automatically increase to make up the difference",
+          "its farms would need noticeably less water than they currently use",
+          "its location would shift farther away from the coastline",
+          "its people would likely face a serious shortage of fresh water for drinking and farming"
         ],
         "answer": "D",
         "skill": "cause-effect",
@@ -1113,22 +741,10 @@
       {
         "stem": "How does the passage's structure help readers understand why this invention matters?",
         "options": [
-          {
-            "id": "A",
-            "text": "it moves from explaining the basic problem, to the old solution, to how that solution grew into something used today"
-          },
-          {
-            "id": "B",
-            "text": "it lists several unrelated inventions with no connection between them"
-          },
-          {
-            "id": "C",
-            "text": "it focuses only on farming methods and never mentions water at all"
-          },
-          {
-            "id": "D",
-            "text": "it compares different deserts around the world in great detail"
-          }
+          "it moves from explaining the basic problem, to the old solution, to how that solution grew into something used today",
+          "it lists several unrelated inventions with no connection between them",
+          "it focuses only on farming methods and never mentions water at all",
+          "it compares different deserts around the world in great detail"
         ],
         "answer": "A",
         "skill": "text structure",
@@ -1144,22 +760,10 @@
       {
         "stem": "What can you infer about the relationship between abundant natural resources and invention from this passage?",
         "options": [
-          {
-            "id": "A",
-            "text": "inventions like solar desalination usually appear even when no useful resource exists nearby"
-          },
-          {
-            "id": "B",
-            "text": "abundant resources rarely lead to any useful inventions in the real world"
-          },
-          {
-            "id": "C",
-            "text": "an abundant free resource, like constant sunshine, can inspire people to invent ways of putting it to practical use"
-          },
-          {
-            "id": "D",
-            "text": "solar desalination was invented purely by accident, without any understanding of sunlight"
-          }
+          "inventions like solar desalination usually appear even when no useful resource exists nearby",
+          "abundant resources rarely lead to any useful inventions in the real world",
+          "an abundant free resource, like constant sunshine, can inspire people to invent ways of putting it to practical use",
+          "solar desalination was invented purely by accident, without any understanding of sunlight"
         ],
         "answer": "C",
         "skill": "inference",
@@ -1173,22 +777,10 @@
       {
         "stem": "Why might the author have chosen to explain both the simple solar still and large modern plants rather than just one?",
         "options": [
-          {
-            "id": "A",
-            "text": "to prove that the solar still and modern plants are actually the exact same thing"
-          },
-          {
-            "id": "B",
-            "text": "to show how understanding of solar desalination advanced over time, from a simple idea to a more complex one"
-          },
-          {
-            "id": "C",
-            "text": "to argue that neither approach has ever worked well enough to be useful"
-          },
-          {
-            "id": "D",
-            "text": "to suggest that only one of the two approaches is mentioned anywhere today"
-          }
+          "to prove that the solar still and modern plants are actually the exact same thing",
+          "to show how understanding of solar desalination advanced over time, from a simple idea to a more complex one",
+          "to argue that neither approach has ever worked well enough to be useful",
+          "to suggest that only one of the two approaches is mentioned anywhere today"
         ],
         "answer": "B",
         "skill": "author's purpose",
@@ -1202,22 +794,10 @@
       {
         "stem": "Based on the passage, what would most likely happen to Saudi Arabia and its Gulf neighbors without solar desalination technology?",
         "options": [
-          {
-            "id": "A",
-            "text": "fresh water would likely become even scarcer, since rainfall alone cannot meet the region's needs"
-          },
-          {
-            "id": "B",
-            "text": "rainfall patterns in the region would shift to provide more water naturally"
-          },
-          {
-            "id": "C",
-            "text": "the region's farms would require significantly less water than before"
-          },
-          {
-            "id": "D",
-            "text": "the region's sunshine would decrease as a direct result"
-          }
+          "fresh water would likely become even scarcer, since rainfall alone cannot meet the region's needs",
+          "rainfall patterns in the region would shift to provide more water naturally",
+          "the region's farms would require significantly less water than before",
+          "the region's sunshine would decrease as a direct result"
         ],
         "answer": "A",
         "skill": "cause-effect",
@@ -1231,22 +811,10 @@
       {
         "stem": "How does the passage's overall structure support its point about continuing demand for fresh water?",
         "options": [
-          {
-            "id": "A",
-            "text": "it builds from an old, simple solution to an advanced modern one, ending on the idea that engineers keep improving it further"
-          },
-          {
-            "id": "B",
-            "text": "it begins with modern demand and works backward with no clear connection to earlier methods"
-          },
-          {
-            "id": "C",
-            "text": "it repeats the same single idea in each paragraph without building toward anything new"
-          },
-          {
-            "id": "D",
-            "text": "it focuses entirely on rainfall patterns and never addresses human invention at all"
-          }
+          "it builds from an old, simple solution to an advanced modern one, ending on the idea that engineers keep improving it further",
+          "it begins with modern demand and works backward with no clear connection to earlier methods",
+          "it repeats the same single idea in each paragraph without building toward anything new",
+          "it focuses entirely on rainfall patterns and never addresses human invention at all"
         ],
         "answer": "A",
         "skill": "text structure",

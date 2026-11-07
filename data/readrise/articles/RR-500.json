@@ -114,22 +114,10 @@
         {
           "stem": "What is this passage mostly about?",
           "options": [
-            {
-              "id": "A",
-              "text": "a small flying machine with no pilot that a person flies from the ground"
-            },
-            {
-              "id": "B",
-              "text": "a big plane that carries many people"
-            },
-            {
-              "id": "C",
-              "text": "a man who fixes planes for a living"
-            },
-            {
-              "id": "D",
-              "text": "a toy that cannot fly at all"
-            }
+            "a small flying machine with no pilot that a person flies from the ground",
+            "a big plane that carries many people",
+            "a man who fixes planes for a living",
+            "a toy that cannot fly at all"
           ],
           "answer": "A",
           "skill": "central-idea",
@@ -143,22 +131,10 @@
         {
           "stem": "According to the passage, how does a person fly a drone?",
           "options": [
-            {
-              "id": "A",
-              "text": "by riding inside the drone itself"
-            },
-            {
-              "id": "B",
-              "text": "from the ground, using a small control"
-            },
-            {
-              "id": "C",
-              "text": "by shouting loud commands at it"
-            },
-            {
-              "id": "D",
-              "text": "by pushing it into the air with their hands"
-            }
+            "by riding inside the drone itself",
+            "from the ground, using a small control",
+            "by shouting loud commands at it",
+            "by pushing it into the air with their hands"
           ],
           "answer": "B",
           "skill": "detail",
@@ -172,22 +148,10 @@
         {
           "stem": "What happened to many early drones, according to the passage?",
           "options": [
-            {
-              "id": "A",
-              "text": "they flew higher than any plane ever has"
-            },
-            {
-              "id": "B",
-              "text": "they turned into big airplanes over time"
-            },
-            {
-              "id": "C",
-              "text": "they stopped needing any control at all"
-            },
-            {
-              "id": "D",
-              "text": "they often crashed back down to the ground"
-            }
+            "they flew higher than any plane ever has",
+            "they turned into big airplanes over time",
+            "they stopped needing any control at all",
+            "they often crashed back down to the ground"
           ],
           "answer": "D",
           "skill": "detail",
@@ -201,22 +165,10 @@
         {
           "stem": "Why did people need a pilot inside a plane long ago, based on the passage?",
           "options": [
-            {
-              "id": "A",
-              "text": "because that was the only known way to steer a plane through the sky"
-            },
-            {
-              "id": "B",
-              "text": "because planes could not fly without extra weight inside"
-            },
-            {
-              "id": "C",
-              "text": "because pilots were required to fix the plane's engine"
-            },
-            {
-              "id": "D",
-              "text": "because no one had yet thought of flying at all"
-            }
+            "because that was the only known way to steer a plane through the sky",
+            "because planes could not fly without extra weight inside",
+            "because pilots were required to fix the plane's engine",
+            "because no one had yet thought of flying at all"
           ],
           "answer": "A",
           "skill": "inference",
@@ -230,22 +182,10 @@
         {
           "stem": "Why does the passage say early drones crashing still 'showed the idea could work'?",
           "options": [
-            {
-              "id": "A",
-              "text": "because even though they crashed, they proved a person could fly a machine from the ground"
-            },
-            {
-              "id": "B",
-              "text": "because crashing proved that drones should never be built"
-            },
-            {
-              "id": "C",
-              "text": "because crashing meant the idea was a total waste of time"
-            },
-            {
-              "id": "D",
-              "text": "because crashing showed that pilots were not needed at all before this"
-            }
+            "because even though they crashed, they proved a person could fly a machine from the ground",
+            "because crashing proved that drones should never be built",
+            "because crashing meant the idea was a total waste of time",
+            "because crashing showed that pilots were not needed at all before this"
           ],
           "answer": "A",
           "skill": "inference",
@@ -259,22 +199,10 @@
         {
           "stem": "What does the word 'control' mean in this passage?",
           "options": [
-            {
-              "id": "A",
-              "text": "a small device used to make a drone fly and move"
-            },
-            {
-              "id": "B",
-              "text": "a loud sound a drone makes while flying"
-            },
-            {
-              "id": "C",
-              "text": "a type of fuel used to power a drone"
-            },
-            {
-              "id": "D",
-              "text": "a place where drones are built and tested"
-            }
+            "a small device used to make a drone fly and move",
+            "a loud sound a drone makes while flying",
+            "a type of fuel used to power a drone",
+            "a place where drones are built and tested"
           ],
           "answer": "A",
           "skill": "vocabulary",
@@ -288,22 +216,10 @@
         {
           "stem": "How does the passage mostly tell about drones, from start to end?",
           "options": [
-            {
-              "id": "A",
-              "text": "it only compares the price of drones in different stores"
-            },
-            {
-              "id": "B",
-              "text": "it only argues that drones should be banned everywhere"
-            },
-            {
-              "id": "C",
-              "text": "it tells what a drone is, then the past with only big planes, then the first drones, then jobs drones do now"
-            },
-            {
-              "id": "D",
-              "text": "it only lists steps for building a plane from scratch"
-            }
+            "it only compares the price of drones in different stores",
+            "it only argues that drones should be banned everywhere",
+            "it tells what a drone is, then the past with only big planes, then the first drones, then jobs drones do now",
+            "it only lists steps for building a plane from scratch"
           ],
           "answer": "C",
           "skill": "text-structure",
@@ -317,22 +233,10 @@
         {
           "stem": "What happens after a drone leaves the ground, according to the passage?",
           "options": [
-            {
-              "id": "A",
-              "text": "a person flies it through the air using a control"
-            },
-            {
-              "id": "B",
-              "text": "it returns to the ground right away on its own"
-            },
-            {
-              "id": "C",
-              "text": "it stops working until someone fixes it"
-            },
-            {
-              "id": "D",
-              "text": "it turns into a different kind of machine"
-            }
+            "a person flies it through the air using a control",
+            "it returns to the ground right away on its own",
+            "it stops working until someone fixes it",
+            "it turns into a different kind of machine"
           ],
           "answer": "A",
           "skill": "sequence",
@@ -389,22 +293,10 @@
         {
           "stem": "What is the central idea of this passage?",
           "options": [
-            {
-              "id": "A",
-              "text": "drones now perform many helpful jobs"
-            },
-            {
-              "id": "B",
-              "text": "airplanes stopped being used once drones were invented"
-            },
-            {
-              "id": "C",
-              "text": "drones can only be flown by military pilots today"
-            },
-            {
-              "id": "D",
-              "text": "every early drone flew perfectly on its very first flight"
-            }
+            "drones now perform many helpful jobs",
+            "airplanes stopped being used once drones were invented",
+            "drones can only be flown by military pilots today",
+            "every early drone flew perfectly on its very first flight"
           ],
           "answer": "A",
           "skill": "central-idea",
@@ -418,22 +310,10 @@
         {
           "stem": "According to the passage, what controls a drone instead of a pilot sitting inside it?",
           "options": [
-            {
-              "id": "A",
-              "text": "a second drone flying alongside it"
-            },
-            {
-              "id": "B",
-              "text": "a person on the ground, using a remote control"
-            },
-            {
-              "id": "C",
-              "text": "a computer built inside the airport"
-            },
-            {
-              "id": "D",
-              "text": "another passenger riding in a nearby plane"
-            }
+            "a second drone flying alongside it",
+            "a person on the ground, using a remote control",
+            "a computer built inside the airport",
+            "another passenger riding in a nearby plane"
           ],
           "answer": "B",
           "skill": "detail",
@@ -447,22 +327,10 @@
         {
           "stem": "Based on the passage, why did people long believe flying required a pilot seated inside the aircraft?",
           "options": [
-            {
-              "id": "A",
-              "text": "because for many years, there was no other way for anyone to get into the air"
-            },
-            {
-              "id": "B",
-              "text": "because laws required a pilot to be present at all times"
-            },
-            {
-              "id": "C",
-              "text": "because engines could not work unless a pilot sat near them"
-            },
-            {
-              "id": "D",
-              "text": "because passengers refused to fly without seeing a pilot"
-            }
+            "because for many years, there was no other way for anyone to get into the air",
+            "because laws required a pilot to be present at all times",
+            "because engines could not work unless a pilot sat near them",
+            "because passengers refused to fly without seeing a pilot"
           ],
           "answer": "A",
           "skill": "detail",
@@ -476,22 +344,10 @@
         {
           "stem": "Why does the passage note that early drones often crashed before running out of power?",
           "options": [
-            {
-              "id": "A",
-              "text": "to prove that drones were a complete waste of effort"
-            },
-            {
-              "id": "B",
-              "text": "to suggest that crashing was actually the intended design"
-            },
-            {
-              "id": "C",
-              "text": "to show how limited and unreliable this technology still was at first"
-            },
-            {
-              "id": "D",
-              "text": "to argue that pilots should have flown these machines instead"
-            }
+            "to prove that drones were a complete waste of effort",
+            "to suggest that crashing was actually the intended design",
+            "to show how limited and unreliable this technology still was at first",
+            "to argue that pilots should have flown these machines instead"
           ],
           "answer": "C",
           "skill": "inference",
@@ -505,22 +361,10 @@
         {
           "stem": "What can you infer about why drones today are used for jobs like inspecting crops and delivering packages?",
           "options": [
-            {
-              "id": "A",
-              "text": "farmers and companies are legally required to use drones for everything"
-            },
-            {
-              "id": "B",
-              "text": "drones have become too unreliable for any other kind of use"
-            },
-            {
-              "id": "C",
-              "text": "no human workers are willing to do these jobs anymore"
-            },
-            {
-              "id": "D",
-              "text": "people have found that drones can safely and efficiently do jobs once difficult for humans alone"
-            }
+            "farmers and companies are legally required to use drones for everything",
+            "drones have become too unreliable for any other kind of use",
+            "no human workers are willing to do these jobs anymore",
+            "people have found that drones can safely and efficiently do jobs once difficult for humans alone"
           ],
           "answer": "D",
           "skill": "inference",
@@ -534,22 +378,10 @@
         {
           "stem": "What does the word 'airborne' mean as it is used in this passage?",
           "options": [
-            {
-              "id": "A",
-              "text": "in the air, flying"
-            },
-            {
-              "id": "B",
-              "text": "completely out of battery power"
-            },
-            {
-              "id": "C",
-              "text": "attached firmly to the ground"
-            },
-            {
-              "id": "D",
-              "text": "ready to be sold in a store"
-            }
+            "in the air, flying",
+            "completely out of battery power",
+            "attached firmly to the ground",
+            "ready to be sold in a store"
           ],
           "answer": "A",
           "skill": "vocabulary",
@@ -563,22 +395,10 @@
         {
           "stem": "How is this passage mostly organized?",
           "options": [
-            {
-              "id": "A",
-              "text": "it compares the cost of drones across many different countries"
-            },
-            {
-              "id": "B",
-              "text": "it explains what a drone is, then its invention, then its uses today"
-            },
-            {
-              "id": "C",
-              "text": "it argues that airplanes should be replaced by drones entirely"
-            },
-            {
-              "id": "D",
-              "text": "it gives step-by-step instructions for flying a drone safely"
-            }
+            "it compares the cost of drones across many different countries",
+            "it explains what a drone is, then its invention, then its uses today",
+            "it argues that airplanes should be replaced by drones entirely",
+            "it gives step-by-step instructions for flying a drone safely"
           ],
           "answer": "B",
           "skill": "text-structure",
@@ -592,22 +412,10 @@
         {
           "stem": "What happened to drones as battery technology, cameras, and radio controls improved, according to the passage?",
           "options": [
-            {
-              "id": "A",
-              "text": "drones became more reliable and capable of performing more varied tasks"
-            },
-            {
-              "id": "B",
-              "text": "drones completely stopped being manufactured by companies"
-            },
-            {
-              "id": "C",
-              "text": "drones became far too expensive for ordinary people to buy"
-            },
-            {
-              "id": "D",
-              "text": "drones lost the ability to be controlled from the ground"
-            }
+            "drones became more reliable and capable of performing more varied tasks",
+            "drones completely stopped being manufactured by companies",
+            "drones became far too expensive for ordinary people to buy",
+            "drones lost the ability to be controlled from the ground"
           ],
           "answer": "A",
           "skill": "cause-effect",
@@ -664,22 +472,10 @@
         {
           "stem": "What is the central idea of this passage?",
           "options": [
-            {
-              "id": "A",
-              "text": "drones evolved from crude military scouts into versatile tools used in countless ways"
-            },
-            {
-              "id": "B",
-              "text": "drones have remained exclusively military tools since their invention"
-            },
-            {
-              "id": "C",
-              "text": "drone technology has not changed meaningfully since the twentieth century"
-            },
-            {
-              "id": "D",
-              "text": "every country in the world currently bans the private ownership of drones"
-            }
+            "drones evolved from crude military scouts into versatile tools used in countless ways",
+            "drones have remained exclusively military tools since their invention",
+            "drone technology has not changed meaningfully since the twentieth century",
+            "every country in the world currently bans the private ownership of drones"
           ],
           "answer": "A",
           "skill": "central-idea",
@@ -693,22 +489,10 @@
         {
           "stem": "According to the passage, what is the formal name for a drone?",
           "options": [
-            {
-              "id": "A",
-              "text": "a remote-operated flying apparatus"
-            },
-            {
-              "id": "B",
-              "text": "an unmanned aerial vehicle"
-            },
-            {
-              "id": "C",
-              "text": "a self-piloting aircraft system"
-            },
-            {
-              "id": "D",
-              "text": "a ground-controlled aviation unit"
-            }
+            "a remote-operated flying apparatus",
+            "an unmanned aerial vehicle",
+            "a self-piloting aircraft system",
+            "a ground-controlled aviation unit"
           ],
           "answer": "B",
           "skill": "detail",
@@ -722,22 +506,10 @@
         {
           "stem": "Based on the passage, what were early military drones mainly used for?",
           "options": [
-            {
-              "id": "A",
-              "text": "long-distance passenger transportation"
-            },
-            {
-              "id": "B",
-              "text": "delivering packages to city residents"
-            },
-            {
-              "id": "C",
-              "text": "scouting and target practice"
-            },
-            {
-              "id": "D",
-              "text": "capturing footage for major motion pictures"
-            }
+            "long-distance passenger transportation",
+            "delivering packages to city residents",
+            "scouting and target practice",
+            "capturing footage for major motion pictures"
           ],
           "answer": "C",
           "skill": "detail",
@@ -751,22 +523,10 @@
         {
           "stem": "What can you infer about why drones became widely available to ordinary consumers by the early twenty-first century?",
           "options": [
-            {
-              "id": "A",
-              "text": "military organizations likely stopped using drones for any purpose"
-            },
-            {
-              "id": "B",
-              "text": "governments likely required every household to purchase one drone"
-            },
-            {
-              "id": "C",
-              "text": "helicopters likely became completely unavailable for photography work"
-            },
-            {
-              "id": "D",
-              "text": "improving technology likely made drones smaller and more affordable"
-            }
+            "military organizations likely stopped using drones for any purpose",
+            "governments likely required every household to purchase one drone",
+            "helicopters likely became completely unavailable for photography work",
+            "improving technology likely made drones smaller and more affordable"
           ],
           "answer": "D",
           "skill": "inference",
@@ -780,22 +540,10 @@
         {
           "stem": "What is most likely the reason the passage states that drones now inspect bridges and power lines, jobs once dangerous for human workers?",
           "options": [
-            {
-              "id": "A",
-              "text": "because human workers refused to perform these jobs under any condition"
-            },
-            {
-              "id": "B",
-              "text": "because these particular jobs no longer need to be done at all"
-            },
-            {
-              "id": "C",
-              "text": "because drones can safely reach dangerous places without risking a worker's life"
-            },
-            {
-              "id": "D",
-              "text": "because drones are required by law to replace all human inspectors"
-            }
+            "because human workers refused to perform these jobs under any condition",
+            "because these particular jobs no longer need to be done at all",
+            "because drones can safely reach dangerous places without risking a worker's life",
+            "because drones are required by law to replace all human inspectors"
           ],
           "answer": "C",
           "skill": "inference",
@@ -809,22 +557,10 @@
         {
           "stem": "What does the word 'versatile' mean as it is used in this passage?",
           "options": [
-            {
-              "id": "A",
-              "text": "able to be used for many different purposes"
-            },
-            {
-              "id": "B",
-              "text": "extremely expensive to purchase or maintain"
-            },
-            {
-              "id": "C",
-              "text": "limited to use by trained military personnel only"
-            },
-            {
-              "id": "D",
-              "text": "designed to fly at only one fixed altitude"
-            }
+            "able to be used for many different purposes",
+            "extremely expensive to purchase or maintain",
+            "limited to use by trained military personnel only",
+            "designed to fly at only one fixed altitude"
           ],
           "answer": "A",
           "skill": "vocabulary",
@@ -838,22 +574,10 @@
         {
           "stem": "How does the passage's structure help explain drones' growing importance in modern life?",
           "options": [
-            {
-              "id": "A",
-              "text": "it presents two opposing debates about whether drones should exist"
-            },
-            {
-              "id": "B",
-              "text": "it offers a step-by-step guide for assembling a drone at home"
-            },
-            {
-              "id": "C",
-              "text": "it ranks several countries by how many drones each one owns"
-            },
-            {
-              "id": "D",
-              "text": "it moves from drones' military origins to their many civilian uses today"
-            }
+            "it presents two opposing debates about whether drones should exist",
+            "it offers a step-by-step guide for assembling a drone at home",
+            "it ranks several countries by how many drones each one owns",
+            "it moves from drones' military origins to their many civilian uses today"
           ],
           "answer": "D",
           "skill": "text-structure",
@@ -867,22 +591,10 @@
         {
           "stem": "According to the passage, what is a likely reason many countries now require drone owners to register larger drones?",
           "options": [
-            {
-              "id": "A",
-              "text": "to help protect airplanes, safeguard privacy, and prevent accidents"
-            },
-            {
-              "id": "B",
-              "text": "to prevent any further improvements to drone technology"
-            },
-            {
-              "id": "C",
-              "text": "to ensure that only military organizations may legally own drones"
-            },
-            {
-              "id": "D",
-              "text": "to raise money exclusively for building new airports"
-            }
+            "to help protect airplanes, safeguard privacy, and prevent accidents",
+            "to prevent any further improvements to drone technology",
+            "to ensure that only military organizations may legally own drones",
+            "to raise money exclusively for building new airports"
           ],
           "answer": "A",
           "skill": "cause-effect",
@@ -908,22 +620,10 @@
       {
         "stem": "What would most likely happen if makers had never built a drone with no pilot seat?",
         "options": [
-          {
-            "id": "A",
-            "text": "pilots might still fly every machine today"
-          },
-          {
-            "id": "B",
-            "text": "planes would have stopped flying completely"
-          },
-          {
-            "id": "C",
-            "text": "people would have stopped building toys forever"
-          },
-          {
-            "id": "D",
-            "text": "the sky would belong only to birds today"
-          }
+          "pilots might still fly every machine today",
+          "planes would have stopped flying completely",
+          "people would have stopped building toys forever",
+          "the sky would belong only to birds today"
         ],
         "answer": "A",
         "skill": "inference",
@@ -937,22 +637,10 @@
       {
         "stem": "Why did the passage mention that this idea 'was new' when makers first built a drone?",
         "options": [
-          {
-            "id": "A",
-            "text": "to prove that the idea broke an important rule"
-          },
-          {
-            "id": "B",
-            "text": "to argue that the maker copied an old plane design"
-          },
-          {
-            "id": "C",
-            "text": "to show this flying idea had never been tried before"
-          },
-          {
-            "id": "D",
-            "text": "to show that drones were actually built very long ago"
-          }
+          "to prove that the idea broke an important rule",
+          "to argue that the maker copied an old plane design",
+          "to show this flying idea had never been tried before",
+          "to show that drones were actually built very long ago"
         ],
         "answer": "C",
         "skill": "inference",
@@ -966,22 +654,10 @@
       {
         "stem": "How are the first drones and the drones used today similar, according to the passage?",
         "options": [
-          {
-            "id": "A",
-            "text": "both can stay in the air for many hours without stopping"
-          },
-          {
-            "id": "B",
-            "text": "both are flown by a person on the ground"
-          },
-          {
-            "id": "C",
-            "text": "both were built by the exact same maker"
-          },
-          {
-            "id": "D",
-            "text": "both were sold in stores during the exact same year"
-          }
+          "both can stay in the air for many hours without stopping",
+          "both are flown by a person on the ground",
+          "both were built by the exact same maker",
+          "both were sold in stores during the exact same year"
         ],
         "answer": "B",
         "skill": "compare",
@@ -995,22 +671,10 @@
       {
         "stem": "What is the best reason the passage gives for saying drones 'opened up the sky to all of us'?",
         "options": [
-          {
-            "id": "A",
-            "text": "because drones became completely free for everyone to own"
-          },
-          {
-            "id": "B",
-            "text": "because drones can only be flown by trained pilots now"
-          },
-          {
-            "id": "C",
-            "text": "because drones stopped needing any kind of control"
-          },
-          {
-            "id": "D",
-            "text": "because many now use drones for photos and deliveries"
-          }
+          "because drones became completely free for everyone to own",
+          "because drones can only be flown by trained pilots now",
+          "because drones stopped needing any kind of control",
+          "because many now use drones for photos and deliveries"
         ],
         "answer": "D",
         "skill": "inference",
@@ -1026,22 +690,10 @@
       {
         "stem": "What would most likely be true today if drones had never advanced beyond their early, unreliable versions?",
         "options": [
-          {
-            "id": "A",
-            "text": "farmers, delivery companies, and rescue teams would likely still rely mainly on older methods"
-          },
-          {
-            "id": "B",
-            "text": "airplanes would have become completely unnecessary for travel"
-          },
-          {
-            "id": "C",
-            "text": "photography would have disappeared as a popular hobby entirely"
-          },
-          {
-            "id": "D",
-            "text": "people would have stopped exploring remote wilderness areas forever"
-          }
+          "farmers, delivery companies, and rescue teams would likely still rely mainly on older methods",
+          "airplanes would have become completely unnecessary for travel",
+          "photography would have disappeared as a popular hobby entirely",
+          "people would have stopped exploring remote wilderness areas forever"
         ],
         "answer": "A",
         "skill": "inference",
@@ -1055,22 +707,10 @@
       {
         "stem": "Why might the passage describe early drones as 'crude military scouts' compared to today's versatile tools?",
         "options": [
-          {
-            "id": "A",
-            "text": "to highlight just how far drone technology has advanced since its earliest limited uses"
-          },
-          {
-            "id": "B",
-            "text": "to suggest that today's drones are still used only by the military"
-          },
-          {
-            "id": "C",
-            "text": "to argue that military scouts were never actually useful machines"
-          },
-          {
-            "id": "D",
-            "text": "to prove that drones have not changed meaningfully since their invention"
-          }
+          "to highlight just how far drone technology has advanced since its earliest limited uses",
+          "to suggest that today's drones are still used only by the military",
+          "to argue that military scouts were never actually useful machines",
+          "to prove that drones have not changed meaningfully since their invention"
         ],
         "answer": "A",
         "skill": "inference",
@@ -1084,22 +724,10 @@
       {
         "stem": "How are early military drones and today's hobbyist drones similar, based on the passage?",
         "options": [
-          {
-            "id": "A",
-            "text": "both were released for sale in the exact same calendar year"
-          },
-          {
-            "id": "B",
-            "text": "both are aircraft controlled from the ground rather than by a pilot inside"
-          },
-          {
-            "id": "C",
-            "text": "both can only be used for scouting and target practice"
-          },
-          {
-            "id": "D",
-            "text": "both require an expensive helicopter crew to operate properly"
-          }
+          "both were released for sale in the exact same calendar year",
+          "both are aircraft controlled from the ground rather than by a pilot inside",
+          "both can only be used for scouting and target practice",
+          "both require an expensive helicopter crew to operate properly"
         ],
         "answer": "B",
         "skill": "compare",
@@ -1113,22 +741,10 @@
       {
         "stem": "What is most likely the reason the passage explains both drones' invention and their modern uses?",
         "options": [
-          {
-            "id": "A",
-            "text": "to prove that military inventions are always more important than civilian ones"
-          },
-          {
-            "id": "B",
-            "text": "to argue that drones should replace all other flying machines soon"
-          },
-          {
-            "id": "C",
-            "text": "to help readers understand how a once-crude military tool grew into something widely useful"
-          },
-          {
-            "id": "D",
-            "text": "to suggest that drone technology stopped improving after its invention"
-          }
+          "to prove that military inventions are always more important than civilian ones",
+          "to argue that drones should replace all other flying machines soon",
+          "to help readers understand how a once-crude military tool grew into something widely useful",
+          "to suggest that drone technology stopped improving after its invention"
         ],
         "answer": "C",
         "skill": "cause-effect",
@@ -1144,22 +760,10 @@
       {
         "stem": "What would most likely have happened if early military drones had never proven reliable enough to improve?",
         "options": [
-          {
-            "id": "A",
-            "text": "many civilian drone uses described in the passage might never have developed"
-          },
-          {
-            "id": "B",
-            "text": "airplanes would have been grounded permanently as a result"
-          },
-          {
-            "id": "C",
-            "text": "hobbyist drone racing would have become far more popular instead"
-          },
-          {
-            "id": "D",
-            "text": "farmers would have abandoned crop inspection entirely as a practice"
-          }
+          "many civilian drone uses described in the passage might never have developed",
+          "airplanes would have been grounded permanently as a result",
+          "hobbyist drone racing would have become far more popular instead",
+          "farmers would have abandoned crop inspection entirely as a practice"
         ],
         "answer": "A",
         "skill": "inference",
@@ -1173,22 +777,10 @@
       {
         "stem": "Why might the passage specifically mention both bridge inspection and competitive drone racing as modern uses?",
         "options": [
-          {
-            "id": "A",
-            "text": "to suggest that bridge inspection and racing require identical drone models"
-          },
-          {
-            "id": "B",
-            "text": "to show the surprising range of drone uses, from practical safety work to recreational sport"
-          },
-          {
-            "id": "C",
-            "text": "to argue that recreational uses are more important than practical ones"
-          },
-          {
-            "id": "D",
-            "text": "to prove that drones are now too dangerous for any serious practical use"
-          }
+          "to suggest that bridge inspection and racing require identical drone models",
+          "to show the surprising range of drone uses, from practical safety work to recreational sport",
+          "to argue that recreational uses are more important than practical ones",
+          "to prove that drones are now too dangerous for any serious practical use"
         ],
         "answer": "B",
         "skill": "inference",
@@ -1202,22 +794,10 @@
       {
         "stem": "How do early military scouting drones compare with today's camera-equipped hobbyist drones, based on the passage?",
         "options": [
-          {
-            "id": "A",
-            "text": "both were manufactured by the exact same company"
-          },
-          {
-            "id": "B",
-            "text": "both are legally restricted to military use only"
-          },
-          {
-            "id": "C",
-            "text": "both are unpiloted aircraft controlled from the ground"
-          },
-          {
-            "id": "D",
-            "text": "both were introduced to the public in the exact same decade"
-          }
+          "both were manufactured by the exact same company",
+          "both are legally restricted to military use only",
+          "both are unpiloted aircraft controlled from the ground",
+          "both were introduced to the public in the exact same decade"
         ],
         "answer": "C",
         "skill": "compare",
@@ -1231,22 +811,10 @@
       {
         "stem": "What is most likely the author's purpose in writing this passage?",
         "options": [
-          {
-            "id": "A",
-            "text": "to explain how drones evolved from a crude military invention into an essential modern technology"
-          },
-          {
-            "id": "B",
-            "text": "to convince readers that drones pose far more danger than benefit to society"
-          },
-          {
-            "id": "C",
-            "text": "to argue that military organizations deserve no credit for modern technology"
-          },
-          {
-            "id": "D",
-            "text": "to entertain readers with a fictional story about a magical flying machine"
-          }
+          "to explain how drones evolved from a crude military invention into an essential modern technology",
+          "to convince readers that drones pose far more danger than benefit to society",
+          "to argue that military organizations deserve no credit for modern technology",
+          "to entertain readers with a fictional story about a magical flying machine"
         ],
         "answer": "A",
         "skill": "author-purpose",

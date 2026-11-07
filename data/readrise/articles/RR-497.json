@@ -114,22 +114,10 @@
         {
           "stem": "What is this passage mostly about?",
           "options": [
-            {
-              "id": "A",
-              "text": "why old phones were much too heavy to carry around"
-            },
-            {
-              "id": "B",
-              "text": "how a new kind of phone can take photos, play games, and go on the web"
-            },
-            {
-              "id": "C",
-              "text": "how a person can fix a broken phone screen"
-            },
-            {
-              "id": "D",
-              "text": "why playing games is more fun than taking photos"
-            }
+            "why old phones were much too heavy to carry around",
+            "how a new kind of phone can take photos, play games, and go on the web",
+            "how a person can fix a broken phone screen",
+            "why playing games is more fun than taking photos"
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -143,22 +131,10 @@
         {
           "stem": "According to the passage, what could old phones do?",
           "options": [
-            {
-              "id": "A",
-              "text": "take photos and play games"
-            },
-            {
-              "id": "B",
-              "text": "go on the web and send texts"
-            },
-            {
-              "id": "C",
-              "text": "show weather and play music"
-            },
-            {
-              "id": "D",
-              "text": "only make calls"
-            }
+            "take photos and play games",
+            "go on the web and send texts",
+            "show weather and play music",
+            "only make calls"
           ],
           "answer": "D",
           "skill": "detail",
@@ -172,22 +148,10 @@
         {
           "stem": "What did the new phone have instead of buttons?",
           "options": [
-            {
-              "id": "A",
-              "text": "a tiny keyboard"
-            },
-            {
-              "id": "B",
-              "text": "a large handle"
-            },
-            {
-              "id": "C",
-              "text": "a flat touchscreen"
-            },
-            {
-              "id": "D",
-              "text": "a small speaker"
-            }
+            "a tiny keyboard",
+            "a large handle",
+            "a flat touchscreen",
+            "a small speaker"
           ],
           "answer": "C",
           "skill": "detail",
@@ -201,22 +165,10 @@
         {
           "stem": "Why did people need apps on the new phone?",
           "options": [
-            {
-              "id": "A",
-              "text": "so the phone could become much heavier and bigger"
-            },
-            {
-              "id": "B",
-              "text": "so the phone could only be used to make calls"
-            },
-            {
-              "id": "C",
-              "text": "so the phone would never again need to be charged"
-            },
-            {
-              "id": "D",
-              "text": "so the phone could do different jobs, like taking photos or checking the weather"
-            }
+            "so the phone could become much heavier and bigger",
+            "so the phone could only be used to make calls",
+            "so the phone would never again need to be charged",
+            "so the phone could do different jobs, like taking photos or checking the weather"
           ],
           "answer": "D",
           "skill": "inference",
@@ -230,22 +182,10 @@
         {
           "stem": "Why can people use a smartphone to send notes to friends far away?",
           "options": [
-            {
-              "id": "A",
-              "text": "because the phone no longer has any screen at all"
-            },
-            {
-              "id": "B",
-              "text": "because the phone can only ever be used at home"
-            },
-            {
-              "id": "C",
-              "text": "because an app on the phone lets them send written messages"
-            },
-            {
-              "id": "D",
-              "text": "because any friends must be standing nearby to read it"
-            }
+            "because the phone no longer has any screen at all",
+            "because the phone can only ever be used at home",
+            "because an app on the phone lets them send written messages",
+            "because any friends must be standing nearby to read it"
           ],
           "answer": "C",
           "skill": "inference",
@@ -259,22 +199,10 @@
         {
           "stem": "What does the word 'app' mean in this passage?",
           "options": [
-            {
-              "id": "A",
-              "text": "a special type of button found on very old phones"
-            },
-            {
-              "id": "B",
-              "text": "a small program that lets a phone do one particular job"
-            },
-            {
-              "id": "C",
-              "text": "a large machine that is used to build new phones"
-            },
-            {
-              "id": "D",
-              "text": "a loud buzzing sound that a phone sometimes makes"
-            }
+            "a special type of button found on very old phones",
+            "a small program that lets a phone do one particular job",
+            "a large machine that is used to build new phones",
+            "a loud buzzing sound that a phone sometimes makes"
           ],
           "answer": "B",
           "skill": "vocabulary",
@@ -288,22 +216,10 @@
         {
           "stem": "How does the passage mostly explain the smartphone, from beginning to end?",
           "options": [
-            {
-              "id": "A",
-              "text": "it compares phones made in two different countries"
-            },
-            {
-              "id": "B",
-              "text": "it argues that phones should never be used by kids"
-            },
-            {
-              "id": "C",
-              "text": "it tells a made-up story about a talking phone"
-            },
-            {
-              "id": "D",
-              "text": "it tells what old phones could do, then how a new phone was made, then how people use it today"
-            }
+            "it compares phones made in two different countries",
+            "it argues that phones should never be used by kids",
+            "it tells a made-up story about a talking phone",
+            "it tells what old phones could do, then how a new phone was made, then how people use it today"
           ],
           "answer": "D",
           "skill": "text-structure",
@@ -317,22 +233,10 @@
         {
           "stem": "What happens right after people make a brand new phone with a touchscreen, according to the passage?",
           "options": [
-            {
-              "id": "A",
-              "text": "the phone stops being able to make any calls"
-            },
-            {
-              "id": "B",
-              "text": "this new phone could run small apps for photos, weather, and notes"
-            },
-            {
-              "id": "C",
-              "text": "the touchscreen breaks and must be replaced soon"
-            },
-            {
-              "id": "D",
-              "text": "people decide to stop using phones altogether"
-            }
+            "the phone stops being able to make any calls",
+            "this new phone could run small apps for photos, weather, and notes",
+            "the touchscreen breaks and must be replaced soon",
+            "people decide to stop using phones altogether"
           ],
           "answer": "B",
           "skill": "sequence",
@@ -389,22 +293,10 @@
         {
           "stem": "What is the central idea of this passage?",
           "options": [
-            {
-              "id": "A",
-              "text": "mobile phones were always able to browse the internet easily enough"
-            },
-            {
-              "id": "B",
-              "text": "a new kind of phone was designed to take photos, play games, and browse the internet all together"
-            },
-            {
-              "id": "C",
-              "text": "touchscreens generally make phones much more difficult to use"
-            },
-            {
-              "id": "D",
-              "text": "weather forecasts can only ever be found using a computer"
-            }
+            "mobile phones were always able to browse the internet easily enough",
+            "a new kind of phone was designed to take photos, play games, and browse the internet all together",
+            "touchscreens generally make phones much more difficult to use",
+            "weather forecasts can only ever be found using a computer"
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -418,22 +310,10 @@
         {
           "stem": "According to the passage, what could mobile phones do long ago?",
           "options": [
-            {
-              "id": "A",
-              "text": "make simple voice calls between two people"
-            },
-            {
-              "id": "B",
-              "text": "take photographs and record short videos"
-            },
-            {
-              "id": "C",
-              "text": "browse the internet for news articles"
-            },
-            {
-              "id": "D",
-              "text": "run small programs known as apps"
-            }
+            "make simple voice calls between two people",
+            "take photographs and record short videos",
+            "browse the internet for news articles",
+            "run small programs known as apps"
           ],
           "answer": "A",
           "skill": "detail",
@@ -447,22 +327,10 @@
         {
           "stem": "Based on the passage, why did the device feature a touchscreen rather than physical buttons?",
           "options": [
-            {
-              "id": "A",
-              "text": "so the device would need fewer apps overall"
-            },
-            {
-              "id": "B",
-              "text": "so the device could not browse the internet anymore"
-            },
-            {
-              "id": "C",
-              "text": "so users could control nearly everything by tapping the glass screen with a finger"
-            },
-            {
-              "id": "D",
-              "text": "so the device would always display the weather forecast"
-            }
+            "so the device would need fewer apps overall",
+            "so the device could not browse the internet anymore",
+            "so users could control nearly everything by tapping the glass screen with a finger",
+            "so the device would always display the weather forecast"
           ],
           "answer": "C",
           "skill": "detail",
@@ -476,22 +344,10 @@
         {
           "stem": "Why does the passage emphasize that this new device could run many small programs known as apps?",
           "options": [
-            {
-              "id": "A",
-              "text": "to show how one single device could replace several separate tools"
-            },
-            {
-              "id": "B",
-              "text": "to prove that apps were generally harder to use than physical buttons"
-            },
-            {
-              "id": "C",
-              "text": "to suggest that modern phones no longer needed any screen at all"
-            },
-            {
-              "id": "D",
-              "text": "to argue strongly that people should stop using the internet entirely"
-            }
+            "to show how one single device could replace several separate tools",
+            "to prove that apps were generally harder to use than physical buttons",
+            "to suggest that modern phones no longer needed any screen at all",
+            "to argue strongly that people should stop using the internet entirely"
           ],
           "answer": "A",
           "skill": "inference",
@@ -505,22 +361,10 @@
         {
           "stem": "What can you infer about why people rely on smartphones constantly throughout each day?",
           "options": [
-            {
-              "id": "A",
-              "text": "because smartphones can only be used once a day"
-            },
-            {
-              "id": "B",
-              "text": "because smartphones never need to be charged"
-            },
-            {
-              "id": "C",
-              "text": "because smartphones are required by law in most places"
-            },
-            {
-              "id": "D",
-              "text": "because a single device can handle calling, texting, browsing, and photos all at once"
-            }
+            "because smartphones can only be used once a day",
+            "because smartphones never need to be charged",
+            "because smartphones are required by law in most places",
+            "because a single device can handle calling, texting, browsing, and photos all at once"
           ],
           "answer": "D",
           "skill": "inference",
@@ -534,22 +378,10 @@
         {
           "stem": "What does the word 'rely' mean as used in this passage?",
           "options": [
-            {
-              "id": "A",
-              "text": "to depend on something regularly for help"
-            },
-            {
-              "id": "B",
-              "text": "to argue strongly and loudly against an idea"
-            },
-            {
-              "id": "C",
-              "text": "to break something completely by accident"
-            },
-            {
-              "id": "D",
-              "text": "to travel a very long distance quickly"
-            }
+            "to depend on something regularly for help",
+            "to argue strongly and loudly against an idea",
+            "to break something completely by accident",
+            "to travel a very long distance quickly"
           ],
           "answer": "A",
           "skill": "vocabulary",
@@ -563,22 +395,10 @@
         {
           "stem": "How is this passage mostly organized?",
           "options": [
-            {
-              "id": "A",
-              "text": "it argues that phones should not be used by children"
-            },
-            {
-              "id": "B",
-              "text": "it compares phone prices across several different countries"
-            },
-            {
-              "id": "C",
-              "text": "it describes a limitation of old phones, then explains how a new device solved it, then shows how people use the device today"
-            },
-            {
-              "id": "D",
-              "text": "it gives step-by-step instructions for building an app"
-            }
+            "it argues that phones should not be used by children",
+            "it compares phone prices across several different countries",
+            "it describes a limitation of old phones, then explains how a new device solved it, then shows how people use the device today",
+            "it gives step-by-step instructions for building an app"
           ],
           "answer": "C",
           "skill": "text-structure",
@@ -592,22 +412,10 @@
         {
           "stem": "What happens after people use a touchscreen to tap open an app, according to the passage?",
           "options": [
-            {
-              "id": "A",
-              "text": "the app performs its job, like showing the weather"
-            },
-            {
-              "id": "B",
-              "text": "the phone instantly shuts off and must then be restarted"
-            },
-            {
-              "id": "C",
-              "text": "the touchscreen suddenly disappears and buttons reappear"
-            },
-            {
-              "id": "D",
-              "text": "the internet connection becomes permanently disconnected"
-            }
+            "the app performs its job, like showing the weather",
+            "the phone instantly shuts off and must then be restarted",
+            "the touchscreen suddenly disappears and buttons reappear",
+            "the internet connection becomes permanently disconnected"
           ],
           "answer": "A",
           "skill": "sequence",
@@ -664,22 +472,10 @@
         {
           "stem": "What is the central idea of this passage?",
           "options": [
-            {
-              "id": "A",
-              "text": "the IBM Simon remained the most popular phone ever sold"
-            },
-            {
-              "id": "B",
-              "text": "the 2007 iPhone, building on earlier devices like the IBM Simon, transformed how people use phones in daily life"
-            },
-            {
-              "id": "C",
-              "text": "mobile phones have changed very little since the 1990s"
-            },
-            {
-              "id": "D",
-              "text": "Steve Jobs invented the very first mobile phone himself"
-            }
+            "the IBM Simon remained the most popular phone ever sold",
+            "the 2007 iPhone, building on earlier devices like the IBM Simon, transformed how people use phones in daily life",
+            "mobile phones have changed very little since the 1990s",
+            "Steve Jobs invented the very first mobile phone himself"
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -693,22 +489,10 @@
         {
           "stem": "According to the passage, in what year did the IBM Simon introduce an early touchscreen and built-in applications?",
           "options": [
-            {
-              "id": "A",
-              "text": "1992"
-            },
-            {
-              "id": "B",
-              "text": "1987"
-            },
-            {
-              "id": "C",
-              "text": "2002"
-            },
-            {
-              "id": "D",
-              "text": "2010"
-            }
+            "1992",
+            "1987",
+            "2002",
+            "2010"
           ],
           "answer": "A",
           "skill": "detail",
@@ -722,22 +506,10 @@
         {
           "stem": "Based on the passage, who directed the release of the iPhone at Apple in 2007?",
           "options": [
-            {
-              "id": "A",
-              "text": "an engineer at IBM"
-            },
-            {
-              "id": "B",
-              "text": "an unnamed rival company"
-            },
-            {
-              "id": "C",
-              "text": "a government research team"
-            },
-            {
-              "id": "D",
-              "text": "Steve Jobs"
-            }
+            "an engineer at IBM",
+            "an unnamed rival company",
+            "a government research team",
+            "Steve Jobs"
           ],
           "answer": "D",
           "skill": "detail",
@@ -751,22 +523,10 @@
         {
           "stem": "What can you infer about why the IBM Simon never became popular, despite having many of the same ideas as the iPhone?",
           "options": [
-            {
-              "id": "A",
-              "text": "it was never able to make voice calls at all"
-            },
-            {
-              "id": "B",
-              "text": "it came out several decades after the iPhone"
-            },
-            {
-              "id": "C",
-              "text": "it was likely too bulky and expensive for most ordinary consumers of its time"
-            },
-            {
-              "id": "D",
-              "text": "it used a design that no later phone ever copied"
-            }
+            "it was never able to make voice calls at all",
+            "it came out several decades after the iPhone",
+            "it was likely too bulky and expensive for most ordinary consumers of its time",
+            "it used a design that no later phone ever copied"
           ],
           "answer": "C",
           "skill": "inference",
@@ -780,22 +540,10 @@
         {
           "stem": "What is most likely the reason rival companies quickly built their own touchscreen phones after the iPhone's release?",
           "options": [
-            {
-              "id": "A",
-              "text": "the iPhone's touchscreen design captured enormous public attention and clearly showed what was now possible"
-            },
-            {
-              "id": "B",
-              "text": "rival companies were legally required to copy Apple's design exactly"
-            },
-            {
-              "id": "C",
-              "text": "Apple asked other companies to help build iPhones"
-            },
-            {
-              "id": "D",
-              "text": "touchscreens had never before been used in any device"
-            }
+            "the iPhone's touchscreen design captured enormous public attention and clearly showed what was now possible",
+            "rival companies were legally required to copy Apple's design exactly",
+            "Apple asked other companies to help build iPhones",
+            "touchscreens had never before been used in any device"
           ],
           "answer": "A",
           "skill": "inference",
@@ -809,22 +557,10 @@
         {
           "stem": "What does the word 'fundamentally' mean as it is used in this passage?",
           "options": [
-            {
-              "id": "A",
-              "text": "only briefly and for a short period of time"
-            },
-            {
-              "id": "B",
-              "text": "in a way that is easily reversed later"
-            },
-            {
-              "id": "C",
-              "text": "in a manner that affects very few people"
-            },
-            {
-              "id": "D",
-              "text": "in a basic, essential, and far-reaching way"
-            }
+            "only briefly and for a short period of time",
+            "in a way that is easily reversed later",
+            "in a manner that affects very few people",
+            "in a basic, essential, and far-reaching way"
           ],
           "answer": "D",
           "skill": "vocabulary",
@@ -838,22 +574,10 @@
         {
           "stem": "How does the passage's structure help explain the smartphone's importance today?",
           "options": [
-            {
-              "id": "A",
-              "text": "it presents two opposing arguments about whether phones are helpful"
-            },
-            {
-              "id": "B",
-              "text": "it moves from the limits of early mobile phones, through the IBM Simon and the iPhone, to the device's current central role in daily life"
-            },
-            {
-              "id": "C",
-              "text": "it offers a step-by-step guide for coding a new app"
-            },
-            {
-              "id": "D",
-              "text": "it ranks several phone brands from best to worst"
-            }
+            "it presents two opposing arguments about whether phones are helpful",
+            "it moves from the limits of early mobile phones, through the IBM Simon and the iPhone, to the device's current central role in daily life",
+            "it offers a step-by-step guide for coding a new app",
+            "it ranks several phone brands from best to worst"
           ],
           "answer": "B",
           "skill": "text-structure",
@@ -867,22 +591,10 @@
         {
           "stem": "According to the passage, what is a likely long-term effect of smartphones becoming so central to daily life?",
           "options": [
-            {
-              "id": "A",
-              "text": "engineers will keep adding new features, making future smartphones even more capable"
-            },
-            {
-              "id": "B",
-              "text": "fewer companies will try to build new smartphones in the future"
-            },
-            {
-              "id": "C",
-              "text": "smartphones will eventually stop being able to browse the internet"
-            },
-            {
-              "id": "D",
-              "text": "touchscreens will likely be replaced by physical buttons again"
-            }
+            "engineers will keep adding new features, making future smartphones even more capable",
+            "fewer companies will try to build new smartphones in the future",
+            "smartphones will eventually stop being able to browse the internet",
+            "touchscreens will likely be replaced by physical buttons again"
           ],
           "answer": "A",
           "skill": "cause-effect",
@@ -908,22 +620,10 @@
       {
         "stem": "What would most likely happen if phones never got a touchscreen?",
         "options": [
-          {
-            "id": "A",
-            "text": "people would stop making phone calls completely"
-          },
-          {
-            "id": "B",
-            "text": "phones would become much smaller than before"
-          },
-          {
-            "id": "C",
-            "text": "apps would have been invented much earlier instead"
-          },
-          {
-            "id": "D",
-            "text": "people might still need buttons to use their phones"
-          }
+          "people would stop making phone calls completely",
+          "phones would become much smaller than before",
+          "apps would have been invented much earlier instead",
+          "people might still need buttons to use their phones"
         ],
         "answer": "D",
         "skill": "inference",
@@ -937,22 +637,10 @@
       {
         "stem": "Why did the passage mention that old phones could not take photos or play games?",
         "options": [
-          {
-            "id": "A",
-            "text": "to prove that old phones were better than new phones"
-          },
-          {
-            "id": "B",
-            "text": "to explain why cameras are expensive to build"
-          },
-          {
-            "id": "C",
-            "text": "to show how different and limited old phones were compared to new phones"
-          },
-          {
-            "id": "D",
-            "text": "to argue that games should not be played on phones"
-          }
+          "to prove that old phones were better than new phones",
+          "to explain why cameras are expensive to build",
+          "to show how different and limited old phones were compared to new phones",
+          "to argue that games should not be played on phones"
         ],
         "answer": "C",
         "skill": "inference",
@@ -966,22 +654,10 @@
       {
         "stem": "How are the weather app and the photo app alike, based on the passage?",
         "options": [
-          {
-            "id": "A",
-            "text": "both are small programs that let the phone do one useful job"
-          },
-          {
-            "id": "B",
-            "text": "both are used only at nighttime"
-          },
-          {
-            "id": "C",
-            "text": "both were invented before the touchscreen phone"
-          },
-          {
-            "id": "D",
-            "text": "both require buttons instead of a screen"
-          }
+          "both are small programs that let the phone do one useful job",
+          "both are used only at nighttime",
+          "both were invented before the touchscreen phone",
+          "both require buttons instead of a screen"
         ],
         "answer": "A",
         "skill": "compare",
@@ -995,22 +671,10 @@
       {
         "stem": "What is the best reason the passage says smartphones are 'found almost everywhere'?",
         "options": [
-          {
-            "id": "A",
-            "text": "because smartphones are given away for free everywhere"
-          },
-          {
-            "id": "B",
-            "text": "because smartphones can only be bought in big cities"
-          },
-          {
-            "id": "C",
-            "text": "because every single app requires its own separate phone"
-          },
-          {
-            "id": "D",
-            "text": "because so many people now carry one with them every day"
-          }
+          "because smartphones are given away for free everywhere",
+          "because smartphones can only be bought in big cities",
+          "because every single app requires its own separate phone",
+          "because so many people now carry one with them every day"
         ],
         "answer": "D",
         "skill": "inference",
@@ -1026,22 +690,10 @@
       {
         "stem": "What would most likely happen if a phone could run no apps at all?",
         "options": [
-          {
-            "id": "A",
-            "text": "it would automatically browse the internet much faster"
-          },
-          {
-            "id": "B",
-            "text": "it would likely be limited to only a few basic tasks, like earlier mobile phones"
-          },
-          {
-            "id": "C",
-            "text": "it would need absolutely no touchscreen at all"
-          },
-          {
-            "id": "D",
-            "text": "it would become lighter than any smartphone sold today"
-          }
+          "it would automatically browse the internet much faster",
+          "it would likely be limited to only a few basic tasks, like earlier mobile phones",
+          "it would need absolutely no touchscreen at all",
+          "it would become lighter than any smartphone sold today"
         ],
         "answer": "B",
         "skill": "inference",
@@ -1055,22 +707,10 @@
       {
         "stem": "Why might the passage emphasize that this device let people 'control nearly everything' with a touchscreen?",
         "options": [
-          {
-            "id": "A",
-            "text": "to prove that touchscreens are completely impossible to damage"
-          },
-          {
-            "id": "B",
-            "text": "to suggest that older phones generally had more features overall"
-          },
-          {
-            "id": "C",
-            "text": "to highlight how differently this device worked compared to older phones with buttons"
-          },
-          {
-            "id": "D",
-            "text": "to argue that typing on a touchscreen is always much slower"
-          }
+          "to prove that touchscreens are completely impossible to damage",
+          "to suggest that older phones generally had more features overall",
+          "to highlight how differently this device worked compared to older phones with buttons",
+          "to argue that typing on a touchscreen is always much slower"
         ],
         "answer": "C",
         "skill": "inference",
@@ -1084,22 +724,10 @@
       {
         "stem": "How are the new touchscreen device and the older mobile phones similar, based on the passage?",
         "options": [
-          {
-            "id": "A",
-            "text": "both are devices that cannot ever browse the internet"
-          },
-          {
-            "id": "B",
-            "text": "both were invented during the exact same single year"
-          },
-          {
-            "id": "C",
-            "text": "both run the same small programs that are called apps"
-          },
-          {
-            "id": "D",
-            "text": "both are devices that people use to make voice calls"
-          }
+          "both are devices that cannot ever browse the internet",
+          "both were invented during the exact same single year",
+          "both run the same small programs that are called apps",
+          "both are devices that people use to make voice calls"
         ],
         "answer": "D",
         "skill": "compare",
@@ -1113,22 +741,10 @@
       {
         "stem": "What is most likely the reason the passage describes several different apps, such as for weather and photos?",
         "options": [
-          {
-            "id": "A",
-            "text": "to show the wide variety of tasks a single smartphone can perform"
-          },
-          {
-            "id": "B",
-            "text": "to prove that each app requires its own completely separate device"
-          },
-          {
-            "id": "C",
-            "text": "to suggest that apps are rarely useful in everyday daily life"
-          },
-          {
-            "id": "D",
-            "text": "to argue that phones should only ever run one app at a time"
-          }
+          "to show the wide variety of tasks a single smartphone can perform",
+          "to prove that each app requires its own completely separate device",
+          "to suggest that apps are rarely useful in everyday daily life",
+          "to argue that phones should only ever run one app at a time"
         ],
         "answer": "A",
         "skill": "cause-effect",
@@ -1144,22 +760,10 @@
       {
         "stem": "What would most likely have happened if the IBM Simon had been cheaper and smaller in 1992?",
         "options": [
-          {
-            "id": "A",
-            "text": "it would have instantly stopped all future phone research entirely"
-          },
-          {
-            "id": "B",
-            "text": "it might have become more popular and perhaps changed phones sooner"
-          },
-          {
-            "id": "C",
-            "text": "it would have made voice calls completely impossible to place"
-          },
-          {
-            "id": "D",
-            "text": "it would have been banned from stores almost immediately"
-          }
+          "it would have instantly stopped all future phone research entirely",
+          "it might have become more popular and perhaps changed phones sooner",
+          "it would have made voice calls completely impossible to place",
+          "it would have been banned from stores almost immediately"
         ],
         "answer": "B",
         "skill": "inference",
@@ -1173,22 +777,10 @@
       {
         "stem": "Why might the passage specifically mention that Steve Jobs directed the iPhone's release rather than simply naming Apple alone?",
         "options": [
-          {
-            "id": "A",
-            "text": "to suggest that Jobs personally built every single iPhone by hand"
-          },
-          {
-            "id": "B",
-            "text": "to argue that Apple itself played no real role in the device"
-          },
-          {
-            "id": "C",
-            "text": "to highlight his personal role in shaping a device that changed communication"
-          },
-          {
-            "id": "D",
-            "text": "to prove that no one else at Apple contributed to the design"
-          }
+          "to suggest that Jobs personally built every single iPhone by hand",
+          "to argue that Apple itself played no real role in the device",
+          "to highlight his personal role in shaping a device that changed communication",
+          "to prove that no one else at Apple contributed to the design"
         ],
         "answer": "C",
         "skill": "inference",
@@ -1202,22 +794,10 @@
       {
         "stem": "How does the IBM Simon compare with the iPhone, based on the passage?",
         "options": [
-          {
-            "id": "A",
-            "text": "both were released in the exact same year"
-          },
-          {
-            "id": "B",
-            "text": "both were designed by Steve Jobs personally"
-          },
-          {
-            "id": "C",
-            "text": "both failed to attract any public attention at all"
-          },
-          {
-            "id": "D",
-            "text": "both combined a touchscreen and built-in applications, but only the iPhone became hugely popular"
-          }
+          "both were released in the exact same year",
+          "both were designed by Steve Jobs personally",
+          "both failed to attract any public attention at all",
+          "both combined a touchscreen and built-in applications, but only the iPhone became hugely popular"
         ],
         "answer": "D",
         "skill": "compare",
@@ -1231,22 +811,10 @@
       {
         "stem": "What is most likely the author's purpose in writing this passage?",
         "options": [
-          {
-            "id": "A",
-            "text": "to explain how the smartphone developed into an essential part of daily life"
-          },
-          {
-            "id": "B",
-            "text": "to convince readers that Apple is a better company than IBM"
-          },
-          {
-            "id": "C",
-            "text": "to argue that mobile phones have caused more harm than good"
-          },
-          {
-            "id": "D",
-            "text": "to entertain readers with an invented story about Steve Jobs"
-          }
+          "to explain how the smartphone developed into an essential part of daily life",
+          "to convince readers that Apple is a better company than IBM",
+          "to argue that mobile phones have caused more harm than good",
+          "to entertain readers with an invented story about Steve Jobs"
         ],
         "answer": "A",
         "skill": "author-purpose",

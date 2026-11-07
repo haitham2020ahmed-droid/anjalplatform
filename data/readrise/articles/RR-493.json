@@ -114,22 +114,10 @@
         {
           "stem": "What is this passage mostly about?",
           "options": [
-            {
-              "id": "A",
-              "text": "why the Moon has mountains and deep craters on its rocky surface"
-            },
-            {
-              "id": "B",
-              "text": "how telescopes work and how they help people see distant things in space"
-            },
-            {
-              "id": "C",
-              "text": "how one man built a small wooden boat for sailing"
-            },
-            {
-              "id": "D",
-              "text": "why the stars seem to twinkle brightly every single night"
-            }
+            "why the Moon has mountains and deep craters on its rocky surface",
+            "how telescopes work and how they help people see distant things in space",
+            "how one man built a small wooden boat for sailing",
+            "why the stars seem to twinkle brightly every single night"
           ],
           "answer": "B",
           "skill": "central idea",
@@ -143,22 +131,10 @@
         {
           "stem": "What did the wise scholar discover about how our eyes see?",
           "options": [
-            {
-              "id": "A",
-              "text": "that the eye sends out rays to touch far objects"
-            },
-            {
-              "id": "B",
-              "text": "that the ear helps a person see distant things"
-            },
-            {
-              "id": "C",
-              "text": "that light enters the eye and carries an image with it"
-            },
-            {
-              "id": "D",
-              "text": "that the nose can sense light from the sun"
-            }
+            "that the eye sends out rays to touch far objects",
+            "that the ear helps a person see distant things",
+            "that light enters the eye and carries an image with it",
+            "that the nose can sense light from the sun"
           ],
           "answer": "C",
           "skill": "detail",
@@ -172,22 +148,10 @@
         {
           "stem": "What did people put inside a tube to make the very first telescope?",
           "options": [
-            {
-              "id": "A",
-              "text": "two curved pieces of glass called lenses"
-            },
-            {
-              "id": "B",
-              "text": "a candle and a small round mirror"
-            },
-            {
-              "id": "C",
-              "text": "a long rope tied in a loop"
-            },
-            {
-              "id": "D",
-              "text": "three flat pieces of painted wood"
-            }
+            "two curved pieces of glass called lenses",
+            "a candle and a small round mirror",
+            "a long rope tied in a loop",
+            "three flat pieces of painted wood"
           ],
           "answer": "A",
           "skill": "detail",
@@ -201,22 +165,10 @@
         {
           "stem": "Why do the lenses inside a telescope make far things look bigger and closer?",
           "options": [
-            {
-              "id": "A",
-              "text": "because the outside of the tube is painted a dark color"
-            },
-            {
-              "id": "B",
-              "text": "because the night sky is darker than the daytime sky"
-            },
-            {
-              "id": "C",
-              "text": "because the telescope is held very still by its owner"
-            },
-            {
-              "id": "D",
-              "text": "because the lenses bend the light passing through them"
-            }
+            "because the outside of the tube is painted a dark color",
+            "because the night sky is darker than the daytime sky",
+            "because the telescope is held very still by its owner",
+            "because the lenses bend the light passing through them"
           ],
           "answer": "D",
           "skill": "inference",
@@ -230,22 +182,10 @@
         {
           "stem": "Why was the man so amazed after looking at the Moon through his telescope?",
           "options": [
-            {
-              "id": "A",
-              "text": "he discovered the Moon was actually a bright, giant star"
-            },
-            {
-              "id": "B",
-              "text": "he saw mountains and deep holes that no one had ever seen with just their eyes"
-            },
-            {
-              "id": "C",
-              "text": "he realized the Moon had quietly turned into a small planet"
-            },
-            {
-              "id": "D",
-              "text": "he found that the Moon could not be seen at night at all"
-            }
+            "he discovered the Moon was actually a bright, giant star",
+            "he saw mountains and deep holes that no one had ever seen with just their eyes",
+            "he realized the Moon had quietly turned into a small planet",
+            "he found that the Moon could not be seen at night at all"
           ],
           "answer": "B",
           "skill": "inference",
@@ -259,22 +199,10 @@
         {
           "stem": "In this passage, what does the word \"amazed\" mean?",
           "options": [
-            {
-              "id": "A",
-              "text": "filled with great surprise and wonder"
-            },
-            {
-              "id": "B",
-              "text": "feeling sleepy and ready for bed"
-            },
-            {
-              "id": "C",
-              "text": "feeling worried about something scary"
-            },
-            {
-              "id": "D",
-              "text": "feeling bored with nothing to do"
-            }
+            "filled with great surprise and wonder",
+            "feeling sleepy and ready for bed",
+            "feeling worried about something scary",
+            "feeling bored with nothing to do"
           ],
           "answer": "A",
           "skill": "vocabulary",
@@ -288,22 +216,10 @@
         {
           "stem": "Why does the author begin the passage by describing someone looking through a telescope?",
           "options": [
-            {
-              "id": "A",
-              "text": "to warn readers that looking through telescopes can be dangerous"
-            },
-            {
-              "id": "B",
-              "text": "to list the names of every star found in the night sky"
-            },
-            {
-              "id": "C",
-              "text": "to help readers picture what a telescope does before explaining its history"
-            },
-            {
-              "id": "D",
-              "text": "to explain the steps for building a small wooden sailboat"
-            }
+            "to warn readers that looking through telescopes can be dangerous",
+            "to list the names of every star found in the night sky",
+            "to help readers picture what a telescope does before explaining its history",
+            "to explain the steps for building a small wooden sailboat"
           ],
           "answer": "C",
           "skill": "author's purpose",
@@ -317,22 +233,10 @@
         {
           "stem": "What happened right after eyeglass makers placed two lenses inside a tube?",
           "options": [
-            {
-              "id": "A",
-              "text": "the Moon suddenly grew new mountains overnight"
-            },
-            {
-              "id": "B",
-              "text": "the wise scholar built a rocket to fly into space"
-            },
-            {
-              "id": "C",
-              "text": "every star in the sky disappeared from view"
-            },
-            {
-              "id": "D",
-              "text": "they had created the first telescope, which made far things look closer and bigger"
-            }
+            "the Moon suddenly grew new mountains overnight",
+            "the wise scholar built a rocket to fly into space",
+            "every star in the sky disappeared from view",
+            "they had created the first telescope, which made far things look closer and bigger"
           ],
           "answer": "D",
           "skill": "sequence",
@@ -389,22 +293,10 @@
         {
           "stem": "What is the main idea of this passage?",
           "options": [
-            {
-              "id": "A",
-              "text": "a group of sailors discovered a new ocean full of strange fish"
-            },
-            {
-              "id": "B",
-              "text": "a farmer invented a new tool for planting seeds more quickly"
-            },
-            {
-              "id": "C",
-              "text": "a scholar's discovery about light led, years later, to the invention of the telescope"
-            },
-            {
-              "id": "D",
-              "text": "scientists today mostly disagree about whether the Moon is real"
-            }
+            "a group of sailors discovered a new ocean full of strange fish",
+            "a farmer invented a new tool for planting seeds more quickly",
+            "a scholar's discovery about light led, years later, to the invention of the telescope",
+            "scientists today mostly disagree about whether the Moon is real"
           ],
           "answer": "C",
           "skill": "central idea",
@@ -418,22 +310,10 @@
         {
           "stem": "According to the passage, what did the scholar conclude about human sight?",
           "options": [
-            {
-              "id": "A",
-              "text": "that light travels into the eye, rather than the eye sending out rays"
-            },
-            {
-              "id": "B",
-              "text": "that people only see clearly during the daytime hours"
-            },
-            {
-              "id": "C",
-              "text": "that the eye sends out a kind of invisible rope to objects"
-            },
-            {
-              "id": "D",
-              "text": "that sight depends mainly on how loud a sound is"
-            }
+            "that light travels into the eye, rather than the eye sending out rays",
+            "that people only see clearly during the daytime hours",
+            "that the eye sends out a kind of invisible rope to objects",
+            "that sight depends mainly on how loud a sound is"
           ],
           "answer": "A",
           "skill": "detail",
@@ -447,22 +327,10 @@
         {
           "stem": "What two objects did people place inside a tube to build the very first telescope?",
           "options": [
-            {
-              "id": "A",
-              "text": "two small mirrors and a candle"
-            },
-            {
-              "id": "B",
-              "text": "two metal rods and some string"
-            },
-            {
-              "id": "C",
-              "text": "two pieces of colored cloth"
-            },
-            {
-              "id": "D",
-              "text": "two curved lenses"
-            }
+            "two small mirrors and a candle",
+            "two metal rods and some string",
+            "two pieces of colored cloth",
+            "two curved lenses"
           ],
           "answer": "D",
           "skill": "detail",
@@ -476,22 +344,10 @@
         {
           "stem": "Why does bending light inside a telescope make the Moon look so much closer?",
           "options": [
-            {
-              "id": "A",
-              "text": "because the curved lenses change the path of the light before it reaches the eye"
-            },
-            {
-              "id": "B",
-              "text": "because the telescope physically pulls the Moon nearer to Earth"
-            },
-            {
-              "id": "C",
-              "text": "because the night sky becomes brighter the longer someone looks"
-            },
-            {
-              "id": "D",
-              "text": "because the glass inside the tube removes all shadows from view"
-            }
+            "because the curved lenses change the path of the light before it reaches the eye",
+            "because the telescope physically pulls the Moon nearer to Earth",
+            "because the night sky becomes brighter the longer someone looks",
+            "because the glass inside the tube removes all shadows from view"
           ],
           "answer": "A",
           "skill": "inference",
@@ -505,22 +361,10 @@
         {
           "stem": "Why was the scientist amazed when he first looked at the Moon through his telescope?",
           "options": [
-            {
-              "id": "A",
-              "text": "because he realized the Moon was actually much smaller than Earth"
-            },
-            {
-              "id": "B",
-              "text": "because the tube revealed mountains and craters never seen with the eye alone"
-            },
-            {
-              "id": "C",
-              "text": "because the Moon suddenly appeared to glow a bright shade of red"
-            },
-            {
-              "id": "D",
-              "text": "because he discovered the Moon had no surface at all"
-            }
+            "because he realized the Moon was actually much smaller than Earth",
+            "because the tube revealed mountains and craters never seen with the eye alone",
+            "because the Moon suddenly appeared to glow a bright shade of red",
+            "because he discovered the Moon had no surface at all"
           ],
           "answer": "B",
           "skill": "inference",
@@ -534,22 +378,10 @@
         {
           "stem": "In this passage, what does the word \"reveal\" most likely mean?",
           "options": [
-            {
-              "id": "A",
-              "text": "to show or uncover something that was hidden before"
-            },
-            {
-              "id": "B",
-              "text": "to completely destroy or break something apart"
-            },
-            {
-              "id": "C",
-              "text": "to measure the exact size and weight of an object"
-            },
-            {
-              "id": "D",
-              "text": "to quietly hide something from view for a long time"
-            }
+            "to show or uncover something that was hidden before",
+            "to completely destroy or break something apart",
+            "to measure the exact size and weight of an object",
+            "to quietly hide something from view for a long time"
           ],
           "answer": "A",
           "skill": "vocabulary",
@@ -563,22 +395,10 @@
         {
           "stem": "Why might the author have chosen to describe the scholar's work on light before describing the telescope's invention?",
           "options": [
-            {
-              "id": "A",
-              "text": "to prove that the telescope was invented before anyone studied light"
-            },
-            {
-              "id": "B",
-              "text": "to argue that studying light has nothing to do with telescopes"
-            },
-            {
-              "id": "C",
-              "text": "to compare the scholar's work directly with building wooden ships"
-            },
-            {
-              "id": "D",
-              "text": "to show how one important idea about light led to a later, useful invention"
-            }
+            "to prove that the telescope was invented before anyone studied light",
+            "to argue that studying light has nothing to do with telescopes",
+            "to compare the scholar's work directly with building wooden ships",
+            "to show how one important idea about light led to a later, useful invention"
           ],
           "answer": "D",
           "skill": "author's purpose",
@@ -592,22 +412,10 @@
         {
           "stem": "What happened immediately after the scientist looked at a bright planet with his telescope?",
           "options": [
-            {
-              "id": "A",
-              "text": "the planet instantly vanished from the night sky without warning"
-            },
-            {
-              "id": "B",
-              "text": "the telescope stopped working and needed to be completely rebuilt"
-            },
-            {
-              "id": "C",
-              "text": "he noticed tiny moons circling steadily around it, which no one had ever observed before"
-            },
-            {
-              "id": "D",
-              "text": "scientists decided the planet could not be real after all"
-            }
+            "the planet instantly vanished from the night sky without warning",
+            "the telescope stopped working and needed to be completely rebuilt",
+            "he noticed tiny moons circling steadily around it, which no one had ever observed before",
+            "scientists decided the planet could not be real after all"
           ],
           "answer": "C",
           "skill": "sequence",
@@ -664,22 +472,10 @@
         {
           "stem": "What is the central idea connecting the two historical figures discussed in this passage?",
           "options": [
-            {
-              "id": "A",
-              "text": "both Ibn al-Haytham and Galileo Galilei made careful observations that changed how people understood light and the sky"
-            },
-            {
-              "id": "B",
-              "text": "both men were primarily famous for building ships that explored new oceans"
-            },
-            {
-              "id": "C",
-              "text": "both men disagreed completely and never contributed anything useful to science"
-            },
-            {
-              "id": "D",
-              "text": "both men lived at the same time and worked together on one invention"
-            }
+            "both Ibn al-Haytham and Galileo Galilei made careful observations that changed how people understood light and the sky",
+            "both men were primarily famous for building ships that explored new oceans",
+            "both men disagreed completely and never contributed anything useful to science",
+            "both men lived at the same time and worked together on one invention"
           ],
           "answer": "A",
           "skill": "central idea",
@@ -693,22 +489,10 @@
         {
           "stem": "According to the passage, what is Ibn al-Haytham credited with establishing?",
           "options": [
-            {
-              "id": "A",
-              "text": "experimental methods that scientists still rely upon many centuries later"
-            },
-            {
-              "id": "B",
-              "text": "the first working telescope built from curved glass lenses"
-            },
-            {
-              "id": "C",
-              "text": "a detailed map of Jupiter and its many orbiting moons"
-            },
-            {
-              "id": "D",
-              "text": "the first eyeglass factory established in the Netherlands"
-            }
+            "experimental methods that scientists still rely upon many centuries later",
+            "the first working telescope built from curved glass lenses",
+            "a detailed map of Jupiter and its many orbiting moons",
+            "the first eyeglass factory established in the Netherlands"
           ],
           "answer": "A",
           "skill": "detail",
@@ -722,22 +506,10 @@
         {
           "stem": "Where did the eyeglass makers who built the very first telescope live and work?",
           "options": [
-            {
-              "id": "A",
-              "text": "Italy"
-            },
-            {
-              "id": "B",
-              "text": "a region during the Islamic Golden Age"
-            },
-            {
-              "id": "C",
-              "text": "the Netherlands"
-            },
-            {
-              "id": "D",
-              "text": "a workshop located somewhere in Asia"
-            }
+            "Italy",
+            "a region during the Islamic Golden Age",
+            "the Netherlands",
+            "a workshop located somewhere in Asia"
           ],
           "answer": "C",
           "skill": "detail",
@@ -751,22 +523,10 @@
         {
           "stem": "Why does the passage describe Ibn al-Haytham's belief about rays as \"an idea that seems quite strange to modern readers\"?",
           "options": [
-            {
-              "id": "A",
-              "text": "to highlight how differently people once explained sight compared to how we understand it today"
-            },
-            {
-              "id": "B",
-              "text": "to prove that the idea about rays is actually still accepted by scientists now"
-            },
-            {
-              "id": "C",
-              "text": "to suggest that Ibn al-Haytham personally believed the idea was completely true"
-            },
-            {
-              "id": "D",
-              "text": "to show that modern readers find all old scientific ideas equally strange"
-            }
+            "to highlight how differently people once explained sight compared to how we understand it today",
+            "to prove that the idea about rays is actually still accepted by scientists now",
+            "to suggest that Ibn al-Haytham personally believed the idea was completely true",
+            "to show that modern readers find all old scientific ideas equally strange"
           ],
           "answer": "A",
           "skill": "inference",
@@ -780,22 +540,10 @@
         {
           "stem": "What can be inferred about why Galileo's observation of Jupiter's moons was so significant?",
           "options": [
-            {
-              "id": "A",
-              "text": "it proved that Jupiter was actually closer to Earth than the Moon"
-            },
-            {
-              "id": "B",
-              "text": "it showed that not everything in the sky orbits directly around Earth"
-            },
-            {
-              "id": "C",
-              "text": "it confirmed that Jupiter had no moons circling it at all"
-            },
-            {
-              "id": "D",
-              "text": "it showed that telescopes could not be used to study planets"
-            }
+            "it proved that Jupiter was actually closer to Earth than the Moon",
+            "it showed that not everything in the sky orbits directly around Earth",
+            "it confirmed that Jupiter had no moons circling it at all",
+            "it showed that telescopes could not be used to study planets"
           ],
           "answer": "B",
           "skill": "inference",
@@ -809,22 +557,10 @@
         {
           "stem": "In this passage, what does the word \"optics\" most likely refer to?",
           "options": [
-            {
-              "id": "A",
-              "text": "the scientific study of light and how it behaves"
-            },
-            {
-              "id": "B",
-              "text": "the business of selling glass bottles and jars"
-            },
-            {
-              "id": "C",
-              "text": "the practice of measuring distances between countries"
-            },
-            {
-              "id": "D",
-              "text": "the art of building wooden furniture by hand"
-            }
+            "the scientific study of light and how it behaves",
+            "the business of selling glass bottles and jars",
+            "the practice of measuring distances between countries",
+            "the art of building wooden furniture by hand"
           ],
           "answer": "A",
           "skill": "vocabulary",
@@ -838,22 +574,10 @@
         {
           "stem": "Why might the author have chosen to end the passage with modern space telescopes rather than with Galileo's discoveries?",
           "options": [
-            {
-              "id": "A",
-              "text": "to argue that Galileo's discoveries were ultimately proven completely wrong"
-            },
-            {
-              "id": "B",
-              "text": "to suggest that Ibn al-Haytham's early work was eventually forgotten"
-            },
-            {
-              "id": "C",
-              "text": "to prove that space telescopes cannot see as far as ground-based ones"
-            },
-            {
-              "id": "D",
-              "text": "to show that the search for understanding light and the universe has continued long after Galileo's time"
-            }
+            "to argue that Galileo's discoveries were ultimately proven completely wrong",
+            "to suggest that Ibn al-Haytham's early work was eventually forgotten",
+            "to prove that space telescopes cannot see as far as ground-based ones",
+            "to show that the search for understanding light and the universe has continued long after Galileo's time"
           ],
           "answer": "D",
           "skill": "author's purpose",
@@ -867,22 +591,10 @@
         {
           "stem": "What is the correct sequence of events described across the entire passage?",
           "options": [
-            {
-              "id": "A",
-              "text": "Ibn al-Haytham's study of light came first, then the telescope's invention in the Netherlands, then Galileo's observations"
-            },
-            {
-              "id": "B",
-              "text": "Galileo's observations came first, followed by Ibn al-Haytham's study of light"
-            },
-            {
-              "id": "C",
-              "text": "the telescope was invented before anyone had studied how light or sight worked"
-            },
-            {
-              "id": "D",
-              "text": "modern space telescopes were built before the first telescope ever existed"
-            }
+            "Ibn al-Haytham's study of light came first, then the telescope's invention in the Netherlands, then Galileo's observations",
+            "Galileo's observations came first, followed by Ibn al-Haytham's study of light",
+            "the telescope was invented before anyone had studied how light or sight worked",
+            "modern space telescopes were built before the first telescope ever existed"
           ],
           "answer": "A",
           "skill": "sequence",
@@ -908,22 +620,10 @@
       {
         "stem": "What can you tell about the wise scholar from how he tested his idea about eyes?",
         "options": [
-          {
-            "id": "A",
-            "text": "he cared more about building tools than learning new things"
-          },
-          {
-            "id": "B",
-            "text": "he cared about proving ideas with tests instead of just guessing"
-          },
-          {
-            "id": "C",
-            "text": "he already agreed that eyes send out rays before testing anything"
-          },
-          {
-            "id": "D",
-            "text": "he was not interested in how people are able to see"
-          }
+          "he cared more about building tools than learning new things",
+          "he cared about proving ideas with tests instead of just guessing",
+          "he already agreed that eyes send out rays before testing anything",
+          "he was not interested in how people are able to see"
         ],
         "answer": "B",
         "skill": "inference",
@@ -937,22 +637,10 @@
       {
         "stem": "Why might the author compare the telescope's job to making far things look close?",
         "options": [
-          {
-            "id": "A",
-            "text": "to prove that the telescope can move far objects closer in real life"
-          },
-          {
-            "id": "B",
-            "text": "to show that telescopes are mostly used for looking at nearby houses"
-          },
-          {
-            "id": "C",
-            "text": "to help readers understand the telescope's purpose in simple, familiar terms"
-          },
-          {
-            "id": "D",
-            "text": "to explain why distant things are dangerous to look at directly"
-          }
+          "to prove that the telescope can move far objects closer in real life",
+          "to show that telescopes are mostly used for looking at nearby houses",
+          "to help readers understand the telescope's purpose in simple, familiar terms",
+          "to explain why distant things are dangerous to look at directly"
         ],
         "answer": "C",
         "skill": "author's purpose",
@@ -966,22 +654,10 @@
       {
         "stem": "Based on the passage, what might happen if a telescope had no lenses at all?",
         "options": [
-          {
-            "id": "A",
-            "text": "it probably could not make far things look bigger or closer"
-          },
-          {
-            "id": "B",
-            "text": "it would still work exactly the same as a telescope with lenses"
-          },
-          {
-            "id": "C",
-            "text": "it would make far things disappear completely from view"
-          },
-          {
-            "id": "D",
-            "text": "it would turn into a different kind of musical instrument"
-          }
+          "it probably could not make far things look bigger or closer",
+          "it would still work exactly the same as a telescope with lenses",
+          "it would make far things disappear completely from view",
+          "it would turn into a different kind of musical instrument"
         ],
         "answer": "A",
         "skill": "inference",
@@ -995,22 +671,10 @@
       {
         "stem": "What is most likely the reason huge telescopes are placed out in space today?",
         "options": [
-          {
-            "id": "A",
-            "text": "so scientists can see very distant stars and galaxies more clearly"
-          },
-          {
-            "id": "B",
-            "text": "so scientists can avoid ever looking at the Moon again"
-          },
-          {
-            "id": "C",
-            "text": "so the telescopes can be closer to the ground for repairs"
-          },
-          {
-            "id": "D",
-            "text": "so people on Earth can stop using smaller telescopes forever"
-          }
+          "so scientists can see very distant stars and galaxies more clearly",
+          "so scientists can avoid ever looking at the Moon again",
+          "so the telescopes can be closer to the ground for repairs",
+          "so people on Earth can stop using smaller telescopes forever"
         ],
         "answer": "A",
         "skill": "cause-effect",
@@ -1026,22 +690,10 @@
       {
         "stem": "What can you infer about why many people originally believed the eye sent out rays?",
         "options": [
-          {
-            "id": "A",
-            "text": "the idea may have seemed to match how reaching out and touching something feels"
-          },
-          {
-            "id": "B",
-            "text": "scientists had already proven this idea using careful experiments"
-          },
-          {
-            "id": "C",
-            "text": "no one had ever thought about how human eyes actually work"
-          },
-          {
-            "id": "D",
-            "text": "the idea came from watching how telescopes bend light"
-          }
+          "the idea may have seemed to match how reaching out and touching something feels",
+          "scientists had already proven this idea using careful experiments",
+          "no one had ever thought about how human eyes actually work",
+          "the idea came from watching how telescopes bend light"
         ],
         "answer": "A",
         "skill": "inference",
@@ -1055,22 +707,10 @@
       {
         "stem": "Why does the passage mention that no one had ever seen the tiny moons before that night?",
         "options": [
-          {
-            "id": "A",
-            "text": "to suggest that the moons had just appeared for the very first time"
-          },
-          {
-            "id": "B",
-            "text": "to hint that the telescope's lenses were broken during the test"
-          },
-          {
-            "id": "C",
-            "text": "to emphasize how the telescope allowed people to discover something completely new"
-          },
-          {
-            "id": "D",
-            "text": "to argue that the moons were not actually real objects"
-          }
+          "to suggest that the moons had just appeared for the very first time",
+          "to hint that the telescope's lenses were broken during the test",
+          "to emphasize how the telescope allowed people to discover something completely new",
+          "to argue that the moons were not actually real objects"
         ],
         "answer": "C",
         "skill": "author's purpose",
@@ -1084,22 +724,10 @@
       {
         "stem": "Based on the passage, what would likely happen if the scholar's idea about light had never been studied?",
         "options": [
-          {
-            "id": "A",
-            "text": "the understanding of how eyes work might have stayed based on the old, incorrect idea"
-          },
-          {
-            "id": "B",
-            "text": "telescopes would have been invented at exactly the same time regardless"
-          },
-          {
-            "id": "C",
-            "text": "the Moon would have developed different mountains and craters"
-          },
-          {
-            "id": "D",
-            "text": "eyeglass makers would have stopped curving any lenses at all"
-          }
+          "the understanding of how eyes work might have stayed based on the old, incorrect idea",
+          "telescopes would have been invented at exactly the same time regardless",
+          "the Moon would have developed different mountains and craters",
+          "eyeglass makers would have stopped curving any lenses at all"
         ],
         "answer": "A",
         "skill": "cause-effect",
@@ -1113,22 +741,10 @@
       {
         "stem": "How does the structure of this passage help readers understand the telescope's importance?",
         "options": [
-          {
-            "id": "A",
-            "text": "it lists telescope prices from cheapest to most expensive"
-          },
-          {
-            "id": "B",
-            "text": "it moves from an idea about light, to an invention, to a major discovery in the sky"
-          },
-          {
-            "id": "C",
-            "text": "it compares different countries' flags from around the world"
-          },
-          {
-            "id": "D",
-            "text": "it describes a recipe for making curved glass lenses at home"
-          }
+          "it lists telescope prices from cheapest to most expensive",
+          "it moves from an idea about light, to an invention, to a major discovery in the sky",
+          "it compares different countries' flags from around the world",
+          "it describes a recipe for making curved glass lenses at home"
         ],
         "answer": "B",
         "skill": "text structure",
@@ -1144,22 +760,10 @@
       {
         "stem": "What can you infer about the relationship between experimentation and scientific progress from this passage?",
         "options": [
-          {
-            "id": "A",
-            "text": "experiments rarely change what people already believe to be true"
-          },
-          {
-            "id": "B",
-            "text": "careful, methodical testing can overturn long-held but mistaken beliefs"
-          },
-          {
-            "id": "C",
-            "text": "scientific progress depends only on luck rather than careful testing"
-          },
-          {
-            "id": "D",
-            "text": "mistaken beliefs are usually impossible to correct once widely accepted"
-          }
+          "experiments rarely change what people already believe to be true",
+          "careful, methodical testing can overturn long-held but mistaken beliefs",
+          "scientific progress depends only on luck rather than careful testing",
+          "mistaken beliefs are usually impossible to correct once widely accepted"
         ],
         "answer": "B",
         "skill": "inference",
@@ -1173,22 +777,10 @@
       {
         "stem": "Why might the passage describe the first telescope as being made from \"little more than glass, wood, and patient, meticulous craftsmanship\"?",
         "options": [
-          {
-            "id": "A",
-            "text": "to suggest that the telescope was actually poorly built and unreliable"
-          },
-          {
-            "id": "B",
-            "text": "to argue that modern telescopes are built from the exact same materials"
-          },
-          {
-            "id": "C",
-            "text": "to emphasize that a simple-looking object can still represent careful, skilled work"
-          },
-          {
-            "id": "D",
-            "text": "to prove that eyeglass makers had no real skill or training at all"
-          }
+          "to suggest that the telescope was actually poorly built and unreliable",
+          "to argue that modern telescopes are built from the exact same materials",
+          "to emphasize that a simple-looking object can still represent careful, skilled work",
+          "to prove that eyeglass makers had no real skill or training at all"
         ],
         "answer": "C",
         "skill": "author's purpose",
@@ -1202,22 +794,10 @@
       {
         "stem": "Based on the passage, what would most likely NOT have happened without Galileo's telescope observations?",
         "options": [
-          {
-            "id": "A",
-            "text": "Ibn al-Haytham's experiments on light would have happened much earlier"
-          },
-          {
-            "id": "B",
-            "text": "eyeglass makers in the Netherlands would have stopped making lenses"
-          },
-          {
-            "id": "C",
-            "text": "modern telescopes would have been placed in space far sooner than they were"
-          },
-          {
-            "id": "D",
-            "text": "the discovery that moons circle a planet other than Earth might have come later"
-          }
+          "Ibn al-Haytham's experiments on light would have happened much earlier",
+          "eyeglass makers in the Netherlands would have stopped making lenses",
+          "modern telescopes would have been placed in space far sooner than they were",
+          "the discovery that moons circle a planet other than Earth might have come later"
         ],
         "answer": "D",
         "skill": "cause-effect",
@@ -1231,22 +811,10 @@
       {
         "stem": "How does the passage's structure connect ideas about light across many centuries?",
         "options": [
-          {
-            "id": "A",
-            "text": "it traces light's story from Ibn al-Haytham's theory, through the telescope's invention, to today's space telescopes"
-          },
-          {
-            "id": "B",
-            "text": "it jumps randomly between unrelated topics with no clear connection"
-          },
-          {
-            "id": "C",
-            "text": "it focuses entirely on space telescopes and ignores earlier history"
-          },
-          {
-            "id": "D",
-            "text": "it only discusses Galileo's life with no mention of light itself"
-          }
+          "it traces light's story from Ibn al-Haytham's theory, through the telescope's invention, to today's space telescopes",
+          "it jumps randomly between unrelated topics with no clear connection",
+          "it focuses entirely on space telescopes and ignores earlier history",
+          "it only discusses Galileo's life with no mention of light itself"
         ],
         "answer": "A",
         "skill": "text structure",

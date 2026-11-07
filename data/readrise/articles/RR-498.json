@@ -114,22 +114,10 @@
         {
           "stem": "What is this passage mostly about?",
           "options": [
-            {
-              "id": "A",
-              "text": "why rockets are hard to build well"
-            },
-            {
-              "id": "B",
-              "text": "a machine that flies above Earth and helps people in many ways"
-            },
-            {
-              "id": "C",
-              "text": "how the moon moves around Earth"
-            },
-            {
-              "id": "D",
-              "text": "why phones stopped working one day"
-            }
+            "why rockets are hard to build well",
+            "a machine that flies above Earth and helps people in many ways",
+            "how the moon moves around Earth",
+            "why phones stopped working one day"
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -143,22 +131,10 @@
         {
           "stem": "According to the passage, what sends this machine up into space?",
           "options": [
-            {
-              "id": "A",
-              "text": "tall buildings"
-            },
-            {
-              "id": "B",
-              "text": "giant balloons"
-            },
-            {
-              "id": "C",
-              "text": "big rockets"
-            },
-            {
-              "id": "D",
-              "text": "large airplanes"
-            }
+            "tall buildings",
+            "giant balloons",
+            "big rockets",
+            "large airplanes"
           ],
           "answer": "C",
           "skill": "detail",
@@ -172,22 +148,10 @@
         {
           "stem": "What could the very first one do, according to the passage?",
           "options": [
-            {
-              "id": "A",
-              "text": "take colorful pictures of clouds"
-            },
-            {
-              "id": "B",
-              "text": "show maps on a screen"
-            },
-            {
-              "id": "C",
-              "text": "play music for people on Earth"
-            },
-            {
-              "id": "D",
-              "text": "send out a simple beep"
-            }
+            "take colorful pictures of clouds",
+            "show maps on a screen",
+            "play music for people on Earth",
+            "send out a simple beep"
           ],
           "answer": "D",
           "skill": "detail",
@@ -201,22 +165,10 @@
         {
           "stem": "Why did other lands start sending up their own machines after 1957?",
           "options": [
-            {
-              "id": "A",
-              "text": "because the first one showed that this new plan could truly work"
-            },
-            {
-              "id": "B",
-              "text": "because the first one broke apart shortly after launch"
-            },
-            {
-              "id": "C",
-              "text": "because no rockets existed until that exact year"
-            },
-            {
-              "id": "D",
-              "text": "because people wanted a new way to cook food"
-            }
+            "because the first one showed that this new plan could truly work",
+            "because the first one broke apart shortly after launch",
+            "because no rockets existed until that exact year",
+            "because people wanted a new way to cook food"
           ],
           "answer": "A",
           "skill": "inference",
@@ -230,22 +182,10 @@
         {
           "stem": "Why do people rely on these machines every day, even without seeing them?",
           "options": [
-            {
-              "id": "A",
-              "text": "because they make a loud sound we can always hear"
-            },
-            {
-              "id": "B",
-              "text": "because they fall to the ground once a week"
-            },
-            {
-              "id": "C",
-              "text": "because they are visible in the sky during the day"
-            },
-            {
-              "id": "D",
-              "text": "because they quietly help with things like calls, news, and finding our way"
-            }
+            "because they make a loud sound we can always hear",
+            "because they fall to the ground once a week",
+            "because they are visible in the sky during the day",
+            "because they quietly help with things like calls, news, and finding our way"
           ],
           "answer": "D",
           "skill": "inference",
@@ -259,22 +199,10 @@
         {
           "stem": "What does the word 'beep' mean in this passage?",
           "options": [
-            {
-              "id": "A",
-              "text": "a short, simple sound that a machine makes"
-            },
-            {
-              "id": "B",
-              "text": "a bright light that flashes on and off"
-            },
-            {
-              "id": "C",
-              "text": "a type of metal used in rockets"
-            },
-            {
-              "id": "D",
-              "text": "a place where rockets are built"
-            }
+            "a short, simple sound that a machine makes",
+            "a bright light that flashes on and off",
+            "a type of metal used in rockets",
+            "a place where rockets are built"
           ],
           "answer": "A",
           "skill": "vocabulary",
@@ -288,22 +216,10 @@
         {
           "stem": "How does the passage mostly explain this machine, from beginning to end?",
           "options": [
-            {
-              "id": "A",
-              "text": "it compares machines built on two very different and far-off planets"
-            },
-            {
-              "id": "B",
-              "text": "it strongly argues that no more rockets should ever be built at all"
-            },
-            {
-              "id": "C",
-              "text": "it tells what the machine does, then its first launch long ago, then how many fly above us"
-            },
-            {
-              "id": "D",
-              "text": "it tells a made-up story about a tiny machine that can talk and sing"
-            }
+            "it compares machines built on two very different and far-off planets",
+            "it strongly argues that no more rockets should ever be built at all",
+            "it tells what the machine does, then its first launch long ago, then how many fly above us",
+            "it tells a made-up story about a tiny machine that can talk and sing"
           ],
           "answer": "C",
           "skill": "text-structure",
@@ -317,22 +233,10 @@
         {
           "stem": "What happens right after a big rocket carries this machine into space?",
           "options": [
-            {
-              "id": "A",
-              "text": "it goes around and around Earth, doing its many jobs"
-            },
-            {
-              "id": "B",
-              "text": "it falls right back down to the ground"
-            },
-            {
-              "id": "C",
-              "text": "it stops working within a few minutes"
-            },
-            {
-              "id": "D",
-              "text": "it turns into a different kind of machine entirely"
-            }
+            "it goes around and around Earth, doing its many jobs",
+            "it falls right back down to the ground",
+            "it stops working within a few minutes",
+            "it turns into a different kind of machine entirely"
           ],
           "answer": "A",
           "skill": "sequence",
@@ -389,22 +293,10 @@
         {
           "stem": "What is the central idea of this passage?",
           "options": [
-            {
-              "id": "A",
-              "text": "satellites perform many jobs for people, a tradition that began with Sputnik"
-            },
-            {
-              "id": "B",
-              "text": "satellites were only ever built after the year 2000"
-            },
-            {
-              "id": "C",
-              "text": "engineers have never once improved satellite technology"
-            },
-            {
-              "id": "D",
-              "text": "satellites can only take simple pictures of storms"
-            }
+            "satellites perform many jobs for people, a tradition that began with Sputnik",
+            "satellites were only ever built after the year 2000",
+            "engineers have never once improved satellite technology",
+            "satellites can only take simple pictures of storms"
           ],
           "answer": "A",
           "skill": "central-idea",
@@ -418,22 +310,10 @@
         {
           "stem": "According to the passage, what country launched the very first satellite, called Sputnik?",
           "options": [
-            {
-              "id": "A",
-              "text": "the United States"
-            },
-            {
-              "id": "B",
-              "text": "a group of private companies"
-            },
-            {
-              "id": "C",
-              "text": "a team of international scientists"
-            },
-            {
-              "id": "D",
-              "text": "the Soviet Union"
-            }
+            "the United States",
+            "a group of private companies",
+            "a team of international scientists",
+            "the Soviet Union"
           ],
           "answer": "D",
           "skill": "detail",
@@ -447,22 +327,10 @@
         {
           "stem": "Based on the passage, how do navigation satellites help people today?",
           "options": [
-            {
-              "id": "A",
-              "text": "they help televisions turn on automatically"
-            },
-            {
-              "id": "B",
-              "text": "they help forecast tomorrow's weather exactly"
-            },
-            {
-              "id": "C",
-              "text": "they help maps work accurately and guide travelers to where they want to go"
-            },
-            {
-              "id": "D",
-              "text": "they help phones take clearer photographs"
-            }
+            "they help televisions turn on automatically",
+            "they help forecast tomorrow's weather exactly",
+            "they help maps work accurately and guide travelers to where they want to go",
+            "they help phones take clearer photographs"
           ],
           "answer": "C",
           "skill": "detail",
@@ -476,22 +344,10 @@
         {
           "stem": "Why does the passage emphasize that Sputnik could only transmit a simple beeping signal?",
           "options": [
-            {
-              "id": "A",
-              "text": "to show how basic the first satellite was, compared to the advanced satellites used today"
-            },
-            {
-              "id": "B",
-              "text": "to prove that satellites have never really improved"
-            },
-            {
-              "id": "C",
-              "text": "to suggest that beeping signals are still used today"
-            },
-            {
-              "id": "D",
-              "text": "to argue that Sputnik's launch was actually a failure"
-            }
+            "to show how basic the first satellite was, compared to the advanced satellites used today",
+            "to prove that satellites have never really improved",
+            "to suggest that beeping signals are still used today",
+            "to argue that Sputnik's launch was actually a failure"
           ],
           "answer": "A",
           "skill": "inference",
@@ -505,22 +361,10 @@
         {
           "stem": "What can you infer about why many countries began launching their own satellites after 1957?",
           "options": [
-            {
-              "id": "A",
-              "text": "Sputnik's success showed that satellites were truly achievable and worth pursuing"
-            },
-            {
-              "id": "B",
-              "text": "every other country had supposedly already built satellites much earlier"
-            },
-            {
-              "id": "C",
-              "text": "satellites apparently became illegal to launch after that particular year"
-            },
-            {
-              "id": "D",
-              "text": "no other country actually had rockets capable of reaching space at that time"
-            }
+            "Sputnik's success showed that satellites were truly achievable and worth pursuing",
+            "every other country had supposedly already built satellites much earlier",
+            "satellites apparently became illegal to launch after that particular year",
+            "no other country actually had rockets capable of reaching space at that time"
           ],
           "answer": "A",
           "skill": "inference",
@@ -534,22 +378,10 @@
         {
           "stem": "What does the word 'orbit' mean as used in this passage?",
           "options": [
-            {
-              "id": "A",
-              "text": "the curved path a satellite follows as it circles a planet"
-            },
-            {
-              "id": "B",
-              "text": "a type of rocket used to launch satellites into space"
-            },
-            {
-              "id": "C",
-              "text": "a signal sent between a satellite and the ground"
-            },
-            {
-              "id": "D",
-              "text": "a scientist who studies and designs new satellites"
-            }
+            "the curved path a satellite follows as it circles a planet",
+            "a type of rocket used to launch satellites into space",
+            "a signal sent between a satellite and the ground",
+            "a scientist who studies and designs new satellites"
           ],
           "answer": "A",
           "skill": "vocabulary",
@@ -563,22 +395,10 @@
         {
           "stem": "How is this passage mostly organized?",
           "options": [
-            {
-              "id": "A",
-              "text": "it argues that satellites should be banned from orbit"
-            },
-            {
-              "id": "B",
-              "text": "it compares satellite costs across many different countries"
-            },
-            {
-              "id": "C",
-              "text": "it gives step-by-step instructions for building a satellite"
-            },
-            {
-              "id": "D",
-              "text": "it describes satellites' many jobs, then tells the story of the first launch, then shows how satellites are used today"
-            }
+            "it argues that satellites should be banned from orbit",
+            "it compares satellite costs across many different countries",
+            "it gives step-by-step instructions for building a satellite",
+            "it describes satellites' many jobs, then tells the story of the first launch, then shows how satellites are used today"
           ],
           "answer": "D",
           "skill": "text-structure",
@@ -592,22 +412,10 @@
         {
           "stem": "What happens after engineers launch a satellite into space using powerful rockets, according to the passage?",
           "options": [
-            {
-              "id": "A",
-              "text": "the satellite begins orbiting Earth and performing its intended job"
-            },
-            {
-              "id": "B",
-              "text": "the satellite instantly returns to the ground below"
-            },
-            {
-              "id": "C",
-              "text": "the satellite stops functioning almost immediately"
-            },
-            {
-              "id": "D",
-              "text": "the rocket itself continues circling Earth forever"
-            }
+            "the satellite begins orbiting Earth and performing its intended job",
+            "the satellite instantly returns to the ground below",
+            "the satellite stops functioning almost immediately",
+            "the rocket itself continues circling Earth forever"
           ],
           "answer": "A",
           "skill": "sequence",
@@ -664,22 +472,10 @@
         {
           "stem": "What is the central idea of this passage?",
           "options": [
-            {
-              "id": "A",
-              "text": "Sputnik's 1957 launch began the Space Race and led to the vast satellite network humans depend on today"
-            },
-            {
-              "id": "B",
-              "text": "the Space Race ended before Sputnik was ever launched"
-            },
-            {
-              "id": "C",
-              "text": "satellites today perform only a single simple task"
-            },
-            {
-              "id": "D",
-              "text": "the United States launched Sputnik before the Soviet Union did"
-            }
+            "Sputnik's 1957 launch began the Space Race and led to the vast satellite network humans depend on today",
+            "the Space Race ended before Sputnik was ever launched",
+            "satellites today perform only a single simple task",
+            "the United States launched Sputnik before the Soviet Union did"
           ],
           "answer": "A",
           "skill": "central-idea",
@@ -693,22 +489,10 @@
         {
           "stem": "According to the passage, on what date did the Soviet Union launch Sputnik 1?",
           "options": [
-            {
-              "id": "A",
-              "text": "October 4th of the year 1957"
-            },
-            {
-              "id": "B",
-              "text": "July 20th of the year 1969"
-            },
-            {
-              "id": "C",
-              "text": "April 12th of the year 1961"
-            },
-            {
-              "id": "D",
-              "text": "September 1st of the year 1945"
-            }
+            "October 4th of the year 1957",
+            "July 20th of the year 1969",
+            "April 12th of the year 1961",
+            "September 1st of the year 1945"
           ],
           "answer": "A",
           "skill": "detail",
@@ -722,22 +506,10 @@
         {
           "stem": "Based on the passage, how long did it take Sputnik to orbit Earth once?",
           "options": [
-            {
-              "id": "A",
-              "text": "about twenty-four hours"
-            },
-            {
-              "id": "B",
-              "text": "about one full week"
-            },
-            {
-              "id": "C",
-              "text": "about ninety-eight seconds"
-            },
-            {
-              "id": "D",
-              "text": "about ninety-eight minutes"
-            }
+            "about twenty-four hours",
+            "about one full week",
+            "about ninety-eight seconds",
+            "about ninety-eight minutes"
           ],
           "answer": "D",
           "skill": "detail",
@@ -751,22 +523,10 @@
         {
           "stem": "What can you infer about why Sputnik's launch is described as sparking a 'Space Race'?",
           "options": [
-            {
-              "id": "A",
-              "text": "it caused every other country in the world to immediately stop all rocket research"
-            },
-            {
-              "id": "B",
-              "text": "it created intense competition between two rival nations eager to achieve dominance in space exploration"
-            },
-            {
-              "id": "C",
-              "text": "it proved that only one single nation would ever build satellites"
-            },
-            {
-              "id": "D",
-              "text": "it ended all further cooperation between scientists around the globe"
-            }
+            "it caused every other country in the world to immediately stop all rocket research",
+            "it created intense competition between two rival nations eager to achieve dominance in space exploration",
+            "it proved that only one single nation would ever build satellites",
+            "it ended all further cooperation between scientists around the globe"
           ],
           "answer": "B",
           "skill": "inference",
@@ -780,22 +540,10 @@
         {
           "stem": "What is most likely the reason the passage describes satellites as an 'invisible network' that most people rarely notice?",
           "options": [
-            {
-              "id": "A",
-              "text": "because satellites quietly support daily tasks like calls and navigation without most people ever seeing them"
-            },
-            {
-              "id": "B",
-              "text": "because satellites are actually too small for scientists to detect accurately"
-            },
-            {
-              "id": "C",
-              "text": "because satellites stopped working properly many years ago"
-            },
-            {
-              "id": "D",
-              "text": "because very few satellites currently orbit the Earth today"
-            }
+            "because satellites quietly support daily tasks like calls and navigation without most people ever seeing them",
+            "because satellites are actually too small for scientists to detect accurately",
+            "because satellites stopped working properly many years ago",
+            "because very few satellites currently orbit the Earth today"
           ],
           "answer": "A",
           "skill": "inference",
@@ -809,22 +557,10 @@
         {
           "stem": "What does the word 'conclusively' mean as it is used in this passage?",
           "options": [
-            {
-              "id": "A",
-              "text": "in a way that leaves no doubt or question"
-            },
-            {
-              "id": "B",
-              "text": "in a way that happens very slowly over time"
-            },
-            {
-              "id": "C",
-              "text": "in a way that is easily reversed or undone"
-            },
-            {
-              "id": "D",
-              "text": "in a manner that affects only a small area"
-            }
+            "in a way that leaves no doubt or question",
+            "in a way that happens very slowly over time",
+            "in a way that is easily reversed or undone",
+            "in a manner that affects only a small area"
           ],
           "answer": "A",
           "skill": "vocabulary",
@@ -838,22 +574,10 @@
         {
           "stem": "How does the passage's structure help explain satellites' importance today?",
           "options": [
-            {
-              "id": "A",
-              "text": "it moves from Sputnik's historic 1957 launch, through decades of advancement, to today's reliance on satellites for countless tasks"
-            },
-            {
-              "id": "B",
-              "text": "it presents two opposing arguments about whether satellites should exist"
-            },
-            {
-              "id": "C",
-              "text": "it offers a step-by-step guide for building a satellite at home"
-            },
-            {
-              "id": "D",
-              "text": "it ranks several countries by how many satellites they currently own"
-            }
+            "it moves from Sputnik's historic 1957 launch, through decades of advancement, to today's reliance on satellites for countless tasks",
+            "it presents two opposing arguments about whether satellites should exist",
+            "it offers a step-by-step guide for building a satellite at home",
+            "it ranks several countries by how many satellites they currently own"
           ],
           "answer": "A",
           "skill": "text-structure",
@@ -867,22 +591,10 @@
         {
           "stem": "According to the passage, what is a likely long-term effect of advancing satellite technology?",
           "options": [
-            {
-              "id": "A",
-              "text": "people will keep depending on satellites for many important daily tasks"
-            },
-            {
-              "id": "B",
-              "text": "fewer countries will likely choose to launch new satellites in the future"
-            },
-            {
-              "id": "C",
-              "text": "satellites will eventually and completely stop orbiting Earth altogether"
-            },
-            {
-              "id": "D",
-              "text": "scientists will probably stop using satellites for weather forecasting entirely"
-            }
+            "people will keep depending on satellites for many important daily tasks",
+            "fewer countries will likely choose to launch new satellites in the future",
+            "satellites will eventually and completely stop orbiting Earth altogether",
+            "scientists will probably stop using satellites for weather forecasting entirely"
           ],
           "answer": "A",
           "skill": "cause-effect",
@@ -908,22 +620,10 @@
       {
         "stem": "What would most likely happen if no lands had ever sent up a machine like this?",
         "options": [
-          {
-            "id": "A",
-            "text": "maps, calls, and weather pictures might not work the way they do today"
-          },
-          {
-            "id": "B",
-            "text": "the moon would stop moving around Earth"
-          },
-          {
-            "id": "C",
-            "text": "rockets would never have been built at all"
-          },
-          {
-            "id": "D",
-            "text": "people would stop talking to each other completely"
-          }
+          "maps, calls, and weather pictures might not work the way they do today",
+          "the moon would stop moving around Earth",
+          "rockets would never have been built at all",
+          "people would stop talking to each other completely"
         ],
         "answer": "A",
         "skill": "inference",
@@ -937,22 +637,10 @@
       {
         "stem": "Why did the passage mention that the very first machine could only send out a simple beep?",
         "options": [
-          {
-            "id": "A",
-            "text": "to prove that beeps are the loudest sound a machine can make"
-          },
-          {
-            "id": "B",
-            "text": "to argue that the first machine was a complete failure"
-          },
-          {
-            "id": "C",
-            "text": "to explain why rockets are expensive to build"
-          },
-          {
-            "id": "D",
-            "text": "to show how simple the first one was compared to what these machines do today"
-          }
+          "to prove that beeps are the loudest sound a machine can make",
+          "to argue that the first machine was a complete failure",
+          "to explain why rockets are expensive to build",
+          "to show how simple the first one was compared to what these machines do today"
         ],
         "answer": "D",
         "skill": "inference",
@@ -966,22 +654,10 @@
       {
         "stem": "How is the first machine from 1957 similar to the many machines flying above us today?",
         "options": [
-          {
-            "id": "A",
-            "text": "b"
-          },
-          {
-            "id": "B",
-            "text": "both circle around and around Earth, high above us"
-          },
-          {
-            "id": "C",
-            "text": "o"
-          },
-          {
-            "id": "D",
-            "text": "t"
-          }
+          "b",
+          "both circle around and around Earth, high above us",
+          "o",
+          "t"
         ],
         "answer": "B",
         "skill": "compare",
@@ -995,22 +671,10 @@
       {
         "stem": "What is the best reason the passage says these machines 'help us every single day'?",
         "options": [
-          {
-            "id": "A",
-            "text": "because so many of them now circle Earth, doing jobs like helping maps and calls work"
-          },
-          {
-            "id": "B",
-            "text": "because they are given away for free to every family"
-          },
-          {
-            "id": "C",
-            "text": "because they can only be used once a year"
-          },
-          {
-            "id": "D",
-            "text": "because each machine does only one single job forever"
-          }
+          "because so many of them now circle Earth, doing jobs like helping maps and calls work",
+          "because they are given away for free to every family",
+          "because they can only be used once a year",
+          "because each machine does only one single job forever"
         ],
         "answer": "A",
         "skill": "inference",
@@ -1026,22 +690,10 @@
       {
         "stem": "What would most likely happen to weather forecasting without satellites?",
         "options": [
-          {
-            "id": "A",
-            "text": "storms would completely stop forming entirely without satellites in orbit"
-          },
-          {
-            "id": "B",
-            "text": "forecasters would instantly predict the exact weather with perfect accuracy"
-          },
-          {
-            "id": "C",
-            "text": "satellites would urgently need to be replaced by airplanes immediately"
-          },
-          {
-            "id": "D",
-            "text": "forecasters would likely have far less warning before dangerous storms arrive"
-          }
+          "storms would completely stop forming entirely without satellites in orbit",
+          "forecasters would instantly predict the exact weather with perfect accuracy",
+          "satellites would urgently need to be replaced by airplanes immediately",
+          "forecasters would likely have far less warning before dangerous storms arrive"
         ],
         "answer": "D",
         "skill": "inference",
@@ -1055,22 +707,10 @@
       {
         "stem": "Why might the passage emphasize that Sputnik's success 'stunned' scientists and governments worldwide?",
         "options": [
-          {
-            "id": "A",
-            "text": "to show how surprising and significant this achievement truly was at the time"
-          },
-          {
-            "id": "B",
-            "text": "to suggest that scientists had always expected this exact outcome"
-          },
-          {
-            "id": "C",
-            "text": "to argue that Sputnik's launch caused widespread panic and fear"
-          },
-          {
-            "id": "D",
-            "text": "to prove that satellites had already existed many years earlier"
-          }
+          "to show how surprising and significant this achievement truly was at the time",
+          "to suggest that scientists had always expected this exact outcome",
+          "to argue that Sputnik's launch caused widespread panic and fear",
+          "to prove that satellites had already existed many years earlier"
         ],
         "answer": "A",
         "skill": "inference",
@@ -1084,22 +724,10 @@
       {
         "stem": "How are communications satellites and weather satellites similar, based on the passage?",
         "options": [
-          {
-            "id": "A",
-            "text": "both were launched in the exact same year as Sputnik itself"
-          },
-          {
-            "id": "B",
-            "text": "both can only function during the daytime hours of the day"
-          },
-          {
-            "id": "C",
-            "text": "both orbit Earth and perform a specific, useful job for people below"
-          },
-          {
-            "id": "D",
-            "text": "both were designed exclusively for use in just one single country"
-          }
+          "both were launched in the exact same year as Sputnik itself",
+          "both can only function during the daytime hours of the day",
+          "both orbit Earth and perform a specific, useful job for people below",
+          "both were designed exclusively for use in just one single country"
         ],
         "answer": "C",
         "skill": "compare",
@@ -1113,22 +741,10 @@
       {
         "stem": "What is most likely the reason the passage describes several different kinds of satellites, such as weather and navigation satellites?",
         "options": [
-          {
-            "id": "A",
-            "text": "to show the wide variety of important jobs satellites perform for people"
-          },
-          {
-            "id": "B",
-            "text": "to prove that each kind of satellite requires its own separate rocket launch pad"
-          },
-          {
-            "id": "C",
-            "text": "to suggest that most satellites are rarely useful in daily life"
-          },
-          {
-            "id": "D",
-            "text": "to argue that only one kind of satellite should exist at all"
-          }
+          "to show the wide variety of important jobs satellites perform for people",
+          "to prove that each kind of satellite requires its own separate rocket launch pad",
+          "to suggest that most satellites are rarely useful in daily life",
+          "to argue that only one kind of satellite should exist at all"
         ],
         "answer": "A",
         "skill": "cause-effect",
@@ -1144,22 +760,10 @@
       {
         "stem": "What would most likely have happened if Sputnik's launch had failed in 1957?",
         "options": [
-          {
-            "id": "A",
-            "text": "satellites would have likely been invented decades earlier instead"
-          },
-          {
-            "id": "B",
-            "text": "the Space Race and the overall pace of satellite development might have unfolded quite differently afterward"
-          },
-          {
-            "id": "C",
-            "text": "gravity itself would have stopped working as a scientific force"
-          },
-          {
-            "id": "D",
-            "text": "the Soviet Union would have immediately given up all rocket research entirely"
-          }
+          "satellites would have likely been invented decades earlier instead",
+          "the Space Race and the overall pace of satellite development might have unfolded quite differently afterward",
+          "gravity itself would have stopped working as a scientific force",
+          "the Soviet Union would have immediately given up all rocket research entirely"
         ],
         "answer": "B",
         "skill": "inference",
@@ -1173,22 +777,10 @@
       {
         "stem": "Why might the passage specifically note that many experts had 'seriously doubted' stable orbit was possible before Sputnik?",
         "options": [
-          {
-            "id": "A",
-            "text": "to suggest that Sputnik's launch was secretly faked by the Soviet Union all along"
-          },
-          {
-            "id": "B",
-            "text": "to argue that most experts were always fully confident orbit was achievable"
-          },
-          {
-            "id": "C",
-            "text": "to emphasize just how remarkable and unexpected Sputnik's successful launch truly was"
-          },
-          {
-            "id": "D",
-            "text": "to prove that not a single scientist ever studied orbit before 1957"
-          }
+          "to suggest that Sputnik's launch was secretly faked by the Soviet Union all along",
+          "to argue that most experts were always fully confident orbit was achievable",
+          "to emphasize just how remarkable and unexpected Sputnik's successful launch truly was",
+          "to prove that not a single scientist ever studied orbit before 1957"
         ],
         "answer": "C",
         "skill": "inference",
@@ -1202,22 +794,10 @@
       {
         "stem": "How does Sputnik compare with today's satellites, based on the passage?",
         "options": [
-          {
-            "id": "A",
-            "text": "both were launched by the exact same country on the exact same calendar date"
-          },
-          {
-            "id": "B",
-            "text": "both can only ever send out a simple beeping signal"
-          },
-          {
-            "id": "C",
-            "text": "both were designed specifically only to study distant planets"
-          },
-          {
-            "id": "D",
-            "text": "both orbit Earth, but today's satellites perform far more advanced and varied tasks"
-          }
+          "both were launched by the exact same country on the exact same calendar date",
+          "both can only ever send out a simple beeping signal",
+          "both were designed specifically only to study distant planets",
+          "both orbit Earth, but today's satellites perform far more advanced and varied tasks"
         ],
         "answer": "D",
         "skill": "compare",
@@ -1231,22 +811,10 @@
       {
         "stem": "What is most likely the author's purpose in writing this passage?",
         "options": [
-          {
-            "id": "A",
-            "text": "to explain how Sputnik's launch led to today's satellite technology"
-          },
-          {
-            "id": "B",
-            "text": "to firmly convince readers that the Soviet Union was a better country than the United States"
-          },
-          {
-            "id": "C",
-            "text": "to strongly argue that satellite technology has caused far more harm than good"
-          },
-          {
-            "id": "D",
-            "text": "to simply entertain readers with an invented story about outer space"
-          }
+          "to explain how Sputnik's launch led to today's satellite technology",
+          "to firmly convince readers that the Soviet Union was a better country than the United States",
+          "to strongly argue that satellite technology has caused far more harm than good",
+          "to simply entertain readers with an invented story about outer space"
         ],
         "answer": "A",
         "skill": "author-purpose",

@@ -114,22 +114,10 @@
         {
           "stem": "What is this passage mostly about?",
           "options": [
-            {
-              "id": "A",
-              "text": "why the wind blows much harder during the cold night"
-            },
-            {
-              "id": "B",
-              "text": "how a battery stores extra power so it can be used later on"
-            },
-            {
-              "id": "C",
-              "text": "how solar panels get built inside large factories"
-            },
-            {
-              "id": "D",
-              "text": "why people first began to use electric lights"
-            }
+            "why the wind blows much harder during the cold night",
+            "how a battery stores extra power so it can be used later on",
+            "how solar panels get built inside large factories",
+            "why people first began to use electric lights"
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -143,22 +131,10 @@
         {
           "stem": "According to the passage, what did the man put between the metal pieces?",
           "options": [
-            {
-              "id": "A",
-              "text": "dry sand"
-            },
-            {
-              "id": "B",
-              "text": "melted wax"
-            },
-            {
-              "id": "C",
-              "text": "small rocks"
-            },
-            {
-              "id": "D",
-              "text": "wet paper"
-            }
+            "dry sand",
+            "melted wax",
+            "small rocks",
+            "wet paper"
           ],
           "answer": "D",
           "skill": "detail",
@@ -172,22 +148,10 @@
         {
           "stem": "What problem do the sun and wind have, according to the passage?",
           "options": [
-            {
-              "id": "A",
-              "text": "they only work during the hot summer months"
-            },
-            {
-              "id": "B",
-              "text": "they make much too much smoke and pollution"
-            },
-            {
-              "id": "C",
-              "text": "they do not always make power all day and all night"
-            },
-            {
-              "id": "D",
-              "text": "they cost far more money than other kinds of power"
-            }
+            "they only work during the hot summer months",
+            "they make much too much smoke and pollution",
+            "they do not always make power all day and all night",
+            "they cost far more money than other kinds of power"
           ],
           "answer": "C",
           "skill": "detail",
@@ -201,22 +165,10 @@
         {
           "stem": "Why do people call the stack of metal and paper a battery?",
           "options": [
-            {
-              "id": "A",
-              "text": "because it is a thing that can hold power and let it out later"
-            },
-            {
-              "id": "B",
-              "text": "because it was the very first machine that people ever built"
-            },
-            {
-              "id": "C",
-              "text": "because it only works properly during the sunny day"
-            },
-            {
-              "id": "D",
-              "text": "because it makes a loud sound whenever it is used"
-            }
+            "because it is a thing that can hold power and let it out later",
+            "because it was the very first machine that people ever built",
+            "because it only works properly during the sunny day",
+            "because it makes a loud sound whenever it is used"
           ],
           "answer": "A",
           "skill": "inference",
@@ -230,22 +182,10 @@
         {
           "stem": "Why do big batteries let out their saved power at night?",
           "options": [
-            {
-              "id": "A",
-              "text": "because people sleep much better with all the lights off"
-            },
-            {
-              "id": "B",
-              "text": "because batteries always work better when it is cold"
-            },
-            {
-              "id": "C",
-              "text": "because the wind itself never ever blows at night"
-            },
-            {
-              "id": "D",
-              "text": "because the sun is gone and cannot make power then"
-            }
+            "because people sleep much better with all the lights off",
+            "because batteries always work better when it is cold",
+            "because the wind itself never ever blows at night",
+            "because the sun is gone and cannot make power then"
           ],
           "answer": "D",
           "skill": "inference",
@@ -259,22 +199,10 @@
         {
           "stem": "What does the word 'power' mean as it is used in this passage?",
           "options": [
-            {
-              "id": "A",
-              "text": "energy that can run lights and machines"
-            },
-            {
-              "id": "B",
-              "text": "a strong"
-            },
-            {
-              "id": "C",
-              "text": "sudden feeling of anger"
-            },
-            {
-              "id": "D",
-              "text": "a type of very heavy metal"
-            }
+            "energy that can run lights and machines",
+            "a strong",
+            "sudden feeling of anger",
+            "a type of very heavy metal"
           ],
           "answer": "A",
           "skill": "vocabulary",
@@ -288,22 +216,10 @@
         {
           "stem": "How does the passage mostly explain the battery, from beginning to end?",
           "options": [
-            {
-              "id": "A",
-              "text": "it compares two different countries that both use batteries"
-            },
-            {
-              "id": "B",
-              "text": "it tells how the battery was made long ago, then how big batteries are used today"
-            },
-            {
-              "id": "C",
-              "text": "it lists several reasons why batteries can be dangerous"
-            },
-            {
-              "id": "D",
-              "text": "it tells a made-up story about a battery that can talk"
-            }
+            "it compares two different countries that both use batteries",
+            "it tells how the battery was made long ago, then how big batteries are used today",
+            "it lists several reasons why batteries can be dangerous",
+            "it tells a made-up story about a battery that can talk"
           ],
           "answer": "B",
           "skill": "text-structure",
@@ -317,22 +233,10 @@
         {
           "stem": "What happens right after huge batteries store power from the sun and wind during the day?",
           "options": [
-            {
-              "id": "A",
-              "text": "the batteries are thrown away and then replaced"
-            },
-            {
-              "id": "B",
-              "text": "the sun and wind stop making any power forever"
-            },
-            {
-              "id": "C",
-              "text": "at night, they let that saved power back out"
-            },
-            {
-              "id": "D",
-              "text": "the batteries get taken apart and studied carefully"
-            }
+            "the batteries are thrown away and then replaced",
+            "the sun and wind stop making any power forever",
+            "at night, they let that saved power back out",
+            "the batteries get taken apart and studied carefully"
           ],
           "answer": "C",
           "skill": "sequence",
@@ -389,22 +293,10 @@
         {
           "stem": "What is the central idea of this passage?",
           "options": [
-            {
-              "id": "A",
-              "text": "wind turbines are generally more useful than solar panels overall"
-            },
-            {
-              "id": "B",
-              "text": "batteries store power made by the sun and wind so it can be used at a later time"
-            },
-            {
-              "id": "C",
-              "text": "electric current itself was unknown before batteries existed"
-            },
-            {
-              "id": "D",
-              "text": "metal discs make up the most expensive part of any battery"
-            }
+            "wind turbines are generally more useful than solar panels overall",
+            "batteries store power made by the sun and wind so it can be used at a later time",
+            "electric current itself was unknown before batteries existed",
+            "metal discs make up the most expensive part of any battery"
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -418,22 +310,10 @@
         {
           "stem": "According to the passage, what was placed between the metal discs in the original invention?",
           "options": [
-            {
-              "id": "A",
-              "text": "thin sheets of ordinary glass"
-            },
-            {
-              "id": "B",
-              "text": "small pieces of rubber padding"
-            },
-            {
-              "id": "C",
-              "text": "several strips of dry cloth"
-            },
-            {
-              "id": "D",
-              "text": "paper soaked in a special liquid"
-            }
+            "thin sheets of ordinary glass",
+            "small pieces of rubber padding",
+            "several strips of dry cloth",
+            "paper soaked in a special liquid"
           ],
           "answer": "D",
           "skill": "detail",
@@ -447,22 +327,10 @@
         {
           "stem": "Based on the passage, why do people still need a steady supply of power even though the sun and wind are not constant?",
           "options": [
-            {
-              "id": "A",
-              "text": "because solar panels work only at night time"
-            },
-            {
-              "id": "B",
-              "text": "because wind turbines produce far more power than needed"
-            },
-            {
-              "id": "C",
-              "text": "because people rely on power around the clock without interruption"
-            },
-            {
-              "id": "D",
-              "text": "because electric current changes direction every single hour"
-            }
+            "because solar panels work only at night time",
+            "because wind turbines produce far more power than needed",
+            "because people rely on power around the clock without interruption",
+            "because electric current changes direction every single hour"
           ],
           "answer": "C",
           "skill": "detail",
@@ -476,22 +344,10 @@
         {
           "stem": "Why does the passage describe the battery's inventor as solving 'an entirely different scientific problem'?",
           "options": [
-            {
-              "id": "A",
-              "text": "to show that the battery was an unexpected discovery, not the original goal"
-            },
-            {
-              "id": "B",
-              "text": "to prove the inventor was never interested in electricity at all"
-            },
-            {
-              "id": "C",
-              "text": "to explain why batteries do not actually work very well"
-            },
-            {
-              "id": "D",
-              "text": "to suggest that scientists today cannot explain how batteries function properly"
-            }
+            "to show that the battery was an unexpected discovery, not the original goal",
+            "to prove the inventor was never interested in electricity at all",
+            "to explain why batteries do not actually work very well",
+            "to suggest that scientists today cannot explain how batteries function properly"
           ],
           "answer": "A",
           "skill": "inference",
@@ -505,22 +361,10 @@
         {
           "stem": "What can you infer about why today's industrial batteries are described as working on 'a far bigger scale'?",
           "options": [
-            {
-              "id": "A",
-              "text": "modern batteries are smaller so they can fit inside pockets"
-            },
-            {
-              "id": "B",
-              "text": "modern batteries no longer use any metal discs at all"
-            },
-            {
-              "id": "C",
-              "text": "modern batteries only work properly during the daytime"
-            },
-            {
-              "id": "D",
-              "text": "modern batteries are built much larger so they can power entire communities"
-            }
+            "modern batteries are smaller so they can fit inside pockets",
+            "modern batteries no longer use any metal discs at all",
+            "modern batteries only work properly during the daytime",
+            "modern batteries are built much larger so they can power entire communities"
           ],
           "answer": "D",
           "skill": "inference",
@@ -534,22 +378,10 @@
         {
           "stem": "What does the word 'steady' mean as used in this passage?",
           "options": [
-            {
-              "id": "A",
-              "text": "continuing in the same reliable way, without stopping or changing suddenly"
-            },
-            {
-              "id": "B",
-              "text": "extremely hot or very warm indeed"
-            },
-            {
-              "id": "C",
-              "text": "moving very fast and quite loudly"
-            },
-            {
-              "id": "D",
-              "text": "completely new and never once tried before"
-            }
+            "continuing in the same reliable way, without stopping or changing suddenly",
+            "extremely hot or very warm indeed",
+            "moving very fast and quite loudly",
+            "completely new and never once tried before"
           ],
           "answer": "A",
           "skill": "vocabulary",
@@ -563,22 +395,10 @@
         {
           "stem": "How is this passage mostly organized?",
           "options": [
-            {
-              "id": "A",
-              "text": "it argues that wind power is clearly better than solar power"
-            },
-            {
-              "id": "B",
-              "text": "it compares batteries used in different countries around the world"
-            },
-            {
-              "id": "C",
-              "text": "it explains a problem, describes an old invention that helped solve it, then shows how that idea is used on a huge scale today"
-            },
-            {
-              "id": "D",
-              "text": "it lists step-by-step instructions for building a battery at home"
-            }
+            "it argues that wind power is clearly better than solar power",
+            "it compares batteries used in different countries around the world",
+            "it explains a problem, describes an old invention that helped solve it, then shows how that idea is used on a huge scale today",
+            "it lists step-by-step instructions for building a battery at home"
           ],
           "answer": "C",
           "skill": "text-structure",
@@ -592,22 +412,10 @@
         {
           "stem": "What happens after solar panels and wind turbines generate power during the day, according to the passage?",
           "options": [
-            {
-              "id": "A",
-              "text": "the power disappears completely once the sun sets"
-            },
-            {
-              "id": "B",
-              "text": "batteries store that power until it is needed at night"
-            },
-            {
-              "id": "C",
-              "text": "the power gets sent directly down into the ground"
-            },
-            {
-              "id": "D",
-              "text": "the power becomes converted into a completely different kind of energy"
-            }
+            "the power disappears completely once the sun sets",
+            "batteries store that power until it is needed at night",
+            "the power gets sent directly down into the ground",
+            "the power becomes converted into a completely different kind of energy"
           ],
           "answer": "B",
           "skill": "sequence",
@@ -664,22 +472,10 @@
         {
           "stem": "What is the central idea of this passage?",
           "options": [
-            {
-              "id": "A",
-              "text": "Volta believed that solar and wind power were unreliable and should always be abandoned"
-            },
-            {
-              "id": "B",
-              "text": "Volta's voltaic pile eventually led to the large-scale battery storage used in clean-energy grids today"
-            },
-            {
-              "id": "C",
-              "text": "zinc and copper were apparently discovered at the exact same time as electricity itself"
-            },
-            {
-              "id": "D",
-              "text": "modern power grids no longer require any form of energy storage whatsoever"
-            }
+            "Volta believed that solar and wind power were unreliable and should always be abandoned",
+            "Volta's voltaic pile eventually led to the large-scale battery storage used in clean-energy grids today",
+            "zinc and copper were apparently discovered at the exact same time as electricity itself",
+            "modern power grids no longer require any form of energy storage whatsoever"
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -693,22 +489,10 @@
         {
           "stem": "According to the passage, what two metals did Volta use to build his voltaic pile?",
           "options": [
-            {
-              "id": "A",
-              "text": "zinc and copper"
-            },
-            {
-              "id": "B",
-              "text": "iron and tin"
-            },
-            {
-              "id": "C",
-              "text": "silver and lead"
-            },
-            {
-              "id": "D",
-              "text": "aluminum and nickel"
-            }
+            "zinc and copper",
+            "iron and tin",
+            "silver and lead",
+            "aluminum and nickel"
           ],
           "answer": "A",
           "skill": "detail",
@@ -722,22 +506,10 @@
         {
           "stem": "Based on the passage, in what time period did Volta invent his device?",
           "options": [
-            {
-              "id": "A",
-              "text": "the early 1600s"
-            },
-            {
-              "id": "B",
-              "text": "the late 1900s"
-            },
-            {
-              "id": "C",
-              "text": "the early 1800s"
-            },
-            {
-              "id": "D",
-              "text": "the early 2000s"
-            }
+            "the early 1600s",
+            "the late 1900s",
+            "the early 1800s",
+            "the early 2000s"
           ],
           "answer": "C",
           "skill": "detail",
@@ -751,22 +523,10 @@
         {
           "stem": "What can you infer about why scientists across Europe were so astonished by Volta's voltaic pile?",
           "options": [
-            {
-              "id": "A",
-              "text": "a steady, controllable electric current was a genuinely new and poorly understood phenomenon at that time"
-            },
-            {
-              "id": "B",
-              "text": "scientists had never before heard the word electricity used in any context"
-            },
-            {
-              "id": "C",
-              "text": "European scientists had no interest in electricity until Volta's demonstration"
-            },
-            {
-              "id": "D",
-              "text": "zinc and copper had never before been used for any purpose"
-            }
+            "a steady, controllable electric current was a genuinely new and poorly understood phenomenon at that time",
+            "scientists had never before heard the word electricity used in any context",
+            "European scientists had no interest in electricity until Volta's demonstration",
+            "zinc and copper had never before been used for any purpose"
           ],
           "answer": "A",
           "skill": "inference",
@@ -780,22 +540,10 @@
         {
           "stem": "What is most likely the reason engineers today refer to Volta's basic idea as 'energy storage'?",
           "options": [
-            {
-              "id": "A",
-              "text": "because Volta himself invented that exact term before his invention was even finished"
-            },
-            {
-              "id": "B",
-              "text": "because energy storage only became possible after solar panels were first invented"
-            },
-            {
-              "id": "C",
-              "text": "because the term simply replaced an older"
-            },
-            {
-              "id": "D",
-              "text": "because the fundamental concept, saving power to release later, still describes what modern batteries rely on"
-            }
+            "because Volta himself invented that exact term before his invention was even finished",
+            "because energy storage only became possible after solar panels were first invented",
+            "because the term simply replaced an older",
+            "because the fundamental concept, saving power to release later, still describes what modern batteries rely on"
           ],
           "answer": "D",
           "skill": "inference",
@@ -809,22 +557,10 @@
         {
           "stem": "What does the word 'phenomenon' mean as it is used in this passage?",
           "options": [
-            {
-              "id": "A",
-              "text": "a type of metal disc that was used in very old batteries"
-            },
-            {
-              "id": "B",
-              "text": "a careful measurement of how much electricity a battery holds"
-            },
-            {
-              "id": "C",
-              "text": "a formal title that is given to famous scientists"
-            },
-            {
-              "id": "D",
-              "text": "an observable fact or occurrence, unusual and not yet fully understood"
-            }
+            "a type of metal disc that was used in very old batteries",
+            "a careful measurement of how much electricity a battery holds",
+            "a formal title that is given to famous scientists",
+            "an observable fact or occurrence, unusual and not yet fully understood"
           ],
           "answer": "D",
           "skill": "vocabulary",
@@ -838,22 +574,10 @@
         {
           "stem": "How does the passage's structure help explain the importance of battery storage today?",
           "options": [
-            {
-              "id": "A",
-              "text": "it presents two competing theories about electricity and lets the reader choose between them"
-            },
-            {
-              "id": "B",
-              "text": "it offers a detailed"
-            },
-            {
-              "id": "C",
-              "text": "it moves from Volta's historical invention to its modern large-scale application, showing how the idea grew in importance"
-            },
-            {
-              "id": "D",
-              "text": "step-by-step guide for building a voltaic pile at home"
-            }
+            "it presents two competing theories about electricity and lets the reader choose between them",
+            "it offers a detailed",
+            "it moves from Volta's historical invention to its modern large-scale application, showing how the idea grew in importance",
+            "step-by-step guide for building a voltaic pile at home"
           ],
           "answer": "C",
           "skill": "text-structure",
@@ -867,22 +591,10 @@
         {
           "stem": "According to the passage, what is the likely long-term effect of expanding large-scale battery storage?",
           "options": [
-            {
-              "id": "A",
-              "text": "fewer scientists will study electricity carefully in the future"
-            },
-            {
-              "id": "B",
-              "text": "more cities and countries will shift away from burning coal, oil, and gas for energy"
-            },
-            {
-              "id": "C",
-              "text": "solar panels and wind turbines will eventually become completely unnecessary"
-            },
-            {
-              "id": "D",
-              "text": "zinc and copper will soon become too expensive to use in any industry"
-            }
+            "fewer scientists will study electricity carefully in the future",
+            "more cities and countries will shift away from burning coal, oil, and gas for energy",
+            "solar panels and wind turbines will eventually become completely unnecessary",
+            "zinc and copper will soon become too expensive to use in any industry"
           ],
           "answer": "B",
           "skill": "cause-effect",
@@ -908,22 +620,10 @@
       {
         "stem": "What would most likely happen if huge batteries did not exist?",
         "options": [
-          {
-            "id": "A",
-            "text": "the wind would stop blowing completely forever"
-          },
-          {
-            "id": "B",
-            "text": "homes might lose power at night when the sun is not shining"
-          },
-          {
-            "id": "C",
-            "text": "the sun would shine brightly all through the night"
-          },
-          {
-            "id": "D",
-            "text": "people would no longer need any power at all"
-          }
+          "the wind would stop blowing completely forever",
+          "homes might lose power at night when the sun is not shining",
+          "the sun would shine brightly all through the night",
+          "people would no longer need any power at all"
         ],
         "answer": "B",
         "skill": "inference",
@@ -937,22 +637,10 @@
       {
         "stem": "Why did the passage mention that the man made his invention to solve a different problem?",
         "options": [
-          {
-            "id": "A",
-            "text": "to prove that he was not a careful or thoughtful scientist"
-          },
-          {
-            "id": "B",
-            "text": "to show that batteries are not very useful even today"
-          },
-          {
-            "id": "C",
-            "text": "to show that the battery was discovered while studying something else"
-          },
-          {
-            "id": "D",
-            "text": "to explain why metal pieces cost so much money"
-          }
+          "to prove that he was not a careful or thoughtful scientist",
+          "to show that batteries are not very useful even today",
+          "to show that the battery was discovered while studying something else",
+          "to explain why metal pieces cost so much money"
         ],
         "answer": "C",
         "skill": "inference",
@@ -966,22 +654,10 @@
       {
         "stem": "How are solar panels and wind turbines alike, based on the passage?",
         "options": [
-          {
-            "id": "A",
-            "text": "both are usually kept inside people's homes"
-          },
-          {
-            "id": "B",
-            "text": "both only work properly during big storms"
-          },
-          {
-            "id": "C",
-            "text": "both were invented by the same man who made the battery"
-          },
-          {
-            "id": "D",
-            "text": "both catch natural things from nature to make clean power"
-          }
+          "both are usually kept inside people's homes",
+          "both only work properly during big storms",
+          "both were invented by the same man who made the battery",
+          "both catch natural things from nature to make clean power"
         ],
         "answer": "D",
         "skill": "compare",
@@ -995,22 +671,10 @@
       {
         "stem": "What is the best reason the passage calls sun and wind power 'clean'?",
         "options": [
-          {
-            "id": "A",
-            "text": "because they do not make smoke or pollution like some other power sources"
-          },
-          {
-            "id": "B",
-            "text": "because they make the outside air smell much nicer"
-          },
-          {
-            "id": "C",
-            "text": "because machines that use them never once break down"
-          },
-          {
-            "id": "D",
-            "text": "because this kind of power was invented very recently"
-          }
+          "because they do not make smoke or pollution like some other power sources",
+          "because they make the outside air smell much nicer",
+          "because machines that use them never once break down",
+          "because this kind of power was invented very recently"
         ],
         "answer": "A",
         "skill": "inference",
@@ -1026,22 +690,10 @@
       {
         "stem": "What would most likely happen to homes and streetlights at night if large batteries were never developed?",
         "options": [
-          {
-            "id": "A",
-            "text": "they would simply use even more solar panels than before"
-          },
-          {
-            "id": "B",
-            "text": "they would switch entirely over to burning wood for light"
-          },
-          {
-            "id": "C",
-            "text": "they could lose power whenever the sun sets and the wind calms down"
-          },
-          {
-            "id": "D",
-            "text": "they would require absolutely no electricity at all after dark"
-          }
+          "they would simply use even more solar panels than before",
+          "they would switch entirely over to burning wood for light",
+          "they could lose power whenever the sun sets and the wind calms down",
+          "they would require absolutely no electricity at all after dark"
         ],
         "answer": "C",
         "skill": "inference",
@@ -1055,22 +707,10 @@
       {
         "stem": "Why might the passage emphasize that the original battery 'surprised nearly everyone who saw it work'?",
         "options": [
-          {
-            "id": "A",
-            "text": "to prove that nobody today truly understands how batteries work"
-          },
-          {
-            "id": "B",
-            "text": "to suggest that the invention was actually just a trick"
-          },
-          {
-            "id": "C",
-            "text": "to show that most people refused to believe that electricity existed"
-          },
-          {
-            "id": "D",
-            "text": "to show how unexpected and remarkable this new kind of invention seemed at the time"
-          }
+          "to prove that nobody today truly understands how batteries work",
+          "to suggest that the invention was actually just a trick",
+          "to show that most people refused to believe that electricity existed",
+          "to show how unexpected and remarkable this new kind of invention seemed at the time"
         ],
         "answer": "D",
         "skill": "inference",
@@ -1084,22 +724,10 @@
       {
         "stem": "How are the original battery and today's industrial batteries similar, based on the passage?",
         "options": [
-          {
-            "id": "A",
-            "text": "both are small enough to easily fit into a pocket"
-          },
-          {
-            "id": "B",
-            "text": "both store power so it can be released again whenever it is needed"
-          },
-          {
-            "id": "C",
-            "text": "both were invented at exactly the same moment in history"
-          },
-          {
-            "id": "D",
-            "text": "both use glass instead of metal discs entirely"
-          }
+          "both are small enough to easily fit into a pocket",
+          "both store power so it can be released again whenever it is needed",
+          "both were invented at exactly the same moment in history",
+          "both use glass instead of metal discs entirely"
         ],
         "answer": "B",
         "skill": "compare",
@@ -1113,22 +741,10 @@
       {
         "stem": "What is most likely the reason engineers continue working to improve battery storage, according to the passage?",
         "options": [
-          {
-            "id": "A",
-            "text": "so that communities can rely more fully on clean power from the sun and wind"
-          },
-          {
-            "id": "B",
-            "text": "so that batteries can simply be made to look more attractive"
-          },
-          {
-            "id": "C",
-            "text": "so that far fewer solar panels and turbines need to be built"
-          },
-          {
-            "id": "D",
-            "text": "so that electric current can be replaced with another form of energy"
-          }
+          "so that communities can rely more fully on clean power from the sun and wind",
+          "so that batteries can simply be made to look more attractive",
+          "so that far fewer solar panels and turbines need to be built",
+          "so that electric current can be replaced with another form of energy"
         ],
         "answer": "A",
         "skill": "cause-effect",
@@ -1144,22 +760,10 @@
       {
         "stem": "What would most likely happen to clean-energy power grids without large-scale battery storage?",
         "options": [
-          {
-            "id": "A",
-            "text": "they would instantly switch over to burning more coal and gas"
-          },
-          {
-            "id": "B",
-            "text": "they would become entirely incapable of producing any electricity"
-          },
-          {
-            "id": "C",
-            "text": "they would struggle to supply steady power whenever the sun was down or the wind was calm"
-          },
-          {
-            "id": "D",
-            "text": "they would require Volta's original voltaic pile to be rebuilt"
-          }
+          "they would instantly switch over to burning more coal and gas",
+          "they would become entirely incapable of producing any electricity",
+          "they would struggle to supply steady power whenever the sun was down or the wind was calm",
+          "they would require Volta's original voltaic pile to be rebuilt"
         ],
         "answer": "C",
         "skill": "inference",
@@ -1173,22 +777,10 @@
       {
         "stem": "Why might the passage specifically note that Volta's invention came from investigating an unrelated scientific question?",
         "options": [
-          {
-            "id": "A",
-            "text": "to suggest that Volta did not fully understand his own invention at all"
-          },
-          {
-            "id": "B",
-            "text": "to argue that unplanned discoveries are usually far less useful overall"
-          },
-          {
-            "id": "C",
-            "text": "to prove that Volta intended from the very start to build a modern battery"
-          },
-          {
-            "id": "D",
-            "text": "to highlight how an unplanned scientific discovery became one of history's most practical inventions"
-          }
+          "to suggest that Volta did not fully understand his own invention at all",
+          "to argue that unplanned discoveries are usually far less useful overall",
+          "to prove that Volta intended from the very start to build a modern battery",
+          "to highlight how an unplanned scientific discovery became one of history's most practical inventions"
         ],
         "answer": "D",
         "skill": "inference",
@@ -1202,22 +794,10 @@
       {
         "stem": "How does Volta's original voltaic pile compare with today's industrial battery systems, based on the passage?",
         "options": [
-          {
-            "id": "A",
-            "text": "both were designed specifically to power entire cities from the very start"
-          },
-          {
-            "id": "B",
-            "text": "both store and release electrical energy, but today's systems operate on a vastly larger scale"
-          },
-          {
-            "id": "C",
-            "text": "both rely on solar panels built directly into their own structure"
-          },
-          {
-            "id": "D",
-            "text": "both were invented during the exact same decade of history"
-          }
+          "both were designed specifically to power entire cities from the very start",
+          "both store and release electrical energy, but today's systems operate on a vastly larger scale",
+          "both rely on solar panels built directly into their own structure",
+          "both were invented during the exact same decade of history"
         ],
         "answer": "B",
         "skill": "compare",
@@ -1231,22 +811,10 @@
       {
         "stem": "What is most likely the author's purpose in writing this passage?",
         "options": [
-          {
-            "id": "A",
-            "text": "to explain how a historical invention grew into an essential modern technology for clean energy"
-          },
-          {
-            "id": "B",
-            "text": "to convince readers that zinc and copper are the most valuable metals on Earth"
-          },
-          {
-            "id": "C",
-            "text": "to argue that Volta's work has had little lasting importance today"
-          },
-          {
-            "id": "D",
-            "text": "to entertain readers with a made-up"
-          }
+          "to explain how a historical invention grew into an essential modern technology for clean energy",
+          "to convince readers that zinc and copper are the most valuable metals on Earth",
+          "to argue that Volta's work has had little lasting importance today",
+          "to entertain readers with a made-up"
         ],
         "answer": "A",
         "skill": "author-purpose",

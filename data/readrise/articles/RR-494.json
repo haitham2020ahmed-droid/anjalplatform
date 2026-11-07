@@ -114,22 +114,10 @@
         {
           "stem": "What is this passage mostly about?",
           "options": [
-            {
-              "id": "A",
-              "text": "how farmers grow food without using any water at all"
-            },
-            {
-              "id": "B",
-              "text": "how people learned to turn salty sea water into fresh water we can drink"
-            },
-            {
-              "id": "C",
-              "text": "why the ocean is bigger than any lake on Earth"
-            },
-            {
-              "id": "D",
-              "text": "how people built boats to sail across the salty sea"
-            }
+            "how farmers grow food without using any water at all",
+            "how people learned to turn salty sea water into fresh water we can drink",
+            "why the ocean is bigger than any lake on Earth",
+            "how people built boats to sail across the salty sea"
           ],
           "answer": "B",
           "skill": "central idea",
@@ -143,22 +131,10 @@
         {
           "stem": "Why can't people drink water straight from the sea?",
           "options": [
-            {
-              "id": "A",
-              "text": "the sea water is far too salty for people to drink"
-            },
-            {
-              "id": "B",
-              "text": "the sea water is always too cold to drink safely"
-            },
-            {
-              "id": "C",
-              "text": "the sea water has no water in it at all"
-            },
-            {
-              "id": "D",
-              "text": "the sea water turns to ice as soon as it is touched"
-            }
+            "the sea water is far too salty for people to drink",
+            "the sea water is always too cold to drink safely",
+            "the sea water has no water in it at all",
+            "the sea water turns to ice as soon as it is touched"
           ],
           "answer": "A",
           "skill": "detail",
@@ -172,22 +148,10 @@
         {
           "stem": "What did people put salty water into when they first tried this trick?",
           "options": [
-            {
-              "id": "A",
-              "text": "a deep hole dug into the sand near the shore"
-            },
-            {
-              "id": "B",
-              "text": "a wooden box filled with dry desert sand"
-            },
-            {
-              "id": "C",
-              "text": "a glass jar left out under the cold night sky"
-            },
-            {
-              "id": "D",
-              "text": "a pot that they heated until the water turned to steam"
-            }
+            "a deep hole dug into the sand near the shore",
+            "a wooden box filled with dry desert sand",
+            "a glass jar left out under the cold night sky",
+            "a pot that they heated until the water turned to steam"
           ],
           "answer": "D",
           "skill": "detail",
@@ -201,22 +165,10 @@
         {
           "stem": "Why does the salt get left behind when the water turns into steam?",
           "options": [
-            {
-              "id": "A",
-              "text": "because the steam rises up while the heavy salt stays in the pot"
-            },
-            {
-              "id": "B",
-              "text": "because the salt melts completely and disappears forever"
-            },
-            {
-              "id": "C",
-              "text": "because the pot itself magically changes the salt into sugar"
-            },
-            {
-              "id": "D",
-              "text": "because the cool air outside pushes the salt out of the pot"
-            }
+            "because the steam rises up while the heavy salt stays in the pot",
+            "because the salt melts completely and disappears forever",
+            "because the pot itself magically changes the salt into sugar",
+            "because the cool air outside pushes the salt out of the pot"
           ],
           "answer": "A",
           "skill": "inference",
@@ -230,22 +182,10 @@
         {
           "stem": "Why is this trick especially helpful for a place like Saudi Arabia?",
           "options": [
-            {
-              "id": "A",
-              "text": "because that land has too much rain and floods every year"
-            },
-            {
-              "id": "B",
-              "text": "because that land gets very little rain, so fresh water is hard to find naturally"
-            },
-            {
-              "id": "C",
-              "text": "because that land has no ocean nearby to use at all"
-            },
-            {
-              "id": "D",
-              "text": "because that land never needs fresh water for homes or farms"
-            }
+            "because that land has too much rain and floods every year",
+            "because that land gets very little rain, so fresh water is hard to find naturally",
+            "because that land has no ocean nearby to use at all",
+            "because that land never needs fresh water for homes or farms"
           ],
           "answer": "B",
           "skill": "inference",
@@ -259,22 +199,10 @@
         {
           "stem": "In this passage, what does the word \"trick\" mean?",
           "options": [
-            {
-              "id": "A",
-              "text": "a clever method or way of solving a problem"
-            },
-            {
-              "id": "B",
-              "text": "a dishonest act meant to confuse or fool someone"
-            },
-            {
-              "id": "C",
-              "text": "a short game that children play at a party"
-            },
-            {
-              "id": "D",
-              "text": "a loud sound that surprises someone suddenly"
-            }
+            "a clever method or way of solving a problem",
+            "a dishonest act meant to confuse or fool someone",
+            "a short game that children play at a party",
+            "a loud sound that surprises someone suddenly"
           ],
           "answer": "A",
           "skill": "vocabulary",
@@ -288,22 +216,10 @@
         {
           "stem": "Why does the author describe the steam touching something cool after it rises?",
           "options": [
-            {
-              "id": "A",
-              "text": "to explain why the pot becomes too hot to touch"
-            },
-            {
-              "id": "B",
-              "text": "to show why the sea water never actually boils at all"
-            },
-            {
-              "id": "C",
-              "text": "to explain how the steam turns back into fresh water without any salt"
-            },
-            {
-              "id": "D",
-              "text": "to describe how clouds form naturally high in the sky"
-            }
+            "to explain why the pot becomes too hot to touch",
+            "to show why the sea water never actually boils at all",
+            "to explain how the steam turns back into fresh water without any salt",
+            "to describe how clouds form naturally high in the sky"
           ],
           "answer": "C",
           "skill": "author's purpose",
@@ -317,22 +233,10 @@
         {
           "stem": "What happens right after the rising steam touches something cool?",
           "options": [
-            {
-              "id": "A",
-              "text": "it turns back into plain water that has no salt left in it"
-            },
-            {
-              "id": "B",
-              "text": "it disappears completely and leaves nothing behind at all"
-            },
-            {
-              "id": "C",
-              "text": "it turns into ice that cannot be used for drinking"
-            },
-            {
-              "id": "D",
-              "text": "it mixes back together with the salt it left behind"
-            }
+            "it turns back into plain water that has no salt left in it",
+            "it disappears completely and leaves nothing behind at all",
+            "it turns into ice that cannot be used for drinking",
+            "it mixes back together with the salt it left behind"
           ],
           "answer": "A",
           "skill": "sequence",
@@ -389,22 +293,10 @@
         {
           "stem": "What is the main idea of this passage?",
           "options": [
-            {
-              "id": "A",
-              "text": "farmers around the world have completely stopped using water to grow their crops"
-            },
-            {
-              "id": "B",
-              "text": "the ocean is slowly running out of water due to rising temperatures"
-            },
-            {
-              "id": "C",
-              "text": "an old method for removing salt from water grew into a modern tool that helps dry places"
-            },
-            {
-              "id": "D",
-              "text": "scientists recently discovered a brand new ocean hidden beneath the desert"
-            }
+            "farmers around the world have completely stopped using water to grow their crops",
+            "the ocean is slowly running out of water due to rising temperatures",
+            "an old method for removing salt from water grew into a modern tool that helps dry places",
+            "scientists recently discovered a brand new ocean hidden beneath the desert"
           ],
           "answer": "C",
           "skill": "central idea",
@@ -418,22 +310,10 @@
         {
           "stem": "According to the passage, why can't people simply drink water straight from the sea?",
           "options": [
-            {
-              "id": "A",
-              "text": "it contains far too much salt for the body to handle"
-            },
-            {
-              "id": "B",
-              "text": "it is always too cold for the human body to drink"
-            },
-            {
-              "id": "C",
-              "text": "it contains no actual water molecules at all"
-            },
-            {
-              "id": "D",
-              "text": "it instantly freezes the moment someone tries to drink it"
-            }
+            "it contains far too much salt for the body to handle",
+            "it is always too cold for the human body to drink",
+            "it contains no actual water molecules at all",
+            "it instantly freezes the moment someone tries to drink it"
           ],
           "answer": "A",
           "skill": "detail",
@@ -447,22 +327,10 @@
         {
           "stem": "What did the water turn into after people boiled it inside a pot?",
           "options": [
-            {
-              "id": "A",
-              "text": "solid ice that formed instantly at the bottom of the pot"
-            },
-            {
-              "id": "B",
-              "text": "a thick syrup that had to be poured out carefully"
-            },
-            {
-              "id": "C",
-              "text": "colorful crystals that floated on top of the water"
-            },
-            {
-              "id": "D",
-              "text": "rising steam, which left the salt behind at the bottom"
-            }
+            "solid ice that formed instantly at the bottom of the pot",
+            "a thick syrup that had to be poured out carefully",
+            "colorful crystals that floated on top of the water",
+            "rising steam, which left the salt behind at the bottom"
           ],
           "answer": "D",
           "skill": "detail",
@@ -476,22 +344,10 @@
         {
           "stem": "Why does cooling the rising steam turn it back into water with no salt in it?",
           "options": [
-            {
-              "id": "A",
-              "text": "only the water rises as steam, while the heavy salt stays in the pot"
-            },
-            {
-              "id": "B",
-              "text": "because cooling the steam somehow destroys the salt completely"
-            },
-            {
-              "id": "C",
-              "text": "because the steam picks up new salt from the cool air around it"
-            },
-            {
-              "id": "D",
-              "text": "because the pot adds extra fresh water while the steam rises"
-            }
+            "only the water rises as steam, while the heavy salt stays in the pot",
+            "because cooling the steam somehow destroys the salt completely",
+            "because the steam picks up new salt from the cool air around it",
+            "because the pot adds extra fresh water while the steam rises"
           ],
           "answer": "A",
           "skill": "inference",
@@ -505,22 +361,10 @@
         {
           "stem": "Why does the passage describe this method as feeling \"almost like a small magic trick\" to someone watching?",
           "options": [
-            {
-              "id": "A",
-              "text": "because the pot used in the process is actually invisible to onlookers"
-            },
-            {
-              "id": "B",
-              "text": "because it seems surprising that salty water could become perfectly clean water through such a simple process"
-            },
-            {
-              "id": "C",
-              "text": "because the water genuinely disappears and never comes back at all"
-            },
-            {
-              "id": "D",
-              "text": "because the salt turns into a completely different, edible food"
-            }
+            "because the pot used in the process is actually invisible to onlookers",
+            "because it seems surprising that salty water could become perfectly clean water through such a simple process",
+            "because the water genuinely disappears and never comes back at all",
+            "because the salt turns into a completely different, edible food"
           ],
           "answer": "B",
           "skill": "inference",
@@ -534,22 +378,10 @@
         {
           "stem": "In this passage, what does the word \"region\" most likely mean?",
           "options": [
-            {
-              "id": "A",
-              "text": "a particular area or part of the world"
-            },
-            {
-              "id": "B",
-              "text": "a single small building used for storing water"
-            },
-            {
-              "id": "C",
-              "text": "a type of pot used for boiling sea water"
-            },
-            {
-              "id": "D",
-              "text": "a specific measurement of how salty water is"
-            }
+            "a particular area or part of the world",
+            "a single small building used for storing water",
+            "a type of pot used for boiling sea water",
+            "a specific measurement of how salty water is"
           ],
           "answer": "A",
           "skill": "vocabulary",
@@ -563,22 +395,10 @@
         {
           "stem": "Why might the author have chosen to describe the simple pot method before describing the huge modern plants?",
           "options": [
-            {
-              "id": "A",
-              "text": "to prove that modern plants do not actually use the same basic idea"
-            },
-            {
-              "id": "B",
-              "text": "to argue that the pot method worked better than today's big plants"
-            },
-            {
-              "id": "C",
-              "text": "to help readers understand the basic idea before seeing how it grew into something much bigger"
-            },
-            {
-              "id": "D",
-              "text": "to show that fresh water was never truly needed by anyone long ago"
-            }
+            "to prove that modern plants do not actually use the same basic idea",
+            "to argue that the pot method worked better than today's big plants",
+            "to help readers understand the basic idea before seeing how it grew into something much bigger",
+            "to show that fresh water was never truly needed by anyone long ago"
           ],
           "answer": "C",
           "skill": "author's purpose",
@@ -592,22 +412,10 @@
         {
           "stem": "What is the correct order of events in how this method works?",
           "options": [
-            {
-              "id": "A",
-              "text": "salty water is boiled, it rises as steam leaving salt behind, and then it cools back into fresh water"
-            },
-            {
-              "id": "B",
-              "text": "fresh water is boiled first, and only then does salt get added to it"
-            },
-            {
-              "id": "C",
-              "text": "steam cools into fresh water before it is ever boiled in a pot"
-            },
-            {
-              "id": "D",
-              "text": "salt is removed completely before the water is even placed in a pot"
-            }
+            "salty water is boiled, it rises as steam leaving salt behind, and then it cools back into fresh water",
+            "fresh water is boiled first, and only then does salt get added to it",
+            "steam cools into fresh water before it is ever boiled in a pot",
+            "salt is removed completely before the water is even placed in a pot"
           ],
           "answer": "A",
           "skill": "sequence",
@@ -664,22 +472,10 @@
         {
           "stem": "What is the central idea connecting distillation and reverse osmosis in this passage?",
           "options": [
-            {
-              "id": "A",
-              "text": "both are methods people developed to remove salt from seawater, though reverse osmosis works on a far larger scale"
-            },
-            {
-              "id": "B",
-              "text": "both methods were abandoned long ago in favor of simply drinking seawater directly"
-            },
-            {
-              "id": "C",
-              "text": "both methods are used only to remove salt from freshwater lakes, never from the sea"
-            },
-            {
-              "id": "D",
-              "text": "both methods require no energy or machinery of any kind to operate"
-            }
+            "both are methods people developed to remove salt from seawater, though reverse osmosis works on a far larger scale",
+            "both methods were abandoned long ago in favor of simply drinking seawater directly",
+            "both methods are used only to remove salt from freshwater lakes, never from the sea",
+            "both methods require no energy or machinery of any kind to operate"
           ],
           "answer": "A",
           "skill": "central idea",
@@ -693,22 +489,10 @@
         {
           "stem": "According to the passage, what does reverse osmosis use to separate salt from seawater?",
           "options": [
-            {
-              "id": "A",
-              "text": "a large pot that is heated until the seawater turns into steam"
-            },
-            {
-              "id": "B",
-              "text": "a giant net that physically catches grains of floating salt"
-            },
-            {
-              "id": "C",
-              "text": "specialized membranes with microscopic pores too small for salt particles to pass through"
-            },
-            {
-              "id": "D",
-              "text": "a chemical that instantly dissolves salt into harmless gas"
-            }
+            "a large pot that is heated until the seawater turns into steam",
+            "a giant net that physically catches grains of floating salt",
+            "specialized membranes with microscopic pores too small for salt particles to pass through",
+            "a chemical that instantly dissolves salt into harmless gas"
           ],
           "answer": "C",
           "skill": "detail",
@@ -722,22 +506,10 @@
         {
           "stem": "Where does the passage say Saudi Arabia and its Gulf neighbors fall in terms of rainfall?",
           "options": [
-            {
-              "id": "A",
-              "text": "they are regions that receive unusually heavy rainfall every single month"
-            },
-            {
-              "id": "B",
-              "text": "rainfall there stays scarce all year"
-            },
-            {
-              "id": "C",
-              "text": "they are regions where rainfall has never once been recorded by scientists"
-            },
-            {
-              "id": "D",
-              "text": "they are regions where rainfall only occurs during the winter season"
-            }
+            "they are regions that receive unusually heavy rainfall every single month",
+            "rainfall there stays scarce all year",
+            "they are regions where rainfall has never once been recorded by scientists",
+            "they are regions where rainfall only occurs during the winter season"
           ],
           "answer": "B",
           "skill": "detail",
@@ -751,22 +523,10 @@
         {
           "stem": "Why does the passage describe desalination as an industry that has grown through repeated improvement?",
           "options": [
-            {
-              "id": "A",
-              "text": "to argue that modern methods have nothing in common with the original idea"
-            },
-            {
-              "id": "B",
-              "text": "to suggest that engineers have actually made the process less efficient over time"
-            },
-            {
-              "id": "C",
-              "text": "to prove that desalination has remained completely unchanged since it began"
-            },
-            {
-              "id": "D",
-              "text": "to show that today's advanced methods built directly on simple ideas discovered long ago"
-            }
+            "to argue that modern methods have nothing in common with the original idea",
+            "to suggest that engineers have actually made the process less efficient over time",
+            "to prove that desalination has remained completely unchanged since it began",
+            "to show that today's advanced methods built directly on simple ideas discovered long ago"
           ],
           "answer": "D",
           "skill": "inference",
@@ -780,22 +540,10 @@
         {
           "stem": "What can be inferred about why arid regions specifically benefit most from desalination plants?",
           "options": [
-            {
-              "id": "A",
-              "text": "because arid regions are usually located far away from any ocean or sea"
-            },
-            {
-              "id": "B",
-              "text": "they cannot rely on rain, so the sea becomes especially valuable"
-            },
-            {
-              "id": "C",
-              "text": "because arid regions already receive more fresh water than they could ever use"
-            },
-            {
-              "id": "D",
-              "text": "because arid regions have no farms and therefore need very little water"
-            }
+            "because arid regions are usually located far away from any ocean or sea",
+            "they cannot rely on rain, so the sea becomes especially valuable",
+            "because arid regions already receive more fresh water than they could ever use",
+            "because arid regions have no farms and therefore need very little water"
           ],
           "answer": "B",
           "skill": "inference",
@@ -809,22 +557,10 @@
         {
           "stem": "In this passage, what does the word \"arid\" most likely mean?",
           "options": [
-            {
-              "id": "A",
-              "text": "extremely dry, with very little rainfall"
-            },
-            {
-              "id": "B",
-              "text": "extremely wet, with frequent and heavy storms"
-            },
-            {
-              "id": "C",
-              "text": "located directly next to a large, calm lake"
-            },
-            {
-              "id": "D",
-              "text": "covered mostly in thick, green forest"
-            }
+            "extremely dry, with very little rainfall",
+            "extremely wet, with frequent and heavy storms",
+            "located directly next to a large, calm lake",
+            "covered mostly in thick, green forest"
           ],
           "answer": "A",
           "skill": "vocabulary",
@@ -838,22 +574,10 @@
         {
           "stem": "Why might the author have ended the passage by emphasizing that demand for fresh water keeps rising?",
           "options": [
-            {
-              "id": "A",
-              "text": "to argue that desalination plants will soon be completely unnecessary"
-            },
-            {
-              "id": "B",
-              "text": "to prove that fresh water demand has actually been falling for years"
-            },
-            {
-              "id": "C",
-              "text": "to suggest desalination will likely stay important, or grow even more so"
-            },
-            {
-              "id": "D",
-              "text": "to suggest that rainfall in arid regions will increase significantly soon"
-            }
+            "to argue that desalination plants will soon be completely unnecessary",
+            "to prove that fresh water demand has actually been falling for years",
+            "to suggest desalination will likely stay important, or grow even more so",
+            "to suggest that rainfall in arid regions will increase significantly soon"
           ],
           "answer": "C",
           "skill": "author's purpose",
@@ -867,22 +591,10 @@
         {
           "stem": "What is the correct sequence of ideas presented across the passage?",
           "options": [
-            {
-              "id": "A",
-              "text": "reverse osmosis came first, and distillation was only developed afterward"
-            },
-            {
-              "id": "B",
-              "text": "the problem of rainfall scarcity was solved before anyone noticed seawater was salty"
-            },
-            {
-              "id": "C",
-              "text": "modern plants existed before anyone discovered that boiling seawater produced steam"
-            },
-            {
-              "id": "D",
-              "text": "the salty seawater problem, then distillation, then the newer method of reverse osmosis"
-            }
+            "reverse osmosis came first, and distillation was only developed afterward",
+            "the problem of rainfall scarcity was solved before anyone noticed seawater was salty",
+            "modern plants existed before anyone discovered that boiling seawater produced steam",
+            "the salty seawater problem, then distillation, then the newer method of reverse osmosis"
           ],
           "answer": "D",
           "skill": "sequence",
@@ -908,22 +620,10 @@
       {
         "stem": "What can you tell about people long ago from the fact that they invented this trick?",
         "options": [
-          {
-            "id": "A",
-            "text": "they already had machines that could make fresh water instantly"
-          },
-          {
-            "id": "B",
-            "text": "they never thought carefully about problems like having too little water"
-          },
-          {
-            "id": "C",
-            "text": "they were able to solve a hard problem using only simple, everyday tools"
-          },
-          {
-            "id": "D",
-            "text": "they decided drinking salty water was perfectly safe after all"
-          }
+          "they already had machines that could make fresh water instantly",
+          "they never thought carefully about problems like having too little water",
+          "they were able to solve a hard problem using only simple, everyday tools",
+          "they decided drinking salty water was perfectly safe after all"
         ],
         "answer": "C",
         "skill": "inference",
@@ -937,22 +637,10 @@
       {
         "stem": "Why might the author mention that huge plants use this trick on a much bigger scale today?",
         "options": [
-          {
-            "id": "A",
-            "text": "to prove that the old trick with a pot no longer works at all"
-          },
-          {
-            "id": "B",
-            "text": "to argue that big plants have nothing to do with the old trick"
-          },
-          {
-            "id": "C",
-            "text": "to suggest that fresh water is no longer needed by anyone today"
-          },
-          {
-            "id": "D",
-            "text": "to show how a simple old idea grew into something that helps millions of people now"
-          }
+          "to prove that the old trick with a pot no longer works at all",
+          "to argue that big plants have nothing to do with the old trick",
+          "to suggest that fresh water is no longer needed by anyone today",
+          "to show how a simple old idea grew into something that helps millions of people now"
         ],
         "answer": "D",
         "skill": "author's purpose",
@@ -966,22 +654,10 @@
       {
         "stem": "Based on the passage, what would likely happen if a dry place like Saudi Arabia had no plants that made fresh water?",
         "options": [
-          {
-            "id": "A",
-            "text": "it would get much more rain than it currently gets each year"
-          },
-          {
-            "id": "B",
-            "text": "it would probably struggle to get enough fresh water for its people"
-          },
-          {
-            "id": "C",
-            "text": "it would no longer be located next to the sea at all"
-          },
-          {
-            "id": "D",
-            "text": "its farms would need less water than they need right now"
-          }
+          "it would get much more rain than it currently gets each year",
+          "it would probably struggle to get enough fresh water for its people",
+          "it would no longer be located next to the sea at all",
+          "its farms would need less water than they need right now"
         ],
         "answer": "B",
         "skill": "cause-effect",
@@ -995,22 +671,10 @@
       {
         "stem": "What is most likely the reason fresh water is described as something \"people's lives depend on\"?",
         "options": [
-          {
-            "id": "A",
-            "text": "because people and farms cannot survive without it"
-          },
-          {
-            "id": "B",
-            "text": "because fresh water is simply more fun to drink than sea water"
-          },
-          {
-            "id": "C",
-            "text": "because fresh water costs less money than sea water does"
-          },
-          {
-            "id": "D",
-            "text": "because fresh water is only used for washing clothes"
-          }
+          "because people and farms cannot survive without it",
+          "because fresh water is simply more fun to drink than sea water",
+          "because fresh water costs less money than sea water does",
+          "because fresh water is only used for washing clothes"
         ],
         "answer": "A",
         "skill": "inference",
@@ -1026,22 +690,10 @@
       {
         "stem": "What can you infer about why early people were able to invent this method using only a pot?",
         "options": [
-          {
-            "id": "A",
-            "text": "boiling and cooling water does not require complicated tools, just an understanding of how water behaves"
-          },
-          {
-            "id": "B",
-            "text": "they actually had access to advanced machines that we no longer use today"
-          },
-          {
-            "id": "C",
-            "text": "the method only works when expensive scientific equipment is available"
-          },
-          {
-            "id": "D",
-            "text": "they accidentally discovered it without understanding how or why it worked"
-          }
+          "boiling and cooling water does not require complicated tools, just an understanding of how water behaves",
+          "they actually had access to advanced machines that we no longer use today",
+          "the method only works when expensive scientific equipment is available",
+          "they accidentally discovered it without understanding how or why it worked"
         ],
         "answer": "A",
         "skill": "inference",
@@ -1055,22 +707,10 @@
       {
         "stem": "Why does the passage emphasize that big plants now do this trick \"around the clock\"?",
         "options": [
-          {
-            "id": "A",
-            "text": "to suggest that the plants only operate for a single hour each day"
-          },
-          {
-            "id": "B",
-            "text": "to show that these plants work nonstop, producing far more fresh water than the old pot method ever could"
-          },
-          {
-            "id": "C",
-            "text": "to argue that clocks are now a required part of the desalination process"
-          },
-          {
-            "id": "D",
-            "text": "to prove that the plants work more slowly than the original pot method"
-          }
+          "to suggest that the plants only operate for a single hour each day",
+          "to show that these plants work nonstop, producing far more fresh water than the old pot method ever could",
+          "to argue that clocks are now a required part of the desalination process",
+          "to prove that the plants work more slowly than the original pot method"
         ],
         "answer": "B",
         "skill": "author's purpose",
@@ -1084,22 +724,10 @@
       {
         "stem": "Based on the passage, what would most likely happen if a dry region stopped using desalination plants?",
         "options": [
-          {
-            "id": "A",
-            "text": "its rainfall would automatically increase to make up the difference"
-          },
-          {
-            "id": "B",
-            "text": "its farms would need noticeably less water than they currently use"
-          },
-          {
-            "id": "C",
-            "text": "its location would shift farther away from the coastline"
-          },
-          {
-            "id": "D",
-            "text": "its people would likely face a serious shortage of fresh water for drinking and farming"
-          }
+          "its rainfall would automatically increase to make up the difference",
+          "its farms would need noticeably less water than they currently use",
+          "its location would shift farther away from the coastline",
+          "its people would likely face a serious shortage of fresh water for drinking and farming"
         ],
         "answer": "D",
         "skill": "cause-effect",
@@ -1113,22 +741,10 @@
       {
         "stem": "How does the passage's structure help readers understand why this invention matters?",
         "options": [
-          {
-            "id": "A",
-            "text": "it moves from explaining the basic problem, to the old solution, to how that solution grew into something used today"
-          },
-          {
-            "id": "B",
-            "text": "it lists several unrelated inventions with no connection between them"
-          },
-          {
-            "id": "C",
-            "text": "it focuses only on farming methods and never mentions water at all"
-          },
-          {
-            "id": "D",
-            "text": "it compares different oceans around the world in great detail"
-          }
+          "it moves from explaining the basic problem, to the old solution, to how that solution grew into something used today",
+          "it lists several unrelated inventions with no connection between them",
+          "it focuses only on farming methods and never mentions water at all",
+          "it compares different oceans around the world in great detail"
         ],
         "answer": "A",
         "skill": "text structure",
@@ -1144,22 +760,10 @@
       {
         "stem": "What can you infer about the relationship between necessity and invention from this passage?",
         "options": [
-          {
-            "id": "A",
-            "text": "inventions like desalination usually appear even when no real need exists"
-          },
-          {
-            "id": "B",
-            "text": "necessity rarely leads to useful inventions in the real world"
-          },
-          {
-            "id": "C",
-            "text": "a pressing need, like the lack of fresh water, can drive people to invent clever solutions over time"
-          },
-          {
-            "id": "D",
-            "text": "desalination was invented purely by accident, without any real need behind it"
-          }
+          "inventions like desalination usually appear even when no real need exists",
+          "necessity rarely leads to useful inventions in the real world",
+          "a pressing need, like the lack of fresh water, can drive people to invent clever solutions over time",
+          "desalination was invented purely by accident, without any real need behind it"
         ],
         "answer": "C",
         "skill": "inference",
@@ -1173,22 +777,10 @@
       {
         "stem": "Why might the author have chosen to explain both distillation and reverse osmosis rather than just one method?",
         "options": [
-          {
-            "id": "A",
-            "text": "to prove that distillation and reverse osmosis are actually the exact same process"
-          },
-          {
-            "id": "B",
-            "text": "to show how understanding of desalination advanced over time, from a simple idea to a more complex one"
-          },
-          {
-            "id": "C",
-            "text": "to argue that neither method has ever worked well enough to be useful"
-          },
-          {
-            "id": "D",
-            "text": "to suggest that only one of the two methods is mentioned anywhere today"
-          }
+          "to prove that distillation and reverse osmosis are actually the exact same process",
+          "to show how understanding of desalination advanced over time, from a simple idea to a more complex one",
+          "to argue that neither method has ever worked well enough to be useful",
+          "to suggest that only one of the two methods is mentioned anywhere today"
         ],
         "answer": "B",
         "skill": "author's purpose",
@@ -1202,22 +794,10 @@
       {
         "stem": "Based on the passage, what would most likely happen to Saudi Arabia and its Gulf neighbors without desalination technology?",
         "options": [
-          {
-            "id": "A",
-            "text": "rainfall patterns in the region would shift to provide more water naturally"
-          },
-          {
-            "id": "B",
-            "text": "the region's farms would require significantly less water than before"
-          },
-          {
-            "id": "C",
-            "text": "the population of the region would have no effect on water demand at all"
-          },
-          {
-            "id": "D",
-            "text": "fresh water would likely become even scarcer, since rainfall alone cannot meet the region's needs"
-          }
+          "rainfall patterns in the region would shift to provide more water naturally",
+          "the region's farms would require significantly less water than before",
+          "the population of the region would have no effect on water demand at all",
+          "fresh water would likely become even scarcer, since rainfall alone cannot meet the region's needs"
         ],
         "answer": "D",
         "skill": "cause-effect",
@@ -1231,22 +811,10 @@
       {
         "stem": "How does the passage's overall structure support its point about continuing demand for fresh water?",
         "options": [
-          {
-            "id": "A",
-            "text": "it builds from an old, simple solution to an advanced modern one, ending on the idea that demand keeps growing"
-          },
-          {
-            "id": "B",
-            "text": "it begins with modern demand and works backward with no clear connection to earlier methods"
-          },
-          {
-            "id": "C",
-            "text": "it repeats the same single idea in each paragraph without building toward anything new"
-          },
-          {
-            "id": "D",
-            "text": "it focuses entirely on rainfall patterns and never addresses human invention at all"
-          }
+          "it builds from an old, simple solution to an advanced modern one, ending on the idea that demand keeps growing",
+          "it begins with modern demand and works backward with no clear connection to earlier methods",
+          "it repeats the same single idea in each paragraph without building toward anything new",
+          "it focuses entirely on rainfall patterns and never addresses human invention at all"
         ],
         "answer": "A",
         "skill": "text structure",
