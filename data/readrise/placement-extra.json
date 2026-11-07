@@ -3,6 +3,7 @@
     {
       "id": "PX-BR200-1",
       "level": -200,
+      "lexile": -100,
       "title": "My Cat",
       "text": "I have a cat. Her name is Lulu. She is white. She has soft fur. Lulu likes milk. She drinks it fast. She plays with a ball. Then she is tired. She sleeps on my bed. I pet her. She is happy. I love my cat.",
       "questions": [
@@ -44,6 +45,7 @@
     {
       "id": "PX-BR200-2",
       "level": -200,
+      "lexile": -100,
       "title": "The Fish",
       "text": "We have a fish. It is small. It is red. It lives in a tank. The tank has water. The fish can swim. It swims all day. I feed it. It eats a little. Fish food is dry. Mom cleans the tank. Now it is clean. The fish is fine.",
       "questions": [
@@ -85,6 +87,7 @@
     {
       "id": "PX-BR200-3",
       "level": -200,
+      "lexile": -210,
       "title": "Rain",
       "text": "Look at the sky. It is gray. Rain is here. Drops fall down. They hit the car. The road is wet. I have a coat. I put it on. I stay dry. Plants like rain. They drink it. Then they grow. Rain is good.",
       "questions": [
@@ -126,6 +129,7 @@
     {
       "id": "PX-BR200-4",
       "level": -200,
+      "lexile": -200,
       "title": "Dad's Car",
       "text": "Dad has a car. It is blue. It has four wheels. We get in. I sit in back. I put on my belt. Dad drives. We go to school. The car stops. I get out. I wave. Dad goes to work.",
       "questions": [
@@ -167,6 +171,7 @@
     {
       "id": "PX-0-1",
       "level": 0,
+      "lexile": 140,
       "title": "The Hot Sun",
       "text": "The sun is up in the sky. It is very hot. It gives us light. It makes the day bright. In summer the sun is strong. We stay in the shade. We drink a lot of water. We wear a hat. At night the sun is gone. The sky is dark. Then we can see the stars.",
       "questions": [
@@ -208,6 +213,7 @@
     {
       "id": "PX-0-2",
       "level": 0,
+      "lexile": 100,
       "title": "Grandpa's Sheep",
       "text": "My grandpa has a farm. He has ten sheep. The sheep are white and fat. They eat green grass. They drink from a big bowl. In the morning, I help Grandpa. We give the sheep food. A baby sheep is a lamb. The lamb runs to me. It is soft. I like the farm.",
       "questions": [
@@ -249,6 +255,7 @@
     {
       "id": "PX-0-3",
       "level": 0,
+      "lexile": 90,
       "title": "Our Class",
       "text": "This is our class. We have twenty desks. Each desk has a chair. Our teacher is kind. She reads us a book. We sit and listen. Then we write. We use a pen. We draw a map too. At the end of the day, we clean up. We put the books on the shelf.",
       "questions": [
@@ -290,6 +297,7 @@
     {
       "id": "PX-0-4",
       "level": 0,
+      "lexile": 30,
       "title": "The Ant",
       "text": "An ant is a small bug. It has six legs. Ants live in big groups. They dig a home in the ground. Ants are strong. One ant can lift a big crumb. Ants find food. They take it home. They share it. Ants work all day. They help each other.",
       "questions": [
@@ -331,6 +339,7 @@
     {
       "id": "PX-100-1",
       "level": 100,
+      "lexile": 250,
       "title": "The Little Turtle",
       "text": "A turtle has a hard shell on its back. The shell is like a house. Is the turtle scared? It hides in its shell. Turtles move very slowly. Some turtles live in the sea. Some live on land. A sea turtle lays eggs in the sand. The babies come out of the eggs. Then they run to the sea.",
       "questions": [
@@ -372,6 +381,7 @@
     {
       "id": "PX-100-2",
       "level": 100,
+      "lexile": 220,
       "title": "At the Market",
       "text": "On Friday, we go to the market. The market is very busy. Many people buy food there. We buy red apples and green grapes. We buy fresh bread too. The man at the shop is nice. He gives me a date. It is sweet. Mom pays for the food. Then we carry the bags to the car.",
       "questions": [
@@ -413,6 +423,7 @@
     {
       "id": "PX-100-3",
       "level": 100,
+      "lexile": 220,
       "title": "The Nurse",
       "text": "A nurse works in a hospital. She helps sick people. She checks if they are hot. She gives them pills. She talks to them in a kind voice. Some nurses work at night. They help people at all times. A nurse must learn a lot. She goes to school for many years. Nurses help us a lot.",
       "questions": [
@@ -454,6 +465,7 @@
     {
       "id": "PX-100-4",
       "level": 100,
+      "lexile": 240,
       "title": "Making a Kite",
       "text": "Omar wants to make a kite. He gets two sticks and some paper. He ties the sticks to make a cross. Then he puts the paper on top. His sister helps him add a long tail. Next, they tie on a string. They go out. The wind is strong. Up goes the kite! It flies high in the sky.",
       "questions": [
@@ -495,6 +507,7 @@
     {
       "id": "PX-200-1",
       "level": 200,
+      "lexile": 260,
       "title": "From Egg to Frog",
       "text": "A frog starts life as a tiny egg. The egg is in a pond. It hatches into a tadpole. A tadpole has a long tail. It swims like a fish. It breathes under the water. Then it grows two back legs. Next, it grows two front legs. Its tail gets short. At last, it is a frog. Now it can hop on land and catch bugs.",
       "questions": [
@@ -536,6 +549,7 @@
     {
       "id": "PX-200-2",
       "level": 200,
+      "lexile": 290,
       "title": "Snow in Tabuk",
       "text": "Many people think Saudi Arabia is always hot. But in winter, it can snow in some parts! Tabuk is in the north. It has tall mountains. On very cold days, snow falls on the tops. The ground turns white. Families drive there to see it. It is a lot of fun. Kids make small snowmen. They wear warm coats and gloves. The snow melts in a few days.",
       "questions": [
@@ -577,6 +591,7 @@
     {
       "id": "PX-200-3",
       "level": 200,
+      "lexile": 310,
       "title": "The School Library",
       "text": "Our school has a big library. It is a quiet room. It is full of books. There are books on animals and space. Some are about people from long ago. Each book has a number. The number tells where the book goes. You can borrow a book for one week. Then you must bring it back. That way, other kids can read it too.",
       "questions": [
@@ -618,6 +633,7 @@
     {
       "id": "PX-200-4",
       "level": 200,
+      "lexile": 220,
       "title": "Big Ships at the Port",
       "text": "A port is a place where ships stop. Jeddah has a big port. It is on the Red Sea. Huge ships come there. They come from far away. They bring big boxes. Some boxes have cars. Some have clothes and food. Tall cranes lift the boxes off the ships. Then trucks take the boxes to shops. Ports bring us the things we use.",
       "questions": [
@@ -659,6 +675,7 @@
     {
       "id": "PX-300-1",
       "level": 300,
+      "lexile": 490,
       "title": "The Owl",
       "text": "An owl is a bird that is awake at night. It sleeps in the day. Its eyes are big. They help it see in the dark. An owl can turn its head far to look behind it. Its wings make no sound when it flies, and this helps it catch mice. Owls do not chew their food. They swallow it whole. Many owls live in old trees or in holes in rocks.",
       "questions": [
@@ -700,6 +717,7 @@
     {
       "id": "PX-300-2",
       "level": 300,
+      "lexile": 380,
       "title": "Rain in the Desert",
       "text": "It does not rain much in the desert. But when it rains, the desert changes fast. Dry seeds have waited in the sand for a long time. Now they get water. In a few days, small green plants come up. Then they grow pretty flowers. Bugs and birds come to eat. The plants make new seeds. Soon the sun dries the land again. The seeds wait for the next rain.",
       "questions": [
@@ -741,6 +759,7 @@
     {
       "id": "PX-300-3",
       "level": 300,
+      "lexile": 430,
       "title": "Clean Hands",
       "text": "Your hands touch many things each day, like doors, books, and balls. Tiny germs get on your hands. You can not see them. Some germs can make you sick. That is why you must wash your hands well. Use soap and water. Rub your hands for twenty seconds. Wash between your fingers too, and then dry them. Wash your hands before you eat and after you play.",
       "questions": [
@@ -782,6 +801,7 @@
     {
       "id": "PX-400-1",
       "level": 400,
+      "lexile": 630,
       "title": "How Bread Is Made",
       "text": "Bread is one of the oldest foods in the world. To make it, a baker mixes flour, water, salt, and yeast. Yeast is a tiny living thing. It eats sugar in the flour and makes gas. The gas makes small bubbles in the dough. These bubbles help the dough rise and get bigger. Next, the baker shapes the dough and puts it in a hot oven. The heat makes the bread soft inside and brown outside.",
       "questions": [
@@ -823,6 +843,7 @@
     {
       "id": "PX-400-2",
       "level": 400,
+      "lexile": 710,
       "title": "Stars in the Sky",
       "text": "On a clear night far from the city, you can see thousands of stars. A star is a huge ball of hot gas. Our sun is a star too. It looks bigger than other stars only because it is much closer to us. The other stars are very, very far away. Long ago, travelers in the desert used the stars to find their way. They knew where certain stars would appear at night.",
       "questions": [
@@ -864,6 +885,7 @@
     {
       "id": "PX-400-3",
       "level": 400,
+      "lexile": 650,
       "title": "The Turtle's Shell",
       "text": "A turtle's shell is not like a coat that it can take off. The shell is part of the turtle's body. It is made of bone, and it grows as the turtle grows. The top part covers the turtle's back. The bottom part covers its belly. Most turtles can pull their head and legs inside when danger comes. The hard shell keeps them safe from many hungry animals.",
       "questions": [
@@ -905,6 +927,7 @@
     {
       "id": "PX-500-1",
       "level": 500,
+      "lexile": 810,
       "title": "The Arabian Leopard",
       "text": "The Arabian leopard is the smallest kind of leopard in the world. It has golden fur covered with dark spots. These spots help it hide among the rocks of the mountains. The leopard hunts at night and rests in caves during the hot day. Today, very few Arabian leopards are left in the wild. People in Saudi Arabia are working hard to protect them and help their numbers grow again.",
       "questions": [
@@ -946,6 +969,7 @@
     {
       "id": "PX-500-2",
       "level": 500,
+      "lexile": 800,
       "title": "Paper from Trees",
       "text": "Most of the paper we use every day comes from trees. First, workers cut the wood into very small pieces. Then they mix the pieces with water and cook them until they become a soft paste called pulp. The pulp is spread out flat on a screen. As the water drains away, the thin layer dries and becomes paper. Recycling old paper means fewer trees need to be cut down.",
       "questions": [
@@ -987,6 +1011,7 @@
     {
       "id": "PX-500-3",
       "level": 500,
+      "lexile": 670,
       "title": "Why Ice Floats",
       "text": "Most things get smaller and heavier for their size when they freeze. Water is different. When water freezes into ice, it takes up more space. This makes ice lighter than the same amount of water. That is why ice cubes float in a glass. In very cold places, ice forms on top of lakes. The water under the ice stays liquid, so fish can still live there all winter.",
       "questions": [
@@ -1028,6 +1053,7 @@
     {
       "id": "PX-600-1",
       "level": 600,
+      "lexile": 840,
       "title": "A Sea Turtle's Long Journey",
       "text": "Green sea turtles swim along the coasts of the Red Sea and the Arabian Gulf. When a female is ready to lay eggs, she often returns to the same beach where she hatched. That may be many years later. At night, she crawls onto the sand and digs a deep hole. Then she lays about one hundred eggs. After about two months, the tiny turtles hatch and race toward the bright sea. Scientists still study how the mother finds her way back across such long distances.",
       "questions": [
@@ -1069,6 +1095,7 @@
     {
       "id": "PX-600-2",
       "level": 600,
+      "lexile": 610,
       "title": "Wells in the Desert",
       "text": "For thousands of years, people in Arabia depended on wells to survive. A well is a deep hole dug into the ground. It reaches water hidden below the surface. Travelers planned their trips so they could stop at wells along the way. Towns and villages often grew up around good wells. In some places, people built stone walls around the top. The walls kept sand out. They also stopped animals from falling in.",
       "questions": [
@@ -1110,6 +1137,7 @@
     {
       "id": "PX-600-3",
       "level": 600,
+      "lexile": 770,
       "title": "The First Aid Kit",
       "text": "A first aid kit is a small box that holds things to help someone who gets hurt. It usually has bandages, tape, cream for cuts, and gloves. Many homes, schools, and cars keep one ready. If a friend scrapes a knee, you can clean the cut with water. Then you can cover it with a bandage. A serious injury is different. You should call an adult or an ambulance right away instead of trying to fix it alone.",
       "questions": [
@@ -1151,6 +1179,7 @@
     {
       "id": "PX-700-1",
       "level": 700,
+      "lexile": 840,
       "title": "Lightning",
       "text": "Lightning is a giant spark of electricity. It jumps between clouds or between a cloud and the ground. Inside a storm cloud, tiny pieces of ice crash into each other and build up an electric charge. When the charge becomes strong enough, it is released in a bright flash. The flash heats the air so quickly that the air expands with a loud boom. We hear this boom as thunder. Because light travels faster than sound, we see the flash before we hear the noise.",
       "questions": [
@@ -1192,6 +1221,7 @@
     {
       "id": "PX-700-2",
       "level": 700,
+      "lexile": 840,
       "title": "The Pearl Divers",
       "text": "Before oil was discovered, many families along the Arabian Gulf earned their living from pearls. Each summer, boats carried divers far out to sea. A diver held his breath and tied a stone to his foot. Then he sank to the sea floor to gather oysters into a basket. When he needed air, he tugged a rope, and a partner on the boat pulled him up. The work was dangerous and tiring. Still, a single fine pearl could be worth a great deal of money.",
       "questions": [
@@ -1233,6 +1263,7 @@
     {
       "id": "PX-700-3",
       "level": 700,
+      "lexile": 890,
       "title": "A Second Life for Plastic",
       "text": "Plastic bottles are light and strong, but they can stay in the environment for hundreds of years. Recycling gives them a second life. First, used bottles are collected and sorted by type. Next, they are washed, cut into small flakes, and melted. The melted plastic can then be shaped into new products, such as park benches, carpets, or even warm jackets. When people recycle, less plastic ends up in the ocean or in large piles of trash.",
       "questions": [
@@ -1274,6 +1305,7 @@
     {
       "id": "PX-800-1",
       "level": 800,
+      "lexile": 960,
       "title": "Bats That See with Sound",
       "text": "Most bats hunt at night, when it is too dark to see insects clearly. Instead of relying only on their eyes, many bats use a skill called echolocation. A bat sends out very high sounds that people cannot hear. When the sounds hit an object, such as a moth, they bounce back as echoes. By listening carefully to these echoes, the bat can tell how far away the insect is. It can also tell how big the insect is and which direction it is moving.",
       "questions": [
@@ -1315,6 +1347,7 @@
     {
       "id": "PX-800-2",
       "level": 800,
+      "lexile": 1060,
       "title": "The Printing Press",
       "text": "Before the 1400s, most books were copied by hand, which took months and made books very expensive. Around 1450, a German metalworker named Johannes Gutenberg built a printing press with small metal letters that could be arranged and reused. Workers covered the letters with ink and pressed paper onto them. Suddenly, hundreds of copies of the same page could be made in a single day. As books became cheaper, more people learned to read, and new ideas spread much faster.",
       "questions": [
@@ -1356,6 +1389,7 @@
     {
       "id": "PX-800-3",
       "level": 800,
+      "lexile": 1070,
       "title": "Training the Body to Fight Germs",
       "text": "When harmful germs enter the body, the immune system fights back by making special proteins called antibodies. The first time the body meets a new germ, this process can take several days, and a person may become quite sick. A vaccine works by showing the immune system a weakened or harmless part of a germ ahead of time. The body learns to recognize it and stores a memory. If the real germ appears later, the defense starts much more quickly.",
       "questions": [
@@ -1397,6 +1431,7 @@
     {
       "id": "PX-900-1",
       "level": 900,
+      "lexile": 1180,
       "title": "The Astrolabe",
       "text": "The astrolabe was one of the most useful scientific instruments of the medieval world, and scholars in Muslim lands greatly improved its design. Made of brass, it combined a flat map of the sky with movable rings and a pointer. By measuring the height of the sun or a bright star above the horizon, a user could work out the time of day. The same instrument helped people find directions and determine the times for prayer. Astronomers, travelers, and teachers relied on it for centuries before modern clocks and compasses became common.",
       "questions": [
@@ -1438,6 +1473,7 @@
     {
       "id": "PX-900-2",
       "level": 900,
+      "lexile": 1130,
       "title": "Rivers of Ice",
       "text": "A glacier is a huge mass of ice that forms over many years as snow piles up, presses down, and slowly turns into solid ice. Although it seems frozen in place, a glacier actually moves. It flows downhill very slowly under its own enormous weight. As it travels, it scrapes the ground beneath it, carving deep valleys and carrying rocks for long distances. Today, many glaciers around the world are shrinking because temperatures are rising, and the melting water adds to the level of the sea.",
       "questions": [
@@ -1479,6 +1515,7 @@
     {
       "id": "PX-900-3",
       "level": 900,
+      "lexile": 1120,
       "title": "Building Strong Bones",
       "text": "Your skeleton is made of living tissue that is constantly being broken down and rebuilt. To stay strong, bones need minerals, especially calcium, which you can get from milk, yogurt, cheese, and leafy green vegetables. Vitamin D, which the skin makes in sunlight, helps the body absorb that calcium. Exercise matters too, because activities such as running and jumping put healthy pressure on bones and signal them to become denser. The habits you build in childhood affect how strong your bones remain as an adult.",
       "questions": [
@@ -1520,6 +1557,7 @@
     {
       "id": "PX-1000-1",
       "level": 1000,
+      "lexile": 1310,
       "title": "The House of Wisdom",
       "text": "In the ninth century, the city of Baghdad became home to a remarkable center of learning often called the House of Wisdom. Scholars there translated important works on mathematics, medicine, and astronomy from Greek, Persian, and Indian languages into Arabic. They did not simply copy these texts; they questioned them, corrected errors, and added discoveries of their own. Thanks to this work, ideas that might have been lost were preserved, and many later reached Europe, where they helped spark a new age of scientific progress.",
       "questions": [
@@ -1561,6 +1599,7 @@
     {
       "id": "PX-1000-2",
       "level": 1000,
+      "lexile": 1310,
       "title": "Hidden Water Beneath the Sand",
       "text": "Although the Arabian Peninsula receives very little rain, enormous amounts of water lie hidden deep underground in layers of rock called aquifers. Much of this water seeped into the ground thousands of years ago, when the region's climate was far wetter than it is today. For decades, farmers pumped aquifer water to grow wheat and other crops in the desert. However, because the rain that falls now cannot refill these layers quickly, scientists warn that the water is being used faster than nature can replace it.",
       "questions": [
@@ -1602,6 +1641,7 @@
     {
       "id": "PX-1000-3",
       "level": 1000,
+      "lexile": 1130,
       "title": "Lights in the Polar Sky",
       "text": "The sun constantly releases a stream of charged particles known as the solar wind. Most of these particles are deflected by Earth's magnetic field, an invisible shield surrounding the planet. Near the North and South Poles, however, the magnetic field guides some particles down into the upper atmosphere. When they collide with gases such as oxygen and nitrogen, the gases glow, producing shimmering curtains of green, red, and purple light. These displays, called auroras, are most visible during long, dark winter nights far from city lights.",
       "questions": [
@@ -1643,6 +1683,7 @@
     {
       "id": "PX-1100-1",
       "level": 1100,
+      "lexile": 1220,
       "title": "When Locusts Swarm",
       "text": "The desert locust is usually a shy, solitary insect that lives quietly in dry areas of Africa and Arabia. After unusually heavy rains, however, plants spring up and locust numbers can multiply rapidly. When the insects become crowded, touching one another constantly, their bodies and habits change a great deal. They turn brighter in color, become more active, and begin to travel together in enormous groups called swarms. A single swarm may contain billions of locusts and can devour as much food in one day as millions of people. For this reason, governments track weather conditions and monitor breeding areas carefully, hoping to control locust populations before swarms can form and destroy farmers' crops.",
       "questions": [
@@ -1684,6 +1725,7 @@
     {
       "id": "PX-1100-2",
       "level": 1100,
+      "lexile": 1300,
       "title": "Eyes in Orbit",
       "text": "Weather forecasts have become far more accurate over the past fifty years, largely because of satellites that circle high above the planet. Some satellites remain fixed over one region, constantly photographing the clouds below, while others pass over the poles and gradually scan the entire surface of Earth. Their tools measure not only clouds but also heat, moisture in the air, and wind patterns over the oceans, where few weather stations exist. Computers combine all of this data to predict how storms will develop. As a result, communities can receive warnings days before a dangerous storm arrives, giving people time to prepare and move to safety.",
       "questions": [
@@ -1725,6 +1767,7 @@
     {
       "id": "PX-1100-3",
       "level": 1100,
+      "lexile": 1290,
       "title": "Cool Houses of Najd",
       "text": "Long before air conditioning existed, builders in the Najd region of central Arabia designed homes that stayed comfortable in extreme heat. They built thick walls from mud bricks mixed with straw, a material that absorbs heat slowly during the day and releases it gradually at night. Houses were arranged around a central open courtyard, which allowed cooler air to settle and provided shade for family activities. Small, high windows reduced direct sunlight while still letting hot air escape near the ceiling. Today, many architects are studying these traditional techniques again, because buildings that stay cool naturally use far less electricity than modern glass towers.",
       "questions": [
@@ -1766,6 +1809,7 @@
     {
       "id": "PX-1200-1",
       "level": 1200,
+      "lexile": 1550,
       "title": "The Canon of Medicine",
       "text": "Ibn Sina, known in Europe as Avicenna, was a Persian scholar of the eleventh century who wrote on philosophy, astronomy, and many other subjects, but he is best remembered for his work in medicine. His enormous book, The Canon of Medicine, organized the medical knowledge of his time into a clear system, describing hundreds of diseases along with their symptoms and possible treatments. Ibn Sina emphasized careful observation and recommended testing new medicines on patients in controlled ways before trusting them. The Canon was translated into Latin and served as a standard textbook in European universities for roughly six hundred years, which shows how deeply his thinking influenced the development of modern medicine.",
       "questions": [
@@ -1807,6 +1851,7 @@
     {
       "id": "PX-1200-2",
       "level": 1200,
+      "lexile": 1300,
       "title": "How Your Phone Knows Where You Are",
       "text": "The Global Positioning System, or GPS, relies on a network of about thirty satellites that orbit Earth and continuously broadcast signals containing the exact time and their own position. A receiver in a phone or car picks up signals from several satellites at once and measures how long each signal took to arrive. Because radio waves travel at a known speed, the receiver can calculate its distance from each satellite. By combining the distances from at least four satellites, the device determines its location, often to within a few meters. Since the system depends on extremely precise timing, every satellite carries highly accurate atomic clocks.",
       "questions": [
@@ -1848,6 +1893,7 @@
     {
       "id": "PX-1200-3",
       "level": 1200,
+      "lexile": 1530,
       "title": "Unwelcome Guests",
       "text": "An invasive species is a plant or animal that people introduce, deliberately or accidentally, into a region where it did not naturally live, and where it then spreads and causes considerable harm. Without the predators and diseases that controlled it in its original habitat, such a species may multiply quickly and crowd out native wildlife. The mesquite tree, for example, was planted in parts of Arabia and Africa to provide shade and prevent sand from drifting, yet in many places it has spread aggressively, consuming scarce groundwater and replacing indigenous vegetation. Preventing new introductions is usually far cheaper and more effective than attempting to remove an invader once it is established.",
       "questions": [
@@ -1889,6 +1935,7 @@
     {
       "id": "PX-1300-1",
       "level": 1300,
+      "lexile": 1590,
       "title": "Supply, Demand, and Price",
       "text": "In a market economy, the price of a product is largely determined by the relationship between supply, the amount sellers offer, and demand, the amount buyers want to purchase. When demand rises while supply stays the same, buyers compete for limited goods and prices tend to increase; when supply grows faster than demand, sellers must lower prices to attract customers. Seasonal fruit offers a familiar illustration: at the height of the date harvest, markets overflow with fresh dates and prices fall, whereas rare varieties remain expensive throughout the year. Economists use these principles to explain changes in the cost of everything from vegetables to airline tickets, although real markets are also shaped by government rules, transport costs, and consumer expectations.",
       "questions": [
@@ -1930,6 +1977,7 @@
     {
       "id": "PX-1300-2",
       "level": 1300,
+      "lexile": 1380,
       "title": "Sleep and Memory",
       "text": "For many years, scientists assumed that the brain simply rested during sleep, but research now suggests that sleep plays an active role in strengthening memories. During the day, new information is stored temporarily in a region called the hippocampus. At night, particularly during deep sleep, the brain appears to replay these experiences and transfer important details to the cortex, where long-term memories are kept. In experiments, students who slept after learning a list of words remembered significantly more the next day than students who stayed awake for the same period. These findings suggest that staying up all night to study before an exam may actually weaken the very memories a student is trying to build.",
       "questions": [
@@ -1971,6 +2019,7 @@
     {
       "id": "PX-1300-3",
       "level": 1300,
+      "lexile": 1370,
       "title": "Capturing Carbon",
       "text": "Power stations and factories release large amounts of carbon dioxide, a gas that traps heat in the atmosphere and contributes to rising global temperatures. Carbon capture is a group of technologies designed to separate this gas from other emissions before it escapes into the air. Once captured, the carbon dioxide can be compressed into a liquid and transported through pipelines to be stored deep underground in empty oil fields or porous rock layers. Some companies even reuse it to make building materials or fuels. Critics point out that the process is expensive and consumes energy itself, so most experts view carbon capture as one tool among many rather than a complete solution to climate change.",
       "questions": [
@@ -2012,6 +2061,7 @@
     {
       "id": "PX-1400-1",
       "level": 1400,
+      "lexile": 1640,
       "title": "The Power of Expectation",
       "text": "In medical research, a placebo is a treatment with no active ingredient, such as a sugar pill, that is given to some participants in a study so that researchers can compare its effects with those of a real medicine. Surprisingly, patients who receive a placebo frequently report genuine improvements, particularly in symptoms such as pain, fatigue, or anxiety, a phenomenon known as the placebo effect. Scientists believe that a patient's expectation of feeling better can trigger real changes in the brain, including the release of natural pain-relieving chemicals. Because this effect can be so powerful, a new drug is generally considered effective only if it produces significantly better results than a placebo in carefully controlled trials, where neither patients nor doctors know who received which treatment.",
       "questions": [
@@ -2053,6 +2103,7 @@
     {
       "id": "PX-1400-2",
       "level": 1400,
+      "lexile": 1560,
       "title": "Islands of Heat",
       "text": "Large metropolitan areas are frequently several degrees warmer than the surrounding countryside, a pattern scientists call the urban heat island effect. Dark surfaces such as asphalt roads and rooftops absorb sunlight during the day and release the stored heat slowly at night, while tall buildings trap warm air and block the breezes that might otherwise cool the streets. In addition, vehicles, factories, and air conditioners all release waste heat, intensifying the problem. Planners in hot regions, including cities in the Gulf, are responding by planting trees that provide shade and cool the air through evaporation, by using lighter-colored materials that reflect sunlight, and by designing streets that allow wind to flow more freely between buildings.",
       "questions": [
@@ -2094,6 +2145,7 @@
     {
       "id": "PX-1400-3",
       "level": 1400,
+      "lexile": 1820,
       "title": "Ibn Khaldun and the Cycle of States",
       "text": "In the fourteenth century, the North African scholar Ibn Khaldun wrote the Muqaddimah, an introduction to history in which he argued that historians should not simply record events but should try to understand the social and economic forces behind them. He proposed that dynasties often follow a recognizable cycle: a group united by strong solidarity, which he called asabiyyah, gains power, but over several generations its rulers grow comfortable, their unity weakens, and the state eventually becomes vulnerable to a new, more cohesive group. Because Ibn Khaldun examined patterns in society, trade, and government so systematically, many modern scholars regard him as one of the earliest thinkers to approach history in a way that resembles today's sociology and economics.",
       "questions": [
@@ -2135,6 +2187,7 @@
     {
       "id": "PX-1500-1",
       "level": 1500,
+      "lexile": 1810,
       "title": "Herd Immunity",
       "text": "When a sufficiently large proportion of a population becomes immune to an infectious disease, whether through vaccination or previous infection, the disease struggles to find new hosts, and its spread slows or stops, a phenomenon epidemiologists call herd immunity. The protection extends even to individuals who are not immune themselves, such as newborn infants or people whose medical conditions prevent vaccination, because the chains of transmission that would otherwise reach them are repeatedly broken. The threshold required to achieve this collective protection depends on how contagious a disease is: for an illness in which each infected person typically infects many others, such as measles, roughly ninety-five percent of the population must be immune, whereas less transmissible diseases require a considerably lower proportion. Consequently, public health officials monitor vaccination rates closely, since even a modest decline in coverage can allow outbreaks of highly contagious diseases to return to communities that had been free of them for years.",
       "questions": [
@@ -2176,6 +2229,7 @@
     {
       "id": "PX-1500-2",
       "level": 1500,
+      "lexile": 1720,
       "title": "The Hidden Price of Every Choice",
       "text": "Economists use the term opportunity cost to describe the value of the best alternative that a person gives up when making a decision, and they argue that this hidden cost is just as real as the money that changes hands. A student who spends an evening playing video games, for instance, pays no direct price, yet the opportunity cost may be the improved exam grade that an evening of revision would have produced. Governments face the same logic on a much larger scale: funds devoted to building a new highway cannot simultaneously be spent on hospitals or schools, so every budget reflects a series of trade-offs between competing priorities. Recognizing opportunity costs encourages more deliberate decision-making, because it forces people to compare what they gain with what they sacrifice rather than focusing only on the visible, immediate expense of a choice.",
       "questions": [
@@ -2217,6 +2271,7 @@
     {
       "id": "PX-1500-3",
       "level": 1500,
+      "lexile": 1780,
       "title": "Where Is Everybody?",
       "text": "Given that our galaxy contains hundreds of billions of stars, many of which are orbited by planets that may possess conditions suitable for life, the physicist Enrico Fermi reportedly asked a deceptively simple question during a conversation in 1950: if intelligent civilizations are common, why have we found no evidence of them? This puzzle, now known as the Fermi paradox, has generated a remarkable variety of proposed explanations. Some scientists suggest that life itself, or at least intelligent life, may be extraordinarily rare, requiring an unlikely sequence of conditions; others propose that civilizations may exist but are separated by such vast distances that their signals have not yet reached us, or that they communicate in ways we have not learned to detect. Because none of these hypotheses has been confirmed, the paradox continues to motivate research programs that search the sky for unusual radio signals and study the atmospheres of distant planets.",
       "questions": [
@@ -2258,6 +2313,7 @@
     {
       "id": "PX-1600-1",
       "level": 1600,
+      "lexile": 1900,
       "title": "Anchoring and the Fragility of Judgment",
       "text": "Psychologists studying human judgment have documented a systematic tendency known as anchoring, in which an initial number or piece of information, even one that is obviously irrelevant, disproportionately influences the estimates people subsequently make. In one well-known experiment, participants who first watched a wheel of fortune stop at a high number later gave substantially higher estimates for an unrelated factual question than participants whose wheel stopped at a low number, despite knowing that the wheel was entirely random. Researchers interpret such findings as evidence that the mind, rather than evaluating each question independently, begins from whatever reference point is available and then adjusts insufficiently away from it. The consequences extend well beyond the laboratory: opening offers in negotiations, suggested prices displayed beside discounted goods, and even the first figure mentioned in a courtroom discussion of compensation can shape outcomes in ways that the people involved rarely notice, which is why specialists in decision-making recommend deliberately generating independent estimates before encountering any figure supplied by someone with an interest in the result.",
       "questions": [
@@ -2299,6 +2355,7 @@
     {
       "id": "PX-1600-2",
       "level": 1600,
+      "lexile": 1860,
       "title": "Emergence: When the Whole Exceeds Its Parts",
       "text": "Scientists use the term emergence to describe situations in which a system composed of many relatively simple components displays complex, organized behavior that cannot be found in, or easily predicted from, any individual component considered in isolation. A single ant follows a handful of elementary rules, responding to chemical trails and to the encounters it has with nearby nestmates, yet a colony of thousands collectively builds elaborate nests, allocates workers among competing tasks, and discovers efficient routes to food without any central authority directing the process. Similar patterns appear in the synchronized movements of starling flocks, in the traffic jams that form on highways even when no accident has occurred, and, according to many neuroscientists, in the way that thought itself arises from the interactions of billions of neurons, none of which is individually capable of thinking. Emergence therefore challenges a purely reductionist approach to science, suggesting that understanding the parts of a system, however thoroughly, may not be sufficient to explain the behavior of the whole.",
       "questions": [
@@ -2340,6 +2397,7 @@
     {
       "id": "PX-1600-3",
       "level": 1600,
+      "lexile": 1890,
       "title": "The Tragedy of the Commons",
       "text": "In 1968 the ecologist Garrett Hardin popularized the phrase \"the tragedy of the commons\" to describe a situation in which individuals, each acting rationally in their own interest, collectively deplete a shared resource that no single person owns, even though this outcome harms everyone in the long run. His central illustration involved herders grazing animals on common pastureland: each herder gains the full benefit of adding one more animal, while the cost of overgrazing is spread across the entire community, so every herder has an incentive to keep expanding the herd until the pasture is ruined. The same logic has been applied to overfishing in international waters, to the depletion of groundwater, and to the pollution of the atmosphere. However, the political economist Elinor Ostrom later demonstrated, through detailed studies of communities around the world, that people frequently avoid this tragedy by developing their own rules, monitoring arrangements, and penalties for overuse, findings that earned her a Nobel Prize and complicated the assumption that only private ownership or government control can protect shared resources.",
       "questions": [

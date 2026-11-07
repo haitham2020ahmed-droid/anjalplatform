@@ -14,6 +14,7 @@
  * then wins. Pure functions only.
  */
 import { analyzeText } from "../../reading/prl";
+import { toTextScale } from "./achieve-scale";
 
 export const RR_LEVELS = [300, 400, 500, 600, 700, 800, 900, 1000, 1100, 1200, 1300, 1400, 1500, 1600] as const;
 export type RRBand = "LOW" | "MID" | "HIGH";
@@ -129,10 +130,14 @@ export const CHOOSE_WINDOW = 50;
  * (50, was 100) of the nominal pick, so with the standard 100-point versions every card is the student's own level
  * (the version's measured difficulty is shown small, "text ≈1390").
  */
-export function chooseVersion(studentLevel: number, versions: MeasuredVersion[]): number {
+export function chooseVersion(achieveLevel: number, versions: MeasuredVersion[]): number {
   if (!versions.length) return RR_MIN;
-  // round 6: a level below 300 (down to RR_FLOOR) always reads the lowest version (the 300 one)
-  if (studentLevel < RR_MIN) return Math.min(...versions.map((v) => Number(v.level)));
+  // 📏 round 8: the student's level is on the Achieve3000 scale; the versions (labels and measured estimates) are on
+  // the ReadRise text scale — the level is moved onto that scale first (achieve-scale.ts: an 800L reader reads the
+  // version that reads like Achieve 800L, the 700 one)
+  const studentLevel = toTextScale(achieveLevel);
+  // round 6 (owner): a level below 300 (down to RR_FLOOR) always reads the lowest version (the 300 one)
+  if (achieveLevel < RR_MIN || studentLevel < RR_MIN) return Math.min(...versions.map((v) => Number(v.level)));
   const nominal = versionFor(studentLevel, versions.map((v) => Number(v.level)));
   const cost = (v: MeasuredVersion) => { const m = measuredLevel(v), d = m - studentLevel; return d > 50 ? d * 1.5 : Math.abs(d); };
   let best = versions.find((v) => Number(v.level) === nominal)!, bestCost = cost(best);

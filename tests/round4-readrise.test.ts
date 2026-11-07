@@ -76,7 +76,7 @@ describe("round 4 — ReadRise", () => {
 
   test("1 · stretch after a reliable first try of 75%+ — round 5: also in the SAME band (as practice) (UI + server)", async () => {
     const s = st[0];
-    await setLevelByTeacher(repo, admin, s.studentId!, 800, "", at(0)); // 800 MID → stretch 900 MID: same questions
+    await setLevelByTeacher(repo, admin, s.studentId!, 930, "", at(0)); /* round 8: Achieve3000 scale — reads the 800 version */ // 800 MID → stretch 900 MID: same questions
     const a = await makeArticle(repo, "R4-1");
     await read(repo, s, a, 8, at(1));
     const card = (await studentLibrary(repo, s, {}, at(1, 1))).all.find((c) => c.id === a)!;
@@ -84,7 +84,7 @@ describe("round 4 — ReadRise", () => {
     const same = await read(repo, s, a, 8, at(1, 2), true);
     assert.deepEqual([same.start.versionLevel, same.start.band, same.done.done!.stretchCounted], [900, "MID", "PRACTICE"]);
     // a new band: 1000 MID → 1100 HIGH (counts fully, as before)
-    await setLevelByTeacher(repo, admin, s.studentId!, 1000, "", at(2));
+    await setLevelByTeacher(repo, admin, s.studentId!, 1140, "", at(2)); /* round 8: Achieve3000 scale — reads the 1000 version */
     const b = await makeArticle(repo, "R4-2");
     const first = await read(repo, s, b, 8, at(2, 1));
     assert.equal(first.done.done!.canStretch, true);
@@ -100,7 +100,7 @@ describe("round 4 — ReadRise", () => {
 
   test("1 · a re-read never changes the level, the goal or the level window; a fast read never counts for the level", async () => {
     const s = st[1];
-    await setLevelByTeacher(repo, admin, s.studentId!, 800, "", at(0));
+    await setLevelByTeacher(repo, admin, s.studentId!, 930, "", at(0)); /* round 8: Achieve3000 scale — reads the 800 version */
     const a = await makeArticle(repo, "R4-3");
     await read(repo, s, a, 6, at(1));
     const before = (await studentReadRiseSummary(repo, s.studentId!, at(1, 1)))!;
@@ -118,7 +118,7 @@ describe("round 4 — ReadRise", () => {
 
   test("2 · re-reads and same-band stretches never feed ⭐; the stars recompute removes what they fed (idempotent)", async () => {
     const s = st[2], sid = s.studentId!;
-    await setLevelByTeacher(repo, admin, sid, 800, "", at(0));
+    await setLevelByTeacher(repo, admin, sid, 930, "", at(0)); /* round 8: Achieve3000 scale — reads the 800 version */
     const a = await makeArticle(repo, "R4-4");
     await read(repo, s, a, 8, at(1));
     const re = await read(repo, s, a, 8, at(1, 1));
@@ -156,7 +156,8 @@ describe("round 4 — ReadRise", () => {
     await repo.deleteMany("RRPlacement", { id: open.id });
     const src = readFileSync("src/server/readrise/placement.ts", "utf8");
     // round 6: at the nearest passage level to the current level
-    assert.match(src, /st\.due\s*\?\s*nearestPassageLevel\(Number\(\(await ensureRRStudent\(repo, studentId, now\)\)\.level\), passages\)/, "a check starts from the current level");
+    // round 8: the passage level whose passages measure nearest the current level (Achieve3000 scale)
+    assert.match(src, /st\.due\s*\?\s*passageLevelFor\(Number\(\(await ensureRRStudent\(repo, studentId, now\)\)\.level\), passages\)/, "a check starts from the current level");
   });
 
   test("8 · 2+ passages answered too fast → Not valid — retake; the level is not changed; the student can start again", async () => {
@@ -214,7 +215,7 @@ describe("round 4 — ReadRise", () => {
 
   test("4 · the growth report drops Unreliable runs (trend, articles, skills, stretch)", async () => {
     const s = st[5], sid = s.studentId!;
-    await setLevelByTeacher(repo, admin, sid, 800, "", at(0));
+    await setLevelByTeacher(repo, admin, sid, 930, "", at(0)); /* round 8: Achieve3000 scale — reads the 800 version */
     const a = await makeArticle(repo, "R4-5"), b = await makeArticle(repo, "R4-6");
     await read(repo, s, a, 6, at(1));
     const r = await read(repo, s, b, 8, at(1, 1));

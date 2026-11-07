@@ -18,7 +18,11 @@ import { RR_MAX } from "./level";
 import bundledPlacement from "../../../data/readrise/placement.json";
 
 export interface PlacementQuestion { stem: string; options: string[]; /** A | B | C | D */ answer: string; skill: string }
-export interface PlacementPassage { id: string; level: number; title: string; text: string; questions: PlacementQuestion[] }
+export interface PlacementPassage {
+  id: string; level: number; title: string; text: string; questions: PlacementQuestion[];
+  /** 📏 round 8: the passage's measured level on the Achieve3000 scale (achieve-scale.ts); the result uses it */
+  lexile?: number;
+}
 
 const LETTERS = ["A", "B", "C", "D"];
 /** Round 6: the lowest placement passage level (−200 = "BR200L"). */
@@ -56,7 +60,8 @@ export function parsePlacement(raw: unknown, taken: ReadonlySet<string> = new Se
     }
     if (qs.length !== 3) continue;
     seen.add(id);
-    out.push({ id, level, title: String(r.title ?? ""), text, questions: qs });
+    const lexile = Number(r.lexile);
+    out.push({ id, level, title: String(r.title ?? ""), text, questions: qs, ...(r.lexile !== undefined && r.lexile !== null && Number.isFinite(lexile) ? { lexile } : {}) });
   }
   return out;
 }

@@ -65,7 +65,7 @@ describe("round 6 — the ReadRise reader like Achieve3000", () => {
 
   test("Ready → Read → Respond (one question, a second try) → Reflect → Write; the score = first tries", async () => {
     const s = st[0], sid = s.studentId!;
-    await setLevelByTeacher(repo, admin, sid, 800, "", at(0));
+    await setLevelByTeacher(repo, admin, sid, 930, "", at(0)); /* round 8: Achieve3000 scale — reads the 800 version */
     const a = await makeArticle(repo, "R6-1");
     const v = await startRun(repo, s, a, {}, at(1));
     assert.equal(v.step, "PREPOLL");
@@ -128,7 +128,7 @@ describe("round 6 — the ReadRise reader like Achieve3000", () => {
 
   test("the 300 version shows 4 questions; the score is the % of those", async () => {
     const s = st[1];
-    await setLevelByTeacher(repo, admin, s.studentId!, 300, "", at(0));
+    await setLevelByTeacher(repo, admin, s.studentId!, 200, "", at(0)); /* round 8: Achieve3000 scale — reads the 300 version */
     const a = await makeArticle(repo, "R6-2");
     const v = await startRun(repo, s, a, {}, at(1));
     assert.equal(v.versionLevel, 300);
@@ -144,14 +144,14 @@ describe("round 6 — the ReadRise reader like Achieve3000", () => {
     const vs = RR_LEVELS.map((level) => ({ level }));
     const first = { firstTry: true, stretch: false, step: "DONE", score: 90, band: "MID", versionLevel: 800 };
     const g9 = stretchOffer([first], 800, vs, new Set(), 9);
-    assert.deepEqual([g9.ok, g9.up, g9.band, g9.mode], [true, 1200, "HIGH", "PRACTICE"], "grade 9: the version nearest its Meets band");
+    assert.deepEqual([g9.ok, g9.up, g9.band, g9.mode], [true, 1000, "MID", "PRACTICE"], "grade 9: the version nearest its Meets band (round 8: the 1000 version ≈ Achieve 1140L, middle of 1050–1260)");
     assert.equal(stretchOffer([first], 800, vs, new Set(), 4).up, 900, "grade-level not above → the next version up");
     assert.equal(stretchCountsFully("MID", "S-H"), false);
     assert.equal(isCountedTry({ firstTry: true, stretch: true, band: "S-H" }, "MID"), false);
     assert.equal(goalRuns([{ studentId: "s", articleId: "a", firstTry: true, stretch: true, score: 100, completedAt: "2026-09-07T08:00:00Z" }]).length, 0);
     // a real stretch run
     const s = st[2], sid = s.studentId!;
-    await setLevelByTeacher(repo, admin, sid, 1000, "", at(0));
+    await setLevelByTeacher(repo, admin, sid, 1140, "", at(0)); /* round 8: Achieve3000 scale — reads the 1000 version */
     const a = await makeArticle(repo, "R6-3");
     const v0 = await startRun(repo, s, a, {}, at(1));
     await submitPrePoll(repo, s, v0.runId, 1, at(1), "yes");
@@ -182,7 +182,7 @@ describe("round 6 — the ReadRise reader like Achieve3000", () => {
     assert.equal(answerTime({ quizAt: null, ts: {}, at: {}, now: Q, ms: null }), null);
     // a real run: Q1 after 60 s, then the page is RELOADED (its clock restarts) and Q2 comes 4 s after the reload
     const s = st[3];
-    await setLevelByTeacher(repo, admin, s.studentId!, 800, "", at(0));
+    await setLevelByTeacher(repo, admin, s.studentId!, 930, "", at(0)); /* round 8: Achieve3000 scale — reads the 800 version */
     const a = await makeArticle(repo, "R6-T");
     const v = await startRun(repo, s, a, {}, at(5));
     await submitPrePoll(repo, s, v.runId, 1, at(5), "yes");

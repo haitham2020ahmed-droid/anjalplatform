@@ -139,7 +139,7 @@ describe("🚀 ReadRise: placement, the 5-step routine, the level engine and goa
     assert.equal((await placementView(repo, s, [])).state, "NOT_AVAILABLE", "no passages → not ready (never crashes)");
     assert.equal((await placementView(repo, s, PASSAGES)).state, "READY");
     const pid = await startPlacement(repo, s, at(0));
-    assert.equal(Number((await repo.findUnique("RRPlacement", { id: pid }))!.startLevel), 800, "latest MAP Lexile 760 → nearest level 800");
+    assert.equal(Number((await repo.findUnique("RRPlacement", { id: pid }))!.startLevel), 600, "latest MAP Lexile 760 → the passage level whose passages measure nearest it (round 8: the 600 passages ≈ 720 on the Achieve3000 scale)");
     let res; let n = 0;
     do {
       const v = await placementView(repo, s, PASSAGES);
@@ -207,12 +207,12 @@ describe("🚀 ReadRise: placement, the 5-step routine, the level engine and goa
 
   test("library: level-right version, assigned first, recommended unread with topic variety, search + topic filter", async () => {
     const s = st[1];
-    await setLevelByTeacher(repo, teacher, s.studentId!, 850, "", at(0));
+    await setLevelByTeacher(repo, teacher, s.studentId!, 990, "", at(0)); // round 8: Achieve3000 scale — 990L reads the 900 version (≈1040)
     const a1 = await makeArticle(repo, { code: "L-1", topic: "Earth", title: "Volcano Power" });
     const klass = (await repo.findMany("ClassMembership", { studentId: s.studentId }))[0];
     await repo.create("RRClassArticle", { classId: klass.classId, articleId: a1, assignedById: teacher.userId, dueAt: at(5) });
     const lib = await studentLibrary(repo, s, {}, at(0));
-    assert.equal(lib.level, 850);
+    assert.equal(lib.level, 990);
     assert.equal(lib.assigned[0].id, a1);
     assert.equal(lib.assigned[0].versionLevel, 900);
     assert.ok(lib.assigned[0].minutes >= 1);
@@ -239,7 +239,7 @@ describe("🚀 ReadRise: placement, the 5-step routine, the level engine and goa
 
   test("the 5 steps: strict order, resume, server scoring, rationales after submit, practice never changes the score", async () => {
     const s = st[2];
-    await setLevelByTeacher(repo, teacher, s.studentId!, 620, "", at(0));
+    await setLevelByTeacher(repo, teacher, s.studentId!, 720, "", at(0)); // round 8: 720L (Achieve) reads the 600 version
     const a = await makeArticle(repo, { code: "R-1" });
     const v = await startRun(repo, s, a, {}, at(0, 1));
     assert.deepEqual([v.step, v.versionLevel, v.band], ["PREPOLL", 600, "LOW"]);
@@ -282,8 +282,8 @@ describe("🚀 ReadRise: placement, the 5-step routine, the level engine and goa
   test("first-try rule: a re-read never counts; stretch is one version up and never lowers the level", async () => {
     const s = st[3];
     // round 4: a stretch must be in a NEW question band (800 → 900 is MID → MID: the same questions) — so read at
-    // 1000 (MID) and stretch to 1100 (HIGH)
-    await setLevelByTeacher(repo, teacher, s.studentId!, 1000, "", at(0));
+    // 1000 (MID) and stretch to 1100 (HIGH) — round 8: 1140L on the Achieve3000 scale reads the 1000 version
+    await setLevelByTeacher(repo, teacher, s.studentId!, 1140, "", at(0));
     const a = await makeArticle(repo, { code: "F-1" });
     await readArticle(repo, s, a, 8, at(1));
     const re = await readArticle(repo, s, a, 0, at(1, 2));

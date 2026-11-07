@@ -12,6 +12,7 @@
  *    own rate once there are at least 6 counted first tries. An ESTIMATE, never a promise.
  *  - ANNUAL_GOAL: Achieve3000's yearly goal — 40 activities with a 75% first-try average.
  */
+import { toAchieve } from "./achieve-scale";
 import type { Repo } from "../seeding/repo";
 import { RR_FLOOR, RR_MAX } from "./level";
 
@@ -48,7 +49,9 @@ export function gradeLevelVersion(grade: number, versions: readonly number[]): n
   const mid = (min + max) / 2;
   const vs = [...new Set(versions.map(Number).filter(Number.isFinite))].sort((a, b) => a - b);
   if (!vs.length) return Math.round(mid / 100) * 100;
-  return vs.reduce((best, v) => (Math.abs(v - mid) < Math.abs(best - mid) ? v : best), vs[0]);
+  // 📏 round 8: the version whose Achieve3000 level (achieve-scale.ts) is nearest the middle of the grade's band
+  const d = (v: number) => Math.abs(toAchieve(v) - mid);
+  return vs.reduce((best, v) => (d(v) < d(best) ? v : best), vs[0]);
 }
 
 // ------------------------------------------------------------------ forecast

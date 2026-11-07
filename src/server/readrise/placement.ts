@@ -81,6 +81,8 @@ const TOP_TIER = 1200;
 const passBar = (level: number) => (level >= TOP_TIER ? 3 : 2);
 export interface PlacementStep {
   level: number; passageId: string; answers: string[]; correct: number;
+  /** 📏 round 8: the passage's level on the Achieve3000 scale when it was answered (none in older tests: the level) */
+  lexile?: number;
   /** round 4: how long the passage + its questions took (ms), when it was recorded */
   ms?: number;
   /** round 4: answered faster than the passage's minimum reading time — the step does not count */
@@ -150,6 +152,25 @@ export function placementPlan(startLevel: number, steps: PlacementStep[], passag
 /** Round 7: the answer model used to refine the result — a 4-option question (1 in 4 guessing chance); the chance of a
  *  right answer falls from ~100% to the guessing floor over a few hundred Lexile around the reader's level. */
 export const PLACEMENT_MODEL = { guess: 0.25, scale: 120, window: 100 } as const;
+/** 📏 Round 8: a step's difficulty on the Achieve3000 scale (the passage's measured lexile; older steps: the level). */
+export const lexileOf = (st: Pick<PlacementStep, "level" | "lexile">): number => (st.lexile !== undefined && st.lexile !== null && Number.isFinite(Number(st.lexile)) ? Number(st.lexile) : st.level);
+/** 📏 Round 8: a passage LEVEL (label) on the Achieve3000 scale — the average measured lexile of the steps read there. */
+function levelOnScale(steps: readonly PlacementStep[], level: number): number {
+  const at = steps.filter((x) => x.level === level);
+  return at.length ? at.reduce((n, x) => n + lexileOf(x), 0) / at.length : level;
+}
+/** 📏 Round 8: the passage level (label) whose passages measure nearest an Achieve3000 level (a MAP Lexile, a student level). */
+export function passageLevelFor(achieve: number, passages: readonly PlacementPassage[]): number {
+  if (!passages.length) return nearestPassageLevel(achieve, passages);
+  const by = new Map<number, number[]>();
+  for (const p of passages) (by.get(p.level) ?? by.set(p.level, []).get(p.level)!).push(p.lexile ?? p.level);
+  let best = passages[0].level, bestD = Infinity;
+  for (const [l, xs] of [...by.entries()].sort((a, b) => a[0] - b[0])) {
+    const d = Math.abs(xs.reduce((n, x) => n + x, 0) / xs.length - achieve);
+    if (d < bestD) { best = l; bestD = d; }
+  }
+  return best;
+}
 /** The level (RR_FLOOR…RR_MAX, step 10) that best explains every counted answer (maximum likelihood). */
 export function placementEstimate(all: PlacementStep[]): number | null {
   const steps = all.filter((x) => !x.rapid);
@@ -159,7 +180,7 @@ export function placementEstimate(all: PlacementStep[]): number | null {
     let ll = 0;
     for (const st of steps) {
       const c = Math.max(0, Math.min(3, st.correct));
-      const p = PLACEMENT_MODEL.guess + (1 - PLACEMENT_MODEL.guess) / (1 + Math.exp((st.level - x) / PLACEMENT_MODEL.scale));
+      const p = PLACEMENT_MODEL.guess + (1 - PLACEMENT_MODEL.guess) / (1 + Math.exp((lexileOf(st) - x) / PLACEMENT_MODEL.scale));
       ll += c * Math.log(p) + (3 - c) * Math.log(1 - p);
     }
     if (ll > best + 1e-9) { best = ll; at = x; }
@@ -188,11 +209,13 @@ export function placementResult(all: PlacementStep[], startLevel: number): numbe
   const failedTwice = [...by.entries()].filter(([, e]) => e.fail >= 2).map(([l]) => l);
   const ceiling = failedTwice.length ? Math.min(...failedTwice) : Infinity;
   const ok = [...by.entries()].filter(([l, e]) => e.pass >= 1 && (l < ceiling || (l === ceiling && e.pass > e.fail))).map(([l]) => l);
-  if (!ok.length) return clampP(Math.round((Math.min(...steps.map((x) => x.level)) - 100) / 10) * 10);
+  // 📏 round 8: the rule works on the passage levels (labels) and is then read on the Achieve3000 scale (levelOnScale)
+  const scale = (l: number) => levelOnScale(steps, l);
+  if (!ok.length) return clampP(Math.round((scale(Math.min(...steps.map((x) => x.level))) - 100) / 10) * 10);
   const high = Math.max(...ok);
   const failedAbove = [...by.entries()].filter(([l, e]) => l > high && e.fail >= 1).map(([l]) => l);
   const lowFail = failedAbove.length ? Math.min(...failedAbove) : null;
-  const rule = lowFail !== null && lowFail >= TOP_TIER ? (high + lowFail) / 2 : high;
+  const rule = lowFail !== null && lowFail >= TOP_TIER ? (scale(high) + scale(lowFail)) / 2 : scale(high);
   const est = placementEstimate(steps) ?? rule;
   const r = Math.min(rule + PLACEMENT_MODEL.window, Math.max(rule - PLACEMENT_MODEL.window, est));
   return clampP(Math.round(r / 10) * 10);
@@ -214,7 +237,8 @@ export function blendWithMap(result: number, mapLexile: number | null): { level:
  */
 export async function placementStartLevel(repo: Repo, studentId: string, passages: readonly PlacementPassage[] = loadPlacementPassages(), now = new Date()): Promise<{ level: number; source: "MAP" | "LOW" }> {
   const map = await recentMapLexile(repo, studentId, now);
-  if (map !== null) return { level: nearestPassageLevel(map, passages), source: "MAP" };
+  // round 8: the passage level whose passages measure nearest the MAP Lexile (both on the Achieve3000 / Lexile scale)
+  if (map !== null) return { level: passageLevelFor(map, passages), source: "MAP" };
   const start = passages.length ? nearestPassageLevel(PLACEMENT_START, passages) : PLACEMENT_START;
   return { level: start, source: "LOW" };
 }
@@ -327,7 +351,7 @@ export async function startPlacement(repo: Repo, actor: Actor, now = new Date())
   // start LOW (300) or at a MAP Lexile from the last 6 months (placementStartLevel), never at the grade's default.
   const passages = loadPlacementPassages();
   const startLevel = st.due
-    ? nearestPassageLevel(Number((await ensureRRStudent(repo, studentId, now)).level), passages)
+    ? passageLevelFor(Number((await ensureRRStudent(repo, studentId, now)).level), passages)
     : (await placementStartLevel(repo, studentId, passages, now)).level;
   const row = await repo.create("RRPlacement", { studentId, schoolId: actor.schoolId, startLevel, steps: [], startedAt: now, period: st.due });
   return s(row.id);
@@ -362,7 +386,7 @@ export async function answerPlacement(repo: Repo, actor: Actor, placementId: str
     const pageMs = timing?.ms === null || timing?.ms === undefined || !Number.isFinite(Number(timing.ms)) ? null : Math.max(0, Number(timing.ms));
     const ms = serverMs === null ? pageMs : pageMs === null ? serverMs : Math.min(serverMs, pageMs);
     const rapid = ms !== null && ms < passageMinMs(plan.passage.text);
-    const next: PlacementStep[] = [...steps, { level: plan.passage.level, passageId, answers: clean, correct, ...(ms !== null ? { ms: Math.round(ms) } : {}), rapid, at: now.toISOString() }];
+    const next: PlacementStep[] = [...steps, { level: plan.passage.level, ...(plan.passage.lexile !== undefined ? { lexile: plan.passage.lexile } : {}), passageId, answers: clean, correct, ...(ms !== null ? { ms: Math.round(ms) } : {}), rapid, at: now.toISOString() }];
     // 🚫 2+ rapid passages: "Not valid — retake" (the Diagnostic rule) — closed with NO result, the level unchanged
     if (next.filter((x) => x.rapid).length >= PLACEMENT_RAPID_INVALID) {
       await tx.updateMany("RRPlacement", { id: placementId }, { steps: next, completedAt: now, result: null });

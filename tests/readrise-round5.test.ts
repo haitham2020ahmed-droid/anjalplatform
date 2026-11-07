@@ -66,7 +66,7 @@ describe("round 5 — ReadRise", () => {
 
   test("stretch at 1400: always offered; practice only (round 6), with an S-H set it uses the 4 new questions", async () => {
     const s = st[0], sid = s.studentId!;
-    await setLevelByTeacher(repo, admin, sid, 1400, "", at(0));
+    await setLevelByTeacher(repo, admin, sid, 1500, "", at(0)); /* round 8: Achieve3000 scale — reads the 1400 version */
     const a = await makeArticle(repo, "R5-1");
     const first = await read(repo, s, a, 8, at(1));
     assert.equal(first.done.done!.canStretch, true, "1400 HIGH → 1500 HIGH: offered (round 4 refused it)");
@@ -85,7 +85,7 @@ describe("round 5 — ReadRise", () => {
     assert.deepEqual([sb.start.band, sb.start.questions.length, sb.scored.score], ["S-H", 4, 100]);
     assert.equal(sb.done.done!.stretchCounted, "PRACTICE");
     // round 6 (owner): a stretch never moves the level, whatever its questions
-    assert.deepEqual([sb.done.done!.levelBefore, sb.done.done!.levelAfter], [1400, 1400], "a stretch never counts for the level");
+    assert.deepEqual([sb.done.done!.levelBefore, sb.done.done!.levelAfter], [1500, 1500], "a stretch never counts for the level");
     assert.deepEqual(await levelWindow(repo, sid), [100, 100]);
     assert.equal(sb.done.done!.kind, "STRETCH");
     // the reader shows the band's prompt for a stretch-set run
@@ -106,7 +106,7 @@ describe("round 5 — ReadRise", () => {
     // the progress strip: strong reads still needed for +50 (3 of the last 4 at 75%+)
     assert.deepEqual([readsToMoveUp([]), readsToMoveUp([80]), readsToMoveUp([80, 90]), readsToMoveUp([40, 80, 90])], [3, 2, 1, 1]);
     // the stretch offer at the top: no higher version
-    assert.equal(stretchOffer([{ firstTry: true, stretch: false, step: "DONE", score: 100, band: "HIGH" }], 1600, [{ level: 1500 }, { level: 1600 }]).ok, false);
+    assert.equal(stretchOffer([{ firstTry: true, stretch: false, step: "DONE", score: 100, band: "HIGH" }], 1780, [{ level: 1500 }, { level: 1600 }]).ok, false); // round 8: 1780L (Achieve) reads the top version
   });
 
   test("ONE article status: New / In progress / Finish steps 4–5 / Done; re-reads and stretches never change it", () => {
@@ -123,7 +123,7 @@ describe("round 5 — ReadRise", () => {
 
   test("a read under 45 s does not count (goal, articles read) and the done screen says so", async () => {
     const s = st[1], sid = s.studentId!;
-    await setLevelByTeacher(repo, admin, sid, 800, "", at(0));
+    await setLevelByTeacher(repo, admin, sid, 930, "", at(0)); /* round 8: Achieve3000 scale — reads the 800 version */
     const a = await makeArticle(repo, "R5-3");
     const before = (await studentReadRiseSummary(repo, sid, at(1)))!;
     const r = await read(repo, s, a, 8, at(1), false, 10);
@@ -137,14 +137,14 @@ describe("round 5 — ReadRise", () => {
 
   test("library: Finished shows the version READ; Continue reading; My Work uses the same status words", async () => {
     const s = st[2], sid = s.studentId!;
-    await setLevelByTeacher(repo, admin, sid, 800, "", at(0));
+    await setLevelByTeacher(repo, admin, sid, 930, "", at(0)); /* round 8: Achieve3000 scale — reads the 800 version */
     const a = await makeArticle(repo, "R5-4");
     await read(repo, s, a, 7, at(1));
-    await setLevelByTeacher(repo, admin, sid, 1000, "", at(2));
+    await setLevelByTeacher(repo, admin, sid, 1140, "", at(2)); /* round 8: Achieve3000 scale — reads the 1000 version */
     const lib = await studentLibrary(repo, s, {}, at(2, 1));
     const card = lib.finished.find((c) => c.id === a)!;
     assert.deepEqual([card.status, card.readLevel, card.versionLevel, card.firstTryScore], ["DONE", 800, 1000, 88]);
-    assert.equal(card.textLevel, 1000, "the measured difficulty of today's version");
+    assert.equal(card.textLevel, 1140, "the measured difficulty of today's version (round 8: on the Achieve3000 scale)");
     // an open first try → Continue reading; a scored activity → Finish steps 4–5 (also in My Work)
     const b = await makeArticle(repo, "R5-5");
     const classId = String((await repo.findMany("ClassMembership", { studentId: sid, leftAt: null }))[0].classId);
@@ -163,7 +163,7 @@ describe("round 5 — ReadRise", () => {
 
   test("From my teacher: a cancelled article and a future start date are hidden (never recommended either)", async () => {
     const s = st[3], sid = s.studentId!;
-    await setLevelByTeacher(repo, admin, sid, 800, "", at(0));
+    await setLevelByTeacher(repo, admin, sid, 930, "", at(0)); /* round 8: Achieve3000 scale — reads the 800 version */
     const classId = String((await repo.findMany("ClassMembership", { studentId: sid, leftAt: null }))[0].classId);
     const a = await makeArticle(repo, "R5-6"), f = await makeArticle(repo, "R5-7");
     const ca = await repo.create("RRClassArticle", { classId, articleId: a, assignedById: admin.userId, createdAt: at(1) });
@@ -180,7 +180,7 @@ describe("round 5 — ReadRise", () => {
 
   test("the done screen offers Read next with its reason; no duplicate 'Try a new article' button", async () => {
     const s = st[4], sid = s.studentId!;
-    await setLevelByTeacher(repo, admin, sid, 800, "", at(0));
+    await setLevelByTeacher(repo, admin, sid, 930, "", at(0)); /* round 8: Achieve3000 scale — reads the 800 version */
     const a = await makeArticle(repo, "R5-8");
     await makeArticle(repo, "R5-9");
     const r = await read(repo, s, a, 8, at(1));
@@ -232,7 +232,7 @@ describe("round 5 — ReadRise", () => {
     assert.equal(countedTries(rows).length, 1, "the earliest main first try (round 6: a stretch never counts)");
     assert.equal(articleRuns(rows).length, 1);
     const s = st[5], sid = s.studentId!;
-    await setLevelByTeacher(repo, admin, sid, 1000, "", at(0));
+    await setLevelByTeacher(repo, admin, sid, 1140, "", at(0)); /* round 8: Achieve3000 scale — reads the 1000 version */
     const a = await makeArticle(repo, "R5-R");
     await read(repo, s, a, 8, at(1));
     const both = await Promise.allSettled([startRun(repo, s, a, { stretch: true }, at(1, 1)), startRun(repo, s, a, { stretch: true }, at(1, 1))]);

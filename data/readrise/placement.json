@@ -3,6 +3,7 @@
     {
       "id": "P300a",
       "level": 300,
+      "lexile": 340,
       "title": "The Camel",
       "text": "The camel lives in the desert. It walks on hot sand. Its feet are wide and soft. They do not sink. A camel has a hump on its back. The hump holds fat. The fat helps it live with no food. A camel can drink a lot of water at one time. Then it can go for days with no drink. It has long lashes. They keep sand out of its eyes. People have used camels for a long time.",
       "questions": [
@@ -44,6 +45,7 @@
     {
       "id": "P300b",
       "level": 300,
+      "lexile": 250,
       "title": "Bees at Work",
       "text": "Bees live in a hive. Many bees live in one hive. Each bee has a job. Some bees make wax. Some bees keep the hive clean. Some bees fly out to find flowers. They drink sweet juice from the flowers. Then they fly back home. In the hive, the juice turns into honey. The bees eat the honey in the cold months. People like honey too. It is sweet and good.",
       "questions": [
@@ -85,6 +87,7 @@
     {
       "id": "P300c",
       "level": 300,
+      "lexile": 280,
       "title": "Brush Your Teeth",
       "text": "Your teeth help you eat. You need to take care of them. Brush your teeth two times a day. Brush when you get up. Brush at night too. Use a soft brush and a bit of paste. Brush for two full minutes. Do not skip the back teeth. Sweet food can hurt your teeth. Drink water, not soda. Then go to see a dentist each year. A dentist checks that your teeth are strong.",
       "questions": [
@@ -126,6 +129,7 @@
     {
       "id": "P400a",
       "level": 400,
+      "lexile": 590,
       "title": "The Moon at Night",
       "text": "At night, you can often see the moon in the sky. The moon does not make its own light. It shines because light from the sun hits it. The moon moves around the Earth. One trip takes about a month. As it moves, we see more or less of its bright side. That is why the moon seems to change shape. Some nights it looks round and full. On other nights it looks like a thin curve. The moon has no air or water, so no plants or animals live there.",
       "questions": [
@@ -167,6 +171,7 @@
     {
       "id": "P400b",
       "level": 400,
+      "lexile": 470,
       "title": "Fast Falcons",
       "text": "The falcon is a fast bird. It has sharp eyes. It can see a mouse from far away. When it spots food, it folds its wings and dives. Some can dive faster than a car. People in Saudi Arabia have trained falcons for a long time. A trainer works with the bird each day. The bird learns to fly back to its trainer. The trainer wears a thick glove. The glove keeps the trainer safe from sharp claws.",
       "questions": [
@@ -208,6 +213,7 @@
     {
       "id": "P400c",
       "level": 400,
+      "lexile": 460,
       "title": "Drink Your Water",
       "text": "Your body needs water every day. More than half of your body is water. You lose water when you sweat and breathe. You need to drink to put it back. If you do not drink enough, you may feel tired. You may get a headache too. Hot days make you sweat more. So drink more on hot days. Take a bottle of water with you to school. Melons and oranges have a lot of water in them. They help you feel good all day.",
       "questions": [
@@ -249,6 +255,7 @@
     {
       "id": "P500a",
       "level": 500,
+      "lexile": 600,
       "title": "Water on the Move",
       "text": "The water on Earth is always moving. When the sun warms a lake or the sea, some water turns into a gas. This gas rises into the sky. High up, the air is cool. The gas cools and turns back into tiny drops. Many drops gather to form clouds. When the drops grow heavy, they fall as rain or snow. The rain fills rivers, lakes, and the sea. Then the sun warms the water again, and the cycle starts over. The same water has moved this way for millions of years.",
       "questions": [
@@ -290,6 +297,7 @@
     {
       "id": "P500b",
       "level": 500,
+      "lexile": 560,
       "title": "How Do We See?",
       "text": "Long ago, a scientist named Ibn al-Haytham lived in Cairo. He was born in Basra about one thousand years ago. He wanted to know how we see. Many people then thought that light came out of our eyes. Ibn al-Haytham tested this idea. He studied light in a dark room. The room had a small hole in one wall. Light came in through the hole. It made a picture on the far wall. He showed that light comes into our eyes from the things around us. He wrote a famous book about light.",
       "questions": [
@@ -331,6 +339,7 @@
     {
       "id": "P500c",
       "level": 500,
+      "lexile": 610,
       "title": "Playing as a Team",
       "text": "Football is one of the most popular sports in the world. A team has eleven players on the field. One player is the goalkeeper. Only this player may touch the ball with the hands. Even then, it must be near the goal. The rest use their feet, heads, and chests. To score, a team must get the ball into the other team's goal. Good teams pass the ball to each other a lot. A player who shares the ball helps the whole team win.",
       "questions": [
@@ -372,6 +381,7 @@
     {
       "id": "P600a",
       "level": 600,
+      "lexile": 790,
       "title": "The Date Palm",
       "text": "The date palm is one of the oldest farm trees in the world. It grows well in hot, dry places like Saudi Arabia. A date palm can grow taller than a four-story building. Its long leaves are called fronds. Farmers climb the trees to pick the sweet, sticky fruit in late summer. Dates are full of energy, so travelers in the desert have carried them for thousands of years. People also used every part of the tree. They made baskets and mats from the fronds and built roofs from the trunks.",
       "questions": [
@@ -413,6 +423,7 @@
     {
       "id": "P600b",
       "level": 600,
+      "lexile": 620,
       "title": "Mountains of Fire",
       "text": "Deep under the ground, it is so hot that some rock melts. This melted rock is called magma. Sometimes magma pushes up through a crack in the Earth's crust. When it reaches the surface, it is called lava. A mountain that forms this way is a volcano. Some volcanoes erupt with a loud blast of ash and gas. Others let lava flow out slowly like thick syrup. Saudi Arabia has large fields of old lava called harrats. Scientists watch volcanoes closely. They measure small shakes in the ground to warn people early.",
       "questions": [
@@ -454,6 +465,7 @@
     {
       "id": "P600c",
       "level": 600,
+      "lexile": 680,
       "title": "Why We Need Sleep",
       "text": "Sleep is not wasted time. While you sleep, your body is busy. It repairs muscles and helps you grow. Your brain sorts what you learned during the day and stores it as memories. Children your age need about nine to twelve hours of sleep each night. Without enough sleep, it is hard to pay attention in class. You may also feel grumpy. To sleep well, go to bed at the same time each night. Turn off screens an hour before bed, because their bright light can keep your brain awake.",
       "questions": [
@@ -495,6 +507,7 @@
     {
       "id": "P700a",
       "level": 700,
+      "lexile": 810,
       "title": "Return of the Oryx",
       "text": "The Arabian oryx is a white antelope with long, straight horns. It lives in the deserts of Arabia, where it can go for weeks without drinking. It gets water from the plants it eats and from the morning dew. Its pale coat reflects sunlight and helps it stay cool. Sadly, hunting wiped out the wild oryx by the early 1970s. A few animals still lived in zoos, however. Scientists bred them with care and later released small herds into protected areas. Today, more than a thousand oryx live in the wild again. The animal has become a symbol of how people can save a species.",
       "questions": [
@@ -536,6 +549,7 @@
     {
       "id": "P700b",
       "level": 700,
+      "lexile": 850,
       "title": "The Bicycle Changes Shape",
       "text": "The first bicycles, built in the early 1800s, had no pedals. Riders pushed against the ground with their feet, like on a scooter. Later, inventors added pedals to the front wheel. To go faster, they made that front wheel huge, sometimes taller than a man. These high-wheel bikes were fast but dangerous, because riders could easily fall forward. In the 1880s, the safety bicycle solved this problem. It had two wheels of the same size and a chain that turned the back wheel. Its design worked so well that most bikes today still look much the same.",
       "questions": [
@@ -577,6 +591,7 @@
     {
       "id": "P700c",
       "level": 700,
+      "lexile": 720,
       "title": "Reefs of the Red Sea",
       "text": "The Red Sea is home to some of the most colorful coral reefs on Earth. Coral may look like rock or plants. But it is made of tiny animals called polyps. Each polyp builds a hard skeleton around itself. Over many years, millions of these skeletons pile up and form a reef. Reefs give food and shelter to fish, turtles, and many other sea animals. Red Sea corals are special. They can handle warmer water than most corals can. Scientists study them to learn how other reefs might survive as the oceans get warmer.",
       "questions": [
@@ -618,6 +633,7 @@
     {
       "id": "P800a",
       "level": 800,
+      "lexile": 910,
       "title": "Power from the Sun",
       "text": "The sun sends far more energy to Earth than people could ever use. Solar panels capture some of this energy and turn it into electricity. Each panel holds many cells, which are usually made from a material called silicon. When sunlight hits these cells, it knocks tiny particles called electrons loose. As the electrons move, they make an electric current. Saudi Arabia gets strong sunshine for most of the year, so it is a great place for solar power. The country is building large solar farms in the desert. One problem is dust, which can cover the panels and lower how much power they make.",
       "questions": [
@@ -659,6 +675,7 @@
     {
       "id": "P800b",
       "level": 800,
+      "lexile": 920,
       "title": "The Elephant Clock",
       "text": "About eight hundred years ago, an engineer named Al-Jazari worked in the city of Diyarbakir. He designed dozens of clever machines, such as water clocks, pumps, and devices that moved by themselves. One of his most famous inventions was the elephant clock. It used flowing water to keep track of time. Every half hour, a small figure struck a cymbal and a bird whistled. Al-Jazari also wrote a long book with drawings. The book explained exactly how to build each machine. Because he kept such a careful record, engineers today have been able to rebuild several of his inventions and see how they work.",
       "questions": [
@@ -700,6 +717,7 @@
     {
       "id": "P800c",
       "level": 800,
+      "lexile": 780,
       "title": "Why We Exercise",
       "text": "Doctors say that children should be active for at least sixty minutes every day. Exercise makes the heart stronger. The heart is a muscle that pumps blood through the body. A stronger heart can send more oxygen to the muscles and brain with each beat. Running, swimming, and playing football also build strong bones and help children keep a healthy weight. Exercise helps the mind as well. Many students find that they feel calmer and can concentrate better after active play. You do not need special equipment to stay active. Walking, jumping rope, or helping with chores at home all count.",
       "questions": [
@@ -741,6 +759,7 @@
     {
       "id": "P900a",
       "level": 900,
+      "lexile": 1080,
       "title": "Forests in the Sea",
       "text": "Along parts of the Saudi coast on the Red Sea and the Arabian Gulf grow unusual trees called mangroves. Most trees would die if their roots were soaked in salt water, but mangroves have adapted to survive there. Some of their roots grow upward out of the mud like small pencils, allowing the trees to breathe when the tide is high. Their leaves can also get rid of extra salt. Mangrove forests protect coastlines by slowing waves and holding soil in place during storms. Their tangled roots create safe nurseries where young fish and shrimp can hide from larger predators. For these reasons, Saudi Arabia has planted millions of new mangrove trees in recent years.",
       "questions": [
@@ -782,6 +801,7 @@
     {
       "id": "P900b",
       "level": 900,
+      "lexile": 980,
       "title": "Books for Everyone",
       "text": "Before the fifteenth century, books in Europe were copied by hand. This was slow work, and a single book could take months to finish. Printers in China and Korea had already used movable type. But around 1450, a German metalworker named Johannes Gutenberg built a press with movable metal letters. Workers arranged the letters to form a page, covered them with ink, and pressed paper against them. Then the same letters could be moved around to make the next page. Suddenly, hundreds of copies of a book could be made in the time it once took to make one. As books became cheaper, more people learned to read, and new ideas spread faster than ever before.",
       "questions": [
@@ -823,6 +843,7 @@
     {
       "id": "P900c",
       "level": 900,
+      "lexile": 1070,
       "title": "The Rock Tombs of Hegra",
       "text": "In the northwest of Saudi Arabia lies Hegra, an ancient city near AlUla. About two thousand years ago, it was an important stop for traders who carried goods such as incense and spices. The Nabataeans, the people who built the city, carved more than one hundred grand tombs straight into the sandstone cliffs. Some of the carved fronts are several stories high, and they still show fine decorations and writing. The dry desert air has helped protect them for centuries. In 2008, Hegra became the first place in Saudi Arabia to be named a World Heritage Site. Today, visitors from around the world come to admire how skillfully its builders shaped solid rock.",
       "questions": [
@@ -864,6 +885,7 @@
     {
       "id": "P1000a",
       "level": 1000,
+      "lexile": 1150,
       "title": "The Wisdom of Ants",
       "text": "Although a single ant has a tiny brain, an ant colony can solve surprisingly hard problems. When a worker ant finds food, it walks back to the nest and leaves behind a trail of chemicals called pheromones. Other ants detect this scent with their antennae and follow the trail to the food, adding more pheromones as they go. Ants on a shorter route finish the trip more quickly, so they lay down scent more often. As a result, the shortest trail soon becomes the strongest, and the colony settles on the most efficient path without any leader planning it. Computer scientists have studied this behavior. They have written programs, inspired by ants, that help plan delivery routes and guide traffic through communication networks.",
       "questions": [
@@ -905,6 +927,7 @@
     {
       "id": "P1000b",
       "level": 1000,
+      "lexile": 1020,
       "title": "The Modern Olympics",
       "text": "The first modern Olympic Games took place in Athens, Greece, in 1896. They were inspired by sports festivals held in ancient Greece more than two thousand years earlier. A French educator named Pierre de Coubertin believed that contests between countries could build friendship and understanding among nations. Only about fourteen countries sent athletes to those first Games, and all of the athletes were men. Today, more than two hundred nations participate, and the Games include dozens of sports, from swimming and gymnastics to newer events such as skateboarding. Women now compete in almost every sport as well. Saudi Arabia first competed in 1972. Since then, its athletes have won medals in several events, including show jumping on horseback, running, and karate.",
       "questions": [
@@ -946,6 +969,7 @@
     {
       "id": "P1000c",
       "level": 1000,
+      "lexile": 1060,
       "title": "Fuel for the Morning",
       "text": "Nutrition experts often describe breakfast as fuel for the morning. After a night without food, the body's supply of energy is low. The brain, in particular, depends on a steady flow of glucose, a sugar that comes from the food we eat. Without this fuel, many students find it hard to stay alert in class. Students who eat a balanced breakfast often find it easier to concentrate and to remember information during their lessons. A balanced meal combines several food groups: whole grains such as oats or bread, protein from eggs, beans, or yogurt, and a piece of fruit. Sugary cereals and pastries may give quick energy, but that energy fades fast. As a result, students who eat them often feel hungry and tired long before lunch.",
       "questions": [
@@ -987,6 +1011,7 @@
     {
       "id": "P1100a",
       "level": 1100,
+      "lexile": 1350,
       "title": "Dunes on the Move",
       "text": "The Rub' al Khali, or Empty Quarter, stretches across southern Saudi Arabia and several neighboring countries, and it contains one of the largest continuous areas of sand on Earth. Its dunes are not fixed parts of the landscape. Instead, they migrate gradually as the wind carries grains of sand up the gentle slope on one side and lets them tumble down the steeper face on the other. Depending on the strength and direction of the main winds, a dune may advance several meters in a single year. Some dunes in the Empty Quarter rise more than two hundred meters, which is taller than most buildings in a typical city. Engineers who build roads and railways across deserts must therefore expect the sand to move, and they design fences and barriers to keep it from burying their work.",
       "questions": [
@@ -1028,6 +1053,7 @@
     {
       "id": "P1100b",
       "level": 1100,
+      "lexile": 1180,
       "title": "A Lucky Mistake",
       "text": "In 1928, the Scottish scientist Alexander Fleming returned from a vacation and found that mold had grown on one of his dishes of bacteria. Rather than throwing the dish away, he examined it carefully and noticed that the bacteria around the mold had been destroyed. Fleming identified the substance that the mold produced and named it penicillin. However, more than ten years passed before other researchers, including Howard Florey and Ernst Chain, found ways to make penicillin in large amounts. By the 1940s, this first widely used antibiotic was saving countless lives by treating infections that had often been deadly. Today, doctors warn that antibiotics must be used wisely. When these medicines are overused, bacteria can change over time so that the drugs no longer work against them.",
       "questions": [
@@ -1069,6 +1095,7 @@
     {
       "id": "P1100c",
       "level": 1100,
+      "lexile": 1230,
       "title": "The Father of Algebra",
       "text": "During the ninth century, Baghdad became one of the world's leading centers of learning. Scholars gathered there to translate important books from Greek, Persian, and Indian languages into Arabic, and then they built new ideas on top of them. Among these scholars was Muhammad ibn Musa al-Khwarizmi, a mathematician whose book on solving equations gave its name to the subject we now call algebra. His writings also helped bring the Hindu-Arabic numerals, including zero, to readers in Europe. Over time, these numerals replaced the clumsy Roman numerals, which made even simple sums slow and hard to write. Even the word algorithm, which describes a step-by-step method that computers follow, comes from a Latin form of al-Khwarizmi's name. In this way, his work still shapes how we count and calculate today.",
       "questions": [
@@ -1110,6 +1137,7 @@
     {
       "id": "P1200a",
       "level": 1200,
+      "lexile": 1370,
       "title": "Food from Sunlight",
       "text": "Photosynthesis is the remarkable process by which green plants convert the energy in light into chemical energy stored in sugar. Inside the leaves, tiny structures called chloroplasts contain a green pigment, chlorophyll, which absorbs mostly red and blue light while reflecting green light, and this explains the familiar color of plants. Using the absorbed energy, the plant combines carbon dioxide taken from the air with water drawn up through its roots, producing glucose and releasing oxygen as a by-product. Almost every food chain on Earth depends on this process in the end, since animals get their energy either by eating plants or by eating other animals that ate plants. In addition, plants and algae release oxygen. This is the gas that most living things need to breathe, so life as we know it could not continue without them.",
       "questions": [
@@ -1151,6 +1179,7 @@
     {
       "id": "P1200b",
       "level": 1200,
+      "lexile": 1370,
       "title": "The Hijaz Railway",
       "text": "In the early twentieth century, the Ottoman government built the Hijaz Railway to connect Damascus with Madinah. Before the railway, the same journey took about forty days by camel caravan. When the line was completed in 1908, the trip was cut to only a few days, which made the pilgrimage much safer and cheaper for travelers heading toward the holy cities. The engineers faced great difficulties along the way, including scarce water, burning heat, and shifting sand, and they built many stations, bridges, and water towers along the route. Sadly, the railway ran for barely a decade before it was badly damaged during the First World War, and it was never fully repaired. Today, the old station in Madinah has been carefully preserved as a museum, where visitors can look at original engines and learn about this bold project.",
       "questions": [
@@ -1192,6 +1221,7 @@
     {
       "id": "P1200c",
       "level": 1200,
+      "lexile": 1250,
       "title": "Seeing Far and Near",
       "text": "Eye doctors around the world have noticed a sharp rise in myopia, or nearsightedness, among children in recent decades. A person with myopia can see nearby objects clearly, but distant objects, such as writing on a classroom board, look blurry. Although the genes children inherit from their parents play a role, researchers have found two other factors that seem especially important. The first is spending long periods on close-up activities, such as reading or using digital devices, and the second is not spending enough time outdoors. Natural daylight appears to slow the abnormal lengthening of the eyeball that causes nearsightedness. For this reason, many specialists recommend that children spend at least two hours outside each day. They also suggest a simple rule for close work: every twenty minutes, look at something about six meters away for twenty seconds.",
       "questions": [
@@ -1233,6 +1263,7 @@
     {
       "id": "P1300a",
       "level": 1300,
+      "lexile": 1500,
       "title": "Fresh Water from the Sea",
       "text": "Because Saudi Arabia has no permanent rivers and only limited supplies of groundwater, the kingdom depends heavily on desalination, the industrial process of removing dissolved salt from seawater to produce water that people can drink. In the past, most plants relied on thermal distillation, which involves heating seawater until it evaporates and then cooling the vapor so that it condenses as pure water; however, this method uses enormous amounts of energy. More and more modern plants now use reverse osmosis instead. In this method, powerful pumps force seawater through special membranes whose microscopic pores let water molecules pass but block the salt. Although reverse osmosis is far more efficient, it leaves behind a thick, salty liquid called brine, which must be disposed of carefully so that it does not harm sea life. Engineers are therefore testing plants powered by the sun and searching for useful ways to handle brine, hoping to make fresh water both affordable and kind to the environment.",
       "questions": [
@@ -1274,6 +1305,7 @@
     {
       "id": "P1300b",
       "level": 1300,
+      "lexile": 1450,
       "title": "The Great Traveler",
       "text": "In 1325, a twenty-one-year-old scholar named Ibn Battuta left his hometown of Tangier, in present-day Morocco, planning to perform the pilgrimage to Makkah. He could not have anticipated that his journey would continue, with breaks, for nearly thirty years. Over that time he covered an estimated one hundred twenty thousand kilometers by land and sea, a distance greater than that of almost any other traveler of his age. His travels carried him across North Africa, East Africa, the Arabian Peninsula, Persia, Central Asia, India, Southeast Asia, and China, and in some places, such as Delhi and the Maldives, he worked as a judge. When he finally returned home, he described his memories to a writer, who turned them into a detailed book. Historians still consult this account today, because it describes the customs, governments, and trade of fourteenth-century societies that few other sources record in such careful detail.",
       "questions": [
@@ -1315,6 +1347,7 @@
     {
       "id": "P1300c",
       "level": 1300,
+      "lexile": 1410,
       "title": "How Muscles Grow Stronger",
       "text": "When athletes perform demanding exercises such as sprinting or lifting weights, they create microscopic tears in the fibers of their muscles. Although this damage may sound harmful, it actually starts a sophisticated repair process. During the following hours and days, the body delivers proteins and nutrients to the injured fibers and rebuilds them, so that they become slightly thicker and stronger than before. This rebuilding, however, happens mainly while the body rests rather than during training itself, which is why coaches stress the importance of good sleep and regular recovery days. Athletes who train hard without enough rest may suffer from constant tiredness, falling performance, and a higher risk of injury, a condition that is sometimes called overtraining. For this reason, well-planned training programs deliberately mix periods of intense effort with periods of rest, giving the muscles the time they need to grow.",
       "questions": [
@@ -1356,6 +1389,7 @@
     {
       "id": "P1400a",
       "level": 1400,
+      "lexile": 1670,
       "title": "An Ocean Being Born",
       "text": "Geologists regard the Red Sea as a remarkable natural laboratory for studying how continents split apart and how new oceans begin. About thirty million years ago, the Arabian Plate began slowly pulling away from the African Plate, stretching and cracking the crust between them until the low land in the middle was eventually flooded by seawater. This movement continues today at a rate of roughly one to two centimeters each year, and along the center of the sea, hot melted rock rising from deep inside the Earth cools and hardens into fresh ocean floor. As a result, scientists often describe the Red Sea as an embryonic ocean, one that is still at an early stage of the same process that, over a far longer period of time, produced the wide Atlantic Ocean. Researchers who study its volcanoes, its hot springs on the sea floor, and its unusually warm and salty deep pools hope that what they learn will help explain the forces that keep reshaping the surface of our planet.",
       "questions": [
@@ -1397,6 +1431,7 @@
     {
       "id": "P1400b",
       "level": 1400,
+      "lexile": 1530,
       "title": "Engineers Learn from Nature",
       "text": "Engineers increasingly practice biomimicry, the deliberate copying of designs from living things that have been refined through millions of years of evolution. One famous example involves Japan's high-speed trains, whose early models produced a thunderous boom whenever they emerged from tunnels, because they pushed a wall of compressed air ahead of them, and residents living nearby complained about the noise. An engineer who was also a keen birdwatcher recalled that the kingfisher dives from the air into water with hardly a splash, thanks to its long, narrow, pointed beak. When the team redesigned the front of the train to resemble that beak, the noise decreased dramatically, and the train also consumed less electricity while traveling faster than before. Similarly, researchers investigating desert beetles that collect droplets of water from morning fog have developed special surfaces capable of gathering water in dry regions. Examples like these show that living things often offer elegant, energy-saving solutions to problems that ordinary engineering methods had struggled to solve.",
       "questions": [
@@ -1438,6 +1473,7 @@
     {
       "id": "P1400c",
       "level": 1400,
+      "lexile": 1550,
       "title": "How Habits Form",
       "text": "Psychologists who study human behavior have found that habits develop through a repeating pattern, often described as a loop, that has three parts: a cue, a routine, and a reward. The cue, such as a certain time of day or a familiar place, triggers a behavior almost automatically, and the reward that follows reinforces the connection between the cue and the behavior. As this loop is repeated again and again, control of the behavior gradually shifts to parts of the brain that handle automatic actions rather than careful, deliberate decisions. Many people believe that forming a new habit takes exactly twenty-one days, but one widely cited study found that participants needed an average of sixty-six days, and the time varied greatly from person to person. Understanding this process suggests some practical strategies. People who want to build useful habits, such as reading or exercising regularly, should link them to the same cue every day and should expect that the new behavior will become truly automatic only after weeks of steady effort.",
       "questions": [
@@ -1479,6 +1515,7 @@
     {
       "id": "P1500a",
       "level": 1500,
+      "lexile": 1720,
       "title": "The Logic of Antibiotic Resistance",
       "text": "When a population of bacteria is exposed to an antibiotic, the drug does not create resistance; it reveals and amplifies a difference that already exists. A small fraction of bacteria may carry, by chance mutation or by acquiring genetic material from other microbes, a trait that lets them survive the drug's mechanism of action. While susceptible bacteria are eliminated, these resistant individuals are left with abundant resources and diminished competition, and they reproduce rapidly to dominate the surviving population. This process, a straightforward instance of natural selection operating on a microbial timescale, explains why incomplete courses of antibiotics are particularly dangerous: stopping treatment early tends to kill the most vulnerable bacteria while sparing those with partial resistance, effectively selecting for the very trait clinicians are trying to avoid. Compounding the problem, bacteria can transfer resistance genes directly to unrelated species through small circular strands of DNA called plasmids, allowing an adaptation that evolved in one organism to spread laterally across an entire microbial community within days. Public health officials now treat antibiotic stewardship, the careful, judicious use of these drugs, as inseparable from any long-term strategy for preserving their effectiveness, since every unnecessary prescription offers bacteria another opportunity to refine defenses that, once established, rarely disappear.",
       "questions": [
@@ -1520,6 +1557,7 @@
     {
       "id": "P1500b",
       "level": 1500,
+      "lexile": 1660,
       "title": "Detecting the Invisible: How Astronomers Find Black Holes",
       "text": "A black hole, by definition, emits no light of its own, so no telescope can observe one directly. Astronomers instead infer a black hole's existence from its gravitational influence on its surroundings. In some cases, a black hole orbits a visible star, and the star's light appears to wobble in a precise, periodic pattern as the two objects circle a common center of mass; measuring that wobble reveals the unseen companion's mass. In other cases, gas and dust spiraling toward a black hole form what is called an accretion disk, and friction within this disk heats the material to such extreme temperatures that it radiates intense X-rays, which space-based observatories can detect even across vast distances. A third method, confirmed for the first time in 2019, captures the black hole's \"shadow\": a dark silhouette cast against the glowing gas that surrounds it, imaged by linking radio telescopes across the planet into a single instrument with the resolving power of an Earth-sized dish. Each technique provides indirect but compelling evidence, and together they have transformed black holes from a purely theoretical consequence of general relativity into objects whose mass, spin, and location can be measured with increasing precision.",
       "questions": [
@@ -1561,6 +1599,7 @@
     {
       "id": "P1500c",
       "level": 1500,
+      "lexile": 1810,
       "title": "Why Nations Trade: The Idea of Comparative Advantage",
       "text": "It might seem that a country should only trade with others if it can produce goods more efficiently than they can, but a principle developed in the early nineteenth century shows that this intuition is incomplete. Comparative advantage holds that a nation benefits from trade whenever it specializes in producing whatever it gives up the least to make, even if another country could produce every good more efficiently in absolute terms. Consider two countries, one able to produce both wheat and cloth more efficiently than the other overall; the principle still predicts gains from trade if each country focuses on the good it produces relatively better, measured by what it must sacrifice of the other good to make it. By specializing according to this relative efficiency and then exchanging goods, both countries can end up with more of both wheat and cloth than either could produce alone. This counterintuitive result explains why even a highly productive economy gains from trading with a far less productive one, and it remains one of the most frequently cited, though often misunderstood, arguments for open international trade, even as economists continue to debate how its benefits are actually distributed within each country.",
       "questions": [
@@ -1602,6 +1641,7 @@
     {
       "id": "P1600a",
       "level": 1600,
+      "lexile": 2080,
       "title": "Entangled Particles and the Limits of Classical Intuition",
       "text": "When two particles become quantum entangled, the mathematical description of the pair cannot be factored into independent descriptions of each particle separately, even after the particles are separated by an arbitrarily large distance. Measuring a property of one particle, such as its spin along a chosen axis, instantaneously determines the corresponding outcome for its partner, a correlation so precise that Einstein, skeptical of its implications, famously dismissed it as \"spooky action at a distance.\" For decades, physicists debated whether entanglement merely reflects our ignorance of some deeper, \"hidden\" set of variables that determines each particle's properties in advance, much as a pair of gloves sent to different cities are already, secretly, left and right before anyone opens the box. In the 1960s, physicist John Bell devised an inequality that any such hidden-variable theory must satisfy, and experiments conducted over the following decades, refined to close ever more loopholes, have consistently violated Bell's inequality, ruling out a broad class of these classical explanations. The implication is unsettling: the particles do not carry predetermined, independent properties waiting to be revealed by measurement; rather, their joint state exists in a genuinely non-classical form until measurement occurs, a conclusion that has moved from philosophical curiosity to the operating principle behind emerging technologies such as quantum cryptography and quantum computing.",
       "questions": [
@@ -1643,6 +1683,7 @@
     {
       "id": "P1600b",
       "level": 1600,
+      "lexile": 1870,
       "title": "The Hard Problem: Consciousness and Its Explanatory Gap",
       "text": "Neuroscience has made considerable progress explaining how the brain performs functions such as integrating sensory input, directing attention, or storing memories, processes philosopher David Chalmers grouped under what he called the \"easy problems\" of consciousness, easy only in the sense that they are, in principle, solvable by identifying the right neural mechanisms. The \"hard problem,\" by contrast, asks why any of this neural processing is accompanied by subjective experience at all, why there is \"something it is like\" to see red or feel pain rather than the information simply being processed in the dark, as a sophisticated but experienceless machine might process it. Even a complete map of every neuron firing during the perception of red would not, by itself, explain why that firing pattern gives rise to the felt quality of redness rather than nothing at all. This gap between physical description and subjective experience has led some philosophers to argue that consciousness may require an entirely new category of explanation, not reducible to current physical science, while others maintain that the hard problem will eventually dissolve as neuroscience matures, much as earlier mysteries about life itself dissolved once the mechanisms of biology were understood. The debate remains genuinely unresolved, and it continues to shape research across philosophy, psychology, and cognitive science.",
       "questions": [
@@ -1684,6 +1725,7 @@
     {
       "id": "P1600c",
       "level": 1600,
+      "lexile": 1900,
       "title": "Separation of Powers: Why Governments Divide Authority",
       "text": "The principle of separating governmental authority into distinct branches, typically one that makes laws, one that enforces them, and one that interprets them, rests on an assumption articulated clearly by the eighteenth-century political philosopher Montesquieu: that concentrating all forms of power in a single person or body, however well-intentioned, creates conditions under which abuse becomes likely rather than merely possible. Rather than relying on the virtue of individual leaders, a separation-of-powers system distributes authority so that each branch retains tools to check the others, a legislature that can refuse to fund an executive initiative, an executive that can veto legislation, a judiciary that can declare an action unconstitutional, so that no single branch can act entirely unchecked. Critics have long pointed out that this arrangement, precisely because it is designed to prevent concentrated power, can also produce gridlock, where disagreement among branches stalls necessary action even during urgent crises. Defenders respond that this friction is a deliberate, acceptable cost, reasoning that a system built primarily for speed and efficiency would also be a system more easily captured by a single faction or individual. The tension between effective governance and protection against concentrated power has no permanent resolution; each generation of institutional designers must decide anew where, within that tension, to strike the balance.",
       "questions": [

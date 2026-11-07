@@ -1,0 +1,143 @@
+diff --git a/src/server/readrise/import.ts b/src/server/readrise/import.ts
+index 0ebcc28e..8b8485df 100644
+--- a/src/server/readrise/import.ts
++++ b/src/server/readrise/import.ts
+@@ -64,6 +64,16 @@ export interface ValidationResult { article: ArticleJson | null; errors: Issue[]
+ export type Locate = (key: string) => string | undefined;
+ 
+ const str = (v: unknown) => (typeof v === "string" ? v.trim() : typeof v === "number" ? String(v) : "");
++
++/**
++ * 🚀 (Nov 2026, owner: a full re-seed of an unchanged library was taking 40+ write round trips per article — slow
++ * enough on a remote DB to outlast its connection timeout) a stable key for comparing a stored row against the data
++ * about to be written: object keys sorted so the same content compares equal regardless of property order.
++ */
++const canon = (v: unknown): string =>
++  JSON.stringify(v, (_k, val) => (val && typeof val === "object" && !Array.isArray(val) ? Object.fromEntries(Object.entries(val as Record<string, unknown>).sort(([a], [b]) => a.localeCompare(b))) : val));
++/** True when every field of `data` already matches the stored row `have` — nothing to write. */
++const unchanged = (have: Row | undefined, data: Row): boolean => !!have && Object.entries(data).every(([k, val]) => canon(have[k] ?? null) === canon(val ?? null));
+ const defaultLabel = (key: string): string => {
+   const [k, a, b] = key.split(":");
+   if (k === "article") return "Article";
+@@ -282,8 +292,14 @@ export async function importArticleJson(repo: Repo, actor: Actor | null, json: u
+   const articleId = await repo.transaction(async (tx) => {
+     const fields: Row = { title: art.title, topic: art.topic, summary: art.summary || null, pollStatement: art.poll, status, deletedAt: null, updatedAt: now };
+     let id: string;
+-    if (existing) { id = String(existing.id); await tx.updateMany("RRArticle", { id }, fields); }
+-    else id = String((await tx.create("RRArticle", { ...fields, schoolId: opts.schoolId, code: art.code, createdById: actor?.userId ?? null, createdAt: now })).id);
++    if (existing) {
++      id = String(existing.id);
++      // ⚡ (Nov 2026) re-running the seed over an unchanged library used to write every row again, ~40 round trips
++      // per article, slow enough on a remote DB to outlast its connection timeout: a soft-deleted row always needs
++      // the undelete write, otherwise skip the write entirely when the content already matches what's stored.
++      if (existing.deletedAt != null || !unchanged(existing, { title: fields.title, topic: fields.topic, summary: fields.summary, pollStatement: fields.pollStatement, status: fields.status }))
++        await tx.updateMany("RRArticle", { id }, fields);
++    } else id = String((await tx.create("RRArticle", { ...fields, schoolId: opts.schoolId, code: art.code, createdById: actor?.userId ?? null, createdAt: now })).id);
+     if (!existing) {
+       // ⚡ a NEW article has no versions / questions / prompts yet: 3 inserts instead of ~40 upserts (the same rows)
+       await tx.createMany("RRVersion", art.versions.map((ver) => {
+@@ -298,11 +314,21 @@ export async function importArticleJson(repo: Repo, actor: Actor | null, json: u
+       await tx.createMany("RRPrompt", BANDS.map((b) => ({ articleId: id, band: b, prompt: art.bands[b].prompt, checklist: art.bands[b].checklist ?? [], keyWords: art.bands[b].keyWords, modelAnswer: art.bands[b].modelAnswer ?? null })));
+       return id;
+     }
++    // ⚡ an EXISTING article: read what's already stored once (3 fast reads), then write only the rows whose content
++    // actually differs — a fully-unchanged article costs 3 reads and zero writes instead of ~40 upserts.
++    const [haveVersions, haveQuestions, havePrompts] = await Promise.all([
++      tx.findMany("RRVersion", { articleId: id }, { select: ["level", "title", "body", "wordCount", "estLevel", "officialLexile"] }),
++      tx.findMany("RRQuestion", { articleId: id }, { select: ["band", "number", "stem", "options", "answer", "skill", "rationale"] }),
++      tx.findMany("RRPrompt", { articleId: id }, { select: ["band", "prompt", "checklist", "keyWords", "modelAnswer"] }),
++    ]);
++    const versionHave = new Map(haveVersions.map((r) => [Number(r.level), r]));
++    const questionHave = new Map(haveQuestions.map((r) => [`${r.band}|${Number(r.number)}`, r]));
++    const promptHave = new Map(havePrompts.map((r) => [String(r.band), r]));
+     for (const ver of art.versions) {
+       const c = v.checks.find((x) => x.level === ver.level)!;
+       const data: Row = { title: ver.title, body: ver.text, wordCount: c.wordCount, estLevel: c.estLevel };
+       if (ver.officialLexile !== undefined) data.officialLexile = ver.officialLexile;
+-      await tx.upsert("RRVersion", { articleId: id, level: ver.level }, data, data);
++      if (!unchanged(versionHave.get(ver.level), data)) await tx.upsert("RRVersion", { articleId: id, level: ver.level }, data, data);
+     }
+     for (const b of BANDS) {
+       const band = art.bands[b];
+@@ -310,15 +336,15 @@ export async function importArticleJson(repo: Repo, actor: Actor | null, json: u
+         const rationale: Record<string, string> = { ...(q.wrong ?? {}) };
+         if (q.why) rationale[q.answer] = q.why;
+         const data: Row = { stem: q.stem, options: q.options, answer: q.answer, skill: q.skill, rationale: Object.keys(rationale).length ? rationale : null };
+-        await tx.upsert("RRQuestion", { articleId: id, band: b, number: i + 1 }, data, data);
++        if (!unchanged(questionHave.get(`${b}|${i + 1}`), data)) await tx.upsert("RRQuestion", { articleId: id, band: b, number: i + 1 }, data, data);
+       }
+       const p: Row = { prompt: band.prompt, checklist: band.checklist ?? [], keyWords: band.keyWords, modelAnswer: band.modelAnswer ?? null };
+-      await tx.upsert("RRPrompt", { articleId: id, band: b }, p, p);
++      if (!unchanged(promptHave.get(b), p)) await tx.upsert("RRPrompt", { articleId: id, band: b }, p, p);
+       // ⬆ round 5: the band's stretch set (when the file has one)
+       for (const [i, q] of (art.stretch?.[b] ?? []).entries()) {
+         const { articleId: _a, band: _b, number: _n, ...data } = questionRow(id, STRETCH_BAND[b], i + 1, q);
+         if (!("rationale" in data)) data.rationale = null;
+-        await tx.upsert("RRQuestion", { articleId: id, band: STRETCH_BAND[b], number: i + 1 }, data, data);
++        if (!unchanged(questionHave.get(`${STRETCH_BAND[b]}|${i + 1}`), data)) await tx.upsert("RRQuestion", { articleId: id, band: STRETCH_BAND[b], number: i + 1 }, data, data);
+       }
+     }
+     return id;
+diff --git a/src/server/readrise/seed.ts b/src/server/readrise/seed.ts
+index b96f204a..751f860a 100644
+--- a/src/server/readrise/seed.ts
++++ b/src/server/readrise/seed.ts
+@@ -28,18 +28,51 @@ export interface LibrarySeedReport { files: number; created: number; updated: nu
+ const articleDir = (root: string) => join(root, "data", "readrise", "articles");
+ const articleFiles = (dir: string) => (existsSync(dir) ? readdirSync(dir).filter((n) => n.endsWith(".json")).sort() : []);
+ 
+-/** Imports one file (null → imported; else the problems). */
++/**
++ * A dropped/closed remote connection, not a problem with the file or the data (Prisma's P1001/P1008/P1017/P2024,
++ * or a raw socket error) — worth a short wait and another try. Anything else (bad JSON, a validation error) is
++ * certain to fail again immediately, so it is reported at once instead of wasting slow retries on it.
++ */
++function isTransientDbError(e: unknown): boolean {
++  const code = (e as { code?: string })?.code;
++  if (code && ["P1001", "P1008", "P1017", "P2024"].includes(code)) return true;
++  const msg = String((e as Error)?.message ?? "");
++  return /closed the connection|can't reach database|ECONNRESET|ETIMEDOUT|EPIPE|connection.*(lost|reset|refused)/i.test(msg);
++}
++const sleep = (ms: number) => new Promise((res) => setTimeout(res, ms));
++
++/**
++ * Imports one file (null → imported; else the problems). 🚀 (Nov 2026, owner: a long seed run over a remote
++ * connection kept getting cut mid-run, forcing a full manual restart from the first file every time) a dropped
++ * connection on THIS file gets up to 2 automatic retries (short backoff: 3s, then 10s) before it is given up on and
++ * reported — the run itself never stops for it, and importArticleJson's own content-diff skip (./import.ts) means
++ * every file already fully written earlier in this same run, or in an earlier run that got cut, costs almost
++ * nothing to pass over again.
++ */
+ async function importFile(repo: Repo, dir: string, f: string, rep: LibrarySeedReport, log: (m: string) => void): Promise<void> {
+   let json: unknown;
+   try { json = JSON.parse(readFileSync(join(dir, f), "utf8")); }
+   catch (e) { rep.skipped.push({ file: f, problems: [`not valid JSON: ${(e as Error).message}`] }); log(`  ReadRise: skipped ${f} (not valid JSON)`); return; }
+-  const r = await importArticleJson(repo, null, json, { schoolId: null, publish: true });
+-  if (!r.ok) {
+-    rep.skipped.push({ file: f, problems: r.errors.map((e) => `${e.where}: ${e.message}`) });
+-    log(`  ReadRise: skipped ${f} (${r.errors.length} problem${r.errors.length === 1 ? "" : "s"}: ${r.errors.slice(0, 2).map((e) => `${e.where}: ${e.message}`).join("; ")})`);
+-    return;
++  const BACKOFF_MS = [3000, 10000];
++  for (let attempt = 0; ; attempt++) {
++    try {
++      const r = await importArticleJson(repo, null, json, { schoolId: null, publish: true });
++      if (!r.ok) {
++        rep.skipped.push({ file: f, problems: r.errors.map((e) => `${e.where}: ${e.message}`) });
++        log(`  ReadRise: skipped ${f} (${r.errors.length} problem${r.errors.length === 1 ? "" : "s"}: ${r.errors.slice(0, 2).map((e) => `${e.where}: ${e.message}`).join("; ")})`);
++        return;
++      }
++      if (r.created) rep.created++; else rep.updated++;
++      return;
++    } catch (e) {
++      if (!isTransientDbError(e) || attempt >= BACKOFF_MS.length) {
++        if (isTransientDbError(e)) { rep.skipped.push({ file: f, problems: [`database connection kept dropping: ${(e as Error).message}`] }); log(`  ReadRise: skipped ${f} for now (connection kept dropping; safe to run the seed again later)`); return; }
++        throw e; // not a connection issue — a real bug, let it surface instead of hiding it
++      }
++      log(`  ReadRise: ${f} — connection dropped, retrying in ${Math.round(BACKOFF_MS[attempt] / 1000)}s …`);
++      await sleep(BACKOFF_MS[attempt]);
++    }
+   }
+-  if (r.created) rep.created++; else rep.updated++;
+ }
+ 
+ /** The full seed: every article file (unchanged behaviour of `npx tsx prisma/seed/readrise.ts`). */

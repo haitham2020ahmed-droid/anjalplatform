@@ -1,3 +1,4 @@
+import { toAchieve, toTextScale } from "../src/server/readrise/achieve-scale";
 import { before, describe, test } from "node:test";
 import assert from "node:assert/strict";
 import type { SqliteRepo } from "../scripts/db/sqlite-repo";
@@ -58,18 +59,20 @@ describe("🚀 ReadRise growth evidence (pure)", () => {
     assert.equal(measuredLevel({ level: 900, estLevel: 980, officialLexile: 910 }), 910, "an official measure wins");
     assert.equal(measuredLevel({ level: 900, estLevel: 0 }), 900, "no cached estimate → the nominal level");
     assert.deepEqual([fitOf(900, 880), fitOf(1000, 880), fitOf(780, 880), fitOf(955, 880), fitOf(805, 880)], ["EXACT", "STRETCH", "EASY", "EXACT", "EXACT"]);
-    // when every text measures at its target, the choice is exactly the old rule
+    // when every text measures at its target, the choice is exactly the old rule — round 8: on the Achieve3000 scale
+    // (the student's level is moved onto the text scale first, achieve-scale.ts; below 300 → the 300 version)
     const exact = RR_LEVELS.map((l) => ({ level: l, estLevel: l }));
-    for (let lvl = 100; lvl <= 1700; lvl += 10) assert.equal(chooseVersion(lvl, exact), versionFor(lvl, [...RR_LEVELS]), `level ${lvl}`);
+    for (let lvl = 100; lvl <= 1700; lvl += 10) assert.equal(chooseVersion(lvl, exact), lvl < 300 ? 300 : versionFor(toTextScale(lvl), [...RR_LEVELS]), `level ${lvl}`);
+    assert.deepEqual([800, 930, 1040, 1500].map((l) => chooseVersion(l, exact)), [700, 800, 900, 1400], "an Achieve 800L reader reads the 700 version (≈ Achieve 800L)");
     // round 5 (owner): another version only within ±50 of the nominal pick — with 100-point versions the card is
     // always the student's own version, however the texts measure
     const hard = RR_LEVELS.map((l) => ({ level: l, estLevel: l + 120 }));
-    assert.equal(chooseVersion(850, hard), 800 + 100);
-    assert.equal(chooseVersion(850, RR_LEVELS.map((l) => ({ level: l, estLevel: l - 120 }))), 900);
+    assert.equal(chooseVersion(toAchieve(850), hard), 800 + 100);
+    assert.equal(chooseVersion(toAchieve(850), RR_LEVELS.map((l) => ({ level: l, estLevel: l - 120 }))), 900);
     // a version within ±50 (an unusual 950 version) is still chosen by its measure
-    assert.equal(chooseVersion(850, [{ level: 900, estLevel: 1020 }, { level: 950, estLevel: 860 }]), 950);
+    assert.equal(chooseVersion(toAchieve(850), [{ level: 900, estLevel: 1020 }, { level: 950, estLevel: 860 }]), 950);
     // never another version than the nominal pick (±50), even with a wild estimate
-    assert.equal(chooseVersion(850, RR_LEVELS.map((l) => ({ level: l, estLevel: l === 400 ? 850 : l + 400 }))), 900);
+    assert.equal(chooseVersion(toAchieve(850), RR_LEVELS.map((l) => ({ level: l, estLevel: l === 400 ? 850 : l + 400 }))), 900);
     assert.equal(stretchAbove(800, [...RR_LEVELS]), 900);
     assert.equal(stretchAbove(1400, [...RR_LEVELS]), 1500);
     assert.equal(stretchAbove(1600, [...RR_LEVELS]), null, "no stretch above the top level (1600)");
@@ -190,7 +193,7 @@ describe("🚀 ReadRise growth reports (demo school)", () => {
     hardArt = await makeArticle(repo, "G-HARD", 120);
     for (const s of [A, B]) {
       await ensureRRStudent(repo, s.studentId!, T0);
-      await repo.updateMany("RRStudent", { studentId: s.studentId! }, { level: 850, startLevel: 850, source: "PLACEMENT", placedAt: T0 });
+      await repo.updateMany("RRStudent", { studentId: s.studentId! }, { level: 990, startLevel: 990, source: "PLACEMENT", placedAt: T0 }); // round 8: Achieve3000 scale (990L reads the 900 version ≈1040L)
     }
     // A: five first tries at 75% (detail always wrong) over 15 days → up 50 after the third
     for (const [i, d] of [1, 4, 7, 10, 15].entries()) await read(repo, A, arts[i], 6, at(d));
@@ -202,7 +205,7 @@ describe("🚀 ReadRise growth reports (demo school)", () => {
     const v = await startRun(repo, A, hardArt, {}, at(16));
     // A is at 900 now: round 5 (owner) — chooseVersion only takes another version within ±50, so the card is the
     // student's own level: nominal 900 (it measures 1020: the teacher sees it as a stretch text)
-    assert.equal(Number((await repo.findUnique("RRStudent", { studentId: A.studentId! }))!.level), 900);
+    assert.equal(Number((await repo.findUnique("RRStudent", { studentId: A.studentId! }))!.level), 1040);
     assert.equal(v.versionLevel, 900);
     assert.equal(v.band, "MID");
     await submitPrePoll(repo, A, v.runId, 1, at(16));
@@ -210,14 +213,14 @@ describe("🚀 ReadRise growth reports (demo school)", () => {
     await submitActivity(repo, A, v.runId, answers(5), at(16)); // 63%: the level holds
     const g = await studentGrowthReport(repo, admin, classId, A.studentId!, at(17));
     const last = g.recent[0];
-    assert.deepEqual([last.versionLevel, last.textLevel, last.studentLevel, last.fit], [900, 1020, 900, "STRETCH"]);
+    assert.deepEqual([last.versionLevel, last.textLevel, last.studentLevel, last.fit], [900, 1160, 1040, "STRETCH"]);
     assert.ok(g.recent.slice(1).every((r) => r.fit === "EXACT"), "the other texts measure at their target");
   });
 
   test("one student's growth evidence", async () => {
     const g = await studentGrowthReport(repo, admin, classId, A.studentId!, at(17));
     assert.equal(g.placed, true);
-    assert.equal(g.level, 900);
+    assert.equal(g.level, 1040);
     assert.deepEqual(g.history.map((e) => e.kind), ["PLACEMENT", "UP"]);
     assert.match(g.history[1].reason, /^Up 50: 3 of the last 3 first-try scores were 75% or higher/);
     assert.equal(g.firstTries, 6);
@@ -259,8 +262,8 @@ describe("🚀 ReadRise growth reports (demo school)", () => {
 
   test("the student's own story: encouraging words, no level words", async () => {
     const story = (await myGrowthStory(repo, A, at(17)))!;
-    assert.equal(story.level, 900);
-    assert.deepEqual(story.journey.map((j) => j.level), [850, 900]);
+    assert.equal(story.level, 1040);
+    assert.deepEqual(story.journey.map((j) => j.level), [990, 1040]);
     const text = story.lines.map((l) => fillLine(l)).join(" ");
     assert.equal(hasLevelWords(text), false, text);
     assert.match(text, /Your level grew 50 points/);
@@ -283,11 +286,11 @@ describe("🚀 ReadRise growth reports (demo school)", () => {
     const oneFile = await exp(admin, { classId, studentId: A.studentId! });
     const one = Buffer.from(oneFile.bytes).toString("utf8");
     assert.match(one, /Date,From,Level,Reason/);
-    assert.match(one, /,850L,900L,Up 50: 3 of the last 3/); // round 7: levels read with formatLevel
+    assert.match(one, /,990L,1040L,Up 50: 3 of the last 3/); // round 7: levels read with formatLevel
     const tableIds = (d: typeof oneFile.doc) => d.sections.flatMap((x) => (x.type === "table" ? [x.id] : []));
     assert.deepEqual(tableIds(oneFile.doc), ["history", "trend", "skills", "readings"]);
     const readings = oneFile.doc.sections.find((x) => x.type === "table" && x.id === "readings");
-    assert.ok(readings && readings.type === "table" && readings.rows.some((r) => r.text === "1020L" && r.student === "900L" && r.fit === "stretch"));
+    assert.ok(readings && readings.type === "table" && readings.rows.some((r) => r.text === "1160L" && r.student === "1040L" && r.fit === "stretch"));
     const clsFile = await exp(admin, { classId });
     assert.match(Buffer.from(clsFile.bytes).toString("utf8").split("\n")[0], /Growth this term,Confirmed by \(readings\),Projected end of year \(range\)/);
     assert.deepEqual(tableIds(clsFile.doc), ["students", "distribution", "notreading", "skills", "checks", "types", "unreliable", "weak"], "owner r69: reading checks, question types and unreliable readings");

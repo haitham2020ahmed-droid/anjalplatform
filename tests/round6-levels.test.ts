@@ -68,7 +68,7 @@ describe("📉 Round 6: levels like Achieve3000", () => {
     assert.equal(gradeBand(7, 281), "FAR_BELOW", "the class average of the school's real Grade 7 data");
     assert.equal(gradeBand(7, -220), "FAR_BELOW");
     assert.deepEqual(BAND_LABEL, { FAR_BELOW: "Falls Far Below", APPROACHES: "Approaches", MEETS: "Meets", EXCEEDS: "Exceeds" });
-    assert.equal(gradeLevelVersion(7, [...RR_LEVELS]), 1000, "middle of 970–1120 = 1045 → 1000");
+    assert.equal(gradeLevelVersion(7, [...RR_LEVELS]), 900, "middle of 970–1120 = 1045 → round 8: the 900 version (≈ Achieve 1040L)");
     assert.equal(gradeLevelVersion(1, [...RR_LEVELS]), 400, "middle 360 → 400");
     assert.equal(gradeLevelVersion(1, [500, 600]), 500, "clamped to the lowest version there is");
     assert.equal(gradeLevelVersion(12, [300, 400, 500]), 500, "clamped to the versions there are");

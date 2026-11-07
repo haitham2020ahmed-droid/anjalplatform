@@ -61,7 +61,7 @@ describe("🧭 ReadRise recommendations", () => {
     for (const id of ids.slice(0, 3)) { const u = await repo.findUnique("Student", { id }); st.push(await resolveActor(repo, (await repo.findUnique("User", { id: u!.userId }))!)); }
     for (const s of st) {
       await ensureRRStudent(repo, s.studentId!, ago(60));
-      await repo.updateMany("RRStudent", { studentId: s.studentId! }, { level: 800, startLevel: 800, source: "PLACEMENT", placedAt: ago(60) });
+      await repo.updateMany("RRStudent", { studentId: s.studentId! }, { level: 930, startLevel: 930, source: "PLACEMENT", placedAt: ago(60) }); // round 8: Achieve3000 scale — 930L reads the 800 version
     }
     A.readSci = await makeArticle(repo, "READ-SCI", "Science", ["central-idea", "inference", "inference", "inference", "detail", "detail", "vocabulary", "vocabulary"]);
     A.inf = await makeArticle(repo, "INF", "Space", ["inference", "inference", "inference", "inference", "inference", "detail", "detail", "detail"]);

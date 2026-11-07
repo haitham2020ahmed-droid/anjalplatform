@@ -12,6 +12,7 @@
  *
  * Queries are bounded: one student's rows, or the class's students batched with `in` (only the needed columns).
  */
+import { toAchieve } from "./achieve-scale";
 import type { Repo, Row } from "../seeding/repo";
 import { ForbiddenError, type Actor } from "../auth/rbac";
 import { assertClassRead } from "../teacher/coordinators";
@@ -157,7 +158,8 @@ export async function loadStudentGrowth(repo: Repo, studentId: string, now = new
     projection: projectionRange(journey.points, main.map((r) => time(r.completedAt)), now, yearEnd),
     recent: [...done].reverse().slice(0, 12).map((r) => {
       const v = ver.get(`${r.articleId}|${r.versionLevel}`);
-      const textLevel = v ? measuredLevel({ level: Number(v.level), estLevel: v.estLevel, officialLexile: v.officialLexile }) : Number(r.versionLevel);
+      // 📏 round 8: the text level on the Achieve3000 scale (achieve-scale.ts), like the student level it is compared with
+      const textLevel = toAchieve(v ? measuredLevel({ level: Number(v.level), estLevel: v.estLevel, officialLexile: v.officialLexile }) : Number(r.versionLevel));
       return {
         // round 7 (staff views): the article title + "(read as: <version title> · 600L)" when the version's title differs
         runId: s(r.id), title: readAsTitle(title.get(s(r.articleId)) ?? "Article", v ? s(v.title) : null, Number(r.versionLevel)), at: iso(time(r.completedAt)), versionLevel: Number(r.versionLevel), textLevel,

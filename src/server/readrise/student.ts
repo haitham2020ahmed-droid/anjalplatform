@@ -27,6 +27,7 @@
  *            the run Unreliable (teacher-only): it never moves the level, never counts toward the goal and never feeds
  *            the skills. Careful answers feed the skill stars through the skill-status hook, after the response.
  */
+import { toAchieve } from "./achieve-scale";
 import { feedReadRise, safeFeed } from "../practice/skill-evidence";
 import { runAfterResponse } from "../lib/after-response";
 import { aiEnv } from "../ai/env";
@@ -224,7 +225,7 @@ export async function studentLibrary(repo: Repo, actor: Actor, filter: LibraryFi
     cards.push({
       id: s(a.id), title: s((status === "DONE" && readV ? readV : v).title) || s(a.title), topic: s(a.topic), summary: s(a.summary),
       minutes: minutesFor(Number((status === "DONE" && readV ? readV : v).wordCount) || 0), versionLevel: vl,
-      textLevel: Math.round(measuredLevel({ level: Number(v.level), estLevel: v.estLevel, officialLexile: v.officialLexile }) / 10) * 10,
+      textLevel: Math.round(toAchieve(measuredLevel({ level: Number(v.level), estLevel: v.estLevel, officialLexile: v.officialLexile })) / 10) * 10, // round 8: Achieve3000 scale
       readLevel: first ? Number(first.versionLevel) || null : null,
       status, firstTryScore: scored ? Number(scored.score) : null,
       // round 5: the one stretch rule (stretchOffer): a reliable first try of 75%+ → always, while a higher version exists
@@ -752,7 +753,7 @@ export async function articlePage(repo: Repo, actor: Actor, articleId: string, n
     canStretch: !open && offer.ok,
     hasRead: runs.some((r) => r.step === "DONE"),
     status: articleStatus(runs),
-    textLevel: Math.round(measuredLevel({ level: Number(v.level), estLevel: v.estLevel, officialLexile: v.officialLexile }) / 10) * 10,
+    textLevel: Math.round(toAchieve(measuredLevel({ level: Number(v.level), estLevel: v.estLevel, officialLexile: v.officialLexile })) / 10) * 10, // round 8: Achieve3000 scale
     firstTryScore: first && first.score !== null && first.score !== undefined && !isUnreliableRun(first) ? Number(first.score) : null,
     readLevel: first ? Number(first.versionLevel) || null : null,
   };
