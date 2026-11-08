@@ -61,6 +61,9 @@ export function importMessage(r: MapImportResult & { kind?: string; norms?: stri
   if (r.created.length) parts.push(`${r.created.length} new student(s) added`);
   if (r.plans?.plans) parts.push(`📋 ${r.plans.plans} individual MAP plan draft(s) ready (${r.plans.classes.filter((c) => c.plans).map((c) => c.name).join(", ")}) — MAP → MAP plans`);
   if (r.skipped) parts.push(`${r.skipped} row(s) without a score skipped`);
+  // 🩹 Nov 2026: the RIT/Percentile/Lexile overall score always imports, but an instructional-area column whose
+  // codes this school's curriculum has no MapGoalArea for is silently dropped otherwise — never leave that invisible.
+  if (r.missingAreaHeaders?.length) parts.push(`⚠️ the overall score imported, but these instructional areas could not be matched to this school's curriculum setup and were NOT saved: ${r.missingAreaHeaders.join(", ")} — contact support`);
   // split by WHY a name wasn't matched, so the teacher never has to go searching for it by hand:
   // - already in another of the teacher's own classes (ambiguous by name) → say exactly which class(es)
   // - truly not found anywhere → the old, simpler message

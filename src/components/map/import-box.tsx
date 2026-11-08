@@ -31,6 +31,13 @@ export function MapImportBox({ classId, className, run, confirmAmbiguous }: { cl
     <form ref={form} onSubmit={send} className="mt-4 rounded-3xl bg-gradient-to-br bg-linear-to-br from-emerald-50 to-white p-5 ring-1 ring-emerald-200">
       <h2 className="text-lg font-bold text-brand-navy">📥 Import MAP scores (Fall RIT + Spring Projection)</h2>
       <p className="text-sm text-slate-600">1. Download the template · 2. Fill “Fall RIT”, “Spring Projection” (and “Fall Lexile” if you have it) · 3. Upload.{classId ? ` Students of the file who are not on the platform yet are added to ${className} automatically (Student Number + Student Name).` : " Choose a class above to also add new students automatically."}</p>
+      {/* 🩹 Nov 2026 ("ضيف ليهم icons باسمهم"): NWEA prints several PDF tabs with similar names — name each one so
+          the right one is picked without trial and error, since only two of the three carry the instructional areas. */}
+      <p className="mt-1 flex flex-wrap gap-x-3 gap-y-1 text-xs text-slate-500">
+        <span>📘 <b>Instructional Areas</b> tab — RIT + the 3 areas ✅ best for personalized plans</span>
+        <span>📈 <b>Achievement Status and Growth (ASG)</b> report — RIT + the 3 areas + Spring projection ✅</span>
+        <span>📊 <b>Test Details</b> tab — RIT/Percentile/Lexile only, no area breakdown ℹ️ skip it if you already have Instructional Areas</span>
+      </p>
       {classId && <input type="hidden" name="classId" value={classId} />}
       <div className="mt-3 flex flex-wrap items-end gap-3 text-sm">
         <a href={`/api/map-scores-template${classId ? `?classId=${classId}` : ""}`} className="rounded-xl bg-white px-3 py-2 font-semibold text-brand-navy ring-1 ring-slate-300 hover:ring-brand-teal">⬇ Template</a>

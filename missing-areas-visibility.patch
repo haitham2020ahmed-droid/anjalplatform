@@ -1,0 +1,77 @@
+diff --git a/src/components/map/import-box.tsx b/src/components/map/import-box.tsx
+index c2cb554..166dfe4 100644
+--- a/src/components/map/import-box.tsx
++++ b/src/components/map/import-box.tsx
+@@ -31,6 +31,13 @@ export function MapImportBox({ classId, className, run, confirmAmbiguous }: { cl
+     <form ref={form} onSubmit={send} className="mt-4 rounded-3xl bg-gradient-to-br bg-linear-to-br from-emerald-50 to-white p-5 ring-1 ring-emerald-200">
+       <h2 className="text-lg font-bold text-brand-navy">📥 Import MAP scores (Fall RIT + Spring Projection)</h2>
+       <p className="text-sm text-slate-600">1. Download the template · 2. Fill “Fall RIT”, “Spring Projection” (and “Fall Lexile” if you have it) · 3. Upload.{classId ? ` Students of the file who are not on the platform yet are added to ${className} automatically (Student Number + Student Name).` : " Choose a class above to also add new students automatically."}</p>
++      {/* 🩹 Nov 2026 ("ضيف ليهم icons باسمهم"): NWEA prints several PDF tabs with similar names — name each one so
++          the right one is picked without trial and error, since only two of the three carry the instructional areas. */}
++      <p className="mt-1 flex flex-wrap gap-x-3 gap-y-1 text-xs text-slate-500">
++        <span>📘 <b>Instructional Areas</b> tab — RIT + the 3 areas ✅ best for personalized plans</span>
++        <span>📈 <b>Achievement Status and Growth (ASG)</b> report — RIT + the 3 areas + Spring projection ✅</span>
++        <span>📊 <b>Test Details</b> tab — RIT/Percentile/Lexile only, no area breakdown ℹ️ skip it if you already have Instructional Areas</span>
++      </p>
+       {classId && <input type="hidden" name="classId" value={classId} />}
+       <div className="mt-3 flex flex-wrap items-end gap-3 text-sm">
+         <a href={`/api/map-scores-template${classId ? `?classId=${classId}` : ""}`} className="rounded-xl bg-white px-3 py-2 font-semibold text-brand-navy ring-1 ring-slate-300 hover:ring-brand-teal">⬇ Template</a>
+diff --git a/src/server/map/map-files.ts b/src/server/map/map-files.ts
+index 35f000d..30073e3 100644
+--- a/src/server/map/map-files.ts
++++ b/src/server/map/map-files.ts
+@@ -61,6 +61,9 @@ export function importMessage(r: MapImportResult & { kind?: string; norms?: stri
+   if (r.created.length) parts.push(`${r.created.length} new student(s) added`);
+   if (r.plans?.plans) parts.push(`📋 ${r.plans.plans} individual MAP plan draft(s) ready (${r.plans.classes.filter((c) => c.plans).map((c) => c.name).join(", ")}) — MAP → MAP plans`);
+   if (r.skipped) parts.push(`${r.skipped} row(s) without a score skipped`);
++  // 🩹 Nov 2026: the RIT/Percentile/Lexile overall score always imports, but an instructional-area column whose
++  // codes this school's curriculum has no MapGoalArea for is silently dropped otherwise — never leave that invisible.
++  if (r.missingAreaHeaders?.length) parts.push(`⚠️ the overall score imported, but these instructional areas could not be matched to this school's curriculum setup and were NOT saved: ${r.missingAreaHeaders.join(", ")} — contact support`);
+   // split by WHY a name wasn't matched, so the teacher never has to go searching for it by hand:
+   // - already in another of the teacher's own classes (ambiguous by name) → say exactly which class(es)
+   // - truly not found anywhere → the old, simpler message
+diff --git a/src/server/map/student-map.ts b/src/server/map/student-map.ts
+index c5c5bc3..3f34c45 100644
+--- a/src/server/map/student-map.ts
++++ b/src/server/map/student-map.ts
+@@ -191,7 +191,7 @@ export function fromNweaCdf(table: string[][]): { table: string[][]; term: strin
+ }
+ const SUBJECT_NAME = { READING: "Reading", LANGUAGE_USAGE: "Language Usage" } as const;
+ 
+-export interface MapImportResult { imported: number; skipped: number; errors: { row: number; message: string }[]; term: string; created: { name: string; username: string; password: string }[]; /** students of the file not found on the platform (check their Student ID) — `classes` set means the name was NOT auto-added because it already matches a student of one of these OTHER classes (ambiguous), so it's not "missing", just not auto-creatable here */ unmatched?: { number: string; name: string; classes?: string[] }[]; /** individual plan drafts made from these scores */ plans?: AutoPlans }
++export interface MapImportResult { imported: number; skipped: number; errors: { row: number; message: string }[]; term: string; created: { name: string; username: string; password: string }[]; /** students of the file not found on the platform (check their Student ID) — `classes` set means the name was NOT auto-added because it already matches a student of one of these OTHER classes (ambiguous), so it's not "missing", just not auto-creatable here */ unmatched?: { number: string; name: string; classes?: string[] }[]; /** individual plan drafts made from these scores */ plans?: AutoPlans; /** 🩹 Nov 2026: instructional-area column(s) the file HAD (by header) but this school's curriculum setup has no matching MapGoalArea code for — so the RIT/Percentile/Lexile overall scores imported fine, but those specific areas were silently dropped. Surfaced so it's never a silent "imported ✅ but areas stayed empty" mystery. */ missingAreaHeaders?: string[] }
+ 
+ /**
+  * A student in the MAP file who is not on the platform yet: created in this class (teachers: their own class).
+@@ -240,15 +240,22 @@ export async function importMapScores(repo: Repo, actor: Actor, table: string[][
+     return { ...g, ix, area };
+   }).filter((g) => g.ix >= 0 && g.area);
+   // the 3 + 3 instructional-area columns (template, manual table or NWEA's names): one column → every goal of the area
++  // 🩹 Nov 2026 ("قال تم الاستيراد لكن المناطق فاضية"): a header the file HAS but whose codes have no MapGoalArea
++  // row in this school's curriculum (`!area` below) must not just vanish — it's reported to the teacher instead
++  // of leaving the overall RIT/Percentile imported with the area breakdown silently empty.
++  const missingAreaHeaders: string[] = [];
+   for (const a of AREA_COLUMNS) {
+     const ix = header.findIndex((h) => h === norm(a.header) || a.aliases.includes(h));
+     if (ix < 0) continue;
++    let anyMissing = false;
+     for (const code of a.codes) {
+       if (goalCols.some((g) => g.code === code)) continue;   // the older per-goal column wins
+       const area = areas.find((x) => s(x.code) === code);
+       const g = GOAL_COLUMNS.find((x) => x.code === code)!;
+       if (area) goalCols.push({ ...g, header: a.header, ix, area });
++      else anyMissing = true;
+     }
++    if (anyMissing) missingAreaHeaders.push(a.header);
+   }
+   const created: MapImportResult["created"] = [];
+   // students this actor may update
+@@ -390,7 +397,7 @@ export async function importMapScores(repo: Repo, actor: Actor, table: string[][
+   if (notInClasses) errors.push({ row: 0, message: `${notInClasses} student(s) of the NWEA file are not in ${actor.role === "TEACHER" ? "your classes" : "the school's classes"} (other classes / not on the platform yet): skipped.` });
+   // the new scores make the individual plans (drafts) and the 3-level groups at once
+   const plans = await draftPlansFor(repo, actor, [...touched], now);
+-  return { imported, skipped, errors, term, created, unmatched, plans };
++  return { imported, skipped, errors, term, created, unmatched, plans, ...(missingAreaHeaders.length ? { missingAreaHeaders } : {}) };
+ }
+ 
+ /** Template rows: the actor's students (number, name, grade) ready for the scores. */
