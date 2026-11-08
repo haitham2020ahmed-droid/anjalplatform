@@ -9,6 +9,8 @@ import { getT } from "@/i18n/server";
 import { readableClasses } from "@/server/teacher/coordinators";
 import { classErrors } from "@/server/insights/error-patterns";
 import { repeatedMistakes } from "@/server/teacher/repeated-mistakes";
+import { classMissedQuestions } from "@/server/insights/missed-questions";
+import { MissedQuestionCard } from "@/components/teacher/missed-question";
 import { AssignSkillHost } from "../../assign-dialog";
 
 export const metadata = { title: "Mistakes and root causes" };
@@ -31,7 +33,9 @@ export default async function ErrorsReport({ searchParams }: { searchParams: Pro
   const classes = (await readableClasses(repo, actor)).map((c) => ({ id: String(c.id), name: String(c.name) })).sort((a, b) => a.name.localeCompare(b.name));
   const klass = classes.find((c) => c.id === sp.classId) ?? classes[0];
   const teacher = actor.role === "TEACHER";
-  const [v, repeated] = klass ? await Promise.all([classErrors(repo, actor, klass.id), repeatedMistakes(repo, actor, { classId: klass.id }).catch(() => [])]) : [null, []];
+  // Nov 2026 (IXL Trouble Spots): the real questions behind the mistakes — never blocks the report if it fails
+  const noMissed = { top: [], byCode: {} } as Awaited<ReturnType<typeof classMissedQuestions>>;
+  const [v, repeated, missed] = klass ? await Promise.all([classErrors(repo, actor, klass.id), repeatedMistakes(repo, actor, { classId: klass.id }).catch(() => []), classMissedQuestions(repo, actor, klass.id).catch(() => noMissed)]) : [null, [], noMissed];
   const names = v?.names ?? new Map<string, string>();
   const nameList = (ids: string[]) => ids.map((id) => names.get(id) ?? "Student").join(", ");
   return (
@@ -51,8 +55,16 @@ export default async function ErrorsReport({ searchParams }: { searchParams: Pro
                     {p.lesson && <Link prefetch={false} href={`/teacher/learn/assign?${new URLSearchParams({ kind: "LESSON", skillId: p.lesson.skillId, classId: v.classId })}`} className="inline-flex min-h-9 items-center rounded-lg bg-brand-navy px-3 text-sm font-semibold text-white hover:opacity-90">📘 {t("Re-teach to the whole class")} · <span className="ms-1" data-content lang="en">{p.lesson.name}</span></Link>}
                     <InsightActions t={t} target={{ classId: v.classId, studentIds: p.students, skillId: p.lesson?.skillId ?? null }} only={["plan", "group", "reteach"]} />
                   </div>
+                  {missed.byCode[p.code] && <MissedQuestionCard q={missed.byCode[p.code]} t={t} classId={v.classId} size={v.size} compact />}
                 </li>
               ))}</ul>
+            )}
+          </ReportSection>
+
+          {/* Nov 2026 (IXL Trouble Spots): the questions most students missed — the real question, to go over together */}
+          <ReportSection title="Questions most students missed" icon="❓" hint={t("The last 30 days: each question two or more students got wrong, the answer most of them chose, and who missed it.")}>
+            {!missed.top.length ? <p className="text-sm text-slate-600">{t("No question was missed by two or more students.")}</p> : (
+              <div className="grid gap-3 lg:grid-cols-2" data-missed-top={missed.top.length}>{missed.top.map((q) => <MissedQuestionCard key={q.questionId} q={q} t={t} classId={v.classId} size={v.size} />)}</div>
             )}
           </ReportSection>
 

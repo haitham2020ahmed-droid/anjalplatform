@@ -4,6 +4,8 @@
  * name + Reading / Grammar / Vocabulary / Writing tabs; a skill without fitting questions is shown disabled "0 Q"); for each chosen skill the platform picks the questions or the teacher does), the game
  * mode (from the game registry — Part 2 games appear here by themselves), number of questions, time per question,
  * question level (same for all / each student's level), for one of the teacher's own classes. Start · Save as template.
+ * 🤝 Group Jam (Nov 2026): one switch — the same question for the whole class, the teacher moves on, no timer, no
+ * points (game mode, time and level are then fixed: Quiz Race questions, the same for all).
  */
 import { useEffect, useMemo, useRef, useState, useTransition } from "react";
 import { useRouter } from "next/navigation";
@@ -35,6 +37,7 @@ export function ChallengeSetup({ classes, initialClassId, initialSkills, templat
   const [count, setCount] = useState(10);
   const [seconds, setSeconds] = useState(20);
   const [levelMode, setLevelMode] = useState<"SAME" | "LEVEL">("SAME");
+  const [jam, setJam] = useState(false);
   const [title, setTitle] = useState("");
   const [templates, setTemplates] = useState(initialTemplates);
   const [templateId, setTemplateId] = useState<string | null>(null);
@@ -59,8 +62,9 @@ export function ChallengeSetup({ classes, initialClassId, initialSkills, templat
   };
   const spec = useMemo(() => {
     const own = Object.fromEntries(Object.entries(picks).filter(([id]) => picked.has(id)));
-    return { skillIds: [...picked.keys()], mode: mode as never, count, seconds, levelMode, ...(Object.keys(own).length ? { picks: own } : {}) };
-  }, [picked, picks, mode, count, seconds, levelMode]);
+    return { skillIds: [...picked.keys()], mode: (jam ? "quiz-race" : mode) as never, count, seconds, levelMode: jam ? "SAME" as const : levelMode, ...(Object.keys(own).length ? { picks: own } : {}), ...(jam ? { jam: true } : {}) };
+  }, [picked, picks, mode, count, seconds, levelMode, jam]);
+  const setJamOn = (on: boolean) => { setJam(on); if (on) { setMode("quiz-race"); setLevelMode("SAME"); } };
 
   const go = () => start(async () => {
     setMsg(null);
@@ -76,7 +80,7 @@ export function ChallengeSetup({ classes, initialClassId, initialSkills, templat
     setMsg({ ok: true, text: t("Template saved.") });
   });
   const open = (tp: ChallengeTemplate) => start(async () => {
-    setTemplateId(tp.id); setTitle(tp.title); setMode(tp.spec.mode); setCount(tp.spec.count); setSeconds(tp.spec.seconds); setLevelMode(tp.spec.levelMode);
+    setTemplateId(tp.id); setTitle(tp.title); setMode(tp.spec.mode); setCount(tp.spec.count); setSeconds(tp.spec.seconds); setLevelMode(tp.spec.levelMode); setJam(tp.spec.jam === true);
     const all = await searchChallengeSkillsAction({ mode: tp.spec.mode });
     // a template may name another grade's copy of a skill: the row of its shared pool stands for it
     const rowOf = (id: string) => (all.skills ?? []).find((k) => k.id === id || k.skillIds.includes(id));
@@ -99,7 +103,16 @@ export function ChallengeSetup({ classes, initialClassId, initialSkills, templat
           </label>
         </div>
 
-        <GameModePicker skillIds={spec.skillIds} mode={mode} onMode={setMode} />
+        {/* 🤝 Group Jam: a calm, teacher-paced class discussion instead of a race */}
+        <label className={`flex cursor-pointer items-start gap-3 rounded-2xl p-4 ring-1 ${jam ? "bg-teal-50 ring-brand-teal" : "bg-slate-50 ring-slate-200"}`} data-testid="group-jam">
+          <input type="checkbox" checked={jam} onChange={(e) => setJamOn(e.target.checked)} className="mt-1 h-5 w-5" />
+          <span className="min-w-0">
+            <span className="block font-semibold text-brand-navy">🤝 {t("Group Jam")}</span>
+            <span className="block text-sm text-slate-600">{t("One question at a time for the whole class; you decide when to show the answer and move on. No timer, no points, no ranking — then you all see how the class answered, without names.")}</span>
+          </span>
+        </label>
+
+        {!jam && <GameModePicker skillIds={spec.skillIds} mode={mode} onMode={setMode} />}
 
         <fieldset>
           <legend className="text-sm font-semibold text-slate-700">{t("Skills — choose one or more")}</legend>
@@ -140,15 +153,16 @@ export function ChallengeSetup({ classes, initialClassId, initialSkills, templat
           <label className="flex flex-col gap-1 text-sm font-semibold text-slate-700">{t("Number of questions")}
             <select value={count} onChange={(e) => setCount(Number(e.target.value))} className={box}>{[5, 10, 15, 20, 25, 30].map((n) => <option key={n} value={n}>{n}</option>)}</select>
           </label>
-          <label className="flex flex-col gap-1 text-sm font-semibold text-slate-700">{t("Time per question")}
+          {!jam && <label className="flex flex-col gap-1 text-sm font-semibold text-slate-700">{t("Time per question")}
             <select value={seconds} onChange={(e) => setSeconds(Number(e.target.value))} className={box}>{[10, 15, 20, 30, 45, 60].map((n) => <option key={n} value={n}>{t("{n} seconds", { n })}</option>)}</select>
-          </label>
-          <label className="flex flex-col gap-1 text-sm font-semibold text-slate-700">{t("Question level")}
+          </label>}
+          {!jam && <label className="flex flex-col gap-1 text-sm font-semibold text-slate-700">{t("Question level")}
             <select value={levelMode} onChange={(e) => setLevelMode(e.target.value === "LEVEL" ? "LEVEL" : "SAME")} className={box}>
               <option value="SAME">{t("Same for all")}</option>
               <option value="LEVEL">{t("Each student's level")}</option>
             </select>
-          </label>
+          </label>}
+          {jam && <p className="self-end text-sm text-slate-600 sm:col-span-2">{t("Group Jam: no timer, and the same question for everyone.")}</p>}
         </div>
 
         {msg && <p role={msg.ok ? "status" : "alert"} className={`rounded-xl px-4 py-3 ring-1 ${msg.ok ? "bg-emerald-50 text-emerald-900 ring-emerald-200" : "bg-red-50 text-red-800 ring-red-200"}`}>{msg.text}</p>}

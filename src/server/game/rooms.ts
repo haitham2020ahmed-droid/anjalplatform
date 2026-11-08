@@ -13,6 +13,11 @@
  * Game points (speed, streaks, power-ups) are for the board only; the summary keeps correct / incorrect per skill
  * for results, Reports and Reteach. Nothing here touches the adaptive engine, mastery or levels.
  *
+ * 🤝 Group Jam (Nov 2026, IXL-style; `jam`): the SAME question for the whole class, the teacher moves on — no timer,
+ * no points, no board or podium, no power-ups, no automatic reveal (the teacher shows the answer, then everyone sees
+ * how the class answered, without names). A student who did not answer is NOT counted wrong. The teacher's results
+ * keep right / answered per student and skill (Quiz Race questions: multiple choice and True/False).
+ *
  * Games integration (live extras switched on per mode in src/games/live-features.ts):
  *   - every player carries their avatar + favorite badge (loaded once at join) → board, lobby, podium, devices;
  *   - `chest`: after a right answer, 1 of 3 chests (dealt once per question, one of each: bonus, double, or points
@@ -34,6 +39,8 @@ export const ROOM_TTL_MS = 60 * 60_000;
 export const GRACE_MS = 1500;
 export const BOARD_SIZE = 8;
 export const RETEACH_BELOW_PCT = 70;
+/** Group Jam has no timer: a question stays open until the teacher moves on (the room itself closes after 60 min) */
+export const JAM_LIMIT_MS = ROOM_TTL_MS;
 const FLUSH_MS = 120;
 
 export type RoomStatus = "LOBBY" | "QUESTION" | "REVEAL" | "FINISHED";
@@ -88,6 +95,8 @@ export interface Room {
   events: LiveEvent[];
   /** Mystery Chest: the three prizes of each question (one of each, shuffled once, the same for everyone) */
   chestDeals: Map<number, ChestPrize[]>;
+  /** 🤝 Group Jam: teacher-paced, no timer, no points, no board (see the top of this file) */
+  jam: boolean;
 }
 
 // ------------------------------------------------------------------ the room store (survives module reloads)
@@ -101,14 +110,16 @@ export const roomByCode = (code: string): Room | null => { const id = store.byCo
 export const allRooms = (): Room[] => [...store.rooms.values()];
 export const codeInUse = (code: string): boolean => store.byCode.has(code);
 
-export interface NewRoom { id: string; code: string; schoolId: string; classId: string; className: string; hostUserId: string; title: string; mode: GameId; seconds: number; levelMode: LevelMode; slots: RoomSlot[]; expected: number; levels?: Map<string, PlayLevel>; persist?: (room: Room) => Promise<void> }
+export interface NewRoom { id: string; code: string; schoolId: string; classId: string; className: string; hostUserId: string; title: string; mode: GameId; seconds: number; levelMode: LevelMode; slots: RoomSlot[]; expected: number; levels?: Map<string, PlayLevel>; persist?: (room: Room) => Promise<void>; /** 🤝 Group Jam */ jam?: boolean }
 
 export function createRoom(input: NewRoom, now = Date.now()): Room {
   sweepRooms(now);
   const room: Room = {
-    ...input, levels: input.levels ?? new Map(), features: liveFeatures(input.mode), events: [], chestDeals: new Map(), players: new Map(), status: "LOBBY", index: -1, questionStartedAt: 0, paused: false, pausedLeftMs: 0, boardHidden: false, cheers: [],
+    ...input, levels: input.levels ?? new Map(), features: input.jam ? {} : liveFeatures(input.mode), events: [], chestDeals: new Map(), players: new Map(), status: "LOBBY", index: -1, questionStartedAt: 0, paused: false, pausedLeftMs: 0, boardHidden: false, cheers: [],
     createdAt: now, expiresAt: now + ROOM_TTL_MS, finishedAt: null, saved: false, version: 0, subs: new Set(), pending: null, flushTimer: null, qTimer: null, savedId: null,
+    jam: input.jam === true,
   };
+  if (room.jam) room.boardHidden = true;   // 🤝 no board in Group Jam
   store.rooms.set(room.id, room);
   store.byCode.set(room.code, room.id);
   if (!store.sweeper) { store.sweeper = setInterval(() => sweepRooms(Date.now()), 60_000); (store.sweeper as { unref?: () => void }).unref?.(); }
@@ -228,7 +239,7 @@ function rank(room: Room): RoomPlayer[] {
 
 export class RoomError extends Error { constructor(msg: string, public code: "CLOSED" | "STATE" | "TIME" | "DUP" | "INPUT" = "STATE") { super(msg); } }
 
-const limitMs = (room: Room) => room.seconds * 1000;
+const limitMs = (room: Room) => (room.jam ? JAM_LIMIT_MS : room.seconds * 1000);
 
 function startQuestion(room: Room, ix: number, now: number): void {
   room.index = ix; room.status = "QUESTION"; room.paused = false; room.questionStartedAt = now; room.cheers = [];
@@ -248,9 +259,10 @@ function reveal(room: Room): void {
   if (room.qTimer) clearTimeout(room.qTimer);
   room.qTimer = null;
   room.status = "REVEAL"; room.paused = false;
-  // students who did not answer: the question counts as not correct for its skill
+  // students who did not answer: the question counts as not correct for its skill (not in Group Jam: no timer, the
+  // class discusses — a student who did not answer is simply not counted)
   const slot = room.slots[room.index];
-  for (const p of room.players.values()) {
+  if (!room.jam) for (const p of room.players.values()) {
     if (p.answers.has(room.index) || !slot) continue;
     p.incorrect++; p.streak = 0;
     const k = (p.bySkill[slot.skillId] ??= { correct: 0, total: 0 }); k.total++;
@@ -307,7 +319,7 @@ export function hostAct(room: Room, action: HostAction, now = Date.now()): void 
       room.paused = false; room.questionStartedAt = now - (limitMs(room) - room.pausedLeftMs);
       armTimer(room, room.pausedLeftMs + GRACE_MS); break;
     case "toggle-board":
-      room.boardHidden = !room.boardHidden; notify(room, "host"); return;
+      room.boardHidden = room.jam ? true : !room.boardHidden; notify(room, "host"); return;
     case "end":
       finish(room, now); break;
   }
@@ -357,7 +369,8 @@ export function answer(room: Room, studentId: string, index: number, response: u
   if (resp === null || resp === undefined) throw new RoomError("Choose one of the answers.", "INPUT");
   let correct = false;
   try { correct = scoreResponse(ri.item, resp) >= 1; } catch { throw new RoomError("Choose one of the answers.", "INPUT"); }
-  const sc = scoreLive(correct, elapsed, limitMs(room), p.streak, p.armed);
+  // 🤝 Group Jam: no points, no streaks
+  const sc = room.jam ? { points: 0, doubled: false, shielded: false, streak: 0, spent: [] as PowerUpId[] } : scoreLive(correct, elapsed, limitMs(room), p.streak, p.armed);
   const before = p.rank;
   p.points += sc.points; p.streak = sc.streak;
   p.armed = p.armed.filter((x) => !sc.spent.includes(x));
@@ -373,7 +386,8 @@ export function answer(room: Room, studentId: string, index: number, response: u
   room.version++;
   // Mystery Chest picked with the answer: a right answer opens it now (before a possible reveal)
   const chest = correct && chestPick !== null ? openChest(room, studentId, index, chestPick, undefined, now) : null;
-  if ([...room.players.values()].every((x) => x.answers.has(index))) { reveal(room); notify(room, "all"); }
+  // everyone answered → the answer shows (not in Group Jam: the teacher shows it when the class is ready)
+  if (!room.jam && [...room.players.values()].every((x) => x.answers.has(index))) { reveal(room); notify(room, "all"); }
   else notify(room, "host");
   return { correct, points: sc.points, doubled: sc.doubled, shielded: sc.shielded, ...(room.features.chest ? { chest } : {}) };
 }
@@ -384,6 +398,7 @@ export function livePower(room: Room, studentId: string, id: PowerUpId, now = Da
   const p = room.players.get(studentId);
   if (!p) throw new RoomError("Join the game first.", "INPUT");
   if (!(POWER_UPS as readonly string[]).includes(id)) throw new RoomError("Unknown power-up.", "INPUT");
+  if (room.jam) throw new RoomError("There are no power-ups in Group Jam.", "INPUT");
   if ((p.power[id] ?? 0) < 1) throw new RoomError("You have used this power-up.", "INPUT");
   if (room.status !== "QUESTION" || room.paused || p.answers.has(room.index)) throw new RoomError("Use it while a question is open.");
   const ri = itemFor(room, p);
@@ -482,12 +497,14 @@ export interface HostView {
   features: LiveFeatures; teams: LiveTeam[] | null; rope: number | null; events: LiveEvent[]; field: LiveRacer[] | null;
   /** at the end: top players, class score by skill, each student's score by skill (the teacher's screen) */
   results: RoomResults | null;
+  /** 🤝 Group Jam */
+  jam: boolean;
 }
 
 const medal = (r: number): BoardRow["medal"] => (r === 1 ? "gold" : r === 2 ? "silver" : r === 3 ? "bronze" : null);
 
 export function leftMs(room: Room, now = Date.now()): number | null {
-  if (room.status !== "QUESTION") return null;
+  if (room.status !== "QUESTION" || room.jam) return null;
   if (room.paused) return room.pausedLeftMs;
   return Math.max(0, room.questionStartedAt + limitMs(room) - now);
 }
@@ -523,6 +540,7 @@ export function hostView(room: Room, now = Date.now()): HostView {
     lobby: room.status === "LOBBY" ? list.map(racer) : [],
     features: room.features, teams, rope: ropeOf(teams), events: room.events, field: room.features.field && room.status !== "LOBBY" ? list.map(racer) : null,
     results: room.status === "FINISHED" ? roomResults(room) : null,
+    jam: room.jam,
   };
 }
 
@@ -538,6 +556,8 @@ export interface PlayerView {
   chest: { available: boolean; opened: ChestResult | null } | null;
   hits: { name: string; points: number }[];
   coins: number | null;
+  /** 🤝 Group Jam: no points, rank or podium on the device */
+  jam: boolean;
 }
 
 export function playerView(room: Room, studentId: string, now = Date.now()): PlayerView {
@@ -552,11 +572,11 @@ export function playerView(room: Room, studentId: string, now = Date.now()): Pla
     question: open && ri ? viewOf(room, ri, room.index) : null, hidden: p.hidden.get(room.index) ?? [], hint: p.hints.get(room.index) ?? null,
     mine: p.answers.get(room.index) ?? null, right: room.status === "REVEAL" && ri ? ri.right : null,
     points: p.points, streak: p.streak, rank: p.rank, players: room.players.size, power: p.power, armed: p.armed,
-    podium: room.status === "FINISHED" ? list.slice(0, 3).map((x) => ({ name: x.name, points: x.points, avatar: x.avatar, badge: x.badge })) : [],
+    podium: room.status === "FINISHED" && !room.jam ? list.slice(0, 3).map((x) => ({ name: x.name, points: x.points, avatar: x.avatar, badge: x.badge })) : [],
     mySkills: room.status === "FINISHED" ? room.slots.filter((s, i, a) => a.findIndex((x) => x.skillId === s.skillId) === i).map((s) => ({ skillName: s.skillName, correct: p.bySkill[s.skillId]?.correct ?? 0, total: p.bySkill[s.skillId]?.total ?? 0 })) : [],
     me: { name: p.name, avatar: p.avatar, badge: p.badge }, team: p.team, teams: teamTotals(room),
     chest: room.features.chest && open ? { available: chestAvailable(room, p), opened: p.chests.get(room.index) ?? null } : null,
-    hits: p.hits.map(({ name, points }) => ({ name, points })), coins: p.coins,
+    hits: p.hits.map(({ name, points }) => ({ name, points })), coins: p.coins, jam: room.jam,
   };
 }
 
@@ -580,7 +600,7 @@ export function roomResults(room: Room): RoomResults {
     return { skillId: id, skillName: room.slots.find((s) => s.skillId === id)!.skillName, correct: c, total: t, pct, low: pct !== null && pct < RETEACH_BELOW_PCT };
   });
   return {
-    top: list.slice(0, 3).map((p) => ({ name: p.name, points: p.points, rank: p.rank, avatar: p.avatar, badge: p.badge })),
+    top: room.jam ? [] : list.slice(0, 3).map((p) => ({ name: p.name, points: p.points, rank: p.rank, avatar: p.avatar, badge: p.badge })),
     ...(room.features.teams ? { teams: { teams: teamTotals(room)!, winner: winningTeam(room) } } : {}),
     skills,
     students: list.map((p) => ({

@@ -6,6 +6,11 @@ import { getActor, repo, requireActor } from "@/server/auth/next";
 import { ForbiddenError } from "@/server/auth/rbac";
 import { skillHub } from "@/server/skills/hub";
 import { SkillStar, StarGlyph } from "@/components/skills/skill-star";
+import { RichInline } from "@/components/rich-inline";
+import { BandPill } from "@/components/teacher/missed-question";
+import { getT } from "@/i18n/server";
+import { skillDifficulty, type SkillDifficulty } from "@/server/skills/difficulty-report";
+import { BAND_LABEL } from "@/server/skills/difficulty";
 
 export const metadata = { title: "Skill" };
 
@@ -16,6 +21,9 @@ export default async function SkillHubPage({ params }: { params: Promise<{ skill
   const { skillId } = await params;
   let h;
   try { h = await skillHub(repo, actor, skillId); } catch (e) { if (e instanceof ForbiddenError) notFound(); throw e; }
+  // Nov 2026: where the students are stuck inside the skill (Easy / Medium / Hard) — never blocks the page
+  const diff: SkillDifficulty | null = await skillDifficulty(repo, actor, skillId).catch(() => null);
+  const { t } = await getT();
   const isAdmin = actor.role !== "TEACHER";
   const pct = (n: number) => (h.students.total ? Math.round((n / h.students.total) * 100) : 0);
   const node = "rounded-2xl bg-white p-4 ring-1 ring-slate-200";
@@ -104,6 +112,33 @@ export default async function SkillHubPage({ params }: { params: Promise<{ skill
           </div>
         </div>
       </section>
+
+      {diff && diff.groups.some((g) => g.students.length) && (
+        <section className="mt-6 rounded-3xl bg-white p-6 shadow-sm ring-1 ring-slate-200" data-skill-difficulty>
+          <h2 className="text-lg font-semibold text-brand-navy">🎚️ {t("Where the students are stuck in this skill")}</h2>
+          <p className="text-sm text-slate-500">{t("From each student's last 30 careful answers on this skill: the easiest level where they get fewer than 6 in 10 right.")} <span className="tabular-nums">{t("Questions in the bank")}: {t(BAND_LABEL.EASY)} {diff.questions.EASY} · {t(BAND_LABEL.MEDIUM)} {diff.questions.MEDIUM} · {t(BAND_LABEL.HARD)} {diff.questions.HARD}</span></p>
+          <div className="mt-4 grid gap-3 md:grid-cols-2 xl:grid-cols-4">
+            {diff.groups.map((g) => (
+              <div key={g.where} className={`rounded-2xl p-4 ring-1 ${g.where === "EASY" ? "bg-rose-50 ring-rose-200" : g.where === "MEDIUM" ? "bg-amber-50 ring-amber-200" : g.where === "HARD" ? "bg-sky-50 ring-sky-200" : "bg-emerald-50 ring-emerald-200"}`} data-stuck={g.where}>
+                <p className="flex items-center gap-2 font-semibold text-brand-navy">
+                  {g.where === "WELL" ? <>🌟 {t("Doing well")}</> : <>{t("Stuck at")} <BandPill band={g.where} t={t} /></>}
+                  <b className="ms-auto tabular-nums">{g.students.length}</b>
+                </p>
+                <p className="mt-1 text-sm text-slate-700">{t(g.advice)}</p>
+                {g.students.length > 0 && <ul className="mt-2 space-y-0.5 text-sm">{g.students.slice(0, 12).map((x) => <li key={x.id} className="flex justify-between gap-2"><Link href={`/teacher/students/${x.id}`} className="truncate text-brand-navy hover:underline"><bdi>{x.name}</bdi></Link><span className="shrink-0 text-xs tabular-nums text-slate-500" dir="ltr">{(["EASY", "MEDIUM", "HARD"] as const).map((b) => x.scores[b].pct === null ? "–" : `${x.scores[b].pct}%`).join(" · ")}</span></li>)}{g.students.length > 12 && <li className="text-xs text-slate-500">+{g.students.length - 12}</li>}</ul>}
+                {g.sample && (
+                  <div className="mt-3 rounded-xl bg-white/80 p-2 text-sm ring-1 ring-slate-200">
+                    <p className="text-xs text-slate-500">{t("A question they miss")}</p>
+                    <p className="mt-0.5 line-clamp-3 text-slate-800" data-content lang="en"><RichInline text={g.sample.stem} /></p>
+                    <Link prefetch={false} href={`/teacher/reports/question-show?${new URLSearchParams({ q: g.sample.questionId })}`} className="mt-1 inline-block text-xs font-semibold text-brand-teal underline">📺 {t("Show on screen")}</Link>
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
+          <p className="mt-2 text-xs text-slate-500">{t("The three numbers by each name: right answers on the easy · medium · hard questions.")}{diff.tooFew ? ` ${t("{n} students have too few answers to tell yet.", { n: diff.tooFew })}` : ""}</p>
+        </section>
+      )}
 
       {h.statements.length > 0 && (
         <section className="mt-6 rounded-3xl bg-white p-6 shadow-sm ring-1 ring-slate-200">

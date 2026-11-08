@@ -3,6 +3,8 @@
  * 🏁 A student's device in a Live Challenge: big answer buttons, instant right / wrong feedback, own points and rank
  * after each question, power-ups, and the final place. Reconnects (and rejoins) by itself.
  * Games integration: own avatar + favorite badge, team and team points, Mystery Chest picker, coins at the end.
+ * 🤝 Group Jam (Nov 2026): no timer, points, rank, power-ups or podium; after answering "Wait for your teacher";
+ * right or wrong shows when the teacher shows the answer; at the end each skill's right / answered.
  */
 import { useEffect, useState, type FC } from "react";
 import Link from "next/link";
@@ -45,17 +47,23 @@ export function LivePlayer({ initial }: { initial: PlayerView }) {
   useEffect(() => { const id = setInterval(() => setNow(Date.now()), 250); return () => clearInterval(id); }, []);
   useEffect(() => { setInstant(null); setMsg(null); setHidden(v.hidden ?? []); setHint(v.hint ?? null); }, [v.index, v.status]);   // eslint-disable-line react-hooks/exhaustive-deps
   useEffect(() => { setChest(null); }, [v.index]);
-  useEffect(() => { if (v.status === "FINISHED" && v.rank <= 3) confetti({ pieces: 60 }); }, [v.status, v.rank]);
+  useEffect(() => { if (v.status === "FINISHED" && (v.jam || v.rank <= 3)) confetti({ pieces: 60 }); }, [v.status, v.rank, v.jam]);
 
   const left = v.leftMs === null ? null : Math.max(0, Math.ceil((v.leftMs - (v.paused ? 0 : now - seenAt)) / 1000));
   const answered = !!v.mine || !!instant;
+  const jam = v.jam === true;
 
   const submit = async (response: unknown) => {
     if (busy || answered || v.status !== "QUESTION" || v.paused) return;
     setBusy(true);
     const r = await livePost<{ correct: boolean; points: number; chest?: ChestResult | null }>(v.code, { action: "answer", index: v.index, response });
     setBusy(false);
-    if (r.ok) { setInstant({ correct: r.data.correct, points: r.data.points }); if (r.data.chest) setChest(r.data.chest); playSound(r.data.correct ? "correct" : "wrong"); if (r.data.correct) confetti({ pieces: 20 }); void refresh(); }
+    if (r.ok) {
+      setInstant({ correct: r.data.correct, points: r.data.points }); if (r.data.chest) setChest(r.data.chest);
+      // 🤝 Group Jam: right or wrong shows only when the teacher shows the answer
+      if (!jam) { playSound(r.data.correct ? "correct" : "wrong"); if (r.data.correct) confetti({ pieces: 20 }); }
+      void refresh();
+    }
     else setMsg(r.data.error === "offline" ? t("No connection. Trying again…") : r.data.error ?? t("Something went wrong. Try again."));
   };
 
@@ -93,8 +101,10 @@ export function LivePlayer({ initial }: { initial: PlayerView }) {
         </span>
         <span className="flex items-center gap-2 text-sm font-semibold">
           {!online && <span className="rounded-full bg-amber-100 px-2 py-0.5 text-amber-900" role="status">{t("Reconnecting…")}</span>}
-          <span className="rounded-full bg-brand-gold px-3 py-1 text-brand-navy tabular-nums" dir="ltr">⭐ {v.points}</span>
-          {v.status !== "LOBBY" && <span className="rounded-full bg-slate-100 px-3 py-1 text-slate-700" dir="ltr">#{v.rank}</span>}
+          {jam ? <span className="rounded-full bg-teal-100 px-3 py-1 text-teal-900">🤝 {t("Group Jam")}</span> : <>
+            <span className="rounded-full bg-brand-gold px-3 py-1 text-brand-navy tabular-nums" dir="ltr">⭐ {v.points}</span>
+            {v.status !== "LOBBY" && <span className="rounded-full bg-slate-100 px-3 py-1 text-slate-700" dir="ltr">#{v.rank}</span>}
+          </>}
           <button type="button" onClick={toggle} aria-pressed={muted} aria-label={muted ? t("Sound off") : t("Sound on")} className="grid h-11 w-11 place-items-center rounded-full bg-slate-100 text-lg">{muted ? "🔇" : "🔊"}</button>
         </span>
       </div>
@@ -111,7 +121,7 @@ export function LivePlayer({ initial }: { initial: PlayerView }) {
 
       {v.status === "LOBBY" && (
         <div className="rounded-3xl bg-gradient-to-br bg-linear-to-br from-brand-navy to-brand-purple p-10 text-center text-white shadow-xl">
-          <p className="animate-float text-6xl" aria-hidden="true">🏁</p>
+          <p className="animate-float text-6xl" aria-hidden="true">{jam ? "🤝" : "🏁"}</p>
           <h1 className="mt-3 text-3xl font-semibold">{t("You're in!")}</h1>
           <p className="mt-2 text-white/85">{t("Wait for your teacher to start. {n} joined.", { n: v.players })}</p>
         </div>
@@ -124,7 +134,13 @@ export function LivePlayer({ initial }: { initial: PlayerView }) {
             {left !== null && <span role="timer" className={`grid h-14 w-14 place-items-center rounded-full text-2xl font-bold text-white ${left <= 5 ? "animate-pop bg-red-500" : "bg-brand-purple"}`} dir="ltr">{left}</span>}
           </div>
           {v.paused && <p role="status" className="rounded-2xl bg-amber-50 p-4 text-center text-lg font-semibold text-amber-900 ring-1 ring-amber-200">⏸ {t("Paused")}</p>}
-          {answered ? (
+          {answered && jam ? (
+            <div className="animate-pop rounded-3xl bg-brand-navy p-8 text-center text-white shadow-xl" role="status" data-testid="jam-sent">
+              <p className="text-6xl" aria-hidden="true">✓</p>
+              <p className="mt-2 text-2xl font-semibold">{t("Answer sent")}</p>
+              <p className="mt-3 text-white/90">{t("Wait for your teacher to show the answer.")}</p>
+            </div>
+          ) : answered ? (
             <div className={`animate-pop rounded-3xl p-8 text-center text-white shadow-xl ${correct ? "bg-emerald-500" : "bg-red-500"}`} role="status">
               <p className="text-6xl" aria-hidden="true">{correct ? "✓" : "✗"}</p>
               <p className="mt-2 text-3xl font-semibold">{correct ? t("Correct!") : t("Not this time")}</p>
@@ -138,7 +154,7 @@ export function LivePlayer({ initial }: { initial: PlayerView }) {
               {hint && <p className="rounded-xl bg-amber-50 px-3 py-2 text-amber-900 ring-1 ring-amber-200"><span aria-hidden="true">💡 </span><span dir="ltr" lang="en">{hint}</span></p>}
               {Pad ? <Pad question={v.question} hidden={hidden} disabled={busy || v.paused} submit={submit} {...(teamLetter(v.team) ? { team: teamLetter(v.team) } : {})} />
                 : <AnswerTiles big options={v.question.options ?? []} hidden={hidden} disabled={busy || v.paused} onPick={(label) => submit(label)} />}
-              <div role="group" aria-label={t("Power-ups")} className="flex flex-wrap justify-center gap-2">
+              {!jam && <div role="group" aria-label={t("Power-ups")} className="flex flex-wrap justify-center gap-2">
                 {LIVE_POWERS.map((id) => {
                   const on = v.armed.includes(id), n = v.power[id] ?? 0;
                   const na = id === "fifty" && (v.question?.options?.length ?? 0) < 3;
@@ -149,7 +165,7 @@ export function LivePlayer({ initial }: { initial: PlayerView }) {
                     </button>
                   );
                 })}
-              </div>
+              </div>}
             </>
           )}
           {msg && <p role="alert" className="rounded-xl bg-red-50 px-3 py-2 text-center text-red-800">{msg}</p>}
@@ -159,18 +175,21 @@ export function LivePlayer({ initial }: { initial: PlayerView }) {
       {v.status === "REVEAL" && (
         <div className={`animate-pop rounded-3xl p-10 text-center text-white shadow-xl ${v.mine?.correct ? "bg-emerald-500" : "bg-red-500"}`} role="status">
           <p className="text-6xl" aria-hidden="true">{v.mine ? (v.mine.correct ? "✓" : "✗") : "⌛"}</p>
-          <p className="mt-2 text-3xl font-semibold">{v.mine ? (v.mine.correct ? t("Correct!") : t("Not this time")) : t("Time's up")}</p>
-          {v.mine?.correct && <p className="mt-1 text-xl font-semibold" dir="ltr">+{v.mine.points}</p>}
+          <p className="mt-2 text-3xl font-semibold">{v.mine ? (v.mine.correct ? t("Correct!") : t("Not this time")) : jam ? t("No answer") : t("Time's up")}</p>
+          {v.mine?.correct && !jam && <p className="mt-1 text-xl font-semibold" dir="ltr">+{v.mine.points}</p>}
           {chestBox}
-          <p className="mt-4 inline-block rounded-full bg-white/20 px-4 py-1.5 font-semibold">{t("You are {rank} of {n}", { rank: ordinal(v.rank, lang), n: v.players })} · {t("{n} points", { n: v.points })}</p>
+          {jam ? <p className="mt-4 inline-block rounded-full bg-white/20 px-4 py-1.5 font-semibold">{t("Look at the board: let's talk about it together.")}</p>
+            : <p className="mt-4 inline-block rounded-full bg-white/20 px-4 py-1.5 font-semibold">{t("You are {rank} of {n}", { rank: ordinal(v.rank, lang), n: v.players })} · {t("{n} points", { n: v.points })}</p>}
         </div>
       )}
 
       {v.status === "FINISHED" && (
         <div className="animate-pop rounded-3xl bg-gradient-to-br bg-linear-to-br from-brand-navy to-brand-purple p-8 text-center text-white shadow-xl">
-          <p className="text-6xl" aria-hidden="true">{v.rank === 1 ? "🥇" : v.rank === 2 ? "🥈" : v.rank === 3 ? "🥉" : "🎉"}</p>
-          <h1 className="mt-2 text-3xl font-semibold">{t("You finished {rank} of {n}", { rank: ordinal(v.rank, lang), n: v.players })}</h1>
-          <p className="mt-1 text-xl" dir="ltr">⭐ {v.points}</p>
+          <p className="text-6xl" aria-hidden="true">{jam ? "🤝" : v.rank === 1 ? "🥇" : v.rank === 2 ? "🥈" : v.rank === 3 ? "🥉" : "🎉"}</p>
+          {jam ? <h1 className="mt-2 text-3xl font-semibold">{t("Group Jam finished — well done!")}</h1> : <>
+            <h1 className="mt-2 text-3xl font-semibold">{t("You finished {rank} of {n}", { rank: ordinal(v.rank, lang), n: v.players })}</h1>
+            <p className="mt-1 text-xl" dir="ltr">⭐ {v.points}</p>
+          </>}
           {v.coins !== null && v.coins !== undefined && v.coins > 0 && <p role="status" className="mt-2 inline-flex items-center gap-1.5 rounded-full bg-white/20 px-3 py-1 font-semibold" data-testid="live-coins"><CoinIcon size={18} /> {t("+{n} coins for playing", { n: v.coins })}</p>}
           <ol className="mx-auto mt-6 max-w-xs space-y-1 text-start">{v.podium.map((p, i) => <li key={p.name + i} className="flex items-center justify-between gap-2 rounded-xl bg-white/15 px-3 py-1.5"><span className="flex min-w-0 items-center gap-1.5">{["🥇", "🥈", "🥉"][i]} <Avatar avatar={p.avatar} size={24} /><bdi className="truncate">{p.name}</bdi><BadgeEmblem code={p.badge} size={14} /></span><span className="font-mono" dir="ltr">{p.points}</span></li>)}</ol>
           {v.mySkills.length > 0 && (

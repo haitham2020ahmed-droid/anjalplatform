@@ -7,6 +7,8 @@
  *   results  top players, class score by skill (under 70% in orange), each student's score by skill, Reteach
  * Games integration: avatars + favorite badge emblems (lobby, board, podium), team points, chest events, and the
  * game's own `ProjectorView` (or the kit's rockets / rope view) in place of the default board.
+ * 🤝 Group Jam (Nov 2026): no timer, no board, no podium — "{n} of {total} answered", Show answer, then the share of the
+ * class on each answer (no names), Next; at the end the class score by skill and each student (no points).
  */
 import { useEffect, useMemo, useState, type FC } from "react";
 import Link from "next/link";
@@ -48,7 +50,8 @@ export function LiveHost({ initial, qr, joinUrl }: { initial: HostView; qr: { to
   const [custom, setCustom] = useState<FC<ProjectorViewProps> | null>(null);
   // the game's own projector screen, if it has one (its code loads only now)
   useEffect(() => { let on = true; GAME_LOADERS[v.mode as GameId]?.().then((m) => { if (on && m.ProjectorView) setCustom(() => m.ProjectorView!); }).catch(() => {}); return () => { on = false; }; }, [v.mode]);
-  const Projector = custom ?? kitProjectorFor(v.features ?? {});
+  const jam = v.jam === true;
+  const Projector = jam ? null : custom ?? kitProjectorFor(v.features ?? {});
   const pstate: ProjectorState = useMemo(() => ({
     mode: v.mode, status: v.status, paused: v.paused, index: v.index, total: v.total, board: v.board, field: v.field ?? null, teams: v.teams ?? null,
     rope: v.rope ?? null, events: v.events ?? [], top: Math.max(0, ...(v.field ?? v.board).map((r) => r.points)),
@@ -83,8 +86,10 @@ export function LiveHost({ initial, qr, joinUrl }: { initial: HostView; qr: { to
     <div className="space-y-5" data-testid="live-host">
       <div className="flex flex-wrap items-center justify-between gap-3">
         <h1 className="flex min-w-0 items-center gap-2 text-2xl font-semibold text-brand-navy">
-          {meta && <span aria-hidden="true" className={`grid h-10 w-10 place-items-center rounded-xl text-xl ${meta.color}`}>{meta.icon}</span>}
+          {jam ? <span aria-hidden="true" className="grid h-10 w-10 place-items-center rounded-xl bg-teal-100 text-xl text-teal-800">🤝</span>
+            : meta && <span aria-hidden="true" className={`grid h-10 w-10 place-items-center rounded-xl text-xl ${meta.color}`}>{meta.icon}</span>}
           <span className="truncate">{v.title}</span>
+          {jam && <span className="rounded-full bg-teal-100 px-3 py-1 text-sm font-semibold text-teal-900" data-testid="jam-badge">{t("Group Jam")}</span>}
         </h1>
         <span className="flex items-center gap-2">
           {!online && <span className="rounded-full bg-amber-100 px-3 py-1 text-sm font-semibold text-amber-900" role="status">{t("Reconnecting…")}</span>}
@@ -123,7 +128,9 @@ export function LiveHost({ initial, qr, joinUrl }: { initial: HostView; qr: { to
           <div className="min-w-0 space-y-4">
             <div className="flex flex-wrap items-center justify-between gap-3">
               <span className="rounded-full bg-white px-4 py-1.5 font-semibold text-brand-navy ring-1 ring-slate-200">{t("Question {n} of {total}", { n: v.index + 1, total: v.total })} · <bdi dir="ltr">{v.question.skillName}</bdi></span>
-              {v.status === "QUESTION" ? (
+              {v.status === "QUESTION" && jam ? (
+                <span className="rounded-full bg-teal-100 px-4 py-1.5 font-semibold text-teal-900">🤝 {t("Take your time")}</span>
+              ) : v.status === "QUESTION" ? (
                 <span role="timer" className={`grid h-20 w-20 place-items-center rounded-full text-4xl font-bold text-white shadow-lg ${v.paused ? "bg-slate-400" : left !== null && left <= 5 ? "animate-pop bg-red-500" : "bg-brand-purple"}`} dir="ltr">{v.paused ? "⏸" : left}</span>
               ) : <span className="rounded-full bg-emerald-100 px-4 py-1.5 font-semibold text-emerald-900">{t("Answer")}</span>}
               <span className="rounded-full bg-white px-4 py-1.5 font-semibold text-brand-navy ring-1 ring-slate-200" data-testid="answered">{t("{n} of {total} answered", { n: v.answered, total: v.joined })}</span>
@@ -132,12 +139,13 @@ export function LiveHost({ initial, qr, joinUrl }: { initial: HostView; qr: { to
             <h2 dir="ltr" lang="en" className="rounded-3xl bg-white p-6 text-center text-2xl font-semibold leading-snug text-slate-900 shadow ring-1 ring-slate-200 sm:text-3xl"><RichInline text={v.question.stem} /></h2>
             {v.levelMode === "LEVEL" && <p className="text-center text-sm text-slate-500">{t("Each student sees a question at their own level.")}</p>}
             <AnswerTiles big options={v.question.options ?? []} disabled onPick={() => {}} reveal={v.status === "REVEAL" ? { right: v.question.rightLabel, picked: null } : null} />
-            {v.status === "REVEAL" && v.question.picks && (
+            {v.status === "REVEAL" && v.question.picks && !jam && (
               <p className="text-center text-sm text-slate-600" dir="ltr">{(v.question.options ?? []).map((o) => `${stripMarks(o.text)}: ${v.question!.picks![o.label] ?? 0}`).join(" · ")}</p>
             )}
+            {v.status === "REVEAL" && v.question.picks && jam && <JamShares options={v.question.options ?? []} picks={v.question.picks} right={v.question.rightLabel} />}
             <div className="flex flex-wrap justify-end gap-3">
-              {v.status === "QUESTION" && <button type="button" onClick={() => act(v.paused ? "resume" : "pause")} disabled={busy} className={`${BTN_SECONDARY} ${big}`}>{v.paused ? `▶ ${t("Resume")}` : `⏸ ${t("Pause")}`}</button>}
-              <button type="button" onClick={() => act("toggle-board")} disabled={busy} className={`${BTN_SECONDARY} ${big}`} aria-pressed={v.boardHidden}>{v.boardHidden ? t("Show board") : t("Hide board")}</button>
+              {v.status === "QUESTION" && !jam && <button type="button" onClick={() => act(v.paused ? "resume" : "pause")} disabled={busy} className={`${BTN_SECONDARY} ${big}`}>{v.paused ? `▶ ${t("Resume")}` : `⏸ ${t("Pause")}`}</button>}
+              {!jam && <button type="button" onClick={() => act("toggle-board")} disabled={busy} className={`${BTN_SECONDARY} ${big}`} aria-pressed={v.boardHidden}>{v.boardHidden ? t("Show board") : t("Hide board")}</button>}
               {v.status === "QUESTION"
                 ? <button type="button" onClick={() => act("reveal")} disabled={busy} className={`${BTN_PRIMARY} ${big}`}>{t("Show answer")}</button>
                 : <button type="button" onClick={() => act("next")} disabled={busy} className={`${BTN_PRIMARY} ${big}`}>{v.index + 1 >= v.total ? `🏆 ${t("See results")}` : `${t("Next")} ▶`}</button>}
@@ -175,8 +183,8 @@ export function LiveHost({ initial, qr, joinUrl }: { initial: HostView; qr: { to
           <div className="rounded-3xl bg-gradient-to-br bg-linear-to-br from-brand-navy to-brand-purple p-6 text-center text-white shadow-xl sm:p-8">
             {v.results.teams && <p className="mb-4 text-2xl font-semibold" data-testid="team-winner">{v.results.teams.winner === null ? t("It's a tie!") : t("{team} wins!", { team: t(v.results.teams.teams[v.results.teams.winner].name) })}</p>}
             {v.results.teams && <div className="mx-auto mb-5 max-w-md"><TeamScores teams={v.results.teams.teams} t={t} /></div>}
-            <h2 className="text-3xl font-semibold">🏆 {t("Top players")}</h2>
-            <div className="mt-6 flex items-end justify-center gap-3 sm:gap-6">
+            {jam ? <h2 className="text-3xl font-semibold" data-testid="jam-done">🤝 {t("Group Jam finished — well done, everyone!")}</h2> : <h2 className="text-3xl font-semibold">🏆 {t("Top players")}</h2>}
+            {!jam && <div className="mt-6 flex items-end justify-center gap-3 sm:gap-6">
               {[1, 0, 2].map((ix) => v.results!.top[ix] && (
                 <div key={ix} className="animate-pop w-28 sm:w-36" style={{ animationDelay: `${ix * 200}ms` }}>
                   <p className="text-5xl" aria-hidden="true">{["🥇", "🥈", "🥉"][ix]}</p>
@@ -185,7 +193,7 @@ export function LiveHost({ initial, qr, joinUrl }: { initial: HostView; qr: { to
                   <div className={`mt-2 grid place-items-center rounded-t-2xl bg-white/20 font-mono text-lg font-semibold ${ix === 0 ? "h-36" : ix === 1 ? "h-24" : "h-16"}`} dir="ltr">{v.results!.top[ix].points}</div>
                 </div>
               ))}
-            </div>
+            </div>}
           </div>
           <div className="rounded-3xl bg-white p-5 ring-1 ring-slate-200">
             <h3 className="text-lg font-semibold text-brand-navy">{t("Class score by skill")}</h3>
@@ -204,7 +212,7 @@ export function LiveHost({ initial, qr, joinUrl }: { initial: HostView; qr: { to
             </div>
             <p className="mt-2 text-sm text-slate-600">{t("Reteach adds every skill under 70% to that student's My Work.")}</p>
             {reteach && <p role="status" className="mt-2 rounded-xl bg-emerald-50 px-3 py-2 text-emerald-900 ring-1 ring-emerald-200">{reteach}</p>}
-            {showStudents && <StudentTable results={v.results} />}
+            {showStudents && <StudentTable results={v.results} points={!jam} />}
           </div>
         </section>
       )}
@@ -214,21 +222,21 @@ export function LiveHost({ initial, qr, joinUrl }: { initial: HostView; qr: { to
   );
 }
 
-export function StudentTable({ results }: { results: NonNullable<HostView["results"]> }) {
+export function StudentTable({ results, points = true }: { results: NonNullable<HostView["results"]>; points?: boolean }) {
   const t = useT();
   return (
     <div className="mt-4 overflow-x-auto">
       <table className="w-full min-w-[32rem] text-start text-sm">
         <thead><tr className="text-slate-500">
           <th scope="col" className="py-2 pe-3 text-start font-semibold">{t("Student")}</th>
-          <th scope="col" className="py-2 pe-3 text-start font-semibold">{t("Points")}</th>
+          {points && <th scope="col" className="py-2 pe-3 text-start font-semibold">{t("Points")}</th>}
           {results.skills.map((k) => <th key={k.skillId} scope="col" className="py-2 pe-3 text-start font-semibold"><bdi dir="ltr">{k.skillName}</bdi></th>)}
         </tr></thead>
         <tbody>
           {results.students.map((st) => (
             <tr key={st.studentId} className="border-t border-slate-100">
               <td className="py-2 pe-3 font-semibold text-brand-navy"><bdi>{st.fullName || st.name}</bdi></td>
-              <td className="py-2 pe-3 font-mono" dir="ltr">{st.points}</td>
+              {points && <td className="py-2 pe-3 font-mono" dir="ltr">{st.points}</td>}
               {results.skills.map((k) => {
                 const c = st.bySkill[k.skillId];
                 return <td key={k.skillId} className={`py-2 pe-3 font-semibold ${c && c.pct < 70 ? "text-orange-700" : "text-emerald-700"}`} dir="ltr">{c ? `${c.correct}/${c.total} (${c.pct}%)` : "—"}</td>;
@@ -237,6 +245,29 @@ export function StudentTable({ results }: { results: NonNullable<HostView["resul
           ))}
         </tbody>
       </table>
+    </div>
+  );
+}
+
+/** 🤝 Group Jam: how the class answered — each answer's share as a bar, the right one in green, no names. */
+export function JamShares({ options, picks, right }: { options: { label: string; text: string }[]; picks: Record<string, number>; right: string | null }) {
+  const t = useT();
+  const total = Object.values(picks).reduce((n, x) => n + x, 0);
+  return (
+    <div className="rounded-3xl bg-white p-4 ring-1 ring-slate-200" data-testid="jam-shares">
+      <p className="mb-2 font-semibold text-brand-navy">{t("How the class answered")} <span className="text-sm font-normal text-slate-500">· {t("{n} answers", { n: total })}</span></p>
+      <ul className="space-y-2">{options.map((o) => {
+        const n = picks[o.label] ?? 0, pct = total ? Math.round((100 * n) / total) : 0, ok = o.label === right;
+        return (
+          <li key={o.label} className="grid grid-cols-[minmax(0,1fr)_4rem] items-center gap-3">
+            <span className="min-w-0">
+              <span className={`block truncate text-sm font-semibold ${ok ? "text-emerald-800" : "text-slate-700"}`} dir="ltr">{ok ? "✓ " : ""}{stripMarks(o.text)}</span>
+              <span className="mt-1 block h-3 overflow-hidden rounded-full bg-slate-100"><span className={`block h-full ${ok ? "bg-emerald-500" : "bg-slate-400"}`} style={{ width: `${pct}%` }} /></span>
+            </span>
+            <b className="text-end tabular-nums" dir="ltr" data-share={o.label}>{pct}%</b>
+          </li>
+        );
+      })}</ul>
     </div>
   );
 }

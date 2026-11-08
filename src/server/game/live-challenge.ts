@@ -11,6 +11,9 @@
  *              LiveGamePlayer, LiveGameAnswer — so the Live games report shows it) and GamePlay rows (correct /
  *              incorrect per student per skill). Never the adaptive engine: no attempts, mastery or levels.
  *   reteach    every skill under 70% goes to THAT student's My Work — the Assessments Reteach path (assignReteach).
+ *   jam        🤝 Group Jam (Nov 2026): the same question for everyone, the teacher moves on, no timer / points /
+ *              board / podium / power-ups, unanswered never counted wrong (rooms.ts). Saved like any game (results,
+ *              Reteach), but no coins, no badges and nothing into Second Chance — it is a class discussion.
  *   rewards    once at the end (rewardChallenge): every student who answered at least one question gets the "live"
  *              participation coins (effort counts, winning or not) and badge check; the winner (rank 1 — in a team
  *              game every member of the winning team) gets "live.win" + Game Champion. Idempotent per game id, inside
@@ -80,12 +83,14 @@ export async function challengeSkills(repo: Repo, actor: Actor, opts: { q?: stri
   return rows.map((k) => ({ id: k.id, name: hideLevels(k.name), names: k.names.map(hideLevels), grade: k.grade, filter: k.tab, fitting: counts.get(k.id) ?? 0, questions: k.questions, skillIds: k.skillIds }));
 }
 
-export interface ChallengeSpec { skillIds: string[]; mode: GameId; count: number; seconds: number; levelMode: LevelMode; /** the teacher's own questions per skill ("I'll pick the questions"); a skill not listed: the platform picks */ picks?: Record<string, string[]> }
+export interface ChallengeSpec { skillIds: string[]; mode: GameId; count: number; seconds: number; levelMode: LevelMode; /** 🤝 Group Jam (teacher-paced, no timer or points; always Quiz Race questions, the same for all) */ jam?: boolean; /** the teacher's own questions per skill ("I'll pick the questions"); a skill not listed: the platform picks */ picks?: Record<string, string[]> }
 /** At most this many picked questions per skill. */
 export const MAX_PICKS_PER_SKILL = 30;
 
 function cleanSpec(input: Partial<ChallengeSpec> & { skillIds?: unknown }): ChallengeSpec {
-  const mode = s(input.mode || "quiz-race");
+  // 🤝 Group Jam: Quiz Race questions (multiple choice, True/False), the same question for everyone
+  const jam = input.jam === true;
+  const mode = jam ? "quiz-race" : s(input.mode || "quiz-race");
   if (!liveModes().some((g) => g.id === mode)) throw new ValidationError("Choose a game mode.");
   const skillIds = [...new Set((Array.isArray(input.skillIds) ? input.skillIds : []).map(s).filter(Boolean))];
   if (!skillIds.length) throw new ValidationError("Choose at least one skill.");
@@ -98,7 +103,7 @@ function cleanSpec(input: Partial<ChallengeSpec> & { skillIds?: unknown }): Chal
     const list = Array.isArray(raw[id]) ? [...new Set(raw[id].map(s).filter(Boolean))].slice(0, MAX_PICKS_PER_SKILL) : [];
     if (list.length) picks[id] = list;
   }
-  return { skillIds, mode: mode as GameId, count, seconds, levelMode: input.levelMode === "LEVEL" ? "LEVEL" : "SAME", ...(Object.keys(picks).length ? { picks } : {}) };
+  return { skillIds, mode: mode as GameId, count, seconds, levelMode: !jam && input.levelMode === "LEVEL" ? "LEVEL" : "SAME", ...(Object.keys(picks).length ? { picks } : {}), ...(jam ? { jam: true } : {}) };
 }
 
 // ------------------------------------------------------------------ 2. start: build the room
@@ -191,13 +196,14 @@ export async function startChallenge(repo: Repo, actor: Actor, input: Partial<Ch
   // levels: for "each student's level", and for balancing teams (Team Tug) — read only, never changed
   const levels = spec.levelMode === "LEVEL" || liveFeatures(spec.mode).teams ? await studentsPlayLevels(repo, actor.schoolId!, members, grade, now) : new Map<string, PlayLevel>();
   const meta = gameMeta(spec.mode)!;
-  const title = (s(input.title).replace(/\s+/g, " ").trim() || `${meta.name} · ${s(klass.name)}`).slice(0, 150);
+  const title = (s(input.title).replace(/\s+/g, " ").trim() || `${spec.jam ? "Group Jam" : meta.name} · ${s(klass.name)}`).slice(0, 150);
   const room = createRoom({
     id: `lc${randomUUID().replace(/-/g, "").slice(0, 22)}`, code: await freshCode(repo), schoolId: actor.schoolId!, classId: s(klass.id), className: s(klass.name),
-    hostUserId: actor.userId, title, mode: spec.mode, seconds: spec.seconds, levelMode: spec.levelMode, slots, expected: members.length, levels,
-    persist: async (r) => { await saveSummary(repo, r); void rewardChallenge(repo, r).catch((e) => console.error("[live] rewards", e)); },
+    hostUserId: actor.userId, title, mode: spec.mode, seconds: spec.seconds, levelMode: spec.levelMode, slots, expected: members.length, levels, jam: spec.jam === true,
+    // 🤝 Group Jam: saved for the results, but no coins or badges (a class discussion, not a contest)
+    persist: async (r) => { await saveSummary(repo, r); if (!r.jam) void rewardChallenge(repo, r).catch((e) => console.error("[live] rewards", e)); },
   }, now.getTime());
-  await audit(repo, { actorId: actor.userId, action: "live.start", entityType: "Class", entityId: s(klass.id), after: { room: room.id, mode: spec.mode, questions: slots.length, skills: spec.skillIds.length, levelMode: spec.levelMode } });
+  await audit(repo, { actorId: actor.userId, action: "live.start", entityType: "Class", entityId: s(klass.id), after: { room: room.id, mode: spec.mode, questions: slots.length, skills: spec.skillIds.length, levelMode: spec.levelMode, ...(spec.jam ? { jam: true } : {}) } });
   return { id: room.id, code: room.code };
 }
 
@@ -256,12 +262,12 @@ export function myOpenChallenges(actor: Actor): { id: string; code: string; titl
 
 // ------------------------------------------------------------------ 3. the summary (saved once)
 
-export interface ChallengeSummary { mode: GameId; levelMode: LevelMode; className: string; seconds: number; questions: number; results: RoomResults; reteachAt: string | null }
+export interface ChallengeSummary { mode: GameId; levelMode: LevelMode; className: string; seconds: number; questions: number; results: RoomResults; reteachAt: string | null; /** 🤝 Group Jam */ jam?: boolean }
 
 export async function saveSummary(repo: Repo, room: Room): Promise<void> {
   const res = roomResults(room);
   const created = new Date(room.createdAt), finished = new Date(room.finishedAt ?? Date.now());
-  const summary: ChallengeSummary = { mode: room.mode, levelMode: room.levelMode, className: room.className, seconds: room.seconds, questions: room.slots.length, results: res, reteachAt: null };
+  const summary: ChallengeSummary = { mode: room.mode, levelMode: room.levelMode, className: room.className, seconds: room.seconds, questions: room.slots.length, results: res, reteachAt: null, ...(room.jam ? { jam: true } : {}) };
   await repo.create("LiveGame", {
     id: room.id, schoolId: room.schoolId, classId: room.classId, hostId: room.hostUserId, code: room.code, title: room.title.slice(0, 191),
     questionIds: room.slots.map((sl) => sl.byLevel.ON.item.questionId), status: "FINISHED", currentIndex: room.index, secondsPerQuestion: room.seconds,
@@ -282,7 +288,8 @@ export async function saveSummary(repo: Repo, room: Room): Promise<void> {
   // 🐛 L1 fix: a question that timed out (never answered — no entry at all in p.answers) still counted against the
   // student's score, but was silently skipped here because the old filter only looked at answered-but-wrong
   // entries. Treat every slot index with no recorded answer the same as a wrong one.
-  for (const p of room.players.values()) {
+  // (not after a 🤝 Group Jam: the class went over every question together)
+  if (!room.jam) for (const p of room.players.values()) {
     const wrongIxs = [...p.answers].filter(([, a]) => !a.correct).map(([ix]) => ix);
     const timedOutIxs = room.slots.map((_, ix) => ix).filter((ix) => !p.answers.has(ix));
     const missed = [...new Set([...wrongIxs, ...timedOutIxs])]
@@ -298,7 +305,7 @@ export async function saveSummary(repo: Repo, room: Room): Promise<void> {
  * idempotent per game id). Effort counts: one answered question = participation coins, winning or not.
  */
 export async function rewardChallenge(repo: Repo, room: Room, now = new Date()): Promise<{ played: number; winners: string[] }> {
-  if (room.status !== "FINISHED" || room.index < 0) return { played: 0, winners: [] };
+  if (room.status !== "FINISHED" || room.index < 0 || room.jam) return { played: 0, winners: [] };
   const list = [...room.players.values()].filter((p) => p.answers.size > 0).sort((a, b) => a.rank - b.rank);
   const team = winningTeam(room);
   const winners = new Set<string>();

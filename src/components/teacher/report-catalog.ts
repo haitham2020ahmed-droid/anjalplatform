@@ -180,6 +180,9 @@ export interface HubLink { key: string; category: ReportCategory; line: LineIcon
 export const HUB_LINKS: HubLink[] = [
   // ⭐ the Skills grid (the skill-status stars, every student × skill) — its page arrives from the skill-status branch
   { key: "skills-grid", category: "My class", line: "star", title: "Student Skills", hint: "Every student and every skill: the stars at a glance.", href: (c) => `/teacher/reports/skills-grid${c ? `?${qs({ classId: c })}` : ""}`, pending: true },
+  // Nov 2026 (IXL): the class right now (a lab lesson) and the Common Core standards of the grade
+  { key: "live-class", category: "My class", line: "clock", title: "The class right now", hint: "During a lab lesson: who is working, who has stopped and who needs help now.", href: (c) => `/teacher/reports/live-class${c ? `?${qs({ classId: c })}` : ""}` },
+  { key: "standards", category: "My class", line: "target", title: "Standards (CCSS)", hint: "How far the class is on each Common Core standard of the grade, from the skill stars.", href: (c) => `/teacher/reports/standards${c ? `?${qs({ classId: c })}` : ""}` },
   { key: "nafs-reports", category: "Programs", line: "flag", title: "NAFS reports", hint: "NAFS tests and practice: results by student and skill.", href: () => "/teacher/nafs?tab=reports", nafs: true },
   { key: "readrise-growth", category: "Programs", line: "rise", title: "ReadRise report", hint: "ReadRise levels over the year, the reading checks, who is stuck or rising fast, accuracy by question type.", href: (c) => `/teacher/readrise/report${c ? `?${qs({ class: c })}` : ""}` },
   { key: "learn-results", category: "Programs", line: "learn", title: "Learn results", hint: "Each lesson: who finished, scores, who needs it again.", href: () => "/teacher/learn" },

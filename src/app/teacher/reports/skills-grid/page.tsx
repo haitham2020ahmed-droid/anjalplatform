@@ -85,6 +85,8 @@ export default async function SkillsGridPage({ searchParams }: { searchParams: P
   // r70: the one-time star migration was OFF on the live server — make sure it is queued (once per process per school)
   if (g && g.migrated === false && actor.schoolId) void ensureStarsMigration(repo, actor.schoolId);
   if (g && view === "grid" && sp.student && sp.key) detail = await cellDetail(repo, actor, sp.student, sp.key).catch(forbidden);
+  // 🔎 Nov 2026: the open cell's Questions Log (every question that student answered on that skill)
+  const logHref = detail && g?.classId && sp.student && sp.key ? `/teacher/reports/questions-log?${new URLSearchParams({ classId: g.classId, student: sp.student, skill: sp.key })}` : null;
   const tabs = (
     <nav aria-label={t("Student Skills")} className="mb-3 flex flex-wrap gap-2 print:hidden" data-testid="student-skills-tabs">
       <Link prefetch={false} href={tabHref("grid")} aria-current={view === "grid" && tab === "grid" ? "page" : undefined} className={tabBtn(view === "grid" && tab === "grid")}>▦ {t("Skills Grid")}</Link>
@@ -119,10 +121,10 @@ export default async function SkillsGridPage({ searchParams }: { searchParams: P
       {!g || !data ? <EmptyState icon="🛠️" title="The database needs an update" text="Run npx prisma db push, then open this page again." />
         : view === "skill" && skill ? <SkillView p={skill} t={t} back={href({})} />
         : view === "student" && student ? <StudentView v={student} goal={goal} teacher={actor.role === "TEACHER"} t={t} canSend={actor.role !== "PARENT"} />
-        : tab === "source" ? <BySourceView d={data} g={g} src={src} t={t} href={href} detail={detail} />
+        : tab === "source" ? <BySourceView d={data} g={g} src={src} t={t} href={href} detail={detail} log={logHref} />
         : tab === "report" ? <ReportView d={data} t={t} href={href} />
         : tab === "plans" ? <PlansView d={data} t={t} href={href} pid={sp.pid ?? null} now={now} range={range} />
-        : <GridView g={g} t={t} href={href} plan={plan} strand={strand} detail={detail} filters range={range} />}
+        : <GridView g={g} t={t} href={href} plan={plan} strand={strand} detail={detail} filters range={range} log={logHref} />}
     </AppShell>
   );
 }
@@ -176,7 +178,7 @@ function StudentMarks({ trend, guessing, longest, trendPoints, t }: { trend?: Tr
 /** the colour of the level word next to a star (the same colours as the icons) */
 const LEVEL_TONE: Record<StarStatus | "SUPPORT", string> = { NOT_STARTED: "text-slate-500", IN_PROGRESS: "text-blue-700", MASTERED: "text-amber-800", NEXT_LEVEL: "text-amber-700", NEEDS_REVIEW: "text-orange-700", SUPPORT: "text-rose-700" };
 
-function GridView({ g, t, href, plan, strand, detail, filters, range }: { g: SkillsGrid; t: T; href: (o: Partial<SP>) => string; plan: string; strand: string | null; detail: CellDetail | null; filters: boolean; range?: DateRange }) {
+function GridView({ g, t, href, plan, strand, detail, filters, range, log }: { g: SkillsGrid; t: T; href: (o: Partial<SP>) => string; plan: string; strand: string | null; detail: CellDetail | null; filters: boolean; range?: DateRange; /** 🔎 the open cell's Questions Log (Nov 2026) */ log?: string | null }) {
   // r70 audit: the tiles count the WHOLE class (as the column counts do), not only the students on this page
   const sum = (f: (k: SkillsGrid["skills"][number]) => number) => g.skills.reduce((a, k) => a + f(k), 0);
   const tiles = [
@@ -208,7 +210,7 @@ function GridView({ g, t, href, plan, strand, detail, filters, range }: { g: Ski
         {tiles.map((x) => <p key={x.label} className="rounded-xl bg-white px-3 py-2 ring-1 ring-slate-200"><span className="block text-xl font-bold tabular-nums text-brand-navy" dir="ltr">{x.value}</span><span className="text-xs text-slate-600">{t(x.label)}</span></p>)}
       </div>
       {g.migrated === false && <p role="status" data-testid="stars-fallback" className="mb-3 rounded-xl bg-sky-50 px-4 py-2 text-sm text-sky-900 ring-1 ring-sky-200 print:hidden">{t("The stars of earlier practice are being computed in the background. Until that finishes, this grid counts the practice answers directly.")}</p>}
-      {detail && <Detail d={detail} t={t} close={href({ page: String(g.page ?? 1) })} />}
+      {detail && <Detail d={detail} t={t} close={href({ page: String(g.page ?? 1) })} log={log} />}
       {!g.students.length || !g.skills.length ? (
         <EmptyState icon="⭐" title="No assigned skills yet"
           text={plan === "ALL" && !strand && !g.weakOnly ? "Only the skills you assign appear here (from MAP, NAFS, Curriculum, Grammar or Support). Assign a skill, then come back." : "No assigned skill fits this filter. Choose All sources to see every assigned skill."} />
@@ -299,7 +301,7 @@ function GridView({ g, t, href, plan, strand, detail, filters, range }: { g: Ski
 
 const STAR_PARTS: StarStatus[] = ["MASTERED", "NEXT_LEVEL", "IN_PROGRESS", "NEEDS_REVIEW", "NOT_STARTED"];
 
-function BySourceView({ d, g, src, t, href, detail }: { d: ClassSkills; g: SkillsGrid; src: GridPlan; t: T; href: (o: Partial<SP>) => string; detail: CellDetail | null }) {
+function BySourceView({ d, g, src, t, href, detail, log }: { d: ClassSkills; g: SkillsGrid; src: GridPlan; t: T; href: (o: Partial<SP>) => string; detail: CellDetail | null; log?: string | null }) {
   const cards = sourceCards(d);
   if (!cards.length) return <EmptyState icon="🏷️" title="No assigned skills yet" text="Only the skills you assign appear here (from MAP, NAFS, Curriculum, Grammar or Support). Assign a skill, then come back." />;
   return (
@@ -311,7 +313,7 @@ function BySourceView({ d, g, src, t, href, detail }: { d: ClassSkills; g: Skill
       {src !== "ALL" ? (
         <div data-testid="source-grid">
           <h2 className="mb-2 flex items-center gap-2 text-lg font-bold text-brand-navy">{t("Star grid")} · <SourceBadges sources={[src as AssignSource]} t={t} /></h2>
-          <GridView g={g} t={t} href={href} plan={src} strand={null} detail={detail} filters={false} />
+          <GridView g={g} t={t} href={href} plan={src} strand={null} detail={detail} filters={false} log={log} />
         </div>
       ) : <p className="text-sm text-slate-500">{t("Click a card to see the star grid of that source only.")}</p>}
       {d.classId && <ReportSummary summary={skillsSourceSummary(cards, { classId: d.classId, sourceHref: (x) => href({ tab: "source", src: x, page: undefined, student: undefined, key: undefined }), skillHref: (key) => nafsHref(key) ?? href({ tab: undefined, src: undefined, view: "skill", skill: key }) })} />}
@@ -702,14 +704,15 @@ function StudentView({ v, goal, teacher, t, canSend }: { v: StudentSkillsView; g
   );
 }
 
-function Detail({ d, t, close }: { d: CellDetail; t: T; close: string }) {
+function Detail({ d, t, close, log }: { d: CellDetail; t: T; close: string; log?: string | null }) {
   const v = d.view;
   return (
     <section data-testid="cell-detail" aria-label={t("Skill detail")} className="mb-3 rounded-2xl bg-white p-4 ring-1 ring-brand-teal">
       <div className="flex flex-wrap items-center gap-2">
         <SkillStar info={v} t={t} label={d.skill} size={20} />
         <h2 className="text-lg font-bold text-brand-navy"><bdi>{d.student}</bdi> · {d.skill}</h2>
-        <Link prefetch={false} href={close} className="ms-auto text-sm font-semibold text-brand-teal underline">{t("Close")}</Link>
+        {log && <Link prefetch={false} href={log} className="ms-auto text-sm font-semibold text-brand-navy underline" data-questions-log>🔎 {t("Questions log")}</Link>}
+        <Link prefetch={false} href={close} className={`${log ? "" : "ms-auto "}text-sm font-semibold text-brand-teal underline`}>{t("Close")}</Link>
       </div>
       <dl className="mt-2 grid grid-cols-2 gap-2 text-sm sm:grid-cols-4">
         <div><dt className="text-xs text-slate-500">{t("Questions")}</dt><dd className="font-semibold" dir="ltr">{v.answered}</dd></div>
