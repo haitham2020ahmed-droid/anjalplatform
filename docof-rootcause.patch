@@ -1,0 +1,62 @@
+diff --git a/src/server/map/map-more.ts b/src/server/map/map-more.ts
+index 9dd0070..d6f92a6 100644
+--- a/src/server/map/map-more.ts
++++ b/src/server/map/map-more.ts
+@@ -83,6 +83,33 @@ export async function planDoc(repo: Repo, actor: Actor, planId: string, now = ne
+ }
+ 
+ async function docOf(repo: Repo, r: Row, now: Date): Promise<PlanDoc> {
++  // 🆕 Nov 2026 ("تقدر تخليه تلقائي؟" — make it automatic, then found it still missed some views): a plan already
++  // SENT can still be missing an area the student's own MAP score now justifies — made before "cover every area"
++  // / the Learning Continuum shipped, or before a later classification fix (e.g. the CCSS grade-band fix for
++  // Grades 9-12) started reaching it. An earlier version of this catch-up only ran from the student's "My MAP"
++  // dashboard (myMap()) — so a plan reached any OTHER way (this very print page opened directly, "Preview as
++  // student", a shared link, a future caller) still showed the stale, incomplete item list, because that code
++  // path never ran it. docOf() is the one place every single consumer of a plan's content already passes through
++  // (planDoc's print page, "Preview as student", and myMap()'s own plans list via sentPlans()) — so doing the
++  // catch-up HERE, before anything below reads `r.items`, means it can never be missed again regardless of how
++  // the plan was reached. Best-effort and silent: a viewer never sees an error from this, just the plan as it
++  // should be; re-fetching `r` afterward means every line below this already sees the caught-up items with zero
++  // further changes needed.
++  if (s(r.status) === "SENT") {
++    try {
++      const have = new Set((((typeof r.items === "string" ? JSON.parse(r.items) : r.items) ?? []) as PlanItem[]).map((it) => it.group));
++      const prof = (await mapProfiles(repo, s(r.schoolId), [s(r.studentId)], s(r.subject) as Subject)).get(s(r.studentId));
++      if ((prof?.areas ?? []).some((a) => a.rit !== null && !have.has(a.group))) {
++        const st = (await repo.findMany("Student", { id: s(r.studentId) }, { select: ["id", "userId"] }))[0];
++        if (st?.userId) {
++          const sys: Actor = { userId: s(st.userId), role: "SCHOOL_ADMIN", schoolId: s(r.schoolId) };
++          await topUpSentPlan(repo, sys, s(r.id), now);
++          const fresh = await repo.findUnique("MapPlan", { id: s(r.id) });
++          if (fresh) r = fresh;
++        }
++      }
++    } catch { /* best-effort: the plan still shows exactly as stored if this fails for any reason */ }
++  }
+   const klass = await repo.findUnique("Class", { id: r.classId });
+   const grade = Number((klass ? await repo.findUnique("Grade", { id: klass.gradeId }) : null)?.level ?? 0);
+   const subject = s(r.subject) as Subject, studentId = s(r.studentId);
+@@ -165,23 +192,6 @@ export async function myMap(repo: Repo, actor: Actor, now = new Date()): Promise
+     const sys: Actor = { userId: actor.userId, role: "SCHOOL_ADMIN", schoolId: actor.schoolId };
+     await Promise.all(todo.map((subject) => ensureDrafts(repo, sys, s(membership.classId), subject, now).catch(() => 0)));
+   }
+-  // 🆕 Nov 2026 ("تقدر تخليه تلقائي؟" — make it automatic): a plan already SENT can still be missing an area the
+-  // student's own MAP score now justifies — made before "cover every area" / the Learning Continuum shipped, or
+-  // before a later classification fix (e.g. the CCSS grade-band fix for Grades 9-12) started reaching it. The
+-  // student simply opening My MAP / My Work is now enough to catch it up, with no teacher action needed — same
+-  // spirit as the DRAFT catch-up just above, but for a plan that already reached SENT. Never touches or resends
+-  // an area already in the plan; a plan with nothing missing, or too few questions for the missing area, is a
+-  // silent no-op (topUpSentPlan itself handles both).
+-  if (actor.schoolId) {
+-    const sys: Actor = { userId: actor.userId, role: "SCHOOL_ADMIN", schoolId: actor.schoolId };
+-    const sentPlans = await repo.findMany("MapPlan", { studentId, status: "SENT" }, { select: ["id", "subject", "items"] });
+-    for (const plan of sentPlans) {
+-      const have = new Set(((plan.items ?? []) as PlanItem[]).map((it) => it.group));
+-      const prof = (await mapProfiles(repo, actor.schoolId, [studentId], s(plan.subject) as Subject)).get(studentId);
+-      const missing = (prof?.areas ?? []).some((a) => a.rit !== null && !have.has(a.group));
+-      if (missing) await topUpSentPlan(repo, sys, s(plan.id), now).catch(() => {});
+-    }
+-  }
+   const [pk, book] = await Promise.all([groupPools(repo, actor.schoolId!, grade), starBook(repo, [studentId], actor.schoolId)]);
+   // ⚡ the two subjects (and the sent plans) are read side by side, not one after another
+   const one = async (subject: Subject): Promise<MySubject> => {
