@@ -3,7 +3,7 @@ import { AppShell } from "@/components/app-shell";
 import { repo, requireActor } from "@/server/auth/next";
 import { studentPage } from "@/server/auth/student-page";
 import { PreviewFrame } from "@/components/student/preview-frame";
-import { myMap, planProgress, type MyMap } from "@/server/map/map-more";
+import { myMap, type MyMap } from "@/server/map/map-more";
 import { studentMapCards } from "@/server/student/map-dashboard";
 import { programWork } from "@/server/student/program-work";
 import { Callout, ReportHeader } from "@/components/report-kit";
@@ -15,6 +15,7 @@ import { safeIfBehind } from "@/server/db/schema-errors";
 import { myTests, type MyTests } from "@/server/map/sim";
 import { mapPracticeSkills, type MapPracticeView } from "@/server/student/map-practice";
 import { MapPracticeSkills } from "@/components/student/map-practice-skills";
+import { MapPlanSection } from "@/components/student/map-plan-section";
 import { studentYearPlan } from "@/server/map/year-plan-share";
 import { StudentYearPlanView } from "@/components/map/student-year-plan";
 // 🆕 feature (Oct 2026): RIT growth-over-time chart on the student's own dashboard — reuses the same RitChart/
@@ -116,30 +117,7 @@ export default async function StudentMapPage({ searchParams }: { searchParams: P
       {work.length > 0 && <ProgramWorkList id="map-work" items={work} title="My MAP work" program="MAP" />}
       <MapPracticeSkills v={practised} />
 
-      {m.plans.length > 0 && (
-        <section aria-labelledby="map-plan-h" className="mt-6 rounded-3xl bg-white p-5 shadow-card ring-1 ring-slate-200/80 sm:p-6">
-          <h2 id="map-plan-h" className="text-xl font-semibold text-brand-navy">📋 {t("My MAP plan from my teacher")}</h2>
-          <ul className="mt-3 grid gap-3 md:grid-cols-2">
-            {m.plans.map((d) => {
-              const prog = planProgress(d);
-              return (
-                <li key={d.id} className="flex flex-wrap items-center justify-between gap-3 rounded-2xl bg-green-50/60 p-4 ring-1 ring-green-100">
-                  <span className="min-w-0"><span className="block font-semibold text-brand-navy">{t(d.subject === "READING" ? "Reading" : "Language Usage")} · {d.term}</span>
-                    <span className="block text-sm text-slate-600">{d.items.map((it) => it.name).join(" · ")}</span>
-                    {prog.total > 0 && <span className="mt-1 block text-sm font-semibold text-emerald-800">{prog.allDone ? `✅ ${t("All done")}` : t("{done} of {total} done", { done: prog.done, total: prog.total })}</span>}
-                    {d.note && <span className="block text-sm text-amber-900">💬 {d.note}</span>}</span>
-                  <span className="flex flex-wrap items-center gap-2">
-                    {prog.next && (
-                      <Link prefetch={false} href={prog.next.href} className="inline-flex min-h-11 items-center rounded-xl bg-brand-teal px-4 font-semibold text-white">{prog.done > 0 ? `▶ ${t("Continue")}` : `▶ ${t("Start")}`}</Link>
-                    )}
-                    <Link prefetch={false} href={`/map-plan/${d.id}?print=1`} className={BTN_SECONDARY}>⬇ {t("Download (PDF)")}</Link>
-                  </span>
-                </li>
-              );
-            })}
-          </ul>
-        </section>
-      )}
+      <MapPlanSection plans={m.plans} t={t} />
     </PreviewFrame></AppShell>
   );
 }

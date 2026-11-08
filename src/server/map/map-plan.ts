@@ -357,9 +357,15 @@ async function planRows(repo: Repo, classId: string, subject: Subject): Promise<
 
 /**
  * Makes the plan of every student of the class who has MAP scores for this subject and sends it to them at once
- * (🆕 Nov 2026 — see the file header). Sent plans are kept; a term that already has a plan (draft or sent) is
- * skipped. Returns how many plans actually reached a student (a plan left in DRAFT because its area truly has no
- * questions yet does not count — it is still waiting, on the "Drafts ready to review" screen).
+ * (🆕 Nov 2026 — see the file header). Sent plans are kept; a term that already has a SENT plan is skipped.
+ * 🩹 Nov 2026 fix: a plan that already exists for the term but is still DRAFT — either a straggler created before
+ * this auto-send feature shipped, or one left behind by any other path that never got sent — is picked back up and
+ * sent now instead of being skipped forever (the original bug: once a DRAFT row existed, this function treated the
+ * student as "already handled" and never looked at them again, so scores entered before the feature went live
+ * never produced a visible plan). The ONE exception: a draft whose note says "From the MAP practice test." belongs
+ * to the separate, intentionally-manual practice-test draft system (sim.ts draftsFromTest) — that one is left
+ * alone, exactly as before. Returns how many plans actually reached a student (a plan left in DRAFT because its
+ * area truly has no questions yet does not count — it is still waiting, on the "Drafts ready to review" screen).
  */
 export async function ensureDrafts(repo: Repo, actor: Actor, classId: string, subject: Subject, now = new Date()): Promise<number> {
   assertCan(actor, "assignments:create");
@@ -375,7 +381,12 @@ export async function ensureDrafts(repo: Repo, actor: Actor, classId: string, su
   for (const id of ids) {
     const p = profiles.get(id)!;
     if (!p.term) continue;
-    if (existing.some((x) => x.studentId === id && x.term === p.term)) continue;   // this term's plan exists (draft or sent)
+    const ex = existing.find((x) => x.studentId === id && x.term === p.term);
+    if (ex) {
+      // 🩹 a genuine MAP-score plan stuck in DRAFT (not the separate practice-test draft system) — send it now.
+      if (ex.status === "DRAFT" && ex.note !== "From the MAP practice test.") created.push(s(ex.id));
+      continue;
+    }
     // skills of each group: weakest mastery first (not started first)
     const m = new Map(mastery.filter((x) => x.studentId === id).map((x) => [s(x.skillId), Number(x.score)]));
     // no answers yet in an area → no skill chosen = all the skills of the area (at the student's band)
