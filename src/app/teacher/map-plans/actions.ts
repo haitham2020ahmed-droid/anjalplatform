@@ -22,10 +22,14 @@ export async function savePlanAction(f: FormData): Promise<void> {
   const groups = f.getAll("group").map(String) as GroupKey[];
   await run(f, async () => {
     const actor = await requireActor({ roles: ["TEACHER", "SCHOOL_ADMIN", "SUPER_ADMIN"], permission: "assignments:create" });
-    await updatePlan(repo, actor, String(f.get("planId")), {
+    const r = await updatePlan(repo, actor, String(f.get("planId")), {
       items: groups.map((g) => ({ group: g, keep: f.get(`keep.${g}`) === "on", skillIds: f.getAll(`skill.${g}`).map(String), count: Number(f.get(`count.${g}`)) || 15 })),
       addGroup: (String(f.get("addGroup") ?? "") || null) as GroupKey | null, note: String(f.get("note") ?? ""), dueAt: dateOf(f.get("dueAt")),
     });
+    // 🩹 Nov 2026: a plan already sent to the student gets a newly-added area sent right away (updatePlan does this
+    // itself) — "Assign" only ever works on a not-yet-sent plan, so without this the teacher pressed it for nothing.
+    if (r.sentNewGroup) return "✓ Plan saved and the new area was sent to the student right away.";
+    if (r.notEnoughQuestions) return "✓ Plan saved, but the new area has too few matching questions yet — it will stay waiting until more are available.";
     return "✓ Plan saved. Check it, then press Assign.";
   });
 }

@@ -492,8 +492,15 @@ async function ownPlan(repo: Repo, actor: Actor, planId: string): Promise<Row> {
   return r;
 }
 
-/** Teacher edits a draft: which areas, which skills, how many questions, due date, note. */
-export async function updatePlan(repo: Repo, actor: Actor, planId: string, input: { items: { group: GroupKey; skillIds: string[]; count: number; keep: boolean }[]; addGroup?: GroupKey | null; note?: string | null; dueAt?: Date | null }, now = new Date()): Promise<void> {
+/** Teacher edits a draft: which areas, which skills, how many questions, due date, note.
+ *  🩹 Nov 2026 fix ("added Grammar back to a plan, pressed Assign, nothing happened"): sendPlans() only ever looks
+ *  at DRAFT plans — once a plan is SENT, pressing "Assign" again silently does nothing for it, no matter what was
+ *  just added here. A newly added area on an already-SENT plan was stranded: saved into `items`, never actually
+ *  reaching the student, with no error and no visible sign anything was wrong. Now, adding a group to a plan that
+ *  is already SENT tries to send that ONE new area immediately (same as sendPlans() does for a fresh plan) — the
+ *  student gets it right away instead of waiting for a future term's scores to rebuild the whole plan. Returns
+ *  whether that happened, so the caller can say so instead of the generic "saved" message. */
+export async function updatePlan(repo: Repo, actor: Actor, planId: string, input: { items: { group: GroupKey; skillIds: string[]; count: number; keep: boolean }[]; addGroup?: GroupKey | null; note?: string | null; dueAt?: Date | null }, now = new Date()): Promise<{ sentNewGroup: boolean; notEnoughQuestions: boolean }> {
   assertCan(actor, "assignments:create");
   const r = await ownPlan(repo, actor, planId);
   const items = ((r.items ?? []) as PlanItem[]);
@@ -503,15 +510,31 @@ export async function updatePlan(repo: Repo, actor: Actor, planId: string, input
     if (e && !e.keep) continue;
     next.push({ ...it, skillIds: e ? e.skillIds : it.skillIds, count: e ? Math.max(5, Math.min(40, Math.round(e.count) || it.count)) : it.count });
   }
+  let newItem: PlanItem | null = null;
   if (input.addGroup && !next.some((x) => x.group === input.addGroup)) {
     const p = (await mapProfiles(repo, actor.schoolId!, [s(r.studentId)], s(r.subject) as Subject)).get(s(r.studentId))!;
     const a = p.areas.find((x) => x.group === input.addGroup);
     const bands = await bandSettings(repo, actor.schoolId);
     const rit = a?.rit ?? p.overall?.rit ?? 200, b = ritBand(rit, bands);
-    next.push({ group: input.addGroup, status: a?.status ?? null, rit, low: b.low, high: b.high, skillIds: [], count: 15 });
+    newItem = { group: input.addGroup, status: a?.status ?? null, rit, low: b.low, high: b.high, skillIds: [], count: 15 };
+    next.push(newItem);
   }
   if (!next.length) throw new ValidationError("Keep at least one area in the plan.");
   await repo.updateMany("MapPlan", { id: planId }, { items: next, note: s(input.note).slice(0, 1000) || null, dueAt: input.dueAt ?? null, updatedAt: now, editedAt: now });
+  if (!newItem || s(r.status) !== "SENT") return { sentNewGroup: false, notEnoughQuestions: false };
+  const klass = await assertClassAccess(repo, actor, s(r.classId));
+  const grade = Number((await repo.findUnique("Grade", { id: klass.gradeId }))?.level ?? 0);
+  const { pools } = await groupPools(repo, actor.schoolId!, grade);
+  const bands = await bandSettings(repo, actor.schoolId);
+  const pick = pickBand(pools.get(newItem.group) ?? [], newItem.low, newItem.high, bands.size, newItem.skillIds);
+  if (pick.ids.length < 3) return { sentNewGroup: false, notEnoughQuestions: true };
+  const a = await assignQuestions(repo, actor, { classId: s(r.classId), studentIds: [s(r.studentId)], questionIds: pick.ids, title: `MAP plan · ${groupOf(newItem.group).name}`, exactTitle: true, track: "MAP", adaptive: { maxQuestions: Math.min(newItem.count, pick.ids.length) }, dueAt: r.dueAt ? new Date(time(r.dueAt)) : null, note: r.note ? s(r.note) : null, source: requireSource("MAP") }, now);
+  const prevIds: string[] = Array.isArray(r.assignmentIds) ? r.assignmentIds.map(s) : [];
+  await repo.updateMany("MapPlan", { id: planId }, { assignmentIds: [...prevIds, a.assignmentId], updatedAt: now });
+  const st = (await repo.findMany("Student", { id: s(r.studentId) }, { select: ["id", "userId"] }))[0];
+  if (st?.userId) await repo.create("Notification", { userId: s(st.userId), type: "NEW_ASSIGNMENT", title: "🗺️ A new area was added to your MAP plan", body: "Open My MAP to see it.", link: "/student/map", readAt: null, createdAt: now });
+  await audit(repo, { actorId: actor.userId, action: "map.plan.send", entityType: "MapPlan", entityId: planId, after: { sets: 1, group: newItem.group }, at: now });
+  return { sentNewGroup: true, notEnoughQuestions: false };
 }
 
 /** Sends plans: each area becomes one adaptive set of the student's band (track MAP); the student is notified. */
