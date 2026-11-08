@@ -546,7 +546,9 @@ export async function draftsFromTest(repo: Repo, actor: Actor, windowId: string,
       areas: r.areas.map((a) => { const b = a.rit === null ? null : ritBand(a.rit, bands); return { group: a.key, name: a.name, icon: a.icon, rit: a.rit, band: b?.label ?? null, low: b?.low ?? null, high: b?.high ?? null, percentile: null, descriptor: null, status: a.status }; }),
       hasGoals: r.areas.some((a) => a.rit !== null),
     };
-    const skillsByGroup = new Map<GroupKey, string[]>(GROUPS.map((g) => [g.key, [...new Set((pk.pools.get(g.key) ?? []).map((q) => q.skillId))]]));
+    // 🩹 Nov 2026: autoItems() no longer trims skillIds itself (so a Learning-Continuum plan in map-plan.ts can
+    // keep its fuller list) — this separate, simple practice-test draft system still wants just 3, as before.
+    const skillsByGroup = new Map<GroupKey, string[]>(GROUPS.map((g) => [g.key, [...new Set((pk.pools.get(g.key) ?? []).map((q) => q.skillId))].slice(0, 3)]));
     const items = autoItems(profile, skillsByGroup, bands);
     if (!items.length) continue;
     await repo.create("MapPlan", { schoolId: actor.schoolId!, classId, studentId: r.studentId, subject, term, status: "DRAFT", items, note: "From the MAP practice test.", dueAt: null, assignmentIds: null, createdById: actor.userId, createdAt: now, updatedAt: now, sentAt: null });

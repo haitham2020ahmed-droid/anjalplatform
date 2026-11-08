@@ -135,7 +135,7 @@ function IndividualPlans({ t, drafts, classId, className, subject }: { t: TFn; d
             <li key={d.id} className="px-4 py-3">
               <div className="flex flex-wrap items-center gap-3">
                 <span className="font-semibold text-brand-navy"><bdi>{d.studentName}</bdi></span>
-                <span className="flex flex-wrap gap-1">{d.areas.slice(0, 4).map((a) => <span key={a.name} className="rounded-full bg-emerald-50 px-2.5 py-0.5 text-xs font-semibold text-emerald-900 ring-1 ring-emerald-200">{a.icon} {a.name}</span>)}</span>
+                <span className="flex flex-wrap gap-1">{d.areas.slice(0, 4).map((a) => <span key={a.name} className="rounded-full bg-emerald-50 px-2.5 py-0.5 text-xs font-semibold text-emerald-900 ring-1 ring-emerald-200">{a.icon} {a.name}{a.source === "continuum" ? " 📘" : ""}</span>)}</span>
                 <div className="ms-auto flex flex-wrap items-center gap-2">
                   <form action={dismissMapDraftAction}>{hidden(d.id)}<button className="text-xs font-semibold text-slate-500 underline">{t("Dismiss")}</button></form>
                   <form action={sendMapDraftAction}>{hidden(d.id)}<PendingButton className={BTN_MAIN} label="Send to {name}" vars={{ name: d.studentName }} pendingLabel="Sending…" /></form>

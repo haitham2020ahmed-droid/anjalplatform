@@ -33,6 +33,9 @@ import { heavyBuild } from "../monitoring/memory";
 
 const s = (v: unknown) => String(v ?? "");
 const time = (v: unknown) => new Date(v instanceof Date ? v.toISOString() : s(v)).getTime();
+/** 🆕 Nov 2026: a freshly auto-made plan's starting due date (ensureDrafts only — updatePlan still lets the
+ *  teacher change or clear it afterwards). */
+export const DEFAULT_PLAN_DUE_DAYS = 14;
 export type Subject = "READING" | "LANGUAGE";
 export type GroupKey = "LIT" | "INFO" | "VOCAB" | "GRAMMAR" | "MECH" | "WRITING";
 export const GROUPS: { key: GroupKey; subject: Subject; name: string; icon: string; codes: string[] }[] = [
@@ -324,31 +327,51 @@ export function pickBand(pool: PoolQ[], low: number, high: number, size: number,
   const ok = (q: PoolQ) => !skillIds?.length || skillIds.includes(q.skillId);
   let from = low, to = high + size, list: PoolQ[] = [];
   for (let i = 0; i < 4; i++) { list = pool.filter((q) => ok(q) && q.rit >= from && q.rit <= to); if (list.length >= min) break; from -= size; to += size; }
+  // 🩹 the 3 chosen skills can still be thin even in a huge pool (e.g. 30k+ questions platform-wide) — as a last
+  // resort, widen to the whole group's pool at the same band rather than leaving the plan item stuck short.
+  if (list.length < min && skillIds?.length) {
+    const wider = pool.filter((q) => q.rit >= from && q.rit <= to);
+    if (wider.length > list.length) list = wider;
+  }
   return { ids: list.sort((a, b) => a.rit - b.rit).map((q) => q.id), from, to };
 }
 
 // ------------------------------------------------------------------ plans
 
-export interface PlanItem { group: GroupKey; status: AreaStatus | null; rit: number | null; low: number; high: number; skillIds: string[]; count: number }
+/** 🆕 Nov 2026: skillSource says where skillIds came from — "continuum" (the school's imported NWEA Learning
+ *  Continuum, at this area's own band) or "weakest" (the plain weakest-3 fallback); undefined on plans made
+ *  before this field existed, or by a caller that never set it (the Personalized-Plan wizard, practice-test
+ *  drafts) — display code treats a missing value as "weakest". */
+export interface PlanItem { group: GroupKey; status: AreaStatus | null; rit: number | null; low: number; high: number; skillIds: string[]; count: number; skillSource?: "continuum" | "weakest" }
 export interface PlanView { id: string; studentId: string; name: string; subject: Subject; term: string; status: "DRAFT" | "SENT"; items: (PlanItem & { name: string; icon: string; band: string; questions: number; skills: { id: string; name: string }[]; allSkills: { id: string; name: string }[] })[]; note: string | null; dueAt: string | null; sentAt: string | null; profile: MapProfile }
 
-/** The automatic plan for one profile: up to 2 FOCUS areas, weakest first (no FOCUS → the weakest area).
- *  Without goal-area scores (only the overall RIT, e.g. a school list): every area of the subject at the
- *  overall band — status from the overall descriptor (Low/LoAvg → focus, HiAvg/High → extend). */
-export function autoItems(p: MapProfile, skillsByGroup: Map<GroupKey, string[]>, bands: BandSettings, count = 15): PlanItem[] {
+/** The automatic plan for one profile. Without goal-area scores (only the overall RIT, e.g. a school list): every
+ *  area of the subject at the overall band — status from the overall descriptor (Low/LoAvg → focus, HiAvg/High →
+ *  extend); unaffected by `allAreas` (this case already covers every area, as before).
+ *  With goal-area scores: `allAreas` false (the default — unchanged behavior, for the Personalized-Plan wizard
+ *  and the practice-test drafts, which never asked for this) keeps the original "up to 2 FOCUS areas, weakest
+ *  first" plan. 🆕 Nov 2026, `allAreas` true (used only by the real sendable MAP plan, ensureDrafts below): every
+ *  area that has its own MAP goal score, not just the weakest 1–2 — each at ITS OWN band/status, weakest first; a
+ *  FOCUS area keeps the full question count, MAINTAIN/EXTEND get a lighter one — a complete, MAP-shaped picture
+ *  of the subject, not only the weak spots.
+ *  skillIds is used exactly as the caller built it (up to ~12 Learning-Continuum skills when the school imported
+ *  one and it covers this band, else the plain weakest-3 selection) — this function does not trim it further. */
+export function autoItems(p: MapProfile, skillsByGroup: Map<GroupKey, string[]>, bands: BandSettings, count = 15, allAreas = false): PlanItem[] {
   const withRit = p.areas.filter((a) => a.rit !== null);
   const overall = p.overall?.rit ?? null;
+  const lightCount = Math.max(8, Math.round(count * 2 / 3));
   if (!withRit.length) {
     if (overall === null) return [];
     const d = p.overall?.descriptor ?? null;
     const status: AreaStatus = d === "Low" || d === "LoAvg" ? "FOCUS" : d === "HiAvg" || d === "High" ? "EXTEND" : "MAINTAIN";
     const b = ritBand(overall, bands);
-    return p.areas.map((a) => ({ group: a.group, status, rit: overall, low: b.low, high: b.high, skillIds: (skillsByGroup.get(a.group) ?? []).slice(0, 3), count: Math.max(8, Math.round(count * 2 / 3)) }));
+    return p.areas.map((a) => ({ group: a.group, status, rit: overall, low: b.low, high: b.high, skillIds: skillsByGroup.get(a.group) ?? [], count: lightCount }));
   }
   const ordered = [...withRit].sort((a, b) => Number(a.status !== "FOCUS") - Number(b.status !== "FOCUS") || (a.rit ?? 0) - (b.rit ?? 0));
+  if (allAreas) return ordered.map((a) => ({ group: a.group, status: a.status, rit: a.rit, low: a.low!, high: a.high!, skillIds: skillsByGroup.get(a.group) ?? [], count: a.status === "FOCUS" ? count : lightCount }));
   const chosen = ordered.filter((a) => a.status === "FOCUS").slice(0, 2);
   if (!chosen.length && ordered.length) chosen.push(ordered[0]);
-  return chosen.map((a) => ({ group: a.group, status: a.status, rit: a.rit, low: a.low!, high: a.high!, skillIds: (skillsByGroup.get(a.group) ?? []).slice(0, 3), count }));
+  return chosen.map((a) => ({ group: a.group, status: a.status, rit: a.rit, low: a.low!, high: a.high!, skillIds: skillsByGroup.get(a.group) ?? [], count }));
 }
 
 async function planRows(repo: Repo, classId: string, subject: Subject): Promise<Row[]> {
@@ -377,6 +400,13 @@ export async function ensureDrafts(repo: Repo, actor: Actor, classId: string, su
   const { pools } = await groupPools(repo, actor.schoolId!, grade);
   const mastery = ids.length ? await repo.findMany("StudentSkillMastery", { studentId: { in: ids } }, { select: ["studentId", "skillId", "score"] }) : [];
   const existing = await planRows(repo, classId, subject);
+  // 🆕 Nov 2026 (Learning Continuum plans): when the school has imported its NWEA Learning Continuum
+  // (Admin → MAP Continuum), each chosen area's skills come from the continuum at the student's own band
+  // (Develop, then Reinforce) instead of just the 3 weakest-mastery skills — a fuller, NWEA-shaped plan per
+  // area, up to 12 skills. A school that never imported the continuum, or a band the file doesn't cover,
+  // falls back to the original "weakest 3 skills" selection exactly as before — no behavior change for them.
+  const { continuumIndex, continuumFor, hasContinuum } = await import("./continuum");
+  const ix = (await hasContinuum(repo, subject)) ? await continuumIndex(repo, actor.schoolId!, grade, subject) : null;
   const created: string[] = [];
   for (const id of ids) {
     const p = profiles.get(id)!;
@@ -389,11 +419,40 @@ export async function ensureDrafts(repo: Repo, actor: Actor, classId: string, su
     }
     // skills of each group: weakest mastery first (not started first)
     const m = new Map(mastery.filter((x) => x.studentId === id).map((x) => [s(x.skillId), Number(x.score)]));
+    // 🆕 Nov 2026: which source each group's skillIds actually came from (shown to the teacher as a small badge)
+    const sourceByGroup = new Map<GroupKey, "continuum" | "weakest">();
     // no answers yet in an area → no skill chosen = all the skills of the area (at the student's band)
-    const skillsByGroup = new Map<GroupKey, string[]>(GROUPS.map((g) => { const ids = [...new Set((pools.get(g.key) ?? []).map((q) => q.skillId))]; return [g.key, ids.some((k) => m.has(k)) ? ids.sort((a, b) => (m.get(a) ?? -1) - (m.get(b) ?? -1)) : []]; }));
-    const items = autoItems(p, skillsByGroup, bands);
+    const skillsByGroup = new Map<GroupKey, string[]>(GROUPS.map((g) => {
+      const avail = [...new Set((pools.get(g.key) ?? []).map((q) => q.skillId))];
+      const fallback = avail.some((k) => m.has(k)) ? avail.sort((a, b) => (m.get(a) ?? -1) - (m.get(b) ?? -1)).slice(0, 3) : [];
+      const useFallback = (): [GroupKey, string[]] => { sourceByGroup.set(g.key, "weakest"); return [g.key, fallback]; };
+      if (!ix) return useFallback();
+      const rit = p.areas.find((a) => a.group === g.key)?.rit ?? p.overall?.rit ?? null;
+      if (rit === null) return useFallback();
+      const v = continuumFor(ix, g.key, rit);
+      const inPool = new Set(avail);
+      const fromContinuum: string[] = [];
+      // Develop (the student's own band) first, then Reinforce (shaky foundations) — same order the
+      // "Personalized Plan" wizard already uses for its continuum-based picks; Introduce (stretch, band
+      // above) is left out here, same as there, since this is assigned work, not just a reference list.
+      for (const st of [v.develop, v.reinforce]) {
+        if (!st) continue;
+        for (const stmt of st.statements) for (const sk of stmt.skills) if (inPool.has(sk.id) && !fromContinuum.includes(sk.id)) fromContinuum.push(sk.id);
+      }
+      // a band the imported file doesn't cover (or whose statements link to no published-question skill here)
+      // falls back to the plain weakest-3 selection rather than sending an area with no skills at all
+      if (!fromContinuum.length) return useFallback();
+      sourceByGroup.set(g.key, "continuum");
+      return [g.key, fromContinuum.slice(0, 12)];
+    }));
+    // 🆕 Nov 2026: the real sendable MAP plan now covers every area with a MAP score, not just the weakest 1–2
+    // (see autoItems' doc comment) — the Personalized-Plan wizard and the practice-test drafts are untouched.
+    const items = autoItems(p, skillsByGroup, bands, 15, true).map((it) => ({ ...it, skillSource: sourceByGroup.get(it.group) ?? ("weakest" as const) }));
     if (!items.length) continue;
-    const row = await repo.create("MapPlan", { schoolId: actor.schoolId!, classId, studentId: id, subject, term: p.term, status: "DRAFT", items, note: null, dueAt: null, assignmentIds: null, createdById: actor.userId, createdAt: now, updatedAt: now, sentAt: null });
+    // 🆕 Nov 2026: a due date 14 days out, by default — was always null until the teacher set one by hand
+    // (updatePlan can still change or clear it afterwards; this only picks the starting value).
+    const dueAt = new Date(now.getTime() + DEFAULT_PLAN_DUE_DAYS * 86_400_000);
+    const row = await repo.create("MapPlan", { schoolId: actor.schoolId!, classId, studentId: id, subject, term: p.term, status: "DRAFT", items, note: null, dueAt, assignmentIds: null, createdById: actor.userId, createdAt: now, updatedAt: now, sentAt: null });
     created.push(s(row.id));
   }
   if (!created.length) return 0;

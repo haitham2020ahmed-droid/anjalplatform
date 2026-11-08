@@ -58,7 +58,12 @@ export function PlanDocView({ d, forStudent = false, audience }: { d: PlanDoc; f
                 <p className="font-bold text-brand-navy">{i + 1}. {it.icon} {it.name} <span className="font-normal text-slate-600">· questions at RIT {it.band} and a little above · {it.count} questions</span></p>
                 {it.progress !== null && <span className={`rounded-full px-2 py-0.5 text-xs font-bold ${it.done ? "bg-emerald-100 text-emerald-800" : "bg-white text-slate-700 ring-1 ring-slate-200"}`}>{it.done ? "✅ Done" : `${it.progress}%`}</span>}
               </div>
-              <p className="mt-1 text-sm text-slate-700">Skills: {(it.skillRefs ?? []).length > 0 ? it.skillRefs.map((k, j) => <span key={k.id}>{j ? " · " : ""}<PlanA href={planHref({ kind: "skill", id: k.id, from: "map" }, who)}>{k.name}</PlanA></span>) : it.skills.length > 0 ? it.skills.join(" · ") : "all the skills of this area"}</p>
+              <p className="mt-1 text-sm text-slate-700">Skills: {(it.skillRefs ?? []).length > 0 ? it.skillRefs.map((k, j) => <span key={k.id}>{j ? " · " : ""}<PlanA href={planHref({ kind: "skill", id: k.id, from: "map" }, who)}>{k.name}</PlanA></span>) : it.skills.length > 0 ? it.skills.join(" · ") : "all the skills of this area"}
+                {/* 🆕 Nov 2026: where the skills above came from — the imported Learning Continuum at this band, or (no continuum / band not covered) the plain weakest-skills fallback */}
+                {it.skillSource === "continuum" && <span className="ms-2 rounded-full bg-sky-50 px-2 py-0.5 text-xs font-semibold text-sky-800 ring-1 ring-sky-200">📘 Learning Continuum</span>}
+              </p>
+              {/* 🆕 Nov 2026: Learning Continuum "Introduce" topics — reference only, never turned into questions */}
+              {(it.next ?? []).length > 0 && <p className="mt-1 text-xs text-slate-500">Coming up next: {it.next.join(" · ")}</p>}
             </li>
           ))}
         </ol>

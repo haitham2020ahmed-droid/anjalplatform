@@ -18,6 +18,7 @@ import { assertCanEditSharedCatalogue } from "../curriculum-manage";
 import { classMembers, studentNames } from "../insights/student-data";
 import { masterSkills } from "../skills/master";
 import { bandSettings, ensureDrafts, estimateRit, estimateRits, groupOf, groupPools, GROUPS, mapProfiles, orderAreas, pickBand, ritBand, type AreaProfile, type GroupKey, type MapProfile, type PlanItem, type Subject } from "./map-plan";
+import { continuumFor, continuumIndex, hasContinuum } from "./continuum";
 import { BANK_MODELS, keptWhileUnchanged } from "../cache/kept";
 import { starBook, starMastered, starNeedsReview } from "../skills/star-read";
 
@@ -63,7 +64,7 @@ export async function classMatrix(repo: Repo, actor: Actor, classId: string, sub
 export interface PlanDoc {
   id: string; studentId: string; name: string; number: string; className: string; grade: number; subject: Subject; term: string; status: "DRAFT" | "SENT"; sentAt: string | null; dueAt: string | null; note: string | null;
   profile: MapProfile; estimate: number | null;
-  items: { group: GroupKey; name: string; icon: string; status: string | null; rit: number | null; band: string; skills: string[]; /** r79: the same skills with their ids (the printed plan links each one) */ skillRefs: { id: string; name: string }[]; count: number; assignmentId: string | null; progress: number | null; done: boolean }[];
+  items: { group: GroupKey; name: string; icon: string; status: string | null; rit: number | null; band: string; skills: string[]; /** r79: the same skills with their ids (the printed plan links each one) */ skillRefs: { id: string; name: string }[]; /** 🆕 Nov 2026: Learning Continuum "Introduce" topics at this area's band — reference only, never assigned as questions */ next: string[]; /** 🆕 Nov 2026: where `skills` came from */ skillSource: "continuum" | "weakest"; count: number; assignmentId: string | null; progress: number | null; done: boolean }[];
 }
 
 /** May this actor read the student's MAP plan? Teachers/admins of the class, the student, the parent. */
@@ -90,11 +91,16 @@ async function docOf(repo: Repo, r: Row, now: Date): Promise<PlanDoc> {
   const [found, rows, ix] = aIds.length ? await Promise.all([repo.findMany("Assignment", { id: { in: aIds } }, { select: ["id", "title", "deletedAt", "testId", "curriculumPlanId"] }), repo.findMany("AssignmentStudent", { assignmentId: { in: aIds }, studentId }), cancelIndex(repo, s(r.schoolId))]) : [[] as Row[], [] as Row[], null];
   // r78: a set cancelled on Assigned is not linked from the plan any more
   const assignments = ix ? found.filter((a) => ix.live(a, studentId)) : found;
+  // 🆕 Nov 2026: "Coming up next" (Learning Continuum Introduce topics, reference only) — cix named apart from ix
+  // (the cancel-index above) to avoid shadowing it.
+  const cix = (await hasContinuum(repo, subject)) ? await continuumIndex(repo, s(r.schoolId), grade, subject) : null;
   const items = (((typeof r.items === "string" ? JSON.parse(r.items) : r.items) ?? []) as PlanItem[]).map((it) => {
     const g = groupOf(it.group);
     const a = assignments.find((x) => s(x.title).endsWith(g.name));
     const st = a ? rows.find((x) => x.assignmentId === a.id) : undefined;
-    return { group: it.group, name: g.name, icon: g.icon, status: it.status, rit: it.rit, band: ritBand(it.rit ?? it.low, bands).label, skills: it.skillIds.map((k) => pk.skills.get(k)?.name ?? "").filter(Boolean), skillRefs: it.skillIds.filter((k) => pk.skills.get(k)?.name).map((k) => ({ id: s(k), name: pk.skills.get(k)!.name })), count: it.count, assignmentId: a ? s(a.id) : null, progress: st ? Math.round(Number(st.progress) * 100) : null, done: s(st?.status) === "COMPLETED" };
+    const introduce = cix ? continuumFor(cix, it.group, it.rit ?? it.low).introduce : null;
+    const next = introduce ? [...new Set(introduce.statements.map((x) => x.topic).filter(Boolean))].slice(0, 4) : [];
+    return { group: it.group, name: g.name, icon: g.icon, status: it.status, rit: it.rit, band: ritBand(it.rit ?? it.low, bands).label, skills: it.skillIds.map((k) => pk.skills.get(k)?.name ?? "").filter(Boolean), skillRefs: it.skillIds.filter((k) => pk.skills.get(k)?.name).map((k) => ({ id: s(k), name: pk.skills.get(k)!.name })), next, skillSource: it.skillSource ?? "weakest", count: it.count, assignmentId: a ? s(a.id) : null, progress: st ? Math.round(Number(st.progress) * 100) : null, done: s(st?.status) === "COMPLETED" };
   });
   const est = await estimateRit(repo, s(r.schoolId), studentId, subject, now);
   return { id: s(r.id), studentId, name: names.get(studentId)?.name ?? "Student", number: names.get(studentId)?.number ?? "", className: s(klass?.name), grade, subject, term: s(r.term), status: s(r.status) as "DRAFT" | "SENT", sentAt: iso(r.sentAt), dueAt: iso(r.dueAt), note: r.note ? s(r.note) : null, profile: profiles.get(studentId)!, estimate: est?.rit ?? null, items };
@@ -144,10 +150,14 @@ export async function myMap(repo: Repo, actor: Actor, now = new Date()): Promise
   // internal checks inside ensureDrafts — it never creates or sends anything beyond what this student's own real
   // MAP scores already justify, and the one-exception rule inside ensureDrafts still leaves the separate
   // practice-test draft system (sim.ts) strictly manual. Best-effort: never blocks the page on failure.
-  // (cheap short-circuit: the full class scan inside ensureDrafts only runs for a subject this student has never
-  // had a SENT plan for — once fixed, every later page view of theirs skips straight past this.)
-  const alreadySent = new Set((await repo.findMany("MapPlan", { studentId, status: "SENT" }, { select: ["subject"] })).map((x) => s(x.subject)));
-  const todo = (["READING", "LANGUAGE"] as const).filter((x) => !alreadySent.has(x));
+  // 🩹 Nov 2026: the short-circuit below is now PER TERM, not "ever sent" — a subject with a SENT plan for an
+  // old term (e.g. Fall) still re-runs ensureDrafts once new scores for a later term (e.g. Winter) come in, so a
+  // fresh plan for the new term reaches the student the next time they open this page, with no teacher action.
+  // (cheap short-circuit either way: once a SENT plan exists for the student's CURRENT term, every later page
+  // view of theirs skips straight past this for that subject.)
+  const curTerms = await Promise.all((["READING", "LANGUAGE"] as const).map(async (subject) => ({ subject, term: (await mapProfiles(repo, actor.schoolId!, [studentId], subject)).get(studentId)?.term ?? null })));
+  const sentTerms = new Set((await repo.findMany("MapPlan", { studentId, status: "SENT" }, { select: ["subject", "term"] })).map((x) => `${s(x.subject)}|${s(x.term)}`));
+  const todo = curTerms.filter(({ subject, term }) => term && !sentTerms.has(`${subject}|${term}`)).map((x) => x.subject);
   const membership = todo.length ? (await repo.findMany("ClassMembership", { studentId, leftAt: null }))[0] : null;
   if (membership && actor.schoolId) {
     // real userId (the student's own — AuditLog.actorId has a DB foreign key to User, so a made-up id would fail
