@@ -1,0 +1,25 @@
+diff --git a/src/app/student/work/page.tsx b/src/app/student/work/page.tsx
+index b065de5..78aa63a 100644
+--- a/src/app/student/work/page.tsx
++++ b/src/app/student/work/page.tsx
+@@ -11,7 +11,7 @@ import { keepStarsFresh } from "@/server/skills/status-review";
+ import { runAfterResponse } from "@/server/lib/after-response";
+ import { safeIfBehind } from "@/server/db/schema-errors";
+ import { getT } from "@/i18n/server";
+-import { byPriority, searchWork } from "@/lib/my-work-groups";
++import { byPriority, searchWork, typeOf } from "@/lib/my-work-groups";
+ import { ProgramTabs } from "@/components/student/program-tabs";
+ import { myMap, type MyMap } from "@/server/map/map-more";
+ import { MapPlanSection } from "@/components/student/map-plan-section";
+@@ -60,7 +60,10 @@ export default async function MyWorkPage({ searchParams }: { searchParams: Promi
+   const [h, stars] = await Promise.all([studentHome(repo, actor), safeIfBehind("work.stars", () => studentStarsSummary(repo, sid), null)]);
+   // the review checks: settled / given after the response (the page never waits for them)
+   runAfterResponse("work.stars.fresh", () => keepStarsFresh(repo, sid), { key: `work.stars.fresh|${sid}` });
+-  let rows = h.work;
++  // 🩹 Nov 2026 ("مش عايزهم يظهروا هنا... يكونوا داخل تويب MAP"): MAP plan work has its own tab (🗺️ MAP, right
++  // above) — it no longer also appears as a "MAP" group mixed into the plain My Work list below, to avoid the same
++  // practice sets showing up twice in two different places.
++  let rows = h.work.filter((r) => typeOf(r) !== "MAP");
+   if (stars && stars.byKey.size) {
+     rows = await markMasteredWork(repo, sid, rows, stars.byKey);
+     const ids = [...new Set(rows.map((r) => r.skillId).filter((x): x is string => Boolean(x)))];
