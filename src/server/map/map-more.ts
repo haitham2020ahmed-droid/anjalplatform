@@ -183,7 +183,15 @@ export async function myMap(repo: Repo, actor: Actor, now = new Date()): Promise
   // (cheap short-circuit either way: once a SENT plan exists for the student's CURRENT term, every later page
   // view of theirs skips straight past this for that subject.)
   const curTerms = await Promise.all((["READING", "LANGUAGE"] as const).map(async (subject) => ({ subject, term: (await mapProfiles(repo, actor.schoolId!, [studentId], subject)).get(studentId)?.term ?? null })));
-  const sentTerms = new Set((await repo.findMany("MapPlan", { studentId, status: "SENT" }, { select: ["subject", "term"] })).map((x) => `${s(x.subject)}|${s(x.term)}`));
+  const sentNow = await repo.findMany("MapPlan", { studentId, status: "SENT" }, { select: ["subject", "term", "items", "editedAt", "note"] });
+  // 🩹 Nov 2026 self-heal: a SENT plan nobody has edited, still showing the "Skills: all the skills of this
+  // area" symptom (the matching bug fixed in ensureDrafts), is treated here as NOT yet satisfying its term —
+  // so the student's very next visit to their own MAP page runs ensureDrafts for it again, which now rebuilds
+  // it with the corrected skill matching (the student restarts that one plan's progress; an edited plan, a
+  // practice-test draft, or a plan that was already fine keeps the normal short-circuit below untouched).
+  const planBroken = (r: Row) => r.editedAt == null && r.note !== "From the MAP practice test." &&
+    ((typeof r.items === "string" ? JSON.parse(r.items) : r.items) ?? []).some((it: PlanItem) => !it.skillIds?.length);
+  const sentTerms = new Set(sentNow.filter((x) => !planBroken(x)).map((x) => `${s(x.subject)}|${s(x.term)}`));
   const todo = curTerms.filter(({ subject, term }) => term && !sentTerms.has(`${subject}|${term}`)).map((x) => x.subject);
   const membership = todo.length ? (await repo.findMany("ClassMembership", { studentId, leftAt: null }))[0] : null;
   if (membership && actor.schoolId) {

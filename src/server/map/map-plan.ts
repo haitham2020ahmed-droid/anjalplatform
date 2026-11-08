@@ -21,7 +21,8 @@ import { ValidationError } from "../curriculum-admin";
 import { requireSource } from "../assign/source";
 import { assertClassAccess } from "../teacher/assignments";
 import { assertClassRead } from "../teacher/coordinators";
-import { assignQuestions } from "../teacher/assign";
+import { assignQuestions, DEFAULT_TARGET_CORRECT } from "../teacher/assign";
+import { ASSIGNMENT_MAX_QUESTIONS, ASSIGNMENT_MIN_QUESTIONS } from "../practice/completion";
 import { audit } from "../audit";
 import { bandOf as descriptorOf, ensureNationalNorms, nationalNorm, percentileFromNorm, seasonOf, type Season } from "./rit";
 import { ritFromDifficulty } from "../questions/tag-review";
@@ -425,8 +426,16 @@ export async function ensureDrafts(repo: Repo, actor: Actor, classId: string, su
     const ex = existing.find((x) => x.studentId === id && x.term === p.term);
     if (ex) {
       // 🩹 a genuine MAP-score plan stuck in DRAFT (not the separate practice-test draft system) — send it now.
-      if (ex.status === "DRAFT" && ex.note !== "From the MAP practice test.") created.push(s(ex.id));
-      continue;
+      if (ex.status === "DRAFT" && ex.note !== "From the MAP practice test.") { created.push(s(ex.id)); continue; }
+      // 🩹 Nov 2026 self-heal: a plan nobody has edited yet, with an area whose question bank has real
+      // content but still ended up with no named skills (the "Skills: all the skills of this area" symptom
+      // fixed above), is rebuilt from scratch with the corrected matching — same term, same question bank,
+      // just the right skill names this time. The student restarts that plan's own progress on request (an
+      // edited plan, a practice-test draft, or a plan that is already fine is left untouched either way).
+      const broken = ex.note !== "From the MAP practice test." && ex.editedAt == null &&
+        ((ex.items ?? []) as PlanItem[]).some((it) => !it.skillIds?.length && (pools.get(it.group) ?? []).length > 0);
+      if (!broken) continue;
+      await repo.deleteMany("MapPlan", { id: ex.id });
     }
     // skills of each group: weakest mastery first (not started first)
     const m = new Map(mastery.filter((x) => x.studentId === id).map((x) => [s(x.skillId), Number(x.score)]));
@@ -441,24 +450,40 @@ export async function ensureDrafts(repo: Repo, actor: Actor, classId: string, su
       const rit = p.areas.find((a) => a.group === g.key)?.rit ?? p.overall?.rit ?? null;
       if (rit === null) return useFallback();
       const v = continuumFor(ix, g.key, rit);
-      const inPool = new Set(avail);
+      // 🩹 Nov 2026 fix ("all the skills of this area" showing for a student whose continuum DOES cover their
+      // band — seen live on a Grade 11 plan): this used to also require the continuum-matched skill to have its
+      // OWN published question in this area's pool (inPool.has(sk.id)). skillsFor() (continuum.ts) already only
+      // returns skills of the right group/grade — the same ones the "Make a MAP plan" wizard and the curriculum
+      // report show by name for this exact case — so that extra per-skill check wasn't a safety net, it was
+      // silently discarding a correctly-matched NWEA skill whenever this school's question bank happens to tag
+      // that area's questions to a shared/broader skill record instead of the continuum's exact one (common
+      // outside the platform's main Grades 4–6 curriculum). The area-level check below (avail.length) keeps the
+      // original safety: an area with truly no question content still falls back. pickBand() already widens to
+      // the whole area pool when the named skills alone are too thin (see its own comment), so which real
+      // questions a student gets is unchanged — only the plan's "Skills:" label is now the real NWEA skill name
+      // instead of silently falling back to "all the skills of this area".
+      if (!avail.length) return useFallback();
       const fromContinuum: string[] = [];
       // Develop (the student's own band) first, then Reinforce (shaky foundations) — same order the
       // "Personalized Plan" wizard already uses for its continuum-based picks; Introduce (stretch, band
       // above) is left out here, same as there, since this is assigned work, not just a reference list.
       for (const st of [v.develop, v.reinforce]) {
         if (!st) continue;
-        for (const stmt of st.statements) for (const sk of stmt.skills) if (inPool.has(sk.id) && !fromContinuum.includes(sk.id)) fromContinuum.push(sk.id);
+        for (const stmt of st.statements) for (const sk of stmt.skills) if (!fromContinuum.includes(sk.id)) fromContinuum.push(sk.id);
       }
-      // a band the imported file doesn't cover (or whose statements link to no published-question skill here)
-      // falls back to the plain weakest-3 selection rather than sending an area with no skills at all
+      // a band the imported file doesn't cover at all (no continuum rows for it) falls back to the plain
+      // weakest-3 selection rather than sending an area with no skills at all
       if (!fromContinuum.length) return useFallback();
       sourceByGroup.set(g.key, "continuum");
       return [g.key, fromContinuum.slice(0, 12)];
     }));
     // 🆕 Nov 2026: the real sendable MAP plan now covers every area with a MAP score, not just the weakest 1–2
     // (see autoItems' doc comment) — the Personalized-Plan wizard and the practice-test drafts are untouched.
-    const items = autoItems(p, skillsByGroup, bands, 15, true).map((it) => ({ ...it, skillSource: sourceByGroup.get(it.group) ?? ("weakest" as const) }));
+    // count is passed as ASSIGNMENT_MIN_QUESTIONS here (not the old flat 15/10) and then forced the same for
+    // every item below, regardless of FOCUS/MAINTAIN/EXTEND status: the actual session length this count used to
+    // set is now decided by the real adaptive 30-min/50-max/"stop once mastered" rule (see topUpSentPlan /
+    // sendPlans below), the same for every area, so a different displayed number per area would just be stale.
+    const items = autoItems(p, skillsByGroup, bands, ASSIGNMENT_MIN_QUESTIONS, true).map((it) => ({ ...it, count: ASSIGNMENT_MIN_QUESTIONS, skillSource: sourceByGroup.get(it.group) ?? ("weakest" as const) }));
     if (!items.length) continue;
     // 🆕 Nov 2026: a due date 14 days out, by default — was always null until the teacher set one by hand
     // (updatePlan can still change or clear it afterwards; this only picks the starting value).
@@ -527,7 +552,7 @@ export async function updatePlan(repo: Repo, actor: Actor, planId: string, input
     const a = p.areas.find((x) => x.group === input.addGroup);
     const bands = await bandSettings(repo, actor.schoolId);
     const rit = a?.rit ?? p.overall?.rit ?? 200, b = ritBand(rit, bands);
-    newItem = { group: input.addGroup, status: a?.status ?? null, rit, low: b.low, high: b.high, skillIds: [], count: 15 };
+    newItem = { group: input.addGroup, status: a?.status ?? null, rit, low: b.low, high: b.high, skillIds: [], count: ASSIGNMENT_MIN_QUESTIONS };
     next.push(newItem);
   }
   if (!next.length) throw new ValidationError("Keep at least one area in the plan.");
@@ -563,7 +588,7 @@ export async function topUpSentPlan(repo: Repo, actor: Actor, planId: string, no
   const bands = await bandSettings(repo, actor.schoolId);
   const missing = (p?.areas ?? []).filter((a) => a.rit !== null && !have.has(a.group));
   if (!missing.length) return { added: [], sent: [], skipped: [] };
-  const newItems: PlanItem[] = missing.map((a) => { const b = ritBand(a.rit!, bands); return { group: a.group, status: a.status, rit: a.rit, low: b.low, high: b.high, skillIds: [], count: a.status === "FOCUS" ? 15 : 10 }; });
+  const newItems: PlanItem[] = missing.map((a) => { const b = ritBand(a.rit!, bands); return { group: a.group, status: a.status, rit: a.rit, low: b.low, high: b.high, skillIds: [], count: ASSIGNMENT_MIN_QUESTIONS }; });
   const klass = await assertClassAccess(repo, actor, s(r.classId));
   const grade = Number((await repo.findUnique("Grade", { id: klass.gradeId }))?.level ?? 0);
   const { pools } = await groupPools(repo, actor.schoolId!, grade);
@@ -572,7 +597,13 @@ export async function topUpSentPlan(repo: Repo, actor: Actor, planId: string, no
   for (const it of newItems) {
     const pick = pickBand(pools.get(it.group) ?? [], it.low, it.high, bands.size, it.skillIds);
     if (pick.ids.length < 3) { skipped.push(groupOf(it.group).name); continue; }
-    const a = await assignQuestions(repo, actor, { classId: s(r.classId), studentIds: [s(r.studentId)], questionIds: pick.ids, title: `MAP plan · ${groupOf(it.group).name}`, exactTitle: true, track: "MAP", adaptive: { maxQuestions: Math.min(it.count, pick.ids.length) }, dueAt: r.dueAt ? new Date(time(r.dueAt)) : null, note: r.note ? s(r.note) : null, source: requireSource("MAP") }, now);
+    // 🆕 Nov 2026 ("خليها نفسها 30 لـ 50" — the same adaptive rule as My Work/skill practice): a target of correct
+    // answers (not a flat question count) is what makes adaptiveNext() apply the platform's own 30-min/50-max
+    // window and its early "mastered, stop now" exit — the exact mechanism ASSIGNMENT_MIN_QUESTIONS /
+    // ASSIGNMENT_MAX_QUESTIONS already name, and the same DEFAULT_TARGET_CORRECT the Curriculum Map's own
+    // adaptive plans use (see assign.ts). it.count is no longer read for this — it stays on the item only as the
+    // plan's own "roughly how much" label (map-ui.tsx), the session itself now decides when it's actually done.
+    const a = await assignQuestions(repo, actor, { classId: s(r.classId), studentIds: [s(r.studentId)], questionIds: pick.ids, title: `MAP plan · ${groupOf(it.group).name}`, exactTitle: true, track: "MAP", adaptive: { maxQuestions: Math.min(ASSIGNMENT_MAX_QUESTIONS, pick.ids.length), targetCorrect: DEFAULT_TARGET_CORRECT }, dueAt: r.dueAt ? new Date(time(r.dueAt)) : null, note: r.note ? s(r.note) : null, source: requireSource("MAP") }, now);
     newAssignmentIds.push(a.assignmentId); sent.push(groupOf(it.group).name);
   }
   const prevIds: string[] = Array.isArray(r.assignmentIds) ? r.assignmentIds.map(s) : [];
@@ -617,7 +648,9 @@ export async function sendPlans(repo: Repo, actor: Actor, planIds: string[], now
     for (const it of (r.items ?? []) as PlanItem[]) {
       const pick = pickBand(pk.pools.get(it.group) ?? [], it.low, it.high, bands.size, it.skillIds);
       if (pick.ids.length < 3) { skipped.push(`${groupOf(it.group).name}: not enough questions yet`); continue; }
-      const a = await assignQuestions(repo, actor, { classId: s(r.classId), studentIds: [s(r.studentId)], questionIds: pick.ids, title: `MAP plan · ${groupOf(it.group).name}`, exactTitle: true, track: "MAP", adaptive: { maxQuestions: Math.min(it.count, pick.ids.length) }, dueAt: r.dueAt ? new Date(time(r.dueAt)) : null, note: r.note ? s(r.note) : null, source }, now);
+      // 🆕 Nov 2026: see the matching comment on topUpSentPlan above — same real 30-min/50-max/"stop once
+      // mastered" adaptive rule as My Work, via targetCorrect, instead of a flat maxQuestions cut-off.
+      const a = await assignQuestions(repo, actor, { classId: s(r.classId), studentIds: [s(r.studentId)], questionIds: pick.ids, title: `MAP plan · ${groupOf(it.group).name}`, exactTitle: true, track: "MAP", adaptive: { maxQuestions: Math.min(ASSIGNMENT_MAX_QUESTIONS, pick.ids.length), targetCorrect: DEFAULT_TARGET_CORRECT }, dueAt: r.dueAt ? new Date(time(r.dueAt)) : null, note: r.note ? s(r.note) : null, source }, now);
       assignmentIds.push(a.assignmentId); sets++;
     }
     if (!assignmentIds.length) continue;
