@@ -7724,4 +7724,6 @@ export const ar: Record<UiString, string> = {
   "Reading: Informational Text": "القراءة: النص المعلوماتي",
   "Reading: Foundational Skills": "القراءة: المهارات الأساسية",
   "Speaking and Listening": "التحدث والاستماع",
+  "Biggest caches now": "أكبر الذاكرات المؤقتة الآن",
+  "Entries kept in memory by each cache (they are emptied when not used). A cache that keeps growing is what to look at before a restart.": "عدد العناصر المحفوظة في الذاكرة لكل ذاكرة مؤقتة (تُفرَّغ عند عدم الاستخدام). الذاكرة التي تكبر باستمرار هي ما يجب النظر إليه قبل إعادة التشغيل.",
 };

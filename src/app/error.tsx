@@ -12,7 +12,17 @@ export default function Error({ error, reset }: { error: Error & { digest?: stri
     // tell the school's error log (message and page only)
     try { void fetch("/api/client-error", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ message: error.message, digest: error.digest, path: window.location.pathname }) }); } catch { /* offline */ }
   }, [error]);
-  const stale = /Failed to find Server Action|older or newer deployment/i.test(error.message);
+  // 🩹 platform audit (8 Nov 2026, live error log: "Loading chunk … failed" ×33 on /student/learn right after an update):
+  // a page opened before an update asks for files the new version no longer has — reload once, by itself
+  const stale = /Failed to find Server Action|older or newer deployment|Loading chunk|ChunkLoadError|dynamically imported module|Loading CSS chunk/i.test(error.message);
+  useEffect(() => {
+    if (!/Loading chunk|ChunkLoadError|dynamically imported module|Loading CSS chunk/i.test(error.message)) return;
+    try {
+      const key = `chunk-reload:${window.location.pathname}`;
+      const last = Number(sessionStorage.getItem(key) || 0);
+      if (Date.now() - last > 60_000) { sessionStorage.setItem(key, String(Date.now())); window.location.reload(); }
+    } catch { /* storage blocked: the Reload button stays */ }
+  }, [error]);
   return (
     <main className="flex min-h-[70vh] items-center justify-center p-6">
       <div className="animate-pop w-full max-w-md rounded-3xl bg-white p-8 text-center shadow-lg ring-1 ring-slate-200">

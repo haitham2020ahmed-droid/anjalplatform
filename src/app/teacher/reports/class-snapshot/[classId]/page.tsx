@@ -31,7 +31,7 @@ export default async function ClassSnapshotPage({ params }: { params: Promise<{ 
   const excelling = excellingStudents(d);
 
   const [attention, ew] = await Promise.all([
-    teacherHomeSummary(repo, actor).catch(() => ({ list: [] as { studentId: string; classId: string }[] })),
+    teacherHomeSummary(repo, actor, new Date(), { classId }).catch(() => ({ list: [] as { studentId: string; classId: string }[] })),
     earlyWarning(repo, actor, { classId }).catch(() => ({ rows: [] as { studentId: string; severity: string }[], counts: { URGENT: 0, WATCH: 0, GOOD: 0 } })),
   ]);
   const needsSupport = new Set(attention.list.filter((x) => x.classId === classId && roster.has(x.studentId)).map((x) => x.studentId));

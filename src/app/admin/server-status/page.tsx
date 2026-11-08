@@ -75,6 +75,11 @@ export default async function ServerStatusPage() {
           <p className="text-sm text-slate-500">{t("No pages opened on this server process yet.")}</p>
         )}
       </Section>
+      {s.caches.length > 0 && (
+        <Section title={t("Biggest caches now")} icon="🗃️" className="mb-5" hint={t("Entries kept in memory by each cache (they are emptied when not used). A cache that keeps growing is what to look at before a restart.")}>
+          <ul className="grid gap-1 font-mono text-xs text-slate-700 sm:grid-cols-2" dir="ltr">{s.caches.map((c) => <li key={c.name} className="flex justify-between gap-3"><span>{c.name}</span><b className="tabular-nums">{c.size}</b></li>)}</ul>
+        </Section>
+      )}
 
       <Section title={t("Related pages")} icon="🔗" className="mb-5">
         <ul className="list-inside list-disc space-y-1 text-sm">

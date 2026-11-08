@@ -9,6 +9,7 @@
  * client or a real database: the page passes the real `db` from "@/lib/db"; tests pass a tiny fake.
  */
 import { memorySnapshot, MEMORY_BUSY_MB, recentPaths, buildsWaiting } from "@/server/monitoring/memory";
+import { cacheSizes } from "@/server/cache/idle";
 
 export interface RawDb { $queryRaw(query: TemplateStringsArray): Promise<unknown> }
 export interface DbPing { ok: boolean; ms: number; error: string | null }
@@ -33,6 +34,8 @@ export interface ServerStatus {
   memoryBusyNow: boolean;
   buildsWaitingNow: number;
   recentPages: string;
+  /** 🩺 platform audit (8 Nov 2026): the biggest in-memory caches now (what grows before a restart) */
+  caches: { name: string; size: number }[];
   db: DbPing;
 }
 
@@ -51,6 +54,7 @@ export async function serverStatus(client: RawDb): Promise<ServerStatus> {
     memoryBusyNow: memory.rssMB > MEMORY_BUSY_MB,
     buildsWaitingNow: buildsWaiting(),
     recentPages: recentPaths(),
+    caches: cacheSizes().filter((c) => c.size > 0).slice(0, 8),
     db: ping,
   };
 }

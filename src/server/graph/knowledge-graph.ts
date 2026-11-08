@@ -95,7 +95,7 @@ export interface SkillState { mastery: number; attempts: number; theta: number |
 
 /** Recent answers read per skill (the last RECENT_PER_SKILL of each); per-skill queries run this many at a time. */
 const RECENT_PER_SKILL = 10;
-const RECENT_BATCH = 25;
+const RECENT_BATCH = 4;
 
 /**
  * What a student shows on these skills. Mastery and ability in 2 queries; then the last 10 answers of EACH practised
@@ -110,17 +110,27 @@ export async function skillStates(repo: Repo, studentId: string, skillIds: strin
     starBook(repo, [studentId]),
   ]);
   const practised = [...new Set(mastery.filter((r) => Number(r.attempts ?? 0) > 0).map((r) => s(r.skillId)))];
-  const recent: Row[] = [];
-  for (let i = 0; i < practised.length; i += RECENT_BATCH) {
-    const parts = await Promise.all(practised.slice(i, i + RECENT_BATCH).map((skillId) => recentAnswers(repo, studentId, skillId)));
-    for (const p of parts) recent.push(...p);
-  }
+  const recent = await recentAnswersOf(repo, studentId, practised);
   return statesOf(skillIds, mastery, abil, recent, book, studentId);
 }
 
-const recentAnswers = (repo: Repo, studentId: string, skillId: string) => repo.findMany("QuestionAttempt", { studentId, skillId }, {
-  select: ["skillId", "isCorrect", "misconception"], orderBy: [{ field: "createdAt", dir: "desc" }, { field: "id", dir: "desc" }], take: RECENT_PER_SKILL,
-});
+/**
+ * 🩹 platform audit (8 Nov 2026, live incident): one query PER (student, skill) — a class of 30 with ~200 practised
+ * skills each was ~6 000 queries, 25 at a time; it held every database connection for minutes and the whole platform
+ * stopped answering (even /api/health) while one teacher opened the Knowledge Graph. Now ONE query per student: their
+ * latest answers on the practised skills (RECENT_PER_SKILL × skills, at most RECENT_CAP), kept 10 per skill in statesOf.
+ */
+const RECENT_CAP = 1500;
+async function recentAnswersOf(repo: Repo, studentId: string, skillIds: string[]): Promise<Row[]> {
+  if (!skillIds.length) return [];
+  const out: Row[] = [];
+  for (let i = 0; i < skillIds.length; i += 500) {
+    out.push(...(await repo.findMany("QuestionAttempt", { studentId, skillId: { in: skillIds.slice(i, i + 500) } }, {
+      select: ["skillId", "isCorrect", "misconception", "createdAt"], orderBy: [{ field: "createdAt", dir: "desc" }, { field: "id", dir: "desc" }], take: Math.min(RECENT_CAP, skillIds.slice(i, i + 500).length * RECENT_PER_SKILL),
+    })));
+  }
+  return out;
+}
 
 /**
  * ⚡ skillStates of many students (a class): mastery and ability of all of them in 2 queries (was 2 per student, one
@@ -139,13 +149,12 @@ export async function skillStatesMany(repo: Repo, studentIds: string[], skillIds
   ]);
   const group = (rows: Row[]) => { const m = new Map<string, Row[]>(); for (const r of rows) { const k = s(r.studentId); const l = m.get(k); if (l) l.push(r); else m.set(k, [r]); } return m; };
   const mBy = group(mastery), aBy = group(abil);
-  const pairs: [string, string][] = [];
-  for (const id of ids) for (const k of new Set((mBy.get(id) ?? []).filter((r) => Number(r.attempts ?? 0) > 0).map((r) => s(r.skillId)))) pairs.push([id, k]);
   const recent = new Map<string, Row[]>();
-  for (let i = 0; i < pairs.length; i += RECENT_BATCH) {
-    const part = pairs.slice(i, i + RECENT_BATCH);
-    const got = await Promise.all(part.map(([id, k]) => recentAnswers(repo, id, k)));
-    part.forEach(([id], j) => { const l = recent.get(id); if (l) l.push(...got[j]); else recent.set(id, [...got[j]]); });
+  // one query per student, RECENT_BATCH students at a time (a few connections, never the whole pool)
+  for (let i = 0; i < ids.length; i += RECENT_BATCH) {
+    const part = ids.slice(i, i + RECENT_BATCH);
+    const got = await Promise.all(part.map((id) => recentAnswersOf(repo, id, [...new Set((mBy.get(id) ?? []).filter((r) => Number(r.attempts ?? 0) > 0).map((r) => s(r.skillId)))])));
+    part.forEach((id, j) => recent.set(id, got[j]));
   }
   for (const id of ids) out.set(id, statesOf(skillIds, mBy.get(id) ?? [], aBy.get(id) ?? [], recent.get(id) ?? [], book, id));
   return out;

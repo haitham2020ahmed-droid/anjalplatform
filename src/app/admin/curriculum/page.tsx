@@ -13,12 +13,17 @@ const badge = (active: boolean) => (active ? null : <span className="ms-2 rounde
 const label = (v: string) => v.charAt(0) + v.slice(1).toLowerCase().replace(/_/g, " ");
 
 /** Curriculum management: Grade → Unit → Skill → Standard. Create, edit, reorder, activate, delete when safe. */
-export default async function CurriculumAdmin() {
+export default async function CurriculumAdmin({ searchParams }: { searchParams: Promise<{ grade?: string }> }) {
   const actor = await requireActor({ permission: "curriculum:edit" });
   const me = (await getActor())!.user;
   const tree = await curriculumTree(repo, actor);
   const gradesWithSkills = tree.grades.filter((g) => g.units.some((u) => u.skills.length > 0) || g.unplaced.length > 0);
   const emptyGrades = tree.grades.filter((g) => !gradesWithSkills.includes(g));
+  // 🩹 platform audit (8 Nov 2026, live): every grade with every skill and its buttons on one page was 5.4 MB of HTML —
+  // one grade at a time now (chips to switch), the first grade with skills by default
+  const sp = await searchParams;
+  const open = tree.grades.find((g) => String(g.id) === sp.grade) ?? gradesWithSkills[0] ?? tree.grades[0];
+  const shownGrades = open ? [open] : [];
   return (
     <AppShell name={String(me.displayName)}>
       <div className="flex flex-wrap items-end justify-between gap-3">
@@ -53,7 +58,12 @@ export default async function CurriculumAdmin() {
         </section>
       )}
 
-      {tree.grades.map((g) => (
+      {tree.grades.length > 1 && (
+        <nav aria-label="Grade" className="mt-6 flex flex-wrap gap-2">
+          {tree.grades.map((g) => <Link key={g.id} href={`/admin/curriculum?grade=${g.id}`} aria-current={g.id === open?.id ? "page" : undefined} className={`rounded-full px-3 py-1.5 text-sm font-semibold ${g.id === open?.id ? "bg-brand-navy text-white" : "bg-white ring-1 ring-slate-300 hover:ring-brand-teal"}`}>{g.name}</Link>)}
+        </nav>
+      )}
+      {shownGrades.map((g) => (
         <section key={g.id} className={card} aria-labelledby={`g-${g.id}`}>
           <div className="flex flex-wrap items-center justify-between gap-2">
             <h2 id={`g-${g.id}`} className="text-xl font-bold text-brand-navy">{g.name}{badge(g.isActive)}</h2>

@@ -35,8 +35,10 @@ export interface AttentionStudent {
 }
 export interface TeacherHomeSummary { students: number; workThisWeek: number; needsAttention: number; list: AttentionStudent[] }
 
-export async function teacherHomeSummary(repo: Repo, actor: Actor, now = new Date()): Promise<TeacherHomeSummary> {
-  const classes = await accessibleClasses(repo, actor);
+export async function teacherHomeSummary(repo: Repo, actor: Actor, now = new Date(), opts: { classId?: string } = {}): Promise<TeacherHomeSummary> {
+  // 🩹 platform audit (8 Nov 2026, live): the Class snapshot of ONE class read the whole school for an admin (60 s+) —
+  // a class can be given, and then only that class is read
+  const classes = (await accessibleClasses(repo, actor)).filter((c) => !opts.classId || s(c.id) === opts.classId);
   if (!classes.length) return { students: 0, workThisWeek: 0, needsAttention: 0, list: [] };
   const classIds = classes.map((c) => s(c.id));
   const weekAgo = new Date(now.getTime() - 7 * 86_400_000);

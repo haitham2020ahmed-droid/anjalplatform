@@ -107,6 +107,13 @@ function pickCurrent(units: UnitSummary[]): number {
 }
 
 export async function getStudentCurriculum(repo: Repo, studentId: string): Promise<StudentCurriculum> {
+  // 🩹 platform audit (8 Nov 2026, live error log ×7): a grade with no curriculum (e.g. Grade 11) made the student's
+  // file and reports crash — it is simply "no units yet" now
+  const student0 = await repo.findUnique("Student", { id: studentId });
+  if (student0 && !(await repo.count("Curriculum", { gradeId: student0.gradeId, isActive: true }))) {
+    const g = await repo.findUnique("Grade", { id: student0.gradeId });
+    return { studentId, grade: num(g?.level), bookTitle: "", edition: null, units: [] };
+  }
   const { student, grade, curriculum, book } = await studentContext(repo, studentId);
   const units = (await repo.findMany("Unit", { curriculumId: curriculum.id, deletedAt: null })).sort((a, b) => num(a.number) - num(b.number));
   const unitIds = units.map((u) => String(u.id));

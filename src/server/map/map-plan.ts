@@ -333,7 +333,18 @@ export function pickBand(pool: PoolQ[], low: number, high: number, size: number,
     const wider = pool.filter((q) => q.rit >= from && q.rit <= to);
     if (wider.length > list.length) list = wider;
   }
-  return { ids: list.sort((a, b) => a.rit - b.rit).map((q) => q.id), from, to };
+  const sorted = list.sort((a, b) => a.rit - b.rit).map((q) => q.id);
+  // 🩹 platform audit (8 Nov 2026, live error log: "Choose at most 1000 questions at a time"): a big band (a whole
+  // area at a widened band) could pass 1000 questions, more than one adaptive set takes — the plan then failed to
+  // send. At most PICK_MAX, spread evenly over the band's RIT range (easy to hard kept).
+  return { ids: spreadCap(sorted), from, to };
+}
+export const PICK_MAX = 900;
+/** At most `max` ids, taken evenly across the list (its order kept). */
+export function spreadCap<T>(list: T[], max = PICK_MAX): T[] {
+  if (list.length <= max) return list;
+  const step = list.length / max;
+  return Array.from({ length: max }, (_x, i) => list[Math.floor(i * step)]);
 }
 
 // ------------------------------------------------------------------ plans

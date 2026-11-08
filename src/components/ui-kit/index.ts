@@ -7,5 +7,6 @@ export { PageHero, HERO_TITLE, type HeroTone } from "./page-hero";
 export { TileGroup } from "./tile-group";
 export { StickyHome } from "./sticky-home";
 export { LangSwitch } from "./lang-switch";
-export { FirstLoginTour, TourButton, TOUR_STEPS, tourStepsFor, type TourStep } from "./first-login-tour";
+export { FirstLoginTour, TourButton } from "./first-login-tour";
+export { TOUR_STEPS, tourStepsFor, type TourStep } from "./tour-steps";
 export { TAG_STYLE, STATUS_STYLE, tagKey, workStatus, BTN, BTN_PRIMARY, BTN_SECONDARY, BTN_ACCENT, CARD, type SourceKey, type TestTypeKey, type TagKey, type WorkStatus } from "./tokens";

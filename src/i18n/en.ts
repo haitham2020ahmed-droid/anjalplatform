@@ -1326,6 +1326,8 @@ export const UI_STRINGS = [
   "Reading: Informational Text",
   "Reading: Foundational Skills",
   "Speaking and Listening",
+  "Biggest caches now",
+  "Entries kept in memory by each cache (they are emptied when not used). A cache that keeps growing is what to look at before a restart.",
 ] as const;
 
 export type UiString = (typeof UI_STRINGS)[number];

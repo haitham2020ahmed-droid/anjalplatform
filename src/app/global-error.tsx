@@ -14,7 +14,17 @@ export default function GlobalError({ error, reset }: { error: Error & { digest?
     console.error(error);
     try { void fetch("/api/client-error", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ message: error.message, digest: error.digest, path: window.location.pathname }) }); } catch { /* offline */ }
   }, [error]);
-  const stale = /Failed to find Server Action|older or newer deployment/i.test(error.message);
+  // 🩹 platform audit (8 Nov 2026, live error log: "Loading chunk … failed" ×33 on /student/learn right after an update):
+  // a page opened before an update asks for files the new version no longer has — reload once, by itself
+  const stale = /Failed to find Server Action|older or newer deployment|Loading chunk|ChunkLoadError|dynamically imported module|Loading CSS chunk/i.test(error.message);
+  useEffect(() => {
+    if (!/Loading chunk|ChunkLoadError|dynamically imported module|Loading CSS chunk/i.test(error.message)) return;
+    try {
+      const key = `chunk-reload:${window.location.pathname}`;
+      const last = Number(sessionStorage.getItem(key) || 0);
+      if (Date.now() - last > 60_000) { sessionStorage.setItem(key, String(Date.now())); window.location.reload(); }
+    } catch { /* storage blocked: the Reload button stays */ }
+  }, [error]);
   const btn = { borderRadius: 12, padding: "10px 20px", fontWeight: 600, fontSize: 16, cursor: "pointer", textDecoration: "none" } as const;
   return (
     <html lang="en">

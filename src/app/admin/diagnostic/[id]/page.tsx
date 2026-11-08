@@ -12,12 +12,21 @@ export const metadata = { title: "Diagnostic Test" };
 const LV = (n: number) => (n <= 3 ? "Approaching" : n === 4 ? "Meeting" : "Exceeding");
 
 /** One grade's test: what it covers, every question (swap any while it is a draft), open / close. */
-export default async function DiagnosticDetail({ params, searchParams }: { params: Promise<{ id: string }>; searchParams: Promise<{ msg?: string }> }) {
+export default async function DiagnosticDetail({ params, searchParams }: { params: Promise<{ id: string }>; searchParams: Promise<{ msg?: string; page?: string; code?: string }> }) {
   const actor = await requireActor({ roles: ["SCHOOL_ADMIN", "SUPER_ADMIN"], permission: "reports:read" });
   const me = (await getActor())!.user;
   const { id } = await params;
   const sp = await searchParams;
-  const v = await diagnosticQuestions(repo, actor, id);
+  const v = await diagnosticQuestions(repo, actor, id, { page: Number(sp.page) || 1, code: sp.code || null });
+  const pageHref = (p: Record<string, string | number | undefined>) => `/admin/diagnostic/${id}?${new URLSearchParams(Object.entries({ code: sp.code, ...p }).filter(([, x]) => x !== undefined && x !== "").map(([k, x]) => [k, String(x)]))}`;
+  const pager = v.pages > 1 || v.codes.length > 1 ? (
+    <div className="mb-3 flex flex-wrap items-center gap-2 text-sm">
+      <form className="flex items-center gap-2"><label className="font-semibold text-slate-700">Skill<select name="code" defaultValue={sp.code ?? ""} className="ms-2 rounded-lg border border-slate-300 px-2 py-1"><option value="">All ({v.codes.length})</option>{v.codes.map((c) => <option key={c} value={c}>{c}</option>)}</select></label><button className="rounded-lg bg-brand-navy px-3 py-1 font-semibold text-white">Show</button></form>
+      <span className="text-slate-500">{v.total} questions · page {v.page} of {v.pages}</span>
+      {v.page > 1 && <Link href={pageHref({ page: v.page - 1 })} className="rounded-lg px-2.5 py-1 font-semibold ring-1 ring-slate-300">‹ Previous</Link>}
+      {v.page < v.pages && <Link href={pageHref({ page: v.page + 1 })} className="rounded-lg px-2.5 py-1 font-semibold ring-1 ring-slate-300">Next ›</Link>}
+    </div>
+  ) : null;
   const t = v.test;
   const draft = t.status === "DRAFT";
   const box = "rounded-xl border border-slate-300 px-3 py-2";
@@ -52,7 +61,8 @@ export default async function DiagnosticDetail({ params, searchParams }: { param
           <p className="mt-2 text-xs text-slate-600">{t.adaptive ? `Score 0–100 against the grade (72.5 = on grade level, each grade above or below = 25 points). Approaching: under ${t.bands.on} (about half a grade below) · Meeting: ${t.bands.on}–${t.bands.above - 1} · Exceeding: ${t.bands.above} and over (about half a grade above).` : `Approaching: under ${t.bands.on}% · Meeting: ${t.bands.on}–${t.bands.above - 1}% · Exceeding: ${t.bands.above}% and over.`} The result sets each student’s starting level everywhere on the platform.</p>
         </Section>
       )}
-      <Section title={t.adaptive ? `Question Pool (${v.questions.length})` : "Questions"} icon="❓" hint={draft ? (t.adaptive ? "Not happy with a question? 🚫 Leave out removes it from the pool; the other questions of its skill take its place." : "Not happy with a question? 🔄 Swap gives another question of the same standard.") : undefined}>
+      <Section title={t.adaptive ? `Question Pool (${v.total})` : "Questions"} icon="❓" hint={draft ? (t.adaptive ? "Not happy with a question? 🚫 Leave out removes it from the pool; the other questions of its skill take its place." : "Not happy with a question? 🔄 Swap gives another question of the same standard.") : undefined}>
+        {pager}
         <ol className="divide-y divide-slate-100">
           {v.questions.map((q) => (
             <li key={q.id} className="flex flex-wrap items-start gap-3 py-2.5 text-sm">

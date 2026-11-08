@@ -25,7 +25,7 @@ import { isReportShared } from "../insights/parent-report";
 import { audit } from "../audit";
 import { newRowId, sendPartsBatch } from "../plans/batch-send";
 import { bandOf, seasonOf, CLASS_BAND_RIT, percentileFromNorm, type Season } from "./rit";
-import { groupOf, groupPools, GROUPS, mapProfiles, type GroupKey, type MapProfile, type Subject, type Descriptor } from "./map-plan";
+import { groupOf, groupPools, GROUPS, mapProfiles, spreadCap, type GroupKey, type MapProfile, type Subject, type Descriptor } from "./map-plan";
 import { mapCache, MAP_KEEP_MS } from "./map-cache";
 import { contModels, continuumFor, continuumIndex, groupOfGoal, hasContinuum, skillsFor, type ContinuumIndex, type ContinuumView, type Stage } from "./continuum";
 import { buildRanges, skillPlan, type PlanRange } from "./skill-plan";
@@ -735,7 +735,7 @@ export async function assignGroupSkills(repo: Repo, actor: Actor, input: { class
   for (let w = 0; w < 4 && qs.length < 8; w++) { lo -= 10; hi += 10; qs = pool.filter((q) => q.rit >= lo && q.rit <= hi); }
   if (qs.length < 3) qs = pool;
   if (qs.length < 3) throw new ValidationError("Not enough questions for these skills yet (3 or more needed).");
-  const a = await assignQuestions(repo, actor, { classId: input.classId, studentIds, questionIds: qs.map((q) => q.id), title: input.title ?? `MAP group · ${groupOf(input.group).name} · RIT ${input.low}–${input.high}`, exactTitle: true, track: "MAP", adaptive: { maxQuestions: Math.max(5, Math.min(input.count ?? 15, qs.length)) }, dueAt: input.dueAt ?? null, startAt: input.startAt ?? null, source }, now);
+  const a = await assignQuestions(repo, actor, { classId: input.classId, studentIds, questionIds: spreadCap(qs.map((q) => q.id)), title: input.title ?? `MAP group · ${groupOf(input.group).name} · RIT ${input.low}–${input.high}`, exactTitle: true, track: "MAP", adaptive: { maxQuestions: Math.max(5, Math.min(input.count ?? 15, qs.length)) }, dueAt: input.dueAt ?? null, startAt: input.startAt ?? null, source }, now);
   return { assignmentId: a.assignmentId, questions: qs.length, students: studentIds.length };
 }
 

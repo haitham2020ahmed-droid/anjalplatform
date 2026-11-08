@@ -66,6 +66,10 @@ export default async function StudentPage({ params, searchParams }: { params: Pr
   const classId = member ? String(member.classId) : null;
   // ✍️ graded writing (rubric score %) + the language profile, mistakes, class comparison and follow-up (one read each)
   // 🧠 effort (r67, teacher-only): answers given with care in the last 30 days; Unreliable sessions (> 20 % guesses)
+  // ⚡ platform audit (8 Nov 2026, live: 17–22 s): the skills-by-source report waited for all the others before it
+  // started — it now runs with them (its period needs only the calendar)
+  const EMPTY_BY_SOURCE = { studentId, groups: [], summary: { totalSkills: 0, avgMastery: null, mastered: 0, developing: 0, needsSupport: 0, up: 0, down: 0, flat: 0 } };
+  const bySourceP = loadCalendar(repo, String(actor.schoolId)).then((cal) => bySourceReport(repo, actor, studentId, resolvePeriod("SCHOOL_YEAR", cal))).catch(() => EMPTY_BY_SOURCE);
   const [writing, ins, comments, notes, quick, effort] = await Promise.all([
     classId ? writingResults(repo, actor, classId, { studentId, limit: 20 }).catch(() => null) : Promise.resolve(null),
     // r87: this was the one call in this Promise.all with no fallback — any edge case in it (mistake detection,
@@ -77,9 +81,7 @@ export default async function StudentPage({ params, searchParams }: { params: Pr
     studentEffortAll(repo, studentId).catch(() => null), // reports audit: the same effort as Practice and time
   ]);
   // 🗒️ skills by source (new School Reports work): this student's school year, same period as the rest of the page
-  const period = resolvePeriod("SCHOOL_YEAR", await loadCalendar(repo, String(actor.schoolId)));
-  const EMPTY_BY_SOURCE = { studentId, groups: [], summary: { totalSkills: 0, avgMastery: null, mastered: 0, developing: 0, needsSupport: 0, up: 0, down: 0, flat: 0 } };
-  const bySource = await bySourceReport(repo, actor, studentId, period).catch(() => EMPTY_BY_SOURCE);
+  const bySource = await bySourceP;
   const myWriting = writing ? writing.tasks.filter((k) => writing.rows[0]?.pct[k.id] !== undefined).map((k) => ({ ...k, pct: writing.rows[0].pct[k.id] })) : [];
   // ⭐ the same stars as Student Skills, one per skill KEY: ⭐ mastered · needs work = 🔄 Needs review first, then ◐
   // (needing support first, then the lowest star score)

@@ -29,7 +29,9 @@ const PRIMARY_ACTION: Record<AlertKind, InsightAction> = {
  * Needs Help" page, which redirects here). Every alert has the action buttons: Create plan · Small group · Re-teach ·
  * Contact parent · Send a Learn lesson.
  */
-export default async function AlertsPage({ searchParams }: { searchParams: Promise<{ status?: string; classId?: string; kind?: string; msg?: string; view?: string; flag?: string }> }) {
+const ALERT_PAGE = 40;
+
+export default async function AlertsPage({ searchParams }: { searchParams: Promise<{ status?: string; classId?: string; kind?: string; msg?: string; view?: string; flag?: string; limit?: string }> }) {
   const actor = await requireActor({ roles: ["TEACHER", "SCHOOL_ADMIN", "SUPER_ADMIN"], permission: "reports:read" });
   const me = (await getActor())!.user;
   const sp = await searchParams;
@@ -38,6 +40,9 @@ export default async function AlertsPage({ searchParams }: { searchParams: Promi
   const status = sp.status === "HANDLED" ? "HANDLED" : sp.status === "ALL" ? "ALL" : "OPEN";
   const [rows, classes] = await Promise.all([flags ? Promise.resolve([] as AlertRow[]) : alertList(repo, actor, { status, classId: sp.classId || null, kind: sp.kind || null }), readableClasses(repo, actor)]);
   const isAdmin = actor.role !== "TEACHER";
+  // 🩹 platform audit (8 Nov 2026, live): an admin's list of every class was ~3 MB of HTML (each alert has its forms) —
+  // the newest ALERT_PAGE first, "Show more" for the rest (the counts above still cover every alert)
+  const shownN = Math.max(ALERT_PAGE, Math.min(2000, Number(sp.limit) || ALERT_PAGE));
   const link = (p: Record<string, string>) => `/teacher/alerts?${new URLSearchParams({ status, classId: sp.classId ?? "", kind: sp.kind ?? "", ...p })}`;
   const chip = (on: boolean) => `rounded-full px-3 py-1 text-sm font-semibold ${on ? "bg-brand-navy text-white" : "bg-white ring-1 ring-slate-200 hover:ring-brand-teal"}`;
   const old = rows.filter((r) => r.status === "OPEN" && r.ageDays >= 7).length;
@@ -74,7 +79,7 @@ export default async function AlertsPage({ searchParams }: { searchParams: Promi
       </div>
       {!rows.length ? <p className="mt-5 rounded-2xl bg-white p-6 text-slate-600 ring-1 ring-slate-200">{status === "OPEN" ? "✅ No student needs attention right now." : "Nothing here."}</p> : (
         <ul className="mt-5 space-y-3">
-          {rows.map((r) => (
+          {rows.slice(0, shownN).map((r) => (
             <li key={r.id} className={`rounded-2xl bg-white p-4 ring-1 ${r.status === "HANDLED" ? "ring-emerald-200" : r.ageDays >= 7 ? "ring-red-300" : "ring-slate-200"}`}>
               <div className="flex flex-wrap items-start justify-between gap-2">
                 <div>
@@ -98,6 +103,7 @@ export default async function AlertsPage({ searchParams }: { searchParams: Promi
           ))}
         </ul>
       )}
+      {rows.length > shownN && <p className="mt-4 text-center print:hidden"><Link href={link({ limit: String(shownN + ALERT_PAGE) })} className="rounded-xl bg-white px-4 py-2 font-semibold text-brand-navy ring-1 ring-slate-300 hover:ring-brand-teal">Show more ({rows.length - shownN})</Link></p>}
       </>}
       <datalist id="quick-actions">{QUICK.map((q) => <option key={q} value={q} />)}</datalist>
     </AppShell>

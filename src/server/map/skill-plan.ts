@@ -15,7 +15,7 @@ import { assertClassRead } from "../teacher/coordinators";
 import { assignQuestions } from "../teacher/assign";
 import { classMembers, studentNames } from "../insights/student-data";
 import { ensureNationalNorms, nationalNorm } from "./rit";
-import { groupOf, groupPools, GROUPS, mapProfiles, type GroupKey, type Subject } from "./map-plan";
+import { groupOf, groupPools, GROUPS, mapProfiles, spreadCap, type GroupKey, type Subject } from "./map-plan";
 
 const s = (v: unknown) => String(v ?? "");
 /** Cut points as fractions of a standard deviation around the grade's Fall mean (Grade 6: 209 ± 17 → 198 · 205 · 211 · 215 · 219). */
@@ -145,7 +145,7 @@ export async function assignRange(repo: Repo, actor: Actor, input: { classId: st
   }
   if (qs.length < 3) throw new ValidationError("Not enough questions for these skills yet (3 or more needed): tick more skills or add questions.");
   const g = groupOf(input.group);
-  const a = await assignQuestions(repo, actor, { classId: input.classId, studentIds, questionIds: qs, title: `MAP skills · ${g.name} · RIT ${ranges[input.range].label}`, exactTitle: true, track: "MAP", adaptive: { maxQuestions: Math.max(5, Math.min(input.count ?? 15, qs.length)) }, dueAt: input.dueAt ?? null, source }, now);
+  const a = await assignQuestions(repo, actor, { classId: input.classId, studentIds, questionIds: spreadCap(qs), title: `MAP skills · ${g.name} · RIT ${ranges[input.range].label}`, exactTitle: true, track: "MAP", adaptive: { maxQuestions: Math.max(5, Math.min(input.count ?? 15, qs.length)) }, dueAt: input.dueAt ?? null, source }, now);
   return { assignmentId: a.assignmentId, questions: qs.length, students: studentIds.length };
 }
 

@@ -601,7 +601,25 @@ export async function listDiagnostics(repo: Repo, actor: Actor): Promise<Diagnos
 
 export interface ReviewQuestion { id: string; n: number; stem: string; area: Area; level: number; type: string; d?: number; g?: number }
 /** The questions of the test for the admin to review, with their standard and level. */
-export async function diagnosticQuestions(repo: Repo, actor: Actor, id: string): Promise<{ test: DiagnosticSummary; questions: ReviewQuestion[]; byStrand: { strand: Strand; n: number }[]; byStandard: { code: string; label: string; n: number }[]; slots?: { code: string; label: string; strand: Strand; slots: number; easier: number; on: number; harder: number }[] }> {
+/** 🩹 Platform audit (8 Nov 2026, live): the adaptive pool of a grade is thousands of questions — the page sent all of them
+ * (23 MB of HTML, 70 s, and the server ran out of memory). Now one page of the list at a time (filter by skill code),
+ * lookups by Map instead of find() in a loop, and stems read only for the questions shown. */
+export const DIAG_PAGE = 100;
+/** Rows by id, read in chunks of 500 (a pool can be thousands of questions). */
+async function findIn(repo: Repo, ids: string[], select: string[]): Promise<Map<string, Row>> {
+  const out = new Map<string, Row>();
+  for (let i = 0; i < ids.length; i += 500) for (const r of await repo.findMany("Question", { id: { in: ids.slice(i, i + 500) } }, { select })) out.set(s(r.id), r);
+  return out;
+}
+/** One page of the list (optionally one skill code), and every code for the filter. */
+export function pageOf<T extends { area: { code: string } }>(all: T[], opts: { page?: number; code?: string | null }): { items: T[]; total: number; page: number; pages: number; codes: string[] } {
+  const codes = [...new Set(all.map((q) => q.area.code))].sort((a, b) => a.localeCompare(b, undefined, { numeric: true }));
+  const list = opts.code ? all.filter((q) => q.area.code === opts.code) : all;
+  const pages = Math.max(1, Math.ceil(list.length / DIAG_PAGE));
+  const page = Math.min(pages, Math.max(1, Math.floor(Number(opts.page) || 1)));
+  return { items: list.slice((page - 1) * DIAG_PAGE, page * DIAG_PAGE), total: list.length, page, pages, codes };
+}
+export async function diagnosticQuestions(repo: Repo, actor: Actor, id: string, opts: { page?: number; code?: string | null } = {}): Promise<{ total: number; page: number; pages: number; codes: string[]; test: DiagnosticSummary; questions: ReviewQuestion[]; byStrand: { strand: Strand; n: number }[]; byStandard: { code: string; label: string; n: number }[]; slots?: { code: string; label: string; strand: Strand; slots: number; easier: number; on: number; harder: number }[] }> {
   assertCan(actor, "reports:read");
   const t = await testRow(repo, actor, id);
   const test = (await listDiagnostics(repo, actor)).find((x) => x.id === id)!;
@@ -609,28 +627,33 @@ export async function diagnosticQuestions(repo: Repo, actor: Actor, id: string):
   if (ds) {
     // adaptive: the 50 skill slots and the pool each slot adapts over (easier / on / harder than the grade)
     const grade = Number(t.grade);
-    const qs = await repo.findMany("Question", { id: { in: ds.items.map((q) => q.id) } }, { select: ["id", "stem", "typeId"] });
     const types = await repo.findMany("QuestionType", {}, { select: ["id", "name"] });
-    const areaOf = (a: string) => areaOfStandard(codeFor(a, grade)) ?? areaOfCategory("READING", grade);
-    const questions = ds.items.map((q, i) => { const r = qs.find((x) => x.id === q.id); return { id: q.id, n: i + 1, stem: s(r?.stem).replace(/\s+/g, " ").slice(0, 160), area: areaOf(q.a), level: q.d < grade - 0.4 ? 3 : q.d > grade + 0.4 ? 5 : 4, type: s(types.find((x) => x.id === r?.typeId)?.name ?? ""), d: q.d, g: q.g }; })
+    const typeName = new Map(types.map((x) => [s(x.id), s(x.name)]));
+    const areaCache = new Map<string, Area>();
+    const areaOf = (a: string) => { let v = areaCache.get(a); if (!v) { v = areaOfStandard(codeFor(a, grade)) ?? areaOfCategory("READING", grade); areaCache.set(a, v); } return v; };
+    const all = ds.items.map((q, i) => ({ id: q.id, n: i + 1, stem: "", area: areaOf(q.a), level: q.d < grade - 0.4 ? 3 : q.d > grade + 0.4 ? 5 : 4, type: "", d: q.d, g: q.g, typeId: "" }))
       .sort((a, b) => a.area.code.localeCompare(b.area.code, undefined, { numeric: true }) || a.d - b.d);
+    const pg = pageOf(all, opts);
+    const qs = await findIn(repo, pg.items.map((q) => q.id), ["id", "stem", "typeId"]);
+    const questions = pg.items.map(({ typeId: _t, ...q }) => { const r = qs.get(q.id); return { ...q, stem: s(r?.stem).replace(/\s+/g, " ").slice(0, 160), type: typeName.get(s(r?.typeId)) ?? "" }; });
     const slotN = new Map<string, number>(); for (const a of ds.blueprint) slotN.set(a, (slotN.get(a) ?? 0) + 1);
     const strandCount = new Map<Strand, number>(); for (const a of ds.blueprint) strandCount.set(strandOfAnchor(a), (strandCount.get(strandOfAnchor(a)) ?? 0) + 1);
     const slots = [...slotN].map(([a, n]) => { const mine = ds.items.filter((q) => q.a === a); return { code: codeFor(a, grade), label: areaOf(a).label, strand: strandOfAnchor(a), slots: n, easier: mine.filter((q) => q.d < grade - 0.4).length, on: mine.filter((q) => Math.abs(q.d - grade) <= 0.4).length, harder: mine.filter((q) => q.d > grade + 0.4).length }; });
-    return { test, questions, byStrand: [...strandCount].map(([strand, n]) => ({ strand, n })), byStandard: slots.map((x) => ({ code: x.code, label: x.label, n: x.slots })), slots };
+    return { test, questions, total: pg.total, page: pg.page, pages: pg.pages, codes: pg.codes, byStrand: [...strandCount].map(([strand, n]) => ({ strand, n })), byStandard: slots.map((x) => ({ code: x.code, label: x.label, n: x.slots })), slots };
   }
   const rows = (await repo.findMany("AssessmentQuestion", { assessmentId: t.assessmentId })).sort((a, b) => Number(a.order) - Number(b.order));
   const pool = new Map((await diagnosticPool(repo, s(t.schoolId), Number(t.grade))).map((p) => [p.id, p]));
-  const qs = rows.length ? await repo.findMany("Question", { id: { in: rows.map((r) => s(r.questionId)) } }, { select: ["id", "stem", "typeId", "difficultyLevel"] }) : [];
+  const qs = await findIn(repo, rows.map((r) => s(r.questionId)), ["id", "stem", "typeId", "difficultyLevel"]);
   const types = await repo.findMany("QuestionType", {}, { select: ["id", "name", "code"] });
-  const questions = rows.map((r, i) => {
-    const q = qs.find((x) => x.id === r.questionId);
+  const allQ = rows.map((r, i) => {
+    const q = qs.get(s(r.questionId));
     const p = pool.get(s(r.questionId));
     return { id: s(r.questionId), n: i + 1, stem: s(q?.stem).replace(/\s+/g, " ").slice(0, 160), area: p?.area ?? areaOfCategory("READING", Number(t.grade)), level: Number(q?.difficultyLevel ?? 4), type: s(types.find((x) => x.id === q?.typeId)?.name ?? "") };
   });
   const strandCount = new Map<Strand, number>(); const stdCount = new Map<string, { label: string; n: number }>();
-  for (const q of questions) { strandCount.set(q.area.strand, (strandCount.get(q.area.strand) ?? 0) + 1); const x = stdCount.get(q.area.code) ?? { label: q.area.label, n: 0 }; x.n++; stdCount.set(q.area.code, x); }
-  return { test, questions, byStrand: [...strandCount].map(([strand, n]) => ({ strand, n })), byStandard: [...stdCount].map(([code, v]) => ({ code, ...v })).sort((a, b) => a.code.localeCompare(b.code)) };
+  for (const q of allQ) { strandCount.set(q.area.strand, (strandCount.get(q.area.strand) ?? 0) + 1); const x = stdCount.get(q.area.code) ?? { label: q.area.label, n: 0 }; x.n++; stdCount.set(q.area.code, x); }
+  const pg = pageOf(allQ, opts);
+  return { test, questions: pg.items, total: pg.total, page: pg.page, pages: pg.pages, codes: pg.codes, byStrand: [...strandCount].map(([strand, n]) => ({ strand, n })), byStandard: [...stdCount].map(([code, v]) => ({ code, ...v })).sort((a, b) => a.code.localeCompare(b.code)) };
 }
 
 /** The open Diagnostic of the student's grade: their assignment (added if they joined late) and whether they finished. */
