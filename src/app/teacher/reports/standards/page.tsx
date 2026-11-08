@@ -5,6 +5,8 @@ import { getT } from "@/i18n/server";
 import { getActor, repo, requireActor } from "@/server/auth/next";
 import { readableClasses } from "@/server/teacher/coordinators";
 import { standardsReport, type StdBand, type StdRow } from "@/server/reports/standards-report";
+import { mapStandardsView, standardCode, standardDescriptions } from "@/server/map/map-standards";
+import { MapStandardsSection } from "./map-section";
 
 export const metadata = { title: "Standards (CCSS)" };
 
@@ -30,24 +32,40 @@ function Bar({ r, total, t }: { r: StdRow; total: number; t: (s: string, v?: Rec
  * the class's progress on it from the skill stars (green ≥ 80 %, yellow 60–79 %, red under 60 %, grey not started),
  * grouped by strand. A standard opens its skills and the students who still need it, with Assign.
  */
-export default async function StandardsPage({ searchParams }: { searchParams: Promise<{ classId?: string; standard?: string }> }) {
+export default async function StandardsPage({ searchParams }: { searchParams: Promise<{ classId?: string; standard?: string; source?: string; std?: string; msg?: string }> }) {
   const actor = await requireActor({ roles: ["TEACHER", "SCHOOL_ADMIN", "SUPER_ADMIN"], permission: "reports:read" });
   const me = (await getActor())!.user;
   const sp = await searchParams;
   const { t } = await getT();
   const classes = (await readableClasses(repo, actor)).sort((a, b) => String(a.name).localeCompare(String(b.name)));
   const klass = classes.find((c) => String(c.id) === sp.classId) ?? classes[0];
-  const v = klass ? await standardsReport(repo, actor, String(klass.id), sp.standard ?? null) : null;
+  const isMap = sp.source === "map";
+  const v = klass ? await standardsReport(repo, actor, String(klass.id), isMap ? null : sp.standard ?? null) : null;
+  // 📐 MAP (NWEA) view: the "likely proficient" table uploaded for this class, beside the skill stars
+  const mapV = klass && isMap ? await mapStandardsView(repo, actor, String(klass.id)) : null;
+  const mapDesc = mapV ? await standardDescriptions(repo, mapV.rows.map((r) => r.code)) : new Map<string, string>();
+  const skillsByCode = new Map((v?.rows ?? []).map((r) => [standardCode(r.code) ?? r.code, r.skills.map((k) => ({ skillId: k.skillId, name: k.name }))]));
+  const canUpload = actor.role !== "SUPER_ADMIN" || !!actor.schoolId;
   const href = (p: Record<string, string | undefined>) => `/teacher/reports/standards?${new URLSearchParams(Object.entries({ classId: v?.classId, standard: sp.standard, ...p }).filter(([, x]) => x) as [string, string][])}`;
+  const srcTabs = klass ? (
+    <div className="mb-4 flex flex-wrap gap-2 print:hidden" role="tablist">
+      <Link prefetch={false} href={`/teacher/reports/standards?${new URLSearchParams({ classId: String(klass.id) })}`} className={`rounded-full px-3 py-1.5 text-sm font-semibold ${!isMap ? "bg-brand-teal text-white" : "bg-white ring-1 ring-slate-300 hover:ring-brand-teal"}`}>⭐ {t("From the skill stars")}</Link>
+      <Link prefetch={false} href={`/teacher/reports/standards?${new URLSearchParams({ classId: String(klass.id), source: "map" })}`} className={`rounded-full px-3 py-1.5 text-sm font-semibold ${isMap ? "bg-brand-teal text-white" : "bg-white ring-1 ring-slate-300 hover:ring-brand-teal"}`}>🧭 {t("From MAP (NWEA)")}</Link>
+    </div>
+  ) : null;
   const chip = (on: boolean) => `rounded-full px-3 py-1.5 text-sm font-semibold ${on ? "bg-brand-navy text-white" : "bg-white ring-1 ring-slate-300 hover:ring-brand-teal"}`;
   const strands = v ? [...new Set(v.rows.map((r) => r.strand))] : [];
   const sum = (b: StdBand) => (v ? v.rows.filter((r) => r.pctMet !== null && (b === "MET" ? r.pctMet >= 80 : b === "NEAR" ? r.pctMet >= 60 && r.pctMet < 80 : r.pctMet < 60)).length : 0);
   return (
     <AppShell name={String(me.displayName)}>
       <ReportHeader back={{ href: "/teacher/reports", label: "Reports" }} icon="📐" title="Standards (CCSS)" who={klass ? <bdi>{String(klass.name)}</bdi> : undefined}
-        subtitle="How far the class is on each Common Core standard, from the skill stars."
-        filters={classes.length > 1 ? <div className="flex flex-wrap gap-2">{classes.map((c) => <Link key={String(c.id)} prefetch={false} href={`/teacher/reports/standards?${new URLSearchParams({ classId: String(c.id) })}`} className={chip(String(c.id) === String(klass?.id))}>{String(c.name)}</Link>)}</div> : undefined} />
-      {!v ? <EmptyState icon="🏫" title="You do not teach any class yet." /> : !v.rows.length ? <EmptyState icon="📐" title="No standards are linked to this grade's skills yet." /> : (
+        subtitle={isMap ? "Each Common Core standard from the class's MAP test: who is likely proficient (NWEA)." : "How far the class is on each Common Core standard, from the skill stars."}
+        filters={classes.length > 1 ? <div className="flex flex-wrap gap-2">{classes.map((c) => <Link key={String(c.id)} prefetch={false} href={`/teacher/reports/standards?${new URLSearchParams({ classId: String(c.id), ...(isMap ? { source: "map" } : {}) })}`} className={chip(String(c.id) === String(klass?.id))}>{String(c.name)}</Link>)}</div> : undefined} />
+      {srcTabs}
+      {sp.msg && <p className="mb-4 rounded-xl bg-slate-50 px-4 py-2 text-sm text-slate-800 ring-1 ring-slate-200" role="status">{sp.msg}</p>}
+      {!v ? <EmptyState icon="🏫" title="You do not teach any class yet." /> : isMap ? (
+        <MapStandardsSection classId={v.classId} view={mapV} desc={Object.fromEntries(mapDesc)} skills={Object.fromEntries(skillsByCode)} open={sp.std ?? null} canUpload={canUpload} canAssign={actor.role === "TEACHER"} />
+      ) : !v.rows.length ? <EmptyState icon="📐" title="No standards are linked to this grade's skills yet." /> : (
         <>
           <AtAGlance items={[
             { icon: "📐", label: "Standards", value: v.rows.length, meaning: t("Grade {g}", { g: v.grade }) },
