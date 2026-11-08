@@ -241,10 +241,18 @@ export async function sendCheck(repo: Repo, actor: Actor, classId: string, subje
 
 // ------------------------------------------------------------------ question bank ↔ MAP goal areas
 
-/** CCSS code → the platform's MAP goal area (NWEA's own alignment of the reading/language strands). */
+/** CCSS code → the platform's MAP goal area (NWEA's own alignment of the reading/language strands).
+ *  🩹 Nov 2026 fix ("MAP plan not showing for Grades 9–12"): every Grades 9–12 CCSS ELA code is written as a grade
+ *  BAND ("RL.9-10.2", "L.11-12.1"), never a single grade number — the old regex only accepted one number here, so
+ *  it silently rejected every Grade 9–12 standard. linkByStandard() (map-plan.ts) uses this function to grow each
+ *  MAP goal area's question pool from the Question Bank's own standards; with every high-school standard rejected,
+ *  those pools stayed limited to whatever an admin had linked by hand — too thin for pickBand to fill a plan item,
+ *  which is exactly why a Grade 9–12 student's plan area stayed stuck without enough questions to send. The grade
+ *  part itself was never actually used below (only the strand and the sub-standard number, `n`, decide the area),
+ *  so accepting the band costs nothing — it only had to stop being rejected by the pattern. */
 export function areaForStandard(code: string): string | null {
   const c = code.replace(/^CCSS\.ELA-LITERACY\./i, "").toUpperCase();
-  const m = c.match(/^(RL|RI|RF|L|W|SL)\.(K|\d{1,2})\.(\d{1,2})/);
+  const m = c.match(/^(RL|RI|RF|L|W|SL)\.(K|\d{1,2}(?:[-–—]\d{1,2})?)\.(\d{1,2})/);
   if (!m) return null;
   const n = Number(m[3]);
   switch (m[1]) {

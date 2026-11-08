@@ -53,15 +53,29 @@ export function testFromName(raw: string | null | undefined): MapTest | null {
 
 // ------------------------------------------------------------------ CCSS codes
 
-export interface Ccss { strand: "RL" | "RI" | "RF" | "L" | "W" | "SL"; grade: number; n: number; sub: string }
-/** “CCSS.ELA-LITERACY.RL.4.2”, “rl 4.2”, “RL4.2”, “L.5.1.a” … → the code (null when it is not a CCSS ELA code). */
+export interface Ccss { strand: "RL" | "RI" | "RF" | "L" | "W" | "SL"; grade: number; /** 🩹 Nov 2026: set when the code is a high-school grade BAND ("9-10", "11-12" — every Grades 9–12 CCSS ELA
+ *  code is written this way, never a single grade number); `grade` holds the band's lower number. */ bandHigh?: number; n: number; sub: string }
+/** “CCSS.ELA-LITERACY.RL.4.2”, “rl 4.2”, “RL4.2”, “L.5.1.a”, “RL.9-10.2”, “L.11-12.1” … → the code (null when it is
+ *  not a CCSS ELA code).
+ *  🩹 Nov 2026 fix ("MAP plan not showing for Grades 9–12"): the grade-band form used by EVERY Grades 9–12 CCSS ELA
+ *  code ("9-10", "11-12") used to be destroyed before the regex even ran — the generic "turn any dash into a dot"
+ *  cleanup (meant for a code written "RL-4-2") also hit the band's own hyphen, so "RL.9-10.2" became "RL.9.10.2",
+ *  which never matches the regex below. Every Grade 9–12 standard then failed to parse at all, so `classifyQuestion`
+ *  fell through to the weaker category/wording guesses for every high-school question, and `areaForStandard` in
+ *  map-plan.ts/map-more.ts (which linkByStandard uses to grow the MAP question pools) could never place a single
+ *  Grade 9–12 question by its standard — the pool for those grades stayed limited to whatever an admin had linked
+ *  by hand, which is exactly the "a plan area has too few questions to send" symptom reported for Grade 9–12
+ *  students. The band form is now recognized FIRST, before the dash-to-dot cleanup runs, so it's never destroyed. */
 export function parseCcss(raw: string | null | undefined): Ccss | null {
-  const t = String(raw ?? "").toUpperCase().replace(/^CCSS[.\s-]*ELA[-\s]*LITERACY[.\s]*/, "").replace(/\s+/g, "").replace(/[–—-]/g, ".");
+  const base = String(raw ?? "").toUpperCase().replace(/^CCSS[.\s-]*ELA[-\s]*LITERACY[.\s]*/, "").replace(/\s+/g, "");
+  const band = base.match(/^(RL|RI|RF|L|W|SL)[.\s]?(\d{1,2})[-–—](\d{1,2})[.\s]?(\d{1,2})(?:[.\s]?([A-H]))?$/);
+  if (band) return { strand: band[1] as Ccss["strand"], grade: Number(band[2]), bandHigh: Number(band[3]), n: Number(band[4]), sub: (band[5] ?? "").toLowerCase() };
+  const t = base.replace(/[–—-]/g, ".");
   const m = t.match(/^(RL|RI|RF|L|W|SL)\.?(\d{1,2})\.(\d{1,2})(?:\.?([A-H]))?$/);
   if (!m) return null;
   return { strand: m[1] as Ccss["strand"], grade: Number(m[2]), n: Number(m[3]), sub: (m[4] ?? "").toLowerCase() };
 }
-export const ccssCode = (c: Ccss) => `${c.strand}.${c.grade}.${c.n}${c.sub ? `.${c.sub}` : ""}`;
+export const ccssCode = (c: Ccss) => `${c.strand}.${c.grade}${c.bandHigh !== undefined ? `-${c.bandHigh}` : ""}.${c.n}${c.sub ? `.${c.sub}` : ""}`;
 /** Does the standard exist at that grade? (Grades 3–8 of the CCSS ELA.) */
 export function ccssExists(c: Ccss): boolean {
   if (c.grade < 1 || c.grade > 12) return false;
@@ -200,9 +214,10 @@ export interface ClassifyInput {
 export interface StandardChange { from: string | null; to: string; reason: string; sure: boolean }
 export interface Classified { test: MapTest | null; area: AreaKey | null; name: string | null; source: AreaSource | null; standard: StandardChange | null; note: string | null }
 
-/** Same strand and number at the question's grade, when that standard exists there. */
+/** Same strand and number at the question's grade, when that standard exists there. Moving to one specific grade
+ *  always clears any band (a single grade is no longer a range). */
 function atGrade(c: Ccss, grade: number): Ccss | null {
-  const x = { ...c, grade };
+  const x: Ccss = { ...c, grade, bandHigh: undefined };
   return ccssExists(x) ? x : null;
 }
 
@@ -226,7 +241,9 @@ export function classifyQuestion(q: ClassifyInput): Classified {
   let std = own;
   if (q.standard && String(q.standard).trim()) {
     if (!own) fix = null;   // not a CCSS code at all (e.g. a school objective): left alone, the rest decides
-    else if (g && own.grade !== g) {
+    // 🩹 Nov 2026: a question whose grade falls inside the standard's own band ("11-12" and a Grade 12 question) is
+    // not "the wrong grade" — only a grade genuinely outside the band triggers the "moved" correction below.
+    else if (g && own.grade !== g && !(own.bandHigh !== undefined && g >= own.grade && g <= own.bandHigh)) {
       const moved = atGrade(own, g);
       if (moved) { fix = { from: String(q.standard), to: ccssCode(moved), reason: `Grade ${own.grade} standard on a Grade ${g} question`, sure: true }; std = moved; }
     } else if (!ccssExists(own)) {
