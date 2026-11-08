@@ -76,15 +76,15 @@
       "nafs": "NAFS.V.FORMS",
       "pirls": "P1",
       "type": "MCQ",
-      "stem": "Which plural noun from the story does NOT follow the normal -s or -es pattern?",
+      "stem": "Which plural noun from the story does NOT simply add -s or -es to its singular form?",
       "options": [
-        "girls in the story",
-        "trays on the table",
-        "stems of the flowers",
-        "None of the above"
+        "girls",
+        "trays",
+        "shelves",
+        "stems"
       ],
-      "answer": "D",
-      "why": "“Girls”, “trays” and “stems” all simply add -s, so none of them is irregular."
+      "answer": "C",
+      "why": "“Shelves” comes from “shelf”: the f changes to v before -es. “Girls”, “trays” and “stems” just add -s."
     },
     {
       "n": 6,

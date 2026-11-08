@@ -42,10 +42,13 @@ const d = (v: unknown): Date | null => (v === null || v === undefined || v === "
 const iso = (v: unknown) => d(v)?.toISOString() ?? null;
 
 export const DEFAULT_PRACTICE_QUESTIONS = 20;
-export const MAX_PRACTICE_QUESTIONS = 60;
+/** Audit 8 Nov 2026: 80 (was 60) so all 13 standards × 5 answers (mastery needs 5 answers on a skill) fit in one practice. */
+export const MAX_PRACTICE_QUESTIONS = 80;
 export const MAX_TARGETS = 13;
 /** Mastery: RIGHT of the last WINDOW answers right, with at least HARDER of those right answers at Medium or Hard. */
 export const MASTERY = { WINDOW: 5, RIGHT: 4, HARDER: 2 } as const;
+/** Audit 8 Nov 2026: the questions a practice needs so every chosen skill CAN be mastered (5 answers each). */
+export const questionsForMastery = (targets: number): number => Math.max(1, targets) * MASTERY.WINDOW;
 export const START_LEVEL: Difficulty = 2;
 export const RECENT_DAYS = 30;
 /** One answer counts at most this long towards the time spent (a left-open tab is not practice time). */
@@ -190,7 +193,7 @@ export async function practicePool(repo: Repo, schoolId: string, p: { targets: s
 }
 
 /** "Give adaptive practice": a Grade 6 class or chosen students of it. Students find it in their NAFS icon. */
-export async function createNafsPractice(repo: Repo, actor: Actor, input: PracticeInput, now = new Date()): Promise<{ id: string; students: number }> {
+export async function createNafsPractice(repo: Repo, actor: Actor, input: PracticeInput, now = new Date()): Promise<{ id: string; students: number; targets: number; maxQuestions: number }> {
   await assertNafs(repo, actor);
   const schoolId = schoolOf(actor);
   const title = s(input.title).replace(/\s+/g, " ").trim().slice(0, 150);
@@ -237,7 +240,7 @@ export async function createNafsPractice(repo: Repo, actor: Actor, input: Practi
   const st = who.length ? await repo.findMany("Student", { id: { in: who } }, { select: ["userId"] }) : [];
   if (st.length) await repo.createMany("Notification", st.map((x) => ({ userId: x.userId, type: "NEW_ASSIGNMENT", title: "New NAFS practice", body: `${title}.${dueAt ? ` Due ${dueAt.toISOString().slice(0, 10)}.` : ""}`, link: "/student/nafs?part=practice", createdAt: now })));
   await audit(repo, { actorId: actor.userId, action: "nafs.practice.create", entityType: "NafsPractice", entityId: s(p.id), after: { targets, questions: questionIds?.length ?? null, classId: klass.id, students: who.length, difficulty: mix ?? "ADAPTIVE" }, at: now });
-  return { id: s(p.id), students: who.length };
+  return { id: s(p.id), students: who.length, targets: targets.length, maxQuestions: maxQuestions ?? DEFAULT_PRACTICE_QUESTIONS };
 }
 
 async function ownPractice(repo: Repo, actor: Actor, id: string, edit = false): Promise<Row> {

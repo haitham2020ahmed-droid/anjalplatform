@@ -554,15 +554,15 @@
       "nafs": "NAFS.IAE.EVAL",
       "pirls": "P3",
       "type": "MCQ",
-      "stem": "How can a school help to save water, using ideas from the text?",
+      "stem": "Which idea from the text could a school use to help save water?",
       "options": [
-        "Put up signs reminding students to turn off taps.",
-        "Repair leaking taps promptly.",
-        "Water the school garden in the evening.",
-        "All of the above"
+        "Leave taps running so the pipes stay clean.",
+        "Repair dripping taps promptly.",
+        "Water the school garden at midday, when it is hottest.",
+        "Wash the playground with a hose every day."
       ],
-      "answer": "D",
-      "why": "All three ideas match the advice in paragraph 5."
+      "answer": "B",
+      "why": "Paragraph 5 advises repairing dripping taps promptly; the other ideas waste water, and the text says to water plants in the morning or evening, not in the midday heat."
     }
   ]
 }

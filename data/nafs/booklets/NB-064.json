@@ -554,14 +554,14 @@
       "nafs": "NAFS.IAE.EVAL",
       "pirls": "P3",
       "type": "MCQ",
-      "stem": "Based on the text, how have many countries tried to protect elephants?",
+      "stem": "Based on the text, what is one way many countries have tried to protect elephants?",
       "options": [
+        "selling more ivory",
         "banning the ivory trade",
-        "creating national parks",
-        "training rangers to protect the herds",
-        "All of the above"
+        "cutting down forests for farms",
+        "sending the rangers away"
       ],
-      "answer": "D",
+      "answer": "B",
       "why": "Paragraph 6 says many countries have banned the ivory trade, created national parks and trained rangers."
     }
   ]

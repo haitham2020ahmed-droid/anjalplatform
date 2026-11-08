@@ -381,13 +381,13 @@
       "type": "MCQ",
       "stem": "According to the text, what do newborn babies and people with certain illnesses have in common?",
       "options": [
-        "Some of them cannot be vaccinated",
-        "Community protection helps keep them safe",
-        "They are among the most vulnerable members of society",
-        "All of the above"
+        "They are the people who spread most diseases.",
+        "Some of them cannot be vaccinated.",
+        "They do not need any protection from germs.",
+        "They never meet other people."
       ],
-      "answer": "D",
-      "why": "Paragraph 5 says all three things: they may not be vaccinated, community protection keeps them safe, and they are among the most vulnerable."
+      "answer": "B",
+      "why": "Paragraph 5 says some of them cannot be vaccinated, so they depend on community protection as some of the most vulnerable members of society."
     },
     {
       "n": 25,

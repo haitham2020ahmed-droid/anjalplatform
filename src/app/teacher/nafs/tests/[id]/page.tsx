@@ -42,7 +42,7 @@ export default async function NafsTestPage({ params, searchParams }: { params: P
   return (
     <AppShell name={String(me.displayName)}>
       <PageHeader back={{ href: "/teacher/nafs?tab=test", label: "NAFS test" }} icon="🇸🇦" title={test.title}
-        subtitle={`${t(MODE_NAME[test.mode])} · ${t("{n} questions", { n: rows.length })} · ${t("{n} marks", { n: total })}${test.timeLimitMin ? ` · ${t("{n} minutes", { n: test.timeLimitMin })}` : ""}`}>
+        subtitle={`${t(MODE_NAME[test.mode])} · ${t("{n} questions", { n: rows.length })} · ${t("{n} marks", { n: total })}${test.timeLimitMin ? ` · ${t("default time {n} minutes (each class can have its own)", { n: test.timeLimitMin })}` : ""}`}>
         <Link href={`/teacher/nafs/tests/new?id=${id}`} className={LINK}>{t(test.locked || !test.canEdit ? "Make a copy" : "Change")}</Link>
         <Link href={`/teacher/nafs?tab=test&sub=report&test=${id}`} className="inline-flex min-h-11 items-center rounded-xl bg-brand-navy px-4 font-semibold text-white">{t("Reports")}</Link>
       </PageHeader>

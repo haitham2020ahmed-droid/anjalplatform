@@ -556,13 +556,13 @@
       "type": "MCQ",
       "stem": "According to the text, how can visitors help keep AlUla's sites safe?",
       "options": [
+        "by climbing the tombs for a better view",
         "by remaining on the marked paths",
-        "by never touching or climbing on the tombs",
-        "by treating the sites with respect",
-        "All of the above"
+        "by carving their names on the rocks",
+        "by taking small stones home as souvenirs"
       ],
-      "answer": "D",
-      "why": "Paragraph 6 mentions all three: remaining on the paths, never touching or climbing on the tombs, and treating AlUla with respect."
+      "answer": "B",
+      "why": "Paragraph 6 asks visitors to remain on the marked paths, never touch or climb on the tombs, and treat AlUla with respect; the other choices would damage the sites."
     }
   ]
 }

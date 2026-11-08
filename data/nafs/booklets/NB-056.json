@@ -556,13 +556,13 @@
       "type": "MCQ",
       "stem": "A family wants to reduce the free sugars they drink. Which solution fits the advice in the text?",
       "options": [
+        "Drink fruit juice instead of eating whole fruit.",
+        "Choose drinks with syrup instead of sugar.",
         "Replace fizzy drinks with water or milk.",
-        "Check labels for names such as glucose and syrup.",
-        "Eat whole fruit instead of drinking juice.",
-        "All of the above"
+        "Add honey to every glass of water."
       ],
-      "answer": "D",
-      "why": "The text recommends water and milk, reading labels for sugar's many names, and choosing whole fruit over juice."
+      "answer": "C",
+      "why": "The text recommends water and milk instead of sugary drinks; juice, syrup and honey all add free sugars."
     }
   ]
 }

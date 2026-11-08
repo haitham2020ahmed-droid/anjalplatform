@@ -7,7 +7,7 @@ import { ValidationError } from "@/server/curriculum-admin";
 import { aiEnv } from "@/server/ai/env";
 import { getT } from "@/i18n/server";
 import { assignNafsTestOnline, builderPractice, builderRows, buildNafsAutomatic, buildNafsFull, buildNafsMinistry, buildNafsSimulation, cleanDifficultyMix, createFullNafsPractice, moreForStandard, replaceNafsQuestion, saveFullNafsTest, type BuilderRow, type FullSettings, type MinistrySettings } from "@/server/nafs/build";
-import { createNafsPractice, deleteNafsPractice } from "@/server/nafs/practice";
+import { createNafsPractice, deleteNafsPractice, MAX_PRACTICE_QUESTIONS, questionsForMastery } from "@/server/nafs/practice";
 import { nafsBankPage, retagNafsQuestion, reviewNafsDraft, saveNafsQuestion, setNafsFamilyLink, setNafsHidden, type BankPage, type BankSource, type NafsQuestionInput } from "@/server/nafs/bank";
 import { changeNafsTime, deleteNafsTest, markWrittenAnswer, releaseNafsResults, saveNafsAnswers, saveNafsTest, updateNafsAssignment, type SaveTestInput } from "@/server/nafs/tests";
 import { generateNafsDrafts, type AiNafsInput } from "@/server/nafs/ai";
@@ -204,7 +204,10 @@ export async function createPracticeAction(form: FormData): Promise<void> {
       difficulty: str(form.get("difficulty")) || null,
     });
     revalidatePath("/teacher/nafs");
-    back(plan ?? `/teacher/nafs?tab=adaptive&sub=report&open=${encodeURIComponent(r.id)}`, t("Given to {n} student(s). They find it in their NAFS icon.", { n: r.students }));
+    // audit 8 Nov 2026: say it when the number of questions is too small for every skill to be mastered (5 answers each)
+    const need = questionsForMastery(r.targets);
+    const note = r.maxQuestions < need ? ` ${t("Note: {q} questions for {n} skills is under 5 per skill, so no skill can be mastered. For mastery give about {m} questions, or fewer skills.", { q: r.maxQuestions, n: r.targets, m: Math.min(need, MAX_PRACTICE_QUESTIONS) })}` : "";
+    back(plan ?? `/teacher/nafs?tab=adaptive&sub=report&open=${encodeURIComponent(r.id)}`, t("Given to {n} student(s). They find it in their NAFS icon.", { n: r.students }) + note);
   });
 }
 

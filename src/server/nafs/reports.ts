@@ -257,16 +257,67 @@ export interface NafsReport {
   cls: ClassLine;
 }
 
-/** Online answers past the time (+ grace) that were never handed in are graded as they are. */
+/** Audit 8 Nov 2026: an online attempt with no answer at all (no choice, no written text). */
+export function blankAttempt(r: Row): boolean {
+  const a = json<Answer[]>(r.answers, []);
+  const texts = json<Record<string, unknown>>(r.texts, {}) ?? {};
+  return !a.some((x) => x !== null && x !== undefined) && !Object.values(texts).some((x) => String(x ?? "").trim());
+}
+
+/**
+ * Online answers past the time (+ grace) that were never handed in are graded as they are. Audit 8 Nov 2026: an attempt
+ * with NO answer at all is not handed in (it stays "started, no answers": it never counts as a 0 % in the averages or
+ * puts empty written answers in the marking queue) — and one that an earlier version finished this way is reopened.
+ */
 async function finishLate(repo: Repo, rows: Row[], t: { questionIds: string[]; timeLimitMin: number | null }, key: number[], marks: number[], minutesOf: (r: Row) => number | null, now: Date): Promise<void> {
   for (const r of rows) {
     const minutes = minutesOf(r) ?? t.timeLimitMin;
-    if (!minutes || r.submittedAt || s(r.source) !== "ONLINE" || !d(r.startedAt)) continue;
-    if (now.getTime() <= d(r.startedAt)!.getTime() + minutes * 60_000 + GRACE_MS) continue;
+    if (s(r.source) !== "ONLINE" || !d(r.startedAt)) continue;
+    const end = minutes ? d(r.startedAt)!.getTime() + minutes * 60_000 + GRACE_MS : null;
+    if (r.submittedAt) {
+      // finished by the time-out with nothing answered (not handed in by the student): back to "started, no answers"
+      const scored = Object.keys(json<Record<string, unknown>>(r.writtenScores, {}) ?? {}).length > 0;
+      if (end !== null && d(r.submittedAt)!.getTime() > end && !scored && blankAttempt(r)) {
+        await repo.updateMany("NafsResult", { id: r.id }, { submittedAt: null, correct: 0, points: 0, updatedAt: now });
+        r.submittedAt = null;
+      }
+      continue;
+    }
+    if (end === null || now.getTime() <= end || blankAttempt(r)) continue;
     const answers = json<Answer[]>(r.answers, []);
     const g = gradeAnswers(key, marks, t.questionIds.map((_x, i) => answers[i] ?? null), {});
     await repo.updateMany("NafsResult", { id: r.id }, { correct: g.correct, points: g.points, maxPoints: g.maxPoints, writtenScores: {}, submittedAt: now, updatedAt: now });
     r.submittedAt = now; r.correct = g.correct; r.points = g.points; r.maxPoints = g.maxPoints; r.writtenScores = {};
+  }
+}
+
+/**
+ * Audit 8 Nov 2026: the same time-out rule for the pages that read results by class (Reports, Compare, Marking), so
+ * every NAFS page counts the same attempts (before, only the one-test report finished late attempts).
+ */
+export async function finishLateForClasses(repo: Repo, classIds: string[], now = new Date()): Promise<void> {
+  if (!classIds.length) return;
+  // only attempts not handed in, and handed-in ones with 0 right (where an earlier version's blank time-outs are)
+  const sel = { select: ["id", "testId", "classId", "studentId", "source", "answers", "texts", "writtenScores", "startedAt", "submittedAt"], take: 1000 };
+  const [open, zero] = await Promise.all([
+    repo.findMany("NafsResult", { classId: { in: classIds }, source: "ONLINE", submittedAt: null }, sel),
+    repo.findMany("NafsResult", { classId: { in: classIds }, source: "ONLINE", correct: 0, submittedAt: { not: null } }, sel),
+  ]);
+  const cand = [...open, ...zero.filter((r) => blankAttempt(r))];
+  if (!cand.length) return;
+  const testIds = [...new Set(cand.map((r) => s(r.testId)))];
+  const [tests, given] = await Promise.all([
+    repo.findMany("NafsTest", { id: { in: testIds } }, { select: ["id", "questionIds", "marks", "timeLimitMin"] }),
+    repo.findMany("NafsTestClass", { testId: { in: testIds }, classId: { in: classIds } }, { select: ["testId", "classId", "timeLimitMin"] }),
+  ]);
+  for (const t of tests) {
+    const ids = json<string[]>(t.questionIds, []);
+    const qs = await loadNafsQuestions(repo, ids);
+    const key = ids.map((id) => qs.find((q) => q.id === id)?.correct ?? -1);
+    const mk = json<Record<string, number> | null>(t.marks, null);
+    const rows = cand.filter((r) => s(r.testId) === s(t.id));
+    await finishLate(repo, rows, { questionIds: ids, timeLimitMin: t.timeLimitMin === null || t.timeLimitMin === undefined ? null : Number(t.timeLimitMin) }, key, ids.map((id) => markOf(mk, id)),
+      (r) => { const g = given.find((x) => s(x.testId) === s(t.id) && s(x.classId) === s(r.classId)); return g?.timeLimitMin ? Number(g.timeLimitMin) : null; }, now);
   }
 }
 

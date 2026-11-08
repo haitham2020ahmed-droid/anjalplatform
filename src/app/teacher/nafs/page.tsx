@@ -1,3 +1,5 @@
+import { finishLateForClasses } from "@/server/nafs/reports";
+import { nafsClasses } from "@/server/nafs/tests";
 import Link from "next/link";
 import { nafsDbGate } from "@/components/db-update-needed";
 import { redirect } from "next/navigation";
@@ -54,6 +56,8 @@ export default async function NafsPage({ searchParams }: { searchParams: Promise
   // the model booklets and the practice sets: loaded in the background when the school's center lacks them
   if (actor.schoolId) { void ensureNafsBooklets(repo, actor.schoolId, actor.userId); void ensureNafsPracticeSets(repo, actor.schoolId, actor.userId); }
   const active = tab === "skills" ? "bank" : tab;
+  // audit 8 Nov 2026: every page that reads test results counts the same attempts (the time-out rule of the test report)
+  if (["reports", "marking", "booklets", "test", "plan"].includes(tab)) await finishLateForClasses(repo, (await nafsClasses(repo, actor)).map((c) => c.id)).catch(() => undefined);
   return (
     <AppShell name={String(me.displayName)}>
       <PageHeader back={{ href: "/teacher", label: "Home" }} icon="🇸🇦" title="NAFS"

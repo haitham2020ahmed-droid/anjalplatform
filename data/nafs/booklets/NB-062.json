@@ -554,15 +554,15 @@
       "nafs": "NAFS.IAE.EVAL",
       "pirls": "P3",
       "type": "MCQ",
-      "stem": "Based on the text, how can people keep the houbara from disappearing?",
+      "stem": "Based on the text, which action helps keep the houbara from disappearing?",
       "options": [
-        "by controlling hunting",
-        "by preserving natural habitats",
-        "by breeding and releasing chicks",
-        "All of the above"
+        "hunting without any limits",
+        "building roads across their nesting areas",
+        "breeding chicks and releasing them into the wild",
+        "taking eggs from wild nests to sell"
       ],
-      "answer": "D",
-      "why": "The text mentions all three: controlled hunting, preserved habitats and captive breeding with releases."
+      "answer": "C",
+      "why": "The text describes breeding houbara chicks and releasing them, along with controlled hunting and preserved habitats; the other choices would harm the birds."
     }
   ]
 }

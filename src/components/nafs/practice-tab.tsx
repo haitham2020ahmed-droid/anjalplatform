@@ -83,6 +83,8 @@ export async function PracticeTab({ actor, t, sp }: { actor: Actor; t: TFn; sp: 
               <label className="grid gap-1 text-sm font-semibold text-ink-2">{t("Due date (optional)")}<input type="date" name="dueAt" className={INPUT} /></label>
               <PendingButton label="Give the practice" pendingLabel="Assigning…" className="min-h-11 rounded-xl bg-teal-700 px-6 font-semibold text-white" />
             </div>
+            {/* audit 8 Nov 2026: mastery needs 5 answers on a skill — so about 5 questions per chosen skill */}
+            <p className="text-xs text-muted">{t("A skill is mastered after at least 5 answers on it: give about 5 questions for each skill you choose (all 13 standards → 65 questions).")}</p>
           </form>
         )}
       </section>

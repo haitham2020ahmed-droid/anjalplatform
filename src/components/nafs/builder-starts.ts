@@ -27,6 +27,6 @@ export function startOfMode(mode: string | null | undefined, settings?: Record<s
 export function nafsGroups(input: { areas: { code: string; name: string }[]; standards: { code: string; area: string }[]; domains: { code: string; name: string }[]; skills: { code: string; domain: string; name: string }[] }, t: (s: string) => string, withSkills = true): ChecklistGroup[] {
   return [
     ...input.areas.map((a) => ({ key: a.code, label: a.name, items: input.standards.filter((x) => x.area === a.code).map((x) => ({ code: x.code, label: codeName(x.code, t) })) })),
-    ...(withSkills ? input.domains.map((d) => ({ key: d.code, label: d.name, items: input.skills.filter((k) => k.domain === d.code).map((k) => ({ code: k.code, label: codeName(k.code, t) })) })).filter((g) => g.items.length) : []),
+    ...(withSkills ? input.domains.map((d) => ({ key: d.code, label: `NAFS skills: ${d.name}`, items: input.skills.filter((k) => k.domain === d.code).map((k) => ({ code: k.code, label: codeName(k.code, t) })) })).filter((g) => g.items.length) : []),
   ];
 }

@@ -363,15 +363,15 @@
       "nafs": "NAFS.IAE.INFER",
       "pirls": "P2",
       "type": "MCQ",
-      "stem": "What were the results of the two weeks of practice?",
+      "stem": "What was one result of the two weeks of practice?",
       "options": [
-        "The players began to understand one another",
-        "Khalid learned to trust a teammate with the ball",
-        "The team learned to pass before shooting",
-        "All of the above"
+        "Khalid refused to pass the ball to his teammates.",
+        "The players began to understand one another's movements.",
+        "The team shot at the goal without passing first.",
+        "Most players stopped coming to practice."
       ],
-      "answer": "D",
-      "why": "Paragraph 8 says they began to understand one another's movements, Khalid learned to trust a teammate, and the three-player rule made them pass before shooting."
+      "answer": "B",
+      "why": "Paragraph 8 says the players began to understand one another's movements; Khalid learned to trust a teammate, and the three-player rule made them pass before shooting."
     },
     {
       "n": 24,

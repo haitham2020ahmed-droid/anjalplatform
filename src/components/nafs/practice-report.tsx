@@ -23,6 +23,8 @@ export function PracticeReportView({ r, t, closeHref }: { r: PracticeReport; t: 
       </div>
       <div className="mt-3"><ClassLineCards c={r.cls} t={t} /></div>
       <p className="mt-3 text-xs text-muted">{t("Each cell: the hardest difficulty answered right · accuracy · ✓ = mastered (4 of the last 5 right, at least 2 at Medium or Hard).")}</p>
+      {/* audit 8 Nov 2026: too few questions for mastery — say why nobody shows ✓ */}
+      {r.targets.length > 0 && r.maxQuestions < r.targets.length * 5 && <p className="mt-2 rounded-lg bg-amber-50 p-2 text-xs text-amber-900 ring-1 ring-amber-200">⚠ {t("{q} questions for {n} skills is under 5 answers per skill, so no skill could be mastered in this practice. Read the accuracy instead; next time give about {m} questions or fewer skills.", { q: r.maxQuestions, n: r.targets.length, m: r.targets.length * 5 })}</p>}
       <div className="mt-3 overflow-x-auto">
         <table className="w-full min-w-[40rem] text-sm">
           <thead>

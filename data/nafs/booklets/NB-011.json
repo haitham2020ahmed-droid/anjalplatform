@@ -475,15 +475,15 @@
       "nafs": "NAFS.IAE.EVAL",
       "pirls": "P3",
       "type": "MCQ",
-      "stem": "According to the text, why is recycling paper worth doing?",
+      "stem": "According to the text, what is one reason recycling paper is worth doing?",
       "options": [
-        "Fewer trees need to be cut down.",
+        "It makes new paper more expensive to produce.",
+        "It means more trees need to be cut down.",
         "It generally consumes less energy and water.",
-        "It reduces the quantity of buried waste.",
-        "All of the above"
+        "It adds more waste to the ground."
       ],
-      "answer": "D",
-      "why": "Paragraph 7 gives all three benefits."
+      "answer": "C",
+      "why": "Paragraph 7 says recycling paper generally consumes less energy and water; the other choices say the opposite of the text."
     },
     {
       "n": 31,

@@ -88,7 +88,7 @@ before(async () => {
   // adaptive practice on S04 for s2 (20 Jan): 2 right, 2 wrong (chose C)
   practiceId = (await createNafsPractice(repo, g6, { title: "S04 practice", targets: ["MOE.S04"], classId: klassId, studentIds: [s2] })).id;
   const run = await repo.create("NafsPracticeRun", { practiceId, studentId: s2, classId: klassId, state: { ...newRunState(["MOE.S04"]), targets: { "MOE.S04": { level: 2, n: 4, right: 2, last: [], mastered: false, reached: 2, ms: 60000 } } }, asked: 4, correct: 2, seconds: 120, startedAt: JAN20, updatedAt: JAN20, finishedAt: JAN20 });
-  for (let k = 0; k < 4; k++) await repo.create("NafsPracticeAnswer", { runId: run.id, practiceId, studentId: s2, questionId: Q.S04[k], target: "MOE.S04", difficulty: 2, choice: k < 2 ? 1 : 2, correct: k < 2, ms: 1000, at: new Date(JAN20.getTime() + k * 60_000) });
+  for (let k = 0; k < 4; k++) await repo.create("NafsPracticeAnswer", { runId: run.id, practiceId, studentId: s2, questionId: Q.S04[k], target: "MOE.S04", difficulty: 2, choice: k < 2 ? 1 : 2, correct: k < 2, ms: 20000, /* audit 8 Nov 2026: 1 s is a rapid guess (not counted) since r85 — a real answer time */ at: new Date(JAN20.getTime() + k * 60_000) });
   // Test B (10 Feb): s1 8/12 (S01 all wrong) · s2 10/12 (S05 half)
   await result(testB, klassId, s1, ans([...W4, ...R4, ...R4]), FEB10);
   await result(testB, klassId, s2, ans([...R4, ...R4, ...H4]), FEB10);

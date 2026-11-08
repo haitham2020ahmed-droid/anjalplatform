@@ -558,11 +558,11 @@
       "options": [
         "by choosing only the smallest fish at the market",
         "by buying shrimp during the season when fishing is not allowed",
-        "None of the above",
+        "by avoiding very small fish and respecting the closed seasons",
         "by buying as many fish as possible while prices are low"
       ],
       "answer": "C",
-      "why": "Each listed action would harm fish populations, so “None of the above” is correct; families should avoid very small fish and respect the closed seasons."
+      "why": "Avoiding very small fish and respecting the closed seasons lets fish grow and breed; the other actions harm fish populations."
     }
   ]
 }

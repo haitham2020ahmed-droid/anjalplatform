@@ -7667,4 +7667,11 @@ export const ar: Record<UiString, string> = {
   "Too few answers to tell yet.": "الإجابات قليلة لا تكفي للحكم بعد.",
   "No missed answers.": "لا توجد إجابات خاطئة.",
   "There are no power-ups in Group Jam.": "لا توجد قوى خاصة في الجلسة الجماعية.",
+  "NAFS skills: Reading Comprehension": "مهارات نافس: فهم المقروء",
+  "NAFS skills: Inferring, Analyzing and Evaluating": "مهارات نافس: الاستنتاج والتحليل والتقويم",
+  "NAFS skills: Vocabulary": "مهارات نافس: المفردات",
+  "A skill is mastered after at least 5 answers on it: give about 5 questions for each skill you choose (all 13 standards → 65 questions).": "تُتقَن المهارة بعد 5 إجابات عليها على الأقل: أعطِ نحو 5 أسئلة لكل مهارة تختارها (المعايير الـ13 كلها ← 65 سؤالًا).",
+  "Note: {q} questions for {n} skills is under 5 per skill, so no skill can be mastered. For mastery give about {m} questions, or fewer skills.": "ملاحظة: {q} سؤالًا لـ {n} مهارات أقل من 5 لكل مهارة، فلا يمكن إتقان أي مهارة. للإتقان أعطِ نحو {m} سؤالًا أو مهارات أقل.",
+  "{q} questions for {n} skills is under 5 answers per skill, so no skill could be mastered in this practice. Read the accuracy instead; next time give about {m} questions or fewer skills.": "{q} سؤالًا لـ {n} مهارات أقل من 5 إجابات لكل مهارة، فلم يكن ممكنًا إتقان أي مهارة في هذا التدريب. اعتمد على نسبة الصواب؛ وفي المرة القادمة أعطِ نحو {m} سؤالًا أو مهارات أقل.",
+  "default time {n} minutes (each class can have its own)": "الوقت الافتراضي {n} دقيقة (ولكل فصل وقته الخاص)",
 };

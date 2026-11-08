@@ -554,15 +554,15 @@
       "nafs": "NAFS.IAE.EVAL",
       "pirls": "P3",
       "type": "MCQ",
-      "stem": "How can neighbours prepare for future floods?",
+      "stem": "Which action would best help neighbours prepare for future floods?",
       "options": [
-        "by keeping each other's phone numbers",
-        "by keeping sandbags and torches ready",
-        "by checking on elderly neighbours early",
-        "All of the above"
+        "waiting until the water reaches the door before acting",
+        "keeping sandbags and torches ready",
+        "parking cars in the lowest part of the street",
+        "throwing rubbish into the drains"
       ],
-      "answer": "D",
-      "why": "Each idea would help neighbours stay safe, so all are correct."
+      "answer": "B",
+      "why": "Keeping sandbags and torches ready helps neighbours act quickly; the other choices would make a flood more dangerous."
     }
   ]
 }

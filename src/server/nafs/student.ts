@@ -186,7 +186,9 @@ export async function saveBooklet(repo: Repo, actor: Actor, input: { id: string;
   // r69: the live end (the teacher may have extended or shortened the time while the test runs)
   const end = d(r.startedAt) ? nafsEndFor(g, t, studentId, r.startedAt) : null;
   const late = end ? now.getTime() > end.getTime() + GRACE_MS : false;
-  const submit = input.submit || Boolean(late);
+  // audit 8 Nov 2026: the time-out never hands in an attempt with no answer at all (it stays "started, no answers")
+  const nothing = answers.every((a) => a === null) && !Object.values(texts).some((x) => String(x ?? "").trim());
+  const submit = input.submit || (Boolean(late) && !nothing);
   if (!submit) { await repo.updateMany("NafsResult", { id: r.id }, { answers, texts, updatedAt: now }); return { done: false, blanks }; }
   const marks = json<Record<string, number> | null>(t.marks, null);
   const gr = gradeAnswers(key, ids.map((id) => markOf(marks, id)), answers, {});

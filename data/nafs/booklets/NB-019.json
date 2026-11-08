@@ -554,15 +554,15 @@
       "nafs": "NAFS.IAE.EVAL",
       "pirls": "P3",
       "type": "MCQ",
-      "stem": "According to the text, how can we protect bees?",
+      "stem": "According to the text, which action helps protect bees?",
       "options": [
-        "by planting flowers",
-        "by using fewer chemical sprays",
-        "by never destroying a hive",
-        "All of the above"
+        "using more chemical sprays in gardens",
+        "planting flowers",
+        "removing hives that are near homes",
+        "cutting down flowering trees"
       ],
-      "answer": "D",
-      "why": "The last paragraph mentions all three actions."
+      "answer": "B",
+      "why": "The last paragraph says planting flowers helps bees, along with using fewer chemical sprays and never destroying a hive."
     }
   ]
 }

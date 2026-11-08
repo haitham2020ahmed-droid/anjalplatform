@@ -174,15 +174,31 @@ export interface BookletLoad { booklets: number; added: number; skipped: number;
  * Loads booklets (or practice sets: the same shape, their own holding family) into one school's NAFS bank — only the
  * questions that are not there yet.
  */
-export async function loadBookletsInto(repo: Repo, schoolId: string, list: Booklet[], byUserId: string | null, now = new Date(), family: string = BOOKLET_FAMILY): Promise<{ added: number; skipped: number }> {
+export async function loadBookletsInto(repo: Repo, schoolId: string, list: Booklet[], byUserId: string | null, now = new Date(), family: string = BOOKLET_FAMILY): Promise<{ added: number; skipped: number; updated?: number }> {
   if (!list.length) return { added: 0, skipped: 0 };
   const skillId = await holdingSkill(repo, schoolId, family);
   const actor = { userId: byUserId ?? "", role: "SCHOOL_ADMIN", schoolId } as unknown as Actor;
-  let added = 0, skipped = 0;
+  let added = 0, skipped = 0, updated = 0;
   for (const b of list) {
     const passageId = await bookletPassage(repo, b, now);
     const refs = b.questions.map((q) => `${b.code}#${q.n}`);
-    const have = new Map((await repo.findMany("Question", { skillId, externalRef: { in: refs } }, { select: ["id", "externalRef"] })).map((q) => [s(q.externalRef), s(q.id)]));
+    const qrows = await repo.findMany("Question", { skillId, externalRef: { in: refs } }, { select: ["id", "externalRef", "stem"] });
+    const have = new Map(qrows.map((q) => [s(q.externalRef), s(q.id)]));
+    // audit 8 Nov 2026: a question the file changed (stem, options or key) is updated in place — the platform copy only
+    // (a school's own edit is a separate copy and stays as the school made it)
+    if (qrows.length) {
+      const opts = await repo.findMany("QuestionOption", { questionId: { in: qrows.map((q) => s(q.id)) } }, { select: ["questionId", "text", "isCorrect", "order"] });
+      for (const q of b.questions) {
+        const row = qrows.find((x) => s(x.externalRef) === `${b.code}#${q.n}`);
+        if (!row || q.type === "WRITTEN") continue;
+        const mine = opts.filter((o) => s(o.questionId) === s(row.id)).sort((x, y) => Number(x.order) - Number(y.order));
+        const c = cleanInput({ nafsCode: q.nafs, process: q.pirls, standard: q.standard, kind: q.type, stem: q.stem, options: q.options, correct: q.answer, explanation: q.why, model: q.model, rubric: q.rubric, difficulty: q.difficulty });
+        const same = s(row.stem) === c.stem && mine.length === c.options.length && mine.every((o, i) => s(o.text) === c.options[i] && Boolean(o.isCorrect === true || o.isCorrect === 1) === (i === c.correct));
+        if (same) continue;
+        await writeQuestion(repo, actor, schoolId, c, { id: s(row.id), status: "PUBLISHED", origin: "IMPORTED", passageId }, now);
+        updated++;
+      }
+    }
     const items = have.size ? new Set((await repo.findMany("NafsBankItem", { schoolId, questionId: { in: [...have.values()] } }, { select: ["questionId"] })).map((x) => s(x.questionId))) : new Set<string>();
     for (const q of b.questions) {
       const ref = `${b.code}#${q.n}`;
@@ -197,7 +213,7 @@ export async function loadBookletsInto(repo: Repo, schoolId: string, list: Bookl
     }
   }
   nafsBankChanged(repo, schoolId);
-  return { added, skipped };
+  return { added, skipped, updated };
 }
 
 /** Loads every valid booklet of the folder (invalid files skipped and reported). */
@@ -250,7 +266,9 @@ export function ensureNafsBooklets(repo: Repo, schoolId: string, byUserId: strin
     // to read: the first visit after a deploy no longer parses every booklet file just to count its questions
     if (await loadedWith(repo, schoolId, BOOKLET_SETTING, sig)) { complete.set(schoolId, sig); return null; }
     const c = await bookletCount(repo, schoolId);
-    if (!c.questions || c.inBank >= c.questions) { complete.set(schoolId, sig); return null; }
+    if (!c.questions) { complete.set(schoolId, sig); return null; }
+    // audit 8 Nov 2026: the files changed since the last load (new questions OR corrected ones): load again — it adds
+    // the missing questions and updates the changed ones, then notes the new signature
     return loadNafsBooklets(repo, schoolId, byUserId);
   })().catch((e) => { console.error("nafs booklets", e); return null; }).finally(() => running.delete(schoolId));
   running.set(schoolId, p);

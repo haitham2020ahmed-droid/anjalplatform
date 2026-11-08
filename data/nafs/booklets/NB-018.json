@@ -554,15 +554,15 @@
       "nafs": "NAFS.IAE.EVAL",
       "pirls": "P3",
       "type": "MCQ",
-      "stem": "Based on the story, how can family and friends help shy students speak in public?",
+      "stem": "Based on the story, which is one way family and friends can help a shy student speak in public?",
       "options": [
-        "by giving them kind encouragement",
-        "by letting them rehearse with people they trust",
-        "by offering a friendly face in the audience",
-        "All of the above"
+        "by laughing at small mistakes",
+        "by telling the student to skip the speech",
+        "by letting the student rehearse with people they trust",
+        "by talking loudly during the speech"
       ],
-      "answer": "D",
-      "why": "Mr. Khalid encourages Faisal, his family listens to him rehearse, and Omar's nod gives him a friendly face, so all are correct."
+      "answer": "C",
+      "why": "Faisal's family listens to him rehearse, which helps him; the other choices would make speaking harder."
     }
   ]
 }
