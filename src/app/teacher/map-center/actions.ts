@@ -8,7 +8,7 @@ import { suggestMapPlan } from "@/server/plans/map-suggest";
 import { fromFormData, readPlanForm, readQuestionPicks } from "@/server/plans/plan-form";
 import { applyEdits, picksOf, sendProgramPlan } from "@/server/plans/send";
 import { dismissMapDraft, mapDraftsForClass, sendMapDraft } from "@/server/plans/map-drafts";
-import { sendPlans } from "@/server/map/map-plan";
+import { sendPlans, topUpSentPlan } from "@/server/map/map-plan";
 
 /**
  * 🧯 r79: every action ends back on the MAP page with a message — a known refusal's own text, anything else logged and
@@ -52,6 +52,21 @@ export async function dismissMapDraftAction(f: FormData): Promise<void> {
     const { t } = await getT();
     await dismissMapDraft(repo, actor, String(f.get("planId") ?? ""));
     return t("Draft dismissed.");
+  });
+}
+
+/** 🆕 Nov 2026 ("plan not updating for grades 9-12 / already-sent plans with a missing area"): a plan sent before
+ *  "cover every area" or the Learning Continuum shipped stays as it was — it never rebuilds itself. This adds every
+ *  area the student has a MAP score for that this sent plan is still missing, and sends each one right away. */
+export async function topUpSentPlanAction(f: FormData): Promise<void> {
+  const classId = String(f.get("classId") ?? ""), subject = subjectOf(f);
+  await guardAction("map", "topUpSentPlan", PATH, planTab({ mode: "individual", classId, subject }), async () => {
+    const actor = await requireActor({ roles: ["TEACHER", "SCHOOL_ADMIN"], permission: "assignments:create" });
+    const { t } = await getT();
+    const r = await topUpSentPlan(repo, actor, String(f.get("planId") ?? ""));
+    if (r.sent.length) return t("Added and sent: {groups}.{rest}", { groups: r.sent.join(", "), rest: r.skipped.length ? ` ${t("Still waiting (too few questions): {g}.", { g: r.skipped.join(", ") })}` : "" });
+    if (r.skipped.length) return t("No areas sent yet — too few questions for: {g}.", { g: r.skipped.join(", ") });
+    return t("This plan already has every area the student has a MAP score for.");
   });
 }
 

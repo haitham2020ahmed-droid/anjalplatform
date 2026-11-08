@@ -17,7 +17,7 @@ import { cancelIndex } from "../student/cancelled-work";
 import { assertCanEditSharedCatalogue } from "../curriculum-manage";
 import { classMembers, studentNames } from "../insights/student-data";
 import { masterSkills } from "../skills/master";
-import { bandSettings, ensureDrafts, estimateRit, estimateRits, groupOf, groupPools, GROUPS, mapProfiles, orderAreas, pickBand, ritBand, type AreaProfile, type GroupKey, type MapProfile, type PlanItem, type Subject } from "./map-plan";
+import { bandSettings, ensureDrafts, estimateRit, estimateRits, groupOf, groupPools, GROUPS, mapProfiles, orderAreas, pickBand, ritBand, topUpSentPlan, type AreaProfile, type GroupKey, type MapProfile, type PlanItem, type Subject } from "./map-plan";
 import { continuumFor, continuumIndex, hasContinuum } from "./continuum";
 import { BANK_MODELS, keptWhileUnchanged } from "../cache/kept";
 import { starBook, starMastered, starNeedsReview } from "../skills/star-read";
@@ -164,6 +164,23 @@ export async function myMap(repo: Repo, actor: Actor, now = new Date()): Promise
     // the write), elevated role only so assertCan/assertClassAccess inside ensureDrafts let the catch-up through.
     const sys: Actor = { userId: actor.userId, role: "SCHOOL_ADMIN", schoolId: actor.schoolId };
     await Promise.all(todo.map((subject) => ensureDrafts(repo, sys, s(membership.classId), subject, now).catch(() => 0)));
+  }
+  // 🆕 Nov 2026 ("تقدر تخليه تلقائي؟" — make it automatic): a plan already SENT can still be missing an area the
+  // student's own MAP score now justifies — made before "cover every area" / the Learning Continuum shipped, or
+  // before a later classification fix (e.g. the CCSS grade-band fix for Grades 9-12) started reaching it. The
+  // student simply opening My MAP / My Work is now enough to catch it up, with no teacher action needed — same
+  // spirit as the DRAFT catch-up just above, but for a plan that already reached SENT. Never touches or resends
+  // an area already in the plan; a plan with nothing missing, or too few questions for the missing area, is a
+  // silent no-op (topUpSentPlan itself handles both).
+  if (actor.schoolId) {
+    const sys: Actor = { userId: actor.userId, role: "SCHOOL_ADMIN", schoolId: actor.schoolId };
+    const sentPlans = await repo.findMany("MapPlan", { studentId, status: "SENT" }, { select: ["id", "subject", "items"] });
+    for (const plan of sentPlans) {
+      const have = new Set(((plan.items ?? []) as PlanItem[]).map((it) => it.group));
+      const prof = (await mapProfiles(repo, actor.schoolId, [studentId], s(plan.subject) as Subject)).get(studentId);
+      const missing = (prof?.areas ?? []).some((a) => a.rit !== null && !have.has(a.group));
+      if (missing) await topUpSentPlan(repo, sys, s(plan.id), now).catch(() => {});
+    }
   }
   const [pk, book] = await Promise.all([groupPools(repo, actor.schoolId!, grade), starBook(repo, [studentId], actor.schoolId)]);
   // ⚡ the two subjects (and the sent plans) are read side by side, not one after another

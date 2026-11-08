@@ -1,0 +1,289 @@
+diff --git a/src/app/teacher/map-center/actions.ts b/src/app/teacher/map-center/actions.ts
+index 1c44f11..41199a5 100644
+--- a/src/app/teacher/map-center/actions.ts
++++ b/src/app/teacher/map-center/actions.ts
+@@ -8,7 +8,7 @@ import { suggestMapPlan } from "@/server/plans/map-suggest";
+ import { fromFormData, readPlanForm, readQuestionPicks } from "@/server/plans/plan-form";
+ import { applyEdits, picksOf, sendProgramPlan } from "@/server/plans/send";
+ import { dismissMapDraft, mapDraftsForClass, sendMapDraft } from "@/server/plans/map-drafts";
+-import { sendPlans } from "@/server/map/map-plan";
++import { sendPlans, topUpSentPlan } from "@/server/map/map-plan";
+ 
+ /**
+  * 🧯 r79: every action ends back on the MAP page with a message — a known refusal's own text, anything else logged and
+@@ -55,6 +55,21 @@ export async function dismissMapDraftAction(f: FormData): Promise<void> {
+   });
+ }
+ 
++/** 🆕 Nov 2026 ("plan not updating for grades 9-12 / already-sent plans with a missing area"): a plan sent before
++ *  "cover every area" or the Learning Continuum shipped stays as it was — it never rebuilds itself. This adds every
++ *  area the student has a MAP score for that this sent plan is still missing, and sends each one right away. */
++export async function topUpSentPlanAction(f: FormData): Promise<void> {
++  const classId = String(f.get("classId") ?? ""), subject = subjectOf(f);
++  await guardAction("map", "topUpSentPlan", PATH, planTab({ mode: "individual", classId, subject }), async () => {
++    const actor = await requireActor({ roles: ["TEACHER", "SCHOOL_ADMIN"], permission: "assignments:create" });
++    const { t } = await getT();
++    const r = await topUpSentPlan(repo, actor, String(f.get("planId") ?? ""));
++    if (r.sent.length) return t("Added and sent: {groups}.{rest}", { groups: r.sent.join(", "), rest: r.skipped.length ? ` ${t("Still waiting (too few questions): {g}.", { g: r.skipped.join(", ") })}` : "" });
++    if (r.skipped.length) return t("No areas sent yet — too few questions for: {g}.", { g: r.skipped.join(", ") });
++    return t("This plan already has every area the student has a MAP score for.");
++  });
++}
++
+ /** Individual plans → "Send all": every draft of the class for this subject goes to its student (after the preview). */
+ export async function sendAllMapDraftsAction(f: FormData): Promise<void> {
+   const classId = String(f.get("classId") ?? ""), subject = subjectOf(f);
+diff --git a/src/app/teacher/map-center/plan-tab.tsx b/src/app/teacher/map-center/plan-tab.tsx
+index 0bdcad3..5f4a54c 100644
+--- a/src/app/teacher/map-center/plan-tab.tsx
++++ b/src/app/teacher/map-center/plan-tab.tsx
+@@ -12,10 +12,14 @@ import { plansWizardContext, searchSkillsAnyGrade, skillsByIds, type WizardConte
+ import { suggestMapPlan, type MapSuggestion } from "@/server/plans/map-suggest";
+ import { fromSearchParams, readPlanForm, readQuestionPicks } from "@/server/plans/plan-form";
+ import { applyEdits } from "@/server/plans/send";
+-import type { Subject } from "@/server/map/map-plan";
++import { classPlans, groupOf, type Subject } from "@/server/map/map-plan";
+ import { mapDraftsForClass, type MapDraft } from "@/server/plans/map-drafts";
+ import { endOfSchoolWeek, starredSkills } from "@/server/assign/star";
+-import { dismissMapDraftAction, sendAllMapDraftsAction, sendMapDraftAction, sendMapPlanAction } from "./actions";
++import { dismissMapDraftAction, sendAllMapDraftsAction, sendMapDraftAction, sendMapPlanAction, topUpSentPlanAction } from "./actions";
++
++/** 🆕 Nov 2026: a SENT plan whose student has a MAP score for an area the plan itself doesn't have yet — made
++ *  before "cover every area" / the Learning Continuum shipped, and a sent plan never rebuilds itself. */
++export interface TopUpCandidate { id: string; studentName: string; missing: string[] }
+ 
+ type SP = Record<string, string | string[] | undefined>;
+ 
+@@ -36,9 +40,20 @@ export async function PlanTab({ actor, t, sp, classId, subject }: { actor: Actor
+   // ⚡ r79: only the view on screen is computed — the individual drafts, or the group suggestion (before: the group
+   // suggestion was made on every open, also when the individual plans were shown)
+   let drafts: MapDraft[] = [];
++  let topUp: TopUpCandidate[] = [];
+   if (sp.mode !== "group") {
+     try { drafts = await mapDraftsForClass(repo, actor, klass.id); }
+     catch (e) { if (!(e instanceof ForbiddenError)) throw e; }
++    // 🆕 Nov 2026: a plan already SENT before "cover every area" / the Learning Continuum shipped is frozen as it
++    // was — find any of this class's SENT plans still missing an area the student has a MAP score for.
++    try {
++      const { plans } = await classPlans(repo, actor, klass.id, subject);
++      topUp = plans.filter((p) => p.status === "SENT").map((p): TopUpCandidate => {
++        const have = new Set(p.items.map((it) => it.group));
++        const missing = p.profile.areas.filter((a) => a.rit !== null && !have.has(a.group)).map((a) => groupOf(a.group).name);
++        return { id: p.id, studentName: p.name, missing };
++      }).filter((c) => c.missing.length);
++    } catch (e) { if (!(e instanceof ForbiddenError)) throw e; }
+   }
+   const subjDrafts = drafts.filter((d) => d.subject === subject);
+   const mode = sp.mode === "group" || sp.mode === "individual" ? sp.mode : (subjDrafts.length ? "individual" : "group");
+@@ -77,7 +92,7 @@ export async function PlanTab({ actor, t, sp, classId, subject }: { actor: Actor
+       {modeBtn("group", "👥", t("Group plans"), t("One plan for a group or the whole class, from the lowest sub-areas. You check, then send."))}
+     </div>
+     {mode === "individual" ? (
+-      <IndividualPlans t={t} drafts={subjDrafts} classId={klass.id} className={klass.name} subject={subject} />
++      <IndividualPlans t={t} drafts={subjDrafts} topUp={topUp} classId={klass.id} className={klass.name} subject={subject} />
+     ) : (
+     <form method="get" action="/teacher/map-center" className="space-y-5">
+       <input type="hidden" name="mode" value="group" />
+@@ -121,38 +136,56 @@ export async function PlanTab({ actor, t, sp, classId, subject }: { actor: Actor
+  * the full detail, with an "Example question" link per skill so the teacher can check the content before sending.
+  * "Send all" sends every one. Nothing is sent until the teacher presses Send.
+  */
+-function IndividualPlans({ t, drafts, classId, className, subject }: { t: TFn; drafts: MapDraft[]; classId: string; className: string; subject: Subject }) {
++function IndividualPlans({ t, drafts, topUp, classId, className, subject }: { t: TFn; drafts: MapDraft[]; topUp: TopUpCandidate[]; classId: string; className: string; subject: Subject }) {
+   const subjectName = (v: Subject) => t(v === "LANGUAGE" ? "Language Usage" : "Reading");
+   const hidden = (id?: string) => <>{id && <input type="hidden" name="planId" value={id} />}<input type="hidden" name="classId" value={classId} /><input type="hidden" name="subject" value={subject} /></>;
+-  if (!drafts.length) return <EmptyState icon="🗺️" title="No individual plans to check" text="They are made automatically when MAP scores are entered or imported. You can also make a Group plan." action={{ href: "/teacher/map-rit", label: "Enter scores" }} />;
+-  return (
+-    <Section title="Individual plans" icon="🧑‍🎓" hint={t("{n} plan(s) ready, one per student. Send sends it now — open Preview first if you want to check what the student will get.", { n: drafts.length })}>
+-      <ul className="divide-y divide-slate-100 rounded-2xl bg-white ring-1 ring-slate-200" data-testid="map-drafts">
+-        {drafts.map((d) => {
+-          const labels = d.areas.map((a) => (a.skills.length ? `${a.name}: ${a.skills.map((k) => k.name).join(", ")}` : a.name));
+-          const skillIds = d.areas.map((a) => a.skills[0]?.id ?? null);
+-          return (
+-            <li key={d.id} className="px-4 py-3">
+-              <div className="flex flex-wrap items-center gap-3">
+-                <span className="font-semibold text-brand-navy"><bdi>{d.studentName}</bdi></span>
+-                <span className="flex flex-wrap gap-1">{d.areas.slice(0, 4).map((a) => <span key={a.name} className="rounded-full bg-emerald-50 px-2.5 py-0.5 text-xs font-semibold text-emerald-900 ring-1 ring-emerald-200">{a.icon} {a.name}{a.source === "continuum" ? " 📘" : ""}</span>)}</span>
+-                <div className="ms-auto flex flex-wrap items-center gap-2">
+-                  <form action={dismissMapDraftAction}>{hidden(d.id)}<button className="text-xs font-semibold text-slate-500 underline">{t("Dismiss")}</button></form>
+-                  <form action={sendMapDraftAction}>{hidden(d.id)}<PendingButton className={BTN_MAIN} label="Send to {name}" vars={{ name: d.studentName }} pendingLabel="Sending…" /></form>
+-                </div>
+-              </div>
+-              <details className="mt-2">
+-                <summary className={`${BTN_SOFT} inline-flex min-h-9 w-fit cursor-pointer list-none items-center`}>{t("Preview")}</summary>
+-                <div className="mt-4">
+-                  <StudentPlanPreview title={`${t("MAP Plan")} · ${subjectName(d.subject)}`} studentName={d.studentName} className={className} program="MAP"
+-                    skills={labels} skillIds={skillIds} note={d.note} />
+-                </div>
+-              </details>
+-            </li>
+-          );
+-        })}
++  // 🆕 Nov 2026: plans already SENT (before "cover every area" / the Learning Continuum shipped) that are still
++  // missing an area the student has a MAP score for — one button adds and sends just those missing areas.
++  const topUpSection = topUp.length ? (
++    <Section title="Plans missing an area" icon="🧩" hint={t("These plans were already sent, but the student now has a MAP score for an area the plan doesn't cover yet.")}>
++      <ul className="divide-y divide-slate-100 rounded-2xl bg-white ring-1 ring-slate-200">
++        {topUp.map((c) => (
++          <li key={c.id} className="flex flex-wrap items-center gap-3 px-4 py-3">
++            <span className="font-semibold text-brand-navy"><bdi>{c.studentName}</bdi></span>
++            <span className="text-sm text-slate-600">{t("Missing: {groups}", { groups: c.missing.join(", ") })}</span>
++            <form action={topUpSentPlanAction} className="ms-auto">{hidden(c.id)}<PendingButton className={BTN_MAIN} label="Add & send missing areas" pendingLabel="Sending…" /></form>
++          </li>
++        ))}
+       </ul>
+-      <form action={sendAllMapDraftsAction} className="mt-4 flex justify-end">{hidden()}<PendingButton className={`${BTN_MAIN} px-8 text-lg`} label="Send all {n} plans" vars={{ n: drafts.length }} pendingLabel="Sending…" /></form>
+     </Section>
++  ) : null;
++  if (!drafts.length) return <>{topUpSection}<EmptyState icon="🗺️" title="No individual plans to check" text="They are made automatically when MAP scores are entered or imported. You can also make a Group plan." action={{ href: "/teacher/map-rit", label: "Enter scores" }} /></>;
++  return (
++    <>
++      {topUpSection}
++      <Section title="Individual plans" icon="🧑‍🎓" hint={t("{n} plan(s) ready, one per student. Send sends it now — open Preview first if you want to check what the student will get.", { n: drafts.length })}>
++        <ul className="divide-y divide-slate-100 rounded-2xl bg-white ring-1 ring-slate-200" data-testid="map-drafts">
++          {drafts.map((d) => {
++            const labels = d.areas.map((a) => (a.skills.length ? `${a.name}: ${a.skills.map((k) => k.name).join(", ")}` : a.name));
++            const skillIds = d.areas.map((a) => a.skills[0]?.id ?? null);
++            return (
++              <li key={d.id} className="px-4 py-3">
++                <div className="flex flex-wrap items-center gap-3">
++                  <span className="font-semibold text-brand-navy"><bdi>{d.studentName}</bdi></span>
++                  <span className="flex flex-wrap gap-1">{d.areas.slice(0, 4).map((a) => <span key={a.name} className="rounded-full bg-emerald-50 px-2.5 py-0.5 text-xs font-semibold text-emerald-900 ring-1 ring-emerald-200">{a.icon} {a.name}{a.source === "continuum" ? " 📘" : ""}</span>)}</span>
++                  <div className="ms-auto flex flex-wrap items-center gap-2">
++                    <form action={dismissMapDraftAction}>{hidden(d.id)}<button className="text-xs font-semibold text-slate-500 underline">{t("Dismiss")}</button></form>
++                    <form action={sendMapDraftAction}>{hidden(d.id)}<PendingButton className={BTN_MAIN} label="Send to {name}" vars={{ name: d.studentName }} pendingLabel="Sending…" /></form>
++                  </div>
++                </div>
++                <details className="mt-2">
++                  <summary className={`${BTN_SOFT} inline-flex min-h-9 w-fit cursor-pointer list-none items-center`}>{t("Preview")}</summary>
++                  <div className="mt-4">
++                    <StudentPlanPreview title={`${t("MAP Plan")} · ${subjectName(d.subject)}`} studentName={d.studentName} className={className} program="MAP"
++                      skills={labels} skillIds={skillIds} note={d.note} />
++                  </div>
++                </details>
++              </li>
++            );
++          })}
++        </ul>
++        <form action={sendAllMapDraftsAction} className="mt-4 flex justify-end">{hidden()}<PendingButton className={`${BTN_MAIN} px-8 text-lg`} label="Send all {n} plans" vars={{ n: drafts.length }} pendingLabel="Sending…" /></form>
++      </Section>
++    </>
+   );
+ }
+diff --git a/src/i18n/ar.ts b/src/i18n/ar.ts
+index 24c543f..88fd3d8 100644
+--- a/src/i18n/ar.ts
++++ b/src/i18n/ar.ts
+@@ -2379,6 +2379,14 @@ export const ar: Record<UiString, string> = {
+   "Go back, pick skills and press Preview first.": "ارجع واختر المهارات ثم اضغط معاينة أولاً.",
+   "Answer key": "مفتاح الإجابة",
+   "Sent {n} individual MAP plan(s).": "تم إرسال {n} خطة ماب فردية.",
++  "Added and sent: {groups}.{rest}": "تمت الإضافة والإرسال: {groups}.{rest}",
++  "Still waiting (too few questions): {g}.": "لسه مستنية (أسئلة قليلة): {g}.",
++  "No areas sent yet — too few questions for: {g}.": "لسه مفيش منطقة اتبعتت — أسئلة قليلة لـ: {g}.",
++  "This plan already has every area the student has a MAP score for.": "الخطة دي فيها بالفعل كل منطقة عند الطالب درجة MAP ليها.",
++  "Add & send missing areas": "ضيف وابعت المناطق الناقصة",
++  "Missing: {groups}": "ناقص: {groups}",
++  "Plans missing an area": "خطط ناقصها منطقة",
++  "These plans were already sent, but the student now has a MAP score for an area the plan doesn't cover yet.": "الخطط دي اتبعتت فعلاً، بس الطالب دلوقتي عنده درجة MAP لمنطقة الخطة لسه ماشملتهاش.",
+   "Check (Preview)": "راجع (معاينة)",
+   "Individual plans": "خطط فردية",
+   "Group plans": "خطط مجموعات",
+diff --git a/src/i18n/en.ts b/src/i18n/en.ts
+index 3437a36..e03df59 100644
+--- a/src/i18n/en.ts
++++ b/src/i18n/en.ts
+@@ -605,7 +605,7 @@ export const UI_STRINGS = [
+   "{n} more questions of this skill are drafts. An admin can publish them in Data Cleanup.", "Publish {n} draft questions? Students will be able to get them in practice.", "Publishing…", "Publish all drafts", "Published {n} questions. {m} stay drafts (no skill or no correct answer).", "Publish them all with one press, or review them one by one.",
+   "My test results", "Tests finished", "Best score", "Every test you assigned. Open Results to see each student and each skill.",
+   "Print test", "Check the test, then print it or save it as a PDF. Printing does not assign it.", "Print / Save as PDF", "Hide the answer key", "Add the answer key", "No questions to print", "Go back, pick skills and press Preview first.", "Answer key",
+-  "Sent {n} individual MAP plan(s).", "Check (Preview)", "Individual plans", "Group plans", "One plan per student, made by the platform from each student's own MAP score. You check, then send.", "One plan for a group or the whole class, from the lowest sub-areas. You check, then send.", "No individual plans to check", "They are made automatically when MAP scores are entered or imported. You can also make a Group plan.", "{n} plan(s) ready, one per student. Send sends it now — open Preview first if you want to check what the student will get.", "Example question", "Send to {name}", "Send all {n} plans", "Tick the students, then press Suggest skills. With Whole class, the ticks are not needed.", "{n} student(s) in Support have no focus skill or practice yet: the core reading skills are suggested. Change them if you like.", "Support: a core reading skill to start (no practice data yet)",
++  "Sent {n} individual MAP plan(s).", "Added and sent: {groups}.{rest}", "Still waiting (too few questions): {g}.", "No areas sent yet — too few questions for: {g}.", "This plan already has every area the student has a MAP score for.", "Add & send missing areas", "Missing: {groups}", "Plans missing an area", "These plans were already sent, but the student now has a MAP score for an area the plan doesn't cover yet.", "Check (Preview)", "Individual plans", "Group plans", "One plan per student, made by the platform from each student's own MAP score. You check, then send.", "One plan for a group or the whole class, from the lowest sub-areas. You check, then send.", "No individual plans to check", "They are made automatically when MAP scores are entered or imported. You can also make a Group plan.", "{n} plan(s) ready, one per student. Send sends it now — open Preview first if you want to check what the student will get.", "Example question", "Send to {name}", "Send all {n} plans", "Tick the students, then press Suggest skills. With Whole class, the ticks are not needed.", "{n} student(s) in Support have no focus skill or practice yet: the core reading skills are suggested. Change them if you like.", "Support: a core reading skill to start (no practice data yet)",
+   // ---- My Work: finished practice, no repeated questions
+   "Great job! ✓", "You finished this skill! 🎉", "Going back to My Work…",
+   // ---- My Work: the end-of-session summary (skill, accuracy, streak) and plan-completion celebration
+diff --git a/src/server/map/map-more.ts b/src/server/map/map-more.ts
+index 7e1ae46..9dd0070 100644
+--- a/src/server/map/map-more.ts
++++ b/src/server/map/map-more.ts
+@@ -17,7 +17,7 @@ import { cancelIndex } from "../student/cancelled-work";
+ import { assertCanEditSharedCatalogue } from "../curriculum-manage";
+ import { classMembers, studentNames } from "../insights/student-data";
+ import { masterSkills } from "../skills/master";
+-import { bandSettings, ensureDrafts, estimateRit, estimateRits, groupOf, groupPools, GROUPS, mapProfiles, orderAreas, pickBand, ritBand, type AreaProfile, type GroupKey, type MapProfile, type PlanItem, type Subject } from "./map-plan";
++import { bandSettings, ensureDrafts, estimateRit, estimateRits, groupOf, groupPools, GROUPS, mapProfiles, orderAreas, pickBand, ritBand, topUpSentPlan, type AreaProfile, type GroupKey, type MapProfile, type PlanItem, type Subject } from "./map-plan";
+ import { continuumFor, continuumIndex, hasContinuum } from "./continuum";
+ import { BANK_MODELS, keptWhileUnchanged } from "../cache/kept";
+ import { starBook, starMastered, starNeedsReview } from "../skills/star-read";
+@@ -165,6 +165,23 @@ export async function myMap(repo: Repo, actor: Actor, now = new Date()): Promise
+     const sys: Actor = { userId: actor.userId, role: "SCHOOL_ADMIN", schoolId: actor.schoolId };
+     await Promise.all(todo.map((subject) => ensureDrafts(repo, sys, s(membership.classId), subject, now).catch(() => 0)));
+   }
++  // 🆕 Nov 2026 ("تقدر تخليه تلقائي؟" — make it automatic): a plan already SENT can still be missing an area the
++  // student's own MAP score now justifies — made before "cover every area" / the Learning Continuum shipped, or
++  // before a later classification fix (e.g. the CCSS grade-band fix for Grades 9-12) started reaching it. The
++  // student simply opening My MAP / My Work is now enough to catch it up, with no teacher action needed — same
++  // spirit as the DRAFT catch-up just above, but for a plan that already reached SENT. Never touches or resends
++  // an area already in the plan; a plan with nothing missing, or too few questions for the missing area, is a
++  // silent no-op (topUpSentPlan itself handles both).
++  if (actor.schoolId) {
++    const sys: Actor = { userId: actor.userId, role: "SCHOOL_ADMIN", schoolId: actor.schoolId };
++    const sentPlans = await repo.findMany("MapPlan", { studentId, status: "SENT" }, { select: ["id", "subject", "items"] });
++    for (const plan of sentPlans) {
++      const have = new Set(((plan.items ?? []) as PlanItem[]).map((it) => it.group));
++      const prof = (await mapProfiles(repo, actor.schoolId, [studentId], s(plan.subject) as Subject)).get(studentId);
++      const missing = (prof?.areas ?? []).some((a) => a.rit !== null && !have.has(a.group));
++      if (missing) await topUpSentPlan(repo, sys, s(plan.id), now).catch(() => {});
++    }
++  }
+   const [pk, book] = await Promise.all([groupPools(repo, actor.schoolId!, grade), starBook(repo, [studentId], actor.schoolId)]);
+   // ⚡ the two subjects (and the sent plans) are read side by side, not one after another
+   const one = async (subject: Subject): Promise<MySubject> => {
+diff --git a/src/server/map/map-plan.ts b/src/server/map/map-plan.ts
+index b2d60a9..3bca145 100644
+--- a/src/server/map/map-plan.ts
++++ b/src/server/map/map-plan.ts
+@@ -537,6 +537,43 @@ export async function updatePlan(repo: Repo, actor: Actor, planId: string, input
+   return { sentNewGroup: true, notEnoughQuestions: false };
+ }
+ 
++/** 🆕 Nov 2026: a plan SENT before "cover every area" / the Learning Continuum shipped is frozen as it was made —
++ *  new scores would rebuild it, but a plan already sent never does. Finds every area the student has a MAP score
++ *  for that this SENT plan is still missing, adds each one, and sends it right away (same per-area send as
++ *  updatePlan's single addGroup, generalized to every missing area in one go) — a one-button catch-up instead of
++ *  the teacher adding areas by hand one at a time. Areas already in the plan are never touched or resent. */
++export async function topUpSentPlan(repo: Repo, actor: Actor, planId: string, now = new Date()): Promise<{ added: string[]; sent: string[]; skipped: string[] }> {
++  assertCan(actor, "assignments:create");
++  const r = await ownPlan(repo, actor, planId);
++  if (s(r.status) !== "SENT") throw new ValidationError("This plan is not sent yet — use Send instead.");
++  const items = (r.items ?? []) as PlanItem[];
++  const have = new Set(items.map((it) => it.group));
++  const p = (await mapProfiles(repo, actor.schoolId!, [s(r.studentId)], s(r.subject) as Subject)).get(s(r.studentId));
++  const bands = await bandSettings(repo, actor.schoolId);
++  const missing = (p?.areas ?? []).filter((a) => a.rit !== null && !have.has(a.group));
++  if (!missing.length) return { added: [], sent: [], skipped: [] };
++  const newItems: PlanItem[] = missing.map((a) => { const b = ritBand(a.rit!, bands); return { group: a.group, status: a.status, rit: a.rit, low: b.low, high: b.high, skillIds: [], count: a.status === "FOCUS" ? 15 : 10 }; });
++  const klass = await assertClassAccess(repo, actor, s(r.classId));
++  const grade = Number((await repo.findUnique("Grade", { id: klass.gradeId }))?.level ?? 0);
++  const { pools } = await groupPools(repo, actor.schoolId!, grade);
++  const added = newItems.map((it) => groupOf(it.group).name), sent: string[] = [], skipped: string[] = [];
++  const newAssignmentIds: string[] = [];
++  for (const it of newItems) {
++    const pick = pickBand(pools.get(it.group) ?? [], it.low, it.high, bands.size, it.skillIds);
++    if (pick.ids.length < 3) { skipped.push(groupOf(it.group).name); continue; }
++    const a = await assignQuestions(repo, actor, { classId: s(r.classId), studentIds: [s(r.studentId)], questionIds: pick.ids, title: `MAP plan · ${groupOf(it.group).name}`, exactTitle: true, track: "MAP", adaptive: { maxQuestions: Math.min(it.count, pick.ids.length) }, dueAt: r.dueAt ? new Date(time(r.dueAt)) : null, note: r.note ? s(r.note) : null, source: requireSource("MAP") }, now);
++    newAssignmentIds.push(a.assignmentId); sent.push(groupOf(it.group).name);
++  }
++  const prevIds: string[] = Array.isArray(r.assignmentIds) ? r.assignmentIds.map(s) : [];
++  await repo.updateMany("MapPlan", { id: planId }, { items: [...items, ...newItems], assignmentIds: [...prevIds, ...newAssignmentIds], updatedAt: now });
++  if (sent.length) {
++    const st = (await repo.findMany("Student", { id: s(r.studentId) }, { select: ["id", "userId"] }))[0];
++    if (st?.userId) await repo.create("Notification", { userId: s(st.userId), type: "NEW_ASSIGNMENT", title: "🗺️ New areas were added to your MAP plan", body: "Open My MAP to see them.", link: "/student/map", readAt: null, createdAt: now });
++    await audit(repo, { actorId: actor.userId, action: "map.plan.send", entityType: "MapPlan", entityId: planId, after: { sets: sent.length, groups: sent }, at: now });
++  }
++  return { added, sent, skipped };
++}
++
+ /** Sends plans: each area becomes one adaptive set of the student's band (track MAP); the student is notified. */
+ export async function sendPlans(repo: Repo, actor: Actor, planIds: string[], now = new Date(), /** r74: REQUIRED source (teacher: the window's choice; automatic drafts: MAP) */ sourceIn?: string | null): Promise<{ sent: number; sets: number; skipped: string[] }> {
+   assertCan(actor, "assignments:create");

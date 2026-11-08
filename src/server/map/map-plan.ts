@@ -537,6 +537,43 @@ export async function updatePlan(repo: Repo, actor: Actor, planId: string, input
   return { sentNewGroup: true, notEnoughQuestions: false };
 }
 
+/** 🆕 Nov 2026: a plan SENT before "cover every area" / the Learning Continuum shipped is frozen as it was made —
+ *  new scores would rebuild it, but a plan already sent never does. Finds every area the student has a MAP score
+ *  for that this SENT plan is still missing, adds each one, and sends it right away (same per-area send as
+ *  updatePlan's single addGroup, generalized to every missing area in one go) — a one-button catch-up instead of
+ *  the teacher adding areas by hand one at a time. Areas already in the plan are never touched or resent. */
+export async function topUpSentPlan(repo: Repo, actor: Actor, planId: string, now = new Date()): Promise<{ added: string[]; sent: string[]; skipped: string[] }> {
+  assertCan(actor, "assignments:create");
+  const r = await ownPlan(repo, actor, planId);
+  if (s(r.status) !== "SENT") throw new ValidationError("This plan is not sent yet — use Send instead.");
+  const items = (r.items ?? []) as PlanItem[];
+  const have = new Set(items.map((it) => it.group));
+  const p = (await mapProfiles(repo, actor.schoolId!, [s(r.studentId)], s(r.subject) as Subject)).get(s(r.studentId));
+  const bands = await bandSettings(repo, actor.schoolId);
+  const missing = (p?.areas ?? []).filter((a) => a.rit !== null && !have.has(a.group));
+  if (!missing.length) return { added: [], sent: [], skipped: [] };
+  const newItems: PlanItem[] = missing.map((a) => { const b = ritBand(a.rit!, bands); return { group: a.group, status: a.status, rit: a.rit, low: b.low, high: b.high, skillIds: [], count: a.status === "FOCUS" ? 15 : 10 }; });
+  const klass = await assertClassAccess(repo, actor, s(r.classId));
+  const grade = Number((await repo.findUnique("Grade", { id: klass.gradeId }))?.level ?? 0);
+  const { pools } = await groupPools(repo, actor.schoolId!, grade);
+  const added = newItems.map((it) => groupOf(it.group).name), sent: string[] = [], skipped: string[] = [];
+  const newAssignmentIds: string[] = [];
+  for (const it of newItems) {
+    const pick = pickBand(pools.get(it.group) ?? [], it.low, it.high, bands.size, it.skillIds);
+    if (pick.ids.length < 3) { skipped.push(groupOf(it.group).name); continue; }
+    const a = await assignQuestions(repo, actor, { classId: s(r.classId), studentIds: [s(r.studentId)], questionIds: pick.ids, title: `MAP plan · ${groupOf(it.group).name}`, exactTitle: true, track: "MAP", adaptive: { maxQuestions: Math.min(it.count, pick.ids.length) }, dueAt: r.dueAt ? new Date(time(r.dueAt)) : null, note: r.note ? s(r.note) : null, source: requireSource("MAP") }, now);
+    newAssignmentIds.push(a.assignmentId); sent.push(groupOf(it.group).name);
+  }
+  const prevIds: string[] = Array.isArray(r.assignmentIds) ? r.assignmentIds.map(s) : [];
+  await repo.updateMany("MapPlan", { id: planId }, { items: [...items, ...newItems], assignmentIds: [...prevIds, ...newAssignmentIds], updatedAt: now });
+  if (sent.length) {
+    const st = (await repo.findMany("Student", { id: s(r.studentId) }, { select: ["id", "userId"] }))[0];
+    if (st?.userId) await repo.create("Notification", { userId: s(st.userId), type: "NEW_ASSIGNMENT", title: "🗺️ New areas were added to your MAP plan", body: "Open My MAP to see them.", link: "/student/map", readAt: null, createdAt: now });
+    await audit(repo, { actorId: actor.userId, action: "map.plan.send", entityType: "MapPlan", entityId: planId, after: { sets: sent.length, groups: sent }, at: now });
+  }
+  return { added, sent, skipped };
+}
+
 /** Sends plans: each area becomes one adaptive set of the student's band (track MAP); the student is notified. */
 export async function sendPlans(repo: Repo, actor: Actor, planIds: string[], now = new Date(), /** r74: REQUIRED source (teacher: the window's choice; automatic drafts: MAP) */ sourceIn?: string | null): Promise<{ sent: number; sets: number; skipped: string[] }> {
   assertCan(actor, "assignments:create");

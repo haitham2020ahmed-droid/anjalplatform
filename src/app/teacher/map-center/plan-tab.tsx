@@ -12,10 +12,14 @@ import { plansWizardContext, searchSkillsAnyGrade, skillsByIds, type WizardConte
 import { suggestMapPlan, type MapSuggestion } from "@/server/plans/map-suggest";
 import { fromSearchParams, readPlanForm, readQuestionPicks } from "@/server/plans/plan-form";
 import { applyEdits } from "@/server/plans/send";
-import type { Subject } from "@/server/map/map-plan";
+import { classPlans, groupOf, type Subject } from "@/server/map/map-plan";
 import { mapDraftsForClass, type MapDraft } from "@/server/plans/map-drafts";
 import { endOfSchoolWeek, starredSkills } from "@/server/assign/star";
-import { dismissMapDraftAction, sendAllMapDraftsAction, sendMapDraftAction, sendMapPlanAction } from "./actions";
+import { dismissMapDraftAction, sendAllMapDraftsAction, sendMapDraftAction, sendMapPlanAction, topUpSentPlanAction } from "./actions";
+
+/** 🆕 Nov 2026: a SENT plan whose student has a MAP score for an area the plan itself doesn't have yet — made
+ *  before "cover every area" / the Learning Continuum shipped, and a sent plan never rebuilds itself. */
+export interface TopUpCandidate { id: string; studentName: string; missing: string[] }
 
 type SP = Record<string, string | string[] | undefined>;
 
@@ -36,9 +40,20 @@ export async function PlanTab({ actor, t, sp, classId, subject }: { actor: Actor
   // ⚡ r79: only the view on screen is computed — the individual drafts, or the group suggestion (before: the group
   // suggestion was made on every open, also when the individual plans were shown)
   let drafts: MapDraft[] = [];
+  let topUp: TopUpCandidate[] = [];
   if (sp.mode !== "group") {
     try { drafts = await mapDraftsForClass(repo, actor, klass.id); }
     catch (e) { if (!(e instanceof ForbiddenError)) throw e; }
+    // 🆕 Nov 2026: a plan already SENT before "cover every area" / the Learning Continuum shipped is frozen as it
+    // was — find any of this class's SENT plans still missing an area the student has a MAP score for.
+    try {
+      const { plans } = await classPlans(repo, actor, klass.id, subject);
+      topUp = plans.filter((p) => p.status === "SENT").map((p): TopUpCandidate => {
+        const have = new Set(p.items.map((it) => it.group));
+        const missing = p.profile.areas.filter((a) => a.rit !== null && !have.has(a.group)).map((a) => groupOf(a.group).name);
+        return { id: p.id, studentName: p.name, missing };
+      }).filter((c) => c.missing.length);
+    } catch (e) { if (!(e instanceof ForbiddenError)) throw e; }
   }
   const subjDrafts = drafts.filter((d) => d.subject === subject);
   const mode = sp.mode === "group" || sp.mode === "individual" ? sp.mode : (subjDrafts.length ? "individual" : "group");
@@ -77,7 +92,7 @@ export async function PlanTab({ actor, t, sp, classId, subject }: { actor: Actor
       {modeBtn("group", "👥", t("Group plans"), t("One plan for a group or the whole class, from the lowest sub-areas. You check, then send."))}
     </div>
     {mode === "individual" ? (
-      <IndividualPlans t={t} drafts={subjDrafts} classId={klass.id} className={klass.name} subject={subject} />
+      <IndividualPlans t={t} drafts={subjDrafts} topUp={topUp} classId={klass.id} className={klass.name} subject={subject} />
     ) : (
     <form method="get" action="/teacher/map-center" className="space-y-5">
       <input type="hidden" name="mode" value="group" />
@@ -121,38 +136,56 @@ export async function PlanTab({ actor, t, sp, classId, subject }: { actor: Actor
  * the full detail, with an "Example question" link per skill so the teacher can check the content before sending.
  * "Send all" sends every one. Nothing is sent until the teacher presses Send.
  */
-function IndividualPlans({ t, drafts, classId, className, subject }: { t: TFn; drafts: MapDraft[]; classId: string; className: string; subject: Subject }) {
+function IndividualPlans({ t, drafts, topUp, classId, className, subject }: { t: TFn; drafts: MapDraft[]; topUp: TopUpCandidate[]; classId: string; className: string; subject: Subject }) {
   const subjectName = (v: Subject) => t(v === "LANGUAGE" ? "Language Usage" : "Reading");
   const hidden = (id?: string) => <>{id && <input type="hidden" name="planId" value={id} />}<input type="hidden" name="classId" value={classId} /><input type="hidden" name="subject" value={subject} /></>;
-  if (!drafts.length) return <EmptyState icon="🗺️" title="No individual plans to check" text="They are made automatically when MAP scores are entered or imported. You can also make a Group plan." action={{ href: "/teacher/map-rit", label: "Enter scores" }} />;
-  return (
-    <Section title="Individual plans" icon="🧑‍🎓" hint={t("{n} plan(s) ready, one per student. Send sends it now — open Preview first if you want to check what the student will get.", { n: drafts.length })}>
-      <ul className="divide-y divide-slate-100 rounded-2xl bg-white ring-1 ring-slate-200" data-testid="map-drafts">
-        {drafts.map((d) => {
-          const labels = d.areas.map((a) => (a.skills.length ? `${a.name}: ${a.skills.map((k) => k.name).join(", ")}` : a.name));
-          const skillIds = d.areas.map((a) => a.skills[0]?.id ?? null);
-          return (
-            <li key={d.id} className="px-4 py-3">
-              <div className="flex flex-wrap items-center gap-3">
-                <span className="font-semibold text-brand-navy"><bdi>{d.studentName}</bdi></span>
-                <span className="flex flex-wrap gap-1">{d.areas.slice(0, 4).map((a) => <span key={a.name} className="rounded-full bg-emerald-50 px-2.5 py-0.5 text-xs font-semibold text-emerald-900 ring-1 ring-emerald-200">{a.icon} {a.name}{a.source === "continuum" ? " 📘" : ""}</span>)}</span>
-                <div className="ms-auto flex flex-wrap items-center gap-2">
-                  <form action={dismissMapDraftAction}>{hidden(d.id)}<button className="text-xs font-semibold text-slate-500 underline">{t("Dismiss")}</button></form>
-                  <form action={sendMapDraftAction}>{hidden(d.id)}<PendingButton className={BTN_MAIN} label="Send to {name}" vars={{ name: d.studentName }} pendingLabel="Sending…" /></form>
-                </div>
-              </div>
-              <details className="mt-2">
-                <summary className={`${BTN_SOFT} inline-flex min-h-9 w-fit cursor-pointer list-none items-center`}>{t("Preview")}</summary>
-                <div className="mt-4">
-                  <StudentPlanPreview title={`${t("MAP Plan")} · ${subjectName(d.subject)}`} studentName={d.studentName} className={className} program="MAP"
-                    skills={labels} skillIds={skillIds} note={d.note} />
-                </div>
-              </details>
-            </li>
-          );
-        })}
+  // 🆕 Nov 2026: plans already SENT (before "cover every area" / the Learning Continuum shipped) that are still
+  // missing an area the student has a MAP score for — one button adds and sends just those missing areas.
+  const topUpSection = topUp.length ? (
+    <Section title="Plans missing an area" icon="🧩" hint={t("These plans were already sent, but the student now has a MAP score for an area the plan doesn't cover yet.")}>
+      <ul className="divide-y divide-slate-100 rounded-2xl bg-white ring-1 ring-slate-200">
+        {topUp.map((c) => (
+          <li key={c.id} className="flex flex-wrap items-center gap-3 px-4 py-3">
+            <span className="font-semibold text-brand-navy"><bdi>{c.studentName}</bdi></span>
+            <span className="text-sm text-slate-600">{t("Missing: {groups}", { groups: c.missing.join(", ") })}</span>
+            <form action={topUpSentPlanAction} className="ms-auto">{hidden(c.id)}<PendingButton className={BTN_MAIN} label="Add & send missing areas" pendingLabel="Sending…" /></form>
+          </li>
+        ))}
       </ul>
-      <form action={sendAllMapDraftsAction} className="mt-4 flex justify-end">{hidden()}<PendingButton className={`${BTN_MAIN} px-8 text-lg`} label="Send all {n} plans" vars={{ n: drafts.length }} pendingLabel="Sending…" /></form>
     </Section>
+  ) : null;
+  if (!drafts.length) return <>{topUpSection}<EmptyState icon="🗺️" title="No individual plans to check" text="They are made automatically when MAP scores are entered or imported. You can also make a Group plan." action={{ href: "/teacher/map-rit", label: "Enter scores" }} /></>;
+  return (
+    <>
+      {topUpSection}
+      <Section title="Individual plans" icon="🧑‍🎓" hint={t("{n} plan(s) ready, one per student. Send sends it now — open Preview first if you want to check what the student will get.", { n: drafts.length })}>
+        <ul className="divide-y divide-slate-100 rounded-2xl bg-white ring-1 ring-slate-200" data-testid="map-drafts">
+          {drafts.map((d) => {
+            const labels = d.areas.map((a) => (a.skills.length ? `${a.name}: ${a.skills.map((k) => k.name).join(", ")}` : a.name));
+            const skillIds = d.areas.map((a) => a.skills[0]?.id ?? null);
+            return (
+              <li key={d.id} className="px-4 py-3">
+                <div className="flex flex-wrap items-center gap-3">
+                  <span className="font-semibold text-brand-navy"><bdi>{d.studentName}</bdi></span>
+                  <span className="flex flex-wrap gap-1">{d.areas.slice(0, 4).map((a) => <span key={a.name} className="rounded-full bg-emerald-50 px-2.5 py-0.5 text-xs font-semibold text-emerald-900 ring-1 ring-emerald-200">{a.icon} {a.name}{a.source === "continuum" ? " 📘" : ""}</span>)}</span>
+                  <div className="ms-auto flex flex-wrap items-center gap-2">
+                    <form action={dismissMapDraftAction}>{hidden(d.id)}<button className="text-xs font-semibold text-slate-500 underline">{t("Dismiss")}</button></form>
+                    <form action={sendMapDraftAction}>{hidden(d.id)}<PendingButton className={BTN_MAIN} label="Send to {name}" vars={{ name: d.studentName }} pendingLabel="Sending…" /></form>
+                  </div>
+                </div>
+                <details className="mt-2">
+                  <summary className={`${BTN_SOFT} inline-flex min-h-9 w-fit cursor-pointer list-none items-center`}>{t("Preview")}</summary>
+                  <div className="mt-4">
+                    <StudentPlanPreview title={`${t("MAP Plan")} · ${subjectName(d.subject)}`} studentName={d.studentName} className={className} program="MAP"
+                      skills={labels} skillIds={skillIds} note={d.note} />
+                  </div>
+                </details>
+              </li>
+            );
+          })}
+        </ul>
+        <form action={sendAllMapDraftsAction} className="mt-4 flex justify-end">{hidden()}<PendingButton className={`${BTN_MAIN} px-8 text-lg`} label="Send all {n} plans" vars={{ n: drafts.length }} pendingLabel="Sending…" /></form>
+      </Section>
+    </>
   );
 }
