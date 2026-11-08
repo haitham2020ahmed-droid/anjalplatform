@@ -17,7 +17,7 @@ import { cancelIndex } from "../student/cancelled-work";
 import { assertCanEditSharedCatalogue } from "../curriculum-manage";
 import { classMembers, studentNames } from "../insights/student-data";
 import { masterSkills } from "../skills/master";
-import { bandSettings, estimateRit, estimateRits, groupOf, groupPools, GROUPS, mapProfiles, orderAreas, pickBand, ritBand, type AreaProfile, type GroupKey, type MapProfile, type PlanItem, type Subject } from "./map-plan";
+import { bandSettings, ensureDrafts, estimateRit, estimateRits, groupOf, groupPools, GROUPS, mapProfiles, orderAreas, pickBand, ritBand, type AreaProfile, type GroupKey, type MapProfile, type PlanItem, type Subject } from "./map-plan";
 import { BANK_MODELS, keptWhileUnchanged } from "../cache/kept";
 import { starBook, starMastered, starNeedsReview } from "../skills/star-read";
 
@@ -137,6 +137,24 @@ export async function myMap(repo: Repo, actor: Actor, now = new Date()): Promise
   const studentId = actor.studentId;
   const st = await repo.findUnique("Student", { id: studentId });
   const grade = Number((st?.gradeId ? await repo.findUnique("Grade", { id: st.gradeId }) : null)?.level ?? 0);
+  // 🩹 Nov 2026: catch up automatically, with no teacher action needed — just the student opening "My MAP" (or the
+  // "MAP" tab in My Work) is enough. If this student's class has a MAP-score plan stuck in DRAFT for this term (a
+  // straggler from before the auto-send feature existed, or any other reason it never reached SENT), it is sent
+  // right here. A tiny system-level actor (SCHOOL_ADMIN of this student's own school) is used only to pass the
+  // internal checks inside ensureDrafts — it never creates or sends anything beyond what this student's own real
+  // MAP scores already justify, and the one-exception rule inside ensureDrafts still leaves the separate
+  // practice-test draft system (sim.ts) strictly manual. Best-effort: never blocks the page on failure.
+  // (cheap short-circuit: the full class scan inside ensureDrafts only runs for a subject this student has never
+  // had a SENT plan for — once fixed, every later page view of theirs skips straight past this.)
+  const alreadySent = new Set((await repo.findMany("MapPlan", { studentId, status: "SENT" }, { select: ["subject"] })).map((x) => s(x.subject)));
+  const todo = (["READING", "LANGUAGE"] as const).filter((x) => !alreadySent.has(x));
+  const membership = todo.length ? (await repo.findMany("ClassMembership", { studentId, leftAt: null }))[0] : null;
+  if (membership && actor.schoolId) {
+    // real userId (the student's own — AuditLog.actorId has a DB foreign key to User, so a made-up id would fail
+    // the write), elevated role only so assertCan/assertClassAccess inside ensureDrafts let the catch-up through.
+    const sys: Actor = { userId: actor.userId, role: "SCHOOL_ADMIN", schoolId: actor.schoolId };
+    await Promise.all(todo.map((subject) => ensureDrafts(repo, sys, s(membership.classId), subject, now).catch(() => 0)));
+  }
   const [pk, book] = await Promise.all([groupPools(repo, actor.schoolId!, grade), starBook(repo, [studentId], actor.schoolId)]);
   // ⚡ the two subjects (and the sent plans) are read side by side, not one after another
   const one = async (subject: Subject): Promise<MySubject> => {
