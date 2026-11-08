@@ -21,7 +21,8 @@ export default async function DuplicatesPage({ searchParams }: { searchParams: P
     <div className={`flex-1 rounded-xl p-3 ring-1 ${empty === x.studentId ? "bg-amber-50 ring-amber-200" : "bg-white ring-slate-200"}`}>
       <p className="font-semibold text-brand-navy"><bdi>{x.name}</bdi></p>
       <p className="text-xs text-slate-600" dir="ltr">{x.username}</p>
-      <p className="mt-1 text-sm text-slate-700">{t("{n} answers", { n: x.answers })} · {x.lastLogin ? t("last sign-in {d}", { d: x.lastLogin }) : t("never signed in")}</p>
+      <p className="mt-1 text-sm text-slate-700">{t("{n} answers", { n: x.answers })} · {t("{n} MAP scores", { n: x.mapScores })} · {x.lastLogin ? t("last sign-in {d}", { d: x.lastLogin }) : t("never signed in")}</p>
+      {x.mapScores > 0 && <p className="mt-1 text-xs font-semibold text-sky-800">🗺️ {t("Holds this child's real MAP scores — don't archive this one.")}</p>}
       {empty === x.studentId && <p className="mt-1 text-xs font-semibold text-amber-900">{t("Probably the extra account (no answers)")}</p>}
       <form action={archiveDuplicateAction} className="mt-2">
         <input type="hidden" name="studentId" value={x.studentId} /><input type="hidden" name="name" value={x.name} />

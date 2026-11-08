@@ -5,6 +5,13 @@
  * word of the shorter name matches a word of the longer one (case, commas, hyphens and small spelling differences such
  * as Hussien/Hussein, Moayad/Moayyed ignored) — with each account's answers and last sign-in, so the admin can archive
  * the empty one (reversible: Restore brings it back). Nothing is changed here.
+ *
+ * 🩹 Nov 2026 fix (found while chasing a "MAP plan not showing" report): the "likely extra" pick used to look only
+ * at QuestionAttempt answers. A duplicate made by a MAP roster/CDF import can carry the real MapResult rows (the
+ * student's actual NWEA scores) while having zero practice answers — the old heuristic then pointed the admin at
+ * archiving exactly that account, silently losing the child's MAP history and leaving every MAP plan/report tied to
+ * an empty shell. Now an account holding MapResult rows is never the one marked "likely extra" while the other side
+ * has none; answers-only still decides when neither (or both) side has MAP rows.
  */
 import { ForbiddenError, type Actor } from "../auth/rbac";
 import type { Repo } from "../seeding/repo";
@@ -44,8 +51,8 @@ export function looksLikeSameName(x: string, y: string): boolean {
   return true;
 }
 
-export interface DupAccount { studentId: string; name: string; username: string; answers: number; lastLogin: string | null }
-export interface DupPair { classId: string; className: string; a: DupAccount; b: DupAccount; /** the account with no answers (the likely extra one), if exactly one */ empty: string | null }
+export interface DupAccount { studentId: string; name: string; username: string; answers: number; /** 🩹 Nov 2026: real NWEA MAP import rows (MapResult) on this account */ mapScores: number; lastLogin: string | null }
+export interface DupPair { classId: string; className: string; a: DupAccount; b: DupAccount; /** the likely extra account, if exactly one (see the MapResult-aware note above) */ empty: string | null }
 
 export async function possibleDuplicateStudents(repo: Repo, actor: Actor): Promise<DupPair[]> {
   if (actor.role !== "SCHOOL_ADMIN" && actor.role !== "SUPER_ADMIN") throw new ForbiddenError("Only a school admin can do this.");
@@ -61,7 +68,7 @@ export async function possibleDuplicateStudents(repo: Repo, actor: Actor): Promi
   const acc = new Map<string, DupAccount>(students.map((st): [string, DupAccount] => {
     const u = uOf.get(s(st.userId));
     const last = u?.lastLoginAt ? new Date(u.lastLoginAt instanceof Date ? u.lastLoginAt.getTime() : String(u.lastLoginAt)) : null;
-    return [s(st.id), { studentId: s(st.id), name: s(u?.displayName), username: s(u?.username), answers: 0, lastLogin: last && !Number.isNaN(last.getTime()) ? last.toISOString().slice(0, 10) : null }];
+    return [s(st.id), { studentId: s(st.id), name: s(u?.displayName), username: s(u?.username), answers: 0, mapScores: 0, lastLogin: last && !Number.isNaN(last.getTime()) ? last.toISOString().slice(0, 10) : null }];
   }));
   const pairs: DupPair[] = [];
   for (const c of classes) {
@@ -73,10 +80,23 @@ export async function possibleDuplicateStudents(repo: Repo, actor: Actor): Promi
   if (!pairs.length) return [];
   const ids = [...new Set(pairs.flatMap((p) => [p.a.studentId, p.b.studentId]))];
   const counts = new Map<string, number>();
-  for (let i = 0; i < ids.length; i += 1000) for (const [id, n] of await countGroups(repo, "QuestionAttempt", "studentId", { studentId: { in: ids.slice(i, i + 1000) } })) counts.set(id, n);
+  const mapCounts = new Map<string, number>();
+  for (let i = 0; i < ids.length; i += 1000) {
+    const part = ids.slice(i, i + 1000);
+    for (const [id, n] of await countGroups(repo, "QuestionAttempt", "studentId", { studentId: { in: part } })) counts.set(id, n);
+    for (const [id, n] of await countGroups(repo, "MapResult", "studentId", { studentId: { in: part } })) mapCounts.set(id, n);
+  }
   for (const p of pairs) {
     p.a.answers = counts.get(p.a.studentId) ?? 0; p.b.answers = counts.get(p.b.studentId) ?? 0;
-    p.empty = p.a.answers === 0 && p.b.answers > 0 ? p.a.studentId : p.b.answers === 0 && p.a.answers > 0 ? p.b.studentId : null;
+    p.a.mapScores = mapCounts.get(p.a.studentId) ?? 0; p.b.mapScores = mapCounts.get(p.b.studentId) ?? 0;
+    // 🩹 Nov 2026: an account with real MAP import rows is never flagged "likely extra" while the other side has
+    // none — losing a child's actual NWEA scores is worse than losing a practice-answers-only duplicate. Only when
+    // neither (or both) side has MapResult rows does the plain answers-count heuristic decide, as before.
+    p.empty = p.a.mapScores > 0 && p.b.mapScores === 0 ? p.b.studentId
+      : p.b.mapScores > 0 && p.a.mapScores === 0 ? p.a.studentId
+      : p.a.answers === 0 && p.b.answers > 0 ? p.a.studentId
+      : p.b.answers === 0 && p.a.answers > 0 ? p.b.studentId
+      : null;
   }
   return pairs.sort((x, y) => x.className.localeCompare(y.className) || x.a.name.localeCompare(y.a.name));
 }
