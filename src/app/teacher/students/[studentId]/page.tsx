@@ -24,7 +24,7 @@ import { EmptyState, SourceTag, StatusPill } from "@/components/ui-kit";
 import { AtAGlance, Callout, InfoTip, ReportHeader, ReportIntro, ReportSummary, toneOfPct } from "@/components/report-kit";
 import { GLOSSARY } from "@/lib/report-columns";
 import { studentFileSummary } from "@/lib/report-summaries";
-import { studentEffort } from "@/server/practice/guessing";
+import { studentEffortAll } from "@/server/analytics/practice";
 import { starMastered } from "@/server/skills/star-read";
 import { SkillStar } from "@/components/skills/skill-star";
 import type { MapSummary } from "@/server/insights/student-data";
@@ -74,7 +74,7 @@ export default async function StudentPage({ params, searchParams }: { params: Pr
     commentsFor(repo, actor, studentId).catch(() => []),
     notesFor(repo, actor, studentId).catch(() => []),
     quickComments(repo, actor).catch(() => [] as string[]),
-    studentEffort(repo, studentId).catch(() => null),
+    studentEffortAll(repo, studentId).catch(() => null), // reports audit: the same effort as Practice and time
   ]);
   // 🗒️ skills by source (new School Reports work): this student's school year, same period as the rest of the page
   const period = resolvePeriod("SCHOOL_YEAR", await loadCalendar(repo, String(actor.schoolId)));
@@ -139,10 +139,10 @@ export default async function StudentPage({ params, searchParams }: { params: Pr
         <AtAGlance items={[
           { icon: "📘", label: "My Work done", value: `${x.work.done} / ${x.work.items.length}`, meaning: t("{n} not started", { n: x.work.notStarted }), tone: x.work.items.some((w) => w.overdue) ? "warn" : "neutral" },
           { icon: "🎯", label: "Accuracy", value: x.answers.accuracy === null ? "—" : `${x.answers.accuracy}%`, meaning: t("{c} correct · {i} not correct", { c: x.answers.correct, i: x.answers.incorrect }), tone: toneOfPct(x.answers.accuracy) },
-          { icon: "⏱️", label: "Time spent", value: mins(x.time.totalMinutes), meaning: <>{t("This week")}: <span dir="ltr">{mins(x.time.weekMinutes)}</span> · {t("This month")}: <span dir="ltr">{mins(x.time.monthMinutes)}</span></> },
+          { icon: "⏱️", label: "Time spent", value: mins(x.time.totalMinutes), meaning: <>{t("Last 7 days")}: <span dir="ltr">{mins(x.time.weekMinutes)}</span> · {t("Last 30 days")}: <span dir="ltr">{mins(x.time.monthMinutes)}</span></> },
           { icon: "📝", label: "Test average", value: testAvg === null ? "—" : `${testAvg}%`, tone: toneOfPct(testAvg) },
           { icon: "🧩", label: "Skills", value: `${mastered.length} ✓ · ${needed.length} ↻`, meaning: t("{m} mastered · {n} need work", { m: mastered.length, n: needed.length }) },
-          { icon: "🧠", label: "Effort", value: effort?.effort === null || !effort ? "—" : `${effort.effort}%`, meaning: effort?.unreliableSessions ? t("{n} unreliable sessions", { n: effort.unreliableSessions }) : t("answers given with care"), tone: !effort || effort.effort === null ? "neutral" : effort.effort < 80 ? "warn" : "good" },
+          { icon: "🧠", label: "Effort", value: effort?.effort === null || !effort ? "—" : `${effort.effort}%`, meaning: effort?.unreliableSessions ? t("{n} unreliable sessions", { n: effort.unreliableSessions }) : t("answers given with care, last 30 days"), tone: !effort || effort.effort === null ? "neutral" : effort.effort < 80 ? "warn" : "good" },
         ]} />
         <div className="grid gap-4 lg:grid-cols-2">
           <Callout kind="meaning" items={[

@@ -217,7 +217,10 @@ export default async function PracticeAnalyticsPage({ searchParams }: { searchPa
                           <span className="text-slate-400">{x.lastActive ?? t("not active")}</span>
                         </span>
                       </summary>
-                      {x.detail.length > 0 && (
+                      {/* reports audit 8 Nov 2026: the per-skill table only for the student opened (the whole class's tables made
+                          the page 5.6 MB — 1,600 star drawings — and slow to open); the class list links to it */}
+                      {!one && x.detail.length > 0 && <p className="mt-1 text-xs"><Link href={q({ student: x.id })} className="font-semibold text-brand-teal underline">{t("Each skill of this student →")}</Link></p>}
+                      {one && x.detail.length > 0 && (
                         <div className="rk-box mt-2 overflow-x-auto"><table className="w-full text-sm"><thead><tr className="text-start text-xs text-slate-500"><th className="py-1 text-start">{t("Skill")}</th><th className="text-start">{t("Questions")}</th><th className="text-start">{t("Time")}</th><th className="text-start">{t("Accuracy")}</th><th className="text-start">{t("Change (first → last answers)")}</th><th className="text-start">{t("Score: start → end")}</th><th className="text-start">{t("Star now")}</th></tr></thead>
                           <tbody>{x.detail.map((d) => (
                             <tr key={d.key} className="border-t border-slate-100">

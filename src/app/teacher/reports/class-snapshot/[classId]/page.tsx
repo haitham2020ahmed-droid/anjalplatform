@@ -41,7 +41,7 @@ export default async function ClassSnapshotPage({ params }: { params: Promise<{ 
 
   const glance: Glance[] = [
     { label: "Urgent", value: urgent.size, icon: "🔴", tone: urgent.size ? "bad" : "good", meaning: t("Early warning: act now"), href: `/teacher/reports/early-warning?classId=${classId}&severity=URGENT` },
-    { label: "Needs support", value: needsSupport.size, icon: "🟠", tone: needsSupport.size ? "warn" : "good", meaning: t("No practice in a week, or stuck on a skill"), href: `/teacher/reports/needs-attention?${new URLSearchParams([["classId", classId]])}` },
+    { label: "Needs support", value: needsSupport.size, icon: "🟠", tone: needsSupport.size ? "warn" : "good", meaning: [...needsSupport].some((id) => urgent.has(id)) ? `${t("No practice in a week, or stuck on a skill")} · ${t("{n} of them also urgent", { n: [...needsSupport].filter((id) => urgent.has(id)).length })}` : t("No practice in a week, or stuck on a skill"), href: `/teacher/reports/needs-attention?${new URLSearchParams([["classId", classId]])}` },
     { label: "On level", value: onLevel, icon: "🔵", tone: "neutral", meaning: t("Not urgent, not needing support, not excelling yet") },
     { label: "Excelling", value: excelling.size, icon: "🟢", tone: "good", meaning: t("Ready for Enrichment"), href: `/teacher/plans?${new URLSearchParams([["kind", "ENRICHMENT"], ["classId", classId]])}` },
   ];

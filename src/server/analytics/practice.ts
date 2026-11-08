@@ -250,6 +250,20 @@ export async function loadAnswers(repo: Repo, ids: string[], fromD: Date, toD: D
   return out.sort((a, b) => a.at - b.at);
 }
 
+/**
+ * Reports audit 8 Nov 2026: a student's effort over the last `days` days from EVERY answer table, with the same rule
+ * as Practice and time (sessionEffort: fast AND wrong) — the student file used the practice sessions only, so the
+ * two pages showed different effort for the same student (e.g. 88 % vs 95 %).
+ */
+export async function studentEffortAll(repo: Repo, studentId: string, days = 30, now = new Date()): Promise<{ effort: number | null; answers: number; unreliableSessions: number }> {
+  const list = await loadAnswers(repo, [studentId], new Date(now.getTime() - days * 86_400_000), now);
+  const e = sessionEffort(list.map((r) => ({ rapidGuess: r.rapid, correct: r.correct })));
+  const bySession = new Map<string, Answer[]>();
+  for (const r of list) (bySession.get(r.session) ?? bySession.set(r.session, []).get(r.session)!).push(r);
+  const unreliableSessions = [...bySession.values()].filter((l) => sessionEffort(l.map((r) => ({ rapidGuess: r.rapid, correct: r.correct }))).unreliable).length;
+  return { effort: e.effort, answers: list.length, unreliableSessions };
+}
+
 export async function practiceAnalytics(repo: Repo, actor: Actor, input: { classId: string; from: Date; to: Date; studentId?: string | null; view?: PracticeView }): Promise<PracticeAnalytics> {
   assertCan(actor, "reports:read");
   const klass = (await readableClasses(repo, actor)).find((c) => c.id === input.classId);

@@ -84,7 +84,8 @@ async function ownStudent(repo: Repo, actor: Actor, klass: Row, studentId: strin
 export interface AddedByName { userId: string; studentId: string; name: string; username: string; number: string; password: string }
 export interface AddByNameResult { className: string; grade: number; created: AddedByName[]; skipped: { name: string; reason: string }[] }
 
-const nameKey = (v: string) => v.normalize("NFKC").toLowerCase().replace(/\s+/g, " ").trim().split(" ").sort().join(" ");
+// reports audit 8 Nov 2026: commas, hyphens and dots ignored too ("FAHAD, ABDULAZIZ" = "Abdulaziz Fahad", "Al-Salman" = "Alsalman")
+const nameKey = (v: string) => v.normalize("NFKC").toLowerCase().replace(/[-'’.]/g, "").replace(/[,_/]+/g, " ").replace(/\s+/g, " ").trim().split(" ").sort().join(" ");
 
 /** One name per line ("1. Sara Ali" → "Sara Ali"); empty lines are skipped. */
 export function parseNames(text: string): string[] {

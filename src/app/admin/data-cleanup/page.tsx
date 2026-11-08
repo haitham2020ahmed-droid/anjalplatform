@@ -4,6 +4,7 @@ import { PageHeader } from "@/components/page-header";
 import { BTN_SECONDARY } from "@/components/ui-kit/tokens";
 import { getActor, repo, requireActor } from "@/server/auth/next";
 import { cleanupCounts } from "@/server/admin/data-cleanup";
+import { possibleDuplicateStudents } from "@/server/admin/duplicate-students";
 import { getT } from "@/i18n/server";
 
 export const metadata = { title: "Data Cleanup" };
@@ -16,11 +17,13 @@ export default async function DataCleanupPage() {
   const actor = await requireActor({ roles: ["SCHOOL_ADMIN", "SUPER_ADMIN"], permission: "students:manage" });
   const me = (await getActor())!.user;
   const { t } = await getT();
-  const c = await cleanupCounts(repo, actor);
+  const [c, dups] = await Promise.all([cleanupCounts(repo, actor), possibleDuplicateStudents(repo, actor).catch(() => [])]);
   const cards: { n: number; title: string; text: string; href: string; button: string; extra?: string }[] = [
     { n: c.unclassified, title: "Questions without a skill", text: "Sort them under their skills. You check the ones the platform is not sure about.", href: "/admin/questions/unclassified", button: "Sort questions" },
     { n: c.underReview + c.drafts, title: "Draft questions waiting for review", text: "Publish them all with one press, or review them one by one.", href: "/admin/questions", button: "Fix stuck questions", extra: t("{n} sent for review · {m} drafts", { n: c.underReview, m: c.drafts }) },
     { n: c.studentsWithoutClass, title: "Students without a class", text: "Put each student in a class so a teacher can see them.", href: "/admin/school?open=no-class", button: "Give them a class" },
+    // reports audit 8 Nov 2026: the same child twice in a class makes every report count the class wrong
+    { n: dups.length, title: "Possible duplicate students", text: "Look-alike names in the same class (e.g. “Jalawi” and “BIN FAISAL, JALAWI”). Check them and archive the extra account.", href: "/admin/data-cleanup/duplicates", button: "Check the pairs", extra: dups.length ? dups.slice(0, 4).map((p) => `${p.a.name} / ${p.b.name}`).join(" · ") : undefined },
     { n: c.classesWithoutTeacher, title: "Classes without a teacher", text: "Choose a teacher for each class.", href: "/admin/school?filter=no-teacher", button: "Choose teachers" },
     { n: c.skillsWithoutQuestions, title: "Skills with no questions", text: "Students cannot practise these skills yet.", href: "/admin/bank-gaps", button: "Add questions", extra: c.emptySkills.length ? c.emptySkills.map((k) => `${k.name} (G${k.grade})`).join(" · ") : undefined },
     { n: c.studentsWithoutMap, title: "Students with no MAP scores", text: "Add their MAP scores so their plans can be made.", href: "/teacher/map-rit", button: "Add MAP scores" },

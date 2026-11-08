@@ -1284,6 +1284,18 @@ export const UI_STRINGS = [
   "Note: {q} questions for {n} skills is under 5 per skill, so no skill can be mastered. For mastery give about {m} questions, or fewer skills.",
   "{q} questions for {n} skills is under 5 answers per skill, so no skill could be mastered in this practice. Read the accuracy instead; next time give about {m} questions or fewer skills.",
   "default time {n} minutes (each class can have its own)",
+  "Each skill of this student →",
+  "answers given with care, last 30 days",
+  "{n} of them also urgent",
+  "Possible duplicate students",
+  "Look-alike names in the same class (e.g. “Jalawi” and “BIN FAISAL, JALAWI”). Check them and archive the extra account.",
+  "Check the pairs",
+  "The same child twice in a class makes every report count the class wrong. Check each pair and archive the extra account: it leaves the class and cannot sign in; its data is kept and Restore (Users) brings it back.",
+  "last sign-in {d}",
+  "never signed in",
+  "Probably the extra account (no answers)",
+  "Archive this account",
+  "No look-alike names in any class.",
 ] as const;
 
 export type UiString = (typeof UI_STRINGS)[number];
