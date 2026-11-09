@@ -126,7 +126,10 @@ function EditDatesForm({ x, t, back }: { x: AssignedItem; t: TFn; back: string }
 function ItemRow({ x, t, who, href, back, admin }: { x: AssignedItem; t: TFn; who: (x: AssignedItem) => string; href: (e: Record<string, string | null>) => string; back: string; admin: boolean }) {
   return (
     <div className={`${COLS} px-3 py-1.5 text-sm ${x.cancelled ? "bg-surface-2/60" : ""}`}>
-      <input type="checkbox" name="sel" value={`${x.kind}:${x.id}`} data-kind={x.kind} data-unit={x.unit ?? ""} aria-label={`${t("Select")}: ${x.title}`} className="h-4 w-4 shrink-0" />
+      {/* 🧾 a merged "MAP plan · Reading/Language" row stands for many underlying rows (every goal area, every
+          class) — there is no single row left for bulk-select, Cancel, date-edit or link/QR to act on, so none of
+          those are offered on it (manage a MAP plan itself from the "MAP plan" page). */}
+      {x.merged ? <span aria-hidden="true" /> : <input type="checkbox" name="sel" value={`${x.kind}:${x.id}`} data-kind={x.kind} data-unit={x.unit ?? ""} aria-label={`${t("Select")}: ${x.title}`} className="h-4 w-4 shrink-0" />}
       {/* 🐛 fix (requested, Oct 2026): title + both pills used to share ONE truncating span, so a long title (e.g.
           a curriculum unit/text-set/skill name) filled the whole width and clipped the type/source pills off
           entirely — not just visually crowded, literally never rendered past the title's ellipsis. The title now
@@ -141,14 +144,14 @@ function ItemRow({ x, t, who, href, back, admin }: { x: AssignedItem; t: TFn; wh
       <span className="text-xs tabular-nums text-ink-2" dir="ltr" title={t("Finished / students")}>{x.done}/{x.recipients}</span>
       <span className="flex min-w-0 items-center gap-1">
         <span className={`justify-self-start rounded-full px-2 py-0.5 text-xs font-semibold ring-1 ${TONE[x.status]}`}>{t(ASSIGNED_STATUS_LABEL[x.status])}</span>
-        {!x.cancelled && EDITABLE_DATE_KINDS.has(x.kind) && <EditDatesForm x={x} t={t} back={back} />}
+        {!x.cancelled && !x.merged && EDITABLE_DATE_KINDS.has(x.kind) && <EditDatesForm x={x} t={t} back={back} />}
       </span>
       <span>{x.tab ? <span className="rounded-full bg-indigo-50 px-2 py-0.5 text-xs font-semibold text-indigo-700 ring-1 ring-indigo-200">📂 {t(WORK_TAB_LABEL[x.tab])}</span> : null}</span>
       {/* 🔗 "open straight on this" link/QR (owner request, Oct 2026) — not offered for a cancelled row, or a kind
           with no single resolvable solve page yet (MAP Test's one-row-per-subject, Learn/Words). */}
       <span className="flex items-center justify-self-end gap-1">
-        {!x.cancelled && isAssignedQrKind(x.kind) && <AssignedQrButton kind={x.kind} id={x.id} classIds={x.classIds} classNames={x.classNames} />}
-        <RowActions x={x} t={t} href={href} back={back} />
+        {!x.cancelled && !x.merged && isAssignedQrKind(x.kind) && <AssignedQrButton kind={x.kind} id={x.id} classIds={x.classIds} classNames={x.classNames} />}
+        {x.merged ? <span className="text-[11px] text-muted" title={t("Manage this from the “MAP plan” page.")}>🧾</span> : <RowActions x={x} t={t} href={href} back={back} />}
       </span>
     </div>
   );

@@ -35,6 +35,7 @@ import { ASSIGN_SOURCE_LABEL } from "../../lib/assign-source";
 import { parseWorkTab, type WorkTab } from "../../lib/work-tab";
 import { sourceKeyOf, type SourceKey } from "../../lib/source-tags";
 import { isReviewWork } from "../practice/completion";
+import { GROUPS } from "../map/map-plan";
 
 export const ASSIGNED_KINDS = ["SKILL", "PROGRESS_CHECK", "TEST", "MAP_TEST", "NAFS_TEST", "NAFS_PRACTICE", "LEARN", "WORDS", "READRISE", "WRITING", "FLUENCY", "EXIT_TICKET", "RESPOND", "PLAN", "LESSON"] as const;
 export type AssignedKind = (typeof ASSIGNED_KINDS)[number];
@@ -71,6 +72,11 @@ export interface AssignedItem {
   /** 🏷️ where the skill came from — Curriculum / MAP / NAFS / RTI / Grammar / Custom (SKILL rows only; null = none) */
   source?: SourceKey | null;
   status: AssignedStatus; cancelled: boolean;
+  /** 🧾 Nov 2026: a stand-in row for every "MAP plan · <goal area>" skill set of one subject, across every class and
+   *  goal area, so the list shows 2 rows total (Reading / Language) instead of one per goal area per class — see
+   *  mergeMapPlanRows(). No single underlying row to cancel, edit dates on, or open a link/QR for, so the page must
+   *  not offer those actions on it (manage MAP plans from the "MAP plan" page instead). */
+  merged?: boolean;
 }
 export interface AssignedStudent { id: string; name: string; done: boolean; removed: boolean; /** ⭐ the student's ONE status of the assigned skill (skill work only) */ star?: StarStatus; /** 🔄 the skill was ⭐ before the work was set: a 20-question review for this student */ review?: boolean }
 
@@ -379,6 +385,51 @@ export function unitOfTitle(title: string): string | null {
   return m ? `Unit ${Number(m[1])}` : null;
 }
 
+/** "MAP plan · Grammar & Usage" → "LANGUAGE"; "MAP plan · Literary Text" → "READING"; built from the same GROUPS
+ *  table map-more.ts uses for "My MAP work" and "My Study Plan", so a goal area's subject can never drift between
+ *  the two pages. Anything after "MAP plan · " that isn't one of the 6 goal-area names (a future group, a renamed
+ *  one) is left alone — never silently merged into the wrong subject or dropped. */
+const SUBJECT_OF_GOAL_AREA = new Map(GROUPS.map((g) => [g.name, g.subject] as const));
+
+/**
+ * 🧾 Nov 2026 (owner request: "شيل الماب من Assigned" → "خليهم بس لينك لكل مادة"): a sent MAP study plan creates
+ * one Assignment (so one AssignedItem) PER GOAL AREA PER CLASS — 6 goal areas × however many classes, so a school
+ * with a few classes showed 100+ near-identical "New" rows, all really the same two things: the student's Reading
+ * MAP plan and their Language MAP plan (both already one clear, single "Start" link per subject in the student's
+ * own My Work → MAP tab — nothing is missing there). This collapses every "MAP plan · <goal area>" SKILL row, across
+ * every class and goal area this teacher/admin can see, into just the two rows: "MAP plan · Reading" and "MAP plan ·
+ * Language". It is purely a display merge — no Assignment row is touched, so Cancel / restore / the student's work
+ * are all unaffected; it only changes what this one list shows. The merged row is read-only here on purpose (see
+ * AssignedItem.merged): there is no single underlying row left to cancel, re-date or link/QR to, so the page hides
+ * those actions on it and a teacher who needs any of that uses the "MAP plan" page instead. */
+function mergeMapPlanRows(items: AssignedItem[]): AssignedItem[] {
+  const goalArea = (title: string) => title.startsWith("MAP plan · ") ? title.slice("MAP plan · ".length) : null;
+  const rest: AssignedItem[] = [];
+  const bySubject = new Map<"READING" | "LANGUAGE", AssignedItem[]>();
+  for (const x of items) {
+    const area = x.kind === "SKILL" && !x.cancelled ? goalArea(x.title) : null;
+    const subject = area ? SUBJECT_OF_GOAL_AREA.get(area) : undefined;
+    if (subject) bySubject.set(subject, [...(bySubject.get(subject) ?? []), x]);
+    else rest.push(x);
+  }
+  if (!bySubject.size) return items;
+  const SEVERITY: Record<AssignedStatus, number> = { LATE: 4, OPEN: 3, SCHEDULED: 2, DONE: 1, CANCELLED: 0 };
+  const merged: AssignedItem[] = [];
+  for (const [subject, rows] of bySubject) {
+    const classIds = [...new Set(rows.flatMap((r) => r.classIds))];
+    const classNames = [...new Set(rows.flatMap((r) => r.classNames))];
+    const worst = rows.reduce((a, b) => (SEVERITY[b.status] > SEVERITY[a.status] ? b : a));
+    merged.push({
+      kind: "SKILL", id: `mapplan-merged:${subject}`, title: `MAP plan · ${subject === "READING" ? "Reading" : "Language"}`,
+      detail: null, classIds, classNames, teacher: null, scope: "class",
+      recipients: rows.reduce((n, r) => n + r.recipients, 0), done: rows.reduce((n, r) => n + r.done, 0), removed: rows.reduce((n, r) => n + r.removed, 0),
+      createdAt: rows.reduce((max, r) => (r.createdAt && (!max || r.createdAt > max) ? r.createdAt : max), null as string | null),
+      dueAt: null, startAt: null, unit: null, tab: null, source: rows[0]?.source ?? null, status: worst.status, cancelled: false, merged: true,
+    });
+  }
+  return [...rest, ...merged];
+}
+
 export interface AssignedFilters { classId?: string | null; kind?: string | null; status?: string | null; from?: string | null; to?: string | null; teacher?: string | null }
 export interface AssignedView {
   items: AssignedItem[];
@@ -438,9 +489,13 @@ export async function assignedList(repo: Repo, actor: Actor, f: AssignedFilters 
       createdAt: r.createdAt, dueAt: r.dueAt, startAt: r.startAt ?? null, unit: unitOfTitle(r.title), tab: r.tab ?? null, source: r.source ?? null, status, cancelled: c.all,
     });
   }
-  items.sort((a, b) => (b.createdAt ?? "").localeCompare(a.createdAt ?? ""));
+  // 🧾 Nov 2026: "MAP plan · <goal area>" SKILL rows (one per goal area per class) collapse into 2 rows per subject
+  // (Reading / Language) — see mergeMapPlanRows(). Only active (not cancelled/restored-view) rows are merged, so a
+  // teacher explicitly viewing Status = Cancelled / All can still see and Undo one goal area's row by itself.
+  const merged = (f.status || "ACTIVE") === "ACTIVE" ? mergeMapPlanRows(items) : items;
+  merged.sort((a, b) => (b.createdAt ?? "").localeCompare(a.createdAt ?? ""));
   return {
-    items,
+    items: merged,
     classes: sc.classes.map((c) => ({ id: s(c.id), name: s(c.name) })).sort((a, b) => a.name.localeCompare(b.name)),
     teachers: sc.admin ? teachers.map((t) => ({ id: s(t.userId), name: nameOfUser.get(s(t.userId)) ?? "Teacher" })).sort((a, b) => a.name.localeCompare(b.name)) : [],
     admin: sc.admin,

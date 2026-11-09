@@ -39,6 +39,7 @@ import { areaByKey, areaFromName, areaFromText, defaultStandard, parseCcss } fro
 import { backfillContentHashes, hashOfItem } from "../questions/dedupe-hash";
 import { schoolSkillIndex } from "../questions/skill-questions";
 import { PREVIEW_PAGE, countRow, emptyCounts, inFilter, parseFilter, type PreviewCounts, type PreviewFilter } from "../../lib/import-preview";
+import { groupPools } from "../map/map-plan";
 
 export type ImportDecision = "IMPORT" | "SKIP" | "REPLACE" | "FORCE";
 export type RowStatus = "VALID" | "INVALID" | "DUPLICATE" | "IMPORTED" | "REPLACED" | "SKIPPED" | "FAILED";
@@ -952,7 +953,31 @@ export async function commitImportChunk(repoIn: Repo, actor: Actor, jobId: strin
   // areas, types) are read once per chunk; writes drop what they change (db/read-cache-repo.ts)
   const repo = readCacheFor(repoIn);
   repo.clear();
-  try { return await commitChunk(repo, actor, jobId, opts, now); } finally { repo.clear(); }
+  let progress: CommitProgress;
+  try { progress = await commitChunk(repo, actor, jobId, opts, now); } finally { repo.clear(); }
+  // ⚡ Nov 2026 ("ليه تاب MAP بيبقى تقيل؟"): a finished import changes the Question table, which invalidates
+  // groupPools()'s cache for every grade it touched (map-cache.ts) — but only lazily: the next person to open
+  // a MAP page (teacher or student) would otherwise pay for rebuilding that grade's whole question pool
+  // themselves. Warm it right here instead, once, in the background — fire-and-forget, best-effort, on the
+  // real (uncached) repo so it outlives this request; never awaited, never allowed to fail the import itself.
+  if (progress.done) void warmMapPoolsAfterImport(repoIn, actor, jobId).catch(() => {});
+  return progress;
+}
+
+/** See the comment above commitImportChunk's call to this. Grades come from the questions this job actually
+ *  created/replaced (via ImportedQuestionLog.questionId → Question.skillId → Skill.grade), not guessed. */
+async function warmMapPoolsAfterImport(repo: Repo, actor: Actor, jobId: string): Promise<void> {
+  const logs = await repo.findMany("ImportedQuestionLog", { jobId, questionId: { not: null } }, { select: ["questionId"] });
+  const qIds = [...new Set(logs.map((l) => String(l.questionId ?? "")).filter(Boolean))];
+  if (!qIds.length) return;
+  const qs = await repo.findMany("Question", { id: { in: qIds } }, { select: ["skillId"] });
+  const skillIds = [...new Set(qs.map((q) => String(q.skillId ?? "")).filter(Boolean))];
+  if (!skillIds.length) return;
+  const skills = await repo.findMany("Skill", { id: { in: skillIds } }, { select: ["grade"] });
+  const grades = [...new Set(skills.map((sk) => Number(sk.grade)).filter((g) => Number.isFinite(g) && g > 0))];
+  if (!grades.length) return;
+  const schoolId = schoolOf(actor);
+  await Promise.all(grades.map((g) => groupPools(repo, schoolId, g).catch(() => null)));
 }
 
 async function commitChunk(repo: Repo, actor: Actor, jobId: string, opts: { publish?: boolean }, now: Date): Promise<CommitProgress> {
