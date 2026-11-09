@@ -1,0 +1,121 @@
+diff -ruN apply_check/src/components/map/map-ui.tsx repo/src/components/map/map-ui.tsx
+--- a/src/components/map/map-ui.tsx	2026-11-09 04:28:11.086648189 +0000
++++ b/src/components/map/map-ui.tsx	2026-11-09 04:25:04.123935526 +0000
+@@ -65,6 +65,12 @@
+                 {/* 🆕 Nov 2026: where the skills above came from — the imported Learning Continuum at this band, or (no continuum / band not covered) the plain weakest-skills fallback */}
+                 {it.skillSource === "continuum" && <span className="ms-2 rounded-full bg-sky-50 px-2 py-0.5 text-xs font-semibold text-sky-800 ring-1 ring-sky-200">📘 Learning Continuum</span>}
+               </p>
++              {/* 🆕 Nov 2026: the exact NWEA statement behind each skill above (not just its short name) — only
++                  the skills that actually have one (continuum-sourced items; a statement can span more than
++                  one skill, so duplicates are dropped). */}
++              {(() => { const texts = [...new Set((it.skillRefs ?? []).map((k) => k.text).filter((t): t is string => !!t))]; return texts.length > 0 && (
++                <ul className="mt-1 list-disc space-y-0.5 ps-5 text-xs text-slate-500">{texts.map((t) => <li key={t}>{t}</li>)}</ul>
++              ); })()}
+               {/* 🆕 Nov 2026: Learning Continuum "Introduce" topics — reference only, never turned into questions */}
+               {(it.next ?? []).length > 0 && <p className="mt-1 text-xs text-slate-500">Coming up next: {it.next.join(" · ")}</p>}
+             </li>
+diff -ruN apply_check/src/server/map/continuum.ts repo/src/server/map/continuum.ts
+--- a/src/server/map/continuum.ts	2026-11-08 21:55:35.388666831 +0000
++++ b/src/server/map/continuum.ts	2026-11-09 04:23:54.539931389 +0000
+@@ -175,7 +175,14 @@
+   const bands = [...new Map(mine.map((r) => [Number(r.ritLow), { low: Number(r.ritLow), high: Number(r.ritHigh) }])).values()].sort((a, b) => a.low - b.low);
+   if (!bands.length) return { reinforce: null, develop: null, introduce: null };
+   let i = bands.findIndex((b) => rit >= b.low && rit <= b.high);
+-  if (i < 0) i = rit < bands[0].low ? 0 : bands.length - 1;
++  // 🆕 Nov 2026: nearest band with real statements for THIS group, not just "below everything → first,
++  // above everything → last". That edge-only rule was correct as long as a group's own bands formed one
++  // unbroken run (true of every group in the file today), but silently picked the far end of the whole
++  // range for a RIT sitting in a hole in the MIDDLE of that run (a goal area with no statements at one
++  // band, imported again later with a gap). Scanning every band for the closest one (0 if the RIT falls
++  // inside it) finds the true nearest band either way, and is identical to the old rule whenever there's
++  // no gap to matter.
++  if (i < 0) { let bestDist = Infinity; bands.forEach((b, idx) => { const d = rit < b.low ? b.low - rit : rit - b.high; if (d < bestDist) { bestDist = d; i = idx; } }); }
+   // the same band of the same area is asked for every student of a class: built once per report
+   let cache = viewCache.get(ix);
+   if (!cache) viewCache.set(ix, (cache = new Map()));
+diff -ruN apply_check/src/server/map/map-more.ts repo/src/server/map/map-more.ts
+--- a/src/server/map/map-more.ts	2026-11-09 04:28:11.086648189 +0000
++++ b/src/server/map/map-more.ts	2026-11-09 04:24:46.243934463 +0000
+@@ -64,7 +64,7 @@
+ export interface PlanDoc {
+   id: string; studentId: string; name: string; number: string; className: string; grade: number; subject: Subject; term: string; status: "DRAFT" | "SENT"; sentAt: string | null; dueAt: string | null; note: string | null;
+   profile: MapProfile; estimate: number | null;
+-  items: { group: GroupKey; name: string; icon: string; status: string | null; rit: number | null; band: string; skills: string[]; /** r79: the same skills with their ids (the printed plan links each one) */ skillRefs: { id: string; name: string }[]; /** 🆕 Nov 2026: Learning Continuum "Introduce" topics at this area's band — reference only, never assigned as questions */ next: string[]; /** 🆕 Nov 2026: where `skills` came from */ skillSource: "continuum" | "weakest"; count: number; assignmentId: string | null; progress: number | null; done: boolean }[];
++  items: { group: GroupKey; name: string; icon: string; status: string | null; rit: number | null; band: string; skills: string[]; /** r79: the same skills with their ids (the printed plan links each one) */ skillRefs: { id: string; name: string; /** 🆕 Nov 2026: the exact NWEA statement sentence this skill came from, when the school's Learning Continuum is the source */ text?: string }[]; /** 🆕 Nov 2026: Learning Continuum "Introduce" topics at this area's band — reference only, never assigned as questions */ next: string[]; /** 🆕 Nov 2026: where `skills` came from */ skillSource: "continuum" | "weakest"; count: number; assignmentId: string | null; progress: number | null; done: boolean }[];
+ }
+ 
+ /** May this actor read the student's MAP plan? Teachers/admins of the class, the student, the parent. */
+@@ -127,7 +127,7 @@
+     const st = a ? rows.find((x) => x.assignmentId === a.id) : undefined;
+     const introduce = cix ? continuumFor(cix, it.group, it.rit ?? it.low).introduce : null;
+     const next = introduce ? [...new Set(introduce.statements.map((x) => x.topic).filter(Boolean))].slice(0, 4) : [];
+-    return { group: it.group, name: g.name, icon: g.icon, status: it.status, rit: it.rit, band: ritBand(it.rit ?? it.low, bands).label, skills: it.skillIds.map((k) => pk.skills.get(k)?.name ?? "").filter(Boolean), skillRefs: it.skillIds.filter((k) => pk.skills.get(k)?.name).map((k) => ({ id: s(k), name: pk.skills.get(k)!.name })), next, skillSource: it.skillSource ?? "weakest", count: it.count, assignmentId: a ? s(a.id) : null, progress: st ? Math.round(Number(st.progress) * 100) : null, done: s(st?.status) === "COMPLETED" };
++    return { group: it.group, name: g.name, icon: g.icon, status: it.status, rit: it.rit, band: ritBand(it.rit ?? it.low, bands).label, skills: it.skillIds.map((k) => pk.skills.get(k)?.name ?? "").filter(Boolean), skillRefs: it.skillIds.filter((k) => pk.skills.get(k)?.name).map((k) => ({ id: s(k), name: pk.skills.get(k)!.name, text: it.skillTexts?.[k] })), next, skillSource: it.skillSource ?? "weakest", count: it.count, assignmentId: a ? s(a.id) : null, progress: st ? Math.round(Number(st.progress) * 100) : null, done: s(st?.status) === "COMPLETED" };
+   });
+   const est = await estimateRit(repo, s(r.schoolId), studentId, subject, now);
+   return { id: s(r.id), studentId, name: names.get(studentId)?.name ?? "Student", number: names.get(studentId)?.number ?? "", className: s(klass?.name), grade, subject, term: s(r.term), status: s(r.status) as "DRAFT" | "SENT", sentAt: iso(r.sentAt), dueAt: iso(r.dueAt), note: r.note ? s(r.note) : null, profile: profiles.get(studentId)!, estimate: est?.rit ?? null, items };
+diff -ruN apply_check/src/server/map/map-plan.ts repo/src/server/map/map-plan.ts
+--- a/src/server/map/map-plan.ts	2026-11-09 04:28:11.086682622 +0000
++++ b/src/server/map/map-plan.ts	2026-11-09 04:24:32.839933666 +0000
+@@ -354,7 +354,7 @@
+  *  Continuum, at this area's own band) or "weakest" (the plain weakest-3 fallback); undefined on plans made
+  *  before this field existed, or by a caller that never set it (the Personalized-Plan wizard, practice-test
+  *  drafts) — display code treats a missing value as "weakest". */
+-export interface PlanItem { group: GroupKey; status: AreaStatus | null; rit: number | null; low: number; high: number; skillIds: string[]; count: number; skillSource?: "continuum" | "weakest" }
++export interface PlanItem { group: GroupKey; status: AreaStatus | null; rit: number | null; low: number; high: number; skillIds: string[]; count: number; skillSource?: "continuum" | "weakest"; /** 🆕 Nov 2026: skillId → the exact NWEA statement sentence it came from (continuum-sourced items only) */ skillTexts?: Record<string, string> }
+ export interface PlanView { id: string; studentId: string; name: string; subject: Subject; term: string; status: "DRAFT" | "SENT"; items: (PlanItem & { name: string; icon: string; band: string; questions: number; skills: { id: string; name: string }[]; allSkills: { id: string; name: string }[] })[]; note: string | null; dueAt: string | null; sentAt: string | null; profile: MapProfile }
+ 
+ /** The automatic plan for one profile. Without goal-area scores (only the overall RIT, e.g. a school list): every
+@@ -441,6 +441,10 @@
+     const m = new Map(mastery.filter((x) => x.studentId === id).map((x) => [s(x.skillId), Number(x.score)]));
+     // 🆕 Nov 2026: which source each group's skillIds actually came from (shown to the teacher as a small badge)
+     const sourceByGroup = new Map<GroupKey, "continuum" | "weakest">();
++    // 🆕 Nov 2026: the exact NWEA statement sentence behind each continuum-matched skill id (shown next to the
++    // skill name instead of just the name alone) — first statement to name a given skill wins, since one skill
++    // can come from more than one statement.
++    const textByGroup = new Map<GroupKey, Record<string, string>>();
+     // no answers yet in an area → no skill chosen = all the skills of the area (at the student's band)
+     const skillsByGroup = new Map<GroupKey, string[]>(GROUPS.map((g) => {
+       const avail = [...new Set((pools.get(g.key) ?? []).map((q) => q.skillId))];
+@@ -464,17 +468,19 @@
+       // instead of silently falling back to "all the skills of this area".
+       if (!avail.length) return useFallback();
+       const fromContinuum: string[] = [];
++      const texts: Record<string, string> = {};
+       // Develop (the student's own band) first, then Reinforce (shaky foundations) — same order the
+       // "Personalized Plan" wizard already uses for its continuum-based picks; Introduce (stretch, band
+       // above) is left out here, same as there, since this is assigned work, not just a reference list.
+       for (const st of [v.develop, v.reinforce]) {
+         if (!st) continue;
+-        for (const stmt of st.statements) for (const sk of stmt.skills) if (!fromContinuum.includes(sk.id)) fromContinuum.push(sk.id);
++        for (const stmt of st.statements) for (const sk of stmt.skills) { if (!fromContinuum.includes(sk.id)) fromContinuum.push(sk.id); if (!texts[sk.id]) texts[sk.id] = stmt.text; }
+       }
+       // a band the imported file doesn't cover at all (no continuum rows for it) falls back to the plain
+       // weakest-3 selection rather than sending an area with no skills at all
+       if (!fromContinuum.length) return useFallback();
+       sourceByGroup.set(g.key, "continuum");
++      textByGroup.set(g.key, texts);
+       return [g.key, fromContinuum.slice(0, 12)];
+     }));
+     // 🆕 Nov 2026: the real sendable MAP plan now covers every area with a MAP score, not just the weakest 1–2
+@@ -483,7 +489,7 @@
+     // every item below, regardless of FOCUS/MAINTAIN/EXTEND status: the actual session length this count used to
+     // set is now decided by the real adaptive 30-min/50-max/"stop once mastered" rule (see topUpSentPlan /
+     // sendPlans below), the same for every area, so a different displayed number per area would just be stale.
+-    const items = autoItems(p, skillsByGroup, bands, ASSIGNMENT_MIN_QUESTIONS, true).map((it) => ({ ...it, count: ASSIGNMENT_MIN_QUESTIONS, skillSource: sourceByGroup.get(it.group) ?? ("weakest" as const) }));
++    const items = autoItems(p, skillsByGroup, bands, ASSIGNMENT_MIN_QUESTIONS, true).map((it) => ({ ...it, count: ASSIGNMENT_MIN_QUESTIONS, skillSource: sourceByGroup.get(it.group) ?? ("weakest" as const), skillTexts: textByGroup.get(it.group) }));
+     if (!items.length) continue;
+     // 🆕 Nov 2026: a due date 14 days out, by default — was always null until the teacher set one by hand
+     // (updatePlan can still change or clear it afterwards; this only picks the starting value).
+@@ -564,7 +570,10 @@
+   const bands = await bandSettings(repo, actor.schoolId);
+   const pick = pickBand(pools.get(newItem.group) ?? [], newItem.low, newItem.high, bands.size, newItem.skillIds);
+   if (pick.ids.length < 3) return { sentNewGroup: false, notEnoughQuestions: true };
+-  const a = await assignQuestions(repo, actor, { classId: s(r.classId), studentIds: [s(r.studentId)], questionIds: pick.ids, title: `MAP plan · ${groupOf(newItem.group).name}`, exactTitle: true, track: "MAP", adaptive: { maxQuestions: Math.min(newItem.count, pick.ids.length) }, dueAt: r.dueAt ? new Date(time(r.dueAt)) : null, note: r.note ? s(r.note) : null, source: requireSource("MAP") }, now);
++  // 🆕 Nov 2026: this manually-added area now gets the same real 30-min/50-max/"stop once mastered" session as
++  // every other MAP plan item (sendPlans / topUpSentPlan below) — until now it was the one path still left on a
++  // flat maxQuestions cap with no mastery-based stop.
++  const a = await assignQuestions(repo, actor, { classId: s(r.classId), studentIds: [s(r.studentId)], questionIds: pick.ids, title: `MAP plan · ${groupOf(newItem.group).name}`, exactTitle: true, track: "MAP", adaptive: { maxQuestions: Math.min(ASSIGNMENT_MAX_QUESTIONS, pick.ids.length), targetCorrect: DEFAULT_TARGET_CORRECT }, dueAt: r.dueAt ? new Date(time(r.dueAt)) : null, note: r.note ? s(r.note) : null, source: requireSource("MAP") }, now);
+   const prevIds: string[] = Array.isArray(r.assignmentIds) ? r.assignmentIds.map(s) : [];
+   await repo.updateMany("MapPlan", { id: planId }, { assignmentIds: [...prevIds, a.assignmentId], updatedAt: now });
+   const st = (await repo.findMany("Student", { id: s(r.studentId) }, { select: ["id", "userId"] }))[0];

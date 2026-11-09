@@ -65,6 +65,12 @@ export function PlanDocView({ d, forStudent = false, audience }: { d: PlanDoc; f
                 {/* 🆕 Nov 2026: where the skills above came from — the imported Learning Continuum at this band, or (no continuum / band not covered) the plain weakest-skills fallback */}
                 {it.skillSource === "continuum" && <span className="ms-2 rounded-full bg-sky-50 px-2 py-0.5 text-xs font-semibold text-sky-800 ring-1 ring-sky-200">📘 Learning Continuum</span>}
               </p>
+              {/* 🆕 Nov 2026: the exact NWEA statement behind each skill above (not just its short name) — only
+                  the skills that actually have one (continuum-sourced items; a statement can span more than
+                  one skill, so duplicates are dropped). */}
+              {(() => { const texts = [...new Set((it.skillRefs ?? []).map((k) => k.text).filter((t): t is string => !!t))]; return texts.length > 0 && (
+                <ul className="mt-1 list-disc space-y-0.5 ps-5 text-xs text-slate-500">{texts.map((t) => <li key={t}>{t}</li>)}</ul>
+              ); })()}
               {/* 🆕 Nov 2026: Learning Continuum "Introduce" topics — reference only, never turned into questions */}
               {(it.next ?? []).length > 0 && <p className="mt-1 text-xs text-slate-500">Coming up next: {it.next.join(" · ")}</p>}
             </li>

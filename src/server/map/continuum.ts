@@ -175,7 +175,14 @@ export function continuumFor(ix: ContinuumIndex, group: GroupKey, rit: number): 
   const bands = [...new Map(mine.map((r) => [Number(r.ritLow), { low: Number(r.ritLow), high: Number(r.ritHigh) }])).values()].sort((a, b) => a.low - b.low);
   if (!bands.length) return { reinforce: null, develop: null, introduce: null };
   let i = bands.findIndex((b) => rit >= b.low && rit <= b.high);
-  if (i < 0) i = rit < bands[0].low ? 0 : bands.length - 1;
+  // 🆕 Nov 2026: nearest band with real statements for THIS group, not just "below everything → first,
+  // above everything → last". That edge-only rule was correct as long as a group's own bands formed one
+  // unbroken run (true of every group in the file today), but silently picked the far end of the whole
+  // range for a RIT sitting in a hole in the MIDDLE of that run (a goal area with no statements at one
+  // band, imported again later with a gap). Scanning every band for the closest one (0 if the RIT falls
+  // inside it) finds the true nearest band either way, and is identical to the old rule whenever there's
+  // no gap to matter.
+  if (i < 0) { let bestDist = Infinity; bands.forEach((b, idx) => { const d = rit < b.low ? b.low - rit : rit - b.high; if (d < bestDist) { bestDist = d; i = idx; } }); }
   // the same band of the same area is asked for every student of a class: built once per report
   let cache = viewCache.get(ix);
   if (!cache) viewCache.set(ix, (cache = new Map()));

@@ -354,7 +354,7 @@ export function spreadCap<T>(list: T[], max = PICK_MAX): T[] {
  *  Continuum, at this area's own band) or "weakest" (the plain weakest-3 fallback); undefined on plans made
  *  before this field existed, or by a caller that never set it (the Personalized-Plan wizard, practice-test
  *  drafts) — display code treats a missing value as "weakest". */
-export interface PlanItem { group: GroupKey; status: AreaStatus | null; rit: number | null; low: number; high: number; skillIds: string[]; count: number; skillSource?: "continuum" | "weakest" }
+export interface PlanItem { group: GroupKey; status: AreaStatus | null; rit: number | null; low: number; high: number; skillIds: string[]; count: number; skillSource?: "continuum" | "weakest"; /** 🆕 Nov 2026: skillId → the exact NWEA statement sentence it came from (continuum-sourced items only) */ skillTexts?: Record<string, string> }
 export interface PlanView { id: string; studentId: string; name: string; subject: Subject; term: string; status: "DRAFT" | "SENT"; items: (PlanItem & { name: string; icon: string; band: string; questions: number; skills: { id: string; name: string }[]; allSkills: { id: string; name: string }[] })[]; note: string | null; dueAt: string | null; sentAt: string | null; profile: MapProfile }
 
 /** The automatic plan for one profile. Without goal-area scores (only the overall RIT, e.g. a school list): every
@@ -441,6 +441,10 @@ export async function ensureDrafts(repo: Repo, actor: Actor, classId: string, su
     const m = new Map(mastery.filter((x) => x.studentId === id).map((x) => [s(x.skillId), Number(x.score)]));
     // 🆕 Nov 2026: which source each group's skillIds actually came from (shown to the teacher as a small badge)
     const sourceByGroup = new Map<GroupKey, "continuum" | "weakest">();
+    // 🆕 Nov 2026: the exact NWEA statement sentence behind each continuum-matched skill id (shown next to the
+    // skill name instead of just the name alone) — first statement to name a given skill wins, since one skill
+    // can come from more than one statement.
+    const textByGroup = new Map<GroupKey, Record<string, string>>();
     // no answers yet in an area → no skill chosen = all the skills of the area (at the student's band)
     const skillsByGroup = new Map<GroupKey, string[]>(GROUPS.map((g) => {
       const avail = [...new Set((pools.get(g.key) ?? []).map((q) => q.skillId))];
@@ -464,17 +468,19 @@ export async function ensureDrafts(repo: Repo, actor: Actor, classId: string, su
       // instead of silently falling back to "all the skills of this area".
       if (!avail.length) return useFallback();
       const fromContinuum: string[] = [];
+      const texts: Record<string, string> = {};
       // Develop (the student's own band) first, then Reinforce (shaky foundations) — same order the
       // "Personalized Plan" wizard already uses for its continuum-based picks; Introduce (stretch, band
       // above) is left out here, same as there, since this is assigned work, not just a reference list.
       for (const st of [v.develop, v.reinforce]) {
         if (!st) continue;
-        for (const stmt of st.statements) for (const sk of stmt.skills) if (!fromContinuum.includes(sk.id)) fromContinuum.push(sk.id);
+        for (const stmt of st.statements) for (const sk of stmt.skills) { if (!fromContinuum.includes(sk.id)) fromContinuum.push(sk.id); if (!texts[sk.id]) texts[sk.id] = stmt.text; }
       }
       // a band the imported file doesn't cover at all (no continuum rows for it) falls back to the plain
       // weakest-3 selection rather than sending an area with no skills at all
       if (!fromContinuum.length) return useFallback();
       sourceByGroup.set(g.key, "continuum");
+      textByGroup.set(g.key, texts);
       return [g.key, fromContinuum.slice(0, 12)];
     }));
     // 🆕 Nov 2026: the real sendable MAP plan now covers every area with a MAP score, not just the weakest 1–2
@@ -483,7 +489,7 @@ export async function ensureDrafts(repo: Repo, actor: Actor, classId: string, su
     // every item below, regardless of FOCUS/MAINTAIN/EXTEND status: the actual session length this count used to
     // set is now decided by the real adaptive 30-min/50-max/"stop once mastered" rule (see topUpSentPlan /
     // sendPlans below), the same for every area, so a different displayed number per area would just be stale.
-    const items = autoItems(p, skillsByGroup, bands, ASSIGNMENT_MIN_QUESTIONS, true).map((it) => ({ ...it, count: ASSIGNMENT_MIN_QUESTIONS, skillSource: sourceByGroup.get(it.group) ?? ("weakest" as const) }));
+    const items = autoItems(p, skillsByGroup, bands, ASSIGNMENT_MIN_QUESTIONS, true).map((it) => ({ ...it, count: ASSIGNMENT_MIN_QUESTIONS, skillSource: sourceByGroup.get(it.group) ?? ("weakest" as const), skillTexts: textByGroup.get(it.group) }));
     if (!items.length) continue;
     // 🆕 Nov 2026: a due date 14 days out, by default — was always null until the teacher set one by hand
     // (updatePlan can still change or clear it afterwards; this only picks the starting value).
@@ -564,7 +570,10 @@ export async function updatePlan(repo: Repo, actor: Actor, planId: string, input
   const bands = await bandSettings(repo, actor.schoolId);
   const pick = pickBand(pools.get(newItem.group) ?? [], newItem.low, newItem.high, bands.size, newItem.skillIds);
   if (pick.ids.length < 3) return { sentNewGroup: false, notEnoughQuestions: true };
-  const a = await assignQuestions(repo, actor, { classId: s(r.classId), studentIds: [s(r.studentId)], questionIds: pick.ids, title: `MAP plan · ${groupOf(newItem.group).name}`, exactTitle: true, track: "MAP", adaptive: { maxQuestions: Math.min(newItem.count, pick.ids.length) }, dueAt: r.dueAt ? new Date(time(r.dueAt)) : null, note: r.note ? s(r.note) : null, source: requireSource("MAP") }, now);
+  // 🆕 Nov 2026: this manually-added area now gets the same real 30-min/50-max/"stop once mastered" session as
+  // every other MAP plan item (sendPlans / topUpSentPlan below) — until now it was the one path still left on a
+  // flat maxQuestions cap with no mastery-based stop.
+  const a = await assignQuestions(repo, actor, { classId: s(r.classId), studentIds: [s(r.studentId)], questionIds: pick.ids, title: `MAP plan · ${groupOf(newItem.group).name}`, exactTitle: true, track: "MAP", adaptive: { maxQuestions: Math.min(ASSIGNMENT_MAX_QUESTIONS, pick.ids.length), targetCorrect: DEFAULT_TARGET_CORRECT }, dueAt: r.dueAt ? new Date(time(r.dueAt)) : null, note: r.note ? s(r.note) : null, source: requireSource("MAP") }, now);
   const prevIds: string[] = Array.isArray(r.assignmentIds) ? r.assignmentIds.map(s) : [];
   await repo.updateMany("MapPlan", { id: planId }, { assignmentIds: [...prevIds, a.assignmentId], updatedAt: now });
   const st = (await repo.findMany("Student", { id: s(r.studentId) }, { select: ["id", "userId"] }))[0];
