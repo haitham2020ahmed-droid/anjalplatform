@@ -98,6 +98,11 @@ export function parseAsg(lines: string[]): AsgParsed {
     if (!norms) { const m = line.match(/Norms Reference Data:\s*(\d{4}) Norms/i); if (m) norms = `${m[1]} Norms`; }
     if (/Language Arts:\s*Reading/i.test(line)) subject = "READING";
     else if (/Language Arts:\s*Language Usage/i.test(line)) subject = "LANGUAGE";
+    // 🩹 Nov 2026: a report also covering Math/Science has those sections' tables IN BETWEEN the Reading and
+    // Language Usage ones. Without resetting here, every Math/Science row below one of those headers kept being
+    // misclassified as whichever ELA subject was last seen — producing bogus duplicate (student, subject) rows
+    // that then tripped the "same student twice" rejection and silently blocked the whole file's import.
+    else if (/^(Math|Science):/i.test(line)) subject = null;
     // a student row: ID … grade date low-RIT-high low-pct-high … projected RIT, projected growth
     const m = line.match(/^(\d{5,})\s+(.*?)\s(\d{1,2}|K)\s+\d{1,2}\/\d{1,2}\/\d{2,4}\s+(\d{3})-(\d{3})-(\d{3})\s+(\d{1,2})-(\d{1,2})-(\d{1,2})\s*(.*)$/);
     if (!m || !subject) continue;

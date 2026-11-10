@@ -13,9 +13,10 @@ import { extract } from "../../imports/questions/extract";
 import { importMapScores, type MapImportResult } from "./student-map";
 import { asgLinesFromPages, asgToTable, parseAsg, pdfPages } from "./asg";
 import { classProfileToTable, parseClassProfile } from "./class-profile";
+import { parseProjectedProficiency, projectedProficiencyToTable } from "./projected-proficiency";
 import { notifyMapScores } from "./map-notify";
 
-type ImportKind = "ASG" | "CLASS_PROFILE" | "TABLE";
+type ImportKind = "ASG" | "CLASS_PROFILE" | "PROJECTED_PROFICIENCY" | "TABLE";
 export async function importMapFile(repo: Repo, actor: Actor, fileName: string, bytes: Uint8Array, year: number, opts: { createInClassId?: string; forceCreateName?: string } = {}, now = new Date()): Promise<MapImportResult & { kind: ImportKind; norms: string | null; classHint?: string | null }> {
   if (/\.pdf$/i.test(fileName)) {
     let pages;
@@ -46,7 +47,19 @@ export async function importMapFile(repo: Repo, actor: Actor, fileName: string, 
       return { ...r, kind: "CLASS_PROFILE", norms: null, classHint: cp.className && subjectLabel ? `${cp.className} · ${subjectLabel}` : cp.className };
     }
 
-    throw new ValidationError("No student scores were found in this PDF. Upload NWEA's “Achievement Status and Growth” report (it has the Spring projections), NWEA's “Class Profile” report (Instructional Areas tab), the NWEA data export (CSV) or the template.");
+    // 🩹 Nov 2026: the Class Profile report's "Projected Proficiency" tab (Fall RIT + projected Spring RIT only,
+    // no instructional areas, no percentile) — a third PDF shape teachers export from reports.mapnwea.org.
+    const pp = parseProjectedProficiency(pages);
+    if (pp.rows.length) {
+      const season = pp.season, y = pp.year;
+      const term = `${season[0]}${season.slice(1).toLowerCase()} ${y}`;
+      const r = await importMapScores(repo, actor, projectedProficiencyToTable(pp), y, now, { term: { name: term, date: new Date(Date.UTC(y, season === "FALL" ? 8 : season === "WINTER" ? 0 : 3, 15)) }, wholeFile: true, createInClassId: opts.createInClassId, forceCreateName: opts.forceCreateName });
+      await notifyMapScores(repo, actor, r, now);
+      const subjectLabel = pp.subject === "READING" ? "Reading" : pp.subject === "LANGUAGE_USAGE" ? "Language Usage" : null;
+      return { ...r, kind: "PROJECTED_PROFICIENCY", norms: null, classHint: pp.className && subjectLabel ? `${pp.className} · ${subjectLabel}` : pp.className };
+    }
+
+    throw new ValidationError("No student scores were found in this PDF. Upload NWEA's “Achievement Status and Growth” report (it has the Spring projections), NWEA's “Class Profile” report (Instructional Areas or Projected Proficiency tab), the NWEA data export (CSV) or the template.");
   }
   const { table } = extract(fileName, bytes);
   const r = await importMapScores(repo, actor, table, year, now, opts);
