@@ -148,9 +148,11 @@ function ItemRow({ x, t, who, href, back, admin }: { x: AssignedItem; t: TFn; wh
       </span>
       <span>{x.tab ? <span className="rounded-full bg-indigo-50 px-2 py-0.5 text-xs font-semibold text-indigo-700 ring-1 ring-indigo-200">📂 {t(WORK_TAB_LABEL[x.tab])}</span> : null}</span>
       {/* 🔗 "open straight on this" link/QR (owner request, Oct 2026) — not offered for a cancelled row, or a kind
-          with no single resolvable solve page yet (MAP Test's one-row-per-subject, Learn/Words). */}
+          with no single resolvable solve page yet (MAP Test's one-row-per-subject, Learn/Words). A merged "MAP
+          plan · Reading/Language" row DOES get one (Nov 2026, owner request): assigned-qr.ts sends whoever taps
+          their name straight to their own My Work → MAP tab, same for every class the teacher picks. */}
       <span className="flex items-center justify-self-end gap-1">
-        {!x.cancelled && !x.merged && isAssignedQrKind(x.kind) && <AssignedQrButton kind={x.kind} id={x.id} classIds={x.classIds} classNames={x.classNames} />}
+        {!x.cancelled && isAssignedQrKind(x.kind) && <AssignedQrButton kind={x.kind} id={x.id} classIds={x.classIds} classNames={x.classNames} />}
         {x.merged ? <span className="text-[11px] text-muted" title={t("Manage this from the “MAP plan” page.")}>🧾</span> : <RowActions x={x} t={t} href={href} back={back} />}
       </span>
     </div>

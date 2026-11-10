@@ -165,6 +165,13 @@ export async function navCounts(repo: Repo, actor: Actor, now = new Date()): Pro
       const a = as.find((x) => x.id === r.assignmentId);
       if (!a || (a.startAt && time(a.startAt) > now.getTime())) continue;
       const urgent = r.status === "OVERDUE" || Boolean(a.dueAt && time(a.dueAt) <= endOfDay);
+      // 🩹 Nov 2026 (owner request: "لا تخلي تاب map تزيد عدد الاسئلة في my work للطالب"): a MAP study-plan
+      // assignment (track === "MAP") is skipped here on purpose. It already has its own in-context progress
+      // markers inside the dedicated My Work → MAP tab ("0 of 3 done" per subject) — this loop is the number
+      // shown on the nav icon OUTSIDE that tab, and MAP's own skill-by-skill assignments (one per goal area per
+      // student) used to inflate that outside number by dozens, even though every bit of that work is already
+      // visible and actionable the moment the student opens the MAP tab itself.
+      if (s(a.track) === "MAP") continue;
       // MAP work is in My Work now (UI reorg Phase 2); tests are counted on My Tests
       add(a.testId ? "/student/tests" : a.curriculumPlanId ? "/student/plans" : "/student", urgent);
     }

@@ -74,8 +74,10 @@ export interface AssignedItem {
   status: AssignedStatus; cancelled: boolean;
   /** 🧾 Nov 2026: a stand-in row for every "MAP plan · <goal area>" skill set of one subject, across every class and
    *  goal area, so the list shows 2 rows total (Reading / Language) instead of one per goal area per class — see
-   *  mergeMapPlanRows(). No single underlying row to cancel, edit dates on, or open a link/QR for, so the page must
-   *  not offer those actions on it (manage MAP plans from the "MAP plan" page instead). */
+   *  mergeMapPlanRows(). Its id is a synthetic "mapplan-merged:<subject>" token, not a real Assignment id: there is
+   *  no single underlying row to cancel or re-date, so the page hides those two actions on it (manage a MAP plan
+   *  itself from the "MAP plan" page) — but the 🔗 link/QR IS offered (assigned-qr.ts recognizes this token and
+   *  sends whichever student taps their name straight to their own My Work → MAP tab, same for every class). */
   merged?: boolean;
 }
 export interface AssignedStudent { id: string; name: string; done: boolean; removed: boolean; /** ⭐ the student's ONE status of the assigned skill (skill work only) */ star?: StarStatus; /** 🔄 the skill was ⭐ before the work was set: a 20-question review for this student */ review?: boolean }

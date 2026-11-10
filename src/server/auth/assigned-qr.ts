@@ -132,6 +132,13 @@ async function keyFor(repo: Repo, kind: AssignedKind, itemId: string): Promise<s
 /** This one student's own href for `key` right now (never throws; "/student" when it can't be resolved). */
 async function hrefFor(repo: Repo, user: Row, kind: AssignedKind, itemId: string, now: Date): Promise<string> {
   try {
+    // 🧾 Nov 2026: the teacher's Assigned page merges every "MAP plan · <goal area>" row into two stand-in rows
+    // ("MAP plan · Reading" / "MAP plan · Language", see assigned.ts#mergeMapPlanRows) whose id is the synthetic
+    // token "mapplan-merged:<subject>", not a real Assignment — there is no single row for keyFor()/allWorkItems
+    // to resolve (every student's own MAP plan assignment is different), but every student's own My Work → MAP
+    // tab already shows exactly their plan the moment they land on it, so that fixed page IS the right answer
+    // for whoever taps their name, whichever class the teacher picked the link for.
+    if (kind === "SKILL" && itemId.startsWith("mapplan-merged:")) return "/student/work?tab=map";
     const key = await keyFor(repo, kind, itemId);
     if (!key) return "/student";
     const actor = await resolveActor(repo, user);
