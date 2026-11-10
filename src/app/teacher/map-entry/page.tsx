@@ -5,7 +5,7 @@ import { getActor, repo, requireActor } from "@/server/auth/next";
 import { accessibleClasses } from "@/server/teacher/assign";
 import { BANDS, mapEntryGrid, type EntrySubject } from "@/server/map/map-entry";
 import type { Season } from "@/server/map/rit";
-import { saveMapEntryAction } from "./actions";
+import { deleteMapEntryAction, saveMapEntryAction } from "./actions";
 
 export const metadata = { title: "Enter MAP scores" };
 
@@ -59,6 +59,7 @@ export default async function MapEntryPage({ searchParams }: { searchParams: Pro
                     <th className="sticky left-0 bg-white py-2 pe-3">Student</th><th className="px-1">ID</th><th className="px-1">RIT</th><th className="px-1">Percentile</th>
                     {season === "FALL" && <th className="px-1">Spring projection</th>}{subject === "READING" && <th className="px-1">Lexile</th>}
                     {g.goals.map((x) => <th key={x.code} className="px-1">{x.header}</th>)}
+                    <th className="px-1" />
                   </tr></thead>
                   <tbody>{g.rows.map((r) => (
                     <tr key={r.studentId} className="border-b last:border-0">
@@ -69,6 +70,11 @@ export default async function MapEntryPage({ searchParams }: { searchParams: Pro
                       {season === "FALL" && <td className="px-1"><input name={`proj:${r.studentId}`} defaultValue={r.projection} inputMode="numeric" aria-label={`Spring projection of ${r.name}`} className={cell} /></td>}
                       {subject === "READING" && <td className="px-1"><input name={`lex:${r.studentId}`} defaultValue={r.lexile} aria-label={`Lexile of ${r.name}`} className={cell} /></td>}
                       {g.goals.map((x) => <td key={x.code} className="px-1"><input name={`g:${x.code}:${r.studentId}`} defaultValue={r.goals[x.code] ?? ""} list="bands" aria-label={`${x.header} of ${r.name}`} className={cell} /></td>)}
+                      {/* 🗑️ Nov 2026: a per-row delete, only shown once a score actually exists for this term — clearing the
+                          boxes above and pressing Save does NOT remove it (a blank row is skipped on purpose), so a wrong
+                          or test entry needs this explicit control. `formAction` on a plain button swaps the submit target
+                          for just this button, inside the same form — no nested <form>, no separate page. */}
+                      <td className="px-1">{r.rit && <button type="submit" formAction={deleteMapEntryAction.bind(null, r.studentId)} title={`Delete ${r.name}'s ${g.term} score`} aria-label={`Delete ${r.name}'s ${g.term} score`} className="rounded-md px-2 py-1 text-slate-400 hover:bg-red-50 hover:text-red-600">🗑️</button>}</td>
                     </tr>
                   ))}</tbody>
                 </table>

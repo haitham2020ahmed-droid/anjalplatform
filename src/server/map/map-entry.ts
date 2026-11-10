@@ -88,6 +88,26 @@ export async function mapEntryGrid(repo: Repo, actor: Actor, input: { classId: s
   return { classId: input.classId, className: s(klass.name), grade, subject: input.subject, season: input.season, year: input.year, term, goals: goals.map((x) => ({ code: x.code, header: x.header.replace(/^[RL]:\s*/, "") })), rows, missingNumbers: rows.filter((r) => !r.number).length };
 }
 
+/**
+ * 🗑️ Nov 2026 (owner request: a wrong/test score typed or imported by mistake had no way to be removed — clearing
+ * the RIT field and saving does NOT delete it, by design: `saveMapEntry` skips a blank row entirely so it never
+ * touches an existing score (that's what makes "empty rows are skipped" safe for a partial re-entry). This is the
+ * one explicit, teacher-initiated way to actually erase one student's score for one subject and term.
+ * Deletes that student's whole MapResult set (the overall row + any goal-area rows) for this exact class, subject,
+ * season and year. Scoped the same way saveMapEntry/mapEntryGrid are: the class must be one of this actor's own.
+ */
+export async function deleteMapEntryRow(repo: Repo, actor: Actor, input: { classId: string; subject: EntrySubject; season: Season; year: number; studentId: string }): Promise<{ deleted: number }> {
+  assertCan(actor, "assignments:create");
+  await assertClassAccess(repo, actor, input.classId);
+  const ids = await classMembers(repo, input.classId);
+  if (!ids.includes(input.studentId)) throw new ValidationError("This student is not in that class.");
+  const term = termName(input.season, input.year);
+  const subjectRe = input.subject === "READING" ? /read/i : /language/i;
+  const rows = (await repo.findMany("MapResult", { studentId: input.studentId, termName: term })).filter((x) => subjectRe.test(s(x.subject)));
+  if (rows.length) await repo.deleteMany("MapResult", { id: { in: rows.map((x) => x.id) } });
+  return { deleted: rows.length };
+}
+
 /** Saves the table (empty rows are skipped; a filled row replaces that student's scores of this term and subject). */
 export async function saveMapEntry(repo: Repo, actor: Actor, input: { classId: string; subject: EntrySubject; season: Season; year: number; rows: Omit<EntryRow, "name" | "number">[] }, now = new Date()): Promise<MapImportResult> {
   assertCan(actor, "assignments:create");
