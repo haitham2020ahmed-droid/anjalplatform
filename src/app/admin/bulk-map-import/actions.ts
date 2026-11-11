@@ -36,3 +36,35 @@ export async function runBulkMapImportAction(f: FormData): Promise<void> {
   }
   redirect(`/admin/bulk-map-import?${new URLSearchParams({ msg })}`);
 }
+
+/** 🧰 Nov 2026 (owner request, "ضيف صندوق رفع ملفات"): a normal browser "Choose File" upload, so the owner can run a
+ * MAP import himself from here any time, without needing a developer to drop files into the repo and ship a patch
+ * first (see bulk-map-import/page.tsx for why that git-based path exists at all). Uploaded files are read straight
+ * into memory and run through the exact same `importMapFile` pipeline — nothing is written to disk, so there is
+ * nothing to clean up and no risk of a file being re-imported by a later deploy. */
+export async function runUploadMapImportAction(f: FormData): Promise<void> {
+  const year = Number(f.get("year")) || new Date().getFullYear();
+  let msg = "";
+  try {
+    const actor = await requireActor({ roles: ["SCHOOL_ADMIN", "SUPER_ADMIN"], permission: "assignments:create" });
+    const uploads = f.getAll("files").filter((v): v is File => v instanceof File && v.size > 0);
+    if (!uploads.length) {
+      redirect(`/admin/bulk-map-import?${new URLSearchParams({ msg: "Choose at least one PDF file first." })}`);
+    }
+    const lines: string[] = [];
+    for (const file of uploads) {
+      try {
+        const bytes = new Uint8Array(await file.arrayBuffer());
+        const r = await importMapFile(repo, actor, file.name, bytes, year);
+        lines.push(`✅ ${file.name} — ${importMessage(r)}`);
+      } catch (e) {
+        lines.push(`❌ ${file.name} — FAILED: ${e instanceof Error ? e.message : String(e)}`);
+      }
+    }
+    msg = lines.join("\n");
+  } catch (e) {
+    if (isNextControl(e)) throw e;
+    msg = await failureMessage(e, "map", "runUploadMapImport", "/admin/bulk-map-import");
+  }
+  redirect(`/admin/bulk-map-import?${new URLSearchParams({ msg })}`);
+}
