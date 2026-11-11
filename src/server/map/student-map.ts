@@ -357,7 +357,8 @@ export async function importMapScores(repo: Repo, actor: Actor, table: string[][
       // "ambiguous name" confirm-or-create-new flow as a 2+-hit match below, instead of silently taking someone
       // else's score. A grade-wide import (no createInClassId) is unaffected — there every accessible class is
       // already in scope, so one hit there is the normal, safe case.
-      const scopedHits = opts.createInClassId ? hits.filter((h) => h.className === classNameOf.get(opts.createInClassId) || h.className === "") : hits;
+      const createInClassId = opts.createInClassId;
+      const scopedHits = createInClassId ? hits.filter((h) => h.className === classNameOf.get(createInClassId) || h.className === "") : hits;
       if (!sid && scopedHits.length === 1 && !forced) sid = scopedHits[0].id;   // one unambiguous match (same student, other number): no duplicate
       const rowGrade = gradeCol >= 0 ? Number(cell(r, gradeCol)) : 0;
       if (!sid && opts.createInClassId && rowGrade && classGrade && rowGrade !== classGrade) throw new ValidationError(`${fullName || key} is in Grade ${rowGrade} in the file, but this class is Grade ${classGrade}: import them from their own class.`);
