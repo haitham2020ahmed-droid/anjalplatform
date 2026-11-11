@@ -274,7 +274,18 @@ export async function importMapScores(repo: Repo, actor: Actor, table: string[][
   const currentGradeOf = new Map(students.map((st) => [s(st.id), Number(gradeRows.find((g) => g.id === st.gradeId)?.level ?? 0) || null]));
   const byKey = new Map<string, string>();
   // names, as a fallback when the file's number is not the platform's (e.g. NWEA IDs): “AALBAQSHI, AHMED” = “Ahmed Aalbaqshi”
-  const nameKey = (n: string) => n.toLowerCase().replace(/[^a-z0-9\u0600-\u06ff ]+/g, " ").split(/\s+/).filter(Boolean).sort().join(" ");
+  // 🩹 Nov 2026 ("كل الأسماء ظهرت Not found رغم إنهم موجودين"): NWEA's PDF text extraction very often drops the
+  // space between the Arabic definite-article prefix "Al" and the surname after it ("ALARBASH" instead of
+  // "AL ARBASH"), while the platform stores them as two separate words ("Waleed Al Arbash"). The old exact
+  // bag-of-words match treated "alarbash" and "al"+"arbash" as unrelated tokens, so almost every "Al <Surname>"
+  // family name silently landed in "not found on the platform at all" even though the student was already
+  // there. The platform, for its part, keeps "Al" as its own separate word ("Waleed Al Arbash"), so the fix
+  // has to work both ends: drop a bare "al" token entirely (it carries no identifying information on its
+  // own), and strip a leading "al" from any OTHER token long enough that a real name remains (5+ letters, so
+  // short first names like "Ali"/"Alaa" are left untouched) — so "Al"+"Arbash" and "Alarbash" both land on
+  // "arbash" either way.
+  const mapNameTok = (w: string) => (w === "al" ? "" : w.length >= 5 && w.startsWith("al") ? w.slice(2) : w);
+  const nameKey = (n: string) => n.toLowerCase().replace(/[^a-z0-9\u0600-\u06ff ]+/g, " ").split(/\s+/).filter(Boolean).map(mapNameTok).filter(Boolean).sort().join(" ");
   // every accessible student under this name (normally 1 — more than 1 means the exact same name exists in
   // 2+ of the teacher's own classes, which the "not found" message below calls out by name, so there's no need
   // to go hunting for it by hand)
