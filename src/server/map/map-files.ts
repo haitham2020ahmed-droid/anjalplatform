@@ -77,13 +77,11 @@ export function importMessage(r: MapImportResult & { kind?: string; norms?: stri
   // 🩹 Nov 2026: the RIT/Percentile/Lexile overall score always imports, but an instructional-area column whose
   // codes this school's curriculum has no MapGoalArea for is silently dropped otherwise — never leave that invisible.
   if (r.missingAreaHeaders?.length) parts.push(`⚠️ the overall score imported, but these instructional areas could not be matched to this school's curriculum setup and were NOT saved: ${r.missingAreaHeaders.join(", ")} — contact support`);
-  // split by WHY a name wasn't matched, so the teacher never has to go searching for it by hand:
-  // - already in another of the teacher's own classes (ambiguous by name) → say exactly which class(es)
-  // - truly not found anywhere → the old, simpler message
-  const already = r.unmatched?.filter((u) => u.classes?.length) ?? [];
-  const trulyUnmatched = r.unmatched?.filter((u) => !u.classes?.length) ?? [];
-  if (already.length) parts.push(`⚠️ already a student of another of your classes (not added here — check which class is right): ${already.slice(0, 12).map((u) => `${u.name || "?"} (${u.classes!.join(", ")})`).join(", ")}${already.length > 12 ? ` and ${already.length - 12} more` : ""}`);
-  if (trulyUnmatched.length) parts.push(`⚠️ not found on the platform at all (check the name spelling, or write their Student ID): ${trulyUnmatched.slice(0, 12).map((u) => `${u.name || "?"} (${u.number})`).join(", ")}${trulyUnmatched.length > 12 ? ` and ${trulyUnmatched.length - 12} more` : ""}`);
+  // 🩹 Nov 2026 (owner request, "خليه يحط الدرجه لاثنين"): a name matching 2+ of the teacher's own classes used
+  // to be reported here as "not added — ambiguous"; it's now saved to every matching student instead (see
+  // dupScored in student-map.ts), so it gets its own line instead of being lumped in with genuinely-missing names.
+  if (r.dupScored?.length) parts.push(`⚠️ saved to more than one class — same name matched 2+ of your classes, so the score was written to all of them (check this is right, not two different students sharing a name): ${r.dupScored.slice(0, 12).map((u) => `${u.name || "?"} (${u.classes.join(", ")})`).join(", ")}${r.dupScored.length > 12 ? ` and ${r.dupScored.length - 12} more` : ""}`);
+  if (r.unmatched?.length) parts.push(`⚠️ not found on the platform at all (check the name spelling, or write their Student ID): ${r.unmatched.slice(0, 12).map((u) => `${u.name || "?"} (${u.number})`).join(", ")}${r.unmatched.length > 12 ? ` and ${r.unmatched.length - 12} more` : ""}`);
   const errs = r.errors.filter((e) => !/not in your classes|not in the school's classes/.test(e.message));
   if (errs.length) parts.push(`${errs.length} problem(s): ${errs.slice(0, 5).map((e) => (e.row ? `row ${e.row}: ${e.message}` : e.message)).join(" · ")}`);
   return parts.join(" · ");

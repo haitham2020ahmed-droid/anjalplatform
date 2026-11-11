@@ -191,7 +191,7 @@ export function fromNweaCdf(table: string[][]): { table: string[][]; term: strin
 }
 const SUBJECT_NAME = { READING: "Reading", LANGUAGE_USAGE: "Language Usage" } as const;
 
-export interface MapImportResult { imported: number; skipped: number; errors: { row: number; message: string }[]; term: string; created: { name: string; username: string; password: string }[]; /** students of the file not found on the platform (check their Student ID) — `classes` set means the name was NOT auto-added because it already matches a student of one of these OTHER classes (ambiguous), so it's not "missing", just not auto-creatable here */ unmatched?: { number: string; name: string; classes?: string[] }[]; /** individual plan drafts made from these scores */ plans?: AutoPlans; /** 🩹 Nov 2026: instructional-area column(s) the file HAD (by header) but this school's curriculum setup has no matching MapGoalArea code for — so the RIT/Percentile/Lexile overall scores imported fine, but those specific areas were silently dropped. Surfaced so it's never a silent "imported ✅ but areas stayed empty" mystery. */ missingAreaHeaders?: string[] }
+export interface MapImportResult { imported: number; skipped: number; errors: { row: number; message: string }[]; term: string; created: { name: string; username: string; password: string }[]; /** students of the file not found on the platform (check their Student ID) — `classes` set means the name was NOT auto-added because it already matches a student of one of these OTHER classes (ambiguous), so it's not "missing", just not auto-creatable here */ unmatched?: { number: string; name: string; classes?: string[] }[]; /** 🩹 Nov 2026 (owner request, "خليه يحط الدرجه لاثنين"): a name that matched 2+ of the teacher's own classes used to be skipped outright (listed only in `unmatched`); now the SAME score is saved to every matching student instead, and each one is listed here too, so the teacher can see it happened and double-check it's right — this is meant for a student whose account genuinely got duplicated across classes, not two different students who happen to share a name. */ dupScored?: { name: string; classes: string[] }[]; /** individual plan drafts made from these scores */ plans?: AutoPlans; /** 🩹 Nov 2026: instructional-area column(s) the file HAD (by header) but this school's curriculum setup has no matching MapGoalArea code for — so the RIT/Percentile/Lexile overall scores imported fine, but those specific areas were silently dropped. Surfaced so it's never a silent "imported ✅ but areas stayed empty" mystery. */ missingAreaHeaders?: string[] }
 
 /**
  * A student in the MAP file who is not on the platform yet: created in this class (teachers: their own class).
@@ -305,6 +305,7 @@ export async function importMapScores(repo: Repo, actor: Actor, table: string[][
   const errors: MapImportResult["errors"] = [];
   let notInClasses = 0;
   const unmatched: { number: string; name: string }[] = [];
+  const dupScored: { name: string; classes: string[] }[] = [];
   let imported = 0, skipped = 0;
   const touched = new Set<string>();
   // readiness S-12: the same student twice in one file (same term and subject) is a problem row, not “last one wins”
@@ -366,39 +367,52 @@ export async function importMapScores(repo: Repo, actor: Actor, table: string[][
         const n = await createStudentFromMap(repo, actor, opts.createInClassId, key, fullName);
         sid = n.id; if (key) byKey.set(key.toLowerCase(), n.id); byName.set(nk, [{ id: n.id, className: "" }]); created.push({ name: fullName, username: n.username, password: n.password });
       }
-      // a grade-wide file: other classes' students are expected. `hits` here means the name is ambiguous (ties
-      // to 2+ of the teacher's OWN classes) — pass those class names along so the summary message can say exactly
-      // where the student already is, instead of the teacher having to search for the name themselves.
-      if (!sid && (nwea || opts.wholeFile)) { notInClasses++; unmatched.push({ number: key, name: fullName, ...(hits.length > 1 ? { classes: [...new Set(hits.map((h) => h.className).filter(Boolean))] } : {}) }); continue; }
-      if (!sid) throw new ValidationError(`Student “${key}” was not found in your classes${opts.createInClassId ? " (write the Student Name to add them)" : " (import from one class to add new students)"}.`);
-      const subjectsHere = (["READING", "LANGUAGE_USAGE"] as const).filter((sub) => (sub === "READING" ? readRit : langRit) !== null || goals.some((x) => x.g.subject === sub));
-      const twice = subjectsHere.filter((sub) => inFile.has(`${sid}|${sub}`));
-      if (twice.length) throw new ValidationError(`${fullName || key} is in this file more than once for ${twice.map((x) => SUBJECT_NAME[x]).join(" and ")} (${term}; first on row ${inFile.get(`${sid}|${twice[0]}`)}). Only the first row was saved: check which score is right and fix the file.`);
-      for (const sub of subjectsHere) inFile.set(`${sid}|${sub}`, rowNo);
-      for (const [subject, rit, growth, pct, rapid] of [["READING", readRit, readGrowth, readPct, readRapid], ["LANGUAGE_USAGE", langRit, langGrowth, langPct, langRapid]] as const) {
-        const subjGoals = goals.filter((x) => x.g.subject === subject);
-        if (rit === null && !subjGoals.length) continue;
-        const name = SUBJECT_NAME[subject];
-        // the same term imported again REPLACES — but a value the new file does not have is kept
-        // (e.g. the NWEA export has no projection: the projection imported from the ASG file stays)
-        const old = (await repo.findMany("MapResult", { studentId: sid, termName: term })).filter((x) => (subject === "READING" ? /read/i : /language/i).test(s(x.subject)));
-        const oldOverall = old.find((x) => !x.goalName);
-        const keep = <T,>(v: T | null, k: string) => (v !== null && v !== undefined ? v : oldOverall && oldOverall[k] !== null && oldOverall[k] !== undefined ? (oldOverall[k] as T) : null);
-        const toDelete = old.filter((x) => (x.goalName ? subjGoals.length > 0 : rit !== null));
-        if (toDelete.length) await repo.deleteMany("MapResult", { id: { in: toDelete.map((x) => x.id) } });
-        // the comprehensive data file's extras (error, growth, descriptors …)
-        const ex = cdf?.extras.get(`${key.toLowerCase()}|${subject}`);
-        const more = ex ? { ritSE: ex.ritSE, growthPercentile: ex.growthPercentile, observedGrowth: ex.observedGrowth, conditionalGrowthIndex: ex.conditionalGrowthIndex, metProjectedGrowth: ex.metProjectedGrowth, testMinutes: ex.testMinutes, lexileLow: subject === "READING" ? ex.lexileLow : null, lexileHigh: subject === "READING" ? ex.lexileHigh : null, typicalGrowth: ex.typicalGrowth, proficiency: ex.proficiency } : {};
-        const gradeAtTest = rowGrade || currentGradeOf.get(sid) || null; // 🐛 r91 fix: file's own Grade column wins, else the student's current grade
-        const keptLexile = subject === "READING" ? keep(lexile, "lexile") : null;
-        if (rit !== null) await repo.create("MapResult", { studentId: sid, testDate, subject: name, goalName: null, rit, grade: gradeAtTest, achievementPercentile: keep(pct, "achievementPercentile"), projectedGrowth: keep(growth, "projectedGrowth"), lexile: keptLexile, rapidGuessPct: keep(rapid, "rapidGuessPct"), termName: term, importedAt: now, ...more });
-        // 🩹 Oct 2026 fix: a Reading Lexile landing here may be the first REAL one this student has ever had — if
-        // their ReadRise level is still on the grade-based guess (source DEFAULT), correct it now automatically
-        // instead of leaving it stuck until someone notices (see engine.ts#backfillReadRiseFromMap for the full why).
-        if (rit !== null && subject === "READING" && keptLexile !== null) await backfillReadRiseFromMap(repo, sid, Number(keptLexile), now);
-        for (const x of subjGoals) { const gx = ex?.goals[GOAL_GROUP[x.g.code]]; await repo.create("MapResult", { studentId: sid, testDate, subject: name, goalName: s(x.g.area!.name), goalAreaId: s(x.g.area!.id), rit: x.rit, grade: gradeAtTest, termName: term, importedAt: now, ...(gx ? { descriptor: gx.descriptor, ritSE: gx.se } : {}) }); }
+      // 🩹 Nov 2026 (owner request, "خليه يحط الدرجه لاثنين"): a name that matches 2+ of the teacher's OWN
+      // classes used to be skipped outright. Now, instead of picking one or skipping, the same score is written
+      // to EVERY matching student — meant for a student whose account got duplicated across classes, not two
+      // different students who happen to share a name (that risk is the teacher's to judge, so it's still
+      // surfaced below under "⚠️ saved to more than one class" rather than done silently). Scoped to a grade-wide
+      // import (no createInClassId): a single-class import (opts.createInClassId set) keeps the OLD ambiguous
+      // behavior on purpose — that's the inline "Enter MAP Scores" flow, where an ambiguous name is instead
+      // offered to the teacher as "confirm this is a genuinely new, different student" (confirmAmbiguousMapStudent
+      // in map-rit-actions.ts); silently fanning the score out there would take away that one-click confirmation.
+      const ambiguous = !sid && hits.length > 1 && !forced && !opts.createInClassId;
+      const targets = sid ? [sid] : ambiguous ? hits.map((h) => h.id) : [];
+      // a grade-wide file: other classes' students are expected — a genuinely unmatched name (no hits at all)
+      // is still just skipped and reported, same as before.
+      if (!targets.length && (nwea || opts.wholeFile)) { notInClasses++; unmatched.push({ number: key, name: fullName, ...(hits.length > 1 ? { classes: [...new Set(hits.map((h) => h.className).filter(Boolean))] } : {}) }); continue; }
+      if (!targets.length) throw new ValidationError(`Student “${key}” was not found in your classes${opts.createInClassId ? " (write the Student Name to add them)" : " (import from one class to add new students)"}.`);
+      if (ambiguous) dupScored.push({ name: fullName, classes: [...new Set(hits.map((h) => h.className).filter(Boolean))] });
+      for (const sid of targets) {
+        const subjectsHere = (["READING", "LANGUAGE_USAGE"] as const).filter((sub) => (sub === "READING" ? readRit : langRit) !== null || goals.some((x) => x.g.subject === sub));
+        const twice = subjectsHere.filter((sub) => inFile.has(`${sid}|${sub}`));
+        if (twice.length) throw new ValidationError(`${fullName || key} is in this file more than once for ${twice.map((x) => SUBJECT_NAME[x]).join(" and ")} (${term}; first on row ${inFile.get(`${sid}|${twice[0]}`)}). Only the first row was saved: check which score is right and fix the file.`);
+        for (const sub of subjectsHere) inFile.set(`${sid}|${sub}`, rowNo);
+        for (const [subject, rit, growth, pct, rapid] of [["READING", readRit, readGrowth, readPct, readRapid], ["LANGUAGE_USAGE", langRit, langGrowth, langPct, langRapid]] as const) {
+          const subjGoals = goals.filter((x) => x.g.subject === subject);
+          if (rit === null && !subjGoals.length) continue;
+          const name = SUBJECT_NAME[subject];
+          // the same term imported again REPLACES — but a value the new file does not have is kept
+          // (e.g. the NWEA export has no projection: the projection imported from the ASG file stays)
+          const old = (await repo.findMany("MapResult", { studentId: sid, termName: term })).filter((x) => (subject === "READING" ? /read/i : /language/i).test(s(x.subject)));
+          const oldOverall = old.find((x) => !x.goalName);
+          const keep = <T,>(v: T | null, k: string) => (v !== null && v !== undefined ? v : oldOverall && oldOverall[k] !== null && oldOverall[k] !== undefined ? (oldOverall[k] as T) : null);
+          const toDelete = old.filter((x) => (x.goalName ? subjGoals.length > 0 : rit !== null));
+          if (toDelete.length) await repo.deleteMany("MapResult", { id: { in: toDelete.map((x) => x.id) } });
+          // the comprehensive data file's extras (error, growth, descriptors …)
+          const ex = cdf?.extras.get(`${key.toLowerCase()}|${subject}`);
+          const more = ex ? { ritSE: ex.ritSE, growthPercentile: ex.growthPercentile, observedGrowth: ex.observedGrowth, conditionalGrowthIndex: ex.conditionalGrowthIndex, metProjectedGrowth: ex.metProjectedGrowth, testMinutes: ex.testMinutes, lexileLow: subject === "READING" ? ex.lexileLow : null, lexileHigh: subject === "READING" ? ex.lexileHigh : null, typicalGrowth: ex.typicalGrowth, proficiency: ex.proficiency } : {};
+          const gradeAtTest = rowGrade || currentGradeOf.get(sid) || null; // 🐛 r91 fix: file's own Grade column wins, else the student's current grade
+          const keptLexile = subject === "READING" ? keep(lexile, "lexile") : null;
+          if (rit !== null) await repo.create("MapResult", { studentId: sid, testDate, subject: name, goalName: null, rit, grade: gradeAtTest, achievementPercentile: keep(pct, "achievementPercentile"), projectedGrowth: keep(growth, "projectedGrowth"), lexile: keptLexile, rapidGuessPct: keep(rapid, "rapidGuessPct"), termName: term, importedAt: now, ...more });
+          // 🩹 Oct 2026 fix: a Reading Lexile landing here may be the first REAL one this student has ever had — if
+          // their ReadRise level is still on the grade-based guess (source DEFAULT), correct it now automatically
+          // instead of leaving it stuck until someone notices (see engine.ts#backfillReadRiseFromMap for the full why).
+          if (rit !== null && subject === "READING" && keptLexile !== null) await backfillReadRiseFromMap(repo, sid, Number(keptLexile), now);
+          for (const x of subjGoals) { const gx = ex?.goals[GOAL_GROUP[x.g.code]]; await repo.create("MapResult", { studentId: sid, testDate, subject: name, goalName: s(x.g.area!.name), goalAreaId: s(x.g.area!.id), rit: x.rit, grade: gradeAtTest, termName: term, importedAt: now, ...(gx ? { descriptor: gx.descriptor, ritSE: gx.se } : {}) }); }
+        }
+        imported++; touched.add(sid);
       }
-      imported++; touched.add(sid);
     } catch (e) {
       if (e instanceof ValidationError || e instanceof ForbiddenError) { errors.push({ row: rowNo, message: e.message }); continue; }
       throw e;
@@ -408,7 +422,7 @@ export async function importMapScores(repo: Repo, actor: Actor, table: string[][
   if (notInClasses) errors.push({ row: 0, message: `${notInClasses} student(s) of the NWEA file are not in ${actor.role === "TEACHER" ? "your classes" : "the school's classes"} (other classes / not on the platform yet): skipped.` });
   // the new scores make the individual plans (drafts) and the 3-level groups at once
   const plans = await draftPlansFor(repo, actor, [...touched], now);
-  return { imported, skipped, errors, term, created, unmatched, plans, ...(missingAreaHeaders.length ? { missingAreaHeaders } : {}) };
+  return { imported, skipped, errors, term, created, unmatched, plans, ...(dupScored.length ? { dupScored } : {}), ...(missingAreaHeaders.length ? { missingAreaHeaders } : {}) };
 }
 
 /** Template rows: the actor's students (number, name, grade) ready for the scores. */

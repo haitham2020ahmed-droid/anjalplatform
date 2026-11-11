@@ -1,0 +1,101 @@
+diff --git a/src/app/teacher/map-entry/actions.ts b/src/app/teacher/map-entry/actions.ts
+index 74801c8b..c48688a8 100644
+--- a/src/app/teacher/map-entry/actions.ts
++++ b/src/app/teacher/map-entry/actions.ts
+@@ -2,7 +2,7 @@
+ import { redirect } from "next/navigation";
+ import { repo, requireActor } from "@/server/auth/next";
+ import { failureMessage, isNextControl } from "@/server/lib/action-guard";
+-import { saveMapEntry, type EntrySubject } from "@/server/map/map-entry";
++import { deleteMapEntryRow, saveMapEntry, type EntrySubject } from "@/server/map/map-entry";
+ import type { Season } from "@/server/map/rit";
+ 
+ /** ✏️ Saves the class table of MAP scores. */
+@@ -25,3 +25,23 @@ export async function saveMapEntryAction(f: FormData): Promise<void> {
+   } catch (e) { if (isNextControl(e)) throw e; msg = await failureMessage(e, "map", "saveMapEntry", "/teacher/map-entry"); } // r79: never a white page
+   redirect(`/teacher/map-entry?${new URLSearchParams({ classId, subject, season, year: String(year), msg })}`);
+ }
++
++/**
++ * 🗑️ Nov 2026 (owner request): deletes one student's score for the currently-shown class/subject/term —
++ * for a wrong manual entry or a bad import that needs to be taken back out, not just edited. Bound to a specific
++ * studentId per row with `.bind(null, studentId)` on the row's own delete button (a `formAction`, not a separate
++ * nested form — HTML forms can't nest, and this lets each row keep its own target inside the one big save form).
++ */
++export async function deleteMapEntryAction(studentId: string, f: FormData): Promise<void> {
++  const classId = String(f.get("classId") ?? "");
++  const subject: EntrySubject = f.get("subject") === "LANGUAGE" ? "LANGUAGE" : "READING";
++  const season = (["FALL", "WINTER", "SPRING"].includes(String(f.get("season"))) ? String(f.get("season")) : "FALL") as Season;
++  const year = Number(f.get("year"));
++  let msg: string;
++  try {
++    const actor = await requireActor({ roles: ["TEACHER", "SCHOOL_ADMIN"], permission: "assignments:create" });
++    const r = await deleteMapEntryRow(repo, actor, { classId, subject, season, year, studentId });
++    msg = r.deleted ? `🗑️ Deleted this student's score (${r.deleted} row(s)) for this term.` : "Nothing was saved for this student in this term — nothing to delete.";
++  } catch (e) { if (isNextControl(e)) throw e; msg = await failureMessage(e, "map", "deleteMapEntryRow", "/teacher/map-entry"); }
++  redirect(`/teacher/map-entry?${new URLSearchParams({ classId, subject, season, year: String(year), msg })}`);
++}
+diff --git a/src/app/teacher/map-entry/page.tsx b/src/app/teacher/map-entry/page.tsx
+index 9ac89ddc..723ec55b 100644
+--- a/src/app/teacher/map-entry/page.tsx
++++ b/src/app/teacher/map-entry/page.tsx
+@@ -5,7 +5,7 @@ import { getActor, repo, requireActor } from "@/server/auth/next";
+ import { accessibleClasses } from "@/server/teacher/assign";
+ import { BANDS, mapEntryGrid, type EntrySubject } from "@/server/map/map-entry";
+ import type { Season } from "@/server/map/rit";
+-import { saveMapEntryAction } from "./actions";
++import { deleteMapEntryAction, saveMapEntryAction } from "./actions";
+ 
+ export const metadata = { title: "Enter MAP scores" };
+ 
+@@ -59,6 +59,7 @@ export default async function MapEntryPage({ searchParams }: { searchParams: Pro
+                     <th className="sticky left-0 bg-white py-2 pe-3">Student</th><th className="px-1">ID</th><th className="px-1">RIT</th><th className="px-1">Percentile</th>
+                     {season === "FALL" && <th className="px-1">Spring projection</th>}{subject === "READING" && <th className="px-1">Lexile</th>}
+                     {g.goals.map((x) => <th key={x.code} className="px-1">{x.header}</th>)}
++                    <th className="px-1" />
+                   </tr></thead>
+                   <tbody>{g.rows.map((r) => (
+                     <tr key={r.studentId} className="border-b last:border-0">
+@@ -69,6 +70,11 @@ export default async function MapEntryPage({ searchParams }: { searchParams: Pro
+                       {season === "FALL" && <td className="px-1"><input name={`proj:${r.studentId}`} defaultValue={r.projection} inputMode="numeric" aria-label={`Spring projection of ${r.name}`} className={cell} /></td>}
+                       {subject === "READING" && <td className="px-1"><input name={`lex:${r.studentId}`} defaultValue={r.lexile} aria-label={`Lexile of ${r.name}`} className={cell} /></td>}
+                       {g.goals.map((x) => <td key={x.code} className="px-1"><input name={`g:${x.code}:${r.studentId}`} defaultValue={r.goals[x.code] ?? ""} list="bands" aria-label={`${x.header} of ${r.name}`} className={cell} /></td>)}
++                      {/* 🗑️ Nov 2026: a per-row delete, only shown once a score actually exists for this term — clearing the
++                          boxes above and pressing Save does NOT remove it (a blank row is skipped on purpose), so a wrong
++                          or test entry needs this explicit control. `formAction` on a plain button swaps the submit target
++                          for just this button, inside the same form — no nested <form>, no separate page. */}
++                      <td className="px-1">{r.rit && <button type="submit" formAction={deleteMapEntryAction.bind(null, r.studentId)} title={`Delete ${r.name}'s ${g.term} score`} aria-label={`Delete ${r.name}'s ${g.term} score`} className="rounded-md px-2 py-1 text-slate-400 hover:bg-red-50 hover:text-red-600">🗑️</button>}</td>
+                     </tr>
+                   ))}</tbody>
+                 </table>
+diff --git a/src/server/map/map-entry.ts b/src/server/map/map-entry.ts
+index 450aec04..ec1faa99 100644
+--- a/src/server/map/map-entry.ts
++++ b/src/server/map/map-entry.ts
+@@ -88,6 +88,26 @@ export async function mapEntryGrid(repo: Repo, actor: Actor, input: { classId: s
+   return { classId: input.classId, className: s(klass.name), grade, subject: input.subject, season: input.season, year: input.year, term, goals: goals.map((x) => ({ code: x.code, header: x.header.replace(/^[RL]:\s*/, "") })), rows, missingNumbers: rows.filter((r) => !r.number).length };
+ }
+ 
++/**
++ * 🗑️ Nov 2026 (owner request: a wrong/test score typed or imported by mistake had no way to be removed — clearing
++ * the RIT field and saving does NOT delete it, by design: `saveMapEntry` skips a blank row entirely so it never
++ * touches an existing score (that's what makes "empty rows are skipped" safe for a partial re-entry). This is the
++ * one explicit, teacher-initiated way to actually erase one student's score for one subject and term.
++ * Deletes that student's whole MapResult set (the overall row + any goal-area rows) for this exact class, subject,
++ * season and year. Scoped the same way saveMapEntry/mapEntryGrid are: the class must be one of this actor's own.
++ */
++export async function deleteMapEntryRow(repo: Repo, actor: Actor, input: { classId: string; subject: EntrySubject; season: Season; year: number; studentId: string }): Promise<{ deleted: number }> {
++  assertCan(actor, "assignments:create");
++  await assertClassAccess(repo, actor, input.classId);
++  const ids = await classMembers(repo, input.classId);
++  if (!ids.includes(input.studentId)) throw new ValidationError("This student is not in that class.");
++  const term = termName(input.season, input.year);
++  const subjectRe = input.subject === "READING" ? /read/i : /language/i;
++  const rows = (await repo.findMany("MapResult", { studentId: input.studentId, termName: term })).filter((x) => subjectRe.test(s(x.subject)));
++  if (rows.length) await repo.deleteMany("MapResult", { id: { in: rows.map((x) => x.id) } });
++  return { deleted: rows.length };
++}
++
+ /** Saves the table (empty rows are skipped; a filled row replaces that student's scores of this term and subject). */
+ export async function saveMapEntry(repo: Repo, actor: Actor, input: { classId: string; subject: EntrySubject; season: Season; year: number; rows: Omit<EntryRow, "name" | "number">[] }, now = new Date()): Promise<MapImportResult> {
+   assertCan(actor, "assignments:create");
