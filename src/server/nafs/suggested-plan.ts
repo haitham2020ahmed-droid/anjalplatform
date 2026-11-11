@@ -6,9 +6,18 @@
  * each with ONE-CLICK assign (adaptive practice on exactly those standards for exactly those students) and "make a
  * test on these standards". Pure: it reads the Dashboard the Reports tab already builds (no extra database work).
  */
-import { MOE_BY_CODE } from "./framework";
+import { MOE_BY_CODE, SKILL_BY_CODE } from "./framework";
 import { MIN_STD_ITEMS, practiceHref, testHref, WEAK_BELOW, type Dashboard } from "./dashboard";
 import { STRENGTH_FROM, strengthsWeaknesses } from "./strengths";
+
+/**
+ * 🔗 Nov 2026 fix ("نظام نافس حاسس إنه منفصل عن المهارات/الماستري"): a Ministry standard (MOE.S0x) here used to show
+ * only its own % — nothing tied it back to the "skills" the teacher already sees on the student skills grid and MAP
+ * plans, so NAFS could look like a separate, disconnected system even though every standard is, by the Ministry's own
+ * guide (framework.ts's MOE_STANDARDS[].nafs), measured through specific reading skills. Surfaces those skill names
+ * next to each weak/strong standard so the teacher can see the connection at a glance.
+ */
+const relatedSkillNames = (code: string): string[] => [...new Set((MOE_BY_CODE.get(code)?.nafs ?? []).map((n) => SKILL_BY_CODE.get(n)?.name).filter((x): x is string => !!x))];
 
 /** At most this many standards per suggestion (a practice stays focused). */
 export const PLAN_CODES = 3;
@@ -22,10 +31,10 @@ export interface PlanItem {
   key: string; scope: "CLASS" | "GROUP" | "STUDENT"; classId: string; className: string;
   codes: string[]; students: PlanStudent[];
   /** the evidence: each standard with its % and the number of items behind it */
-  evidence: { code: string; short: string; pct: number | null; n: number }[];
+  evidence: { code: string; short: string; pct: number | null; n: number; relatedSkills: string[] }[];
   title: string; practiceHref: string; testHref: string;
 }
-export interface ClassPlan { classId: string; className: string; students: number; withData: number; classItem: PlanItem | null; groups: PlanItem[]; perStudent: PlanItem[]; strengths: { code: string; short: string; pct: number | null }[] }
+export interface ClassPlan { classId: string; className: string; students: number; withData: number; classItem: PlanItem | null; groups: PlanItem[]; perStudent: PlanItem[]; strengths: { code: string; short: string; pct: number | null; relatedSkills: string[] }[] }
 export interface SuggestedPlan { classes: ClassPlan[]; noData: boolean }
 
 const short = (c: string) => MOE_BY_CODE.get(c)?.short ?? c;
@@ -47,12 +56,12 @@ export function suggestedPlan(d: Dashboard): SuggestedPlan {
     }
     const rows = [...acc].map(([code, a]) => ({ code, short: short(code), pct: a.n ? Math.floor((100 * a.sum) / a.n + 0.5) : null, n: a.n })).filter((x) => x.n >= MIN_STD_ITEMS);
     const weak = rows.filter((x) => (x.pct ?? 100) < WEAK_BELOW).sort((a, b) => (a.pct ?? 0) - (b.pct ?? 0) || a.code.localeCompare(b.code)).slice(0, PLAN_CODES);
-    const strengths = rows.filter((x) => (x.pct ?? 0) >= STRONG_FROM).sort((a, b) => (b.pct ?? 0) - (a.pct ?? 0)).slice(0, PLAN_CODES).map((x) => ({ code: x.code, short: x.short, pct: x.pct }));
+    const strengths = rows.filter((x) => (x.pct ?? 0) >= STRONG_FROM).sort((a, b) => (b.pct ?? 0) - (a.pct ?? 0)).slice(0, PLAN_CODES).map((x) => ({ code: x.code, short: x.short, pct: x.pct, relatedSkills: relatedSkillNames(x.code) }));
     const make = (scope: PlanItem["scope"], key: string, codes: string[], students: PlanStudent[], evidence: PlanItem["evidence"]): PlanItem => ({
       key, scope, classId: c.id, className: c.name, codes, students, evidence, title: titleOf(codes),
       practiceHref: practiceHref(c.id, codes, scope === "CLASS" ? [] : students.map((x) => x.id)), testHref: testHref(c.id, codes),
     });
-    const classItem = weak.length ? make("CLASS", `class:${c.id}`, weak.map((x) => x.code), [], weak) : null;
+    const classItem = weak.length ? make("CLASS", `class:${c.id}`, weak.map((x) => x.code), [], weak.map((x) => ({ ...x, relatedSkills: relatedSkillNames(x.code) }))) : null;
     // groups: the students (2 or more) who share a weak standard — the most shared first
     const shared = new Map<string, PlanStudent[]>();
     for (const m of c.members) {
@@ -60,14 +69,14 @@ export function suggestedPlan(d: Dashboard): SuggestedPlan {
       for (const [code, x] of Object.entries(h?.cells ?? {})) if (x.n >= MIN_STD_ITEMS && x.pct !== null && x.pct < WEAK_BELOW) shared.set(code, [...(shared.get(code) ?? []), { id: m.id, name: m.name, pct: x.pct }]);
     }
     const groups = [...shared].filter(([, l]) => l.length >= 2).sort((a, b) => b[1].length - a[1].length || a[0].localeCompare(b[0])).slice(0, MAX_GROUPS)
-      .map(([code, l]) => { const st = [...l].sort((a, b) => (a.pct ?? 0) - (b.pct ?? 0) || a.name.localeCompare(b.name)); const pct = rows.find((r) => r.code === code); return make("GROUP", `group:${c.id}:${code}`, [code], st, [{ code, short: short(code), pct: pct?.pct ?? null, n: pct?.n ?? 0 }]); });
+      .map(([code, l]) => { const st = [...l].sort((a, b) => (a.pct ?? 0) - (b.pct ?? 0) || a.name.localeCompare(b.name)); const pct = rows.find((r) => r.code === code); return make("GROUP", `group:${c.id}:${code}`, [code], st, [{ code, short: short(code), pct: pct?.pct ?? null, n: pct?.n ?? 0, relatedSkills: relatedSkillNames(code) }]); });
     // each student's own weakest standards
     const perStudent = c.members.flatMap((m) => {
       const h = cells.get(m.id);
       if (!h) return [];
       const mine = Object.entries(h.cells).filter(([, x]) => x.n >= MIN_STD_ITEMS && x.pct !== null && x.pct < WEAK_BELOW).sort((a, b) => (a[1].pct ?? 0) - (b[1].pct ?? 0) || a[0].localeCompare(b[0])).slice(0, PLAN_CODES);
       if (!mine.length) return [];
-      return [make("STUDENT", `student:${m.id}`, mine.map(([k]) => k), [{ id: m.id, name: m.name, pct: h.pct }], mine.map(([k, x]) => ({ code: k, short: short(k), pct: x.pct, n: x.n })))];
+      return [make("STUDENT", `student:${m.id}`, mine.map(([k]) => k), [{ id: m.id, name: m.name, pct: h.pct }], mine.map(([k, x]) => ({ code: k, short: short(k), pct: x.pct, n: x.n, relatedSkills: relatedSkillNames(k) })))];
     });
     return { classId: c.id, className: c.name, students: c.students, withData, classItem, groups, perStudent, strengths };
   });

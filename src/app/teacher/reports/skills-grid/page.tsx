@@ -474,7 +474,11 @@ function PlanBadge({ type, t }: { type: PlanType; t: T }) {
   return <span className={`shrink-0 rounded-full px-2 py-0.5 text-[11px] font-bold ring-1 ${PLAN_TYPE_CLASS[type]}`} data-testid="plan-type" data-type={type}>{t(PLAN_TYPE_LABEL[type])}</span>;
 }
 const STATE_LABEL: Record<PlanStudentState, string> = { FINISHED: "Finished all", SUPPORT: "Needs support", NOT_STARTED: "Not started", WORKING: "Working on it" };
-const STATE_ICON: Record<PlanStudentState, string> = { FINISHED: "⭐", SUPPORT: "⚠️", NOT_STARTED: "⏳", WORKING: "◐" };
+// 🐛 Nov 2026 fix ("⭐ بمعاني مختلفة في نفس الصفحة"): FINISHED used to reuse the same ⭐ this page already uses for a
+// single mastered skill (e.g. "⭐ {pct}% of stars won" above) and for the empty-state icon — so "⭐ Finished all" next
+// to a student's own star count read as if it were another star, not a distinct "finished the whole plan" state. 🏁
+// is used nowhere else on this page, so it can only mean one thing here.
+const STATE_ICON: Record<PlanStudentState, string> = { FINISHED: "🏁", SUPPORT: "⚠️", NOT_STARTED: "⏳", WORKING: "◐" };
 
 function PlansView({ d, t, href, pid, now, range }: { d: ClassSkills; t: T; href: (o: Partial<SP>) => string; pid: string | null; now: Date; range: DateRange }) {
   const cards = planCards(d);

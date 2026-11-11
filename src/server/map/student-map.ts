@@ -349,7 +349,16 @@ export async function importMapScores(repo: Repo, actor: Actor, table: string[][
       // the teacher's own one-click confirmation for exactly this name overrides the ambiguity check — they've
       // seen the "already in another class" warning and said, by hand, that this one is a genuinely different student
       const forced = !!(opts.forceCreateName && nk && nk === nameKey(opts.forceCreateName));
-      if (!sid && hits.length === 1 && !forced) sid = hits[0].id;   // one unambiguous match (same student, other number): no duplicate
+      // 🐛 Nov 2026 fix ("اسم طابق طالب واحد في فصل تاني بيتسجل غلط من غير أي تحذير"): a name that matches exactly
+      // ONE existing student used to auto-bind unconditionally — even when that student is in a different class or
+      // grade from the one being imported into. For a single-class import (opts.createInClassId set), only trust a
+      // single hit when it is actually a member of THIS class (or was just minted a moment ago in this same run,
+      // which carries className ""); a single coincidental match elsewhere is routed through the same
+      // "ambiguous name" confirm-or-create-new flow as a 2+-hit match below, instead of silently taking someone
+      // else's score. A grade-wide import (no createInClassId) is unaffected — there every accessible class is
+      // already in scope, so one hit there is the normal, safe case.
+      const scopedHits = opts.createInClassId ? hits.filter((h) => h.className === classNameOf.get(opts.createInClassId) || h.className === "") : hits;
+      if (!sid && scopedHits.length === 1 && !forced) sid = scopedHits[0].id;   // one unambiguous match (same student, other number): no duplicate
       const rowGrade = gradeCol >= 0 ? Number(cell(r, gradeCol)) : 0;
       if (!sid && opts.createInClassId && rowGrade && classGrade && rowGrade !== classGrade) throw new ValidationError(`${fullName || key} is in Grade ${rowGrade} in the file, but this class is Grade ${classGrade}: import them from their own class.`);
       // A report with no Student ID column (e.g. NWEA's Class Profile) has an empty `key` for every row — a
@@ -379,9 +388,20 @@ export async function importMapScores(repo: Repo, actor: Actor, table: string[][
       const ambiguous = !sid && hits.length > 1 && !forced && !opts.createInClassId;
       const targets = sid ? [sid] : ambiguous ? hits.map((h) => h.id) : [];
       // a grade-wide file: other classes' students are expected — a genuinely unmatched name (no hits at all)
-      // is still just skipped and reported, same as before.
-      if (!targets.length && (nwea || opts.wholeFile)) { notInClasses++; unmatched.push({ number: key, name: fullName, ...(hits.length > 1 ? { classes: [...new Set(hits.map((h) => h.className).filter(Boolean))] } : {}) }); continue; }
-      if (!targets.length) throw new ValidationError(`Student “${key}” was not found in your classes${opts.createInClassId ? " (write the Student Name to add them)" : " (import from one class to add new students)"}.`);
+      // is still just skipped and reported, same as before. `hits.length` (not scopedHits) on purpose: a single
+      // hit excluded above for being outside this class gets the same "already in another class — confirm?" hint
+      // as a 2+-hit match, instead of silently dropping the trail.
+      if (!targets.length && (nwea || opts.wholeFile)) { notInClasses++; unmatched.push({ number: key, name: fullName, ...(hits.length ? { classes: [...new Set(hits.map((h) => h.className).filter(Boolean))] } : {}) }); continue; }
+      if (!targets.length) {
+        if (hits.length) throw new ValidationError(`${fullName || key} already exists under this name in ${[...new Set(hits.map((h) => h.className).filter(Boolean))].join(", ") || "another class"} — confirm this is a genuinely different student before adding them here.`);
+        // 🐛 Nov 2026 fix ("الرسالة مش واضحة لما الطالب جديد في ملف لكل الصف"): this used to say only "was not found
+        // in your classes", with no hint of WHY — an admin importing a whole grade at once (no single class chosen)
+        // has no way here to add a brand-new student, since the import doesn't know which class to put them in; the
+        // old wording read as a generic failure rather than telling them the one thing to do next.
+        throw new ValidationError(opts.createInClassId
+          ? `Student "${fullName || key}" was not found in your classes (write the Student Name to add them).`
+          : `Student "${fullName || key}" was not found in any of your classes. This looks like a new student who isn't on the roster yet — go to that student's own class and import this file there (choosing that class first lets the import add them), or add the student to a class first and re-import.`);
+      }
       if (ambiguous) dupScored.push({ name: fullName, classes: [...new Set(hits.map((h) => h.className).filter(Boolean))] });
       for (const sid of targets) {
         const subjectsHere = (["READING", "LANGUAGE_USAGE"] as const).filter((sub) => (sub === "READING" ? readRit : langRit) !== null || goals.some((x) => x.g.subject === sub));

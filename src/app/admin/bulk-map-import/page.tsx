@@ -3,7 +3,8 @@ import path from "node:path";
 import { AppShell } from "@/components/app-shell";
 import { PageHeader } from "@/components/page-header";
 import { getActor, requireActor } from "@/server/auth/next";
-import { runBulkMapImportAction, runUploadMapImportAction } from "./actions";
+import { runBulkMapImportAction } from "./actions";
+import { MapUploadBox } from "./map-upload-box";
 
 export const metadata = { title: "Bulk MAP import" };
 
@@ -30,14 +31,7 @@ export default async function BulkMapImportPage({ searchParams }: { searchParams
         subtitle="Imports every PDF sitting in assets/pending-map-imports/ using the exact same pipeline as the normal MAP upload page." />
       {sp.msg && <pre role="status" className="mb-4 whitespace-pre-wrap rounded-xl bg-teal-50 px-4 py-3 text-sm text-teal-900 ring-1 ring-teal-200">{sp.msg}</pre>}
       {/* 🧰 Nov 2026 (owner request): upload PDFs straight from the browser — no repo/git step needed. */}
-      <form action={runUploadMapImportAction} className="mb-6 rounded-3xl bg-white p-5 shadow-sm ring-1 ring-slate-200">
-        <p className="mb-3 text-sm font-semibold text-brand-navy">📤 Upload PDF(s) to import now</p>
-        <input type="hidden" name="year" value={2026} />
-        <input type="file" name="files" accept="application/pdf" multiple required
-          className="block w-full rounded-xl border border-slate-300 bg-slate-50 px-3 py-2 text-sm file:mr-3 file:rounded-lg file:border-0 file:bg-brand-navy file:px-4 file:py-2 file:font-semibold file:text-white hover:file:bg-brand-purple" />
-        <button className="mt-3 rounded-xl bg-brand-navy px-6 py-2.5 font-semibold text-white hover:bg-brand-purple">Import uploaded file(s)</button>
-        <p className="mt-2 text-xs text-slate-500">Choose one or more NWEA PDF reports (Achievement Status and Growth, or Class Profile). Nothing is saved to the repo — they're read once and processed.</p>
-      </form>
+      <MapUploadBox />
       {files.length ? (
         <form action={runBulkMapImportAction} className="rounded-3xl bg-white p-5 shadow-sm ring-1 ring-slate-200">
           <p className="mb-3 text-sm text-slate-600">{files.length} file(s) waiting: {files.join(", ")}</p>

@@ -30,7 +30,7 @@ export const RETEST_PCT = 30;
 
 // ------------------------------------------------------------------ class matrix
 
-export interface MatrixRow { studentId: string; name: string; number: string; profile: MapProfile; estimate: number | null; retest: boolean; plan: "DRAFT" | "SENT" | null }
+export interface MatrixRow { studentId: string; name: string; number: string; profile: MapProfile; estimate: number | null; retest: boolean; plan: "DRAFT" | "SENT" | null; mastery: { mastered: number; total: number } | null }
 export interface MatrixView { className: string; grade: number; subject: Subject; rows: MatrixRow[]; noScores: { id: string; name: string }[]; groups: { key: GroupKey; name: string; icon: string; focus: number; maintain: number; extend: number }[]; canEdit: boolean }
 
 export async function classMatrix(repo: Repo, actor: Actor, classId: string, subject: Subject, now = new Date(), opts: { estimates?: boolean } = {}): Promise<MatrixView> {
@@ -39,7 +39,13 @@ export async function classMatrix(repo: Repo, actor: Actor, classId: string, sub
   let canEdit = true; try { await assertClassAccess(repo, actor, classId); } catch { canEdit = false; }
   const grade = Number((await repo.findUnique("Grade", { id: klass.gradeId }))?.level ?? 0);
   const ids = await classMembers(repo, classId);
-  const [names, profiles, plans] = await Promise.all([studentNames(repo, ids), mapProfiles(repo, actor.schoolId!, ids, subject), repo.findMany("MapPlan", { classId, subject }, { select: ["studentId", "status", "term"] })]);
+  // 🐛 Nov 2026 fix ("شاشة الفصل كله ما بتوريش حالة النجمة"): the class-wide matrix used to show band/RIT/plan status
+  // only — the per-student My MAP page (myMap() below) already shows how many of the plan's own skills are ⭐
+  // mastered, but a teacher looking at the WHOLE class here had no way to see that without opening every student one
+  // by one. Reads each plan's own `items` (already on the row — no extra query) and ONE batched star read for the
+  // whole class (not one per student) to add a mastered/total count alongside each plan.
+  const [names, profiles, plans] = await Promise.all([studentNames(repo, ids), mapProfiles(repo, actor.schoolId!, ids, subject), repo.findMany("MapPlan", { classId, subject }, { select: ["studentId", "status", "term", "items"] })]);
+  const book = ids.length ? await starBook(repo, ids, actor.schoolId) : null;
   const rows: MatrixRow[] = [];
   // ⚡ r79: the "Now (about)" estimate reads every answer of the class in 45 days and the grade's pools: only for the
   // views that show it (the export), not the Results tab
@@ -48,8 +54,12 @@ export async function classMatrix(repo: Repo, actor: Actor, classId: string, sub
     const p = profiles.get(id)!;
     if (!p.term) continue;
     const est = estimates.get(id);
-    const plan = plans.filter((x) => x.studentId === id && x.term === p.term && x.status !== "DISMISSED").map((x) => s(x.status))[0] as MatrixRow["plan"] | undefined;
-    rows.push({ studentId: id, name: names.get(id)?.name ?? "Student", number: names.get(id)?.number ?? "", profile: p, estimate: est?.rit ?? null, retest: (p.overall?.rapidGuessPct ?? 0) >= RETEST_PCT, plan: plan ?? null });
+    const planRow = plans.find((x) => x.studentId === id && x.term === p.term && x.status !== "DISMISSED");
+    const plan = planRow ? (s(planRow.status) as MatrixRow["plan"]) : null;
+    const planItems = planRow ? ((typeof planRow.items === "string" ? JSON.parse(planRow.items) : planRow.items) ?? []) as PlanItem[] : [];
+    const skillIds = [...new Set(planItems.flatMap((it) => it.skillIds ?? []))];
+    const mastery = plan && book && skillIds.length ? { mastered: skillIds.filter((sk) => starMastered(book.of(id, sk))).length, total: skillIds.length } : null;
+    rows.push({ studentId: id, name: names.get(id)?.name ?? "Student", number: names.get(id)?.number ?? "", profile: p, estimate: est?.rit ?? null, retest: (p.overall?.rapidGuessPct ?? 0) >= RETEST_PCT, plan, mastery });
   }
   rows.sort((a, b) => (a.profile.overall?.rit ?? 0) - (b.profile.overall?.rit ?? 0) || a.name.localeCompare(b.name));
   const groups = GROUPS.filter((g) => g.subject === subject).map((g) => {

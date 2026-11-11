@@ -24,7 +24,7 @@ import { pendingCount } from "../reports/family-reports";
 import { runAfterResponse } from "../lib/after-response";
 import { modelVersion } from "../cache/bank-version";
 import { remember } from "../cache/lru";
-import { countGroups } from "../db/group-count";
+import { weekNumbers } from "../insights/week-in-review";
 import { memoryHigh, runHeavy } from "../monitoring/memory";
 import { sweptWeakMap } from "../cache/idle";
 
@@ -54,18 +54,24 @@ export interface AdminHomeCounts { waiting: number; deletions: number; students:
 export async function adminHomeCounts(repo: Repo, actor: Actor, now = new Date()): Promise<AdminHomeCounts> {
   const schoolId = actor.schoolId;
   const canApprove = can(actor, "questions:publish");
-  const weekAgo = new Date(now.getTime() - 7 * 86_400_000);
-  const [waiting, deletions, students, activeRows, alertsOpen, flags, reportsWaiting] = await Promise.all([
+  // 🐛 Nov 2026 fix: PracticeSession has no schoolId column, so the weekly-active GROUP BY used to scan every school on
+  // the platform and leak other schools' active students into this school's "Activity this week" % (and the page then
+  // silently clamped the leaked total to 100% with Math.min). Scope it to this school's own student ids first.
+  const schoolStudentIds = schoolId ? (await repo.findMany("Student", { schoolId }, { select: ["id"] })).map((s) => String(s.id)) : [];
+  // 📏 Nov 2026 fix ("الأسبوع مش متوافق بين الصفحات"): this card used to count "active" over its OWN rolling 7-day
+  // window (now − 7 days), a different week than the teacher home card and the Reports week summary, which both use
+  // the school week (Sunday → now, Riyadh time) via week-in-review.ts's weekNumbers() — so the same week could show
+  // three different active-student numbers depending which page the admin looked at. Now uses that one function too.
+  const [waiting, deletions, students, week, alertsOpen, flags, reportsWaiting] = await Promise.all([
     canApprove ? cachedFor(repo, `waiting|${actor.role}|${schoolId}`, BANK_COUNT_MODELS, 5 * 60_000, () => listQuestions(repo, actor, { status: "UNDER_REVIEW", limit: 1, page: 1 }).then((r) => r.total)) : Promise.resolve(0),
     canApprove ? cachedFor(repo, `deletions|${actor.role}|${schoolId}`, BANK_COUNT_MODELS, 5 * 60_000, () => countDeletionRequests(repo, actor)) : Promise.resolve(0),
-    repo.count("Student", { schoolId }),
-    countGroups(repo, "PracticeSession", "studentId", { startedAt: { gte: weekAgo } }), // one GROUP BY, not every session
+    schoolStudentIds.length,
+    schoolStudentIds.length ? weekNumbers(repo, schoolStudentIds, now, { schoolId }) : Promise.resolve({ active: 0 }),
     repo.count("StudentAlert", { schoolId, status: "OPEN" }),
     repo.count("QuestionFlag", { schoolId, status: "OPEN" }),
     schoolId ? pendingCount(repo, schoolId) : Promise.resolve(0),
   ]);
-  const active = [...activeRows.keys()].filter(Boolean).length;
-  return { waiting, deletions, students, active, alertsOpen, flags, reportsWaiting };
+  return { waiting, deletions, students, active: week.active, alertsOpen, flags, reportsWaiting };
 }
 
 // ------------------------------------------------------------------ MAP readiness, off the critical path

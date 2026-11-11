@@ -1,13 +1,16 @@
 /**
  * Daily streak and points (motivation): a day counts when the student answered at least one question
  * (practice, assigned sets, tests) or finished a ReadMaster article. Days in Saudi time (UTC+3).
- * Points: 10 per correct answer + 25 per ReadMaster article + 10 per Respond to Reading answer + 50 per level moved up.
+ * Points: the real per-answer XP already shown to the student (adaptive/engine.ts, varies by level/band/mastery —
+ * summed from the XpEvent ledger, never a flat rate) + 25 per ReadMaster article + 10 per Respond to Reading answer
+ * + 50 per level moved up. Test/Diagnostic answers never earn points (they never reach the line that writes XP).
  * 🔧 fix (requested, Oct 2026): the school week is Sunday-Thursday — Friday/Saturday (the weekend) used to
  * silently reset an otherwise-perfect streak every week, since the engine counted every calendar day with no
  * exception. Now Friday/Saturday are a "bonus, never a break": practising on them still extends the streak, but
  * NOT practising on them never breaks it — the streak just holds and resumes on Sunday.
  */
 import type { Repo } from "../seeding/repo";
+import { MISCLICK_MS } from "../practice/guessing";
 
 const DAY = 86_400_000, KSA = 3 * 3_600_000;
 const dayOf = (v: unknown) => Math.floor((new Date(v instanceof Date ? v.toISOString() : String(v)).getTime() + KSA) / DAY);
@@ -33,7 +36,12 @@ const STREAK_MAX_DAYS = 365;
 /** Exported for the "Steady Practice" badge (student/badges.ts): distinct days counted, not consecutiveness. */
 export async function activeDays(repo: Repo, studentId: string, since: Date): Promise<number[]> {
   const [attempts, articles] = await Promise.all([
-    repo.findMany("QuestionAttempt", { studentId, createdAt: { gte: since } }, { select: ["createdAt"] }),
+    // 🐛 Nov 2026 fix ("السلسلة ممكن تفضل شغالة بضغطة فاضية"): an instant misclick (responseMs < MISCLICK_MS —
+    // physically too fast to have read or decided anything; earns zero XP/mastery everywhere else, per
+    // practice/session.ts) used to still count as "practised today" here, so a student could keep their streak
+    // alive indefinitely with one meaningless, sub-half-second tap a day and no real practice at all. Excluded the
+    // same way it is already excluded from XP and mastery.
+    repo.findMany("QuestionAttempt", { studentId, createdAt: { gte: since }, responseMs: { gte: MISCLICK_MS } }, { select: ["createdAt"] }),
     repo.findMany("ReadMasterAttempt", { studentId, createdAt: { gte: since } }, { select: ["createdAt"] }),
   ]);
   return [...attempts.map((a) => dayOf(a.createdAt)), ...articles.map((a) => dayOf(a.createdAt))];
@@ -42,11 +50,8 @@ export async function activeDays(repo: Repo, studentId: string, since: Date): Pr
 export async function streakAndPoints(repo: Repo, studentId: string, now = new Date()): Promise<{ streak: number; points: number; activeToday: boolean }> {
   const today = dayOf(now);
   // recent days only (runs on every student home load); points are lifetime totals, so they are COUNTED
-  const [recent, correct, articleRows, bonus] = await Promise.all([
+  const [recent, articleRows, xpRows] = await Promise.all([
     activeDays(repo, studentId, new Date(now.getTime() - STREAK_WINDOW_DAYS * DAY)),
-    // 🔧 fix (Oct 2026): a rapid-guess answer (clicked too fast to have been read) should not earn points —
-    // excluded here the same way practice accuracy already excludes it elsewhere.
-    repo.count("QuestionAttempt", { studentId, isCorrect: true, rapidGuess: false }),
     // r85 audit: "25 per ReadMaster article" must mean 25 per DISTINCT, COUNTED (non-practice) article — a raw
     // repo.count() here counted every row, including repeated "Practice" reads of a below-level version of the
     // SAME article (readmaster/service.ts never limits how many times a student re-reads at Practice level), so
@@ -62,9 +67,21 @@ export async function streakAndPoints(repo: Repo, studentId: string, now = new D
     days = await activeDays(repo, studentId, new Date(now.getTime() - STREAK_MAX_DAYS * DAY));
     streak = streakFromDays(days, today);
   }
+  // 🐛 Nov 2026 fix ("النقاط في الصفحة الرئيسية غلط"): this used to be a flat "10 points per correct answer" count
+  // read straight off QuestionAttempt — a different (and usually lower) number than the real, variable per-answer XP
+  // the student is actually shown in the practice toast (adaptive/engine.ts's baseXp + band/mastery bonuses, written
+  // to XpEvent with reason "practice"/"skill_mastered" in practice/session.ts). It also had no exclusion for
+  // test/Diagnostic answers — the "tests never pay points" rule already applied to badges (student/badges.ts's
+  // correctInTests) was never applied here, so a correct answer inside a test silently added +10 anyway.
+  // Fixed by summing the real XpEvent ledger instead of re-deriving a second, divergent number: it is the exact XP
+  // already shown to the student per answer, and a test/Diagnostic session never reaches the line that writes one
+  // of these two reasons (session.ts's quiz/test path returns earlier, before any XpEvent is created) — so this sum
+  // is test-free with no separate subtraction needed, the same way coins.ts always recomputes the wallet from
+  // CoinLedger rather than keeping its own parallel count.
+  const answerXp = xpRows.filter((x) => /^(practice|skill_mastered)$/.test(String(x.reason))).reduce((t, x) => t + Number(x.points ?? 0), 0);
   // bonus points: a Respond to Reading answer finished, a level moved up
-  const extra = bonus.filter((x) => /^(respond\.finished|level\.up)/.test(String(x.reason))).reduce((t, x) => t + Number(x.points ?? 0), 0);
-  return { streak, points: correct * 10 + articles * 25 + extra, activeToday: days.includes(today) };
+  const extra = xpRows.filter((x) => /^(respond\.finished|level\.up)/.test(String(x.reason))).reduce((t, x) => t + Number(x.points ?? 0), 0);
+  return { streak, points: answerXp + articles * 25 + extra, activeToday: days.includes(today) };
 }
 
 /** The school week (Sunday → Thursday, Saudi time) for the home's week strip: which days had practice. */

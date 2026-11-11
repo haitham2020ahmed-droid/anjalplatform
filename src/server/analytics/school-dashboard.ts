@@ -16,6 +16,7 @@ import { keptWhileUnchanged } from "../cache/kept";
 import { starBook } from "../skills/star-read";
 import { isHiddenSkill } from "../skills/master";
 import { hiddenStarKeys } from "../teacher/queries";
+import { weekStart as schoolWeekStart } from "../student/weekly";
 
 const s = (v: unknown) => (v === null || v === undefined ? "" : String(v));
 const ms = (v: unknown) => (v instanceof Date ? v.getTime() : new Date(s(v)).getTime());
@@ -61,7 +62,11 @@ async function build(repo: Repo, schoolId: string, period: Period, now: Date): P
   const gradeOfStudent = new Map(students.map((x) => [s(x.id), levelOf.get(s(x.gradeId)) ?? 0]));
 
   // one pass over the period's answers, a few students at a time
-  const weekStart = now.getTime() - 7 * DAY;
+  // 📏 Nov 2026 fix ("الأسبوع مش متوافق بين الصفحات"): "Active this week" here used to be a rolling "answered in the
+  // last 7 days" window, a different week than the admin home card and the Reports week summary, which both anchor
+  // to the school week (Sunday 00:00, Riyadh time) via student/weekly.ts's weekStart() / insights/week-in-review.ts's
+  // weekNumbers(). Same boundary now, so the same calendar week reads the same "active" count on every page.
+  const weekStart = schoolWeekStart(now).getTime();
   const firstWeek = now.getTime() - WEEKS * 7 * DAY;
   const per = new Map<string, { answers: number; correct: number; lastAt: number }>();
   const weekly = new Array<number>(WEEKS).fill(0);

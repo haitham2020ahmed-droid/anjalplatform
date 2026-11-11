@@ -112,8 +112,18 @@ export async function archiveStudents(repo: Repo, actor: Actor, scope: RosterSco
   await repo.transaction(async (tx) => {
     await tx.updateMany("ClassMembership", { studentId: { in: ids }, leftAt: null }, { leftAt: now });
     await tx.updateMany("Student", { id: { in: ids } }, { deletedAt: now });
-    for (const u of await tx.findMany("User", { id: { in: userIds } }, { select: ["id", "sessionVersion"] }))
-      await tx.updateMany("User", { id: u.id }, { isActive: false, deletedAt: now, sessionVersion: Number(u.sessionVersion ?? 0) + 1 });
+    // 🐛 Nov 2026 fix ("أرشفة مدرسة كاملة بتعمل استعلام لكل طالب لوحده"): this used to run one updateMany PER user just
+    // to bump sessionVersion by 1 — for a whole-school archive (hundreds of users) that is hundreds of round trips in
+    // one transaction. updateMany can only set the SAME value on every matched row, so sessionVersion (which differs
+    // per user) can't be set in a single call — but users SHARE a starting value far more often than not (almost
+    // nobody has ever been force-logged-out), so grouping by current value and doing one updateMany per distinct
+    // value turns hundreds of round trips into, in practice, one or a few.
+    const byVersion = new Map<number, string[]>();
+    for (const u of await tx.findMany("User", { id: { in: userIds } }, { select: ["id", "sessionVersion"] })) {
+      const v = Number(u.sessionVersion ?? 0);
+      (byVersion.get(v) ?? byVersion.set(v, []).get(v)!).push(String(u.id));
+    }
+    for (const [v, idsAtV] of byVersion) await tx.updateMany("User", { id: { in: idsAtV } }, { isActive: false, deletedAt: now, sessionVersion: v + 1 });
     await tx.deleteMany("Session", { userId: { in: userIds } });
     await tx.create("AuditLog", { actorId: actor.userId, action: "roster.archive", entityType: "Student", entityId: null, after: { count: ids.length, scope }, createdAt: now });
   });

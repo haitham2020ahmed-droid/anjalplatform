@@ -32,6 +32,7 @@ export async function ResultsTab({ actor, t, classId, subject }: { actor: Actor;
             <thead><tr className="border-b text-xs text-slate-500">
               <th className="py-2 pe-3 text-start">{t("Student")}</th><th className="px-2 text-start">RIT</th><th className="px-2 text-start">{t("Projection")}</th>
               {groups.map((g) => <th key={g.key} className="px-2 text-start">{g.name}</th>)}
+              <th className="px-2 text-start">{t("Plan mastery")}</th>
             </tr></thead>
             <tbody>{m.rows.map((r) => (
               <tr key={r.studentId} className="border-b align-top last:border-0">
@@ -39,6 +40,10 @@ export async function ResultsTab({ actor, t, classId, subject }: { actor: Actor;
                 <td className="px-2"><b className="tabular-nums">{r.profile.overall?.rit}</b> <span className="text-xs text-slate-500">{r.profile.overall?.band}</span>{r.profile.overall?.descriptor && <span className={`ms-1 rounded-full px-2 py-0.5 text-xs ${DESC_STYLE[r.profile.overall.descriptor]}`}>{r.profile.overall.descriptor}</span>}</td>
                 <td className="px-2 tabular-nums">{r.profile.fall ? `${r.profile.fall.rit} → ${r.profile.fall.projection ?? "?"}` : "—"}</td>
                 {groups.map((g) => { const a = r.profile.areas.find((x) => x.group === g.key); return <td key={g.key} className="px-2">{a?.rit !== null && a?.rit !== undefined ? <span className={`inline-block rounded-lg px-2 py-1 ring-1 ${STATUS_STYLE[a.status ?? "MAINTAIN"]}`}><b className="tabular-nums">{a.rit}</b> <span className="text-xs">{a.band}</span><br /><span className="text-xs">{a.descriptor}</span></span> : <span className="text-slate-400">—</span>}</td>; })}
+                {/* 🐛 Nov 2026 fix ("شاشة الفصل كله ما بتوريش حالة النجمة"): the per-student My MAP page already shows
+                    how many of the plan's skills are ⭐ mastered; this column brings that same count to the
+                    whole-class view so the teacher doesn't have to open every student to see it. */}
+                <td className="px-2 tabular-nums">{r.mastery ? <>⭐ {r.mastery.mastered}/{r.mastery.total}</> : <span className="text-slate-400">—</span>}</td>
               </tr>
             ))}</tbody>
           </table>

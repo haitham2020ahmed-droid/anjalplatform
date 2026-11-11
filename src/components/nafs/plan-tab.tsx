@@ -42,7 +42,7 @@ export async function PlanTab({ actor, t, sp }: { actor: Actor; t: TFn; sp: Reco
       {plan.noData ? <p className={`${CARD} text-sm text-muted`}>{t("No NAFS results in these dates yet. Give a NAFS test or adaptive practice first.")}</p> : plan.classes.filter((c) => c.withData > 0).map((c) => (
         <section key={c.classId} className={CARD} aria-labelledby={`pl-${c.classId}`}>
           <h2 id={`pl-${c.classId}`} className="flex items-center justify-between gap-3 text-lg font-semibold text-ink"><span>{c.className} <span className="text-sm font-normal text-muted">· {t("{n} students", { n: c.students })}</span></span><PlanQr href={absolutePlanPath(centerHref("plan", { class: c.classId }))} size={46} /></h2>
-          {c.strengths.length > 0 && <p className="mt-1 text-sm text-emerald-800">{t("Strengths")}: {c.strengths.map((x) => `${codeName(x.code, t)} (${x.pct}%)`).join(" · ")}</p>}
+          {c.strengths.length > 0 && <p className="mt-1 text-sm text-emerald-800">{t("Strengths")}: {c.strengths.map((x) => `${codeName(x.code, t)} (${x.pct}%)${x.relatedSkills.length ? ` — ${x.relatedSkills.join(", ")}` : ""}`).join(" · ")}</p>}
           <h3 className="mt-3 text-sm font-semibold uppercase tracking-wide text-muted">{t("The whole class")}</h3>
           {c.classItem ? <Item item={c.classItem} t={t} back={here} /> : <p className="mt-1 text-sm text-muted">{t("No class-wide weak standard: work with the groups and students below.")}</p>}
           {c.groups.length > 0 && <>
@@ -68,7 +68,9 @@ function Item({ item, t, back }: { item: PlanItem; t: TFn; back: string }) {
       <p className="text-sm text-ink">{item.scope === "STUDENT" ? <b>{who} <Pc v={item.students[0]?.pct} /></b> : item.scope === "GROUP" ? <b>{who}</b> : null}</p>
       <ul className="mt-1 grid gap-0.5 text-sm text-ink-2">
         {/* 🔗 r79: each standard opens the NAFS practice builder on exactly these standards and students */}
-        {item.evidence.map((e) => <li key={e.code}><PlanA href={absolutePlanPath(item.practiceHref)}>{codeName(e.code, t)}</PlanA>{e.pct !== null ? <> · <Pc v={e.pct} /> <span className="text-xs text-muted">({t("{n} items", { n: e.n })})</span></> : null}</li>)}
+        {/* 🔗 Nov 2026: the platform skills this Ministry standard is measured through (framework.ts), so NAFS reads as
+            part of the one skills/mastery system instead of a separate track. */}
+        {item.evidence.map((e) => <li key={e.code}><PlanA href={absolutePlanPath(item.practiceHref)}>{codeName(e.code, t)}</PlanA>{e.pct !== null ? <> · <Pc v={e.pct} /> <span className="text-xs text-muted">({t("{n} items", { n: e.n })})</span></> : null}{e.relatedSkills.length > 0 && <span className="text-xs text-muted"> — {e.relatedSkills.join(", ")}</span>}</li>)}
       </ul>
       <div className="mt-2 flex flex-wrap gap-1.5 print:hidden">
         <form action={createPracticeAction}>

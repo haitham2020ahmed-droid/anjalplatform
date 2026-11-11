@@ -9,6 +9,7 @@ import { listUsers, manageableUser } from "@/server/admin/users";
 import { ResetPasswordButton } from "@/app/teacher/students/[studentId]/reset-password-button";
 import { linkParentAction, moveStudentAction, setActiveAction, teacherClassesAction, unlinkParentAction, updateUserAction } from "../../actions";
 import { Combo } from "@/components/ui/combo";
+import { ConfirmForm } from "@/components/teacher/confirm-form";
 
 export default async function UserPage({ params }: { params: Promise<{ userId: string }> }) {
   const actor = await requireActor({ roles: ["SCHOOL_ADMIN", "SUPER_ADMIN"] });
@@ -47,13 +48,19 @@ export default async function UserPage({ params }: { params: Promise<{ userId: s
         <div className="mt-4 flex flex-wrap gap-3">
           <ResetPasswordButton userId={userId} />
           {userId !== actor.userId && (
-            <form action={setActiveAction}>
-              <input type="hidden" name="userId" value={userId} />
-              <input type="hidden" name="active" value={item.isActive ? "false" : "true"} />
-              <button className={`rounded-xl px-4 py-2 font-semibold ${item.isActive ? "text-red-700 ring-1 ring-red-200 hover:bg-red-50" : "text-brand-teal ring-1 ring-slate-300"}`}>
-                {item.isActive ? "Deactivate (signs out everywhere)" : "Reactivate"}
-              </button>
-            </form>
+            // 🐛 Nov 2026 fix ("ممكن تضغط Deactivate بالغلط وتسجل خروج المستخدم من كل حتة"): this had no confirmation at
+            // all — one misclick instantly signed the user out everywhere with no undo warning. Reactivating stays a
+            // plain button (harmless to click by mistake); only the destructive direction now asks first.
+            item.isActive ? (
+              <ConfirmForm action={setActiveAction} fields={{ userId, active: "false" }} label="Deactivate (signs out everywhere)"
+                ask={`Deactivate ${item.displayName}? They will be signed out everywhere immediately. You can reactivate them later.`} tone="danger" />
+            ) : (
+              <form action={setActiveAction}>
+                <input type="hidden" name="userId" value={userId} />
+                <input type="hidden" name="active" value="true" />
+                <button className="rounded-xl px-4 py-2 font-semibold text-brand-teal ring-1 ring-slate-300">Reactivate</button>
+              </form>
+            )
           )}
         </div>
       </section>
