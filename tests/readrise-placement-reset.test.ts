@@ -60,7 +60,8 @@ describe("🔄 ReadRise: admin reset placement and the 2-of-3 move fix", () => {
     const s = st[0], sid = s.studentId!;
     // an old (pre-fix) placement that ended high
     const old = await takeTest(repo, s, OLD, () => ["A", "A", "A"]);
-    assert.ok(old !== null && old >= 1400, `old result ${old}`);
+    // round 10: the grade cap keeps even an "all right" test within the grade (+150), so the old result is no longer 1400+
+    assert.ok(old !== null && old >= 1000, `old result ${old}`);
     const doubt = await resetCandidates(repo, admin, { doubtful: true });
     const row = doubt.find((x) => x.studentId === sid);
     assert.ok(row, "listed as doubtful"); assert.match(row!.reasons.join(" "), /before the placement fix/);

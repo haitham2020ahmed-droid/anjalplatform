@@ -329,7 +329,7 @@
             "hide it away",
             "throw it out",
             "give some to others",
-            "eat it all very fast"
+            "eat it very fast"
           ],
           "answer": "C",
           "skill": "vocabulary"
@@ -558,7 +558,7 @@
           "options": [
             "On mountains in Tabuk",
             "On the beach near Jeddah",
-            "In every city",
+            "In a big city",
             "In the desert sand"
           ],
           "answer": "A",
@@ -622,7 +622,7 @@
           "options": [
             "buy and keep",
             "write in it",
-            "tear out all the pages",
+            "tear out the pages",
             "take and bring back"
           ],
           "answer": "D",
@@ -685,7 +685,7 @@
             "In the morning",
             "At night",
             "At noon",
-            "All day long"
+            "After lunch"
           ],
           "answer": "B",
           "skill": "detail"
@@ -736,7 +736,7 @@
           "stem": "What is the main idea of the text?",
           "options": [
             "Bugs do not like flowers.",
-            "The desert gets a lot of rain every day.",
+            "The desert gets a lot of rain each week.",
             "Rain makes the desert come to life.",
             "The sun makes seeds grow wet."
           ],
@@ -777,10 +777,10 @@
         {
           "stem": "What is the main idea of the text?",
           "options": [
-            "Balls and books are always full of soap.",
+            "Germs are too small for you to see.",
             "Washing hands helps keep you well.",
-            "You can see germs on a door.",
-            "Hands should stay wet all day."
+            "You touch doors and books each day.",
+            "Dry your hands with a soft towel."
           ],
           "answer": "B",
           "skill": "central-idea"
@@ -861,10 +861,10 @@
         {
           "stem": "What is the main idea of the text?",
           "options": [
-            "The sun is the only star in space.",
-            "City lights help us see the stars much better.",
+            "The sun looks big because it is close to us.",
+            "You can see more stars far from the city.",
             "Stars are hot gas, and people have used them.",
-            "Travelers never went out at night."
+            "Travelers in the desert slept under the stars."
           ],
           "answer": "C",
           "skill": "central-idea"
@@ -873,7 +873,7 @@
           "stem": "Why can people see more stars far from the city?",
           "options": [
             "The stars come closer.",
-            "There are never any clouds there.",
+            "The stars are closer to the desert.",
             "The sun shines at night.",
             "No city lights get in the way."
           ],
@@ -947,7 +947,7 @@
           "options": [
             "Leopards are the biggest cats living on Earth.",
             "This rare leopard is special and needs help.",
-            "Leopards hunt only in the morning.",
+            "Leopards hunt in the morning.",
             "Leopards have no spots on their fur."
           ],
           "answer": "B",
@@ -989,7 +989,7 @@
           "options": [
             "Trees grow faster when we use more paper.",
             "Paper is made from wood in several steps.",
-            "Paper cannot be used again.",
+            "Paper is made from cloth and sand.",
             "Workers make paste to eat."
           ],
           "answer": "B",
@@ -1029,10 +1029,10 @@
         {
           "stem": "What is the main idea of the text?",
           "options": [
-            "Fish cannot live in cold lakes.",
-            "All things get bigger when the weather is cold.",
+            "Fish can live under the ice in cold lakes.",
+            "Most things get smaller when they freeze.",
             "Ice floats since it is lighter than water.",
-            "Ice cubes melt fast in a glass."
+            "Ice cubes melt quickly in a warm glass."
           ],
           "answer": "C",
           "skill": "central-idea"
@@ -1071,7 +1071,7 @@
         {
           "stem": "What is the main idea of the text?",
           "options": [
-            "Sea turtles live only in rivers.",
+            "Sea turtles live in rivers and lakes.",
             "Scientists already know everything about sea turtles.",
             "Females return to one beach to lay eggs.",
             "Turtle eggs hatch in two days."
@@ -1084,7 +1084,7 @@
           "options": [
             "They follow a map.",
             "They ask other turtles.",
-            "They use only the moon to see the way.",
+            "They follow other turtles to the beach.",
             "It is still partly a mystery."
           ],
           "answer": "D",
@@ -1115,7 +1115,7 @@
           "options": [
             "Animals dug the first wells.",
             "Wells were vital to life in Arabia.",
-            "Travelers never stopped anywhere on their long trips.",
+            "Travelers dug new wells at each stop on their trips.",
             "Wells were built to hold sand."
           ],
           "answer": "B",
@@ -1155,7 +1155,7 @@
         {
           "stem": "What is the main idea of the text?",
           "options": [
-            "Only doctors are allowed to open a first aid kit.",
+            "Doctors keep first aid kits in their homes.",
             "First aid kits help us care for small cuts.",
             "Cars do not need first aid kits.",
             "Bandages are used for cooking."
@@ -1169,7 +1169,7 @@
             "Adults like to be called.",
             "Bandages are much too expensive to use.",
             "The person may need more than a kit.",
-            "The kit is always empty."
+            "The kit is too heavy."
           ],
           "answer": "C",
           "skill": "inference"
@@ -1198,7 +1198,7 @@
           "stem": "What is the main idea of the text?",
           "options": [
             "Thunder is what causes lightning to appear.",
-            "Storms happen only at night.",
+            "Storms happen mostly at night.",
             "Lightning is electricity from storm clouds.",
             "Sound moves faster than light."
           ],
@@ -1239,7 +1239,7 @@
         {
           "stem": "What is the main idea of the text?",
           "options": [
-            "Divers only went out to sea during the cold winter.",
+            "Divers went out to sea during the cold winter months.",
             "Oysters live on the tops of boats.",
             "Pearl diving was hard work that fed Gulf families.",
             "Pearls were found in the desert."
@@ -1281,10 +1281,10 @@
         {
           "stem": "What is the main idea of the text?",
           "options": [
-            "Plastic can never be used again.",
+            "Plastic bottles are light, strong, and cheap.",
             "Recycling turns old plastic into new things.",
-            "Plastic bottles break down in one week.",
-            "Warm jackets can only be made from sheep's wool."
+            "Melted plastic is used to make warm jackets.",
+            "Old bottles are washed before they are sorted."
           ],
           "answer": "B",
           "skill": "central-idea"
@@ -1335,7 +1335,7 @@
           "stem": "What is echolocation?",
           "options": [
             "Flying in large groups",
-            "Sleeping upside down in dark caves all day",
+            "Sleeping upside down in dark caves by day",
             "Finding things by listening to echoes",
             "Seeing colors in the dark"
           ],
@@ -1365,7 +1365,7 @@
         {
           "stem": "What is the main idea of the text?",
           "options": [
-            "Gutenberg wrote every book by hand.",
+            "Gutenberg wrote many books by hand.",
             "Books became much more expensive to buy after 1450.",
             "The printing press made books faster and cheaper.",
             "Ink was invented by Gutenberg."
@@ -1376,7 +1376,7 @@
         {
           "stem": "Why did more people learn to read after the printing press?",
           "options": [
-            "Schools all closed down for good.",
+            "Schools stopped using books.",
             "Ink became free.",
             "Paper was banned.",
             "Books were easier to get."
@@ -1407,10 +1407,10 @@
         {
           "stem": "What is the main idea of the text?",
           "options": [
-            "Germs are always harmless to people.",
-            "Antibodies are what make people sick for many days.",
+            "Antibodies are special proteins made by the body.",
+            "A person may get sick the first time a germ enters.",
             "Vaccines prepare the body to fight germs faster.",
-            "The body cannot remember any germs."
+            "Weakened germs are stronger than the real germs."
           ],
           "answer": "C",
           "skill": "central-idea"
@@ -1449,7 +1449,7 @@
         {
           "stem": "What is the main idea of the text?",
           "options": [
-            "The astrolabe was used only to play games.",
+            "The astrolabe was mainly used to play games.",
             "The astrolabe helped people measure time and direction.",
             "Modern clocks and compasses were invented long before the astrolabe.",
             "Scholars refused to use the astrolabe."
@@ -1491,10 +1491,10 @@
         {
           "stem": "What is the main idea of the text?",
           "options": [
-            "Glaciers never move or change.",
+            "Glaciers form when snow piles up over many years.",
             "Glaciers are moving ice that shapes the land.",
-            "Glaciers are made of sand and rock.",
-            "Glaciers are growing larger in every part of the world."
+            "Melting glaciers add water to the level of the sea.",
+            "Glaciers carry rocks and sand across the desert."
           ],
           "answer": "B",
           "skill": "central-idea"
@@ -1533,10 +1533,10 @@
         {
           "stem": "What is the main idea of the text?",
           "options": [
-            "Bones never change after childhood.",
-            "Calcium is found only in leafy green vegetables, not milk.",
+            "Milk, yogurt, and cheese are good sources of calcium.",
+            "The skin makes vitamin D when it is in the sunlight.",
             "Good food, sunlight, and exercise keep bones strong.",
-            "Running makes bones weaker."
+            "Bones are made of tissue that stops growing in adults."
           ],
           "answer": "C",
           "skill": "central-idea"
@@ -1578,7 +1578,7 @@
             "Scholars in Baghdad refused to read foreign books.",
             "Baghdad was a small village in the ninth century.",
             "The House of Wisdom preserved and improved knowledge.",
-            "Europe sent all of its books to Baghdad to be stored."
+            "Europe sent its books to Baghdad to be stored."
           ],
           "answer": "C",
           "skill": "central-idea"
@@ -1617,10 +1617,10 @@
         {
           "stem": "What is the main idea of the text?",
           "options": [
-            "The Arabian Peninsula gets very heavy rain during every single year.",
+            "The Arabian Peninsula gets very little rain each year.",
             "Aquifers hold ancient water that must be used wisely.",
-            "Farmers never used underground water.",
-            "Aquifers refill quickly after each rain."
+            "Farmers pumped water to grow wheat in the desert.",
+            "The climate of the region was wetter in the past."
           ],
           "answer": "B",
           "skill": "central-idea"
@@ -1629,7 +1629,7 @@
           "stem": "What might happen if people keep pumping too much aquifer water?",
           "options": [
             "The desert will become a sea.",
-            "It will rain every day.",
+            "It will rain more often.",
             "Wheat will stop growing everywhere.",
             "The water could run low."
           ],
@@ -1661,7 +1661,7 @@
           "options": [
             "The sun has no effect on Earth's sky.",
             "Auroras form when solar particles hit gases.",
-            "Auroras appear only in hot deserts.",
+            "Auroras appear mostly in hot deserts.",
             "Earth's magnetic field is easy to see with our own eyes."
           ],
           "answer": "B",
@@ -1690,10 +1690,10 @@
         {
           "stem": "What causes locusts to change their behavior?",
           "options": [
-            "Cold winter weather",
+            "A long and very dry season",
             "Being crowded together",
-            "A lack of sunlight in winter",
-            "Eating too much food"
+            "A change in their body color",
+            "Eating new kinds of plants"
           ],
           "answer": "B",
           "skill": "detail"
@@ -1701,10 +1701,10 @@
         {
           "stem": "What is the main idea of the text?",
           "options": [
-            "Locusts are always found in giant groups.",
-            "Locusts only eat the food that is grown by farmers.",
+            "Locusts live alone in dry areas of Africa and Arabia.",
+            "Heavy rains bring plants that locusts like to eat.",
             "Crowded locusts form swarms that threaten crops.",
-            "Heavy rain kills most desert locusts."
+            "Governments track weather to help farmers grow crops."
           ],
           "answer": "C",
           "skill": "central-idea"
@@ -1712,9 +1712,9 @@
         {
           "stem": "A swarm can devour a great deal of food. What does devour mean?",
           "options": [
-            "store carefully",
-            "grow slowly",
-            "carry away",
+            "search for slowly",
+            "grow in size",
+            "carry far away",
             "eat up quickly"
           ],
           "answer": "D",
@@ -1733,9 +1733,9 @@
           "stem": "Why are satellites especially useful over the oceans?",
           "options": [
             "Few weather stations exist there.",
-            "Oceans have no clouds.",
-            "Storms never form over open water.",
-            "Ships carry satellites."
+            "Satellites stay fixed over the oceans.",
+            "Storms are easier to photograph there.",
+            "Winds over the oceans are stronger."
           ],
           "answer": "A",
           "skill": "detail"
@@ -1743,10 +1743,10 @@
         {
           "stem": "What is the main idea of the text?",
           "options": [
-            "Satellites are mainly used to take photographs of cities.",
-            "Weather forecasts were better fifty years ago.",
+            "Satellites photograph clouds over most regions of the world.",
+            "Computers make weather forecasts without help from satellites.",
             "Satellites help scientists predict the weather.",
-            "Computers cannot help predict storms."
+            "Storms now form more often over the oceans."
           ],
           "answer": "C",
           "skill": "central-idea"
@@ -1754,9 +1754,9 @@
         {
           "stem": "What can you infer about weather forecasts before satellites?",
           "options": [
-            "They were always perfect.",
-            "They used no instruments.",
-            "They covered every ocean.",
+            "They used more computers.",
+            "They gave warnings earlier.",
+            "They covered more oceans.",
             "They were less reliable."
           ],
           "answer": "D",
@@ -1775,9 +1775,9 @@
           "stem": "What were the walls of Najdi houses made from?",
           "options": [
             "Mud bricks and straw",
-            "Glass and polished steel",
-            "Stone and sand",
-            "Wood and clay"
+            "Stone and palm wood",
+            "Clay tiles and sand",
+            "Cut stone and lime"
           ],
           "answer": "A",
           "skill": "detail"
@@ -1785,10 +1785,10 @@
         {
           "stem": "What is the main idea of the text?",
           "options": [
-            "Najdi houses had very large windows.",
+            "Najdi houses were built around large windows to let air in.",
             "Traditional Najdi houses were built to stay cool.",
-            "Air conditioning was first invented in the Najd region.",
-            "Glass towers use less electricity."
+            "Architects today build glass towers using Najdi techniques.",
+            "Families in Najd spent most of their time in courtyards."
           ],
           "answer": "B",
           "skill": "central-idea"
@@ -1796,8 +1796,8 @@
         {
           "stem": "Builders used several techniques. What does techniques mean?",
           "options": [
-            "kinds of tall modern buildings",
-            "types of weather",
+            "kinds of building materials",
+            "plans for new houses",
             "rooms in a house",
             "ways of doing something"
           ],
@@ -1818,8 +1818,8 @@
           "options": [
             "Six hundred years",
             "Sixty years",
-            "Two hundred years",
-            "One thousand years"
+            "Three hundred years",
+            "Eight hundred years"
           ],
           "answer": "A",
           "skill": "detail"
@@ -1827,10 +1827,10 @@
         {
           "stem": "What is the main idea of the text?",
           "options": [
-            "Ibn Sina wrote only about astronomy.",
+            "Ibn Sina was mainly a philosopher and astronomer.",
             "Ibn Sina's medical book had a lasting influence.",
-            "European doctors rejected The Canon as soon as it appeared.",
-            "The Canon described only a few diseases."
+            "Ibn Sina tested medicines on patients in Europe.",
+            "The Canon was first written in Latin for students."
           ],
           "answer": "B",
           "skill": "central-idea"
@@ -1838,10 +1838,10 @@
         {
           "stem": "The book described the symptoms of diseases. What are symptoms?",
           "options": [
-            "cures for a disease",
-            "names of doctors",
+            "treatments for an illness",
+            "causes of a disease",
             "signs of an illness",
-            "parts of a hospital"
+            "tests of new medicines"
           ],
           "answer": "C",
           "skill": "vocabulary"
@@ -1858,10 +1858,10 @@
         {
           "stem": "From at least how many satellites does a receiver need signals?",
           "options": [
-            "One",
-            "Four",
             "Two",
-            "Thirty"
+            "Four",
+            "Three",
+            "Six"
           ],
           "answer": "B",
           "skill": "detail"
@@ -1869,10 +1869,10 @@
         {
           "stem": "What is the main idea of the text?",
           "options": [
-            "Phones send signals to satellites to make calls.",
-            "GPS satellites never move in space.",
+            "GPS finds locations using cameras on satellites.",
+            "GPS works by sending signals from phones to space.",
             "GPS finds locations by timing satellite signals.",
-            "Radio waves travel at unknown speeds."
+            "GPS uses thirty satellites to find each location."
           ],
           "answer": "C",
           "skill": "central-idea"
@@ -1880,9 +1880,9 @@
         {
           "stem": "Why must GPS satellites carry very accurate clocks?",
           "options": [
-            "Clocks make the satellites lighter.",
-            "People living in space always need to know the exact time.",
-            "Clocks send the radio waves.",
+            "The clocks help satellites stay in orbit.",
+            "The clocks tell phones what time it is.",
+            "The clocks make radio waves travel faster.",
             "Small timing errors would give wrong locations."
           ],
           "answer": "D",
@@ -1901,9 +1901,9 @@
           "stem": "Why was the mesquite tree first planted?",
           "options": [
             "To provide shade and stop sand",
-            "To feed camels and goats in winter",
-            "To make paper",
-            "To attract birds"
+            "To give food to wild animals",
+            "To use extra groundwater",
+            "To replace native plants"
           ],
           "answer": "A",
           "skill": "detail"
@@ -1911,10 +1911,10 @@
         {
           "stem": "What is the main idea of the text?",
           "options": [
-            "Invasive species are always planted on purpose.",
-            "Native wildlife always grows faster than any invasive species.",
+            "Invasive species are brought on purpose to provide shade.",
+            "Removing an invasive species is cheaper than preventing it.",
             "Species brought to new places can spread and cause harm.",
-            "Mesquite trees are good for every region."
+            "Mesquite trees grow well because they need little water."
           ],
           "answer": "C",
           "skill": "central-idea"
@@ -1924,7 +1924,7 @@
           "options": [
             "very clean",
             "very deep",
-            "easy to find everywhere",
+            "used by trees",
             "in short supply"
           ],
           "answer": "D",
@@ -1944,8 +1944,8 @@
           "options": [
             "They fall.",
             "They rise.",
-            "They double.",
-            "They stay fixed."
+            "They stay steady.",
+            "They change slowly."
           ],
           "answer": "A",
           "skill": "detail"
@@ -1953,10 +1953,10 @@
         {
           "stem": "What is the main idea of the text?",
           "options": [
-            "Dates are always the most costly fruit.",
+            "Rare goods usually cost more than common ones do.",
             "Prices depend largely on supply and demand.",
-            "Governments decide every price in a market economy.",
-            "Demand never changes from year to year."
+            "Seasonal fruit changes price more than other goods.",
+            "Government rules set most prices in a market."
           ],
           "answer": "B",
           "skill": "central-idea"
@@ -1964,9 +1964,9 @@
         {
           "stem": "The text gives dates as an illustration. What does illustration mean here?",
           "options": [
-            "a colorful drawing",
-            "a rule made by the government for markets",
-            "a kind of fruit market",
+            "a reason why prices change",
+            "a fruit sold in one season",
+            "a rule that sellers must follow",
             "an example that explains an idea"
           ],
           "answer": "D",
@@ -1986,8 +1986,8 @@
           "options": [
             "In the hippocampus",
             "In the cortex",
-            "In the heart",
-            "In the muscles of the legs"
+            "In deep sleep",
+            "In long-term memory"
           ],
           "answer": "A",
           "skill": "detail"
@@ -1995,10 +1995,10 @@
         {
           "stem": "What is the main idea of the text?",
           "options": [
-            "The brain shuts down completely during sleep.",
+            "The brain rests during sleep so it can learn again the next day.",
             "Sleep helps the brain strengthen and store memories.",
-            "Students should study all night before exams.",
-            "The hippocampus keeps all long-term memories forever."
+            "Students remember word lists better when they stay awake.",
+            "The cortex stores new information during the day."
           ],
           "answer": "B",
           "skill": "central-idea"
@@ -2006,10 +2006,10 @@
         {
           "stem": "What does the text suggest about a student who studies all night?",
           "options": [
-            "The student will remember everything.",
-            "The student will sleep better.",
+            "The student will remember more words.",
+            "The student will move memories to the cortex.",
             "The student may remember less.",
-            "The student will need no exam."
+            "The student will sleep more deeply later."
           ],
           "answer": "C",
           "skill": "inference"
@@ -2026,10 +2026,10 @@
         {
           "stem": "Where can captured carbon dioxide be stored?",
           "options": [
-            "In the ocean surface",
+            "In the atmosphere above factories",
             "Deep underground",
-            "In the upper atmosphere",
-            "Inside factories"
+            "In the oceans near power stations",
+            "Inside new building materials"
           ],
           "answer": "B",
           "skill": "detail"
@@ -2037,10 +2037,10 @@
         {
           "stem": "What is the main idea of the text?",
           "options": [
-            "Carbon dioxide cools the planet.",
-            "Carbon capture completely solves every part of climate change.",
+            "Carbon capture is cheap and uses very little energy.",
+            "Carbon capture is the best solution to climate change.",
             "Carbon capture can reduce emissions but has limits.",
-            "Factories release no harmful gases."
+            "Companies mostly turn captured carbon into fuels."
           ],
           "answer": "C",
           "skill": "central-idea"
@@ -2048,9 +2048,9 @@
         {
           "stem": "The gas is stored in porous rock. What does porous mean?",
           "options": [
-            "very hot",
-            "extremely hard and heavy",
-            "shiny and smooth",
+            "deep underground",
+            "hard and heavy",
+            "empty of oil",
             "full of tiny holes"
           ],
           "answer": "D",
@@ -2069,9 +2069,9 @@
           "stem": "What is a placebo?",
           "options": [
             "A treatment with nothing active in it",
-            "A very strong medicine for serious pain",
-            "A kind of surgery",
-            "A test of the brain"
+            "A medicine that relieves pain quickly",
+            "A pill that makes patients feel tired",
+            "A new drug being tested on patients"
           ],
           "answer": "A",
           "skill": "detail"
@@ -2079,10 +2079,10 @@
         {
           "stem": "What is the main idea of the text?",
           "options": [
-            "Sugar pills cure every serious disease.",
-            "Doctors in every trial always tell patients exactly which pill they are getting.",
+            "Placebos work as well as real medicines for most symptoms.",
+            "Patients often say they feel better even when no treatment works.",
             "Placebos can have real effects, so drugs are compared with them.",
-            "Expectations have no effect on the body."
+            "Doctors use placebos to treat pain, fatigue, and anxiety."
           ],
           "answer": "C",
           "skill": "central-idea"
@@ -2090,9 +2090,9 @@
         {
           "stem": "Why do neither patients nor doctors know who received which treatment?",
           "options": [
-            "So the pills cost much less money to make",
-            "So the trial ends sooner",
-            "So patients feel no pain",
+            "So the trial can include more patients",
+            "So doctors can choose the best treatment",
+            "So patients take their pills on time",
             "So expectations do not affect the results"
           ],
           "answer": "D",
@@ -2111,9 +2111,9 @@
           "stem": "How do trees help cool a city?",
           "options": [
             "They give shade and cool the air.",
-            "They block all wind.",
-            "They absorb the heat given off by cars.",
-            "They make roads darker."
+            "They block wind between buildings.",
+            "They reflect sunlight off roofs.",
+            "They store heat during the day."
           ],
           "answer": "A",
           "skill": "detail"
@@ -2121,10 +2121,10 @@
         {
           "stem": "What is the main idea of the text?",
           "options": [
-            "Countryside areas are always hotter than cities.",
+            "Tall buildings are the main reason cities are hotter than the countryside.",
             "Cities are warmer than the countryside, and planners work to cool them.",
-            "Air conditioners are always the best way to cool down busy city streets.",
-            "Dark roads reflect most sunlight."
+            "Cities in the Gulf are warmer than cities in other parts of the world.",
+            "Cars and factories give off more heat than dark roads and rooftops do."
           ],
           "answer": "B",
           "skill": "central-idea"
@@ -2132,9 +2132,9 @@
         {
           "stem": "Lighter materials reflect sunlight. What does reflect mean?",
           "options": [
-            "soak up",
-            "make warmer",
-            "break apart",
+            "take in",
+            "keep inside",
+            "spread out",
             "send back"
           ],
           "answer": "D",
@@ -2155,7 +2155,7 @@
             "Asabiyyah",
             "Muqaddimah",
             "Dynasty",
-            "Sociology"
+            "Solidarity"
           ],
           "answer": "A",
           "skill": "detail"
@@ -2163,10 +2163,10 @@
         {
           "stem": "What is the main idea of the text?",
           "options": [
-            "Ibn Khaldun only listed dates of battles.",
+            "Ibn Khaldun recorded the major events of the fourteenth century.",
             "Ibn Khaldun studied the forces behind the rise and fall of states.",
-            "Dynasties always last forever once they gain power over a large region.",
-            "Ibn Khaldun lived in the twentieth century."
+            "Ibn Khaldun explained how trade made North African states rich.",
+            "Ibn Khaldun founded the modern sciences of sociology and economics."
           ],
           "answer": "B",
           "skill": "central-idea"
@@ -2174,10 +2174,10 @@
         {
           "stem": "The state becomes vulnerable. What does vulnerable mean?",
           "options": [
-            "very rich",
-            "well protected by its army",
+            "strong and powerful",
+            "slowly growing larger",
             "easy to attack or harm",
-            "newly built"
+            "newly united as one"
           ],
           "answer": "C",
           "skill": "vocabulary"
@@ -2194,10 +2194,10 @@
         {
           "stem": "What is the main idea of the passage?",
           "options": [
-            "Vaccines are only useful for newborn infants who cannot yet be protected.",
+            "Newborn infants are protected from disease mainly by vaccines given to their mothers.",
             "When enough people are immune, a disease's spread slows, protecting others too.",
-            "Measles is the least contagious disease known to scientists.",
-            "Herd immunity requires every single person in the world to be vaccinated at once."
+            "Diseases that spread quickly need fewer immune people to stop an outbreak.",
+            "Vaccination rates have risen steadily in communities around the world."
           ],
           "answer": "B",
           "skill": "central-idea"
@@ -2205,10 +2205,10 @@
         {
           "stem": "About what share of people must be immune to stop measles?",
           "options": [
-            "Fifty percent",
-            "Twenty-five percent",
+            "About half of the people",
+            "About seventy-five percent",
             "Ninety-five percent",
-            "Ten percent"
+            "About eighty-five percent"
           ],
           "answer": "C",
           "skill": "detail"
@@ -2216,9 +2216,9 @@
         {
           "stem": "The passage calls measles highly contagious. What does contagious mean?",
           "options": [
-            "impossible to treat with any modern medicine",
-            "found only in very young children",
-            "caused by poor diet",
+            "hard to treat with medicine",
+            "most dangerous for young children",
+            "able to return after many years",
             "easily spread from person to person"
           ],
           "answer": "D",
@@ -2237,9 +2237,9 @@
           "stem": "What is the main idea of the passage?",
           "options": [
             "Every choice has a hidden cost: the best option given up.",
-            "Video games are the most expensive way to spend an evening.",
-            "Governments should always build highways before schools.",
-            "Opportunity cost refers only to money that is spent."
+            "The money spent on a choice is its most important cost.",
+            "Governments face harder trade-offs than students do.",
+            "People usually notice the hidden costs of their choices."
           ],
           "answer": "A",
           "skill": "central-idea"
@@ -2248,9 +2248,9 @@
           "stem": "In the passage's example, what might the student's opportunity cost be?",
           "options": [
             "The price of the video game",
-            "The cost of electricity",
+            "The time spent with friends",
             "A better exam grade",
-            "A new computer"
+            "A quieter evening at home"
           ],
           "answer": "C",
           "skill": "detail"
@@ -2258,9 +2258,9 @@
         {
           "stem": "What can you infer from the passage about a government budget?",
           "options": [
-            "It always satisfies every single priority equally well.",
-            "It contains no trade-offs at all.",
-            "It is decided only by students.",
+            "It can fund highways, hospitals, and schools at once.",
+            "It is mostly spent on roads instead of schools.",
+            "It shows that hidden costs are less real than money.",
             "Choosing one project means giving up others."
           ],
           "answer": "D",
@@ -2279,9 +2279,9 @@
           "stem": "What is the main idea of the passage?",
           "options": [
             "Scientists still debate why we have found no sign of other civilizations.",
-            "Fermi proved that intelligent life exists on several other planets close to Earth.",
-            "The galaxy contains only a few stars that have any planets.",
-            "Radio signals from space were first received in 1950."
+            "Scientists have shown that intelligent life must be extremely rare.",
+            "Fermi showed that signals from other civilizations are too weak to detect.",
+            "Most stars in our galaxy have planets with conditions suitable for life."
           ],
           "answer": "A",
           "skill": "central-idea"
@@ -2289,10 +2289,10 @@
         {
           "stem": "When did Fermi reportedly ask his question?",
           "options": [
-            "In 1850",
+            "In 1940",
             "In 1950",
-            "In 1990",
-            "In 2010"
+            "In 1960",
+            "In 1968"
           ],
           "answer": "B",
           "skill": "detail"
@@ -2300,9 +2300,9 @@
         {
           "stem": "The passage mentions hypotheses that have not been confirmed. What are hypotheses?",
           "options": [
-            "proven laws of nature",
-            "radio signals sent from deep space",
-            "distant planets",
+            "facts that scientists have proved",
+            "signals found by radio telescopes",
+            "questions asked by famous physicists",
             "possible explanations to be tested"
           ],
           "answer": "D",
@@ -2321,9 +2321,9 @@
           "stem": "What is the passage mainly about?",
           "options": [
             "How a first number can unfairly influence later estimates and decisions.",
-            "Why wheels of fortune are used to make important business and legal decisions in courts.",
-            "How negotiators always reach fair prices by ignoring all numbers.",
-            "Why courtroom judges are immune to all psychological influences."
+            "How people adjust their estimates fully once they learn a number is random.",
+            "How specialists use opening offers to reach fair prices in negotiations.",
+            "How a wheel of fortune helps researchers measure people's knowledge."
           ],
           "answer": "A",
           "skill": "central-idea"
@@ -2331,10 +2331,10 @@
         {
           "stem": "In the experiment, what did participants who saw a high number on the wheel do?",
           "options": [
-            "They refused to answer the question.",
+            "They noticed the number and ignored it.",
             "They gave higher estimates.",
-            "They gave lower estimates.",
-            "They guessed the wheel's next number."
+            "They gave more accurate estimates.",
+            "They took longer to give an answer."
           ],
           "answer": "B",
           "skill": "detail"
@@ -2342,10 +2342,10 @@
         {
           "stem": "Why do specialists recommend making your own estimate before hearing someone else's figure?",
           "options": [
-            "To make negotiations last longer",
-            "To impress the other side",
+            "To make their first offer in a negotiation higher",
+            "To compare their guess with the expert's figure",
             "To avoid being anchored by a biased figure",
-            "To make sure the wheel always stops at a low number"
+            "To learn which figures are random and which are not"
           ],
           "answer": "C",
           "skill": "inference"
@@ -2362,10 +2362,10 @@
         {
           "stem": "What is the passage mainly about?",
           "options": [
-            "How ant colonies are commanded by a single queen who decides every task.",
+            "How the parts of a system can be studied one by one to predict the whole.",
             "How simple parts interacting together can produce complex behavior.",
-            "Why traffic jams are always caused by accidents on busy highways.",
-            "How individual neurons are able to think on their own."
+            "How a central authority organizes ants, birds, and drivers into patterns.",
+            "How neuroscientists discovered which single neuron produces thought."
           ],
           "answer": "B",
           "skill": "central-idea"
@@ -2373,10 +2373,10 @@
         {
           "stem": "According to the passage, how does a single ant behave?",
           "options": [
-            "It plans the whole nest alone.",
-            "It gives orders to other ants.",
+            "It decides which task the colony needs most.",
+            "It finds the best route to food by itself.",
             "It follows a few simple rules.",
-            "It ignores chemical trails."
+            "It directs the nestmates it meets nearby."
           ],
           "answer": "C",
           "skill": "detail"
@@ -2384,9 +2384,9 @@
         {
           "stem": "The passage says emergence challenges a reductionist approach. A reductionist approach most nearly means",
           "options": [
-            "ignoring scientific evidence",
-            "building larger and more organized ant colonies in a laboratory",
-            "measuring highway traffic",
+            "studying how the parts of a system interact together",
+            "explaining a system by its behavior as a whole",
+            "predicting complex behavior from a central authority",
             "explaining a system only by studying its parts"
           ],
           "answer": "D",
@@ -2405,9 +2405,9 @@
           "stem": "What is the passage mainly about?",
           "options": [
             "How shared resources get overused, and how communities can prevent it.",
-            "Why herders should always own the pastures that their animals use for grazing.",
-            "Why groundwater can never be used up by farmers.",
-            "How Hardin won a Nobel Prize for his long study of farm animals and pastures."
+            "Why private ownership is the best way to protect pastures and fisheries.",
+            "How Hardin's study of herders earned him a Nobel Prize in economics.",
+            "Why acting in one's own interest usually helps the whole community."
           ],
           "answer": "A",
           "skill": "central-idea"
@@ -2415,10 +2415,10 @@
         {
           "stem": "What did Elinor Ostrom show in her studies?",
           "options": [
-            "Only governments are ever able to protect shared land and water.",
-            "Herders never overgraze the common pastures they share.",
+            "Private owners protect resources better than communities do.",
+            "Governments are needed to set penalties for overuse.",
             "Communities often make their own rules to protect resources.",
-            "Fishing in international waters has no limits."
+            "Herders gain the most by adding more animals to a pasture."
           ],
           "answer": "C",
           "skill": "detail"
@@ -2426,9 +2426,9 @@
         {
           "stem": "Individuals deplete a shared resource. What does deplete most nearly mean?",
           "options": [
-            "protect",
-            "divide fairly",
-            "repair",
+            "share fairly",
+            "spread out",
+            "watch over",
             "use up"
           ],
           "answer": "D",

@@ -20,7 +20,7 @@ import { fitOf, measuredLevel, type Fit } from "./level";
 import { gradeBand as benchBand, type GradeBand } from "./benchmarks";
 import { readAsTitle } from "./version-title";
 import { RETAKE_REASON, countsForLevel, goalDates, goalStats, readRisePlaced, s, toDate, weekLabel, yearEndFor, type LevelPoint } from "./engine";
-import { articleRuns, countedTries, isUnreliableRun, stretchRuns, tallyRuns } from "./first-try";
+import { articleRuns, countedTries, isUnreliableRun, rapidRead, stretchRuns, tallyRuns } from "./first-try";
 import { GOAL_SCORE, INACTIVE_DAYS, gradeBand, histogram, levelAt as levelAtTime, median, type ClassReport } from "./dashboards";
 import {
   confidenceText, gradePosition, growthConfidence, keyOf, perWeek, projectionRange, scoreTrend, skillBreakdown, skillCell, storyLines, stretchSuccess, strongerSkills,
@@ -86,7 +86,9 @@ export function levelJourney(rr: { startLevel: number; placedAt: number; source:
 
 // ------------------------------------------------------------------ one student
 
-export interface RecentReading { runId: string; title: string; at: string; versionLevel: number; textLevel: number; studentLevel: number; fit: Fit; score: number | null; firstTry: boolean; stretch: boolean }
+export interface RecentReading { runId: string; title: string; at: string; versionLevel: number; textLevel: number; studentLevel: number; fit: Fit; score: number | null; firstTry: boolean; stretch: boolean;
+  /** 🛡️ round 10: why a first try did not count for the level (null: it counted, or a re-read) */
+  notCounted: "rapid-answers" | "read-too-fast" | null }
 export interface StudentGrowthData {
   studentId: string; name: string; grade: number; placed: boolean;
   level: number | null; startLevel: number | null; source: string | null;
@@ -164,6 +166,7 @@ export async function loadStudentGrowth(repo: Repo, studentId: string, now = new
         // round 7 (staff views): the article title + "(read as: <version title> · 600L)" when the version's title differs
         runId: s(r.id), title: readAsTitle(title.get(s(r.articleId)) ?? "Article", v ? s(v.title) : null, Number(r.versionLevel)), at: iso(time(r.completedAt)), versionLevel: Number(r.versionLevel), textLevel,
         studentLevel: Number(r.levelBefore), fit: fitOf(textLevel, Number(r.levelBefore)), score: r.score === null || r.score === undefined ? null : Number(r.score), firstTry: isFirst(r), stretch: isStretch(r),
+        notCounted: !isFirst(r) || !scored(r) ? null : isUnreliableRun(r) ? "rapid-answers" : rapidRead(r) ? "read-too-fast" : null,
       };
     }),
   };

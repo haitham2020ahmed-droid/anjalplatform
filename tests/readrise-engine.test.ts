@@ -109,9 +109,10 @@ describe("🚀 ReadRise: placement, the 5-step routine, the level engine and goa
     // never more than 13
     const zig = run(800, Array.from({ length: 20 }, (_, i) => (i % 2 ? 1 : 2)));
     assert.ok(zig.plan.done && zig.steps.length >= 12 && zig.steps.length <= 13);
-    // from 300 all right: climbs to the top; passing the top level (1600) twice ends the test (nothing higher)
-    const c = run(300, [3, 3, 3, 3, 3, 3, 3, 3, 3, 3]);
-    assert.deepEqual(c.steps.map((x) => x.level), [300, 500, 700, 900, 1100, 1300, 1500, 1600, 1600]);
+    // from 300 all right: climbs to the top and stays there; round 10: the test still reads 12 passages before it ends
+    const c = run(300, [3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3]);
+    assert.deepEqual(c.steps.map((x) => x.level).slice(0, 9), [300, 500, 700, 900, 1100, 1300, 1500, 1600, 1600]);
+    assert.ok(c.steps.length >= 12, `round 10: no early end before 12 (got ${c.steps.length})`);
     assert.ok(c.plan.done && c.steps.every((x) => x.level <= 1600), "never above the top level (1600)");
     assert.equal(new Set(c.steps.map((x) => x.passageId)).size, c.steps.length, "at the top it uses other passages, never a repeat");
   });

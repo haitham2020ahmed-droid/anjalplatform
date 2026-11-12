@@ -6,6 +6,7 @@
  *   1. ✏️ privatize-copies   teachers' edited copies made before the rule become private (src/server/questions/private-copies.ts)
  *   2. ⭐ skill-stars         every school never migrated gets its skill stars from the practice already there
  *   3. 🛠 fix-stuck           stuck questions are classified, repaired and published once per update (report: System check)
+ *   4. 🛡️ readrise-round10    ReadRise levels checked against MAP / the grade once (readrise/round10.ts)
  *
  * A job another server is running, or one that paused for memory, is tried again later (every 15 minutes, for a day).
  * BACKGROUND_JOBS=off still switches all of this off.
@@ -35,8 +36,8 @@ export const backgroundJobsOn = (env: Record<string, string | undefined> = proce
 
 /** The startup jobs in order. */
 export async function startupJobs(): Promise<JobDef<never>[]> {
-  const [{ STARS_JOB }, { FIX_STUCK_JOB }] = await Promise.all([import("../skills/status-extras"), import("../admin/stuck-questions")]);
-  return [PRIVATIZE_JOB, STARS_JOB, FIX_STUCK_JOB] as unknown as JobDef<never>[];
+  const [{ STARS_JOB }, { FIX_STUCK_JOB }, { READRISE_ROUND10_JOB }] = await Promise.all([import("../skills/status-extras"), import("../admin/stuck-questions"), import("../readrise/round10")]);
+  return [PRIVATIZE_JOB, STARS_JOB, FIX_STUCK_JOB, READRISE_ROUND10_JOB] as unknown as JobDef<never>[];
 }
 
 /** Runs the startup jobs once, one after another; returns what each school's run did. Never throws. */

@@ -127,7 +127,7 @@ export function StudentGrowthView({ g, t, backHref }: { g: StudentGrowthReport; 
                   <td className="p-2 text-center tabular-nums">{fmtLevel(x.studentLevel)}</td>
                   <td className="p-2 text-center"><span className={`rounded-full px-2 py-0.5 text-xs font-semibold ring-1 ${FIT_STYLE[x.fit]}`}>{t(FIT_LABEL[x.fit])}</span></td>
                   <td className="p-2 text-center tabular-nums">{fmt(x.score, "%")}</td>
-                  <td className="p-2 text-center text-xs text-slate-600">{t(x.stretch ? "stretch" : x.firstTry ? "first try" : "re-read")}</td>
+                  <td className="p-2 text-center text-xs text-slate-600">{t(x.stretch ? "stretch" : x.firstTry ? "first try" : "re-read")}{x.notCounted && <span className="mt-0.5 block rounded bg-amber-50 px-1 text-[11px] font-semibold text-amber-800 ring-1 ring-amber-200" title={t("This reading did not move the level, the goal or the skills.")}>{t(x.notCounted === "rapid-answers" ? "Not counted: answered too fast" : "Not counted: read too fast")}</span>}</td>
                 </tr>
               ))}</tbody>
             </table>
@@ -182,7 +182,7 @@ export function ClassGrowthTab({ g, t, studentHref, assignHref }: { g: ClassGrow
             <tbody>{g.students.map((x) => (
               <tr key={x.studentId} className="border-b last:border-0">
                 <td className="p-2"><Link href={studentHref(x.studentId)} className="font-semibold text-brand-navy hover:underline">{x.name}</Link></td>
-                <td className="p-2 text-center font-bold tabular-nums">{fmtLevel(x.level)}</td>
+                <td className="p-2 text-center font-bold tabular-nums">{fmtLevel(x.level)}{x.level !== null && x.level < 50 && <span className="ms-1 inline-block rounded-full bg-lime-50 px-1.5 text-[11px] font-semibold text-lime-800 ring-1 ring-lime-200" title={t("Below 50L: an emerging reader. Give the Language support and read-aloud articles, and check decoding and fluency.")}>🌱 {t("Emerging reader")}</span>}</td>
                 <td className={`p-2 text-center tabular-nums ${(x.growthTerm ?? 0) > 0 ? "text-emerald-700" : (x.growthTerm ?? 0) < 0 ? "text-red-700" : ""}`}>{signed(x.growthTerm)}</td>
                 <td className="p-2 text-slate-700">{x.level === null ? "—" : <><b className="tabular-nums">{x.confirmedBy}</b> {t("readings")}{x.against ? <span className="ms-1 text-xs text-amber-800">({t("{n} under 50%", { n: x.against })})</span> : null}</>}</td>
                 <td className="p-2 text-center tabular-nums">{x.projection ? <>{fmtLevel(x.projection.mid)}<span className="block text-[11px] text-slate-500">{fmtLevel(x.projection.low)}–{fmtLevel(x.projection.high)}</span></> : "—"}</td>

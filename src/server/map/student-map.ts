@@ -16,7 +16,7 @@ import { assertClassAccess } from "../teacher/assignments";
 import { createUser } from "../admin/users";
 import { draftPlansFor, type AutoPlans } from "./map-auto";
 import { bandOf, ensureNationalNorms, nationalNorm, percentileFromNorm, seasonOf } from "./rit";
-import { backfillReadRiseFromMap } from "../readrise/engine";
+import { alignReadRiseToMap, backfillReadRiseFromMap, lexileFitsRit, lexileForRit } from "../readrise/engine";
 
 const s = (v: unknown) => String(v ?? "");
 // “Fall Percentile (optional)” → “fallpercentile”: the template's own headers must always be recognised
@@ -334,8 +334,15 @@ export async function importMapScores(repo: Repo, actor: Actor, table: string[][
       const pctOf = (raw: string, what: string) => { if (!raw) return null; const n = Number(raw); if (!Number.isInteger(n) || n < 1 || n > 99) throw new ValidationError(`${what} “${raw}” must be from 1 to 99.`); return n; };
       const readPct = pctOf(cell(r, c.percentile), "Reading Fall Percentile"), langPct = pctOf(cell(r, c.langPercentile), "Language Fall Percentile");
       const lexRaw = /^br/i.test(cell(r, c.lexile)) ? "0" : cell(r, c.lexile).replace(/l$/i, "");   // BR (Beginning Reader) = below 0L
-      const lexile = lexRaw ? Number(lexRaw) : null;
+      let lexile = lexRaw ? Number(lexRaw) : null;
+      let lexileDropped = false;
       if (lexile !== null && (!Number.isInteger(lexile) || lexile < 0 || lexile > 2000)) throw new ValidationError(`Lexile “${lexRaw}” must be a whole number from 0 to 2000.`);
+      // 🛡️ round 10: a Lexile that cannot belong to this Reading RIT (e.g. 1725L with a Grade 5 RIT) is a data error —
+      // the RIT is saved, the Lexile is left out (it would push the ReadRise level up), and the row says so
+      if (lexile !== null && readRit !== null && !lexileFitsRit(lexile, readRit)) {
+        errors.push({ row: rowNo, message: `Lexile ${lexile}L does not fit Reading RIT ${readRit} (about ${lexileForRit(readRit)}L): the Lexile was not saved, the RIT was.` });
+        lexile = null; lexileDropped = true;
+      }
       const goals = goalCols.map((g) => ({ g, rit: ritOf(cell(r, g.ix), g.header) })).filter((x) => x.rit !== null);
       const rapidOf = (raw: string) => { if (!raw) return null; const n = Number(raw); if (!Number.isFinite(n) || n < 0 || n > 100) throw new ValidationError(`Rapid-Guessing % “${raw}” must be from 0 to 100.`); return Math.round(n); };
       const readRapid = rapidOf(cell(r, c.rapid)), langRapid = rapidOf(cell(r, c.langRapid));
@@ -424,12 +431,12 @@ export async function importMapScores(repo: Repo, actor: Actor, table: string[][
           const ex = cdf?.extras.get(`${key.toLowerCase()}|${subject}`);
           const more = ex ? { ritSE: ex.ritSE, growthPercentile: ex.growthPercentile, observedGrowth: ex.observedGrowth, conditionalGrowthIndex: ex.conditionalGrowthIndex, metProjectedGrowth: ex.metProjectedGrowth, testMinutes: ex.testMinutes, lexileLow: subject === "READING" ? ex.lexileLow : null, lexileHigh: subject === "READING" ? ex.lexileHigh : null, typicalGrowth: ex.typicalGrowth, proficiency: ex.proficiency } : {};
           const gradeAtTest = rowGrade || currentGradeOf.get(sid) || null; // 🐛 r91 fix: file's own Grade column wins, else the student's current grade
-          const keptLexile = subject === "READING" ? keep(lexile, "lexile") : null;
+          const keptLexile = subject === "READING" && !lexileDropped ? keep(lexile, "lexile") : null;
           if (rit !== null) await repo.create("MapResult", { studentId: sid, testDate, subject: name, goalName: null, rit, grade: gradeAtTest, achievementPercentile: keep(pct, "achievementPercentile"), projectedGrowth: keep(growth, "projectedGrowth"), lexile: keptLexile, rapidGuessPct: keep(rapid, "rapidGuessPct"), termName: term, importedAt: now, ...more });
           // 🩹 Oct 2026 fix: a Reading Lexile landing here may be the first REAL one this student has ever had — if
           // their ReadRise level is still on the grade-based guess (source DEFAULT), correct it now automatically
           // instead of leaving it stuck until someone notices (see engine.ts#backfillReadRiseFromMap for the full why).
-          if (rit !== null && subject === "READING" && keptLexile !== null) await backfillReadRiseFromMap(repo, sid, Number(keptLexile), now);
+          if (rit !== null && subject === "READING" && keptLexile !== null) { await backfillReadRiseFromMap(repo, sid, Number(keptLexile), now); await alignReadRiseToMap(repo, sid, now); }
           for (const x of subjGoals) { const gx = ex?.goals[GOAL_GROUP[x.g.code]]; await repo.create("MapResult", { studentId: sid, testDate, subject: name, goalName: s(x.g.area!.name), goalAreaId: s(x.g.area!.id), rit: x.rit, grade: gradeAtTest, termName: term, importedAt: now, ...(gx ? { descriptor: gx.descriptor, ritSE: gx.se } : {}) }); }
         }
         imported++; touched.add(sid);

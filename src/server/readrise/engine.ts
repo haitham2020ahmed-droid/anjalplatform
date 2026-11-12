@@ -47,6 +47,15 @@ export const ENGINE = {
   /** the usual step down */ downSmall: 50,
   /** after an automatic drop: this many strong reads in a row move the level back up */ returnReads: 2,
 } as const;
+/**
+ * 🛡️ Round 10 (owner, 11 Nov 2026: a Grade 5 reader placed at 1600 scored 38% and the level stayed): the first
+ * PROBATION_READS counted first tries after a placement (or a MAP check) confirm it — one score under 50% moves the
+ * level down 100 at once, at or under 25% down 200; it keeps doing so for each of those first reads.
+ */
+export const PROBATION_READS = 3;
+export const PROBATION_TAG = "(check after placement)";
+/** A level change that starts a new probation: a placement or a MAP check. */
+export const isAnchorChange = (reason: unknown): boolean => /^(Placement|MAP check)/.test(s(reason));
 /** The reason prefix of an automatic drop (RRLevelChange.reason starts with it). */
 export const AUTO_DOWN_PREFIX = "Down ";
 /** RRLevelChange rows with this reason prefix only record a teacher's retake permission (no level change). */
@@ -80,6 +89,9 @@ export async function latestMap(repo: Repo, studentId: string): Promise<{ lexile
   const v = rows.length ? Number(rows[0].lexile) : NaN;
   return Number.isFinite(v) ? { lexile: v, testDate: toDate(rows[0].testDate) } : null;
 }
+
+/** 🛡️ Round 10: a ReadRise level stays within this many points of a recent MAP Lexile (placement + MAP check). */
+export const MAP_BAND = 150;
 
 /** Round 6: a MAP Lexile counts as a placement start / check only when it is this recent. */
 export const MAP_RECENT_DAYS = 183;
@@ -153,6 +165,32 @@ export async function backfillReadRiseFromMap(repo: Repo, studentId: string, map
   });
 }
 
+/**
+ * 🛡️ Round 10 (owner: "fully automatic"): a placed student's level is kept within MAP_BAND of a MAP Reading Lexile
+ * from the last 6 months — run when a MAP file is imported and once after the update (the startup job). A level a
+ * teacher set by hand is left alone (the teacher decided). The change is a "MAP check" (an anchor: the next first
+ * tries are the probation). Returns the new level, or null when nothing changed.
+ */
+/** 🛡️ Round 10: the Lexile NWEA reports for a Reading RIT (fitted on the school's own reports: 166 → 10L, 204 → 740L). */
+export const lexileForRit = (rit: number): number => Math.round(19.3 * (Number(rit) - 166) + 10);
+/** a MAP Lexile further than this from lexileForRit(RIT) is a data error (e.g. 1725L for a Grade 5 reader) */
+export const LEXILE_RIT_TOLERANCE = 350;
+export const lexileFitsRit = (lexile: number, rit: number | null): boolean => rit === null || !Number.isFinite(Number(rit)) || Math.abs(Number(lexile) - lexileForRit(Number(rit))) <= LEXILE_RIT_TOLERANCE;
+
+export async function alignReadRiseToMap(repo: Repo, studentId: string, now = new Date()): Promise<number | null> {
+  const rr = await repo.findUnique("RRStudent", { studentId });
+  if (!rr || s(rr.source) !== "PLACEMENT") return null;
+  const map = await latestMap(repo, studentId);
+  if (!map || now.getTime() - map.testDate.getTime() > MAP_RECENT_DAYS * DAY) return null;
+  const level = Number(rr.level);
+  const to = clampEngine(Math.min(map.lexile + MAP_BAND, Math.max(map.lexile - MAP_BAND, level)));
+  if (to === level) return null;
+  const changed = await repo.updateMany("RRStudent", { studentId, level: rr.level }, { level: to });
+  if (!changed) return null;
+  await recordLevelChange(repo, { studentId, schoolId: s(rr.schoolId), from: level, to, reason: `MAP check: the MAP Reading Lexile is ${map.lexile}, so the level was moved within ${MAP_BAND} of it (was ${level})`, now });
+  return to;
+}
+
 /** A teacher of the student's class, or a school admin of the student's school. Returns the Student row. */
 export async function assertStaffForStudent(repo: Repo, actor: Actor, studentId: string): Promise<Row> {
   const st = await repo.findUnique("Student", { id: studentId });
@@ -184,9 +222,13 @@ export interface LevelDecision { delta: number; reason: string | null }
  * in a row at 75%+ → +50; else 3 of the last 4 at 75%+ with the latest 75%+ → +50. The reason is in plain words for
  * the teacher.
  */
-export function levelDecision(scores: number[], opts: { afterDrop?: boolean } = {}): LevelDecision {
+export function levelDecision(scores: number[], opts: { afterDrop?: boolean; probation?: boolean } = {}): LevelDecision {
   if (!scores.length) return { delta: 0, reason: null };
   const latest = scores[scores.length - 1];
+  // 🛡️ round 10: right after a placement one low score is enough (the placement may have been too high)
+  if (opts.probation && latest < ENGINE.down) return latest <= ENGINE.floor
+    ? { delta: -2 * ENGINE.downStep, reason: `${PROBATION_TAG} the first-try score was ${latest}% (${ENGINE.floor}% or lower) soon after the placement, so the level was too high` }
+    : { delta: -ENGINE.downStep, reason: `${PROBATION_TAG} the first-try score was ${latest}% (under ${ENGINE.down}%) soon after the placement, so the level was too high` };
   const prev = scores.length >= 2 ? scores[scores.length - 2] : null;
   if (prev !== null && latest <= ENGINE.floor && prev <= ENGINE.floor) return { delta: -ENGINE.downStep, reason: `the last two first-try scores were both ${ENGINE.floor}% or lower (${prev}% and ${latest}%), so the articles were far too hard` };
   if (prev !== null && latest < ENGINE.down && prev < ENGINE.down) return { delta: -ENGINE.downSmall, reason: `the last two first-try scores were both under ${ENGINE.down}% (${prev}% and ${latest}%), so the articles were too hard` };
@@ -280,7 +322,7 @@ export async function applyFirstTryScore(repo: Repo, run: Row, now: Date): Promi
     const runs = countedTries(await repo.findMany("RRRun", { studentId, firstTry: true, score: { not: null } }))
       .filter((r) => r.completedAt && toDate(r.completedAt).getTime() > since && countsForLevel(r))
       .sort((a, b) => toDate(a.completedAt).getTime() - toDate(b.completedAt).getTime());
-    const dec = levelDecision(runs.map((r) => Number(r.score)), { afterDrop: afterAutoDrop(changes) }); // round 9
+    const dec = levelDecision(runs.map((r) => Number(r.score)), { afterDrop: afterAutoDrop(changes), probation: await onProbation(repo, studentId, changes) }); // round 9 · round 10
     // a stretch can only move the level up. r85 audit (#4 — checked, not a bug): this guard looks like it could
     // mask a legitimate down-adjustment, but `countsForLevel` above only lets a stretch run into `runs` when its
     // OWN score is ≥ ENGINE.up (75), and this function is only ever called for a stretch run when its score is
@@ -303,6 +345,20 @@ export async function applyFirstTryScore(repo: Repo, run: Row, now: Date): Promi
     if (after !== before) await recordLevelChange(repo, { studentId, schoolId: s(rr.schoolId), from: before, to: after, reason: `${after > before ? "Up" : AUTO_DOWN_PREFIX.trim()} ${Math.abs(after - before)}: ${dec.reason}`, now });
     return { levelBefore: before, levelAfter: after, reason: after !== before ? dec.reason : null };
   }
+}
+
+/**
+ * 🛡️ Round 10: is the student in the probation after a placement / MAP check? — the last anchor change is followed
+ * only by probation drops, and at most PROBATION_READS counted first tries were read since the anchor (this one included).
+ */
+export async function onProbation(repo: Repo, studentId: string, changes: readonly Row[]): Promise<boolean> {
+  let i = changes.length - 1;
+  while (i >= 0 && s(changes[i].reason).includes(PROBATION_TAG)) i--;
+  if (i < 0 || !isAnchorChange(changes[i].reason)) return false;
+  const since = toDate(changes[i].createdAt).getTime();
+  const runs = countedTries(await repo.findMany("RRRun", { studentId, firstTry: true, score: { not: null } }, { select: ["studentId", "articleId", "band", "firstTry", "stretch", "score", "completedAt", "unreliable", "readSeconds"] }))
+    .filter((r) => r.completedAt && toDate(r.completedAt).getTime() > since && countsForLevel(r));
+  return runs.length >= 1 && runs.length <= PROBATION_READS;
 }
 
 /** 👩‍🏫 A teacher (or school admin) sets a student's ReadRise Level (for the teacher pages). */

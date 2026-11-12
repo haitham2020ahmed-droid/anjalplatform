@@ -24,7 +24,7 @@
             "Camels like to sleep in the cold snow.",
             "A camel's body helps it live in the desert.",
             "People use sand to make soft feet.",
-            "Camels need to drink water every single hour."
+            "Camels like to walk on soft grass."
           ],
           "answer": "B",
           "skill": "central-idea"
@@ -76,7 +76,7 @@
           "options": [
             "The hive is too clean to live in.",
             "There are few flowers to visit then.",
-            "They want to give all of the honey to people.",
+            "They want to make a new hive.",
             "The wax is too hot for them to eat."
           ],
           "answer": "B",
@@ -150,7 +150,7 @@
             "The moon is a good place for plants and trees to grow.",
             "The sun moves around the moon each night of the year.",
             "The moon shines with sun light and seems to change shape.",
-            "People can only see the moon during the cold winter months."
+            "People see the moon best during the cold winter months."
           ],
           "answer": "C",
           "skill": "central-idea"
@@ -159,7 +159,7 @@
           "stem": "Why could a person not live on the moon without help?",
           "options": [
             "It is too close to the sun.",
-            "It is dark there all the time.",
+            "It is too cold to walk there.",
             "It is made of bright light.",
             "There is no air to breathe."
           ],
@@ -189,10 +189,10 @@
         {
           "stem": "What is the main idea of the text?",
           "options": [
-            "Cars can go faster than any kind of bird.",
+            "Falcons can see a mouse from a long way off.",
             "Falcons are fast hunters that people train.",
-            "Small animals hide from the hot sun all day.",
-            "Gloves are made from strong and thick cloth."
+            "Trainers wear gloves to keep their hands safe.",
+            "Mice hide from falcons by staying low."
           ],
           "answer": "B",
           "skill": "central-idea"
@@ -273,9 +273,9 @@
         {
           "stem": "What is the main idea of the text?",
           "options": [
-            "Clouds are made of small bits of dust and sand.",
-            "Rivers are always much bigger than lakes.",
-            "Snow falls only in very cold countries.",
+            "The sun warms lakes and the sea during the day.",
+            "Clouds form when tiny drops of water gather.",
+            "Rain falls into rivers and fills up the lakes.",
             "Water moves in a cycle between Earth and sky."
           ],
           "answer": "D",
@@ -285,9 +285,9 @@
           "stem": "The text says, Many drops gather to form clouds. What does gather mean?",
           "options": [
             "come together",
-            "fall down",
-            "dry up",
-            "break apart"
+            "drift apart",
+            "grow heavier",
+            "rise up high"
           ],
           "answer": "A",
           "skill": "vocabulary"
@@ -318,7 +318,7 @@
             "Cairo was the biggest city in the old world.",
             "Many people long ago had very weak eyes.",
             "Ibn al-Haytham tested ideas to learn how we see.",
-            "Light can only travel through a room that is dark."
+            "Light moves out from our eyes to the things we see."
           ],
           "answer": "C",
           "skill": "central-idea"
@@ -357,10 +357,10 @@
         {
           "stem": "What is the main idea of the text?",
           "options": [
-            "The goalkeeper scores most of the goals in a game.",
+            "The goalkeeper is the player who may use the hands.",
             "Football has rules and works best with teamwork.",
-            "Football is played in only a few countries.",
-            "Players should never use their heads."
+            "A football team has eleven players on the field.",
+            "Good players keep the ball and do not pass it."
           ],
           "answer": "B",
           "skill": "central-idea"
@@ -369,7 +369,7 @@
           "stem": "The text says football is popular. What does popular mean?",
           "options": [
             "very hard to learn",
-            "played only at night",
+            "played at night",
             "liked by many people",
             "new and not known"
           ],
@@ -401,7 +401,7 @@
           "options": [
             "The date palm has long been useful to people in dry lands.",
             "Farmers prefer to grow their trees in cold, wet places.",
-            "Dates are always picked early in the winter months.",
+            "Dates are picked early in the cold winter months.",
             "Baskets are the most important thing that people make from trees."
           ],
           "answer": "A",
@@ -410,7 +410,7 @@
         {
           "stem": "What can you infer about the date palm?",
           "options": [
-            "It grows only in cold mountain areas.",
+            "It grows best in cold mountain areas.",
             "It does not need much rain to grow.",
             "It has no uses besides its sweet fruit.",
             "It is a new kind of tree from farms."
@@ -441,9 +441,9 @@
         {
           "stem": "What is the main idea of the text?",
           "options": [
-            "Scientists cannot learn anything at all about volcanoes.",
-            "All volcanoes explode with a loud blast of ash.",
-            "Lava is the coldest kind of rock on the Earth.",
+            "Scientists measure small shakes to warn people early.",
+            "Saudi Arabia has large fields of old lava called harrats.",
+            "Some volcanoes let thick lava flow out very slowly.",
             "Volcanoes form when melted rock rises to the surface."
           ],
           "answer": "D",
@@ -484,7 +484,7 @@
           "stem": "What is the main idea of the text?",
           "options": [
             "Screens help children fall asleep much faster.",
-            "Muscles grow only when people exercise.",
+            "Children need less sleep than adults do.",
             "Sleep helps the body and brain stay healthy.",
             "Going to bed very late is a good habit."
           ],
@@ -495,7 +495,7 @@
           "stem": "Omar watched videos late and slept only six hours. What will most likely happen at school?",
           "options": [
             "He will remember more than usual.",
-            "He will feel full of energy all day.",
+            "He will feel full of energy that day.",
             "He will grow much taller that day.",
             "He may find it hard to focus."
           ],
@@ -525,10 +525,10 @@
         {
           "stem": "What is the main idea of the text?",
           "options": [
-            "The oryx has always lived in very large numbers in zoos.",
+            "The oryx can go for weeks in the desert without drinking water.",
             "People helped the oryx return after it disappeared from the wild.",
-            "Hunting is the best way to keep desert animals safe.",
-            "The oryx needs to drink water every single day in order to stay alive."
+            "The pale coat of the oryx reflects sunlight and keeps it cool.",
+            "Hunters kept the oryx safe in zoos during the early 1970s."
           ],
           "answer": "B",
           "skill": "central-idea"
@@ -642,8 +642,8 @@
           "options": [
             "Copper",
             "Silicon",
-            "Iron",
-            "Rubber"
+            "Aluminum",
+            "Plastic"
           ],
           "answer": "B",
           "skill": "detail"
@@ -651,10 +651,10 @@
         {
           "stem": "What is the main idea of the text?",
           "options": [
-            "Dust is the main source of energy for machines in the desert.",
-            "Electricity can only be made by burning oil.",
+            "Dust can cover solar panels and lower their power.",
+            "Electrons are tiny particles that make a current.",
             "Solar panels change sunlight into useful electricity.",
-            "Silicon is found only in the deserts of Arabia."
+            "Saudi Arabia is building large farms to grow food."
           ],
           "answer": "C",
           "skill": "central-idea"
@@ -695,7 +695,7 @@
           "options": [
             "Elephants were used to carry heavy machines across the city.",
             "Al-Jazari invented clever machines and recorded how to build them.",
-            "Modern engineers have never been able to rebuild old machines.",
+            "Al-Jazari learned to build his machines from modern engineers.",
             "Al-Jazari mostly wrote poems and stories about the famous birds of his city."
           ],
           "answer": "B",
@@ -737,7 +737,7 @@
           "options": [
             "Regular exercise helps both the body and the mind.",
             "Children need special equipment before they can exercise.",
-            "The heart is the only muscle that gets stronger.",
+            "The heart pumps blood through the body with each beat.",
             "Chores at home are more tiring than playing football."
           ],
           "answer": "A",
@@ -746,10 +746,10 @@
         {
           "stem": "Which student is most likely following the doctors' advice?",
           "options": [
-            "Ali, who plays video games all afternoon",
+            "Ali, who plays video games each afternoon",
             "Sara, who plays outside for an hour daily",
-            "Huda, who runs only once or twice a month",
-            "Fahad, who reads in his room every evening"
+            "Huda, who runs for ten minutes each weekend",
+            "Fahad, who reads in his room each evening"
           ],
           "answer": "B",
           "skill": "inference"
@@ -779,7 +779,7 @@
           "options": [
             "Mangroves are trees that grow best in cold, snowy mountains.",
             "Fish and shrimp plant mangrove trees along the shore.",
-            "Storms are the main reason that coastlines exist at all.",
+            "Mangrove roots take in salt water to help the trees grow taller.",
             "Mangroves are adapted to salty coasts and help protect them."
           ],
           "answer": "D",
@@ -831,7 +831,7 @@
           "stem": "What can you infer about books in Europe before the printing press?",
           "options": [
             "Most families had large home libraries.",
-            "They were all written in the German language.",
+            "They were written in the German language.",
             "They were shorter than books are today.",
             "Few people could afford to own them."
           ],
@@ -906,7 +906,7 @@
             "Ant colonies use scent trails to find efficient paths.",
             "Each ant in a colony has a very large and clever brain.",
             "Computer programs taught ants how to find their food.",
-            "Ants always choose the longest path back to the nest."
+            "Ants find food mainly by looking for it with their eyes."
           ],
           "answer": "A",
           "skill": "central-idea"
@@ -914,7 +914,7 @@
         {
           "stem": "What does the passage suggest about how a colony solves problems?",
           "options": [
-            "One leader ant gives orders to all the others.",
+            "One leader ant gives orders to the other ants.",
             "Many simple actions add up to a smart result.",
             "Each ant plans the whole route before leaving.",
             "Ants learn the best routes by watching people."
@@ -945,7 +945,7 @@
         {
           "stem": "What is the main idea of the text?",
           "options": [
-            "The modern Olympics have always included more than two hundred nations.",
+            "The modern Olympics started with more than two hundred nations taking part.",
             "Pierre de Coubertin was the first athlete to win an Olympic medal.",
             "Skateboarding was one of the main sports at the first Games.",
             "The modern Olympics grew from a small start into a global event."
@@ -990,7 +990,7 @@
             "Sugary cereals are the best choice for a school morning.",
             "Students should skip breakfast and eat a much larger lunch at school instead.",
             "A balanced breakfast gives students lasting energy for learning.",
-            "Eggs and beans are the only foods that contain protein."
+            "Eggs and beans give the brain most of the glucose it needs."
           ],
           "answer": "C",
           "skill": "central-idea"
@@ -1019,9 +1019,9 @@
           "stem": "How tall can some dunes in the Empty Quarter be?",
           "options": [
             "More than two hundred meters",
-            "About twenty meters",
-            "Less than five meters",
-            "Nearly two thousand meters"
+            "About fifty meters",
+            "About one hundred meters",
+            "Nearly five hundred meters"
           ],
           "answer": "A",
           "skill": "detail"
@@ -1029,10 +1029,10 @@
         {
           "stem": "What is the main idea of the text?",
           "options": [
-            "The Empty Quarter is a small desert that is found only inside Saudi Arabia.",
+            "The Empty Quarter has the tallest sand dunes found anywhere on Earth.",
             "Desert dunes move with the wind, which affects how people build.",
-            "Dunes stay in the same place for thousands of years at a time.",
-            "Skyscrapers are built in the desert to block the strong winds."
+            "Engineers build fences in the desert to stop dunes from growing.",
+            "Strong winds make the dunes in the Empty Quarter steeper each year."
           ],
           "answer": "B",
           "skill": "central-idea"
@@ -1040,10 +1040,10 @@
         {
           "stem": "The text says the dunes migrate gradually. What does migrate most nearly mean?",
           "options": [
-            "grow larger every year",
-            "disappear completely",
+            "grow taller over time",
+            "change their shape",
             "move from place to place",
-            "become hard as rock"
+            "slide down a slope"
           ],
           "answer": "C",
           "skill": "vocabulary"
@@ -1060,9 +1060,9 @@
         {
           "stem": "What did Fleming notice about the bacteria near the mold?",
           "options": [
-            "They had grown much larger.",
-            "They had changed color.",
-            "They had turned into mold.",
+            "They had grown around the mold.",
+            "They had made a new substance.",
+            "They had spread across the dish.",
             "They had been destroyed."
           ],
           "answer": "D",
@@ -1072,9 +1072,9 @@
           "stem": "What is the main idea of the text?",
           "options": [
             "A careful observation led to penicillin, an important medicine.",
-            "Fleming made large amounts of penicillin entirely by himself in his own lab.",
-            "Mold is always harmful and should be thrown away at once.",
-            "Antibiotics should be used as often as possible by everyone."
+            "Fleming worked for ten years to find a way to make penicillin.",
+            "Mold that grows on dishes of bacteria is often dangerous.",
+            "Doctors now use penicillin less because bacteria have changed."
           ],
           "answer": "A",
           "skill": "central-idea"
@@ -1082,10 +1082,10 @@
         {
           "stem": "What does the passage suggest about Fleming's discovery?",
           "options": [
-            "He had planned to grow mold on the dish all along.",
+            "He planned to test mold on bacteria.",
             "Noticing an accident closely can lead to progress.",
-            "He produced large amounts of penicillin by himself.",
-            "Antibiotics work best when people use them often."
+            "He knew penicillin would save many lives.",
+            "His vacation gave him the idea for a medicine."
           ],
           "answer": "B",
           "skill": "inference"
@@ -1103,9 +1103,9 @@
           "stem": "Which subject takes its name from al-Khwarizmi's book?",
           "options": [
             "Geometry",
-            "Astronomy",
+            "Algorithms",
             "Algebra",
-            "Chemistry"
+            "Arithmetic"
           ],
           "answer": "C",
           "skill": "detail"
@@ -1113,9 +1113,9 @@
         {
           "stem": "What is the main idea of the text?",
           "options": [
-            "Baghdad was a small village with very few scholars.",
-            "Roman numerals are easier to use than Arabic numerals for most kinds of math.",
-            "Al-Khwarizmi invented the first electronic computer.",
+            "Baghdad was the place where Greek books were first written.",
+            "Al-Khwarizmi translated Greek and Indian books into Arabic.",
+            "Al-Khwarizmi invented the numerals that computers use today.",
             "Al-Khwarizmi's work had a lasting effect on mathematics."
           ],
           "answer": "D",
@@ -1126,8 +1126,8 @@
           "options": [
             "awkward to use",
             "very ancient",
-            "beautiful",
-            "kept secret"
+            "hard to read",
+            "rarely used"
           ],
           "answer": "A",
           "skill": "vocabulary"
@@ -1146,8 +1146,8 @@
           "options": [
             "Chlorophyll absorbs green light.",
             "Chlorophyll reflects green light.",
-            "Their roots draw up green water.",
-            "The sugar in their leaves is green."
+            "Chloroplasts store green sugar.",
+            "Chlorophyll absorbs blue light."
           ],
           "answer": "B",
           "skill": "detail"
@@ -1155,10 +1155,10 @@
         {
           "stem": "What is the main idea of the text?",
           "options": [
-            "Animals produce most of the oxygen that green plants need in order to survive.",
-            "Chloroplasts are found in the roots of most green plants.",
+            "Plants need animals to give them the carbon dioxide they use to make sugar.",
+            "Chlorophyll gives plants their color by absorbing red and blue light.",
             "Photosynthesis lets plants make food and supports nearly all life.",
-            "Plants take in oxygen and release carbon dioxide all day."
+            "Plants take water from the air and carbon dioxide from the soil."
           ],
           "answer": "C",
           "skill": "central-idea"
@@ -1166,9 +1166,9 @@
         {
           "stem": "What would most likely happen to animals if photosynthesis stopped?",
           "options": [
-            "They would grow larger and stronger.",
-            "They would start to make their own sugar.",
-            "They would not be affected in any way.",
+            "They would breathe in more carbon dioxide.",
+            "They would get energy from eating other animals.",
+            "They would need to drink more water.",
             "They would eventually run out of food."
           ],
           "answer": "D",
@@ -1187,9 +1187,9 @@
           "stem": "In what year was the railway to Madinah completed?",
           "options": [
             "1908",
-            "1890",
+            "1900",
             "1918",
-            "1932"
+            "1914"
           ],
           "answer": "A",
           "skill": "detail"
@@ -1197,10 +1197,10 @@
         {
           "stem": "What is the main idea of the text?",
           "options": [
-            "Camel caravans were faster than the trains on the Hijaz Railway.",
+            "The Hijaz Railway made the pilgrimage safer but cost too much to build.",
             "The Hijaz Railway made travel faster but operated only briefly.",
-            "The Hijaz Railway still carries travelers to Damascus every day.",
-            "The railway was built mainly to carry goods to Europe."
+            "The Hijaz Railway was built to replace the camel caravans to Damascus.",
+            "The Hijaz Railway station in Madinah is the oldest museum in Arabia."
           ],
           "answer": "B",
           "skill": "central-idea"
@@ -1208,10 +1208,10 @@
         {
           "stem": "The text lists scarce water as a difficulty. What does scarce most nearly mean?",
           "options": [
-            "very salty",
-            "dangerously hot",
+            "very warm",
+            "hard to carry",
             "in short supply",
-            "easily found"
+            "full of sand"
           ],
           "answer": "C",
           "skill": "vocabulary"
@@ -1229,8 +1229,8 @@
           "stem": "What does a person with myopia have trouble seeing?",
           "options": [
             "Objects that are very close",
-            "Colors such as red and blue",
-            "Anything in bright daylight",
+            "Writing in a book",
+            "Things on a phone screen",
             "Objects that are far away"
           ],
           "answer": "D",
@@ -1240,9 +1240,9 @@
           "stem": "What is the main idea of the text?",
           "options": [
             "Myopia is increasing, and outdoor time and breaks may help prevent it.",
-            "Myopia is caused only by the genes children inherit, so nothing can be done about it.",
-            "Daylight makes the eyeball grow longer and causes nearsightedness.",
-            "Children should avoid going outside so their eyes can rest at home."
+            "Myopia is caused mainly by genes, so outdoor time helps very little.",
+            "Children with myopia should spend two hours a day reading close up.",
+            "Eye doctors now treat myopia by asking children to look at boards."
           ],
           "answer": "A",
           "skill": "central-idea"
@@ -1252,7 +1252,7 @@
           "options": [
             "One who plays football outside every afternoon",
             "One who reads on a tablet indoors all day",
-            "One who walks to school and back each day",
+            "One who reads at school and plays outside after",
             "One who takes regular breaks to look far away"
           ],
           "answer": "B",
@@ -1270,10 +1270,10 @@
         {
           "stem": "In reverse osmosis, what blocks the salt?",
           "options": [
-            "Large tanks of boiling water",
-            "Thick layers of desert sand",
+            "Pumps that heat the seawater",
+            "Cooling pipes that collect vapor",
             "Membranes with tiny pores",
-            "Solar panels on the roof"
+            "Tanks that let the salt settle"
           ],
           "answer": "C",
           "skill": "detail"
@@ -1281,9 +1281,9 @@
         {
           "stem": "What is the main idea of the text?",
           "options": [
-            "Saudi Arabia gets most of its drinking water from large rivers that flow all year.",
-            "Thermal distillation uses less energy than any other method.",
-            "Brine is a valuable drink that is sold in many countries.",
+            "Saudi Arabia now gets most of its water from groundwater and solar-powered plants.",
+            "Reverse osmosis has solved the problems of desalination, including brine disposal.",
+            "Thermal distillation is still the most common way to make fresh water from seawater.",
             "Saudi Arabia relies on desalination, which is improving but has costs."
           ],
           "answer": "D",
@@ -1293,9 +1293,9 @@
           "stem": "The text says brine must be disposed of carefully. What does disposed of most nearly mean?",
           "options": [
             "gotten rid of",
-            "heated up",
-            "sold abroad",
-            "measured"
+            "made less salty",
+            "stored safely",
+            "used again"
           ],
           "answer": "A",
           "skill": "vocabulary"
@@ -1312,10 +1312,10 @@
         {
           "stem": "Why did Ibn Battuta first leave Tangier?",
           "options": [
-            "To become a judge in India",
+            "To work as a judge in Delhi",
             "To perform the pilgrimage",
-            "To trade spices in China",
-            "To study in Persia"
+            "To visit the Maldives",
+            "To write a book about travel"
           ],
           "answer": "B",
           "skill": "detail"
@@ -1323,10 +1323,10 @@
         {
           "stem": "What is the main idea of the text?",
           "options": [
-            "Ibn Battuta stayed in Tangier and wrote about places he imagined.",
-            "Most travelers in the fourteenth century went farther than Ibn Battuta.",
+            "Ibn Battuta worked as a judge in many of the countries he visited.",
+            "Ibn Battuta planned a thirty-year journey before he left Tangier.",
             "Ibn Battuta's long journeys produced a valuable historical record.",
-            "Historians have found that Ibn Battuta's account is of little use."
+            "Ibn Battuta wrote a detailed book about each place as he traveled."
           ],
           "answer": "C",
           "skill": "central-idea"
@@ -1334,9 +1334,9 @@
         {
           "stem": "The text says he could not have anticipated how long his journey would last. What does anticipated most nearly mean?",
           "options": [
-            "regretted",
+            "planned",
             "described",
-            "refused",
+            "enjoyed",
             "expected"
           ],
           "answer": "D",
@@ -1356,8 +1356,8 @@
           "options": [
             "During periods of rest",
             "During the hardest exercises",
-            "Only while athletes are eating",
-            "Before the training begins"
+            "Right after each meal",
+            "While warming up"
           ],
           "answer": "A",
           "skill": "detail"
@@ -1365,10 +1365,10 @@
         {
           "stem": "What is the main idea of the text?",
           "options": [
-            "Tiny tears in muscle fibers can never be repaired by the body.",
+            "Small tears in muscle fibers show that an athlete is training too hard.",
             "Muscles grow stronger by repairing themselves, which requires rest.",
-            "Athletes become stronger by training hard every day without breaks.",
-            "Coaches believe that sleep has little effect on athletic training."
+            "Athletes grow stronger mainly by eating more protein after training.",
+            "Coaches plan hard training daily so that muscles tear and grow."
           ],
           "answer": "B",
           "skill": "central-idea"
@@ -1376,10 +1376,10 @@
         {
           "stem": "A runner trains hard every day without breaks and keeps getting slower. What is the most likely explanation?",
           "options": [
-            "She is resting far too often.",
-            "Her muscles are healing too quickly.",
+            "She is not eating enough protein.",
+            "Her exercises are not hard enough.",
             "Her muscles lack time to recover.",
-            "She is sleeping more than she needs."
+            "She needs to train even harder."
           ],
           "answer": "C",
           "skill": "inference"
@@ -1396,9 +1396,9 @@
         {
           "stem": "About when did the Arabian Plate begin separating from the African Plate?",
           "options": [
-            "About three thousand years ago",
+            "About three million years ago",
             "About thirty thousand years ago",
-            "About three billion years ago",
+            "About three hundred million years ago",
             "About thirty million years ago"
           ],
           "answer": "D",
@@ -1408,9 +1408,9 @@
           "stem": "What is the main idea of the text?",
           "options": [
             "The Red Sea is a young ocean that helps scientists study how oceans form.",
-            "The Red Sea formed when the Atlantic Ocean flooded a desert in Africa.",
-            "The Arabian and African Plates are now moving closer to each other.",
-            "Scientists have stopped studying the Red Sea because it no longer changes."
+            "The Red Sea is slowly closing as the Arabian Plate moves back toward Africa.",
+            "The Red Sea formed when seawater from the Atlantic flooded a low valley.",
+            "The Red Sea is studied mainly for its warm, salty pools and hot springs."
           ],
           "answer": "A",
           "skill": "central-idea"
@@ -1418,10 +1418,10 @@
         {
           "stem": "The text calls the Red Sea an embryonic ocean. What does embryonic most nearly mean?",
           "options": [
-            "extremely deep and cold",
+            "very warm and salty",
             "just beginning to develop",
-            "completely grown and finished",
-            "unsafe for most sailors"
+            "slowly becoming smaller",
+            "formed by volcanoes"
           ],
           "answer": "B",
           "skill": "vocabulary"
@@ -1438,10 +1438,10 @@
         {
           "stem": "What problem did early high-speed trains in Japan have?",
           "options": [
-            "Wheels that slipped on wet rails",
-            "Seats that were far too narrow",
+            "Their engines used too much electricity",
+            "They could not travel fast enough",
             "A loud boom when leaving tunnels",
-            "Engines that overheated in summer"
+            "Air inside the tunnels became too hot"
           ],
           "answer": "C",
           "skill": "detail"
@@ -1449,9 +1449,9 @@
         {
           "stem": "What is the main idea of the text?",
           "options": [
-            "Kingfishers were trained to help engineers test the shape of new trains.",
-            "High-speed trains in Japan use more electricity than ever.",
-            "Desert beetles are the only animals that engineers study.",
+            "Engineers made trains faster by giving them the shape of a bird's beak.",
+            "Residents' complaints forced engineers to rebuild Japan's train tunnels.",
+            "Desert beetles show engineers how to collect water from fog.",
             "Copying designs from nature can help engineers solve problems."
           ],
           "answer": "D",
@@ -1461,9 +1461,9 @@
           "stem": "What does the kingfisher example suggest about the engineer?",
           "options": [
             "A hobby outside work helped him find a solution.",
-            "He had never seen a kingfisher before the project.",
-            "He believed birds were too simple to learn from.",
-            "He designed the train before noticing any noise."
+            "He studied birds as part of his engineering training.",
+            "Residents told him that birds could help with the noise.",
+            "He tested many animal shapes before choosing the beak."
           ],
           "answer": "A",
           "skill": "inference"
@@ -1482,8 +1482,8 @@
           "options": [
             "Twenty-one days",
             "Sixty-six days",
-            "Seven days",
-            "One full year"
+            "Forty-two days",
+            "Ninety days"
           ],
           "answer": "B",
           "skill": "detail"
@@ -1491,10 +1491,10 @@
         {
           "stem": "What is the main idea of the text?",
           "options": [
-            "Every habit takes exactly twenty-one days to form, no matter who the person is.",
-            "Rewards make it harder for the brain to remember new behaviors.",
+            "Most habits take about three weeks to form, so people should not give up early.",
+            "Rewards matter more than cues when people try to build new habits.",
             "Habits form through a cue, routine, and reward and take time to build.",
-            "Habits are always controlled by careful, deliberate decisions."
+            "Habits begin as careful decisions and slowly become harder to change."
           ],
           "answer": "C",
           "skill": "central-idea"
@@ -1502,8 +1502,8 @@
         {
           "stem": "The text says the reward reinforces the connection. What does reinforces most nearly mean?",
           "options": [
-            "interrupts",
             "replaces",
+            "follows from",
             "explains",
             "strengthens"
           ],
@@ -1522,10 +1522,10 @@
         {
           "stem": "What is the central idea of the passage?",
           "options": [
-            "Antibiotics directly cause bacteria to mutate into resistant forms, so every dose makes new super germs.",
+            "Antibiotics create new mutations in bacteria, and these mutations make the surviving bacteria resistant to the drug.",
             "Resistance already exists at low levels and spreads because antibiotics remove competition for resistant bacteria.",
-            "Plasmids are the only way bacteria can become resistant to antibiotics, and they pass from one cell to another.",
-            "Stopping antibiotic treatment early always cures an infection faster, so doctors should give short courses of medicine."
+            "Plasmids carry resistance between species, so resistance spreads mainly because bacteria share genes, not through selection.",
+            "Doctors can prevent resistance by giving stronger antibiotics for shorter courses, before bacteria have time to adapt."
           ],
           "answer": "B",
           "skill": "central-idea"
@@ -1534,9 +1534,9 @@
           "stem": "According to the passage, why is stopping an antibiotic course early considered dangerous?",
           "options": [
             "It allows bacteria with partial resistance to survive and multiply.",
-            "It causes the antibiotic to become toxic to the patient's body.",
-            "It prevents plasmids from transferring between bacteria in the gut.",
-            "It makes susceptible bacteria become resistant instantly in the body."
+            "It gives susceptible bacteria time to develop new mutations.",
+            "It stops plasmids from carrying genes to unrelated species.",
+            "It leaves the drug in the body long after it stops working."
           ],
           "answer": "A",
           "skill": "detail"
@@ -1544,10 +1544,10 @@
         {
           "stem": "In the passage, the word \"judicious\" most nearly means",
           "options": [
-            "careless",
+            "quick and frequent",
             "wise and careful",
-            "expensive",
-            "illegal"
+            "strict and firm",
+            "early and sudden"
           ],
           "answer": "B",
           "skill": "vocabulary"
@@ -1564,10 +1564,10 @@
         {
           "stem": "What is the passage mainly about?",
           "options": [
-            "Why black holes are the brightest objects in the universe, shining more than any star.",
+            "How the 2019 image of a black hole's shadow proved that general relativity was correct.",
             "Several indirect methods astronomers use to detect and study black holes.",
-            "The exact date the first black hole was discovered by a scientist in a laboratory.",
-            "Why telescopes cannot observe any object beyond our galaxy, however big they may be."
+            "How black holes pull in light from nearby stars and give off powerful X-rays.",
+            "Why radio telescopes are the most important tools for studying distant stars."
           ],
           "answer": "B",
           "skill": "central-idea"
@@ -1575,10 +1575,10 @@
         {
           "stem": "According to the passage, what causes the material in an accretion disk to emit X-rays?",
           "options": [
-            "The material cools rapidly as it approaches the black hole.",
+            "Light from the black hole itself passes through the disk.",
             "Friction heats the material to extreme temperatures.",
-            "The black hole's shadow blocks visible light.",
-            "Radio telescopes heat the gas directly."
+            "The star's wobble pushes the gas closer to the black hole.",
+            "Radio waves from the shadow warm the surrounding gas."
           ],
           "answer": "B",
           "skill": "detail"
@@ -1586,10 +1586,10 @@
         {
           "stem": "In the passage, \"resolving power\" most nearly refers to a telescope's ability to",
           "options": [
-            "move quickly across the sky",
-            "survive extreme temperatures",
+            "collect faint light from far away",
+            "measure the mass of distant objects",
             "distinguish fine detail",
-            "generate its own light"
+            "work together with other telescopes"
           ],
           "answer": "C",
           "skill": "vocabulary"
@@ -1606,10 +1606,10 @@
         {
           "stem": "What is the main point of the passage?",
           "options": [
-            "Countries should only trade with nations that are equally productive, so a weak country should never trade with a strong one.",
+            "A country benefits from trade mainly when it can produce its goods more efficiently than its trading partners, so weaker countries gain little.",
             "A country can benefit from trade by specializing in what it gives up least to produce, even if another country is more efficient overall.",
-            "Comparative advantage proves that trade never benefits less productive countries, because only the strongest nations can gain from it.",
-            "Wheat and cloth are the only goods comparative advantage applies to, and it cannot be used for any other product or service."
+            "A highly productive country gains the most from trade when it makes both goods itself and then sells its extra goods to other countries.",
+            "Comparative advantage shows that the benefits of trade are shared out evenly among the different groups of people within each country."
           ],
           "answer": "B",
           "skill": "central-idea"
@@ -1617,10 +1617,10 @@
         {
           "stem": "According to the passage, can a highly productive country still benefit from trading with a less productive one?",
           "options": [
-            "No, because it can already produce everything more efficiently.",
+            "No, because it already makes each good more efficiently.",
             "Yes, according to the principle of comparative advantage.",
-            "Only if the less productive country stops producing wheat.",
-            "Only if both countries are equally efficient."
+            "Yes, but just when the other country is equally efficient.",
+            "No, unless it stops producing the goods it makes best."
           ],
           "answer": "B",
           "skill": "detail"
@@ -1628,10 +1628,10 @@
         {
           "stem": "The passage suggests that economists today",
           "options": [
-            "completely reject the idea of comparative advantage.",
-            "agree on exactly how trade's benefits are shared within a country.",
+            "agree that the principle is too old to be useful.",
+            "agree on how trade's benefits are shared within a country.",
             "still debate how the benefits of trade are distributed.",
-            "believe comparative advantage only applies to two specific goods."
+            "think comparative advantage applies to wheat and cloth."
           ],
           "answer": "C",
           "skill": "inference"
@@ -1648,10 +1648,10 @@
         {
           "stem": "What is the passage mainly about?",
           "options": [
-            "Why Einstein invented quantum mechanics and what he thought about it in his old age, when he was a famous old man in America.",
+            "How Einstein's objections to entanglement were confirmed by later experiments that searched for hidden local variables.",
             "How experiments testing Bell's inequality showed that entangled particles do not have predetermined, independent properties.",
-            "The exact distance at which quantum entanglement stops working for the particles in the experiments of the lab.",
-            "Why gloves are used to explain quantum computing and how engineers build the computers."
+            "How early work in quantum cryptography proved that entangled particles share information faster than the speed of light.",
+            "How the glove comparison helped physicists show that entangled particles carry hidden properties from the moment they separate."
           ],
           "answer": "B",
           "skill": "central-idea"
@@ -1660,9 +1660,9 @@
           "stem": "According to the passage, what did John Bell's inequality allow physicists to test?",
           "options": [
             "Whether hidden-variable theories could explain entanglement.",
-            "The exact speed of light in empty space and in water or glass.",
-            "Whether gloves can be entangled across a long distance.",
-            "How quantum computers are built in a modern laboratory."
+            "Whether measurement changes a particle's spin along each axis.",
+            "Whether entanglement weakens as particles move farther apart.",
+            "Whether quantum computers could use entangled particles."
           ],
           "answer": "A",
           "skill": "detail"
@@ -1670,10 +1670,10 @@
         {
           "stem": "In the passage, the phrase \"spooky action at a distance\" is used to describe Einstein's view that entanglement seemed",
           "options": [
-            "completely predictable and ordinary in every experiment",
+            "fully explained by properties the particles carried from the start",
             "troublingly instantaneous and hard to explain classically",
-            "impossible to test experimentally with any equipment",
-            "only relevant to gloves and mittens in cold places"
+            "a measurement error that better equipment would soon remove",
+            "a useful tool for building secure communication systems"
           ],
           "answer": "B",
           "skill": "vocabulary"
@@ -1690,10 +1690,10 @@
         {
           "stem": "What is the main idea of the passage?",
           "options": [
-            "Neuroscience has already fully solved the mystery of subjective experience, and no question remains open.",
+            "Neuroscience is close to explaining subjective experience because it can map how neurons fire during perception.",
             "The \"hard problem\" asks why physical brain processes produce subjective experience, a question that remains unresolved.",
-            "The \"easy problems\" of consciousness are more important than the \"hard problem,\" so scientists skip the second.",
-            "Philosophers agree that consciousness cannot be studied scientifically at all, so it is a closed matter."
+            "The \"easy problems\" of consciousness are harder than they look, so most researchers now study them instead.",
+            "Philosophers agree that consciousness needs a new kind of explanation that lies outside physical science."
           ],
           "answer": "B",
           "skill": "central-idea"
@@ -1701,10 +1701,10 @@
         {
           "stem": "According to the passage, what are the \"easy problems\" of consciousness?",
           "options": [
-            "Questions about why subjective experience exists at all, and why it feels like something to be alive and awake.",
+            "Questions about why seeing red or feeling pain comes with a felt quality rather than happening in the dark.",
             "Functions like attention, memory, and processing sensory input, which can be explained by identifying neural mechanisms.",
-            "Problems that have never been studied by neuroscience or by any other science, because they are too hard for anyone to understand.",
-            "Questions only philosophers, not scientists, can address in a book or a class, since they have nothing to do with the brain or with memory."
+            "Questions about how a sophisticated machine could process information the way a living brain does.",
+            "Problems about the gap between a complete map of neurons and the experience that the map describes."
           ],
           "answer": "B",
           "skill": "detail"
@@ -1712,10 +1712,10 @@
         {
           "stem": "The comparison to \"earlier mysteries about life itself\" suggests that some philosophers believe the hard problem",
           "options": [
-            "can never be solved by any future scientific advance of any kind, however much we learn.",
+            "needs a new kind of explanation that lies outside of the physical sciences altogether.",
             "might eventually be explained as science advances, similar to past biological mysteries.",
-            "was already solved before neuroscience existed at all, so nobody needs to study it now.",
-            "is not related to biology in any way whatsoever, and is only about weather and stars."
+            "was first raised by biologists who studied how living cells take in and use energy.",
+            "matters much less than the easy problems do for current research in psychology."
           ],
           "answer": "B",
           "skill": "inference"
@@ -1732,10 +1732,10 @@
         {
           "stem": "What is the passage mainly about?",
           "options": [
-            "Why one branch of government should always have more power than the others, and rule them all alone.",
+            "Why separated powers make governments faster and more efficient during an urgent crisis.",
             "The reasoning behind dividing governmental authority among separate branches that check one another.",
-            "The exact year separation of powers was invented, and who first wrote about it in a very old book.",
-            "Why gridlock never occurs in governments with separated powers, and how every branch always agrees at once."
+            "How Montesquieu designed the three branches of government used by most modern countries.",
+            "Why critics believe gridlock is a more serious danger than power held by a single branch."
           ],
           "answer": "B",
           "skill": "central-idea"
@@ -1744,9 +1744,9 @@
           "stem": "According to the passage, what did Montesquieu argue?",
           "options": [
             "Concentrating all power in one person or body makes abuse of power more likely.",
-            "Only a single branch of government should exist, so that laws are made quickly.",
-            "Judiciaries should never be able to check executives, even when a leader breaks the law.",
-            "Gridlock is always more dangerous than concentrated power in any country."
+            "Good leaders can be trusted with power if voters choose them carefully.",
+            "A strong executive is needed to stop the other branches from causing gridlock.",
+            "Laws should be interpreted by the same body that writes and passes them."
           ],
           "answer": "A",
           "skill": "detail"
@@ -1754,10 +1754,10 @@
         {
           "stem": "In the passage, the word \"gridlock\" most nearly means",
           "options": [
-            "rapid, efficient decision-making by all the parts of a system",
-            "a situation of unified agreement among all parts of a system",
+            "a careful system in which each branch checks the others",
+            "a balance that each generation must decide for itself",
             "a standstill caused by disagreement among parts of a system",
-            "a type of legal document used in many courts"
+            "a decision that one branch makes without the others"
           ],
           "answer": "C",
           "skill": "vocabulary"

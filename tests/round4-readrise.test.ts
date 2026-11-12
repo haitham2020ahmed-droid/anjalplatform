@@ -175,7 +175,7 @@ describe("round 4 — ReadRise", () => {
     assert.deepEqual([again.state, again.invalid], ["READY", true], "take it again");
     // careful answers count normally
     const pid2 = await startPlacement(repo, s, at(1));
-    for (let i = 0; i < 10; i++) {
+    for (let i = 0; i < 14; i++) { // round 10: no early end before the 12th passage
       const w = await placementView(repo, s, PASSAGES, at(1));
       if (w.state !== "IN_PROGRESS") break;
       const r = await answerPlacement(repo, s, pid2, w.passage!.id, ["A", "A", "A"], PASSAGES, new Date(at(1).getTime() + (i + 1) * 90_000));

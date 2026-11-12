@@ -1,0 +1,93 @@
+From ec9eda2a7da969664ac42d686284749779838160 Mon Sep 17 00:00:00 2001
+From: Haitham <haitham2020ahmed@gmail.com>
+Date: Wed, 11 Nov 2026 10:08:20 +0000
+Subject: [PATCH] MAP: add a browser file-upload box to the bulk import tool
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+Lets the owner run a MAP import himself from /admin/bulk-map-import any
+time via a normal "Choose File" picker, without needing a developer to
+drop PDFs into the repo and ship a patch first. Uploaded files are read
+straight into memory through the same importMapFile pipeline — nothing
+is written to disk.
+
+Co-Authored-By: Claude Sonnet 5 <noreply@anthropic.com>
+Claude-Session: https://claude.ai/code/session_015fkTM92JrqCiox9RNegECN
+---
+ src/app/admin/bulk-map-import/actions.ts | 32 ++++++++++++++++++++++++
+ src/app/admin/bulk-map-import/page.tsx   | 11 +++++++-
+ 2 files changed, 42 insertions(+), 1 deletion(-)
+
+diff --git a/src/app/admin/bulk-map-import/actions.ts b/src/app/admin/bulk-map-import/actions.ts
+index 78d9a19..0daecb2 100644
+--- a/src/app/admin/bulk-map-import/actions.ts
++++ b/src/app/admin/bulk-map-import/actions.ts
+@@ -36,3 +36,35 @@ export async function runBulkMapImportAction(f: FormData): Promise<void> {
+   }
+   redirect(`/admin/bulk-map-import?${new URLSearchParams({ msg })}`);
+ }
++
++/** 🧰 Nov 2026 (owner request, "ضيف صندوق رفع ملفات"): a normal browser "Choose File" upload, so the owner can run a
++ * MAP import himself from here any time, without needing a developer to drop files into the repo and ship a patch
++ * first (see bulk-map-import/page.tsx for why that git-based path exists at all). Uploaded files are read straight
++ * into memory and run through the exact same `importMapFile` pipeline — nothing is written to disk, so there is
++ * nothing to clean up and no risk of a file being re-imported by a later deploy. */
++export async function runUploadMapImportAction(f: FormData): Promise<void> {
++  const year = Number(f.get("year")) || new Date().getFullYear();
++  let msg = "";
++  try {
++    const actor = await requireActor({ roles: ["SCHOOL_ADMIN", "SUPER_ADMIN"], permission: "assignments:create" });
++    const uploads = f.getAll("files").filter((v): v is File => v instanceof File && v.size > 0);
++    if (!uploads.length) {
++      redirect(`/admin/bulk-map-import?${new URLSearchParams({ msg: "Choose at least one PDF file first." })}`);
++    }
++    const lines: string[] = [];
++    for (const file of uploads) {
++      try {
++        const bytes = new Uint8Array(await file.arrayBuffer());
++        const r = await importMapFile(repo, actor, file.name, bytes, year);
++        lines.push(`✅ ${file.name} — ${importMessage(r)}`);
++      } catch (e) {
++        lines.push(`❌ ${file.name} — FAILED: ${e instanceof Error ? e.message : String(e)}`);
++      }
++    }
++    msg = lines.join("\n");
++  } catch (e) {
++    if (isNextControl(e)) throw e;
++    msg = await failureMessage(e, "map", "runUploadMapImport", "/admin/bulk-map-import");
++  }
++  redirect(`/admin/bulk-map-import?${new URLSearchParams({ msg })}`);
++}
+diff --git a/src/app/admin/bulk-map-import/page.tsx b/src/app/admin/bulk-map-import/page.tsx
+index 4cd220c..bcd4a9b 100644
+--- a/src/app/admin/bulk-map-import/page.tsx
++++ b/src/app/admin/bulk-map-import/page.tsx
+@@ -3,7 +3,7 @@ import path from "node:path";
+ import { AppShell } from "@/components/app-shell";
+ import { PageHeader } from "@/components/page-header";
+ import { getActor, requireActor } from "@/server/auth/next";
+-import { runBulkMapImportAction } from "./actions";
++import { runBulkMapImportAction, runUploadMapImportAction } from "./actions";
+ 
+ export const metadata = { title: "Bulk MAP import" };
+ 
+@@ -29,6 +29,15 @@ export default async function BulkMapImportPage({ searchParams }: { searchParams
+       <PageHeader back={{ href: "/admin", label: "Home" }} icon="📥" title="Bulk MAP import (one-time tool)"
+         subtitle="Imports every PDF sitting in assets/pending-map-imports/ using the exact same pipeline as the normal MAP upload page." />
+       {sp.msg && <pre role="status" className="mb-4 whitespace-pre-wrap rounded-xl bg-teal-50 px-4 py-3 text-sm text-teal-900 ring-1 ring-teal-200">{sp.msg}</pre>}
++      {/* 🧰 Nov 2026 (owner request): upload PDFs straight from the browser — no repo/git step needed. */}
++      <form action={runUploadMapImportAction} className="mb-6 rounded-3xl bg-white p-5 shadow-sm ring-1 ring-slate-200">
++        <p className="mb-3 text-sm font-semibold text-brand-navy">📤 Upload PDF(s) to import now</p>
++        <input type="hidden" name="year" value={2026} />
++        <input type="file" name="files" accept="application/pdf" multiple required
++          className="block w-full rounded-xl border border-slate-300 bg-slate-50 px-3 py-2 text-sm file:mr-3 file:rounded-lg file:border-0 file:bg-brand-navy file:px-4 file:py-2 file:font-semibold file:text-white hover:file:bg-brand-purple" />
++        <button className="mt-3 rounded-xl bg-brand-navy px-6 py-2.5 font-semibold text-white hover:bg-brand-purple">Import uploaded file(s)</button>
++        <p className="mt-2 text-xs text-slate-500">Choose one or more NWEA PDF reports (Achievement Status and Growth, or Class Profile). Nothing is saved to the repo — they're read once and processed.</p>
++      </form>
+       {files.length ? (
+         <form action={runBulkMapImportAction} className="rounded-3xl bg-white p-5 shadow-sm ring-1 ring-slate-200">
+           <p className="mb-3 text-sm text-slate-600">{files.length} file(s) waiting: {files.join(", ")}</p>
+-- 
+2.43.0
+

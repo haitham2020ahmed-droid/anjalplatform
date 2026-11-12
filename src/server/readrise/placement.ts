@@ -42,12 +42,13 @@ import { ForbiddenError, type Actor } from "../auth/rbac";
 import { ValidationError } from "../curriculum-admin";
 import { RR_FLOOR, RR_MAX, RR_MIN, formatLevel } from "./level";
 import { loadPlacementPassages, type PlacementPassage } from "./content-loader";
-import { RETAKE_REASON, assertStaffForStudent, ensureRRStudent, recentMapLexile, recordLevelChange, s, toDate } from "./engine";
+import { MAP_BAND, RETAKE_REASON, assertStaffForStudent, ensureRRStudent, recentMapLexile, recordLevelChange, s, toDate } from "./engine";
 import { firstAnswerThresholdMs } from "./accuracy";
 import { dueCheck, loadReadRiseWindows, periodOf, RR_PERIOD_NAME, type RRPeriod } from "./windows";
 import { alertMapGap } from "./accuracy";
 import { runAfterResponse } from "../lib/after-response";
 import { ADMIN_RESET_TAG } from "./placement-reset";
+import { meetsRange } from "./benchmarks";
 
 export { setLevelByTeacher } from "./engine";
 
@@ -100,6 +101,34 @@ export const passageMinMs = (text: string): number => Math.max(PLACEMENT_MIN_MS,
 /** The text shown for a placement test that was not valid. */
 export const PLACEMENT_INVALID_TEXT = "Not valid — retake";
 
+/**
+ * 🛡️ Round 10 (owner, 11 Nov 2026 — a Grade 5 reader with MAP 105L was placed at 1600L; another at 1600L with no
+ * MAP; Achieve3000's LevelSet as the model): the test is now hard to "game".
+ *  - GRADE CAP: like LevelSet's grade-band Locator, the test moves only up to the grade's "Meets" top + 150
+ *    (gradeCapLevel); a student who answers 3 of 3 TWICE at the cap earns a higher cap (+200), again and again —
+ *    a strong reader still reaches the top, a lucky one does not.
+ *  - NO EARLY END AT THE TOP: passing the highest level twice no longer ends the test before PLACEMENT.minPassages.
+ *  - NOT VALID (retake at once, the level unchanged): the whole test in under PLACEMENT_MIN_TOTAL_MS, the same
+ *    letter for most answers, or the longest option picked almost every time (placementPattern).
+ *  - MAP ANCHOR: the result stays within MAP_BAND of a MAP Lexile from the last 6 months (anchorToMap); with no MAP,
+ *    within the grade cap (the articles then move a strong reader up).
+ */
+export { MAP_BAND };
+/** the grade cap is this far above the grade's "Meets" top (Achieve3000 scale) */
+export const GRADE_CAP_ABOVE = 150;
+/** each time the student passes the cap twice (3 of 3), the cap rises this much */
+export const CAP_RAISE = 200;
+/** a whole test faster than this is not valid */
+export const PLACEMENT_MIN_TOTAL_MS = 10 * 60_000;
+/** not valid: one letter for this share of the answers (needs PATTERN_MIN_ANSWERS answers) */
+export const PATTERN_SAME_LETTER = 0.6;
+/** not valid: the uniquely longest option picked this often (needs PATTERN_MIN_LONGEST such questions) */
+export const PATTERN_LONGEST = 0.75;
+export const PATTERN_MIN_ANSWERS = 18, PATTERN_MIN_LONGEST = 12;
+
+/** 🛡️ round 10: the grade cap as an Achieve3000 level (null: grade unknown). */
+export const gradeCapAchieve = (grade: number | null): number | null => (grade === null ? null : meetsRange(grade).max + GRADE_CAP_ABOVE);
+
 /** A result / measure on the scale: RR_FLOOR…RR_MAX (round 6: below 300 is real). */
 const clampP = (l: number) => Math.min(RR_MAX, Math.max(RR_FLOOR, l));
 /** The level of the passage nearest to a measure (ties: the lower one); the lowest version when there are none. */
@@ -112,17 +141,27 @@ const BIG: Record<number, number> = { 3: 200, 2: 100, 1: -100, 0: -200 };
 
 // ------------------------------------------------------------------ the algorithm (pure)
 
+/** 🛡️ round 10: the test's ceiling — the grade cap, raised by CAP_RAISE each time 3 of 3 was scored twice at or above it. */
+export function effectiveCap(cap: number | null, counted: readonly PlacementStep[], top: number, start: number): number {
+  if (cap === null || !Number.isFinite(cap)) return top;
+  let c = Math.min(top, Math.max(cap, start));
+  while (c < top && counted.filter((x) => x.level >= c && x.correct >= 3).length >= 2) c = Math.min(top, c + CAP_RAISE);
+  return c;
+}
+
 export interface PlacementPlan { done: boolean; nextLevel: number | null; passage: PlacementPassage | null; reversals: number }
 
 /** Where the test goes next from the steps so far (deterministic: the same steps always give the same passage). */
-export function placementPlan(startLevel: number, steps: PlacementStep[], passages: PlacementPassage[]): PlacementPlan {
+export function placementPlan(startLevel: number, steps: PlacementStep[], passages: PlacementPassage[], opts: { cap?: number | null } = {}): PlacementPlan {
   // round 6: the test moves inside the levels the content has (−200 … 1600 with the extra passages, else 300 … 1600)
   const levels = passages.map((p) => p.level);
-  const lo = levels.length ? Math.min(...levels) : RR_MIN, hi = levels.length ? Math.max(...levels) : RR_MAX;
-  const clampT = (l: number) => Math.min(hi, Math.max(lo, l));
-  let level = clampT(startLevel), lastSign = 0, reversals = 0;
+  const lo = levels.length ? Math.min(...levels) : RR_MIN, top = levels.length ? Math.max(...levels) : RR_MAX;
   // round 4: a rapid passage does not count (no move); its passage is still never shown again
   const counted = steps.filter((x) => !x.rapid);
+  // 🛡️ round 10: the grade cap (a passage level), raised by CAP_RAISE each time the student scores 3 of 3 twice at it
+  const hi = effectiveCap(opts.cap ?? null, counted, top, Math.max(lo, startLevel));
+  const clampT = (l: number) => Math.min(hi, Math.max(lo, l));
+  let level = clampT(startLevel), lastSign = 0, reversals = 0;
   for (const st of counted) {
     // 🐛 fix (owner, 4 Nov 2026): from TOP_TIER up a 2 of 3 is NOT a pass (passBar), so it must not move the test UP
     // either (it used to: +100/+200, pushing a weak reader higher before the result logic caught it). It now stays
@@ -139,7 +178,8 @@ export function placementPlan(startLevel: number, steps: PlacementStep[], passag
   // round 6: failed twice at the lowest passage level, or passed twice at the highest: nothing left to measure
   const failsAt = (l: number) => counted.filter((x) => x.level === l && x.correct < passBar(x.level)).length;
   const passesAt = (l: number) => counted.filter((x) => x.level === l && x.correct >= passBar(x.level)).length;
-  const edge = levels.length > 0 && (failsAt(lo) >= 2 || passesAt(hi) >= 2);
+  // 🛡️ round 10: passing the top twice ends the test only once the minimum number of passages has been read
+  const edge = levels.length > 0 && (failsAt(lo) >= 2 || (hi >= top && passesAt(hi) >= 2 && counted.length >= PLACEMENT.minPassages));
   if (edge || counted.length >= PLACEMENT.maxPassages || (reversals >= PLACEMENT.reversals && counted.length >= PLACEMENT.minPassages)) return { done: true, nextLevel: null, passage: null, reversals };
   const used = new Set(steps.map((x) => x.passageId));
   const free = passages.filter((p) => !used.has(p.id));
@@ -228,6 +268,65 @@ export function blendWithMap(result: number, mapLexile: number | null): { level:
   if (Math.abs(result - m) <= PLACEMENT.mapGap) return { level: result, note: null };
   const level = Math.round((result + m) / 2 / 10) * 10;
   return { level, note: `the test result ${formatLevel(result)} was more than ${PLACEMENT.mapGap} from the MAP Lexile ${formatLevel(mapLexile)}, so both were averaged` };
+}
+
+/**
+ * 🛡️ Round 10: the result is kept within MAP_BAND of a recent MAP Lexile (MAP is the school's official measure);
+ * with no MAP, at most the grade cap (gradeCapAchieve) — strong first tries then move a strong reader up.
+ */
+export function anchorToMap(result: number, mapLexile: number | null, grade: number | null): { level: number; note: string | null } {
+  if (mapLexile !== null && Number.isFinite(mapLexile)) {
+    const m = clampP(mapLexile);
+    const level = Math.round(Math.min(m + MAP_BAND, Math.max(m - MAP_BAND, result)) / 10) * 10;
+    if (level === result) return { level, note: null };
+    return { level, note: `the test result ${formatLevel(result)} was more than ${MAP_BAND} from the MAP Lexile ${formatLevel(mapLexile)}, so the level was kept within ${MAP_BAND} of MAP` };
+  }
+  const cap = gradeCapAchieve(grade);
+  if (cap !== null && result > cap) return { level: Math.round(cap / 10) * 10, note: `no recent MAP Lexile: the first level is at most ${formatLevel(cap)} for Grade ${grade}; strong articles move it up` };
+  return { level: result, note: null };
+}
+
+/** 🛡️ Round 10: why a finished test is not valid (too fast, one letter, the longest option every time), else null. */
+export function placementPattern(steps: readonly PlacementStep[], passages: readonly PlacementPassage[], startedAt: Date, now: Date): string | null {
+  const counted = steps.filter((x) => !x.rapid);
+  if (counted.length >= PLACEMENT.minPassages && now.getTime() - startedAt.getTime() < PLACEMENT_MIN_TOTAL_MS) return `the whole test took under ${Math.round(PLACEMENT_MIN_TOTAL_MS / 60_000)} minutes`;
+  // a pattern counts only when it goes well beyond what the answer key itself would give (a reader who knows every
+  // answer follows the key — never "Not valid" for that)
+  const byId = new Map(passages.map((p) => [p.id, p]));
+  const answers: string[] = [], keys: string[] = [];
+  let longQ = 0, longPicked = 0, longKey = 0;
+  for (const st of steps) {
+    const p = byId.get(st.passageId);
+    st.answers.forEach((a, i) => {
+      const ans = String(a ?? "").toUpperCase();
+      answers.push(ans);
+      const q = p?.questions[i];
+      if (!q) return;
+      keys.push(q.answer);
+      const lens = q.options.map((o) => o.length);
+      const max = Math.max(...lens);
+      if (lens.filter((x) => x === max).length !== 1) return;
+      longQ++;
+      const longest = "ABCD"[lens.indexOf(max)];
+      if (longest === ans) longPicked++;
+      if (longest === q.answer) longKey++;
+    });
+  }
+  if (answers.length >= PATTERN_MIN_ANSWERS) {
+    for (const l of ["A", "B", "C", "D"]) {
+      const mine = answers.filter((a) => a === l).length / answers.length;
+      const key = keys.length ? keys.filter((a) => a === l).length / keys.length : 0.25;
+      if (mine >= PATTERN_SAME_LETTER && mine - key >= 0.3) return `${Math.round(100 * mine)}% of the answers were "${l}"`;
+    }
+  }
+  if (longQ >= PATTERN_MIN_LONGEST && longPicked / longQ >= PATTERN_LONGEST && (longPicked - longKey) / longQ >= 0.3) return `the longest answer was picked ${longPicked} times out of ${longQ}`;
+  return null;
+}
+
+/** 🛡️ Round 10: the test's grade cap as a PASSAGE level (null: grade unknown). */
+export async function placementCap(repo: Repo, studentId: string, passages: readonly PlacementPassage[]): Promise<number | null> {
+  const cap = gradeCapAchieve(await gradeOfStudent(repo, studentId));
+  return cap === null ? null : passageLevelFor(cap, passages);
 }
 
 /**
@@ -323,11 +422,13 @@ export async function placementView(repo: Repo, actor: Actor, passages: Placemen
   const base = { placementId: null, stepNumber: 0, maxSteps: PLACEMENT.maxPassages, passage: null, result: st.last ? Number(st.last.result) : null, retake: Boolean(st.last), check: st.due, invalid: Boolean(st.invalid), grade: await gradeOfStudent(repo, studentId) };
   if (st.open) {
     const steps = stepsOf(st.open);
-    const plan = placementPlan(Number(st.open.startLevel), steps, await testPool(repo, st.open, passages));
+    const pool = await testPool(repo, st.open, passages);
+    const plan = placementPlan(Number(st.open.startLevel), steps, pool, { cap: await placementCap(repo, studentId, pool) });
     if (!plan.passage) {
       // the passages ran out (or the file changed) after some answers: finish with what we have
       if (plan.done && steps.length) {
-        const fin = await finishPlacement(repo, st.open, now);
+        const fin = await finishPlacement(repo, st.open, now, passages);
+        if (fin.invalid) return { ...base, state: "READY", invalid: true };
         afterPlacement(repo, studentId, now);
         return { ...base, state: "DONE", result: fin.level, retake: false };
       }
@@ -374,7 +475,8 @@ export async function answerPlacement(repo: Repo, actor: Actor, placementId: str
     if (p.completedAt) throw new ValidationError("This placement is finished.");
     const steps = stepsOf(p);
     const pool = await testPool(tx, p, passages);
-    const plan = placementPlan(Number(p.startLevel), steps, pool);
+    const cap = await placementCap(tx, studentId, pool);
+    const plan = placementPlan(Number(p.startLevel), steps, pool, { cap });
     if (!plan.passage || plan.passage.id !== passageId) throw new ValidationError("This passage is no longer the current one. Reload the page.");
     const clean = answers.map((a) => String(a ?? "").trim().toUpperCase());
     if (clean.length !== 3 || clean.some((a) => !/^[ABCD]$/.test(a))) throw new ValidationError("Answer all 3 questions.");
@@ -393,21 +495,29 @@ export async function answerPlacement(repo: Repo, actor: Actor, placementId: str
       return { done: true, correct, result: null, note: PLACEMENT_INVALID_TEXT, invalid: true, rapid };
     }
     await tx.updateMany("RRPlacement", { id: placementId }, { steps: next });
-    const after = placementPlan(Number(p.startLevel), next, pool);
+    const after = placementPlan(Number(p.startLevel), next, pool, { cap });
     if (!after.done) return { done: false, correct, result: null, note: null, rapid };
-    const fin = await finishPlacement(tx, { ...p, steps: next }, now);
+    const fin = await finishPlacement(tx, { ...p, steps: next }, now, passages);
+    if (fin.invalid) return { done: true, correct, result: null, note: `${PLACEMENT_INVALID_TEXT}: ${fin.note}`, invalid: true, rapid };
     return { done: true, correct, result: fin.level, note: fin.note, rapid };
   });
   if (res.done && !res.invalid) afterPlacement(repo, studentId, now);
   return res;
 }
 
-async function finishPlacement(repo: Repo, p: Row, now: Date): Promise<{ level: number; note: string | null }> {
+async function finishPlacement(repo: Repo, p: Row, now: Date, passages: readonly PlacementPassage[] = loadPlacementPassages()): Promise<{ level: number; note: string | null; invalid?: boolean }> {
   const steps = stepsOf(p);
   const studentId = s(p.studentId);
+  // 🛡️ round 10: a test answered too fast or by a pattern is "Not valid": closed with no result, retaken at once
+  const why = placementPattern(steps, passages, toDate(p.startedAt), now);
+  if (why) {
+    await repo.updateMany("RRPlacement", { id: p.id }, { steps, completedAt: now, result: null });
+    return { level: NaN, note: why, invalid: true };
+  }
   const raw = placementResult(steps, Number(p.startLevel));
   // round 6: only a MAP Lexile from the last 6 months is compared (an old one says little about the reader now)
-  const { level, note } = blendWithMap(raw, await recentMapLexile(repo, studentId, now));
+  // 🛡️ round 10: kept within MAP_BAND of MAP (was: averaged when 250+ apart); no MAP → at most the grade cap
+  const { level, note } = anchorToMap(raw, await recentMapLexile(repo, studentId, now), await gradeOfStudent(repo, studentId));
   const [windows, earlier] = await Promise.all([
     loadReadRiseWindows(repo, s(p.schoolId), now),
     repo.findMany("RRPlacement", { studentId, completedAt: { not: null }, result: { not: null } }, { select: ["id", "completedAt"] }),

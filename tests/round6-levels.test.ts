@@ -29,6 +29,8 @@ const PASSAGES: PlacementPassage[] = parsePlacement({
   ],
 });
 const pAns = (right: number) => [0, 1, 2].map((i) => (i < right ? "A" : "B"));
+/** round 10: a real weak reader's wrong answers are spread over B, C, D (all "B" is now a patterned, invalid test) */
+const mixed = (ans: string[], n: number) => ans.map((a, i) => (a === "A" ? a : "BCD"[(i + n) % 3]));
 const D = (iso: string, h = 8) => new Date(`${iso}T${String(h).padStart(2, "0")}:00:00Z`);
 const DAY = 86_400_000;
 
@@ -152,7 +154,7 @@ describe("📉 Round 6: levels like Achieve3000", () => {
         const v = await placementView(repo, s, PASSAGES, now);
         if (v.state !== "IN_PROGRESS") break;
         const lvl = PASSAGES.find((p) => p.id === v.passage!.id)!.level;
-        const a = await answerPlacement(repo, s, pid, v.passage!.id, pAns(right(lvl)), PASSAGES, new Date(now.getTime() + (n + 1) * 60_000));
+        const a = await answerPlacement(repo, s, pid, v.passage!.id, mixed(pAns(right(lvl)), n), PASSAGES, new Date(now.getTime() + (n + 1) * 60_000));
         if (a.done) return a.result;
       }
       return null;
