@@ -57,8 +57,10 @@ export const ENGINE = {
  */
 export const PROBATION_READS = 3;
 export const PROBATION_TAG = "(check after placement)";
-/** A level change that starts a new probation: a placement or a MAP check. */
-export const isAnchorChange = (reason: unknown): boolean => /^(Placement|MAP check)/.test(s(reason));
+/** 🧹 round 13: the reason prefix of the one-time level check after the question rewrite (round13.ts). */
+export const LEVEL_CHECK_PREFIX = "Level check";
+/** A level change that starts a new probation: a placement, a MAP check or a level check (round 13). */
+export const isAnchorChange = (reason: unknown): boolean => /^(Placement|MAP check|Level check)/.test(s(reason));
 /** The reason prefix of an automatic drop (RRLevelChange.reason starts with it). */
 export const AUTO_DOWN_PREFIX = "Down ";
 /** RRLevelChange rows with this reason prefix only record a teacher's retake permission (no level change). */
@@ -231,8 +233,8 @@ export function levelDecision(scores: number[], opts: { afterDrop?: boolean; pro
   const latest = scores[scores.length - 1];
   // 🛡️ round 10: right after a placement one low score is enough (the placement may have been too high)
   if (opts.probation && latest < ENGINE.down) return latest <= ENGINE.floor
-    ? { delta: -2 * ENGINE.downStep, reason: `${PROBATION_TAG} the first-try score was ${latest}% (${ENGINE.floor}% or lower) soon after the placement, so the level was too high` }
-    : { delta: -ENGINE.downStep, reason: `${PROBATION_TAG} the first-try score was ${latest}% (under ${ENGINE.down}%) soon after the placement, so the level was too high` };
+    ? { delta: -2 * ENGINE.downStep, reason: `${PROBATION_TAG} the first-try score was ${latest}% (${ENGINE.floor}% or lower) soon after the placement or level check, so the level was too high` }
+    : { delta: -ENGINE.downStep, reason: `${PROBATION_TAG} the first-try score was ${latest}% (under ${ENGINE.down}%) soon after the placement or level check, so the level was too high` };
   const prev = scores.length >= 2 ? scores[scores.length - 2] : null;
   if (prev !== null && latest <= ENGINE.floor && prev <= ENGINE.floor) return { delta: -ENGINE.downStep, reason: `the last two first-try scores were both ${ENGINE.floor}% or lower (${prev}% and ${latest}%), so the articles were far too hard` };
   if (prev !== null && latest < ENGINE.down && prev < ENGINE.down) return { delta: -ENGINE.downSmall, reason: `the last two first-try scores were both under ${ENGINE.down}% (${prev}% and ${latest}%), so the articles were too hard` };

@@ -75,7 +75,7 @@ describe("r68: memory-safe background jobs", () => {
     assert.equal(backgroundJobsOn({}), true);
     assert.equal(backgroundJobsOn({ BACKGROUND_JOBS: "off" }), false);
     assert.equal(backgroundJobsOn({ BACKGROUND_JOBS: "on" }), true);
-    assert.deepEqual((await startupJobs()).map((j) => j.name), ["privatize-copies", "skill-stars", "fix-stuck", "readrise-round10"]);
+    assert.deepEqual((await startupJobs()).map((j) => j.name), ["privatize-copies", "skill-stars", "fix-stuck", "readrise-round10", "readrise-library-sync", "readrise-round13"]);
     const inst = readFileSync(join(ROOT, "src/instrumentation.ts"), "utf8");
     assert.match(inst, /backgroundJobsOn\(\)/);
     assert.doesNotMatch(inst, /=== "on"/, "no longer off unless BACKGROUND_JOBS=on");
